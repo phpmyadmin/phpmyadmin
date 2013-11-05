@@ -2225,29 +2225,29 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
 /**
  * Function to execute the query and send the response
  *
- * @param array  $analyzed_sql_results analysed sql results
- * @param bool   $is_gotofile          whether goto file or not
- * @param string $db                   current database
- * @param string $table                current table
- * @param bool   $find_real_end        whether to find real end or not
+ * @param array  $analyzed_sql_results   analysed sql results
+ * @param bool   $is_gotofile            whether goto file or not
+ * @param string $db                     current database
+ * @param string $table                  current table
+ * @param bool   $find_real_end          whether to find real end or not
  * @param string $sql_query_for_bookmark the sql query to be stored as bookmark
- * @param array  $extra_data           extra data
- * @param bool   $is_affected          whether affected or not
- * @param string $message_to_show      message to show
- * @param string $disp_mode            display mode
- * @param string $message              message
- * @param array  $sql_data             sql data
- * @param string $goto                 goto page url
- * @param string $pmaThemeImage        uri of the PMA theme image
- * @param string $disp_query           display query
- * @param string $disp_message         display message
- * @param string $query_type           query type
- * @param string $sql_query            sql query
- * @param bool   $selected             whether check table, optimize table, analyze
- *                                     table or repair table has been selected with
- *                                     respect to the selected tables from the
- *                                     database structure page.
- * @param string $complete_query       complete query
+ * @param array  $extra_data             extra data
+ * @param bool   $is_affected            whether affected or not
+ * @param string $message_to_show        message to show
+ * @param string $disp_mode              display mode
+ * @param string $message                message
+ * @param array  $sql_data               sql data
+ * @param string $goto                   goto page url
+ * @param string $pmaThemeImage          uri of the PMA theme image
+ * @param string $disp_query             display query
+ * @param string $disp_message           display message
+ * @param string $query_type             query type
+ * @param string $sql_query              sql query
+ * @param bool   $selected               whether check table, optimize table,
+ *                                       analyze table or repair table has been
+ *                                       selected with respect to the selected
+ *                                       tables from the database structure page
+ * @param string $complete_query         complete query
  *
  * @return void
  */
@@ -2338,7 +2338,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
  * Function to define pos to display a row
  *
  * @param Int $number_of_line Number of the line to display
- * @param Int $max_rows Number of rows by page
+ * @param Int $max_rows       Number of rows by page
  *
  * @return Int Start position to display the line
  */
@@ -2352,7 +2352,8 @@ function PMA_getStartPosToDisplayRow($number_of_line, $max_rows = null)
 }
 
 /**
- * Function to calculate new pos if pos is higher than number of rows of displayed table
+ * Function to calculate new pos if pos is higher than number of rows
+ * of displayed table
  *
  * @param String $db    Database name
  * @param String $table Table name
