@@ -192,7 +192,6 @@ class PMA_Table
 
         // use cached data or load information with SHOW command
         if (isset(PMA_Table::$cache[$db][$table])
-            || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
             return $type == 'VIEW';
