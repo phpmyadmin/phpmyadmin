@@ -1009,9 +1009,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         if (PMA_DRIZZLE) {
-            // DisableIS must be set to false for Drizzle, it maps SHOW commands
-            // to INFORMATION_SCHEMA queries anyway so it's fast on large servers
-            $cfg['Server']['DisableIS'] = false;
             // SHOW OPEN TABLES is not supported by Drizzle
             $cfg['SkipLockedTables'] = false;
         }

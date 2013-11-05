@@ -38,7 +38,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxExactCount'] = 100;

@@ -53,7 +53,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table1';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
     }

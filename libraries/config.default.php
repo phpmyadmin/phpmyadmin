@@ -514,15 +514,6 @@ $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 
 /**
- * Disable use of INFORMATION_SCHEMA. Is always 'false' for Drizzle.
- *
- * @see https://sourceforge.net/p/phpmyadmin/bugs/2606/
- * @see http://bugs.mysql.com/19588
- * @global boolean $cfg['Servers'][$i]['DisableIS']
- */
-$cfg['Servers'][$i]['DisableIS'] = true;
-
-/**
  * SQL command to fetch available databases
  *
  * by default most user will be fine with SHOW DATABASES,
@@ -601,7 +592,6 @@ $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
  * (in some cases TABLE STATUS can be very slow, so you may want to cache it).
  * APC is used (if the PHP extension is available, if not, this setting is ignored
  * silently). You have to provide StatusCacheLifetime.
- * Takes effect only if DisableIS is true.
  *
  * @global array $cfg['Servers'][$i]['StatusCacheDatabases']
  */

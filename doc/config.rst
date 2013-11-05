@@ -1012,16 +1012,6 @@ Server connection settings
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
-.. config:option:: $cfg['Servers'][$i]['DisableIS']
-
-    :type: boolean
-    :default: true
-
-    Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
-    ``SHOW`` commands instead), because of speed issues when many
-    databases are present. Currently used in some parts of the code, more
-    to come.
-
 .. config:option:: $cfg['Servers'][$i]['ShowDatabasesCommand']
 
     :type: string
@@ -1094,9 +1084,6 @@ Server connection settings
     may want to cache it). APC is used (if the PHP extension is available,
     if not, this setting is ignored silently). You have to provide
     :config:option:`$cfg['Servers'][$i]['StatusCacheLifetime']`.
-
-    Takes effect only if :config:option:`$cfg['Servers'][$i]['DisableIS']` is
-    ``true``.
 
 .. config:option:: $cfg['Servers'][$i]['StatusCacheLifetime']
 

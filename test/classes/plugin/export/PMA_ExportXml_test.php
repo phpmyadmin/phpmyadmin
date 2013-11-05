@@ -235,7 +235,6 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['charset_of_file'] = 'iso-8859-1';
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['xml_export_tables'] = 1;
         $GLOBALS['xml_export_triggers'] = 1;
         $GLOBALS['xml_export_procedures'] = 1;
@@ -481,7 +480,6 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['xml_export_triggers'] = true;
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['db'] = 'd<b';
 

@@ -33,7 +33,6 @@ class PMA_ShowMessage_Test extends PHPUnit_Framework_TestCase
         global $cfg;
 
         $GLOBALS['is_ajax_request'] = true;
-        $cfg['Server']['DisableIS'] = false;
         $GLOBALS['table'] = 'tbl';
         $GLOBALS['db'] = 'db';
 
