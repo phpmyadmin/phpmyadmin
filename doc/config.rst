@@ -1012,28 +1012,6 @@ Server connection settings
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
-.. config:option:: $cfg['Servers'][$i]['ShowDatabasesCommand']
-
-    :type: string
-    :default: ``'SHOW DATABASES'``
-
-    On a server with a huge number of databases, the default ``SHOW DATABASES``
-    command used to fetch the name of available databases will probably be too
-    slow, so it can be replaced by faster commands. You can use ``#user#``
-    string will be replaced by current user.
-
-    When using ``false``, it will disable fetching databases from the server,
-    only databases in :config:option:`$cfg['Servers'][$i]['only_db']` will be
-    displayed.
-
-    Examples:
-
-    * ``'SHOW DATABASES'``
-    * ``"SHOW DATABASES LIKE '#user#\_%'"``
-    * ``'SELECT DISTINCT TABLE_SCHEMA FROM information_schema.SCHEMA_PRIVILEGES'``
-    * ``'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA'``
-    * ``false``
-
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string

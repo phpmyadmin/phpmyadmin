@@ -58,8 +58,7 @@ $forms['Servers']['Server_config'] = array('Servers' => array(1 => array(
     'AllowRoot',
     'AllowNoPassword',
     'AllowDeny/order',
-    'AllowDeny/rules',
-    'ShowDatabasesCommand')));
+    'AllowDeny/rules')));
 $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'pmadb' => 'phpmyadmin',
     'controlhost',

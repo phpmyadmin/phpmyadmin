@@ -56,12 +56,6 @@ class PMA_List_Database extends PMA_List
     protected $show_databases_disabled = false;
 
     /**
-     * @var string command to retrieve databases from server
-     * @access protected
-     */
-    protected $command = null;
-
-    /**
      * Constructor
      *
      * @param mixed $db_link_user    user database link resource|object
@@ -103,7 +97,6 @@ class PMA_List_Database extends PMA_List
      * @param string $like_db_name usually a db_name containing wildcards
      *
      * @return array
-     * @todo   we could also search mysql tables if all fail?
      */
     protected function retrieve($like_db_name = null)
     {
@@ -111,16 +104,11 @@ class PMA_List_Database extends PMA_List
             return array();
         }
 
+        $command = "SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`"
+            . " WHERE TRUE";
+
         if (null !== $like_db_name) {
-            $command = "SHOW DATABASES LIKE '" . $like_db_name . "'";
-        } elseif (null === $this->command) {
-            $command = str_replace(
-                '#user#', $GLOBALS['cfg']['Server']['user'],
-                $GLOBALS['cfg']['Server']['ShowDatabasesCommand']
-            );
-            $this->command = $command;
-        } else {
-            $command = $this->command;
+            $command .= " AND `SCHEMA_NAME` LIKE '" . $like_db_name . "'";
         }
 
         $database_list = $GLOBALS['dbi']->fetchResult(
@@ -130,7 +118,7 @@ class PMA_List_Database extends PMA_List
 
         if ($GLOBALS['errno'] !== 0) {
             // failed to get database list, try the control user
-            // (hopefully there is one and he has SHOW DATABASES right)
+            // (hopefully there is one and he has the necessary rights)
             $this->db_link = $this->db_link_control;
             $database_list = $GLOBALS['dbi']->fetchResult(
                 $command, null, null, $this->db_link

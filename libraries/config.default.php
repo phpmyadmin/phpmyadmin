@@ -514,32 +514,6 @@ $cfg['Servers'][$i]['AllowDeny']['order'] = '';
 $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 
 /**
- * SQL command to fetch available databases
- *
- * by default most user will be fine with SHOW DATABASES,
- * for servers with a huge amount of databases it is possible to
- * define a command which executes faster but with less information
- *
- * especially when accessing database servers from ISPs changing this command
- * can result in a great speed improvement
- *
- * false will disable fetching databases from the server, only databases in
- * $cfg['Servers'][$i]['only_db'] will be displayed
- *
- * #user# will be replaced by current user
- *
- * examples:
- * 'SHOW DATABASES'
- * "SHOW DATABASES LIKE '#user#\_%'"
- * 'SELECT DISTINCT TABLE_SCHEMA FROM information_schema.SCHEMA_PRIVILEGES'
- * 'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA'
- * false
- *
- * @global array $cfg['Servers'][$i]['ShowDatabasesCommand']
- */
-$cfg['Servers'][$i]['ShowDatabasesCommand'] = 'SHOW DATABASES';
-
-/**
  * Whether the tracking mechanism creates
  * versions for tables and views automatically.
  *
