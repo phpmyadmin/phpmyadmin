@@ -346,6 +346,14 @@ Credits, in chronological order
 
   * phpseclib
 
+* Bin Zu (Google Summer of Code 2013)
+
+  * Refactoring
+
+* Supun Nakandala (Google Summer of Code 2013)
+
+  * Refactoring
+
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
 2.1.0:
