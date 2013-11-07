@@ -128,8 +128,8 @@ class PMA_List_Database extends PMA_List
 
             if ($GLOBALS['errno'] !== 0) {
                 // failed! we will display a warning that phpMyAdmin could not
-                // safely retrieve database list, the admin has to setup a control
-                // user or allow SHOW DATABASES
+                // safely retrieve database list, the admin has to setup a 
+                // control user
                 $GLOBALS['error_showdatabases'] = true;
                 $this->can_retrieve_databases = false;
             }
@@ -196,9 +196,6 @@ class PMA_List_Database extends PMA_List
                 $items = array_merge($items, $this->retrieve($each_only_db));
                 continue;
             }
-
-            // @todo induce error, about not using wildcards
-            // with SHOW DATABASE disabled?
         }
 
         $this->exchangeArray($items);
