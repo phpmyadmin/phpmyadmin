@@ -10,7 +10,7 @@
  * Base class for forms, loads default configuration options, checks allowed
  * values etc.
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmi
  */
 class Form
 {
@@ -100,7 +100,8 @@ class Form
             return array();
         }
         // convert array('#', 'a', 'b') to array('a', 'b')
-        if (isset($value[0]) && $value[0] === '#') {
+        if (isset($value[0]) 
+            && $value[0] === '#') {
             // remove first element ('#')
             array_shift($value);
         } else {
