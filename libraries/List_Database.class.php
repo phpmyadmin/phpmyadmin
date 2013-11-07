@@ -50,10 +50,10 @@ class PMA_List_Database extends PMA_List
     protected $db_link_control = null;
 
     /**
-     * @var boolean whether SHOW DATABASES is disabled or not
+     * @var boolean whether we can retrieve the list of databases
      * @access protected
      */
-    protected $show_databases_disabled = false;
+    protected $can_retrieve_databases = true;
 
     /**
      * Constructor
@@ -100,7 +100,7 @@ class PMA_List_Database extends PMA_List
      */
     protected function retrieve($like_db_name = null)
     {
-        if ($this->show_databases_disabled) {
+        if (! $this->can_retrieve_databases) {
             return array();
         }
 
@@ -131,7 +131,7 @@ class PMA_List_Database extends PMA_List
                 // safely retrieve database list, the admin has to setup a control
                 // user or allow SHOW DATABASES
                 $GLOBALS['error_showdatabases'] = true;
-                $this->show_databases_disabled = true;
+                $this->can_retrieve_databases = false;
             }
         }
 
@@ -192,7 +192,7 @@ class PMA_List_Database extends PMA_List
                 continue;
             }
 
-            if (! $this->show_databases_disabled) {
+            if ($this->can_retrieve_databases) {
                 $items = array_merge($items, $this->retrieve($each_only_db));
                 continue;
             }
