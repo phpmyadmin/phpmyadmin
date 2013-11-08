@@ -2606,7 +2606,7 @@ class PMA_Util
      * @param string $minimum_version of this component
      * @param string $bugref          bug reference for this component
      *
-     * @return void
+     * @return String
      */
     public static function getExternalBug(
         $functionality, $component, $minimum_version, $bugref
@@ -3308,7 +3308,7 @@ class PMA_Util
      *
      * @param string $max_upload_size maximum upload size
      *
-     * @return void
+     * @return String
      */
     public static function getBrowseUploadFileBlock($max_upload_size)
     {
@@ -3338,7 +3338,7 @@ class PMA_Util
      * @param array  $import_list array of import plugins
      * @param string $uploaddir   upload directory
      *
-     * @return void
+     * @return String
      */
     public static function getSelectUploadFileBlock($import_list, $uploaddir)
     {
@@ -3938,7 +3938,7 @@ class PMA_Util
     /**
      * Prepare HTML code for display button.
      *
-     * @return void
+     * @return String
      */
     public static function getButton()
     {
