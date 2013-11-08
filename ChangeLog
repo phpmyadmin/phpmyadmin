@@ -51,6 +51,7 @@ phpMyAdmin - ChangeLog
 - bug #4123 Double config including
 - bug #4134 After deleting all rows on a page, it returns to a blank page
 + Dropped configuration directive: DisableIS, ShowDatabasesCommand
+- bug #4152 Not possible to enter % for search in date fields
 
 4.0.10.0 (not yet released)
 - bug #4150 Clicking database name in query window opens a new tab
