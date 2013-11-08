@@ -2753,7 +2753,9 @@ function PMA_getTableForDisplayAllTableSpecificRights(
  */
 function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
 {
-    $pred_db_array = $GLOBALS['dbi']->fetchResult('SHOW DATABASES;');
+    // we already have the list of databases from libraries/common.inc.php
+    // via $pma = new PMA;
+    $pred_db_array = $GLOBALS['pma']->databases;
 
     $html_output = '<label for="text_dbname">'
         . __('Add privileges on the following database:') . '</label>' . "\n";
