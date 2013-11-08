@@ -5960,12 +5960,12 @@ class PMA_DisplayResults
      *
      * @param string $buffer String to process
      *
-     * @return Escaped and cleaned up text suitable for html.
+     * @return String Escaped and cleaned up text suitable for html.
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getDataCellForBlobField(), _getRowData(),
-     *          _handleNonPrintableContents()
+     * @see    _getDataCellForBlobField(), _getRowData(),
+     *         _handleNonPrintableContents()
      */
     private function _mimeDefaultFunction($buffer)
     {
@@ -5988,7 +5988,7 @@ class PMA_DisplayResults
      * @param string $binary_or_blob binary' or 'blob'
      * @param int    $hexlength      optional, get substring
      *
-     * @return Displayable version of the binary string
+     * @return String Displayable version of the binary string
      *
      * @access private
      *
@@ -6019,4 +6019,5 @@ class PMA_DisplayResults
         return $content;
     }
 }
+
 ?>
