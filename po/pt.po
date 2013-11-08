@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-06 12:48-0500\n"
-"PO-Revision-Date: 2013-11-08 13:41+0200\n"
+"PO-Revision-Date: 2013-11-08 13:52+0200\n"
 "Last-Translator: Luis Esteves <gigapoint@netcabo.pt>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -405,7 +405,7 @@ msgstr "Acompanhar tabela"
 
 #: db_tracking.php:249
 msgid "Database Log"
-msgstr "Registos da base de dados"
+msgstr "Registros da base de dados"
 
 #: error_report.php:20
 msgid ""
@@ -3997,9 +3997,9 @@ msgid ""
 "cross-window updates."
 msgstr ""
 "Não foi possível actualizar a janela de destino do seu navegador. Talvez "
-"você tenha fechado a janela que a originou, ou as configurações de segurança "
-"do seu navegador encontram-se definidas para não permitir actualizações "
-"entre janelas."
+"tenha fechado a janela que a originou, ou as configurações de segurança do "
+"seu navegador encontram-se definidas para não permitir actualizações entre "
+"janelas."
 
 #: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:312
 #: libraries/config/setup.forms.php:348 libraries/config/setup.forms.php:371
@@ -4080,7 +4080,7 @@ msgstr "Índice de servidor inválido: \"%s\""
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"Nome de serivdor inválido para o servidor %1$s. Verifique as suas "
+"Nome de servidor inválido para o servidor %1$s. Verifique as suas "
 "configurações."
 
 #: libraries/common.inc.php:657
