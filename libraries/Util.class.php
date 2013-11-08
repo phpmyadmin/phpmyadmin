@@ -3202,7 +3202,7 @@ class PMA_Util
      * string.
      *
      * @param string   $string  Text where to do expansion.
-     * @param function $escape  Function to call for escaping variable values.
+     * @param array|string $escape  Function to call for escaping variable values.
      *                          Can also be an array of:
      *                          - the escape method name
      *                          - the class that contains the method
