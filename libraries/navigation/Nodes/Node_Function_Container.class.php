@@ -18,8 +18,6 @@ class Node_Function_Container extends Node
 {
     /**
      * Initialises the class
-     *
-     * @return Node_Column_Container
      */
     public function __construct()
     {

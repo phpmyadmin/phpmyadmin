@@ -83,8 +83,6 @@ class PMA_NavigationTree
 
     /**
      * Initialises the class
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -994,7 +992,7 @@ class PMA_NavigationTree
     /**
      * Makes some nodes visible based on the which node is active
      *
-     * @return nothing
+     * @return void
      */
     private function _setVisibility()
     {

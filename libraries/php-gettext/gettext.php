@@ -79,7 +79,7 @@ class gettext_reader {
   /**
    * Reads an array of Integers from the Stream
    *
-   * @param int count How many elements should be read
+   * @param int $count How many elements should be read
    * @return Array of Integers
    */
   function readintarray($count) {
@@ -95,8 +95,9 @@ class gettext_reader {
   /**
    * Constructor
    *
-   * @param object Reader the StreamReader object
-   * @param boolean enable_cache Enable or disable caching of strings (default on)
+   * @param object $Reader the StreamReader object
+   * @param boolean $enable_cache Enable or disable caching of strings (default on)
+   * @return void|boolean
    */
   function gettext_reader($Reader, $enable_cache = true) {
     // If there isn't a StreamReader, turn on short circuit mode.
