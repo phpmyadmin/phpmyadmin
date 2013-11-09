@@ -636,6 +636,8 @@ if (!defined('TESTSUITE')) {
         // Include dates in export?
         $do_dates = isset($GLOBALS[$what . '_dates']);
 
+        $whatStrucOrData = $GLOBALS[$what . '_structure_or_data'];
+
         /**
          * Builds the dump
          */
@@ -657,7 +659,7 @@ if (!defined('TESTSUITE')) {
                         break 2;
                     }
                     if (method_exists($export_plugin, 'exportRoutines')
-                        && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
+                        && strpos($whatStrucOrData, 'structure') !== false
                         && isset($GLOBALS['sql_procedure_function'])
                     ) {
                         $export_plugin->exportRoutines($current_db);
@@ -672,8 +674,8 @@ if (!defined('TESTSUITE')) {
                         if ($is_view) {
                             $views[] = $table;
                         }
-                        if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
-                            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                        if ($whatStrucOrData == 'structure'
+                            || $whatStrucOrData == 'structure_and_data'
                         ) {
                             // for a view, export a stand-in definition of the table
                             // to resolve view dependencies
@@ -686,20 +688,23 @@ if (!defined('TESTSUITE')) {
                             }
                         }
                         // if this is a view or a merge table, don't export data
-                        if (($GLOBALS[$what . '_structure_or_data'] == 'data'
-                            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
+                        if (($whatStrucOrData == 'data'
+                            || $whatStrucOrData == 'structure_and_data')
                             && ! ($is_view || PMA_Table::isMerge($current_db, $table))
                         ) {
-                            $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($current_db)
+                            $local_query  = 'SELECT * FROM '
+                                . PMA_Util::backquote($current_db)
                                 . '.' . PMA_Util::backquote($table);
-                            if (! $export_plugin->exportData($current_db, $table, $crlf, $err_url, $local_query)) {
+                            if (! $export_plugin->exportData(
+                                $current_db, $table, $crlf, $err_url, $local_query
+                            )) {
                                 break 3;
                             }
                         }
                         // now export the triggers (needs to be done after the data
                         // because triggers can modify already imported tables)
-                        if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
-                            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                        if ($whatStrucOrData == 'structure'
+                            || $whatStrucOrData == 'structure_and_data'
                         ) {
                             if (! $export_plugin->exportStructure(
                                 $current_db, $table, $crlf, $err_url,
@@ -712,8 +717,8 @@ if (!defined('TESTSUITE')) {
                     }
                     foreach ($views as $view) {
                         // no data export for a view
-                        if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
-                            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                        if ($whatStrucOrData == 'structure'
+                            || $whatStrucOrData == 'structure_and_data'
                         ) {
                             if (! $export_plugin->exportStructure(
                                 $current_db, $view, $crlf, $err_url,
@@ -746,16 +751,17 @@ if (!defined('TESTSUITE')) {
 
             $i = 0;
             $views = array();
+
             // $tables contains the choices from the user (via $table_select)
             foreach ($tables as $table) {
-                // if this is a view, collect it for later; views must be exported after
-                // the tables
+                // if this is a view, collect it for later;
+                // views must be exported after the tables
                 $is_view = PMA_Table::isView($db, $table);
                 if ($is_view) {
                     $views[] = $table;
                 }
-                if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
-                    || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                if ($whatStrucOrData == 'structure'
+                    || $whatStrucOrData == 'structure_and_data'
                 ) {
                     // for a view, export a stand-in definition of the table
                     // to resolve view dependencies
@@ -768,20 +774,22 @@ if (!defined('TESTSUITE')) {
                     }
                 }
                 // if this is a view or a merge table, don't export data
-                if (($GLOBALS[$what . '_structure_or_data'] == 'data'
-                    || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
+                if (($whatStrucOrData == 'data'
+                    || $whatStrucOrData == 'structure_and_data')
                     && ! ($is_view || PMA_Table::isMerge($db, $table))
                 ) {
                     $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
                         . '.' . PMA_Util::backquote($table);
-                    if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
+                    if (! $export_plugin->exportData(
+                        $db, $table, $crlf, $err_url, $local_query
+                    )) {
                         break 2;
                     }
                 }
                 // now export the triggers (needs to be done after the data because
                 // triggers can modify already imported tables)
-                if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
-                    || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                if ($whatStrucOrData == 'structure'
+                    || $whatStrucOrData == 'structure_and_data'
                 ) {
                     if (! $export_plugin->exportStructure(
                         $db, $table, $crlf, $err_url,
@@ -794,8 +802,8 @@ if (!defined('TESTSUITE')) {
             }
             foreach ($views as $view) {
                 // no data export for a view
-                if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
-                    || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                if ($whatStrucOrData == 'structure'
+                    || $whatStrucOrData == 'structure_and_data'
                 ) {
                     if (! $export_plugin->exportStructure(
                         $db, $view, $crlf, $err_url,
@@ -816,7 +824,11 @@ if (!defined('TESTSUITE')) {
             }
             // We export just one table
             // $allrows comes from the form when "Dump all rows" has been selected
-            if (isset($allrows) && $allrows == '0' && $limit_to > 0 && $limit_from >= 0) {
+            if (isset($allrows)
+                && $allrows == '0'
+                && $limit_to > 0
+                && $limit_from >= 0
+            ) {
                 $add_query  = ' LIMIT '
                             . (($limit_from > 0) ? $limit_from . ', ' : '')
                             . $limit_to;
@@ -825,8 +837,8 @@ if (!defined('TESTSUITE')) {
             }
 
             $is_view = PMA_Table::isView($db, $table);
-            if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
-                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+            if ($whatStrucOrData == 'structure'
+                || $whatStrucOrData == 'structure_and_data'
             ) {
                 if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url,
@@ -839,8 +851,8 @@ if (!defined('TESTSUITE')) {
             // If this is an export of a single view, we have to export data;
             // for example, a PDF report
             // if it is a merge table, no data is exported
-            if (($GLOBALS[$what . '_structure_or_data'] == 'data'
-                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
+            if (($whatStrucOrData == 'data'
+                || $whatStrucOrData == 'structure_and_data')
                 && ! PMA_Table::isMerge($db, $table)
             ) {
                 if (! empty($sql_query)) {
@@ -855,14 +867,16 @@ if (!defined('TESTSUITE')) {
                     $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
                         . '.' . PMA_Util::backquote($table) . $add_query;
                 }
-                if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
+                if (! $export_plugin->exportData(
+                    $db, $table, $crlf, $err_url, $local_query
+                )) {
                     break;
                 }
             }
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
-            if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
-                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+            if ($whatStrucOrData == 'structure'
+                || $whatStrucOrData == 'structure_and_data'
             ) {
                 if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url,
