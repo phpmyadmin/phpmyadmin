@@ -133,11 +133,11 @@ function PMA_getAvailableMIMEtypes()
 /**
  * Returns the description of the transformation
  *
- * @param string $file           transformation file
- * @param string $html_formatted whether the description should be formatted
- *                               as HTML
+ * @param string  $file           transformation file
+ * @param boolean $html_formatted whether the description should be formatted
+ *                                as HTML
  *
- * @return the description of the transformation
+ * @return String the description of the transformation
  */
 function PMA_getTransformationDescription($file, $html_formatted = true)
 {
@@ -153,11 +153,11 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
 /**
  * Gets the mimetypes for all columns of a table
  *
- * @param string $db     the name of the db to check for
- * @param string $table  the name of the table to check for
- * @param string $strict whether to include only results having a mimetype set
+ * @param string  $db     the name of the db to check for
+ * @param string  $table  the name of the table to check for
+ * @param boolean $strict whether to include only results having a mimetype set
  *
- * @access  public
+ * @access public
  *
  * @return array [field_name][field_key] = field_value
  */
@@ -232,14 +232,14 @@ function PMA_getMIME($db, $table, $strict = false)
 /**
  * Set a single mimetype to a certain value.
  *
- * @param string $db                     the name of the db
- * @param string $table                  the name of the table
- * @param string $key                    the name of the column
- * @param string $mimetype               the mimetype of the column
- * @param string $transformation         the transformation of the column
- * @param string $transformation_options the transformation options of the column
- * @param string $forcedelete            force delete, will erase any existing
- *                                       comments for this column
+ * @param string  $db                     the name of the db
+ * @param string  $table                  the name of the table
+ * @param string  $key                    the name of the column
+ * @param string  $mimetype               the mimetype of the column
+ * @param string  $transformation         the transformation of the column
+ * @param string  $transformation_options the transformation options of the column
+ * @param boolean $forcedelete            force delete, will erase any existing
+ *                                        comments for this column
  *
  * @access  public
  *

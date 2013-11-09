@@ -303,7 +303,7 @@ function PMA_getColumnNameInColumnDropSql($sql)
  *
  * @param string $db          database name
  * @param string $table       table name
- * @param string $fields_meta meta fields
+ * @param array  $fields_meta meta fields
  *
  * @return boolean whether the result set contains a unique key
  */
@@ -1826,7 +1826,7 @@ function PMA_getBookmarkCreatedMessage()
  * @param object $result               result of the executed query
  * @param array  $analyzed_sql_results analyzed sql results
  *
- * @return type
+ * @return String
  */
 function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $db,
     $goto, $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
@@ -1931,7 +1931,7 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
  *                            database structure page.
  * @param string $db         current database
  *
- * @return void
+ * @return string
  */
 function PMA_getHtmlForIndexesProblems($query_type, $selected, $db)
 {

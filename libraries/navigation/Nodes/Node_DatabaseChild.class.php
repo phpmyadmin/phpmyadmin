@@ -19,7 +19,7 @@ abstract class Node_DatabaseChild extends Node
     /**
      * Returns HTML for hide button displayed infront of the database child node
      *
-     * @return HTML for hide button
+     * @return String HTML for hide button
      */
     public function getHtmlForControlButtons()
     {

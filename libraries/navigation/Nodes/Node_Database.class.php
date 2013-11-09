@@ -289,7 +289,7 @@ class Node_Database extends Node
     /**
      * Returns HTML for show hidden button displayed infront of database node
      *
-     * @return HTML for show hidden button
+     * @return String HTML for show hidden button
      */
     public function getHtmlForControlButtons()
     {

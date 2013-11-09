@@ -170,7 +170,7 @@ class PMA_DisplayResults
      *
      * @param string $property name of the property
      *
-     * @return if property exist, value of the relavant property
+     * @return mixed|void if property exist, value of the relavant property
      */
     public function __get($property)
     {
@@ -184,7 +184,7 @@ class PMA_DisplayResults
      * Set values for any property of this class
      *
      * @param string $property name of the property
-     * @param any    $value    value to set
+     * @param mixed  $value    value to set
      *
      * @return void
      */
@@ -986,11 +986,11 @@ class PMA_DisplayResults
      * @param string  $sort_direction              sort direction
      * @param boolean $is_limited_display          with limited operations or not
      *
-     * @return string                      html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     getTable()
+     * @see    getTable()
      */
     private function _getTableHeaders(
         &$is_display, $analyzed_sql = '',
@@ -4196,11 +4196,11 @@ class PMA_DisplayResults
      * @param string $dir        _left / _right
      * @param array  $is_display display mode
      *
-     * @return  $checkBoxes_html html content
+     * @return String $checkBoxes_html html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getVerticalTable()
+     * @see    _getVerticalTable()
      */
     private function _getCheckBoxesForMultipleRowOperations($dir, $is_display)
     {
@@ -5960,12 +5960,12 @@ class PMA_DisplayResults
      *
      * @param string $buffer String to process
      *
-     * @return Escaped and cleaned up text suitable for html.
+     * @return String Escaped and cleaned up text suitable for html.
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getDataCellForBlobField(), _getRowData(),
-     *          _handleNonPrintableContents()
+     * @see    _getDataCellForBlobField(), _getRowData(),
+     *         _handleNonPrintableContents()
      */
     private function _mimeDefaultFunction($buffer)
     {
@@ -5988,7 +5988,7 @@ class PMA_DisplayResults
      * @param string $binary_or_blob binary' or 'blob'
      * @param int    $hexlength      optional, get substring
      *
-     * @return Displayable version of the binary string
+     * @return String Displayable version of the binary string
      *
      * @access private
      *
@@ -6019,4 +6019,5 @@ class PMA_DisplayResults
         return $content;
     }
 }
+
 ?>

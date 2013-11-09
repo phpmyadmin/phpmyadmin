@@ -33,7 +33,7 @@ abstract class PMA_List extends ArrayObject
     /**
      * returns item only if there is only one in the list
      *
-     * @return single item
+     * @return PMA_List single item
      */
     public function getSingleItem()
     {

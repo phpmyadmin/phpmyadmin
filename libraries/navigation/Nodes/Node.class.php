@@ -139,7 +139,7 @@ class Node
      *
      * @param Node $child A child node
      *
-     * @return nothing
+     * @return void
      */
     public function addChild($child)
     {
@@ -180,7 +180,7 @@ class Node
      *
      * @param string $name The name of child to be removed
      *
-     * @return nothing
+     * @return void
      */
     public function removeChild($name)
     {
@@ -430,7 +430,7 @@ class Node
     /**
      * Returns HTML for control buttons displayed infront of a node
      *
-     * @return HTML for control buttons
+     * @return String HTML for control buttons
      */
     public function getHtmlForControlButtons()
     {

@@ -596,10 +596,10 @@ class PMA_Util
      *
      * @return mixed
      *
-     * @global  string    the curent table
-     * @global  string    the current db
+     * @global string $table the curent table
+     * @global string $db    the current db
      *
-     * @access  public
+     * @access public
      */
     public static function mysqlDie(
         $error_message = '', $the_query = '',
@@ -2047,10 +2047,9 @@ class PMA_Util
      *
      * @return void
      *
-     * @global  string  path to current script
-     * @global  boolean flag whether any special variable was required
+     * @global boolean $checked_special flag whether any special variable was required
      *
-     * @access  public
+     * @access public
      */
     public static function checkParameters($params, $request = true)
     {
@@ -2092,7 +2091,7 @@ class PMA_Util
      * @param array    $row          current row
      * @param boolean  $force_unique generate condition only on pk or unique
      *
-     * @access  public
+     * @access public
      *
      * @return array     the calculated condition and whether condition is unique
      */
@@ -2606,7 +2605,7 @@ class PMA_Util
      * @param string $minimum_version of this component
      * @param string $bugref          bug reference for this component
      *
-     * @return void
+     * @return String
      */
     public static function getExternalBug(
         $functionality, $component, $minimum_version, $bugref
@@ -3201,14 +3200,14 @@ class PMA_Util
      * Formats user string, expanding @VARIABLES@, accepting strftime format
      * string.
      *
-     * @param string   $string  Text where to do expansion.
-     * @param function $escape  Function to call for escaping variable values.
+     * @param string       $string  Text where to do expansion.
+     * @param array|string $escape  Function to call for escaping variable values.
      *                          Can also be an array of:
      *                          - the escape method name
      *                          - the class that contains the method
      *                          - location of the class (for inclusion)
-     * @param array    $updates Array with overrides for default parameters
-     *                 (obtained from GLOBALS).
+     * @param array        $updates Array with overrides for default parameters
+     *                     (obtained from GLOBALS).
      *
      * @return string
      */
@@ -3308,7 +3307,7 @@ class PMA_Util
      *
      * @param string $max_upload_size maximum upload size
      *
-     * @return void
+     * @return String
      */
     public static function getBrowseUploadFileBlock($max_upload_size)
     {
@@ -3338,7 +3337,7 @@ class PMA_Util
      * @param array  $import_list array of import plugins
      * @param string $uploaddir   upload directory
      *
-     * @return void
+     * @return String
      */
     public static function getSelectUploadFileBlock($import_list, $uploaddir)
     {
@@ -3938,7 +3937,7 @@ class PMA_Util
     /**
      * Prepare HTML code for display button.
      *
-     * @return void
+     * @return String
      */
     public static function getButton()
     {
@@ -4156,7 +4155,7 @@ class PMA_Util
     /**
      * Returns information with latest version from phpmyadmin.net
      *
-     * @return JSON decoded object with the data
+     * @return String JSON decoded object with the data
      */
     public static function getLatestVersion()
     {
@@ -4337,4 +4336,5 @@ class PMA_Util
         }
     }
 }
+
 ?>

@@ -80,7 +80,7 @@ class PMA_NodeFactory
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
      *
-     * @return string
+     * @return mixed
      */
     public static function getInstance(
         $class = 'Node',
