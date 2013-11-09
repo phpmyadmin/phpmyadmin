@@ -586,8 +586,14 @@ EOT;
             ) {
                 $func_type = str_replace(' (...)', '', $func_type);
 
+                //Don't explode if this is already an array
+                //(Case for (NOT) IN/BETWEEN.)
+                if (is_array($criteriaValues)) {
+                    $values = $criteriaValues;
+                } else {
+                    $values = explode(',', $criteriaValues);
+                }
                 // quote values one by one
-                $values = explode(',', $criteriaValues);
                 foreach ($values as &$value) {
                     $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
                         . $quot;
@@ -909,7 +915,7 @@ EOT;
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $func = '<select name="criteriaColumnOperators[' . $search_index . ']">';
+        $func = '<select name="criteriaColumnOperators[' . $search_index . ']" onchange="changeValueFieldType(this, ' . $search_index . ')">';
         $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
             preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
             $this->_columnNullFlags[$column_index], $selected_operator

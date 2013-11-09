@@ -309,6 +309,10 @@ class PMA_Util
             $a_string = str_replace('\'', '\'\'', $a_string);
         }
 
+        if ('' === $a_string) {
+            $a_string = 'NULL';
+        }
+
         return $a_string;
     } // end of the 'sqlAddSlashes()' function
 
