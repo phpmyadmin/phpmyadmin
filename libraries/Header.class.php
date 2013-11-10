@@ -106,8 +106,6 @@ class PMA_Header
 
     /**
      * Creates a new class instance
-     *
-     * @return new PMA_Header object
      */
     public function __construct()
     {

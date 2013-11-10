@@ -77,7 +77,7 @@ class PMA_File
     /**
      * constructor
      *
-     * @param string $name file name
+     * @param boolean|string $name file name or false
      *
      * @access public
      */

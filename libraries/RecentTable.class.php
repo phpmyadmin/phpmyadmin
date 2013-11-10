@@ -47,8 +47,6 @@ class PMA_RecentTable
 
     /**
      * Creates a new instance of PMA_RecentTable
-     *
-     * @return New PMA_RecentTable
      */
     public function __construct()
     {

@@ -83,7 +83,7 @@ class Advisor
     /**
      * Executes advisor rules
      *
-     * @return void
+     * @return boolean
      */
     function runRules()
     {
@@ -264,7 +264,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return Replacement value
+     * @return String Replacement value
      */
     private function _replaceLinkURL($matches)
     {
@@ -276,7 +276,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return Replacement value
+     * @return String Replacement value
      */
     private function _ruleExprEvaluateFired($matches)
     {
@@ -300,7 +300,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return Replacement value
+     * @return String Replacement value
      */
     private function _ruleExprEvaluateVariable($matches)
     {
@@ -323,7 +323,7 @@ class Advisor
      *                            that string position, but still evaluates the
      *                            whole expr
      *
-     * @return result of evaluated expression
+     * @return string result of evaluated expression
      */
     function ruleExprEvaluate($expr, $ignoreUntil = 0)
     {
@@ -459,9 +459,9 @@ class Advisor
  * Formats interval like 10 per hour
  *
  * @param integer $num       number to format
- * @param intefer $precision required precision
+ * @param integer $precision required precision
  *
- * @return formatted string
+ * @return string formatted string
  */
 function ADVISOR_bytime($num, $precision)
 {

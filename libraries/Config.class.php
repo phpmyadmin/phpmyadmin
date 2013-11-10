@@ -725,7 +725,7 @@ class PMA_Config
      * @param mixed   $link     curl link
      * @param boolean $get_body whether to retrieve body of document
      *
-     * @return test result or data
+     * @return string|boolean test result or data
      */
     function checkHTTP($link, $get_body = false)
     {

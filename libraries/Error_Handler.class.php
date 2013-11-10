@@ -317,7 +317,7 @@ class PMA_Error_Handler
     /**
      * renders errors not displayed
      *
-     * @return void
+     * @return string
      */
     public function getDispErrors()
     {

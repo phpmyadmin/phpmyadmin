@@ -60,8 +60,6 @@ class PMA_List_Database extends PMA_List
      *
      * @param mixed $db_link_user    user database link resource|object
      * @param mixed $db_link_control control database link resource|object
-     *
-     * @return void
      */
     public function __construct($db_link_user = null, $db_link_control = null)
     {
@@ -128,7 +126,7 @@ class PMA_List_Database extends PMA_List
 
             if ($GLOBALS['errno'] !== 0) {
                 // failed! we will display a warning that phpMyAdmin could not
-                // safely retrieve database list, the admin has to setup a 
+                // safely retrieve database list, the admin has to setup a
                 // control user
                 $GLOBALS['error_showdatabases'] = true;
                 $this->can_retrieve_databases = false;

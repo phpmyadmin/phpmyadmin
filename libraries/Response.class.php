@@ -92,8 +92,6 @@ class PMA_Response
 
     /**
      * Creates a new class instance
-     *
-     * @return new PMA_Response object
      */
     private function __construct()
     {
