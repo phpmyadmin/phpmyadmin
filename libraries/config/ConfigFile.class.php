@@ -358,8 +358,8 @@ class ConfigFile
     /**
      * Returns config database entry for $path ($cfg_db in config_info.php)
      *
-     * @param string $path
-     * @param mixed  $default
+     * @param string $path    path of the variable in config db
+     * @param mixed  $default default value
      *
      * @return mixed
      */
@@ -395,7 +395,7 @@ class ConfigFile
     /**
      * Returns DSN of given server
      *
-     * @param integer $server
+     * @param integer $server server index
      *
      * @return string
      */
@@ -429,7 +429,7 @@ class ConfigFile
     /**
      * Returns server name
      *
-     * @param int $id
+     * @param int $id server index
      *
      * @return string
      */
@@ -449,7 +449,7 @@ class ConfigFile
     /**
      * Removes server
      *
-     * @param int $server
+     * @param int $server server index
      *
      * @return void
      */
