@@ -2757,6 +2757,8 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
     // via $pma = new PMA;
     $pred_db_array = $GLOBALS['pma']->databases;
 
+    $databases_to_skip = array('information_schema', 'performance_schema');
+
     $html_output = '<label for="text_dbname">'
         . __('Add privileges on the following database:') . '</label>' . "\n";
     if (! empty($pred_db_array)) {
@@ -2764,6 +2766,9 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
             . '<option value="" selected="selected">'
             . __('Use text field:') . '</option>' . "\n";
         foreach ($pred_db_array as $current_db) {
+            if (in_array($current_db, $databases_to_skip)) {
+                continue;
+            }
             $current_db_show = $current_db;
             $current_db = PMA_Util::escapeMysqlWildcards($current_db);
             // cannot use array_diff() once, outside of the loop,
