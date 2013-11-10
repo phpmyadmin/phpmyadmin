@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-10 17:13+0200\n"
+"PO-Revision-Date: 2013-11-10 17:14+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -7793,7 +7793,7 @@ msgstr "bilinmiyor"
 
 #: libraries/navigation/Navigation.class.php:59
 msgid "An error has occurred while loading the navigation tree"
-msgstr "Rehber ağacı yüklenirken bir hata meydana geldi"
+msgstr "Gezinti ağacı yüklenirken bir hata meydana geldi"
 
 #: libraries/navigation/Navigation.class.php:170
 msgid "Events:"
@@ -7830,7 +7830,7 @@ msgstr "phpMyAdmin belgeleri"
 #: libraries/navigation/NavigationHeader.class.php:250
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "Rehberi yeniden yükle"
+msgstr "Gezinti panelini yeniden yükle"
 
 #: libraries/navigation/NavigationTree.class.php:717
 #, php-format
