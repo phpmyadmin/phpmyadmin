@@ -1360,9 +1360,9 @@ class PMA_Config
 
             // This is to handle the case of a reverse proxy
             if ($this->get('ForceSSL')) {
-               $this->set('PmaAbsoluteUri', $pma_absolute_uri);
-               $pma_absolute_uri = $this->getSSLUri();
-               $this->isHttps();
+                $this->set('PmaAbsoluteUri', $pma_absolute_uri);
+                $pma_absolute_uri = $this->getSSLUri();
+                $this->isHttps();
             }
 
             // We used to display a warning if PmaAbsoluteUri wasn't set, but now
