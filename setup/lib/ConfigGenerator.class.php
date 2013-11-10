@@ -84,9 +84,9 @@ class ConfigGenerator
     /**
      * Returns exported configuration variable
      *
-     * @param string $var_name
-     * @param mixed  $var_value
-     * @param string $crlf
+     * @param string $var_name  Name of variable
+     * @param mixed  $var_value Value of variable
+     * @param string $crlf      Carriage character
      *
      * @return string
      */

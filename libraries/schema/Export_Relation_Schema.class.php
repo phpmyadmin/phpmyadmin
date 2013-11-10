@@ -222,8 +222,8 @@ class PMA_Export_Relation_Schema
      * @param string  $type          Schema Type
      * @param string  $error_message The error mesage
      *
-     * @global array    the PMA configuration array
-     * @global string   the current database name
+     * @global array      the PMA configuration array
+     * @global string $db the current database name
      *
      * @access public
      *

@@ -299,8 +299,8 @@ class ConfigFile
     /**
      * Returns config value or $default if it's not set
      *
-     * @param string $path
-     * @param mixed  $default
+     * @param string $path    Path of config file
+     * @param mixed  $default Default values
      *
      * @return mixed
      */
@@ -395,7 +395,7 @@ class ConfigFile
     /**
      * Returns DSN of given server
      *
-     * @param integer $server
+     * @param integer $server Id of server
      *
      * @return string
      */
@@ -429,7 +429,7 @@ class ConfigFile
     /**
      * Returns server name
      *
-     * @param int $id
+     * @param int $id Id of server
      *
      * @return string
      */
@@ -449,7 +449,7 @@ class ConfigFile
     /**
      * Removes server
      *
-     * @param int $server
+     * @param int $server Id of server
      *
      * @return void
      */

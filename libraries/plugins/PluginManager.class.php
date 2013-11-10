@@ -23,14 +23,14 @@ class PluginManager implements SplSubject
     /**
      * Contains a list with all the plugins that attach to it
      *
-     * @var type SplObjectStorage
+     * @var SplObjectStorage
      */
     private $_storage;
 
     /**
      * Contains information about the current plugin state
      *
-     * @var type string
+     * @var string
      */
     private $_status;
 
@@ -84,7 +84,7 @@ class PluginManager implements SplSubject
     /**
      * Gets the list with all the plugins that attach to it
      *
-     * @return type SplObjectStorage
+     * @return SplObjectStorage
      */
     public function getStorage()
     {
@@ -108,7 +108,7 @@ class PluginManager implements SplSubject
      * Gets the information about the current plugin state
      * It is called by all the plugins in $_storage in their update() method
      *
-     * @return type mixed
+     * @return string
      */
     public function getStatus()
     {

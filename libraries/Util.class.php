@@ -389,9 +389,9 @@ class PMA_Util
      * @param string  $sql_query raw SQL string
      * @param boolean $truncate  truncate the query if it is too long
      *
-     * @return string  the formatted sql
+     * @return string the formatted sql
      *
-     * @global  array    the configuration array
+     * @global array  $cfg the configuration array
      *
      * @access  public
      * @todo    move into PMA_Sql
