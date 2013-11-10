@@ -12,7 +12,7 @@
  *
  * @param string $variable variable to be escaped
  *
- * @return escaped variable
+ * @return string escaped variable
  */
 function escape($variable)
 {

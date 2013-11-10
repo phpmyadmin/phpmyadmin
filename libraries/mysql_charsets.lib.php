@@ -69,6 +69,13 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
     return $return_str;
 }
 
+/**
+ * Generate the charset query part
+ *
+ * @param string $collation Collation
+ *
+ * @return string
+ */
 function PMA_generateCharsetQueryPart($collation)
 {
     if (!PMA_DRIZZLE) {

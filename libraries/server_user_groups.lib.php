@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @param string $userGroup user group name
  *
- * @return HTML to list the users belonging to a given user group
+ * @return string HTML to list the users belonging to a given user group
  */
 function PMA_getHtmlForListingUsersofAGroup($userGroup)
 {

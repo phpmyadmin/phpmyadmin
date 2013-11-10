@@ -264,7 +264,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return String Replacement value
+     * @return string Replacement value
      */
     private function _replaceLinkURL($matches)
     {
@@ -276,7 +276,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return String Replacement value
+     * @return string Replacement value
      */
     private function _ruleExprEvaluateFired($matches)
     {
@@ -300,7 +300,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return String Replacement value
+     * @return string Replacement value
      */
     private function _ruleExprEvaluateVariable($matches)
     {
@@ -324,6 +324,8 @@ class Advisor
      *                            whole expr
      *
      * @return string result of evaluated expression
+     *
+     * @throws Exception
      */
     function ruleExprEvaluate($expr, $ignoreUntil = 0)
     {
