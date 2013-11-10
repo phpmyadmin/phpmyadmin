@@ -579,8 +579,7 @@ EOT;
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if (
-                'IN (...)' == $func_type
+            if ('IN (...)' == $func_type
                 || 'NOT IN (...)' == $func_type
                 || 'BETWEEN' == $func_type
                 || 'NOT BETWEEN' == $func_type
@@ -935,7 +934,9 @@ EOT;
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $func = '<select name="criteriaColumnOperators[' . $search_index . ']" onchange="changeValueFieldType(this, ' . $search_index . ')">';
+        $func = '<select name="criteriaColumnOperators['
+            . $search_index . ']" onchange="changeValueFieldType(this, '
+            . $search_index . ')">';
         $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
             preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
             $this->_columnNullFlags[$column_index], $selected_operator
