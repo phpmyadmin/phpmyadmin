@@ -579,27 +579,53 @@ EOT;
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ($func_type == 'IN (...)'
-                || $func_type == 'NOT IN (...)'
-                || $func_type == 'BETWEEN'
-                || $func_type == 'NOT BETWEEN'
+            if (
+                'IN (...)' == $func_type
+                || 'NOT IN (...)' == $func_type
+                || 'BETWEEN' == $func_type
+                || 'NOT BETWEEN' == $func_type
             ) {
                 $func_type = str_replace(' (...)', '', $func_type);
 
+                //Don't explode if this is already an array
+                //(Case for (NOT) IN/BETWEEN.)
+                if (is_array($criteriaValues)) {
+                    $values = $criteriaValues;
+                } else {
+                    $values = explode(',', $criteriaValues);
+                }
                 // quote values one by one
-                $values = explode(',', $criteriaValues);
-                foreach ($values as &$value) {
+                $emptyKey = false;
+                foreach ($values as $key => &$value) {
+                    if ('' === $value) {
+                        $emptyKey = $key;
+                        $value = 'NULL';
+                        continue;
+                    }
                     $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
                         . $quot;
                 }
 
-                if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+                if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
                     $where = $backquoted_name . ' ' . $func_type . ' '
                         . (isset($values[0]) ? $values[0] : '')
                         . ' AND ' . (isset($values[1]) ? $values[1] : '');
-                } else {
-                    $where = $backquoted_name . ' ' . $func_type
-                        . ' (' . implode(',', $values) . ')';
+                } else { //[NOT] IN
+                    if (false !== $emptyKey) {
+                        unset($values[$emptyKey]);
+                    }
+                    $wheres = array();
+                    if (!empty($values)) {
+                        $wheres[] = $backquoted_name . ' ' . $func_type
+                            . ' (' . implode(',', $values) . ')';
+                    }
+                    if (false !== $emptyKey) {
+                        $wheres[] = $backquoted_name . ' IS NULL';
+                    }
+                    $where = implode(' OR ', $wheres);
+                    if (1 < count($wheres)) {
+                        $where = '(' . $where . ')';
+                    }
                 }
             } else {
                 if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
@@ -909,7 +935,7 @@ EOT;
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $func = '<select name="criteriaColumnOperators[' . $search_index . ']">';
+        $func = '<select name="criteriaColumnOperators[' . $search_index . ']" onchange="changeValueFieldType(this, ' . $search_index . ')">';
         $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
             preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
             $this->_columnNullFlags[$column_index], $selected_operator
