@@ -3826,7 +3826,7 @@ class PMA_Util
         $username .= str_replace("'", "''", $user[1]);
         $username .= "''";
 
-        // Prepage the query
+        // Prepare the query
         $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
                . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
 
@@ -3845,7 +3845,9 @@ class PMA_Util
         // If a database name was provided and user does not have the
         // required global privilege, try database-wise permissions.
         if ($db !== null) {
-            // need to escape wildcards in db and table names, see bug #3518484
+            // need to escape wildcards in db and table names, see bug #3566
+            // (wildcard characters appear as being quoted with a backslash
+            //  when querying TABLE_SCHEMA.SCHEMA_PRIVILEGES)
             $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
             $query .= " AND TABLE_SCHEMA='%s'";
             $schema_privileges = $GLOBALS['dbi']->fetchValue(
