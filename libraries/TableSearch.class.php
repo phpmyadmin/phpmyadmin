@@ -579,10 +579,11 @@ EOT;
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ($func_type == 'IN (...)'
-                || $func_type == 'NOT IN (...)'
-                || $func_type == 'BETWEEN'
-                || $func_type == 'NOT BETWEEN'
+            if (
+                'IN (...)' == $func_type
+                || 'NOT IN (...)' == $func_type
+                || 'BETWEEN' == $func_type
+                || 'NOT BETWEEN' == $func_type
             ) {
                 $func_type = str_replace(' (...)', '', $func_type);
 
@@ -594,18 +595,37 @@ EOT;
                     $values = explode(',', $criteriaValues);
                 }
                 // quote values one by one
-                foreach ($values as &$value) {
+                $emptyKey = false;
+                foreach ($values as $key => &$value) {
+                    if ('' === $value) {
+                        $emptyKey = $key;
+                        $value = 'NULL';
+                        continue;
+                    }
                     $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
                         . $quot;
                 }
 
-                if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+                if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
                     $where = $backquoted_name . ' ' . $func_type . ' '
                         . (isset($values[0]) ? $values[0] : '')
                         . ' AND ' . (isset($values[1]) ? $values[1] : '');
-                } else {
-                    $where = $backquoted_name . ' ' . $func_type
-                        . ' (' . implode(',', $values) . ')';
+                } else { //[NOT] IN
+                    if (false !== $emptyKey) {
+                        unset($values[$emptyKey]);
+                    }
+                    $wheres = array();
+                    if (!empty($values)) {
+                        $wheres[] = $backquoted_name . ' ' . $func_type
+                            . ' (' . implode(',', $values) . ')';
+                    }
+                    if (false !== $emptyKey) {
+                        $wheres[] = $backquoted_name . ' IS NULL';
+                    }
+                    $where = implode(' OR ', $wheres);
+                    if (1 < count($wheres)) {
+                        $where = '(' . $where . ')';
+                    }
                 }
             } else {
                 if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
