@@ -172,7 +172,7 @@ class PMA_NavigationHeader
 
     /**
      * Creates the code for displaying the links
-     * at the top of the navigation frame
+     * at the top of the navigation panel 
      *
      * @return string HTML code for the links
      */
@@ -247,7 +247,7 @@ class PMA_NavigationHeader
         $retval .= $this->_getLink(
             '#',
             $showText,
-            __('Reload navigation frame'),
+            __('Reload navigation panel'),
             $showIcon,
             's_reload.png',
             'pma_navigation_reload'
