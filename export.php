@@ -398,7 +398,8 @@ if (!defined('TESTSUITE')) {
         $crlf = PMA_Util::whichCrlf();
     }
 
-    $output_kanji_conversion = function_exists('PMA_Kanji_strConv') && $type != 'xls';
+    $output_kanji_conversion = function_exists('PMA_Kanji_strConv')
+    && $type != 'xls';
 
     // Do we need to convert charset?
     $output_charset_conversion = $asfile
@@ -597,7 +598,9 @@ if (!defined('TESTSUITE')) {
             // Convert the multiple select elements from an array to a string
             if ($export_type == 'server' && isset($_REQUEST['db_select'])) {
                 $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
-            } elseif ($export_type == 'database' && isset($_REQUEST['table_select'])) {
+            } elseif ($export_type == 'database'
+             && isset($_REQUEST['table_select'])
+            ) {
                 $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
             }
 
