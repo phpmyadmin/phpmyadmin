@@ -399,7 +399,7 @@ if (!defined('TESTSUITE')) {
     }
 
     $output_kanji_conversion = function_exists('PMA_Kanji_strConv')
-    && $type != 'xls';
+        && $type != 'xls';
 
     // Do we need to convert charset?
     $output_charset_conversion = $asfile
