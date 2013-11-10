@@ -52,8 +52,6 @@ class PMA_Footer
 
     /**
      * Creates a new class instance
-     *
-     * @return new PMA_Footer object
      */
     public function __construct()
     {

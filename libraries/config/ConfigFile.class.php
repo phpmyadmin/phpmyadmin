@@ -299,8 +299,8 @@ class ConfigFile
     /**
      * Returns config value or $default if it's not set
      *
-     * @param string $path
-     * @param mixed  $default
+     * @param string $path    Path of config file
+     * @param mixed  $default Default values
      *
      * @return mixed
      */

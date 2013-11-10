@@ -22,8 +22,6 @@ class PMA_OutputBuffering
 
     /**
      * Initializes class
-     *
-     * @return void
      */
     private function __construct()
     {
@@ -119,7 +117,7 @@ class PMA_OutputBuffering
     /**
      * Gets buffer content
      *
-     * @return buffer content
+     * @return string buffer content
      */
     public function getContents()
     {

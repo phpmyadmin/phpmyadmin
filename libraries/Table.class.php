@@ -92,7 +92,7 @@ class PMA_Table
     /**
      * return the last error
      *
-     * @return the last error
+     * @return string the last error
      */
     function getLastError()
     {
@@ -102,7 +102,7 @@ class PMA_Table
     /**
      * return the last message
      *
-     * @return the last message
+     * @return string the last message
      */
     function getLastMessage()
     {
@@ -182,7 +182,7 @@ class PMA_Table
      * @param string $db    database
      * @param string $table table
      *
-     * @return whether the given is a view
+     * @return boolean whether the given is a view
      */
     static public function isView($db = null, $table = null)
     {

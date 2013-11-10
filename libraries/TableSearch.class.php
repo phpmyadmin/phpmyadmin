@@ -171,7 +171,7 @@ class PMA_TableSearch
     /**
      * Sets the table header for displaying a table in query-by-example format.
      *
-     * @return HTML content, the tags and content for table header
+     * @return string HTML content, the tags and content for table header
      */
     private function _getTableHeader()
     {
@@ -227,7 +227,7 @@ class PMA_TableSearch
      * @param int  $column_index Column's index
      * @param bool $in_fbs       Whether we are in 'function based search'
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getGeometricalInputBox($column_index, $in_fbs)
     {
@@ -260,7 +260,7 @@ class PMA_TableSearch
      * @param string $column_id           Column's inputbox's id
      * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getForeignKeyInputBox($foreignData, $column_name,
         $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id,
@@ -311,7 +311,7 @@ EOT;
      * @param string $column_id           Column's inputbox's id
      * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getEnumSetInputBox($column_index, $criteriaValues,
         $column_type, $column_id, $in_zoom_search_edit = false
@@ -1307,7 +1307,7 @@ EOT;
     /**
      * Displays the 'Find and Replace' form
      *
-     * @return HTML for 'Find and Replace' form
+     * @return string HTML for 'Find and Replace' form
      */
     function _getSearchAndReplaceHTML()
     {
@@ -1337,7 +1337,7 @@ EOT;
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return HTML for prviewing strings found and their replacements
+     * @return string HTML for prviewing strings found and their replacements
      */
     function getReplacePreview($columnIndex, $find, $replaceWith, $charSet)
     {

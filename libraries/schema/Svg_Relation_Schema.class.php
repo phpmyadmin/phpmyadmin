@@ -31,7 +31,6 @@ class PMA_SVG extends XMLWriter
      *
      * Upon instantiation This starts writing the Svg XML document
      *
-     * @return void
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
      */
     function __construct()
@@ -410,11 +409,11 @@ class Table_Stats_Svg
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $showInfo         Whether to display table position or not
      *
-     * @global object    The current SVG image document
-     * @global integer   The current page number (from the
-     *                   $cfg['Servers'][$i]['table_coords'] table)
-     * @global array     The relations settings
-     * @global string    The current db name
+     * @global object  $svg         The current SVG image document
+     * @global integer              The current page number (from the
+     *                              $cfg['Servers'][$i]['table_coords'] table)
+     * @global array   $cfgRelation The relations settings
+     * @global string  $db          The current db name
      *
      * @access private
      *
@@ -536,7 +535,7 @@ class Table_Stats_Svg
      * @param string  $font     The font size
      * @param integer $fontSize The font size
      *
-     * @global object    The current SVG image document
+     * @global object $svg The current SVG image document
      *
      * @return void
      * @access private
@@ -585,7 +584,7 @@ class Table_Stats_Svg
      *
      * @param boolean $showColor Whether to display color
      *
-     * @global object The current SVG image document
+     * @global object $svg The current SVG image document
      *
      * @access public
      * @return void
@@ -658,8 +657,6 @@ class Relation_Stats_Svg
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
-     *
-     * @return void
      *
      * @see Relation_Stats_Svg::_getXy
      */
@@ -734,7 +731,7 @@ class Relation_Stats_Svg
      *
      * @param boolean $changeColor Whether to use one color per relation or not
      *
-     * @global object The current SVG image document
+     * @global object $svg The current SVG image document
      *
      * @return void
      * @access public
@@ -839,7 +836,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This starts writing the SVG XML document
      * user will be prompted for download as .svg extension
      *
-     * @return void
      * @see PMA_SVG
      */
     function __construct()
