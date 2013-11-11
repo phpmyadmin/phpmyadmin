@@ -545,6 +545,8 @@ function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
     $statement  = PMA_Util::formatSql($entry['statement'], true);
     $timestamp = strtotime($entry['date']);
     $filtered_user = in_array($entry['username'], $filter_users);
+    $html = null;
+
     if ($timestamp >= $filter_ts_from
         && $timestamp <= $filter_ts_to
         && (in_array('*', $filter_users) || $filtered_user)
@@ -638,6 +640,8 @@ function PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
     $statement  = PMA_Util::formatSql($entry['statement'], true);
     $timestamp = strtotime($entry['date']);
     $filtered_user = in_array($entry['username'], $filter_users);
+    $html = null;
+
     if ($timestamp >= $filter_ts_from
         && $timestamp <= $filter_ts_to
         && (in_array('*', $filter_users) || $filtered_user)
