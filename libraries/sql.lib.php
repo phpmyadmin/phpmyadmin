@@ -1794,7 +1794,7 @@ function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
  * Returns a message for successful creation of a bookmark or null if a bookmark
  * was not created
  *
- * @return object $bookmark_created_msg
+ * @return PMA_message $bookmark_created_msg
  */
 function PMA_getBookmarkCreatedMessage()
 {
@@ -1902,7 +1902,7 @@ function PMA_getHtmlForPreviousUpdateQuery($disp_query, $showSql, $sql_data,
  * @param boolean $editable  whether the results table can be editable or not
  * @param string  $disp_mode display mode
  *
- * @return object $message
+ * @return PMA_message $message
  */
 function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
 {

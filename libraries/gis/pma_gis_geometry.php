@@ -53,9 +53,9 @@ abstract class PMA_GIS_Geometry
      * @param string $label      label for the GIS data object
      * @param string $color      color for the GIS data object
      * @param array  $scale_data array containing data related to scaling
-     * @param object $pdf        TCPDF instance
+     * @param TCPDF  $pdf        TCPDF instance
      *
-     * @return object the modified TCPDF instance
+     * @return TCPDF the modified TCPDF instance
      * @access public
      */
     public abstract function prepareRowAsPdf($spatial, $label, $color,
