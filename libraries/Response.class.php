@@ -184,7 +184,7 @@ class PMA_Response
     /**
      * Returns a PMA_Header object
      *
-     * @return object
+     * @return PMA_Header
      */
     public function getHeader()
     {
@@ -194,7 +194,7 @@ class PMA_Response
     /**
      * Returns a PMA_Footer object
      *
-     * @return object
+     * @return PMA_Footer
      */
     public function getFooter()
     {

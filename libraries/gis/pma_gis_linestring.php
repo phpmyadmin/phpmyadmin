@@ -32,7 +32,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
     /**
      * Returns the singleton.
      *
-     * @return object the singleton
+     * @return PMA_GIS_Linestring the singleton
      * @access public
      */
     public static function singleton()
@@ -69,7 +69,7 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
      * @param array  $scale_data Array containing data related to scaling
      * @param object $image      Image object
      *
-     * @return object the modified image object
+     * @return resource the modified image object
      * @access public
      */
     public function prepareRowAsPng($spatial, $label, $line_color,
@@ -115,9 +115,9 @@ class PMA_GIS_Linestring extends PMA_GIS_Geometry
      * @param string $label      Label for the GIS LINESTRING object
      * @param string $line_color Color for the GIS LINESTRING object
      * @param array  $scale_data Array containing data related to scaling
-     * @param object $pdf        TCPDF instance
+     * @param TCPDF  $pdf        TCPDF instance
      *
-     * @return object the modified TCPDF instance
+     * @return TCPDF the modified TCPDF instance
      * @access public
      */
     public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)

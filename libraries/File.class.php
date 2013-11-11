@@ -571,7 +571,7 @@ class PMA_File
     /**
      * Returns the file handle
      *
-     * @return object file handle
+     * @return resource file handle
      */
     public function getHandle()
     {

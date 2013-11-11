@@ -425,7 +425,7 @@ class PMA_Theme_Manager
     /**
      * returns PMA_Theme object for fall back theme
      *
-     * @return object PMA_Theme
+     * @return PMA_Theme fall back theme
      * @access public
      */
     public function getFallBackTheme()

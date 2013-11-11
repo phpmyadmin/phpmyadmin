@@ -104,7 +104,7 @@ class PMA_Index
      * @param string $table      table name
      * @param string $index_name index name
      *
-     * @return object corresponding Index object
+     * @return PMA_Index corresponding Index object
      */
     static public function singleton($schema, $table, $index_name = '')
     {
