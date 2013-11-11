@@ -286,12 +286,12 @@ class PMA_DisplayResults
      * @param integer $fields_cnt     total no.of fields returned by SQL query
      * @param double  $querytime      time taken for execute the SQL query
      * @param string  $pmaThemeImage  path for theme images directory
-     * @param string  $text_dir
-     * @param boolean $is_maint
-     * @param boolean $is_explain
-     * @param boolean $is_show
+     * @param string  $text_dir       text direction
+     * @param boolean $is_maint       statement contains a maintenance command
+     * @param boolean $is_explain     statement contains EXPLAIN
+     * @param boolean $is_show        statement contains SHOW
      * @param array   $showtable      table definitions
-     * @param string  $printview
+     * @param string  $printview      print view was requested
      * @param string  $url_query      URL query
      * @param boolean $editable       whether the results set is editable
      *
@@ -982,9 +982,11 @@ class PMA_DisplayResults
      * @param array        &$is_display                 which elements to display
      * @param array|string $analyzed_sql                the analyzed query
      * @param string       $sort_expression             sort expression
-     * @param string       $sort_expression_nodirection sort expression without direction
+     * @param string       $sort_expression_nodirection sort expression
+     *                                                  without direction
      * @param string       $sort_direction              sort direction
-     * @param boolean      $is_limited_display          with limited operations or not
+     * @param boolean      $is_limited_display          with limited operations
+     *                                                  or not
      *
      * @return string html content
      *
