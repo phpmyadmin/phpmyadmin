@@ -166,7 +166,7 @@ function PMA_getHtmlForTableFooterButtons(
  * @param bool   $is_superuser             User status
  * @param Array  $databases_count          Database count
  * @param string $column_order             column order
- * @param string $replication_types        replication types
+ * @param array  $replication_types        replication types
  * @param string $first_database           First database
  *
  * @return string
