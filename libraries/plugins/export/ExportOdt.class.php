@@ -717,8 +717,6 @@ class ExportOdt extends ExportPlugin
             } else {
                 $column['Default'] = '';
             }
-        } else {
-            $column['Default'] = $column['Default'];
         }
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>'

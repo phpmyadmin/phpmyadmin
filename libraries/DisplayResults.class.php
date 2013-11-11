@@ -5426,17 +5426,17 @@ class PMA_DisplayResults
 
         $result = '[' . $category;
 
-        if (is_null($content)) {
-
-            $result .= ' - NULL';
-            $size = 0;
-
-        } elseif (isset($content)) {
+        if (isset($content)) {
 
             $size = strlen($content);
             $display_size
-                = PMA_Util::formatByteDown($size, 3, 1);
+                  = PMA_Util::formatByteDown($size, 3, 1);
             $result .= ' - '. $display_size[0] . ' ' . $display_size[1];
+
+        } else {
+
+            $result .= ' - NULL';
+            $size = 0;
 
         }
 
