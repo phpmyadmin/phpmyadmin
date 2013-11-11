@@ -79,8 +79,6 @@ AJAX.registerTeardown('sql.js', function() {
     $("#table_results.ajax").find("a[title=Sort]").die('click');
     $("#displayOptionsForm.ajax").die('submit');
     $("#resultsForm.ajax .mult_submit[value=edit]").die('click');
-    $("#insertForm .insertRowTable.ajax input[type=submit]").die('click');
-    $("#buttonYes.ajax").die('click');
     $('a.browse_foreign').die('click');
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
@@ -433,101 +431,6 @@ AJAX.registerOnload('sql.js', function() {
             PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
         }
     });
-
-/**
- * Click action for "Go" button in ajax dialog insertForm -> insertRowTable
- */
-    $("#insertForm .insertRowTable.ajax input[type=submit]").live('click', function(event) {
-        event.preventDefault();
-        /**
-         * @var    the_form    object referring to the insert form
-         */
-        var $form = $("#insertForm");
-        PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize(), function(data) {
-            if (data.success == true) {
-                PMA_ajaxShowMessage(data.message);
-                if ($("#pageselector").length != 0) {
-                    $("#pageselector").trigger('change');
-                } else {
-                    $("input[name=navig].ajax").trigger('click');
-                }
-
-            } else {
-                PMA_ajaxShowMessage(data.error, false);
-                $("#table_results tbody tr.marked .multi_checkbox " +
-                        ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
-                $("#table_results tbody tr.marked .multi_checkbox " +
-                        ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
-                $("#table_results tbody tr" +
-                        ", #table_results tbody tr td").removeClass("marked");
-            }
-            if ($("#change_row_dialog").length > 0) {
-                $("#change_row_dialog").dialog("close").remove();
-            }
-            /**Update the row count at the tableForm*/
-            $("#result_query").remove();
-            $("#sqlqueryresults").prepend(data.sql_query);
-            $("#result_query .notice").remove();
-            $("#result_query").prepend((data.message));
-        }); // end $.post()
-    }); // end insert table button "Go"
-
-/**$("#buttonYes.ajax").live('click'
- * Click action for #buttonYes button in ajax dialog insertForm
- */
-
-    $("#buttonYes.ajax").live('click', function(event){
-        event.preventDefault();
-        /**
-         * @var    the_form    object referring to the insert form
-         */
-        var $form = $("#insertForm");
-        /**Get the submit type in the form*/
-        var selected_submit_type = $("#insertForm").find("#actions_panel .control_at_footer option:selected").val();
-        $("#result_query").remove();
-        PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() , function(data) {
-            if (data.success == true) {
-                PMA_ajaxShowMessage(data.message);
-                if (selected_submit_type == "showinsert") {
-                    $("#sqlqueryresults").prepend(data.sql_query);
-                    $("#result_query .notice").remove();
-                    $("#result_query").prepend(data.message);
-                    $("#table_results tbody tr.marked .multi_checkbox " +
-                        ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
-                    $("#table_results tbody tr.marked .multi_checkbox " +
-                        ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
-                    $("#table_results tbody tr" +
-                        ", #table_results tbody tr td").removeClass("marked");
-                } else {
-                    if ($("#pageselector").length != 0) {
-                        $("#pageselector").trigger('change');
-                    } else {
-                        $("input[name=navig].ajax").trigger('click');
-                    }
-                    $("#result_query").remove();
-                    $("#sqlqueryresults").prepend(data.sql_query);
-                    $("#result_query .notice").remove();
-                    $("#result_query").prepend((data.message));
-                }
-            } else {
-                PMA_ajaxShowMessage(data.error, false);
-                $("#table_results tbody tr.marked .multi_checkbox " +
-                    ", #table_results tbody tr td.marked .multi_checkbox").prop("checked", false);
-                $("#table_results tbody tr.marked .multi_checkbox " +
-                    ", #table_results tbody tr td.marked .multi_checkbox").removeClass("last_clicked");
-                $("#table_results tbody tr" +
-                    ", #table_results tbody tr td").removeClass("marked");
-            }
-            if ($("#change_row_dialog").length > 0) {
-                $("#change_row_dialog").dialog("close").remove();
-            }
-        }); // end $.post()
-    });
-
 }); // end $()
 
 
