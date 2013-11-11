@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-11 13:16+0200\n"
+"PO-Revision-Date: 2013-11-11 13:49+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -4552,77 +4552,83 @@ msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Comprime exportationes de gzip/bzip2 immediatemente sin le necessitate de "
+"usar multe memoria, si tu incontra problemas con le files create gzip/bzip2, "
+"tu dishabilita iste characteristica"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Comprime immediatemente (al volo)"
 
 #: libraries/config/messages.inc.php:45 setup/frames/config.inc.php:24
 #: setup/frames/index.inc.php:209
 msgid "Configuration file"
-msgstr ""
+msgstr "File de configuration"
 
 #: libraries/config/messages.inc.php:46
 msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Si on deberea monstrar un message de aviso (&quot;Tu es vermente "
+"secur…&quot;) quando tu es eliminante datos"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Confirma queries de DROP"
 
 #: libraries/config/messages.inc.php:48
 msgid "Debug SQL"
-msgstr ""
+msgstr "Debug  SQL"
 
 #: libraries/config/messages.inc.php:49
 msgid "Default display direction"
-msgstr ""
+msgstr "Orientation de monstrator predefinite"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
 msgstr ""
+"Tabulation que on monstra quando on inserta un elemento de base de datos"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default database tab"
-msgstr ""
+msgstr "Tabulation predefinite pro base de datos"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Tabulation que on monstra quando on inserta un servitor"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default server tab"
-msgstr ""
+msgstr "Tabulation de servitor predefinite"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Tabulation que on monstra quando on inserta un tabella"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
-msgstr ""
+msgstr "Tabulation predefinite de tabella"
 
 #: libraries/config/messages.inc.php:56
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Si le actiones de structura de tabella deberea esser celate"
 
 #: libraries/config/messages.inc.php:57
 msgid "Hide table structure actions"
-msgstr ""
+msgstr "Cela actiones de  structura de tabella"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Monstra contentos binari de modo predefinite como HEX"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "Monstra le servitor in un lista in loco de un menu a rolar"
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Monstra servitores como un lista"
 
 #: libraries/config/messages.inc.php:62
 msgid ""
@@ -4636,48 +4642,50 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Modifica queries de SQL in un fenestra de popup"
 
 #: libraries/config/messages.inc.php:65
 msgid "Edit in window"
-msgstr ""
+msgstr "Modifica in fenestra"
 
 #: libraries/config/messages.inc.php:66
 msgid "Display errors"
-msgstr ""
+msgstr "Monstra errores"
 
 #: libraries/config/messages.inc.php:67
 msgid "Gather errors"
-msgstr ""
+msgstr "Accumula errores"
 
 #: libraries/config/messages.inc.php:68
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Fixa le numero de secundas pro le qual un script es permittite executar  "
+"([kbd]0[/kbd] pro nulle limite)"
 
 #: libraries/config/messages.inc.php:69
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Maxime tempore de execution"
 
 #: libraries/config/messages.inc.php:70 prefs_manage.php:305
 msgid "Save as file"
-msgstr ""
+msgstr "Salveguarda como file"
 
 #: libraries/config/messages.inc.php:71 libraries/config/messages.inc.php:244
 msgid "Character set of the file"
-msgstr ""
+msgstr "Insimul de characteres del file"
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
 #: libraries/structure.lib.php:1699
 #: libraries/tbl_gis_visualization.lib.php:312
 #: libraries/tbl_printview.lib.php:179
 msgid "Format"
-msgstr ""
+msgstr "Formato"
 
 #: libraries/config/messages.inc.php:73
 msgid "Compression"
-msgstr ""
+msgstr "Compression"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:81
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:93
@@ -4691,19 +4699,19 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:128
 #: libraries/plugins/export/ExportTexytext.class.php:85
 msgid "Put columns names in the first row"
-msgstr ""
+msgstr "Mitte nomines de columnas in le prime rango"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:246
 #: libraries/config/messages.inc.php:253
 #: libraries/plugins/import/ImportCsv.class.php:150
 msgid "Columns enclosed with"
-msgstr ""
+msgstr "Columnas includite per"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:254
 #: libraries/plugins/import/ImportCsv.class.php:157
 msgid "Columns escaped with"
-msgstr ""
+msgstr "Columnas prefixate per"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 #: libraries/config/messages.inc.php:90 libraries/config/messages.inc.php:99
@@ -4711,38 +4719,38 @@ msgstr ""
 #: libraries/config/messages.inc.php:143 libraries/config/messages.inc.php:146
 #: libraries/config/messages.inc.php:148
 msgid "Replace NULL with"
-msgstr ""
+msgstr "Reimplacia NULL con"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:84
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Remove characteres de CRLF intra columnas"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:250
 #: libraries/config/messages.inc.php:258
 #: libraries/plugins/import/ImportCsv.class.php:135
 msgid "Columns terminated with"
-msgstr ""
+msgstr "Columnas terminate per"
 
 #: libraries/config/messages.inc.php:80 libraries/config/messages.inc.php:245
 #: libraries/plugins/import/ImportCsv.class.php:164
 msgid "Lines terminated with"
-msgstr ""
+msgstr "Rangos terminate per"
 
 #: libraries/config/messages.inc.php:82
 msgid "Excel edition"
-msgstr ""
+msgstr "Edition de Excel"
 
 #: libraries/config/messages.inc.php:85
 msgid "Database name template"
-msgstr ""
+msgstr "Patrono de nomine de base de datos"
 
 #: libraries/config/messages.inc.php:86
 msgid "Server name template"
-msgstr ""
+msgstr "Patrono de nomine de servitor"
 
 #: libraries/config/messages.inc.php:87
 msgid "Table name template"
-msgstr ""
+msgstr "Patrono de nomine de tabella"
 
 #: libraries/config/messages.inc.php:91 libraries/config/messages.inc.php:104
 #: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:138
@@ -4753,135 +4761,135 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:77
 #: libraries/plugins/export/ExportTexytext.class.php:62
 msgid "Dump table"
-msgstr ""
+msgstr "Dump (discargamento) de tabella"
 
 #: libraries/config/messages.inc.php:92
 #: libraries/plugins/export/ExportLatex.class.php:89
 msgid "Include table caption"
-msgstr ""
+msgstr "Include subtitulo de tabella"
 
 #: libraries/config/messages.inc.php:95 libraries/config/messages.inc.php:101
 msgid "Table caption"
-msgstr ""
+msgstr "Subtitulo de tabella"
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:102
 msgid "Continued table caption"
-msgstr ""
+msgstr "Subtitulo continuate de tabella"
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:103
 msgid "Label key"
-msgstr ""
+msgstr "Clave de etiquetta"
 
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
 #: libraries/tbl_columns_definition_form.lib.php:327
 msgid "MIME type"
-msgstr ""
+msgstr "Typo MIME"
 
 #: libraries/config/messages.inc.php:100 libraries/config/messages.inc.php:112
 #: libraries/config/messages.inc.php:137 libraries/tbl_relation.lib.php:214
 msgid "Relations"
-msgstr ""
+msgstr "Relationes"
 
 #: libraries/config/messages.inc.php:105
 msgid "Export method"
-msgstr ""
+msgstr "Methodo de exportation"
 
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:116
 msgid "Save on server"
-msgstr ""
+msgstr "Salveguarda sur le servitor"
 
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:117
 #: libraries/display_export.lib.php:387 libraries/display_export.lib.php:422
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "Superscribe file(s) existente"
 
 #: libraries/config/messages.inc.php:118
 msgid "Remember file name template"
-msgstr ""
+msgstr "Memora patrono de nomine de file"
 
 #: libraries/config/messages.inc.php:119 libraries/operations.lib.php:195
 #: libraries/operations.lib.php:698 libraries/operations.lib.php:1039
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "Adde valor de AUTO_INCREMENT"
 
 #: libraries/config/messages.inc.php:120
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "Include nomines de tabellas e columnas con virgulettas"
 
 #: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:265
 #: libraries/display_export.lib.php:291
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "Modo de compatibilitate de SQL"
 
 #: libraries/config/messages.inc.php:122
 #: libraries/plugins/export/ExportSql.class.php:278
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "optiones de <code>CREATE TABLE</code>:"
 
 #: libraries/config/messages.inc.php:123
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "Creation/Actualisation/Controlo datos"
 
 #: libraries/config/messages.inc.php:124
 msgid "Use delayed inserts"
-msgstr ""
+msgstr "Usa insertiones retardate"
 
 #: libraries/config/messages.inc.php:125
 #: libraries/plugins/export/ExportSql.class.php:142
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "Dishabilita le verificationes sur le clave estranie"
 
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:155
 msgid "Export views as tables"
-msgstr ""
+msgstr "Exporta vistas como tabellas"
 
 #: libraries/config/messages.inc.php:127 libraries/config/messages.inc.php:128
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:136
 #: libraries/operations.lib.php:190 libraries/operations.lib.php:1035
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Adde %s"
 
 #: libraries/config/messages.inc.php:129
 msgid "Use hexadecimal for BLOB"
-msgstr ""
+msgstr "Usa hexadecimal pro BLOB"
 
 #: libraries/config/messages.inc.php:131
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "Usa ignore inserts (ignora insertiones)"
 
 #: libraries/config/messages.inc.php:133
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Syntaxe de usar quando on inserta datos"
 
 #: libraries/config/messages.inc.php:134
 #: libraries/plugins/export/ExportSql.class.php:398
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "Longitude maxime de un query create"
 
 #: libraries/config/messages.inc.php:139
 msgid "Export type"
-msgstr ""
+msgstr "Typo de exportation"
 
 #: libraries/config/messages.inc.php:140
 #: libraries/plugins/export/ExportSql.class.php:129
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "Include exportation in un transaction"
 
 #: libraries/config/messages.inc.php:141
 msgid "Export time in UTC"
-msgstr ""
+msgstr "Exporta tempore in UTC"
 
 #: libraries/config/messages.inc.php:149
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Fortia connexion secur quando on usa phpMyAdmin"
 
 #: libraries/config/messages.inc.php:150
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Fortia connexion SSL"
 
 #: libraries/config/messages.inc.php:151
 msgid ""
