@@ -333,15 +333,15 @@ function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_quer
 /**
  * Function to get html for tracking report and tracking report export
  *
- * @param string $url_query        url query
- * @param array  $data             data
- * @param array  $url_params       url params
- * @param array  $selection_schema selection schema
- * @param array  $selection_data   selection data
- * @param bool   $selection_both   selection both
- * @param int    $filter_ts_to     filter time stamp from
- * @param int    $filter_ts_from   filter time stamp tp
- * @param array  $filter_users     filter users
+ * @param string  $url_query        url query
+ * @param array   $data             data
+ * @param array   $url_params       url params
+ * @param boolean $selection_schema selection schema
+ * @param boolean $selection_data   selection data
+ * @param boolean $selection_both   selection both
+ * @param int     $filter_ts_to     filter time stamp from
+ * @param int     $filter_ts_from   filter time stamp tp
+ * @param array   $filter_users     filter users
  *
  * @return string
  */

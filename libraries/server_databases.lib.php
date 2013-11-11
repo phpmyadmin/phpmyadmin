@@ -202,7 +202,7 @@ function PMA_getHtmlForTableFooter(
 /**
  * Returns the html for Database List and Column order
  *
- * @param bool   $databases         GBI return databases
+ * @param array  $databases         GBI return databases
  * @param bool   $is_superuser      User status
  * @param Array  $url_query         Url query
  * @param string $column_order      column order
@@ -247,8 +247,8 @@ function PMA_getHtmlAndColumnOrderForDatabaseList(
 /**
  * Returns the html for Column Order
  *
- * @param bool $column_order   Column order
- * @param bool $first_database The first display database
+ * @param array $column_order   Column order
+ * @param array $first_database The first display database
  *
  * @return string
  */
@@ -293,8 +293,8 @@ function PMA_getHtmlForColumnOrder($column_order, $first_database)
  * @param Array  $_url_params              Url params
  * @param string $sort_by                  sort colume name
  * @param string $sort_order               order
- * @param string $column_order             column order
- * @param string $first_database           database to show
+ * @param array  $column_order             column order
+ * @param array  $first_database           database to show
  *
  * @return string
  */

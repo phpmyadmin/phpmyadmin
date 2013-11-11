@@ -2010,7 +2010,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 /**
  * Get HTML snippet for table body of specific database or table privileges
  *
- * @param boolean $privMap priviledge map
+ * @param array   $privMap priviledge map
  * @param boolean $db      database
  * @param boolean $table   table
  *
@@ -3838,7 +3838,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
  * Get HTML snippet for display user properties
  *
  * @param boolean $dbname_is_wildcard whether database name is wildcard or not
- * @param type    $url_dbname         url database name that urlencode() string
+ * @param string  $url_dbname         url database name that urlencode() string
  * @param string  $username           username
  * @param string  $hostname           host name
  * @param string  $dbname             database name
