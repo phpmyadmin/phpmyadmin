@@ -2914,7 +2914,7 @@ class PMA_Util
      * function because in PHP, decbin() supports only 32 bits
      * on 32-bit servers
      *
-     * @param numeric $value  coming from a BIT field
+     * @param number  $value  coming from a BIT field
      * @param integer $length length
      *
      * @return string  the printable value
@@ -3917,7 +3917,7 @@ class PMA_Util
      *
      * @param string $limit_clause limit clause
      *
-     * @return array Start and length attributes of the limit clause
+     * @return array|void Start and length attributes of the limit clause
      */
     public static function analyzeLimitClause($limit_clause)
     {

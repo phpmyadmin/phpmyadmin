@@ -119,11 +119,11 @@ function PMA_getAjaxReturnForSetVal($variable_doc_links)
 /**
  * Format Variable
  *
- * @param string  $name               variable name
- * @param numeric $value              variable value
- * @param Array   $variable_doc_links documentation links
+ * @param string $name               variable name
+ * @param number $value              variable value
+ * @param array  $variable_doc_links documentation links
  *
- * @return formatted string
+ * @return string formatted string
  */
 function PMA_formatVariable($name, $value, $variable_doc_links)
 {

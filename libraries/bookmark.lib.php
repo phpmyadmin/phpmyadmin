@@ -49,7 +49,7 @@ function PMA_Bookmark_getParams()
  *
  * @access public
  *
- * @global resource the controluser db connection handle
+ * @global resource $controllink the controluser db connection handle
  */
 function PMA_Bookmark_getList($db)
 {
@@ -105,7 +105,7 @@ function PMA_Bookmark_getList($db)
  *
  * @access  public
  *
- * @global  resource  the controluser db connection handle
+ * @global  resource $controllink the controluser db connection handle
  *
  */
 function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = false,
@@ -148,7 +148,7 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
  *
  * @access  public
  *
- * @global  resource  the controluser db connection handle
+ * @global  resource $controllink the controluser db connection handle
  */
 function PMA_Bookmark_save($bkm_fields, $all_users = false)
 {
@@ -186,7 +186,7 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
  *
  * @access  public
  *
- * @global  resource  the controluser db connection handle
+ * @global  resource $controllink the controluser db connection handle
  */
 function PMA_Bookmark_delete($db, $id)
 {

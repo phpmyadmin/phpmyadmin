@@ -160,6 +160,13 @@ class PMA_ExportPdf extends PMA_PDF
         $this->SetAutoPageBreak(true);
     }
 
+    /**
+     * Generate table
+     *
+     * @param int $lineheight Height of line
+     *
+     * @return void
+     */
     function morepagestable($lineheight = 8)
     {
         // some things to set and 'remember'
@@ -265,6 +272,13 @@ class PMA_ExportPdf extends PMA_PDF
         $this->tMargin = $topMargin;
     }
 
+    /**
+     * MySQL report
+     *
+     * @param string $query Query to execute
+     *
+     * @return void
+     */
     function mysqlReport($query)
     {
         unset($this->tablewidths);

@@ -215,7 +215,7 @@ function PMA_Replication_Slave_control($action, $control = null, $link = null)
  * @param bool   $start    shall we start slave?
  * @param mixed  $link     mysql link
  *
- * @return output of CHANGE MASTER mysql command
+ * @return string output of CHANGE MASTER mysql command
  */
 function PMA_Replication_Slave_changeMaster($user, $password, $host, $port,
     $pos, $stop = true, $start = true, $link = null

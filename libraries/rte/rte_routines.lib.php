@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Sets required globals
  *
- * @return nothing
+ * @return void
  */
 function PMA_RTN_setGlobals()
 {
@@ -37,7 +37,7 @@ function PMA_RTN_setGlobals()
  *                     'PROCEDURE' for procedures,
  *                     null for both
  *
- * @return nothing
+ * @return void
  */
 function PMA_RTN_main($type)
 {
@@ -266,7 +266,7 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
 /**
  * Handles editor requests for adding or editing an item
  *
- * @return Does not return
+ * @return void
  */
 function PMA_RTN_handleEditor()
 {
@@ -1302,7 +1302,7 @@ function PMA_RTN_getQueryFromRequest()
 /**
  * Handles requests for executing a routine
  *
- * @return Does not return
+ * @return void
  */
 function PMA_RTN_handleExecute()
 {

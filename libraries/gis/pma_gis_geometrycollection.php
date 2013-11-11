@@ -32,7 +32,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
     /**
      * Returns the singleton.
      *
-     * @return the singleton
+     * @return PMA_GIS_Geometrycollection the singleton
      * @access public
      */
     public static function singleton()

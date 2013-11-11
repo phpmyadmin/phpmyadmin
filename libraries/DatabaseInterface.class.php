@@ -41,7 +41,7 @@ class PMA_DatabaseInterface
     /**
      * Constructor
      *
-     * @param object $ext PMA_DBI_Extension object to be used for database queries
+     * @param PMA_DBI_Extension $ext Object to be used for database queries
      */
     public function __construct(PMA_DBI_Extension $ext)
     {

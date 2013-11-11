@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @param string $str option name
  *
- * @return void
+ * @return string|void
  */
 function PMA_exportCheckboxCheck($str)
 {

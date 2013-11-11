@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-05 14:00+0200\n"
+"PO-Revision-Date: 2013-11-11 13:16+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8-dev\n"
+"X-Generator: Weblate 1.8\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -4093,6 +4093,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
+"La directive [code]$cfg['PmaAbsoluteUri'][/code] DEBE esser fixate in le  "
+"file de configuration!"
 
 #: libraries/common.inc.php:630
 #, php-format
@@ -4312,6 +4314,7 @@ msgstr ""
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
+"Le exportation comprimite non functionara debite al function mancante %s."
 
 #: libraries/config/FormDisplay.class.php:807
 msgid "SQL Validator is disabled"
@@ -4383,7 +4386,7 @@ msgstr ""
 
 #: libraries/config/Validator.class.php:310
 msgid "Empty signon URL while using signon authentication method"
-msgstr ""
+msgstr "Vacua URL de signon quando on usa methodo de authentication de signon"
 
 #: libraries/config/Validator.class.php:358
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -4408,6 +4411,8 @@ msgstr "Adresse de IP incorrecte: %s"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
+"Si habilitate, le usator potera insertar ulle servitor MySQL in le forma de "
+"accesso per authorisation de cookie"
 
 #: libraries/config/messages.inc.php:18
 msgid "Allow login to any MySQL server"
@@ -4419,10 +4424,13 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"So on habilita iste option, un paginna locate sur un differente dominio pro "
+"appellar phpMyAdmin intra un quadro, e il es un potential [strong]error de "
+"securitate[/strong] permittente attaccos de cross-frame scripting"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Il permitte le inquadrar ab tertie partes"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -4461,6 +4469,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Il habilita le compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
+"per operationes de importation e exportation"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4472,6 +4482,10 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Il defini qual typo de quadrato de modifica on usara pro insertar campos "
+"CHAR e VARCHAR; [kbd]input[/kbd] - permitte limitar le longitude del "
+"ingresso, [kbd]textarea[/kbd] - permitte insertar characteres de nove linea "
+"in columnas"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4515,23 +4529,23 @@ msgstr "Maxime grandor del campo de insertar"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Numero de columnas pro areas de texto de campos CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:39
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "Columnas de area de texto CHAR"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Numero de rangos pro areas de texto de CHAR/VARCHAR"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "Rangos de area de texto de CHAR"
 
 #: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Verifica permissiones de file de configuration"
 
 #: libraries/config/messages.inc.php:43
 msgid ""
@@ -7594,10 +7608,9 @@ msgid "phpMyAdmin documentation"
 msgstr ""
 
 #: libraries/navigation/NavigationHeader.class.php:250
-#, fuzzy
 #| msgid "Table navigation bar"
 msgid "Reload navigation panel"
-msgstr "Barra de navigation de tabella"
+msgstr "Recarga pannello de navigation"
 
 #: libraries/navigation/NavigationTree.class.php:717
 #, php-format

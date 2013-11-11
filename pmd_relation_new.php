@@ -104,6 +104,12 @@ if (PMA_Util::isForeignKeySupported($type_T1)
     }
 }
 
+/**
+ * Send xml
+ *
+ * @param string $b   Value of attribute "b"
+ * @param string $ret Value of attribute "return"
+ */
 function PMD_return_new($b,$ret)
 {
     global $db,$T1,$F1,$T2,$F2;

@@ -38,7 +38,6 @@ class PMA_PDF extends TCPDF
      *                             temporary data on filesystem (slower).
      * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
      *
-     * @return void
      * @access public
      */
     public function __construct($orientation = 'P', $unit = 'mm', $format = 'A4',

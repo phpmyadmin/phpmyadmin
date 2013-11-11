@@ -409,7 +409,7 @@ function PMA_getGrantsArray()
  * @param string $name_for_dfn     name for dfn
  * @param string $name_for_current name for current
  *
- * @return $html_output             html snippet
+ * @return string $html_output html snippet
  */
 function PMA_getHtmlForDisplayColumnPrivileges($columns, $row, $name_for_select,
     $priv_for_header, $name, $name_for_dfn, $name_for_current
@@ -2160,7 +2160,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
  * @param string $dbname    Database name
  * @param string $tablename Table name
  *
- * @return HTML code with link
+ * @return string HTML code with link
  */
 function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = '')
 {
@@ -2187,7 +2187,7 @@ function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = ''
  * @param string $dbname    Database name
  * @param string $tablename Table name
  *
- * @return HTML code with link
+ * @return string HTML code with link
  */
 function PMA_getUserRevokeLink($username, $hostname, $dbname = '', $tablename = '')
 {
@@ -2234,9 +2234,9 @@ function PMA_getUserExportLink($username, $hostname, $initial = '')
 
 /**
  * Returns user group edit link
- * 
+ *
  * @param string $username User name
- * 
+ *
  * @return HTML code with link
  */
 function PMA_getUserGroupEditLink($username)
@@ -2308,7 +2308,7 @@ function PMA_getExtraDataForAjaxBehavior(
         $new_user_string .= '<td>'
             . '<code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code>'
             . '</td>'; //Fill in privileges here
-        
+
         // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
         // enabled
         $cfgRelation = PMA_getRelationsParam();
@@ -2329,13 +2329,13 @@ function PMA_getExtraDataForAjaxBehavior(
         $new_user_string .= '<td>'
             . PMA_getUserEditLink($username, $hostname)
             . '</td>' . "\n";
-        
+
         if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
             $new_user_string .= '<td>'
                 . PMA_getUserGroupEditLink($username)
                 . '</td>' . "\n";
         }
-        
+
         $new_user_string .= '<td>'
             . PMA_getUserExportLink(
                 $username,
