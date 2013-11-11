@@ -278,10 +278,10 @@ class PMA_DisplayResults
      *                                     the SQL query without any appended
      *                                     "LIMIT" clause programmatically
      * @param array   $fields_meta    meta information about fields
-     * @param boolean $is_count
-     * @param integer $is_export
-     * @param boolean $is_func
-     * @param integer $is_analyse
+     * @param boolean $is_count       statement is SELECT COUNT
+     * @param integer $is_export      statement contains INTO OUTFILE
+     * @param boolean $is_func        statement contains a function like SUM()
+     * @param integer $is_analyse     statement contains PROCEDURE ANALYSE
      * @param integer $num_rows       total no. of rows returned by SQL query
      * @param integer $fields_cnt     total no.of fields returned by SQL query
      * @param double  $querytime      time taken for execute the SQL query
