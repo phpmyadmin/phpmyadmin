@@ -12,12 +12,12 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Generates text with hidden inputs.
  *
- * @param string $db     optional database name
- *                       (can also be an array of parameters)
- * @param string $table  optional table name
- * @param int    $indent indenting level
- * @param string $skip   do not generate a hidden field for this parameter
- *                       (can be an array of strings)
+ * @param string       $db     optional database name
+ *                             (can also be an array of parameters)
+ * @param string       $table  optional table name
+ * @param int          $indent indenting level
+ * @param string|array $skip   do not generate a hidden field for this parameter
+ *                             (can be an array of strings)
  *
  * @see PMA_URL_getCommon()
  *

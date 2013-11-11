@@ -64,7 +64,7 @@ if (! isset($mysql_charsets)) {
  * @param int    &$arrsize Size of array
  * @param int    $pos      Position of an element
  *
- * @return nothing
+ * @return void
  */
 function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
 {
@@ -77,7 +77,7 @@ function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
  *
  * @access public
  *
- * @return nothing
+ * @return void
  */
 function PMA_SQP_resetError()
 {
@@ -118,7 +118,7 @@ function PMA_SQP_isError()
  * @param string $message The error message
  * @param string $sql     The failing SQL query
  *
- * @return nothing
+ * @return void
  *
  * @access private
  * @scope SQL Parser internal
@@ -147,7 +147,7 @@ function PMA_SQP_throwError($message, $sql)
  * @param string $message The error message
  * @param string $sql     The failing SQL query
  *
- * @return nothing
+ * @return void
  *
  * @access public
  */

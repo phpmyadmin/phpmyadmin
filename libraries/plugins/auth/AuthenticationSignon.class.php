@@ -53,17 +53,17 @@ class AuthenticationSignon extends AuthenticationPlugin
      /**
      * Gets advanced authentication settings
      *
-     * @global  string    the username if register_globals is on
-     * @global  string    the password if register_globals is on
-     * @global  array     the array of server variables if register_globals is
-     *                    off
-     * @global  array     the array of environment variables if register_globals
-     *                    is off
-     * @global  string    the username for the ? server
-     * @global  string    the password for the ? server
-     * @global  string    the username for the WebSite Professional server
-     * @global  string    the password for the WebSite Professional server
-     * @global  string    the username of the user who logs out
+     * @global  string $PHP_AUTH_USER the username if register_globals is on
+     * @global  string $PHP_AUTH_PW   the password if register_globals is on
+     * @global  array                 the array of server variables if
+     *                                register_globals is off
+     * @global  array                 the array of environment variables if
+     *                                register_globals is off
+     * @global  string                the username for the ? server
+     * @global  string                the password for the ? server
+     * @global  string                the username for the WebSite Professional server
+     * @global  string                the password for the WebSite Professional server
+     * @global  string                the username of the user who logs out
      *
      * @return boolean   whether we get authentication settings or not
      */
@@ -215,11 +215,11 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Set the user and password after last checkings if required
      *
-     * @global  array     the valid servers settings
-     * @global  integer   the id of the current server
-     * @global  array     the current server settings
-     * @global  string    the current username
-     * @global  string    the current password
+     * @global  array   $cfg           the valid servers settings
+     * @global  integer                the id of the current server
+     * @global  array                  the current server settings
+     * @global  string  $PHP_AUTH_USER the current username
+     * @global  string  $PHP_AUTH_PW   the current password
      *
      * @return boolean   always true
      */

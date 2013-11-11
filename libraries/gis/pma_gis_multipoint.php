@@ -281,8 +281,8 @@ class PMA_GIS_Multipoint extends PMA_GIS_Geometry
     /**
      * Generate parameters for the GIS data editor from the value of the GIS column.
      *
-     * @param string $value of the GIS column
-     * @param index  $index of the geometry
+     * @param string  $value Value of the GIS column
+     * @param integer $index Index of the geometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
      * @access public

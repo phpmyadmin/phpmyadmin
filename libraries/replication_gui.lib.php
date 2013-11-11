@@ -472,7 +472,7 @@ function PMA_getHtmlForAddUserInputDiv($label_array, $input_array)
  * @param string  $type   either master or slave
  * @param boolean $hidden if true, then default style is set to hidden,
  *                        default value false
- * @param boolen  $title  if true, then title is displayed, default true
+ * @param boolean $title  if true, then title is displayed, default true
  *
  * @return String HTML code
  */
@@ -581,7 +581,7 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
  * @param boolean $hidden - if true, then default style is set to hidden,
  *                        - default value false
  *
- * @return void
+ * @return string
  */
 function PMA_getHtmlForReplicationSlavesTable($hidden = false)
 {

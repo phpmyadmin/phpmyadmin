@@ -201,7 +201,7 @@ function PMA_securePath($path)
  * @param string|array $message_args   arguments applied to $error_message
  * @param boolean      $delete_session whether to delete session cookie
  *
- * @return exit
+ * @return void
  */
 function PMA_fatalError(
     $error_message, $message_args = null, $delete_session = true

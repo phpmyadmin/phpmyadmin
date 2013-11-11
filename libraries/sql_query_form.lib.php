@@ -388,7 +388,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
 /**
  * return HTML for sql Query Form Bookmark
  *
- * @return string
+ * @return string|void
  *
  * @usedby  PMA_getHtmlForSqlQueryForm()
  */

@@ -120,7 +120,7 @@ class PluginManager implements SplSubject
      * If a plugin changes its status, this has to be remembered in order to
      * notify the rest of the plugins that they should update
      *
-     * @param mixed $_status contains information about the current plugin state
+     * @param string $_status contains information about the current plugin state
      *
      * @return void
      */

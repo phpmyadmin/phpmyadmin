@@ -68,7 +68,7 @@ function PMA_getFileSelectOptions($dir, $extensions = '', $active = '')
 /**
  * Get currently supported decompressions.
  *
- * @return string | separated list of extensions usable in PMA_getDirContent
+ * @return string separated list of extensions usable in PMA_getDirContent
  */
 function PMA_supportedDecompressions()
 {

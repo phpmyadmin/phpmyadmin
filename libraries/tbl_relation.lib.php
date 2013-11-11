@@ -125,10 +125,10 @@ function PMA_getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
 /**
  * Creates and populates dropdowns to select foreign db/table/column
  *
- * @param string $name    name of the dropdowns
- * @param array  $values  dropdown values
- * @param string $foreign value of the item to be selected
- * @param string $title   title to show on hovering the dropdown
+ * @param string         $name    name of the dropdowns
+ * @param array          $values  dropdown values
+ * @param string|boolean $foreign value of the item to be selected
+ * @param string         $title   title to show on hovering the dropdown
  *
  * @return string HTML for the dropdown
  */
