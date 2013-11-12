@@ -1051,6 +1051,7 @@ class PMA_NavigationTree
                 || $node->real_name == 'procedures'
                 || $node->real_name == 'events')
             )
+            && method_exists($node->realParent(),'getPresence')
             && $node->realParent()->getPresence($node->real_name) >= (int)$GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum']
         ) {
             $paths = $node->getPaths();
