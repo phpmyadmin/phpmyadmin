@@ -1951,7 +1951,7 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
  * Executes the sql query and get the result, then move back to the calling page
  *
  * @param array  $url_params url paramters array
- * @param string $query      built query from PMA_buildSqlQuery()
+ * @param array  $query      built query from PMA_buildSqlQuery()
  *
  * @return array             $url_params, $total_affected_rows, $last_messages
  *                           $warning_messages, $error_messages, $return_to_sql_query

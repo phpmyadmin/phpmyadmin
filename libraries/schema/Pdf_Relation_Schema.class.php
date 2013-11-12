@@ -1179,7 +1179,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Generates data dictionary pages.
      *
-     * @param bool $alltables Tables to document.
+     * @param array $alltables Tables to document.
      *
      * @return void
      */

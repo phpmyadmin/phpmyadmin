@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
  * @param string $db                 database name
  * @param string $table              table name
  * @param array  $selected           selected rows(table,db)
- * @param string $views              table views
+ * @param array  $views              table views
  * @param string $original_sql_query original sql query
  * @param string $original_url_query original url query
  *
