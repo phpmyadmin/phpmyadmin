@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 4.0.10.0 (not yet released)
 - bug #4150 Clicking database name in query window opens a new tab
 - bug #4141 (part 1) Wrong page is shown after editing
+- bug #3939 PHP NavigationTree error when paging through list
 
 4.0.9.0 (2013-11-04)
 - bug #4104 Can't edit updatable view when searching
