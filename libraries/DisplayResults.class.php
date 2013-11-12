@@ -159,7 +159,7 @@ class PMA_DisplayResults
     /**
      * This variable contains the column transformation information
      * for some of the system databases.
-     * One element of this array represent all relavant columns in all tables in
+     * One element of this array represent all relevant columns in all tables in
      * one specific database
      */
     public $transformation_info;
@@ -170,7 +170,7 @@ class PMA_DisplayResults
      *
      * @param string $property name of the property
      *
-     * @return mixed|void if property exist, value of the relavant property
+     * @return mixed|void if property exist, value of the relevant property
      */
     public function __get($property)
     {
@@ -2402,7 +2402,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Adds the relavant classes.
+     * Adds the relevant classes.
      *
      * @param string $class                 class of table cell
      * @param bool   $condition_field       whether to add CSS class condition

@@ -1170,7 +1170,7 @@ function PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
  * Get the HTML snippet for structure table table header
  *
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param boolean $tbl_is_view              whether table is view or nt
+ * @param boolean $tbl_is_view              whether table is view or not
  *
  * @return string $html_output
  */
