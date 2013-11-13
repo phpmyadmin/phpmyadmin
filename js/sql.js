@@ -78,7 +78,6 @@ AJAX.registerTeardown('sql.js', function() {
     $("#pageselector").die('change');
     $("#table_results.ajax").find("a[title=Sort]").die('click');
     $("#displayOptionsForm.ajax").die('submit');
-    $("#resultsForm.ajax .mult_submit[value=edit]").die('click');
     $('a.browse_foreign').die('click');
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
@@ -363,74 +362,6 @@ AJAX.registerOnload('sql.js', function() {
             PMA_init_slider();
         }); // end $.post()
     }); //end displayOptionsForm handler
-
-/**
- * Ajax Event for table row change
- * */
-    $("#resultsForm.ajax .mult_submit[value=edit]").live('click', function(event){
-        event.preventDefault();
-
-        /*Check whether atleast one row is selected for change*/
-        if ($("#table_results tbody tr, #table_results tbody tr td").hasClass("marked")) {
-            var $div = $('<div id="change_row_dialog"></div>');
-
-            /**
-             * @var    button_options  Object that stores the options passed to jQueryUI
-             *                          dialog
-             */
-            var button_options = {};
-            // in the following function we need to use $(this)
-            button_options[PMA_messages['strCancel']] = function() {
-                $(this).dialog('close');
-            };
-
-            var button_options_error = {};
-            button_options_error[PMA_messages['strOK']] = function() {
-                $(this).dialog('close');
-            };
-            var $form = $("#resultsForm");
-            var $msgbox = PMA_ajaxShowMessage();
-
-            $.get($form.attr('action'), $form.serialize()+"&ajax_request=true&submit_mult=row_edit", function(data) {
-                //in the case of an error, show the error message returned.
-                if (data.success != undefined && data.success == false) {
-                    $div
-                    .append(data.error)
-                    .dialog({
-                        title: PMA_messages['strChangeTbl'],
-                        height: 230,
-                        width: 900,
-                        open: PMA_verifyColumnsProperties,
-                        close: function(event, ui) {
-                            $(this).remove();
-                        },
-                        buttons : button_options_error
-                    }); // end dialog options
-                } else {
-                    $div
-                    .append(data.message)
-                    .dialog({
-                        title: PMA_messages['strChangeTbl'],
-                        height: 600,
-                        width: 900,
-                        open: PMA_verifyColumnsProperties,
-                        close: function(event, ui) {
-                            $(this).remove();
-                        },
-                        buttons : button_options
-                    })
-                    //Remove the top menu container from the dialog
-                    .find("#topmenucontainer").hide()
-                    ; // end dialog options
-                    $("table.insertRowTable").addClass("ajax");
-                    $("#buttonYes").addClass("ajax");
-                }
-                PMA_ajaxRemoveMessage($msgbox);
-            }); // end $.get()
-        } else {
-            PMA_ajaxShowMessage(PMA_messages['strNoRowSelected']);
-        }
-    });
 }); // end $()
 
 
