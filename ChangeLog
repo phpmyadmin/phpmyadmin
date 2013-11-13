@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4141 Wrong page is shown after editing; also, do not show a modal
             dialog for multi-row edit
 - bug #3939 PHP NavigationTree error when paging through list
+- bug #4075 Support A10 Networks load balancer
 
 4.0.9.0 (2013-11-04)
 - bug #4104 Can't edit updatable view when searching
