@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-08-23 09:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/4-0/mn/"
-">\n"
+"PO-Revision-Date: 2013-11-14 10:57+0200\n"
+"Last-Translator: yondonjamts rentsendorj <yontkoo@yahoo.com>\n"
+"Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/4-0/mn/>\n"
 "Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -107,11 +106,13 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s файл энэ систем дээр алга байна, www.phpmyadmin.net рүү орж илүү "
+"дэлгэрэнгүй мэдээлэл авна уу."
 
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s өгөгдлийн сан үүслээ."
 
 #: db_datadict.php:51 libraries/operations.lib.php:36
 msgid "Database comment: "
@@ -140,10 +141,9 @@ msgstr "Хүснэгтийн тайлбар"
 #: libraries/tbl_columns_definition_form.inc.php:353 tbl_indexes.php:263
 #: tbl_printview.php:130 tbl_relation.php:378 tbl_tracking.php:323
 #: tbl_tracking.php:385
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Баганын нэрс"
+msgstr "Багана"
 
 #: db_datadict.php:167 db_printview.php:101 libraries/Index.class.php:562
 #: libraries/TableSearch.class.php:184 libraries/insert_edit.lib.php:241
@@ -293,19 +293,19 @@ msgid "The database name is empty!"
 msgstr "Өгөгдлийн сангийн нэр хоосон!"
 
 #: db_operations.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "ӨС %s-н нэр нь %s-ээр солигджээ"
+msgstr "%1$s өгөгдлийн сангийн нэр %2$s боллоо"
 
 #: db_operations.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "ӨС %s нь %s руу хуулагдлаа"
+msgstr "%1$s өгөгдлийн сан %2$s руу хуулагдлаа"
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -313,8 +313,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд%s "
-"дарж шалгах."
+"phpMyAdmin-ы тохиргооны санах ой идэвхигүйжсэн байна. %sЭнд%s дарж учрыг "
+"мэднэ үү."
 
 #: db_printview.php:99 db_tracking.php:79 db_tracking.php:204
 #: libraries/Menu.class.php:207 libraries/config/messages.inc.php:511
@@ -370,22 +370,22 @@ msgid "Last check"
 msgstr "Сүүлийн шалгалт"
 
 #: db_printview.php:220 libraries/structure.lib.php:176
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s хүснэгт(үүд)"
-msgstr[1] "%s хүснэгт(үүд)"
+msgstr[0] "%s хүснэгт"
+msgstr[1] "%s хүснэгтүүд"
 
 #: db_qbe.php:40
 msgid "You have to choose at least one column to display"
 msgstr "Харуулахын тулд ядаж нэг багана сонго"
 
 #: db_qbe.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Хуулагдсан хүснэгт рүү шилжих"
+msgstr "%sХүсэлтийн визуаль үүсгэгч%s рүү шилжих"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -396,14 +396,13 @@ msgid "Access denied"
 msgstr "Хандах эрхгүй"
 
 #: db_structure.php:86
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "ӨС-д хүснэгт олдсонгүй."
+msgstr "Өгөгдлийн санд хүснэгт олдсонгүй"
 
 #: db_tracking.php:73
 msgid "Tracked tables"
-msgstr ""
+msgstr "Хөөсөн хүснэгтүүд"
 
 #: db_tracking.php:78 libraries/Menu.class.php:180
 #: libraries/config/messages.inc.php:505
@@ -423,15 +422,15 @@ msgstr "ӨС"
 
 #: db_tracking.php:80
 msgid "Last version"
-msgstr ""
+msgstr "Сүүлийн хувилбар"
 
 #: db_tracking.php:81 tbl_tracking.php:777
 msgid "Created"
-msgstr ""
+msgstr "Үүссэн"
 
 #: db_tracking.php:82 tbl_tracking.php:778
 msgid "Updated"
-msgstr ""
+msgstr "Шинэчлэгдсэн"
 
 #: db_tracking.php:83 js/messages.php:173 libraries/Menu.class.php:475
 #: libraries/rte/rte_events.lib.php:426 libraries/rte/rte_list.lib.php:78
@@ -456,7 +455,7 @@ msgstr "Харах"
 
 #: db_tracking.php:101 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Энэ хүснэгтийн хөөлтийн өгөгдлийг устгах"
 
 #: db_tracking.php:109 libraries/Index.class.php:625
 #: libraries/Util.class.php:3489 libraries/Util.class.php:3490
@@ -468,50 +467,48 @@ msgstr "Устгах"
 
 #: db_tracking.php:126 tbl_tracking.php:735 tbl_tracking.php:789
 msgid "active"
-msgstr ""
+msgstr "идэвхитэй"
 
 #: db_tracking.php:128 tbl_tracking.php:737 tbl_tracking.php:791
 msgid "not active"
-msgstr ""
+msgstr "идэвхигүй"
 
 #: db_tracking.php:144
 msgid "Versions"
-msgstr ""
+msgstr "Хувилбарууд"
 
 #: db_tracking.php:145 tbl_tracking.php:488 tbl_tracking.php:811
 msgid "Tracking report"
-msgstr ""
+msgstr "Хөөлтын илтгэл"
 
 #: db_tracking.php:146 tbl_tracking.php:292 tbl_tracking.php:816
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Бүтцийн тойм"
 
 #: db_tracking.php:199
 msgid "Untracked tables"
-msgstr ""
+msgstr "Хөөгөөгүй хүснэгтүүд"
 
 #: db_tracking.php:218 libraries/structure.lib.php:1521
 msgid "Track table"
-msgstr ""
+msgstr "Хүснэгтийг хөөх"
 
 #: db_tracking.php:246
 msgid "Database Log"
-msgstr ""
+msgstr "Өгөгдлийн сангийн бүртгэл"
 
 #: export.php:160
-#, fuzzy
 msgid "Bad type!"
-msgstr "Асуултын төрөл"
+msgstr "Буруу төрөл!"
 
 #: export.php:211
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Сонгосон экспортын төрөл файлд хадгалагдах шаардлагатай!"
 
 #: export.php:240
-#, fuzzy
 #| msgid "Add new field"
 msgid "Bad parameters!"
-msgstr "Шинэ талбар нэмэх"
+msgstr "Буруу параметрүүд!"
 
 #: export.php:339 export.php:370 export.php:932
 #, php-format
@@ -536,105 +533,102 @@ msgid "Dump has been saved to file %s."
 msgstr "Асгалт %s файлд хадгалагдсан."
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export"
 msgid "Invalid export type"
-msgstr "Гаргах"
+msgstr "Буруу экспортын төрөл"
 
 #: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" баганын утга"
 
 #: gis_data_editor.php:140 tbl_gis_visualization.php:163
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "OpenStreetMaps-г суурь давхрагаар хэрэглэх"
 
 #: gis_data_editor.php:161
+#, fuzzy
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:184 js/messages.php:316
 #: libraries/DisplayResults.class.php:1688
 msgid "Geometry"
-msgstr ""
+msgstr "Геометр"
 
 #: gis_data_editor.php:206 js/messages.php:312
 msgid "Point"
-msgstr ""
+msgstr "Цэг"
 
 #: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
 #: gis_data_editor.php:362 js/messages.php:310
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
 #: gis_data_editor.php:366 js/messages.php:311
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:313
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "%d цэг"
 
 #: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add a point"
-msgstr "Шинэ талбар нэмэх"
+msgstr "Цэг нэмэх"
 
 #: gis_data_editor.php:262 js/messages.php:314
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Шугамыг төгсгөгч"
+msgstr "Шугам"
 
 #: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:318
 msgid "Outer Ring"
-msgstr ""
+msgstr "Гадаад тойрог"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:317
 msgid "Inner Ring"
-msgstr ""
+msgstr "Дотоод тойрог"
 
 #: gis_data_editor.php:303
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "Тогтмол нэмэх"
+msgstr "Шугам нэмэх"
 
 #: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:320
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Дотоод тойрог нэмэх"
 
 #: gis_data_editor.php:325 js/messages.php:315
 msgid "Polygon"
-msgstr ""
+msgstr "Олон өнцөгт"
 
 #: gis_data_editor.php:384 js/messages.php:321
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "%s талбар(ууд) нэмэх"
+msgstr "Олон өнцөгт нэмэх"
 
 #: gis_data_editor.php:390
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add geometry"
-msgstr "Шинэ хэрэглэгч нэмэх"
+msgstr "Геометр нэмэх"
 
 #: gis_data_editor.php:399
 msgid "Output"
-msgstr ""
+msgstr "Гаралт"
 
 #: gis_data_editor.php:402
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"\"Функц\" баганаас \"GeomFromText\"-г сонгоод доорх стрингийг \"Утга\" талбарт "
+"хуулж тавина уу"
 
 #: import.php:107
 #, php-format
@@ -642,19 +636,21 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Хэтэрхий том хэмжээтэй файл ачаалахыг оролдсон бололтой. Үүнийг хэрхэн "
+"шийдэхийг %sбаримтжуулалт%s-с уншина уу."
 
 #: import.php:268 import.php:534
 msgid "Showing bookmark"
-msgstr "Тэмдэглэл харуулах"
+msgstr "Хавчуургыг харуулж байна"
 
 #: import.php:283 import.php:530
 msgid "The bookmark has been deleted."
-msgstr "Тэмдэглэгээ устгагдсан."
+msgstr "Хавчуурга устлаа."
 
 #: import.php:378 import.php:439 libraries/File.class.php:432
 #: libraries/File.class.php:525
 msgid "File could not be read"
-msgstr "Файл уншигдахгүй байна"
+msgstr "Файлыг унших боломжгүй байна"
 
 #: import.php:387 import.php:398 import.php:419 import.php:430
 #: libraries/File.class.php:604
@@ -663,6 +659,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Та файлыг дэмжигдээгүй шахалтаар (%s) ачаалахыг оролдлоо. Энэ дэмжлэг нь "
+"хэрэгжүүлэгдээгүй эсвэл тохиргоонд идэхвигүй болгосон байна."
 
 #: import.php:445
 msgid ""
