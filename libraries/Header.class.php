@@ -378,10 +378,12 @@ class PMA_Header
                 }
                 // Include possible custom headers
                 if (file_exists(CUSTOM_HEADER_FILE)) {
+                    $retval .= '<div id="pma_header">';
                     ob_start();
                     include CUSTOM_HEADER_FILE;
                     $retval .= ob_get_contents();
                     ob_end_clean();
+                    $retval .= '</div>';
                 }
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {
