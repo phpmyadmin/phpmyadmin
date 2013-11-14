@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-14 10:29+0200\n"
+"PO-Revision-Date: 2013-11-14 10:57+0200\n"
 "Last-Translator: yondonjamts rentsendorj <yontkoo@yahoo.com>\n"
 "Language-Team: Mongolian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/mn/>\n"
@@ -503,25 +503,24 @@ msgstr ""
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:295
 #: gis_data_editor.php:368 js/messages.php:325
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:289 gis_data_editor.php:362
 #: js/messages.php:327
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "%d цэг"
 
 #: gis_data_editor.php:247 gis_data_editor.php:302 gis_data_editor.php:375
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Add new field"
 msgid "Add a point"
-msgstr "Шинэ талбар нэмэх"
+msgstr "Цэг нэмэх"
 
 #: gis_data_editor.php:264
 #, fuzzy, php-format
@@ -539,14 +538,13 @@ msgid "Inner ring %d:"
 msgstr ""
 
 #: gis_data_editor.php:305
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "Тогтмол нэмэх"
+msgstr "Шугам нэмэх"
 
 #: gis_data_editor.php:306 gis_data_editor.php:380 js/messages.php:334
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Дотоод тойрог нэмэх"
 
 #: gis_data_editor.php:327
 #, fuzzy, php-format
@@ -555,16 +553,14 @@ msgid "Polygon %d:"
 msgstr "%s талбар(ууд) нэмэх"
 
 #: gis_data_editor.php:386 js/messages.php:335
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "%s талбар(ууд) нэмэх"
+msgstr "Олон өнцөгт нэмэх"
 
 #: gis_data_editor.php:392
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add geometry"
-msgstr "Шинэ хэрэглэгч нэмэх"
+msgstr "Геометр нэмэх"
 
 #: gis_data_editor.php:398 js/messages.php:225
 #: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1688
@@ -606,13 +602,15 @@ msgstr "Яв"
 
 #: gis_data_editor.php:401
 msgid "Output"
-msgstr ""
+msgstr "Гаралт"
 
 #: gis_data_editor.php:404
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"\"Функц\" баганаас \"GeomFromText\"-г сонгоод доорх стрингийг \"Утга\" талбарт "
+"хуулж тавина уу"
 
 #: import.php:116
 #, php-format
@@ -620,19 +618,21 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Хэтэрхий том хэмжээтэй файл ачаалахыг оролдсон бололтой. Үүнийг хэрхэн "
+"шийдэхийг %sбаримтжуулалт%s-с уншина уу."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
-msgstr "Тэмдэглэл харуулах"
+msgstr "Хавчуургыг харуулж байна"
 
 #: import.php:299 import.php:546
 msgid "The bookmark has been deleted."
-msgstr "Тэмдэглэгээ устгагдсан."
+msgstr "Хавчуурга устлаа."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
 msgid "File could not be read"
-msgstr "Файл уншигдахгүй байна"
+msgstr "Файлыг унших боломжгүй байна"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:605
@@ -641,6 +641,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Та файлыг дэмжигдээгүй шахалтаар (%s) ачаалахыг оролдлоо. Энэ дэмжлэг нь "
+"хэрэгжүүлэгдээгүй эсвэл тохиргоонд идэхвигүй болгосон байна."
 
 #: import.php:461
 msgid ""
@@ -1952,29 +1954,28 @@ msgstr "Хуулах"
 
 #: js/messages.php:326
 msgid "Point"
-msgstr ""
+msgstr "Цэг"
 
 #: js/messages.php:328
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Шугамыг төгсгөгч"
+msgstr "Шугам"
 
 #: js/messages.php:329
 msgid "Polygon"
-msgstr ""
+msgstr "Олон өнцөгт"
 
 #: js/messages.php:330 libraries/DisplayResults.class.php:1672
 msgid "Geometry"
-msgstr ""
+msgstr "Геометр"
 
 #: js/messages.php:331
 msgid "Inner Ring"
-msgstr ""
+msgstr "Дотоод тойрог"
 
 #: js/messages.php:332
 msgid "Outer Ring"
-msgstr ""
+msgstr "Гадаад тойрог"
 
 #: js/messages.php:338
 #, fuzzy
