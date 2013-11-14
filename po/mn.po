@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-14 10:05+0200\n"
+"PO-Revision-Date: 2013-11-14 10:12+0200\n"
 "Last-Translator: yondonjamts rentsendorj <yontkoo@yahoo.com>\n"
 "Language-Team: Mongolian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/mn/>\n"
@@ -233,7 +233,7 @@ msgid "Database %1$s has been copied to %2$s"
 msgstr "%1$s өгөгдлийн сан %2$s руу хуулагдлаа"
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -241,8 +241,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Холбогдсон хүснэгтүүдтэй ажиллах нэмэлт онцлогууд идэвхгүй болжээ. %sЭнд%s "
-"дарж шалгах."
+"phpMyAdmin-ы тохиргооны санах ой идэвхигүйжсэн байна. %sЭнд%s дарж учрыг "
+"мэднэ үү."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:516
@@ -296,22 +296,22 @@ msgid "Last check:"
 msgstr "Сүүлийн шалгалт"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s хүснэгт(үүд)"
-msgstr[1] "%s хүснэгт(үүд)"
+msgstr[0] "%s хүснэгт"
+msgstr[1] "%s хүснэгтүүд"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display"
 msgstr "Харуулахын тулд ядаж нэг багана сонго"
 
 #: db_qbe.php:70
-#, fuzzy, php-format
+#, php-format
 #| msgid "Switch to copied table"
 msgid "Switch to %svisual builder%s"
-msgstr "Хуулагдсан хүснэгт рүү шилжих"
+msgstr "%sХүсэлтийн визуаль үүсгэгч%s рүү шилжих"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
