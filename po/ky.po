@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-14 11:19+0200\n"
+"PO-Revision-Date: 2013-11-14 11:30+0200\n"
 "Last-Translator: Daniyar Matraimov <danmaz@mail.ru>\n"
 "Language-Team: Kirghiz "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ky/>\n"
@@ -238,6 +238,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
+"пхпМенинАдминимдин конфигурацияларын сактоо очурулду. Табуу учун эмнеге %"
+"shere%s бастыныз."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:516
@@ -250,46 +252,47 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:311 libraries/tbl_relation.lib.php:527
 #: libraries/tbl_tracking.lib.php:196
 msgid "Table"
-msgstr ""
+msgstr "Жадыбал"
 
 #: db_printview.php:48 libraries/Table.class.php:352
 #: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:184
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1725
 #: libraries/structure.lib.php:1918 libraries/tbl_printview.lib.php:194
 msgid "Rows"
-msgstr ""
+msgstr "катарлар"
 
 #: db_printview.php:51 libraries/structure.lib.php:787
 #: libraries/tbl_indexes.lib.php:317
 msgid "Size"
-msgstr ""
+msgstr "Олчом"
 
 #: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1116
 #: libraries/structure.lib.php:731
 msgid "in use"
-msgstr ""
+msgstr "колдонууда"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
 msgid "Creation:"
-msgstr ""
+msgstr "Тузуу:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
 msgid "Last update:"
-msgstr ""
+msgstr "Акыркы жанылоо:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
 msgid "Last check:"
-msgstr ""
+msgstr "Акыркы текшеруу:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] ""
-msgstr[1] ""
+"Бир %s жадыбал\n"
+"Башка %s жадыбалдар"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display"
