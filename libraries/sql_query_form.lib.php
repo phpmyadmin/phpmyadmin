@@ -373,7 +373,10 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '</div>' . "\n";
     $html .= '<input type="submit" id="button_submit_query" name="SQL"';
     if ($is_querywindow){
-        $html .= 'onclick="var form = this.parentNode.parentNode; window.opener.name = \'sqlParentWindow\'; form.target = \'sqlParentWindow\'; return checkSqlQuery(form);"';
+        $html .= 'onclick="var form = this.parentNode.parentNode;'
+            . ' window.opener.name = \'sqlParentWindow\';'
+            . ' form.target = \'sqlParentWindow\';'
+            . ' return checkSqlQuery(form);"';
     }
     $html .= ' tabindex="200" value="' . __('Go') . '" />' . "\n";
     $html .= '<div class="clearfloat"></div>' . "\n";
