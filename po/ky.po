@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-14 11:06+0200\n"
-"Last-Translator: Bahoriddin Dushabayev <bahoriddin@gmail.com>\n"
+"PO-Revision-Date: 2013-11-14 11:19+0200\n"
+"Last-Translator: Daniyar Matraimov <danmaz@mail.ru>\n"
 "Language-Team: Kirghiz "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ky/>\n"
 "Language: ky\n"
@@ -206,31 +206,31 @@ msgstr "Берилиштер базасынан жүктөлүүчү маалы�
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:572 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "Берилиштер базасында жадыбалдар жок."
+msgstr "Берилиштер базасында жадыбал табылган жок."
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
 msgid "Select All"
-msgstr ""
+msgstr "Баарын танда"
 
 #: db_export.php:47 libraries/DbSearch.class.php:448
 #: libraries/display_export.lib.php:48
 msgid "Unselect All"
-msgstr ""
+msgstr "Баарынан баш тарт"
 
 #: db_operations.php:45 tbl_create.php:21
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Берилигтер базасынын аты бош калды!"
 
 #: db_operations.php:130
 #, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr ""
+msgstr "%1$s берилиштер базасы %2$s болуп озеортулду"
 
 #: db_operations.php:136
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr ""
+msgstr "%1$s берилиштер базасы %2$s на(га) кочурулду"
 
 #: db_operations.php:260
 #, php-format
