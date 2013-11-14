@@ -680,6 +680,13 @@ class PMA_DatabaseInterface
         //  we would lose a db name thats consists only of numbers
         foreach ($tables as $one_database => $its_tables) {
             if (isset(PMA_Table::$cache[$one_database])) {
+                // the + operator does not do the intended effect 
+                // when the cache for one table already exists
+                if ($table
+                    && isset(PMA_Table::$cache[$one_database][$table])
+                ) {
+                    unset(PMA_Table::$cache[$one_database][$table]);
+                }
                 PMA_Table::$cache[$one_database]
                     = PMA_Table::$cache[$one_database] + $tables[$one_database];
             } else {

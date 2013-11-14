@@ -374,7 +374,12 @@ class PMA_Table
             $disable_error = true;
         }
 
-        if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
+        if (! isset(PMA_Table::$cache[$db][$table])
+            || $force_read
+            // sometimes there is only one entry (ExactRows) so
+            // we have to get the table's details
+            || count(PMA_Table::$cache[$db][$table]) == 1
+        ) {
             $GLOBALS['dbi']->getTablesFull($db, $table);
         }
 
