@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-10 08:54-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2013-11-14 11:04+0200\n"
+"Last-Translator: Kylychbek Turdakunov <kylychbek_tk@yahoo.com>\n"
+"Language-Team: Kirghiz "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ky/>\n"
 "Language: ky\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -23,21 +25,23 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"%s аттуу файл бул системде жок, www.phpmyadmin.net баракчасына көбүрөөк "
+"маалымат алуу үчүн кайрылыңыздар."
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s аттуу берилиштер базасы жасалды."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr ""
+msgstr "Берилиштер базасы жөнүндө маалымат: "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
 msgid "Table comments:"
-msgstr ""
+msgstr "Жадыбал жөнүндө маалымат:"
 
 #: db_datadict.php:168 libraries/Index.class.php:566
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -59,7 +63,7 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:727
 #: libraries/tbl_tracking.lib.php:814
 msgid "Column"
-msgstr ""
+msgstr "Мамыча"
 
 #: db_datadict.php:169 db_printview.php:49 libraries/Index.class.php:563
 #: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:243
@@ -84,7 +88,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:728
 #: libraries/tbl_tracking.lib.php:811
 msgid "Type"
-msgstr ""
+msgstr "Тиби"
 
 #: db_datadict.php:170 libraries/Index.class.php:569
 #: libraries/TableSearch.class.php:1283 libraries/insert_edit.lib.php:1629
@@ -101,8 +105,9 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:730
 #: libraries/tbl_tracking.lib.php:817
+#, fuzzy
 msgid "Null"
-msgstr ""
+msgstr "Null"
 
 #: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
@@ -117,7 +122,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:731
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
 #: db_datadict.php:173 libraries/plugins/export/ExportHtmlword.class.php:406
 #: libraries/plugins/export/ExportLatex.class.php:515
@@ -127,7 +132,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1403
 #: libraries/tbl_printview.lib.php:478
 msgid "Links to"
-msgstr ""
+msgstr "Шилтемелер"
 
 #: db_datadict.php:175 db_printview.php:53
 #: libraries/config/messages.inc.php:94 libraries/config/messages.inc.php:109
@@ -141,7 +146,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
-msgstr ""
+msgstr "Коментарийлер"
 
 #: db_datadict.php:240 js/messages.php:249 libraries/Index.class.php:434
 #: libraries/Index.class.php:473 libraries/Index.class.php:882
@@ -163,7 +168,7 @@ msgstr ""
 #: libraries/tbl_tracking.lib.php:849 libraries/tbl_tracking.lib.php:854
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
 msgid "No"
-msgstr ""
+msgstr "Жок"
 
 #: db_datadict.php:240 js/messages.php:248 libraries/Index.class.php:435
 #: libraries/Index.class.php:472 libraries/Index.class.php:882
@@ -192,16 +197,16 @@ msgstr ""
 #: libraries/tbl_tracking.lib.php:852 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
 msgid "Yes"
-msgstr ""
+msgstr "Ооба"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "Берилиштер базасынан жүктөлүүчү маалыматты (схема) көрүү"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:572 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr ""
+msgstr "Берилиштер базасында жадыбалдар жок."
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
