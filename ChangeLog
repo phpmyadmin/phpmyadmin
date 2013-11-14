@@ -53,6 +53,7 @@ phpMyAdmin - ChangeLog
 + Dropped configuration directive: DisableIS, ShowDatabasesCommand
 - bug #4152 Not possible to enter % for search in date fields
 - bug #3931 IN Clause search does not permit multiple values
+- bug #4086 Clicking OK from edit popup opens new tab
 
 4.0.10.0 (not yet released)
 - bug #4150 Clicking database name in query window opens a new tab
