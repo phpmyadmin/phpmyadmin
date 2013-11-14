@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-14 10:12+0200\n"
+"PO-Revision-Date: 2013-11-14 10:29+0200\n"
 "Last-Translator: yondonjamts rentsendorj <yontkoo@yahoo.com>\n"
 "Language-Team: Mongolian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/mn/>\n"
@@ -323,7 +323,7 @@ msgstr "Хандах эрхгүй"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
-msgstr ""
+msgstr "Хөөсөн хүснэгтүүд"
 
 #: db_tracking.php:80 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:510
@@ -341,15 +341,15 @@ msgstr "ӨС"
 
 #: db_tracking.php:82
 msgid "Last version"
-msgstr ""
+msgstr "Сүүлийн хувилбар"
 
 #: db_tracking.php:83 libraries/tbl_tracking.lib.php:198
 msgid "Created"
-msgstr ""
+msgstr "Үүссэн"
 
 #: db_tracking.php:84 libraries/tbl_tracking.lib.php:199
 msgid "Updated"
-msgstr ""
+msgstr "Шинэчлэгдсэн"
 
 #: db_tracking.php:85 js/messages.php:177 libraries/Menu.class.php:516
 #: libraries/Util.class.php:4106 libraries/rte/rte_events.lib.php:426
@@ -377,7 +377,7 @@ msgstr "Харах"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Энэ хүснэгтийн хөөлтийн өгөгдлийг устгах"
 
 #: db_tracking.php:103 libraries/Index.class.php:626
 #: libraries/Util.class.php:3410 libraries/Util.class.php:3411
@@ -390,38 +390,38 @@ msgstr "Устгах"
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:311
 msgid "active"
-msgstr ""
+msgstr "идэвхитэй"
 
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:212
 #: libraries/tbl_tracking.lib.php:313
 msgid "not active"
-msgstr ""
+msgstr "идэвхигүй"
 
 #: db_tracking.php:143
 msgid "Versions"
-msgstr ""
+msgstr "Хувилбарууд"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:352
 msgid "Tracking report"
-msgstr ""
+msgstr "Хөөлтын илтгэл"
 
 #: db_tracking.php:149 libraries/tbl_tracking.lib.php:241
 #: libraries/tbl_tracking.lib.php:676
 msgid "Structure snapshot"
-msgstr ""
+msgstr "Бүтцийн тойм"
 
 #: db_tracking.php:203
 msgid "Untracked tables"
-msgstr ""
+msgstr "Хөөгөөгүй хүснэгтүүд"
 
 #: db_tracking.php:222 libraries/structure.lib.php:1531
 msgid "Track table"
-msgstr ""
+msgstr "Хүснэгтийг хөөх"
 
 #: db_tracking.php:249
 msgid "Database Log"
-msgstr ""
+msgstr "Өгөгдлийн сангийн бүртгэл"
 
 #: error_report.php:20
 msgid ""
@@ -438,19 +438,17 @@ msgid "Thank you for submitting this report."
 msgstr ""
 
 #: export.php:160
-#, fuzzy
 msgid "Bad type!"
-msgstr "Асуултын төрөл"
+msgstr "Буруу төрөл!"
 
 #: export.php:211
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Сонгосон экспортын төрөл файлд хадгалагдах шаардлагатай!"
 
 #: export.php:240
-#, fuzzy
 #| msgid "Add new field"
 msgid "Bad parameters!"
-msgstr "Шинэ талбар нэмэх"
+msgstr "Буруу параметрүүд!"
 
 #: export.php:339 export.php:370 export.php:957
 #, php-format
@@ -475,19 +473,18 @@ msgid "Dump has been saved to file %s."
 msgstr "Асгалт %s файлд хадгалагдсан."
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export"
 msgid "Invalid export type"
-msgstr "Гаргах"
+msgstr "Буруу экспортын төрөл"
 
 #: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" баганын утга"
 
 #: gis_data_editor.php:141 libraries/tbl_gis_visualization.lib.php:242
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "OpenStreetMaps-г суурь давхрагаар хэрэглэх"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
