@@ -61,11 +61,11 @@ class PMA_Footer
     }
 
     /**
-     * Adds the message for demo server to error messages
+     * Returns the message for demo server to error messages
      *
      * @return string
      */
-    private function _addDemoMessage()
+    private function _getDemoMessage()
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
         if (file_exists('./revision-info.php')) {
@@ -81,13 +81,7 @@ class PMA_Footer
             $message .= __('Git information missing!');
         }
 
-        $GLOBALS['error_handler']->addError(
-            $message,
-            E_USER_NOTICE,
-            '',
-            '',
-            false
-        );
+        return PMA_Message::notice($message)->getDisplay();
     }
 
     /**
@@ -264,9 +258,6 @@ class PMA_Footer
             if (! $this->_isAjax) {
                 $retval .= "</div>";
             }
-            if ($GLOBALS['cfg']['DBG']['demo']) {
-                $this->_addDemoMessage();
-            }
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 if (PMA_getenv('SCRIPT_NAME')
                     && empty($_POST)
@@ -296,6 +287,11 @@ class PMA_Footer
                 $retval .= $this->_getDebugMessage();
                 $retval .= $this->getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
+                if ($GLOBALS['cfg']['DBG']['demo']) {
+                    $retval .= '<div id="pma_demo">';
+                    $retval .= $this->_getDemoMessage();
+                    $retval .= '</div>';
+                }
                 // Include possible custom footers
                 if (file_exists(CUSTOM_FOOTER_FILE)) {
                     $retval .= '<div id="pma_footer">';
