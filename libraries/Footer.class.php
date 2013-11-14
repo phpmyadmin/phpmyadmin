@@ -298,10 +298,12 @@ class PMA_Footer
                 $retval .= $this->_scripts->getDisplay();
                 // Include possible custom footers
                 if (file_exists(CUSTOM_FOOTER_FILE)) {
+                    $retval .= '<div id="pma_footer">';
                     ob_start();
                     include CUSTOM_FOOTER_FILE;
                     $retval .= ob_get_contents();
                     ob_end_clean();
+                    $retval .= '</div>';
                 }
             }
             if (! $this->_isAjax) {
