@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
 "PO-Revision-Date: 2013-11-15 05:16+0200\n"
-"Last-Translator: Kylychbek Turdakunov <kylychbek_tk@yahoo.com>\n"
+"Last-Translator: Bahoriddin Dushabayev <bahoriddin@gmail.com>\n"
 "Language-Team: Kyrgyz <http://l10n.cihar.com/projects/phpmyadmin/master/ky/>\n"
 "Language: ky\n"
 "MIME-Version: 1.0\n"
@@ -223,7 +223,7 @@ msgstr "Берилигтер базасынын аты бош калды!"
 #: db_operations.php:130
 #, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "%1$s берилиштер базасы %2$s болуп озеортулду"
+msgstr "%1$s берилиштер базасынын аты %2$s болуп өзгөртүлдү"
 
 #: db_operations.php:136
 #, php-format
