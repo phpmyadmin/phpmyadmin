@@ -1979,6 +1979,10 @@ class PMA_DisplayResults
                 $new_sort_expression_nodirection = $sort_expression_nodirection;
             }
 
+            //Back quotes are removed in next comparison, so remove them from value
+            //to compare.
+            $name_to_use_in_sort = str_replace('`', '', $name_to_use_in_sort);
+
             $is_in_sort = false;
             $sort_name = str_replace('`', '', $sort_tbl) . $name_to_use_in_sort;
 
