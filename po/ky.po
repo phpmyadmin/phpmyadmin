@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-11-14 12:05+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-11-15 05:16+0200\n"
+"Last-Translator: Kylychbek Turdakunov <kylychbek_tk@yahoo.com>\n"
 "Language-Team: Kyrgyz <http://l10n.cihar.com/projects/phpmyadmin/master/ky/>\n"
 "Language: ky\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s аттуу берилиштер базасы жасалды."
+msgstr "%1$s аттуу берилиштер базасы түзүлдү."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -104,7 +104,6 @@ msgstr "Тиби"
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:730
 #: libraries/tbl_tracking.lib.php:817
-#, fuzzy
 msgid "Null"
 msgstr "Null"
 
@@ -299,7 +298,7 @@ msgstr ""
 #: db_qbe.php:70
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "%svisual builder%s көрсөт"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -307,7 +306,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:268
 msgid "Access denied"
-msgstr ""
+msgstr "Кирүүгө уруксат жок"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -325,26 +324,26 @@ msgstr ""
 #: libraries/server_status.lib.php:351 libraries/tbl_relation.lib.php:288
 #: libraries/tbl_relation.lib.php:477 libraries/tbl_tracking.lib.php:195
 msgid "Database"
-msgstr ""
+msgstr "Берилиштер базасы"
 
 #: db_tracking.php:82
 msgid "Last version"
-msgstr ""
+msgstr "Акыркы версия"
 
 #: db_tracking.php:83 libraries/tbl_tracking.lib.php:198
 msgid "Created"
-msgstr ""
+msgstr "Жасалды"
 
 #: db_tracking.php:84 libraries/tbl_tracking.lib.php:199
 msgid "Updated"
-msgstr ""
+msgstr "Жаңыланды"
 
 #: db_tracking.php:85 js/messages.php:177 libraries/Menu.class.php:516
 #: libraries/Util.class.php:4106 libraries/rte/rte_events.lib.php:426
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:363
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: db_tracking.php:86 libraries/Index.class.php:560
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
@@ -356,12 +355,12 @@ msgstr ""
 #: libraries/server_user_groups.lib.php:82 libraries/structure.lib.php:765
 #: libraries/structure.lib.php:1200
 msgid "Action"
-msgstr ""
+msgstr "Кыймыл"
 
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:196
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:147
 msgid "Show"
-msgstr ""
+msgstr "Көрсөт"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
@@ -373,21 +372,21 @@ msgstr ""
 #: libraries/structure.lib.php:1380 libraries/structure.lib.php:2067
 #: libraries/structure.lib.php:2069
 msgid "Drop"
-msgstr ""
+msgstr "Алып сал"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:311
 msgid "active"
-msgstr ""
+msgstr "активдүү"
 
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:212
 #: libraries/tbl_tracking.lib.php:313
 msgid "not active"
-msgstr ""
+msgstr "активдүү эмес"
 
 #: db_tracking.php:143
 msgid "Versions"
-msgstr ""
+msgstr "Версиялар"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:352
@@ -409,7 +408,7 @@ msgstr ""
 
 #: db_tracking.php:249
 msgid "Database Log"
-msgstr ""
+msgstr "Берилиштер базасынын логу"
 
 #: error_report.php:20
 msgid ""
@@ -423,11 +422,11 @@ msgstr ""
 
 #: error_report.php:31
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Бул отчётту жибергениңиз үчүн рахмат."
 
 #: export.php:160
 msgid "Bad type!"
-msgstr ""
+msgstr "Туура эмес тип!"
 
 #: export.php:211
 msgid "Selected export type has to be saved in file!"
@@ -435,7 +434,7 @@ msgstr ""
 
 #: export.php:240
 msgid "Bad parameters!"
-msgstr ""
+msgstr "Туура эмес параметрлер!"
 
 #: export.php:339 export.php:370 export.php:957
 #, php-format
@@ -447,11 +446,13 @@ msgstr ""
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"%s аттуу файл серверде бар, файлдын атын өзгөртүңүз же болбосо үстүнө жазуу "
+"опцияларын текшериңиз."
 
 #: export.php:521 export.php:530
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "%s Бул файлды сактоо үчүн веб сервердин уруксаты жок."
 
 #: export.php:963
 #, php-format
@@ -465,7 +466,7 @@ msgstr ""
 #: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" мамычанын мааниси"
 
 #: gis_data_editor.php:141 libraries/tbl_gis_visualization.lib.php:242
 msgid "Use OpenStreetMaps as Base Layer"
@@ -473,38 +474,41 @@ msgstr ""
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
+#, fuzzy
 msgid "SRID:"
-msgstr ""
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "%d геометриясы:"
 
 #: gis_data_editor.php:208
 msgid "Point:"
-msgstr ""
+msgstr "Чекит:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
+#, fuzzy
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:295
 #: gis_data_editor.php:368 js/messages.php:325
+#, fuzzy
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:289 gis_data_editor.php:362
 #: js/messages.php:327
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "%d чекити"
 
 #: gis_data_editor.php:247 gis_data_editor.php:302 gis_data_editor.php:375
 #: js/messages.php:333
 msgid "Add a point"
-msgstr ""
+msgstr "Чекит кой"
 
 #: gis_data_editor.php:264
 #, php-format
@@ -513,12 +517,12 @@ msgstr ""
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
 msgid "Outer ring:"
-msgstr ""
+msgstr "Сырткы шакекче:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "Ички шакекче %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
@@ -526,16 +530,16 @@ msgstr ""
 
 #: gis_data_editor.php:306 gis_data_editor.php:380 js/messages.php:334
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Ички шакекче кош"
 
 #: gis_data_editor.php:327
 #, php-format
 msgid "Polygon %d:"
-msgstr ""
+msgstr "%d полигону:"
 
 #: gis_data_editor.php:386 js/messages.php:335
 msgid "Add a polygon"
-msgstr ""
+msgstr "Полигон кош"
 
 #: gis_data_editor.php:392
 msgid "Add geometry"
@@ -577,7 +581,7 @@ msgstr ""
 #: pmd_pdf.php:158 prefs_manage.php:272 prefs_manage.php:322
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
-msgstr ""
+msgstr "Кет"
 
 #: gis_data_editor.php:401
 msgid "Output"
@@ -607,7 +611,7 @@ msgstr ""
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
 msgid "File could not be read"
-msgstr ""
+msgstr "Файл окулбай жатат"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:605
@@ -13294,4 +13298,4 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert 0 го барабарланды"
