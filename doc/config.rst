@@ -128,8 +128,8 @@ Basic settings
     :type: boolean
     :default: true
 
-    Whenever an error is detected in the javascript execution. A an error report
-    may be sent to phpmyadmin if user agrees.
+    Whenever an error is detected in the JavaScript execution, an error report
+    may be sent to the phpMyAdmin team if the user agrees.
 
     You can set this parameter to ``false`` to never send error reports.
 
@@ -138,8 +138,7 @@ Basic settings
     :type: string
     :default: ``'ask'``
 
-    Whenever an error is detected in the javascript execution. A an error report
-    may be sent to phpmyadmin. This setting sets the default behavior.
+    Sets the default behavior for JavaScript error reporting.
 
     The default setting of ``'ask'`` will ask the user everytime there is a new
     error report. However you can set this parameter to ``'always'`` to send error
