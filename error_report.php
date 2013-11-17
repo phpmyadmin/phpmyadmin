@@ -14,7 +14,14 @@ if (isset($_REQUEST['send_error_report'])
     && $_REQUEST['send_error_report'] == true
 ) {
     $server_response = PMA_sendErrorReport(PMA_getReportData(false));
-    $success = $server_response === false ? false : json_decode($server_response, true)["success"];
+
+    if ($server_response === false) {
+        $success = false;
+    } else {
+        $decoded_response = json_decode($server_response, true);
+        $success = !empty($decoded_response) ? $decoded_response["success"] : false;
+    }
+
     if ($_REQUEST['automatic'] === "true") {
         if ($success) {
             $response->addJSON(
