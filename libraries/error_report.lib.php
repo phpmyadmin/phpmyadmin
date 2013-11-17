@@ -336,7 +336,11 @@ function PMA_hasLatestLineCounts()
 function PMA_prettyPrint($object, $namespace="")
 {
     if (! is_array($object)) {
-        return "$namespace: \"$object\"";
+        if (empty($namespace)) {
+            return "$object\n";
+        } else {
+            return "$namespace: \"$object\"\n";
+        }
     }
     $output = "";
     foreach ($object as $key => $value) {
@@ -345,7 +349,7 @@ function PMA_prettyPrint($object, $namespace="")
         } else {
             $new_namespace =  $namespace . "[$key]";
         }
-        $output .= PMA_prettyPrint($value, $new_namespace) . "\n";
+        $output .= PMA_prettyPrint($value, $new_namespace);
     }
     return $output;
 }
