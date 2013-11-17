@@ -33,6 +33,11 @@ class PMA_Config
     var $default = array();
 
     /**
+     * @var array   configuration settings, without user preferences applied
+     */
+    var $base_settings = array();
+
+    /**
      * @var array   configuration settings
      */
     var $settings = array();
@@ -93,6 +98,8 @@ class PMA_Config
         $this->checkSystem();
 
         $this->isHttps();
+
+        $this->base_settings = $this->settings;
     }
 
     /**
@@ -102,7 +109,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.1.0-beta1');
+        $this->set('PMA_VERSION', '4.1.0-beta2');
         /**
          * @deprecated
          */
@@ -718,7 +725,7 @@ class PMA_Config
      * @param mixed   $link     curl link
      * @param boolean $get_body whether to retrieve body of document
      *
-     * @return test result or data
+     * @return string|boolean test result or data
      */
     function checkHTTP($link, $get_body = false)
     {
@@ -1353,9 +1360,9 @@ class PMA_Config
 
             // This is to handle the case of a reverse proxy
             if ($this->get('ForceSSL')) {
-               $this->set('PmaAbsoluteUri', $pma_absolute_uri);
-               $pma_absolute_uri = $this->getSSLUri();
-               $this->isHttps();
+                $this->set('PmaAbsoluteUri', $pma_absolute_uri);
+                $pma_absolute_uri = $this->getSSLUri();
+                $this->isHttps();
             }
 
             // We used to display a warning if PmaAbsoluteUri wasn't set, but now
@@ -1559,6 +1566,10 @@ class PMA_Config
             } elseif (PMA_getenv('HTTPS')
                 && strtolower(PMA_getenv('HTTPS')) == 'on'
             ) {
+                $url['scheme'] = 'https';
+            // A10 Networks load balancer:
+            } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
+                && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
                 $url['scheme'] = 'https';
             } elseif (PMA_getenv('HTTP_X_FORWARDED_PROTO')) {
                 $url['scheme'] = strtolower(PMA_getenv('HTTP_X_FORWARDED_PROTO'));

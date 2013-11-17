@@ -211,7 +211,7 @@ class PMA_GIS_Visualization
     /**
      * Generate the visualization in PNG format.
      *
-     * @return object the generated image resource
+     * @return resource the generated image resource
      * @access private
      */
     private function _png()

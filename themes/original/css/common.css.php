@@ -393,7 +393,7 @@ td .icon {
 }
 
 /* message boxes: error, confirmation */
-#pma_errors {
+#pma_errors, #pma_demo {
     padding: 0 0.5em;
 }
 
@@ -2095,9 +2095,13 @@ fieldset .disabled-field td {
     color: #FFF !important;
 }
 
+.data {
+    overflow: scroll;
+}
 
 .data_full_width {
     width: 100%;
+    overflow: scroll;
 }
 
 .cDrop {

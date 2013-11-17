@@ -92,8 +92,6 @@ class PMA_Response
 
     /**
      * Creates a new class instance
-     *
-     * @return new PMA_Response object
      */
     private function __construct()
     {
@@ -186,7 +184,7 @@ class PMA_Response
     /**
      * Returns a PMA_Header object
      *
-     * @return object
+     * @return PMA_Header
      */
     public function getHeader()
     {
@@ -196,7 +194,7 @@ class PMA_Response
     /**
      * Returns a PMA_Footer object
      *
-     * @return object
+     * @return PMA_Footer
      */
     public function getFooter()
     {

@@ -81,6 +81,7 @@ h2 a img {
 .data,
 .data_full_width {
     margin: 0 0 12px;
+    overflow: scroll;
 }
 
 .data_full_width {
@@ -607,7 +608,7 @@ td .icon {
 }
 
 /* message boxes: error, confirmation */
-#pma_errors {
+#pma_errors, #pma_demo {
     padding: 0 0.5em;
 }
 

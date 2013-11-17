@@ -92,7 +92,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             array('db_name0' => 'comment0','db_name1' => 'comment1'),
             $db_comments
         );
-        
+
         $this->assertEquals(
             true,
             $cfgRelation['displaywork']

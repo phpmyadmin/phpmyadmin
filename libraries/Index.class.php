@@ -104,7 +104,7 @@ class PMA_Index
      * @param string $table      table name
      * @param string $index_name index name
      *
-     * @return object corresponding Index object
+     * @return PMA_Index corresponding Index object
      */
     static public function singleton($schema, $table, $index_name = '')
     {
@@ -176,11 +176,12 @@ class PMA_Index
         $_raw_indexes = $GLOBALS['dbi']->getTableIndexes($schema, $table);
         foreach ($_raw_indexes as $_each_index) {
             $_each_index['Schema'] = $schema;
-            if (! isset(PMA_Index::$_registry[$schema][$table][$_each_index['Key_name']])) {
+            $keyName = $_each_index['Key_name'];
+            if (! isset(PMA_Index::$_registry[$schema][$table][$keyName])) {
                 $key = new PMA_Index($_each_index);
-                PMA_Index::$_registry[$schema][$table][$_each_index['Key_name']] = $key;
+                PMA_Index::$_registry[$schema][$table][$keyName] = $key;
             } else {
-                $key = PMA_Index::$_registry[$schema][$table][$_each_index['Key_name']];
+                $key = PMA_Index::$_registry[$schema][$table][$keyName];
             }
 
             $key->addColumn($_each_index);

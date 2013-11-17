@@ -31,7 +31,7 @@ class Node_View extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage('b_props.png');
+        $this->icon  = PMA_Util::getImage('b_props.png', __('View'));
         $this->links = array(
             'text' => 'sql.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0'

@@ -133,8 +133,6 @@ class PMA_DrizzleCon
      * Constructor
      *
      * @param DrizzleCon $dcon connection handle
-     *
-     * @return void
      */
     public function __construct(DrizzleCon $dcon)
     {

@@ -40,7 +40,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -50,7 +50,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportYaml::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -121,7 +121,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportYaml::exportHeader
-     * 
+     *
      * @return void
      */
     public function testExportHeader()
@@ -140,7 +140,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportYaml::exportFooter
-     * 
+     *
      * @return void
      */
     public function testExportFooter()
@@ -155,7 +155,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportYaml::exportDBHeader
-     * 
+     *
      * @return void
      */
     public function testExportDBHeader()
@@ -167,7 +167,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportYaml::exportDBFooter
-     * 
+     *
      * @return void
      */
     public function testExportDBFooter()
@@ -179,7 +179,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportYaml::exportDBCreate
-     * 
+     *
      * @return void
      */
     public function testExportDBCreate()
@@ -191,7 +191,7 @@ class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportYaml::exportData
-     * 
+     *
      * @return void
      */
     public function testExportData()

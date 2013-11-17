@@ -77,7 +77,7 @@ class PMA_File
     /**
      * constructor
      *
-     * @param string $name file name
+     * @param boolean|string $name file name or false
      *
      * @access public
      */
@@ -571,7 +571,7 @@ class PMA_File
     /**
      * Returns the file handle
      *
-     * @return object file handle
+     * @return resource file handle
      */
     public function getHandle()
     {

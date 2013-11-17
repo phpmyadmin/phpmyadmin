@@ -53,7 +53,7 @@ if ($cfg['SQLValidator']['use'] == true) {
  *
  * @return string Validator result string
  *
- * @global array The PMA configuration array
+ * @global array $cfg The PMA configuration array
  */
 function PMA_validateSQL($sql)
 {

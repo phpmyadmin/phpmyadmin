@@ -113,22 +113,26 @@ var ErrorReport = {
         ErrorReport._removeErrorNotification();
 
         $div = $(
-            '<div style="position:fixed;bottom:0px;left:5px;right:5px;' +
+            '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
             'z-index:1000" class="error" id="error_notification"></div>'
+        ).append(
+            PMA_getImage("s_error.png") + PMA_messages.strErrorOccurred
         );
-        html = '';
-        html += '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">';
-        html += PMA_messages.strErrorOccurred;
-        $div.html(html);
 
         $buttons = $('<div style="float:right"></div>');
-        button_html = '';
-        button_html += '<button id="change_error_settings">' +
-                        PMA_messages.strChangeReportSettings + '</button>';
-        button_html += '<button id="show_error_report">' +
-                        PMA_messages.strShowReportDetails + '</button>';
-        button_html += '<button id="ignore_error">' +
-                        PMA_messages.strIgnore + '</button>';
+
+        button_html  = '<button id="show_error_report">';
+        button_html += PMA_messages.strShowReportDetails;
+        button_html += '</button>';
+
+        button_html += '<a id="change_error_settings">';
+        button_html += PMA_getImage('s_cog.png', PMA_messages.strChangeReportSettings);
+        button_html += '</a>';
+
+        button_html += '<a href="#" id="ignore_error">';
+        button_html += PMA_getImage('b_close.png', PMA_messages.strIgnore);
+        button_html += '</a>';
+
         $buttons.html(button_html);
 
         $div.append($buttons);

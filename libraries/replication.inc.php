@@ -215,7 +215,7 @@ function PMA_Replication_Slave_control($action, $control = null, $link = null)
  * @param bool   $start    shall we start slave?
  * @param mixed  $link     mysql link
  *
- * @return output of CHANGE MASTER mysql command
+ * @return string output of CHANGE MASTER mysql command
  */
 function PMA_Replication_Slave_changeMaster($user, $password, $host, $port,
     $pos, $stop = true, $start = true, $link = null
@@ -282,49 +282,5 @@ function PMA_Replication_Slave_binLogMaster($link = null)
         $output["Position"] = $data[0]["Position"];
     }
     return $output;
-}
-
-/**
- * Get list of replicated databases on master server
- *
- * @param mixed $link mysql link
- *
- * @return array array of replicated databases
- */
-
-function PMA_Replication_Master_getReplicatedDbs($link = null)
-{
-    // let's find out, which databases are replicated
-    $data = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS', null, null, $link);
-
-    $do_db     = array();
-    $ignore_db = array();
-
-    if (! empty($data[0]['Binlog_Do_DB'])) {
-        $do_db     = explode(',', $data[0]['Binlog_Do_DB']);
-    }
-    if (! empty($data[0]['Binlog_Ignore_DB'])) {
-        $ignore_db = explode(',', $data[0]['Binlog_Ignore_DB']);
-    }
-
-    $tmp_alldbs = $GLOBALS['dbi']->query('SHOW DATABASES;', $link);
-    while ($tmp_row = $GLOBALS['dbi']->fetchRow($tmp_alldbs)) {
-        if ($GLOBALS['dbi']->isSystemSchema($tmp_row[0])) {
-            continue;
-        }
-        if (count($do_db) == 0) {
-            if (array_search($tmp_row[0], $ignore_db) !== false) {
-                continue;
-            }
-            $dblist[] = $tmp_row[0];
-
-        } else {
-            if (array_search($tmp_row[0], $do_db) !== false) {
-                $dblist[] = $tmp_row[0];
-            }
-        }
-    } // end while
-
-    return $link;
 }
 ?>

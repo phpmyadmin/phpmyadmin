@@ -128,8 +128,8 @@ Basic settings
     :type: boolean
     :default: true
 
-    Whenever an error is detected in the javascript execution. A an error report
-    may be sent to phpmyadmin if user agrees.
+    Whenever an error is detected in the JavaScript execution, an error report
+    may be sent to the phpMyAdmin team if the user agrees.
 
     You can set this parameter to ``false`` to never send error reports.
 
@@ -138,8 +138,7 @@ Basic settings
     :type: string
     :default: ``'ask'``
 
-    Whenever an error is detected in the javascript execution. A an error report
-    may be sent to phpmyadmin. This setting sets the default behavior.
+    Sets the default behavior for JavaScript error reporting.
 
     The default setting of ``'ask'`` will ask the user everytime there is a new
     error report. However you can set this parameter to ``'always'`` to send error
@@ -1012,38 +1011,6 @@ Server connection settings
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
-.. config:option:: $cfg['Servers'][$i]['DisableIS']
-
-    :type: boolean
-    :default: true
-
-    Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
-    ``SHOW`` commands instead), because of speed issues when many
-    databases are present. Currently used in some parts of the code, more
-    to come.
-
-.. config:option:: $cfg['Servers'][$i]['ShowDatabasesCommand']
-
-    :type: string
-    :default: ``'SHOW DATABASES'``
-
-    On a server with a huge number of databases, the default ``SHOW DATABASES``
-    command used to fetch the name of available databases will probably be too
-    slow, so it can be replaced by faster commands. You can use ``#user#``
-    string will be replaced by current user.
-
-    When using ``false``, it will disable fetching databases from the server,
-    only databases in :config:option:`$cfg['Servers'][$i]['only_db']` will be
-    displayed.
-
-    Examples:
-
-    * ``'SHOW DATABASES'``
-    * ``"SHOW DATABASES LIKE '#user#\_%'"``
-    * ``'SELECT DISTINCT TABLE_SCHEMA FROM information_schema.SCHEMA_PRIVILEGES'``
-    * ``'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA'``
-    * ``false``
-
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
@@ -1094,9 +1061,6 @@ Server connection settings
     may want to cache it). APC is used (if the PHP extension is available,
     if not, this setting is ignored silently). You have to provide
     :config:option:`$cfg['Servers'][$i]['StatusCacheLifetime']`.
-
-    Takes effect only if :config:option:`$cfg['Servers'][$i]['DisableIS']` is
-    ``true``.
 
 .. config:option:: $cfg['Servers'][$i]['StatusCacheLifetime']
 

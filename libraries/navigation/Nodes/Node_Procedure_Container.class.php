@@ -24,7 +24,7 @@ class Node_Procedure_Container extends Node
     public function __construct()
     {
         parent::__construct(__('Procedures'), Node::CONTAINER);
-        $this->icon  = PMA_Util::getImage('b_routines.png');
+        $this->icon  = PMA_Util::getImage('b_routines.png', __('Procedures'));
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
@@ -35,11 +35,10 @@ class Node_Procedure_Container extends Node
         );
         $this->real_name = 'procedures';
 
-        $new        = PMA_NodeFactory::getInstance(
-            'Node', _pgettext('Create new procedure', 'New')
-        );
+        $new_label = _pgettext('Create new procedure', 'New');
+        $new        = PMA_NodeFactory::getInstance('Node', $new_label);
         $new->isNew = true;
-        $new->icon  = PMA_Util::getImage('b_routine_add.png', '');
+        $new->icon  = PMA_Util::getImage('b_routine_add.png', $new_label);
         $new->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']

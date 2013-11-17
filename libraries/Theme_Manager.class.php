@@ -61,7 +61,6 @@ class PMA_Theme_Manager
      * Constructor for Theme Manager class
      *
      * @access public
-     * @return void
      */
     public function __construct()
     {
@@ -114,7 +113,7 @@ class PMA_Theme_Manager
      * Initialise the class
      *
      * @access public
-     * @return void
+     * @return boolean|void
      */
     public function init()
     {
@@ -426,7 +425,7 @@ class PMA_Theme_Manager
     /**
      * returns PMA_Theme object for fall back theme
      *
-     * @return object PMA_Theme
+     * @return PMA_Theme fall back theme
      * @access public
      */
     public function getFallBackTheme()

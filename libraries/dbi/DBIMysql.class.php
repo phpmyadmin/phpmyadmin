@@ -315,7 +315,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @param object $link the connection object
      *
-     * @return boo false
+     * @return boolean false
      */
     public function nextResult($link = null)
     {

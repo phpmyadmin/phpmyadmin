@@ -20,7 +20,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -32,7 +32,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_NodeFactory::getInstance
-     * 
+     *
      * @return void
      */
     public function testDefaultNode()
@@ -45,7 +45,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_NodeFactory::getInstance
-     * 
+     *
      * @return void
      */
     public function testDefaultContainer()
@@ -58,7 +58,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_NodeFactory::getInstance
-     * 
+     *
      * @return void
      */
     public function testGroupContainer()
@@ -73,7 +73,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_NodeFactory::getInstance
-     * 
+     *
      * @return void
      */
     public function testFileError()
@@ -84,7 +84,7 @@ class NodeFactory_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_NodeFactory::getInstance
-     * 
+     *
      * @return void
      */
     public function testClassNameError()

@@ -133,8 +133,9 @@ function PMA_getHtmlForMasterConfiguration()
  *
  * @return String HTML code
  */
-function PMA_getHtmlForSlaveConfiguration($server_slave_status, $server_slave_replication)
-{
+function PMA_getHtmlForSlaveConfiguration(
+    $server_slave_status, $server_slave_replication
+) {
     $html  = '<fieldset>';
     $html .= '<legend>' . __('Slave replication') . '</legend>';
     if ($server_slave_status) {
@@ -336,7 +337,10 @@ function PMA_getHtmlForReplicationDbMultibox()
             continue;
         }
         /* TODO: where $selectall should come from? */
-        if (! empty($selectall) || (isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))) {
+        if (! empty($selectall)
+            || (isset($tmp_select)
+            && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
+        ) {
             $is_selected = ' selected="selected"';
         } else {
             $is_selected = '';
@@ -466,8 +470,9 @@ function PMA_getHtmlForAddUserInputDiv($label_array, $input_array)
  * This function returns html code for table with replication status.
  *
  * @param string  $type   either master or slave
- * @param boolean $hidden if true, then default style is set to hidden, default value false
- * @param boolen  $title  if true, then title is displayed, default true
+ * @param boolean $hidden if true, then default style is set to hidden,
+ *                        default value false
+ * @param boolean $title  if true, then title is displayed, default true
  *
  * @return String HTML code
  */
@@ -489,7 +494,9 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
     // [ERROR] Got fatal error 1236: 'Misconfigured master
     // - server id was not set' from master when reading data from binary log
     //
-    //$server_id = $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'server_id'", 0, 1);
+    //$server_id = $GLOBALS['dbi']->fetchValue(
+    //    "SHOW VARIABLES LIKE 'server_id'", 0, 1
+    //);
 
     $html .= '<div id="replication_' . $type . '_section" style="';
     $html .= ($hidden ? 'display: none;' : '') . '"> ';
@@ -574,7 +581,7 @@ function PMA_getHtmlForReplicationStatusTable($type, $hidden = false, $title = t
  * @param boolean $hidden - if true, then default style is set to hidden,
  *                        - default value false
  *
- * @return void
+ * @return string
  */
 function PMA_getHtmlForReplicationSlavesTable($hidden = false)
 {

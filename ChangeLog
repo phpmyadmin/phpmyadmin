@@ -48,8 +48,24 @@ phpMyAdmin - ChangeLog
 + Added an Error Reporting Component
 + Javascript files are no longer uglified
 - bug #4145 Config screen fails to validate MemoryLimit = -1 (new default)
+- bug #4123 Double config including
+- bug #4134 After deleting all rows on a page, it returns to a blank page
++ Dropped configuration directive: DisableIS, ShowDatabasesCommand
+- bug #4152 Not possible to enter % for search in date fields
+- bug #3931 IN Clause search does not permit multiple values
+- bug #4086 Clicking OK from edit popup opens new tab
+- bug #2983 unknown table status: TABLE_TYPE
+- bug #4096 horizontal scrollbar should not overflow on the left column
+- bug #4030 ORDER BY SUM(`field`) does not sort DESC
 
-4.0.9.0 (not yet released)
+4.0.10.0 (not yet released)
+- bug #4150 Clicking database name in query window opens a new tab
+- bug #4141 Wrong page is shown after editing; also, do not show a modal
+            dialog for multi-row edit
+- bug #3939 PHP NavigationTree error when paging through list
+- bug #4075 Support A10 Networks load balancer
+
+4.0.9.0 (2013-11-04)
 - bug #4104 Can't edit updatable view when searching
 - bug #4108 Missing refresh by deleting databases
 - bug #3995 Drizzle server charset notice
@@ -59,6 +75,7 @@ phpMyAdmin - ChangeLog
 - bug #4120 SSL redirects to port 80
 - bug #4144 DROP DATABASE displays wrong database name
 - bug #4059 Running delete query asks for confirmation but says it was already executed
+- bug #4147 Accessibility: Images without Alt nor title attribute 
 
 4.0.8.0 (2013-10-06)
 - bug #3988 Rename view is not working

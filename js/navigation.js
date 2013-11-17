@@ -839,7 +839,7 @@ var ResizeHandler = function () {
         event.data.resize_handler.panel_width = width;
     };
     /**
-     * Even thandler for resizing the navigation tree height on window resize
+     * Event handler for resizing the navigation tree height on window resize
      *
      * @return void
      */

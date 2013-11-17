@@ -20,7 +20,7 @@ class PMA_NavigationHeader
     /**
      * Renders the navigation
      *
-     * @return void
+     * @return String HTML
      */
     public function getDisplay()
     {
@@ -121,15 +121,15 @@ class PMA_NavigationHeader
     /**
      * Renders a single link for the top of the navigation panel
      *
-     * @param string $link        The url for the link
-     * @param bool   $showText    Whether to show the text or to
-     *                            only use it for title attributes
-     * @param string $text        The text to display and use for title attributes
-     * @param bool   $showIcon    Whether to show the icon
-     * @param string $icon        The filename of the icon to show
-     * @param string $linkId      Value to use for the ID attribute
-     * @param string $disableAjax Whether to disable ajax page loading for this link
-     * @param string $linkTarget  The name of the target frame for the link
+     * @param string  $link        The url for the link
+     * @param bool    $showText    Whether to show the text or to
+     *                             only use it for title attributes
+     * @param string  $text        The text to display and use for title attributes
+     * @param bool    $showIcon    Whether to show the icon
+     * @param string  $icon        The filename of the icon to show
+     * @param string  $linkId      Value to use for the ID attribute
+     * @param boolean $disableAjax Whether to disable ajax page loading for this link
+     * @param string  $linkTarget  The name of the target frame for the link
      *
      * @return string HTML code for one link
      */
@@ -172,7 +172,7 @@ class PMA_NavigationHeader
 
     /**
      * Creates the code for displaying the links
-     * at the top of the navigation frame
+     * at the top of the navigation panel 
      *
      * @return string HTML code for the links
      */
@@ -247,7 +247,7 @@ class PMA_NavigationHeader
         $retval .= $this->_getLink(
             '#',
             $showText,
-            __('Reload navigation frame'),
+            __('Reload navigation panel'),
             $showIcon,
             's_reload.png',
             'pma_navigation_reload'

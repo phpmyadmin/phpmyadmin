@@ -22,7 +22,7 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -49,7 +49,7 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_List_Database::getEmpty
-     * 
+     *
      * @return void
      */
     public function testEmpty()
@@ -60,7 +60,7 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_List_Database::getSingleItem
-     * 
+     *
      * @return void
      */
     public function testSingle()
@@ -71,7 +71,7 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_List_Database::exists
-     * 
+     *
      * @return void
      */
     public function testExists()
@@ -82,7 +82,7 @@ class PMA_List_Database_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_List_Database::getHtmlOptions
-     * 
+     *
      * @return void
      */
     public function testHtmlOptions()

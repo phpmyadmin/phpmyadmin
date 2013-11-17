@@ -46,13 +46,13 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $_POST['orientation'] = 'orientation';
         $_POST['paper'] = 'paper';
         $_POST['export_type'] = 'PMA_ExportType';
-        
+
         $GLOBALS['server'] = 1;
         $GLOBALS['controllink'] = null;
         $GLOBALS['db'] = 'information_schema';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
-        
+
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = array(
             'table_coords' => "table_name",
@@ -62,28 +62,28 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
             'relwork' => 'relwork',
             'relation' => 'relation'
         );
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $dbi->expects($this->any())
             ->method('numRows')
             ->will($this->returnValue(1));
-        
+
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue("executed_1"));
-         
+
         $dbi->expects($this->any())
             ->method('tryQuery')
             ->will($this->returnValue("executed_1"));
-        
+
         $fetchArrayReturn = array(
             //table name in information_schema_relations
             'table_name' => 'CHARACTER_SETS'
         );
-        
+
         $fetchArrayReturn2 = array(
             //table name in information_schema_relations
             'table_name' => 'COLLATIONS'
@@ -98,7 +98,7 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $dbi->expects($this->at(4))
             ->method('fetchAssoc')
             ->will($this->returnValue(false));
-        
+
         $getIndexesResult = array(
             array(
                 'Table' => 'pma_tbl',
@@ -110,7 +110,7 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($getIndexesResult));
-        
+
         $fetchValue = "CREATE TABLE `pma_bookmark` (
              `id` int(11) NOT NULL AUTO_INCREMENT,
               `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
@@ -118,15 +118,15 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
               `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
               `query` text COLLATE utf8_bin NOT NULL,
               PRIMARY KEY (`id`)
-             ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 " 
+             ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 "
             . "COLLATE=utf8_bin COMMENT='Bookmarks'";
-        
+
         $dbi->expects($this->any())
             ->method('fetchValue')
-            ->will($this->returnValue($fetchValue));     
+            ->will($this->returnValue($fetchValue));
 
         $GLOBALS['dbi'] = $dbi;
-     
+
         $this->object = new PMA_Dia_Relation_Schema();
     }
 
@@ -154,27 +154,27 @@ class PMA_Dia_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             33,
             $this->object->pageNumber
-        );        
+        );
         $this->assertEquals(
             1,
             $this->object->showGrid
-        );        
+        );
         $this->assertEquals(
             1,
             $this->object->showColor
-        );       
+        );
         $this->assertEquals(
             1,
             $this->object->showKeys
-        );       
+        );
         $this->assertEquals(
             'P',
             $this->object->orientation
-        );       
+        );
         $this->assertEquals(
             'paper',
             $this->object->paper
-        );      
+        );
         $this->assertEquals(
             'PMA_ExportType',
             $this->object->exportType

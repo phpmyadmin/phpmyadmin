@@ -23,8 +23,6 @@ class PMA_Navigation
 {
     /**
      * Initialises the class
-     *
-     * @return void
      */
     public function __construct()
     {

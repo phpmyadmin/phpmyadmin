@@ -10,7 +10,7 @@ require_once 'libraries/properties/options/OptionsPropertyOneItem.class.php';
 
 /**
  * Tests for OptionsPropertyOneItem class
- * 
+ *
  * @package PhpMyAdmin-test
  */
 class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
@@ -29,7 +29,7 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -41,7 +41,7 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - OptionsPropertyOneItem::getValues
      *     - OptionsPropertyOneItem::setValues
-     * 
+     *
      * @return void
      */
     public function testGetSetValues()
@@ -58,7 +58,7 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - OptionsPropertyOneItem::getLen
      *     - OptionsPropertyOneItem::setLen
-     * 
+     *
      * @return void
      */
     public function testGetSetLen()
@@ -75,7 +75,7 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - OptionsPropertyOneItem::getForce
      *     - OptionsPropertyOneItem::setForce
-     * 
+     *
      * @return void
      */
     public function testGetSetForce()
@@ -92,7 +92,7 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - OptionsPropertyOneItem::getDoc
      *     - OptionsPropertyOneItem::setDoc
-     * 
+     *
      * @return void
      */
     public function testGetSetDoc()
@@ -109,7 +109,7 @@ class PMA_OptionsPropertyOneItem_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - OptionsPropertyOneItem::getSize
      *     - OptionsPropertyOneItem::setSize
-     * 
+     *
      * @return void
      */
     public function testGetSetSize()

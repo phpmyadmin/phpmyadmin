@@ -44,8 +44,6 @@ class PMA_Menu
      * @param int    $server Server id
      * @param string $db     Database name
      * @param string $table  Table name
-     *
-     * @return New PMA_Table
      */
     public function __construct($server, $db, $table)
     {

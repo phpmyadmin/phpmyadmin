@@ -233,6 +233,7 @@ class ImportCsv extends AbstractImportCsv
         // Defaults for parser
         $i = 0;
         $len = 0;
+        $lastlen = null;
         $line = 1;
         $lasti = -1;
         $values = array();

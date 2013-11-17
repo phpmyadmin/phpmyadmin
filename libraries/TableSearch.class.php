@@ -171,7 +171,7 @@ class PMA_TableSearch
     /**
      * Sets the table header for displaying a table in query-by-example format.
      *
-     * @return HTML content, the tags and content for table header
+     * @return string HTML content, the tags and content for table header
      */
     private function _getTableHeader()
     {
@@ -227,7 +227,7 @@ class PMA_TableSearch
      * @param int  $column_index Column's index
      * @param bool $in_fbs       Whether we are in 'function based search'
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getGeometricalInputBox($column_index, $in_fbs)
     {
@@ -260,7 +260,7 @@ class PMA_TableSearch
      * @param string $column_id           Column's inputbox's id
      * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getForeignKeyInputBox($foreignData, $column_name,
         $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id,
@@ -311,7 +311,7 @@ EOT;
      * @param string $column_id           Column's inputbox's id
      * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getEnumSetInputBox($column_index, $criteriaValues,
         $column_type, $column_id, $in_zoom_search_edit = false
@@ -579,27 +579,52 @@ EOT;
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ($func_type == 'IN (...)'
-                || $func_type == 'NOT IN (...)'
-                || $func_type == 'BETWEEN'
-                || $func_type == 'NOT BETWEEN'
+            if ('IN (...)' == $func_type
+                || 'NOT IN (...)' == $func_type
+                || 'BETWEEN' == $func_type
+                || 'NOT BETWEEN' == $func_type
             ) {
                 $func_type = str_replace(' (...)', '', $func_type);
 
+                //Don't explode if this is already an array
+                //(Case for (NOT) IN/BETWEEN.)
+                if (is_array($criteriaValues)) {
+                    $values = $criteriaValues;
+                } else {
+                    $values = explode(',', $criteriaValues);
+                }
                 // quote values one by one
-                $values = explode(',', $criteriaValues);
-                foreach ($values as &$value) {
+                $emptyKey = false;
+                foreach ($values as $key => &$value) {
+                    if ('' === $value) {
+                        $emptyKey = $key;
+                        $value = 'NULL';
+                        continue;
+                    }
                     $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
                         . $quot;
                 }
 
-                if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+                if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
                     $where = $backquoted_name . ' ' . $func_type . ' '
                         . (isset($values[0]) ? $values[0] : '')
                         . ' AND ' . (isset($values[1]) ? $values[1] : '');
-                } else {
-                    $where = $backquoted_name . ' ' . $func_type
-                        . ' (' . implode(',', $values) . ')';
+                } else { //[NOT] IN
+                    if (false !== $emptyKey) {
+                        unset($values[$emptyKey]);
+                    }
+                    $wheres = array();
+                    if (!empty($values)) {
+                        $wheres[] = $backquoted_name . ' ' . $func_type
+                            . ' (' . implode(',', $values) . ')';
+                    }
+                    if (false !== $emptyKey) {
+                        $wheres[] = $backquoted_name . ' IS NULL';
+                    }
+                    $where = implode(' OR ', $wheres);
+                    if (1 < count($wheres)) {
+                        $where = '(' . $where . ')';
+                    }
                 }
             } else {
                 if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
@@ -909,7 +934,9 @@ EOT;
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $func = '<select name="criteriaColumnOperators[' . $search_index . ']">';
+        $func = '<select name="criteriaColumnOperators['
+            . $search_index . ']" onchange="changeValueFieldType(this, '
+            . $search_index . ')">';
         $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
             preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
             $this->_columnNullFlags[$column_index], $selected_operator
@@ -1307,7 +1334,7 @@ EOT;
     /**
      * Displays the 'Find and Replace' form
      *
-     * @return HTML for 'Find and Replace' form
+     * @return string HTML for 'Find and Replace' form
      */
     function _getSearchAndReplaceHTML()
     {
@@ -1337,7 +1364,7 @@ EOT;
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return HTML for prviewing strings found and their replacements
+     * @return string HTML for prviewing strings found and their replacements
      */
     function getReplacePreview($columnIndex, $find, $replaceWith, $charSet)
     {

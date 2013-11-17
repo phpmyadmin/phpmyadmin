@@ -108,7 +108,6 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 define('PMA_DRIZZLE', false);
             }
 
-            $GLOBALS['cfg']['Server']['DisableIS'] = false;
             $GLOBALS['cfg']['DBG']['sql'] = false;
 
             $this->assertEquals(
@@ -123,12 +122,6 @@ class PMA_MySQL_Charsets_Test extends PHPUnit_Framework_TestCase
                 PMA_getDbCollation('pma_test')
             );
 
-            $GLOBALS['cfg']['Server']['DisableIS'] = true;
-            $GLOBALS['db'] = 'pma_test2';
-            $this->assertEquals(
-                'bar',
-                PMA_getDbCollation('pma_test')
-            );
             $this->assertNotEquals(
                 'pma_test',
                 $GLOBALS['dummy_db']

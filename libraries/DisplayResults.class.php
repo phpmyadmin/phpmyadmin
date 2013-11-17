@@ -159,7 +159,7 @@ class PMA_DisplayResults
     /**
      * This variable contains the column transformation information
      * for some of the system databases.
-     * One element of this array represent all relavant columns in all tables in
+     * One element of this array represent all relevant columns in all tables in
      * one specific database
      */
     public $transformation_info;
@@ -170,7 +170,7 @@ class PMA_DisplayResults
      *
      * @param string $property name of the property
      *
-     * @return if property exist, value of the relavant property
+     * @return mixed|void if property exist, value of the relevant property
      */
     public function __get($property)
     {
@@ -184,7 +184,7 @@ class PMA_DisplayResults
      * Set values for any property of this class
      *
      * @param string $property name of the property
-     * @param any    $value    value to set
+     * @param mixed  $value    value to set
      *
      * @return void
      */
@@ -274,28 +274,28 @@ class PMA_DisplayResults
     /**
      * Set properties which were not initialized at the constructor
      *
-     * @param type $unlim_num_rows integer the total number of rows returned by
+     * @param integer $unlim_num_rows the total number of rows returned by
      *                                     the SQL query without any appended
      *                                     "LIMIT" clause programmatically
-     * @param type $fields_meta    array   meta information about fields
-     * @param type $is_count       boolean
-     * @param type $is_export      integer
-     * @param type $is_func        boolean
-     * @param type $is_analyse     integer
-     * @param type $num_rows       integer total no. of rows returned by SQL query
-     * @param type $fields_cnt     integer total no.of fields returned by SQL query
-     * @param type $querytime      double  time taken for execute the SQL query
-     * @param type $pmaThemeImage  string  path for theme images directory
-     * @param type $text_dir       string
-     * @param type $is_maint       boolean
-     * @param type $is_explain     boolean
-     * @param type $is_show        boolean
-     * @param type $showtable      array   table definitions
-     * @param type $printview      string
-     * @param type $url_query      string  URL query
-     * @param type $editable       boolean whether the resutls set is editable
+     * @param array   $fields_meta    meta information about fields
+     * @param boolean $is_count       statement is SELECT COUNT
+     * @param integer $is_export      statement contains INTO OUTFILE
+     * @param boolean $is_func        statement contains a function like SUM()
+     * @param integer $is_analyse     statement contains PROCEDURE ANALYSE
+     * @param integer $num_rows       total no. of rows returned by SQL query
+     * @param integer $fields_cnt     total no.of fields returned by SQL query
+     * @param double  $querytime      time taken for execute the SQL query
+     * @param string  $pmaThemeImage  path for theme images directory
+     * @param string  $text_dir       text direction
+     * @param boolean $is_maint       statement contains a maintenance command
+     * @param boolean $is_explain     statement contains EXPLAIN
+     * @param boolean $is_show        statement contains SHOW
+     * @param array   $showtable      table definitions
+     * @param string  $printview      print view was requested
+     * @param string  $url_query      URL query
+     * @param boolean $editable       whether the results set is editable
      *
-     * @return  void
+     * @return void
      *
      * @see     sql.php
      */
@@ -979,18 +979,20 @@ class PMA_DisplayResults
     /**
      * Get the headers of the results table
      *
-     * @param array   &$is_display                 which elements to display
-     * @param array   $analyzed_sql                the analyzed query
-     * @param string  $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression without direction
-     * @param string  $sort_direction              sort direction
-     * @param boolean $is_limited_display          with limited operations or not
+     * @param array        &$is_display                 which elements to display
+     * @param array|string $analyzed_sql                the analyzed query
+     * @param string       $sort_expression             sort expression
+     * @param string       $sort_expression_nodirection sort expression
+     *                                                  without direction
+     * @param string       $sort_direction              sort direction
+     * @param boolean      $is_limited_display          with limited operations
+     *                                                  or not
      *
-     * @return string                      html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     getTable()
+     * @see    getTable()
      */
     private function _getTableHeaders(
         &$is_display, $analyzed_sql = '',
@@ -1977,6 +1979,10 @@ class PMA_DisplayResults
                 $new_sort_expression_nodirection = $sort_expression_nodirection;
             }
 
+            //Back quotes are removed in next comparison, so remove them from value
+            //to compare.
+            $name_to_use_in_sort = str_replace('`', '', $name_to_use_in_sort);
+
             $is_in_sort = false;
             $sort_name = str_replace('`', '', $sort_tbl) . $name_to_use_in_sort;
 
@@ -2400,7 +2406,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Adds the relavant classes.
+     * Adds the relevant classes.
      *
      * @param string $class                 class of table cell
      * @param bool   $condition_field       whether to add CSS class condition
@@ -4196,11 +4202,11 @@ class PMA_DisplayResults
      * @param string $dir        _left / _right
      * @param array  $is_display display mode
      *
-     * @return  $checkBoxes_html html content
+     * @return String $checkBoxes_html html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getVerticalTable()
+     * @see    _getVerticalTable()
      */
     private function _getCheckBoxesForMultipleRowOperations($dir, $is_display)
     {
@@ -5424,17 +5430,16 @@ class PMA_DisplayResults
 
         $result = '[' . $category;
 
-        if (is_null($content)) {
+        if (isset($content)) {
+
+            $size = strlen($content);
+            $display_size = PMA_Util::formatByteDown($size, 3, 1);
+            $result .= ' - '. $display_size[0] . ' ' . $display_size[1];
+
+        } else {
 
             $result .= ' - NULL';
             $size = 0;
-
-        } elseif (isset($content)) {
-
-            $size = strlen($content);
-            $display_size
-                = PMA_Util::formatByteDown($size, 3, 1);
-            $result .= ' - '. $display_size[0] . ' ' . $display_size[1];
 
         }
 
@@ -5960,12 +5965,12 @@ class PMA_DisplayResults
      *
      * @param string $buffer String to process
      *
-     * @return Escaped and cleaned up text suitable for html.
+     * @return String Escaped and cleaned up text suitable for html.
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getDataCellForBlobField(), _getRowData(),
-     *          _handleNonPrintableContents()
+     * @see    _getDataCellForBlobField(), _getRowData(),
+     *         _handleNonPrintableContents()
      */
     private function _mimeDefaultFunction($buffer)
     {
@@ -5988,7 +5993,7 @@ class PMA_DisplayResults
      * @param string $binary_or_blob binary' or 'blob'
      * @param int    $hexlength      optional, get substring
      *
-     * @return Displayable version of the binary string
+     * @return String Displayable version of the binary string
      *
      * @access private
      *
@@ -6019,4 +6024,5 @@ class PMA_DisplayResults
         return $content;
     }
 }
+
 ?>

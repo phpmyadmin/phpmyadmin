@@ -47,7 +47,7 @@ if (!empty($_GET['saved'])) {
 }
 
 /* debug code
-$arr = ConfigFile::getInstance()->getConfigArray();
+$arr = $cf->getConfigArray();
 $arr2 = array();
 foreach ($arr as $k => $v) {
     $arr2[] = "<b>$k</b> " . var_export($v, true);

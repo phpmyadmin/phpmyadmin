@@ -41,7 +41,7 @@ function PMA_getSysInfoOs($php_os = PHP_OS)
 /**
  * Gets sysinfo class mathing current OS
  *
- * @return sysinfo class
+ * @return PMA_SysInfo|mixed sysinfo class
  */
 function PMA_getSysInfo()
 {
@@ -160,7 +160,7 @@ class PMA_SysInfoWinnt extends PMA_SysInfo
      * @param string $strClass Class to read
      * @param array  $strValue Values to read
      *
-     * @return arrray with results
+     * @return array with results
      */
     private function _getWMI($strClass, $strValue = array())
     {

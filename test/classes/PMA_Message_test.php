@@ -330,7 +330,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testDecodeBB
-     * 
+     *
      * @return array Test data
      */
     public function decodeBBDataProvider()
@@ -558,7 +558,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testAffectedRows
-     * 
+     *
      * @return array Test-data
      */
     public function providerAffectedRows()
@@ -603,7 +603,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testInsertedRows
-     * 
+     *
      * @return array Test-data
      */
     public function providerInsertedRows()
@@ -648,7 +648,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Data provider for testDeletedRows
-     * 
+     *
      * @return array Test-data
      */
     public function providerDeletedRows()

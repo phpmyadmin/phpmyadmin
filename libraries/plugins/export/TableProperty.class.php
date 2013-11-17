@@ -64,8 +64,6 @@ class TableProperty
      * Constructor
      *
      * @param array $row table row
-     *
-     * @return void
      */
     function __construct($row)
     {

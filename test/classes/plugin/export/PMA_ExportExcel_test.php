@@ -34,7 +34,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -44,7 +44,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for ExportExcel::setProperties
-     * 
+     *
      * @return void
      */
     public function testSetProperties()
@@ -115,7 +115,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
             'TextPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'null',
             $property->getName()
@@ -132,7 +132,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'removeCRLF',
             $property->getName()
@@ -149,7 +149,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
             'BoolPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'columns',
             $property->getName()
@@ -166,7 +166,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
             'SelectPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'edition',
             $property->getName()
@@ -192,7 +192,7 @@ class PMA_ExportExcel_Test extends PHPUnit_Framework_TestCase
             'HiddenPropertyItem',
             $property
         );
-        
+
         $this->assertEquals(
             'structure_or_data',
             $property->getName()

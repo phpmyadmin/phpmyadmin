@@ -45,15 +45,24 @@ class Form
     private $_fieldsTypes;
 
     /**
+     * ConfigFile instance
+     * @var ConfigFile
+     */
+    private $_configFile;
+
+    /**
      * Constructor, reads default config values
      *
-     * @param string $form_name Form name
-     * @param array  $form      Form data
-     * @param int    $index     arbitrary index, stored in Form::$index
+     * @param string     $form_name Form name
+     * @param array      $form      Form data
+     * @param ConfigFile $cf        Config file instance
+     * @param int        $index     arbitrary index, stored in Form::$index
      */
-    public function __construct($form_name, array $form, $index = null)
-    {
+    public function __construct(
+        $form_name, array $form, ConfigFile $cf, $index = null
+    ) {
         $this->index = $index;
+        $this->_configFile = $cf;
         $this->loadForm($form_name, $form);
     }
 
@@ -81,7 +90,7 @@ class Form
      */
     public function getOptionValueList($option_path)
     {
-        $value = ConfigFile::getInstance()->getDbEntry($option_path);
+        $value = $this->_configFile->getDbEntry($option_path);
         if ($value === null) {
             trigger_error("$option_path - select options not defined", E_USER_ERROR);
             return array();
@@ -175,7 +184,7 @@ class Form
      */
     protected function readTypes()
     {
-        $cf = ConfigFile::getInstance();
+        $cf = $this->_configFile;
         foreach ($this->fields as $name => $path) {
             if (strpos($name, ':group:') === 0) {
                 $this->_fieldsTypes[$name] = 'group';

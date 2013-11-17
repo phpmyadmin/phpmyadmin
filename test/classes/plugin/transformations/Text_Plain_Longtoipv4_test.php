@@ -35,7 +35,7 @@ class Text_Plain_Longtoipv4_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Longtoipv4(new PluginManager()); 
+        $this->object = new Text_Plain_Longtoipv4(new PluginManager());
     }
 
     /**
@@ -49,7 +49,7 @@ class Text_Plain_Longtoipv4_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -60,12 +60,12 @@ class Text_Plain_Longtoipv4_Test extends PHPUnit_Framework_TestCase
     public function testGetInfo()
     {
         $info = 'Converts an (IPv4) Internet network address into a string in'
-            . ' Internet standard dotted format.';     
+            . ' Internet standard dotted format.';
         $this->assertEquals(
             $info,
             Text_Plain_Longtoipv4::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -76,11 +76,11 @@ class Text_Plain_Longtoipv4_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "Long To IPv4",
             Text_Plain_Longtoipv4::getName()
-        );    
+        );
     }
 
     /**
@@ -91,11 +91,11 @@ class Text_Plain_Longtoipv4_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_Longtoipv4::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -106,11 +106,11 @@ class Text_Plain_Longtoipv4_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_Longtoipv4::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -127,14 +127,14 @@ class Text_Plain_Longtoipv4_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "2.143.92.40",
             $this->object->applyTransformation($buffer, $options)
-        );   
-        
-        //too big      
+        );
+
+        //too big
         $buffer = 4294967295;
         $options = array("option1", "option2");
         $this->assertEquals(
             "255.255.255.255",
             $this->object->applyTransformation($buffer, $options)
-        ); 
+        );
     }
 }

@@ -31,7 +31,7 @@ class PMA_Svg_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_SVG(); 
+        $this->object = new PMA_SVG();
     }
 
     /**
@@ -76,7 +76,7 @@ class PMA_Svg_Test extends PHPUnit_Framework_TestCase
             12,
             $this->object->getStringWidth("aa", "arial", "10")
         );
-     
+
         // string "i"
         $this->assertEquals(
             3,

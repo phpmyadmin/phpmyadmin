@@ -92,7 +92,7 @@ class PMA_Table
     /**
      * return the last error
      *
-     * @return the last error
+     * @return string the last error
      */
     function getLastError()
     {
@@ -102,7 +102,7 @@ class PMA_Table
     /**
      * return the last message
      *
-     * @return the last message
+     * @return string the last message
      */
     function getLastMessage()
     {
@@ -182,7 +182,7 @@ class PMA_Table
      * @param string $db    database
      * @param string $table table
      *
-     * @return whether the given is a view
+     * @return boolean whether the given is a view
      */
     static public function isView($db = null, $table = null)
     {
@@ -192,7 +192,6 @@ class PMA_Table
 
         // use cached data or load information with SHOW command
         if (isset(PMA_Table::$cache[$db][$table])
-            || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
             return $type == 'VIEW';
@@ -375,7 +374,12 @@ class PMA_Table
             $disable_error = true;
         }
 
-        if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
+        if (! isset(PMA_Table::$cache[$db][$table])
+            || $force_read
+            // sometimes there is only one entry (ExactRows) so
+            // we have to get the table's details
+            || count(PMA_Table::$cache[$db][$table]) == 1
+        ) {
             $GLOBALS['dbi']->getTablesFull($db, $table);
         }
 

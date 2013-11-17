@@ -439,7 +439,7 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * @param boolean $is_show_stats            whether stats is show or not
  * @param boolean $ignored                  ignored
  * @param boolean $do                       do
- * @param intger  $colspan_for_structure    colspan for structure
+ * @param integer $colspan_for_structure    colspan for structure
  *
  * @return array $html_output, $odd_row
  */
@@ -738,7 +738,7 @@ function PMA_getHtmlForRepairtable(
  * @param boolean $db_is_information_schema whether db is information schema or not
  * @param boolean $replication              whether to sho replication status
  *
- * @return html data
+ * @return string html data
  */
 function PMA_tableHeader($db_is_information_schema = false, $replication = false)
 {
@@ -1085,6 +1085,10 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
  * @param boolean $is_show_stats            whether stats show or not
  * @param double  $sum_size                 sum size
  * @param double  $overhead_size            overhead size
+ * @param number  $formatted_size           formatted size
+ * @param string  $unit                     unit
+ * @param number  $formatted_overhead       overhead formatted
+ * @param string  $overhead_unit            overhead unit
  *
  * @return array
  */
@@ -1165,8 +1169,8 @@ function PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
 /**
  * Get the HTML snippet for structure table table header
  *
- * @param type $db_is_information_schema whether db is information schema or not
- * @param type $tbl_is_view              whether table is view or nt
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $tbl_is_view              whether table is view or not
  *
  * @return string $html_output
  */
@@ -1626,7 +1630,7 @@ function PMA_getHtmlForSpaceUsageTableRow($odd_row, $name, $value, $unit)
 /**
  * Get HTML for Optimize link if overhead in Information fieldset
  *
- * @param type $url_query URL query
+ * @param string $url_query URL query
  *
  * @return string $html_output
  */
@@ -1650,9 +1654,9 @@ function PMA_getHtmlForOptimizeLink($url_query)
 /**
  * Get HTML for 'Row statistics' table row
  *
- * @param type $odd_row whether current row is odd or even
- * @param type $name    statement name
- * @param type $value   value
+ * @param boolean $odd_row whether current row is odd or even
+ * @param string  $name    statement name
+ * @param mixed   $value   value
  *
  * @return string $html_output
  */
@@ -1864,7 +1868,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
  * @param array  $row                current row
  * @param array  $titles             titles array
  *
- * @return type array $html_output, $fulltext_enabled
+ * @return array $html_output, $fulltext_enabled
  */
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles

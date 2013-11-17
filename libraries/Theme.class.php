@@ -122,7 +122,7 @@ class PMA_Theme
      *
      * @param string $folder path to theme
      *
-     * @return object PMA_Theme
+     * @return PMA_Theme|false
      * @static
      * @access public
      */

@@ -47,7 +47,7 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
  *
  * @param array $where_clause where clause
  *
- * @return whereClauseArray array of where clauses
+ * @return array|void whereClauseArray array of where clauses
  */
 function PMA_getWhereClauseArray($where_clause)
 {
@@ -854,7 +854,7 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
  * @param type $idindex              id index
  * @param type $data                 data to edit
  *
- * @return type string an html snippet
+ * @return string an html snippet
  */
 function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
     $extracted_columnspec, $unnullify_trigger, $tabindex, $tabindex_for_value,
@@ -1220,7 +1220,7 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
  * @param string $vkey   [multi_edit]['row_id']
  * @param array  $column description of column in given table
  *
- * @return string           an html snippet
+ * @return string|void an html snippet
  */
 function PMA_getSelectOptionForUpload($vkey, $column)
 {
@@ -1283,7 +1283,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
 }
 
 /**
- * Get HTML for the Value column of other datatypes 
+ * Get HTML for the Value column of other datatypes
  * (here, "column" is used in the sense of HTML column in HTML table)
  *
  * @param array   $column                description of column in given table
@@ -1950,8 +1950,8 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
 /**
  * Executes the sql query and get the result, then move back to the calling page
  *
- * @param array  $url_params url paramters array
- * @param string $query      built query from PMA_buildSqlQuery()
+ * @param array  $url_params url parameters array
+ * @param array  $query      built query from PMA_buildSqlQuery()
  *
  * @return array             $url_params, $total_affected_rows, $last_messages
  *                           $warning_messages, $error_messages, $return_to_sql_query

@@ -91,7 +91,7 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
         //$not_only_options=false & $ommit_fieldset=false
         $html = PMA_selectServer($not_only_options, $ommit_fieldset);
         $server = $GLOBALS['cfg']['Servers']['0'];
-        
+
         //server items
         $this->assertContains(
             $server['host'],
@@ -116,19 +116,19 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
 
         //$not_only_options=true & $ommit_fieldset=true
         $html = PMA_selectServer($not_only_options, $ommit_fieldset);
-        
+
         //$GLOBALS['cfg']['DefaultTabServer']
         $this->assertContains(
             $GLOBALS['cfg']['DefaultTabServer'],
             $html
         );
-        
+
         //PMA_URL_getHiddenInputs
         $this->assertContains(
             PMA_URL_getHiddenInputs(),
             $html
         );
-        
+
         //labels
         $this->assertContains(
             __('Current Server:'),
@@ -138,7 +138,7 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
             '(' . __('Servers') . ')',
             $html
         );
-        
+
         //server items
         $server = $GLOBALS['cfg']['Servers']['0'];
         $this->assertContains(

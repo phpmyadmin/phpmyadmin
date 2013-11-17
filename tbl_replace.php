@@ -41,7 +41,7 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-// check whether insert row moode, if so include tbl_change.php
+// check whether insert row mode, if so include tbl_change.php
 PMA_isInsertRow();
 
 $after_insert_actions = array('new_insert', 'same_insert', 'edit_next');

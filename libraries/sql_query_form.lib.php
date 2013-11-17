@@ -84,14 +84,8 @@ function PMA_getHtmlForSqlQueryForm(
 
     // start output
     if ($is_querywindow) {
-        $html .= '<form method="post" id="sqlqueryform" target="frame_content"';
-        $html .= '      action="import.php" ' . $enctype . ' name="sqlform"';
-        $html .= '      onsubmit="var save_name ';
-        $html .= '          = window.opener.parent.frame_content.name;';
-        $html .= '      window.opener.parent.frame_content.name ';
-        $html .= '          = save_name + \'' .  time() . '\';';
-        $html .= '      this.target = window.opener.parent.frame_content.name;';
-        $html .= '      return checkSqlQuery(this)">';
+        $html .= '<form method="post" id="sqlqueryform"';
+        $html .= ' action="sql.php" ' . $enctype . ' name="sqlform"';
     } else {
         $html .= '<form method="post" action="import.php" ' . $enctype;
         $html .= ' class="ajax"';
@@ -227,8 +221,10 @@ function PMA_getHtmlForSqlQueryFormInsert(
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
             . '?' . PMA_URL_getCommon($db) . '"';
         if ($is_querywindow) {
-            $tmp_db_link .= ' target="_self"'
-                . ' onclick="this.target=window.opener.frame_content.name"';
+            $tmp_db_link .= 'target="_parent" '
+                . 'onclick="window.opener.location.href = \''
+                . $GLOBALS['cfg']['DefaultTabDatabase']
+                . '?' . PMA_URL_getCommon($db).'\';return false;"';
         }
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
@@ -375,8 +371,14 @@ function PMA_getHtmlForSqlQueryFormInsert(
             . '</label>';
     }
     $html .= '</div>' . "\n";
-    $html .= '<input type="submit" id="button_submit_query" name="SQL"'
-        . ' tabindex="200" value="' . __('Go') . '" />' . "\n";
+    $html .= '<input type="submit" id="button_submit_query" name="SQL"';
+    if ($is_querywindow){
+        $html .= 'onclick="var form = this.parentNode.parentNode;'
+            . ' window.opener.name = \'sqlParentWindow\';'
+            . ' form.target = \'sqlParentWindow\';'
+            . ' return checkSqlQuery(form);"';
+    }
+    $html .= ' tabindex="200" value="' . __('Go') . '" />' . "\n";
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
 
@@ -386,7 +388,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
 /**
  * return HTML for sql Query Form Bookmark
  *
- * @return string
+ * @return string|void
  *
  * @usedby  PMA_getHtmlForSqlQueryForm()
  */

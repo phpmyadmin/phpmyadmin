@@ -83,8 +83,6 @@ class PMA_NavigationTree
 
     /**
      * Initialises the class
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -825,7 +823,7 @@ class PMA_NavigationTree
                 if (strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
-                $icon  = PMA_Util::getImage('b_plus.png');
+                $icon  = PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
                 $match = 1;
                 foreach ($this->_aPath as $path) {
                     $match = 1;
@@ -994,7 +992,7 @@ class PMA_NavigationTree
     /**
      * Makes some nodes visible based on the which node is active
      *
-     * @return nothing
+     * @return void
      */
     private function _setVisibility()
     {
@@ -1053,6 +1051,7 @@ class PMA_NavigationTree
             || $node->real_name == 'functions'
             || $node->real_name == 'procedures'
             || $node->real_name == 'events'))
+            && method_exists($node->realParent(), 'getPresence')
             && $node->realParent()->getPresence($node->real_name) >= $filter_min
         ) {
             $paths = $node->getPaths();
