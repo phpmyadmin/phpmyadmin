@@ -280,15 +280,14 @@ function PMA_getErrorReportForm()
     $html .= '<div class="label"><label><p>'
             . __('You may examine the data in the error report:')
             .'</p></label></div>'
-            .'<pre style="height:13em; overflow:scroll;'
-            .'width:570px; border: solid 1px; background: white; padding: 2px">'
+            .'<pre class="report-data">'
             .PMA_getReportData()
             .'</pre>';
 
     $html .= '<div class="label"><label><p>'
             . __('Please explain the steps that lead to the error:')
             .'</p></label></div>'
-            .'<textarea style="height:10em; width:570px" name="description"'
+            .'<textarea class="report-description" name="description"'
             .'id="report_description"></textarea>';
 
     $html .= '<input type="checkbox" name="always_send"'
