@@ -14,15 +14,6 @@ require_once 'libraries/error_report.lib.php';
 class PMA_PrettyPrint_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * Setup various pre conditions
-     *
-     * @return void
-     */
-    function setUp()
-    {
-    }
-
-    /**
      * Tests correct display of none array objects.
      *
      * @return void
