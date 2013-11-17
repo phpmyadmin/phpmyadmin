@@ -30,7 +30,7 @@ define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
  *
  * @return Array/String the report
  */
-function PMA_getReportData($json_encode = true)
+function PMA_getReportData($pretty_print = true)
 {
     $exception = $_REQUEST['exception'];
     $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
