@@ -32,6 +32,9 @@ define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
  */
 function PMA_getReportData($json_encode = true)
 {
+    if (empty($_REQUEST['exception'])) {
+        return '';
+    }
     $exception = $_REQUEST['exception'];
     $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
     List($uri, $script_name) = PMA_sanitizeUrl($exception["url"]);
@@ -298,13 +301,12 @@ function PMA_getErrorReportForm()
 
     $html .= '</fieldset>';
 
-    $form_params = array(
-        'db'    => $db,
-        'table' => $table,
-    );
+    $html .= PMA_URL_getHiddenInputs();
 
-    $html .= PMA_URL_getHiddenInputs($form_params);
-    $html .= PMA_getHiddenFields(PMA_getReportData(false));
+    $reportData = PMA_getReportData(false);
+    if (! empty($reportData)) {
+        $html .= PMA_getHiddenFields($reportData);
+    }
 
     $html .= '</form>';
 

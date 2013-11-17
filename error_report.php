@@ -10,7 +10,9 @@ require_once 'libraries/error_report.lib.php';
 
 $response = PMA_Response::getInstance();
 
-if ($_REQUEST['send_error_report'] == true) {
+if (isset($_REQUEST['send_error_report'])
+    && $_REQUEST['send_error_report'] == true
+) {
     PMA_sendErrorReport(PMA_getReportData(false));
     if ($_REQUEST['automatic'] === "true") {
         $response->addJSON(
@@ -37,7 +39,7 @@ if ($_REQUEST['send_error_report'] == true) {
             PMA_persistOption("SendErrorReports", "always", "ask");
         }
     }
-} elseif ($_REQUEST['get_settings']) {
+} elseif (! empty($_REQUEST['get_settings'])) {
     $response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
 } else {
     $response->addHTML(PMA_getErrorReportForm());
