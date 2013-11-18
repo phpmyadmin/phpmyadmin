@@ -22,7 +22,9 @@ if (isset($_REQUEST['send_error_report'])
         $success = !empty($decoded_response) ? $decoded_response["success"] : false;
     }
 
-    if ($_REQUEST['automatic'] === "true") {
+    if (isset($_REQUEST['automatic'])
+        && $_REQUEST['automatic'] === "true"
+    ) {
         if ($success) {
             $response->addJSON(
                 'message',
