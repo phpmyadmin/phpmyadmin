@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
-"PO-Revision-Date: 2013-11-13 09:25+0200\n"
+"PO-Revision-Date: 2013-11-18 13:46+0200\n"
 "Last-Translator: Lakshmanan M <send2lakshman@gmail.com>\n"
 "Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/master/ta/>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -217,7 +217,7 @@ msgstr "அனைத்து தெரிவுகளையும் நீக�
 
 #: db_operations.php:45 tbl_create.php:21
 msgid "The database name is empty!"
-msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது"
+msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது!"
 
 #: db_operations.php:130
 #, php-format
@@ -3852,7 +3852,7 @@ msgstr ""
 
 #: libraries/Util.class.php:1226
 msgid "Without PHP Code"
-msgstr ""
+msgstr "PHP குறிமுறை இல்லாமல்"
 
 #: libraries/Util.class.php:1229 libraries/config/messages.inc.php:495
 msgid "Create PHP Code"
@@ -3865,15 +3865,15 @@ msgstr "புதுப்பி"
 
 #: libraries/Util.class.php:1265
 msgid "Skip Validate SQL"
-msgstr ""
+msgstr "SQL உறுதி செய் தாவிச்செல்"
 
 #: libraries/Util.class.php:1268 libraries/config/messages.inc.php:497
 msgid "Validate SQL"
-msgstr ""
+msgstr "SQL உறுதி செய்"
 
 #: libraries/Util.class.php:1309 libraries/sql.lib.php:460
 msgid "Profiling"
-msgstr ""
+msgstr "விவரக்குறிப்பு"
 
 #: libraries/Util.class.php:1321
 msgctxt "Inline edit query"
