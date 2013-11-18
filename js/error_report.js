@@ -206,20 +206,20 @@ var ErrorReport = {
      * @return object
      */
     _get_report_data: function (exception) {
-        var token = PMA_commonParams.get('token');
-
         var report_data = {
             "ajax_request": true,
-            "token": token,
+            "token": PMA_commonParams.get('token'),
             "exception": exception,
             "current_url": window.location.href,
-            "microhistory": ErrorReport._get_microhistory(),
-            "scripts": AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
+            "microhistory": ErrorReport._get_microhistory()
+        };
+        if (typeof AJAX.cache.pages[this.current - 1] === 'undefined') {
+           report_data.scripts = AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
                 function (script) {
                     return script.name;
                 }
-            )
-        };
+            );
+        }
         return report_data;
     },
     /**
