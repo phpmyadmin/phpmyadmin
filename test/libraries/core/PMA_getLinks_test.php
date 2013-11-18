@@ -34,8 +34,12 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
     public function providerLinkURL()
     {
         return array(
-            array('http://wiki.phpmyadmin.net', './url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net&amp;server=99&amp;lang=en&amp;token=token'),
-            array('https://wiki.phpmyadmin.net', './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net&amp;server=99&amp;lang=en&amp;token=token'),
+            array('http://wiki.phpmyadmin.net',
+             './url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net&amp;server=99'
+            . '&amp;lang=en&amp;token=token'),
+            array('https://wiki.phpmyadmin.net',
+             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net&amp;server=99'
+            . '&amp;lang=en&amp;token=token'),
             array('wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'),
             array('index.php?db=phpmyadmin', 'index.php?db=phpmyadmin')
         );
