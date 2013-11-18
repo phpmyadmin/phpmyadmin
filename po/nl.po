@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
-"PO-Revision-Date: 2013-11-12 16:10+0200\n"
+"PO-Revision-Date: 2013-11-18 14:22+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -420,7 +420,6 @@ msgid "You may want to refresh the page."
 msgstr "Misschien wilt u de pagina vernieuwen."
 
 #: error_report.php:43
-#, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
 #| "submitted based on your settings."
@@ -428,12 +427,12 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Er is een fout ontdekt en een foutmeldingsverslag werd automatisch verstuurd "
-"op basis van je instellingen."
+"Er is een fout ontdekt en een foutmeldingsverslag werd aangemaakt, maar kon "
+"niet verstuurd worden."
 
 #: error_report.php:48 error_report.php:75
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Als u problemen ondervindt, gelieve handmatig een bug te melden."
 
 #: error_report.php:61 error_report.php:70
 msgid "Thank you for submitting this report."
@@ -441,7 +440,7 @@ msgstr "Bedankt om dit verslag te versturen."
 
 #: error_report.php:72
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Spijtig genoeg is het versturen mislukt."
 
 #: export.php:160
 msgid "Bad type!"
