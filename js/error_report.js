@@ -206,39 +206,21 @@ var ErrorReport = {
      * @return object
      */
     _get_report_data: function (exception) {
-        var token = PMA_commonParams.get('token');
-
         var report_data = {
             "ajax_request": true,
-            "token": token,
+            "token": PMA_commonParams.get('token'),
             "exception": exception,
             "current_url": window.location.href,
-            "microhistory": ErrorReport._get_microhistory(),
-            "scripts": AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
+            "microhistory": ErrorReport._get_microhistory()
+        };
+        if (typeof AJAX.cache.pages[this.current - 1] === 'undefined') {
+           report_data.scripts = AJAX.cache.pages[AJAX.cache.current - 1].scripts.map(
                 function (script) {
                     return script.name;
                 }
-            )
-        };
+            );
+        }
         return report_data;
-    },
-    /**
-     * Returns the exception after removing the url of the script file and
-     * concatenating the context
-     *
-     * @param object exception info
-     *
-     * @return object
-     */
-    _simplify_exception: function (exception) {
-        exception.stack = exception.stack.map(function (level) {
-            if (/get_scripts\.js\.php/.test(level.url)) {
-                level.url = "get_scripts.js.php";
-            }
-            //level.context = level.context.join("\n");
-            return level;
-        });
-        return exception;
     },
     /**
      * Wraps all global functions that start with PMA_
