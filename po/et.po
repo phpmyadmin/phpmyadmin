@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
-"PO-Revision-Date: 2013-11-11 16:08+0200\n"
+"PO-Revision-Date: 2013-11-18 12:30+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -421,18 +421,19 @@ msgid "You may want to refresh the page."
 msgstr "Sa võiksid lehekülje uuesti laadida."
 
 #: error_report.php:43
-#, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
 #| "submitted based on your settings."
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "Tuvastati viga, mis raporteeriti automaatselt vastavalt su seadetele."
+msgstr ""
+"Tuvastati viga ja loodi sellele vastav vearaport, kuid seda ei õnnestunud "
+"saata."
 
 #: error_report.php:48 error_report.php:75
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Kui koged mingeid probleeme, siis raporteeri neist ise."
 
 #: error_report.php:61 error_report.php:70
 msgid "Thank you for submitting this report."
@@ -440,7 +441,7 @@ msgstr "Täname, et saatsid raporti."
 
 #: error_report.php:72
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Raporteerimine ei õnnestunud, kahjuks."
 
 #: export.php:160
 msgid "Bad type!"
