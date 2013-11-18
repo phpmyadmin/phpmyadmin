@@ -41,12 +41,12 @@ if (isset($_REQUEST['send_error_report'])
                 PMA_Message::error(
                     __(
                         'An error has been detected and an error report has been '
-                        .'generated but failed to be sent.'
+                        . 'generated but failed to be sent.'
                     )
                     . ' '
                     . __(
                         'If you experience any '
-                        .'problems please submit a bug report manually'
+                        . 'problems please submit a bug report manually.'
                     )
                     . '<br />'
                     . __('You may want to refresh the page.')
@@ -73,7 +73,7 @@ if (isset($_REQUEST['send_error_report'])
                     . ' '
                     . __(
                         'If you experience any '
-                        .'problems please submit a bug report manually'
+                        . 'problems please submit a bug report manually.'
                     )
                     . '<br />'
                     . __('You may want to refresh the page.')
