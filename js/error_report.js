@@ -223,24 +223,6 @@ var ErrorReport = {
         return report_data;
     },
     /**
-     * Returns the exception after removing the url of the script file and
-     * concatenating the context
-     *
-     * @param object exception info
-     *
-     * @return object
-     */
-    _simplify_exception: function (exception) {
-        exception.stack = exception.stack.map(function (level) {
-            if (/get_scripts\.js\.php/.test(level.url)) {
-                level.url = "get_scripts.js.php";
-            }
-            //level.context = level.context.join("\n");
-            return level;
-        });
-        return exception;
-    },
-    /**
      * Wraps all global functions that start with PMA_
      *
      * @return void
