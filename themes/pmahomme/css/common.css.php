@@ -2766,3 +2766,17 @@ body .ui-widget {
 .jqplot-axis {
     overflow:hidden;
 }
+
+.report-data {
+    height:13em;
+    overflow:scroll;
+    width:570px;
+    border: solid 1px;
+    background: white;
+    padding: 2px;
+}
+
+.report-description {
+    height:10em;
+    width:570px;
+}

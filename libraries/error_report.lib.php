@@ -26,11 +26,11 @@ define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
  *
- * @param boolean $json_encode whether to encode the report as a json string
+ * @param boolean $pretty_print whether to prettify the report
  *
  * @return Array/String the report
  */
-function PMA_getReportData($json_encode = true)
+function PMA_getReportData($pretty_print = true)
 {
     if (empty($_REQUEST['exception'])) {
         return '';
@@ -61,12 +61,12 @@ function PMA_getReportData($json_encode = true)
         $report['steps'] = $_REQUEST['description'];
     }
 
-    if ($json_encode) {
+    if ($pretty_print) {
         /* JSON_PRETTY_PRINT available since PHP 5.4 */
         if (defined('JSON_PRETTY_PRINT')) {
             return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         } else {
-            return json_encode($report);
+            return PMA_prettyPrint($report);
         }
     } else {
         return $report;
@@ -283,14 +283,14 @@ function PMA_getErrorReportForm()
     $html .= '<div class="label"><label><p>'
             . __('You may examine the data in the error report:')
             .'</p></label></div>'
-            .'<textarea style="height:13em; overflow-y:scroll; width:570px" disabled>'
+            .'<pre class="report-data">'
             .PMA_getReportData()
-            .'</textarea>';
+            .'</pre>';
 
     $html .= '<div class="label"><label><p>'
             . __('Please explain the steps that lead to the error:')
             .'</p></label></div>'
-            .'<textarea style="height:10em; width:570px" name="description"'
+            .'<textarea class="report-description" name="description"'
             .'id="report_description"></textarea>';
 
     $html .= '<input type="checkbox" name="always_send"'
@@ -324,4 +324,33 @@ function PMA_hasLatestLineCounts()
     $line_counts_time = filemtime("js/line_counts.php");
     $js_time = filemtime("js");
     return $line_counts_time >= $js_time;
+}
+
+/**
+ * pretty print a variable for the user
+ *
+ * @param mixed  $object    the variable to pretty print
+ * @param String $namespace the namespace to use for printing values
+ *
+ * @return String the human readable form of the variable
+ */
+function PMA_prettyPrint($object, $namespace="")
+{
+    if (! is_array($object)) {
+        if (empty($namespace)) {
+            return "$object\n";
+        } else {
+            return "$namespace: \"$object\"\n";
+        }
+    }
+    $output = "";
+    foreach ($object as $key => $value) {
+        if ($namespace == "") {
+            $new_namespace =  "$key";
+        } else {
+            $new_namespace =  $namespace . "[$key]";
+        }
+        $output .= PMA_prettyPrint($value, $new_namespace);
+    }
+    return $output;
 }
