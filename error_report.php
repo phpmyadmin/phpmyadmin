@@ -13,28 +13,73 @@ $response = PMA_Response::getInstance();
 if (isset($_REQUEST['send_error_report'])
     && $_REQUEST['send_error_report'] == true
 ) {
-    PMA_sendErrorReport(PMA_getReportData(false));
-    if ($_REQUEST['automatic'] === "true") {
-        $response->addJSON(
-            'message',
-            PMA_Message::error(
-                __(
-                    'An error has been detected and an error report has been '
-                    .'automatically submitted based on your settings.'
-                )
-                . '<br />'
-                . __('You may want to refresh the page.')
-            )
-        );
+    $server_response = PMA_sendErrorReport(PMA_getReportData(false));
+
+    if ($server_response === false) {
+        $success = false;
     } else {
-        $response->addJSON(
-            'message',
-            PMA_Message::success(
-                __('Thank you for submitting this report.')
-                . '<br />'
-                . __('You may want to refresh the page.')
-            )
-        );
+        $decoded_response = json_decode($server_response, true);
+        $success = !empty($decoded_response) ? $decoded_response["success"] : false;
+    }
+
+    if ($_REQUEST['automatic'] === "true") {
+        if ($success) {
+            $response->addJSON(
+                'message',
+                PMA_Message::error(
+                    __(
+                        'An error has been detected and an error report has been '
+                        .'automatically submitted based on your settings.'
+                    )
+                    . '<br />'
+                    . __('You may want to refresh the page.')
+                )
+            );
+        } else {
+            $response->addJSON(
+                'message',
+                PMA_Message::error(
+                    __(
+                        'An error has been detected and an error report has been '
+                        .'generated but failed to be sent.'
+                    )
+                    . ' '
+                    . __(
+                        'If you experience any '
+                        .'problems please submit a bug report manually'
+                    )
+                    . '<br />'
+                    . __('You may want to refresh the page.')
+                )
+            );
+        }
+    } else {
+        if ($success) {
+            $response->addJSON(
+                'message',
+                PMA_Message::success(
+                    __('Thank you for submitting this report.')
+                    . '<br />'
+                    . __('You may want to refresh the page.')
+                )
+            );
+        } else {
+            $response->addJSON(
+                'message',
+                PMA_Message::error(
+                    __('Thank you for submitting this report.')
+                    . ' '
+                    . __('Unfortunately the submission failed.')
+                    . ' '
+                    . __(
+                        'If you experience any '
+                        .'problems please submit a bug report manually'
+                    )
+                    . '<br />'
+                    . __('You may want to refresh the page.')
+                )
+            );
+        }
         if ($_REQUEST['always_send'] === "true") {
             PMA_persistOption("SendErrorReports", "always", "ask");
         }
