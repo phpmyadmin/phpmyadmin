@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-10 08:54-0500\n"
-"PO-Revision-Date: 2013-07-01 02:18+0200\n"
-"Last-Translator: Hamid Rohani <tazzeh2004@yahoo.com>\n"
-"Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
-">\n"
+"PO-Revision-Date: 2013-11-18 07:52+0200\n"
+"Last-Translator: Ali Hassani <simorgh4@hotmail.com>\n"
+"Language-Team: Persian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -600,7 +600,6 @@ msgid "Output"
 msgstr "خروجی"
 
 #: gis_data_editor.php:404
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -608,8 +607,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"گزینه \"GeomFromText\" را از ستون \"Function\" انتخاب کنید و رشته زیر را در "
-"فیلد \"مقدار(value)\" وارد کنید"
+"گزینه \"شکل از متن\" را از ستون \"عمل\" انتخاب کنید و رشته زیر را در بخش \"مقدار\" "
+"وارد کنید"
 
 #: import.php:116
 #, php-format
@@ -618,15 +617,15 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "احتمالاً شما سعی کردید یک فایل حجیم را آپلود کنید. لطفاً برای راهکار در مورد "
-"این محدودیت به%sنوشتار%s مراجعه کنید."
+"این محدودیت به بخش متن مراجعه کنید."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
-msgstr "نمایش بوک مارک"
+msgstr "نمایش تاریخچه"
 
 #: import.php:299 import.php:546
 msgid "The bookmark has been deleted."
-msgstr "بوک مارک حذف شد ."
+msgstr "تاریخچه  حذف شد ."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
@@ -640,7 +639,7 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"شما فایلی را با فشرده سازی پشتیبانی نشده بار گذاری میکنید (%s).ممکن است در "
+"شما فایلی را با فشرده سازی پشتیبانی نشده بار گذاری میکنید یا ممکن است در "
 "تنظیمات غیر فعال باشد و یا پشتیبانی میسر نباشد ."
 
 #: import.php:461
@@ -649,27 +648,27 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"اطلاعاتی برای ورود دریافت نشد. یا فایلی انتخاب نشده ، یا فایل از حجم حداکثر "
-"بیشتر بوده. به  [doc@faq1-16]FAQ 1.16[/doc] مراجعه نمایید."
+"اطلاعاتی برای ورود دریافت نشد یا نام فایل  انتخاب نشده ، یا  حجم فایل از حد "
+"مجاز بیشتر است."
 
 #: import.php:481
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr "نمی توان کاراکترها را بدون داشتن کتابخانه تبدیل آنها، تبدیل کرد"
+msgstr "نمی توان کاراکترها را بدون داشتن مرجع  آنها تبدیل کرد"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
-msgstr "خطا در بارگزار پلاگین ها, لطفا مراحل نصب را چک کنید"
+msgstr "خطا در بارگزاری افزونه ها, لطفا مراحل نصب را چک کنید"
 
 #: import.php:553 libraries/sql.lib.php:1021 libraries/sql.lib.php:1802
 #, php-format
 msgid "Bookmark %s created"
-msgstr "بوک مارک  %s ایجاد شده"
+msgstr "تاریخچه ایجاد شده است"
 
 #: import.php:563 import.php:576
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "وارد کردن اطلاعات با موفقیت به پایان رسید , %d کوئری اجرا شد ."
+msgstr "وارد کردن اطلاعات با موفقیت به پایان رسید ,فرآیند اجرا شد ."
 
 #: import.php:591
 msgid ""
@@ -684,9 +683,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که phpMyAdmin  نمی "
-"تواند ورود داده را تمام کند مگر اینکه شما حداکثر زمان اجرای php را افزایش "
-"دهید."
+"در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که ویرایشگرنمی تواند "
+"ورود داده را تمام کند مگر اینکه شما حداکثر زمان اجرای برنامه را افزایش دهید."
 
 #: import_status.php:87 libraries/Util.class.php:735
 #: libraries/schema/Export_Relation_Schema.class.php:246 user_password.php:239
@@ -717,7 +715,7 @@ msgstr "تغيير کلمه ی عبور"
 
 #: index.php:173
 msgid "Server connection collation"
-msgstr "collation اتصال سرور"
+msgstr "تلفیق اتصال سرور"
 
 #: index.php:196
 msgid "Appearance Settings"
@@ -783,7 +781,7 @@ msgstr "نسخه PHP"
 
 #: index.php:321
 msgid "Show PHP information"
-msgstr "نمايش اطلاعات PHP"
+msgstr "نمايش اطلاعات پی اچ پی"
 
 #: index.php:344
 #, fuzzy
@@ -800,11 +798,11 @@ msgstr "مستندات"
 
 #: index.php:360
 msgid "Wiki"
-msgstr ""
+msgstr "ویکی"
 
 #: index.php:369
 msgid "Official Homepage"
-msgstr "صفحه خانه رسمي phpMyAdmin"
+msgstr "صفحه خانگی  رسمي"
 
 #: index.php:376
 msgid "Contribute"
@@ -812,7 +810,7 @@ msgstr "همکاری"
 
 #: index.php:383
 msgid "Get support"
-msgstr "پشتیبانی گرفتن"
+msgstr "کمک گرفتن"
 
 #: index.php:390
 msgid "List of changes"
@@ -825,10 +823,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"پرونده پيكربندی شما حاوي تنظيماتی است (كاربر root بدون اسم رمز) كه مرتبط با "
-"حساب پيش‌فرض MySQL می‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز می‌شود، "
-"و شما بايد اين حفره امنيتي را با قرار دادن یک اسم رمز برای کاربر 'root' درست "
-"كنيد."
+"پرونده پيكربندی شما حاوي تنظيماتی است (كاربر روت بدون اسم رمز) كه مرتبط با "
+"حساب پيش‌فرض مای اس کیو ال می‌باشد. مای اس کیو ال شما با اين پيش‌فرض باز و "
+"در حال اجرا است و شما بايد اين حفره امنيتي را با قرار دادن یک اسم رمز برای "
+"کاربر 'روت' درست كنيد."
 
 #: index.php:429
 msgid ""
@@ -836,6 +834,9 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"شما ویژگی ایجاد استرینگ بیش از حد مجاز را در تنظیمات پی اچ پی فعال کرده اید. "
+"این خاصیت با ویرایشگر اصلی پی اچ پی سازگاری ندارد و ممکن است باعث از بین "
+"رفتن برخی از اطلاعات گردد."
 
 #: index.php:444
 msgid ""
@@ -2746,7 +2747,7 @@ msgstr ""
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 msgid "Your SQL query has been executed successfully"
-msgstr "پرس و جوي SQL شما با موفقيت اجرا گرديد"
+msgstr "اجرای فرایند شما با موفقيت اجرا گرديد"
 
 #: libraries/DisplayResults.class.php:4870
 msgid "in query"
@@ -2934,7 +2935,7 @@ msgstr "فهرست‌ها"
 #: libraries/Index.class.php:562 libraries/browse_foreigners.lib.php:62
 #: libraries/browse_foreigners.lib.php:66 libraries/tbl_tracking.lib.php:810
 msgid "Keyname"
-msgstr "نام کلیدی"
+msgstr "نام کلید"
 
 #: libraries/Index.class.php:564 libraries/structure.lib.php:1389
 #: libraries/structure.lib.php:2075 libraries/structure.lib.php:2085
@@ -4012,8 +4013,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"پنجره مرورگر هدف توانایی به روز شدن ندارد. شاید شما پنجره والد را بسته‌اید، "
-"یا تنظیمات امنیتی مرورگر شما طوری تنظیم شده که از به روز رسانی بین پنجره‌ها "
+"صفحه مورد نظر امکان به روز شدن ندارد. شاید شما پنجره اصلی را بسته‌اید، یا "
+"تنظیمات امنیتی مرورگر شما طوری تنظیم شده که از به روز رسانی بین پنجره‌ها "
 "جلوگیری می‌کند."
 
 #: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:312
