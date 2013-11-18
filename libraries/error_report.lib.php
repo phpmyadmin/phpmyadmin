@@ -127,6 +127,7 @@ function PMA_sendErrorReport($report)
             array(
                 'method'  => 'POST',
                 'content' => $data_string,
+                'header' => "Content-Type: multipart/form-data\r\n",
             )
         );
         if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
@@ -138,7 +139,8 @@ function PMA_sendErrorReport($report)
                 $auth = base64_encode(
                     $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
                 );
-                $context['http']['header'] = 'Proxy-Authorization: Basic ' . $auth;
+                $context['http']['header'] .= 'Proxy-Authorization: Basic '
+                    . $auth . "\r\n";
             }
         }
         $response = file_get_contents(
