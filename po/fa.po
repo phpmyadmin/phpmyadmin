@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-11-18 07:52+0200\n"
-"Last-Translator: Ali Hassani <simorgh4@hotmail.com>\n"
+"PO-Revision-Date: 2013-11-18 12:31+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/4-0/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -618,7 +618,7 @@ msgstr ""
 "وارد کنید"
 
 #: import.php:107
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
@@ -641,7 +641,7 @@ msgstr "امکان خواندن فایل وجود ندارد"
 
 #: import.php:387 import.php:398 import.php:419 import.php:430
 #: libraries/File.class.php:604
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
@@ -668,12 +668,12 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "خطا در بارگزاری افزونه ها, لطفا مراحل نصب را چک کنید"
 
 #: import.php:537 sql.php:382 sql.php:1259
-#, php-format
+#, fuzzy, php-format
 msgid "Bookmark %s created"
 msgstr "تاریخچه ایجاد شده است"
 
 #: import.php:546 import.php:558
-#, php-format
+#, fuzzy, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "وارد کردن اطلاعات با موفقیت به پایان رسید ,فرآیند اجرا شد ."
 
