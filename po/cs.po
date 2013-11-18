@@ -441,7 +441,7 @@ msgstr "Děkujeme vám za odeslání tohoto hlášení."
 
 #: error_report.php:72
 msgid "Unfortunately the submission failed."
-msgstr "Odeslání bohužel selhlalo."
+msgstr "Odeslání bohužel selhalo."
 
 #: export.php:160
 msgid "Bad type!"
