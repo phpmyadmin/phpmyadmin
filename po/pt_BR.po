@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
-"PO-Revision-Date: 2013-11-10 16:16+0200\n"
+"PO-Revision-Date: 2013-11-18 16:45+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -421,7 +421,6 @@ msgid "You may want to refresh the page."
 msgstr "Você pode querer atualizar a página."
 
 #: error_report.php:43
-#, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
 #| "submitted based on your settings."
@@ -429,12 +428,14 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Um erro foi detectado e um relatório de erro foi automaticamente enviado "
-"baseado em suas configurações."
+"Um erro foi detectado e um relatório de erro foi gerado mas ocorreu falha no "
+"envio."
 
 #: error_report.php:48 error_report.php:75
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Se encontrar algum problema, por favor envie um relatório de erros "
+"manualmente."
 
 #: error_report.php:61 error_report.php:70
 msgid "Thank you for submitting this report."
@@ -442,7 +443,7 @@ msgstr "Obrigado por enviar este relatório."
 
 #: error_report.php:72
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Infelizmente o envio falhou."
 
 #: export.php:160
 msgid "Bad type!"
