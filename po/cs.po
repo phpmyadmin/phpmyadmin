@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
-"PO-Revision-Date: 2013-11-14 10:32+0200\n"
+"PO-Revision-Date: 2013-11-18 12:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -423,20 +423,17 @@ msgid "You may want to refresh the page."
 msgstr "Možná budete potřebovat obnovit tuto stránku."
 
 #: error_report.php:43
-#, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
 #| "submitted based on your settings."
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
-"Byla zjištěna chyba a hlášení o ní bylo automaticky odesláno jak máte "
-"nastaveno."
+msgstr "Byla zjištěna chyba, ale  hlášení o ní se nepodařilo odeslat."
 
 #: error_report.php:48 error_report.php:75
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Pokud narazíte na jakékoliv problémy, prosíme nahlaste chybu ručně."
 
 #: error_report.php:61 error_report.php:70
 msgid "Thank you for submitting this report."
@@ -444,7 +441,7 @@ msgstr "Děkujeme vám za odeslání tohoto hlášení."
 
 #: error_report.php:72
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Odeslání bohužel selhlalo."
 
 #: export.php:160
 msgid "Bad type!"
