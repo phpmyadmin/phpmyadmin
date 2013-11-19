@@ -131,7 +131,10 @@ Basic settings
     Whenever an error is detected in the JavaScript execution, an error report
     may be sent to the phpMyAdmin team if the user agrees.
 
-    You can set this parameter to ``false`` to never send error reports.
+    You can set this parameter to ``false`` to never send error reports. This
+    directive can only be set in the configuration file; therefore, the person
+    in charge of a multi-user installation can disable the feature for all
+    users.
 
 .. config:option:: $cfg['SendErrorReports']
 
@@ -144,6 +147,9 @@ Basic settings
     error report. However you can set this parameter to ``'always'`` to send error
     reports without asking for confirmation or you can set it to ``'never'`` to
     never send error reports.
+
+    This directive is available both in the configuration file and in users
+    preferences.
 
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
