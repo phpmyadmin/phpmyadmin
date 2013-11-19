@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
-"PO-Revision-Date: 2013-08-23 11:33+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Afrikaans <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"af/>\n"
+"PO-Revision-Date: 2013-11-19 08:15+0200\n"
+"Last-Translator: Gottlieb Gauche <gottlieb@gosurfonline.co.za>\n"
+"Language-Team: Afrikaans "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/af/>\n"
 "Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -21,16 +21,17 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Die %s leer is nie beskikbaar op hierdie stelsel nie, besoek asb "
+"www.phpmyadmin.net vir meer inligting."
 
 #: db_create.php:61
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been created."
-msgstr "Databasis %s is verwyder."
+msgstr "Databasis %1$s is geskep."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-#, fuzzy
 msgid "Database comment: "
-msgstr "Tabel kommentaar"
+msgstr "Databasis kommentaar: "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
@@ -59,10 +60,9 @@ msgstr "Tabel kommentaar"
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:731
 #: libraries/tbl_tracking.lib.php:818
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Kolom name"
+msgstr "Kolom naam"
 
 #: db_datadict.php:169 db_printview.php:49 libraries/Index.class.php:564
 #: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:243
@@ -217,22 +217,21 @@ msgid "Unselect All"
 msgstr "Selekteer Niks"
 
 #: db_operations.php:45 tbl_create.php:21
-#, fuzzy
 msgid "The database name is empty!"
-msgstr "Die tabel naam is leeg!"
+msgstr "Die databasis naam is leeg!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Tabel %s is vernoem na %s"
+msgstr "Databasis %1$s se naam is verander na %2$s"
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Tabel %s is gekopieer na %s."
+msgstr "Databasis %1$s is gekopieer na %2$s"
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -240,8 +239,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Die addisionele funksies om met geskakelde tabelle te werk is ge deaktiveer. "
-"Om uit te vind hoekom kliek %shier%s."
+"Die phpMyAdmin konfigurasie stoor is gedeaktiveer. Om uit te vind hoekom "
+"kliek %shier%s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:516
@@ -275,27 +274,26 @@ msgstr "in gebruik"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 msgid "Creation:"
-msgstr "Skep"
+msgstr "Skepping:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
 msgid "Last update:"
-msgstr ""
+msgstr "Vorige opdatering:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
 msgid "Last check:"
-msgstr ""
+msgstr "Vorige inspeksie:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabel(le)"
-msgstr[1] "%s tabel(le)"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabelle"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display"
@@ -304,7 +302,7 @@ msgstr "Jy moet ten minste een Kolom kies om te vertoon"
 #: db_qbe.php:70
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "Skakel oor na %svisual builder%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -316,7 +314,7 @@ msgstr "Toegang Geweier"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
-msgstr ""
+msgstr "Nagegaande tabelle"
 
 #: db_tracking.php:80 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:510
@@ -334,23 +332,22 @@ msgstr "Databasis"
 
 #: db_tracking.php:82
 msgid "Last version"
-msgstr ""
+msgstr "Vorige weergawe"
 
 #: db_tracking.php:83 libraries/tbl_tracking.lib.php:198
-#, fuzzy
 msgid "Created"
-msgstr "Skep"
+msgstr "Geskepte"
 
 #: db_tracking.php:84 libraries/tbl_tracking.lib.php:199
 msgid "Updated"
-msgstr ""
+msgstr "Opgedateer"
 
 #: db_tracking.php:85 js/messages.php:177 libraries/Menu.class.php:516
 #: libraries/Util.class.php:4106 libraries/rte/rte_events.lib.php:426
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:363
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
@@ -371,7 +368,7 @@ msgstr "Wys"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Verwyder naspeur data vir die tabel"
 
 #: db_tracking.php:103 libraries/Index.class.php:627
 #: libraries/Util.class.php:3410 libraries/Util.class.php:3411
@@ -384,101 +381,102 @@ msgstr "Verwyder"
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:311
 msgid "active"
-msgstr ""
+msgstr "aktief"
 
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:212
 #: libraries/tbl_tracking.lib.php:313
 msgid "not active"
-msgstr ""
+msgstr "nie aktief nie"
 
 #: db_tracking.php:143
-#, fuzzy
 msgid "Versions"
-msgstr "Operasies"
+msgstr "Weergawes"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:352
 msgid "Tracking report"
-msgstr ""
+msgstr "Naspeur verslag"
 
 #: db_tracking.php:149 libraries/tbl_tracking.lib.php:241
 #: libraries/tbl_tracking.lib.php:680
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Slegs struktuur"
+msgstr "Struktuur momentopname"
 
 #: db_tracking.php:203
 msgid "Untracked tables"
-msgstr ""
+msgstr "Nie gevolgde tabelle"
 
 #: db_tracking.php:222 libraries/structure.lib.php:1535
-#, fuzzy
 msgid "Track table"
-msgstr "Kontroleer tabel"
+msgstr "Volg tabel"
 
 #: db_tracking.php:249
-#, fuzzy
 msgid "Database Log"
-msgstr "Databasis"
+msgstr "Databasis opname"
 
 #: error_report.php:31
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"n Fout is opgemerk en n fout verslag is outomaties versent gebaseer op jou "
+"verstellings."
 
 #: error_report.php:35 error_report.php:52 error_report.php:63
 #: error_report.php:79
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Dit sal goed wees om die bladsy oor te laai."
 
 #: error_report.php:43
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"n Fout is opgemerk en n fout verslag is gegenereer maar het misluk om te "
+"versend."
 
 #: error_report.php:48 error_report.php:75
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Indien jy enige probleme ondervind stuur asb n hand verwerkte fout verslag."
 
 #: error_report.php:61 error_report.php:70
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Dankie vir die voorlegging van die verslag."
 
 #: error_report.php:72
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Ongelukkig het die indienig gefaal."
 
 #: export.php:160
-#, fuzzy
 msgid "Bad type!"
-msgstr "Export"
+msgstr "Nie goeie tipe nie!"
 
 #: export.php:211
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "Geselekteerde uitvoer tipe moet na leer gestoor word!"
 
 #: export.php:240
-#, fuzzy
 msgid "Bad parameters!"
-msgstr "Hernoem tabel na"
+msgstr "Nie goeie parameters nie!"
 
 #: export.php:339 export.php:370 export.php:957
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "Onvoldoende spasie om die leer %s te stoor."
 
 #: export.php:512
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"Leer %s bestaan reeds op die stelsel, verander leer naam of selekteer "
+"oorskryf opsie."
 
 #: export.php:521 export.php:530
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "Die web stelsel het nie magtigng om die leer %s te stoor nie."
 
 #: export.php:963
 #, php-format
@@ -486,97 +484,91 @@ msgid "Dump has been saved to file %s."
 msgstr ""
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export"
 msgid "Invalid export type"
-msgstr "Export"
+msgstr "Verkeerde uitvoer tipe"
 
 #: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Waarde vir die kolom \"%s\""
 
 #: gis_data_editor.php:141 libraries/tbl_gis_visualization.lib.php:242
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Gebruik OpenStreetMaps as basis vlak"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
 msgid "SRID:"
-msgstr ""
+msgstr "RVSI:"
 
 #: gis_data_editor.php:186
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "Geometrie %d:"
 
 #: gis_data_editor.php:208
 msgid "Point:"
-msgstr ""
+msgstr "Punt:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:295
 #: gis_data_editor.php:368 js/messages.php:325
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:289 gis_data_editor.php:362
 #: js/messages.php:327
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punt %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:302 gis_data_editor.php:375
 #: js/messages.php:333
-#, fuzzy
 msgid "Add a point"
-msgstr "Voeg 'n nuwe veld by"
+msgstr "Voeg 'n punt by"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Lines terminated by"
 msgid "Linestring %d:"
-msgstr "Lyne beeindig deur"
+msgstr "Lynstring %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
 msgid "Outer ring:"
-msgstr ""
+msgstr "Buite kring:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "Binne kring %d:"
 
 #: gis_data_editor.php:305
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Voeg 'n nuwe gebruiker by"
+msgstr "Voeg 'n lynstring by"
 
 #: gis_data_editor.php:306 gis_data_editor.php:380 js/messages.php:334
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Voeg 'n nuwe gebruiker by"
+msgstr "Voeg 'n binne kring by"
 
 #: gis_data_editor.php:327
-#, fuzzy, php-format
+#, php-format
 msgid "Polygon %d:"
-msgstr "Voeg 'n nuwe veld by"
+msgstr "Veelhoek %d:"
 
 #: gis_data_editor.php:386 js/messages.php:335
-#, fuzzy
 msgid "Add a polygon"
-msgstr "Voeg 'n nuwe veld by"
+msgstr "Voeg 'n veelhoek by"
 
 #: gis_data_editor.php:392
-#, fuzzy
 msgid "Add geometry"
-msgstr "Voeg 'n nuwe gebruiker by"
+msgstr "Voeg geometrie by"
 
 #: gis_data_editor.php:398 js/messages.php:225
 #: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1690
@@ -614,17 +606,19 @@ msgstr "Voeg 'n nuwe gebruiker by"
 #: pmd_pdf.php:158 prefs_manage.php:272 prefs_manage.php:322
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
-msgstr "Gaan"
+msgstr "Gaan voort"
 
 #: gis_data_editor.php:401
 msgid "Output"
-msgstr ""
+msgstr "Uitvoer"
 
 #: gis_data_editor.php:404
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"Kies \"GeomFromText\" van die \"Function\" kolom en plaas die onderstaande "
+"string in die \"Value\" veld"
 
 #: import.php:116
 #, php-format
@@ -632,10 +626,12 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Jy het heel moontlik te groot leer probeer oplaai. Verwys asb na %"
+"sdocumentation%s vir 'n omseiling van die limiet."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Aantoon van boekmerk"
 
 #: import.php:299 import.php:546
 msgid "The bookmark has been deleted."
@@ -644,7 +640,7 @@ msgstr "Die boekmerk is verwyder."
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
 msgid "File could not be read"
-msgstr ""
+msgstr "Leer kon nie gelees word nie"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:605
@@ -653,6 +649,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Jy het probeer om 'n leer op te laai met ongesteunde kompaktering(%s). Die "
+"ondersteuning vir dit is nie geimplimenteer nie of is afgeskakel deur jou "
+"konfigurasie."
 
 #: import.php:461
 msgid ""
