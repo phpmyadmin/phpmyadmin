@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
-"PO-Revision-Date: 2013-10-17 16:02+0200\n"
-"Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2013-11-19 08:37+0200\n"
+"Last-Translator: Christian Nagelmeier <cnagelmeier@gmail.com>\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -423,18 +422,22 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Es wurde ein Fehler erkannt und ein Fehlerbericht erstellt, aber der Versand "
+"des Fehlerberichts ist fehlgeschlagen."
 
 #: error_report.php:48 error_report.php:75
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Wenn Sie einen Fehler entdecken, senden Sie bitte einen manuellen "
+"Fehlerbericht."
 
 #: error_report.php:61 error_report.php:70
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Danke für die Übermittlung dieses Berichts."
 
 #: error_report.php:72
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Die Übertragung ist fehlgeschlagen."
 
 #: export.php:160
 msgid "Bad type!"
