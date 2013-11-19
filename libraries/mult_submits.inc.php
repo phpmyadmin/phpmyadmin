@@ -171,7 +171,11 @@ if (!empty($submit_mult) && !empty($what)) {
         switch ($what) {
         case 'row_delete':
             $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
-                . ' WHERE ' . urldecode($sval) . ' LIMIT 1'
+                // Do not append a "LIMIT 1" clause here
+                // (it's not binlog friendly).
+                // We don't need the clause because the calling panel permits
+                // this feature only when there is a unique index.
+                . ' WHERE ' . urldecode($sval)
                 . ';<br />';
             break;
         case 'drop_db':
