@@ -168,6 +168,8 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_versionCheck
      *
      * @return void
+     *
+     * @group medium
      */
     public function testPMAVersionCheckCase1()
     {
@@ -216,6 +218,8 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_versionCheck
      *
      * @return void
+     *
+     * @group medium
      */
     public function testPMAVersionCheckCase2()
     {
@@ -264,6 +268,8 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_versionCheck
      *
      * @return void
+     *
+     * @group medium
      */
     public function testPMAVersionCheckCase3()
     {
