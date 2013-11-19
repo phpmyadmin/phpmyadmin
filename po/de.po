@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
-"PO-Revision-Date: 2013-11-19 08:37+0200\n"
-"Last-Translator: Christian Nagelmeier <cnagelmeier@gmail.com>\n"
+"PO-Revision-Date: 2013-11-19 09:11+0200\n"
+"Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -411,11 +411,13 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Es wurde ein Fehler erkannt und ein Fehlerbericht basierend auf Ihren "
+"Einstellungen wurde eingereicht."
 
 #: error_report.php:35 error_report.php:52 error_report.php:63
 #: error_report.php:79
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Bitte aktualisieren Sie die Seite."
 
 #: error_report.php:43
 msgid ""
