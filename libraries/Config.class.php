@@ -999,18 +999,20 @@ class PMA_Config
 
         // save connection collation
         if (!PMA_DRIZZLE) {
+            // just to shorten the lines
+            $collation = 'collation_connection';
             if (isset($_COOKIE['pma_collation_connection'])
-                || isset($_POST['collation_connection'])
+                || isset($_POST[$collation])
             ) {
-                if ((! isset($config_data['collation_connection'])
-                    && $GLOBALS['collation_connection'] != 'utf8_general_ci')
-                    || isset($config_data['collation_connection'])
-                    && $GLOBALS['collation_connection'] != $config_data['collation_connection']
+                if ((! isset($config_data[$collation])
+                    && $GLOBALS[$collation] != 'utf8_general_ci')
+                    || isset($config_data[$collation])
+                    && $GLOBALS[$collation] != $config_data[$collation]
                 ) {
                     $this->setUserValue(
                         null,
-                        'collation_connection',
-                        $GLOBALS['collation_connection'],
+                        $collation,
+                        $GLOBALS[$collation],
                         'utf8_general_ci'
                     );
                 }
@@ -1567,7 +1569,7 @@ class PMA_Config
                 && strtolower(PMA_getenv('HTTPS')) == 'on'
             ) {
                 $url['scheme'] = 'https';
-            // A10 Networks load balancer:
+                // A10 Networks load balancer:
             } elseif (PMA_getenv('HTTP_HTTPS_FROM_LB')
                 && strtolower(PMA_getenv('HTTP_HTTPS_FROM_LB')) == 'on') {
                 $url['scheme'] = 'https';
