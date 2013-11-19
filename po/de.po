@@ -536,14 +536,11 @@ msgstr "Textzeile %d:"
 msgid "Outer ring:"
 msgstr "Außenkreis:"
 
-# Ist hiermit der Inkreis gemeint? http://de.wikipedia.org/wiki/Inkreis
-#
-# Ja
 #: gis_data_editor.php:269 gis_data_editor.php:345
 #, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Innerer Kreis"
+msgstr "Innerer Kreis %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
