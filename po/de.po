@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-18 11:49+0100\n"
 "PO-Revision-Date: 2013-11-19 10:33+0200\n"
-"Last-Translator: Ramona Hapke <ramona.hapke@gmail.com>\n"
+"Last-Translator: Christian Nagelmeier <cnagelmeier@gmail.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -543,7 +543,7 @@ msgstr "Außenkreis:"
 #, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Inkreis %d:"
+msgstr "Innerer Kreis"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
