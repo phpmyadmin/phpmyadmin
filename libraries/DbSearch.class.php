@@ -103,7 +103,10 @@ class PMA_DbSearch
 
         if (empty($_REQUEST['criteriaSearchType'])
             || ! is_string($_REQUEST['criteriaSearchType'])
-            || ! array_key_exists($_REQUEST['criteriaSearchType'], $this->_searchTypes)
+            || ! array_key_exists(
+                $_REQUEST['criteriaSearchType'],
+                $this->_searchTypes
+            )
         ) {
             $this->_criteriaSearchType = 1;
             unset($_REQUEST['submit_search']);
@@ -172,7 +175,8 @@ class PMA_DbSearch
         // Gets where clause for the query
         $where_clause = $this->_getWhereClause($table);
         // Builds complete queries
-        $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
+        $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from
+            . $where_clause;
         // here, I think we need to still use the COUNT clause, even for
         // VIEWs, anyway we have a WHERE clause that should limit results
         $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`'
@@ -337,15 +341,15 @@ class PMA_DbSearch
         // Displays browse/delete link if result count > 0
         if ($res_cnt > 0) {
             $this_url_params['sql_query'] = $newsearchsqls['select_columns'];
-            $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+            $browse_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
             $html_output .= '<td><a name="browse_search" href="'
                 . $browse_result_path . '" onclick="loadResult(\''
                 . $browse_result_path . '\',\'' . $each_table . '\',\''
-                . PMA_generate_common_url($GLOBALS['db'], $each_table) . '\''
+                . PMA_URL_getCommon($GLOBALS['db'], $each_table) . '\''
                 . ');return false;" >'
                 . __('Browse') . '</a></td>';
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
-            $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+            $delete_result_path = 'sql.php' . PMA_URL_getCommon($this_url_params);
             $html_output .= '<td><a name="delete_search" href="'
                 . $delete_result_path . '" onclick="deleteResult(\''
                 . $delete_result_path . '\' , \''
@@ -376,7 +380,7 @@ class PMA_DbSearch
         $html_output .= '<form id="db_search_form"'
             . ' class="ajax"'
             . ' method="post" action="db_search.php" name="db_search">';
-        $html_output .= PMA_generate_common_hidden_inputs($GLOBALS['db']);
+        $html_output .= PMA_URL_getHiddenInputs($GLOBALS['db']);
         $html_output .= '<fieldset>';
         // set legend caption
         $html_output .= '<legend>' . __('Search in database') . '</legend>';
@@ -405,7 +409,7 @@ class PMA_DbSearch
                 ),
             '3' => __('the exact phrase'),
             '4' => __('as regular expression') . ' '
-                . PMA_Util::showMySQLDocu('Regexp', 'Regexp')
+                . PMA_Util::showMySQLDocu('Regexp')
         );
         // 4th parameter set to true to add line breaks
         // 5th parameter set to false to avoid htmlspecialchars() escaping
@@ -418,7 +422,8 @@ class PMA_DbSearch
         $html_output .= '<tr>';
         $html_output .= '<td class="right vtop">' . __('Inside tables:') . '</td>';
         $html_output .= '<td rowspan="2">';
-        $html_output .= '<select name="criteriaTables[]" size="6" multiple="multiple">';
+        $html_output .= '<select name="criteriaTables[]" size="6"'
+            . ' multiple="multiple">';
         foreach ($this->_tables_names_only as $each_table) {
             if (in_array($each_table, $this->_criteriaTables)) {
                 $is_selected = ' selected="selected"';
@@ -434,18 +439,23 @@ class PMA_DbSearch
         $html_output .= '</td></tr>';
         // Displays 'select all' and 'unselect all' links
         $alter_select = '<a href="#" '
-            . 'onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">'
+            . 'onclick="setSelectOptions(\'db_search\','
+            . ' \'criteriaTables[]\', true); return false;">'
             . __('Select All') . '</a> &nbsp;/&nbsp;';
         $alter_select .= '<a href="#" '
-            . 'onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">'
+            . 'onclick="setSelectOptions(\'db_search\','
+            . ' \'criteriaTables[]\', false); return false;">'
             . __('Unselect All') . '</a>';
-        $html_output .= '<tr><td class="right vbottom">' . $alter_select . '</td></tr>';
+        $html_output .= '<tr><td class="right vbottom">'
+            . $alter_select . '</td></tr>';
         // Inputbox for column name entry
         $html_output .= '<tr>';
         $html_output .= '<td class="right">' . __('Inside column:') . '</td>';
         $html_output .= '<td><input type="text" name="criteriaColumnName" size="60"'
             . 'value="'
-            . (! empty($this->_criteriaColumnName) ? htmlspecialchars($this->_criteriaColumnName) : '')
+            . (! empty($this->_criteriaColumnName)
+                ? htmlspecialchars($this->_criteriaColumnName)
+                : '')
             . '" /></td>';
         $html_output .= '</tr>';
         $html_output .= '</table>';
@@ -479,8 +489,8 @@ class PMA_DbSearch
         $html_output .= '</div>';
         $html_output .= '<br class="clearfloat" />';
         $html_output .= '<div id="sqlqueryform">';
-        $html_output .= '<!-- this sqlqueryform div is used to load the delete form in'
-            . ' the db search -->';
+        $html_output .= '<!-- this sqlqueryform div is used to load the delete'
+            . ' form in the db search -->';
         $html_output .= '</div>';
         $html_output .= '<!--  toggle query box link-->';
         $html_output .= '<a id="togglequerybox"></a>';

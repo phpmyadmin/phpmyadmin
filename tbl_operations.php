@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Various table operations
  *
  * @package PhpMyAdmin
  */
@@ -51,7 +52,8 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 require 'libraries/tbl_info.inc.php';
 
 // define some variables here, for improved syntax in the conditionals
-$is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = $is_aria = $is_pbxt = false;
+$is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = false;
+$is_aria = $is_pbxt = false;
 // set initial value of these variables, based on the current table engine
 list($is_myisam_or_aria, $is_innodb, $is_isam,
     $is_berkeleydb, $is_aria, $is_pbxt
@@ -107,8 +109,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && strtolower($_REQUEST['new_tbl_storage_engine'])
-            !== strtolower($tbl_storage_engine)
+        && strtolower($_REQUEST['new_tbl_storage_engine']) !== strtolower($tbl_storage_engine)
     ) {
         $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
@@ -235,7 +236,35 @@ $response->addHTML('<div id="boxContainer" data-box-width="300">');
 /**
  * Order the table
  */
-$response->addHTML(PMA_getHtmlForOrderTheTable($columns));
+$hideOrderTable = false;
+// `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
+// a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
+// InnoDB always orders table rows according to such an index if one is present.
+if ($tbl_storage_engine == 'INNODB') {
+    include_once 'libraries/Index.class.php';
+    $indexes = PMA_Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    foreach ($indexes as $name => $idx) {
+        if ($name == 'PRIMARY') {
+            $hideOrderTable = true;
+            break;
+        } elseif (! $idx->getNonUnique()) {
+            $notNull = true;
+            foreach ($idx->getColumns() as $column) {
+                if ($column->getNull()) {
+                    $notNull = false;
+                    break;
+                }
+            }
+            if ($notNull) {
+                $hideOrderTable = true;
+                break;
+            }
+        }
+    }
+}
+if (! $hideOrderTable) {
+    $response->addHTML(PMA_getHtmlForOrderTheTable($columns));
+}
 
 /**
  * Move table

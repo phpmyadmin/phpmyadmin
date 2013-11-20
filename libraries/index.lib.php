@@ -19,18 +19,21 @@ require_once 'libraries/Index.class.php';
  */
 function PMA_getHtmlForDisplayIndexes()
 {
-    $html_output = PMA_Util::getDivForSliderEffect(
+    $html_output = '<div id="index_div" class="ajax" >';
+
+    $html_output .= PMA_Util::getDivForSliderEffect(
         'indexes', __('Indexes')
     );
     $html_output .= PMA_Index::getView($GLOBALS['table'], $GLOBALS['db']);
     $html_output .= '<fieldset class="tblFooters" style="text-align: left;">'
         . '<form action="tbl_indexes.php" method="post">';
-    $html_output .= PMA_generate_common_hidden_inputs(
+    $html_output .= PMA_URL_getHiddenInputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
     $html_output .= sprintf(
         __('Create an index on &nbsp;%s&nbsp;columns'),
-        '<input type="text" size="2" name="added_fields" value="1" />'
+        '<input type="number" size="2" name="added_fields" value="1" '
+        . 'min="1" required />'
     );
     $html_output .= '<input type="hidden" name="create_index" value="1" />'
         . '<input class="add_index ajax"'

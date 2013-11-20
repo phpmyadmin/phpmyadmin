@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Recent table list handling
  *
  * @package PhpMyAdmin
  */
@@ -44,6 +45,9 @@ class PMA_RecentTable
      */
     private static $_instance;
 
+    /**
+     * Creates a new instance of PMA_RecentTable
+     */
     public function __construct()
     {
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
@@ -54,11 +58,11 @@ class PMA_RecentTable
                 . PMA_Util::backquote($GLOBALS['cfg']['Server']['recent']);
         }
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmp_user_values']['recent_tables'][$server_id])) {
-            $_SESSION['tmp_user_values']['recent_tables'][$server_id]
+        if (! isset($_SESSION['tmpval']['recent_tables'][$server_id])) {
+            $_SESSION['tmpval']['recent_tables'][$server_id]
                 = isset($this->_pmaTable) ? $this->getFromDb() : array();
         }
-        $this->tables =& $_SESSION['tmp_user_values']['recent_tables'][$server_id];
+        $this->tables =& $_SESSION['tmpval']['recent_tables'][$server_id];
     }
 
     /**
@@ -118,7 +122,9 @@ class PMA_RecentTable
             $message = PMA_Message::error(__('Could not save recent table'));
             $message->addMessage('<br /><br />');
             $message->addMessage(
-                PMA_Message::rawError($GLOBALS['dbi']->getError($GLOBALS['controllink']))
+                PMA_Message::rawError(
+                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                )
             );
             return $message;
         }
@@ -133,11 +139,11 @@ class PMA_RecentTable
     public function trim()
     {
         $max = max($GLOBALS['cfg']['NumRecentTables'], 0);
-        $trimming_occured = count($this->tables) > $max;
+        $trimming_occurred = count($this->tables) > $max;
         while (count($this->tables) > $max) {
             array_pop($this->tables);
         }
-        return $trimming_occured;
+        return $trimming_occurred;
     }
 
     /**

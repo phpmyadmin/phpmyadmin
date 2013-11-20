@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PMA_StorageEngine_pbxt
  *
@@ -50,6 +51,8 @@ class PMA_StorageEngine_pbxt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getVariables
+     *
+     * @return void
      */
     public function testGetVariables()
     {
@@ -122,9 +125,12 @@ class PMA_StorageEngine_pbxt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for resolveTypeSize
+     *
      * @param string $formatted_size the size expression (for example 8MB)
      *
      * @dataProvider providerFortTestResolveTypeSize
+     *
+     * @return void
      */
     public function testResolveTypeSize($formatted_size, $output)
     {
@@ -136,6 +142,7 @@ class PMA_StorageEngine_pbxt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Provider for testResolveTypeSize
+     *
      * @return array
      */
     public function providerFortTestResolveTypeSize()
@@ -167,6 +174,8 @@ class PMA_StorageEngine_pbxt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getInfoPages
+     *
+     * @return void
      */
     public function testGetInfoPages()
     {
@@ -180,6 +189,8 @@ class PMA_StorageEngine_pbxt_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getPage
+     *
+     * @return void
      */
     public function testGetPage()
     {
@@ -190,8 +201,10 @@ class PMA_StorageEngine_pbxt_Test extends PHPUnit_Framework_TestCase
             . '</p>' . "\n"
             . '<h3>' . __('Related Links') . '</h3>' . "\n"
             . '<ul>' . "\n"
-            . '<li><a href="' . PMA_linkURL('http://pbxt.blogspot.com/') . '" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh') . '</a></li>' . "\n"
-            . '</ul>' . "\n"
+            . '<li><a href="' . PMA_linkURL('http://pbxt.blogspot.com/')
+            . '" target="_blank">'
+            . __('The PrimeBase XT Blog by Paul McCullagh')
+            . '</a></li>' . "\n" . '</ul>' . "\n"
         );
 
         $this->assertEquals(

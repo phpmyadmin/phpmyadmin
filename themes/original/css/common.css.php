@@ -368,70 +368,11 @@ img.lightbulb {
     border:             1px dashed #000000;
 }
 
-/* MySQL Parser */
-.syntax {
-    font-size:          80%;
-}
-
-.syntax a {
+/* Doc links in SQL */
+.cm-sql-doc {
     text-decoration: none;
-    border-bottom:1px dotted black;
-}
-
-.syntax_comment {
-    padding-left:       4pt;
-    padding-right:      4pt;
-}
-
-.syntax_digit {
-}
-
-.syntax_digit_hex {
-}
-
-.syntax_digit_integer {
-}
-
-.syntax_digit_float {
-}
-
-.syntax_punct {
-}
-
-.syntax_alpha {
-}
-
-.syntax_alpha_columnType {
-    text-transform:     uppercase;
-}
-
-.syntax_alpha_columnAttrib {
-    text-transform:     uppercase;
-}
-
-.syntax_alpha_reservedWord {
-    text-transform:     uppercase;
-    font-weight:        bold;
-}
-
-.syntax_alpha_functionName {
-    text-transform:     uppercase;
-}
-
-.syntax_alpha_identifier {
-}
-
-.syntax_alpha_charset {
-}
-
-.syntax_alpha_variable {
-}
-
-.syntax_quote {
-    white-space:        pre;
-}
-
-.syntax_quote_backtick {
+    border-bottom: 1px dotted #000;
+    color: inherit !important;
 }
 
 /* leave some space between icons and text */
@@ -452,7 +393,7 @@ td .icon {
 }
 
 /* message boxes: error, confirmation */
-#pma_errors {
+#pma_errors, #pma_demo {
     padding: 0 0.5em;
 }
 
@@ -816,6 +757,7 @@ div#tablestatistics table {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     margin-<?php echo $right; ?>: 0.5em;
+    min-width: 16em;
 }
 /* END table stats */
 
@@ -1338,10 +1280,14 @@ li.no_bullets {
     float: <?php echo $left; ?>;
 }
 .operations_half_width input[type=text],
+.operations_half_width input[type=password],
+.operations_half_width input[type=number],
 .operations_half_width select {
     width: 95%;
 }
 .operations_half_width input[type=text].halfWidth,
+.operations_half_width input[type=password].halfWidth,
+.operations_half_width input[type=number].halfWidth,
 .operations_half_width select.halfWidth {
     width: 40%;
 }
@@ -1381,7 +1327,7 @@ div.sqlvalidate {
     overflow:           auto;
 }
 
-#result_query code.sql,
+#result_query div.sqlOuter,
 div.sqlvalidate  {
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
     border-top:         0;
@@ -1496,6 +1442,9 @@ table#serverconnection_trg_local  {
   *  Validation error message styles
   */
 input[type=text].invalid_value,
+input[type=password].invalid_value,
+input[type=number].invalid_value,
+input[type=date].invalid_value,
 .invalid_value {
     background: #FFCCCC;
 }
@@ -1898,6 +1847,8 @@ fieldset .disabled-field td {
 }
 
 .config-form input[type="text"],
+.config-form input[type="password"],
+.config-form input[type="number"],
 .config-form select,
 .config-form textarea {
     border: 1px #A7A6AA solid;
@@ -1905,6 +1856,8 @@ fieldset .disabled-field td {
 }
 
 .config-form input[type="text"]:focus,
+.config-form input[type="password"]:focus,
+.config-form input[type="number"]:focus,
 .config-form select:focus,
 .config-form textarea:focus {
     border:     1px #6676FF solid;
@@ -2008,6 +1961,9 @@ fieldset .disabled-field td {
 }
 
 #table_columns input[type="text"],
+#table_columns input[type="password"],
+#table_columns input[type="number"],
+#table_columns input[type="date"],
 #table_columns select {
     width:              10em;
     box-sizing:         border-box;
@@ -2139,9 +2095,13 @@ fieldset .disabled-field td {
     color: #FFF !important;
 }
 
+.data {
+    overflow: scroll;
+}
 
 .data_full_width {
     width: 100%;
+    overflow: scroll;
 }
 
 .cDrop {
@@ -2244,7 +2204,9 @@ fieldset .disabled-field td {
     position: absolute;
 }
 
-.cEdit input[type=text] {
+.cEdit input[type=text],
+.cEdit input[type=password],
+.cEdit input[type=number] {
     background: #FFF;
     height: 100%;
     margin: 0;
@@ -2580,4 +2542,18 @@ div.jqplot-noData-container {
 #relationalTable select {
     width: 125px;
     margin-right: 5px;
+}
+
+.report-data {
+    height:13em;
+    overflow:scroll;
+    width:570px;
+    border: solid 1px;
+    background: white;
+    padding: 2px;
+}
+
+.report-description {
+    height:10em;
+    width:570px;
 }

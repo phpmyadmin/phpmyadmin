@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Classes to create relation schema in SVG format.
  *
  * @package PhpMyAdmin
  */
@@ -30,7 +31,6 @@ class PMA_SVG extends XMLWriter
      *
      * Upon instantiation This starts writing the Svg XML document
      *
-     * @return void
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
      */
     function __construct()
@@ -212,8 +212,9 @@ class PMA_SVG extends XMLWriter
      * @see XMLWriter::startElement(), XMLWriter::writeAttribute(),
      * XMLWriter::text(), XMLWriter::endElement()
      */
-    function printElement($name, $x, $y, $width = '', $height = '', $text = '', $styles = '')
-    {
+    function printElement($name, $x, $y, $width = '', $height = '',
+        $text = '', $styles = ''
+    ) {
         $this->startElement($name);
         $this->writeAttribute('width', $width);
         $this->writeAttribute('height', $height);
@@ -263,7 +264,7 @@ class PMA_SVG extends XMLWriter
     /**
      * get width of string/text
      *
-     * Svg text element width is calcualted depending on font name
+     * Svg text element width is calculated depending on font name
      * and font size. It is very important to know the width of text
      * because rectangle is drawn around it.
      *
@@ -276,28 +277,69 @@ class PMA_SVG extends XMLWriter
      * @return integer width of the text
      * @access public
      */
-    function getStringWidth($text,$font,$fontSize)
+    function getStringWidth($text, $font, $fontSize)
     {
+        // list of characters and their width modifiers
+        $charLists = array();
+
+        //ijl
+        $charLists[] = array("chars" => array("i", "j", "l"), "modifier" => 0.23);
+        //f
+        $charLists[] = array("chars" => array("f"), "modifier" => 0.27);
+        //tI
+        $charLists[] = array("chars" => array("t", "I"), "modifier" => 0.28);
+        //r
+        $charLists[] = array("chars" => array("r"), "modifier" => 0.34);
+        //1
+        $charLists[] = array("chars" => array("1"), "modifier" => 0.49);
+        //cksvxyzJ
+        $charLists[] = array(
+            "chars" => array("c", "k", "s", "v", "x", "y", "z", "J"),
+            "modifier" => 0.5
+        );
+        //abdeghnopquL023456789
+        $charLists[] = array(
+            "chars" => array(
+                "a", "b", "d", "e", "g", "h", "n", "o", "p", "q", "u", "L",
+                "0", "2", "3", "4", "5", "6", "7", "8", "9"
+            ),
+            "modifier" => 0.56
+        );
+        //FTZ
+        $charLists[] = array("chars" => array("F", "T", "Z"), "modifier" => 0.61);
+        //ABEKPSVXY
+        $charLists[] = array(
+            "chars" => array("A", "B", "E", "K", "P", "S", "V", "X", "Y"),
+            "modifier" => 0.67
+        );
+        //wCDHNRU
+        $charLists[] = array(
+            "chars" => array("w", "C", "D", "H", "N", "R", "U"),
+            "modifier" => 0.73
+        );
+        //GOQ
+        $charLists[] = array("chars" => array("G", "O", "Q"), "modifier" => 0.78);
+        //mM
+        $charLists[] = array("chars" => array("m", "M"), "modifier" => 0.84);
+        //W
+        $charLists[] = array("chars" => array("W"), "modifier" => 0.95);
+        //" "
+        $charLists[] = array("chars" => array(" "), "modifier" => 0.28);
+
         /*
          * Start by counting the width, giving each character a modifying value
          */
         $count = 0;
-        $count = $count + ((strlen($text) - strlen(str_replace(array("i", "j", "l"), "", $text))) * 0.23);//ijl
-        $count = $count + ((strlen($text) - strlen(str_replace(array("f"), "", $text))) * 0.27);//f
-        $count = $count + ((strlen($text) - strlen(str_replace(array("t", "I"), "", $text))) * 0.28);//tI
-        $count = $count + ((strlen($text) - strlen(str_replace(array("r"), "", $text))) * 0.34);//r
-        $count = $count + ((strlen($text) - strlen(str_replace(array("1"), "", $text))) * 0.49);//1
-        $count = $count + ((strlen($text) - strlen(str_replace(array("c", "k", "s", "v", "x", "y", "z", "J"), "", $text))) * 0.5);//cksvxyzJ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("a", "b", "d", "e", "g", "h", "n", "o", "p", "q", "u", "L", "0", "2", "3", "4", "5", "6", "7", "8", "9"), "", $text))) * 0.56);//abdeghnopquL023456789
-        $count = $count + ((strlen($text) - strlen(str_replace(array("F", "T", "Z"), "", $text))) * 0.61);//FTZ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("A", "B", "E", "K", "P", "S", "V", "X", "Y"), "", $text))) * 0.67);//ABEKPSVXY
-        $count = $count + ((strlen($text) - strlen(str_replace(array("w", "C", "D", "H", "N", "R", "U"), "", $text))) * 0.73);//wCDHNRU
-        $count = $count + ((strlen($text) - strlen(str_replace(array("G", "O", "Q"), "", $text))) * 0.78);//GOQ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("m", "M"), "", $text))) * 0.84);//mM
-        $count = $count + ((strlen($text) - strlen(str_replace("W", "", $text))) * .95);//W
-        $count = $count + ((strlen($text) - strlen(str_replace(" ", "", $text))) * .28);//" "
+
+        foreach ($charLists as $charList) {
+            $count += ((strlen($text)
+                - strlen(str_replace($charList["chars"], "", $text))
+                ) * $charList["modifier"]);
+        }
+
         $text  = str_replace(" ", "", $text);//remove the " "'s
-        $count = $count + (strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3); //all other chrs
+        //all other chars
+        $count = $count + (strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3);
 
         $modifier = 1;
         $font = strtolower($font);
@@ -367,11 +409,11 @@ class Table_Stats_Svg
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $showInfo         Whether to display table position or not
      *
-     * @global object    The current SVG image document
-     * @global integer   The current page number (from the
-     *                   $cfg['Servers'][$i]['table_coords'] table)
-     * @global array     The relations settings
-     * @global string    The current db name
+     * @global object  $svg         The current SVG image document
+     * @global integer              The current page number (from the
+     *                              $cfg['Servers'][$i]['table_coords'] table)
+     * @global array   $cfgRelation The relations settings
+     * @global string  $db          The current db name
      *
      * @access private
      *
@@ -481,7 +523,8 @@ class Table_Stats_Svg
     private function _getTitle()
     {
         return ($this->_showInfo
-            ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->heightCell)
+            ? sprintf('%.0f', $this->width) . 'x'
+            . sprintf('%.0f', $this->heightCell)
             : ''
         ) . ' ' . $this->_tableName;
     }
@@ -492,7 +535,7 @@ class Table_Stats_Svg
      * @param string  $font     The font size
      * @param integer $fontSize The font size
      *
-     * @global object    The current SVG image document
+     * @global object $svg The current SVG image document
      *
      * @return void
      * @access private
@@ -515,7 +558,9 @@ class Table_Stats_Svg
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
          */
-        while ($this->width < $svg->getStringWidth($this->_getTitle(), $font, $fontSize)) {
+        while ($this->width
+            < $svg->getStringWidth($this->_getTitle(), $font, $fontSize)
+        ) {
             $this->width += 7;
         }
     }
@@ -539,7 +584,7 @@ class Table_Stats_Svg
      *
      * @param boolean $showColor Whether to display color
      *
-     * @global object The current SVG image document
+     * @global object $svg The current SVG image document
      *
      * @access public
      * @return void
@@ -613,12 +658,11 @@ class Relation_Stats_Svg
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      *
-     * @return void
-     *
      * @see Relation_Stats_Svg::_getXy
      */
-    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
-    {
+    function __construct($master_table, $master_field, $foreign_table,
+        $foreign_field
+    ) {
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         /*
@@ -687,7 +731,7 @@ class Relation_Stats_Svg
      *
      * @param boolean $changeColor Whether to use one color per relation or not
      *
-     * @global object The current SVG image document
+     * @global object $svg The current SVG image document
      *
      * @return void
      * @access public
@@ -792,7 +836,6 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This starts writing the SVG XML document
      * user will be prompted for download as .svg extension
      *
-     * @return void
      * @see PMA_SVG
      */
     function __construct()
@@ -873,7 +916,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         global $svg,$db;
         $svg->showOutput($db.'-'.$this->pageNumber);
     }
-    
+
 
     /**
      * Sets X and Y minimum and maximum for a table cell
@@ -905,7 +948,8 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
      * @access private
      * @return void
      *
-     * @see _setMinMax,Table_Stats_Svg::__construct(),Relation_Stats_Svg::__construct()
+     * @see _setMinMax,Table_Stats_Svg::__construct(),
+     *       Relation_Stats_Svg::__construct()
      */
     private function _addRelation(
         $masterTable,$font,$fontSize, $masterField,

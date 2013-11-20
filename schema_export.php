@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Schema export handler
  *
  * @package PhpMyAdmin
  */
@@ -56,7 +57,6 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-include_once 'libraries/schema/User_Schema.class.php';
 $user_schema = new PMA_User_Schema();
 
 /**

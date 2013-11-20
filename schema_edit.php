@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * PDF schema editor
  *
  * @package PhpMyAdmin
  */
@@ -102,8 +103,10 @@ if ($cfgRelation['pdfwork']) {
 
     if (isset($_REQUEST['do'])
         && ($_REQUEST['do'] == 'edcoord'
-        || ($_REQUEST['do']== 'selectpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0)
-        || ($_REQUEST['do'] == 'createpage' && isset($user_schema->chosenPage) && $user_schema->chosenPage != 0))
+        || ($_REQUEST['do']== 'selectpage' && isset($user_schema->chosenPage)
+        && $user_schema->chosenPage != 0)
+        || ($_REQUEST['do'] == 'createpage' && isset($user_schema->chosenPage)
+        && $user_schema->chosenPage != 0))
     ) {
 
         /**

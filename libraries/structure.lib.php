@@ -439,7 +439,7 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * @param boolean $is_show_stats            whether stats is show or not
  * @param boolean $ignored                  ignored
  * @param boolean $do                       do
- * @param intger  $colspan_for_structure    colspan for structure
+ * @param integer $colspan_for_structure    colspan for structure
  *
  * @return array $html_output, $odd_row
  */
@@ -738,7 +738,7 @@ function PMA_getHtmlForRepairtable(
  * @param boolean $db_is_information_schema whether db is information schema or not
  * @param boolean $replication              whether to sho replication status
  *
- * @return html data
+ * @return string html data
  */
 function PMA_tableHeader($db_is_information_schema = false, $replication = false)
 {
@@ -893,7 +893,7 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         'db' => $_REQUEST['db'],
     );
 
-    $url = 'db_structure.php'.PMA_generate_common_url($_url_params);
+    $url = 'db_structure.php'.PMA_URL_getCommon($_url_params);
     // We set the position back to 0 every time they sort.
     $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
 
@@ -1031,7 +1031,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
         // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
         // so it may be unavailable
         list($current_table, $formatted_size, $unit, $sum_size)
-            = PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size);
+            = PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size);
         //$display_rows                   =  ' - ';
         break;
     // Mysql 5.0.x (and lower) uses MRG_MyISAM
@@ -1085,6 +1085,10 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
  * @param boolean $is_show_stats            whether stats show or not
  * @param double  $sum_size                 sum size
  * @param double  $overhead_size            overhead size
+ * @param number  $formatted_size           formatted size
+ * @param string  $unit                     unit
+ * @param number  $formatted_overhead       overhead formatted
+ * @param string  $overhead_unit            overhead unit
  *
  * @return array
  */
@@ -1120,7 +1124,7 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
 }
 
 /**
- * Get valuse for PBMS table
+ * Get values for InnoDB table
  * $current_table, $formatted_size, $unit, $sum_size
  *
  * @param array   $current_table current table
@@ -1129,8 +1133,10 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
  *
  * @return array
  */
-function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
+function PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
 {
+    $formatted_size = $unit = '';
+
     if (($current_table['ENGINE'] == 'InnoDB'
         && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
         || !isset($current_table['TABLE_ROWS'])
@@ -1163,8 +1169,8 @@ function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
 /**
  * Get the HTML snippet for structure table table header
  *
- * @param type $db_is_information_schema whether db is information schema or not
- * @param type $tbl_is_view              whether table is view or nt
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $tbl_is_view              whether table is view or not
  *
  * @return string $html_output
  */
@@ -1427,7 +1433,7 @@ function PMA_getHtmlDivForMoveColumnsDialog()
 
     $html_output .= '<form action="tbl_structure.php">'
         . '<div>'
-        . PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table'])
+        . PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<ul></ul>'
         . '</div>'
         . '</form>'
@@ -1460,7 +1466,7 @@ function PMA_getHtmlForEditView($url_params)
         'as' => $item['VIEW_DEFINITION'],
         'with' => $item['CHECK_OPTION'],
     );
-    $url  = 'view_create.php' . PMA_generate_common_url($url_params) . '&amp;';
+    $url  = 'view_create.php' . PMA_URL_getCommon($url_params) . '&amp;';
     $url .= implode(
         '&amp;',
         array_map(
@@ -1522,9 +1528,7 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
                     true
                 )
                 . '</a>';
-            $html_output .= PMA_Util::showMySQLDocu(
-                'Extending_MySQL', 'procedure_analyse'
-            ) . "\n";
+            $html_output .= PMA_Util::showMySQLDocu('procedure_analyse') . "\n";
         }
         if (PMA_Tracker::isActive()) {
             $html_output .= '<a href="tbl_tracking.php?' . $url_query . '">'
@@ -1558,7 +1562,7 @@ function PMA_getHtmlForAddColumn($columns_list)
             ) . '\', 1)'
         . '">';
 
-    $html_output .= PMA_generate_common_hidden_inputs(
+    $html_output .= PMA_URL_getHiddenInputs(
         $GLOBALS['db'],
         $GLOBALS['table']
     );
@@ -1568,8 +1572,9 @@ function PMA_getHtmlForAddColumn($columns_list)
             __('Add column')
         );
     }
-    $num_fields = '<input type="text" name="num_fields" size="2" '
-        . 'maxlength="2" value="1" onfocus="this.select()" />';
+    $num_fields = '<input type="number" name="num_fields" size="2" '
+        . 'maxlength="2" value="1" onfocus="this.select()" '
+        . 'min="1" required />';
     $html_output .= sprintf(__('Add %s column(s)'), $num_fields);
 
     // I tried displaying the drop-down inside the label but with Firefox
@@ -1625,7 +1630,7 @@ function PMA_getHtmlForSpaceUsageTableRow($odd_row, $name, $value, $unit)
 /**
  * Get HTML for Optimize link if overhead in Information fieldset
  *
- * @param type $url_query URL query
+ * @param string $url_query URL query
  *
  * @return string $html_output
  */
@@ -1649,9 +1654,9 @@ function PMA_getHtmlForOptimizeLink($url_query)
 /**
  * Get HTML for 'Row statistics' table row
  *
- * @param type $odd_row whether current row is odd or even
- * @param type $name    statement name
- * @param type $value   value
+ * @param boolean $odd_row whether current row is odd or even
+ * @param string  $name    statement name
+ * @param mixed   $value   value
  *
  * @return string $html_output
  */
@@ -1863,7 +1868,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
  * @param array  $row                current row
  * @param array  $titles             titles array
  *
- * @return type array $html_output, $fulltext_enabled
+ * @return array $html_output, $fulltext_enabled
  */
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles
@@ -2303,7 +2308,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
  */
 function PMA_updateColumns($db, $table)
 {
-    $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
+    $err_url = 'tbl_structure.php?' . PMA_URL_getCommon($db, $table);
     $regenerate = false;
     $field_cnt = count($_REQUEST['field_name']);
     $key_fields = array();
@@ -2469,7 +2474,9 @@ function PMA_moveColumns($db, $table)
             unset($data['Extra']);
         }
         $current_timestamp = false;
-        if ($data['Type'] == 'timestamp' && $data['Default'] == 'CURRENT_TIMESTAMP') {
+        if (($data['Type'] == 'timestamp' || $data['Type'] == 'datetime')
+            && $data['Default'] == 'CURRENT_TIMESTAMP'
+        ) {
             $current_timestamp = true;
         }
         $default_type
@@ -2477,7 +2484,7 @@ function PMA_moveColumns($db, $table)
                 ? 'NULL'
                 : ($current_timestamp
                     ? 'CURRENT_TIMESTAMP'
-                    : ($data['Default'] == ''
+                    : ($data['Default'] === null
                         ? 'NONE'
                         : 'USER_DEFINED'));
 
@@ -2578,5 +2585,79 @@ function PMA_getReservedWordColumnNameMessages($db ,$table)
         }
     }
     return $messages;
+}
+
+/**
+ * Function to get the type of command for multiple field handling
+ *
+ * @return string
+ */
+function PMA_getMultipleFieldCommandType()
+{
+    $submit_mult = null;
+
+    if (isset($_REQUEST['submit_mult_change_x'])) {
+        $submit_mult = 'change';
+    } elseif (isset($_REQUEST['submit_mult_drop_x'])) {
+        $submit_mult = 'drop';
+    } elseif (isset($_REQUEST['submit_mult_primary_x'])) {
+        $submit_mult = 'primary';
+    } elseif (isset($_REQUEST['submit_mult_index_x'])) {
+        $submit_mult = 'index';
+    } elseif (isset($_REQUEST['submit_mult_unique_x'])) {
+        $submit_mult = 'unique';
+    } elseif (isset($_REQUEST['submit_mult_spatial_x'])) {
+        $submit_mult = 'spatial';
+    } elseif (isset($_REQUEST['submit_mult_fulltext_x'])) {
+        $submit_mult = 'ftext';
+    } elseif (isset($_REQUEST['submit_mult_browse_x'])) {
+        $submit_mult = 'browse';
+    } elseif (isset($_REQUEST['submit_mult'])) {
+        $submit_mult = $_REQUEST['submit_mult'];
+    } elseif (isset($_REQUEST['mult_btn']) && $_REQUEST['mult_btn'] == __('Yes')) {
+        $submit_mult = 'row_delete';
+        if (isset($_REQUEST['selected'])) {
+            $_REQUEST['selected_fld'] = $_REQUEST['selected'];
+        }
+    }
+
+    return $submit_mult;
+}
+
+/**
+ * Function to display table browse for selected columns
+ *
+ * @param string $db            current database
+ * @param string $table         current table
+ * @param string $goto          goto page url
+ * @param string $pmaThemeImage URI of the pma theme image
+ *
+ * @return void
+ */
+function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
+    $pmaThemeImage
+) {
+    $GLOBALS['active_page'] = 'sql.php';
+    $sql_query = '';
+    foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
+        if ($sql_query == '') {
+            $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
+        } else {
+            $sql_query .=  ', ' . PMA_Util::backquote($sval);
+        }
+    }
+    $sql_query .= ' FROM ' . PMA_Util::backquote($db)
+    . '.' . PMA_Util::backquote($table);
+
+    // Parse and analyze the query
+    include_once 'libraries/parse_analyze.inc.php';
+
+    include_once 'libraries/sql.lib.php';
+
+    PMA_executeQueryAndSendQueryResponse(
+        $analyzed_sql_results, false, $db, $table, null, null, null, false,
+        null, null, null, null, $goto, $pmaThemeImage, null, null,
+        null, $sql_query, null, null
+    );
 }
 ?>

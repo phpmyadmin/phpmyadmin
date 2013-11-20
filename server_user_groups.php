@@ -7,7 +7,8 @@
  */
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/server_privileges.lib.php';
+require_once 'libraries/server_users.lib.php';
+require_once 'libraries/server_user_groups.lib.php';
 
 PMA_getRelationsParam();
 if (! $GLOBALS['cfgRelation']['menuswork']) {
@@ -15,6 +16,10 @@ if (! $GLOBALS['cfgRelation']['menuswork']) {
 }
 
 $response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_user_groups.js');
+
 $response->addHTML('<div>');
 $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_user_groups.php'));
 

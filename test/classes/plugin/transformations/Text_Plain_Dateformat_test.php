@@ -165,7 +165,8 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
 
         //string
         $timestamp = "20100201";
-        $result = '<dfn onclick="alert(\'20100201\');" title="20100201">Feb 01, 2010 at 12:00 AM</dfn>';
+        $result = '<dfn onclick="alert(\'20100201\');" title="20100201">'
+            . 'Feb 01, 2010 at 12:00 AM</dfn>';
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($timestamp, $options, $meta)
@@ -175,6 +176,11 @@ class Text_Plain_Dateformat_Test extends PHPUnit_Framework_TestCase
     }
 }
 
+/**
+ * Mock Class Text_Plain_Dateformat_Meta
+ *
+ * @package PhpMyAdmin-test
+ */
 class Text_Plain_Dateformat_Meta
 {
     var $blob = null;

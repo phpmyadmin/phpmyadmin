@@ -367,7 +367,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     }
 
     /**
-     * returns last error message or false if no errors occured
+     * returns last error message or false if no errors occurred
      *
      * @param PMA_DrizzleCon $link connection object
      *
@@ -555,14 +555,30 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
             $c->flags = $this->fieldFlags($result, $k);
             $c->_flags = $column->flags();
 
-            $c->multiple_key = (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY);
-            $c->primary_key =  (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_PRI_KEY);
-            $c->unique_key =   (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY);
-            $c->not_null =     (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_NOT_NULL);
-            $c->unsigned =     (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_UNSIGNED);
-            $c->zerofill =     (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_ZEROFILL);
-            $c->numeric =      (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_NUM);
-            $c->blob =         (int) (bool) ($c->_flags & DRIZZLE_COLUMN_FLAGS_BLOB);
+            $c->multiple_key = (int) (bool) (
+                $c->_flags & DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY
+            );
+            $c->primary_key =  (int) (bool) (
+                $c->_flags & DRIZZLE_COLUMN_FLAGS_PRI_KEY
+            );
+            $c->unique_key =   (int) (bool) (
+                $c->_flags & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY
+            );
+            $c->not_null =     (int) (bool) (
+                $c->_flags & DRIZZLE_COLUMN_FLAGS_NOT_NULL
+            );
+            $c->unsigned =     (int) (bool) (
+                $c->_flags & DRIZZLE_COLUMN_FLAGS_UNSIGNED
+            );
+            $c->zerofill =     (int) (bool) (
+                $c->_flags & DRIZZLE_COLUMN_FLAGS_ZEROFILL
+            );
+            $c->numeric =      (int) (bool) (
+                $c->_flags & DRIZZLE_COLUMN_FLAGS_NUM
+            );
+            $c->blob =         (int) (bool) (
+                $c->_flags & DRIZZLE_COLUMN_FLAGS_BLOB
+            );
 
             $std_columns[] = $c;
         }

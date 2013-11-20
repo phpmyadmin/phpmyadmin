@@ -35,14 +35,14 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
      * Prepares environment for the test.
      *
      * @return void
-     */ 
+     */
     public function setUp()
     {
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
         $_REQUEST['mr_adduser'] = "mr_adduser";
-        
+
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
@@ -50,27 +50,26 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['ShowHint'] = true;
-        
+
         $GLOBALS['table'] = "table";
         $GLOBALS['url_params'] = array();
         $GLOBALS['pmaThemeImage'] = 'image';
-        
+
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
-        
+
         //Mock DBI
 
         $slave_host = array(
             array('Server_id'=>'Server_id1', 'Host'=>'Host1'),
             array('Server_id'=>'Server_id2', 'Host'=>'Host2'),
         );
-        
+
         $fetchResult = array(
             array(
                 "SHOW SLAVE HOSTS",
@@ -81,7 +80,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
                 $slave_host
             ),
         );
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -98,8 +97,8 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));
-        
-        $GLOBALS['dbi'] = $dbi; 
+
+        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
@@ -108,20 +107,20 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testPMAGetHtmlForMasterReplication()
-    {      
+    {
         global $master_variables;
         global $master_variables_alerts;
         global $master_variables_oks;
         global $server_master_replication;
         global $strReplicationStatus_master;
-        
+
         $master_variables_alerts = null;
         $master_variables_oks = null;
         $strReplicationStatus_master = null;
 
         //Call the test function
         $html = PMA_getHtmlForMasterReplication();
-        
+
         //validate 1: Master replication
         $this->assertContains(
             '<legend>Master replication</legend>',
@@ -131,7 +130,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             'This server is configured as master in a replication process.',
             $html
         );
-        
+
         //validate 2: PMA_getHtmlForReplicationStatusTable
         $this->assertContains(
             '<div id="replication_master_section"',
@@ -151,7 +150,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             "master-bin.000030",
             $html
         );
-        
+
         //validate 3: PMA_getHtmlForReplicationSlavesTable
         $this->assertContains(
             'replication_slaves_section',
@@ -164,7 +163,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             '<th>Host</th>',
             $html
-        );        
+        );
         //slave host
         $this->assertContains(
             '<td class="value">Server_id1</td>',
@@ -187,7 +186,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             'Only slaves started with the',
             $html
         );
-        
+
         //validate 4: navigation URL
         $this->assertContains(
             '<a href="server_replication.php',
@@ -197,7 +196,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             'Add slave replication user',
             $html
         );
-        
+
         //validate 5: 'Add replication slave user' form
         $this->assertContains(
             '<div id="master_addslaveuser_gui">',
@@ -212,9 +211,9 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForNotServerReplication()
     {
-        //Call the test function             
+        //Call the test function
         $html = PMA_getHtmlForNotServerReplication();
-        
+
         $this->assertContains(
             '<legend>Master replication</legend>',
             $html
@@ -233,13 +232,13 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForSlaveConfiguration()
     {
         global $server_slave_replication;
-        
+
         //Call the test function
         $html = PMA_getHtmlForSlaveConfiguration(
-            true, 
+            true,
             $server_slave_replication
         );
-        
+
         //legend
         $this->assertContains(
             '<legend>Slave replication</legend>',
@@ -285,7 +284,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetHtmlForReplicationChangeMaster()
     {
-        //Call the test function             
+        //Call the test function
         $html = PMA_getHtmlForReplicationChangeMaster("slave_changemaster");
 
         $this->assertContains(
@@ -300,7 +299,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             'Change or reconfigure master server',
             $html
         );
-        $notice = 'Make sure, you have unique server-id ' 
+        $notice = 'Make sure, you have unique server-id '
             . 'in your configuration file (my.cnf)';
         $this->assertContains(
             $notice,

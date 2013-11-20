@@ -38,6 +38,7 @@ interface PMA_StringByte
      * @return integer position of $needle in $haystack or false
      */
     public function strpos($haystack, $needle, $offset = 0);
+
     /**
      * Make a string lowercase
      *
@@ -46,5 +47,14 @@ interface PMA_StringByte
      * @return string the lower case string
      */
     public function strtolower($string);
+
+    /**
+     * Get the ordinal value of a string
+     *
+     * @param string $string the string for which ord is required
+     *
+     * @return string the ord value
+     */
+    public function ord($string);
 }
 ?>

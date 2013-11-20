@@ -23,8 +23,6 @@ class PMA_Navigation
 {
     /**
      * Initialises the class
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -58,7 +56,7 @@ class PMA_Navigation
 
         if (! $treeRender) {
             $retval .= PMA_Message::error(
-                __('An error has occured while loading the navigation tree')
+                __('An error has occurred while loading the navigation tree')
             )->getDisplay();
         } else {
             $retval .= $treeRender;
@@ -118,7 +116,7 @@ class PMA_Navigation
         $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "DELETE FROM " . $navTable
-            . " WHERE "
+            . " WHERE"
             . " `username`='"
             . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `item_name`='" . PMA_Util::sqlAddSlashes($itemName) . "'"
@@ -144,13 +142,13 @@ class PMA_Navigation
     {
         $html  = '<form method="post" action="navigation.php" class="ajax">';
         $html .= '<fieldset>';
-        $html .= PMA_generate_common_hidden_inputs($dbName, $tableName);
+        $html .= PMA_URL_getHiddenInputs($dbName, $tableName);
 
         $navTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
         $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
             . " WHERE `username`='"
-            . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"
+            . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `db_name`='" . PMA_Util::sqlAddSlashes($dbName) . "'"
             . " AND `table_name`='"
             . (! empty($tableName) ? PMA_Util::sqlAddSlashes($tableName) : '') . "'";
@@ -189,13 +187,13 @@ class PMA_Navigation
                         $html .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
                         $html .= '<td style="width:80px"><a href="navigation.php?'
-                            . PMA_generate_common_url()
+                            . PMA_URL_getCommon()
                             . '&unhideNavItem=true'
                             . '&itemType=' . $t
                             . '&itemName=' . urldecode($hiddenItem)
                             . '&dbName=' . urldecode($dbName) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . PMA_Util::getIcon('b_undo.png', __('Show'))
+                            . PMA_Util::getIcon('lightbulb.png', __('Show'))
                             .  '</a></td>';
                         $odd = ! $odd;
                     }

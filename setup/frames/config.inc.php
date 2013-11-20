@@ -20,29 +20,33 @@ require_once './setup/lib/ConfigGenerator.class.php';
 $config_readable = false;
 $config_writable = false;
 $config_exists = false;
-check_config_rw($config_readable, $config_writable, $config_exists);
-?>
-<h2><?php echo __('Configuration file') ?></h2>
-<?php PMA_displayFormTop('config.php'); ?>
-<input type="hidden" name="eol" value="<?php echo htmlspecialchars(PMA_ifSetOr($_GET['eol'], 'unix')) ?>" />
-<?php PMA_displayFieldsetTop('', '', null, array('class' => 'simple')); ?>
-<tr>
-    <td>
-        <textarea cols="50" rows="20" name="textconfig" id="textconfig" spellcheck="false"><?php
-            echo htmlspecialchars(ConfigGenerator::getConfigFile())
-        ?></textarea>
-    </td>
-</tr>
-<tr>
-    <td class="lastrow" style="text-align: left">
-        <input type="submit" name="submit_download" value="<?php echo __('Download') ?>" class="green" />
-        <input type="submit" name="submit_save" value="<?php echo __('Save') ?>"<?php
+PMA_checkConfigRw($config_readable, $config_writable, $config_exists);
+echo '<h2>' . __('Configuration file') . '</h2>';
+
+PMA_displayFormTop('config.php');
+echo '<input type="hidden" name="eol" value="'
+    . htmlspecialchars(PMA_ifSetOr($_GET['eol'], 'unix')) . '" />';
+PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
+echo '<tr>';
+echo '<td>';
+echo '<textarea cols="50" rows="20" name="textconfig" '
+    . 'id="textconfig" spellcheck="false">';
+echo htmlspecialchars(ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']));
+echo '</textarea>';
+echo '</td>';
+echo '</tr>';
+echo '<tr>';
+echo '<td class="lastrow" style="text-align: left">';
+echo '<input type="submit" name="submit_download" value="'
+    . __('Download') . '" class="green" />';
+echo '<input type="submit" name="submit_save" value="' . __('Save') . '"';
 if (!$config_writable) {
     echo ' disabled="disabled"';
-} ?> />
-    </td>
-</tr>
-<?php
+}
+echo '/>';
+echo '</td>';
+echo '</tr>';
+
 PMA_displayFieldsetBottomSimple();
 PMA_displayFormBottom();
 ?>

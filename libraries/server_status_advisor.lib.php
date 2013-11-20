@@ -5,7 +5,7 @@
  * functions for displaying server status sub item: advisor
  *
  * @usedby  server_status_advisor.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {

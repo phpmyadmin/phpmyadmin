@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Database SQL executor
  *
  * @package PhpMyAdmin
  */
@@ -31,9 +32,13 @@ $back = 'db_sql.php';
 /**
  * Query box, bookmark, insert data from textfile
  */
-PMA_sqlQueryForm(
-    true, false,
-    isset($_REQUEST['delimiter']) ? htmlspecialchars($_REQUEST['delimiter']) : ';'
+$response->addHTML(
+    PMA_getHtmlForSqlQueryForm(
+        true, false,
+        isset($_REQUEST['delimiter'])
+        ? htmlspecialchars($_REQUEST['delimiter'])
+        : ';'
+    )
 );
 
 ?>

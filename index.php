@@ -75,7 +75,7 @@ if (! empty($message)) {
     unset($message);
 }
 
-$common_url_query =  PMA_generate_common_url('', '');
+$common_url_query =  PMA_URL_getCommon('', '');
 
 // when $server > 0, a server has been chosen so we can display
 // all MySQL-related information
@@ -134,10 +134,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
      */
     if ($cfg['ServerDefault'] == 0
         || (! $cfg['NavigationDisplayServers']
-            && (count($cfg['Servers']) > 1
-                || ($server == 0 && count($cfg['Servers']) == 1)
-            )
-        )
+        && (count($cfg['Servers']) > 1
+        || ($server == 0 && count($cfg['Servers']) == 1)))
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
         include_once 'libraries/select_server.lib.php';
@@ -169,15 +167,12 @@ if ($server > 0 || count($cfg['Servers']) > 1
         } // end if
         echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
         echo '        <form method="post" action="index.php">' . "\n"
-           . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
+           . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                '. PMA_Util::getImage('s_asci.png') . " "
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
-           . PMA_Util::showMySQLDocu(
-               'MySQL_Database_Administration',
-               'Charset-connection'
-           )
+           . PMA_Util::showMySQLDocu('Charset-connection')
            . ': ' .  "\n"
            . '            </label>' . "\n"
 
@@ -260,7 +255,9 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_type'
     );
     PMA_printListItem(
-        __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
+        __('Server version:')
+        . ' '
+        . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
         'li_server_version'
     );
     PMA_printListItem(
@@ -274,13 +271,15 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
 
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' . __('Server charset:') . ' '
-       . '        <span lang="en" dir="ltr">'
-       . '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']] . "\n"
-       . '           (' . $mysql_charset_map['utf-8'] . ')' . "\n"
-       . '        </span>' . "\n"
-       . '    </li>' . "\n";
-    echo '  </ul>';
-    echo ' </div>';
+       . '        <span lang="en" dir="ltr">';
+    if (! PMA_DRIZZLE) {
+        echo '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
+    }
+    echo '           (' . $mysql_charset_map['utf-8'] . ')'
+       . '        </span>'
+       . '    </li>'
+       . '  </ul>'
+       . ' </div>';
 }
 
 if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
@@ -293,7 +292,10 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         if ($server > 0) {
             $client_version_str = $GLOBALS['dbi']->getClientInfo();
             if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)
-                && in_array($GLOBALS['cfg']['Server']['extension'], array('mysql', 'mysqli'))
+                && in_array(
+                    $GLOBALS['cfg']['Server']['extension'],
+                    array('mysql', 'mysqli')
+                )
             ) {
                 $client_version_str = 'libmysql - ' . $client_version_str;
             }
@@ -391,15 +393,13 @@ PMA_printListItem(
     null,
     '_blank'
 );
-?>
-    </ul>
- </div>
+echo '    </ul>';
+echo ' </div>';
 
-</div>
+echo '</div>';
 
-</div>
+echo '</div>';
 
-<?php
 /**
  * Warning if using the default MySQL privileged account
  */
@@ -503,7 +503,8 @@ if ($server > 0) {
     ) {
         $msg = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
         $msg->addParam(
-            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">',
+            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?'
+            . $common_url_query . '">',
             false
         );
         $msg->addParam('</a>', false);
@@ -524,7 +525,10 @@ if ($server > 0) {
  * Drizzle can speak MySQL protocol, so don't warn about version mismatch for
  * Drizzle servers.
  */
-if (isset($GLOBALS['dbi']) && !PMA_DRIZZLE) {
+if (isset($GLOBALS['dbi'])
+    && !PMA_DRIZZLE
+    && $cfg['ServerLibraryDifference_DisableWarning'] == false
+) {
     $_client_info = $GLOBALS['dbi']->getClientInfo();
     if ($server > 0
         && strpos($_client_info, 'mysqlnd') === false
@@ -590,7 +594,9 @@ if (file_exists('libraries/language_stats.inc.php')) {
         && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']
     ) {
         trigger_error(
-            'You are using an incomplete translation, please help to make it better by [a@http://www.phpmyadmin.net/home_page/improve.php#translate@_blank]contributing[/a].',
+            'You are using an incomplete translation, please help to make it '
+            . 'better by [a@http://www.phpmyadmin.net/home_page/improve.php'
+            . '#translate@_blank]contributing[/a].',
             E_USER_NOTICE
         );
     }
@@ -640,7 +646,7 @@ function PMA_printListItem($name, $id = null, $url = null,
         echo '</a>' . "\n";
     }
     if (null !== $mysql_help_page) {
-        echo PMA_Util::showMySQLDocu('', $mysql_help_page);
+        echo PMA_Util::showMySQLDocu($mysql_help_page);
     }
     echo '</li>';
 }

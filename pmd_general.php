@@ -847,10 +847,12 @@ if (! empty($_REQUEST['query'])) {
     echo '<div id="box">';
     echo '<span id="boxtitle"></span>';
     echo '<form method="post" action="db_qbe.php">';
-    echo '<textarea cols="80" name="sql_query" id="textSqlquery" rows="15"></textarea><div id="tblfooter">';
+    echo '<textarea cols="80" name="sql_query" id="textSqlquery"'
+        . ' rows="15"></textarea><div id="tblfooter">';
     echo '  <input type="submit" name="submit_sql" class="btn" />';
-    echo '  <input type="button" name="cancel" value="' . __('Cancel') . '" onclick="closebox()" class="btn" />';
-    echo PMA_generate_common_hidden_inputs($_GET['db']);
+    echo '  <input type="button" name="cancel" value="'
+        . __('Cancel') . '" onclick="closebox()" class="btn" />';
+    echo PMA_URL_getHiddenInputs($_GET['db']);
     echo '</div></p>';
     echo '</form></div>';
 
@@ -858,8 +860,18 @@ if (! empty($_REQUEST['query'])) {
 
 
 <!-- cache images -->
-<img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/2leftarrow_m.png'); ?>" width="0" height="0" alt="" />
-<img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow1.png'); ?>" width="0" height="0" alt="" />
-<img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow2.png'); ?>" width="0" height="0" alt="" />
-<img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/uparrow2_m.png'); ?>" width="0" height="0" alt="" />
-<div id="PMA_disable_floating_menubar"></div>
+<?php
+echo '<img src="'
+    . $_SESSION['PMA_Theme']->getImgPath('pmd/2leftarrow_m.png')
+    . '" width="0" height="0" alt="" />'
+    . '<img src="'
+    . $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow1.png')
+    . '" width="0" height="0" alt="" />'
+    . '<img src="'
+    . $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow2.png')
+    . '" width="0" height="0" alt="" />'
+    . '<img src="'
+    . $_SESSION['PMA_Theme']->getImgPath('pmd/uparrow2_m.png')
+    . '" width="0" height="0" alt="" />'
+    . '<div id="PMA_disable_floating_menubar"></div>';
+?>

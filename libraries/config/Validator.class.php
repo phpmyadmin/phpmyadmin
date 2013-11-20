@@ -1,7 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Validaition class for various validation functions
+ * Form validation for configuration editor
+ *
+ * @package PhpMyAdmin
+ */
+
+/**
+ * Validation class for various validation functions
  *
  * Validation function takes two argument: id for which it is called
  * and array of fields' values (usually values for entire formset, as defined
@@ -14,27 +20,26 @@
  *
  * @package PhpMyAdmin
  */
-
 class PMA_Validator
 {
     /**
      * Returns validator list
      *
+     * @param ConfigFile $cf Config file instance
+     *
      * @return array
      */
-    public static function config_get_validators()
+    public static function getValidators(ConfigFile $cf)
     {
         static $validators = null;
 
         if ($validators === null) {
-            $cf = ConfigFile::getInstance();
             $validators = $cf->getDbEntry('_validators', array());
             if (!defined('PMA_SETUP')) {
                 // not in setup script: load additional validators for user
                 // preferences we need original config values not overwritten
                 // by user preferences, creating a new PMA_Config instance is a
                 // better idea than hacking into its code
-                $org_cfg = $cf->getOrgConfigObj();
                 $uvs = $cf->getDbEntry('_userValidators', array());
                 foreach ($uvs as $field => $uv_list) {
                     $uv_list = (array)$uv_list;
@@ -45,7 +50,8 @@ class PMA_Validator
                         for ($i = 1; $i < count($uv); $i++) {
                             if (substr($uv[$i], 0, 6) == 'value:') {
                                 $uv[$i] = PMA_arrayRead(
-                                    substr($uv[$i], 6), $org_cfg->settings
+                                    substr($uv[$i], 6),
+                                    $GLOBALS['PMA_Config']->base_settings
                                 );
                             }
                         }
@@ -68,6 +74,7 @@ class PMA_Validator
      *   cleanup in HTML documen
      * o false - when no validators match name(s) given by $validator_id
      *
+     * @param ConfigFile   $cf           Config file instance
      * @param string|array $validator_id ID of validator(s) to run
      * @param array        &$values      Values to validate
      * @param bool         $isPostSource tells whether $values are directly from
@@ -75,13 +82,13 @@ class PMA_Validator
      *
      * @return bool|array
      */
-    public static function config_validate($validator_id, &$values, $isPostSource)
-    {   
+    public static function validate(
+        ConfigFile $cf, $validator_id, &$values, $isPostSource
+    ) {
         // find validators
         $validator_id = (array) $validator_id;
-        $validators = static::config_get_validators();
+        $validators = static::getValidators($cf);
         $vids = array();
-        $cf = ConfigFile::getInstance();
         foreach ($validator_id as &$vid) {
             $vid = $cf->getCanonicalPath($vid);
             if (isset($validators[$vid])) {
@@ -123,7 +130,9 @@ class PMA_Validator
                         if (! isset($result[$key])) {
                             $result[$key] = array();
                         }
-                        $result[$key] = array_merge($result[$key], (array)$error_list);
+                        $result[$key] = array_merge(
+                            $result[$key], (array)$error_list
+                        );
                     }
                 }
             }
@@ -143,7 +152,7 @@ class PMA_Validator
      *
      * @return bool
      */
-    public static function null_error_handler()
+    public static function nullErrorHandler()
     {
         return false;
     }
@@ -170,7 +179,7 @@ class PMA_Validator
             ini_set('html_errors', false);
             ini_set('track_errors', true);
             ini_set('display_errors', true);
-            set_error_handler("PMA_Validator", "null_error_handler");
+            set_error_handler(array("PMA_Validator", "nullErrorHandler"));
             ob_start();
         } else {
             ob_end_clean();
@@ -435,7 +444,7 @@ class PMA_Validator
             $matches = array();
             // we catch anything that may (or may not) be an IP
             if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
-                $result[$path][] = __('Incorrect value:') . ' ' 
+                $result[$path][] = __('Incorrect value:') . ' '
                     . htmlspecialchars($line);
                 continue;
             }

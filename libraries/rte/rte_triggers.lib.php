@@ -144,7 +144,7 @@ function PMA_TRI_handleEditor()
         }
 
         if (count($errors)) {
-            $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
+            $message = PMA_Message::error(__('<b>One or more errors have occurred while processing your request:</b>'));
             $message->addString('<ul>');
             foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');
@@ -342,7 +342,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
-    $retval .= PMA_generate_common_hidden_inputs($db, $table) . "\n";
+    $retval .= PMA_URL_getHiddenInputs($db, $table) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";

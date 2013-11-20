@@ -171,7 +171,7 @@ class PMA_TableSearch
     /**
      * Sets the table header for displaying a table in query-by-example format.
      *
-     * @return HTML content, the tags and content for table header
+     * @return string HTML content, the tags and content for table header
      */
     private function _getTableHeader()
     {
@@ -227,15 +227,16 @@ class PMA_TableSearch
      * @param int  $column_index Column's index
      * @param bool $in_fbs       Whether we are in 'function based search'
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getGeometricalInputBox($column_index, $in_fbs)
     {
-        $html_output = '<input type="text" name="criteriaValues[' . $column_index . ']"'
+        $html_output = '<input type="text" name="criteriaValues['
+            . $column_index . ']"'
             . ' size="40" class="textfield" id="field_' . $column_index . '" />';
 
         if ($in_fbs) {
-            $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
+            $edit_url = 'gis_data_editor.php?' . PMA_URL_getCommon();
             $edit_str = PMA_Util::getIcon('b_edit.png', __('Edit/Insert'));
             $html_output .= '<span class="open_search_gis_editor">';
             $html_output .= PMA_Util::linkOrButton(
@@ -259,7 +260,7 @@ class PMA_TableSearch
      * @param string $column_id           Column's inputbox's id
      * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getForeignKeyInputBox($foreignData, $column_name,
         $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id,
@@ -276,7 +277,8 @@ class PMA_TableSearch
             $html_output .= '</select>';
 
         } elseif ($foreignData['foreign_link'] == true) {
-            $html_output .= '<input type="text" id="' . $column_id . $column_index . '"'
+            $html_output .= '<input type="text" id="' . $column_id
+                . $column_index . '"'
                 . ' name="criteriaValues[' . $column_index . ']" id="field_'
                 . md5($column_name) . '[' . $column_index .']" class="textfield"'
                 . (isset($criteriaValues[$column_index])
@@ -288,9 +290,9 @@ class PMA_TableSearch
             $html_output .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
-            $html_output .= '' . PMA_generate_common_url($this->_db, $this->_table)
+            $html_output .= '' . PMA_URL_getCommon($this->_db, $this->_table)
                 . '&amp;field=' . urlencode($column_name) . '&amp;fieldkey='
-                . $column_index . '"';
+                . $column_index . '&amp;fromsearch=1"';
             if ($in_zoom_search_edit) {
                 $html_output .= ' class="browse_foreign"';
             }
@@ -309,7 +311,7 @@ EOT;
      * @param string $column_id           Column's inputbox's id
      * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
      *
-     * @return HTML elements.
+     * @return string HTML elements.
      */
     private function _getEnumSetInputBox($column_index, $criteriaValues,
         $column_type, $column_id, $in_zoom_search_edit = false
@@ -500,7 +502,8 @@ EOT;
             // If the function takes two parameters
             // create gis data from the criteria input
             $gis_data = PMA_Util::createGISData($criteriaValues);
-            $where = $geom_func . '(' . PMA_Util::backquote($names) . ',' . $gis_data . ')';
+            $where = $geom_func . '(' . PMA_Util::backquote($names)
+                . ',' . $gis_data . ')';
             return $where;
         }
 
@@ -576,27 +579,52 @@ EOT;
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ($func_type == 'IN (...)'
-                || $func_type == 'NOT IN (...)'
-                || $func_type == 'BETWEEN'
-                || $func_type == 'NOT BETWEEN'
+            if ('IN (...)' == $func_type
+                || 'NOT IN (...)' == $func_type
+                || 'BETWEEN' == $func_type
+                || 'NOT BETWEEN' == $func_type
             ) {
                 $func_type = str_replace(' (...)', '', $func_type);
 
+                //Don't explode if this is already an array
+                //(Case for (NOT) IN/BETWEEN.)
+                if (is_array($criteriaValues)) {
+                    $values = $criteriaValues;
+                } else {
+                    $values = explode(',', $criteriaValues);
+                }
                 // quote values one by one
-                $values = explode(',', $criteriaValues);
-                foreach ($values as &$value) {
+                $emptyKey = false;
+                foreach ($values as $key => &$value) {
+                    if ('' === $value) {
+                        $emptyKey = $key;
+                        $value = 'NULL';
+                        continue;
+                    }
                     $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
                         . $quot;
                 }
 
-                if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
+                if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
                     $where = $backquoted_name . ' ' . $func_type . ' '
                         . (isset($values[0]) ? $values[0] : '')
                         . ' AND ' . (isset($values[1]) ? $values[1] : '');
-                } else {
-                    $where = $backquoted_name . ' ' . $func_type
-                        . ' (' . implode(',', $values) . ')';
+                } else { //[NOT] IN
+                    if (false !== $emptyKey) {
+                        unset($values[$emptyKey]);
+                    }
+                    $wheres = array();
+                    if (!empty($values)) {
+                        $wheres[] = $backquoted_name . ' ' . $func_type
+                            . ' (' . implode(',', $values) . ')';
+                    }
+                    if (false !== $emptyKey) {
+                        $wheres[] = $backquoted_name . ' IS NULL';
+                    }
+                    $where = implode(' OR ', $wheres);
+                    if (1 < count($wheres)) {
+                        $where = '(' . $where . ')';
+                    }
                 }
             } else {
                 if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
@@ -677,7 +705,9 @@ EOT;
         // else continue to form the where clause from column criteria values
         $fullWhereClause = $charsets = array();
         reset($_POST['criteriaColumnOperators']);
-        while (list($column_index, $operator) = each($_POST['criteriaColumnOperators'])) {
+        while (list($column_index, $operator) = each(
+            $_POST['criteriaColumnOperators']
+        )) {
             list($charsets[$column_index]) = explode(
                 '_', $_POST['criteriaColumnCollations'][$column_index]
             );
@@ -780,7 +810,8 @@ EOT;
                 . '</option>' . "\n";
         } // end for
         $html_output .= '</select>'
-            . '<input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />'
+            . '<input type="checkbox" name="distinct" value="DISTINCT"'
+            . ' id="oDistinct" />'
             . '<label for="oDistinct">DISTINCT</label></fieldset>';
 
         /**
@@ -789,9 +820,7 @@ EOT;
         $html_output .= '<fieldset id="fieldset_search_conditions">'
             . '<legend>' . '<em>' . __('Or') . '</em> '
             . __('Add search conditions (body of the "where" clause):') . '</legend>';
-        $html_output .= PMA_Util::showMySQLDocu(
-            'SQL-Syntax', 'Functions'
-        );
+        $html_output .= PMA_Util::showMySQLDocu('Functions');
         $html_output .= '<input type="text" name="customWhereClause"'
             . ' class="textfield" size="64" />';
         $html_output .= '</fieldset>';
@@ -801,7 +830,8 @@ EOT;
          */
         $html_output .= '<fieldset id="fieldset_limit_rows">'
             . '<legend>' . __('Number of rows per page') . '</legend>'
-            . '<input type="text" size="4" name="session_max_rows" '
+            . '<input type="number" size="4" name="session_max_rows" required '
+            . 'min="1" '
             . 'value="' . $GLOBALS['cfg']['MaxRows'] . '" class="textfield" />'
             . '</fieldset>';
 
@@ -854,8 +884,10 @@ EOT;
                 && $dataLabel == htmlspecialchars($this->_columnNames[$j])
             ) {
                 $html_output .= '<option value="'
-                    . htmlspecialchars($this->_columnNames[$j]) . '" selected="selected">'
-                    . htmlspecialchars($this->_columnNames[$j]) . '</option>';
+                    . htmlspecialchars($this->_columnNames[$j])
+                    . '" selected="selected">'
+                    . htmlspecialchars($this->_columnNames[$j])
+                    . '</option>';
             } else {
                 $html_output .= '<option value="'
                     . htmlspecialchars($this->_columnNames[$j]) . '" >'
@@ -869,8 +901,8 @@ EOT;
         $html_output .= '<td><label for="maxRowPlotLimit">'
             . __("Maximum rows to plot") . '</label></td>';
         $html_output .= '<td>';
-        $html_output .= '<input type="text" name="maxPlotLimit"'
-            . ' id="maxRowPlotLimit"'
+        $html_output .= '<input type="number" name="maxPlotLimit"'
+            . ' id="maxRowPlotLimit" required'
             . ' value="' . ((! empty($_POST['maxPlotLimit']))
                 ? htmlspecialchars($_POST['maxPlotLimit'])
                 : $GLOBALS['cfg']['maxRowPlotLimit'])
@@ -902,7 +934,9 @@ EOT;
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $func = '<select name="criteriaColumnOperators[' . $search_index . ']">';
+        $func = '<select name="criteriaColumnOperators['
+            . $search_index . ']" onchange="changeValueFieldType(this, '
+            . $search_index . ')">';
         $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
             preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
             $this->_columnNullFlags[$column_index], $selected_operator
@@ -935,8 +969,14 @@ EOT;
         $odd_row = true;
         $html_output = '';
         // for every column present in table
-        for ($column_index = 0; $column_index < count($this->_columnNames); $column_index++) {
-            $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        for (
+            $column_index = 0;
+            $column_index < count($this->_columnNames);
+            $column_index++
+        ) {
+            $html_output .= '<tr class="noclick '
+                . ($odd_row ? 'odd' : 'even')
+                . '">';
             $odd_row = !$odd_row;
             //If 'Function' column is present
             $html_output .= $this->_getGeomFuncHtml($column_index);
@@ -990,7 +1030,9 @@ EOT;
                 $html_output .= __("Additional search criteria");
                 $html_output .= '</td></tr>';
             }
-            $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+            $html_output .= '<tr class="noclick '
+                . ($odd_row ? 'odd' : 'even')
+                . '">';
             $odd_row = ! $odd_row;
             //Select options for column names
             $html_output .= '<th><select name="criteriaColumnNames[]" id="'
@@ -1002,8 +1044,10 @@ EOT;
                     && $_POST['criteriaColumnNames'][$i] == htmlspecialchars($this->_columnNames[$j])
                 ) {
                     $html_output .= '<option value="'
-                        . htmlspecialchars($this->_columnNames[$j]) . '" selected="selected">'
-                        . htmlspecialchars($this->_columnNames[$j]) . '</option>';
+                        . htmlspecialchars($this->_columnNames[$j])
+                        . '" selected="selected">'
+                        . htmlspecialchars($this->_columnNames[$j])
+                        . '</option>';
                 } else {
                     $html_output .= '<option value="'
                         . htmlspecialchars($this->_columnNames[$j]) . '">'
@@ -1036,7 +1080,8 @@ EOT;
             $html_output .= '</tr>';
             //Displays hidden fields
             $html_output .= '<tr><td>';
-            $html_output .= '<input type="hidden" name="criteriaColumnTypes[' . $i . ']"'
+            $html_output
+                .= '<input type="hidden" name="criteriaColumnTypes[' . $i . ']"'
                 . ' id="types_' . $i . '" ';
             if (isset($_POST['criteriaColumnTypes'][$i])) {
                 $html_output .= 'value="' . $_POST['criteriaColumnTypes'][$i] . '" ';
@@ -1104,7 +1149,7 @@ EOT;
             . 'name="insertForm" id="' . $formId . '" '
             . 'class="ajax"' . '>';
 
-        $html_output .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
+        $html_output .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
         $html_output .= '<input type="hidden" name="back" value="' . $scriptName
             . '" />';
@@ -1200,13 +1245,17 @@ EOT;
     public function getZoomResultsForm($goto, $data)
     {
         $html_output = '';
-        $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
+        $titles['Browse'] = PMA_Util::getIcon(
+            'b_browse.png',
+            __('Browse foreign values')
+        );
         $html_output .= '<form method="post" action="tbl_zoom_select.php"'
             . ' name="displayResultForm" id="zoom_display_form"'
             . ' class="ajax"' . '>';
-        $html_output .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
+        $html_output .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-        $html_output .= '<input type="hidden" name="back" value="tbl_zoom_select.php" />';
+        $html_output
+            .= '<input type="hidden" name="back" value="tbl_zoom_select.php" />';
 
         $html_output .= '<fieldset id="displaySection">';
         $html_output .= '<legend>' . __('Browse/Edit the points') . '</legend>';
@@ -1238,16 +1287,29 @@ EOT;
 
         $html_output .= '<tbody>';
         $odd_row = true;
-        for ($column_index = 0; $column_index < count($this->_columnNames); $column_index++) {
+        for (
+            $column_index = 0;
+            $column_index < count($this->_columnNames);
+            $column_index++
+        ) {
             $fieldpopup = $this->_columnNames[$column_index];
-            $foreignData = PMA_getForeignData($this->_foreigners, $fieldpopup, false, '', '');
-            $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+            $foreignData = PMA_getForeignData(
+                $this->_foreigners,
+                $fieldpopup,
+                false,
+                '',
+                ''
+            );
+            $html_output
+                .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
             $odd_row = ! $odd_row;
             //Display column Names
-            $html_output .= '<th>' . htmlspecialchars($this->_columnNames[$column_index])
+            $html_output
+                .= '<th>' . htmlspecialchars($this->_columnNames[$column_index])
                 . '</th>';
             //Null checkbox if column can be null
-            $html_output .= '<th>' . (($this->_columnNullFlags[$column_index] == 'YES')
+            $html_output .= '<th>'
+                . (($this->_columnNullFlags[$column_index] == 'YES')
                 ? '<input type="checkbox" class="checkbox_null"'
                     . ' name="criteriaColumnNullFlags[' . $column_index . ']"'
                     . ' id="edit_fields_null_id_' . $column_index . '" />'
@@ -1272,14 +1334,14 @@ EOT;
     /**
      * Displays the 'Find and Replace' form
      *
-     * @return HTML for 'Find and Replace' form
+     * @return string HTML for 'Find and Replace' form
      */
     function _getSearchAndReplaceHTML()
     {
         $htmlOutput  = __('Find:')
-            . '<input type="text" value="" name="find" />';
+            . '<input type="text" value="" name="find" required />';
         $htmlOutput .= __('Replace with:')
-            . '<input type="text" value="" name="replaceWith" />';
+            . '<input type="text" value="" name="replaceWith" required />';
 
         $htmlOutput .= __('Column:') . '<select name="columnIndex">';
         for ($i = 0; $i < count($this->_columnNames); $i++) {
@@ -1302,7 +1364,7 @@ EOT;
      * @param string $replaceWith string to replace with
      * @param string $charSet     character set of the connection
      *
-     * @return HTML for prviewing strings found and their replacements
+     * @return string HTML for prviewing strings found and their replacements
      */
     function getReplacePreview($columnIndex, $find, $replaceWith, $charSet)
     {
@@ -1328,7 +1390,7 @@ EOT;
 
         $htmlOutput = '<form method="post" action="tbl_find_replace.php"'
             . ' name="previewForm" id="previewForm" class="ajax">';
-        $htmlOutput .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
+        $htmlOutput .= PMA_URL_getHiddenInputs($this->_db, $this->_table);
         $htmlOutput .= '<input type="hidden" name="replace" value="true" />';
         $htmlOutput .= '<input type="hidden" name="columnIndex" value="'
             . $columnIndex . '" />';

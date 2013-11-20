@@ -16,8 +16,20 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
 
+/**
+ * Tests for libraries/relation.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Relation_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     *
+     * @access protected
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['server'] = 1;
@@ -39,16 +51,16 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_queryAsControlUser()
+    public function testPMAQueryAsControlUser()
     {
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-            
+
         $dbi->expects($this->once())
             ->method('query')
             ->will($this->returnValue('executeResult1'));
-            
+
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->will($this->returnValue('executeResult2'));
@@ -71,7 +83,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getRelationsParam()
+    public function testPMAGetRelationsParam()
     {
         $relationsPara = PMA_getRelationsParam();
         $this->assertEquals(
@@ -101,16 +113,16 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             '<strong>OK</strong>',
             $retval
         );
-        
+
         //$cfg['Servers'][$i]['relation']
-        $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"right\">" 
+        $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"right\">"
             . "<font color=\"green\"><strong>OK</strong></font>";
         $this->assertContains(
             $result,
             $retval
         );
         // $cfg['Servers'][$i]['relation']
-        $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"right\">" 
+        $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"right\">"
             . "<font color=\"red\"><strong>not OK</strong></font>";
         $this->assertContains(
             $result,
@@ -122,8 +134,9 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $result,
             $retval
         );
-        // $cfg['Servers'][$i]['table_info'] 
-        $result = "\$cfg['Servers'][\$i]['table_info']  ... </th><td class=\"right\">" 
+        // $cfg['Servers'][$i]['table_info']
+        $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
+            . "<td class=\"right\">"
             . "<font color=\"red\"><strong>not OK</strong></font>";
         $this->assertContains(
             $result,
@@ -135,7 +148,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $result,
             $retval
         );
-        
+
         //$GLOBALS['cfg']['Server']['pmadb']==false
         $value = $GLOBALS['cfg']['Server']['pmadb'];
         $GLOBALS['cfg']['Server']['pmadb'] = false;
@@ -156,9 +169,9 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $result,
             $retval
         );
-        
+
         $GLOBALS['cfg']['Server']['pmadb'] = $value;
-        
+
     }
 
     /**
@@ -166,30 +179,29 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getDisplayField()
+    public function testPMAGetDisplayField()
     {
-        
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
         $this->assertEquals(
             'DESCRIPTION',
             PMA_getDisplayField($db, $table)
-        );  
-              
+        );
+
         $db = 'information_schema';
         $table = 'TABLES';
         $this->assertEquals(
             'TABLE_COMMENT',
             PMA_getDisplayField($db, $table)
         );
-              
+
         $db = 'information_schema';
         $table = 'PMA';
         $this->assertEquals(
             false,
             PMA_getDisplayField($db, $table)
         );
-        
+
     }
 
     /**
@@ -197,15 +209,15 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_getComments()
+    public function testPMAGetComments()
     {
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $_SESSION['relation'] = array();
-        
+
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         $getColumnsResult = array(
                 array(
                         'Field' => 'field1',
@@ -220,15 +232,15 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         );
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($getColumnsResult));
-        
+
         $GLOBALS['dbi'] = $dbi;
-        
+
         $db = 'information_schema';
         $this->assertEquals(
             array(''),
             PMA_getComments($db)
-        );  
-              
+        );
+
         $db = 'information_schema';
         $table = 'TABLES';
         $this->assertEquals(
@@ -237,7 +249,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
                 'field2' => 'Comment1'
             ),
             PMA_getComments($db, $table)
-        );    
+        );
     }
 }
 

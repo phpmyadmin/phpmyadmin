@@ -19,6 +19,7 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/database_interface.inc.php';
 
 /**
  * PMA_ServerBinlog_Test class
@@ -39,7 +40,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
-        
+
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['server'] = 1;
@@ -48,16 +49,15 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
-        
+
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
-        
+
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();     
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**
@@ -70,7 +70,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $binary_log_file_names = array();
         $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
         $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
-        
+
         $url_params = array();
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
@@ -100,16 +100,16 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $binary_log_file_names = array();
         $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
         $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
-        
+
         $url_params = array();
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
-        
+
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-        
+
         //expects return value
         $result = array(
             array(
@@ -134,19 +134,19 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
                 'Event_type' => "index1_Event_type",
                 'End_log_pos' => "index1_End_log_pos",
                 'Server_id' => "index1_Server_id",
-        );   
+        );
         $count = 3;
 
         //expects functions
         $dbi->expects($this->once())->method('query')
             ->will($this->returnValue($result));
-        
+
         $dbi->expects($this->once())->method('numRows')
             ->will($this->returnValue($count));
-        
+
         $dbi->expects($this->at(0))->method('fetchAssoc')
             ->will($this->returnValue($value));
-        
+
         $dbi->expects($this->at(1))->method('fetchAssoc')
             ->will($this->returnValue(false));
 
@@ -154,7 +154,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
 
         //Call the test function
         $html = PMA_getLogInfo($binary_log_file_names, $url_params);
-    
+
         //validate 1: the sql has been executed
         $this->assertContains(
             'Your SQL query has been executed successfully',
@@ -180,7 +180,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $this->assertContains(
             'title="Previous"',
             $html
-        ); 	
+        );
         //validate 5: Log Item
         $this->assertContains(
             'Log name',
@@ -200,6 +200,67 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             'Original position',
+            $html
+        );
+    }
+
+    /**
+     * Test for PMA_getAllLogItemInfo
+     *
+     * @return void
+     */
+    public function testPMAGetAllLogItemInfo()
+    {
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $fetchAssoc = array(
+            'Info' => 'Info',
+            'Log_name' => 'Log_name',
+            'Pos' => 'Pos',
+            'Event_type' => 'Event_type',
+            'Server_id' => 'Server_id',
+            'Orig_log_pos' => 'Orig_log_pos',
+            'End_log_pos' => 'End_log_pos',
+        );
+        $dbi->expects($this->at(0))->method('fetchAssoc')
+            ->will($this->returnValue($fetchAssoc));
+
+        $dbi->expects($this->at(1))->method('fetchAssoc')
+            ->will($this->returnValue(false));
+
+        $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['cfg']['LimitChars'] = 2;
+
+        $result = array();
+        $dontlimitchars = ";";
+
+        $html = PMA_getAllLogItemInfo($result, $dontlimitchars);
+        $value = $fetchAssoc;
+        $this->assertContains(
+            $value['Log_name'],
+            $html
+        );
+        $this->assertContains(
+            $value['Pos'],
+            $html
+        );
+        $this->assertContains(
+            $value['Event_type'],
+            $html
+        );
+        $this->assertContains(
+            $value['Server_id'],
+            $html
+        );
+        $this->assertContains(
+            $value['Orig_log_pos'],
+            $html
+        );
+        $this->assertContains(
+            htmlspecialchars($value['Info']),
             $html
         );
     }

@@ -5,7 +5,7 @@
  * functions for displaying server Character Sets and Collations
  *
  * @usedby  server_collations.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -24,7 +24,7 @@ if (! defined('PHPMYADMIN')) {
  * @return string
  */
 function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
-    $mysql_charsets_descriptions, $mysql_default_collations, 
+    $mysql_charsets_descriptions, $mysql_default_collations,
     $mysql_collations_available
 ) {
     /**
@@ -35,10 +35,10 @@ function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
         . '<tr><th>' . __('Collation') . '</th>' . "\n"
         . '    <th>' . __('Description') . '</th>' . "\n"
         . '</tr>' . "\n";
-    
+
     $i = 0;
     $table_row_count = count($mysql_charsets) + count($mysql_collations);
-    
+
     foreach ($mysql_charsets as $current_charset) {
         if ($i >= $table_row_count / 2) {
             $i = 0;
@@ -58,7 +58,7 @@ function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
                 ) . '</i>)' . "\n")
             . '    </th>' . "\n"
             . '</tr>' . "\n";
-        
+
         $html .= PMA_getHtmlForCollationCurrentCharset(
             $current_charset,
             $mysql_collations,
@@ -71,7 +71,7 @@ function PMA_getHtmlForCharsets($mysql_charsets, $mysql_collations,
     $html .= '</table>' . "\n"
         . '</div>' . "\n";
 
-    return $html;    
+    return $html;
 }
 
 /**

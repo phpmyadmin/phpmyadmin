@@ -30,7 +30,6 @@ class PMA_DIA extends XMLWriter
      *
      * Upon instantiation This starts writing the Dia XML document
      *
-     * @return void
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
      */
     function __construct()
@@ -217,11 +216,9 @@ class Table_Stats_Dia
      *                            $cfg['Servers'][$i]['table_coords'] table)
      * @param boolean $showKeys   Whether to display ONLY keys or not
      *
-     * @return void
-     *
-     * @global object    The current dia document
-     * @global array     The relations settings
-     * @global string    The current db name
+     * @global object $dia         The current dia document
+     * @global array  $cfgRelation The relations settings
+     * @global string $db          The current db name
      *
      * @see PMA_DIA
      */
@@ -325,7 +322,7 @@ class Table_Stats_Dia
      *
      * @return void
      *
-     * @global object The current Dia document
+     * @global object $dia The current Dia document
      *
      * @access public
      * @see PMA_DIA
@@ -501,8 +498,6 @@ class Relation_Stats_Dia
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      *
-     * @return void
-     *
      * @see Relation_Stats_Dia::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table,
@@ -558,9 +553,9 @@ class Relation_Stats_Dia
      * if changeColor is true then an array of $listOfColors will be used to choose
      * the random colors for references lines. we can change/add more colors to this
      *
-     * @return void
+     * @return boolean|void
      *
-     * @global object The current Dia document
+     * @global object $dia The current Dia document
      *
      * @access public
      * @see PMA_PDF
@@ -707,7 +702,6 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This outputs the Dia XML document
      * that user can download
      *
-     * @return void
      * @see PMA_DIA,Table_Stats_Dia,Relation_Stats_Dia
      */
     function __construct()
@@ -763,7 +757,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         }
         $dia->endDiaDoc();
     }
-    
+
     /**
      * Output Dia Document for download
      *

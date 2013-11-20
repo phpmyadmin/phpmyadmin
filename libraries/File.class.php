@@ -77,7 +77,7 @@ class PMA_File
     /**
      * constructor
      *
-     * @param string $name file name
+     * @param boolean|string $name file name or false
      *
      * @access public
      */
@@ -100,7 +100,7 @@ class PMA_File
     }
 
     /**
-     * deletes file if it is temporary, usally from a moved upload file
+     * deletes file if it is temporary, usually from a moved upload file
      *
      * @access  public
      * @return boolean success
@@ -379,7 +379,7 @@ class PMA_File
      * Checks whether there was any error.
      *
      * @access  public
-     * @return boolean whether an error occured or not
+     * @return boolean whether an error occurred or not
      */
     public function isError()
     {
@@ -571,7 +571,7 @@ class PMA_File
     /**
      * Returns the file handle
      *
-     * @return object file handle
+     * @return resource file handle
      */
     public function getHandle()
     {

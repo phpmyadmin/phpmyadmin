@@ -63,9 +63,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function MUST exit/quit the application
      *
-     * @global string the last connection error
+     * @global string $conn_error the last connection error
      *
-     * @return void
+     * @return boolean|void
      */
     public function auth()
     {
@@ -260,10 +260,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         ) {
             // If enabled show captcha to the user on the login screen.
             echo '<script type="text/javascript"
-                    src="https://www.google.com/recaptcha/api/challenge?k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '">
+                    src="https://www.google.com/recaptcha/api/challenge?k='
+                . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '">
                  </script>
                  <noscript>
-                    <iframe src="https://www.google.com/recaptcha/api/noscript?k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '"
+                    <iframe src="https://www.google.com/recaptcha/api/noscript?k='
+                . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '"
                         height="300" width="500" frameborder="0"></iframe><br>
                     <textarea name="recaptcha_challenge_field" rows="3" cols="40">
                     </textarea>
@@ -292,7 +294,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo PMA_generate_common_hidden_inputs($_form_params, '', 0, 'server');
+        echo PMA_URL_getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
 
@@ -640,7 +642,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Response::getInstance()->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_generate_common_url($url_params, '&'),
+                $redirect_url . PMA_URL_getCommon($url_params, '&'),
                 true
             );
             if (! defined('TESTSUITE')) {

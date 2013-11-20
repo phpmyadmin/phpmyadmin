@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  * @param array $a The first language being compared
  * @param array $b The second language being compared
  *
- * @return the sorted array
+ * @return int the sorted array
  */
 function PMA_languageCmp($a, $b)
 {
@@ -48,7 +48,7 @@ function PMA_getLanguageSelectorHtml($use_fieldset = false, $show_doc = true)
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
         );
-        $retval .= PMA_generate_common_hidden_inputs($_form_params);
+        $retval .= PMA_URL_getHiddenInputs($_form_params);
 
         // For non-English, display "Language" with emphasis because it's
         // not a proper word in the current language; we show it to help

@@ -575,7 +575,8 @@ AJAX.registerOnload('server_privileges.js', function () {
                                 lineNumbers: true,
                                 matchBrackets: true,
                                 indentUnit: 4,
-                                mode: "text/x-mysql"
+                                mode: "text/x-mysql",
+                                lineWrapping: true
                             }
                         );
                     }
@@ -593,7 +594,8 @@ AJAX.registerOnload('server_privileges.js', function () {
                 lineNumbers: true,
                 matchBrackets: true,
                 indentUnit: 4,
-                mode: "text/x-mysql"
+                mode: "text/x-mysql",
+                lineWrapping: true
             }
         );
     }
@@ -629,7 +631,8 @@ AJAX.registerOnload('server_privileges.js', function () {
                             lineNumbers: true,
                             matchBrackets: true,
                             indentUnit: 4,
-                            mode: "text/x-mysql"
+                            mode: "text/x-mysql",
+                            lineWrapping: true
                         }
                     );
                 }

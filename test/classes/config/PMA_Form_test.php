@@ -20,6 +20,9 @@ require_once 'libraries/php-gettext/gettext.inc';
  */
 class PMA_Form_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Form
+     */
     protected $object;
 
     /**
@@ -35,12 +38,14 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        $this->object = new Form('pma_form_name', array('pma_form1','pma_form2'), 1);
+        $this->object = new Form(
+            'pma_form_name', array('pma_form1','pma_form2'), new ConfigFile(), 1
+        );
     }
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     protected function tearDown()
@@ -50,7 +55,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for Form::__constructor
-     * 
+     *
      * @return void
      */
     public function testContructor()
@@ -71,7 +76,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for Form::getOptionType
-     * 
+     *
      * @return void
      */
     public function testGetOptionType()
@@ -95,11 +100,11 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for Form::getOptionValueList
-     * 
+     *
      * @return void
      */
     public function testGetOptionValueList()
-    {   
+    {
         $this->assertEquals(
             array('NHibernate C# DO', 'NHibernate XML'),
             $this->object->getOptionValueList("Export/codegen_format")
@@ -107,8 +112,8 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'auto' => 'auto', 
-                '1' => 1, 
+                'auto' => 'auto',
+                '1' => 1,
                 '0' => 0
             ),
             $this->object->getOptionValueList("OBGzip")
@@ -116,8 +121,8 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'none' => 'Nowhere', 
-                'left' => 'Left', 
+                'none' => 'Nowhere',
+                'left' => 'Left',
                 'right' => 'Right',
                 'both' =>   "Both"
             ),
@@ -127,7 +132,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for Form::_readFormPathsCallback
-     * 
+     *
      * @return void
      */
     public function testReadFormPathsCallBack()
@@ -179,7 +184,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for Form::readFormPaths
-     * 
+     *
      * @return void
      */
     public function testReadFormPaths()
@@ -225,7 +230,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
         preg_match("/^\:group\:end\:(\d+)$/", $key, $matches);
         $digit = $matches[1];
-        
+
         $this->assertEquals(
             "foo/bar/:group:end:" . $digit,
             $result[':group:end:' . $digit]
@@ -234,7 +239,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for Form::readTypes
-     * 
+     *
      * @return void
      */
     public function testReadTypes()
@@ -268,7 +273,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for Form::loadForm
-     * 
+     *
      * @return void
      */
     public function testLoadForm()

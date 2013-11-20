@@ -39,7 +39,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
-        
+
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
@@ -47,17 +47,16 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
-        
+
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
-        
+
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();     
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**
@@ -66,7 +65,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testPMAGetPluginAndModuleInfo()
-    {   
+    {
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -95,9 +94,9 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
         $plugins[$row['plugin_type']][] = $row;
         $modules[$row['module_name']]['info'] = $row;
         $modules[$row['module_name']]['plugins'][$row['plugin_type']][] = $row;
-               
+
         $html = PMA_getPluginAndModuleInfo($plugins, $modules);
-    
+
 
 
         //validate 1: PMA_getPluginTab
@@ -143,7 +142,7 @@ class PMA_ServerPlugins_Test extends PHPUnit_Framework_TestCase
             '<th>License</th>',
             $html
         );
-        
+
         //validate 4: one Item HTML
         $this->assertContains(
             '<th>plugin_name1</th>',

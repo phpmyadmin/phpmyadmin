@@ -29,6 +29,8 @@ class TestConfig
      */
     private $_timeoutValue;
 
+    private $_dbCredentials;
+
     /**
      * Creates a new class instance
      *
@@ -45,6 +47,10 @@ class TestConfig
             $this->setTimeoutValue($searchNode->getAttribute('timeout'));
         }
         $this->setLoginURL(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
+        $this->setDBCredentials(
+            TESTSUITE_USER,
+            TESTSUITE_PASSWORD
+        );
     }
 
     /**
@@ -111,6 +117,29 @@ class TestConfig
     public function getCurrentBrowser()
     {
         return $this->currentBrowser;
+    }
+
+    /**
+     * Sets database credentials
+     *
+     * @param string $user DB User
+     * @param string $pass DB Password
+     *
+     * @return void
+     */
+    public function setDBCredentials($user, $pass)
+    {
+        $this->_dbCredentials = array($user, $pass);
+    }
+
+    /**
+     * Return database credentials
+     *
+     * @return array DB user and pass
+     */
+    public function getDBCredentials()
+    {
+        return $this->_dbCredentials;
     }
 }
 ?>

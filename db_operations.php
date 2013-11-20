@@ -126,11 +126,15 @@ if (strlen($db)
             $sql_query .= "\n" . $local_query;
             $GLOBALS['dbi']->query($local_query);
 
-            $message = PMA_Message::success(__('Database %1$s has been renamed to %2$s'));
+            $message = PMA_Message::success(
+                __('Database %1$s has been renamed to %2$s')
+            );
             $message->addParam($db);
             $message->addParam($_REQUEST['newname']);
         } elseif (! $_error) {
-            $message = PMA_Message::success(__('Database %1$s has been copied to %2$s'));
+            $message = PMA_Message::success(
+                __('Database %1$s has been copied to %2$s')
+            );
             $message->addParam($db);
             $message->addParam($_REQUEST['newname']);
         }
@@ -168,6 +172,7 @@ if (strlen($db)
             'sql_query',
             PMA_Util::getMessage(null, $sql_query)
         );
+        $response->addJSON('db', $db);
         exit;
     }
 }
@@ -186,23 +191,17 @@ if (isset($_REQUEST['comment'])) {
     PMA_setDbComment($db, $_REQUEST['comment']);
 }
 
-/**
- * Prepares the tables list if the user where not redirected to this script
- * because there is no table in the database ($is_info is true)
- */
-if (empty($is_info)) {
-    include 'libraries/db_common.inc.php';
-    $url_query .= '&amp;goto=db_operations.php';
+require 'libraries/db_common.inc.php';
+$url_query .= '&amp;goto=db_operations.php';
 
-    // Gets the database structure
-    $sub_part = '_structure';
-    include 'libraries/db_info.inc.php';
-    echo "\n";
+// Gets the database structure
+$sub_part = '_structure';
+require 'libraries/db_info.inc.php';
+echo "\n";
 
-    if (isset($message)) {
-        echo PMA_Util::getMessage($message, $sql_query);
-        unset($message);
-    }
+if (isset($message)) {
+    echo PMA_Util::getMessage($message, $sql_query);
+    unset($message);
 }
 
 $_REQUEST['db_collation'] = PMA_getDbCollation($db);
@@ -261,7 +260,8 @@ if (!$is_information_schema) {
             __('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.')
         );
         $message->addParam(
-            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',
+            '<a href="' . $cfg['PmaAbsoluteUri']
+            . 'chk_rel.php?' . $url_query . '">',
             false
         );
         $message->addParam('</a>', false);

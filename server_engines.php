@@ -22,8 +22,8 @@ require 'libraries/server_engines.lib.php';
  * Displays the sub-page heading
  */
 $response = PMA_Response::getInstance();
-$response->addHTML(PMA_getSubPageHeader('engines'));
-        
+$response->addHTML(PMA_getHtmlForSubPageHeader('engines'));
+
 /**
  * start output
  */

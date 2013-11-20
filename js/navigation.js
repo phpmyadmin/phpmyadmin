@@ -29,62 +29,12 @@ $(function () {
     $('#pma_navigation_tree a.expander').live('click', function (event) {
         event.preventDefault();
         event.stopImmediatePropagation();
-        var $this = $(this);
-        var $children = $this.closest('li').children('div.list_container');
-        var $icon = $this.find('img');
-        if ($this.hasClass('loaded')) {
-            if ($icon.is('.ic_b_plus')) {
-                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-                $children.show('fast');
-            } else {
-                $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-                $children.hide('fast');
-            }
+        var $icon = $(this).find('img');
+        if ($icon.is('.ic_b_plus')) {
+            expandTreeNode($(this));
         } else {
-            var $destination = $this.closest('li');
-            var $throbber = $('#pma_navigation .throbber')
-                .first()
-                .clone()
-                .css('visibility', 'visible')
-                .click(false);
-            $icon.hide();
-            $throbber.insertBefore($icon);
-
-            var searchClause = PMA_fastFilter.getSearchClause();
-            var searchClause2 = PMA_fastFilter.getSearchClause2($(this));
-
-            var params = {
-                aPath: $(this).find('span.aPath').text(),
-                vPath: $(this).find('span.vPath').text(),
-                pos: $(this).find('span.pos').text(),
-                pos2_name: $(this).find('span.pos2_name').text(),
-                pos2_value: $(this).find('span.pos2_value').text(),
-                searchClause: searchClause,
-                searchClause2: searchClause2
-            };
-            var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-            $.get(url, params, function (data) {
-                if (data.success === true) {
-                    $this.addClass('loaded');
-                    $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
-                    $destination.append(data.message);
-                    $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-                    $destination
-                        .children('div.list_container')
-                        .show('fast');
-                    if ($destination.find('ul > li').length == 1) {
-                        $destination.find('ul > li')
-                            .find('a.expander.container')
-                            .click();
-                    }
-                } else {
-                    PMA_ajaxShowMessage(data.error, false);
-                }
-                $icon.show();
-                $throbber.remove();
-            });
+            collapseTreeNode($(this));
         }
-        $(this).blur();
     });
 
     /**
@@ -93,6 +43,9 @@ $(function () {
      */
     $('#pma_navigation_reload').live('click', function (event) {
         event.preventDefault();
+        $('#pma_navigation .throbber')
+            .first()
+            .css('visibility', 'visible');
         PMA_reloadNavigation();
     });
 
@@ -180,10 +133,11 @@ $(function () {
     });
 
     /** Export Routines, Triggers and Events */
-    $('li.procedure div:eq(1) a.ajax img,'
-        + ' li.function div:eq(1) a.ajax img,'
-        + ' li.trigger div:eq(1) a.ajax img,'
-        + ' li.event div:eq(1) a.ajax img').live('click', function (event) {
+    $('li.procedure div:eq(1) a.ajax img,' +
+        ' li.function div:eq(1) a.ajax img,' +
+        ' li.trigger div:eq(1) a.ajax img,' +
+        ' li.event div:eq(1) a.ajax img'
+        ).live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object();
         dialog.exportDialog($(this).parent());
@@ -278,7 +232,314 @@ $(function () {
             }
         });
     });
+
+    PMA_showCurrentNavigation();
 });
+
+/**
+ * Expands a node in navigation tree.
+ *
+ * @param $expandElem expander
+ * @param callback    callback function
+ *
+ * @returns void
+ */
+function expandTreeNode($expandElem, callback)
+{
+    var $children = $expandElem.closest('li').children('div.list_container');
+    var $icon = $expandElem.find('img');
+    if ($expandElem.hasClass('loaded')) {
+        if ($icon.is('.ic_b_plus')) {
+            $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+            $children.show('fast');
+        }
+        if (callback && typeof callback == 'function') {
+            callback.call();
+        }
+    } else {
+        var $throbber = $('#pma_navigation .throbber')
+            .first()
+            .clone()
+            .css('visibility', 'visible')
+            .click(false);
+        $icon.hide();
+        $throbber.insertBefore($icon);
+
+        loadChildNodes($expandElem, function (data) {
+            if (data.success === true) {
+                var $destination = $expandElem.closest('li');
+                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+                $destination
+                    .children('div.list_container')
+                    .show('fast');
+                if ($destination.find('ul > li').length == 1) {
+                    $destination.find('ul > li')
+                        .find('a.expander.container')
+                        .click();
+                }
+                if (callback && typeof callback == 'function') {
+                    callback.call();
+                }
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+            $icon.show();
+            $throbber.remove();
+        });
+    }
+    $expandElem.blur();
+}
+
+/**
+ * Auto-scrolls the newly chosen database
+ *
+ * @param  object   $element    The element to set to view
+ * @param  object   $container  The container srollable element
+ *
+ */
+function scrollToView($element, $container) {
+    var pushToOffset = $element.offset().top - $container.offset().top + $container.scrollTop();
+    $('#pma_navigation_tree_content').stop().animate({
+        scrollTop: pushToOffset
+    });
+}
+
+/**
+ * Collapses a node in navigation tree.
+ *
+ * @param $expandElem expander
+ *
+ * @returns void
+ */
+function collapseTreeNode($expandElem) {
+    var $children = $expandElem.closest('li').children('div.list_container');
+    var $icon = $expandElem.find('img');
+    if ($expandElem.hasClass('loaded')) {
+        if ($icon.is('.ic_b_minus')) {
+            $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
+            $children.hide('fast');
+        }
+    }
+    $expandElem.blur();
+}
+
+/**
+ * Loads child items of a node and executes a given callback
+ *
+ * @param $expandElem expander
+ * @param callback    callback function
+ *
+ * @returns void
+ */
+function loadChildNodes($expandElem, callback) {
+    var $destination = $expandElem.closest('li');
+
+    var searchClause = PMA_fastFilter.getSearchClause();
+    var searchClause2 = PMA_fastFilter.getSearchClause2($expandElem);
+
+    var params = {
+        aPath: $expandElem.find('span.aPath').text(),
+        vPath: $expandElem.find('span.vPath').text(),
+        pos: $expandElem.find('span.pos').text(),
+        pos2_name: $expandElem.find('span.pos2_name').text(),
+        pos2_value: $expandElem.find('span.pos2_value').text(),
+        searchClause: searchClause,
+        searchClause2: searchClause2
+    };
+
+    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+    $.get(url, params, function (data) {
+        if (data.success === true) {
+            $expandElem.addClass('loaded');
+            $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
+            $destination.append(data.message);
+            if (callback && typeof callback == 'function') {
+                callback(data);
+            }
+        }
+    });
+}
+
+/**
+ * Expand the navigation and highlight the current database or table/view
+ *
+ * @returns void
+ */
+function PMA_showCurrentNavigation()
+{
+    var db = PMA_commonParams.get('db');
+    var table = PMA_commonParams.get('table');
+    $('#pma_navigation_tree')
+        .find('li.selected')
+        .removeClass('selected');
+    if (db) {
+        var $dbItem = findLoadedItem(
+            $('#pma_navigation_tree > div'), db, 'database', !table
+        );
+        if ($dbItem) {
+            var $expander = $dbItem.children('div:first').children('a.expander');
+            // if not loaded or loaded but collapsed
+            if (! $expander.hasClass('loaded') ||
+                $expander.find('img').is('.ic_b_plus')
+            ) {
+                expandTreeNode($expander, function () {
+                    handleTableOrDb(table, $dbItem);
+                });
+            } else {
+                handleTableOrDb(table, $dbItem);
+            }
+        }
+    }
+
+    function handleTableOrDb(table, $dbItem) {
+        if (table) {
+            loadAndHighlightTableOrView($dbItem, table);
+        } else {
+            var $container = $dbItem.children('div.list_container');
+            var $tableContainer = $container.children('ul').children('li.tableContainer');
+            if ($tableContainer.length > 0) {
+                var $expander = $tableContainer.children('div:first').children('a.expander');
+                expandTreeNode($expander, function () {
+                    scrollToView($dbItem, $('#pma_navigation_tree_content'));
+                });
+            } else {
+                scrollToView($dbItem, $('#pma_navigation_tree_content'));
+            }
+        }
+    }
+
+    function findLoadedItem($container, name, clazz, doSelect) {
+        var ret = false;
+        $container.children('ul').children('li').each(function () {
+            var $li = $(this);
+            // this is a navigation group, recurse
+            if ($li.is('.navGroup')) {
+                var $container = $li.children('div.list_container');
+                var $childRet = findLoadedItem(
+                    $container, name, clazz, doSelect
+                );
+                if ($childRet) {
+                    ret = $childRet;
+                    return false;
+                }
+            } else { // this is a real navigation item
+                // name and class matches
+                if (((clazz && $li.is('.' + clazz)) || ! clazz) &&
+                        $li.children('a').text() == name) {
+                    if (doSelect) {
+                        $li.addClass('selected');
+                    }
+                    // taverse up and expand and parent navigation groups
+                    $li.parents('.navGroup').each(function () {
+                        $cont = $(this).children('div.list_container');
+                        if (! $cont.is(':visible')) {
+                            $(this)
+                                .children('div:first')
+                                .children('a.expander')
+                                .click();
+                        }
+                    });
+                    ret = $li;
+                    return false;
+                }
+            }
+        });
+        return ret;
+    }
+
+    function loadAndHighlightTableOrView($dbItem, table) {
+        var $container = $dbItem.children('div.list_container');
+        var $tableContainer = $container
+            .children('ul')
+            .children('li.tableContainer');
+        var $viewContainer = $container
+            .children('ul')
+            .children('li.viewContainer');
+
+        if ($tableContainer.length > 0) {
+            var $expander = $tableContainer
+                .children('div:first')
+                .children('a.expander');
+
+            if (! $expander.hasClass('loaded')) {
+                loadChildNodes($expander, function (data) {
+                    highlightTableOrView($tableContainer, $viewContainer, table);
+                });
+            } else {
+                highlightTableOrView($tableContainer, $viewContainer, table);
+            }
+        } else if ($viewContainer.length > 0) {
+            highlightView($viewContainer, table);
+        } else {
+            // no containers, highlight the item
+            var $tableOrView = findLoadedItem($container, table, null, true);
+            if ($tableOrView){
+                scrollToView($tableOrView, $('#pma_navigation_tree_content'));
+            }
+        }
+    }
+
+    function highlightTableOrView($tableContainer, $viewContainer, table)
+    {
+        if (isItemInContainer($tableContainer, table, 'table')) {
+            var $expander = $tableContainer
+                .children('div:first')
+                .children('a.expander');
+            if ($expander.find('img').is('.ic_b_plus')) {
+                expandTreeNode($expander);
+            }
+            var $table = findLoadedItem(
+                $tableContainer.children('div.list_container'),
+                table, 'table', true
+            );
+            if ($table) {
+                scrollToView($table, $('#pma_navigation_tree_content'));
+            }
+        } else if ($viewContainer.length > 0) {
+            highlightView($viewContainer, table);
+        }
+    }
+
+    function isItemInContainer($container, name, clazz)
+    {
+        $items = $container.find('li.' + clazz);
+        var found = false;
+        $items.each(function () {
+            if ($(this).children('a').text() == name) {
+                found = true;
+                return false;
+            }
+        });
+        return found;
+    }
+
+    function highlightView($viewContainer, view) {
+        var $expander = $viewContainer
+            .children('div:first')
+            .children('a.expander');
+        if (! $expander.hasClass('loaded') ||
+            $expander.find('img').is('.ic_b_plus')
+        ) {
+            expandTreeNode($expander, function () {
+                var $view = findLoadedItem(
+                    $viewContainer.children('div.list_container'),
+                    view, 'view', true
+                );
+                if ($view) {
+                    scrollToView($view, $('#pma_navigation_tree_content'));
+                }
+            });
+        } else {
+            var $view = findLoadedItem(
+                $viewContainer.children('div.list_container'),
+                view, 'view', true
+            );
+            if ($view) {
+                scrollToView($view, $('#pma_navigation_tree_content'));
+            }
+        }
+    }
+}
 
 /**
  * Reloads the whole navigation tree while preserving its state
@@ -289,7 +550,10 @@ $(function () {
 function PMA_reloadNavigation(callback) {
     var $throbber = $('#pma_navigation .throbber')
         .first()
-        .css('visibility', 'visible');
+        .css({
+            'visibility' : 'visible',
+            'display' : 'block'
+        });
     var params = {
         reload: true,
         pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
@@ -299,8 +563,8 @@ function PMA_reloadNavigation(callback) {
     // various levels, if necessary.
     var count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
-        if ($(this).find('img').is('.ic_b_minus')
-            && $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
+        if ($(this).find('img').is('.ic_b_minus') &&
+            $(this).closest('li').find('div.list_container .ic_b_minus').length === 0
         ) {
             params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
             params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
@@ -332,9 +596,13 @@ function PMA_reloadNavigation(callback) {
     });
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.post(url, params, function (data) {
-        $throbber.css('visibility', 'hidden');
+        // Hide throbber if it's visible
+        $('#pma_navigation .throbber')
+            .first()
+            .css('visibility', 'hidden');
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
+            PMA_showCurrentNavigation();
             // Fire the callback, if any
             if (typeof callback === 'function') {
                 callback.call();
@@ -570,6 +838,19 @@ var ResizeHandler = function () {
         event.data.resize_handler.setWidth(panel_width);
         event.data.resize_handler.panel_width = width;
     };
+    /**
+     * Event handler for resizing the navigation tree height on window resize
+     *
+     * @return void
+     */
+    this.treeResize = function (event) {
+        var $nav        = $("#pma_navigation"),
+            $nav_tree   = $("#pma_navigation_tree"),
+            $nav_header = $("#pma_navigation_header"),
+            $nav_tree_content = $("#pma_navigation_tree_content");
+        $nav_tree.height($nav.height() - $nav_header.height());
+        $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
+    };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {
         // If we have a cookie, set the width of the panel to its value
@@ -587,6 +868,11 @@ var ResizeHandler = function () {
     $collapser.live('click', {'resize_handler': this}, this.collapse);
     // Add the correct arrow symbol to the collapser
     $collapser.html(this.getSymbol($('#pma_navigation').width()));
+    // Fix navigation tree height
+    $(window).on('resize', this.treeResize);
+    // need to call this now and then, browser might decide
+    // to show/hide horizontal scrollbars depending on page content width
+    setInterval(this.treeResize, 2000);
 }; // End of ResizeHandler
 
 /**
@@ -633,9 +919,9 @@ var PMA_fastFilter = {
         this.timeout = null;
 
         var $filterInput = $this.find('li.fast_filter input.searchClause');
-        if ($filterInput.length !== 0
-            && $filterInput.val() !== ''
-            && $filterInput.val() != $filterInput[0].defaultValue
+        if ($filterInput.length !== 0 &&
+            $filterInput.val() !== '' &&
+            $filterInput.val() != $filterInput[0].defaultValue
         ) {
             this.request();
         }
@@ -675,8 +961,8 @@ var PMA_fastFilter = {
                 .closest('div.list_container');
         }
         var searchClause2 = '';
-        if ($filterInput.length !== 0
-            && $filterInput.first().val() != $filterInput[0].defaultValue
+        if ($filterInput.length !== 0 &&
+            $filterInput.first().val() != $filterInput[0].defaultValue
         ) {
             searchClause2 = $filterInput.val();
         }
@@ -715,28 +1001,65 @@ var PMA_fastFilter = {
             var str = '';
             if ($(this).val() != this.defaultValue && $(this).val() !== '') {
                 $obj.find('div.pageselector').hide();
-                str = $(this).val().toLowerCase();
+                str = $(this).val();
             }
-            $obj.find('li > a').not('.container').each(function () {
-                if ($(this).text().toLowerCase().indexOf(str) != -1) {
-                    $(this).parent().show().removeClass('hidden');
-                } else {
-                    $(this).parent().hide().addClass('hidden');
-                }
-            });
-            var container_filter = function ($curr, str) {
-                $curr.children('li').children('a.container').each(function () {
-                    var $group = $(this).parent().children('ul');
-                    if ($group.children('li').children('a.container').length > 0) {
-                        container_filter($group); // recursive
-                    }
-                    $group.parent().show().removeClass('hidden');
-                    if ($group.children().not('.hidden').length === 0) {
-                        $group.parent().hide().addClass('hidden');
+
+            /**
+             * FIXME at the server level a value match is done while on
+             * the client side it is a regex match. These two should be aligned
+             */
+
+            // regex used for filtering.
+            var regex;
+            try {
+                regex = new RegExp(str, 'i');
+            } catch (err) {
+                return;
+            }
+
+            // this is the div that houses the items to be filtered by this filter.
+            var outerContainer;
+            if ($(this).closest('li.fast_filter').is('.db_fast_filter')) {
+                outerContainer = $('#pma_navigation_tree_content');
+            } else {
+                outerContainer = $obj;
+            }
+
+            // filters items that are directly under the div as well as grouped in
+            // groups. Does not filter child items (i.e. a database search does
+            // not filter tables)
+            var item_filter = function($curr) {
+                $curr.children('ul').children('li.navGroup').each(function() {
+                    $(this).children('div.list_container').each(function() {
+                        item_filter($(this)); // recursive
+                    });
+                });
+                $curr.children('ul').children('li').children('a').not('.container').each(function() {
+                    if (regex.test($(this).text())) {
+                        $(this).parent().show().removeClass('hidden');
+                    } else {
+                        $(this).parent().hide().addClass('hidden');
                     }
                 });
             };
-            container_filter($obj, str);
+            item_filter(outerContainer);
+
+            // hides containers that does not have any visible children
+            var container_filter = function ($curr) {
+                $curr.children('ul').children('li.navGroup').each(function() {
+                    var $group = $(this);
+                    $group.children('div.list_container').each(function() {
+                        container_filter($(this)); // recursive
+                    });
+                    $group.show().removeClass('hidden');
+                    if ($group.children('div.list_container').children('ul')
+                            .children('li').not('.hidden').length === 0) {
+                        $group.hide().addClass('hidden');
+                    }
+                });
+            };
+            container_filter(outerContainer);
+
             if ($(this).val() != this.defaultValue && $(this).val() !== '') {
                 if (! $obj.data('fastFilter')) {
                     $obj.data(

@@ -37,9 +37,9 @@ PMA_Util::checkParameters(array('db'));
  * Defines the url to return to in case of error in a sql statement
  */
 if (strlen($table)) {
-    $err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
+    $err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
 } else {
-    $err_url = 'db_sql.php?' . PMA_generate_common_url($db);
+    $err_url = 'db_sql.php?' . PMA_URL_getCommon($db);
 }
 
 if ($cfgRelation['commwork']) {
@@ -107,9 +107,11 @@ foreach ($tables as $table) {
 
         $indexes_info[$row['Key_name']]['Comment'] = $row['Comment'];
 
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name'] = $row['Column_name'];
+        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']
+            = $row['Column_name'];
         if (isset($row['Sub_part'])) {
-            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
+            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
+                = $row['Sub_part'];
         }
 
     } // end while
@@ -205,10 +207,11 @@ foreach ($tables as $table) {
         }
         $column_name = $row['Field'];
 
+        $tmp_column = $analyzed_sql[0]['create_table_fields'][$column_name];
         if (PMA_MYSQL_INT_VERSION < 50025
-            && ! empty($analyzed_sql[0]['create_table_fields'][$column_name]['type'])
-            && $analyzed_sql[0]['create_table_fields'][$column_name]['type'] == 'TIMESTAMP'
-            && $analyzed_sql[0]['create_table_fields'][$column_name]['timestamp_not_null']
+            && ! empty($tmp_column['type'])
+            && $tmp_column['type'] == 'TIMESTAMP'
+            && $tmp_column['timestamp_not_null']
         ) {
             // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as
             // having the NULL attribute, but SHOW CREATE TABLE says the

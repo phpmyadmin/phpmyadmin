@@ -55,7 +55,9 @@ class PMA_Scripts
         foreach ($files as $value) {
             if (strpos($value['filename'], "?") === false) {
                 $include = true;
-                if ($value['conditional_ie'] !== false && PMA_USR_BROWSER_AGENT === 'IE') {
+                if ($value['conditional_ie'] !== false
+                    && PMA_USR_BROWSER_AGENT === 'IE'
+                ) {
                     if ($value['conditional_ie'] === true) {
                         $include = true;
                     } else if ($value['conditional_ie'] == PMA_USR_BROWSER_VER) {
@@ -65,15 +67,17 @@ class PMA_Scripts
                     }
                 }
                 if ($include) {
-                    $params[] = "scripts[]=" . $value['filename'];
+                    $scripts[] = "scripts[]=" . $value['filename'];
                 }
             } else {
-                $dynamic_scripts .= "<script type='text/javascript' src='js/" . $value['filename'] . "'></script>";
+                $dynamic_scripts .= "<script type='text/javascript' src='js/"
+                    . $value['filename'] . "'></script>";
             }
         }
         $static_scripts = sprintf(
-            "<script type='text/javascript' src='js/get_scripts.js.php?%s'></script>",
-            implode("&", $params)
+            '<script type="text/javascript" '
+            . 'src="js/get_scripts.js.php%s&%s"></script>',
+            PMA_URL_getCommon(array(), 'none'), implode("&", $scripts)
         );
         return $static_scripts . $dynamic_scripts;
     }

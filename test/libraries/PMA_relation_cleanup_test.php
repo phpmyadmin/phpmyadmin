@@ -17,9 +17,20 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
 
-
+/**
+ * PMA_Relation_Cleanup_Test class
+ *
+ * this class is for testing relation_cleanup.lib.php functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Prepares environment for the test.
+     *
+     * @return void
+     */
     public function setUp()
     {
         $_SESSION['relation'] = array();
@@ -45,6 +56,12 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $this->redefineRelation();
     }
 
+
+    /**
+     * functions for redefine DBI_PMA_Relation_Cleanup
+     *
+     * @return void
+     */
     public function redefineRelation()
     {
         $GLOBALS['dbi'] = new DBI_PMA_Relation_Cleanup();
@@ -56,7 +73,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupColumn()
+    public function testPMARelationsCleanupColumn()
     {
         $db = "PMA";
         $table = "PMA_bookmark";
@@ -69,9 +86,22 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             true,
             $cfgRelation['commwork']
         );
+        //validate PMA_getDbComments when commwork = true
+        $db_comments = PMA_getDbComments();
+        $this->assertEquals(
+            array('db_name0' => 'comment0','db_name1' => 'comment1'),
+            $db_comments
+        );
+
         $this->assertEquals(
             true,
             $cfgRelation['displaywork']
+        );
+        //validate PMA_getDisplayField when displaywork = true
+        $display_field = PMA_getDisplayField($db, $table);
+        $this->assertEquals(
+            'PMA_display_field',
+            $display_field
         );
         $this->assertEquals(
             true,
@@ -123,7 +153,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupTable()
+    public function testPMARelationsCleanupTable()
     {
         $db = "PMA";
         $table = "PMA_bookmark";
@@ -201,7 +231,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function testPMA_relationsCleanupDatabase()
+    public function testPMARelationsCleanupDatabase()
     {
         $db = "PMA";
         $this->redefineRelation();
@@ -281,16 +311,30 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
     }
 }
 
-//Mock DBI
+/**
+ * DBI_PMA_Relation_Cleanup for Mock DBI class
+ *
+ * this class is for Mock DBI
+ *
+ * @package PhpMyAdmin-test
+ */
 class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
 {
     var $index;
+    var $assocIndex;
+    var $totalNum;
     var $values = array();
     var $indexs = array();
 
+    /**
+     * Constructor
+     *
+     */
     public function __construct()
     {
          $this->index = 0;
+         $this->assocIndex = 0;
+         $this->totalNum = 2;
          $this->values = array(
              'bookmark',
              'relation',
@@ -327,6 +371,13 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
          );
     }
 
+    /**
+     * returns array of rows with numeric keys from $result
+     *
+     * @param object $result result set identifier
+     *
+     * @return array
+     */
     function fetchRow($result)
     {
         if ($this->index < count($this->values)) {
@@ -339,6 +390,17 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
         return false;
     }
 
+
+    /**
+     * runs a query
+     *
+     * @param string $sql                 SQL query to execte
+     * @param mixed  $link                optional database link to use
+     * @param int    $options             optional query options
+     * @param bool   $cache_affected_rows whether to cache affected rows
+     *
+     * @return mixed
+     */
     function query($sql, $link = null, $options = 0, $cache_affected_rows = true)
     {
         if (stripos($sql, "column_info") !== false) {
@@ -368,21 +430,105 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
         if (stripos($sql, "bookmark") !== false) {
             unset($GLOBALS [$this->indexs['bookmark']]);
         }
+        return true;
     }
 
+    /**
+     * runs a query and returns the result
+     *
+     * @param string   $query               query to run
+     * @param resource $link                mysql link resource
+     * @param integer  $options             query options
+     * @param bool     $cache_affected_rows whether to cache affected row
+     *
+     * @return mixed
+     */
     public function tryQuery(
         $query, $link = null, $options = 0, $cache_affected_rows = true
     ) {
         return true;
     }
 
+    /**
+     * selects given database
+     *
+     * @param string $dbname database name to select
+     * @param object $link   connection object
+     *
+     * @return boolean
+     */
     public function selectDb($dbname, $link = null)
     {
         return true;
     }
 
+    /**
+     * Frees memory associated with the result
+     *
+     * @param object $result database result
+     *
+     * @return void
+     */
     public function freeResult($result)
     {
         return true;
+    }
+
+    /**
+     * returns only the first row from the result
+     *
+     * <code>
+     * $sql = 'SELECT * FROM `user` WHERE `id` = 123';
+     * $user = $GLOBALS['dbi']->fetchSingleRow($sql);
+     * // produces
+     * // $user = array('id' => 123, 'name' => 'John Doe')
+     * </code>
+     *
+     * @param string|mysql_result $result query or mysql result
+     * @param string              $type   NUM|ASSOC|BOTH
+     *                                    returned array should either numeric
+     *                                    associativ or booth
+     * @param resource            $link   mysql link
+     *
+     * @return array|boolean first row from result
+     *                       or false if result is empty
+     */
+    public function fetchSingleRow($result, $type = 'ASSOC', $link = null)
+    {
+        return array(
+            'display_field' => "PMA_display_field"
+        );
+    }
+
+    /**
+     * returns array of rows with associative keys from $result
+     *
+     * @param object $result result set identifier
+     *
+     * @return array
+     */
+    public function fetchAssoc($result)
+    {
+        if ($this->assocIndex < $this->totalNum) {
+            $assocResult['db_name'] = "db_name" . $this->assocIndex;
+            $assocResult['comment'] = "comment" . $this->assocIndex;
+            $this->assocIndex++;
+            return $assocResult;
+        }
+
+        $this->assocIndex = 0;
+        return false;
+    }
+
+    /**
+     * returns the number of rows returned by last query
+     *
+     * @param object $result result set identifier
+     *
+     * @return string|int
+     */
+    public function numRows($result)
+    {
+        return $this->totalNum;
     }
 }

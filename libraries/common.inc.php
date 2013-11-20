@@ -32,7 +32,7 @@
  */
 
 /**
- * block attempts to directly run this script 
+ * block attempts to directly run this script
  */
 if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
@@ -331,7 +331,7 @@ if ($GLOBALS['PMA_Config']->get('ForceSSL')
     // grab SSL URL
     $url = $GLOBALS['PMA_Config']->getSSLUri();
     // Actually redirect
-    PMA_sendHeaderLocation($url . PMA_generate_common_url($_GET, 'text'));
+    PMA_sendHeaderLocation($url . PMA_URL_getCommon($_GET, 'text'));
     // delete the current session, otherwise we get problems (see bug #2397877)
     $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
     exit;
@@ -731,9 +731,6 @@ if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
 }
 
 if (! defined('PMA_MINIMUM_COMMON')) {
-    // get a dummy object to ensure that the class is instanciated
-    PMA_Response::getInstance();
-
     /**
      * Character set conversion.
      */
@@ -753,7 +750,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         && ! is_numeric($_REQUEST['server'])
     ) {
         foreach ($cfg['Servers'] as $i => $server) {
-            if ($server['host'] == $_REQUEST['server']) {
+            if ($server['host'] == $_REQUEST['server']
+                || $server['verbose'] == $_REQUEST['server']
+                || $PMA_String->strtolower($server['verbose']) == $PMA_String->strtolower($_REQUEST['server'])
+                || md5($PMA_String->strtolower($server['verbose'])) == $PMA_String->strtolower($_REQUEST['server'])
+            ) {
                 $_REQUEST['server'] = $i;
                 break;
             }
@@ -845,7 +846,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the required auth type plugin
          */
         $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
-        if (! file_exists('./libraries/plugins/auth/' . $auth_class . '.class.php')) {
+        if (! file_exists(
+            './libraries/plugins/auth/'
+            . $auth_class . '.class.php'
+        )) {
             PMA_fatalError(
                 __('Invalid authentication method set in configuration:')
                 . ' ' . $cfg['Server']['auth_type']
@@ -917,7 +921,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // is a login without password allowed?
-        if (! $cfg['Server']['AllowNoPassword'] && $cfg['Server']['password'] == '') {
+        if (! $cfg['Server']['AllowNoPassword']
+            && $cfg['Server']['password'] == ''
+        ) {
             $login_without_password_is_forbidden = true;
             PMA_logUser($cfg['Server']['user'], 'empty-denied');
             $auth_plugin->authFails();
@@ -1003,9 +1009,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         if (PMA_DRIZZLE) {
-            // DisableIS must be set to false for Drizzle, it maps SHOW commands
-            // to INFORMATION_SCHEMA queries anyway so it's fast on large servers
-            $cfg['Server']['DisableIS'] = false;
             // SHOW OPEN TABLES is not supported by Drizzle
             $cfg['SkipLockedTables'] = false;
         }
@@ -1031,12 +1034,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * some resetting has to be done when switching servers
          */
-        if (isset($_SESSION['tmp_user_values']['previous_server'])
-            && $_SESSION['tmp_user_values']['previous_server'] != $GLOBALS['server']
+        if (isset($_SESSION['tmpval']['previous_server'])
+            && $_SESSION['tmpval']['previous_server'] != $GLOBALS['server']
         ) {
-            unset($_SESSION['tmp_user_values']['navi_limit_offset']);
+            unset($_SESSION['tmpval']['navi_limit_offset']);
         }
-        $_SESSION['tmp_user_values']['previous_server'] = $GLOBALS['server'];
+        $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
     } // end server connecting
 
@@ -1056,7 +1059,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Inclusion of profiling scripts is needed on various
      * pages like sql, tbl_sql, db_sql, tbl_select
      */
-    $response = PMA_Response::getInstance();
+    if (! defined('PMA_BYPASS_GET_INSTANCE')) {
+        $response = PMA_Response::getInstance();
+    }
     if (isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
@@ -1075,7 +1080,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * There is no point in even attempting to process
      * an ajax request if there is a token mismatch
      */
-    if ($response->isAjax() && $token_mismatch) {
+    if (isset($response) && $response->isAjax() && $token_mismatch) {
         $response->isSuccess(false);
         $response->addJSON(
             'message',

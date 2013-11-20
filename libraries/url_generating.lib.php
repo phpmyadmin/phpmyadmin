@@ -12,14 +12,14 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Generates text with hidden inputs.
  *
- * @param string $db     optional database name
- *                       (can also be an array of parameters)
- * @param string $table  optional table name
- * @param int    $indent indenting level
- * @param string $skip   do not generate a hidden field for this parameter
- *                       (can be an array of strings)
+ * @param string       $db     optional database name
+ *                             (can also be an array of parameters)
+ * @param string       $table  optional table name
+ * @param int          $indent indenting level
+ * @param string|array $skip   do not generate a hidden field for this parameter
+ *                             (can be an array of strings)
  *
- * @see PMA_generate_common_url()
+ * @see PMA_URL_getCommon()
  *
  * @return string   string with input fields
  *
@@ -32,7 +32,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @access  public
  */
-function PMA_generate_common_hidden_inputs($db = '', $table = '',
+function PMA_URL_getHiddenInputs($db = '', $table = '',
     $indent = 0, $skip = array()
 ) {
     if (is_array($db)) {
@@ -125,7 +125,7 @@ function PMA_getHiddenFields($values, $pre = '')
             $fields .= PMA_getHiddenFields($value, $name);
         } else {
             // do not generate an ending "\n" because
-            // PMA_generate_common_hidden_inputs() is sometimes called
+            // PMA_URL_getHiddenInputs() is sometimes called
             // from a JS document.write()
             $fields .= '<input type="hidden" name="' . htmlspecialchars($name)
                 . '" value="' . htmlspecialchars($value) . '" />';
@@ -141,7 +141,7 @@ function PMA_getHiddenFields($values, $pre = '')
  * <code>
  * // OLD (deprecated) style
  * // note the ?
- * echo 'script.php?' . PMA_generate_common_url('mysql', 'rights');
+ * echo 'script.php?' . PMA_URL_getCommon('mysql', 'rights');
  * // produces with cookies enabled:
  * // script.php?db=mysql&amp;table=rights
  * // with cookies disabled:
@@ -152,14 +152,15 @@ function PMA_getHiddenFields($values, $pre = '')
  * $params['db']      = 'mysql';
  * $params['table']   = 'rights';
  * // note the missing ?
- * echo 'script.php' . PMA_generate_common_url($params);
+ * echo 'script.php' . PMA_URL_getCommon($params);
  * // produces with cookies enabled:
  * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
  * // with cookies disabled:
- * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql&amp;table=rights
+ * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql
+ * // &amp;table=rights
  *
  * // note the missing ?
- * echo 'script.php' . PMA_generate_common_url();
+ * echo 'script.php' . PMA_URL_getCommon();
  * // produces with cookies enabled:
  * // script.php
  * // with cookies disabled:
@@ -183,7 +184,7 @@ function PMA_getHiddenFields($values, $pre = '')
  * @return string   string with URL parameters
  * @access  public
  */
-function PMA_generate_common_url()
+function PMA_URL_getCommon()
 {
     $args = func_get_args();
 
@@ -222,7 +223,7 @@ function PMA_generate_common_url()
         $questionmark = '';
     }
 
-    $separator = PMA_get_arg_separator();
+    $separator = PMA_URL_getArgSeparator();
 
     // avoid overwriting when creating navi panel links to servers
     if (isset($GLOBALS['server'])
@@ -267,10 +268,10 @@ function PMA_generate_common_url()
  * @param string $encode whether to encode separator or not,
  * currently 'none' or 'html'
  *
- * @return string  character used for separating url parts usally ; or &
+ * @return string  character used for separating url parts usually ; or &
  * @access  public
  */
-function PMA_get_arg_separator($encode = 'none')
+function PMA_URL_getArgSeparator($encode = 'none')
 {
     static $separator = null;
 

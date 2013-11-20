@@ -5,7 +5,7 @@
  * functions for displaying server status
  *
  * @usedby  server_status.php
- *  
+ *
  * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
@@ -44,7 +44,7 @@ function PMA_getHtmlForServerStatus($ServerStatusData)
  * @return string
  */
 function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
-{ 
+{
     $start_time = $GLOBALS['dbi']->fetchValue(
         'SELECT UNIX_TIMESTAMP() - ' . $ServerStatusData->status['Uptime']
     );
@@ -108,7 +108,7 @@ function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
             }
         }
     }
-    
+
     return $retval;
 }
 
@@ -120,7 +120,7 @@ function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
  * @return string
  */
 function PMA_getHtmlForServerStateTraffic($ServerStatusData)
-{   
+{
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
     $retval  = '<table id="serverstatustraffic" class="data noclick">';
     $retval .= '<thead>';
@@ -200,7 +200,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
     $retval .= '</td>';
     $retval .= '</tr>';
     $retval .= '</tbody>';
-    $retval .= '</table>'; 
+    $retval .= '</table>';
     return $retval;
 }
 
@@ -249,7 +249,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     if ($ServerStatusData->status['Connections'] > 0) {
         $abortNum = $ServerStatusData->status['Aborted_connects'];
         $connectNum = $ServerStatusData->status['Connections'];
-       
+
         $retval .= PMA_Util::formatNumber(
             $abortNum * 100 / $connectNum,
             0, 2, true
@@ -276,7 +276,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     if ($ServerStatusData->status['Connections'] > 0) {
         $abortNum = $ServerStatusData->status['Aborted_clients'];
         $connectNum = $ServerStatusData->status['Connections'];
-        
+
         $retval .= PMA_Util::formatNumber(
             $abortNum * 100 / $connectNum,
             0, 2, true
@@ -323,11 +323,11 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
     $show_full_sql = ! empty($_REQUEST['full']);
     if ($show_full_sql) {
         $url_params['full'] = 1;
-        $full_text_link = 'server_status.php' . PMA_generate_common_url(
+        $full_text_link = 'server_status.php' . PMA_URL_getCommon(
             array(), 'html', '?'
         );
     } else {
-        $full_text_link = 'server_status.php' . PMA_generate_common_url(
+        $full_text_link = 'server_status.php' . PMA_URL_getCommon(
             array('full' => 1)
         );
     }
@@ -371,7 +371,7 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
     $sortable_columns_count = count($sortable_columns);
 
     if (PMA_DRIZZLE) {
-        $left_str = 'left(p.info, ' 
+        $left_str = 'left(p.info, '
             . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')';
         $sql_query = "SELECT
                 p.id       AS Id,
@@ -380,16 +380,16 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
                 p.db       AS db,
                 p.command  AS Command,
                 p.time     AS Time,
-                p.state    AS State," 
-                . ($show_full_sql ? 's.query' : $left_str ) 
-                . " AS Info FROM data_dictionary.PROCESSLIST p " 
-                . ($show_full_sql 
-                ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id' 
+                p.state    AS State,"
+                . ($show_full_sql ? 's.query' : $left_str )
+                . " AS Info FROM data_dictionary.PROCESSLIST p "
+                . ($show_full_sql
+                ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id'
                 : '');
         if (! empty($_REQUEST['order_by_field'])
             && ! empty($_REQUEST['sort_order'])
         ) {
-            $sql_query .= ' ORDER BY p.' . $_REQUEST['order_by_field'] . ' ' 
+            $sql_query .= ' ORDER BY p.' . $_REQUEST['order_by_field'] . ' '
                  . $_REQUEST['sort_order'];
         }
     } else {
@@ -399,15 +399,15 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
         if (! empty($_REQUEST['order_by_field'])
             && ! empty($_REQUEST['sort_order'])
         ) {
-            $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ' 
+            $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` '
                 . 'ORDER BY `'
                 . $_REQUEST['order_by_field'] . '` ' . $_REQUEST['sort_order'];
         }
     }
 
     $result = $GLOBALS['dbi']->query($sql_query);
-    
-    $retval  = '<table id="tableprocesslist" ' 
+
+    $retval  = '<table id="tableprocesslist" '
         . 'class="data clearfloat noclick sortable">';
     $retval .= '<thead>';
     $retval .= '<tr>';
@@ -434,7 +434,7 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
         }
 
         $retval .= '<th>';
-        $columnUrl = PMA_generate_common_url($column);
+        $columnUrl = PMA_URL_getCommon($column);
         $retval .= '<a href="server_status.php' . $columnUrl . '" ';
         if ($is_sorted) {
             $retval .= 'onmouseout="$(\'.soimg\').toggle()" '
@@ -480,8 +480,8 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
     $odd_row = true;
     while ($process = $GLOBALS['dbi']->fetchAssoc($result)) {
         $retval .= PMA_getHtmlForServerProcessItem(
-            $process, 
-            $odd_row, 
+            $process,
+            $odd_row,
             $show_full_sql
         );
         $odd_row = ! $odd_row;
@@ -512,10 +512,10 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
             unset($process[$key]);
         }
     }
-    
+
     $url_params['kill'] = $process['Id'];
-    $kill_process = 'server_status.php' . PMA_generate_common_url($url_params);
-    
+    $kill_process = 'server_status.php' . PMA_URL_getCommon($url_params);
+
     $retval  = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
     $retval .= '<td><a href="' . $kill_process . '">' . __('Kill') . '</a></td>';
     $retval .= '<td class="value">' . $process['Id'] . '</td>';
@@ -529,23 +529,15 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
     $processStatusStr = empty($process['State']) ? '---' : $process['State'];
     $retval .= '<td>' . $processStatusStr . '</td>';
     $retval .= '<td>';
-    
+
     if (empty($process['Info'])) {
         $retval .= '---';
     } else {
-        $cfg_maxDisplaySQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
-        if (! $show_full_sql && strlen($process['Info']) > $cfg_maxDisplaySQL) {
-            $info = substr($process['Info'], 0, $cfg_maxDisplaySQL);
-            $retval .= htmlspecialchars($info) . '[...]';
-        } else {
-            $retval .= '<code class="sql"><pre>'
-                    . $process['Info']
-                    . '</pre></code>';
-        }
+        $retval .= PMA_Util::formatSql($process['Info'], ! $show_full_sql);
     }
     $retval .= '</td>';
     $retval .= '</tr>';
-    
+
     return $retval;
 }
 

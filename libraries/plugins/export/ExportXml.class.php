@@ -301,14 +301,18 @@ class ExportXml extends ExportPlugin
                 && $GLOBALS['xml_export_functions']
             ) {
                 // Export functions
-                $functions = $GLOBALS['dbi']->getProceduresOrFunctions($db, 'FUNCTION');
+                $functions = $GLOBALS['dbi']->getProceduresOrFunctions(
+                    $db, 'FUNCTION'
+                );
                 if ($functions) {
                     foreach ($functions as $function) {
                         $head .= '            <pma:function name="'
                             . $function . '">' . $crlf;
 
                         // Do some formatting
-                        $sql = $GLOBALS['dbi']->getDefinition($db, 'FUNCTION', $function);
+                        $sql = $GLOBALS['dbi']->getDefinition(
+                            $db, 'FUNCTION', $function
+                        );
                         $sql = rtrim($sql);
                         $sql = "                " . htmlspecialchars($sql);
                         $sql = str_replace("\n", "\n                ", $sql);
@@ -326,14 +330,18 @@ class ExportXml extends ExportPlugin
                 && $GLOBALS['xml_export_procedures']
             ) {
                 // Export procedures
-                $procedures = $GLOBALS['dbi']->getProceduresOrFunctions($db, 'PROCEDURE');
+                $procedures = $GLOBALS['dbi']->getProceduresOrFunctions(
+                    $db, 'PROCEDURE'
+                );
                 if ($procedures) {
                     foreach ($procedures as $procedure) {
                         $head .= '            <pma:procedure name="'
                             . $procedure . '">' . $crlf;
 
                         // Do some formatting
-                        $sql = $GLOBALS['dbi']->getDefinition($db, 'PROCEDURE', $procedure);
+                        $sql = $GLOBALS['dbi']->getDefinition(
+                            $db, 'PROCEDURE', $procedure
+                        );
                         $sql = rtrim($sql);
                         $sql = "                " . htmlspecialchars($sql);
                         $sql = str_replace("\n", "\n                ", $sql);
@@ -494,7 +502,7 @@ class ExportXml extends ExportPlugin
     /**
      * Gets the table name
      *
-     * @return void
+     * @return string
      */
     private function _getTable()
     {

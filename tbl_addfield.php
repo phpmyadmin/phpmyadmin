@@ -23,7 +23,7 @@ PMA_Util::checkParameters(array('db', 'table'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
+$err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
 
 /**
  * The form used to define the field to add has been submitted
@@ -52,20 +52,8 @@ if (isset($_REQUEST['do_save_data'])) {
     unset($_REQUEST['do_save_data']);
 
     include_once 'libraries/create_addfield.lib.php';
-    // get column addition statements
-    $sql_statement = PMA_getColumnCreationStatements(false);
 
-    // To allow replication, we first select the db to use and then run queries
-    // on this db.
-    $GLOBALS['dbi']->selectDb($db)
-        or PMA_Util::mysqlDie(
-            $GLOBALS['dbi']->getError(),
-            'USE ' . PMA_Util::backquote($db), '',
-            $err_url
-        );
-    $sql_query    = 'ALTER TABLE ' .
-        PMA_Util::backquote($table) . ' ' . $sql_statement . ';';
-    $result = $GLOBALS['dbi']->tryQuery($sql_query);
+    list($result, $sql_query) = PMA_tryColumnCreationQuery($db, $table, $err_url);
 
     if ($result === true) {
         // If comments were sent, enable relation stuff
@@ -96,37 +84,16 @@ if (isset($_REQUEST['do_save_data'])) {
             __('Table %1$s has been altered successfully')
         );
         $message->addParam($table);
-
-        if ($GLOBALS['is_ajax_request'] == true) {
-            $response->addJSON('message', $message);
-            $response->addJSON(
-                'sql_query',
-                PMA_Util::getMessage(null, $sql_query)
-            );
-            exit;
-        }
-
-        $active_page = 'tbl_structure.php';
-        $abort = true;
-        include 'tbl_structure.php';
+        $response->addJSON('message', $message);
+        $response->addJSON(
+            'sql_query',
+            PMA_Util::getMessage(null, $sql_query)
+        );
+        exit;
     } else {
         $error_message_html = PMA_Util::mysqlDie('', '', '', $err_url, false);
         $response->addHTML($error_message_html);
-        if ($GLOBALS['is_ajax_request'] == true) {
-            exit;
-        }
-        // An error happened while inserting/updating a table definition.
-        // to prevent total loss of that data, we embed the form once again.
-        // The variable $regenerate will be used to restore data in libraries/
-        // tbl_columns_definition_form.inc.php
-        $num_fields = $_REQUEST['orig_num_fields'];
-        if (isset($_REQUEST['orig_after_field'])) {
-            $_REQUEST['after_field'] = $_REQUEST['orig_after_field'];
-        }
-        if (isset($_REQUEST['orig_field_where'])) {
-            $_REQUEST['field_where'] = $_REQUEST['orig_field_where'];
-        }
-        $regenerate = true;
+        exit;
     }
 } // end do alter table
 
@@ -147,5 +114,4 @@ if ($abort == false) {
     $action = 'tbl_addfield.php';
     include_once 'libraries/tbl_columns_definition_form.inc.php';
 }
-
 ?>

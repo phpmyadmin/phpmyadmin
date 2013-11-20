@@ -57,7 +57,7 @@ class PMA_Table
     var $uiprefs;
 
     /**
-     * @var array errors occured
+     * @var array errors occurred
      */
     var $errors = array();
 
@@ -92,7 +92,7 @@ class PMA_Table
     /**
      * return the last error
      *
-     * @return the last error
+     * @return string the last error
      */
     function getLastError()
     {
@@ -102,7 +102,7 @@ class PMA_Table
     /**
      * return the last message
      *
-     * @return the last message
+     * @return string the last message
      */
     function getLastMessage()
     {
@@ -182,7 +182,7 @@ class PMA_Table
      * @param string $db    database
      * @param string $table table
      *
-     * @return whether the given is a view
+     * @return boolean whether the given is a view
      */
     static public function isView($db = null, $table = null)
     {
@@ -192,7 +192,6 @@ class PMA_Table
 
         // use cached data or load information with SHOW command
         if (isset(PMA_Table::$cache[$db][$table])
-            || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = PMA_Table::sGetStatusInfo($db, $table, 'TABLE_TYPE');
             return $type == 'VIEW';
@@ -267,7 +266,9 @@ class PMA_Table
             }
         } else {
             $show_create_table = $GLOBALS['dbi']->fetchValue(
-                'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
+                'SHOW CREATE TABLE '
+                . PMA_Util::backquote($db)
+                . '.' . PMA_Util::backquote($table),
                 0,
                 1
             );
@@ -373,7 +374,12 @@ class PMA_Table
             $disable_error = true;
         }
 
-        if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
+        if (! isset(PMA_Table::$cache[$db][$table])
+            || $force_read
+            // sometimes there is only one entry (ExactRows) so
+            // we have to get the table's details
+            || count(PMA_Table::$cache[$db][$table]) == 1
+        ) {
             $GLOBALS['dbi']->getTablesFull($db, $table);
         }
 
@@ -487,7 +493,8 @@ class PMA_Table
                         . PMA_Util::sqlAddSlashes($default_value) . '\'';
                 }
             } else {
-                $query .= ' DEFAULT \'' . PMA_Util::sqlAddSlashes($default_value) . '\'';
+                $query .= ' DEFAULT \''
+                    . PMA_Util::sqlAddSlashes($default_value) . '\'';
             }
             break;
         case 'NULL' :
@@ -593,7 +600,9 @@ class PMA_Table
                 // Make an exception for views in I_S and D_D schema in
                 // Drizzle, as these map to in-memory data and should execute
                 // fast enough
-                if (! $is_view || (PMA_DRIZZLE && $GLOBALS['dbi']->isSystemSchema($db))) {
+                if (! $is_view
+                    || (PMA_DRIZZLE && $GLOBALS['dbi']->isSystemSchema($db))
+                ) {
                     $row_count = $GLOBALS['dbi']->fetchValue(
                         'SELECT COUNT(*) FROM ' . PMA_Util::backquote($db) . '.'
                         . PMA_Util::backquote($table)
@@ -737,12 +746,13 @@ class PMA_Table
 
                 $new_table_query = 'INSERT IGNORE INTO '
                     . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-                    . '.' . PMA_Util::backquote($GLOBALS['cfgRelation'][$pma_table]) . '
-                    (' . implode(', ', $select_parts) . ',
-                     ' . implode(', ', $new_parts) . ')
-                    VALUES
-                    (\'' . implode('\', \'', $value_parts) . '\',
-                     \'' . implode('\', \'', $new_value_parts) . '\')';
+                    . '.'
+                    . PMA_Util::backquote($GLOBALS['cfgRelation'][$pma_table])
+                    . ' (' . implode(', ', $select_parts)
+                    . ', ' . implode(', ', $new_parts)
+                    . ') VALUES (\''
+                    . implode('\', \'', $value_parts) . '\', \''
+                    . implode('\', \'', $new_value_parts) . '\')';
 
                 PMA_queryAsControlUser($new_table_query);
                 $last_id = $GLOBALS['dbi']->insertId();
@@ -838,6 +848,10 @@ class PMA_Table
 
             $no_constraints_comments = true;
             $GLOBALS['sql_constraints_query'] = '';
+            // set the value of global sql_auto_increment variable
+            if (isset($_POST['sql_auto_increment'])) {
+                $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
+            }
 
             $sql_structure = $export_sql_plugin->getTableDef(
                 $source_db, $source_table, "\n", $err_url, false, false
@@ -1032,13 +1046,19 @@ class PMA_Table
                     // Get all comments and MIME-Types for current table
                     $comments_copy_rs = PMA_queryAsControlUser(
                         'SELECT column_name, comment'
-                        . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '')
-                        . ' FROM ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-                        . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
+                        . ($GLOBALS['cfgRelation']['mimework']
+                        ? ', mimetype, transformation, transformation_options'
+                        : '')
+                        . ' FROM '
+                        . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                        . '.'
+                        . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
                         . ' WHERE '
-                        . ' db_name = \'' . PMA_Util::sqlAddSlashes($source_db) . '\''
+                        . ' db_name = \''
+                        . PMA_Util::sqlAddSlashes($source_db) . '\''
                         . ' AND '
-                        . ' table_name = \'' . PMA_Util::sqlAddSlashes($source_table) . '\''
+                        . ' table_name = \''
+                        . PMA_Util::sqlAddSlashes($source_table) . '\''
                     );
 
                     // Write every comment as new copied entry. [MIME]
@@ -1506,15 +1526,15 @@ class PMA_Table
     {
         $server_id = $GLOBALS['server'];
         // set session variable if it's still undefined
-        if (! isset($_SESSION['tmp_user_values']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
+        if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
             // check whether we can get from pmadb
-            $_SESSION['tmp_user_values']['table_uiprefs'][$server_id][$this->db_name][$this->name]
+            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name]
                 = (strlen($GLOBALS['cfg']['Server']['pmadb'])
                     && strlen($GLOBALS['cfg']['Server']['table_uiprefs']))
                     ?  $this->getUiPrefsFromDb()
                     : array();
         }
-        $this->uiprefs =& $_SESSION['tmp_user_values']['table_uiprefs'][$server_id]
+        $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id]
             [$this->db_name][$this->name];
     }
 
@@ -1544,7 +1564,11 @@ class PMA_Table
                 $avail_columns = $this->getColumns();
                 foreach ($avail_columns as $each_col) {
                     // check if $each_col ends with $colname
-                    if (substr_compare($each_col, $colname, strlen($each_col) - strlen($colname)) === 0) {
+                    if (substr_compare(
+                        $each_col,
+                        $colname,
+                        strlen($each_col) - strlen($colname)
+                    ) === 0) {
                         return $this->uiprefs[$property];
                     }
                 }
@@ -1561,7 +1585,10 @@ class PMA_Table
                 && isset($this->uiprefs[$property])
             ) {
                 // check if the table has not been modified
-                if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') == $this->uiprefs['CREATE_TIME']) {
+                if (self::sGetStatusInfo(
+                    $this->db_name,
+                    $this->name, 'Create_time'
+                ) == $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
                 } else {
                     // remove the property, since the table has been modified

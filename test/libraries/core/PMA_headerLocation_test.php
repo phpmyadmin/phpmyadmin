@@ -115,7 +115,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('SID', md5('test_hash'));
 
             $testUri = 'http://testurl.com/test.php?test=test';
-            $separator = PMA_get_arg_separator();
+            $separator = PMA_URL_getArgSeparator();
 
             $header = array('Location: ' . $testUri . $separator . SID);
 
@@ -139,7 +139,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('SID', md5('test_hash'));
 
             $testUri = 'http://testurl.com/test.php';
-            $separator = PMA_get_arg_separator();
+            $separator = PMA_URL_getArgSeparator();
 
             $header = array('Location: ' . $testUri . '?' . SID);
 
@@ -159,7 +159,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('PMA_IS_IIS', true);
 
             $testUri = 'http://testurl.com/test.php';
-            $separator = PMA_get_arg_separator();
+            $separator = PMA_URL_getArgSeparator();
 
             $header = array('Location: ' . $testUri);
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']

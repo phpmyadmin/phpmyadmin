@@ -74,6 +74,10 @@ AJAX.registerOnload('server_databases.js', function () {
 
                         $rowsToRemove.remove();
                         $form.find('tbody').PMA_sort_table('.name');
+                        if ($form.find('tbody').find('tr').length == 0) {
+                            // user just dropped the last db on this page
+                            PMA_commonActions.refreshMain();
+                        }
                         PMA_reloadNavigation();
                     } else {
                         $form.find('tr.removeMe').removeClass('removeMe');
@@ -90,14 +94,16 @@ AJAX.registerOnload('server_databases.js', function () {
     $('#create_database_form.ajax').live('submit', function (event) {
         event.preventDefault();
 
-        $form = $(this);
+        var $form = $(this);
 
+        // TODO Remove this section when all browsers support HTML5 "required" property
         var newDbNameInput = $form.find('input[name=new_db]');
         if (newDbNameInput.val() === '') {
             newDbNameInput.focus();
             alert(PMA_messages.strFormEmpty);
             return;
         }
+        // end remove
 
         PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);

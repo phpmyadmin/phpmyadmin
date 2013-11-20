@@ -6,5 +6,13 @@ php:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq ant
-before_script: ./scripts/generate-mo --quiet
-script: ant phpunit-nocoverage lint
+before_script:
+  - git clone git://github.com/zenovich/runkit.git && cd runkit && phpize && ./configure && make && make install && cd ..
+  - phpenv config-add test/travis.php.ini
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install --dev --no-interaction
+script:
+  - ./scripts/generate-mo --quiet
+  - ant phpunit lint
+after_script:
+  - php vendor/bin/coveralls -v

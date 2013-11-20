@@ -104,7 +104,7 @@ function PMA_convertString($src_charset, $dest_charset, $what)
         );
     case PMA_CHARSET_MB:
         return mb_convert_encoding(
-            $message, $dest_charset, $src_charset
+            $what, $dest_charset, $src_charset
         );
     default:
         return $what;

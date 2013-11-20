@@ -203,7 +203,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
         $opts['doc'] = "http://doclink";
-        $opts['wiki'] = "http://wikilink";
         $opts['comment'] = "testComment";
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
@@ -255,20 +254,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<a href="http://wikilink" target="wiki">'
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img src="testImageb_info.png" title="Wiki" alt="Wiki" />'
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
                 '<span class="disabled-notice">'
             ),
             $result
@@ -292,7 +277,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<span class="field-comment-mark field-comment-warning" title="testComment">',
+                '<span class="field-comment-mark field-comment-warning" '
+                . 'title="testComment">',
                 array('content' => 'i')
             ),
             $result
@@ -414,7 +400,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="text" size="15" name="test/path" ' .
+                '<input type="number" size="15" name="test/path" ' .
                 'id="test/path" value="val" />'
             ),
             $result
@@ -744,8 +730,9 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'validateField(\'testID\', \'PMA_\\\';\', true, [\'\\\\r\\\\n\\\\\\\'' .
-                '<scrIpt></\\\' + \\\'script>\'])',
+                'validateField(\'testID\', \'PMA_\\\';\', true, '
+                    . '[\'\\\\r\\\\n\\\\\\\''
+                    . '<scrIpt></\\\' + \\\'script>\'])',
                 'validateField(\'testID\', \'PMA_\', true)'
             ),
             $js

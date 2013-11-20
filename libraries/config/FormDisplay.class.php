@@ -28,6 +28,12 @@ require_once './libraries/js_escape.lib.php';
 class FormDisplay
 {
     /**
+     * ConfigFile instance
+     * @var ConfigFile
+     */
+    private $_configFile;
+
+    /**
      * Form list
      * @var Form[]
      */
@@ -81,8 +87,10 @@ class FormDisplay
 
     /**
      * Constructor
+     *
+     * @param ConfigFile $cf Config file instance
      */
-    public function __construct()
+    public function __construct(ConfigFile $cf)
     {
         $this->_jsLangStrings = array(
             'error_nan_p' => __('Not a positive number'),
@@ -90,22 +98,35 @@ class FormDisplay
             'error_incorrect_port' => __('Not a valid port number'),
             'error_invalid_value' => __('Incorrect value'),
             'error_value_lte' => __('Value must be equal or lower than %s'));
+        $this->_configFile = $cf;
         // initialize validators
-        PMA_Validator::config_get_validators();
+        PMA_Validator::getValidators($this->_configFile);
+    }
+
+    /**
+     * Returns {@link ConfigFile} associated with this instance
+     *
+     * @return ConfigFile
+     */
+    public function getConfigFile()
+    {
+        return $this->_configFile;
     }
 
     /**
      * Registers form in form manager
      *
-     * @param string $form_name
-     * @param array  $form
+     * @param string $form_name Form name
+     * @param array  $form      Form data
      * @param int    $server_id 0 if new server, validation; >= 1 if editing a server
      *
      * @return void
      */
     public function registerForm($form_name, array $form, $server_id = null)
     {
-        $this->_forms[$form_name] = new Form($form_name, $form, $server_id);
+        $this->_forms[$form_name] = new Form(
+            $form_name, $form, $this->_configFile, $server_id
+        );
         $this->_isValidated = false;
         foreach ($this->_forms[$form_name]->fields as $path) {
             $work_path = $server_id === null
@@ -149,7 +170,6 @@ class FormDisplay
             return;
         }
 
-        $cf = ConfigFile::getInstance();
         $paths = array();
         $values = array();
         foreach ($this->_forms as $form) {
@@ -158,13 +178,15 @@ class FormDisplay
             // collect values and paths
             foreach ($form->fields as $path) {
                 $work_path = array_search($path, $this->_systemPaths);
-                $values[$path] = $cf->getValue($work_path);
+                $values[$path] = $this->_configFile->getValue($work_path);
                 $paths[] = $path;
             }
         }
 
         // run validation
-        $errors = PMA_Validator::config_validate($paths, $values, false);
+        $errors = PMA_Validator::validate(
+            $this->_configFile, $paths, $values, false
+        );
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
@@ -185,7 +207,7 @@ class FormDisplay
     /**
      * Outputs HTML for forms
      *
-     * @param bool $tabbed_form
+     * @param bool $tabbed_form          if true, use a form with tabs
      * @param bool $show_restore_default whether show "restore default" button
      *                                   besides the input field
      *
@@ -198,7 +220,7 @@ class FormDisplay
         $js = array();
         $js_default = array();
         $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
-        $validators = PMA_Validator::config_get_validators();
+        $validators = PMA_Validator::getValidators($this->_configFile);
 
         PMA_displayFormTop();
 
@@ -210,7 +232,7 @@ class FormDisplay
             PMA_displayTabsTop($tabs);
         }
 
-        // valdiate only when we aren't displaying a "new server" form
+        // validate only when we aren't displaying a "new server" form
         $is_new_server = false;
         foreach ($this->_forms as $form) {
             /* @var $form Form */
@@ -280,17 +302,19 @@ class FormDisplay
             foreach ($this->_jsLangStrings as $strName => $strValue) {
                 $js_lang[] = "'$strName': '" . PMA_jsFormat($strValue, false) . '\'';
             }
-            $js[] = "$.extend(PMA_messages, {\n\t" . implode(",\n\t", $js_lang) . '})';
+            $js[] = "$.extend(PMA_messages, {\n\t"
+                . implode(",\n\t", $js_lang) . '})';
         }
 
-        $js[] = "$.extend(defaultValues, {\n\t" . implode(",\n\t", $js_default) . '})';
+        $js[] = "$.extend(defaultValues, {\n\t"
+            . implode(",\n\t", $js_default) . '})';
         PMA_displayJavascript($js);
     }
 
     /**
      * Prepares data for input field display and outputs HTML code
      *
-     * @param Form   $form
+     * @param Form   $form                 Form object
      * @param string $field                field name as it appears in $form
      * @param string $system_path          field path, eg. Servers/1/verbose
      * @param string $work_path            work path, eg. Servers/4/verbose
@@ -313,9 +337,8 @@ class FormDisplay
         $name = PMA_langName($system_path);
         $description = PMA_langName($system_path, 'desc', '');
 
-        $cf = ConfigFile::getInstance();
-        $value = $cf->get($work_path);
-        $value_default = $cf->getDefault($system_path);
+        $value = $this->_configFile->get($work_path);
+        $value_default = $this->_configFile->getDefault($system_path);
         $value_is_default = false;
         if ($value === null || $value === $value_default) {
             $value = $value_default;
@@ -324,7 +347,6 @@ class FormDisplay
 
         $opts = array(
             'doc' => $this->getDocLink($system_path),
-            'wiki' =>  $this->getWikiLink($system_path),
             'show_restore_default' => $show_restore_default,
             'userprefs_allow' => $userprefs_allow,
             'userprefs_comment' => PMA_langName($system_path, 'cmt', ''));
@@ -371,6 +393,13 @@ class FormDisplay
             return;
         }
 
+        // detect password fields
+        if ($type === 'text'
+            && substr($translated_path, -9) === '-password'
+        ) {
+            $type = 'password';
+        }
+
         // TrustedProxies requires changes before displaying
         if ($system_path == 'TrustedProxies') {
             foreach ($value as $ip => &$v) {
@@ -387,6 +416,7 @@ class FormDisplay
         case 'text':
         case 'short_text':
         case 'number_text':
+        case 'password':
             $js_line .= '\'' . PMA_escapeJsString($value_default) . '\'';
             break;
         case 'checkbox':
@@ -446,7 +476,7 @@ class FormDisplay
             return;
         }
 
-        $cf = ConfigFile::getInstance();
+        $cf = $this->_configFile;
         foreach (array_keys($this->_errors) as $work_path) {
             if (!isset($this->_systemPaths[$work_path])) {
                 continue;
@@ -498,7 +528,6 @@ class FormDisplay
     public function save($forms, $allow_partial_save = true)
     {
         $result = true;
-        $cf = ConfigFile::getInstance();
         $forms = (array) $forms;
 
         $values = array();
@@ -518,7 +547,7 @@ class FormDisplay
             }
             // get current server id
             $change_index = $form->index === 0
-                ? $cf->getServerCount() + 1
+                ? $this->_configFile->getServerCount() + 1
                 : false;
             // grab POST values
             foreach ($form->fields as $field => $system_path) {
@@ -636,10 +665,10 @@ class FormDisplay
                     }
                     $values[$path] = $proxies;
                 }
-                $cf->set($work_path, $values[$path], $path);
+                $this->_configFile->set($work_path, $values[$path], $path);
             }
             if ($is_setup_script) {
-                $cf->set(
+                $this->_configFile->set(
                     'UserprefsDisallow',
                     array_keys($this->_userprefsDisallow)
                 );
@@ -666,7 +695,7 @@ class FormDisplay
     /**
      * Returns link to documentation
      *
-     * @param string $path
+     * @param string $path Path to documentation
      *
      * @return string
      */
@@ -683,38 +712,9 @@ class FormDisplay
     }
 
     /**
-     * Returns link to wiki
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    public function getWikiLink($path)
-    {
-        $opt_name = $this->_getOptName($path);
-        if (substr($opt_name, 0, 7) == 'Servers') {
-            $opt_name = substr($opt_name, 8);
-            if (strpos($opt_name, 'AllowDeny') === 0) {
-                $opt_name = str_replace('_', '_.28', $opt_name) . '.29';
-            }
-        }
-        $test = substr($path, 0, 6);
-        if ($test == 'Import') {
-            $opt_name = substr($opt_name, 7);
-            if ($opt_name == 'format') {
-                $opt_name = 'format_2';
-            }
-        }
-        if ($test == 'Export') {
-            $opt_name = substr($opt_name, 7);
-        }
-        return PMA_linkURL('http://wiki.phpmyadmin.net/pma/Config#' . $opt_name);
-    }
-
-    /**
      * Changes path so it can be used in URLs
      *
-     * @param string $path
+     * @param string $path Path
      *
      * @return string
      */
@@ -734,7 +734,7 @@ class FormDisplay
             $this->_userprefsKeys = array_flip(PMA_readUserprefsFieldNames());
             // read real config for user preferences display
             $userprefs_disallow = defined('PMA_SETUP')
-                ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
+                ? $this->_configFile->get('UserprefsDisallow', array())
                 : $GLOBALS['cfg']['UserprefsDisallow'];
             $this->_userprefsDisallow = array_flip($userprefs_disallow);
         }

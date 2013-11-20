@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Wrapper script for rendering transformations
  *
  * @package PhpMyAdmin
  */
@@ -29,9 +30,6 @@ require_once './libraries/db_table_exists.lib.php';
 $request_params = array(
     'cn',
     'ct',
-    'newHeight',
-    'newWidth',
-    'resize',
     'sql_query',
     'transform_key',
     'where_clause'
@@ -49,7 +47,8 @@ foreach ($request_params as $one_request_param) {
 $GLOBALS['dbi']->selectDb($db);
 if (isset($where_clause)) {
     $result = $GLOBALS['dbi']->query(
-        'SELECT * FROM ' . PMA_Util::backquote($table) . ' WHERE ' . $where_clause . ';',
+        'SELECT * FROM ' . PMA_Util::backquote($table)
+        . ' WHERE ' . $where_clause . ';',
         null,
         PMA_DatabaseInterface::QUERY_STORE
     );
@@ -72,7 +71,7 @@ $default_ct = 'application/octet-stream';
 
 if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     $mime_map = PMA_getMime($db, $table);
-    $mime_options = PMA_transformation_getOptions(
+    $mime_options = PMA_Transformation_getOptions(
         isset($mime_map[$transform_key]['transformation_options'])
         ? $mime_map[$transform_key]['transformation_options'] : ''
     );
@@ -100,11 +99,11 @@ if (isset($ct) && ! empty($ct)) {
 
 PMA_downloadHeader($cn, $mime_type);
 
-if (! isset($resize)) {
+if (! isset($_REQUEST['resize'])) {
     echo $row[$transform_key];
 } else {
     // if image_*__inline.inc.php finds that we can resize,
-    // it sets $resize to jpeg or png
+    // it sets the resize parameter to jpeg or png
 
     $srcImage = imagecreatefromstring($row[$transform_key]);
     $srcWidth = ImageSX($srcImage);
@@ -112,20 +111,20 @@ if (! isset($resize)) {
 
     // Check to see if the width > height or if width < height
     // if so adjust accordingly to make sure the image
-    // stays smaller then the $newWidth and $newHeight
+    // stays smaller than the new width and new height
 
-    $ratioWidth = $srcWidth/$newWidth;
-    $ratioHeight = $srcHeight/$newHeight;
+    $ratioWidth = $srcWidth/$_REQUEST['newWidth'];
+    $ratioHeight = $srcHeight/$_REQUEST['newHeight'];
 
     if ($ratioWidth < $ratioHeight) {
         $destWidth = $srcWidth/$ratioHeight;
-        $destHeight = $newHeight;
+        $destHeight = $_REQUEST['newHeight'];
     } else {
-        $destWidth = $newWidth;
+        $destWidth = $_REQUEST['newWidth'];
         $destHeight = $srcHeight/$ratioWidth;
     }
 
-    if ($resize) {
+    if ($_REQUEST['resize']) {
         $destImage = ImageCreateTrueColor($destWidth, $destHeight);
     }
 
@@ -137,10 +136,10 @@ if (! isset($resize)) {
         $destHeight, $srcWidth, $srcHeight
     );
 
-    if ($resize == 'jpeg') {
+    if ($_REQUEST['resize'] == 'jpeg') {
         ImageJPEG($destImage, null, 75);
     }
-    if ($resize == 'png') {
+    if ($_REQUEST['resize'] == 'png') {
         ImagePNG($destImage);
     }
     ImageDestroy($srcImage);

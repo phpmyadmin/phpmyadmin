@@ -31,7 +31,7 @@ class Node_Procedure extends Node_DatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage('b_routines.png');
+        $this->icon  = PMA_Util::getImage('b_routines.png', __('Procedure'));
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
@@ -41,28 +41,6 @@ class Node_Procedure extends Node_DatabaseChild
                     . '&amp;export_item=1&amp;token=' . $GLOBALS['token']
         );
         $this->classes = 'procedure';
-    }
-
-    /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        $db    = PMA_Util::sqlAddSlashes(
-            $this->realParent()->real_name
-        );
-        $routine = PMA_Util::sqlAddSlashes(
-            $this->real_name
-        );
-        $query  = "SELECT `ROUTINE_COMMENT` ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-        $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
-        $query .= "AND `ROUTINE_NAME`='$routine' ";
-        $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-        return $GLOBALS['dbi']->fetchValue($query);
     }
 
     /**

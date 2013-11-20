@@ -83,7 +83,7 @@ class Advisor
     /**
      * Executes advisor rules
      *
-     * @return void
+     * @return boolean
      */
     function runRules()
     {
@@ -242,7 +242,7 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php?' . PMA_generate_common_url()
+                '<a href="server_variables.php?' . PMA_URL_getCommon()
                 . '&filter=\1">\1</a>',
                 $this->translate($rule['recommendation'])
             );
@@ -264,7 +264,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return Replacement value
+     * @return string Replacement value
      */
     private function _replaceLinkURL($matches)
     {
@@ -276,7 +276,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return Replacement value
+     * @return string Replacement value
      */
     private function _ruleExprEvaluateFired($matches)
     {
@@ -300,7 +300,7 @@ class Advisor
      *
      * @param array $matches List of matched elements form preg_replace_callback
      *
-     * @return Replacement value
+     * @return string Replacement value
      */
     private function _ruleExprEvaluateVariable($matches)
     {
@@ -323,7 +323,9 @@ class Advisor
      *                            that string position, but still evaluates the
      *                            whole expr
      *
-     * @return result of evaluated expression
+     * @return string result of evaluated expression
+     *
+     * @throws Exception
      */
     function ruleExprEvaluate($expr, $ignoreUntil = 0)
     {
@@ -459,9 +461,9 @@ class Advisor
  * Formats interval like 10 per hour
  *
  * @param integer $num       number to format
- * @param intefer $precision required precision
+ * @param integer $precision required precision
  *
- * @return formatted string
+ * @return string formatted string
  */
 function ADVISOR_bytime($num, $precision)
 {

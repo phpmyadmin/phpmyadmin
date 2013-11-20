@@ -17,6 +17,13 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/sanitizing.lib.php';
 
+/**
+ * PMA_SQLParser_Test class
+ *
+ * this class is for testing sqlparser.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -53,7 +60,12 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals('', PMA_SQP_getErrorString());
         $this->assertEquals($expected, $parsed_sql);
     }
-    
+
+    /**
+     * Test for PMA_SQP_isKeyWord
+     *
+     * @return void
+     */
     public function testPMA_SQP_isKeyWord()
     {
         PMA_SQP_resetError();
@@ -61,8 +73,8 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_SQP_isKeyWord("accessible"));
         $this->assertTrue(PMA_SQP_isKeyWord("ASC"));
         $this->assertFalse(PMA_SQP_isKeyWord("hello"));
-    }    
-    
+    }
+
     /**
      * Test PMA_SQP_typeCheck
      *
@@ -73,20 +85,20 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(
             PMA_SQP_typeCheck("VARCHAR", "VARCHAR")
         );
-        
+
         $this->assertFalse(
             PMA_SQP_typeCheck("VARCHAR", "VARCHAR_INT")
         );
-        
+
         $this->assertTrue(
             PMA_SQP_typeCheck("VARCHAR_INT", "VARCHAR")
         );
-        
+
         $this->assertFalse(
             PMA_SQP_typeCheck("TIME_INT", "VARCHAR")
         );
     }
-    
+
     /**
      * Test PMA_SQP_throwError
      *
@@ -98,23 +110,23 @@ class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
         $message = "error from testPMA_SQP_throwError";
         $sql = "select * from PMA.PMABookmark";
         PMA_SQP_throwError($message, $sql);
-        
+
         $this->assertContains(
             "There seems to be an error in your SQL query.",
             $SQP_errorString
         );
-        
+
         $this->assertContains(
             'ERROR: ' . $message,
             $SQP_errorString
         );
-        
+
         $this->assertContains(
             'SQL: ' . htmlspecialchars($sql),
             $SQP_errorString
         );
     }
-    
+
     /**
      * Data provider for parser testing
      *

@@ -129,11 +129,9 @@ if [ -d po ] ; then
     rm -rf po
 fi
 
-# This can be removed once 4.0 is out of maintenance:
-if [ -f ./scripts/compress-js ] ; then
-    echo "* Compressing javascript files"
-    ./scripts/compress-js
-    rm -rf sources
+if [ -f ./scripts/line-counts.sh ] ; then
+    echo "* Generating line counts"
+    ./scripts/line-counts.sh
 fi
 
 echo "* Removing unneeded files"
@@ -175,7 +173,7 @@ for kit in $KITS ; do
         rm -rf scripts/google-javascript-compiler/
 
         # Remove scripts which are not useful for user
-        for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release pending-po pendingpo.py ; do
+        for s in generate-sprites advisor2po lang-cleanup.sh locales-contributors remove-incomplete-mo compress-js create-release.sh generate-mo remove_control_m.sh update-po upload-release ; do
             rm -f scripts/$s
         done
     fi
@@ -299,7 +297,6 @@ Todo now:
  6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
-        phpmyadmin-users@lists.sourceforge.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.

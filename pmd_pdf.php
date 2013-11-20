@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * PDF export for PMD
  *
  * @package PhpMyAdmin-Designer
  */
@@ -19,11 +20,7 @@ if (isset($_POST['scale']) && ! PMA_isValid($_POST['scale'], 'numeric')) {
   * Sets globals from $_POST
   */
 $post_params = array(
-    'db',
-    'mode',
-    'newpage',
-    'pdf_page_number',
-    'scale'
+    'db'
 );
 
 foreach ($post_params as $one_post_param) {
@@ -35,12 +32,12 @@ foreach ($post_params as $one_post_param) {
 /**
  * If called directly from the designer, first save the positions
  */
-if (! isset($scale)) {
+if (! isset($_POST['scale'])) {
     include_once 'pmd_save_pos.php';
 }
 
-if (isset($mode)) {
-    if ('create_export' != $mode && empty($pdf_page_number)) {
+if (isset($_POST['mode'])) {
+    if ('create_export' != $_POST['mode'] && empty($_POST['pdf_page_number'])) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
 
@@ -48,21 +45,23 @@ if (isset($mode)) {
         . PMA_Util::backquote($GLOBALS['cfgRelation']['designer_coords']);
     $pma_table = PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
         . PMA_Util::backquote($cfgRelation['table_coords']);
-    $scale_q = PMA_Util::sqlAddSlashes($scale);
+    $scale_q = PMA_Util::sqlAddSlashes($_POST['scale']);
 
-    if ('create_export' == $mode) {
-        $pdf_page_number = PMA_REL_createPage($newpage, $cfgRelation, $db);
+    if ('create_export' == $_POST['mode']) {
+        $pdf_page_number = PMA_REL_createPage($_POST['newpage'], $cfgRelation, $db);
         if ($pdf_page_number > 0) {
             $message = PMA_Message::success(__('Page has been created'));
-            $mode = 'export';
+            $_POST['mode'] = 'export';
         } else {
             $message = PMA_Message::error(__('Page creation failed'));
         }
+    } else {
+        $pdf_page_number = $_POST['pdf_page_number'];
     }
 
     $pdf_page_number_q = PMA_Util::sqlAddSlashes($pdf_page_number);
 
-    if ('export' == $mode) {
+    if ('export' == $_POST['mode']) {
         $sql = "REPLACE INTO " . $pma_table
             . " (db_name, table_name, pdf_page_number, x, y)"
             . " SELECT db_name, table_name, " . $pdf_page_number_q . ","
@@ -73,7 +72,7 @@ if (isset($mode)) {
         PMA_queryAsControlUser($sql, true, PMA_DatabaseInterface::QUERY_STORE);
     }
 
-    if ('import' == $mode) {
+    if ('import' == $_POST['mode']) {
         PMA_queryAsControlUser(
             'UPDATE ' . $pma_table . ',' . $pmd_table .
             ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale_q . ',
@@ -103,7 +102,7 @@ if (! empty($message)) {
 ?>
   <form name="form1" method="post" action="pmd_pdf.php">
 <?php
-echo PMA_generate_common_hidden_inputs($db);
+echo PMA_URL_getHiddenInputs($db);
 echo '<div>';
 echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</legend>';
 
@@ -149,7 +148,9 @@ echo '<p>' . __('Export/Import to scale:');
       <select name="scale">
         <option value="1">1:1</option>
         <option value="2">1:2</option>
-        <option value="3" selected="selected">1:3 (<?php echo __('recommended'); ?>)</option>
+        <option value="3" selected="selected">
+            1:3 (<?php echo __('recommended'); ?>)
+        </option>
         <option value="4">1:4</option>
         <option value="5">1:5</option>
       </select>

@@ -28,7 +28,7 @@ header('Content-Type: text/html; charset=utf-8');
         <?php echo htmlspecialchars($_SERVER['HTTP_HOST']); ?> - Theme Test</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css"
-        href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
+        href="../phpmyadmin.css.php?<?php echo PMA_URL_getCommon(); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
     <script src="../js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
@@ -53,7 +53,7 @@ echo '<div id="serverinfo">' . "\n";
 printf(
     $item,
     $GLOBALS['cfg']['DefaultTabServer'],
-    PMA_generate_common_url(),
+    PMA_URL_getCommon(),
     'Server',
     __('Server'),
     'ic_s_host'

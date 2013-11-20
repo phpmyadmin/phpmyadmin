@@ -20,14 +20,14 @@ class PMA_NavigationHeader
     /**
      * Renders the navigation
      *
-     * @return void
+     * @return String HTML
      */
     public function getDisplay()
     {
         if (empty($GLOBALS['url_query'])) {
-            $GLOBALS['url_query'] = PMA_generate_common_url();
+            $GLOBALS['url_query'] = PMA_URL_getCommon();
         }
-        $link_url = PMA_generate_common_url(
+        $link_url = PMA_URL_getCommon(
             array(
                 'ajax_request' => true
             )
@@ -41,6 +41,7 @@ class PMA_NavigationHeader
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
         $buffer .= '<div id="pma_navigation_content">';
+        $buffer .= '<div id="pma_navigation_header">';
         $buffer .= sprintf(
             '<a class="hide navigation_url" href="navigation.php%s"></a>',
             $link_url
@@ -51,9 +52,10 @@ class PMA_NavigationHeader
         $buffer .= $this->_recent();
         $buffer .= PMA_Util::getImage(
             'ajax_clock_small.gif',
-            __('Loading'),
+            __('Loading…'),
             array('style' => 'visibility: hidden;', 'class' => 'throbber')
         );
+        $buffer .= '</div>'; // pma_navigation_header
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
         return $buffer;
     }
@@ -79,11 +81,14 @@ class PMA_NavigationHeader
             }
             $retval .= '<div id="pmalogo">';
             if ($GLOBALS['cfg']['NavigationLogoLink']) {
-                $logo_link = trim(htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink']));
+                $logo_link = trim(
+                    htmlspecialchars($GLOBALS['cfg']['NavigationLogoLink'])
+                );
                 // prevent XSS, see PMASA-2013-9
                 // if link has protocol, allow only http and https
                 if (preg_match('/^[a-z]+:/i', $logo_link)
-                    && ! preg_match('/^https?:/i', $logo_link)) {
+                    && ! preg_match('/^https?:/i', $logo_link)
+                ) {
                     $logo_link = 'index.php';
                 }
                 $retval .= '    <a href="' . $logo_link;
@@ -93,7 +98,9 @@ class PMA_NavigationHeader
                     break;
                 case 'main':
                     // do not add our parameters for an external link
-                    if (substr(strtolower($GLOBALS['cfg']['NavigationLogoLink']), 0, 4) !== '://') {
+                    if (substr(
+                        strtolower($GLOBALS['cfg']['NavigationLogoLink']), 0, 4
+                    ) !== '://') {
                         $retval .= '?' . $GLOBALS['url_query'] . '"';
                     } else {
                         $retval .= '" target="_blank"';
@@ -114,15 +121,15 @@ class PMA_NavigationHeader
     /**
      * Renders a single link for the top of the navigation panel
      *
-     * @param string $link        The url for the link
-     * @param bool   $showText    Whether to show the text or to
-     *                            only use it for title attributes
-     * @param string $text        The text to display and use for title attributes
-     * @param bool   $showIcon    Whether to show the icon
-     * @param string $icon        The filename of the icon to show
-     * @param string $linkId      Value to use for the ID attribute
-     * @param string $disableAjax Whether to disable ajax page loading for this link
-     * @param string $linkTarget  The name of the target frame for the link
+     * @param string  $link        The url for the link
+     * @param bool    $showText    Whether to show the text or to
+     *                             only use it for title attributes
+     * @param string  $text        The text to display and use for title attributes
+     * @param bool    $showIcon    Whether to show the icon
+     * @param string  $icon        The filename of the icon to show
+     * @param string  $linkId      Value to use for the ID attribute
+     * @param boolean $disableAjax Whether to disable ajax page loading for this link
+     * @param string  $linkTarget  The name of the target frame for the link
      *
      * @return string HTML code for one link
      */
@@ -165,20 +172,20 @@ class PMA_NavigationHeader
 
     /**
      * Creates the code for displaying the links
-     * at the top of the navigation frame
+     * at the top of the navigation panel 
      *
      * @return string HTML code for the links
      */
     private function _links()
     {
         // always iconic
-        $showIcon = true; 
-        $showText = false; 
+        $showIcon = true;
+        $showText = false;
 
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
         $retval .= $this->_getLink(
-            'index.php?' . PMA_generate_common_url(),
+            'index.php?' . PMA_URL_getCommon(),
             $showText,
             __('Home'),
             $showIcon,
@@ -201,7 +208,7 @@ class PMA_NavigationHeader
                 );
             }
             $link  = 'querywindow.php?';
-            $link .= PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
+            $link .= PMA_URL_getCommon($GLOBALS['db'], $GLOBALS['table']);
             $link .= '&amp;no_js=true';
             $retval .= $this->_getLink(
                 $link,
@@ -224,7 +231,7 @@ class PMA_NavigationHeader
             'documentation'
         );
         if ($showIcon) {
-            $retval .= PMA_Util::showMySQLDocu('', '', true);
+            $retval .= PMA_Util::showMySQLDocu('', true);
         }
         if ($showText) {
             // PMA_showMySQLDocu always spits out an icon,
@@ -232,7 +239,7 @@ class PMA_NavigationHeader
             $link = preg_replace(
                 '/<img[^>]+>/i',
                 __('Documentation'),
-                PMA_Util::showMySQLDocu('', '', true)
+                PMA_Util::showMySQLDocu('', true)
             );
             $retval .= $link;
             $retval .= '<br />';
@@ -240,7 +247,7 @@ class PMA_NavigationHeader
         $retval .= $this->_getLink(
             '#',
             $showText,
-            __('Reload navigation frame'),
+            __('Reload navigation panel'),
             $showIcon,
             's_reload.png',
             'pma_navigation_reload'
@@ -285,7 +292,7 @@ class PMA_NavigationHeader
             $retval .= '<div id="recentTableList">';
             $retval .= '<form method="post" ';
             $retval .= 'action="' . $GLOBALS['cfg']['DefaultTabTable'] . '">';
-            $retval .= PMA_generate_common_hidden_inputs(
+            $retval .= PMA_URL_getHiddenInputs(
                 array(
                     'db' => '',
                     'table' => '',

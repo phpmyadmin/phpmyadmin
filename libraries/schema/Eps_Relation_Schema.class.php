@@ -34,7 +34,6 @@ class PMA_EPS
      * Document Structuring Convention [DSC] and is Compliant
      * Encapsulated Post Script Document
      *
-     * @return void
      * @access public
      */
     function __construct()
@@ -402,11 +401,11 @@ class Table_Stats_Eps
      * @param boolean $showKeys         Whether to display keys or not
      * @param boolean $showInfo         Whether to display table position or not
      *
-     * @global object    The current eps document
-     * @global integer   The current page number (from the
-     *                     $cfg['Servers'][$i]['table_coords'] table)
-     * @global array     The relations settings
-     * @global string    The current db name
+     * @global object  $eps         The current eps document
+     * @global integer              The current page number (from the
+     *                              $cfg['Servers'][$i]['table_coords'] table)
+     * @global array   $cfgRelation The relations settings
+     * @global string  $db          The current db name
      *
      * @access private
      * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
@@ -521,7 +520,7 @@ class Table_Stats_Eps
      * @param string  $font     The font name
      * @param integer $fontSize The font size
      *
-     * @global object    The current eps document
+     * @global object $eps The current eps document
      *
      * @return void
      *
@@ -567,7 +566,7 @@ class Table_Stats_Eps
      *
      * @param boolean $showColor Whether to display color
      *
-     * @global object The current eps document
+     * @global object $eps The current eps document
      *
      * @return void
      *
@@ -705,7 +704,7 @@ class Relation_Stats_Eps
      *
      * @param boolean $changeColor Whether to use one color per relation or not
      *
-     * @global object The current EPS document
+     * @global object $eps The current EPS document
      *
      * @access public
      * @see PMA_EPS
@@ -815,7 +814,6 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
      *
-     * @return void
      * @see PMA_EPS
      */
     function __construct()
@@ -898,7 +896,7 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
         global $eps,$db;
         $eps->showOutput($db . '-' . $this->pageNumber);
     }
-    
+
     /**
      * Defines relation objects
      *

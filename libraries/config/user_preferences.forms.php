@@ -33,7 +33,8 @@ $forms['Features']['General'] = array(
     'MaxDbList',
     'MaxTableList',
     'NumRecentTables',
-    'ShowHint');
+    'ShowHint',
+    'SendErrorReports');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
     'MinSizeForInputField',
@@ -93,7 +94,7 @@ $forms['Navi_panel']['Navi_tables'] = array(
     'NavigationTreeDefaultTabTable',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',
-    'ShowTooltip');
+);
 $forms['Main_panel']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',

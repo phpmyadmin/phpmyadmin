@@ -7,7 +7,6 @@
  * @subpackage Selenium
  */
 
-require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
 /**
@@ -16,8 +15,15 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumXSSTest extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumXSSTest extends PHPUnit_Extensions_Selenium2TestCase
 {
+    /**
+     * Helper Object
+     *
+     * @var Helper
+     */
+    private $_helper;
+
     /**
      * Setup the browser environment to run the selenium test case
      *
@@ -25,8 +31,8 @@ class PmaSeleniumXSSTest extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function setUp()
     {
-        $helper = new Helper();
-        $this->setBrowser(Helper::getBrowserString());
+        $this->_helper = new Helper($this);
+        $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(
             TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL
         );
@@ -39,12 +45,11 @@ class PmaSeleniumXSSTest extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function testQueryTabWithNullValue()
     {
-        $log = new PmaSeleniumTestCase($this);
-        $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->click("link=SQL");
-        $this->waitForElementPresent("id=queryboxf");
-        $this->click("button_submit_query");
-        $this->assertAlert("Missing value in the form!");
+        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->byLinkText("SQL")->click();
+        $this->_helper->waitForElement("byId", "queryboxf");
+        $this->byId("button_submit_query")->click();
+        $this->assertEquals("Missing value in the form!", $this->alertText());
     }
 }
 ?>

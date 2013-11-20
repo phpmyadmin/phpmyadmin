@@ -138,7 +138,7 @@ class PMA_StorageEngine
      *
      * @param string $engine The engine ID
      *
-     * @return object  The engine plugin
+     * @return PMA_StorageEngine The engine plugin
      */
     static public function getEngine($engine)
     {

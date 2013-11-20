@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Server replications
  *
  * @package PhpMyAdmin
  */
@@ -27,7 +28,7 @@ $scripts->addFile('replication.js');
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    $html  = PMA_getSubPageHeader('replication');
+    $html  = PMA_getHtmlForSubPageHeader('replication');
     $html .= PMA_Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
@@ -46,7 +47,7 @@ PMA_handleControlRequest();
  * start output
  */
 $response->addHTML('<div id="replication">');
-$response->addHTML(PMA_getSubPageHeader('replication'));
+$response->addHTML(PMA_getHtmlForSubPageHeader('replication'));
 
 // Display error messages
 $response->addHTML(PMA_getHtmlForErrorMessage());

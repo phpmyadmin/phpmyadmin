@@ -6,7 +6,6 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'PmaSeleniumTestCase.php';
 require_once 'Helper.php';
 
 /**
@@ -15,8 +14,15 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumLoginTest extends PHPUnit_Extensions_SeleniumTestCase
+class PmaSeleniumLoginTest extends PHPUnit_Extensions_Selenium2TestCase
 {
+    /**
+     * Helper Object
+     *
+     * @var Helper
+     */
+    private $_helper;
+
     /**
      * Setup the browser environment to run the selenium test case
      *
@@ -24,8 +30,8 @@ class PmaSeleniumLoginTest extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function setUp()
     {
-        $helper = new Helper();
-        $this->setBrowser(Helper::getBrowserString());
+        $this->_helper = new Helper($this);
+        $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
     }
 
@@ -36,10 +42,9 @@ class PmaSeleniumLoginTest extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function testSuccessfulLogin()
     {
-        $log = new PmaSeleniumTestCase($this);
-        $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->assertTrue($log->isSuccessLogin());
-        Helper::logOutIfLoggedIn($this);
+        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->assertTrue($this->_helper->isSuccessLogin());
+        $this->_helper->logOutIfLoggedIn();
     }
 
     /**
@@ -49,10 +54,9 @@ class PmaSeleniumLoginTest extends PHPUnit_Extensions_SeleniumTestCase
      */
     public function testLoginWithWrongPassword()
     {
-        $log = new PmaSeleniumTestCase($this);
-        $log->login("Admin", "Admin");
-        $this->assertTrue($log->isUnsuccessLogin());
-        Helper::logOutIfLoggedIn($this);
+        $this->_helper->login("Admin", "Admin");
+        $this->assertTrue($this->_helper->isUnsuccessLogin());
+        $this->_helper->logOutIfLoggedIn();
     }
 }
 ?>

@@ -57,10 +57,8 @@ $forms['Servers']['Server_config'] = array('Servers' => array(1 => array(
     'hide_db',
     'AllowRoot',
     'AllowNoPassword',
-    'DisableIS',
     'AllowDeny/order',
-    'AllowDeny/rules',
-    'ShowDatabasesCommand')));
+    'AllowDeny/rules')));
 $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'pmadb' => 'phpmyadmin',
     'controlhost',
@@ -143,9 +141,10 @@ $forms['Features']['Other_core_settings'] = array(
     'DisableMultiTableMaintenance',
     'UseDbSearch',
     'VersionCheck',
-    'VersionCheckProxyUrl',
-    'VersionCheckProxyUser',
-    'VersionCheckProxyPass',
+    'SendErrorReports',
+    'ProxyUrl',
+    'ProxyUser',
+    'ProxyPass',
     'AllowThirdPartyFraming',
 );
 $forms['Sql_queries']['Sql_queries'] = array(
@@ -188,7 +187,7 @@ $forms['Navi_panel']['Navi_tables'] = array(
     'NavigationTreeDefaultTabTable',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',
-    'ShowTooltip');
+);
 $forms['Main_panel']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',

@@ -16,6 +16,77 @@ page can be used for this.
     uploading them to your server, as PHP seems not to like :term:`Mac`-style
     end of lines character ("``\r``").
 
+Linux distributions
++++++++++++++++++++
+
+phpMyAdmin is included in most Linux distributions. It is recommended to use
+distribution packages when possible - they usually provide integration to your
+distribution and you will automatically get security updates from your distribution.
+
+
+Debian
+------
+
+Debian's package repositories include a phpMyAdmin package, but be aware that
+the configuration file is maintained in ``/etc/phpmyadmin`` and may differ in
+some ways from the official phpMyAdmin documentation.
+
+OpenSUSE
+--------
+
+OpenSUSE already comes with phpMyAdmin package, just install packages from
+the `openSUSE Build Service <http://software.opensuse.org/package/phpMyAdmin>`_.
+    
+Ubuntu
+------
+
+Ubuntu ships phpMyAdmin package, however if you want to use recent version, you
+can use packages from
+`PPA for Michal Čihař <https://launchpad.net/~nijel/+archive/phpmyadmin>`_.
+
+Gentoo
+------
+
+Gentoo ships the phpMyAdmin package, both in a near stock configuration as well
+as in a ``webapp-config`` configuration. Use ``emerge dev-db/phpmyadmin`` to
+install.
+
+Mandriva
+--------
+        
+Mandriva ships the phpMyAdmin package in their ``contrib`` branch and can be
+installed via the usual Control Center. 
+
+Fedora
+------
+
+Fedora ships the phpMyAdmin package, but be aware that the configuration file
+is maintained in ``/etc/phpMyAdmin/`` and may differ in some ways from the
+official phpMyAdmin documentation.
+
+Red Hat Enterprise Linux
+------------------------
+        
+Red Hat Enterprise Linux itself and thus derivatives like CentOS don't
+ship phpMyAdmin, but the Fedora-driven repository 
+`Extra Packages for Enterprise Linux (EPEL) <http://fedoraproject.org/wiki/EPEL>`_
+is doing so, if it's
+`enabled <http://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_.
+But be aware that the configuration file is maintained in
+``/etc/phpMyAdmin/`` and may differ in some ways from the
+official phpMyAdmin documentation.
+
+
+Installing on Windows
++++++++++++++++++++++
+
+The easiest way to get phpMyAdmin on Windows is using third party products
+which include phpMyAdmin together with a database and web server such as 
+`XAMPP <http://www.apachefriends.org/en/xampp.html>`_.
+
+You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
+
+
 .. _quick_install:
 
 Quick Install
@@ -43,8 +114,8 @@ Quick Install
    some advanced features.
 
 
-Manualy creating file
----------------------
+Manually creating file
+----------------------
 
 To manually create the file, simply use your text editor to create the
 file :file:`config.inc.php` (you can copy :file:`config.sample.inc.php` to get
@@ -410,8 +481,6 @@ are always ways to make your installation more secure:
 
 * remove ``setup`` directory from phpMyAdmin, you will probably not 
   use it after initial setup
-* prevent access to ``libraries`` directory from browser, 
-  as it is not needed, supplied ``.htaccess`` file does this
 * properly choose authentication method - :ref:`cookie`
   is probably the best choice for shared hosting
 * in case you don't want all MySQL users to be able to access 

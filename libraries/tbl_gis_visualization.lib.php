@@ -5,8 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+if (!defined('PHPMYADMIN')) {
+    exit;
+}
 
-
+require_once 'libraries/sql.lib.php';
 
 /**
  * Returns a modified sql query with only the label column
@@ -15,7 +18,7 @@
  * @param string $sql_query             original sql query
  * @param array  $visualizationSettings settings for the visualization
  *
- * @return the modified sql query.
+ * @return string the modified sql query.
  */
 function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
 {
@@ -101,9 +104,9 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
  * Local function to sanitize the expression taken
  * from the results of PMA_SQP_analyze function.
  *
- * @param aray $select Select to sanitize.
+ * @param array $select Select to sanitize.
  *
- * @return Sanitized string.
+ * @return string Sanitized string.
  */
 function sanitize($select)
 {
@@ -129,7 +132,7 @@ function sanitize($select)
  * @param array  &$visualizationSettings Settings used to generate the chart
  * @param string $format                 Format of the visulaization
  *
- * @return string HTML and JS code for the GIS visualization
+ * @return string|void HTML and JS code for the GIS visualization
  */
 function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
 {
@@ -187,28 +190,6 @@ function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
 }
 
 /**
- * Function to get html for the options lists
- *
- * @param array  $options array of options
- * @param string $select  the item that shoul be selected by default
- *
- * @return string $html   the html for the options lists
- */
-function PMA_getHtmlForOptionsList($options, $select)
-{
-    $html = '';
-    foreach ($options as $option) {
-        $html .= '<option value="' . htmlspecialchars($option) . '"';
-    if ($option == $select) {
-        $html .= ' selected="selected"';
-    }
-        $html .= '>' . htmlspecialchars($option) . '</option>';
-    }
-
-    return $html;
-}
-
-/**
  * Function to get html for the lebel column and spatial column
  *
  * @param string $column                the column type. i.e either "labelColumn"
@@ -232,7 +213,7 @@ function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings
     }
 
     $html .= PMA_getHtmlForOptionsList(
-        $columnCandidates, $visualizationSettings[$column]
+        $columnCandidates, array($visualizationSettings[$column])
     );
 
     $html .= '</select></td>';
@@ -242,11 +223,11 @@ function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings
 }
 
 /**
- * Function to get html for the option of using oprn street maps
+ * Function to get HTML for the option of using open street maps
  *
- * @param boolean $isSelected    the default value
+ * @param boolean $isSelected the default value
  *
- * @return string  $html
+ * @return string HTML string
  */
 function PMA_getHtmlForUseOpenStreetMaps($isSelected)
 {
@@ -266,18 +247,18 @@ function PMA_getHtmlForUseOpenStreetMaps($isSelected)
 }
 
 /**
- * Function to generate html for the GIS visualization page
+ * Function to generate HTML for the GIS visualization page
  *
- * @param array   $url_params             url parameters
- * @param array   $labelCandidates        list of candidates for the label
- * @param array   $spatialCandidates      list of candidates for the spatial column
- * @param array   $visualizationSettings  visualization settings
- * @param String  $sql_query              the sql query
- * @param String  $visualization          html and js code for the visualization
- * @param boolean svg_support             whether svg download format is supported
- * @param array   $data                   array of visualizing data
+ * @param array   $url_params            url parameters
+ * @param array   $labelCandidates       list of candidates for the label
+ * @param array   $spatialCandidates     list of candidates for the spatial column
+ * @param array   $visualizationSettings visualization settings
+ * @param String  $sql_query             the sql query
+ * @param String  $visualization         HTML and js code for the visualization
+ * @param boolean $svg_support           whether svg download format is supported
+ * @param array   $data                  array of visualizing data
  *
- * @return string $html                   html code for the GIS visualization
+ * @return string HTML code for the GIS visualization
  */
 function PMA_getHtmlForGisVisualization(
     $url_params, $labelCandidates, $spatialCandidates, $visualizationSettings,
@@ -289,7 +270,7 @@ function PMA_getHtmlForGisVisualization(
 
     $html .= '<div style="width: 400px; float: left;">';
     $html .= '<form method="post" action="tbl_gis_visualization.php">';
-    $html .= PMA_generate_common_hidden_inputs($url_params);
+    $html .= PMA_URL_getHiddenInputs($url_params);
     $html .= '<table class="gis_table">';
 
     $html .= PMA_getHtmlForColumn(
@@ -301,7 +282,8 @@ function PMA_getHtmlForGisVisualization(
     );
 
     $html .= '<tr><td></td>';
-    $html .= '<td class="button"><input type="submit" name="displayVisualizationBtn" value="';
+    $html .= '<td class="button"><input type="submit"';
+    $html .= ' name="displayVisualizationBtn" value="';
     $html .= __('Redraw');
     $html .= '" /></td></tr>';
 
@@ -318,8 +300,9 @@ function PMA_getHtmlForGisVisualization(
     $html .= '</div>';
 
     $html .= '<div  style="float:left;">';
-    $html .= '<form method="post" class="disableAjax"  action="tbl_gis_visualization.php">';
-    $html .= PMA_generate_common_hidden_inputs($url_params);
+    $html .= '<form method="post" class="disableAjax"';
+    $html .= ' action="tbl_gis_visualization.php">';
+    $html .= PMA_URL_getHiddenInputs($url_params);
     $html .= '<table class="gis_table">';
     $html .= '<tr><td><label for="fileName">';
     $html .= __("File name") . '</label></td>';

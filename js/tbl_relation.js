@@ -5,13 +5,27 @@
  */
 function show_hide_clauses($thisDropdown)
 {
-    if ($thisDropdown.val() == '') {
+    if ($thisDropdown.val() === '') {
         $thisDropdown.parent().nextAll('span').hide();
     } else {
         if ($thisDropdown.is('select[name^="destination_foreign_column"]')) {
             $thisDropdown.parent().nextAll('span').show();
         }
     }
+}
+
+/**
+ * Sets dropdown options to values
+ */
+function setDropdownValues($dropdown, values) {
+    $dropdown.empty();
+    var optionsAsString = '';
+    // add an empty string to the beginning for empty selection
+    values.unshift('');
+    $.each(values, function () {
+        optionsAsString += "<option value='" + this + "'>" + this + "</option>";
+    });
+    $dropdown.append($(optionsAsString));
 }
 
 /**
@@ -37,7 +51,7 @@ function getDropdownValues($dropdown) {
     if ($dropdown.is('select[name^="destination' + foreign + '_db"]')) {
         foreignDb = $dropdown.val();
         // if no database is selected empty table and column dropdowns
-        if (foreignDb == '') {
+        if (foreignDb === '') {
             setDropdownValues($tableDd, []);
             setDropdownValues($columnDd, []);
             return;
@@ -47,22 +61,26 @@ function getDropdownValues($dropdown) {
             .find('select[name^="destination' + foreign + '_db"]').val();
         foreignTable = $dropdown.val();
          // if no table is selected empty the column dropdown
-        if (foreignTable == '') {
+        if (foreignTable === '') {
             setDropdownValues($columnDd, []);
             return;
         }
     }
     var $msgbox = PMA_ajaxShowMessage();
     var $form = $dropdown.parents('form');
-    var url = 'tbl_relation.php?getDropdownValues=true&ajax_request=true'
-        + '&token=' + $form.find('input[name="token"]').val()
-        + '&db=' + $form.find('input[name="db"]').val()
-        + '&table=' + $form.find('input[name="table"]').val()
-        + '&foreign=' + (foreign != '')
-        + '&foreignDb=' + encodeURIComponent(foreignDb)
-        + (foreignTable !== null ?
+    var url = 'tbl_relation.php?getDropdownValues=true&ajax_request=true' +
+        '&token=' + $form.find('input[name="token"]').val() +
+        '&db=' + $form.find('input[name="db"]').val() +
+        '&table=' + $form.find('input[name="table"]').val() +
+        '&foreign=' + (foreign !== '') +
+        '&foreignDb=' + encodeURIComponent(foreignDb) +
+        (foreignTable !== null ?
             '&foreignTable=' + encodeURIComponent(foreignTable) : ''
         );
+    var $server = $form.find('input[name="server"]');
+    if ($server.length > 0) {
+        url += '&server=' + $form.find('input[name="server"]').val();
+    }
     $.ajax({
         url: url,
         datatype: 'json',
@@ -70,7 +88,7 @@ function getDropdownValues($dropdown) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
                 // if the changed dropdown is a database selector
-                if (foreignTable == null) {
+                if (foreignTable === null) {
                     // set values for table and column dropdowns
                     setDropdownValues($tableDd, data.tables);
                     setDropdownValues($columnDd, []);
@@ -85,26 +103,16 @@ function getDropdownValues($dropdown) {
     });
 }
 
-function setDropdownValues($dropdown, values) {
-    $dropdown.empty();
-    var optionsAsString = '';
-    // add an empty string to the beginning for empty selection
-    values.unshift('');
-    $.each(values, function () {
-        optionsAsString += "<option value='" + this + "'>" + this + "</option>";
-    })
-    $dropdown.append($(optionsAsString));
-}
-
 /**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_relation.js', function () {
     $('select[name^="destination_foreign"]').unbind('change');
-    $('select[name^="destination_db"],'
-            + ' select[name^="destination_table"],'
-            + ' select[name^="destination_foreign_db"],'
-            + ' select[name^="destination_foreign_table"]').unbind('change');
+    $('select[name^="destination_db"],' +
+        ' select[name^="destination_table"],' +
+        ' select[name^="destination_foreign_db"],' +
+        ' select[name^="destination_foreign_table"]'
+        ).unbind('change');
 });
 
 AJAX.registerOnload('tbl_relation.js', function () {
@@ -117,11 +125,11 @@ AJAX.registerOnload('tbl_relation.js', function () {
         show_hide_clauses($(this));
     });
 
-    $('select[name^="destination_db"],'
-            + ' select[name^="destination_table"],'
-            + ' select[name^="destination_foreign_db"],'
-            + ' select[name^="destination_foreign_table"]')
-        .change(function () {
+    $('select[name^="destination_db"],' +
+        ' select[name^="destination_table"],' +
+        ' select[name^="destination_foreign_db"],' +
+        ' select[name^="destination_foreign_table"]'
+        ).change(function () {
             getDropdownValues($(this));
         });
 });

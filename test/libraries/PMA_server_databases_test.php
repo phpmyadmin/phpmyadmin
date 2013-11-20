@@ -42,7 +42,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
-        
+
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['MaxDbList'] = 100;
@@ -51,22 +51,21 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['SQP'] = array();
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
-        $GLOBALS['cfg']['SQP']['fmtType'] = 'none';
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
-        
+
         $GLOBALS['table'] = "table";
         $GLOBALS['server_master_status'] = false;
         $GLOBALS['server_slave_status'] = false;
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['text_dir'] = "text_dir";
-        
+
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new PMA_Theme();   
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
 
     }
 
@@ -76,7 +75,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     public function testPMAGetHtmlForDatabase()
-    {   
+    {
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
@@ -90,9 +89,9 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             array("SCHEMA_NAME" => "information_schema"),
             array("SCHEMA_NAME" => "mysql"),
             array("SCHEMA_NAME" => "performance_schema"),
-            array("SCHEMA_NAME" => "phpmyadmin")                
+            array("SCHEMA_NAME" => "phpmyadmin")
         );
-        
+
         $databases_count = 5;
         $pos = 0;
         $dbstats = 0;
@@ -117,18 +116,18 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             ),
         );
         $url_query = "token=27ae04f0b003a84e5c2796182f361ff1";
-               
+
         $html = PMA_getHtmlForDatabase(
-            $databases, 
-            $databases_count, 
-            $pos, 
-            $dbstats, 
-            $sort_by, 
-            $sort_order, 
-            $is_superuser, 
-            $cfg, 
-            $replication_types, 
-            $replication_info, 
+            $databases,
+            $databases_count,
+            $pos,
+            $dbstats,
+            $sort_by,
+            $sort_order,
+            $is_superuser,
+            $cfg,
+            $replication_types,
+            $replication_info,
             $url_query
         );
 
@@ -137,18 +136,18 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             '<div id="tableslistcontainer">',
             $html
         );
-        
+
         //validate 2:ajax Form
         $this->assertContains(
             '<form class="ajax" action="server_databases.php" ',
             $html
         );
-        
+
         $this->assertContains(
             '<table id="tabledatabases" class="data">',
             $html
         );
-        
+
         //validate 3: PMA_getHtmlForColumnOrderWithSort
         $this->assertContains(
             '<a href="server_databases.php?pos=0',
@@ -158,8 +157,8 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             'sort_by=SCHEMA_NAME',
             $html
         );
-        
-        //validate 4: PMA_getHtmlForDatabaseList
+
+        //validate 4: PMA_getHtmlAndColumnOrderForDatabaseList
         $this->assertContains(
             'title="pma_bookmark" value="pma_bookmark"',
             $html
@@ -176,19 +175,19 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             'title="phpmyadmin" value="phpmyadmin"',
             $html
         );
-       
+
         //validate 5: PMA_getHtmlForTableFooter
         $this->assertContains(
             'Total: <span id="databases_count">5</span>',
             $html
         );
-        
+
         //validate 6: PMA_getHtmlForTableFooterButtons
         $this->assertContains(
             'Check All',
             $html
         );
-        
+
         //validate 7: PMA_getHtmlForNoticeEnableStatistics
         $this->assertContains(
             'Note: Enabling the database statistics here might cause heavy traffic',
@@ -198,5 +197,90 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             'Enable Statistics',
             $html
         );
+    }
+
+    /**
+     * Test for PMA_getListForSortDatabase
+     *
+     * @return void
+     */
+    public function testPMAGetListForSortDatabase()
+    {
+        //$_REQUEST['sort_by'] and $_REQUEST['sort_order'] are empty
+        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $this->assertEquals(
+            'SCHEMA_NAME',
+            $sort_by
+        );
+        $this->assertEquals(
+            'asc',
+            $sort_order
+        );
+
+        // $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME'
+        // and $_REQUEST['sort_order'] is not 'desc'
+        $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME';
+        $_REQUEST['sort_order'] = 'abc';
+        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $this->assertEquals(
+            'DEFAULT_COLLATION_NAME',
+            $sort_by
+        );
+        $this->assertEquals(
+            'asc',
+            $sort_order
+        );
+
+        // $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME'
+        // and $_REQUEST['sort_order'] is 'desc'
+        $_REQUEST['sort_by'] = 'DEFAULT_COLLATION_NAME';
+        $_REQUEST['sort_order'] = 'desc';
+        list($sort_by, $sort_order) = PMA_getListForSortDatabase();
+        $this->assertEquals(
+            'DEFAULT_COLLATION_NAME',
+            $sort_by
+        );
+        $this->assertEquals(
+            'desc',
+            $sort_order
+        );
+    }
+
+    /**
+     * Test for PMA_getHtmlForColumnOrder
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForColumnOrder()
+    {
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $column_order = array(
+            "first_database" => array(
+                'format' => 'byte',
+                'footer' => '10333',
+            )
+        );
+        $first_database = array(
+            "first_database" => "db1"
+        );
+        $html = PMA_getHtmlForColumnOrder($column_order, $first_database);
+        $stat = $column_order["first_database" ];
+        list($value, $unit)
+            = PMA_Util::formatByteDown($stat['footer'], 3, 1);
+        $this->assertContains(
+            $value,
+            $html
+        );
+        $this->assertContains(
+            $unit,
+            $html
+        );
+
     }
 }

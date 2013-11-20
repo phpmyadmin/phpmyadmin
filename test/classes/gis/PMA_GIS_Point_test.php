@@ -349,7 +349,16 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
                     'maxX' => '1',
                     'maxY' => '1',
                 ),
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.Feature.Vector((new OpenLayers.Geometry.Point(12,35)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), null, {"pointRadius":3,"fillColor":"#ffffff","strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","labelYOffset":-8,"fontSize":10}));'
+                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
+                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
+                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
+                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), '
+                . 'map.getProjectionObject()));vectorLayer.addFeatures(new Open'
+                . 'Layers.Feature.Vector((new OpenLayers.Geometry.Point(12,35)).'
+                . 'transform(new OpenLayers.Projection("EPSG:4326"), map.get'
+                . 'ProjectionObject()), null, {"pointRadius":3,"fillColor":"#ffffff"'
+                . ',"strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","labelY'
+                . 'Offset":-8,"fontSize":10}));'
             )
         );
     }

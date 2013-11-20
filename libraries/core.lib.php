@@ -201,7 +201,7 @@ function PMA_securePath($path)
  * @param string|array $message_args   arguments applied to $error_message
  * @param boolean      $delete_session whether to delete session cookie
  *
- * @return exit
+ * @return void
  */
 function PMA_fatalError(
     $error_message, $message_args = null, $delete_session = true
@@ -220,12 +220,9 @@ function PMA_fatalError(
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
 
-        /* Define fake gettext for fatal errors */
+        /* Load gettext for fatal errors */
         if (!function_exists('__')) {
-            function __($text)
-            {
-                return $text;
-            }
+            include_once './libraries/php-gettext/gettext.inc';
         }
 
         // these variables are used in the included file libraries/error.inc.php
@@ -469,8 +466,8 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 /**
  * boolean phpMyAdmin.PMA_checkPageValidity(string &$page, array $whitelist)
  *
- * checks given given $page against given $whitelist and returns true if valid
- * it ignores optionaly query paramters in $page (script.php?ignored)
+ * checks given $page against given $whitelist and returns true if valid
+ * it optionally ignores query parameters in $page (script.php?ignored)
  *
  * @param string &$page     page to check
  * @param array  $whitelist whitelist to check page against
@@ -563,7 +560,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
             if (strpos($uri, '?') === false) {
                 header('Location: ' . $uri . '?' . SID);
             } else {
-                $separator = PMA_get_arg_separator();
+                $separator = PMA_URL_getArgSeparator();
                 header('Location: ' . $uri . $separator . SID);
             }
         } else {
@@ -657,6 +654,28 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
     }
 }
 
+/**
+ * Checks whether element given by $path exists in $array.
+ * $path is a string describing position of an element in an associative array,
+ * eg. Servers/1/host refers to $array[Servers][1][host]
+ *
+ * @param string $path  path in the arry
+ * @param array  $array the array
+ *
+ * @return mixed    array element or $default
+ */
+function PMA_arrayKeyExists($path, $array)
+{
+    $keys = explode('/', $path);
+    $value =& $array;
+    foreach ($keys as $key) {
+        if (! isset($value[$key])) {
+            return false;
+        }
+        $value =& $value[$key];
+    }
+    return true;
+}
 
 /**
  * Returns value of an element in $array given by $path.
@@ -759,12 +778,12 @@ function PMA_linkURL($url)
     if (!preg_match('#^https?://#', $url) || defined('PMA_SETUP')) {
         return $url;
     } else {
-        if (!function_exists('PMA_generate_common_url')) {
+        if (!function_exists('PMA_URL_getCommon')) {
             include_once './libraries/url_generating.lib.php';
         }
         $params = array();
         $params['url'] = $url;
-        return './url.php' . PMA_generate_common_url($params);
+        return './url.php' . PMA_URL_getCommon($params);
     }
 }
 

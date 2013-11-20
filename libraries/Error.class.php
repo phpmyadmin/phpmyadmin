@@ -67,14 +67,14 @@ class PMA_Error extends PMA_Message
     );
 
     /**
-     * The file in which the error occured
+     * The file in which the error occurred
      *
      * @var string
      */
     protected $file = '';
 
     /**
-     * The line in which the error occured
+     * The line in which the error occurred
      *
      * @var integer
      */
@@ -260,7 +260,8 @@ class PMA_Error extends PMA_Message
 
         foreach ($this->getBacktrace() as $step) {
             if (isset($step['file']) && isset($step['line'])) {
-                $retval .= PMA_Error::relPath($step['file']) . '#' . $step['line'] . ': ';
+                $retval .= PMA_Error::relPath($step['file'])
+                    . '#' . $step['line'] . ': ';
             }
             if (isset($step['class'])) {
                 $retval .= $step['class'] . $step['type'];
@@ -290,8 +291,8 @@ class PMA_Error extends PMA_Message
      * if $function is one of include/require
      * the $arg is converted to a relative path
      *
-     * @param string $arg
-     * @param string $function
+     * @param string $arg      argument to process
+     * @param string $function function name
      *
      * @return string
      */
@@ -381,31 +382,31 @@ class PMA_Error extends PMA_Message
         $dest = realpath($dest);
 
         if (substr(PHP_OS, 0, 3) == 'WIN') {
-            $path_separator = '\\';
+            $separator = '\\';
         } else {
-            $path_separator = '/';
+            $separator = '/';
         }
 
         $Ahere = explode(
-            $path_separator,
-            realpath(__DIR__ . $path_separator . '..')
+            $separator,
+            realpath(__DIR__ . $separator . '..')
         );
-        $Adest = explode($path_separator, $dest);
+        $Adest = explode($separator, $dest);
 
         $result = '.';
         // && count ($Adest)>0 && count($Ahere)>0 )
-        while (implode($path_separator, $Adest) != implode($path_separator, $Ahere)) {
+        while (implode($separator, $Adest) != implode($separator, $Ahere)) {
             if (count($Ahere) > count($Adest)) {
                 array_pop($Ahere);
-                $result .= $path_separator . '..';
+                $result .= $separator . '..';
             } else {
                 array_pop($Adest);
             }
         }
-        $path = $result . str_replace(implode($path_separator, $Adest), '', $dest);
+        $path = $result . str_replace(implode($separator, $Adest), '', $dest);
         return str_replace(
-            $path_separator . $path_separator,
-            $path_separator,
+            $separator . $separator,
+            $separator,
             $path
         );
     }

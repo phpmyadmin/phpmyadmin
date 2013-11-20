@@ -13,7 +13,7 @@ PHP
 ---
 
 * You need PHP 5.3.0 or newer, with ``session`` support, the Standard PHP Library 
-  (SPL) extension, JSON support, and the ``mbstring`` and ``ctype`` extensions.
+  (SPL) extension, JSON support, and the ``mbstring`` extension.
 
 * To support uploading of ZIP files, you need the PHP ``zip`` extension.
 
@@ -27,19 +27,20 @@ PHP
 
 * To support upload progress bars, see :ref:`faq2_9`.
 
-* To support XML and Open Document Spreadsheet importing, you need PHP
-  with the `libxml <http://www.php.net/libxml>`_
-  extension.
+* To support XML and Open Document Spreadsheet importing, you need the 
+  `libxml <http://www.php.net/libxml>`_ extension.
+
+* Performance suggestion: install the ``ctype`` extension.
 
 .. seealso:: :ref:`faq1_31`, :ref:`authentication_modes`
 
 Database
 --------
 
-phpMyAdmin support MySQL compatible databases. 
+phpMyAdmin supports MySQL-compatible databases. 
 
-* MySQL 5.0 or newer
-* MariaDB 5.0 or newer
+* MySQL 5.5 or newer
+* MariaDB 5.5 or newer
 * Drizzle
 
 .. seealso:: :ref:`faq1_17`

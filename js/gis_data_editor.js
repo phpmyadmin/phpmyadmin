@@ -42,8 +42,9 @@ function prepareJSVersion() {
         $button.addClass('addJs').removeClass('add');
         var classes = $button.attr('class');
         $button.replaceWith(
-            '<a class="' + classes + '" name="' + $button.attr('name')
-                + '" href="#">+ ' + $button.val() + '</a>'
+            '<a class="' + classes +
+            '" name="' + $button.attr('name') +
+            '" href="#">+ ' + $button.val() + '</a>'
         );
     });
 }
@@ -56,11 +57,12 @@ function prepareJSVersion() {
  * @returns the HTML for a data point
  */
 function addDataPoint(pointNumber, prefix) {
-    return '<br/>' + $.sprintf(PMA_messages.strPointN, (pointNumber + 1)) + ': '
-        + '<label for="x">' + PMA_messages.strX + '</label>'
-        + '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value=""/>'
-        + '<label for="y">' + PMA_messages.strY + '</label>'
-        + '<input type="text" name="' + prefix + '[' + pointNumber + '][y]" value=""/>';
+    return '<br/>' +
+        $.sprintf(PMA_messages.strPointN, (pointNumber + 1)) + ': ' +
+        '<label for="x">' + PMA_messages.strX + '</label>' +
+        '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value=""/>' +
+        '<label for="y">' + PMA_messages.strY + '</label>' +
+        '<input type="text" name="' + prefix + '[' + pointNumber + '][y]" value=""/>';
 }
 
 /**
@@ -94,7 +96,7 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
     // Loads a set of small JS file needed for the GIS editor
     var smallScripts = [ 'js/jquery/jquery.svg.js',
                      'js/jquery/jquery.mousewheel.js',
-                     'js/jquery/jquery.event.drag-2.0.js',
+                     'js/jquery/jquery.event.drag-2.2.js',
                      'js/tbl_gis_visualization.js' ];
 
     for (var i = 0; i < smallScripts.length; i++) {
@@ -174,8 +176,11 @@ function openGISEditor() {
     $gis_editor.css({"top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
     $backgrouond.css({"opacity" : "0.7"});
 
-    $gis_editor.append('<div id="gis_data_editor"><img class="ajaxIcon" id="loadingMonitorIcon" src="'
-            + pmaThemeImage + 'ajax_clock_small.gif" alt=""/></div>'
+    $gis_editor.append(
+        '<div id="gis_data_editor">' +
+        '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
+        pmaThemeImage + 'ajax_clock_small.gif" alt=""/>' +
+        '</div>'
     );
 
     // Make it appear
@@ -326,8 +331,8 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         for (var i = 0; i < noOfPoints; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
         }
-        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]" href="#">+ '
-            + PMA_messages.strAddPoint + '</a><br/>';
+        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]" href="#">+ ' +
+            PMA_messages.strAddPoint + '</a><br/>';
 
         $a.before(html);
         $noOfLinesInput.val(noOfLines + 1);
@@ -347,16 +352,16 @@ AJAX.registerOnload('gis_data_editor.js', function () {
 
         // Add the new polygon
         var html = PMA_messages.strPolygon + ' ' + (noOfPolygons + 1) + ':<br/>';
-        html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1"/>'
-            + '<br/>' + PMA_messages.strOuterRing + ':'
-            + '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4"/>';
+        html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1"/>' +
+            '<br/>' + PMA_messages.strOuterRing + ':' +
+            '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4"/>';
         for (var i = 0; i < 4; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
         }
-        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]" href="#">+ '
-            + PMA_messages.strAddPoint + '</a><br/>'
-            + '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]" href="#">+ '
-            + PMA_messages.strAddInnerRing + '</a><br/><br/>';
+        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]" href="#">+ ' +
+            PMA_messages.strAddPoint + '</a><br/>' +
+            '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]" href="#">+ ' +
+            PMA_messages.strAddInnerRing + '</a><br/><br/>';
 
         $a.before(html);
         $noOfPolygonsInput.val(noOfPolygons + 1);
@@ -375,12 +380,12 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var html1 = PMA_messages.strGeometry + ' ' + (noOfGeoms + 1) + ':<br/>';
         var $geomType = $("select[name='gis_data[" + (noOfGeoms - 1) + "][gis_type]']").clone();
         $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
-        var html2 = '<br/>' + PMA_messages.strPoint + ' :'
-            + '<label for="x"> ' + PMA_messages.strX + ' </label>'
-            + '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value=""/>'
-            + '<label for="y"> ' + PMA_messages.strY + ' </label>'
-            + '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value=""/>'
-            + '<br/><br/>';
+        var html2 = '<br/>' + PMA_messages.strPoint + ' :' +
+            '<label for="x"> ' + PMA_messages.strX + ' </label>' +
+            '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value=""/>' +
+            '<label for="y"> ' + PMA_messages.strY + ' </label>' +
+            '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value=""/>' +
+            '<br/><br/>';
 
         $a.before(html1);
         $geomType.insertBefore($a);

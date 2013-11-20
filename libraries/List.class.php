@@ -10,6 +10,8 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Generic list class
+ *
  * @todo add caching
  * @abstract
  * @package PhpMyAdmin
@@ -22,15 +24,23 @@ abstract class PMA_List extends ArrayObject
      */
     protected $item_empty = '';
 
-    public function __construct($array = array(), $flags = 0, $iterator_class = "ArrayIterator")
-    {
+    /**
+     * PMA_List constructor
+     *
+     * @param array  $array          The input parameter accepts an array or an Object.
+     * @param int    $flags          Flags to control the behaviour of the ArrayObject object.
+     * @param string $iterator_class Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
+     */
+    public function __construct(
+        $array = array(), $flags = 0, $iterator_class = "ArrayIterator"
+    ) {
         parent::__construct($array, $flags, $iterator_class);
     }
 
     /**
      * returns item only if there is only one in the list
      *
-     * @return single item
+     * @return PMA_List single item
      */
     public function getSingleItem()
     {
@@ -78,8 +88,9 @@ abstract class PMA_List extends ArrayObject
      *
      * @return string  HTML option tags
      */
-    public function getHtmlOptions($selected = '', $include_information_schema = true)
-    {
+    public function getHtmlOptions(
+        $selected = '', $include_information_schema = true
+    ) {
         if (true === $selected) {
             $selected = $this->getDefault();
         }

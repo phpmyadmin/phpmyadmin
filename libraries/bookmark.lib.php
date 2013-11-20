@@ -49,7 +49,7 @@ function PMA_Bookmark_getParams()
  *
  * @access public
  *
- * @global resource the controluser db connection handle
+ * @global resource $controllink the controluser db connection handle
  */
 function PMA_Bookmark_getList($db)
 {
@@ -105,7 +105,7 @@ function PMA_Bookmark_getList($db)
  *
  * @access  public
  *
- * @global  resource  the controluser db connection handle
+ * @global  resource $controllink the controluser db connection handle
  *
  */
 function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = false,
@@ -124,7 +124,8 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
 
     if (! $action_bookmark_all) {
-        $query .= ' AND (user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\'';
+        $query .= ' AND (user = \''
+            . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\'';
         if (! $exact_user_match) {
             $query .= ' OR user = \'\'';
         }
@@ -139,15 +140,15 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
 /**
  * Adds a bookmark
  *
- * @param array   $bkm_fields    the properties of the bookmark to add; here,
- *                           $bkm_fields['bkm_sql_query'] is urlencoded
- * @param boolean $all_users whether to make the bookmark available for all users
+ * @param array   $bkm_fields the properties of the bookmark to add; here,
+ *                            $bkm_fields['bkm_sql_query'] is urlencoded
+ * @param boolean $all_users  whether to make the bookmark available for all users
  *
  * @return boolean   whether the INSERT succeeds or not
  *
  * @access  public
  *
- * @global  resource  the controluser db connection handle
+ * @global  resource $controllink the controluser db connection handle
  */
 function PMA_Bookmark_save($bkm_fields, $all_users = false)
 {
@@ -162,9 +163,14 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
     $query = 'INSERT INTO ' . PMA_Util::backquote($cfgBookmark['db'])
         . '.' . PMA_Util::backquote($cfgBookmark['table'])
         . ' (id, dbase, user, query, label)'
-        . ' VALUES (NULL, \'' . PMA_Util::sqlAddSlashes($bkm_fields['bkm_database']) . '\', '
-        . '\'' . ($all_users ? '' : PMA_Util::sqlAddSlashes($bkm_fields['bkm_user'])) . '\', '
-        . '\'' . PMA_Util::sqlAddSlashes(urldecode($bkm_fields['bkm_sql_query'])) . '\', '
+        . ' VALUES (NULL, \''
+        . PMA_Util::sqlAddSlashes($bkm_fields['bkm_database']) . '\', '
+        . '\''
+        . ($all_users ? '' : PMA_Util::sqlAddSlashes($bkm_fields['bkm_user']))
+        . '\', '
+        . '\''
+        . PMA_Util::sqlAddSlashes(urldecode($bkm_fields['bkm_sql_query']))
+        . '\', '
         . '\'' . PMA_Util::sqlAddSlashes($bkm_fields['bkm_label']) . '\')';
     return $GLOBALS['dbi']->query($query, $controllink);
 } // end of the 'PMA_Bookmark_save()' function
@@ -180,7 +186,7 @@ function PMA_Bookmark_save($bkm_fields, $all_users = false)
  *
  * @access  public
  *
- * @global  resource  the controluser db connection handle
+ * @global  resource $controllink the controluser db connection handle
  */
 function PMA_Bookmark_delete($db, $id)
 {
@@ -204,6 +210,7 @@ function PMA_Bookmark_delete($db, $id)
 /**
  * Bookmark Support
  */
-$GLOBALS['cfg']['Bookmark'] = PMA_Bookmark_getParams();
-
+if (!defined('TESTSUITE')) {
+    $GLOBALS['cfg']['Bookmark'] = PMA_Bookmark_getParams();
+}
 ?>

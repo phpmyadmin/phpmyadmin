@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Server SQL executor
  *
  * @package PhpMyAdmin
  */
@@ -25,6 +26,6 @@ require_once 'libraries/sql_query_form.lib.php';
 /**
  * Query box, bookmark, insert data from textfile
  */
-PMA_sqlQueryForm();
+$response->addHTML(PMA_getHtmlForSqlQueryForm());
 
 ?>

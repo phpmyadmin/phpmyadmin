@@ -31,8 +31,6 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         $cfg['DefaultFunctions']['FUNC_NUMBER'] = '';
         $cfg['DefaultFunctions']['FUNC_DATE'] = '';
         $cfg['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
-        $cfg['MySQLManualType'] = 'viewable';
-        $cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
     }
 
     /**

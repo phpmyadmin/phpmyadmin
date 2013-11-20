@@ -34,7 +34,7 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new Text_Plain_Append(new PluginManager()); 
+        $this->object = new Text_Plain_Append(new PluginManager());
     }
 
     /**
@@ -48,7 +48,7 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for getInfo
      *
@@ -58,13 +58,14 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetInfo()
     {
-        $info = 'Appends text to a string. The only option is the text to be appended'
-            . ' (enclosed in single quotes, default empty string).';     
+        $info = 'Appends text to a string. The only option is '
+            . 'the text to be appended'
+            . ' (enclosed in single quotes, default empty string).';
         $this->assertEquals(
             $info,
             Text_Plain_Append::getInfo()
-        );  
-    
+        );
+
     }
 
     /**
@@ -75,11 +76,11 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetName()
-    {       
+    {
         $this->assertEquals(
             "Append",
             Text_Plain_Append::getName()
-        );    
+        );
     }
 
     /**
@@ -90,11 +91,11 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMEType()
-    {       
+    {
         $this->assertEquals(
             "Text",
             Text_Plain_Append::getMIMEType()
-        );    
+        );
     }
 
     /**
@@ -105,11 +106,11 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
      * @group medium
      */
     public function testGetMIMESubtype()
-    {       
+    {
         $this->assertEquals(
             "Plain",
             Text_Plain_Append::getMIMESubtype()
-        );    
+        );
     }
 
     /**
@@ -126,19 +127,19 @@ class Text_Plain_Append_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             "PMA_BUFFERoption1",
             $this->object->applyTransformation($buffer, $options)
-        );    
+        );
         //no options
         $result = "PMA_BUFFER";
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer)
         );
-        //html string     
+        //html string
         $result = "PMA_BUFFER&lt;a&gt;abc&lt;/a&gt;";
         $options = array("<a>abc</a>");
         $this->assertEquals(
             $result,
             $this->object->applyTransformation($buffer, $options)
-        ); 
+        );
     }
 }

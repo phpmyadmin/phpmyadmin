@@ -80,7 +80,7 @@ class Environment_Test extends PHPUnit_Framework_TestCase
      */
     public function testSession()
     {
-        $this->markTestIncomplete();
+        $this->markTestIncomplete('No session testing');
     }
 }
 ?>

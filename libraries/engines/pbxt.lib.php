@@ -106,6 +106,11 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
     }
 
     //--------------------
+    /**
+     * Get information about pages
+     *
+     * @return array Information about pages
+     */
     function getInfoPages()
     {
         $pages = array();
@@ -114,6 +119,13 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
     }
 
     //--------------------
+    /**
+     * Get content of a page
+     *
+     * @param string $id Id of searched page
+     *
+     * @return string
+     */
     function getPage($id)
     {
         if (! array_key_exists($id, $this->getInfoPages())) {
@@ -125,14 +137,27 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
         return $this->$id();
     }
 
+    /**
+     * Get content of documentation page
+     *
+     * @return string
+     */
     function getPageDocumentation()
     {
-        $output = '<p>'
-        . sprintf(__('Documentation and further information about PBXT can be found on the %sPrimeBase XT Home Page%s.'), '<a href="' . PMA_linkURL('http://www.primebase.com/xt/') . '" target="_blank">', '</a>')
+        $output = '<p>' . sprintf(
+            __(
+                'Documentation and further information about PBXT'
+                . ' can be found on the %sPrimeBase XT Home Page%s.'
+            ),
+            '<a href="' . PMA_linkURL('http://www.primebase.com/xt/')
+            . '" target="_blank">', '</a>'
+        )
         . '</p>' . "\n"
         . '<h3>' . __('Related Links') . '</h3>' . "\n"
         . '<ul>' . "\n"
-        . '<li><a href="' . PMA_linkURL('http://pbxt.blogspot.com/') . '" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh') . '</a></li>' . "\n"
+        . '<li><a href="' . PMA_linkURL('http://pbxt.blogspot.com/')
+        . '" target="_blank">' . __('The PrimeBase XT Blog by Paul McCullagh')
+        . '</a></li>' . "\n"
         . '</ul>' . "\n";
 
         return $output;

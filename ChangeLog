@@ -18,23 +18,114 @@ phpMyAdmin - ChangeLog
 + [interface] rfe #1429 Better suggestion for database name
 + rfe #1433 Support relations with ndbcluster
 - bug #3962 Proper escaping of JSON export
-+ rfe #1328 Optional ReCAPTCHA support
++ rfe #1382 Optional ReCAPTCHA support
 + rfe #1434 Improvements to the table browsing navigation bar
 + rfe #1233 and rfe #1283 Improvements to Relation View interface
++ rfe #1397 Use fractional seconds in time, datetime, and timestamp
 + rfe #175 Allow cross-database relations
 - [core] Dropped support for PHP 5.2.
 + rfe #487 and rfe #1405 Find and Replacing column wise
-+ rfe #1373 Use same create view dialog for editing a view 
++ rfe #1373 Use same create view dialog for editing a view
 + rfe #316 Configurable menus; allow user groups with customized menus per group
 - bug #4024 Editing field a record is selected by makes pma load forever
 - bug #4035 Query "inline" link disappears when turning off "Explain SQL" option
 + rfe #1385 Hide tables, functions, procedures, events and views in navigation tree
 + rfe #1321 Export view as if it was a table
++ Dropped configuration directive: SQP
++ Dropped configuration directive: MySQLManual*
++ rfe #1041 and bug #2954 Improved support for SSL connections between MySQL and phpMyAdmin
+- bug #4056 Language: Vague error message when adding a varchar field
++ [setup] rfe #1452 Use type="password" for server passwords
++ rfe #1451 HTML5 input tag enhancements
+- bug #1193 Text field too small when editing a row longer than $cfg['LimitChars']
++ Privileges tab for table level
+- bug #4068 Headline in operations not readable in IE10
+- bug #4000 "Table does not contain unique column" message appears after adding a unique column
++ rfe #1428 add 'new database' entry to nav tree
++ rfe #1457 Stone Age icon found
++ rfe #1463 Filter tables and databases by regular expression
++ Change the proxy variable names in the config to remove the VersionCheck prefix from them
++ Added an Error Reporting Component
++ Javascript files are no longer uglified
+- bug #4145 Config screen fails to validate MemoryLimit = -1 (new default)
+- bug #4123 Double config including
+- bug #4134 After deleting all rows on a page, it returns to a blank page
++ Dropped configuration directive: DisableIS, ShowDatabasesCommand
+- bug #4152 Not possible to enter % for search in date fields
+- bug #3931 IN Clause search does not permit multiple values
+- bug #4086 Clicking OK from edit popup opens new tab
+- bug #2983 unknown table status: TABLE_TYPE
+- bug #4096 horizontal scrollbar should not overflow on the left column
+- bug #4030 ORDER BY SUM(`field`) does not sort DESC
 
-4.0.6.0 (not yet released)
+4.0.10.0 (not yet released)
+- bug #4150 Clicking database name in query window opens a new tab
+- bug #4141 Wrong page is shown after editing; also, do not show a modal
+            dialog for multi-row edit
+- bug #3939 PHP NavigationTree error when paging through list
+- bug #4075 Support A10 Networks load balancer
+- bug #4083 row deleting isn't binlogs friendly
+
+4.0.9.0 (2013-11-04)
+- bug #4104 Can't edit updatable view when searching
+- bug #4108 Missing refresh by deleting databases
+- bug #3995 Drizzle server charset notice
+- bug #3911 Filtering database names includes empty groupings
+- bug #3678 Does not display or manipulate bit(64) fields appropriately
+- bug #4129 Unneeded navi panel refresh
+- bug #4120 SSL redirects to port 80
+- bug #4144 DROP DATABASE displays wrong database name
+- bug #4059 Running delete query asks for confirmation but says it was already executed
+- bug #4147 Accessibility: Images without Alt nor title attribute 
+
+4.0.8.0 (2013-10-06)
+- bug #3988 Rename view is not working
+- bug #4041 Interaction between linkified fields and grid editing
+- bug #3975 Table grouping isn't implemented properly
+- bug #4060 Browser tries to remember wrong password when creating new user
+- bug #4002 Edit Index on big table doesn't show "Loading" or any message
+- bug #4098 Default table tab is ignored
+- bug #4099 Server/library difference warning: setting is ignored
+- bug #4100 table tree group strategy
+- bug #4102 ALTER TABLE ORDER BY and InnoDB
+- bug #4103 Tracking report: cannot delete a statement
+- bug #3996 Drizzle navigation doesn't expand
+- bug #4074 GIS column editor: point not displayed
+- bug #4109 Drizzle tables in navigation are shown as views
+- bug #4095 NUL symbols added to the end of database dump file
+- bug #4105 More disappears in table Structure
+- bug #3992 Multi-row edit doesn't clear values when checking NULL
+
+4.0.7.0 (2013-09-23)
+- bug #3993 Sorting in database overview with statistics doesn't work
+- bug Handle the situation where PHP_SELF is not set
+- bug #4080 Overwrite existing file not obeyed
+- bug #3929 Database-specific privileges are not copied when cloning user
+- bug #3997 Error handling in case MySQL extension is missing
+- bug #4089 Moving Columns will alter column definition
+- bug #4091 Insert ignore option does not work
+- bug #4090 Downloading BLOB downloads page template
+- bug #4092 Clicking on table name in view of information_schema redirects to wrong page
+- bug #4079 Copy Table Add AUTO_INCREMENT value checkbox not working
+- bug #4088 MySQL server version at index.php incorrect w/ controlhost
+- bug #4001 Import error: Class 'ImportOds' not found
+- bug #3986 Missing DROP VIEW button
+
+4.0.6.0 (2013-09-05)
 - bug #4036 Call to undefined function mb_detect_encoding (clarify the doc)
+- bug Missing hints when changing a column's structure
+- bug #4048 Cannot select foreign value in Search
+- bug #4025 gzip export is not actually compressed with mod_deflate
+- bug #4054 query analysis doesn't launch in status monitor
++ Add pmahomme icon credits (FamFamFam silk icon set)
+- bug #4064 Table structure statistics "Space usage" caption too small for l10n
+- bug #4051 Wrong tabindex when inserting rows
+- bug #4066 varchar field not truncated in table browse mode
++ rfe #1435 Opening database should expand it in the navigation menu
+- (performance) Removed ShowTooltip directive
+- bug #4046 Exporting huge Tables causes memory-Problems
 
-4.0.5.0 (not yet released)
+4.0.5.0 (2013-08-04)
 - bug #3977 Not detected configuration storage
 - bug #3970 Pressing enter in the filter field reloads page
 - bug #3984 Cannot insert in this table (PHP < 5.4)
@@ -54,6 +145,7 @@ phpMyAdmin - ChangeLog
 + Reinstated configuration directive: AllowThirdPartyFraming
 
 4.0.4.2 (2013-07-28)
+- [security] fix unescaped parameter, see PMASA-2013-8
 - [security] Fix stored XSS in Server status monitor, see PMASA-2013-9
 - [security] Fix stored XSS in navigation panel logo link, see PMASA-2013-9
 - [security] Fix self-XSS in setup, trusted proxies validation, see PMASA-2013-9
@@ -74,7 +166,7 @@ phpMyAdmin - ChangeLog
 - bug #3966 Only display "table has no unique column" message when applicable
 - bug #3965 Default language wrong with zh-TW
 - bug #3921 Call to undefined function PMA_isSuperuser() if default server is
-not set 
+not set
 - bug #3971 Ctrl/shift + click opens links in same window
 - bug #3964 Import using https does not work
 - bug Missing removeCRLF option in ExportCsv and ExportExcel plugins
@@ -101,7 +193,7 @@ not set
 - bug #3925 Table sorting in navigation panel is case-sensitive
 - bug #3915 Import of CSV file (Replace table data with file) with duplicate values
 - bug #3907 undefined variables, function parameter problems
-- bug #3898 Structure not refreshed after column drop 
+- bug #3898 Structure not refreshed after column drop
 - bug #3926 View is not updatable
 - bug #3919 PropertiesIconic not honored
 - bug #3930 Databases to choose for specific privileges show up escaped
@@ -119,7 +211,7 @@ not set
 - bug #3879 Import broken for CSV using LOAD DATA
 - bug #3889 When login fails and error display is active, login data is displayed
 - bug #3890 [import] Web server upload directory import fails
-- bug #3891 [import] Server upload folder import file name missing in success message 
+- bug #3891 [import] Server upload folder import file name missing in success message
 + rfe #1421 [auth] Add retry button on connection failure with config auth
 - bug #3894 [interface] Provide feedback if no columns selected for multi-submit
 - bug #3799 [interface] Incorrect select field change on ctrl key navigation in Firefox
@@ -131,8 +223,8 @@ not set
 - bug #3905 [export] Custom Exporting exports all databases
 - bug #3909 [import] Import of CSV FIle to selected table doesn't work
 - bug #3904 Browsing an empty table should not display its Structure
-- bug #3908 Calendar widget improperly redirects to home 
-- bug #3918 Greyed out tabs when there are no rows fixed 
+- bug #3908 Calendar widget improperly redirects to home
+- bug #3918 Greyed out tabs when there are no rows fixed
 - bug #3916 [interface] Missing scrollbar (original theme)
 + [vendor] add tcpdf path to vendor_config.php
 - bug fix compat with tcpdf >= 6.0 (tested with 6.0.012)
@@ -208,7 +300,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Removed the "Synchronize" feature
 + Improved layout of server variables page
 + rfe #1052091 [config] Double-underscores in PMA table names
-+ Improved the "More" dropdown on the table structure page
++ Improved the "" dropdown on the table structure page
 + [interface] Added "scroll to top" link in menubar
 + [designer] Fullscreen mode for the designer
 + Upgraded jquery to v1.8.3 and jquery-ui to v1.9.2
@@ -226,7 +318,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3762 [core] Make Advisor work on Windows withou COM extension.
 - bug #3519 [export] Prevent infinite recursion in PDF export.
 - bug #3827 Table specific privileges not displayed for db name containing
-underscore 
+underscore
 - rfe #1386 Add IF NOT EXISTS clause when copying database
 - No longer package .travis.yml configuration file when creating a release.
 - bug #3830 Can't export custom query because it lowercases table names
@@ -274,7 +366,7 @@ underscore
 - bug #3828 MariaDB reported as MySQL
 - bug #3854 Incorrect header for Safari 6.0
 - bug #3705 Attempt to open trigger for edit gives NULL
-- Use HTML5 DOCTYPE 
+- Use HTML5 DOCTYPE
 - [security] Self-XSS on GIS visualisation page, reported by Janek Vind
 - bug #3800 Incorrect keyhandler behaviour #2
 

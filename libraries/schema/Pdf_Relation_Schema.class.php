@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * block attempts to directly run this script 
+ * block attempts to directly run this script
  */
 if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
@@ -396,11 +396,9 @@ class Table_Stats_Pdf
      * @param boolean $showKeys       Whether to display keys or not
      * @param boolean $showInfo       Whether to display table position or not
      *
-     * @global object    The current PDF document
-     * @global array     The relations settings
-     * @global string    The current db name
-     *
-     * @return void
+     * @global object $pdf         The current PDF document
+     * @global array  $cfgRelation The relations settings
+     * @global string $db          The current db name
      *
      * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
      *     Table_Stats_Pdf::Table_Stats_setHeight
@@ -506,7 +504,7 @@ class Table_Stats_Pdf
      *
      * @param integer $fontSize The font size
      *
-     * @global object    The current PDF document
+     * @global object $pdf The current PDF document
      *
      * @access private
      *
@@ -548,11 +546,11 @@ class Table_Stats_Pdf
     /**
      * Do draw the table
      *
-     * @param integer $fontSize The font size
-     * @param boolean $withDoc  Whether to include links to documentation
-     * @param boolean $setColor Whether to display color
+     * @param integer         $fontSize The font size
+     * @param boolean         $withDoc  Whether to include links to documentation
+     * @param boolean|integer $setColor Whether to display color
      *
-     * @global object The current PDF document
+     * @global object $pdf The current PDF document
      *
      * @access public
      *
@@ -654,8 +652,6 @@ class Relation_Stats_Pdf
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      *
-     * @return void
-     *
      * @see Relation_Stats_Pdf::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table,
@@ -731,7 +727,7 @@ class Relation_Stats_Pdf
      * @param boolean $changeColor Whether to use one color per relation or not
      * @param integer $i           The id of the link to draw
      *
-     * @global object    The current PDF document
+     * @global object $pdf The current PDF document
      *
      * @access public
      *
@@ -848,8 +844,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * The "PMA_Pdf_Relation_Schema" constructor
      *
-     * @global object   The current PDF Schema document
-     * @global string   The current db name
+     * @global object $pdf The current PDF Schema document
+     * @global string $db  The current db name
      * @global array    The relations settings
      * @access private
      * @see PMA_Schema_PDF
@@ -986,7 +982,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     {
         $this->_showOutput($this->pageNumber);
     }
-    
+
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
@@ -1045,7 +1041,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Draws the grid
      *
-     * @global object  the current PMA_Schema_PDF instance
+     * @global object $pdf the current PMA_Schema_PDF instance
      *
      * @access private
      *
@@ -1129,7 +1125,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Draws tables
      *
-     * @param boolean $changeColor Whether to display table position or not
+     * @param boolean|integer $changeColor Whether to display table position or not
      *
      * @access private
      *
@@ -1150,10 +1146,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @param integer $pageNumber page number
      *
-     * @global object   The current PDF document
-     * @global string   The current database name
-     * @global integer  The current page number (from the
-     *                  $cfg['Servers'][$i]['table_coords'] table)
+     * @global object  $pdf         The current PDF document
+     * @global string  $cfgRelation The current database name
+     * @global integer              The current page number (from the
+     *                              $cfg['Servers'][$i]['table_coords'] table)
      * @access private
      *
      * @return void
@@ -1183,7 +1179,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Generates data dictionary pages.
      *
-     * @param bool $alltables Tables to document.
+     * @param array $alltables Tables to document.
      *
      * @return void
      */

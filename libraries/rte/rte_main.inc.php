@@ -38,7 +38,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
     if (strlen($db)) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
-            $url_query = PMA_generate_common_url($db, $table);
+            $url_query = PMA_URL_getCommon($db, $table);
         }
     }
 }
@@ -68,7 +68,7 @@ $ajax_class = array(
 $titles = PMA_Util::buildActionTitles();
 
 /**
- * Keep a list of errors that occured while
+ * Keep a list of errors that occurred while
  * processing an 'Add' or 'Edit' operation.
  */
 $errors = array();
@@ -79,7 +79,11 @@ $errors = array();
  */
 switch ($_PMA_RTE) {
 case 'RTN':
-    PMA_RTN_main();
+    $type = null;
+    if (isset($_REQUEST['type'])) {
+        $type = $_REQUEST['type'];
+    }
+    PMA_RTN_main($type);
     break;
 case 'TRI':
     PMA_TRI_main();

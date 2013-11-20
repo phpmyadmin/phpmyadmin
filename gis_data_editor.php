@@ -12,7 +12,7 @@
  *
  * @param string $variable variable to be escaped
  *
- * @return escaped variable
+ * @return string escaped variable
  */
 function escape($variable)
 {
@@ -21,7 +21,8 @@ function escape($variable)
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/gis/pma_gis_factory.php';
-require_once 'libraries/gis_visualization.lib.php';
+require_once 'libraries/gis/pma_gis_visualization.php';
+require_once 'libraries/tbl_gis_visualization.lib.php';
 
 // Get data if any posted
 $gis_data = array();
@@ -122,7 +123,7 @@ if (isset($_REQUEST['input_name'])) {
     echo '<input type="hidden" name="input_name" value="'
         . htmlspecialchars($_REQUEST['input_name']) . '" />';
 }
-echo PMA_generate_common_hidden_inputs();
+echo PMA_URL_getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" style="width:450px;height:300px;'
@@ -158,6 +159,7 @@ foreach ($gis_types as $gis_type) {
 }
 echo '</select>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;';
+/* l10n: Spatial Reference System Identifier */
 echo '<label for="srid">' .  __('SRID:') . '</label>';
 echo '<input name="gis_data[srid]" type="text" value="' . $srid . '" />';
 echo '</div>';

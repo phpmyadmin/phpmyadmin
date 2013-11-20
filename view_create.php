@@ -31,7 +31,7 @@ $view_with_options = array(
     'LOCAL'
 );
 
-$view_sql_security_options = array(
+$view_security_options = array(
     'DEFINER',
     'INVOKER'
 );
@@ -60,7 +60,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     if (isset($_REQUEST['view']['sql_security'])) {
-        if (in_array($_REQUEST['view']['sql_security'], $view_sql_security_options)) {
+        if (in_array($_REQUEST['view']['sql_security'], $view_security_options)) {
             $sql_query .= $sep . ' SQL SECURITY '
                 . $_REQUEST['view']['sql_security'];
         }
@@ -170,7 +170,7 @@ $url_params['reload'] = 1;
 $htmlString = '<!-- CREATE VIEW options -->'
     . '<div id="div_view_options">'
     . '<form method="post" action="view_create.php">'
-    . PMA_generate_common_hidden_inputs($url_params)
+    . PMA_URL_getHiddenInputs($url_params)
     . '<fieldset>'
     . '<legend>'
     . (isset($_REQUEST['ajax_dialog']) ?
@@ -211,7 +211,7 @@ $htmlString .= '<tr><td class="nowrap">' . __('Definer') . '</td>'
 $htmlString .= '<tr><td class="nowrap">SQL SECURITY</td>'
     . '<td><select name="view[sql_security]">'
     . '<option value=""></option>';
-foreach ($view_sql_security_options as $option) {
+foreach ($view_security_options as $option) {
     $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
     if ($option == $view['sql_security']) {
         $htmlString .= ' selected="selected"';

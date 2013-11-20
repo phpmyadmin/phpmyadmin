@@ -29,17 +29,17 @@ class PMA_ImportPluginProperties_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     protected function tearDown()
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for ImportPluginProperties::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemType()
@@ -51,10 +51,10 @@ class PMA_ImportPluginProperties_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for 
+     * Test for
      *     - ImportPluginProperties::getOptionsText
      *     - ImportPluginProperties::setOptionsText
-     * 
+     *
      * @return void
      */
     public function testSetGetOptionsText()
@@ -68,10 +68,10 @@ class PMA_ImportPluginProperties_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for 
+     * Test for
      *     - ImportPluginProperties::setMimeType
      *     - ImportPluginProperties::getMimeType
-     * 
+     *
      * @return void
      */
     public function testSetGetMimeType()

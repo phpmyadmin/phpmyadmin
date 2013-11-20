@@ -15,7 +15,7 @@
  * @param mixed  $plugin_param  parameter to plugin by which they can
  *                              decide whether they can work
  *
- * @return new plugin instance
+ * @return object|null new plugin instance
  */
 function PMA_getPlugin(
     $plugin_type,
@@ -134,7 +134,8 @@ function PMA_pluginGetDefault($section, $opt)
         return htmlspecialchars($_GET[$opt]);
     } elseif (isset($GLOBALS['timeout_passed'])
         && $GLOBALS['timeout_passed']
-        && isset($_REQUEST[$opt])) {
+        && isset($_REQUEST[$opt])
+    ) {
         return htmlspecialchars($_REQUEST[$opt]);
     } elseif (isset($GLOBALS['cfg'][$section][$opt])) {
         $matches = array();
@@ -381,6 +382,7 @@ function PMA_pluginGetOneOption(
                     $ret .= '</select>';
                     break;
                 case "TextPropertyItem":
+                case "NumberPropertyItem":
                     $ret .= '<li>' . "\n";
                     $ret .= '<label for="text_' . $plugin_name . '_'
                         . $propertyItem->getName() . '" class="desc">'
@@ -422,7 +424,6 @@ function PMA_pluginGetOneOption(
         if ($doc != null) {
             if (count($doc) == 3) {
                 $ret .= PMA_Util::showMySQLDocu(
-                    $doc[0],
                     $doc[1],
                     false,
                     $doc[2]
@@ -431,7 +432,6 @@ function PMA_pluginGetOneOption(
                 $ret .= PMA_Util::showDocu('faq', $doc[0]);
             } else {
                 $ret .= PMA_Util::showMySQLDocu(
-                    $doc[0],
                     $doc[1]
                 );
             }

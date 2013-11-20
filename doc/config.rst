@@ -10,6 +10,10 @@ does not exist, please refer to the :ref:`setup` section to create one. This
 file only needs to contain the parameters you want to change from their
 corresponding default value in :file:`libraries/config.default.php`.
 
+If a directive is missing from your file, you can just add another line with
+the file. This file is for over-writing the defaults; if you wish to use the
+default value there's no need to add a line here.
+
 The parameters which relate to design (like colors) are placed in
 :file:`themes/themename/layout.inc.php`. You might also want to create
 :file:`config.footer.inc.php` and :file:`config.header.inc.php` files to add
@@ -40,8 +44,8 @@ Basic settings
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
     ``http://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
-    that the :term:`URL` on some web servers are case–sensitive. Don’t forget
-    the trailing slash at the end.
+    that the :term:`URL` on most of web servers are case–sensitive. Don’t
+    forget the trailing slash at the end.
 
     Starting with version 2.3.0, it is advisable to try leaving this blank. In
     most cases phpMyAdmin automatically detects the proper setting. Users of
@@ -118,6 +122,27 @@ Basic settings
     :default: 80
 
     Show warning about incomplete translations on certain threshold.
+
+.. config:option:: $cfg['SendErrorReports']
+
+    :type: string
+    :default: ``'ask'``
+
+    Sets the default behavior for JavaScript error reporting.
+
+    Whenever an error is detected in the JavaScript execution, an error report
+    may be sent to the phpMyAdmin team if the user agrees.
+
+    The default setting of ``'ask'`` will ask the user everytime there is a new
+    error report. However you can set this parameter to ``'always'`` to send error
+    reports without asking for confirmation or you can set it to ``'never'`` to
+    never send error reports.
+
+    This directive is available both in the configuration file and in users
+    preferences. If the person in charge of a multi-user installation prefers
+    to disable this feature for all users, a value of ``'never'`` should be
+    set, and the :config:option:`$cfg['UserprefsDisallow']` directive should
+    contain ``'SendErrorReports'`` in one of its array values. 
 
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
@@ -201,7 +226,54 @@ Server connection settings
     :type: boolean
     :default: false
 
-    Whether to enable SSL for connection to MySQL server.
+    Whether to enable SSL for the connection between phpMyAdmin and the MySQL server.
+
+    When using :config:option:`$cfg['Servers'][$i]['extension']` = ``'mysql'``,
+    none of the remaining ``'ssl...'`` configuration options apply.
+
+    We strongly recommend using :config:option:`$cfg['Servers'][$i]['extension']` = ``'mysqli'``
+    when using this option.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_key']
+
+    :type: string
+    :default: NULL
+
+    Path to the key file when using SSL for connecting to the MySQL server.
+
+    For example:
+
+    .. code-block:: php
+
+        $cfg['Servers'][$i]['ssl_key'] = '/etc/mysql/server-key.pem';
+
+.. config:option:: $cfg['Servers'][$i]['ssl_cert']
+
+    :type: string
+    :default: NULL
+
+    Path to the cert file when using SSL for connecting to the MySQL server.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ca']
+
+    :type: string
+    :default: NULL
+
+    Path to the CA file when using SSL for connecting to the MySQL server.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ca_path']
+
+    :type: string
+    :default: NULL
+
+    Directory containing trusted SSL CA certificates in PEM format.
+
+.. config:option:: $cfg['Servers'][$i]['ssl_ciphers']
+
+    :type: string
+    :default: NULL
+
+    List of allowable ciphers for SSL connections to the MySQL server.
 
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
@@ -938,38 +1010,6 @@ Server connection settings
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
-.. config:option:: $cfg['Servers'][$i]['DisableIS']
-
-    :type: boolean
-    :default: true
-
-    Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
-    ``SHOW`` commands instead), because of speed issues when many
-    databases are present. Currently used in some parts of the code, more
-    to come.
-
-.. config:option:: $cfg['Servers'][$i]['ShowDatabasesCommand']
-
-    :type: string
-    :default: ``'SHOW DATABASES'``
-
-    On a server with a huge number of databases, the default ``SHOW DATABASES``
-    command used to fetch the name of available databases will probably be too
-    slow, so it can be replaced by faster commands. You can use ``#user#``
-    string will be replaced by current user.
-
-    When using ``false``, it will disable fetching databases from the server,
-    only databases in :config:option:`$cfg['Servers'][$i]['only_db']` will be
-    displayed.
-
-    Examples:
-
-    * ``'SHOW DATABASES'``
-    * ``"SHOW DATABASES LIKE '#user#\_%'"``
-    * ``'SELECT DISTINCT TABLE_SCHEMA FROM information_schema.SCHEMA_PRIVILEGES'``
-    * ``'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA'``
-    * ``false``
-
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
@@ -1021,9 +1061,6 @@ Server connection settings
     if not, this setting is ignored silently). You have to provide
     :config:option:`$cfg['Servers'][$i]['StatusCacheLifetime']`.
 
-    Takes effect only if :config:option:`$cfg['Servers'][$i]['DisableIS']` is
-    ``true``.
-
 .. config:option:: $cfg['Servers'][$i]['StatusCacheLifetime']
 
     :type: integer
@@ -1060,17 +1097,18 @@ Generic settings
 
         This setting can be adjusted by your vendor.
 
-.. config:option:: $cfg['VersionCheckProxyUrl']
+.. config:option:: $cfg['ProxyUrl']
 
     :type: string
     :default: ""
 
-    The url of the proxy to be used when retrieving the information about
-    the latest version of phpMyAdmin. You need this if the server where
-    phpMyAdmin is installed does not have direct access to the internet.
+    The url of the proxy to be used when phpmyadmin needs to access the outside
+    intenet such as when retrieving the latest version info or submitting error
+    reports.  You need this if the server where phpMyAdmin is installed does not
+    have direct access to the internet.
     The format is: "hostname:portnumber"
 
-.. config:option:: $cfg['VersionCheckProxyUser']
+.. config:option:: $cfg['ProxyUser']
 
     :type: string
     :default: ""
@@ -1080,7 +1118,7 @@ Generic settings
     Authentication will be performed. No other types of authentication
     are currently supported.
 
-.. config:option:: $cfg['VersionCheckProxyPass']
+.. config:option:: $cfg['ProxyPass']
 
     :type: string
     :default: ""
@@ -1098,7 +1136,7 @@ Generic settings
 .. config:option:: $cfg['MaxNavigationItems']
 
     :type: integer
-    :default: 25
+    :default: 250
 
     The number of items that can be displayed on each page of the
     navigation tree.
@@ -1151,6 +1189,12 @@ Generic settings
     :default: false
 
     Whether to force using https while accessing phpMyAdmin.
+    
+    .. note::
+
+        In some setups (like separate SSL proxy or load balancer) you might
+        have to set :config:option:`$cfg['PmaAbsoluteUri']` for correct
+        redirection.
 
 .. config:option:: $cfg['ExecTimeLimit']
 
@@ -1173,10 +1217,10 @@ Generic settings
 .. config:option:: $cfg['MemoryLimit']
 
     :type: string [number of bytes]
-    :default: ``'0'``
+    :default: ``'-1'``
 
     Set the number of bytes a script is allowed to allocate. If set to
-    zero, no limit is imposed.
+    ``'-1'``, no limit is imposed.
 
     This setting is used while importing/exporting dump files and at some other
     places in phpMyAdmin so you definitely don't want to put here a too low
@@ -1404,14 +1448,6 @@ Navigation panel setup
 
     The maximum number of recently used tables shown in the navigation
     panel. Set this to 0 (zero) to disable the listing of recent tables.
-
-.. config:option:: $cfg['ShowTooltip']
-
-    :type: boolean
-    :default: true
-
-    Defines whether to display item comments as tooltips in navigation
-    panel or not.
 
 .. config:option:: $cfg['NavigationDisplayLogo']
 
@@ -1836,34 +1872,25 @@ Tabs display settings
     * ``tbl_change.php``
     * ``sql.php``
 
-Documentation
--------------
+PDF Options
+-----------
 
-.. config:option:: $cfg['MySQLManualBase']
+.. config:option:: $cfg['PDFPageSizes']
 
-    :type: string
-    :default: ``'http://dev.mysql.com/doc/refman'``
+    :type: array
+    :default: ``array('A3', 'A4', 'A5', 'letter', 'legal')``
 
-    If set to an :term:`URL` which points to
-    the MySQL documentation (type depends on
-    :config:option:`$cfg['MySQLManualType']`), appropriate help links are
-    generated.
+    Array of possible paper sizes for creating PDF pages.
 
-    See `MySQL Documentation page <http://dev.mysql.com/doc/>`_ for more
-    information about MySQL manuals and their types.
+    You should never need to change this.
 
-.. config:option:: $cfg['MySQLManualType']
+.. config:option:: $cfg['PDFDefaultPageSize']
 
     :type: string
-    :default: ``'viewable'``
+    :default: ``'A4'``
 
-    Type of MySQL documentation:
-
-    * viewable - "viewable online", current one used on MySQL website
-    * searchable - "Searchable, with user comments"
-    * chapters - "HTML, one page per chapter"
-    * big - "HTML, all on one page"
-    * none - do not show documentation links
+    Default page size to use when creating PDF pages. Valid values are any
+    listed in :config:option:`$cfg['PDFPageSizes']`.
 
 Languages
 ---------
@@ -2692,118 +2719,6 @@ Default queries
 
     Default queries that will be displayed in query boxes when user didn't
     specify any. You can use standard :ref:`faq6_27`.
-
-SQL parser settings
--------------------
-
-.. config:option:: $cfg['SQP']['fmtType']
-
-    :type: string
-    :default: ``'html'``
-
-    The main use of the :term:`SQL` Parser
-    is to format and analyze :term:`SQL` queries. By
-    default we use text to format the query, but you can disable this by
-    setting this variable to ``'none'``.
-
-    Available options:
-
-    * ``'text'``
-    * ``'none'``
-
-.. _cfg_SQP:
-.. config:option:: $cfg['SQP']['fmtInd']
-
-    :type: float
-    :default: ``'1'``
-
-.. config:option:: $cfg['SQP']['fmtIndUnit']
-
-    :type: string
-    :default: ``'em'``
-
-    For the pretty-printing of :term:`SQL` queries,
-    under some cases the part of a query inside a bracket is indented. By
-    changing :config:option:`$cfg['SQP']['fmtInd']` you can change the amount
-    of this indent.
-
-    Related in purpose is :config:option:`$cfg['SQP']['fmtIndUnit']` which
-    specifies the units of the indent amount that you specified. This is used
-    via stylesheets.
-
-    You can use any HTML unit, for example:
-
-    * ``'em'``
-    * ``'ex'``
-    * ``'pt'``
-    * ``'px'``
-
-.. config:option:: $cfg['SQP']['fmtColor']
-
-    :type: array of string tuples
-    :default:
-
-    This array is used to define the colours for each type of element of
-    the pretty-printed :term:`SQL` queries.
-    The tuple format is *class* => [*HTML colour code* | *empty string*]
-
-
-    If you specify an empty string for the color of a class, it is ignored
-    in creating the stylesheet. You should not alter the class names, only
-    the colour strings.
-
-    **Class name key:**
-
-    comment
-        Applies to all comment sub-classes
-    comment\_mysql
-        Comments as ``"#...\n"``
-    comment\_ansi
-        Comments as ``"-- ...\n"``
-    comment\_c
-        Comments as ``"/*...*/"``
-    digit
-        Applies to all digit sub-classes
-    digit\_hex
-        Hexadecimal numbers
-    digit\_integer
-        Integer numbers
-    digit\_float
-        Floating point numbers
-    punct
-        Applies to all punctuation sub-classes
-    punct\_bracket\_open\_round
-        Opening brackets ``"("``
-    punct\_bracket\_close\_round
-        Closing brackets ``")"``
-    punct\_listsep
-        List item Separator ``","``
-    punct\_qualifier
-        Table/Column Qualifier ``"."``
-    punct\_queryend
-        End of query marker ``";"``
-    alpha
-        Applies to all alphabetic classes
-    alpha\_columnType
-        Identifiers matching a column type
-    alpha\_columnAttrib
-        Identifiers matching a database/table/column attribute
-    alpha\_functionName
-        Identifiers matching a MySQL function name
-    alpha\_reservedWord
-        Identifiers matching any other reserved word
-    alpha\_variable
-        Identifiers matching a :term:`SQL` variable ``"@foo"``
-    alpha\_identifier
-        All other identifiers
-    quote
-        Applies to all quotation mark classes
-    quote\_double
-        Double quotes ``"``
-    quote\_single
-        Single quotes ``'``
-    quote\_backtick
-        Backtick quotes `````
 
 SQL validator settings
 ----------------------

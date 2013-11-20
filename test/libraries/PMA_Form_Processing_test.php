@@ -24,7 +24,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for process_formset()
-     * 
+     *
      * @return void
      */
     public function testProcessFormSet()
@@ -116,7 +116,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
         );
 
     }
-    
+
 
 }
 ?>

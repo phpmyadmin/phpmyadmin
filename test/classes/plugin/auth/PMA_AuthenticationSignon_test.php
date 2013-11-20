@@ -39,7 +39,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -49,7 +49,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationSignon::auth
-     * 
+     *
      * @return void
      */
     public function testAuth()
@@ -103,7 +103,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationSignon::authCheck
-     * 
+     *
      * @return void
      */
     public function testAuthCheck()
@@ -125,7 +125,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['port'] = '80';
         $GLOBALS['cfg']['Server']['user'] = 'user';
-        
+
         $this->assertTrue(
             $this->object->authCheck()
         );
@@ -215,7 +215,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationSignon::authSetUser
-     * 
+     *
      * @return void
      */
     public function testAuthSetUser()
@@ -240,7 +240,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for AuthenticationSignon::authFails
-     * 
+     *
      * @return void
      */
     public function testAuthFails()
@@ -259,7 +259,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         // case 1
 
         $GLOBALS['login_without_password_is_forbidden'] = true;
-        
+
         $this->object->authFails();
 
         $this->assertEquals(
@@ -272,7 +272,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['login_without_password_is_forbidden'] = null;
         $GLOBALS['allowDeny_forbidden'] = true;
-        
+
         $this->object->authFails();
 
         $this->assertEquals(

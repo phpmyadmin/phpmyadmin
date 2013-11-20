@@ -125,48 +125,53 @@ class PMA_User_Schema
      */
     public function showCreatePageDialog($db)
     {
-        ?>
-        <form method="post" action="schema_edit.php" name="frm_create_page">
-        <fieldset>
-        <legend>
-        <?php echo __('Create a page') . "\n"; ?>
-        </legend>
-        <?php echo PMA_generate_common_hidden_inputs($db); ?>
-        <input type="hidden" name="do" value="createpage" />
-        <table>
-        <tr>
-        <td><label for="id_newpage"><?php echo __('Page name'); ?></label></td>
-        <td>
-        <input type="text" name="newpage" id="id_newpage" size="20" maxlength="50" />
-        </td>
-        </tr>
-        <tr>
-        <td><?php echo __('Automatic layout based on'); ?></td>
-        <td>
-        <input type="checkbox" name="auto_layout_internal" id="id_auto_layout_internal" /><label for="id_auto_layout_internal">
-        <?php echo __('Internal relations'); ?></label><br />
-        <?php
+        $htmlString = '<form method="post" action="schema_edit.php"'
+            . ' name="frm_create_page">'
+            . '<fieldset>'
+            . '<legend>'
+            .  __('Create a page')
+            . '</legend>'
+            . PMA_URL_getHiddenInputs($db)
+            . '<input type="hidden" name="do" value="createpage" />'
+            . '<table>'
+            . '<tr>'
+            . '<td><label for="id_newpage">' . __('Page name') . '</label></td>'
+            . '<td>'
+            . '<input type="text" name="newpage" id="id_newpage"'
+            . ' size="20" maxlength="50" />'
+            . '</td>'
+            . '</tr>'
+            . '<tr>'
+            . __('Automatic layout based on') . '</td>'
+            . '<td>'
+            . '<input type="checkbox" name="auto_layout_internal"'
+            . ' id="id_auto_layout_internal" /><label for="id_auto_layout_internal">'
+            . __('Internal relations') . '</label><br />';
+
         /*
          * Check to see whether INNODB and PBXT storage engines
          * are Available in MYSQL PACKAGE
          * If available, then provide AutoLayout for Foreign Keys in Schema View
          */
 
-        if (PMA_StorageEngine::isValid('InnoDB') || PMA_StorageEngine::isValid('PBXT')) {
-            ?>
-            <input type="checkbox" name="auto_layout_foreign" id="id_auto_layout_foreign" /><label for="id_auto_layout_foreign">
-            <?php echo __('FOREIGN KEY'); ?></label><br />
-            <?php
+        if (PMA_StorageEngine::isValid('InnoDB')
+            || PMA_StorageEngine::isValid('PBXT')
+        ) {
+            $htmlString .= '<input type="checkbox" name="auto_layout_foreign"'
+                . ' id="id_auto_layout_foreign" />'
+                . '<label for="id_auto_layout_foreign">'
+                .  __('FOREIGN KEY') . '</label><br />';
         }
-        ?>
-        </td></tr>
-        </table>
-        </fieldset>
-        <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo __('Go'); ?>" />
-        </fieldset>
-        </form>
-        <?php
+
+        $htmlString .= '</td></tr>'
+            . '</table>'
+            . '</fieldset>'
+            . '<fieldset class="tblFooters">'
+            . '<input type="submit" value="' . __('Go') . '" />'
+            . '</fieldset>'
+            . '</form>';
+
+        echo $htmlString;
     }
 
     /**
@@ -194,7 +199,7 @@ class PMA_User_Schema
             <legend>
             <?php echo __('Please choose a page to edit') . "\n"; ?>
             </legend>
-            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
+            <?php echo PMA_URL_getHiddenInputs($db, $table); ?>
             <input type="hidden" name="do" value="selectpage" />
             <select name="chpage" id="chpage" class="autosubmit">
             <option value="0"><?php echo __('Select page'); ?></option>
@@ -291,7 +296,7 @@ class PMA_User_Schema
 
             echo '<form method="post" action="schema_edit.php" name="edcoord">';
 
-            echo PMA_generate_common_hidden_inputs($db, $table);
+            echo PMA_URL_getHiddenInputs($db, $table);
             echo '<input type="hidden" name="chpage" '
                 . 'value="' . htmlspecialchars($this->chosenPage) . '" />';
             echo '<input type="hidden" name="do" value="edcoord" />';
@@ -402,90 +407,96 @@ class PMA_User_Schema
 
     public function displaySchemaGenerationOptions()
     {
-        global $cfg,$db,$test_rs,$chpage;
-        ?>
-        <form method="post" action="schema_export.php" class="disableAjax">
-            <fieldset>
-            <legend>
-            <?php
-            echo PMA_generate_common_hidden_inputs($db);
-            if (PMA_Util::showIcons('ActionLinksMode')) {
-                echo PMA_Util::getImage('b_views.png');
+        global $cfg, $db, $test_rs, $chpage;
+
+        $htmlString = '<form method="post" action="schema_export.php"'
+            . ' class="disableAjax">'
+            . '<fieldset>'
+            . '<legend>'
+            . PMA_URL_getHiddenInputs($db);
+
+        if (PMA_Util::showIcons('ActionLinksMode')) {
+            $htmlString .= PMA_Util::getImage('b_views.png');
+        }
+
+        $htmlString .= __('Display relational schema')
+            . ':'
+            . '</legend>'
+            . '<select name="export_type" id="export_type">'
+            . '<option value="pdf" selected="selected">PDF</option>'
+            . '<option value="svg">SVG</option>'
+            . '<option value="dia">DIA</option>'
+            . '<option value="eps">EPS</option>'
+            . '</select>'
+            . '<label>' . __('Select Export Relational Type') . '</label><br />';
+        if (isset($test_rs)) {
+            $htmlString .= '<label for="pdf_page_number_opt">'
+                . __('Page number:')
+                . '</label>'
+                . '<select name="pdf_page_number" id="pdf_page_number_opt">';
+
+            while ($pages = @$GLOBALS['dbi']->fetchAssoc($test_rs)) {
+                $htmlString .= '<option value="' . $pages['page_nr'] . '">'
+                    . $pages['page_nr'] . ': '
+                    . htmlspecialchars($pages['page_descr'])
+                    . '</option>' . "\n";
+            } // end while
+            $GLOBALS['dbi']->freeResult($test_rs);
+            unset($test_rs);
+
+            $htmlString .= '</select><br />';
+        } else {
+            $htmlString .= '<input type="hidden" name="pdf_page_number"'
+                . ' value="' . htmlspecialchars($this->chosenPage) . '" />';
+        }
+        $htmlString .= '<input type="hidden" name="do" value="process_export" />'
+            . '<input type="hidden" name="chpage" value="' . $chpage . '" />'
+            . '<input type="checkbox" name="show_grid" id="show_grid_opt" />'
+            . '<label for="show_grid_opt">' . __('Show grid') . '</label><br />'
+            . '<input type="checkbox" name="show_color"'
+            . ' id="show_color_opt" checked="checked" />'
+            . '<label for="show_color_opt">' . __('Show color') . '</label>'
+            . '<br />'
+            . '<input type="checkbox" name="show_table_dimension"'
+            . ' id="show_table_dim_opt" />'
+            . '<label for="show_table_dim_opt">'
+            . __('Show dimension of tables')
+            . '</label><br />'
+            . '<input type="checkbox" name="all_tables_same_width"'
+            . ' id="all_tables_same_width" />'
+            . '<label for="all_tables_same_width">'
+            . __('Same width for all tables')
+            . '</label><br />'
+            . '<input type="checkbox" name="with_doc"'
+            . ' id="with_doc" checked="checked" />'
+            . '<label for="with_doc">' . __('Data Dictionary') . '</label><br />'
+            . '<input type="checkbox" name="show_keys" id="show_keys" />'
+            . '<label for="show_keys">' . __('Only show keys') . '</label><br />'
+            . '<select name="orientation" id="orientation_opt" class="paper-change">'
+            . '<option value="L">' . __('Landscape'). '</option>'
+            . '<option value="P">' . __('Portrait') . '</option>'
+            . '</select>'
+            . '<label for="orientation_opt">' . __('Orientation') . '</label>'
+            . '<br />'
+            . '<select name="paper" id="paper_opt" class="paper-change">';
+
+        foreach ($cfg['PDFPageSizes'] as $val) {
+            $htmlString .= '<option value="' . $val . '"';
+            if ($val == $cfg['PDFDefaultPageSize']) {
+                $htmlString .= ' selected="selected"';
             }
-            echo __('Display relational schema');
-            ?>:
-            </legend>
-            <select name="export_type" id="export_type">
-                <option value="pdf" selected="selected">PDF</option>
-                <option value="svg">SVG</option>
-                <option value="dia">DIA</option>
-                <option value="eps">EPS</option>
-            </select>
-            <label><?php echo __('Select Export Relational Type');?></label><br />
-            <?php
-            if (isset($test_rs)) {
-            ?>
-            <label for="pdf_page_number_opt"><?php echo __('Page number:'); ?></label>
-            <select name="pdf_page_number" id="pdf_page_number_opt">
-                <?php
-                while ($pages = @$GLOBALS['dbi']->fetchAssoc($test_rs)) {
-                    echo '                <option value="' . $pages['page_nr'] . '">'
-                        . $pages['page_nr'] . ': ' . htmlspecialchars($pages['page_descr']) . '</option>' . "\n";
-                } // end while
-                $GLOBALS['dbi']->freeResult($test_rs);
-                unset($test_rs);
-                ?>
-            </select><br />
-            <?php
-            } else {
-            ?>
-            <input type="hidden" name="pdf_page_number" value="<?php echo htmlspecialchars($this->chosenPage); ?>" />
-            <?php
-            }
-            ?>
-            <input type="hidden" name="do" value="process_export" />
-            <input type="hidden" name="chpage" value="<?php echo $chpage; ?>" />
-            <input type="checkbox" name="show_grid" id="show_grid_opt" />
-            <label for="show_grid_opt"><?php echo __('Show grid'); ?></label><br />
-            <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
-            <label for="show_color_opt"><?php echo __('Show color'); ?></label>
-            <br />
-            <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
-            <label for="show_table_dim_opt">
-            <?php echo __('Show dimension of tables'); ?>
-            </label><br />
-            <input type="checkbox" name="all_tables_same_width" id="all_tables_same_width" />
-            <label for="all_tables_same_width">
-            <?php echo __('Same width for all tables'); ?>
-            </label><br />
-            <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
-            <label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
-            <input type="checkbox" name="show_keys" id="show_keys" />
-            <label for="show_keys"><?php echo __('Only show keys'); ?></label><br />
-            <select name="orientation" id="orientation_opt" class="paper-change">
-                <option value="L"><?php echo __('Landscape');?></option>
-                <option value="P"><?php echo __('Portrait');?></option>
-            </select>
-            <label for="orientation_opt"><?php echo __('Orientation'); ?></label>
-            <br />
-            <select name="paper" id="paper_opt" class="paper-change">
-                <?php
-                foreach ($cfg['PDFPageSizes'] as $val) {
-                        echo '<option value="' . $val . '"';
-                        if ($val == $cfg['PDFDefaultPageSize']) {
-                            echo ' selected="selected"';
-                        }
-                        echo ' >' . $val . '</option>' . "\n";
-                }
-                ?>
-            </select>
-            <label for="paper_opt"><?php echo __('Paper size'); ?></label>
-            </fieldset>
-            <fieldset class="tblFooters">
-            <input type="submit" value="<?php echo __('Go'); ?>" />
-            </fieldset>
-        </form>
-        <?php
+            $htmlString .= ' >' . $val . '</option>' . "\n";
+        }
+
+        $htmlString .= '</select>'
+            . '<label for="paper_opt">' . __('Paper size') . '</label>'
+            . '</fieldset>'
+            . '<fieldset class="tblFooters">'
+            . '<input type="submit" value="' .  __('Go') . '" />'
+            . '</fieldset>'
+            . '</form>';
+
+        echo $htmlString;
     }
 
     /**
@@ -519,7 +530,7 @@ class PMA_User_Schema
             return;
         }
         echo '<br /><form action="schema_edit.php" method="post">' . "\n"
-            . PMA_generate_common_hidden_inputs($db)
+            . PMA_URL_getHiddenInputs($db)
             . '<input type="hidden" name="do" value="delete_old_references" />'
             . "\n"
             . '<input type="hidden" name="chpage" value="'
@@ -574,7 +585,9 @@ class PMA_User_Schema
                 . '</u>';
 
             if (isset($with_field_names)) {
-                $fields = $GLOBALS['dbi']->getColumns($db, $temp_sh_page['table_name']);
+                $fields = $GLOBALS['dbi']->getColumns(
+                    $db, $temp_sh_page['table_name']
+                );
                 // if the table has been dropped from outside phpMyAdmin,
                 // we can no longer obtain its columns list
                 if ($fields) {
@@ -642,14 +655,15 @@ class PMA_User_Schema
         $GLOBALS['dbi']->selectDb($db);
 
         $path = PMA_securePath(ucfirst($export_type));
-        if (!file_exists('libraries/schema/' . $path . '_Relation_Schema.class.php')) {
+        $filename = 'libraries/schema/' . $path . '_Relation_Schema.class.php';
+        if (!file_exists($filename)) {
             PMA_Export_Relation_Schema::dieSchema(
                 $_POST['chpage'],
                 $export_type,
                 __('File doesn\'t exist')
             );
         }
-        require "libraries/schema/".$path.'_Relation_Schema.class.php';
+        include $filename;
         $class_name = 'PMA_' . $path . '_Relation_Schema';
         $obj_schema = new $class_name();
         $obj_schema->showOutput();
@@ -757,12 +771,16 @@ class PMA_User_Schema
             $master_tables_rs = PMA_queryAsControlUser(
                 $master_tables, false, PMA_DatabaseInterface::QUERY_STORE
             );
-            if ($master_tables_rs && $GLOBALS['dbi']->numRows($master_tables_rs) > 0) {
+            if ($master_tables_rs
+                && $GLOBALS['dbi']->numRows($master_tables_rs) > 0
+            ) {
                 /* first put all the master tables at beginning
                  * of the list, so they are near the center of
                  * the schema
                  */
-                while (list(, $master_table) = $GLOBALS['dbi']->fetchRow($master_tables_rs)) {
+                while (list(, $master_table)
+                    = $GLOBALS['dbi']->fetchRow($master_tables_rs)
+                ) {
                        $all_tables[] = $master_table;
                 }
 
@@ -776,7 +794,9 @@ class PMA_User_Schema
                 foreach ($all_tables as $master_table) {
                     $foreigners = PMA_getForeigners($db, $master_table);
                     foreach ($foreigners as $foreigner) {
-                        if (! in_array($foreigner['foreign_table'], $foreign_tables)) {
+                        if (! in_array(
+                            $foreigner['foreign_table'], $foreign_tables
+                        )) {
                             $foreign_tables[] = $foreigner['foreign_table'];
                         }
                     }

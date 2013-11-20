@@ -47,7 +47,7 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     }
 
     if (data.run.errors.length > 0) {
-        $cnt.append('<b>Errors occured while executing rule expressions:</b><br />- ');
+        $cnt.append('<b>Errors occurred while executing rule expressions:</b><br />- ');
         $cnt.append(data.run.errors.join('<br/>- '));
         $cnt.append('<p></p>');
     }

@@ -17,6 +17,11 @@ require_once 'libraries/Theme.class.php';
  */
 class Node_Table_Container_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     *
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['server'] = 0;
@@ -24,6 +29,12 @@ class Node_Table_Container_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 
+
+    /**
+     * Test for __construct
+     *
+     * @return void
+     */
     public function testConstructor()
     {
         $parent = PMA_NodeFactory::getInstance('Node_Table_Container');
@@ -36,6 +47,7 @@ class Node_Table_Container_Test extends PHPUnit_Framework_TestCase
             $parent->links['text']
         );
         $this->assertEquals('tables', $parent->real_name);
+        $this->assertContains('tableContainer', $parent->classes);
     }
 }
 ?>

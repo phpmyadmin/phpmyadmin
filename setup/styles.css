@@ -94,11 +94,11 @@ h1 {
 /* phpMyAdmin logo colors */
 
 .blue {
-    color: #7584B3;
+    color: #666699;
 }
 
 .orange {
-    color: #FFAD17;
+    color: #FF9900;
 }
 
 .red {
@@ -419,7 +419,9 @@ fieldset .lastrow, .form .lastrow {
     text-align: center;
 }
 
-input[type=text] {
+input[type=text],
+input[type=password],
+input[type=number] {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -433,24 +435,6 @@ input[type=text] {
     color: #555;
     padding: 4px;
     margin: 6px;
-
-}
-
-input[type=password] {
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-
-    box-shadow: 0 1px 2px #ddd;
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
-
-    background: white;
-    border: 1px solid #aaa;
-    color: #555;
-    padding: 4px;
-    margin: 6px;
-
 }
 
 input[type=submit],

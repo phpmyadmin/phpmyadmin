@@ -52,8 +52,6 @@ class PMA_Footer
 
     /**
      * Creates a new class instance
-     *
-     * @return new PMA_Footer object
      */
     public function __construct()
     {
@@ -63,33 +61,27 @@ class PMA_Footer
     }
 
     /**
-     * Adds the message for demo server to error messages
+     * Returns the message for demo server to error messages
      *
      * @return string
      */
-    private function _addDemoMessage()
+    private function _getDemoMessage()
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
         if (file_exists('./revision-info.php')) {
             include './revision-info.php';
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
-                '<a target="_top" href="' . $repobase . $fullrevision . '">'
+                '<a target="_blank" href="' . $repobase . $fullrevision . '">'
                 . $revision .'</a>',
-                '<a target="_top" href="' . $repobranchbase . $branch . '">'
+                '<a target="_blank" href="' . $repobranchbase . $branch . '">'
                 . $branch . '</a>'
             );
         } else {
             $message .= __('Git information missing!');
         }
 
-        $GLOBALS['error_handler']->addError(
-            $message,
-            E_USER_NOTICE,
-            '',
-            '',
-            false
-        );
+        return PMA_Message::notice($message)->getDisplay();
     }
 
     /**
@@ -128,7 +120,7 @@ class PMA_Footer
     /**
      * Returns the url of the current page
      *
-     * @param mixed $encoding See PMA_generate_common_url()
+     * @param mixed $encoding See PMA_URL_getCommon()
      *
      * @return string
      */
@@ -137,7 +129,7 @@ class PMA_Footer
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $target = ! empty($_REQUEST['target']) ? $_REQUEST['target'] : '';
-        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
+        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
             array(
                 'db' => $db,
                 'table' => $table,
@@ -266,9 +258,6 @@ class PMA_Footer
             if (! $this->_isAjax) {
                 $retval .= "</div>";
             }
-            if ($GLOBALS['cfg']['DBG']['demo']) {
-                $this->_addDemoMessage();
-            }
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 if (PMA_getenv('SCRIPT_NAME')
                     && empty($_POST)
@@ -298,12 +287,19 @@ class PMA_Footer
                 $retval .= $this->_getDebugMessage();
                 $retval .= $this->getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
+                if ($GLOBALS['cfg']['DBG']['demo']) {
+                    $retval .= '<div id="pma_demo">';
+                    $retval .= $this->_getDemoMessage();
+                    $retval .= '</div>';
+                }
                 // Include possible custom footers
                 if (file_exists(CUSTOM_FOOTER_FILE)) {
+                    $retval .= '<div id="pma_footer">';
                     ob_start();
                     include CUSTOM_FOOTER_FILE;
                     $retval .= ob_get_contents();
                     ob_end_clean();
+                    $retval .= '</div>';
                 }
             }
             if (! $this->_isAjax) {

@@ -27,7 +27,7 @@ abstract class PropertyItem
      * Returns the property item type of either an instance of
      *  - OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
      *  - OptionsPropertyGroup   ( "root", "main" or "subgroup" )
-     *  - PluginPropertyItem     ( "export", "import", "transformations" ) 
+     *  - PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */

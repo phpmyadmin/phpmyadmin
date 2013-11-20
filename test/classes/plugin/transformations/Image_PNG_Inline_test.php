@@ -124,7 +124,8 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
         $buffer = "PMA_PNG_Inline";
         $options = array("./image/", "200", "wrapper_link"=>"PMA_wrapper_link");
         $result = '<a href="transformation_wrapper.phpPMA_wrapper_link"'
-            . ' target="_blank"><img src="transformation_wrapper.phpPMA_wrapper_link&amp;'
+            . ' target="_blank"><img src="transformation_wrapper.php'
+            . 'PMA_wrapper_link&amp;'
             . 'resize=jpeg&amp;newWidth=./image/&amp;newHeight=200" '
             . 'alt="PMA_PNG_Inline" border="0" /></a>';
         $this->assertEquals(

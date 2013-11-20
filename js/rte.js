@@ -100,7 +100,7 @@ RTE.COMMON = {
     }, // end validateCustom()
     /**
      * Execute some code after the ajax
-     * dialog for the ditor is shown.
+     * dialog for the editor is shown.
      * This function can be overridden by
      * other files in this folder
      */
@@ -143,7 +143,8 @@ RTE.COMMON = {
                     lineNumbers: true,
                     matchBrackets: true,
                     indentUnit: 4,
-                    mode: "text/x-mysql"
+                    mode: "text/x-mysql",
+                    lineWrapping: true
                 };
                 CodeMirror.fromTextArea($elm[0], opts);
             } else {
@@ -277,8 +278,9 @@ RTE.COMMON = {
                                 });
                                 // If this is the first item being added, remove
                                 // the "No items" message and show the list.
-                                if ($('table.data').find('tr').has('td').length > 0
-                                    && $('#nothing2display').is(':visible')) {
+                                if ($('table.data').find('tr').has('td').length > 0 &&
+                                    $('#nothing2display').is(':visible')
+                                    ) {
                                     $('#nothing2display').hide("slow", function () {
                                         $('table.data').show("slow");
                                     });
@@ -331,7 +333,8 @@ RTE.COMMON = {
                     lineNumbers: true,
                     matchBrackets: true,
                     indentUnit: 4,
-                    mode: "text/x-mysql"
+                    mode: "text/x-mysql",
+                    lineWrapping: true
                 };
                 if (typeof CodeMirror != 'undefined') {
                     that.syntaxHiglighter = CodeMirror.fromTextArea($elm[0], opts);
@@ -524,8 +527,9 @@ RTE.ROUTINE = {
             var $inputtyp = $(this).find('select[name^=item_param_type]');
             var $inputlen = $(this).find('input[name^=item_param_length]');
             if ($inputtyp.length && $inputlen.length) {
-                if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().substr(0, 3) === 'VAR')
-                   && $inputlen.val() === '') {
+                if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().substr(0, 3) === 'VAR') &&
+                    $inputlen.val() === ''
+                   ) {
                     $inputlen.focus();
                     isSuccess = false;
                     return false;
@@ -541,8 +545,9 @@ RTE.ROUTINE = {
             // be set, if the type is SET, ENUM, VARCHAR or VARBINARY.
             var $returntyp = this.$ajaxDialog.find('select[name=item_returntype]');
             var $returnlen = this.$ajaxDialog.find('input[name=item_returnlength]');
-            if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR')
-               && $returnlen.val() === '') {
+            if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR') &&
+                $returnlen.val() === ''
+                ) {
                 $returnlen.focus();
                 alert(PMA_messages.strFormEmpty);
                 return false;

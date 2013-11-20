@@ -4,7 +4,7 @@
  *
  * @package PhpMyAdmin-test
  */
- 
+
 /*
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
@@ -45,20 +45,19 @@ class ImportSql_Test extends PHPUnit_Framework_TestCase
      * @return void
      */
     protected function setUp()
-    {      
-        $this->object = new ImportSql();    
+    {
+        $this->object = new ImportSql();
 
-        //setting        
+        //setting
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['cfg']['AllowUserDropDatabase'] = false;
-        
+
         $GLOBALS['import_file'] = 'test/test_data/pma_bookmark.sql';
         $GLOBALS['import_text'] = 'ImportSql_Test';
-        $GLOBALS['compression'] = 'none'; 
+        $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Xml';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
@@ -75,7 +74,7 @@ class ImportSql_Test extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
     }
-    
+
     /**
      * Test for doImport
      *
@@ -88,35 +87,36 @@ class ImportSql_Test extends PHPUnit_Framework_TestCase
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
-        
+
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
-        
+
         //Test function called
         $this->object->doImport();
-        
+
         //asset that all sql are executed
         $this->assertContains(
             'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";',
             $sql_query
-        );           
+        );
         $this->assertContains(
             'CREATE TABLE IF NOT EXISTS `pma_bookmark`',
             $sql_query
-        );          
+        );
         $this->assertContains(
-            'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) VALUES',
+            'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) '
+            . 'VALUES',
             $sql_query
-        );          
-   
+        );
+
         $this->assertEquals(
             true,
             $GLOBALS['finished']
-        ); 
-    
+        );
+
     }
 }
 

@@ -40,7 +40,13 @@ $GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');
 
 
 /**
- * Function to emulate headers() function by storing headers in GLOBAL array.
+ * Function to emulate headers() function by storing headers in GLOBAL array
+ *
+ * @param string  $string             header string
+ * @param boolean $replace            .
+ * @param integer $http_response_code .
+ *
+ * @return void
  */
 function test_header($string, $replace = true, $http_response_code = 200)
 {
@@ -53,10 +59,24 @@ function test_header($string, $replace = true, $http_response_code = 200)
 
 /**
  * Function to emulate headers_hest.
+ *
+ * @return boolean false
  */
 function test_headers_sent()
 {
     return false;
+}
+
+/**
+ * Function to emulate date() function
+ *
+ * @param string $date_format arg
+ *
+ * @return string dummy date
+ */
+function test_date($date_format)
+{
+    return '0000-00-00 00:00:00';
 }
 
 if (PMA_HAS_RUNKIT && $GLOBALS['runkit_internal_override']) {
@@ -97,5 +117,34 @@ function PMA_getTagArray($elementHTML, $arr = array())
     }
 
     return $arr;
+}
+
+/**
+ * Overrides date function
+ *
+ * @return boolean whether function was overridden or not
+ */
+function setupForTestsUsingDate()
+{
+    if (PMA_HAS_RUNKIT && $GLOBALS['runkit_internal_override']) {
+        runkit_function_rename('date', 'test_date_override');
+        runkit_function_rename('test_date', 'date');
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Restores date function
+ *
+ * @return void
+ */
+function tearDownForTestsUsingDate()
+{
+    if (PMA_HAS_RUNKIT && $GLOBALS['runkit_internal_override']) {
+        runkit_function_rename('date', 'test_date');
+        runkit_function_rename('test_date_override', 'date');
+    }
 }
 ?>

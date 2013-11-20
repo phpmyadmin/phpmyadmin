@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_images.php
-// Version     : 1.0.000
+// Version     : 1.0.001
 // Begin       : 2002-08-03
-// Last Update : 2013-03-16
+// Last Update : 2013-08-05
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -38,7 +38,7 @@
  * This is a PHP class that contains static image methods for the TCPDF class.<br>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 1.0.000
+ * @version 1.0.001
  */
 
 /**
@@ -254,11 +254,6 @@ class TCPDF_IMAGES {
 		$w = TCPDF_STATIC::_freadint($f);
 		$h = TCPDF_STATIC::_freadint($f);
 		$bpc = ord(fread($f, 1));
-		if ($bpc > 8) {
-			// 16-bit depth not supported
-			fclose($f);
-			return false;
-		}
 		$ct = ord(fread($f, 1));
 		if ($ct == 0) {
 			$colspace = 'DeviceGray';
@@ -353,7 +348,7 @@ class TCPDF_IMAGES {
 		return array('w' => $w, 'h' => $h, 'ch' => $channels, 'icc' => $icc, 'cs' => $colspace, 'bpc' => $bpc, 'f' => 'FlateDecode', 'parms' => $parms, 'pal' => $pal, 'trns' => $trns, 'data' => $data);
 	}
 
-} // END OF TCPDF_STATIC CLASS
+} // END OF TCPDF_IMAGES CLASS
 
 //============================================================+
 // END OF FILE
