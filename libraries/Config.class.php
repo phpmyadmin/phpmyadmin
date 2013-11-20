@@ -16,6 +16,11 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/vendor_config.php';
 
 /**
+ * Indication for error handler (see end of this file).
+ */
+$GLOBALS['pma_config_loading'] = false;
+
+/**
  * Configuration class
  *
  * @package PhpMyAdmin
@@ -1884,7 +1889,6 @@ function PMA_Config_fatalErrorHandler()
 }
 
 if (!defined('TESTSUITE')) {
-    $GLOBALS['pma_config_loading'] = false;
     register_shutdown_function('PMA_Config_fatalErrorHandler');
 }
 
