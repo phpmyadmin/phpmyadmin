@@ -81,7 +81,6 @@ h2 a img {
 .data,
 .data_full_width {
     margin: 0 0 12px;
-    overflow: scroll;
 }
 
 .data_full_width {

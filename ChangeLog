@@ -55,7 +55,6 @@ phpMyAdmin - ChangeLog
 - bug #3931 IN Clause search does not permit multiple values
 - bug #4086 Clicking OK from edit popup opens new tab
 - bug #2983 unknown table status: TABLE_TYPE
-- bug #4096 horizontal scrollbar should not overflow on the left column
 - bug #4030 ORDER BY SUM(`field`) does not sort DESC
 
 4.0.10.0 (not yet released)
