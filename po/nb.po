@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-18 11:49+0100\n"
+"POT-Creation-Date: 2013-11-20 06:16-0500\n"
 "PO-Revision-Date: 2013-10-03 08:49+0200\n"
 "Last-Translator: Yngve Nybakk <yngve.nybakk@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -414,32 +414,32 @@ msgstr "Overvåk tabell"
 msgid "Database Log"
 msgstr "Databaselogg"
 
-#: error_report.php:31
+#: error_report.php:33
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 
-#: error_report.php:35 error_report.php:52 error_report.php:63
-#: error_report.php:79
+#: error_report.php:37 error_report.php:54 error_report.php:65
+#: error_report.php:81
 msgid "You may want to refresh the page."
 msgstr ""
 
-#: error_report.php:43
+#: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 
-#: error_report.php:48 error_report.php:75
+#: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 
-#: error_report.php:61 error_report.php:70
+#: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
 msgstr ""
 
-#: error_report.php:72
+#: error_report.php:74
 msgid "Unfortunately the submission failed."
 msgstr ""
 
@@ -2393,16 +2393,16 @@ msgstr "per time"
 msgid "per day"
 msgstr "hver dag"
 
-#: libraries/Config.class.php:1137
+#: libraries/Config.class.php:1144
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Nåværende konfigurasjonsfil (%s) er ikke lesbar."
 
-#: libraries/Config.class.php:1167
+#: libraries/Config.class.php:1174
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "Gale tillatelser på konfigurasjonsfilen, den burde ikke være skrivbar!"
 
-#: libraries/Config.class.php:1744
+#: libraries/Config.class.php:1751
 msgid "Font size"
 msgstr "Fontstørrelse"
 
@@ -4478,8 +4478,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Definerer hvilken type redigeringskontroll som skal brukes for CHAR og "
-"VARCHAR kolonner; [kbd]input[/kbd] - tillater begrensning av lengde, "
-"[kbd]textarea[/kbd] - tillater linjeskift i kolonner"
+"VARCHAR kolonner; [kbd]input[/kbd] - tillater begrensning av lengde, [kbd]"
+"textarea[/kbd] - tillater linjeskift i kolonner"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4487,8 +4487,8 @@ msgstr "CHAR kolonneredigering"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
@@ -4902,8 +4902,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Sorteringsrekkefølge for elementer i en fremmednøkkel nedfallsboks; "
-"[kbd]content[/kbd] for refererte data, [kbd]id[/kbd] for nøkkelverdien"
+"Sorteringsrekkefølge for elementer i en fremmednøkkel nedfallsboks; [kbd]"
+"content[/kbd] for refererte data, [kbd]id[/kbd] for nøkkelverdien"
 
 #: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
@@ -5049,13 +5049,12 @@ msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
-"Spesifiser vindustittelen til nettleseren. Se forøvrig "
-"[doc@cfg_TitleTable]dokumentasjon[/doc] for spesielle strenger som kan tas i "
-"bruk for å tilgang til spesialverdier."
+"Spesifiser vindustittelen til nettleseren. Se forøvrig [doc@cfg_TitleTable]"
+"dokumentasjon[/doc] for spesielle strenger som kan tas i bruk for å tilgang "
+"til spesialverdier."
 
 #: libraries/config/messages.inc.php:195
 #: libraries/navigation/NavigationHeader.class.php:216
@@ -5491,8 +5490,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Maks antal byte et skript har lov til å bruke, f.eks. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for ingen begrensning)"
+"Maks antal byte et skript har lov til å bruke, f.eks. [kbd]32M[/kbd] ([kbd]0"
+"[/kbd] for ingen begrensning)"
 
 #: libraries/config/messages.inc.php:299
 msgid "Memory limit"
@@ -5862,9 +5861,8 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
-"Stien til konfigfila for [a@http://swekey.com]SweKey hardware "
-"authentication[/a] (ikke lokalisert i din dokumentrot; foreslått: /etc/"
-"swekey.conf)"
+"Stien til konfigfila for [a@http://swekey.com]SweKey hardware authentication"
+"[/a] (ikke lokalisert i din dokumentrot; foreslått: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:378
 msgid "SweKey config file"
@@ -5887,8 +5885,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/bookmark]bokmerke[/"
-"a]støtte, anbefalt: [kbd]pma_bookmark[/kbd]"
+"La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/bookmark]bokmerke[/a]"
+"støtte, anbefalt: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:382
 msgid "Bookmark table"
@@ -5897,14 +5895,14 @@ msgstr "Bokmerketabell"
 #: libraries/config/messages.inc.php:383
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
-"La stå tom for ingen kolonnekommentarer/mime typer, anbefalt: "
-"[kbd]pma_column_info[/kbd]"
+"La stå tom for ingen kolonnekommentarer/mime typer, anbefalt: [kbd]"
+"pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:384
 msgid "Column information table"
@@ -5936,8 +5934,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 "En spesiell MySQL bruker konfigurert med begrensede rettigheter, mer "
-"informasjon tilgjengelig på [a@http://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]"
+"informasjon tilgjengelig på [a@http://wiki.phpmyadmin.net/pma/controluser]"
+"wiki[/a]"
 
 #: libraries/config/messages.inc.php:391
 msgid "Control user"
@@ -6008,8 +6006,8 @@ msgstr "Skul databaser"
 #: libraries/config/messages.inc.php:402
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma_history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
@@ -6139,11 +6137,11 @@ msgstr "Nylig brukt tabell"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relasjonslink[/a]støtte, anbefalt: [kbd]pma_relation[/kbd]"
+"La stå tom for ingen [a@http://wiki.phpmyadmin.net/pma/relation]relasjonslink"
+"[/a]støtte, anbefalt: [kbd]pma_relation[/kbd]"
 
 #: libraries/config/messages.inc.php:424
 msgid "Relation table"
@@ -6151,8 +6149,8 @@ msgstr "Relasjonstabell"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
 "a] for et eksempel"
@@ -6274,11 +6272,11 @@ msgstr "Spørringer som skal spores"
 #: libraries/config/messages.inc.php:446
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: "
-#| "[kbd]pma_tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
+#| "pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
@@ -6303,8 +6301,8 @@ msgstr "Automatisk opprette versjoner"
 #| msgid ""
 #| "blank for no SQL query tracking support, suggested: [kbd]_tracking[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
@@ -6317,8 +6315,8 @@ msgstr "Tabell for lagring av brukerpreferanser"
 #| msgid ""
 #| "blank for no SQL query tracking support, suggested: [kbd]_tracking[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
@@ -6333,8 +6331,8 @@ msgstr "Bruk tabeller"
 #| msgid ""
 #| "blank for no SQL query tracking support, suggested: [kbd]_tracking[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
@@ -6548,8 +6546,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Hvis du har et egendefinert brukernavn, angi det her (standard: "
-"[kbd]anonymous[/kbd])"
+"Hvis du har et egendefinert brukernavn, angi det her (standard: [kbd]"
+"anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:502 libraries/tbl_tracking.lib.php:500
 #: libraries/tbl_tracking.lib.php:598
@@ -6729,19 +6727,10 @@ msgid "Private key for reCaptcha"
 msgstr ""
 
 #: libraries/config/messages.inc.php:542
-msgid ""
-"Uncheck this to prevent the sending of error reports for javascript errors"
-msgstr ""
-
-#: libraries/config/messages.inc.php:543
-msgid "Enable javascript error reporting"
-msgstr ""
-
-#: libraries/config/messages.inc.php:544
 msgid "Choose the default action when sending error reports"
 msgstr ""
 
-#: libraries/config/messages.inc.php:545
+#: libraries/config/messages.inc.php:543
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
@@ -7547,22 +7536,22 @@ msgstr "Relasjoner"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
-#: libraries/error_report.lib.php:277
+#: libraries/error_report.lib.php:279
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
-#: libraries/error_report.lib.php:284
+#: libraries/error_report.lib.php:286
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: libraries/error_report.lib.php:291
+#: libraries/error_report.lib.php:293
 msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
-#: libraries/error_report.lib.php:299
+#: libraries/error_report.lib.php:301
 #, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
@@ -13289,9 +13278,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Opprett en mappe [em]config[/em] som er skrivbar for webtjener i phpMyAdmin "
-"øverste mappe som beskrevet i [a@../Documentation."
-"html#setup_script]documentation[/a]. Hvis ikke så vil du kun være i stand "
-"til å laste ned eller fremvise den."
+"øverste mappe som beskrevet i [a@../Documentation.html#setup_script]"
+"documentation[/a]. Hvis ikke så vil du kun være i stand til å laste ned "
+"eller fremvise den."
 
 #: setup/frames/index.inc.php:68
 msgid ""
@@ -13573,15 +13562,14 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "Du valgte [kbd]config[/kbd] autentisering og inkluderte brukernavn og "
 "passord for autmatisk innlogging, noe som ikke anbefales for aktive tjenere. "
 "Hvem som helst som kjenner phpMyAdmin URL kan direkte få adgang til ditt "
-"phpMyAdmin panel. Velg [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]autentiseringstype[/a] [kbd]cookie[/kbd] eller [kbd]http[/"
-"kbd]."
+"phpMyAdmin panel. Velg [a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server]"
+"autentiseringstype[/a] [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:284
 #, fuzzy, php-format
@@ -13604,8 +13592,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"[a@?page=form&amp;formset=features#tab_Import_export]Zip dekomprimering[/"
-"a]trenger funksjoner (%s) som ikke er tilgjengelig på dette systemet."
+"[a@?page=form&amp;formset=features#tab_Import_export]Zip dekomprimering[/a]"
+"trenger funksjoner (%s) som ikke er tilgjengelig på dette systemet."
 
 #: setup/lib/index.lib.php:324
 #, fuzzy
@@ -14959,9 +14947,8 @@ msgid "concurrent_insert is set to 0"
 msgstr "maks. samtidige tilkoblinger"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
 #~ "Mer informasjon på [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 #~ "bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -15297,9 +15284,9 @@ msgstr "maks. samtidige tilkoblinger"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Når du setter denne til [kbd]nested[/kbd] så blir tabellnavnaliaset kun "
 #~ "brukt til å splitte/neste tabellene etter $cfg['LeftFrameTableSeparator'] "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-18 11:49+0100\n"
+"POT-Creation-Date: 2013-11-20 06:16-0500\n"
 "PO-Revision-Date: 2013-11-02 14:26+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
@@ -402,18 +402,18 @@ msgstr "追蹤資料表"
 msgid "Database Log"
 msgstr "資料庫記錄"
 
-#: error_report.php:31
+#: error_report.php:33
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "已偵測到問題發生，根據你的系統設定錯誤報告已自動傳送給開發團隊。"
 
-#: error_report.php:35 error_report.php:52 error_report.php:63
-#: error_report.php:79
+#: error_report.php:37 error_report.php:54 error_report.php:65
+#: error_report.php:81
 msgid "You may want to refresh the page."
 msgstr "您需要重新整理頁面。"
 
-#: error_report.php:43
+#: error_report.php:45
 #, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
@@ -423,15 +423,15 @@ msgid ""
 "to be sent."
 msgstr "已偵測到問題發生，根據你的系統設定錯誤報告已自動傳送給開發團隊。"
 
-#: error_report.php:48 error_report.php:75
+#: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 
-#: error_report.php:61 error_report.php:70
+#: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
 msgstr "非常感謝您回報此錯誤。"
 
-#: error_report.php:72
+#: error_report.php:74
 msgid "Unfortunately the submission failed."
 msgstr ""
 
@@ -2305,16 +2305,16 @@ msgstr "每小時"
 msgid "per day"
 msgstr "每天"
 
-#: libraries/Config.class.php:1137
+#: libraries/Config.class.php:1144
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "無法讀取已存在的設定檔 %s。"
 
-#: libraries/Config.class.php:1167
+#: libraries/Config.class.php:1174
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "設定檔權限錯誤，其他人不應擁有寫入權。"
 
-#: libraries/Config.class.php:1744
+#: libraries/Config.class.php:1751
 msgid "Font size"
 msgstr "字體大小"
 
@@ -4343,8 +4343,8 @@ msgstr "CHAR 欄位編輯方式"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "使用 [a@http://codemirror.net/]CodeMirror[/a] 編輯器來編輯 SQL 查詢語法 (具語"
 "法加強顯示和行號功能)"
@@ -4877,9 +4877,8 @@ msgstr "頁面標題"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "設定瀏覽器標題列顯示的文字。請參考 [doc@cfg_TitleTable]說明文件[/doc] 中的變"
 "數字串會替換為特殊內容。"
@@ -4939,8 +4938,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
-"設定 phpMyAdmin 進階功能以開啟其他進階功能，請參考 [doc@linked-"
-"tables]phpMyAdmin 進階功能[/doc]"
+"設定 phpMyAdmin 進階功能以開啟其他進階功能，請參考 [doc@linked-tables]"
+"phpMyAdmin 進階功能[/doc]"
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
@@ -5647,8 +5646,8 @@ msgstr "書籤表"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr "無欄位註解/MIME類型時留空白。建議值: [kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:384
@@ -5811,8 +5810,8 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 "關聯、書籤與 PDF 功能所使用的資料庫，請參考  [a@http://wiki.phpmyadmin.net/"
-"pma/pmadb]pmadb [/a] 取得更多資訊。留空則關閉此功能，建議為:  "
-"[kbd]phpmyadmin[/kbd]"
+"pma/pmadb]pmadb [/a] 取得更多資訊。留空則關閉此功能，建議為:  [kbd]phpmyadmin"
+"[/kbd]"
 
 #: libraries/config/messages.inc.php:418
 #: libraries/display_create_database.lib.php:31
@@ -5840,8 +5839,8 @@ msgstr "最近使用的資料表"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "不使用[a@http://wiki.phpmyadmin.net/pma/relation]關聯連結 [/a]功能請留空，建"
 "議值: [kbd]pma__relation[/kbd]"
@@ -5852,8 +5851,8 @@ msgstr "關係表"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 "請參考 [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認證模式[/a] 中的"
 "範例"
@@ -5953,8 +5952,8 @@ msgstr "要追蹤的指令"
 
 #: libraries/config/messages.inc.php:446
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr "不使用 SQL 查詢追蹤功能請留空，建議值: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:447
@@ -5973,8 +5972,8 @@ msgstr "自動建立版本"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr "不在資料庫中儲存使用者偏好請留空，建議值: [kbd]pma__config[/kbd]"
 
 #: libraries/config/messages.inc.php:451
@@ -5983,8 +5982,8 @@ msgstr "使用者偏好表"
 
 #: libraries/config/messages.inc.php:452
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr "空白為禁用配置的選單功能，建議值：[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:453
@@ -5993,8 +5992,8 @@ msgstr "使用者資料表"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr "空白為禁用配置的選單功能，建議值：[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:455
@@ -6368,19 +6367,10 @@ msgid "Private key for reCaptcha"
 msgstr "驗證碼的私密金鑰"
 
 #: libraries/config/messages.inc.php:542
-msgid ""
-"Uncheck this to prevent the sending of error reports for javascript errors"
-msgstr "取消勾選此項目以避免傳送有關 JavaScript 的錯誤報告"
-
-#: libraries/config/messages.inc.php:543
-msgid "Enable javascript error reporting"
-msgstr "啟動 JavaScript 錯誤回報"
-
-#: libraries/config/messages.inc.php:544
 msgid "Choose the default action when sending error reports"
 msgstr "請選擇傳送錯誤報告的預設動作"
 
-#: libraries/config/messages.inc.php:545
+#: libraries/config/messages.inc.php:543
 msgid "Send error reports"
 msgstr "傳送錯誤報告"
 
@@ -7127,7 +7117,7 @@ msgstr "相關連結"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "PrimeBase XT 博客 —— Paul McCullagh 著"
 
-#: libraries/error_report.lib.php:277
+#: libraries/error_report.lib.php:279
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
@@ -7136,15 +7126,15 @@ msgstr ""
 "phpMyAdmin 已發生錯誤，系統已收集錯誤資訊與相關的系統設定並傳送給 phpMyAdmin "
 "開發團隊以協助問題的解決。"
 
-#: libraries/error_report.lib.php:284
+#: libraries/error_report.lib.php:286
 msgid "You may examine the data in the error report:"
 msgstr "您可以檢視錯誤報告內的資料："
 
-#: libraries/error_report.lib.php:291
+#: libraries/error_report.lib.php:293
 msgid "Please explain the steps that lead to the error:"
 msgstr "請說明造成此問題的原因："
 
-#: libraries/error_report.lib.php:299
+#: libraries/error_report.lib.php:301
 msgid "Automatically send report next time"
 msgstr "下次自動回傳錯誤報告"
 
@@ -12504,8 +12494,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "您設定了 [kbd]config[/kbd] 認證方式，且爲了能夠自動登入而儲存了帳號和密碼，但"
 "在常用主機上不建議這樣設定。如果有人知道 phpMyAdmin 的網址，他們就能夠進入 "
@@ -13801,9 +13791,15 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "Uncheck this to prevent the sending of error reports for javascript errors"
+#~ msgstr "取消勾選此項目以避免傳送有關 JavaScript 的錯誤報告"
+
+#~ msgid "Enable javascript error reporting"
+#~ msgstr "啟動 JavaScript 錯誤回報"
+
+#~ msgid ""
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
 #~ "詳情請參考  [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA 問題追"
 #~ "蹤系統[/a] 與 [a@http://bugs.mysql.com/19588]MySQL 問題回報[/a]"
@@ -14134,13 +14130,13 @@ msgstr "concurrent_insert 目前設定為 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "當設爲 [kbd]nested[/kbd] 時，資料表的別名僅根據 "
-#~ "$cfg['LeftFrameTableSeparator'] 作分割/層疊用，所有只有目錄的名字像別名，"
-#~ "資料表自己的名字並不改變"
+#~ "當設爲 [kbd]nested[/kbd] 時，資料表的別名僅根據 $cfg"
+#~ "['LeftFrameTableSeparator'] 作分割/層疊用，所有只有目錄的名字像別名，資料"
+#~ "表自己的名字並不改變"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "顯示資料表備註而不顯示資料資料表名稱"

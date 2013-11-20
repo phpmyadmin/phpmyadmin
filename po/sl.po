@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-18 11:49+0100\n"
+"POT-Creation-Date: 2013-11-20 06:16-0500\n"
 "PO-Revision-Date: 2013-11-18 20:39+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -410,22 +410,19 @@ msgstr "Sledi tabeli"
 msgid "Database Log"
 msgstr "Dnevnik zbirke podatkov"
 
-#: error_report.php:31
+#: error_report.php:33
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
 "Zaznali smo napako in na podlagi vaših nastavitev samodejno poslali poročilo."
 
-#: error_report.php:35 error_report.php:52 error_report.php:63
-#: error_report.php:79
+#: error_report.php:37 error_report.php:54 error_report.php:65
+#: error_report.php:81
 msgid "You may want to refresh the page."
 msgstr "Morda boste želeli osvežiti stran."
 
-#: error_report.php:43
-#| msgid ""
-#| "An error has been detected and an error report has been automatically "
-#| "submitted based on your settings."
+#: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -433,17 +430,17 @@ msgstr ""
 "Zaznali smo napako in na podlagi vaših nastavitev ustvarili poročilo, vendar "
 "ga nismo uspeli poslati."
 
-#: error_report.php:48 error_report.php:75
+#: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Če naletite na kakršne koli težave, prosimo, da ročno pošljete poročilo o "
 "hrošču."
 
-#: error_report.php:61 error_report.php:70
+#: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
 msgstr "Hvala, da ste poslali poročilo."
 
-#: error_report.php:72
+#: error_report.php:74
 msgid "Unfortunately the submission failed."
 msgstr "Žal, vendar pošiljanje ni uspelo."
 
@@ -2361,17 +2358,17 @@ msgstr "na uro"
 msgid "per day"
 msgstr "na dan"
 
-#: libraries/Config.class.php:1137
+#: libraries/Config.class.php:1144
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Obstoječa konfiguracijska datoteka (%s) ni berljiva."
 
-#: libraries/Config.class.php:1167
+#: libraries/Config.class.php:1174
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Napačna dovoljenja konfiguracijski datoteke; ne sme biti vsem zapisljiva!"
 
-#: libraries/Config.class.php:1744
+#: libraries/Config.class.php:1751
 msgid "Font size"
 msgstr "Velikost pisave"
 
@@ -3336,8 +3333,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Čiščenje nastavitev uporabniškega vmesnika tabel je spodletelo (glej "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Čiščenje nastavitev uporabniškega vmesnika tabel je spodletelo (glej $cfg"
+"['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1647
 #, php-format
@@ -4400,9 +4397,8 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Omogočitev tega dovoljuje strani, ki se nahaja na drugačni domeni, "
-"vključitev phpMyAdmina v okvirju, kar predstavlja morebitno "
-"[strong]varnostno luknjo[/strong], saj dovoljuje skriptne napade preko "
-"okvirjev"
+"vključitev phpMyAdmina v okvirju, kar predstavlja morebitno [strong]"
+"varnostno luknjo[/strong], saj dovoljuje skriptne napade preko okvirjev"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
@@ -4418,8 +4414,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
-"Skrivno geslo, ki se uporabi pri šifriranju piškotkov v overovitvi "
-"[kbd]cookie[/kbd]"
+"Skrivno geslo, ki se uporabi pri šifriranju piškotkov v overovitvi [kbd]"
+"cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
@@ -4460,8 +4456,8 @@ msgid ""
 "kbd] - allows newlines in columns"
 msgstr ""
 "Določa, katera vrsta urejevalnih kontrolnikov naj se uporablja za stolpce "
-"CHAR in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, "
-"[kbd]textarea[/kbd] – omogoča nove vrstice v stolpcu"
+"CHAR in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, [kbd]"
+"textarea[/kbd] – omogoča nove vrstice v stolpcu"
 
 #: libraries/config/messages.inc.php:31
 msgid "CHAR columns editing"
@@ -4469,8 +4465,8 @@ msgstr "Urejanje stolpcev CHAR"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers"
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
 "Uporabi uporabniku prijazen urejevalnik za urejanje poizvedb SQL ([a@http://"
 "codemirror.net/]CodeMirror[/a]) z obarvanjem skladnje in številkami vrstic"
@@ -5012,9 +5008,8 @@ msgstr "Naslovi strani"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Določite besedilo naslovne vrstice brskalnika. Oglejte si "
 "[doc@cfg_TitleTable]dokumentacijo[/doc] za čarobne nize, ki jih lahko "
@@ -5139,10 +5134,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Če želite uporabljati storitev Preverjalnika SQL, se zavedajte, da "
-"[strong]so vse izjave SQL brezimno shranjene v statistične namene[/strong]."
-"[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
-"2002 Upright Database Technology. Vse pravice pridržane.[/em]"
+"Če želite uporabljati storitev Preverjalnika SQL, se zavedajte, da [strong]"
+"so vse izjave SQL brezimno shranjene v statistične namene[/strong].[br][em]"
+"[a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 "
+"Upright Database Technology. Vse pravice pridržane.[/em]"
 
 #: libraries/config/messages.inc.php:223
 msgid "Startup"
@@ -5826,11 +5821,11 @@ msgstr "Tabela zaznamkov"
 
 #: libraries/config/messages.inc.php:383
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]"
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite pripomb/vrst MIME stolpcev; predlagano: "
-"[kbd]pma__column_info[/kbd]"
+"Pustite prazno, če ne želite pripomb/vrst MIME stolpcev; predlagano: [kbd]"
+"pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:384
 msgid "Column information table"
@@ -5900,8 +5895,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: "
-"[kbd]pma__designer_coords[/kbd]"
+"Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: [kbd]"
+"pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -5993,8 +5988,8 @@ msgstr "Geslo za overovitev config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore sheme PDF; predlagano: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Pustite prazno, če ne želite podpore sheme PDF; predlagano: [kbd]"
+"pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:416
 msgid "PDF schema: pages table"
@@ -6038,8 +6033,8 @@ msgstr "Nedavno uporabljena tabela"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]"
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 "Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relacijskih povezav[/a]; priporočeno: [kbd]pma__relation[/kbd]"
@@ -6050,8 +6045,8 @@ msgstr "Relacijska tabela"
 
 #: libraries/config/messages.inc.php:425
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example"
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example"
 msgstr ""
 "Oglejte si [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
 "overovitev[/a] za primer"
@@ -6086,8 +6081,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore sheme PDF; predlagano: "
-"[kbd]pma__table_coords[/kbd]"
+"Pustite prazno, če ne želite podpore sheme PDF; predlagano: [kbd]"
+"pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:433
 msgid "PDF schema: table coordinates"
@@ -6165,11 +6160,11 @@ msgstr "Izjave za sledenje"
 
 #: libraries/config/messages.inc.php:446
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]"
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]"
 msgstr ""
-"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: "
-"[kbd]pma__tracking[/kbd]"
+"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: [kbd]"
+"pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:447
 msgid "SQL query tracking table"
@@ -6188,8 +6183,8 @@ msgstr "Samodejno ustvari različice"
 
 #: libraries/config/messages.inc.php:450
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]"
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]"
 msgstr ""
 "Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
 "podatkov; predlagano: [kbd]pma__userconfig[/kbd]"
@@ -6200,8 +6195,8 @@ msgstr "Tabela za hranjenje uporabnikovih nastavitev"
 
 #: libraries/config/messages.inc.php:452
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
+"[/kbd]"
 msgstr ""
 "Pustite prazno, da onemogočite zmožnost nastavljivih menijev; predlagano: "
 "[kbd]pma__users[/kbd]"
@@ -6212,8 +6207,8 @@ msgstr "Tabela uporabnikov"
 
 #: libraries/config/messages.inc.php:454
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]"
+"Leave blank to disable configurable menus feature, suggested: [kbd]"
+"pma__usergroups[/kbd]"
 msgstr ""
 "Pustite prazno, da onemogočite zmožnost nastavljivih menijev; predlagano: "
 "[kbd]pma__usergroups[/kbd]"
@@ -6350,8 +6345,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Prikaže povezavo do podatkov [a@http://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]"
+"Prikaže povezavo do podatkov [a@http://php.net/manual/function.phpinfo.php]"
+"phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:482
 msgid "Show phpinfo() link"
@@ -6427,8 +6422,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
-"Če imate uporabniško ime po meri, ga določite tukaj (privzeto "
-"[kbd]anonymous[/kbd])"
+"Če imate uporabniško ime po meri, ga določite tukaj (privzeto [kbd]anonymous"
+"[/kbd])"
 
 #: libraries/config/messages.inc.php:502 libraries/tbl_tracking.lib.php:500
 #: libraries/tbl_tracking.lib.php:598
@@ -6612,20 +6607,10 @@ msgid "Private key for reCaptcha"
 msgstr "Zasebni ključ za reCaptcha"
 
 #: libraries/config/messages.inc.php:542
-msgid ""
-"Uncheck this to prevent the sending of error reports for javascript errors"
-msgstr ""
-"Počistite to polje, če ne želite pošiljati poročil o napakah v JavaScriptu"
-
-#: libraries/config/messages.inc.php:543
-msgid "Enable javascript error reporting"
-msgstr "Omogoči poročanje o napakah v JavaScriptu"
-
-#: libraries/config/messages.inc.php:544
 msgid "Choose the default action when sending error reports"
 msgstr "Izberite privzeto dejanje za pošiljanje poročil o napakah"
 
-#: libraries/config/messages.inc.php:545
+#: libraries/config/messages.inc.php:543
 msgid "Send error reports"
 msgstr "Pošlji poročila o napakah"
 
@@ -7410,7 +7395,7 @@ msgstr "Sorodne povezave"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Blog PrimeBase XT avtorja Paula McCullagha"
 
-#: libraries/error_report.lib.php:277
+#: libraries/error_report.lib.php:279
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
@@ -7420,15 +7405,15 @@ msgstr ""
 "informacije o bistvenih konfiguracijskih nastavitvah, za pošiljanje "
 "administratorski skupini, ki nam bo pomagala pri odpravljanju težave."
 
-#: libraries/error_report.lib.php:284
+#: libraries/error_report.lib.php:286
 msgid "You may examine the data in the error report:"
 msgstr "Pregledate lahko podatke v poročilo o napaki:"
 
-#: libraries/error_report.lib.php:291
+#: libraries/error_report.lib.php:293
 msgid "Please explain the steps that lead to the error:"
 msgstr "Prosimo, obrazložite korake, ki so vodili do napake:"
 
-#: libraries/error_report.lib.php:299
+#: libraries/error_report.lib.php:301
 msgid "Automatically send report next time"
 msgstr "Naslednjič poročilo pošlji samodejno"
 
@@ -8547,8 +8532,8 @@ msgid ""
 "(7,8,9)</code>"
 msgstr ""
 "vključi več vrstic v vsaki izjavi <code>INSERT</code><br /> &nbsp; &nbsp; "
-"&nbsp; Primer: <code>INSERT INTO ime_tabele VALUES (1,2,3), (4,5,6), "
-"(7,8,9)</code>"
+"&nbsp; Primer: <code>INSERT INTO ime_tabele VALUES (1,2,3), (4,5,6), (7,8,9)"
+"</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:382
 msgid ""
@@ -12744,9 +12729,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosimo, na spletnem strežniku ustvarite zapisljivo mapo [em]config[/em] v "
-"najvišjem nivoju mape phpMyAdmina, kot opisuje "
-"[doc@setup_script]dokumentacija[/doc]. V naprotnem primeru jo boste lahko "
-"samo prenesli ali jo prikazali."
+"najvišjem nivoju mape phpMyAdmina, kot opisuje [doc@setup_script]"
+"dokumentacija[/doc]. V naprotnem primeru jo boste lahko samo prenesli ali jo "
+"prikazali."
 
 #: setup/frames/index.inc.php:68
 msgid ""
@@ -12888,8 +12873,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Uporabljate nadležno različico, zaženite [kbd]tecnoba odstrani[/kbd] :-)"
-"[br]Najnovejša stabilna različica je %s, izdana %s."
+"Uporabljate nadležno različico, zaženite [kbd]tecnoba odstrani[/kbd] :-)[br]"
+"Najnovejša stabilna različica je %s, izdana %s."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
@@ -12999,8 +12984,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "Nastavili ste vrsto overovitve [kbd]config[/kbd] in vključili uporabniško "
 "ime in geslo za samodejno prijavo, kar ni zaželena možnost za gostitelje "
@@ -14415,13 +14400,20 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "Uncheck this to prevent the sending of error reports for javascript errors"
 #~ msgstr ""
-#~ "Več informacij na [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]sledilniku hroščev PMA[/a] in[a@http://bugs.mysql."
-#~ "com/19588]hroščih MySQL[/a]"
+#~ "Počistite to polje, če ne želite pošiljati poročil o napakah v JavaScriptu"
+
+#~ msgid "Enable javascript error reporting"
+#~ msgstr "Omogoči poročanje o napakah v JavaScriptu"
+
+#~ msgid ""
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ msgstr ""
+#~ "Več informacij na [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "sledilniku hroščev PMA[/a] in[a@http://bugs.mysql.com/19588]hroščih MySQL"
+#~ "[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Onemogoči uporabo INFORMATION_SCHEMA"
@@ -14778,14 +14770,14 @@ msgstr "concurrent_insert je nastavljeno na 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Ko je nastavljeno na [kbd]nested[/kbd], je pridevek imena tabele "
-#~ "uporabljen samo za razdružitev/združitev tabel v skladu z določilom "
-#~ "$cfg['LeftFrameTableSeparator'], zato je samo mapa imenovana kot "
-#~ "pridevek, sama imena tabel pa ostanejo nespremenjena"
+#~ "uporabljen samo za razdružitev/združitev tabel v skladu z določilom $cfg"
+#~ "['LeftFrameTableSeparator'], zato je samo mapa imenovana kot pridevek, "
+#~ "sama imena tabel pa ostanejo nespremenjena"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Prikaži pripombo tabele namesto njenega imena"
