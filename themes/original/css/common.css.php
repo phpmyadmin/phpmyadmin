@@ -2095,13 +2095,9 @@ fieldset .disabled-field td {
     color: #FFF !important;
 }
 
-.data {
-    overflow: scroll;
-}
 
 .data_full_width {
     width: 100%;
-    overflow: scroll;
 }
 
 .cDrop {
