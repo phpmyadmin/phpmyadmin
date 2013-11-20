@@ -395,7 +395,9 @@ var AJAX = {
          * @return void
          */
         done: function () {
-            ErrorReport.wrap_global_functions();
+            if (typeof ErrorReport !== 'undefined') {
+                ErrorReport.wrap_global_functions();
+            }
             for (var i in this._scriptsToBeFired) {
                 AJAX.fireOnload(this._scriptsToBeFired[i]);
             }
