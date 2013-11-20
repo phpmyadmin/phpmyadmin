@@ -1873,7 +1873,7 @@ class PMA_Config
  */
 function PMA_Config_fatalErrorHandler()
 {
-    if ($GLOBALS['pma_config_loading']) {
+    if (isset($GLOBALS['pma_config_loading']) && $GLOBALS['pma_config_loading']) {
         $error = error_get_last();
         if ($error !== null) {
             PMA_fatalError(
