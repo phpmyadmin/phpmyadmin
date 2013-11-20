@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-11-20 13:56+0200\n"
+"PO-Revision-Date: 2013-11-20 15:37+0200\n"
 "Last-Translator: Han Velthuis <han.velthuis@home.nl>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -7471,7 +7471,7 @@ msgstr "U kan de gegevens in het foutmeldingsverslag bekijken:"
 
 #: libraries/error_report.lib.php:293
 msgid "Please explain the steps that lead to the error:"
-msgstr "Gelieve de stappen die tot de fout leiden op te lijsten:"
+msgstr "Geef de stappen aan die tot de fout leiden:"
 
 #: libraries/error_report.lib.php:301
 msgid "Automatically send report next time"
@@ -8230,7 +8230,7 @@ msgstr "Aanmelden"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:100
 msgid "Your session has expired. Please log in again."
-msgstr "Uw sessie is verlopen. Gelieve opnieuw aan te melden."
+msgstr "Uw sessie is verlopen. Log opnieuw in."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:204
 #: libraries/plugins/auth/AuthenticationCookie.class.php:214
@@ -8253,7 +8253,7 @@ msgstr "Invoer is verkeerd, probeer opnieuw!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:407
 msgid "Please enter correct captcha!"
-msgstr "Gelieve een correcte captcha in te voeren!"
+msgstr "Vul een correcte captcha in!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:679
 #: libraries/plugins/auth/AuthenticationSignon.class.php:264
@@ -9457,24 +9457,23 @@ msgstr "De naam moet het formaat \"gebruikersnaam@computernaam\" hebben"
 
 #: libraries/rte/rte_events.lib.php:574
 msgid "You must provide an event name"
-msgstr "Gelieve een naam van een gebeurtenis in te geven"
+msgstr "Vul een naam voor de gebeurtenis in"
 
 #: libraries/rte/rte_events.lib.php:588
 msgid "You must provide a valid interval value for the event."
-msgstr ""
-"Gelieve een geldige waarde in te geven voor het interval van de gebeurtenis."
+msgstr "Vul een geldige waarde in voor het interval van de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:603
 msgid "You must provide a valid execution time for the event."
-msgstr "Gelieve een geldige uitvoeringstijd in te geven voor de gebeurtenis."
+msgstr "Vul een geldige uitvoeringstijd in voor de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:607
 msgid "You must provide a valid type for the event."
-msgstr "Gelieve een geldig type in te geven voor de gebeurtenis."
+msgstr "Vul een geldig type in voor de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:631
 msgid "You must provide an event definition."
-msgstr "Gelieve een definitie voor de gebeurtenis in te geven."
+msgstr "Vul een definitie voor de gebeurtenis in."
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
@@ -9499,10 +9498,10 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"U gebruikt de verouderde 'mysql'-uitbreiding, die niet in staat is om met "
+"U gebruikt de verouderde 'mysql'-uitbreiding, deze is niet in staat om met "
 "meerdere queries om te gaan. [strong]De uitvoering van sommige opgeslagen "
-"routines kan mislukken![/strong] Gelieve de verbeterde 'mysqli'-uitbreiding "
-"te gebruiken om problemen te vermijden."
+"routines kan mislukken![/strong] Gebruik de verbeterde 'mysqli'-uitbreiding "
+"om problemen te voorkomen."
 
 #: libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_routines.lib.php:1130
@@ -9555,7 +9554,7 @@ msgstr "Laatste parameter verwijderen"
 
 #: libraries/rte/rte_routines.lib.php:1005
 msgid "Return type"
-msgstr "Return-type"
+msgstr "Returntype"
 
 #: libraries/rte/rte_routines.lib.php:1012
 msgid "Return length/values"
@@ -9579,7 +9578,7 @@ msgstr "SQL-gegevenstoegang"
 
 #: libraries/rte/rte_routines.lib.php:1137
 msgid "You must provide a routine name"
-msgstr "Gelieve een routinenaam in te geven"
+msgstr "Vul een routinenaam in"
 
 #: libraries/rte/rte_routines.lib.php:1172
 #, php-format
@@ -9592,20 +9591,20 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
-"Gelieve een lengte/waarden op te geven voor routineparameters van het type "
-"ENUM, SET, VARCHAR en VARBINARY."
+"Vul de lengte/waarden in voor routineparameters van het type ENUM, SET, "
+"VARCHAR en VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1217
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Gelieve een naam en type op te geven voor iedere routineparameter."
+msgstr "Vul een naam en type in voor elke routineparameter."
 
 #: libraries/rte/rte_routines.lib.php:1236
 msgid "You must provide a valid return type for the routine."
-msgstr "Gelieve een geldig return-type op te geven voor de routine."
+msgstr "Vul een geldig returntype in voor de routine."
 
 #: libraries/rte/rte_routines.lib.php:1296
 msgid "You must provide a routine definition."
-msgstr "Gelieve een routinedefinitie op te geven."
+msgstr "Vul een routinedefinitie in."
 
 #: libraries/rte/rte_routines.lib.php:1389
 #, php-format
@@ -12839,8 +12838,8 @@ msgstr ""
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
-"Ongeldige formset, gelieve de array $formsets na te kijken in setup/frames/"
-"form.inc.php"
+"Ongeldige formset, controleer de array $formsets in "
+"setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
