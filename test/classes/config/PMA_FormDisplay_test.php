@@ -9,6 +9,7 @@
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/config/Form.class.php';
 require_once 'libraries/config/FormDisplay.class.php';
+require_once 'libraries/config/Form.class.php';
 require_once 'libraries/config/config_functions.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';

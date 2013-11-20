@@ -12,6 +12,7 @@
 /* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Image_JPEG_Link.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for Image_JPEG_Link class

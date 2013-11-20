@@ -14,6 +14,7 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
+require_once 'libraries/Util.class.php';
 
 /**
  * Tests behaviour of PMA_Advisor class

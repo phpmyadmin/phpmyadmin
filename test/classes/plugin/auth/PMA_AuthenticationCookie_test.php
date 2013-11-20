@@ -16,6 +16,8 @@ require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/Error_Handler.class.php';
+require_once 'libraries/Response.class.php';
+require_once 'libraries/js_escape.lib.php';
 
 /**
  * tests for AuthenticationCookie class
