@@ -247,8 +247,12 @@ class ImportCsv extends AbstractImportCsv
         $col_count = 0;
         $max_cols = 0;
 
+        $maxSizeToRead = PMA_importSizeToRead();
+
         while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
+            //$data contains next lines to import.
             $data = PMA_importGetNextChunk();
+            $lenData = strlen($data);
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
                 $GLOBALS['offset'] -= strlen($buffer);
@@ -315,6 +319,9 @@ class ImportCsv extends AbstractImportCsv
                     }
                     $fail = false;
                     $value = '';
+
+                    //Read all the chars between the separator chars or until the
+                    //end of the line.
                     while (($need_end
                         && ( $ch != $csv_enclosed || $csv_enclosed == $csv_escaped ))
                         || ( ! $need_end
@@ -355,11 +362,13 @@ class ImportCsv extends AbstractImportCsv
                         $value = null;
                     }
 
+                    //If fail, complete $buffer and restart to read this value.
                     if ($fail) {
                         $i = $fallbacki;
                         $ch = $buffer[$i];
                         break;
                     }
+
                     // Need to strip trailing enclosing char?
                     if ($need_end && $ch == $csv_enclosed) {
                         if ($finished && $i == $len - 1) {
@@ -373,6 +382,7 @@ class ImportCsv extends AbstractImportCsv
                             $ch = $buffer[$i];
                         }
                     }
+
                     // Are we at the end?
                     if ($ch == $csv_new_line
                         || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))
@@ -380,9 +390,17 @@ class ImportCsv extends AbstractImportCsv
                     ) {
                         $csv_finish = true;
                     }
+
                     // Go to next char
                     if ($ch == $csv_terminated) {
                         if ($i == $len - 1) {
+                            if ($lenData < $maxSizeToRead) {
+                                $values[] = $value;
+                                $values[] = '';
+                                break;
+                            }
+
+                            //Else, if there is other thing to read...
                             $i = $fallbacki;
                             $ch = $buffer[$i];
                             break;
