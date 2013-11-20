@@ -2798,15 +2798,8 @@ $cfg['LinkLengthLimit'] = 1000;
 $cfg['DisableMultiTableMaintenance'] = false;
 
 /**
- * Enable Error reporting by default in phpmyadmin installations
- *
- * @global boolean $cfg['ErrorReporting']
- */
-$cfg['ErrorReporting'] = true;
-
-/**
  * Whether or not to query the user before sending the error report to
- * phpmyadmin
+ * the phpMyAdmin team when a JavaScript error occurs
  *
  * Available options
  * (ask | always | never)

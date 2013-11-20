@@ -139,11 +139,11 @@ $cfg['SaveDir'] = '';
 //$cfg['QueryHistoryMax'] = 100;
 
 /**
- * Should error reporting be enabled for javascript errors
+ * Should error reporting be enabled for JavaScript errors
  *
- * default = true
+ * default = 'ask' 
  */
-//$cfg['ErrorReporting'] = true;
+//$cfg['SendErrorReports'] = 'ask';
 
 /*
  * You can find more configuration options in the documentation

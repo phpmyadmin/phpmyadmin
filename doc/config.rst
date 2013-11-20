@@ -123,19 +123,6 @@ Basic settings
 
     Show warning about incomplete translations on certain threshold.
 
-.. config:option:: $cfg['ErrorReporting']
-
-    :type: boolean
-    :default: true
-
-    Whenever an error is detected in the JavaScript execution, an error report
-    may be sent to the phpMyAdmin team if the user agrees.
-
-    You can set this parameter to ``false`` to never send error reports. This
-    directive can only be set in the configuration file; therefore, the person
-    in charge of a multi-user installation can disable the feature for all
-    users.
-
 .. config:option:: $cfg['SendErrorReports']
 
     :type: string
@@ -143,13 +130,19 @@ Basic settings
 
     Sets the default behavior for JavaScript error reporting.
 
+    Whenever an error is detected in the JavaScript execution, an error report
+    may be sent to the phpMyAdmin team if the user agrees.
+
     The default setting of ``'ask'`` will ask the user everytime there is a new
     error report. However you can set this parameter to ``'always'`` to send error
     reports without asking for confirmation or you can set it to ``'never'`` to
     never send error reports.
 
     This directive is available both in the configuration file and in users
-    preferences.
+    preferences. If the person in charge of a multi-user installation prefers
+    to disable this feature for all users, a value of ``'never'`` should be
+    set, and the :config:option:`$cfg['UserprefsDisallow']` directive should
+    contain ``'SendErrorReports'`` in one of its array values. 
 
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
