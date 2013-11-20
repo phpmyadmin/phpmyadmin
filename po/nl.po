@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-10-30 15:26+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2013-11-20 15:37+0200\n"
+"Last-Translator: Han Velthuis <han.velthuis@home.nl>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/4-0/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -105,8 +105,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Het bestand %s is niet beschikbaar op dit systeem, gelieve www.phpmyadmin."
-"net te bezoeken voor meer informatie."
+"Het bestand %s is niet beschikbaar op dit systeem, bezoek www.phpmyadmin.net "
+"voor meer informatie."
 
 #: db_create.php:74
 #, php-format
@@ -493,8 +493,7 @@ msgstr "Verkeerd type!"
 
 #: export.php:211
 msgid "Selected export type has to be saved in file!"
-msgstr ""
-"Het geselecteerde export type dient als een bestand te worden opgeslagen!"
+msgstr "Het geselecteerde exporttype dient in het bestand te worden opgeslagen!"
 
 #: export.php:240
 msgid "Bad parameters!"
@@ -613,8 +612,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Kies \"GeomFormText\" uit de kolom \"Functie\" en kopiëer onderstaande "
-"string in het \"Waarde\" veld"
+"Kies \"GeomFormText\" uit de kolom \"Functie\" en kopieer onderstaande string in "
+"het veld \"Waarde\""
 
 #: import.php:107
 #, php-format
@@ -622,8 +621,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"U probeerde waarschijnlijk een bestand up te loaden dat te groot is. Zie "
-"%sdocumentatie%s voor oplossingen voor deze beperking."
+"U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie %"
+"sdocumentatie%s voor oplossingen voor deze beperking."
 
 #: import.php:268 import.php:534
 msgid "Showing bookmark"
@@ -825,7 +824,7 @@ msgid ""
 msgstr ""
 "Uw configuratiebestand bevat instellingen (root zonder wachtwoord) die "
 "betrekking hebben tot het standaard MySQL-account. Uw MySQL-server draait "
-"met deze standaard waardes, en is open voor ongewilde toegang. Het wordt dus "
+"met deze standaardwaarden, en is open voor ongewilde toegang. Het wordt "
 "aangeraden dit op te lossen."
 
 #: index.php:408
@@ -865,9 +864,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"De cookiegeldigheid gedefinieerd door een PHP-parameter is korter dan de "
-"ingestelde cookiegeldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
-"eerder dan in phpMyAdmin is ingesteld."
+"De geldigheid van het cookie gedefinieerd door een PHP-parameter is korter "
+"dan die instelling in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
+"phpMyAdmin is ingesteld."
 
 #: index.php:454
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -891,7 +890,7 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"De phpMyAdmin-configuratie-opslag is niet volledig ingesteld, sommige "
+"De configuratie-opslag van phpMyAdmin is niet volledig ingesteld, sommige "
 "uitgebreide mogelijkheden zijn uitgeschakeld. Om te weten te komen waarom "
 "klik %shier%s."
 
@@ -1077,7 +1076,7 @@ msgstr ""
 "De configuratie voor de volgorde van grafieken, die opgeslagen is in lokale "
 "opslag van je browser, is niet langer compatibel met de nieuwere versie van "
 "de monitor-interface. Je huidige instellingen werken mogelijk niet meer. "
-"Gelieve de instellingen te resetten naar de standaardwaarden in het menu "
+"Reset de instellingen naar de standaardwaarden in het menu "
 "<i>Instellingen</i>."
 
 #: js/messages.php:82
@@ -1230,7 +1229,7 @@ msgstr "Grafiek toevoegen aan raster"
 
 #: js/messages.php:125
 msgid "Please add at least one variable to the series"
-msgstr "Gelieve tenminste één variabele toe te voegen aan de reeks"
+msgstr "Voeg tenminste één variabele toe aan de reeks"
 
 #: js/messages.php:126 libraries/DisplayResults.class.php:1335
 #: libraries/TableSearch.class.php:841 libraries/TableSearch.class.php:985
@@ -1327,8 +1326,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"U kan deze variabelen niet wijzigen. Gelieve in te loggen als root of neem "
-"contact op met de databankbeheerder."
+"U kan deze variabelen niet wijzigen. Log in als root of neem contact op met "
+"de databankbeheerder."
 
 #: js/messages.php:148
 msgid "Change settings"
@@ -1402,8 +1401,7 @@ msgstr ""
 
 #: js/messages.php:165
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
-"Loggegevens werden geladen. Aantal uitgevoerde queries in deze tijdspanne:"
+msgstr "Loggegevens zijn geladen. Aantal ondertussen uitgevoerde queries:"
 
 #: js/messages.php:167
 msgid "Jump to Log table"
@@ -1416,7 +1414,7 @@ msgstr "Geen gegevens gevonden"
 #: js/messages.php:169
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Log werd geanalyseerd, maar geen gegevens werden gevonden in deze tijdspanne."
+"Log is geanalyseerd, maar in deze periode zijn er geen gegevens gevonden."
 
 #: js/messages.php:171
 msgid "Analyzing…"
@@ -3192,9 +3190,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"Interface-eigenschap \"%s\" kan niet opgeslagen worden. De gedane "
-"wijzigingen zullen verdwijnen na verversen van deze pagina. Gelieve na te "
-"kijken of de tabelstructuur gewijzigd werd."
+"Interface-eigenschap \"%s\" kan niet opgeslagen worden. De gedane wijzigingen "
+"zullen verdwijnen na verversen van deze pagina. Controleer of de "
+"tabelstructuur is gewijzigd."
 
 #: libraries/TableSearch.class.php:179 libraries/insert_edit.lib.php:209
 #: libraries/insert_edit.lib.php:215
@@ -3316,8 +3314,8 @@ msgstr "Thema"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Een 1-byte integer, signed range is van -128 tot 127, unsigned range is 0 to "
-"255"
+"Een 1-byte integer, signed range is van -128 tot 127, unsigned range is van "
+"0 tot 255"
 
 #: libraries/Types.class.php:298
 msgid ""
@@ -3444,8 +3442,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
-"Een string met vaste lengte (0-255, standaard 1) wordt bij oplag met spaties "
-"rechts tot de gespecificeerde lengte aangevuld"
+"Een string met vaste lengte (0-255, standaard 1) wordt bij opslag met "
+"spaties rechts tot de gespecificeerde lengte aangevuld"
 
 #: libraries/Types.class.php:332 libraries/Types.class.php:730
 #, php-format
@@ -3462,7 +3460,7 @@ msgid ""
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
 "Een kolom van het type TEXT met een maximumlengte van 255 (2^8 - 1) tekens, "
-"wordt opgeslaan met een 1-byte voorvoegsel dat de lengte van de waarde in "
+"wordt opgeslagen met een 1-byte voorvoegsel dat de lengte van de waarde in "
 "bytes aangeeft"
 
 #: libraries/Types.class.php:336 libraries/Types.class.php:732
@@ -3471,7 +3469,7 @@ msgid ""
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
 "Een kolom van het type TEXT met een maximale lengte van 65.535 (2^16 - 1) "
-"tekens, wordt opgeslaan met een 2-byte voorvoegsel dat de lengte van de "
+"tekens, wordt opgeslagen met een 2-byte voorvoegsel dat de lengte van de "
 "waarde in bytes aangeeft"
 
 #: libraries/Types.class.php:338
@@ -3480,7 +3478,7 @@ msgid ""
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
 "Een kolom van het type TEXT met een maximale lengte van 16.777.215 (2^24 - "
-"1) tekens, wordt opgeslaan met een 3-byte voorvoegsel dat de lengte van de "
+"1) tekens, wordt opgeslagen met een 3-byte voorvoegsel dat de lengte van de "
 "waarde in bytes aangeeft"
 
 #: libraries/Types.class.php:340
@@ -3490,7 +3488,7 @@ msgid ""
 "value in bytes"
 msgstr ""
 "Een kolom van het type TEXT met een maximale lengte van 4.294.967.295 of "
-"4GiB (2^32 - 1) tekens, wordt opgeslaan met een 4-byte voorvoegsel dat de "
+"4GiB (2^32 - 1) tekens, wordt opgeslagen met een 4-byte voorvoegsel dat de "
 "lengte van de waarde in bytes aangeeft"
 
 #: libraries/Types.class.php:342
@@ -3498,7 +3496,7 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
-"Vergelijkbaar met het CHAR type, maar opgeslaan in een binaire byte "
+"Vergelijkbaar met het CHAR type, maar opgeslagen in een binaire byte "
 "tekenreeks in plaats van een niet-binaire reeks lettertekens"
 
 #: libraries/Types.class.php:344
@@ -3515,7 +3513,7 @@ msgid ""
 "one-byte prefix indicating the length of the value"
 msgstr ""
 "Een kolom van het type BLOB met een maximumlengte van 255 (2^8 - 1) bytes, "
-"wordt opgeslaan met een 1-byte voorvoegsel dat de lengte van de waarde "
+"wordt opgeslagen met een 1-byte voorvoegsel dat de lengte van de waarde "
 "aangeeft"
 
 #: libraries/Types.class.php:348
@@ -3524,7 +3522,7 @@ msgid ""
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
 "Een kolom van het type BLOB met een maximumlengte van 16.777.215 (2^24 - 1) "
-"bytes, wordt opgeslaan met een 3-byte voorvoegsel dat de lengte van de "
+"bytes, wordt opgeslagen met een 3-byte voorvoegsel dat de lengte van de "
 "waarde aangeeft"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:736
@@ -3533,7 +3531,7 @@ msgid ""
 "a two-byte prefix indicating the length of the value"
 msgstr ""
 "Een kolom van het type BLOB met een maximumlengte van 65.535 (2^16 - 1) "
-"bytes, wordt opgeslaan met een 2-byte voorvoegsel dat de lengte van de "
+"bytes, wordt opgeslagen met een 2-byte voorvoegsel dat de lengte van de "
 "waarde aangeeft"
 
 #: libraries/Types.class.php:352
@@ -3542,7 +3540,7 @@ msgid ""
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
 "Een kolom van het type BLOB met een maximumlengte van 4.294.967.295 of 4GiB "
-"(2^32 - 1) bytes, wordt opgeslaan met een 4-byte voorvoegsel dat de lengte "
+"(2^32 - 1) bytes, wordt opgeslagen met een 4-byte voorvoegsel dat de lengte "
 "van de waarde aangeeft"
 
 #: libraries/Types.class.php:354
@@ -3655,7 +3653,7 @@ msgstr ""
 
 #: libraries/Types.class.php:738
 msgid "An enumeration, chosen from the list of defined values"
-msgstr "Een opsomming, gekozen uit de lijst van gedefiniëerde waarden"
+msgstr "Een opsomming, gekozen uit de lijst van gedefinieerde waarden"
 
 #: libraries/Util.class.php:237
 #, php-format
@@ -3843,8 +3841,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
-"Dit betekent meestal dat er een syntaxfout in zit, gelieve de foutmeldingen "
-"hieronder te bekijken."
+"Dit betekent meestal dat er een syntaxfout is, controleer de onderstaande "
+"foutmeldingen."
 
 # 'kon niet vanuit "%1$s" geladen worden' is juister.
 #: libraries/common.inc.php:608
@@ -4170,7 +4168,7 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
-"Definiëert welk type HTML-element zal worden gebruikt voor CHAR- en VARCHAR-"
+"Definieert welk type HTML-element zal worden gebruikt voor CHAR- en VARCHAR-"
 "kolommen; [kbd]input[/kbd] - maakt het mogelijk om de invoerlengte te "
 "beperken, [kbd]textarea[/kbd] - maakt het mogelijk om meerdere regels in te "
 "vullen"
@@ -4560,7 +4558,7 @@ msgstr "Maximale lengte van de gemaakte query"
 
 #: libraries/config/messages.inc.php:138
 msgid "Export type"
-msgstr "Export-type"
+msgstr "Exporttype"
 
 #: libraries/config/messages.inc.php:139
 #: libraries/plugins/export/ExportSql.class.php:128
@@ -4792,7 +4790,7 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
-"Configureer de phpMyAdmin-configuratie-opslag om toegang te krijgen tot "
+"Configureer de configuratie-opslag van phpMyAdmin om toegang te krijgen tot "
 "extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-"
 "opslag[/doc] in de documentatie"
 
@@ -4806,7 +4804,7 @@ msgid ""
 "storage."
 msgstr ""
 "Bijhouden van wijzigingen in de databank. Dit vereist een geconfigureerde "
-"phpMyAdmin-configuratie-opslag."
+"configuratie-opslag van phpMyAdmin."
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
@@ -5337,13 +5335,13 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
-"De waarschuwing die getoond wordt op de pagina met databankdetails Structuur "
-"wanneer een benodigde tabel voor phpMyAdmin-configuratie-opslag niet "
-"gevonden kan worden, uitschakelen"
+"De waarschuwing uitschakelen die getoond wordt op de pagina met "
+"databankdetails Structuur wanneer een benodigde tabel voor de configuratie-"
+"opslag van phpMyAdmin niet gevonden kan worden"
 
 #: libraries/config/messages.inc.php:335
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Tabellen voor phpMyAdmin-configuratie-opslag ontbreken"
+msgstr "Tabellen voor de configuratie-opslag van phpMyAdmin ontbreken"
 
 #: libraries/config/messages.inc.php:336
 msgid ""
@@ -5392,9 +5390,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Schakel dit in wanneer u wil dat SQL-querygeschiedenis wordt bijgehouden in "
-"een databank (vereist phpMyAdmin-configuratie-opslag). Indien uitgeschakeld "
-"worden JS-routines gebruikt om querygeschiedenis te tonen (deze gaat "
-"verloren bij het sluiten van het venster)."
+"een databank (vereist configuratie-opslag). Indien uitgeschakeld worden JS-"
+"routines gebruikt om querygeschiedenis te tonen (deze gaat verloren bij het "
+"sluiten van het venster)."
 
 #: libraries/config/messages.inc.php:347
 msgid "Permanent query history"
@@ -6370,7 +6368,7 @@ msgstr "Foutief IP-adres: %s"
 #: libraries/core.lib.php:290
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "De extensie %s ontbreekt. Gelieve uw PHP-configuratie te controleren."
+msgstr "De extensie %s ontbreekt. Controleer uw PHP-configuratie."
 
 #: libraries/core.lib.php:449
 msgid "possible deep recursion attack"
@@ -6394,7 +6392,7 @@ msgstr "De server reageert niet."
 
 #: libraries/database_interface.lib.php:2093
 msgid "Please check privileges of directory containing database."
-msgstr "Gelieve de rechten op de folder met de databank na te kijken."
+msgstr "Controleer de rechten op de folder met de databank."
 
 #: libraries/database_interface.lib.php:2103
 msgid "Details…"
@@ -6849,7 +6847,7 @@ msgstr "Schrijfverzoeken"
 
 #: libraries/engines/innodb.lib.php:270
 msgid "Read misses"
-msgstr "Leesmissers"
+msgstr "Leesfouten"
 
 #: libraries/engines/innodb.lib.php:278
 msgid "Write waits"
@@ -6857,7 +6855,7 @@ msgstr "Schrijfvertragingen"
 
 #: libraries/engines/innodb.lib.php:286
 msgid "Read misses in %"
-msgstr "Leesmissers in %"
+msgstr "Leesfouten in %"
 
 #: libraries/engines/innodb.lib.php:301
 msgid "Write waits in %"
@@ -7655,7 +7653,7 @@ msgstr "Alleen gegevens"
 
 #: libraries/operations.lib.php:191
 msgid "Copy database to"
-msgstr "Kopiëer databank naar"
+msgstr "Kopieer databank naar"
 
 #: libraries/operations.lib.php:202
 msgid "CREATE DATABASE before copying"
@@ -7840,7 +7838,7 @@ msgstr "Aanmelden"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:100
 msgid "Your session has expired. Please log in again."
-msgstr "Uw sessie is verlopen. Gelieve opnieuw aan te melden."
+msgstr "Uw sessie is verlopen. Log opnieuw in."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 #: libraries/plugins/auth/AuthenticationCookie.class.php:208
@@ -8074,7 +8072,7 @@ msgstr "Tabelnamen exporteren"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
 msgid "Export table headers"
-msgstr "Exporteer tabel hoofdingen"
+msgstr "Exporteer tabel kopregels"
 
 #: libraries/plugins/export/ExportPdf.class.php:97
 msgid "(Generates a report containing the data of a single table)"
@@ -8281,7 +8279,7 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
-"Ongeldige kolom (%s) gespecifieerd! Zorg ervoor dat de kolomnamen juist "
+"Ongeldige kolom (%s) gespecificeerd! Zorg ervoor dat de kolomnamen juist "
 "gespeld zijn, gescheiden door komma's en niet voorzien van aanhalingstekens."
 
 #: libraries/plugins/import/ImportCsv.class.php:281
@@ -8632,8 +8630,8 @@ msgid ""
 "not, please add the following line into [mysqld] section:"
 msgstr ""
 "Let er op dat u op iedere MySQL-server een uniek server-id heeft ingesteld "
-"in het configuratiebestand (my.cnf). Zoniet voeg dan de onderstaande regels "
-"toe aan de sectie [mysqld]:"
+"in het configuratiebestand (my.cnf). Voeg anders de onderstaande regels toe "
+"aan de sectie [mysqld]:"
 
 #: libraries/replication_gui.lib.php:60 libraries/replication_gui.lib.php:61
 #: libraries/replication_gui.lib.php:273 libraries/replication_gui.lib.php:276
@@ -8743,7 +8741,7 @@ msgstr "Herstellen van de verwijderde gebeurtenis is mislukt."
 #: libraries/rte/rte_events.lib.php:137 libraries/rte/rte_routines.lib.php:325
 #: libraries/rte/rte_triggers.lib.php:109
 msgid "The backed up query was:"
-msgstr "De geback-upte query was:"
+msgstr "De gebackupte query was:"
 
 #: libraries/rte/rte_events.lib.php:144
 #, php-format
@@ -8828,24 +8826,23 @@ msgstr "De naam moet het formaat \"gebruikersnaam@computernaam\" hebben"
 
 #: libraries/rte/rte_events.lib.php:574
 msgid "You must provide an event name"
-msgstr "Gelieve een naam van een gebeurtenis in te geven"
+msgstr "Vul een naam voor de gebeurtenis in"
 
 #: libraries/rte/rte_events.lib.php:588
 msgid "You must provide a valid interval value for the event."
-msgstr ""
-"Gelieve een geldige waarde in te geven voor het interval van de gebeurtenis."
+msgstr "Vul een geldige waarde in voor het interval van de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:603
 msgid "You must provide a valid execution time for the event."
-msgstr "Gelieve een geldige uitvoeringstijd in te geven voor de gebeurtenis."
+msgstr "Vul een geldige uitvoeringstijd in voor de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:607
 msgid "You must provide a valid type for the event."
-msgstr "Gelieve een geldig type in te geven voor de gebeurtenis."
+msgstr "Vul een geldig type in voor de gebeurtenis."
 
 #: libraries/rte/rte_events.lib.php:631
 msgid "You must provide an event definition."
-msgstr "Gelieve een definitie voor de gebeurtenis in te geven."
+msgstr "Vul een definitie voor de gebeurtenis in."
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
@@ -8870,10 +8867,10 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"U gebruikt de verouderde 'mysql'-uitbreiding, die niet in staat is om met "
+"U gebruikt de verouderde 'mysql'-uitbreiding, deze is niet in staat om met "
 "meerdere queries om te gaan. [strong]De uitvoering van sommige opgeslagen "
-"routines kan mislukken![/strong] Gelieve de verbeterde 'mysqli'-uitbreiding "
-"te gebruiken om problemen te vermijden."
+"routines kan mislukken![/strong] Gebruik de verbeterde 'mysqli'-uitbreiding "
+"om problemen te voorkomen."
 
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1118
@@ -8926,7 +8923,7 @@ msgstr "Laatste parameter verwijderen"
 
 #: libraries/rte/rte_routines.lib.php:993
 msgid "Return type"
-msgstr "Return-type"
+msgstr "Returntype"
 
 #: libraries/rte/rte_routines.lib.php:1000
 msgid "Return length/values"
@@ -8950,7 +8947,7 @@ msgstr "SQL-gegevenstoegang"
 
 #: libraries/rte/rte_routines.lib.php:1125
 msgid "You must provide a routine name"
-msgstr "Gelieve een routinenaam in te geven"
+msgstr "Vul een routinenaam in"
 
 #: libraries/rte/rte_routines.lib.php:1155
 #, php-format
@@ -8963,20 +8960,20 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
-"Gelieve een lengte/waarden op te geven voor routineparameters van het type "
-"ENUM, SET, VARCHAR en VARBINARY."
+"Vul de lengte/waarden in voor routineparameters van het type ENUM, SET, "
+"VARCHAR en VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1198
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Gelieve een naam en type op te geven voor iedere routineparameter."
+msgstr "Vul een naam en type in voor elke routineparameter."
 
 #: libraries/rte/rte_routines.lib.php:1213
 msgid "You must provide a valid return type for the routine."
-msgstr "Gelieve een geldig return-type op te geven voor de routine."
+msgstr "Vul een geldig returntype in voor de routine."
 
 #: libraries/rte/rte_routines.lib.php:1272
 msgid "You must provide a routine definition."
-msgstr "Gelieve een routinedefinitie op te geven."
+msgstr "Vul een routinedefinitie in."
 
 #: libraries/rte/rte_routines.lib.php:1367
 #, php-format
@@ -9795,7 +9792,7 @@ msgid ""
 msgstr ""
 "Er is een kans dat u een fout heeft aangetroffen in de SQL-parser. Let er "
 "goed op, dat in de query op de correcte plaatsen quotes zijn geplaatst. Een "
-"ander mogelijkheid voor deze foutmelding is dat u het ge-quote tekstgedeelte "
+"ander mogelijkheid voor deze foutmelding is dat u het gequote tekstgedeelte "
 "in binaire mode heeft geplaatst. U kunt ook uw query proberen in de command "
 "line van MySQL. De MySQL-serverfoutmelding hieronder, mocht die aanwezig "
 "zijn, kan ook helpen met het opsporen van fouten. Blijft u problemen houden "
@@ -10149,7 +10146,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Uw voorkeuren worden enkel in de huidige sessie bewaard. Om deze permanent "
-"te bewaren is %sphpMyAdmin-configuratie-opslag%s vereist."
+"te bewaren is %sconfiguratie-opslag van phpMyAdmin%s vereist."
 
 #: libraries/user_preferences.lib.php:122
 msgid "Could not save configuration"
@@ -10160,7 +10157,7 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
-"Uw browser bevat phpMyAdmin-configuratie voor dit domein. Wilt u dit "
+"Uw browser bevat configuratie van phpMyAdmin voor dit domein. Wilt u dit "
 "gebruiken in de huidige sessie?"
 
 #: libraries/zip_extension.lib.php:29
@@ -10272,7 +10269,7 @@ msgstr "Behalve"
 #: pmd_general.php:525 pmd_general.php:584 pmd_general.php:707
 #: pmd_general.php:824
 msgid "subquery"
-msgstr "sub-query"
+msgstr "subquery"
 
 #: pmd_general.php:529 pmd_general.php:625
 msgid "Rename to"
@@ -10717,7 +10714,7 @@ msgstr ""
 
 #: server_replication.php:322
 msgid "Skip current error"
-msgstr "Sla de huidige error over"
+msgstr "Sla de huidige fout over"
 
 #: server_replication.php:323
 msgid "Skip next"
@@ -10725,7 +10722,7 @@ msgstr "Sla de volgende"
 
 #: server_replication.php:326
 msgid "errors."
-msgstr "errors over."
+msgstr "fouten over."
 
 #: server_replication.php:342
 #, php-format
@@ -11044,7 +11041,7 @@ msgstr "Logstatistieken"
 
 #: server_status_monitor.php:675
 msgid "Selected time range:"
-msgstr "Geselecteerde tijdspanne:"
+msgstr "Geselecteerde periode:"
 
 #: server_status_monitor.php:681
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -11588,8 +11585,8 @@ msgid ""
 msgstr ""
 "De totale kosten voor de laatst gecompileerde query zoals berekend door de "
 "query-optimizer. Dit kan nuttig zijn voor het vergelijken van de kosten van "
-"verschillende query plans voor dezelfde query. De standaardwaarde 0 betekend "
-"dat er nog geen query is gecompiled."
+"verschillende query plans voor dezelfde query. De standaardwaarde 0 betekent "
+"dat er nog geen query is gecompileerd."
 
 #: server_status_variables.php:629
 msgid ""
@@ -11667,7 +11664,7 @@ msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
-"Het aantal niet-gecachte queries (niet cachebaar, danwel niet gecached "
+"Het aantal niet-gecachte queries (niet cachebaar, dan wel niet gecached "
 "vanwege de instelling query_cache_type)."
 
 #: server_status_variables.php:674
@@ -11849,8 +11846,8 @@ msgstr "Download"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
-"Ongeldige formset, gelieve de array $formsets na te kijken in setup/frames/"
-"form.inc.php"
+"Ongeldige formset, controleer de array $formsets in "
+"setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
@@ -12031,12 +12028,12 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Deze %soptie%s zou uitgeschakeld moeten zijn gezien het de mogelijkheid "
-"geeft aan kwaadwillenden om op grote schaal aanmeldinspogingen uit te voeren "
-"op willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan "
-"%strusted proxies list%s. Echter, IP-adres gebaseerde beveiliging is "
-"mogelijk niet betrouwbaar wanneer uw IP-adres uit het netwerk van uw "
-"provider komt waar ook vele andere klanten gebruik van maken."
+"Deze %soptie%s zou uitgeschakeld moeten zijn omdat het de mogelijkheid geeft "
+"aan kwaadwillenden om op grote schaal aanmeldingspogingen uit te voeren op "
+"willekeurige MySQL-servers. Indien toch noodzakelijk gebruik dan %strusted "
+"proxies list%s. IP-adres gebaseerde beveiliging is echter mogelijk niet "
+"betrouwbaar wanneer uw IP-adres uit het netwerk van uw provider komt waar "
+"ook vele andere klanten gebruik van maken."
 
 #: setup/lib/index.lib.php:300
 msgid ""
@@ -12098,9 +12095,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"%sAanmeldingscookiegeldigheid%s zou maximaal 1800 seconds (30 minutes) "
+"%sAanmeldingscookiegeldigheid%s zou maximaal 1800 seconden (30 minuten) "
 "moeten zijn. Een waarde hoger dan 1800 kan een beveiligingsrisico opleveren, "
-"bv. iemand die uw identiteit kan misbruiken."
+"iemand kan bijvoorbeeld uw identiteit misbruiken."
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12439,7 +12436,7 @@ msgstr "Naam van de beperking"
 
 #: tbl_relation.php:529
 msgid "No index defined! Create one below"
-msgstr "Geen index gedefiniëerd! Maak hieronder een aan"
+msgstr "Geen index gedefinieerd! Maak hieronder er een aan"
 
 #: tbl_structure.php:125
 msgid "No column selected."
@@ -13433,8 +13430,8 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
-"Verklein best de grootte van {key_buffer_size}, herbekijk uw tabellen om te "
-"zien of indexen verwijderd werden, of bekijk queries en verwachtingen over "
+"Verklein de grootte van {key_buffer_size}, bekijk uw tabellen opnieuw om te "
+"zien of indexen verwijderd zijn, of bekijk queries en verwachtingen over "
 "welke indexen gebruikt zouden moeten worden."
 
 #: libraries/advisory_rules.txt:308
