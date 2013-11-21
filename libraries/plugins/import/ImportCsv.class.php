@@ -451,7 +451,10 @@ class ImportCsv extends AbstractImportCsv
                                 unset($values[count($values) - 1]);
                             } else {
                                 $message = PMA_Message::error(
-                                    __('Invalid column count in CSV input on line %d.')
+                                    __(
+                                        'Invalid column count in CSV input'
+                                        . ' on line %d.'
+                                    )
                                 );
                                 $message->addParam($line);
                                 $error = true;
