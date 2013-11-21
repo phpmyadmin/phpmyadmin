@@ -57,6 +57,7 @@ phpMyAdmin - ChangeLog
 - bug #2983 unknown table status: TABLE_TYPE
 - bug #4030 ORDER BY SUM(`field`) does not sort DESC
 - bug #4133 CSV import breaks when no blank line at end of file
+- bug #4153 Unable to import if newline encoding is MAC style
 
 4.0.10.0 (not yet released)
 - bug #4150 Clicking database name in query window opens a new tab
