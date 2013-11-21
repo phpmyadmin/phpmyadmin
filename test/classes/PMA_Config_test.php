@@ -241,6 +241,14 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 '11.0',
             ),
             array(
+                'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; '
+                . '.NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; '
+                . '.NET CLR 3.0.30729; InfoPath.3; rv:11.0) like Gecko',
+                'Win',
+                'IE',
+                '11.0',
+            ),
+            array(
                 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, '
                 . 'like Gecko) Chrome/25.0.1364.172 Safari/537.22',
                 'Win',
