@@ -15,6 +15,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/select_lang.lib.php';
+require_once 'libraries/sanitizing.lib.php';
 
 class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
 {

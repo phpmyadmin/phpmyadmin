@@ -13,6 +13,7 @@
 require_once 'libraries/Error.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/Util.class.php';
 
 /**
  * Erorr class testing.

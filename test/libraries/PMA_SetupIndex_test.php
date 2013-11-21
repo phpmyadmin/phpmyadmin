@@ -16,6 +16,8 @@ require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'setup/lib/index.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/sanitizing.lib.php';
 
 /**
  * tests for methods under setup/lib/index.lib.php

@@ -21,6 +21,7 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/vendor_config.php';
+require_once 'libraries/relation.lib.php';
 
 /**
  * Tests for Footer class
