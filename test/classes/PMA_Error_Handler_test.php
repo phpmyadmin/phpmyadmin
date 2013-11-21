@@ -11,6 +11,7 @@
 
 require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/Util.class.php';
 
 /**
  * Test for PMA_Error_Handler class.
