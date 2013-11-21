@@ -282,6 +282,42 @@ function PMA_lookForUse($buffer, $db, $reload)
     return(array($db, $reload));
 }
 
+/**
+ * Get max size to read
+ *
+ * @param int $size       Size to read
+ * @param int $read_multi Multiply read
+ *
+ * @return int Max size to read
+ */
+function PMA_importSizeToRead($size = null, $read_multi = null)
+{
+    global $read_multiply;
+
+    if (null === $size) {
+        $size = 32768;
+    }
+
+    if (null === $read_multi) {
+        $read_multi = $read_multiply;
+    }
+
+    // Add some progression while reading large amount of data
+    if ($read_multi <= 8) {
+        $size *= $read_multi;
+    } else {
+        $size *= 8;
+    }
+    $read_multiply++;
+
+    // We can not read too much
+    if ($size > $GLOBALS['read_limit']) {
+        $size = $GLOBALS['read_limit'];
+    }
+
+    return $size;
+}
+
 
 /**
  * Returns next part of imported file/buffer
@@ -292,23 +328,12 @@ function PMA_lookForUse($buffer, $db, $reload)
  * @return string part of file/buffer
  * @access public
  */
-function PMA_importGetNextChunk($size = 32768)
+function PMA_importGetNextChunk($size = null)
 {
     global $compression, $import_handle, $charset_conversion, $charset_of_file,
         $read_multiply;
 
-    // Add some progression while reading large amount of data
-    if ($read_multiply <= 8) {
-        $size *= $read_multiply;
-    } else {
-        $size *= 8;
-    }
-    $read_multiply++;
-
-    // We can not read too much
-    if ($size > $GLOBALS['read_limit']) {
-        $size = $GLOBALS['read_limit'];
-    }
+    $size = PMA_importSizeToRead($size, $read_multiply);
 
     if (PMA_checkTimeout()) {
         return false;
