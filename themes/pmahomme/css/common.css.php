@@ -87,6 +87,11 @@ h2 a img {
     width: 100%;
 }
 
+form#resultsForm > .data {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 #table_results td.data {
 border-right: 1px solid #bbb;
 }

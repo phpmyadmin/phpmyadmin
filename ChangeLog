@@ -58,6 +58,7 @@ phpMyAdmin - ChangeLog
 - bug #4030 ORDER BY SUM(`field`) does not sort DESC
 - bug #4133 CSV import breaks when no blank line at end of file
 - bug #4153 Unable to import if newline encoding is MAC style
+- bug #4096 horizontal scrollbar should not overflow on the left column
 
 4.0.10.0 (not yet released)
 - bug #4150 Clicking database name in query window opens a new tab
@@ -77,7 +78,7 @@ phpMyAdmin - ChangeLog
 - bug #4120 SSL redirects to port 80
 - bug #4144 DROP DATABASE displays wrong database name
 - bug #4059 Running delete query asks for confirmation but says it was already executed
-- bug #4147 Accessibility: Images without Alt nor title attribute 
+- bug #4147 Accessibility: Images without Alt nor title attribute
 
 4.0.8.0 (2013-10-06)
 - bug #3988 Rename view is not working
