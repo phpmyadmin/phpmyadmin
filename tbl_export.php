@@ -47,6 +47,18 @@ if (! empty($sql_query)) {
         //  ( SELECT id FROM companies WHERE name LIKE '%u%')"
         $sql_query = $temp_sql_array[0];
 
+        //Explode again on "group by"
+        $temp_sql_array = explode("group by", strtolower($sql_query));
+        $sql_query = $temp_sql_array[0];
+
+        //Explode again on "having"
+        $temp_sql_array = explode("having", strtolower($sql_query));
+        $sql_query = $temp_sql_array[0];
+
+        //Explode again on "order by"
+        $temp_sql_array = explode("order by", strtolower($sql_query));
+        $sql_query = $temp_sql_array[0];
+
         // Append the where clause using the primary key of each row
         if (is_array($where_clause) && (count($where_clause) > 0)) {
             $sql_query .= ' WHERE (' . implode(') OR (', $where_clause) . ')';
