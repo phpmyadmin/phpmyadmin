@@ -568,7 +568,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // reposition the cEdit element
                     $(g.cEdit).css({
                             top: $cell.position().top,
-                            left: $cell.position().left
+                            left: $cell.position().left + $cell.parents('.data').scrollLeft()
                         })
                         .show()
                         .find('.edit_box')
