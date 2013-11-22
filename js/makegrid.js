@@ -567,8 +567,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $(g.cEdit).find('.edit_area').empty().hide();
                     // reposition the cEdit element
                     $(g.cEdit).css({
-                            top: $cell.position().top,
-                            left: $cell.position().left + $cell.parents('.data').scrollLeft()
+                            top: $cell.offset().top,
+                            left: $cell.offset().left
                         })
                         .show()
                         .find('.edit_box')
@@ -1714,7 +1714,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             });
 
             // attach to global div
-            $(g.gDiv).append(g.cEdit);
+            $(g.gDiv).after(g.cEdit);
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
             if (PMA_messages.strGridEditFeatureHint !== undefined) {
