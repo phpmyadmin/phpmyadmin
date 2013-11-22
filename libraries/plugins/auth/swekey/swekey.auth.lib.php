@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * @package Swekey
  */
@@ -10,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Checks Swekey authentication.
  */
-function Swekey_auth_check()
+function Swekey_Auth_check()
 {
     global $cfg;
     $confFile = $cfg['Server']['auth_swekey_config'];
@@ -75,7 +76,7 @@ function Swekey_auth_check()
 /**
  * Handle Swekey authentication error.
  */
-function Swekey_auth_error()
+function Swekey_Auth_error()
 {
     if (! isset($_SESSION['SWEKEY'])) {
         return null;
@@ -92,9 +93,9 @@ function Swekey_auth_error()
     function Swekey_GetValidKey()
     {
         var valids = "<?php
-            foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
+    foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
                 echo $key.',';
-            }
+    }
         ?>";
         var connected_keys = Swekey_ListKeyIds().split(",");
         for (i in connected_keys) {
@@ -135,7 +136,10 @@ function Swekey_auth_error()
     }
 
     if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0) {
-        return sprintf(__('File %s does not contain any key id'), $GLOBALS['cfg']['Server']['auth_swekey_config']);
+        return sprintf(
+            __('File %s does not contain any key id'),
+            $GLOBALS['cfg']['Server']['auth_swekey_config']
+        );
     }
 
     include_once "libraries/plugins/auth/swekey/swekey.php";
@@ -153,14 +157,15 @@ function Swekey_auth_error()
             $pos = strrpos($caFile, '\\'); // windows
         }
         $caFile = substr($caFile, 0, $pos + 1).'musbe-ca.crt';
-//        echo "\n<!-- $caFile -->\n";
-//        if (file_exists($caFile))
-//            echo "<!-- exists -->\n";
+        //        echo "\n<!-- $caFile -->\n";
+        //        if (file_exists($caFile))
+        //            echo "<!-- exists -->\n";
     }
 
     if (file_exists($caFile)) {
         Swekey_SetCAFile($caFile);
-    } elseif (! empty($caFile) && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")) {
+    } elseif (! empty($caFile)
+     && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")) {
         return "Internal Error: CA File $caFile not found";
     }
 
@@ -229,7 +234,7 @@ function Swekey_auth_error()
  */
 function Swekey_login($input_name, $input_go)
 {
-    $swekeyErr = Swekey_auth_error();
+    $swekeyErr = Swekey_Auth_error();
     if ($swekeyErr != null) {
         PMA_Message::error($swekeyErr)->display();
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
