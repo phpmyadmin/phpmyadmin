@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.9-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-10-30 13:52+0100\n"
-"PO-Revision-Date: 2013-11-08 13:52+0200\n"
-"Last-Translator: Luis Esteves <gigapoint@netcabo.pt>\n"
+"PO-Revision-Date: 2013-11-22 11:07+0200\n"
+"Last-Translator: Edu Rib PT <edurib.pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-0/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: browse_foreigners.php:51 browse_foreigners.php:75 js/messages.php:345
 #: libraries/DisplayResults.class.php:856
@@ -3874,7 +3874,7 @@ msgstr "deve actualizar para %s %s ou mais recente."
 
 #: libraries/common.inc.php:1078
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Erro: testemunho inválido ou trocado"
 
 #: libraries/common.inc.php:1122
 msgid "GLOBALS overwrite attempt"
@@ -3917,11 +3917,11 @@ msgstr "Direita"
 
 #: libraries/config.values.php:74
 msgid "Click"
-msgstr ""
+msgstr "Clique"
 
 #: libraries/config.values.php:75
 msgid "Double click"
-msgstr ""
+msgstr "Duplo clique"
 
 #: libraries/config.values.php:76 libraries/config.values.php:107
 #: libraries/config/FormDisplay.tpl.php:223 libraries/relation.lib.php:96
