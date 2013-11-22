@@ -353,7 +353,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['from_cookie'] = false;
 
         // BEGIN Swekey Integration
-        if (! Swekey_auth_check()) {
+        if (! Swekey_Auth_check()) {
             return false;
         }
         // END Swekey Integration
