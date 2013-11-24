@@ -642,13 +642,6 @@ $cfg['ProxyPass'] = "";
 $cfg['MaxDbList'] = 100;
 
 /**
- * maximum number of items displayed in navigation panel
- *
- * @global integer $cfg['MaxDbList']
- */
-$cfg['MaxNavigationItems'] = 250;
-
-/**
  * maximum number of tables displayed in table list
  *
  * @global integer $cfg['MaxTableList']
@@ -870,6 +863,13 @@ $cfg['Error_Handler']['gather'] = false;
 /*******************************************************************************
  * Navigation panel setup
  */
+
+/**
+ * maximum number of items displayed in navigation panel
+ *
+ * @global integer $cfg['MaxDbList']
+ */
+$cfg['MaxNavigationItems'] = 250;
 
 /**
  * turn the select-based light menu into a tree
