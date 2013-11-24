@@ -1133,14 +1133,6 @@ Generic settings
     The maximum number of database names to be displayed in the main panel's
     database list.
 
-.. config:option:: $cfg['MaxNavigationItems']
-
-    :type: integer
-    :default: 250
-
-    The number of items that can be displayed on each page of the
-    navigation tree.
-
 .. config:option:: $cfg['MaxTableList']
 
     :type: integer
@@ -1403,6 +1395,14 @@ Cookie authentication options
 
 Navigation panel setup
 ----------------------
+
+.. config:option:: $cfg['MaxNavigationItems']
+
+    :type: integer
+    :default: 250
+
+    The number of items that can be displayed on each page of the
+    navigation tree.
 
 .. config:option:: $cfg['NavigationTreeEnableGrouping']
 
