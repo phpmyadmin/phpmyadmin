@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-10-18 16:20+0200\n"
+"PO-Revision-Date: 2013-11-25 15:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
 "Language: ur\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.8-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 # changelog.php:32 license.php:28
 #: changelog.php:36 license.php:28
@@ -30,7 +30,7 @@ msgstr ""
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "ڈیٹا بیس %1$s بنا دیا گیا"
+msgstr "ڈیٹا بیس %1$s بنا دیا گیا۔"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -3088,7 +3088,7 @@ msgstr "بنیادی کلید چھوڑ دیا گیا ہے"
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "اشاریہ %s چھوڑ دیا گیا ہے"
+msgstr "اشاریہ %s چھوڑ دیا گیا ہے۔"
 
 #: libraries/Index.class.php:738
 #, php-format
@@ -4064,7 +4064,7 @@ msgstr "ویب سرور اپ لوڈ پوشہ سے منتخب کریں <b>%s</b>:
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1233
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "اپ لوڈ کام کے لیے سیٹ کیا گیا پوشہ قابل رسائی نہیں ہے"
+msgstr "اپ لوڈ کام کے لیے سیٹ کیا گیا پوشہ قابل رسائی نہیں ہے۔"
 
 #: libraries/Util.class.php:3387
 msgid "There are no files to upload"
@@ -4438,7 +4438,7 @@ msgstr "زیادہ سے زیادہ %s"
 
 #: libraries/config/FormDisplay.tpl.php:216
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "ترتیب غیرفعال ہے، یہ آپ کے تشکیلات میں لاگوں نہیں ہوسکتی"
+msgstr "ترتیب غیرفعال ہے، یہ آپ کے تشکیلات میں لاگوں نہیں ہوسکتی۔"
 
 #: libraries/config/FormDisplay.tpl.php:308
 #, php-format
@@ -12744,11 +12744,11 @@ msgstr ""
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
-msgstr "غلطی : ریلیشن پہلے سے موجود ہے"
+msgstr "غلطی : ریلیشن پہلے سے موجود ہے۔"
 
 #: pmd_relation_new.php:79 pmd_relation_new.php:102
 msgid "Error: Relation not added."
-msgstr "غلطی:ریلیشن شامل نہیں ہوا"
+msgstr "غلطی:ریلیشن شامل نہیں ہوا۔"
 
 #: pmd_relation_new.php:80
 msgid "FOREIGN KEY relation added"
