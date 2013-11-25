@@ -235,49 +235,54 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
 <div id="maincontainer">
     <div id="main_pane_left">
         <div class="group">
-            <h2><?php echo __('Import') ?></h2>
-            <form class="group-cnt prefs-form disableAjax" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
-                <?php
-                echo PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
-                echo PMA_URL_getHiddenInputs() . "\n";
-                ?>
-                <input type="hidden" name="json" value="" />
-                <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked" />
-                <label for="import_text_file"><?php echo __('Import from file') ?></label>
-                <div id="opts_import_text_file" class="prefsmanage_opts">
-                    <label for="input_import_file"><?php echo __('Browse your computer:'); ?></label>
-                    <input type="file" name="import_file" id="input_import_file" />
-                </div>
-                <input type="radio" id="import_local_storage" name="import_type" value="local_storage" disabled="disabled" />
-                <label for="import_local_storage"><?php echo __('Import from browser\'s storage') ?></label>
-                <div id="opts_import_local_storage" class="prefsmanage_opts disabled">
-                    <div class="localStorage-supported">
-                        <?php echo __('Settings will be imported from your browser\'s local storage.') ?>
-                        <br />
-                        <div class="localStorage-exists">
-                            <?php echo __('Saved on: @DATE@') ?>
-                        </div>
-                        <div class="localStorage-empty">
-                            <?php  PMA_Message::notice(__('You have no saved settings!'))->display() ?>
-                        </div>
-                    </div>
-                    <div class="localStorage-unsupported">
-                        <?php PMA_Message::notice(__('This feature is not supported by your web browser'))->display() ?>
-                    </div>
-                </div>
-
-                <input type="checkbox" id="import_merge" name="import_merge" />
-                <label for="import_merge"><?php echo __('Merge with current configuration') ?></label>
-                <br /><br />
-                <input type="submit" name="submit_import" value="<?php echo __('Go'); ?>" />
-            </form>
-        </div>
-        <?php
-        if (file_exists('setup/index.php')) {
+<?php
+echo '<h2>' . __('Import') . '</h2>'
+    . '<form class="group-cnt prefs-form disableAjax" name="prefs_import"'
+    . ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
+    . PMA_Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
+    . PMA_URL_getHiddenInputs()
+    . '<input type="hidden" name="json" value="" />'
+    . '<input type="radio" id="import_text_file" name="import_type"'
+    . ' value="text_file" checked="checked" />'
+    . '<label for="import_text_file">' . __('Import from file') . '</label>'
+    . '<div id="opts_import_text_file" class="prefsmanage_opts">'
+    . '<label for="input_import_file">' . __('Browse your computer:') . '</label>'
+    . '<input type="file" name="import_file" id="input_import_file" />'
+    . '</div>'
+    . '<input type="radio" id="import_local_storage" name="import_type"'
+    . ' value="local_storage" disabled="disabled" />'
+    . '<label for="import_local_storage">'
+    . __('Import from browser\'s storage') . '</label>'
+    . '<div id="opts_import_local_storage" class="prefsmanage_opts disabled">'
+    . '<div class="localStorage-supported">'
+    . __('Settings will be imported from your browser\'s local storage.')
+    . '<br />'
+    . '<div class="localStorage-exists">'
+    . __('Saved on: @DATE@')
+    . '</div>'
+    . '<div class="localStorage-empty">'
+    . PMA_Message::notice(__('You have no saved settings!'))->display()
+    . '</div>'
+    . '</div>'
+    . '<div class="localStorage-unsupported">'
+    . PMA_Message::notice(
+        __('This feature is not supported by your web browser')
+    )->display()
+    . '</div>'
+    . '</div>'
+    . '<input type="checkbox" id="import_merge" name="import_merge" />'
+    . '<label for="import_merge">'
+    . __('Merge with current configuration') . '</label>'
+    . '<br /><br />'
+    . '<input type="submit" name="submit_import" value="'
+    . __('Go') . '" />'
+    . '</form>'
+    . '</div>';
+if (file_exists('setup/index.php')) {
             // show only if setup script is available, allows to disable this message
             // by simply removing setup directory
-        ?>
-        <div class="group">
+            ?>
+            <div class="group">
             <h2><?php echo __('More settings') ?></h2>
             <div class="group-cnt">
                 <?php
@@ -285,9 +290,9 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
                 echo PMA_Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
-        </div>
+            </div>
         <?php
-        }
+}
         ?>
     </div>
     <div id="main_pane_right">
