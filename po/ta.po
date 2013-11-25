@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-11-18 13:46+0200\n"
+"PO-Revision-Date: 2013-11-25 10:33+0200\n"
 "Last-Translator: Lakshmanan M <send2lakshman@gmail.com>\n"
-"Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/master/ta/>\n"
+"Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,12 +22,14 @@ msgstr ""
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "%s கோப்பு இந்த அமைப்பில் இல்லை, மேலும் தகவலுக்கு www.phpmyadmin.net செல்லுங்கள்"
+msgstr ""
+"%s கோப்பு இந்த அமைப்பில் இல்லை, மேலும் தகவலுக்கு www.phpmyadmin.net "
+"செல்லுங்கள்."
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s தரவுத்தளம் உருவாக்கப்பட்டது"
+msgstr "%1$s தரவுத்தளம் உருவாக்கப்பட்டது."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -203,7 +205,7 @@ msgstr "தரவுத்தளத்தின் திட்ட வடிவ�
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:572 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "அட்டவணைகள் எதுவும் தரவுத்தளத்தில் காணப்படவில்லை"
+msgstr "அட்டவணைகள் எதுவும் தரவுத்தளத்தில் காணப்படவில்லை."
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
@@ -236,8 +238,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்க செய்யப்பட்டுள்ளது. ஏன் எனக் கண்டுபிடிக்க %sஇங்கே%s "
-"கிளிக் செய்யவும்"
+"PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்க செய்யப்பட்டுள்ளது. ஏன் எனக் "
+"கண்டுபிடிக்க %sஇங்கே%s கிளிக் செய்யவும்."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:516
@@ -2869,7 +2871,7 @@ msgstr ""
 
 #: libraries/File.class.php:288
 msgid "Missing a temporary folder."
-msgstr "ஒரு தற்காலிய உறையை காணவில்லை"
+msgstr "ஒரு தற்காலிய உறையை காணவில்லை."
 
 #: libraries/File.class.php:291
 msgid "Failed to write file to disk."
@@ -3148,22 +3150,22 @@ msgstr "வலு"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d வரிசை மாற்றப்பட்டுள்ளது"
-msgstr[1] "%1$d வரிசைகள் மாற்றப்பட்டுள்ளன"
+msgstr[0] "%1$d வரிசை மாற்றப்பட்டுள்ளது."
+msgstr[1] "%1$d வரிசைகள் மாற்றப்பட்டுள்ளன."
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d வரிசை அகற்றப்பட்டுள்ளது"
-msgstr[1] "%1$d வரிசைகள் அகற்றப்பட்டுள்ளன"
+msgstr[0] "%1$d வரிசை அகற்றப்பட்டுள்ளது."
+msgstr[1] "%1$d வரிசைகள் அகற்றப்பட்டுள்ளன."
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d வரிசை சேர்க்கப்பட்டுள்ளது"
-msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்டுள்ளன"
+msgstr[0] "%1$d வரிசை சேர்க்கப்பட்டுள்ளது."
+msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்டுள்ளன."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2475
 #: libraries/browse_foreigners.lib.php:393
@@ -3895,44 +3897,45 @@ msgstr "%B %d, %Y at %I:%M %p"
 #: libraries/Util.class.php:1985
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s நாட்கள் %s மணித்தியாலங்கள் %s நிமிடங்கள் மற்றும் %s செக்கன்கள்"
+msgstr "%s நாட்கள் %s மணித்தியாலங்கள் %s நிமிடங்கள் மற்றும் %s நொடிகள்"
 
 #: libraries/Util.class.php:2073
 msgid "Missing parameter:"
-msgstr ""
+msgstr "அளவுருக்கள் காணப்படவில்லை:"
 
 #: libraries/Util.class.php:2593
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "தரவுத்தளம் தாவி செல்லவும் &quot;%s&quot;."
 
 #: libraries/Util.class.php:2617
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
+"% S செயல்பாடு ஒரு அறியப்படுகிற பிழையால் பாதிக்கப்பட்டுள்ளது, % S பார்க்க"
 
 #: libraries/Util.class.php:2798
 msgid "Click to toggle"
-msgstr ""
+msgstr "மாறுவதற்கு கிளிக் செய்யவும்"
 
 #: libraries/Util.class.php:3322 libraries/sql_query_form.lib.php:477
 #: prefs_manage.php:248
 msgid "Browse your computer:"
-msgstr "உனது கணினியை உலாவு"
+msgstr "உனது கணினியை உலாவு:"
 
 #: libraries/Util.class.php:3347
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr ""
+msgstr "வலை சேவையகம் பதிவேற்ற அடைவை <b>%s</b> தேர்ந்தெடுங்கள்:"
 
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1233
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr ""
+msgstr "நீங்கள் தேர்வு செய்த வலை சேவையகம் பதிவேற்றை அடைய இயலவில்லை."
 
 #: libraries/Util.class.php:3387
 msgid "There are no files to upload"
-msgstr ""
+msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை"
 
 #: libraries/Util.class.php:3412 libraries/Util.class.php:3413
 #: libraries/structure.lib.php:305
@@ -7735,7 +7738,7 @@ msgstr "தரவுத்தளத்தைப் பெயர் மாற்�
 #: libraries/operations.lib.php:107
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
+msgstr "%s தரவுத்தளம் இரத்து செய்யப்பட்டது."
 
 #: libraries/operations.lib.php:119
 msgid "Remove database"
