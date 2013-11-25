@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-11-22 11:13+0200\n"
+"PO-Revision-Date: 2013-11-25 10:39+0200\n"
 "Last-Translator: Edu Rib PT <edurib.pt@gmail.com>\n"
 "Language-Team: Portuguese "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
+"<http://l10n.cihar.com/projects/phpmyadmin/4-1/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5519,7 +5519,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr ""
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5527,8 +5526,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Somente versão light; exibe base de dados em árvore (determinado pelo "
-"divisor definido abaixo)"
+"Itens de grupo na árvore de navegação (determinado pelo separador definido "
+"abaixo)"
 
 #: libraries/config/messages.inc.php:313
 msgid "Group items in the tree"
@@ -5595,10 +5594,9 @@ msgid "Use only icons, only text or both"
 msgstr "Usar apenas ícones, apenas texto ou ambos"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Barra de navegação com ícones"
+msgstr "Barra da tabela de navegação"
 
 #: libraries/config/messages.inc.php:329
 msgid "use GZip output buffering for increased speed in HTTP transfers"
