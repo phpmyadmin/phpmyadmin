@@ -1,17 +1,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
+"Project-Id-Version: phpMyAdmin 4.1.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-20 06:16-0500\n"
+"POT-Creation-Date: 2013-11-25 16:19-0500\n"
 "PO-Revision-Date: 2013-09-09 20:22+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "id/>\n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.7-dev\n"
 "X-Poedit-Basepath: ../../..\n"
@@ -607,11 +607,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silahkan lihat "
-"%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
+"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silahkan lihat %"
+"sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
@@ -2360,17 +2360,17 @@ msgstr "dalam sejam"
 msgid "per day"
 msgstr "per hari"
 
-#: libraries/Config.class.php:1144
+#: libraries/Config.class.php:1151
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "File configuration yang ada (%s) tidak dapat di baca."
 
-#: libraries/Config.class.php:1174
+#: libraries/Config.class.php:1181
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Perizinan yang salah pada file konfigurasi, sehingga tidak dapat ditulis!"
 
-#: libraries/Config.class.php:1751
+#: libraries/Config.class.php:1758
 msgid "Font size"
 msgstr "Ukuran huruf"
 
@@ -2722,11 +2722,11 @@ msgstr "dalam susunan pemeriksaan"
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat "
-"%sdokumentasi%s."
+"Sebuah view setidaknya mempunyai jumlah kolom berikut. Harap lihat %"
+"sdokumentasi%s."
 
 #: libraries/DisplayResults.class.php:4926
 #, php-format
@@ -3539,20 +3539,20 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"small floating-point number, mengizinkan nilai dari -3.402823466E+38 sampai "
-"-1.175494351E-38, 0, dan 1.175494351E-38 sampai 3.402823466E+38"
+"small floating-point number, mengizinkan nilai dari -3.402823466E+38 sampai -"
+"1.175494351E-38, 0, dan 1.175494351E-38 sampai 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"double-precision floating-point number, mengizinkan nilai antara "
-"-1.7976931348623157E+308 sampai -2.2250738585072014E-308, 0, dan "
+"double-precision floating-point number, mengizinkan nilai antara -"
+"1.7976931348623157E+308 sampai -2.2250738585072014E-308, 0, dan "
 "2.2250738585072014E-308 sampai 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
@@ -6873,8 +6873,8 @@ msgstr ", @TABLE@ akan menjadi nama tabel"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7357,8 +7357,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7448,6 +7448,7 @@ msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Buat indeks pada &nbsp;%s&nbsp; kolom"
 
 #: libraries/insert_edit.lib.php:216 libraries/insert_edit.lib.php:247
+#: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
 #: pmd_general.php:183
 msgid "Hide"
 msgstr "Sembunyikan"
@@ -7819,30 +7820,30 @@ msgstr "Dokumentasi phpMyAdmin"
 msgid "Reload navigation panel"
 msgstr "Muat ulang bingkai navigasi"
 
-#: libraries/navigation/NavigationTree.class.php:717
+#: libraries/navigation/NavigationTree.class.php:720
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 
-#: libraries/navigation/NavigationTree.class.php:826
+#: libraries/navigation/NavigationTree.class.php:829
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1042
+#: libraries/navigation/NavigationTree.class.php:1045
 #, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name or regex"
 msgstr "Filter tabel menurut nama"
 
-#: libraries/navigation/NavigationTree.class.php:1044
-#: libraries/navigation/NavigationTree.class.php:1078
+#: libraries/navigation/NavigationTree.class.php:1047
+#: libraries/navigation/NavigationTree.class.php:1081
 #, fuzzy
 #| msgid "Clear series"
 msgid "Clear fast filter"
 msgstr "Bersihkan seri"
 
-#: libraries/navigation/NavigationTree.class.php:1077
+#: libraries/navigation/NavigationTree.class.php:1080
 #, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter by name or regex"
@@ -7877,6 +7878,12 @@ msgstr "Baru"
 #| msgid "Database export options"
 msgid "Database operations"
 msgstr "Opsi ekspor basis data"
+
+#: libraries/navigation/Nodes/Node_Database.class.php:318
+#, fuzzy
+#| msgid "Show hint"
+msgid "Show hidden items"
+msgstr "Tampilkan petunjuk"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 #, fuzzy
@@ -8162,11 +8169,11 @@ msgstr "Selamat Datang di %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan "
-"%1$ssetup script%2$s untuk membuatnya."
+"Anda mungkin belum membuat berkas konfigurasi. Anda bisa menggunakan %1"
+"$ssetup script%2$s untuk membuatnya."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -8249,21 +8256,21 @@ msgstr "Nama pengguna/kata sandi salah. Akses ditolak."
 msgid "Can not find signon authentication script:"
 msgstr "Tidak dapat menemukan script otentikasi signon:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:138
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "Arsip %s tidak mengandung key id"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
 msgid "Hardware authentication failed!"
 msgstr "Autentikasi perangkat keras gagal!"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
 msgstr "Tidak ada kunci autentikasi yang terpasang"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:220
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
 msgid "Authenticating…"
 msgstr "Mengautentikasi…"
 
@@ -8672,13 +8679,13 @@ msgid ""
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:282
-#: libraries/plugins/import/ImportCsv.class.php:557
+#: libraries/plugins/import/ImportCsv.class.php:298
+#: libraries/plugins/import/ImportCsv.class.php:576
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:438
+#: libraries/plugins/import/ImportCsv.class.php:455
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
@@ -10460,8 +10467,8 @@ msgstr "Ikhtisar pengguna"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Perhatian: phpMyAdmin membaca data tentang pengguna secara langsung dari "
 "tabel profil pengguna MySQL. Isi dari tabel bisa saja berbeda dengan profil "
@@ -13449,8 +13456,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13576,8 +13583,8 @@ msgstr ""
 #| "Rate of temporary tables being written to disk: %s, this value should be "
 #| "less than 1 per hour"
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 "Tingkat pembuatan tabel temporer ke diska: %s, nilai ini hasul kurang dari 1 "
 "per jam"
