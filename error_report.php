@@ -82,7 +82,9 @@ if (isset($_REQUEST['send_error_report'])
                 )
             );
         }
-        if ($_REQUEST['always_send'] === "true") {
+        if (isset($_REQUEST['always_send'])
+            && $_REQUEST['always_send'] === "true"
+        ) {
             PMA_persistOption("SendErrorReports", "always", "ask");
         }
     }
@@ -91,4 +93,3 @@ if (isset($_REQUEST['send_error_report'])
 } else {
     $response->addHTML(PMA_getErrorReportForm());
 }
-
