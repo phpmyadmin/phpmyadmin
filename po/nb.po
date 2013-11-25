@@ -1,17 +1,17 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-20 06:16-0500\n"
+"POT-Creation-Date: 2013-11-25 16:20-0500\n"
 "PO-Revision-Date: 2013-10-03 08:49+0200\n"
 "Last-Translator: Yngve Nybakk <yngve.nybakk@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/nb/>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -604,7 +604,7 @@ msgstr "Legg til geometri"
 #: libraries/tbl_chart.lib.php:216
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:386 libraries/tbl_tracking.lib.php:454
-#: pmd_pdf.php:158 prefs_manage.php:272 prefs_manage.php:322
+#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:327
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
 msgstr "Utfør"
@@ -624,11 +624,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Du forsøkte sannsynligvis å laste opp en fil som var for stor. Sjekk "
-"%sdokumentasjonen%s for måter å omgå denne begrensningen på."
+"Du forsøkte sannsynligvis å laste opp en fil som var for stor. Sjekk %"
+"sdokumentasjonen%s for måter å omgå denne begrensningen på."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
@@ -737,7 +737,7 @@ msgstr "Kollasjon for SQL-oppkobling"
 msgid "Appearance Settings"
 msgstr "Innstillinger for visning"
 
-#: index.php:226 prefs_manage.php:281
+#: index.php:226 prefs_manage.php:286
 msgid "More settings"
 msgstr "Flere innstillinger"
 
@@ -1537,7 +1537,7 @@ msgstr ""
 #: libraries/Util.class.php:4109 libraries/Util.class.php:4124
 #: libraries/Util.class.php:4140 libraries/config/messages.inc.php:171
 #: libraries/display_import.lib.php:108
-#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:238
+#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
 msgid "Import"
 msgstr "Importer"
@@ -2393,16 +2393,16 @@ msgstr "per time"
 msgid "per day"
 msgstr "hver dag"
 
-#: libraries/Config.class.php:1144
+#: libraries/Config.class.php:1151
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Nåværende konfigurasjonsfil (%s) er ikke lesbar."
 
-#: libraries/Config.class.php:1174
+#: libraries/Config.class.php:1181
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "Gale tillatelser på konfigurasjonsfilen, den burde ikke være skrivbar!"
 
-#: libraries/Config.class.php:1751
+#: libraries/Config.class.php:1758
 msgid "Font size"
 msgstr "Fontstørrelse"
 
@@ -2774,8 +2774,8 @@ msgstr "i spørring"
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4926
@@ -2830,7 +2830,7 @@ msgstr "Merk alle"
 #: libraries/server_privileges.lib.php:2231
 #: libraries/server_privileges.lib.php:2906
 #: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:297
-#: prefs_manage.php:295 setup/frames/menu.inc.php:27
+#: prefs_manage.php:300 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Eksporter"
 
@@ -2905,8 +2905,8 @@ msgstr "Ukjent feil oppstod under filopplastingen."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Feil oppstod under forsøk på flytting av den opplastede fila, se "
-"[doc@faq1-11]FAQ 1.11[/doc]"
+"Feil oppstod under forsøk på flytting av den opplastede fila, se [doc@faq1-"
+"11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -3601,14 +3601,14 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3946,7 +3946,7 @@ msgid "Click to toggle"
 msgstr "Klikk for å endre"
 
 #: libraries/Util.class.php:3322 libraries/sql_query_form.lib.php:477
-#: prefs_manage.php:248
+#: prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr "Bla gjennom datamaskinen:"
 
@@ -4352,8 +4352,8 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1603
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:327
-#: prefs_manage.php:334
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:332
+#: prefs_manage.php:339
 msgid "Reset"
 msgstr "Tilbakestill"
 
@@ -4662,7 +4662,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr "Maks kjøretid"
 
-#: libraries/config/messages.inc.php:70 prefs_manage.php:305
+#: libraries/config/messages.inc.php:70 prefs_manage.php:310
 msgid "Save as file"
 msgstr "Lagre som fil"
 
@@ -7006,8 +7006,8 @@ msgstr ", @TABLE@ vil bli tabellnavnet"
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne verdien blir tolket slik som %1$sstrftime%2$s, så du kan bruke "
 "tidformateringsstrenger. I tillegg vil følgende transformasjoner skje: %3$s. "
@@ -7522,8 +7522,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7624,6 +7624,7 @@ msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Lag en indeks på&nbsp;%s&nbsp;kolonner"
 
 #: libraries/insert_edit.lib.php:216 libraries/insert_edit.lib.php:247
+#: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
 #: pmd_general.php:183
 msgid "Hide"
 msgstr "Skjul"
@@ -8002,31 +8003,31 @@ msgstr "phpMyAdmin-Dokumentasjon"
 msgid "Reload navigation panel"
 msgstr "Endre navigasjonsrammen"
 
-#: libraries/navigation/NavigationTree.class.php:717
+#: libraries/navigation/NavigationTree.class.php:720
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:826
+#: libraries/navigation/NavigationTree.class.php:829
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1042
+#: libraries/navigation/NavigationTree.class.php:1045
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter databases by name or regex"
 msgstr "Endre tabellrekkefølge ved"
 
-#: libraries/navigation/NavigationTree.class.php:1044
-#: libraries/navigation/NavigationTree.class.php:1078
+#: libraries/navigation/NavigationTree.class.php:1047
+#: libraries/navigation/NavigationTree.class.php:1081
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Lagre som fil"
 
-#: libraries/navigation/NavigationTree.class.php:1077
+#: libraries/navigation/NavigationTree.class.php:1080
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter by name or regex"
@@ -8059,6 +8060,12 @@ msgstr ""
 #| msgid "Database export options"
 msgid "Database operations"
 msgstr "Databaseeksportinnstillinger"
+
+#: libraries/navigation/Nodes/Node_Database.class.php:318
+#, fuzzy
+#| msgid "Show hint"
+msgid "Show hidden items"
+msgstr "Vis hint"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -8334,8 +8341,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "En mulig årsak for dette er at du ikke opprettet konfigurasjonsfila. Du bør "
 "kanskje bruke %1$ssetup script%2$s for å opprette en."
@@ -8419,21 +8426,21 @@ msgstr "Ugyldig brukernavn/passord. Ingen tilgang."
 msgid "Can not find signon authentication script:"
 msgstr "Kunne ikke finne signon autentiseringsscriptet:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:138
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "Fila %s inneholder ingen nøkkel id"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
 msgid "Hardware authentication failed!"
 msgstr "Maskinvaregodkjenning mislyktes!"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
 msgstr "Ingen gyldig autentiseringsnøkkel plugget"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:220
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
 msgid "Authenticating…"
 msgstr "Autentiserer…"
 
@@ -8867,13 +8874,13 @@ msgid ""
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:282
-#: libraries/plugins/import/ImportCsv.class.php:557
+#: libraries/plugins/import/ImportCsv.class.php:298
+#: libraries/plugins/import/ImportCsv.class.php:576
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Ugyldig format i CSV importen i linje %d."
 
-#: libraries/plugins/import/ImportCsv.class.php:438
+#: libraries/plugins/import/ImportCsv.class.php:455
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Ugyldig antall kolonner i CSV importen i linje %d."
@@ -10780,8 +10787,8 @@ msgstr "Brukeroversikt"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Merk: phpMyAdmin får brukerprivilegiene direkte fra MySQL "
 "privilegietabeller. Innholdet i disse tabellene kan være forskjellig fra de "
@@ -12545,8 +12552,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"For en liste over tilgjengelige transformasjonsvalg, klikk på "
-"%stransformasjonsbeskrivelser%s"
+"For en liste over tilgjengelige transformasjonsvalg, klikk på %"
+"stransformasjonsbeskrivelser%s"
 
 #: libraries/tbl_columns_definition_form.lib.php:329
 msgid "Transformation options"
@@ -12894,7 +12901,7 @@ msgstr "Versjon %s er opprettet, overvåking av %s.%s er aktivert."
 msgid "Manage your settings"
 msgstr "Endre dine innstillinger"
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:298
+#: libraries/user_preferences.inc.php:46 prefs_manage.php:303
 #, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
@@ -13162,60 +13169,60 @@ msgstr ""
 msgid "Do you want to import remaining settings?"
 msgstr ""
 
-#: prefs_manage.php:232 prefs_manage.php:258
+#: prefs_manage.php:232 prefs_manage.php:261
 msgid "Saved on: @DATE@"
 msgstr ""
 
-#: prefs_manage.php:246
+#: prefs_manage.php:247
 #, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
 msgstr "Importer filer"
 
-#: prefs_manage.php:252
+#: prefs_manage.php:255
 msgid "Import from browser's storage"
 msgstr ""
 
-#: prefs_manage.php:255
+#: prefs_manage.php:258
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 
-#: prefs_manage.php:261
+#: prefs_manage.php:264
 #, fuzzy
 #| msgid "Other core settings"
 msgid "You have no saved settings!"
 msgstr "Andre hovedinnstillinger"
 
-#: prefs_manage.php:265 prefs_manage.php:318
+#: prefs_manage.php:269 prefs_manage.php:323
 msgid "This feature is not supported by your web browser"
 msgstr ""
 
-#: prefs_manage.php:270
+#: prefs_manage.php:275
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Merge with current configuration"
 msgstr "Tjenerinnstillinger"
 
-#: prefs_manage.php:284
+#: prefs_manage.php:289
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
 
-#: prefs_manage.php:308
+#: prefs_manage.php:313
 msgid "Save to browser's storage"
 msgstr ""
 
-#: prefs_manage.php:312
+#: prefs_manage.php:317
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
 
-#: prefs_manage.php:314
+#: prefs_manage.php:319
 msgid "Existing settings will be overwritten!"
 msgstr ""
 
-#: prefs_manage.php:331
+#: prefs_manage.php:336
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
@@ -13544,8 +13551,8 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Hvis du føler at dette er nødvending, så bruk ekstra "
-"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
+"beskyttelsesinnstillinger - [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server_config]vertsautentisering[/a] innstillinger og [a@?"
 "page=form&amp;formset=features#tab_Security]godkjente mellomlagerliste[/a]. "
 "Merk at IP-basert beskyttelse ikke er så god hvis din IP tilhører en "
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
@@ -14079,8 +14086,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14215,8 +14222,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15477,8 +15484,8 @@ msgstr "maks. samtidige tilkoblinger"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen "
-#~ "%s?"
+#~ "Er du sikker på at du ønsker å slå av alle BLOB referanser for databasen %"
+#~ "s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."
