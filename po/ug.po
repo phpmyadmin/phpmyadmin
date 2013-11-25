@@ -7,16 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-06-20 20:19+0200\n"
-"Last-Translator: gheni <gheni@yahoo.cn>\n"
-"Language-Team: Uighur <http://l10n.cihar.com/projects/phpmyadmin/master/ug/"
-">\n"
+"PO-Revision-Date: 2013-11-25 15:29+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Uighur <http://l10n.cihar.com/projects/phpmyadmin/4-1/ug/>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -24,13 +23,11 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"The %s file is not available on this system, please visit www.phpmyadmin.net "
-"for more information."
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s ساندان غەلبىلىك قۇرۇلدى"
+msgstr "%1$s ساندان غەلبىلىك قۇرۇلدى."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -206,7 +203,7 @@ msgstr "ساندان قالدۇقىنى كۆرسىتىش"
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:572 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "سانداندا جەدۋەل يوق"
+msgstr "سانداندا جەدۋەل يوق."
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
@@ -645,7 +642,7 @@ msgstr "خەتكۈچنى كۆرسىتىش"
 
 #: import.php:299 import.php:546
 msgid "The bookmark has been deleted."
-msgstr "خەتكۈچ ئۆچۈرۈلدى"
+msgstr "خەتكۈچ ئۆچۈرۈلدى."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
@@ -684,7 +681,7 @@ msgstr "قۇرۇلغان خەتكۈچ %s"
 #: import.php:563 import.php:576
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "%d كىرگۈزىش غەلبىىك بولدى"
+msgstr "%d كىرگۈزىش غەلبىىك بولدى."
 
 #: import.php:591
 msgid ""
@@ -1836,7 +1833,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:769
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
+msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس."
 
 #: js/messages.php:289 libraries/insert_edit.lib.php:1514
 #: libraries/schema/User_Schema.class.php:390
@@ -3104,7 +3101,7 @@ msgstr "ئاساسىي قىممەت ئۆچۈرۈلدى"
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "ئۆچۈرۈلگەن تېزىسلار %s"
+msgstr "ئۆچۈرۈلگەن تېزىسلار %s."
 
 #: libraries/Index.class.php:738
 #, php-format
@@ -3203,7 +3200,7 @@ msgstr ""
 #: libraries/Menu.class.php:412 libraries/Menu.class.php:419
 #: libraries/Menu.class.php:426
 msgid "Database seems to be empty!"
-msgstr "سانلىق مەلۇمات ئامبىرى قۇرۇق"
+msgstr "سانلىق مەلۇمات ئامبىرى قۇرۇق!"
 
 #: libraries/Menu.class.php:415 libraries/Util.class.php:4122
 msgid "Query"
@@ -3277,13 +3274,13 @@ msgstr "خاتالىق"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d row affected."
+msgstr[0] ""
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d row deleted."
+msgstr[0] ""
 
 #: libraries/Message.class.php:292
 #, php-format
@@ -3431,7 +3428,7 @@ msgstr "بۇ ساقلىغۇچقا مۇناسىۋەتلىك باشقا ئۇچۇر
 #: libraries/StorageEngine.class.php:352 libraries/structure.lib.php:200
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s بولسا MySQL مۇلازىمىتېرنىڭ ساقلاش ئەندىزە موتۇرى"
+msgstr "%s بولسا MySQL مۇلازىمىتېرنىڭ ساقلاش ئەندىزە موتۇرى."
 
 #: libraries/StorageEngine.class.php:355
 #, php-format
@@ -3662,7 +3659,7 @@ msgstr "تېما %s تېپىلمىدى!"
 #: libraries/Theme_Manager.class.php:275
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "ماۋزۇ %s تېپىلمىدى."
+msgstr "ماۋزۇ %s تېپىلمىدى!"
 
 #: libraries/Theme_Manager.class.php:369
 msgid "Theme:"
@@ -4043,7 +4040,7 @@ msgstr "دائىملىق"
 #: libraries/Util.class.php:2593
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr "ساندان &quot;%s&quot; .غا ئۆتۈش"
+msgstr "ساندان &quot;%s&quot; .غا ئۆتۈش."
 
 #: libraries/Util.class.php:2617
 #, php-format
@@ -4070,7 +4067,7 @@ msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1233
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "كۆرسىتىلگەن مۇندەرىجىگە يۈكلىيەلمىدى"
+msgstr "كۆرسىتىلگەن مۇندەرىجىگە يۈكلىيەلمىدى."
 
 #: libraries/Util.class.php:3387
 msgid "There are no files to upload"
@@ -6985,7 +6982,7 @@ msgstr "نەشىرنى قۇىماق"
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr "يوللىنىۋاتىدۇ،تەپسىلىي ئۇچۇرى يوق،ساقلاڭ"
+msgstr "يوللىنىۋاتىدۇ،تەپسىلىي ئۇچۇرى يوق،ساقلاڭ."
 
 #: libraries/display_import.lib.php:111
 #, fuzzy
@@ -7024,7 +7021,7 @@ msgstr "ئەكىرىشكە تىگىشلىك ھۆججەت"
 
 #: libraries/display_import.lib.php:248
 msgid "File uploads are not allowed on this server."
-msgstr "مۇلازىمىتىرنىڭ ھۆججەت چىقىرىشىنى چەكلەندى"
+msgstr "مۇلازىمىتىرنىڭ ھۆججەت چىقىرىشىنى چەكلەندى."
 
 #: libraries/display_import.lib.php:272
 #, fuzzy
@@ -7088,7 +7085,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:459
 msgid "The file is being processed, please be patient."
-msgstr "بىتەرەپ قىلىنىۋاتىدۇ، ساقلاڭ"
+msgstr "بىتەرەپ قىلىنىۋاتىدۇ، ساقلاڭ."
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:94
@@ -8260,7 +8257,7 @@ msgstr ""
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "Hardware authentication failed!"
-msgstr "قاتتىق دېتال تەكشۈرۈشتىن ئۆتمىدى."
+msgstr "قاتتىق دېتال تەكشۈرۈشتىن ئۆتمىدى!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
 msgid "No valid authentication key plugged"
@@ -11687,11 +11684,11 @@ msgstr "%s جەدۋەل تازىلاندى"
 
 #: libraries/structure.lib.php:91
 msgid "Tracking is active."
-msgstr "ئاكتىپ ئىزلاش"
+msgstr "ئاكتىپ ئىزلاش."
 
 #: libraries/structure.lib.php:98
 msgid "Tracking is not active."
-msgstr "ئىزلاش ئاكتىپ ئەمەس"
+msgstr "ئىزلاش ئاكتىپ ئەمەس."
 
 #: libraries/structure.lib.php:129 tbl_operations.php:358
 #: view_operations.php:119
@@ -12564,11 +12561,11 @@ msgstr ""
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
-msgstr "!خاتالىق:بۇناسىۋەت ئاللىقاچان مەۋجۈت"
+msgstr "!خاتالىق:بۇناسىۋەت ئاللىقاچان مەۋجۈت."
 
 #: pmd_relation_new.php:79 pmd_relation_new.php:102
 msgid "Error: Relation not added."
-msgstr "!خاتالىق:مۇناسىۋەت قۇشۇلمىغان"
+msgstr "!خاتالىق:مۇناسىۋەت قۇشۇلمىغان."
 
 #: pmd_relation_new.php:80
 msgid "FOREIGN KEY relation added"
