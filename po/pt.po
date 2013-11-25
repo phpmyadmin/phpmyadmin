@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-11-22 11:13+0200\n"
+"PO-Revision-Date: 2013-11-25 11:12+0200\n"
 "Last-Translator: Edu Rib PT <edurib.pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -5519,7 +5519,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr ""
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
 #| "separator defined below)"
@@ -5527,8 +5526,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
-"Somente versão light; exibe base de dados em árvore (determinado pelo "
-"divisor definido abaixo)"
+"Itens de grupo na árvore de navegação (determinado pelo separador definido "
+"abaixo)"
 
 #: libraries/config/messages.inc.php:313
 msgid "Group items in the tree"
@@ -5595,10 +5594,9 @@ msgid "Use only icons, only text or both"
 msgstr "Usar apenas ícones, apenas texto ou ambos"
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Iconic navigation bar"
 msgid "Table navigation bar"
-msgstr "Barra de navegação com ícones"
+msgstr "Barra da tabela de navegação"
 
 #: libraries/config/messages.inc.php:329
 msgid "use GZip output buffering for increased speed in HTTP transfers"
@@ -5643,7 +5641,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Tabelas de configuração de armazenamento phpMyAdmin em falta"
 
 #: libraries/config/messages.inc.php:337
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5651,15 +5648,14 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
-"Desativa o aviso padrão que é exibido se mcrypt estiver ausente para "
-"autenticação por cookie"
+"Desativa o aviso padrão que é mostrado quando é detetada uma diferença entre "
+"a livraria MySQL e o servidor"
 
 #: libraries/config/messages.inc.php:338
 msgid "Server/library difference warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5668,9 +5664,9 @@ msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
-"Desactiva o aviso padrão que é exibido na página de detalhes de Estrutura da "
-"base de dados se alguma das tabelas requeridas para a configuração do "
-"armazenamento do phpMyAdmin não for encontrada"
+"Desactiva o aviso padrão que é mostrado na página de detalhes de estrutura "
+"da base de dados se algum nome de coluna numa tabela forem palavras "
+"reservadas do MySQL"
 
 #: libraries/config/messages.inc.php:340
 msgid "MySQL reserved word warning"
@@ -5836,7 +5832,6 @@ msgid "Authentication type"
 msgstr "Tipo de autenticação"
 
 #: libraries/config/messages.inc.php:381
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -5844,15 +5839,15 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"bookmark[/a] suporte, sugerido: [kbd]pma_bookmark[/kbd]"
+"Deixe em branco quando não há "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] suporte, sugerido: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:382
 msgid "Bookmark table"
 msgstr "Tabela de favoritos"
 
 #: libraries/config/messages.inc.php:383
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: [kbd]"
 #| "pma_column_info[/kbd]"
@@ -5860,8 +5855,8 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
-"Deixe em branco quando não houver colunas de comentário/mime type, "
-"sugeridas: [kbd]pma_column_info[/kbd]"
+"Deixe em branco quando não houver colunas de comentário/tipo mime, "
+"sugeridas: [kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:384
 msgid "Column information table"
@@ -5913,7 +5908,6 @@ msgid "Control host"
 msgstr "Controlar host"
 
 #: libraries/config/messages.inc.php:394
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -5922,17 +5916,16 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
-"Um servidor alternativo para armazenar a configuração; deixe em branco para "
-"utilizar um servidor já definido"
+"Um a porta alternativa para conectar ao servidor que contém o armazém de "
+"configuração; deixe em branco para utilizar a porta padrão, ou a porta "
+"pré-definida, se o servidor de controlo for igual ao servidor"
 
 #: libraries/config/messages.inc.php:395
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Controlar host"
+msgstr "Controlar porta"
 
 #: libraries/config/messages.inc.php:396
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
@@ -5940,8 +5933,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
-"Deixe em branco sem suporte de Designer, sugerido: [kbd]pma_designer_coords[/"
-"kbd]"
+"Deixe em branco se não houver/quiser suporte de Designer, sugerido: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:397
 msgid "Designer table"
@@ -5964,7 +5957,6 @@ msgid "Hide databases"
 msgstr "Ocultar bases de dados"
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
 #| "[/kbd]"
@@ -5972,8 +5964,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
-"Deixe em branco se não há suporte a histórico de consulta SQL, sugerido: "
-"[kbd]pma_history[/kbd]"
+"Deixe em branco se não houver/quiser suporte a histórico de consulta SQL, "
+"sugerido: [kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:403
 msgid "SQL query history table"
@@ -6012,7 +6004,6 @@ msgid "Connect without password"
 msgstr "Ligar sem palavra-passe"
 
 #: libraries/config/messages.inc.php:411
-#, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
 #| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -6024,11 +6015,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Você pode usar caracteres curinga MySQL(% e _) evite-os se você quiser usar "
-"suas instâncias literais, ou seja, usar [kbd]'my\\_db'[/ kbd] e não "
-"[kbd]'my_db'[/ kbd]. Usando esta opção, você pode classificar a lista de "
-"banco de dados, basta digitar seus nomes em ordem e uso [kbd]*[/ kbd] no "
-"final para mostrar o resto em ordem alfabética."
+"Você pode usar meta-caracteres do MySQL (% e _), preceda-os de barra "
+"invertida se quiser usar suas instâncias literais, ou seja, use "
+"[kbd]'my\\_db'[/ kbd] e não [kbd]'my_db'[/ kbd]."
 
 #: libraries/config/messages.inc.php:412
 msgid "Show only listed databases"
@@ -6043,14 +6032,13 @@ msgid "Password for config auth"
 msgstr "Palavra-passe para config-auth"
 
 #: libraries/config/messages.inc.php:415
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
-"Deixe em branco se não há suporte de esquema PDF, sugerido: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:416
 msgid "PDF schema: pages table"
@@ -6098,7 +6086,6 @@ msgid "Recently used table"
 msgstr "Tabela utilizada recentemente"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
@@ -6106,8 +6093,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
-"Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"bookmark[/a] suporte, sugerido: [kbd]pma_bookmark[/kbd]"
+"Deixe em branco quando não houver/quiser suporte a "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]ligações de relações[/a], "
+"sugerido: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:424
 msgid "Relation table"
@@ -6147,30 +6135,28 @@ msgid "Use SSL"
 msgstr "Usar SSL"
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
-"Deixe em branco se não há suporte de esquema PDF, sugerido: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:433
 msgid "PDF schema: table coordinates"
 msgstr "Esquema PDF: Coordenadas de tabela"
 
 #: libraries/config/messages.inc.php:434
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
-"Deixe em branco se não há suporte de esquema PDF, sugerido: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Tabela para descrever as colunas mostradas, deixe em branco se não "
+"houver/quiser suporte, sugerido: [kbd]pma__table_info[/kbd]"
 
 #: libraries/config/messages.inc.php:435
 msgid "Display columns table"
