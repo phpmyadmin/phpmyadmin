@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-25 16:20-0500\n"
-"PO-Revision-Date: 2013-11-18 20:39+0200\n"
+"PO-Revision-Date: 2013-11-25 23:08+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -7878,10 +7878,9 @@ msgid "Database operations"
 msgstr "Posegi zbirke podatkov"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Prikaži namig"
+msgstr "Prikaži skrite predmete"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
