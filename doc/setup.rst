@@ -43,8 +43,8 @@ Quick Install
    some advanced features.
 
 
-Manualy creating file
----------------------
+Manually creating the file
+--------------------------
 
 To manually create the file, simply use your text editor to create the
 file :file:`config.inc.php` (you can copy :file:`config.sample.inc.php` to get
@@ -115,14 +115,15 @@ On other platforms, simply create the folder and ensure that your web
 server has read and write access to it. :ref:`faq1_26` can help with
 this.
 
-Next, open ``setup/`` in your browser. Note that **changes are
-not saved to disk until explicitly choose ``Save``** from the
-*Configuration* area of the screen. Normally the script saves the new
+Next, open ``setup/`` in your browser. If you have an existing configuration,
+use the ``Load`` button to bring its content inside the setup panel.
+Note that **changes are not saved to disk until explicitly choose ``Save``**
+from the *Configuration* area of the screen. Normally the script saves the new
 :file:`config.inc.php` to the ``config/`` directory, but if the webserver does
 not have the proper permissions you may see the error "Cannot load or
 save configuration." Ensure that the ``config/`` directory exists and
 has the proper permissions - or use the ``Download`` link to save the
-config file locally and upload (via FTP or some similar means) to the
+config file locally and upload it (via FTP or some similar means) to the
 proper location.
 
 Once the file has been saved, it must be moved out of the ``config/``
