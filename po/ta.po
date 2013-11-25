@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-11-25 10:40+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-11-25 10:53+0200\n"
+"Last-Translator: Lakshmanan M <send2lakshman@gmail.com>\n"
 "Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -38,10 +38,9 @@ msgstr "தரவுத்தள கருத்துரை "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "அட்டவணைக் கருத்துரைகள்"
+msgstr "அட்டவணைக் கருத்துரைகள்:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -227,10 +226,10 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "%1$s தரவுத்தளமானது %2$s ஆக பெயர் மாற்றப்பட்டது"
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "%s தரவுத்தளமானது %s இற்கு பிரதி செய்யப்பட்டது"
+msgstr "%1$s தரவுத்தளமானது %2$s இற்கு பிரதி செய்யப்பட்டது"
 
 #: db_operations.php:260
 #, php-format
@@ -273,10 +272,9 @@ msgstr "பயன்பாட்டில்"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "உருவாக்கம்"
+msgstr "உருவாக்கம்:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
@@ -1485,7 +1483,7 @@ msgstr "பக்கத்தை திரும்ப ஏற்று"
 
 #: js/messages.php:200
 msgid "Affected rows:"
-msgstr "பாவனையான வரிசைகள்"
+msgstr "பாவனையான வரிசைகள்:"
 
 #: js/messages.php:203
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -3174,7 +3172,7 @@ msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்ட
 #: libraries/schema/User_Schema.class.php:434
 #: libraries/select_lang.lib.php:535
 msgid "Page number:"
-msgstr "பக்க எண்"
+msgstr "பக்க எண்:"
 
 #: libraries/PDF.class.php:126
 msgid "Error while creating PDF:"
@@ -3892,7 +3890,7 @@ msgstr "ஞாயிறு"
 #: libraries/Util.class.php:1638
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y இல் %I:%M %p"
 
 #: libraries/Util.class.php:1985
 #, php-format
@@ -6532,7 +6530,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:838
 #: libraries/server_privileges.lib.php:1433
 msgid "Password:"
-msgstr "கடவுச்சொல்"
+msgstr "கடவுச்சொல்:"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:862
@@ -7924,8 +7922,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க கோவையை %2$s "
-"பயன்படுத்தலாம்"
+"நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க "
+"கோவையை %2$s பயன்படுத்தலாம்."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -10155,7 +10153,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:4085
 msgid "You have added a new user."
-msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்"
+msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்."
 
 #: libraries/server_status.lib.php:56
 #, php-format
@@ -11621,11 +11619,11 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:94
 msgid "X-Axis:"
-msgstr "X-அச்சு"
+msgstr "X-அச்சு:"
 
 #: libraries/tbl_chart.lib.php:128
 msgid "Series:"
-msgstr "தொடர்கள்"
+msgstr "தொடர்கள்:"
 
 #: libraries/tbl_chart.lib.php:181
 msgid "X-Axis label:"
@@ -11789,7 +11787,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:260
 msgid "Index name:"
-msgstr "சுட்டுப் பெயர்"
+msgstr "சுட்டுப் பெயர்:"
 
 #: libraries/tbl_indexes.lib.php:264
 msgid ""
@@ -11804,7 +11802,7 @@ msgstr "கருத்துரை"
 
 #: libraries/tbl_indexes.lib.php:298
 msgid "Index type:"
-msgstr "சுட்டு வகை"
+msgstr "சுட்டு வகை:"
 
 #: libraries/tbl_printview.lib.php:30
 #, fuzzy
@@ -12649,10 +12647,9 @@ msgid "The table name is empty!"
 msgstr ""
 
 #: tbl_structure.php:93
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
+msgstr "தெரிவுசெய்யப்பட தூண் இல்லை."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
