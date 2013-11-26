@@ -423,12 +423,12 @@ if ($import_file != 'none' && ! $error) {
                  * Load interface for zip extension.
                  */
                 include_once 'libraries/zip_extension.lib.php';
-                $result = PMA_getZipContents($import_file);
-                if (! empty($result['error'])) {
-                    $message = PMA_Message::rawError($result['error']);
+                $zipResult = PMA_getZipContents($import_file);
+                if (! empty($zipResult['error'])) {
+                    $message = PMA_Message::rawError($zipResult['error']);
                     $error = true;
                 } else {
-                    $import_text = $result['data'];
+                    $import_text = $zipResult['data'];
                 }
             } else {
                 $message = PMA_Message::error(
