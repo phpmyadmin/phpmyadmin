@@ -625,7 +625,7 @@ if ($go_sql) {
 
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, $import_text, null,
-        false, null,
+        $analyzed_sql_results['is_affected'], null,
         null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
         null, null
     );
