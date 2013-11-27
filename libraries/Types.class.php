@@ -745,7 +745,9 @@ class PMA_Types_MySQL extends PMA_Types
                 'bigint'    => array('-9223372036854775808', '9223372036854775807')
             )
         );
-        $relevantArray = $signed ? $min_max_data['signed'] : $min_max_data['unsigned'];
+        $relevantArray = $signed
+            ? $min_max_data['signed']
+            : $min_max_data['unsigned'];
         return isset($relevantArray[$type]) ? $relevantArray[$type] : array('', '');
     }
 }
