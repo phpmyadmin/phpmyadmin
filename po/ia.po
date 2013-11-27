@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-25 16:19-0500\n"
-"PO-Revision-Date: 2013-11-11 13:49+0200\n"
+"PO-Revision-Date: 2013-11-25 23:01+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -425,7 +425,6 @@ msgid "You may want to refresh the page."
 msgstr "Tu poterea voler refrescar le pagina."
 
 #: error_report.php:45
-#, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
 #| "submitted based on your settings."
@@ -433,8 +432,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Un error ha essite relevate e un reporto de error ha essite submittite "
-"automaticamente basate sur tu preferentias."
+"Un error ha essite relevate e un reporto de error ha essite generate ma il "
+"falleva esser inviate."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
@@ -7682,10 +7681,9 @@ msgid "Database operations"
 msgstr "Operationes de base de datos"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hidden items"
-msgstr "Monstra indices"
+msgstr "Monstra elementos celate"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
