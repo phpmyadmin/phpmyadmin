@@ -2047,7 +2047,8 @@ class PMA_Util
      *
      * @return void
      *
-     * @global boolean $checked_special flag whether any special variable was required
+     * @global boolean $checked_special flag whether any special variable
+     *                                       was required
      *
      * @access public
      */
