@@ -69,6 +69,7 @@ phpMyAdmin - ChangeLog
 - bug #4075 Support A10 Networks load balancer
 - bug #4083 row deleting isn't binlogs friendly
 - bug #4163 Setup script does not recognize manually-configured server
+- bug #4158 Events page says no privileges with ALL PRIVILEGES
 
 4.0.9.0 (2013-11-04)
 - bug #4104 Can't edit updatable view when searching
