@@ -324,7 +324,9 @@ if (file_exists('setup/index.php')) {
                     </div>
                 </div>
                 <br />
-                <input type="submit" name="submit_export" value="<?php echo __('Go'); ?>" />
+<?php
+echo '<input type="submit" name="submit_export" value="' . __('Go') . '" />';
+?>
             </form>
         </div>
         <div class="group">
