@@ -1163,14 +1163,14 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
     static $min_max_data = array(
-        'signed' => array(
+        'unsigned' => array(
             'tinyint'   => array('0', '255'),
             'smallint'  => array('0', '65535'),
             'mediumint' => array('0', '16777215'),
             'int'       => array('0', '4294967295'),
             'bigint'    => array('0', '18446744073709551615')
         ),
-        'unsigned' => array(
+        'signed' => array(
             'tinyint'   => array('-128', '127'),
             'smallint'  => array('-32768', '32767'),
             'mediumint' => array('-8388608', '8388607'),
