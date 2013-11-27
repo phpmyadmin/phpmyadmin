@@ -3926,7 +3926,15 @@ class PMA_Util
         if ($db !== null) {
             // need to escape wildcards in db and table names, see bug #3518484
             $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
-            $query .= " AND TABLE_SCHEMA='%s'";
+            /*
+             * This is to take into account a wildcard db privilege
+             * so we replace % by .* and _ by . to be able to compare
+             * with REGEXP.
+             *
+             * Also, we need to double the inner % to please sprintf().
+             */
+            $query .= " AND '%s' REGEXP"
+                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*')";
             $schema_privileges = PMA_DBI_fetch_value(
                 sprintf(
                     $query,
