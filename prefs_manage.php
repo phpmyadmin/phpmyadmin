@@ -300,11 +300,14 @@ if (file_exists('setup/index.php')) {
             <h2><?php echo __('Export') ?></h2>
             <div class="click-hide-message group-cnt" style="display:none">
                 <?php
-                PMA_Message::rawSuccess(__('Configuration has been saved'))->display();
-                ?>
-            </div>
-            <form class="group-cnt prefs-form disableAjax" name="prefs_export" action="prefs_manage.php" method="post">
-            <?php echo PMA_URL_getHiddenInputs() . "\n" ?>
+PMA_Message::rawSuccess(
+    __('Configuration has been saved')
+)->display();
+echo '</div>'
+    . '<form class="group-cnt prefs-form disableAjax" name="prefs_export"'
+    . ' action="prefs_manage.php" method="post">'
+    . PMA_URL_getHiddenInputs();
+?>
                 <div style="padding-bottom:0.5em">
                     <input type="radio" id="export_text_file" name="export_type" value="text_file" checked="checked" />
                     <label for="export_text_file"><?php echo __('Save as file') ?></label>
