@@ -50,6 +50,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
     }
 
     /**
