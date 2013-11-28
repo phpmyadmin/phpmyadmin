@@ -25,14 +25,14 @@ class PMA_Response
      *
      * @access private
      * @static
-     * @var object
+     * @var PMA_Response
      */
     private static $_instance;
     /**
      * PMA_Header instance
      *
      * @access private
-     * @var object
+     * @var PMA_Header
      */
     private $_header;
     /**
@@ -54,7 +54,7 @@ class PMA_Response
      * PMA_Footer instance
      *
      * @access private
-     * @var object
+     * @var PMA_Footer
      */
     private $_footer;
     /**

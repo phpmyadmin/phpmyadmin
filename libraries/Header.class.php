@@ -27,14 +27,14 @@ class PMA_Header
      * PMA_Scripts instance
      *
      * @access private
-     * @var object
+     * @var PMA_Scripts
      */
     private $_scripts;
     /**
      * PMA_Menu instance
      *
      * @access private
-     * @var object
+     * @var PMA_Menu
      */
     private $_menu;
     /**
