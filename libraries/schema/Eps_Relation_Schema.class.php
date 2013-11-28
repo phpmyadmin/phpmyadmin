@@ -9,6 +9,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'Export_Relation_Schema.class.php';
+require_once 'libraries/Font.class.php';
 
 /**
  * This Class is EPS Library and
@@ -262,76 +263,6 @@ class PMA_EPS
     }
 
     /**
-     * get width of string/text
-     *
-     * EPS text width is calcualted depending on font name
-     * and font size. It is very important to know the width of text
-     * because rectangle is drawn around it.
-     *
-     * This is a bit hardcore method. I didn't found any other better than this.
-     * if someone found better than this. would love to hear that method
-     *
-     * @param string  $text     string that width will be calculated
-     * @param integer $font     name of the font like Arial,sans-serif etc
-     * @param integer $fontSize size of font
-     *
-     * @return integer width of the text
-     *
-     * @access public
-     */
-    function getStringWidth($text,$font,$fontSize)
-    {
-        /*
-         * Start by counting the width, giving each character a modifying value
-         */
-        $count = 0;
-        $count = $count + ((strlen($text) - strlen(str_replace(array("i", "j", "l"), "", $text))) * 0.23);//ijl
-        $count = $count + ((strlen($text) - strlen(str_replace(array("f"), "", $text))) * 0.27);//f
-        $count = $count + ((strlen($text) - strlen(str_replace(array("t", "I"), "", $text))) * 0.28);//tI
-        $count = $count + ((strlen($text) - strlen(str_replace(array("r"), "", $text))) * 0.34);//r
-        $count = $count + ((strlen($text) - strlen(str_replace(array("1"), "", $text))) * 0.49);//1
-        $count = $count + ((strlen($text) - strlen(str_replace(array("c", "k", "s", "v", "x", "y", "z", "J"), "", $text))) * 0.5);//cksvxyzJ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("a", "b", "d", "e", "g", "h", "n", "o", "p", "q", "u", "L", "0", "2", "3", "4", "5", "6", "7", "8", "9"), "", $text))) * 0.56);//abdeghnopquL023456789
-        $count = $count + ((strlen($text) - strlen(str_replace(array("F", "T", "Z"), "", $text))) * 0.61);//FTZ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("A", "B", "E", "K", "P", "S", "V", "X", "Y"), "", $text))) * 0.67);//ABEKPSVXY
-        $count = $count + ((strlen($text) - strlen(str_replace(array("w", "C", "D", "H", "N", "R", "U"), "", $text))) * 0.73);//wCDHNRU
-        $count = $count + ((strlen($text) - strlen(str_replace(array("G", "O", "Q"), "", $text))) * 0.78);//GOQ
-        $count = $count + ((strlen($text) - strlen(str_replace(array("m", "M"), "", $text))) * 0.84);//mM
-        $count = $count + ((strlen($text) - strlen(str_replace("W", "", $text))) * .95);//W
-        $count = $count + ((strlen($text) - strlen(str_replace(" ", "", $text))) * .28);//" "
-        $text  = str_replace(" ", "", $text);//remove the " "'s
-        $count = $count + (strlen(preg_replace("/[a-z0-9]/i", "", $text)) * 0.3); //all other chrs
-
-        $modifier = 1;
-        $font = strtolower($font);
-        switch ($font) {
-        /*
-         * no modifier for arial and sans-serif
-         */
-        case 'arial':
-        case 'sans-serif':
-            break;
-        /*
-         * .92 modifer for time, serif, brushscriptstd, and californian fb
-         */
-        case 'times':
-        case 'serif':
-        case 'brushscriptstd':
-        case 'californian fb':
-            $modifier = .92;
-            break;
-        /*
-         * 1.23 modifier for broadway
-         */
-        case 'broadway':
-            $modifier = 1.23;
-            break;
-        }
-        $textWidth = $count*$fontSize;
-        return ceil($textWidth*$modifier);
-    }
-
-    /**
      * Ends EPS Document
      *
      * @return void
@@ -529,20 +460,19 @@ class Table_Stats_Eps
      */
     private function _setWidthTable($font,$fontSize)
     {
-        global $eps;
-
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                $eps->getStringWidth($field, $font, $fontSize)
+                PMA_Font::getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += $eps->getStringWidth('      ', $font, $fontSize);
+        $this->width += PMA_Font::getStringWidth('      ', $font, $fontSize);
         /*
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
          */
-        while ($this->width < $eps->getStringWidth($this->_getTitle(), $font, $fontSize)) {
+        while ($this->width
+            < PMA_Font::getStringWidth($this->_getTitle(), $font, $fontSize)) {
             $this->width += 7;
         }
     }
