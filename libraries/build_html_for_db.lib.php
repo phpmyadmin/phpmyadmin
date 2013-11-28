@@ -165,6 +165,7 @@ function PMA_buildHtmlForDb(
                . 'PMA_commonActions.setDb(\''
                . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'
                . '" href="server_privileges.php?' . $url_query
+               . '&amp;db=' . urlencode($current['SCHEMA_NAME'])
                . '&amp;checkprivsdb=' . urlencode($current['SCHEMA_NAME'])
                . '" title="'
                . sprintf(

@@ -71,13 +71,20 @@ if (! empty($sql_query)) {
     }
 
     // refresh navigation panel only
-    if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $sql_query)) {
+    if (preg_match(
+        '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+        $sql_query
+    )) {
         $ajax_reload['reload'] = true;
     }
 
     // do a dynamic reload if table is RENAMED
     // (by sending the instruction to the AJAX response handler)
-    if (preg_match('/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i', $sql_query, $rename_table_names)) {
+    if (preg_match(
+        '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
+        $sql_query,
+        $rename_table_names
+    )) {
         $ajax_reload['table_name'] = PMA_Util::unQuote($rename_table_names[2]);
         $ajax_reload['reload'] = true;
     }
@@ -255,12 +262,19 @@ if (! empty($id_bookmark)) {
         }
 
         // refresh navigation and main panels
-        if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
+        if (preg_match(
+            '/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+            $import_text
+        )) {
             $GLOBALS['reload'] = true;
         }
 
         // refresh navigation panel only
-        if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $import_text)) {
+        if (preg_match(
+            '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+            $import_text
+        )
+        ) {
             $ajax_reload['reload'] = true;
         }
         break;
@@ -409,12 +423,12 @@ if ($import_file != 'none' && ! $error) {
                  * Load interface for zip extension.
                  */
                 include_once 'libraries/zip_extension.lib.php';
-                $result = PMA_getZipContents($import_file);
-                if (! empty($result['error'])) {
-                    $message = PMA_Message::rawError($result['error']);
+                $zipResult = PMA_getZipContents($import_file);
+                if (! empty($zipResult['error'])) {
+                    $message = PMA_Message::rawError($zipResult['error']);
                     $error = true;
                 } else {
-                    $import_text = $result['data'];
+                    $import_text = $zipResult['data'];
                 }
             } else {
                 $message = PMA_Message::error(
@@ -610,7 +624,8 @@ if ($go_sql) {
     include_once 'libraries/parse_analyze.inc.php';
 
     PMA_executeQueryAndSendQueryResponse(
-        $analyzed_sql_results, false, $db, $table, null, null, null, false, null,
+        $analyzed_sql_results, false, $db, $table, null, $import_text, null,
+        $analyzed_sql_results['is_affected'], null,
         null, null, null, $goto, $pmaThemeImage, null, null, null, $sql_query,
         null, null
     );

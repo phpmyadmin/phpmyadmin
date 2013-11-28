@@ -19,7 +19,7 @@ abstract class Node_DatabaseChild extends Node
     /**
      * Returns HTML for hide button displayed infront of the database child node
      *
-     * @return HTML for hide button
+     * @return String HTML for hide button
      */
     public function getHtmlForControlButtons()
     {
@@ -36,7 +36,7 @@ abstract class Node_DatabaseChild extends Node
                 . '&itemName=' . urldecode($item)
                 . '&dbName=' . urldecode($db) . '"'
                 . ' class="hideNavItem ajax">'
-                . PMA_Util::getImage('b_close', 'Hide')
+                . PMA_Util::getImage('lightbulb_off', __('Hide'))
                 . '</a></span>';
         }
         return $ret;

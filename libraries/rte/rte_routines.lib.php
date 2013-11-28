@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Sets required globals
  *
- * @return nothing
+ * @return void
  */
 function PMA_RTN_setGlobals()
 {
@@ -33,9 +33,13 @@ function PMA_RTN_setGlobals()
 /**
  * Main function for the routines functionality
  *
- * @return nothing
+ * @param string $type 'FUNCTION' for functions,
+ *                     'PROCEDURE' for procedures,
+ *                     null for both
+ *
+ * @return void
  */
-function PMA_RTN_main()
+function PMA_RTN_main($type)
 {
     global $db;
 
@@ -52,6 +56,9 @@ function PMA_RTN_main()
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
     $where    = "ROUTINE_SCHEMA='" . PMA_Util::sqlAddSlashes($db) . "'";
+    if (PMA_isValid($type, array('FUNCTION','PROCEDURE'))) {
+        $where .= " AND `ROUTINE_TYPE`='" . $type . "'";
+    }
     $items    = $GLOBALS['dbi']->fetchResult(
         "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;"
     );
@@ -259,7 +266,7 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
 /**
  * Handles editor requests for adding or editing an item
  *
- * @return Does not return
+ * @return void
  */
 function PMA_RTN_handleEditor()
 {
@@ -368,7 +375,7 @@ function PMA_RTN_handleEditor()
         if (count($errors)) {
             $message = PMA_Message::error(
                 __(
-                    '<b>One or more errors have occured while'
+                    '<b>One or more errors have occurred while'
                     . ' processing your request:</b>'
                 )
             );
@@ -1295,7 +1302,7 @@ function PMA_RTN_getQueryFromRequest()
 /**
  * Handles requests for executing a routine
  *
- * @return Does not return
+ * @return void
  */
 function PMA_RTN_handleExecute()
 {
@@ -1374,12 +1381,7 @@ function PMA_RTN_handleExecute()
             if ($outcome) {
 
                 // Pass the SQL queries through the "pretty printer"
-                $output  = '<code class="sql" style="margin-bottom: 1em;">';
-                $output .= PMA_SQP_format(
-                    PMA_SQP_parse(implode($queries)),
-                    'text'
-                );
-                $output .= '</code>';
+                $output  = PMA_Util::formatSql(implode($queries, "\n"));
 
                 // Display results
                 $output .= "<fieldset><legend>";

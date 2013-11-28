@@ -13,16 +13,16 @@ require_once 'libraries/config.default.php';
 
 /**
  * Dummy testObserver
- * 
+ *
  * @package PhpMyAdmin-test
  */
 class PMA_TestObserver implements SplObserver
 {
     /**
      * udpate
-     * 
+     *
      * @param SplSubject $subject subject for observer
-     * 
+     *
      * @return null
      */
     public function update(SplSubject $subject)
@@ -51,16 +51,16 @@ class PMA_PluginManager_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
-        
+
         $this->object = new PluginManager(null);
-        
+
         $this->attrStorage = new \ReflectionProperty('PluginManager', '_storage');
         $this->attrStorage->setAccessible(true);
     }
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -70,7 +70,7 @@ class PMA_PluginManager_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PluginManager::__construct
-     * 
+     *
      * @return void
      */
     public function testConstructor()
@@ -83,7 +83,7 @@ class PMA_PluginManager_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PluginManager::attach
-     * 
+     *
      * @return void
      */
     public function testAttach()
@@ -107,7 +107,7 @@ class PMA_PluginManager_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PluginManager::detach
-     * 
+     *
      * @return void
      */
     public function testDetach()
@@ -132,13 +132,13 @@ class PMA_PluginManager_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - PluginManager::getStorage
      *     - PluginManager::setStorage
-     * 
+     *
      * @return void
      */
     public function testSetGetStorage()
     {
         $s = new SplObjectStorage();
-        $o1 = new StdClass; 
+        $o1 = new StdClass;
         $s[$o1] = 'testData';
 
         $this->object->setStorage($s);
@@ -153,7 +153,7 @@ class PMA_PluginManager_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - PluginManager::getStatus
      *     - PluginManager::setStatus
-     * 
+     *
      * @return void
      */
     public function testSetGetStatus()

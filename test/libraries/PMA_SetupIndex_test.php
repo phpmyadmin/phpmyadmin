@@ -9,10 +9,15 @@
 /*
  * Include to test
  */
-require_once 'setup/lib/index.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/config/config_functions.lib.php';
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
+require_once 'setup/lib/index.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/sanitizing.lib.php';
 
 /**
  * tests for methods under setup/lib/index.lib.php
@@ -165,6 +170,8 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_versionCheck
      *
      * @return void
+     *
+     * @group medium
      */
     public function testPMAVersionCheckCase1()
     {
@@ -213,6 +220,8 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_versionCheck
      *
      * @return void
+     *
+     * @group medium
      */
     public function testPMAVersionCheckCase2()
     {
@@ -261,6 +270,8 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_versionCheck
      *
      * @return void
+     *
+     * @group medium
      */
     public function testPMAVersionCheckCase3()
     {
@@ -318,6 +329,8 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         $redefine = null;
         $GLOBALS['cfg']['AvailableCharsets'] = array();
+        $GLOBALS['server'] = 0;
+        $GLOBALS['ConfigFile'] = new ConfigFile();
         if (!defined('SETUP_CONFIG_FILE')) {
             define('SETUP_CONFIG_FILE', 'test/test_data/configfile');
         } else {
@@ -381,8 +394,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         $GLOBALS['cfg']['ServerDefault'] = 0;
+        $GLOBALS['server'] = 0;
 
-        $cf = ConfigFile::getInstance();
+        $cf = new ConfigFile();
+        $GLOBALS['ConfigFile'] = $cf;
+
         $reflection = new \ReflectionProperty('ConfigFile', '_id');
         $reflection->setAccessible(true);
         $sessionID = $reflection->getValue($cf);

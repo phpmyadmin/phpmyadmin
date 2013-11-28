@@ -41,9 +41,9 @@ var PMA_commonParams = (function () {
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
                     reload = true;
-                }
-                if (i == 'db' || i == 'table') {
-                    updateNavigation = true;
+                    if (i == 'db' || i == 'table') {
+                        updateNavigation = true;
+                    }
                 }
                 params[i] = obj[i];
             }
@@ -74,12 +74,15 @@ var PMA_commonParams = (function () {
          * @return self For chainability
          */
         set: function (name, value) {
+            var updateNavigation = false;
             if (params[name] !== undefined && params[name] !== value) {
                 PMA_querywindow.refresh();
-                PMA_reloadNavigation();
+                if (name == 'db' || name == 'table') {
+                    updateNavigation = true;
+                }
             }
             params[name] = value;
-            if (name == 'db' || name == 'table') {
+            if (updateNavigation) {
                 PMA_showCurrentNavigation();
             }
             return this;
@@ -195,8 +198,8 @@ var PMA_querywindow = (function ($, window) {
 
             if (! querywindow.closed && querywindow.location) {
                 var href = querywindow.location.href;
-                if (href != url
-                    && href != PMA_commonParams.get('pma_absolute_uri') + url
+                if (href != url &&
+                    href != PMA_commonParams.get('pma_absolute_uri') + url
                 ) {
                     if (PMA_commonParams.get('safari_browser')) {
                         querywindow.location.href = targeturl;
@@ -209,10 +212,10 @@ var PMA_querywindow = (function ($, window) {
                 querywindow = window.open(
                     url + '&init=1',
                     '',
-                    'toolbar=0,location=0,directories=0,status=1,'
-                    + 'menubar=0,scrollbars=yes,resizable=yes,'
-                    + 'width=' + PMA_commonParams.get('querywindow_width') + ','
-                    + 'height=' + PMA_commonParams.get('querywindow_height')
+                    'toolbar=0,location=0,directories=0,status=1,' +
+                    'menubar=0,scrollbars=yes,resizable=yes,' +
+                    'width=' + PMA_commonParams.get('querywindow_width') + ',' +
+                    'height=' + PMA_commonParams.get('querywindow_height')
                 );
             }
             if (! querywindow.opener) {

@@ -44,8 +44,6 @@ class PMA_Menu
      * @param int    $server Server id
      * @param string $db     Database name
      * @param string $table  Table name
-     *
-     * @return New PMA_Table
      */
     public function __construct($server, $db, $table)
     {
@@ -357,7 +355,11 @@ class PMA_Menu
         }
         if (! $db_is_information_schema
             && ! PMA_DRIZZLE
-            && PMA_Util::currentUserHasPrivilege('TRIGGER', $this->_db, $this->_table)
+            && PMA_Util::currentUserHasPrivilege(
+                'TRIGGER',
+                $this->_db,
+                $this->_table
+            )
             && ! $tbl_is_view
         ) {
             $tabs['triggers']['link'] = 'tbl_triggers.php';

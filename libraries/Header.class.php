@@ -106,8 +106,6 @@ class PMA_Header
 
     /**
      * Creates a new class instance
-     *
-     * @return new PMA_Header object
      */
     public function __construct()
     {
@@ -165,6 +163,10 @@ class PMA_Header
         }
 
         $this->_scripts->addFile('rte.js');
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
+            $this->_scripts->addFile('tracekit/tracekit.js');
+            $this->_scripts->addFile('error_report.js');
+        }
 
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
@@ -376,10 +378,12 @@ class PMA_Header
                 }
                 // Include possible custom headers
                 if (file_exists(CUSTOM_HEADER_FILE)) {
+                    $retval .= '<div id="pma_header">';
                     ob_start();
                     include CUSTOM_HEADER_FILE;
                     $retval .= ob_get_contents();
                     ob_end_clean();
+                    $retval .= '</div>';
                 }
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {
@@ -470,6 +474,8 @@ class PMA_Header
                 . "img-src 'self' data: "
                 . $GLOBALS['cfg']['CSPAllow']
                 . ($https ? "" : $mapTilesUrls)
+                // for reCAPTCHA
+                . " https://www.google.com"
                 . ";"
             );
             if (PMA_USR_BROWSER_AGENT == 'SAFARI'
@@ -483,6 +489,8 @@ class PMA_Header
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
+                    // for reCAPTCHA
+                    . " https://www.google.com"
                     . ";"
                 );
             } else {
@@ -500,6 +508,8 @@ class PMA_Header
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
+                    // for reCAPTCHA
+                    . " https://www.google.com"
                     . ";"
                 );
             }

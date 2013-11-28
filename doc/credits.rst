@@ -23,6 +23,8 @@ Credits, in chronological order
 
   * current project maintainer
 
+  * maintains content on our website
+
 * Olivier Müller <om\_at\_omnis.ch>
 
   * started SourceForge phpMyAdmin project in March 2001
@@ -133,6 +135,8 @@ Credits, in chronological order
   * various features and fixes
 
   * Czech language file updates
+
+  * created current website for phpMyAdmin
 
 * Christophe Gesché from the "MySQL Form Generator for PHPMyAdmin"
   (http://sf.net/projects/phpmysqlformgen/)
@@ -341,6 +345,14 @@ Credits, in chronological order
 * Jim Wigginton (phpseclib.sourceforge.net)
 
   * phpseclib
+
+* Bin Zu (Google Summer of Code 2013)
+
+  * Refactoring
+
+* Supun Nakandala (Google Summer of Code 2013)
+
+  * Refactoring
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version

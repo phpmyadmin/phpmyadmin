@@ -13,6 +13,9 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/user_preferences.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/js_escape.lib.php';
 
 /**
  * Tests for FromDisplay.tpl.php
@@ -203,7 +206,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
         $opts['doc'] = "http://doclink";
-        $opts['wiki'] = "http://wikilink";
         $opts['comment'] = "testComment";
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
@@ -249,20 +251,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
                 array(
                     'parent' => array('tag' => 'a')
                 )
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<a href="http://wikilink" target="wiki">'
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<img src="testImageb_info.png" title="Wiki" alt="Wiki" />'
             ),
             $result
         );

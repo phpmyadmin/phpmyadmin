@@ -77,7 +77,7 @@ $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 // check for CALL
 // Since multiple query execution is anyway handled,
 // ignore the WHERE clause of the first sql statement
-// which might contain a phrase like 'call ' 
+// which might contain a phrase like 'call '
 if (isset($analyzed_sql[0]['queryflags']['is_procedure'])
     && empty($analyzed_sql[0]['where_clause'])
 ) {

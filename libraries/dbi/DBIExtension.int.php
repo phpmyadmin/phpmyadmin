@@ -49,7 +49,7 @@ interface PMA_DBI_Extension
      * @param object $link    connection object
      * @param int    $options query options
      *
-     * @return result object|bool
+     * @return object|bool result
      */
     public function realQuery($query, $link, $options);
 
@@ -121,7 +121,7 @@ interface PMA_DBI_Extension
     /**
      * Prepare next result from multi_query
      *
-     * @param objecy $link the connection object
+     * @param object $link the connection object
      *
      * @return bool true or false
      */
@@ -160,7 +160,7 @@ interface PMA_DBI_Extension
     public function getClientInfo();
 
     /**
-     * returns last error message or false if no errors occured
+     * returns last error message or false if no errors occurred
      *
      * @param object $link connection link
      *

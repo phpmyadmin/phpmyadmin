@@ -47,7 +47,7 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
  *
  * @param array $where_clause where clause
  *
- * @return whereClauseArray array of where clauses
+ * @return array|void whereClauseArray array of where clauses
  */
 function PMA_getWhereClauseArray($where_clause)
 {
@@ -571,6 +571,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 
 /**
  * Get the HTML elements for value column in insert form
+ * (here, "column" is used in the sense of HTML column in HTML table)
  *
  * @param array   $column                description of column in given table
  * @param string  $backup_field          hidden input field
@@ -678,7 +679,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         );
 
     } elseif (! in_array($column['pma_type'], $no_support_types)) {
-        $html_output .= PMA_getNoSupportTypes(
+        $html_output .= PMA_getValueColumnForOtherDatatypes(
             $column, $default_char_editing, $backup_field,
             $column_name_appendix, $unnullify_trigger, $tabindex, $special_chars,
             $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
@@ -853,7 +854,7 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
  * @param type $idindex              id index
  * @param type $data                 data to edit
  *
- * @return type string an html snippet
+ * @return string an html snippet
  */
 function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
     $extracted_columnspec, $unnullify_trigger, $tabindex, $tabindex_for_value,
@@ -1161,23 +1162,6 @@ function PMA_getBinaryAndBlobColumn(
 function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
-    static $min_max_data = array(
-        'signed' => array(
-            'tinyint'   => array('0', '255'),
-            'smallint'  => array('0', '65535'),
-            'mediumint' => array('0', '16777215'),
-            'int'       => array('0', '4294967295'),
-            'bigint'    => array('0', '18446744073709551615')
-        ),
-        'unsigned' => array(
-            'tinyint'   => array('-128', '127'),
-            'smallint'  => array('-32768', '32767'),
-            'mediumint' => array('-8388608', '8388607'),
-            'int'       => array('-2147483648', '2147483647'),
-            'bigint'    => array('-9223372036854775808', '9223372036854775807')
-        )
-    );
-
     $input_type = 'text';
     $the_class = 'textfield';
     if ($column['pma_type'] === 'date') {
@@ -1193,13 +1177,13 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $input_min_max = false;
     if (in_array(
         $column['True_Type'],
-        array('tinyint', 'smallint', 'mediumint', 'int', 'bigint')
+        $GLOBALS['PMA_Types']->getIntegerTypes()
     )) {
         $input_type = 'number';
         $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
-        $min_max_values
-            = $min_max_data[$is_unsigned ? 'unsigned' : 'signed']
-                [$column['True_Type']];
+        $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
+            $column['True_Type'], ! $is_unsigned
+        );
         $input_min_max = 'min="' . $min_max_values[0] . '" '
             . 'max="' . $min_max_values[1] . '" ';
     }
@@ -1219,7 +1203,7 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
  * @param string $vkey   [multi_edit]['row_id']
  * @param array  $column description of column in given table
  *
- * @return string           an html snippet
+ * @return string|void an html snippet
  */
 function PMA_getSelectOptionForUpload($vkey, $column)
 {
@@ -1282,7 +1266,8 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
 }
 
 /**
- * Get HTML for pma no support types
+ * Get HTML for the Value column of other datatypes
+ * (here, "column" is used in the sense of HTML column in HTML table)
  *
  * @param array   $column                description of column in given table
  * @param string  $default_char_editing  default char editing mode which is stroe
@@ -1304,7 +1289,8 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  *
  * @return string an html snippet
  */
-function PMA_getNoSupportTypes($column, $default_char_editing, $backup_field,
+function PMA_getValueColumnForOtherDatatypes($column, $default_char_editing,
+    $backup_field,
     $column_name_appendix, $unnullify_trigger, $tabindex, $special_chars,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data,
     $extracted_columnspec
@@ -1684,7 +1670,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         if ($column['is_binary']
             || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary'])
         ) {
-            if ($_SESSION['tmp_user_values']['display_binary_as_hex']
+            if ($_SESSION['tmpval']['display_binary_as_hex']
                 && $GLOBALS['cfg']['ShowFunctionFields']
             ) {
                 $current_row[$column['Field']] = bin2hex(
@@ -1771,8 +1757,8 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     // this will select the UNHEX function while inserting
     if (($column['is_binary']
         || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary']))
-        && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
-        && $_SESSION['tmp_user_values']['display_binary_as_hex'])
+        && (isset($_SESSION['tmpval']['display_binary_as_hex'])
+        && $_SESSION['tmpval']['display_binary_as_hex'])
         && $GLOBALS['cfg']['ShowFunctionFields']
     ) {
         $column['display_binary_as_hex'] = true;
@@ -1947,11 +1933,11 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
 /**
  * Executes the sql query and get the result, then move back to the calling page
  *
- * @param array  $url_params url paramters array
- * @param string $query      built query from PMA_buildSqlQuery()
+ * @param array $url_params url parameters array
+ * @param array $query      built query from PMA_buildSqlQuery()
  *
- * @return array             $url_params, $total_affected_rows, $last_messages
- *                           $warning_messages, $error_messages, $return_to_sql_query
+ * @return array            $url_params, $total_affected_rows, $last_messages
+ *                          $warning_messages, $error_messages, $return_to_sql_query
  */
 function PMA_executeSqlQuery($url_params, $query)
 {
@@ -2083,7 +2069,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
 function PMA_getLinkForRelationalDisplayField($map, $relation_field,
     $where_comparison, $dispval, $relation_field_value
 ) {
-    if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
+    if ('K' == $_SESSION['tmpval']['relational_display']) {
         // user chose "relational key" in the display options, so
         // the title contains the display field
         $title = (! empty($dispval))
@@ -2105,7 +2091,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
     $output = '<a href="sql.php'
         . PMA_URL_getCommon($_url_params) . '"' . $title . '>';
 
-    if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
+    if ('D' == $_SESSION['tmpval']['relational_display']) {
         // user chose "relational display field" in the
         // display options, so show display field in the cell
         $output .= (!empty($dispval)) ? htmlspecialchars($dispval) : '';
@@ -2579,7 +2565,7 @@ function PMA_getUrlParameters($db, $table)
 
 /**
  * Function to get html for the gis editor div
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForGisEditor()
@@ -2591,9 +2577,9 @@ function PMA_getHtmlForGisEditor()
 
 /**
  * Function to get html for the ignore option in insert mode
- * 
+ *
  * @param int $row_id row id
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForIgnoreOption($row_id)
@@ -2608,20 +2594,20 @@ function PMA_getHtmlForIgnoreOption($row_id)
 
 /**
  * Function to get html for the function option
- * 
+ *
  * @param bool   $odd_row              whether odd row or not
  * @param array  $column               column
  * @param string $column_name_appendix column name appendix
- * 
+ *
  * @return String
  */
 function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
 {
     $longDoubleTextArea = $GLOBALS['cfg']['LongtextDoubleTextarea'];
     return '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
-        . '<td ' 
+        . '<td '
         . ($longDoubleTextArea && strstr($column['True_Type'], 'longtext')
-            ? 'rowspan="2"' 
+            ? 'rowspan="2"'
             : ''
         )
         . 'class="center">'
@@ -2629,14 +2615,14 @@ function PMA_getHtmlForFunctionOption($odd_row, $column, $column_name_appendix)
         . '<input type="hidden" name="fields_name' . $column_name_appendix
         . '" value="' . $column['Field_html'] . '"/>'
         . '</td>';
-        
+
 }
 
 /**
  * Function to get html for the column type
- * 
+ *
  * @param array $column column
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForInsertEditColumnType($column)
@@ -2649,10 +2635,10 @@ function PMA_getHtmlForInsertEditColumnType($column)
 
 /**
  * Function to get html for the insert edit form header
- * 
+ *
  * @param bool $has_blob_field whether has blob field
  * @param bool $is_upload      whether is upload
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
@@ -2666,13 +2652,13 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
         $html_output .= ' enctype="multipart/form-data"';
     }
     $html_output .= '>';
-    
+
     return $html_output;
 }
 
 /**
  * Function to get html for each insert/edit column
- * 
+ *
  * @param array  $table_columns         table columns
  * @param int    $i                     row counter
  * @param array  $column                column
@@ -2701,7 +2687,7 @@ function PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
  * @param string $default_char_editing  default char editing mode which is stroe
  *                                      in the config.inc.php script
  * @param string $text_dir              text direction
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
@@ -2710,7 +2696,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
     $foreigners, $tabindex_for_null, $tabindex_for_value,
     $table, $db, $row_id, $titles, $biggest_max_file_size,
-    $default_char_editing, $text_dir    
+    $default_char_editing, $text_dir
 ) {
     if (! isset($table_columns[$i]['processed'])) {
         $column = $table_columns[$i];
@@ -2779,7 +2765,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
         // display default values
         list($real_null_value, $data, $special_chars, $backup_field,
             $special_chars_encoded
-        ) 
+        )
             = PMA_getSpecialCharsAndBackupFieldForInsertingMode(
                 $column, $real_null_value
             );
@@ -2833,7 +2819,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
 
     $html_output .= '</td>'
     . '</tr>';
-    
+
     return $html_output;
 }
 
@@ -2865,7 +2851,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
  * @param array  $titles                titles
  * @param int    $biggest_max_file_size biggest max file size
  * @param string $text_dir              text direction
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
@@ -2873,11 +2859,11 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     $jsvkey, $vkey, $insert_mode, $current_row, &$o_rows, &$tabindex, $columns_cnt,
     $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
     $tabindex_for_value, $table, $db, $row_id, $titles,
-    $biggest_max_file_size, $text_dir    
+    $biggest_max_file_size, $text_dir
 ) {
     $html_output = PMA_getHeadAndFootOfInsertRowTable($url_params)
         . '<tbody>';
-    
+
     //store the default value for CharEditing
     $default_char_editing  = $GLOBALS['cfg']['CharEditing'];
 
@@ -2889,14 +2875,14 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
             $current_row, $odd_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
             $tabindex_for_function, $foreigners, $tabindex_for_null,
             $tabindex_for_value, $table, $db, $row_id, $titles,
-            $biggest_max_file_size, $default_char_editing, $text_dir    
+            $biggest_max_file_size, $default_char_editing, $text_dir
         );
         $odd_row = !$odd_row;
     } // end for
     $o_rows++;
     $html_output .= '  </tbody>'
-        . '</table><br />';   
-    
+        . '</table><br />';
+
     return $html_output;
 }
 ?>

@@ -17,9 +17,9 @@ require_once __DIR__.'/selenium/PmaSeleniumCreateRemoveUserTest.php';
 
 /**
  * AllSeleniumTests class
- * 
+ *
  * Runs all the selenium test cases
- * 
+ *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
@@ -38,8 +38,8 @@ class AllSeleniumTests
 
     /**
      * Creates a SeleniumTestSuite and add all the selenium test cases to it
-     * 
-     * @return PHPUnit_Extensions_SeleniumTestSuite 
+     *
+     * @return PHPUnit_Extensions_SeleniumTestSuite
      */
     public static function suite()
     {

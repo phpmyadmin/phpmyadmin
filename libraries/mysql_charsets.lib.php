@@ -69,6 +69,13 @@ function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
     return $return_str;
 }
 
+/**
+ * Generate the charset query part
+ *
+ * @param string $collation Collation
+ *
+ * @return string
+ */
 function PMA_generateCharsetQueryPart($collation)
 {
     if (!PMA_DRIZZLE) {
@@ -95,26 +102,14 @@ function PMA_getDbCollation($db)
         return 'utf8_general_ci';
     }
 
-    if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-        // this is slow with thousands of databases
-        $sql = PMA_DRIZZLE
-            ? 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS'
-            . ' WHERE SCHEMA_NAME = \'' . PMA_Util::sqlAddSlashes($db)
-            . '\' LIMIT 1'
-            : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
-            . ' WHERE SCHEMA_NAME = \'' . PMA_Util::sqlAddSlashes($db)
-            . '\' LIMIT 1';
-        return $GLOBALS['dbi']->fetchValue($sql);
-    } else {
-        $GLOBALS['dbi']->selectDb($db);
-        $return = $GLOBALS['dbi']->fetchValue(
-            'SHOW VARIABLES LIKE \'collation_database\'', 0, 1
-        );
-        if ($db !== $GLOBALS['db']) {
-            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-        }
-        return $return;
-    }
+    $sql = PMA_DRIZZLE
+        ? 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS'
+        . ' WHERE SCHEMA_NAME = \'' . PMA_Util::sqlAddSlashes($db)
+        . '\' LIMIT 1'
+        : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA'
+        . ' WHERE SCHEMA_NAME = \'' . PMA_Util::sqlAddSlashes($db)
+        . '\' LIMIT 1';
+    return $GLOBALS['dbi']->fetchValue($sql);
 }
 
 /**

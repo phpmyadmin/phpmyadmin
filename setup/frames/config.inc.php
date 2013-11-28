@@ -26,12 +26,12 @@ echo '<h2>' . __('Configuration file') . '</h2>';
 PMA_displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
     . htmlspecialchars(PMA_ifSetOr($_GET['eol'], 'unix')) . '" />';
-PMA_displayFieldsetTop('', '', null, array('class' => 'simple'));
+PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
 echo '<tr>';
 echo '<td>';
 echo '<textarea cols="50" rows="20" name="textconfig" '
     . 'id="textconfig" spellcheck="false">';
-echo htmlspecialchars(ConfigGenerator::getConfigFile());
+echo htmlspecialchars(ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']));
 echo '</textarea>';
 echo '</td>';
 echo '</tr>';

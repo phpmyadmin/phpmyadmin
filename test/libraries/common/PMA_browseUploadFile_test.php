@@ -51,6 +51,6 @@ class PMA_GetBrowseUploadFileBlock_Test extends PHPUnit_Framework_TestCase
             . '<input type="file" name="import_file" id="input_import_file" />'
             . "(" . __('Max: '). $res . $unit .")" . "\n"
             . '<input type="hidden" name="MAX_FILE_SIZE" value="' .$size . '" />' . "\n"
-        );        
+        );
     }
 }

@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  * @param array $a The first language being compared
  * @param array $b The second language being compared
  *
- * @return the sorted array
+ * @return int the sorted array
  */
 function PMA_languageCmp($a, $b)
 {

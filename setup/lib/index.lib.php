@@ -186,7 +186,7 @@ function PMA_versionCheck()
  */
 function PMA_checkConfigRw(&$is_readable, &$is_writable, &$file_exists)
 {
-    $file_path = ConfigFile::getInstance()->getFilePath();
+    $file_path = $GLOBALS['ConfigFile']->getFilePath();
     $file_dir = dirname($file_path);
     $is_readable = true;
     $is_writable = is_dir($file_dir);
@@ -210,7 +210,7 @@ function PMA_checkConfigRw(&$is_readable, &$is_writable, &$file_exists)
  */
 function PMA_performConfigChecks()
 {
-    $cf = ConfigFile::getInstance();
+    $cf = $GLOBALS['ConfigFile'];
     $blowfish_secret = $cf->get('blowfish_secret');
     $blowfish_secret_set = false;
     $cookie_auth_used = false;

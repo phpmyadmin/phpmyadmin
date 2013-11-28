@@ -12,6 +12,7 @@
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/relation.lib.php';
 
 /**
  * Tests for Tracking changes on databases, tables and views
@@ -40,7 +41,6 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['tracking_add_drop_database'] = '';
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = '';
         $GLOBALS['cfg']['Server']['tracking_version_auto_create'] = '';
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['DBG']['sql'] = false;
 
         if (!defined("PMA_DRIZZLE")) {

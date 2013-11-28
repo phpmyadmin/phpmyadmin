@@ -344,7 +344,7 @@ function PMA_getDiagMessageForFeature($feature_name,
  * @param array   $messages               utility messages
  * @param string  $doc_anchor             anchor in documentation
  *
- * @return void
+ * @return string
  */
 function PMA_getDiagMessageForParameter($parameter,
     $relation_parameter_set, $messages, $doc_anchor
@@ -1364,7 +1364,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
  * @param string $db_field     Name of database field
  * @param string $table_field  Name of table field
  *
- * @return nothing.
+ * @return void
  */
 function PMA_REL_renameSingleTable($table,
     $source_db, $target_db,
@@ -1395,7 +1395,7 @@ function PMA_REL_renameSingleTable($table,
  * @param string $source_table Source table name
  * @param string $target_table Target table name
  *
- * @return nothing
+ * @return void
  */
 function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_table)
 {

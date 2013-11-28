@@ -15,7 +15,7 @@
  * @param mixed  $plugin_param  parameter to plugin by which they can
  *                              decide whether they can work
  *
- * @return new plugin instance
+ * @return object|null new plugin instance
  */
 function PMA_getPlugin(
     $plugin_type,

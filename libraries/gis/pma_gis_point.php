@@ -32,7 +32,7 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
     /**
      * Returns the singleton.
      *
-     * @return object the singleton
+     * @return PMA_GIS_Point the singleton
      * @access public
      */
     public static function singleton()
@@ -109,9 +109,9 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      * @param string $label       Label for the GIS POINT object
      * @param string $point_color Color for the GIS POINT object
      * @param array  $scale_data  Array containing data related to scaling
-     * @param object $pdf         TCPDF instance
+     * @param TCPDF  $pdf         TCPDF instance
      *
-     * @return object the modified TCPDF instance
+     * @return TCPDF the modified TCPDF instance
      * @access public
      */
     public function prepareRowAsPdf($spatial, $label, $point_color,
@@ -263,7 +263,7 @@ class PMA_GIS_Point extends PMA_GIS_Geometry
      * Generate parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value of the GIS column
-     * @param index  $index of the geometry
+     * @param int    $index of the geometry
      *
      * @return array params for the GIS data editor from the value of the GIS column
      * @access public

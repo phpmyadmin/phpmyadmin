@@ -364,7 +364,7 @@ function PMA_getMoveColumns($db, $table)
 }
 
 /**
- * Function to get row data for regenerating previous when error occured.
+ * Function to get row data for regenerating previous when error occurred.
  *
  * @param int   $columnNumber    coulmn number
  * @param array $submit_fulltext submit full text
@@ -444,7 +444,7 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 }
 
 /**
- * Function to get submit properties for regenerating previous when error occured.
+ * Function to get submit properties for regenerating previous when error occurred.
  *
  * @param int $columnNumber coulmn number
  *
@@ -1264,11 +1264,11 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 
 /**
  * Function to get form parameters for old column
- * 
+ *
  * @param array $columnMeta  column meta
  * @param int   $length      length
  * @param array $form_params form parameters
- * 
+ *
  * @return array
  */
 function PMA_getFormParamsForOldColumn($columnMeta, $length, $form_params)
@@ -1285,7 +1285,7 @@ function PMA_getFormParamsForOldColumn($columnMeta, $length, $form_params)
     // old column default
     $form_params['field_default_orig[' . $columnNumber . ']']
         = (isset($columnMeta['Default']) ? $columnMeta['Default'] : '');
-    
+
     return $form_params;
 }
 ?>

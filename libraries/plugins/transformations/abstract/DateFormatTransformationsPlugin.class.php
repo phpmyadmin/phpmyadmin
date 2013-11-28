@@ -47,7 +47,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @return void
+     * @return string
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {

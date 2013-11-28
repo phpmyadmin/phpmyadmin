@@ -123,6 +123,27 @@ Basic settings
 
     Show warning about incomplete translations on certain threshold.
 
+.. config:option:: $cfg['SendErrorReports']
+
+    :type: string
+    :default: ``'ask'``
+
+    Sets the default behavior for JavaScript error reporting.
+
+    Whenever an error is detected in the JavaScript execution, an error report
+    may be sent to the phpMyAdmin team if the user agrees.
+
+    The default setting of ``'ask'`` will ask the user everytime there is a new
+    error report. However you can set this parameter to ``'always'`` to send error
+    reports without asking for confirmation or you can set it to ``'never'`` to
+    never send error reports.
+
+    This directive is available both in the configuration file and in users
+    preferences. If the person in charge of a multi-user installation prefers
+    to disable this feature for all users, a value of ``'never'`` should be
+    set, and the :config:option:`$cfg['UserprefsDisallow']` directive should
+    contain ``'SendErrorReports'`` in one of its array values. 
+
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
     :type: boolean
@@ -989,38 +1010,6 @@ Server connection settings
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
-.. config:option:: $cfg['Servers'][$i]['DisableIS']
-
-    :type: boolean
-    :default: true
-
-    Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
-    ``SHOW`` commands instead), because of speed issues when many
-    databases are present. Currently used in some parts of the code, more
-    to come.
-
-.. config:option:: $cfg['Servers'][$i]['ShowDatabasesCommand']
-
-    :type: string
-    :default: ``'SHOW DATABASES'``
-
-    On a server with a huge number of databases, the default ``SHOW DATABASES``
-    command used to fetch the name of available databases will probably be too
-    slow, so it can be replaced by faster commands. You can use ``#user#``
-    string will be replaced by current user.
-
-    When using ``false``, it will disable fetching databases from the server,
-    only databases in :config:option:`$cfg['Servers'][$i]['only_db']` will be
-    displayed.
-
-    Examples:
-
-    * ``'SHOW DATABASES'``
-    * ``"SHOW DATABASES LIKE '#user#\_%'"``
-    * ``'SELECT DISTINCT TABLE_SCHEMA FROM information_schema.SCHEMA_PRIVILEGES'``
-    * ``'SELECT SCHEMA_NAME FROM information_schema.SCHEMATA'``
-    * ``false``
-
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
@@ -1072,9 +1061,6 @@ Server connection settings
     if not, this setting is ignored silently). You have to provide
     :config:option:`$cfg['Servers'][$i]['StatusCacheLifetime']`.
 
-    Takes effect only if :config:option:`$cfg['Servers'][$i]['DisableIS']` is
-    ``true``.
-
 .. config:option:: $cfg['Servers'][$i]['StatusCacheLifetime']
 
     :type: integer
@@ -1111,17 +1097,18 @@ Generic settings
 
         This setting can be adjusted by your vendor.
 
-.. config:option:: $cfg['VersionCheckProxyUrl']
+.. config:option:: $cfg['ProxyUrl']
 
     :type: string
     :default: ""
 
-    The url of the proxy to be used when retrieving the information about
-    the latest version of phpMyAdmin. You need this if the server where
-    phpMyAdmin is installed does not have direct access to the internet.
+    The url of the proxy to be used when phpmyadmin needs to access the outside
+    intenet such as when retrieving the latest version info or submitting error
+    reports.  You need this if the server where phpMyAdmin is installed does not
+    have direct access to the internet.
     The format is: "hostname:portnumber"
 
-.. config:option:: $cfg['VersionCheckProxyUser']
+.. config:option:: $cfg['ProxyUser']
 
     :type: string
     :default: ""
@@ -1131,7 +1118,7 @@ Generic settings
     Authentication will be performed. No other types of authentication
     are currently supported.
 
-.. config:option:: $cfg['VersionCheckProxyPass']
+.. config:option:: $cfg['ProxyPass']
 
     :type: string
     :default: ""
@@ -1145,14 +1132,6 @@ Generic settings
 
     The maximum number of database names to be displayed in the main panel's
     database list.
-
-.. config:option:: $cfg['MaxNavigationItems']
-
-    :type: integer
-    :default: 250
-
-    The number of items that can be displayed on each page of the
-    navigation tree.
 
 .. config:option:: $cfg['MaxTableList']
 
@@ -1205,7 +1184,7 @@ Generic settings
     
     .. note::
 
-        In some setups (like separate SSL proxy or loadballancer) you might
+        In some setups (like separate SSL proxy or load balancer) you might
         have to set :config:option:`$cfg['PmaAbsoluteUri']` for correct
         redirection.
 
@@ -1416,6 +1395,14 @@ Cookie authentication options
 
 Navigation panel setup
 ----------------------
+
+.. config:option:: $cfg['MaxNavigationItems']
+
+    :type: integer
+    :default: 250
+
+    The number of items that can be displayed on each page of the
+    navigation tree.
 
 .. config:option:: $cfg['NavigationTreeEnableGrouping']
 

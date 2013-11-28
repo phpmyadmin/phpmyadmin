@@ -158,7 +158,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 4: PMA_getHtmlForDatabaseList
+        //validate 4: PMA_getHtmlAndColumnOrderForDatabaseList
         $this->assertContains(
             'title="pma_bookmark" value="pma_bookmark"',
             $html

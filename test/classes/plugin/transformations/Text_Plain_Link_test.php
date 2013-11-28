@@ -10,6 +10,7 @@
  */
 
 /* Each PluginObserver instance contains a PluginManager instance */
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Link.class.php';
 

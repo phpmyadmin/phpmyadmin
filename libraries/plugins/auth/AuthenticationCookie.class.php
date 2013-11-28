@@ -63,9 +63,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function MUST exit/quit the application
      *
-     * @global string the last connection error
+     * @global string $conn_error the last connection error
      *
-     * @return void
+     * @return boolean|void
      */
     public function auth()
     {
@@ -353,7 +353,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['from_cookie'] = false;
 
         // BEGIN Swekey Integration
-        if (! Swekey_auth_check()) {
+        if (! Swekey_Auth_check()) {
             return false;
         }
         // END Swekey Integration

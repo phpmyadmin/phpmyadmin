@@ -189,6 +189,11 @@ class ImportSql extends ImportPlugin
                     continue;
                 }
             }
+
+            // Convert CR (but not CRLF) to LF otherwise all queries
+            // may not get executed on some platforms
+            $buffer = preg_replace("/\r($|[^\n])/", "\n$1", $buffer);
+
             // Current length of our buffer
             $len = strlen($buffer);
 

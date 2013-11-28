@@ -409,7 +409,7 @@ function PMA_getGrantsArray()
  * @param string $name_for_dfn     name for dfn
  * @param string $name_for_current name for current
  *
- * @return $html_output             html snippet
+ * @return string $html_output html snippet
  */
 function PMA_getHtmlForDisplayColumnPrivileges($columns, $row, $name_for_select,
     $priv_for_header, $name, $name_for_dfn, $name_for_current
@@ -2010,7 +2010,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
 /**
  * Get HTML snippet for table body of specific database or table privileges
  *
- * @param boolean $privMap priviledge map
+ * @param array   $privMap priviledge map
  * @param boolean $db      database
  * @param boolean $table   table
  *
@@ -2160,7 +2160,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
  * @param string $dbname    Database name
  * @param string $tablename Table name
  *
- * @return HTML code with link
+ * @return string HTML code with link
  */
 function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = '')
 {
@@ -2187,7 +2187,7 @@ function PMA_getUserEditLink($username, $hostname, $dbname = '', $tablename = ''
  * @param string $dbname    Database name
  * @param string $tablename Table name
  *
- * @return HTML code with link
+ * @return string HTML code with link
  */
 function PMA_getUserRevokeLink($username, $hostname, $dbname = '', $tablename = '')
 {
@@ -2229,6 +2229,23 @@ function PMA_getUserExportLink($username, $hostname, $initial = '')
         )
         . '">'
         . PMA_Util::getIcon('b_tblexport.png', __('Export'))
+        . '</a>';
+}
+
+/**
+ * Returns user group edit link
+ *
+ * @param string $username User name
+ *
+ * @return HTML code with link
+ */
+function PMA_getUserGroupEditLink($username)
+{
+     return '<a class="edit_user_group_anchor ajax"'
+        . ' href="server_privileges.php'
+        . PMA_URL_getCommon(array('username' => $username))
+        . '">'
+        . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
         . '</a>';
 }
 
@@ -2291,7 +2308,14 @@ function PMA_getExtraDataForAjaxBehavior(
         $new_user_string .= '<td>'
             . '<code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code>'
             . '</td>'; //Fill in privileges here
-        $new_user_string .= '<td class="usrGroup"></td>';
+
+        // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
+        // enabled
+        $cfgRelation = PMA_getRelationsParam();
+        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+            $new_user_string .= '<td class="usrGroup"></td>';
+        }
+
         $new_user_string .= '<td>';
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
@@ -2305,6 +2329,13 @@ function PMA_getExtraDataForAjaxBehavior(
         $new_user_string .= '<td>'
             . PMA_getUserEditLink($username, $hostname)
             . '</td>' . "\n";
+
+        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+            $new_user_string .= '<td>'
+                . PMA_getUserGroupEditLink($username)
+                . '</td>' . "\n";
+        }
+
         $new_user_string .= '<td>'
             . PMA_getUserExportLink(
                 $username,
@@ -2722,7 +2753,11 @@ function PMA_getTableForDisplayAllTableSpecificRights(
  */
 function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
 {
-    $pred_db_array = $GLOBALS['dbi']->fetchResult('SHOW DATABASES;');
+    // we already have the list of databases from libraries/common.inc.php
+    // via $pma = new PMA;
+    $pred_db_array = $GLOBALS['pma']->databases;
+
+    $databases_to_skip = array('information_schema', 'performance_schema');
 
     $html_output = '<label for="text_dbname">'
         . __('Add privileges on the following database:') . '</label>' . "\n";
@@ -2731,6 +2766,9 @@ function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
             . '<option value="" selected="selected">'
             . __('Use text field:') . '</option>' . "\n";
         foreach ($pred_db_array as $current_db) {
+            if (in_array($current_db, $databases_to_skip)) {
+                continue;
+            }
             $current_db_show = $current_db;
             $current_db = PMA_Util::escapeMysqlWildcards($current_db);
             // cannot use array_diff() once, outside of the loop,
@@ -2975,13 +3013,8 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
                     $html_output .= '<td class="center"></td>';
                 } else {
                     $html_output .= '<td class="center">'
-                        . '<a class="edit_user_group_anchor ajax"'
-                        . ' href="server_privileges.php'
-                        . PMA_URL_getCommon(array('username' => $host['User']))
-                        . '">'
-                        . PMA_Util::getIcon('b_usrlist.png', __('Edit user group'))
-                        . '</a>'
-                        . '</td>';
+                        . PMA_getUserGroupEditLink($host['User'])
+                        .'</td>';
                 }
             }
             $html_output .= '<td class="center">'
@@ -3805,7 +3838,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
  * Get HTML snippet for display user properties
  *
  * @param boolean $dbname_is_wildcard whether database name is wildcard or not
- * @param type    $url_dbname         url database name that urlencode() string
+ * @param string  $url_dbname         url database name that urlencode() string
  * @param string  $username           username
  * @param string  $hostname           host name
  * @param string  $dbname             database name

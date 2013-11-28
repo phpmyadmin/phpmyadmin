@@ -9,6 +9,7 @@
 require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for Node_Procedure_Container class
@@ -19,7 +20,7 @@ class Node_Procedure_Container_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * SetUp for test cases
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -31,7 +32,7 @@ class Node_Procedure_Container_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for __construct
-     * 
+     *
      * @return void
      */
     public function testConstructor()

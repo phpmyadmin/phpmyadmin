@@ -55,7 +55,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::loadInfo
-     * 
+     *
      * @return void
      */
     public function testCheckImgPathNotExisted()
@@ -66,7 +66,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::loadInfo
-     * 
+     *
      * @return void
      */
     public function testCheckImgPathIncorrect()
@@ -80,7 +80,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::getName, getVersion
-     * 
+     *
      * @return void
      */
     public function testCheckImgPathFull()
@@ -93,7 +93,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::loadInfo
-     * 
+     *
      * @return void
      */
     public function testLoadInfo()
@@ -115,7 +115,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::load
-     * 
+     *
      * @return void
      */
     public function testLoad()
@@ -126,7 +126,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::load
-     * 
+     *
      * @return void
      */
     public function testLoadNotExisted()
@@ -136,7 +136,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test fir PMA_Theme::checkImgPath
-     * 
+     *
      * @return void
      * @expectedException PHPUnit_Framework_Error
      */
@@ -150,7 +150,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::checkImgPath
-     * 
+     *
      * @return void
      */
     public function testCheckImgPath()
@@ -161,7 +161,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::checkImgPath
-     * 
+     *
      * @return void
      */
     public function testCheckImgPathGlobals()
@@ -173,7 +173,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::checkImgPath
-     * 
+     *
      * @return void
      * @expectedException PHPUnit_Framework_Error
      */
@@ -190,7 +190,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::getPath
-     * 
+     *
      * @return void
      *
      * @covers PMA_Theme::setPath
@@ -206,7 +206,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::loadInfo
-     * 
+     *
      * @return void
      */
     public function testGetLayoutFile()
@@ -216,7 +216,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::checkVersion
-     * 
+     *
      * @return void
      *
      * @depends testLoadInfo
@@ -238,7 +238,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::getName
-     * 
+     *
      * @return void
      *
      * @covers PMA_Theme::getName
@@ -254,7 +254,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::getId
-     * 
+     *
      * @return void
      *
      * @covers PMA_Theme::getId
@@ -270,7 +270,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Theme::getImgPath
-     * 
+     *
      * @return void
      *
      * @covers PMA_Theme::getImgPath

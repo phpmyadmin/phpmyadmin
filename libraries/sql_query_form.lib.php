@@ -84,14 +84,8 @@ function PMA_getHtmlForSqlQueryForm(
 
     // start output
     if ($is_querywindow) {
-        $html .= '<form method="post" id="sqlqueryform" target="frame_content"';
-        $html .= '      action="import.php" ' . $enctype . ' name="sqlform"';
-        $html .= '      onsubmit="var save_name ';
-        $html .= '          = window.opener.parent.frame_content.name;';
-        $html .= '      window.opener.parent.frame_content.name ';
-        $html .= '          = save_name + \'' .  time() . '\';';
-        $html .= '      this.target = window.opener.parent.frame_content.name;';
-        $html .= '      return checkSqlQuery(this)">';
+        $html .= '<form method="post" id="sqlqueryform"';
+        $html .= ' action="sql.php" ' . $enctype . ' name="sqlform"';
     } else {
         $html .= '<form method="post" action="import.php" ' . $enctype;
         $html .= ' class="ajax"';
@@ -146,7 +140,7 @@ function PMA_getHtmlForSqlQueryForm(
     // print an empty div, which will be later filled with
     // the sql query results by ajax
     $html .= '<div id="sqlqueryresults"></div>';
-    
+
     return $html;
 }
 
@@ -227,8 +221,10 @@ function PMA_getHtmlForSqlQueryFormInsert(
         $tmp_db_link = '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
             . '?' . PMA_URL_getCommon($db) . '"';
         if ($is_querywindow) {
-            $tmp_db_link .= ' target="_self"'
-                . ' onclick="this.target=window.opener.frame_content.name"';
+            $tmp_db_link .= 'target="_parent" '
+                . 'onclick="window.opener.location.href = \''
+                . $GLOBALS['cfg']['DefaultTabDatabase']
+                . '?' . PMA_URL_getCommon($db).'\';return false;"';
         }
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
@@ -346,10 +342,10 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div class="formelement">' . "\n";
 
     if ($is_querywindow) {
-        $html .= '<input type="checkbox" ' 
-            . 'name="LockFromUpdate" checked="checked" tabindex="120" ' 
-            . 'id="checkbox_lock" /> <label for="checkbox_lock">' 
-            . __('Do not overwrite this query from outside the window') 
+        $html .= '<input type="checkbox" '
+            . 'name="LockFromUpdate" checked="checked" tabindex="120" '
+            . 'id="checkbox_lock" /> <label for="checkbox_lock">'
+            . __('Do not overwrite this query from outside the window')
             . '</label>';
     }
     $html .= '</div>' . "\n";
@@ -375,18 +371,24 @@ function PMA_getHtmlForSqlQueryFormInsert(
             . '</label>';
     }
     $html .= '</div>' . "\n";
-    $html .= '<input type="submit" id="button_submit_query" name="SQL"'
-        . ' tabindex="200" value="' . __('Go') . '" />' . "\n";
+    $html .= '<input type="submit" id="button_submit_query" name="SQL"';
+    if ($is_querywindow) {
+        $html .= 'onclick="var form = this.parentNode.parentNode;'
+            . ' window.opener.name = \'sqlParentWindow\';'
+            . ' form.target = \'sqlParentWindow\';'
+            . ' return checkSqlQuery(form);"';
+    }
+    $html .= ' tabindex="200" value="' . __('Go') . '" />' . "\n";
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
-    
+
     return $html;
 }
 
 /**
  * return HTML for sql Query Form Bookmark
  *
- * @return string
+ * @return string|void
  *
  * @usedby  PMA_getHtmlForSqlQueryForm()
  */
@@ -397,7 +399,7 @@ function PMA_getHtmlForSqlQueryFormBookmark()
         return;
     }
 
-    $html  = '<fieldset id="bookmarkoptions">';
+    $html  = '<fieldset id="fieldsetBookmarkOptions">';
     $html .= '<legend>';
     $html .= __('Bookmarked SQL query') . '</legend>' . "\n";
     $html .= '<div class="formelement">';
@@ -433,12 +435,12 @@ function PMA_getHtmlForSqlQueryFormBookmark()
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
 
-    $html .= '<fieldset id="bookmarkoptionsfooter" class="tblFooters">' . "\n";
-    $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="' 
+    $html .= '<fieldset id="fieldsetBookmarkOptionsFooter" class="tblFooters">';
+    $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="'
         . __('Go') . '" />';
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
-    
+
     return $html;
 }
 
@@ -512,7 +514,7 @@ function PMA_getHtmlForSqlQueryFormUpload()
     foreach ($errors as $error) {
         $html .= $error->getDisplay();
     }
-    
+
     return $html;
 }
 ?>

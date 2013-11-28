@@ -143,7 +143,10 @@ $js_messages['strEnableVar'] = __('Enable %s');
 $js_messages['strDisableVar'] = __('Disable %s');
 /* l10n: %d seconds */
 $js_messages['setSetLongQueryTime'] = __('Set long_query_time to %ds');
-$js_messages['strNoSuperUser'] = __('You can\'t change these variables. Please log in as root or contact your database administrator.');
+$js_messages['strNoSuperUser'] = __(
+    'You can\'t change these variables. Please log in as root or contact'
+    . ' your database administrator.'
+);
 $js_messages['strChangeSettings'] = __('Change settings');
 $js_messages['strCurrentSettings'] = __('Current settings');
 
@@ -155,7 +158,9 @@ $js_messages['strUnit'] = __('Unit');
 
 $js_messages['strFromSlowLog'] = __('From slow log');
 $js_messages['strFromGeneralLog'] = __('From general log');
-$js_messages['strServerLogError'] = __('The database name is not known for this query in the server\'s logs.');
+$js_messages['strServerLogError'] = __(
+    'The database name is not known for this query in the server\'s logs.'
+);
 $js_messages['strAnalysingLogsTitle'] = __('Analysing logs');
 $js_messages['strAnalysingLogs'] = __('Analysing & loading logs. This may take a while.');
 $js_messages['strCancelRequest'] = __('Cancel request');
@@ -194,7 +199,9 @@ $js_messages['strReloadPage'] = __('Reload page');
 
 $js_messages['strAffectedRows'] = __('Affected rows:');
 
-$js_messages['strFailedParsingConfig'] = __('Failed parsing config file. It doesn\'t seem to be valid JSON code.');
+$js_messages['strFailedParsingConfig'] = __(
+    'Failed parsing config file. It doesn\'t seem to be valid JSON code.'
+);
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config…');
 $js_messages['strImport'] = __('Import');
 $js_messages['strImportDialogTitle'] = __('Import monitor configuration');
@@ -235,7 +242,9 @@ $js_messages['strRenamingDatabases'] = __('Renaming Databases');
 $js_messages['strReloadDatabase'] = __('Reload Database');
 $js_messages['strCopyingDatabase'] = __('Copying Database');
 $js_messages['strChangingCharset'] = __('Changing Charset');
-$js_messages['strTableMustHaveAtleastOneColumn'] = __('Table must have at least one column');
+$js_messages['strTableMustHaveAtleastOneColumn'] = __(
+    'Table must have at least one column'
+);
 $js_messages['strYes'] = __('Yes');
 $js_messages['strNo'] = __('No');
 
@@ -333,7 +342,10 @@ $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
 $js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key');
 $js_messages['strChangeDisplay'] = __('Choose column to display');
-$js_messages['strLeavingDesigner'] = __('You haven\'t saved the changes in the layout. They will be lost if you don\'t save them. Do you want to continue?');
+$js_messages['strLeavingDesigner'] = __(
+    'You haven\'t saved the changes in the layout. They will be lost if you'
+    . ' don\'t save them. Do you want to continue?'
+);
 
 /* Visual query builder (js/pmd/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column ');
@@ -346,7 +358,9 @@ $js_messages['strColOrderHint'] = __('Drag to reorder');
 $js_messages['strSortHint'] = __('Click to sort');
 $js_messages['strColMarkHint'] = __('Click to mark/unmark');
 $js_messages['strColNameCopyHint'] = __('Double-click to copy column name');
-$js_messages['strColVisibHint'] = __('Click the drop-down arrow<br />to toggle column\'s visibility');
+$js_messages['strColVisibHint'] = __(
+    'Click the drop-down arrow<br />to toggle column\'s visibility'
+);
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
 
@@ -390,13 +404,24 @@ $js_messages['strUpToDate'] = __('up to date');
 
 $js_messages['strCreateView'] = __('Create view');
 
+/* Error Reporting */
+$js_messages['strSendErrorReport'] = __("Send Error Report");
+$js_messages['strSubmitErrorReport'] = __("Submit Error Report");
+$js_messages['strErrorOccurred'] = __(
+    "A fatal JavaScript error has occurred. Would you like to send an error report?"
+);
+$js_messages['strChangeReportSettings'] = __("Change Report Settings");
+$js_messages['strShowReportDetails'] = __("Show Report Details");
+$js_messages['strIgnore'] = __("Ignore");
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);
 }
 
 /* Calendar */
-echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage'] . 'b_calendar.png' . "';\n";
+echo "var themeCalendarImage = '" . $GLOBALS['pmaThemeImage']
+    . 'b_calendar.png' . "';\n";
 
 /* Image path */
 echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
@@ -520,8 +545,13 @@ PMA_printJsValue(
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
 
-/* l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month". */
-PMA_printJsValue("$.datepicker.regional['']['showMonthAfterYear']", (__('calendar-month-year') == 'calendar-year-month'));
+/* l10n: Month-year order for calendar, use either "calendar-month-year" 
+ * or "calendar-year-month". 
+ */
+PMA_printJsValue(
+    "$.datepicker.regional['']['showMonthAfterYear']",
+    (__('calendar-month-year') == 'calendar-year-month')
+);
 /* l10n: Year suffix for calendar, "none" is empty. */
 $year_suffix = _pgettext('Year suffix', 'none');
 PMA_printJsValue(

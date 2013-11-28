@@ -43,7 +43,7 @@ function PMA_getIndexedColumns()
 
     return array(
         $field_cnt, $field_primary, $field_index, $field_unique,
-        $field_fulltext 
+        $field_fulltext
     );
 }
 
@@ -184,7 +184,7 @@ function PMA_getStatementPrefix($is_create_tbl = true)
 }
 
 /**
- * Returns sql statement according to the column and index specifications as 
+ * Returns sql statement according to the column and index specifications as
  * requested
  *
  * @param boolean $is_create_tbl true if requirement is to get the statement
@@ -238,10 +238,10 @@ function PMA_getColumnCreationStatements($is_create_tbl = true)
 
 /**
  * Function to get table creation sql query
- * 
+ *
  * @param string $db    database name
  * @param string $table table name
- * 
+ *
  * @return string
  */
 function PMA_getTableCreationQuery($db, $table)
@@ -278,7 +278,7 @@ function PMA_getTableCreationQuery($db, $table)
 
 /**
  * Function to get the number of fields for the table creation form
- * 
+ *
  * @return int
  */
 function PMA_getNumberOfFieldsFromRequest()
@@ -298,11 +298,11 @@ function PMA_getNumberOfFieldsFromRequest()
 
 /**
  * Function to execute the column creation statement
- * 
+ *
  * @param string $db      current database
  * @param string $table   current table
  * @param string $err_url error page url
- * 
+ *
  * @return array
  */
 function PMA_tryColumnCreationQuery($db, $table, $err_url)

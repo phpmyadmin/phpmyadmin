@@ -53,7 +53,7 @@ function PMA_tbl_structure_menu_resizer_callback() {
 /**
  * Reload fields table
  */
-function reloadFieldForm(message) {
+function reloadFieldForm() {
     $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize() + "&ajax_request=true", function (form_data) {
         var $temp_div = $("<div id='temp_div'><div>").append(form_data.message);
         $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
@@ -62,9 +62,6 @@ function reloadFieldForm(message) {
         $("#moveColumns").removeClass("move-active");
         /* reinitialise the more options in table */
         $('#fieldsForm ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
-        setTimeout(function () {
-            PMA_ajaxShowMessage(message);
-        }, 500);
     });
     $('#page_content').show();
 }
@@ -119,6 +116,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
                         .show();
                     PMA_highlightSQL($('#page_content'));
                     $("#result_query .notice").remove();
+                    reloadFieldForm();
                     $form.remove();
                     PMA_ajaxRemoveMessage($msg);
                     PMA_reloadNavigation();

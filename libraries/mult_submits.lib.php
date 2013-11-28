@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
  * @param string $db                 database name
  * @param string $table              table name
  * @param array  $selected           selected rows(table,db)
- * @param string $views              table views
+ * @param array  $views              table views
  * @param string $original_sql_query original sql query
  * @param string $original_url_query original url query
  *
@@ -98,10 +98,12 @@ function PMA_getQueryStrFromSelected(
     }
 
     $selected_cnt   = count($selected);
+    $deletes = false;
 
     for ($i = 0; $i < $selected_cnt; $i++) {
         switch ($query_type) {
         case 'row_delete':
+            $deletes = true;
             $a_query = $selected[$i];
             $run_parts = true;
             break;
@@ -153,6 +155,7 @@ function PMA_getQueryStrFromSelected(
             break;
 
         case 'empty_tbl':
+            $deletes = true;
             $a_query = 'TRUNCATE ';
             $a_query .= PMA_Util::backquote($selected[$i]);
             $run_parts = true;
@@ -270,6 +273,10 @@ function PMA_getQueryStrFromSelected(
             }
         } // end if
     } // end for
+
+    if ($deletes) {
+        $_REQUEST['pos'] = PMA_calculatePosForLastPage($db, $table, $_REQUEST['pos']);
+    }
 
     return array(
         $result, $rebuild_database_list, $reload,
@@ -536,7 +543,11 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views
         case 'row_delete':
             $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db)
                 . '.' . PMA_Util::backquote($table)
-                . ' WHERE ' . urldecode($sval) . ' LIMIT 1'
+                // Do not append a "LIMIT 1" clause here
+                // (it's not binlog friendly).
+                // We don't need the clause because the calling panel permits
+                // this feature only when there is a unique index.
+                . ' WHERE ' . urldecode($sval)
                 . ';<br />';
             break;
         case 'drop_db':

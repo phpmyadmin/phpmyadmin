@@ -5,8 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+if (!defined('PHPMYADMIN')) {
+    exit;
+}
 
-
+require_once 'libraries/sql.lib.php';
 
 /**
  * Returns a modified sql query with only the label column
@@ -15,7 +18,7 @@
  * @param string $sql_query             original sql query
  * @param array  $visualizationSettings settings for the visualization
  *
- * @return the modified sql query.
+ * @return string the modified sql query.
  */
 function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
 {
@@ -101,9 +104,9 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
  * Local function to sanitize the expression taken
  * from the results of PMA_SQP_analyze function.
  *
- * @param aray $select Select to sanitize.
+ * @param array $select Select to sanitize.
  *
- * @return Sanitized string.
+ * @return string Sanitized string.
  */
 function sanitize($select)
 {
@@ -129,7 +132,7 @@ function sanitize($select)
  * @param array  &$visualizationSettings Settings used to generate the chart
  * @param string $format                 Format of the visulaization
  *
- * @return string HTML and JS code for the GIS visualization
+ * @return string|void HTML and JS code for the GIS visualization
  */
 function PMA_GIS_visualizationResults($data, &$visualizationSettings, $format)
 {
@@ -187,28 +190,6 @@ function PMA_GIS_saveToFile($data, $visualizationSettings, $format, $fileName)
 }
 
 /**
- * Function to get html for the options lists
- *
- * @param array  $options array of options
- * @param string $select  the item that shoul be selected by default
- *
- * @return string $html   the html for the options lists
- */
-function PMA_getHtmlForOptionsList($options, $select)
-{
-    $html = '';
-    foreach ($options as $option) {
-        $html .= '<option value="' . htmlspecialchars($option) . '"';
-        if ($option == $select) {
-            $html .= ' selected="selected"';
-        }
-        $html .= '>' . htmlspecialchars($option) . '</option>';
-    }
-
-    return $html;
-}
-
-/**
  * Function to get html for the lebel column and spatial column
  *
  * @param string $column                the column type. i.e either "labelColumn"
@@ -232,7 +213,7 @@ function PMA_getHtmlForColumn($column, $columnCandidates, $visualizationSettings
     }
 
     $html .= PMA_getHtmlForOptionsList(
-        $columnCandidates, $visualizationSettings[$column]
+        $columnCandidates, array($visualizationSettings[$column])
     );
 
     $html .= '</select></td>';

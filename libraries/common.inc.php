@@ -752,8 +752,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         foreach ($cfg['Servers'] as $i => $server) {
             if ($server['host'] == $_REQUEST['server']
                 || $server['verbose'] == $_REQUEST['server']
-                || $PMA_String::strtolower($server['verbose']) == $PMA_String::strtolower($_REQUEST['server'])
-                || md5($PMA_String::strtolower($server['verbose'])) == $PMA_String::strtolower($_REQUEST['server'])
+                || $PMA_String->strtolower($server['verbose']) == $PMA_String->strtolower($_REQUEST['server'])
+                || md5($PMA_String->strtolower($server['verbose'])) == $PMA_String->strtolower($_REQUEST['server'])
             ) {
                 $_REQUEST['server'] = $i;
                 break;
@@ -846,7 +846,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the required auth type plugin
          */
         $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
-        if (! file_exists('./libraries/plugins/auth/' . $auth_class . '.class.php')) {
+        if (! file_exists(
+            './libraries/plugins/auth/'
+            . $auth_class . '.class.php'
+        )) {
             PMA_fatalError(
                 __('Invalid authentication method set in configuration:')
                 . ' ' . $cfg['Server']['auth_type']
@@ -918,7 +921,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // is a login without password allowed?
-        if (! $cfg['Server']['AllowNoPassword'] && $cfg['Server']['password'] == '') {
+        if (! $cfg['Server']['AllowNoPassword']
+            && $cfg['Server']['password'] == ''
+        ) {
             $login_without_password_is_forbidden = true;
             PMA_logUser($cfg['Server']['user'], 'empty-denied');
             $auth_plugin->authFails();
@@ -1004,9 +1009,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         if (PMA_DRIZZLE) {
-            // DisableIS must be set to false for Drizzle, it maps SHOW commands
-            // to INFORMATION_SCHEMA queries anyway so it's fast on large servers
-            $cfg['Server']['DisableIS'] = false;
             // SHOW OPEN TABLES is not supported by Drizzle
             $cfg['SkipLockedTables'] = false;
         }
@@ -1032,12 +1034,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * some resetting has to be done when switching servers
          */
-        if (isset($_SESSION['tmp_user_values']['previous_server'])
-            && $_SESSION['tmp_user_values']['previous_server'] != $GLOBALS['server']
+        if (isset($_SESSION['tmpval']['previous_server'])
+            && $_SESSION['tmpval']['previous_server'] != $GLOBALS['server']
         ) {
-            unset($_SESSION['tmp_user_values']['navi_limit_offset']);
+            unset($_SESSION['tmpval']['navi_limit_offset']);
         }
-        $_SESSION['tmp_user_values']['previous_server'] = $GLOBALS['server'];
+        $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
     } // end server connecting
 

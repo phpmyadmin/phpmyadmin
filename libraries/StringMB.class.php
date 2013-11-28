@@ -74,7 +74,7 @@ class PMA_StringMB implements PMA_StringByte
     }
 
     /**
-     * Get the ordinal value of a multibyte string 
+     * Get the ordinal value of a multibyte string
      * (Adapted from http://www.php.net/manual/en/function.ord.php#72463)
      *
      * @param string $string the string for which ord is required
@@ -84,9 +84,9 @@ class PMA_StringMB implements PMA_StringByte
     public function ord($string)
     {
         $str = mb_convert_encoding($string, "UCS-4BE", "UTF-8");
-        $substr = mb_substr($str, 0, 1, "UCS-4BE");                    
-        $val = unpack("N", $substr);            
-        return $val[1];        
+        $substr = mb_substr($str, 0, 1, "UCS-4BE");
+        $val = unpack("N", $substr);
+        return $val[1];
     }
 }
 ?>

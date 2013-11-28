@@ -78,7 +78,7 @@ class PMA_ShapeFile extends ShapeFile
     /**
      * Loads geometry data from the ESRI shape file
      *
-     * @return void
+     * @return boolean|void
      * @see ShapeFile::_loadRecords()
      */
     function _loadRecords()

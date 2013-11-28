@@ -22,7 +22,7 @@ class PMA_PropertyItems_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Test for BoolPropertyItem::getItemType
-     * 
+     *
      * @return void
      */
     public function testBoolGetItemType()
@@ -37,7 +37,7 @@ class PMA_PropertyItems_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for DocPropertyItem::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemTypeDoc()
@@ -52,7 +52,7 @@ class PMA_PropertyItems_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for HiddenPropertyItem::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemTypeHidden()
@@ -67,7 +67,7 @@ class PMA_PropertyItems_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for MessageOnlyPropertyItem::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemTypeMessageOnly()
@@ -82,7 +82,7 @@ class PMA_PropertyItems_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for RadioPropertyItem::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemTypeRadio()
@@ -97,7 +97,7 @@ class PMA_PropertyItems_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for SelectPropertyItem::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemTypeSelect()
@@ -112,7 +112,7 @@ class PMA_PropertyItems_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for TextPropertyItem::getItemType
-     * 
+     *
      * @return void
      */
     public function testGetItemTypeText()

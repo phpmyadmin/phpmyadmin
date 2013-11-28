@@ -144,7 +144,7 @@ function PMA_TRI_handleEditor()
         }
 
         if (count($errors)) {
-            $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
+            $message = PMA_Message::error(__('<b>One or more errors have occurred while processing your request:</b>'));
             $message->addString('<ul>');
             foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');

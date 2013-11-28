@@ -125,10 +125,10 @@ function PMA_getSQLToCreateForeignKey($table, $field, $foreignDb, $foreignTable,
 /**
  * Creates and populates dropdowns to select foreign db/table/column
  *
- * @param string $name    name of the dropdowns
- * @param array  $values  dropdown values
- * @param string $foreign value of the item to be selected
- * @param string $title   title to show on hovering the dropdown 
+ * @param string         $name    name of the dropdowns
+ * @param array          $values  dropdown values
+ * @param string|boolean $foreign value of the item to be selected
+ * @param string         $title   title to show on hovering the dropdown
  *
  * @return string HTML for the dropdown
  */
@@ -158,7 +158,7 @@ function PMA_generateRelationalDropdown(
 
 /**
  * Function to get html for the common form
- * 
+ *
  * @param string $db                 current database
  * @param string $table              current table
  * @param array  $columns            columns
@@ -167,7 +167,7 @@ function PMA_generateRelationalDropdown(
  * @param array  $existrel           db, table, column
  * @param array  $existrel_foreign   db, table, column
  * @param array  $options_array      options array
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
@@ -189,7 +189,7 @@ function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
 
 /**
  * Function to get html for the common form rows
- * 
+ *
  * @param array  $columns            columns
  * @param array  $cfgRelation        configuration relation
  * @param string $tbl_storage_engine table storage engine
@@ -198,7 +198,7 @@ function PMA_getHtmlForCommonForm($db, $table, $columns, $cfgRelation,
  * @param array  $options_array      options array
  * @param string $db                 current database
  * @param string $table              current table
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForCommonFormRows($columns, $cfgRelation, $tbl_storage_engine,
@@ -209,15 +209,15 @@ function PMA_getHtmlForCommonFormRows($columns, $cfgRelation, $tbl_storage_engin
     }
 
     $saved_row_cnt  = count($save_row);
-    
+
     $html_output = '<fieldset>'
         . '<legend>' . __('Relations'). '</legend>'
         . '<table id="relationalTable">';
-    
+
     $html_output .= PMA_getHtmlForCommonFormTableHeaders(
         $cfgRelation, $tbl_storage_engine
     );
-    
+
     $odd_row = true;
     for ($i = 0; $i < $saved_row_cnt; $i++) {
         $html_output .= PMA_getHtmlForRow(
@@ -233,13 +233,13 @@ function PMA_getHtmlForCommonFormRows($columns, $cfgRelation, $tbl_storage_engin
     if ($cfgRelation['displaywork']) {
         $html_output .= PMA_getHtmlForDisplayFieldInfos($db, $table, $save_row);
     }
-    
+
     return $html_output;
 }
 
 /**
  * Function to get html for an entire row in common form
- * 
+ *
  * @param array  $save_row           save row
  * @param int    $i                  counter
  * @param bool   $odd_row            whether odd row or not
@@ -249,7 +249,7 @@ function PMA_getHtmlForCommonFormRows($columns, $cfgRelation, $tbl_storage_engin
  * @param string $tbl_storage_engine table storage engine
  * @param array  $existrel_foreign   db, table, column
  * @param array  $options_array      options array
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForRow($save_row, $i, $odd_row, $cfgRelation, $existrel, $db,
@@ -338,17 +338,17 @@ function PMA_getHtmlForRow($save_row, $i, $odd_row, $cfgRelation, $existrel, $db
             $myfield_md5, $tbl_storage_engine, $options_array
         );
     } // end if (InnoDB)
-    $html_output .= '</tr>';    
-    
+    $html_output .= '</tr>';
+
     return $html_output;
 }
 
 /**
  * Function to get html for the common form header
- * 
+ *
  * @param string $db    current database
  * @param string $table current table
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForCommonFormHeader($db, $table)
@@ -359,7 +359,7 @@ function PMA_getHtmlForCommonFormHeader($db, $table)
 
 /**
  * Function to get html for the common form footer
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForCommonFormFooter()
@@ -372,11 +372,11 @@ function PMA_getHtmlForCommonFormFooter()
 
 /**
  * Function to get html for display field infos
- * 
+ *
  * @param string $db       current database
  * @param string $table    current table
  * @param array  $save_row save row
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForDisplayFieldInfos($db, $table, $save_row)
@@ -399,16 +399,16 @@ function PMA_getHtmlForDisplayFieldInfos($db, $table, $save_row)
 
     $html_output .= '</select>'
         . '</fieldset>';
-    
+
     return $html_output;
 }
 
 /**
  * Function to get html for the common form title headers
- * 
+ *
  * @param array  $cfgRelation        configuration relation
  * @param string $tbl_storage_engine table storage engine
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForCommonFormTableHeaders($cfgRelation, $tbl_storage_engine)
@@ -441,7 +441,7 @@ function PMA_getHtmlForCommonFormTableHeaders($cfgRelation, $tbl_storage_engine)
 
 /**
  * Function to get html for the foreign key
- * 
+ *
  * @param array  $save_row           save row
  * @param int    $i                  counter
  * @param array  $existrel_foreign   db, table, columns
@@ -450,7 +450,7 @@ function PMA_getHtmlForCommonFormTableHeaders($cfgRelation, $tbl_storage_engine)
  * @param string $myfield_md5        my field md5
  * @param string $tbl_storage_engine table storage engine
  * @param array  $options_array      options array
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForForeignKey($save_row, $i, $existrel_foreign, $myfield, $db,
@@ -484,16 +484,39 @@ function PMA_getHtmlForForeignKey($save_row, $i, $existrel_foreign, $myfield, $d
             if (isset($existrel_foreign[$myfield])) {
                 $foreign_table = $existrel_foreign[$myfield]['foreign_table'];
             }
-            $tables_rs = $GLOBALS['dbi']->query(
-                'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($foreign_db),
-                null,
-                PMA_DatabaseInterface::QUERY_STORE
-            );
-            while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
-                if (isset($row[1])
-                    && strtoupper($row[1]) == $tbl_storage_engine
-                ) {
-                    $tables[] = $row[0];
+            // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
+            // which are currently in the table cache. Hence we have to use
+            // 'SHOW TABLES' and manully retrieve table engine values.
+            if (PMA_DRIZZLE) {
+                $tables_rs = $GLOBALS['dbi']->query(
+                    'SHOW TABLES FROM ' . PMA_Util::backquote($foreign_db),
+                    null,
+                    PMA_DatabaseInterface::QUERY_STORE
+                );
+                while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
+                    $engine = PMA_Table::sGetStatusInfo(
+                        $foreign_db,
+                        $row[0],
+                        'Engine'
+                    );
+                    if (isset($engine)
+                        && strtoupper($engine) == $tbl_storage_engine
+                    ) {
+                        $tables[] = $row[0];
+                    }
+                }
+            } else {
+                $tables_rs = $GLOBALS['dbi']->query(
+                    'SHOW TABLE STATUS FROM ' . PMA_Util::backquote($foreign_db),
+                    null,
+                    PMA_DatabaseInterface::QUERY_STORE
+                );
+                while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
+                    if (isset($row[1])
+                        && strtoupper($row[1]) == $tbl_storage_engine
+                    ) {
+                        $tables[] = $row[0];
+                    }
                 }
             }
         }
@@ -561,13 +584,13 @@ function PMA_getHtmlForForeignKey($save_row, $i, $existrel_foreign, $myfield, $d
         $html_output .= __('No index defined! Create one below');
     } // end if (a key exists)
     $html_output .= '</td>';
-    
+
     return $html_output;
 }
 
 /**
  * Function to send html for table or column dropdown list
- * 
+ *
  * @return void
  */
 function PMA_sendHtmlForTableOrColumnDropdownList()
@@ -582,13 +605,13 @@ function PMA_sendHtmlForTableOrColumnDropdownList()
 
 /**
  * Function to send html for column dropdown list
- * 
+ *
  * @return void
  */
 function PMA_sendHtmlForColumnDropdownList()
 {
     $response = PMA_Response::getInstance();
-    
+
     $foreignTable = $_REQUEST['foreignTable'];
     $table_obj = new PMA_Table($foreignTable, $_REQUEST['foreignDb']);
     $columns = array();
@@ -600,17 +623,16 @@ function PMA_sendHtmlForColumnDropdownList()
 
 /**
  * Function to send html for table dropdown list
- * 
+ *
  * @return void
  */
 function PMA_sendHtmlForTableDropdownList()
 {
     $response = PMA_Response::getInstance();
-    
+    $tables = array();
+
     $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
     if ($foreign) {
-        $query = 'SHOW TABLE STATUS FROM '
-            . PMA_Util::backquote($_REQUEST['foreignDb']);
         $tbl_storage_engine = strtoupper(
             PMA_Table::sGetStatusInfo(
                 $_REQUEST['db'],
@@ -618,25 +640,50 @@ function PMA_sendHtmlForTableDropdownList()
                 'Engine'
             )
         );
+    }
+
+    // In Drizzle, 'SHOW TABLE STATUS' will show status only for the tables
+    // which are currently in the table cache. Hence we have to use 'SHOW TABLES'
+    // and manully retrieve table engine values.
+    if ($foreign && ! PMA_DRIZZLE) {
+        $query = 'SHOW TABLE STATUS FROM '
+            . PMA_Util::backquote($_REQUEST['foreignDb']);
+        $tables_rs = $GLOBALS['dbi']->query(
+            $query,
+            null,
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+
+        while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
+            if (isset($row['Engine'])
+                && strtoupper($row['Engine']) == $tbl_storage_engine
+            ) {
+                $tables[] = htmlspecialchars($row['Name']);
+            }
+        }
     } else {
         $query = 'SHOW TABLES FROM '
             . PMA_Util::backquote($_REQUEST['foreignDb']);
-    }
-    $tables_rs = $GLOBALS['dbi']->query(
-        $query,
-        null,
-        PMA_DatabaseInterface::QUERY_STORE
-    );
-    $tables = array();
-    while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
-        if ($foreign) {
-            if (isset($row[1])
-                && strtoupper($row[1]) == $tbl_storage_engine
-            ) {
+        $tables_rs = $GLOBALS['dbi']->query(
+            $query,
+            null,
+            PMA_DatabaseInterface::QUERY_STORE
+        );
+        while ($row = $GLOBALS['dbi']->fetchArray($tables_rs)) {
+            if ($foreign && PMA_DRIZZLE) {
+                $engine = strtoupper(
+                    PMA_Table::sGetStatusInfo(
+                        $_REQUEST['foreignDb'],
+                        $row[0],
+                        'Engine'
+                    )
+                );
+                if (isset($engine) && $engine == $tbl_storage_engine) {
+                    $tables[] = htmlspecialchars($row[0]);
+                }
+            } else {
                 $tables[] = htmlspecialchars($row[0]);
             }
-        } else {
-            $tables[] = htmlspecialchars($row[0]);
         }
     }
     $response->addJSON('tables', $tables);
@@ -644,13 +691,13 @@ function PMA_sendHtmlForTableDropdownList()
 
 /**
  * Function to handle update for display field
- * 
+ *
  * @param string $disp          field name
  * @param string $display_field display field
  * @param string $db            current database
  * @param string $table         current table
  * @param array  $cfgRelation   configuration relation
- * 
+ *
  * @return void
  */
 function PMA_handleUpdateForDisplayField($disp, $display_field, $db, $table,
@@ -666,13 +713,13 @@ function PMA_handleUpdateForDisplayField($disp, $display_field, $db, $table,
 
 /**
  * Function to get display query for handlingdisplay update
- * 
+ *
  * @param string $disp          field name
  * @param string $display_field display field
  * @param string $db            current database
  * @param string $table         current table
  * @param array  $cfgRelation   configuration relation
- * 
+ *
  * @return string
  */
 function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
@@ -710,7 +757,7 @@ function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
 
 /**
  * Function to handle updates for internal relations
- * 
+ *
  * @param string $destination_db          destination database
  * @param string $multi_edit_columns_name multi edit column name
  * @param string $destination_table       destination table
@@ -719,13 +766,13 @@ function PMA_getQueryForDisplayUpdate($disp, $display_field, $db, $table,
  * @param string $db                      current database
  * @param string $table                   current table
  * @param array  $existrel                db, table, column
- * 
+ *
  * @return void
  */
 function PMA_handleUpdatesForInternalRelations($destination_db,
     $multi_edit_columns_name, $destination_table, $destination_column, $cfgRelation,
     $db, $table, $existrel
-) {    
+) {
     foreach ($destination_db as $master_field_md5 => $foreign_db) {
         $upd_query = PMA_getQueryForInternalRelationUpdate(
             $multi_edit_columns_name,
@@ -740,7 +787,7 @@ function PMA_handleUpdatesForInternalRelations($destination_db,
 
 /**
  * Function to get update query for updating internal relations
- * 
+ *
  * @param string $multi_edit_columns_name multi edit column names
  * @param string $master_field_md5        master field md5
  * @param string $foreign_db              foreign database
@@ -750,7 +797,7 @@ function PMA_handleUpdatesForInternalRelations($destination_db,
  * @param string $db                      current database
  * @param string $table                   current table
  * @param array  $existrel                db, table, column
- * 
+ *
  * @return string
  */
 function PMA_getQueryForInternalRelationUpdate($multi_edit_columns_name,
@@ -811,13 +858,13 @@ function PMA_getQueryForInternalRelationUpdate($multi_edit_columns_name,
             . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($master_field)
             . '\'';
     } // end if... else....
-    
+
     return $upd_query;
 }
 
 /**
  * Function to handle foreign key updates
- * 
+ *
  * @param string $destination_foreign_db     destination foreign database
  * @param string $multi_edit_columns_name    multi edit column names
  * @param string $destination_foreign_table  destination foreign table
@@ -825,7 +872,7 @@ function PMA_getQueryForInternalRelationUpdate($multi_edit_columns_name,
  * @param array  $options_array              options array
  * @param string $table                      current table
  * @param array  $existrel_foreign           db, table, column
- * 
+ *
  * @return string
  */
 function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
@@ -849,13 +896,13 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
             null, 'success'
         );
     }
-    
+
     return $html_output;
 }
 
 /**
  * Function to handle update for a foreign key
- * 
+ *
  * @param array  $multi_edit_columns_name    multu edit columns name
  * @param string $master_field_md5           master field md5
  * @param string $destination_foreign_table  destination foreign table
@@ -866,7 +913,7 @@ function PMA_handleUpdatesForForeignKeys($destination_foreign_db,
  * @param bool   &$seen_error                whether seen error
  * @param string &$display_query             display query
  * @param string $foreign_db                 foreign database
- * 
+ *
  * @return string
  */
 function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_md5,
@@ -889,7 +936,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
         if ( isset($existrel_foreign[$master_field])) {
             $constraint_name = $existrel_foreign[$master_field]['constraint'];
             $on_delete = ! empty(
-                        $existrel_foreign[$master_field]['on_delete']) 
+                        $existrel_foreign[$master_field]['on_delete'])
                         ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT';
             $on_update = ! empty(
                         $existrel_foreign[$master_field]['on_update'])
@@ -951,7 +998,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
                     __('Error creating foreign key on %1$s (check data types)')
                 );
                 $message->addParam($master_field);
-                $message->display();
+                $html_output .= $message->getDisplay();
             } else {
                 $html_output .= PMA_Util::mysqlDie(
                     $tmp_error_create, $create_query, false, '', false
@@ -983,7 +1030,7 @@ function PMA_handleUpdateForForeignKey($multi_edit_columns_name, $master_field_m
             $GLOBALS['dbi']->tryQuery($sql_query_recreate);
         }
     }
-    
+
     return $html_output;
 }
 ?>

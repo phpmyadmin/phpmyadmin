@@ -271,9 +271,11 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
 
     echo '    <li id="li_select_mysql_charset">';
     echo '        ' . __('Server charset:') . ' '
-       . '        <span lang="en" dir="ltr">'
-       . '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']]
-       . '           (' . $mysql_charset_map['utf-8'] . ')'
+       . '        <span lang="en" dir="ltr">';
+    if (! PMA_DRIZZLE) {
+        echo '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
+    }
+    echo '           (' . $mysql_charset_map['utf-8'] . ')'
        . '        </span>'
        . '    </li>'
        . '  </ul>'

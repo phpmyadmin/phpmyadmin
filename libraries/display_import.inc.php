@@ -38,13 +38,13 @@ if (empty($import_list)) {
 $timeout_passed_str = isset($timeout_passed)? $timeout_passed : null;
 $offset_str = isset($offset)? $offset : null;
 $html = PMA_getHtmlForImport(
-    $upload_id, 
-    $import_type, 
-    $db, 
-    $table, 
-    $max_upload_size, 
-    $import_list, 
-    $timeout_passed_str, 
+    $upload_id,
+    $import_type,
+    $db,
+    $table,
+    $max_upload_size,
+    $import_list,
+    $timeout_passed_str,
     $offset_str
 );
 

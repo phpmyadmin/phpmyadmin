@@ -103,9 +103,9 @@ if ($cfgRelation['pdfwork']) {
 
     if (isset($_REQUEST['do'])
         && ($_REQUEST['do'] == 'edcoord'
-        || ($_REQUEST['do']== 'selectpage' && isset($user_schema->chosenPage) 
+        || ($_REQUEST['do']== 'selectpage' && isset($user_schema->chosenPage)
         && $user_schema->chosenPage != 0)
-        || ($_REQUEST['do'] == 'createpage' && isset($user_schema->chosenPage) 
+        || ($_REQUEST['do'] == 'createpage' && isset($user_schema->chosenPage)
         && $user_schema->chosenPage != 0))
     ) {
 

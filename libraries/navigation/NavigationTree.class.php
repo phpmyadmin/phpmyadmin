@@ -83,8 +83,6 @@ class PMA_NavigationTree
 
     /**
      * Initialises the class
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -694,11 +692,14 @@ class PMA_NavigationTree
         }
 
         if (! empty($this->_searchClause) || ! empty($this->_searchClause2)) {
+            $results = 0;
             if (! empty($this->_searchClause2)) {
-                $results = $node->realParent()->getPresence(
-                    $node->real_name,
-                    $this->_searchClause2
-                );
+                if (is_object($node->realParent())) {
+                    $results = $node->realParent()->getPresence(
+                        $node->real_name,
+                        $this->_searchClause2
+                    );
+                }
             } else {
                 $results = $this->_tree->getPresence(
                     'databases',
@@ -825,7 +826,7 @@ class PMA_NavigationTree
                 if (strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
-                $icon  = PMA_Util::getImage('b_plus.png');
+                $icon  = PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
                 $match = 1;
                 foreach ($this->_aPath as $path) {
                     $match = 1;
@@ -994,7 +995,7 @@ class PMA_NavigationTree
     /**
      * Makes some nodes visible based on the which node is active
      *
-     * @return nothing
+     * @return void
      */
     private function _setVisibility()
     {
@@ -1040,9 +1041,10 @@ class PMA_NavigationTree
             ) {
                 $placeholder_key = 'placeholder';
             }
-            $retval .= " $placeholder_key='" . __('filter databases by name');
+            $retval .= " $placeholder_key='"
+                . __('Filter databases by name or regex');
             $retval .= "' />";
-            $retval .= '<span title="' . __('Clear Fast Filter') . '">X</span>';
+            $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
             $retval .= "</form>";
             $retval .= "</li>";
             $retval .= "</ul>";
@@ -1052,6 +1054,7 @@ class PMA_NavigationTree
             || $node->real_name == 'functions'
             || $node->real_name == 'procedures'
             || $node->real_name == 'events'))
+            && method_exists($node->realParent(), 'getPresence')
             && $node->realParent()->getPresence($node->real_name) >= $filter_min
         ) {
             $paths = $node->getPaths();
@@ -1073,8 +1076,9 @@ class PMA_NavigationTree
             ) {
                 $placeholder_key = 'placeholder';
             }
-            $retval .= " $placeholder_key='" . __('filter items by name') . "' />";
-            $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
+            $retval .= " $placeholder_key='"
+                . __('Filter by name or regex') . "' />";
+            $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";
         }

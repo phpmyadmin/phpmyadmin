@@ -52,9 +52,9 @@ if (isset($_REQUEST['do_save_data'])) {
     unset($_REQUEST['do_save_data']);
 
     include_once 'libraries/create_addfield.lib.php';
-    
+
     list($result, $sql_query) = PMA_tryColumnCreationQuery($db, $table, $err_url);
-    
+
     if ($result === true) {
         // If comments were sent, enable relation stuff
         include_once 'libraries/transformations.lib.php';
@@ -93,7 +93,7 @@ if (isset($_REQUEST['do_save_data'])) {
     } else {
         $error_message_html = PMA_Util::mysqlDie('', '', '', $err_url, false);
         $response->addHTML($error_message_html);
-        exit;        
+        exit;
     }
 } // end do alter table
 

@@ -284,7 +284,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
             "numColumns",
             $this->object->numFields($result)
         );
-        
+
     }
 }
 

@@ -10,7 +10,7 @@ require_once 'libraries/properties/options/OptionsPropertyItem.class.php';
 
 /**
  * Tests for OptionsPropertyItem class
- * 
+ *
  * @package PhpMyAdmin-test
  */
 class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
@@ -29,7 +29,7 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * tearDown for test cases
-     * 
+     *
      * @return void
      */
     public function tearDown()
@@ -41,7 +41,7 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - OptionsPropertyItem::getName
      *     - OptionsPropertyItem::setName
-     * 
+     *
      * @return void
      */
     public function testGetSetName()
@@ -58,7 +58,7 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - OptionsPropertyItem::getText
      *     - OptionsPropertyItem::setText
-     * 
+     *
      * @return void
      */
     public function testGetSetText()
@@ -75,7 +75,7 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
      * Test for
      *     - OptionsPropertyItem::getForce
      *     - OptionsPropertyItem::setForce
-     * 
+     *
      * @return void
      */
     public function testGetSetForce()
@@ -90,7 +90,7 @@ class PMA_OptionsPropertyItem_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for OptionsPropertyItem::getPropertyType
-     * 
+     *
      * @return void
      */
     public function testGetPropertyType()

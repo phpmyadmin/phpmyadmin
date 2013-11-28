@@ -915,8 +915,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('input[name="chartType"]').change(function () {
         $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
         var title = $('input[name="chartTitle"]').val();
-        if (title == PMA_messages.strChartTitle
-           || title == $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
+        if (title == PMA_messages.strChartTitle ||
+            title == $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
         ) {
             $('input[name="chartTitle"]')
                 .data('lastRadio', $(this).attr('id'))
@@ -1186,13 +1186,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
         };
 
-        if (settings.title === PMA_messages.strSystemCPUUsage
-            || settings.title === PMA_messages.strQueryCacheEfficiency) {
+        if (settings.title === PMA_messages.strSystemCPUUsage ||
+            settings.title === PMA_messages.strQueryCacheEfficiency
+        ) {
             settings.axes.yaxis.tickOptions = {
                 formatString: "%d %%"
             };
-        } else if (settings.title === PMA_messages.strSystemMemory
-            || settings.title === PMA_messages.strSystemSwap
+        } else if (settings.title === PMA_messages.strSystemMemory ||
+            settings.title === PMA_messages.strSystemSwap
         ) {
             settings.stackSeries = true;
             settings.axes.yaxis.tickOptions = {
@@ -1202,17 +1203,18 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             settings.axes.yaxis.tickOptions = {
                 formatter: $.jqplot.byteFormatter(1) // KiB
             };
-        } else if (settings.title === PMA_messages.strQuestions
-            || settings.title === PMA_messages.strConnections
+        } else if (settings.title === PMA_messages.strQuestions ||
+            settings.title === PMA_messages.strConnections
         ) {
             settings.axes.yaxis.tickOptions = {
                 formatter: function (format, val) {
-                    if (Math.abs(val) >= 1000000)
-                        return $.jqplot.sprintf("%.3g M", val/1000000);
-                    else if (Math.abs(val) >= 1000)
-                        return $.jqplot.sprintf("%.3g k", val/1000);
-                    else
+                    if (Math.abs(val) >= 1000000) {
+                        return $.jqplot.sprintf("%.3g M", val / 1000000);
+                    } else if (Math.abs(val) >= 1000) {
+                        return $.jqplot.sprintf("%.3g k", val / 1000);
+                    } else {
                         return $.jqplot.sprintf("%d", val);
+                    }
                 }
             };
         }
@@ -1226,9 +1228,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $('#chartGrid').append('<tr></tr>');
             }
 
-            $('#chartGrid tr:last').append('<td><div id="gridChartContainer'
-                + runtime.chartAI + '" class=""><div class="ui-state-default monitorChart" id="'
-                + 'gridchart' + runtime.chartAI + '"></div></div></td>');
+            $('#chartGrid tr:last').append(
+                '<td><div id="gridChartContainer' + runtime.chartAI + '" class="">' +
+                '<div class="ui-state-default monitorChart" id="' +
+                'gridchart' + runtime.chartAI + '"></div></div></td>'
+            );
         }
 
         // Set series' data as [0,0], smooth lines won't plot with data array having null values.
@@ -1549,9 +1553,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                             elem.nodes[j].transformFn,
                             chartData[key][j],
                             // Check if first iteration (oldChartData==null), or if newly added chart oldChartData[key]==null
-                            (oldChartData === null
-                             || oldChartData[key] === null
-                             || oldChartData[key] === undefined ? null : oldChartData[key][j])
+                            (
+                                oldChartData === null ||
+                                oldChartData[key] === null ||
+                                oldChartData[key] === undefined ? null : oldChartData[key][j]
+                            )
                         );
 
                     // Otherwise use original value and apply differential and divisor if given,
@@ -1560,9 +1566,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         value = parseFloat(chartData[key][j][0].value);
 
                         if (elem.nodes[j].display == 'differential') {
-                            if (oldChartData === null
-                             || oldChartData[key] === null
-                             || oldChartData[key] === undefined
+                            if (oldChartData === null ||
+                                oldChartData[key] === null ||
+                                oldChartData[key] === undefined
                             ) {
                                 continue;
                             }
@@ -1583,8 +1589,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                             elem.maxYLabel = 0.5;
                         }
                         // free old data point values and update maxYLabel
-                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints
-                            && elem.chart.series[j].data[0][0] < runtime.xmin) {
+                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints &&
+                            elem.chart.series[j].data[0][0] < runtime.xmin
+                        ) {
                             // check if the next freeable point is highest
                             if (elem.maxYLabel <= elem.chart.series[j].data[0][1]) {
                                 elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
@@ -1593,8 +1600,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                                 elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                             }
                         }
-                        if (elem.title === PMA_messages.strSystemMemory
-                            || elem.title === PMA_messages.strSystemSwap
+                        if (elem.title === PMA_messages.strSystemMemory ||
+                            elem.title === PMA_messages.strSystemSwap
                         ) {
                             total += value;
                         }
@@ -1608,15 +1615,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     (runtime.xmax - tickInterval * 3), (runtime.xmax - tickInterval * 2),
                     (runtime.xmax - tickInterval), runtime.xmax];
 
-                if (elem.title !== PMA_messages.strSystemCPUUsage
-                    && elem.title !== PMA_messages.strQueryCacheEfficiency
-                    && elem.title !== PMA_messages.strSystemMemory
-                    && elem.title !== PMA_messages.strSystemSwap
+                if (elem.title !== PMA_messages.strSystemCPUUsage &&
+                    elem.title !== PMA_messages.strQueryCacheEfficiency &&
+                    elem.title !== PMA_messages.strSystemMemory &&
+                    elem.title !== PMA_messages.strSystemSwap
                 ) {
                     elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel * 1.1);
                     elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel * 1.1 / 5);
-                } else if (elem.title === PMA_messages.strSystemMemory
-                    || elem.title === PMA_messages.strSystemSwap
+                } else if (elem.title === PMA_messages.strSystemMemory ||
+                    elem.title === PMA_messages.strSystemSwap
                 ) {
                     elem.chart['axes']['yaxis']['max'] = Math.ceil(total * 1.1 / 100) * 100;
                     elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(total * 1.1 / 5);
@@ -2141,8 +2148,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 data = data.message;
             }
             if (data.error) {
-                if(data.error.indexOf('1146') != -1 || data.error.indexOf('1046') != -1)
+                if (data.error.indexOf('1146') != -1 || data.error.indexOf('1046') != -1) {
                     data.error = PMA_messages['strServerLogError'];
+                }
                 $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;
             }

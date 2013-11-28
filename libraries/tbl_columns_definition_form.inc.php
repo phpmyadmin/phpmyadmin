@@ -83,7 +83,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 = PMA_handleRegeneration(
                     isset($available_mime) ? $mime_map : null,
                     $comments_map, $mime_map
-                ); 
+                );
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = PMA_getColumnMetaForDefault(
             $fields_meta[$columnNumber],
@@ -117,19 +117,19 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // rtrim the type, for cases like "float unsigned"
     $type = rtrim($type);
 
-    
+
     if (isset($submit_length) && $submit_length != false) {
         $length = $submit_length;
     }
 
-    
+
     // old column attributes
     if ($is_backup) {
         $_form_params = PMA_getFormParamsForOldColumn(
             $columnMeta, $length, $_form_params
         );
     }
-    
+
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
         $columnNumber, isset($columnMeta) ? $columnMeta : null, strtoupper($type),
         $length_values_input_size, $length,

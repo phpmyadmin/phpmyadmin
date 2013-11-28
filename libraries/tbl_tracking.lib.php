@@ -42,15 +42,15 @@ function PMA_filterTracking(
 
 /**
  * Function to get html for data definition and data manipulation statements
- * 
+ *
  * @param string $url_query    url query
  * @param int    $last_version last version
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
     $last_version
-) { 
+) {
     $html = '<div id="div_create_version">';
     $html .= '<form method="post" action="tbl_tracking.php?' . $url_query . '">';
     $html .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
@@ -103,10 +103,10 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
 
 /**
  * Function to get html for activate tracking
- * 
+ *
  * @param string $url_query    url query
  * @param int    $last_version last version
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForActivateTracking($url_query, $last_version)
@@ -126,16 +126,16 @@ function PMA_getHtmlForActivateTracking($url_query, $last_version)
     $html .= '</fieldset>';
     $html .= '</form>';
     $html .= '</div>';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for deactivating tracking
- * 
+ *
  * @param string $url_query    url query
  * @param int    $last_version last version
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForDeactivateTracking($url_query, $last_version)
@@ -155,17 +155,17 @@ function PMA_getHtmlForDeactivateTracking($url_query, $last_version)
     $html .= '</fieldset>';
     $html .= '</form>';
     $html .= '</div>';
-    
+
     return $html;
 }
 
 /**
  * Function to get the list versions of the table
- * 
+ *
  * @return array
  */
 function PMA_getListOfVersionsOfTable()
-{    
+{
     $sql_query = " SELECT * FROM " .
          PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
          PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
@@ -178,12 +178,12 @@ function PMA_getListOfVersionsOfTable()
 
 /**
  * Function to get html for displaying last version number
- * 
+ *
  * @param array  $sql_result   sql result
  * @param int    $last_version last version
  * @param array  $url_params   url parameters
  * @param string $url_query    url query
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_params,
@@ -257,34 +257,34 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
     } else {
         $html .= PMA_getHtmlForActivateTracking($url_query, $last_version);
     }
-    
+
     return $html;
 }
 
 /**
  * Function to get the last version number of a table
- * 
+ *
  * @param array $sql_result sql result
- * 
+ *
  * @return int
  */
 function PMA_getTableLastVersionNumber($sql_result)
 {
     $maxversion = $GLOBALS['dbi']->fetchArray($sql_result);
     $last_version = $maxversion['version'];
-    
+
     return $last_version;
 }
 
 /**
  * Function to get sql results for selectable tables
- * 
+ *
  * @return array
  */
 function PMA_getSQLResultForSelectableTables()
 {
     include_once 'libraries/relation.lib.php';
-    
+
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
              PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
              PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
@@ -296,10 +296,10 @@ function PMA_getSQLResultForSelectableTables()
 
 /**
  * Function to get html for selectable table rows
- * 
+ *
  * @param array  $selectable_tables_sql_result sql results for selectable rows
  * @param string $url_query                    url query
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_query)
@@ -326,23 +326,23 @@ function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_quer
     $html .= '<input type="hidden" name="show_versions_submit" value="1" />';
     $html .= '<input type="submit" value="' . __('Show versions') . '" />';
     $html .= '</form>';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for tracking report and tracking report export
- * 
- * @param string $url_query        url query
- * @param array  $data             data
- * @param array  $url_params       url params
- * @param array  $selection_schema selection schema
- * @param array  $selection_data   selection data
- * @param bool   $selection_both   selection both
- * @param int    $filter_ts_to     filter time stamp from
- * @param int    $filter_ts_from   filter time stamp tp
- * @param array  $filter_users     filter users
- * 
+ *
+ * @param string  $url_query        url query
+ * @param array   $data             data
+ * @param array   $url_params       url params
+ * @param boolean $selection_schema selection schema
+ * @param boolean $selection_data   selection data
+ * @param boolean $selection_both   selection both
+ * @param int     $filter_ts_to     filter time stamp from
+ * @param int     $filter_ts_from   filter time stamp tp
+ * @param array   $filter_users     filter users
+ *
  * @return string
  */
 function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
@@ -471,12 +471,12 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         . $str_export2 . "<br/>";
     $html .= '</form>';
     $html .= "<br/><br/><hr/><br/>\n";
-    
+
     return $html;
 }
 /**
  * Function to get html for data manipulation statements
- * 
+ *
  * @param array  $data               data
  * @param array  $filter_users       filter users
  * @param int    $filter_ts_from     filter time staml from
@@ -484,7 +484,7 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
  * @param array  $url_params         url parameters
  * @param int    $ddlog_count        data definition log count
  * @param string $drop_image_or_text drop image or text
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
@@ -519,13 +519,13 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
     }
     $html .= '</tbody>';
     $html .= '</table>';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for one data manipulation statement
- * 
+ *
  * @param array  $entry              entry
  * @param array  $filter_users       filter users
  * @param int    $filter_ts_from     filter time stamp from
@@ -535,7 +535,7 @@ function PMA_getHtmlForDataManipulationStatements($data, $filter_users,
  * @param array  $url_params         url parameters
  * @param int    $ddlog_count        data definition log count
  * @param string $drop_image_or_text drop image or text
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
@@ -545,6 +545,8 @@ function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
     $statement  = PMA_Util::formatSql($entry['statement'], true);
     $timestamp = strtotime($entry['date']);
     $filtered_user = in_array($entry['username'], $filter_users);
+    $html = null;
+
     if ($timestamp >= $filter_ts_from
         && $timestamp <= $filter_ts_to
         && (in_array('*', $filter_users) || $filtered_user)
@@ -569,19 +571,19 @@ function PMA_getHtmlForDataManipulationStatement($entry, $filter_users,
             . '</a></td>';
         $html .= '</tr>';
     }
-    
+
     return $html;
 }
 /**
  * Function to get html for data definition statements in schema snapshot
- * 
+ *
  * @param array  $data               data
  * @param array  $filter_users       filter users
  * @param int    $filter_ts_from     filter time stamp from
  * @param int    $filter_ts_to       filter time stamp to
  * @param array  $url_params         url parameters
  * @param string $drop_image_or_text drop image or text
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
@@ -620,7 +622,7 @@ function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
 }
 /**
  * Function to get html for a data definition statement in schema snapshot
- * 
+ *
  * @param array  $entry              entry
  * @param array  $filter_users       filter users
  * @param int    $filter_ts_from     filter time stamp from
@@ -629,7 +631,7 @@ function PMA_getHtmlForDataDefinitionStatements($data, $filter_users,
  * @param int    $i                  column number
  * @param array  $url_params         url parameters
  * @param string $drop_image_or_text drop image or text
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
@@ -638,6 +640,8 @@ function PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
     $statement  = PMA_Util::formatSql($entry['statement'], true);
     $timestamp = strtotime($entry['date']);
     $filtered_user = in_array($entry['username'], $filter_users);
+    $html = null;
+
     if ($timestamp >= $filter_ts_from
         && $timestamp <= $filter_ts_to
         && (in_array('*', $filter_users) || $filtered_user)
@@ -661,14 +665,14 @@ function PMA_getHtmlForDataDefinitionStatement($entry, $filter_users,
             . '</a></td>';
         $html .= '</tr>';
     }
-    
+
     return $html;
 }
 /**
  * Function to get html for schema snapshot
- * 
+ *
  * @param string $url_query url query
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForSchemaSnapshot($url_query)
@@ -702,20 +706,20 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
     $columns = $temp['COLUMNS'];
     $indexes = $temp['INDEXES'];
     $html .= PMA_getHtmlForColumns($columns);
-    
+
     if (count($indexes) > 0) {
         $html .= PMA_getHtmlForIndexes($indexes);
     } // endif
     $html .= '<br /><hr /><br />';
-    
+
     return $html;
 }
 
 /**
  * Function to get html for displaying columns in the schema snapshot
- * 
+ *
  * @param array $columns columns
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForColumns($columns)
@@ -752,10 +756,10 @@ function PMA_getHtmlForColumns($columns)
 
 /**
  * Function to get html for field
- * 
+ *
  * @param array  $field field
  * @param string $style style
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForField($field, $style)
@@ -790,15 +794,15 @@ function PMA_getHtmlForField($field, $style)
     $html .= '<td>' . htmlspecialchars($field['Extra']) . '</td>';
     $html .= '<td>' . htmlspecialchars($field['Comment']) . '</td>';
     $html .= '</tr>';
-    
+
     return $html;
 }
 
 /**
  * Fuunction to get html for the indexes in schema snapshot
- * 
+ *
  * @param array $indexes indexes
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForIndexes($indexes)
@@ -835,10 +839,10 @@ function PMA_getHtmlForIndexes($indexes)
 
 /**
  * Funtion to get html for an index in schema snapshot
- * 
+ *
  * @param array  $index index
  * @param string $style style
- * 
+ *
  * @return string
  */
 function PMA_getHtmlForIndex($index, $style)
@@ -871,14 +875,14 @@ function PMA_getHtmlForIndex($index, $style)
 
 /**
  * Function to handle the tracking report
- * 
+ *
  * @param array &$data tracked data
- * 
+ *
  * @return void
  */
 function PMA_deleteTrackingReportRows(&$data)
 {
-    if (isset($_REQUEST['delete_ddlog'])) {        
+    if (isset($_REQUEST['delete_ddlog'])) {
         // Delete ddlog row data
         PMA_handleDeleteDataDefinitionsLog($data);
     }
@@ -891,9 +895,9 @@ function PMA_deleteTrackingReportRows(&$data)
 
 /**
  * Function to handle the delete ddlog row data
- * 
+ *
  * @param array &$data tracked data
- * 
+ *
  * @return void
  */
 function PMA_handleDeleteDataDefinitionsLog(&$data)
@@ -921,9 +925,9 @@ function PMA_handleDeleteDataDefinitionsLog(&$data)
 
 /**
  * Function to handle the delete of fmlog rows
- * 
+ *
  * @param array &$data tracked data
- * 
+ *
  * @return void
  */
 function PMA_handleDeleteDataManipulationLog(&$data)
@@ -951,9 +955,9 @@ function PMA_handleDeleteDataManipulationLog(&$data)
 
 /**
  * Function to export as sql dump
- * 
+ *
  * @param array $entries entries
- * 
+ *
  * @return void
  */
 function PMA_exportAsSQLDump($entries)
@@ -992,9 +996,9 @@ function PMA_exportAsSQLDump($entries)
 
 /**
  * Function to export as sql execution
- * 
+ *
  * @param array $entries entries
- * 
+ *
  * @return array
  */
 function PMA_exportAsSQLExecution($entries)
@@ -1004,15 +1008,15 @@ function PMA_exportAsSQLExecution($entries)
     }
     $msg = PMA_Message::success(__('SQL statements executed.'));
     $msg->display();
-    
+
     return $sql_result;
 }
 
 /**
  * Function to export as entries
- * 
+ *
  * @param array $entries entries
- * 
+ *
  * @return void
  */
 function PMA_exportAsFileDownload($entries)
@@ -1031,13 +1035,13 @@ function PMA_exportAsFileDownload($entries)
 
     $response = PMA_Response::getInstance();
     $response->addHTML($dump);
-    
+
     exit();
 }
 
 /**
  * Function to activate tracking
- * 
+ *
  * @return void
  */
 function PMA_activateTracking()
@@ -1059,7 +1063,7 @@ function PMA_activateTracking()
 
 /**
  * Function to deactivate tracking
- * 
+ *
  * @return void
  */
 function PMA_deactivateTracking()
@@ -1081,7 +1085,7 @@ function PMA_deactivateTracking()
 
 /**
  * Function to get tracking set
- * 
+ *
  * @return string
  */
 function PMA_getTrackingSet()
@@ -1119,19 +1123,19 @@ function PMA_getTrackingSet()
         $tracking_set .= 'TRUNCATE,';
     }
     $tracking_set = rtrim($tracking_set, ',');
-    
+
     return $tracking_set;
 }
 
 /**
  * Function to create the tracking version
- * 
+ *
  * @return void
  */
 function PMA_createTrackingVersion()
 {
     $tracking_set = PMA_getTrackingSet();
-    
+
     $versionCreated = PMA_Tracker::createVersion(
         $GLOBALS['db'],
         $GLOBALS['table'],
@@ -1153,12 +1157,12 @@ function PMA_createTrackingVersion()
 
 /**
  * Function to get the entries
- * 
+ *
  * @param array $data           data
  * @param int   $filter_ts_from filter time stamp from
  * @param int   $filter_ts_to   filter time stamp to
  * @param array $filter_users   filter users
- * 
+ *
  * @return array
  */
 function PMA_getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users)

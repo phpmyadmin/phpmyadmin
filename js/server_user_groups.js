@@ -9,6 +9,10 @@ AJAX.registerTeardown('server_user_groups.js', function () {
  * Bind event handlers
  */
 AJAX.registerOnload('server_user_groups.js', function () {
+
+    // update the checkall checkbox on Edit user group page
+    $(checkboxes_sel).trigger("change");
+
     $("a.deleteUserGroup.ajax").live('click', function (event) {
         event.preventDefault();
         var $link = $(this);

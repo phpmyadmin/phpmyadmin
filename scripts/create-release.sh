@@ -129,6 +129,11 @@ if [ -d po ] ; then
     rm -rf po
 fi
 
+if [ -f ./scripts/line-counts.sh ] ; then
+    echo "* Generating line counts"
+    ./scripts/line-counts.sh
+fi
+
 echo "* Removing unneeded files"
 
 # Remove test directory from package to avoid Path disclosure messages

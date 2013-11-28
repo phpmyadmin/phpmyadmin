@@ -12,6 +12,7 @@
 /* Each PluginObserver instance contains a PluginManager instance */
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Imagelink.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for Text_Plain_Imagelink class
@@ -60,7 +61,7 @@ class Text_Plain_Imagelink_Test extends PHPUnit_Framework_TestCase
     {
         $info = 'Displays an image and a link; '
             . 'the column contains the filename. The first option'
-            . ' is a URL prefix like "http://www.example.com/". ' 
+            . ' is a URL prefix like "http://www.example.com/". '
             . 'The second and third options'
             . ' are the width and the height in pixels.';
         $this->assertEquals(

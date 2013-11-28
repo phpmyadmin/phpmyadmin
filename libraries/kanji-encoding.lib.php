@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
  * codes list
  * 2002/1/4 by Y.Kawada
  *
- * @global  string   the available encoding codes list
+ * @global  string $kanji_encoding_list the available encoding codes list
  *
  * @return boolean  always true
  */
@@ -43,7 +43,7 @@ function PMA_Kanji_checkEncoding()
  * Reverses SJIS & EUC-JP position in the encoding codes list
  * 2002/1/4 by Y.Kawada
  *
- * @global  string   the available encoding codes list
+ * @global  string $kanji_encoding_list the available encoding codes list
  *
  * @return boolean  always true
  */
@@ -70,7 +70,7 @@ function PMA_Kanji_changeOrder()
  * @param string $enc  the destination encoding code
  * @param string $kana set 'kana' convert to JIS-X208-kana
  *
- * @global  string   the available encoding codes list
+ * @global  string $kanji_encoding_list the available encoding codes list
  *
  * @return string   the converted string
  */

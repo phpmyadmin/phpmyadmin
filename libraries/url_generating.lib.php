@@ -12,12 +12,12 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Generates text with hidden inputs.
  *
- * @param string $db     optional database name
- *                       (can also be an array of parameters)
- * @param string $table  optional table name
- * @param int    $indent indenting level
- * @param string $skip   do not generate a hidden field for this parameter
- *                       (can be an array of strings)
+ * @param string       $db     optional database name
+ *                             (can also be an array of parameters)
+ * @param string       $table  optional table name
+ * @param int          $indent indenting level
+ * @param string|array $skip   do not generate a hidden field for this parameter
+ *                             (can be an array of strings)
  *
  * @see PMA_URL_getCommon()
  *
@@ -268,7 +268,7 @@ function PMA_URL_getCommon()
  * @param string $encode whether to encode separator or not,
  * currently 'none' or 'html'
  *
- * @return string  character used for separating url parts usally ; or &
+ * @return string  character used for separating url parts usually ; or &
  * @access  public
  */
 function PMA_URL_getArgSeparator($encode = 'none')

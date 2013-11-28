@@ -149,15 +149,15 @@ function PMA_getTableHtmlForMultipleQueries(
             }
 
             // Do append a "LIMIT" clause?
-            if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+            if (($_SESSION['tmpval']['max_rows'] != 'all')
                 && ! ($is_count || $is_export || $is_func || $is_analyse)
                 && isset($analyzed_sql[0]['queryflags']['select_from'])
                 && ! isset($analyzed_sql[0]['queryflags']['offset'])
                 && empty($analyzed_sql[0]['limit_clause'])
             ) {
                 $sql_limit_to_append = ' LIMIT '
-                    . $_SESSION['tmp_user_values']['pos']
-                    . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+                    . $_SESSION['tmpval']['pos']
+                    . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
                 $sql_data['valid_sql'][$sql_no] = PMA_getSqlWithLimitClause(
                     $sql_data['valid_sql'][$sql_no],
                     $analyzed_sql,
@@ -303,7 +303,7 @@ function PMA_getColumnNameInColumnDropSql($sql)
  *
  * @param string $db          database name
  * @param string $table       table name
- * @param string $fields_meta meta fields
+ * @param array  $fields_meta meta fields
  *
  * @return boolean whether the result set contains a unique key
  */
@@ -399,7 +399,7 @@ function PMA_getHtmlForPrintViewHeader($db, $sql_query, $num_rows)
     $response = PMA_Response::getInstance();
     $header = $response->getHeader();
     if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-        PMA_Util::checkParameters(array('db', 'full_sql_query'));
+        PMA_Util::checkParameters(array('db', 'sql_query'));
         $header->enablePrintView();
         $hostname = '';
         if ( $GLOBALS['cfg']['Server']['verbose']) {
@@ -831,7 +831,7 @@ function PMA_isAppendLimitClause($analyzed_sql_results)
     $select_from = isset(
         $analyzed_sql_results['analyzed_sql'][0]['queryflags']['select_from']
     );
-    if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+    if (($_SESSION['tmpval']['max_rows'] != 'all')
         && ! ($analyzed_sql_results['is_count']
         || $analyzed_sql_results['is_export']
         || $analyzed_sql_results['is_func']
@@ -1050,9 +1050,7 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
 function PMA_findRealEndOfRows($db, $table)
 {
     $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
-    $_SESSION['tmp_user_values']['pos'] = @((ceil(
-        $unlim_num_rows / $_SESSION['tmp_user_values']['max_rows']
-    ) - 1) * $_SESSION['tmp_user_values']['max_rows']);
+    $_SESSION['tmpval']['pos'] = PMA_getStartPosToDisplayRow($unlim_num_rows);
 
     return $unlim_num_rows;
 }
@@ -1069,7 +1067,7 @@ function PMA_findRealEndOfRows($db, $table)
 function PMA_getRelationalValues($db, $table, $display_field)
 {
     $column = $_REQUEST['column'];
-    if ($_SESSION['tmp_user_values']['relational_display'] == 'D'
+    if ($_SESSION['tmpval']['relational_display'] == 'D'
         && isset($display_field)
         && strlen($display_field)
         && isset($_REQUEST['relation_key_or_display_column'])
@@ -1124,8 +1122,8 @@ function PMA_getEnumOrSetValues($db, $table, $columnType)
  */
 function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
 {
-    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
-        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmpval']['pos']
+        . ', ' . $_SESSION['tmpval']['max_rows'] . " ";
     $full_sql_query = PMA_getSqlWithLimitClause(
         $full_sql_query,
         $analyzed_sql,
@@ -1220,22 +1218,22 @@ function PMA_handleQueryExecuteError($is_gotofile, $error, $full_sql_query)
 /**
  * Function to store the query as a bookmark
  *
- * @param String  $db          the current database
- * @param String  $bkm_user    the bookmarking user
- * @param String  $import_text import text
- * @param String  $bkm_label   bookmark label
- * @param boolean $bkm_replace whether to replace existing bookmarks
+ * @param String  $db                     the current database
+ * @param String  $bkm_user               the bookmarking user
+ * @param String  $sql_query_for_bookmark the query to be stored in bookmark
+ * @param String  $bkm_label              bookmark label
+ * @param boolean $bkm_replace            whether to replace existing bookmarks
  *
  * @return void
  */
-function PMA_storeTheQueryAsBookmark($db, $bkm_user, $import_text,
+function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
     $bkm_label, $bkm_replace
 ) {
     include_once 'libraries/bookmark.lib.php';
     $bfields = array(
                  'bkm_database' => $db,
                  'bkm_user'  => $bkm_user,
-                 'bkm_sql_query' => urlencode($import_text),
+                 'bkm_sql_query' => urlencode($sql_query_for_bookmark),
                  'bkm_label' => $bkm_label
     );
 
@@ -1319,10 +1317,10 @@ function PMA_hasCurrentDbChanged($db)
     $reload = 0;
     if (strlen($db)) {
         $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
-        if ($db !== $current_db) {
+        // $current_db is false, except when a USE statement was sent
+        if ($current_db != false && $db !== $current_db) {
             $reload = 1;
         }
-        $GLOBALS['dbi']->selectDb($db);
     }
 
     return $reload;
@@ -1388,7 +1386,7 @@ function PMA_countQueryResults(
     if (!PMA_isAppendLimitClause($analyzed_sql_results)) {
         // if we did not append a limit, set this to get a correct
         // "Showing rows..." message
-        // $_SESSION['tmp_user_values']['max_rows'] = 'all';
+        // $_SESSION['tmpval']['max_rows'] = 'all';
         $unlim_num_rows         = $num_rows;
     } elseif ($is_select) {
         //    c o u n t    q u e r y
@@ -1476,19 +1474,19 @@ function PMA_countQueryResults(
 /**
  * Function to handle all aspects relating to executing the query
  *
- * @param array   $analyzed_sql_results analyzed sql results
- * @param String  $full_sql_query       full sql query
- * @param boolean $is_gotofile          whether to go to a file
- * @param String  $db                   current database
- * @param String  $table                current table
- * @param boolean $find_real_end        whether to find the real end
- * @param String  $import_text          sql command
- * @param array   $extra_data           extra data
+ * @param array   $analyzed_sql_results   analyzed sql results
+ * @param String  $full_sql_query         full sql query
+ * @param boolean $is_gotofile            whether to go to a file
+ * @param String  $db                     current database
+ * @param String  $table                  current table
+ * @param boolean $find_real_end          whether to find the real end
+ * @param String  $sql_query_for_bookmark sql query to be stored as bookmark
+ * @param array   $extra_data             extra data
  *
  * @return mixed
  */
 function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
-    $db, $table, $find_real_end, $import_text, $extra_data
+    $db, $table, $find_real_end, $sql_query_for_bookmark, $extra_data
 ) {
     // Only if we ask to see the php code
     if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
@@ -1510,10 +1508,10 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
 
         // If there are no errors and bookmarklabel was given,
         // store the query as a bookmark
-        if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
+        if (! empty($_POST['bkm_label']) && ! empty($sql_query_for_bookmark)) {
             PMA_storeTheQueryAsBookmark(
                 $db, $GLOBALS['cfg']['Bookmark']['user'],
-                $import_text, $_POST['bkm_label'],
+                $sql_query_for_bookmark, $_POST['bkm_label'],
                 isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
             );
         } // end store bookmarks
@@ -1796,7 +1794,7 @@ function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
  * Returns a message for successful creation of a bookmark or null if a bookmark
  * was not created
  *
- * @return object $bookmark_created_msg
+ * @return PMA_message $bookmark_created_msg
  */
 function PMA_getBookmarkCreatedMessage()
 {
@@ -1828,7 +1826,7 @@ function PMA_getBookmarkCreatedMessage()
  * @param object $result               result of the executed query
  * @param array  $analyzed_sql_results analyzed sql results
  *
- * @return type
+ * @return String
  */
 function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $db,
     $goto, $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
@@ -1904,7 +1902,7 @@ function PMA_getHtmlForPreviousUpdateQuery($disp_query, $showSql, $sql_data,
  * @param boolean $editable  whether the results table can be editable or not
  * @param string  $disp_mode display mode
  *
- * @return object $message
+ * @return PMA_message $message
  */
 function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
 {
@@ -1933,7 +1931,7 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
  *                            database structure page.
  * @param string $db         current database
  *
- * @return void
+ * @return string
  */
 function PMA_getHtmlForIndexesProblems($query_type, $selected, $db)
 {
@@ -2038,12 +2036,11 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     // hide edit and delete links:
     // - for information_schema
     // - if the result set does not contain all the columns of a unique key
-    //   and we are not just browing all the columns of an updatable view
+    //   (unless this is an updatable view)
 
     $sele_exp_cls = $analyzed_sql_results['analyzed_sql'][0]['select_expr_clause'];
     $updatableView
-        = $justBrowsing
-        && trim($sele_exp_cls) == '*'
+        = trim($sele_exp_cls) == '*'
         && PMA_Table::isUpdatableView($db, $table);
 
     $has_unique = PMA_resultSetContainsUniqueKey(
@@ -2068,6 +2065,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     if (isset($_REQUEST['table_maintenance'])) {
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
+        $table_maintenance_html = '';
         if (isset($message)) {
             $message = PMA_Message::success($message);
             $table_maintenance_html = PMA_Util::getMessage(
@@ -2077,8 +2075,8 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
         $table_maintenance_html .= PMA_getHtmlForSqlQueryResultsTable(
             isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
             $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
-            false, $unlim_num_rows, $num_rows, $showtable, $result, $querytime,
-            $analyzed_sql_results, false
+            false, $unlim_num_rows, $num_rows, $showtable, $result,
+            $analyzed_sql_results
         );
         if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
             $response->addHTML($table_maintenance_html);
@@ -2127,13 +2125,17 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
         isset($selected) ? $selected : null, $db
     );
 
-    $bookmark_support_html = PMA_getHtmlForBookmark(
-        $disp_mode,
-        isset($GLOBALS['cfg']['Bookmark']) ? $GLOBALS['cfg']['Bookmark'] : '',
-        $sql_query, $db, $table,
-        isset($complete_query) ? $complete_query : $sql_query,
-        $GLOBALS['cfg']['Bookmark']['user']
-    );
+    if (isset($GLOBALS['cfg']['Bookmark'])) {
+        $bookmark_support_html = PMA_getHtmlForBookmark(
+            $disp_mode,
+            $GLOBALS['cfg']['Bookmark'],
+            $sql_query, $db, $table,
+            isset($complete_query) ? $complete_query : $sql_query,
+            $GLOBALS['cfg']['Bookmark']['user']
+        );
+    } else {
+        $bookmark_support_html = '';
+    }
 
     $print_button_html = PMA_getHtmlForPrintButton();
 
@@ -2223,36 +2225,36 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
 /**
  * Function to execute the query and send the response
  *
- * @param array  $analyzed_sql_results analysed sql results
- * @param bool   $is_gotofile          whether goto file or not
- * @param string $db                   current database
- * @param string $table                current table
- * @param bool   $find_real_end        whether to find real end or not
- * @param string $import_text          import text
- * @param array  $extra_data           extra data
- * @param bool   $is_affected          whether affected or not
- * @param string $message_to_show      message to show
- * @param string $disp_mode            display mode
- * @param string $message              message
- * @param array  $sql_data             sql data
- * @param string $goto                 goto page url
- * @param string $pmaThemeImage        uri of the PMA theme image
- * @param string $disp_query           display query
- * @param string $disp_message         display message
- * @param string $query_type           query type
- * @param string $sql_query            sql query
- * @param bool   $selected             whether check table, optimize table, analyze
- *                                     table or repair table has been selected with
- *                                     respect to the selected tables from the
- *                                     database structure page.
- * @param string $complete_query       complete query
+ * @param array  $analyzed_sql_results   analysed sql results
+ * @param bool   $is_gotofile            whether goto file or not
+ * @param string $db                     current database
+ * @param string $table                  current table
+ * @param bool   $find_real_end          whether to find real end or not
+ * @param string $sql_query_for_bookmark the sql query to be stored as bookmark
+ * @param array  $extra_data             extra data
+ * @param bool   $is_affected            whether affected or not
+ * @param string $message_to_show        message to show
+ * @param string $disp_mode              display mode
+ * @param string $message                message
+ * @param array  $sql_data               sql data
+ * @param string $goto                   goto page url
+ * @param string $pmaThemeImage          uri of the PMA theme image
+ * @param string $disp_query             display query
+ * @param string $disp_message           display message
+ * @param string $query_type             query type
+ * @param string $sql_query              sql query
+ * @param bool   $selected               whether check table, optimize table,
+ *                                       analyze table or repair table has been
+ *                                       selected with respect to the selected
+ *                                       tables from the database structure page
+ * @param string $complete_query         complete query
  *
  * @return void
  */
 function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
-    $is_gotofile, $db, $table, $find_real_end, $import_text, $extra_data,
-    $is_affected, $message_to_show, $disp_mode, $message, $sql_data, $goto,
-    $pmaThemeImage, $disp_query, $disp_message,
+    $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
+    $extra_data, $is_affected, $message_to_show, $disp_mode, $message,
+    $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
     $query_type, $sql_query, $selected, $complete_query
 ) {
     // Include PMA_Index class for use in PMA_DisplayResults class
@@ -2287,29 +2289,91 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     }
 
     $GLOBALS['reload'] = PMA_hasCurrentDbChanged($db);
+    $GLOBALS['dbi']->selectDb($db);
 
     // Execute the query
     list($result, $num_rows, $unlim_num_rows, $profiling_results,
         $justBrowsing, $extra_data
     ) = PMA_executeTheQuery(
-        $analyzed_sql_results, $full_sql_query, $is_gotofile, $db, $table,
+        $analyzed_sql_results,
+        $full_sql_query,
+        $is_gotofile,
+        $db,
+        $table,
         isset($find_real_end) ? $find_real_end : null,
-        isset($import_text) ? $import_text : null,
+        isset($sql_query_for_bookmark) ? $sql_query_for_bookmark : null,
         isset($extra_data) ? $extra_data : null
     );
 
     PMA_sendQueryResponse(
-        $num_rows, $unlim_num_rows, $is_affected, $db, $table,
+        $num_rows,
+        $unlim_num_rows,
+        $is_affected,
+        $db,
+        $table,
         isset($message_to_show) ? $message_to_show : null,
-        $analyzed_sql_results, $displayResultsObject, $extra_data,
-        isset($result) ? $result : null, $justBrowsing,
-        isset($disp_mode) ? $disp_mode : null, isset($message) ? $message : null,
+        $analyzed_sql_results,
+        $displayResultsObject,
+        $extra_data,
+        isset($result) ? $result : null,
+        $justBrowsing,
+        isset($disp_mode) ? $disp_mode : null,
+        isset($message) ? $message : null,
         isset($sql_data) ? $sql_data : null,
-        $goto, $pmaThemeImage, $sql_limit_to_append, $full_sql_query,
+        $goto,
+        $pmaThemeImage,
+        $sql_limit_to_append,
+        $full_sql_query,
         isset($disp_query) ? $disp_query : null,
-        isset($disp_message) ? $disp_message : null, $profiling_results,
-        isset($query_type) ? $query_type : null, isset($selected) ? $selected : null,
-        $sql_query, isset($complete_query) ? $complete_query : null
+        isset($disp_message) ? $disp_message : null,
+        $profiling_results,
+        isset($query_type) ? $query_type : null,
+        isset($selected) ? $selected : null,
+        $sql_query,
+        isset($complete_query) ? $complete_query : null
     );
 }
+
+/**
+ * Function to define pos to display a row
+ *
+ * @param Int $number_of_line Number of the line to display
+ * @param Int $max_rows       Number of rows by page
+ *
+ * @return Int Start position to display the line
+ */
+function PMA_getStartPosToDisplayRow($number_of_line, $max_rows = null)
+{
+    if (null === $max_rows) {
+        $max_rows = $_SESSION['tmpval']['max_rows'];
+    }
+
+    return @((ceil($number_of_line / $max_rows) - 1) * $max_rows);
+}
+
+/**
+ * Function to calculate new pos if pos is higher than number of rows
+ * of displayed table
+ *
+ * @param String $db    Database name
+ * @param String $table Table name
+ * @param Int    $pos   Initial position
+ *
+ * @return Int Number of pos to display last page
+ */
+function PMA_calculatePosForLastPage($db, $table, $pos)
+{
+    if (null === $pos) {
+        $pos = $_SESSION['tmpval']['pos'];
+    }
+
+    $unlim_num_rows = PMA_Table::countRecords($db, $table, true);
+    //If position is higher than number of rows
+    if ($unlim_num_rows <= $pos && 0 != $pos) {
+        $pos = PMA_getStartPosToDisplayRow($unlim_num_rows);
+    }
+
+    return $pos;
+}
+
 ?>

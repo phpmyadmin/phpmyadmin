@@ -9,6 +9,7 @@
 /*
  * Include to test.
  */
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/kanji-encoding.lib.php';
 
 /**

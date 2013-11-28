@@ -493,7 +493,7 @@ class PMAStandard_Sniffs_Commenting_FileCommentSniff implements PHP_CodeSniffer_
      * @param PHP_CodeSniffer_CommentParser_DocElement $tagElement The doc comment
      *                                                             element.
      *
-     * @return void
+     * @return string|int
      */
     protected function getIndentation($tagName, $tagElement)
     {

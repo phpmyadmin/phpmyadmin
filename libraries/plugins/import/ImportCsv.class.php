@@ -233,6 +233,7 @@ class ImportCsv extends AbstractImportCsv
         // Defaults for parser
         $i = 0;
         $len = 0;
+        $lastlen = null;
         $line = 1;
         $lasti = -1;
         $values = array();
@@ -258,6 +259,22 @@ class ImportCsv extends AbstractImportCsv
                 // Append new data to buffer
                 $buffer .= $data;
                 unset($data);
+                
+                // Force a trailing new line at EOF to prevent parsing problems
+                if ($finished && $buffer) {
+                    $finalch = substr($buffer, -1);
+                    if ($csv_new_line == 'auto'
+                        && $finalch != "\r"
+                        && $finalch != "\n"
+                    ) {
+                        $buffer .= "\n";
+                    } elseif ($csv_new_line != 'auto' 
+                        && $finalch != $csv_new_line
+                    ) {
+                        $buffer .= $csv_new_line;
+                    }
+                }
+                
                 // Do not parse string when we're not at the end
                 // and don't have new line inside
                 if (($csv_new_line == 'auto'
@@ -434,7 +451,10 @@ class ImportCsv extends AbstractImportCsv
                                 unset($values[count($values) - 1]);
                             } else {
                                 $message = PMA_Message::error(
-                                    __('Invalid column count in CSV input on line %d.')
+                                    __(
+                                        'Invalid column count in CSV input'
+                                        . ' on line %d.'
+                                    )
                                 );
                                 $message->addParam($line);
                                 $error = true;

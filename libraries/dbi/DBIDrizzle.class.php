@@ -367,7 +367,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     }
 
     /**
-     * returns last error message or false if no errors occured
+     * returns last error message or false if no errors occurred
      *
      * @param PMA_DrizzleCon $link connection object
      *

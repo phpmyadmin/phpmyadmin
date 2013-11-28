@@ -8,8 +8,8 @@ http://sourceforge.net/donate/index.php?group_id=128076
 ------------------------------------------------------------
 
 Name: TCPDF
-Version: 6.0.024
-Release date: 2013-09-02
+Version: 6.0.039
+Release date: 2013-10-13
 Author:	Nicola Asuni
 
 Copyright (c) 2002-2013:
@@ -106,5 +106,6 @@ Third party fonts:
 	
 	The binary files (.z) that begins with the prefix "ae" have been extracted from the Arabeyes.org collection (GNU-GPLv2).
 	Link : http://projects.arabeyes.org/
+
 
 ============================================================

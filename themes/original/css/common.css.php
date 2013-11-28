@@ -393,7 +393,7 @@ td .icon {
 }
 
 /* message boxes: error, confirmation */
-#pma_errors {
+#pma_errors, #pma_demo {
     padding: 0 0.5em;
 }
 
@@ -1327,7 +1327,7 @@ div.sqlvalidate {
     overflow:           auto;
 }
 
-#result_query code.sql,
+#result_query div.sqlOuter,
 div.sqlvalidate  {
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
     border-top:         0;
@@ -2100,6 +2100,11 @@ fieldset .disabled-field td {
     width: 100%;
 }
 
+form#resultsForm > .data {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 .cDrop {
     left: 0;
     position: absolute;
@@ -2240,6 +2245,11 @@ fieldset .disabled-field td {
 .cEdit .edit_area_loading {
     background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
+}
+
+.cEdit .edit_area_right {
+    position: absolute;
+    right: 0;
 }
 
 .cEdit .goto_link {
@@ -2538,4 +2548,18 @@ div.jqplot-noData-container {
 #relationalTable select {
     width: 125px;
     margin-right: 5px;
+}
+
+.report-data {
+    height:13em;
+    overflow:scroll;
+    width:570px;
+    border: solid 1px;
+    background: white;
+    padding: 2px;
+}
+
+.report-description {
+    height:10em;
+    width:570px;
 }

@@ -567,8 +567,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     $(g.cEdit).find('.edit_area').empty().hide();
                     // reposition the cEdit element
                     $(g.cEdit).css({
-                            top: $cell.position().top,
-                            left: $cell.position().left
+                            top: $cell.offset().top,
+                            left: $cell.offset().left
                         })
                         .show()
                         .find('.edit_box')
@@ -703,6 +703,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                 // empty all edit area, then rebuild it based on $td classes
                 $editArea.empty();
+                $editArea.removeClass('edit_area_right');
 
                 // add show data row link if the data resulted by 'browse distinct values' in table structure
                 if ($td.find('input').hasClass('data_browse_link')) {
@@ -723,7 +724,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.wasEditedCellNull = false;
                 if ($td.is(':not(.not_null)')) {
                     // append a null checkbox
-                    $editArea.append('<div class="null_div">Null :<input type="checkbox"></div>');
+                    $editArea.append('<div class="null_div">Null:<input type="checkbox"></div>');
+
+                    if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
+                        $editArea.addClass('edit_area_right');
+                    }
+
                     var $checkbox = $editArea.find('.null_div input');
                     // check if current <td> is NULL
                     if ($td.is('.null')) {
@@ -822,6 +828,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.find('span.curr_value').change(function () {
                             $(g.cEdit).find('.edit_box').val($(this).text());
                         });
+
+                        if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
+                            $editArea.addClass('edit_area_right');
+                        }
                     }); // end $.post()
 
                     $editArea.show();
@@ -829,6 +839,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
                     g.isEditCellTextEditable = true;
+
+                    if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
+                        $editArea.addClass('edit_area_right');
+                    }
                 }
                 else if ($td.is('.enum')) {
                     //handle enum fields
@@ -852,12 +866,19 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.dropdown);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                        if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
+                            $editArea.addClass('edit_area_right');
+                        }
                     }); // end $.post()
 
                     $editArea.show();
                     $editArea.find('select').live('change', function (e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
+
+                    if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
+                        $editArea.addClass('edit_area_right');
+                    }
                 }
                 else if ($td.is('.set')) {
                     //handle set fields
@@ -882,12 +903,19 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.removeClass('edit_area_loading');
                         $editArea.append(data.select);
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                        if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
+                            $editArea.addClass('edit_area_right');
+                        }
                     }); // end $.post()
 
                     $editArea.show();
                     $editArea.find('select').live('change', function (e) {
                         $(g.cEdit).find('.edit_box').val($(this).val());
                     });
+
+                    if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
+                        $editArea.addClass('edit_area_right');
+                    }
                 }
                 else if ($td.is('.truncated, .transformed')) {
                     if ($td.is('.to_be_saved')) {   // cell has been edited
@@ -1432,6 +1460,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // register events
             $(t).find('th.draggable')
                 .mousedown(function (e) {
+                    $('#sqlqueryresults').addClass("turnOffSelect");
                     if (g.visibleHeadersCount > 1) {
                         g.dragStartReorder(e, this);
                     }
@@ -1714,7 +1743,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             });
 
             // attach to global div
-            $(g.gDiv).append(g.cEdit);
+            $(g.gDiv).after(g.cEdit);
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
             if (PMA_messages.strGridEditFeatureHint !== undefined) {
@@ -1830,6 +1859,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.dragMove(e);
         });
         $(document).mouseup(function (e) {
+            $('#sqlqueryresults').removeClass("turnOffSelect");
             g.dragEnd(e);
         });
     }

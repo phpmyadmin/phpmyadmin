@@ -107,6 +107,11 @@ $cfg_db['InitialSlidersState'] = array(
     'closed'   => __('Closed'),
     'disabled' => __('Disabled')
 );
+$cfg_db['SendErrorReports'] = array(
+    'ask'     => __('Ask before sending error reports'),
+    'always'   => __('Always send error reports'),
+    'never' => __('Never send error reports')
+);
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV
     'docsql', // DocSQL
@@ -220,7 +225,7 @@ $cfg_db['_validators'] = array(
     'MaxCharactersInDisplayedSQL' => 'validatePositiveNumber',
     'MaxRows' => 'validatePositiveNumber',
     'MaxTableList' => 'validatePositiveNumber',
-    'MemoryLimit' => array(array('validateByRegex', '/^\d+(?:[kmg])?$/i')),
+    'MemoryLimit' => array(array('validateByRegex', '/^(-1|(\d+(?:[kmg])?))$/i')),
     'NavigationTreeTableLevel' => 'validatePositiveNumber',
     'QueryHistoryMax' => 'validatePositiveNumber',
     'QueryWindowWidth' => 'validatePositiveNumber',

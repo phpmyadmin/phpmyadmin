@@ -153,15 +153,15 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
     var target = evt.target || evt.srcElement;
 
     //To generate the textbox that can take the salt
-    var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]"
-    +" id=salt_"+target.id+" placeholder='enter Salt'>";
+    var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]" +
+        " id=salt_" + target.id + " placeholder='enter Salt'>";
 
     //If AES_ENCRYPT is Selected then append the new textbox for salt
-    if (target.value == "AES_ENCRYPT" && !($("#salt_"+target.id).length)) {
+    if (target.value == "AES_ENCRYPT" && !($("#salt_" + target.id).length)) {
         $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']").after(new_salt_box);
     } else {
         //The value of the select is no longer AES_ENCRYPT, remove the textbox for salt
-        $("#salt_"+target.id).remove();
+        $("#salt_" + target.id).remove();
     }
 
     // Unchecks the corresponding "NULL" control
@@ -236,7 +236,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 AJAX.registerTeardown('tbl_change.js', function () {
     $('span.open_gis_editor').die('click');
     $("input[name='gis_data[save]']").die('click');
-    $('input.checkbox_null').unbind('click');
+    $('input.checkbox_null').die('click');
     $('select[name="submit_type"]').unbind('change');
     $("#insert_rows").die('change');
 });
@@ -289,7 +289,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      * "Continue insertion" are handled in the "Continue insertion" code
      *
      */
-    $('input.checkbox_null').bind('click', function (e) {
+    $('input.checkbox_null').live('click', function (e) {
         nullify(
             // use hidden fields populated by tbl_change.php
             $(this).siblings('.nullify_code').val(),
@@ -505,3 +505,23 @@ AJAX.registerOnload('tbl_change.js', function () {
         }
     });
 });
+
+function changeValueFieldType(elem, searchIndex)
+{
+    var fieldsValue = $("select#fieldID_" + searchIndex);
+    if (0 == fieldsValue.size()) {
+        return;
+    }
+
+    var type = $(elem).val();
+    if (
+        'IN (...)' == type
+        || 'NOT IN (...)' == type
+        || 'BETWEEN' == type
+        || 'NOT BETWEEN' == type
+    ) {
+        $("#fieldID_" + searchIndex).attr('multiple', '');
+    } else {
+        $("#fieldID_" + searchIndex).removeAttr('multiple');
+    }
+}

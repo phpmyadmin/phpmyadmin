@@ -22,6 +22,8 @@ require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/sql.lib.php';
+require_once 'libraries/Table.class.php';
 
 /**
  * class PMA_MultSubmits_Test
@@ -277,6 +279,10 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $primary = null;
         $from_prefix = "from_prefix";
         $to_prefix = "to_prefix";
+
+        $_REQUEST['pos'] = 1000;
+        $_SESSION['tmpval']['pos'] = 1000;
+        $_SESSION['tmpval']['max_rows'] = 25;
 
         list(
             $result, $rebuild_database_list, $reload_ret,

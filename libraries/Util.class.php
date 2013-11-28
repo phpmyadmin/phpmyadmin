@@ -389,9 +389,9 @@ class PMA_Util
      * @param string  $sql_query raw SQL string
      * @param boolean $truncate  truncate the query if it is too long
      *
-     * @return string  the formatted sql
+     * @return string the formatted sql
      *
-     * @global  array    the configuration array
+     * @global array  $cfg the configuration array
      *
      * @access  public
      * @todo    move into PMA_Sql
@@ -408,9 +408,9 @@ class PMA_Util
                 $cfg['MaxCharactersInDisplayedSQL']
             ) . '[...]';
         }
-        return '<span class="inner_sql"><pre>' . "\n"
+        return '<code class="sql"><pre>' . "\n"
             . htmlspecialchars($sql_query) . "\n"
-            . '</pre></span>';
+            . '</pre></code>';
     } // end of the "formatSql()" function
 
     /**
@@ -596,10 +596,10 @@ class PMA_Util
      *
      * @return mixed
      *
-     * @global  string    the curent table
-     * @global  string    the current db
+     * @global string $table the curent table
+     * @global string $db    the current db
      *
-     * @access  public
+     * @access public
      */
     public static function mysqlDie(
         $error_message = '', $the_query = '',
@@ -1279,7 +1279,7 @@ class PMA_Util
             if (! empty($GLOBALS['validatequery'])) {
                 $retval .= '<div class="sqlvalidate">';
             } else {
-                $retval .= '<code class="sql">';
+                $retval .= '<div class="sqlOuter">';
             }
             if ($query_too_big) {
                 $retval .= $shortened_query_base;
@@ -1291,11 +1291,7 @@ class PMA_Util
             if (! empty($GLOBALS['show_as_php'])) {
                 $retval .= '";';
             }
-            if (! empty($GLOBALS['validatequery'])) {
-                $retval .= '</div>';
-            } else {
-                $retval .= '</code>';
-            }
+            $retval .= '</div>';
 
             $retval .= '<div class="tools">';
             $retval .= '<form action="sql.php" method="post">';
@@ -2051,10 +2047,10 @@ class PMA_Util
      *
      * @return void
      *
-     * @global  string  path to current script
-     * @global  boolean flag whether any special variable was required
+     * @global boolean $checked_special flag whether any special variable
+     *                                       was required
      *
-     * @access  public
+     * @access public
      */
     public static function checkParameters($params, $request = true)
     {
@@ -2096,7 +2092,7 @@ class PMA_Util
      * @param array    $row          current row
      * @param boolean  $force_unique generate condition only on pk or unique
      *
-     * @access  public
+     * @access public
      *
      * @return array     the calculated condition and whether condition is unique
      */
@@ -2610,7 +2606,7 @@ class PMA_Util
      * @param string $minimum_version of this component
      * @param string $bugref          bug reference for this component
      *
-     * @return void
+     * @return String
      */
     public static function getExternalBug(
         $functionality, $component, $minimum_version, $bugref
@@ -2708,15 +2704,20 @@ class PMA_Util
      * @param string $id            id of the select element; can be different in
      *                              case the dropdown is present more than once
      *                              on the page
+     * @param string $class         class for the select element
      *
      * @return string               html content
      *
      * @todo    support titles
      */
-    public static function getDropdown($select_name, $choices, $active_choice, $id)
-    {
-        $result = '<select name="' . htmlspecialchars($select_name) . '" id="'
-            . htmlspecialchars($id) . '">';
+    public static function getDropdown(
+        $select_name, $choices, $active_choice, $id, $class = ''
+    ) {
+        $result = '<select'
+            . ' name="' . htmlspecialchars($select_name) . '"'
+            . ' id="' . htmlspecialchars($id) . '"'
+            . (! empty($class) ? ' class="' . htmlspecialchars($class) . '"' : '')
+            . '>';
 
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
@@ -2912,19 +2913,41 @@ class PMA_Util
      * Converts a bit value to printable format;
      * in MySQL a BIT field can be from 1 to 64 bits so we need this
      * function because in PHP, decbin() supports only 32 bits
+     * on 32-bit servers
      *
-     * @param numeric $value  coming from a BIT field
+     * @param number  $value  coming from a BIT field
      * @param integer $length length
      *
      * @return string  the printable value
      */
     public static function printableBitValue($value, $length)
     {
-        $printable = '';
-        for ($i = 0, $len_ceiled = ceil($length / 8); $i < $len_ceiled; $i++) {
-            $printable .= sprintf('%08d', decbin(ord(substr($value, $i, 1))));
+        // if running on a 64-bit server or the length is safe for decbin()
+        if (PHP_INT_SIZE == 8 || $length < 33) {
+            $printable = decbin($value);
+        } else {
+            // FIXME: does not work for the leftmost bit of a 64-bit value
+            $i = 0;
+            $printable = '';
+            while ($value >= pow(2, $i)) {
+                $i++;
+            }
+            if ($i != 0) {
+                $i = $i - 1;
+            }
+
+            while ($i >= 0) {
+                if ($value - pow(2, $i) < 0) {
+                    $printable = '0' . $printable;
+                } else {
+                    $printable = '1' . $printable;
+                    $value = $value - pow(2, $i);
+                }
+                $i--;
+            }
+            $printable = strrev($printable);
         }
-        $printable = substr($printable, -$length);
+        $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
         return $printable;
     }
 
@@ -3178,14 +3201,14 @@ class PMA_Util
      * Formats user string, expanding @VARIABLES@, accepting strftime format
      * string.
      *
-     * @param string   $string  Text where to do expansion.
-     * @param function $escape  Function to call for escaping variable values.
+     * @param string       $string  Text where to do expansion.
+     * @param array|string $escape  Function to call for escaping variable values.
      *                          Can also be an array of:
      *                          - the escape method name
      *                          - the class that contains the method
      *                          - location of the class (for inclusion)
-     * @param array    $updates Array with overrides for default parameters
-     *                 (obtained from GLOBALS).
+     * @param array        $updates Array with overrides for default parameters
+     *                     (obtained from GLOBALS).
      *
      * @return string
      */
@@ -3285,7 +3308,7 @@ class PMA_Util
      *
      * @param string $max_upload_size maximum upload size
      *
-     * @return void
+     * @return String
      */
     public static function getBrowseUploadFileBlock($max_upload_size)
     {
@@ -3315,7 +3338,7 @@ class PMA_Util
      * @param array  $import_list array of import plugins
      * @param string $uploaddir   upload directory
      *
-     * @return void
+     * @return String
      */
     public static function getSelectUploadFileBlock($import_list, $uploaddir)
     {
@@ -3804,7 +3827,7 @@ class PMA_Util
         $username .= str_replace("'", "''", $user[1]);
         $username .= "''";
 
-        // Prepage the query
+        // Prepare the query
         $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
                . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
 
@@ -3823,9 +3846,19 @@ class PMA_Util
         // If a database name was provided and user does not have the
         // required global privilege, try database-wise permissions.
         if ($db !== null) {
-            // need to escape wildcards in db and table names, see bug #3518484
+            // need to escape wildcards in db and table names, see bug #3566
+            // (wildcard characters appear as being quoted with a backslash
+            //  when querying TABLE_SCHEMA.SCHEMA_PRIVILEGES)
             $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
-            $query .= " AND TABLE_SCHEMA='%s'";
+            /*
+             * This is to take into account a wildcard db privilege
+             * so we replace % by .* and _ by . to be able to compare
+             * with REGEXP.
+             *
+             * Also, we need to double the inner % to please sprintf().
+             */
+            $query .= " AND '%s' REGEXP"
+                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*')";
             $schema_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
@@ -3893,7 +3926,7 @@ class PMA_Util
      *
      * @param string $limit_clause limit clause
      *
-     * @return array Start and length attributes of the limit clause
+     * @return array|void Start and length attributes of the limit clause
      */
     public static function analyzeLimitClause($limit_clause)
     {
@@ -3915,7 +3948,7 @@ class PMA_Util
     /**
      * Prepare HTML code for display button.
      *
-     * @return void
+     * @return String
      */
     public static function getButton()
     {
@@ -4133,7 +4166,7 @@ class PMA_Util
     /**
      * Returns information with latest version from phpmyadmin.net
      *
-     * @return JSON decoded object with the data
+     * @return String JSON decoded object with the data
      */
     public static function getLatestVersion()
     {
@@ -4161,12 +4194,12 @@ class PMA_Util
                         'timeout' => $connection_timeout,
                     )
                 );
-                if (strlen($cfg['VersionCheckProxyUrl'])) {
-                    $context['http']['proxy'] = $cfg['VersionCheckProxyUrl'];
-                    if (strlen($cfg['VersionCheckProxyUser'])) {
+                if (strlen($cfg['ProxyUrl'])) {
+                    $context['http']['proxy'] = $cfg['ProxyUrl'];
+                    if (strlen($cfg['ProxyUser'])) {
                         $auth = base64_encode(
-                            $cfg['VersionCheckProxyUser'] . ':'
-                            . $cfg['VersionCheckProxyPass']
+                            $cfg['ProxyUser'] . ':'
+                            . $cfg['ProxyPass']
                         );
                         $context['http']['header']
                             = 'Proxy-Authorization: Basic ' . $auth;
@@ -4179,18 +4212,18 @@ class PMA_Util
                 );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
-                if (strlen($cfg['VersionCheckProxyUrl'])) {
+                if (strlen($cfg['ProxyUrl'])) {
                     curl_setopt(
                         $curl_handle,
                         CURLOPT_PROXY,
-                        $cfg['VersionCheckProxyUrl']
+                        $cfg['ProxyUrl']
                     );
-                    if (strlen($cfg['VersionCheckProxyUser'])) {
+                    if (strlen($cfg['ProxyUser'])) {
                         curl_setopt(
                             $curl_handle,
                             CURLOPT_PROXYUSERPWD,
-                            $cfg['VersionCheckProxyUser']
-                            . ':' . $cfg['VersionCheckProxyPass']
+                            $cfg['ProxyUser']
+                            . ':' . $cfg['ProxyPass']
                         );
                     }
                 }
@@ -4314,4 +4347,5 @@ class PMA_Util
         }
     }
 }
+
 ?>

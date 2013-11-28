@@ -87,6 +87,11 @@ h2 a img {
     width: 100%;
 }
 
+form#resultsForm > .data {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 #table_results td.data {
 border-right: 1px solid #bbb;
 }
@@ -607,7 +612,7 @@ td .icon {
 }
 
 /* message boxes: error, confirmation */
-#pma_errors {
+#pma_errors, #pma_demo {
     padding: 0 0.5em;
 }
 
@@ -1386,7 +1391,7 @@ p.notice {
     border-radius: 5px;
     -moz-box-shadow: 0 1px 2px #fff inset;
     -webkit-box-shadow: 0 1px 2px #fff inset;
-    box-shadow: 0 1px 2px #fff; inset;
+    box-shadow: 0 1px 2px #fff inset;
     background: #555;
     color: #d4fb6a;
 }
@@ -1689,7 +1694,11 @@ div.sqlvalidate {
     overflow: auto;
 }
 
-#result_query code.sql,
+#result_query div.sqlOuter {
+    background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    padding: 1em;
+}
+
 #PMA_slidingMessage code.sql,
 div.sqlvalidate {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
@@ -2610,6 +2619,13 @@ fieldset .disabled-field td {
     background: #DDD;
 }
 
+.turnOffSelect {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 #page_content {
     background-color: white;
 }
@@ -2712,6 +2728,11 @@ fieldset .disabled-field td {
     height: 10em;
 }
 
+.cEdit .edit_area_right {
+    position: absolute;
+    right: 0;
+}
+
 .cEdit .goto_link {
     background: #EEE;
     color: #555;
@@ -2760,4 +2781,18 @@ body .ui-widget {
 }
 .jqplot-axis {
     overflow:hidden;
+}
+
+.report-data {
+    height:13em;
+    overflow:scroll;
+    width:570px;
+    border: solid 1px;
+    background: white;
+    padding: 2px;
+}
+
+.report-description {
+    height:10em;
+    width:570px;
 }

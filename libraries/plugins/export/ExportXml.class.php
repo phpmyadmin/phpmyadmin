@@ -502,7 +502,7 @@ class ExportXml extends ExportPlugin
     /**
      * Gets the table name
      *
-     * @return void
+     * @return string
      */
     private function _getTable()
     {

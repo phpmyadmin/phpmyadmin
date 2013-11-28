@@ -209,6 +209,7 @@ function PMA_addDatepicker($this_element, options)
         showButtonPanel: false,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
         timeFormat: 'HH:mm:ss.lc',
+        constrainInput: false,
         altFieldTimeOnly: false,
         showAnim: '',
         beforeShow: function (input, inst) {
@@ -340,9 +341,12 @@ function confirmQuery(theForm1, sqlQuery1)
         do_confirm_re_1.test(sqlQuery1.value) ||
         do_confirm_re_2.test(sqlQuery1.value) ||
         do_confirm_re_3.test(sqlQuery1.value)) {
-        var message      = (sqlQuery1.value.length > 100)
-                         ? sqlQuery1.value.substr(0, 100) + '\n    ...'
-                         : sqlQuery1.value;
+        var message;
+        if (sqlQuery1.value.length > 100) {
+            message = sqlQuery1.value.substr(0, 100) + '\n    ...';
+        } else {
+            message = sqlQuery1.value;
+        }
         var is_confirmed = confirm($.sprintf(PMA_messages.strDoYouReally, message));
         // statement is confirmed -> update the
         // "is_js_confirmed" form field so the confirm test won't be
@@ -395,8 +399,7 @@ function checkSqlQuery(theForm)
     }
     if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
             (theForm.elements['id_bookmark'].value !== null || theForm.elements['id_bookmark'].value !== '') &&
-            theForm.elements['id_bookmark'].selectedIndex !== 0
-            ) {
+            theForm.elements['id_bookmark'].selectedIndex !== 0) {
         return true;
     }
     // Checks for "DROP/DELETE/ALTER" statements
@@ -1353,8 +1356,7 @@ AJAX.registerOnload('functions.js', function () {
 
         var $form = $(this).prev('form');
         var sql_query  = $form.find("input[name='sql_query']").val();
-        var $inner_sql = $(this).parent().prev().find('.inner_sql');
-        var $sql_highlight = $(this).parent().prev().find('.sql-highlight');
+        var $inner_sql = $(this).parent().prev().find('code.sql');
         var old_text   = $inner_sql.html();
 
         var new_content = "<textarea name=\"sql_query_edit\" id=\"sql_query_edit\">" + sql_query + "</textarea>\n";
@@ -1367,7 +1369,6 @@ AJAX.registerOnload('functions.js', function () {
         }
         $editor_area.html(new_content);
         $inner_sql.hide();
-        $sql_highlight.hide();
 
         bindCodeMirrorToInlineEditor();
         return false;
@@ -1385,13 +1386,16 @@ AJAX.registerOnload('functions.js', function () {
         var $fake_form = $('<form>', {action: 'import.php', method: 'post'})
                 .append($form.find("input[name=server], input[name=db], input[name=table], input[name=token]").clone())
                 .append($('<input/>', {type: 'hidden', name: 'show_query', value: 1}))
+                .append($('<input/>', {type: 'hidden', name: 'is_js_confirmed', value: 0}))
                 .append($('<input/>', {type: 'hidden', name: 'sql_query', value: sql_query}));
+        if (! checkSqlQuery($fake_form[0])) {
+            return false;
+        }
         $fake_form.appendTo($('body')).submit();
     });
 
     $("input#sql_query_edit_discard").live('click', function () {
-        $('div#inline_editor_outer')
-            .siblings('.sql-highlight').show();
+        $('div#inline_editor_outer').siblings('code.sql').show();
         $('div#inline_editor_outer').remove();
     });
 
@@ -1771,12 +1775,12 @@ function PMA_createProfilingChartJqplot(target, data)
                 }
             },
             highlighter: {
-                show:true,
+                show: true,
                 tooltipLocation: 'se',
                 sizeAdjust: 0,
                 tooltipAxes: 'pieref',
                 useAxesFormatters: false,
-                formatString:'%s, %.9Ps'
+                formatString: '%s, %.9Ps'
             },
             legend: {
                 show: true,
@@ -3421,7 +3425,13 @@ function PMA_slidingMessage(msg, $obj)
             .children()
             .remove();
             $obj
-            .append('<div style="display: none;">' + msg + '</div>')
+            .append('<div>' + msg + '</div>');
+            // highlight any sql before taking height;
+            PMA_highlightSQL($obj);
+            $obj.find('div')
+                .first()
+                .hide();
+            $obj
             .animate({
                 height: $obj.find('div').first().height()
             })
@@ -3432,12 +3442,15 @@ function PMA_slidingMessage(msg, $obj)
     } else {
         // Object does not already have a message
         // inside it, so we simply slide it down
+        $obj.width('100%')
+            .html('<div>' + msg + '</div>');
+        // highlight any sql before taking height;
+        PMA_highlightSQL($obj);
         var h = $obj
-                .width('100%')
-                .html('<div style="display: none;">' + msg + '</div>')
-                .find('div')
-                .first()
-                .height();
+            .find('div')
+            .first()
+            .hide()
+            .height();
         $obj
         .find('div')
         .first()

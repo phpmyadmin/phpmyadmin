@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.0.0 (not yet released)
+
 4.1.0.0 (not yet released)
 + rfe #499 On user creation, warn if the user already exists
 + Use indeterminate check all checkbox in server privileges
@@ -42,8 +44,48 @@ phpMyAdmin - ChangeLog
 - bug #4068 Headline in operations not readable in IE10
 - bug #4000 "Table does not contain unique column" message appears after adding a unique column
 + rfe #1428 add 'new database' entry to nav tree
++ rfe #1457 Stone Age icon found
++ rfe #1463 Filter tables and databases by regular expression
++ Change the proxy variable names in the config to remove the VersionCheck prefix from them
++ Added an Error Reporting Component
++ Javascript files are no longer uglified
+- bug #4145 Config screen fails to validate MemoryLimit = -1 (new default)
+- bug #4123 Double config including
+- bug #4134 After deleting all rows on a page, it returns to a blank page
++ Dropped configuration directive: DisableIS, ShowDatabasesCommand
+- bug #4152 Not possible to enter % for search in date fields
+- bug #3931 IN Clause search does not permit multiple values
+- bug #4086 Clicking OK from edit popup opens new tab
+- bug #2983 unknown table status: TABLE_TYPE
+- bug #4030 ORDER BY SUM(`field`) does not sort DESC
+- bug #4133 CSV import breaks when no blank line at end of file
+- bug #4153 Unable to import if newline encoding is MAC style
+- bug #4096 horizontal scrollbar should not overflow on the left column
+- bug #4159 bug with navigation between database and table filter
 
-4.0.8.0 (not yet released)
+4.0.10.0 (not yet released)
+- bug #4150 Clicking database name in query window opens a new tab
+- bug #4141 Wrong page is shown after editing; also, do not show a modal
+            dialog for multi-row edit
+- bug #3939 PHP NavigationTree error when paging through list
+- bug #4075 Support A10 Networks load balancer
+- bug #4083 row deleting isn't binlogs friendly
+- bug #4163 Setup script does not recognize manually-configured server
+- bug #4158 Events page says no privileges with ALL PRIVILEGES
+
+4.0.9.0 (2013-11-04)
+- bug #4104 Can't edit updatable view when searching
+- bug #4108 Missing refresh by deleting databases
+- bug #3995 Drizzle server charset notice
+- bug #3911 Filtering database names includes empty groupings
+- bug #3678 Does not display or manipulate bit(64) fields appropriately
+- bug #4129 Unneeded navi panel refresh
+- bug #4120 SSL redirects to port 80
+- bug #4144 DROP DATABASE displays wrong database name
+- bug #4059 Running delete query asks for confirmation but says it was already executed
+- bug #4147 Accessibility: Images without Alt nor title attribute
+
+4.0.8.0 (2013-10-06)
 - bug #3988 Rename view is not working
 - bug #4041 Interaction between linkified fields and grid editing
 - bug #3975 Table grouping isn't implemented properly
@@ -56,10 +98,14 @@ phpMyAdmin - ChangeLog
 - bug #4103 Tracking report: cannot delete a statement
 - bug #3996 Drizzle navigation doesn't expand
 - bug #4074 GIS column editor: point not displayed
+- bug #4109 Drizzle tables in navigation are shown as views
+- bug #4095 NUL symbols added to the end of database dump file
+- bug #4105 More disappears in table Structure
+- bug #3992 Multi-row edit doesn't clear values when checking NULL
 
 4.0.7.0 (2013-09-23)
 - bug #3993 Sorting in database overview with statistics doesn't work
-- bug Handle the situation where PHP_SELF is not set 
+- bug Handle the situation where PHP_SELF is not set
 - bug #4080 Overwrite existing file not obeyed
 - bug #3929 Database-specific privileges are not copied when cloning user
 - bug #3997 Error handling in case MySQL extension is missing
@@ -261,7 +307,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Removed the "Synchronize" feature
 + Improved layout of server variables page
 + rfe #1052091 [config] Double-underscores in PMA table names
-+ Improved the "More" dropdown on the table structure page
++ Improved the "" dropdown on the table structure page
 + [interface] Added "scroll to top" link in menubar
 + [designer] Fullscreen mode for the designer
 + Upgraded jquery to v1.8.3 and jquery-ui to v1.9.2

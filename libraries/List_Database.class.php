@@ -50,24 +50,16 @@ class PMA_List_Database extends PMA_List
     protected $db_link_control = null;
 
     /**
-     * @var boolean whether SHOW DATABASES is disabled or not
+     * @var boolean whether we can retrieve the list of databases
      * @access protected
      */
-    protected $show_databases_disabled = false;
-
-    /**
-     * @var string command to retrieve databases from server
-     * @access protected
-     */
-    protected $command = null;
+    protected $can_retrieve_databases = true;
 
     /**
      * Constructor
      *
      * @param mixed $db_link_user    user database link resource|object
      * @param mixed $db_link_control control database link resource|object
-     *
-     * @return void
      */
     public function __construct($db_link_user = null, $db_link_control = null)
     {
@@ -100,27 +92,21 @@ class PMA_List_Database extends PMA_List
     /**
      * retrieves database list from server
      *
-     * @param string $like_db_name usally a db_name containing wildcards
+     * @param string $like_db_name usually a db_name containing wildcards
      *
      * @return array
-     * @todo   we could also search mysql tables if all fail?
      */
     protected function retrieve($like_db_name = null)
     {
-        if ($this->show_databases_disabled) {
+        if (! $this->can_retrieve_databases) {
             return array();
         }
 
+        $command = "SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`"
+            . " WHERE TRUE";
+
         if (null !== $like_db_name) {
-            $command = "SHOW DATABASES LIKE '" . $like_db_name . "'";
-        } elseif (null === $this->command) {
-            $command = str_replace(
-                '#user#', $GLOBALS['cfg']['Server']['user'],
-                $GLOBALS['cfg']['Server']['ShowDatabasesCommand']
-            );
-            $this->command = $command;
-        } else {
-            $command = $this->command;
+            $command .= " AND `SCHEMA_NAME` LIKE '" . $like_db_name . "'";
         }
 
         $database_list = $GLOBALS['dbi']->fetchResult(
@@ -130,7 +116,7 @@ class PMA_List_Database extends PMA_List
 
         if ($GLOBALS['errno'] !== 0) {
             // failed to get database list, try the control user
-            // (hopefully there is one and he has SHOW DATABASES right)
+            // (hopefully there is one and he has the necessary rights)
             $this->db_link = $this->db_link_control;
             $database_list = $GLOBALS['dbi']->fetchResult(
                 $command, null, null, $this->db_link
@@ -140,10 +126,10 @@ class PMA_List_Database extends PMA_List
 
             if ($GLOBALS['errno'] !== 0) {
                 // failed! we will display a warning that phpMyAdmin could not
-                // safely retrieve database list, the admin has to setup a control
-                // user or allow SHOW DATABASES
+                // safely retrieve database list, the admin has to setup a
+                // control user
                 $GLOBALS['error_showdatabases'] = true;
-                $this->show_databases_disabled = true;
+                $this->can_retrieve_databases = false;
             }
         }
 
@@ -204,13 +190,10 @@ class PMA_List_Database extends PMA_List
                 continue;
             }
 
-            if (! $this->show_databases_disabled) {
+            if ($this->can_retrieve_databases) {
                 $items = array_merge($items, $this->retrieve($each_only_db));
                 continue;
             }
-
-            // @todo induce error, about not using wildcards
-            // with SHOW DATABASE disabled?
         }
 
         $this->exchangeArray($items);
@@ -230,98 +213,6 @@ class PMA_List_Database extends PMA_List
         }
 
         return $this->getEmpty();
-    }
-
-    /**
-     * this is just a backup, if all is fine this can be deleted later
-     *
-     * @deprecated
-     * @return void
-     */
-    protected function checkAgainstPrivTables()
-    {
-        // 1. get allowed dbs from the "mysql.db" table
-        // User can be blank (anonymous user)
-        $local_query = "
-            SELECT DISTINCT `Db` FROM `mysql`.`db`
-            WHERE `Select_priv` = 'Y'
-            AND `User`
-            IN ('"
-            . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user'])
-            . "', '')";
-        $tmp_mydbs = $GLOBALS['dbi']->fetchResult(
-            $local_query, null, null, $GLOBALS['controllink']
-        );
-        $dblist = array();
-        if ($tmp_mydbs) {
-            // Will use as associative array of the following 2 code
-            // lines:
-            //   the 1st is the only line intact from before
-            //     correction,
-            //   the 2nd replaces $dblist[] = $row['Db'];
-
-            // Code following those 2 lines in correction continues
-            // populating $dblist[], as previous code did. But it is
-            // now populated with actual database names instead of
-            // with regular expressions.
-            $tmp_alldbs = $GLOBALS['dbi']->query(
-                'SHOW DATABASES;', $GLOBALS['controllink']
-            );
-            // all databases cases - part 2
-            if (isset($tmp_mydbs['%'])) {
-                while ($tmp_row = $GLOBALS['dbi']->fetchRow($tmp_alldbs)) {
-                    $dblist[] = $tmp_row[0];
-                } // end while
-            } else {
-                while ($tmp_row = $GLOBALS['dbi']->fetchRow($tmp_alldbs)) {
-                    $tmp_db = $tmp_row[0];
-                    if (isset($tmp_mydbs[$tmp_db]) && $tmp_mydbs[$tmp_db] == 1) {
-                        $dblist[]           = $tmp_db;
-                        $tmp_mydbs[$tmp_db] = 0;
-                    } elseif (! isset($dblist[$tmp_db])) {
-                        foreach ($tmp_mydbs as $tmp_matchpattern => $tmp_value) {
-                            // fixed bad regexp
-                            // TODO: db names may contain characters
-                            //       that are regexp instructions
-                            $re        = '(^|(\\\\\\\\)+|[^\])';
-                            $tmp_regex = preg_replace(
-                                '/' . addcslashes($re, '/') . '%/',
-                                '\\1.*',
-                                preg_replace(
-                                    '/' . addcslashes($re, '/') . '_/',
-                                    '\\1.{1}',
-                                    $tmp_matchpattern
-                                )
-                            );
-                            $tmp_regex = '/^' . addcslashes($tmp_regex, '/') . '$/';
-                            if (preg_match($tmp_regex, $tmp_db)) {
-                                $dblist[] = $tmp_db;
-                                break;
-                            }
-                        } // end while
-                    } // end if ... elseif ...
-                } // end while
-            } // end else
-            $GLOBALS['dbi']->freeResult($tmp_alldbs);
-            unset($tmp_mydbs);
-        } // end if
-
-        // 2. get allowed dbs from the "mysql.tables_priv" table
-        $local_query = 'SELECT DISTINCT `Db` FROM `mysql`.`tables_priv`';
-        $local_query .= ' WHERE `Table_priv` LIKE \'%Select%\'';
-        $local_query .= ' AND `User` = \'';
-        $local_query .= PMA_Util::sqlAddSlashes(
-            $GLOBALS['cfg']['Server']['user']
-        ) . '\'';
-        $rs = $GLOBALS['dbi']->tryQuery($local_query, $GLOBALS['controllink']);
-        if ($rs && @$GLOBALS['dbi']->numRows($rs)) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($rs)) {
-                if (!in_array($row['Db'], $dblist)) {
-                    $dblist[] = $row['Db'];
-                }
-            } // end while
-            $GLOBALS['dbi']->freeResult($rs);
-        } // end if
     }
 }
 ?>

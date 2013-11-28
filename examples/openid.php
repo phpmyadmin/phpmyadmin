@@ -37,7 +37,7 @@ $AUTH_MAP = array(
  *
  * @return void
  */
-function show_page($contents)
+function Show_page($contents)
 {
     header('Content-Type: text/html; charset=utf-8');
     echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
@@ -93,7 +93,7 @@ OpenID: <input type="text" name="identifier" /><br />
 </form>
 </body>
 </html>';
-    show_page($content);
+    Show_page($content);
     exit;
 }
 
@@ -113,7 +113,7 @@ try {
     $contents = "<div class='relyingparty_results'>\n";
     $contents .= "<pre>" . $e->getMessage() . "</pre>\n";
     $contents .= "</div class='relyingparty_results'>";
-    show_page($contents);
+    Show_page($contents);
     exit;
 }
 
@@ -125,7 +125,7 @@ if (isset($_POST['start'])) {
         $contents = "<div class='relyingparty_results'>\n";
         $contents .= "<pre>" . $e->getMessage() . "</pre>\n";
         $contents .= "</div class='relyingparty_results'>";
-        show_page($contents);
+        Show_page($contents);
         exit;
     }
 
@@ -154,7 +154,7 @@ if (isset($_POST['start'])) {
         /* Redirect to phpMyAdmin (should use absolute URL here!) */
         header('Location: ../index.php');
     } else {
-        show_page('<p>User not allowed!</p>');
+        Show_page('<p>User not allowed!</p>');
         exit;
     }
 }

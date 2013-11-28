@@ -18,16 +18,16 @@ if (! defined('PHPMYADMIN')) {
 /**
  * limits for table list
  */
-if (! isset($_SESSION['tmp_user_values']['table_limit_offset'])
-    || $_SESSION['tmp_user_values']['table_limit_offset_db'] != $db
+if (! isset($_SESSION['tmpval']['table_limit_offset'])
+    || $_SESSION['tmpval']['table_limit_offset_db'] != $db
 ) {
-    $_SESSION['tmp_user_values']['table_limit_offset'] = 0;
-    $_SESSION['tmp_user_values']['table_limit_offset_db'] = $db;
+    $_SESSION['tmpval']['table_limit_offset'] = 0;
+    $_SESSION['tmpval']['table_limit_offset_db'] = $db;
 }
 if (isset($_REQUEST['pos'])) {
-    $_SESSION['tmp_user_values']['table_limit_offset'] = (int) $_REQUEST['pos'];
+    $_SESSION['tmpval']['table_limit_offset'] = (int) $_REQUEST['pos'];
 }
-$pos = $_SESSION['tmp_user_values']['table_limit_offset'];
+$pos = $_SESSION['tmpval']['table_limit_offset'];
 
 PMA_Util::checkParameters(array('db'));
 
@@ -51,29 +51,11 @@ if ($GLOBALS['dbi']->isSystemSchema($db)) {
  */
 $tables = array();
 
-// When used in Nested table group mode,
-// only show tables matching the given groupname
-$tbl_group_sql = "";
-$whereAdded = false;
-if (PMA_isValid($_REQUEST['tbl_group'])) {
-    $tbl_group_sql .= " WHERE " . PMA_Util::backquote('Tables_in_' . $db) . " LIKE "
-        . "'" . PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group']) . "%'";
-    $whereAdded = true;
-}
-if (PMA_isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
-    $tbl_group_sql .= $whereAdded ? " AND" : " WHERE";
-    if ($_REQUEST['tbl_type'] == 'view') {
-         $tbl_group_sql .= " `Table_type` = 'VIEW'";
-    } else {
-        $tbl_group_sql .= " `Table_type` != 'VIEW'";
-    }
-}
-
 $tooltip_truename = array();
 $tooltip_aliasname = array();
 
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
-if (true === $cfg['SkipLockedTables']) {
+if (true === $cfg['SkipLockedTables'] && ! PMA_DRIZZLE) {
     $db_info_result = $GLOBALS['dbi']->query(
         'SHOW OPEN TABLES FROM ' . PMA_Util::backquote($db) . ';'
     );
@@ -89,10 +71,32 @@ if (true === $cfg['SkipLockedTables']) {
         $GLOBALS['dbi']->freeResult($db_info_result);
 
         if (isset($sot_cache)) {
+            $db_info_result = false;
+
+            $tblGroupSql = "";
+            $whereAdded = false;
+            if (PMA_isValid($_REQUEST['tbl_group'])) {
+                $tblGroupSql .= " WHERE "
+                    . PMA_Util::backquote('Tables_in_' . $db)
+                    . " LIKE '"
+                    . PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group'])
+                    . "%'";
+                $whereAdded = true;
+            }
+            if (PMA_isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
+                $tblGroupSql .= $whereAdded ? " AND" : " WHERE";
+                if ($_REQUEST['tbl_type'] == 'view') {
+                    $tblGroupSql .= " `Table_type` != 'BASE TABLE'";
+                } else {
+                    $tblGroupSql .= " `Table_type` = 'BASE TABLE'";
+                }
+            }
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW FULL TABLES FROM ' . PMA_Util::backquote($db) . $tbl_group_sql,
+                'SHOW FULL TABLES FROM ' . PMA_Util::backquote($db) . $tblGroupSql,
                 null, PMA_DatabaseInterface::QUERY_STORE
             );
+            unset($tblGroupSql, $whereAdded);
+
             if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
                 while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
@@ -110,7 +114,12 @@ if (true === $cfg['SkipLockedTables']) {
                         }
                         $tables[$sts_tmp['Name']]    = $sts_tmp;
                     } else { // table in use
-                        $tables[$tmp[0]]    = array('Name' => $tmp[0]);
+                        $tables[$tmp[0]] = array(
+                            'TABLE_NAME' => $tmp[0],
+                            'ENGINE' => '',
+                            'TABLE_TYPE' => '',
+                            'TABLE_ROWS' => 0,
+                        );
                     }
                 }
                 if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -209,7 +218,7 @@ if (! isset($total_num_tables)) {
 /**
  * cleanup
  */
-unset($each_table, $tbl_group_sql, $db_info_result);
+unset($each_table, $db_info_result);
 
 /**
  * If coming from a Show MySQL link on the home page,

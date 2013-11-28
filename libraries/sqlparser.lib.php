@@ -43,7 +43,7 @@ require_once './libraries/sqlparser.data.php';
 /**
  * Charset information
  */
-if (!defined('TESTSUITE')) {
+if (!defined('TESTSUITE') && ! PMA_DRIZZLE) {
     include_once './libraries/mysql_charsets.inc.php';
 }
 if (! isset($mysql_charsets)) {
@@ -64,7 +64,7 @@ if (! isset($mysql_charsets)) {
  * @param int    &$arrsize Size of array
  * @param int    $pos      Position of an element
  *
- * @return nothing
+ * @return void
  */
 function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
 {
@@ -77,7 +77,7 @@ function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
  *
  * @access public
  *
- * @return nothing
+ * @return void
  */
 function PMA_SQP_resetError()
 {
@@ -118,7 +118,7 @@ function PMA_SQP_isError()
  * @param string $message The error message
  * @param string $sql     The failing SQL query
  *
- * @return nothing
+ * @return void
  *
  * @access private
  * @scope SQL Parser internal
@@ -147,7 +147,7 @@ function PMA_SQP_throwError($message, $sql)
  * @param string $message The error message
  * @param string $sql     The failing SQL query
  *
- * @return nothing
+ * @return void
  *
  * @access public
  */
@@ -2297,12 +2297,6 @@ function PMA_SQP_format(
         $html_line_break                    = '<br />';
         break;
     } // end switch
-    // inner_sql is a span that exists for all cases, except query_only
-    // to make possible a replacement
-    // for inline editing
-    if ($mode!='query_only') {
-        $str .= '<span class="inner_sql">';
-    }
     $indent                                     = 0;
     $bracketlevel                               = 0;
     $functionlevel                              = 0;
@@ -2738,10 +2732,6 @@ function PMA_SQP_format(
     while ($indent > 0) {
         $indent--;
         $str .= ($mode != 'query_only' ? '</div>' : ' ');
-    }
-    if ($mode!='query_only') {
-        // close inner_sql span
-            $str .= '</span>';
     }
 
     return $str;

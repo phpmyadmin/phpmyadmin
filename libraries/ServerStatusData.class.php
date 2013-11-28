@@ -50,8 +50,6 @@ class PMA_ServerStatusData
 
     /**
      * Constructor
-     *
-     * @return object
      */
     public function __construct()
     {

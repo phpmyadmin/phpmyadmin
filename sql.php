@@ -173,19 +173,26 @@ if ($goto == 'sql.php') {
     );
 } // end if
 
-
 PMA_executeQueryAndSendQueryResponse(
-    $analyzed_sql_results, $is_gotofile, $db, $table,
+    $analyzed_sql_results,
+    $is_gotofile,
+    $db,
+    $table,
     isset($find_real_end) ? $find_real_end : null,
     isset($import_text) ? $import_text : null,
-    isset($extra_data) ? $extra_data : null, $is_affected,
+    isset($extra_data) ? $extra_data : null,
+    $is_affected,
     isset($message_to_show) ? $message_to_show : null,
-    isset($disp_mode) ? $disp_mode : null, isset($message) ? $message : null,
-    isset($sql_data) ? $sql_data : null, $goto, $pmaThemeImage,
+    isset($disp_mode) ? $disp_mode : null,
+    isset($message) ? $message : null,
+    isset($sql_data) ? $sql_data : null,
+    $goto,
+    $pmaThemeImage,
     isset($disp_query) ? $display_query : null,
     isset($disp_message) ? $disp_message : null,
     isset($query_type) ? $query_type : null,
-    $sql_query, isset($selected) ? $selected : null,
+    $sql_query,
+    isset($selected) ? $selected : null,
     isset($complete_query) ? $complete_query : null
 );
 
