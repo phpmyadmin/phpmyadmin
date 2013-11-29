@@ -306,14 +306,17 @@ PMA_Message::rawSuccess(
 echo '</div>'
     . '<form class="group-cnt prefs-form disableAjax" name="prefs_export"'
     . ' action="prefs_manage.php" method="post">'
-    . PMA_URL_getHiddenInputs();
+    . PMA_URL_getHiddenInputs()
+    . '<div style="padding-bottom:0.5em">'
+    . '<input type="radio" id="export_text_file" name="export_type"'
+    . ' value="text_file" checked="checked" />'
+    . '<label for="export_text_file">' . __('Save as file') . '</label>'
+    . '<br />'
+    . '<input type="radio" id="export_local_storage" name="export_type"'
+    . ' value="local_storage" disabled="disabled" />'
+    . '<label for="export_local_storage">'
+    .  __('Save to browser\'s storage') . '</label>';
 ?>
-                <div style="padding-bottom:0.5em">
-                    <input type="radio" id="export_text_file" name="export_type" value="text_file" checked="checked" />
-                    <label for="export_text_file"><?php echo __('Save as file') ?></label>
-                    <br />
-                    <input type="radio" id="export_local_storage" name="export_type" value="local_storage" disabled="disabled" />
-                    <label for="export_local_storage"><?php echo __('Save to browser\'s storage') ?></label>
                 </div>
                 <div id="opts_export_local_storage" class="prefsmanage_opts disabled">
                     <span class="localStorage-supported">
