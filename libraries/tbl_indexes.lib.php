@@ -38,9 +38,9 @@ function PMA_getNameAndTypeOfTheColumns($db, $table)
 /**
  * Function to handle the creation or edit of an index
  *
- * @param string $db    current db
- * @param string $table current table
- * @param Object $index current index
+ * @param string    $db    current db
+ * @param string    $table current table
+ * @param PMA_Index $index current index
  *
  * @return void
  */
@@ -81,10 +81,10 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
 /**
  * Function to get the sql query for index creation or edit
  *
- * @param string $db     current db
- * @param string $table  current table
- * @param Object $index  current index
- * @param bool   &$error whether error occoured or not
+ * @param string    $db     current db
+ * @param string    $table  current table
+ * @param PMA_Index $index  current index
+ * @param bool      &$error whether error occoured or not
  *
  * @return string
  */
@@ -179,7 +179,7 @@ function PMA_prepareFormValues($db, $table)
 /**
  * Function to get the number of fields for the form
  *
- * @param Object $index index
+ * @param PMA_Index $index index
  *
  * @return int
  */
@@ -231,10 +231,10 @@ function PMA_getFormParameters($db, $table)
 /**
  * Function to get html for displaying the index form
  *
- * @param array  $fields      fields
- * @param Object $index       index
- * @param array  $form_params form parameters
- * @param int    $add_fields  number of fields in the form
+ * @param array     $fields      fields
+ * @param PMA_Index $index       index
+ * @param array     $form_params form parameters
+ * @param int       $add_fields  number of fields in the form
  *
  * @return string
  */
@@ -324,6 +324,7 @@ function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
         'multilinestring', 'multipolygon', 'geomtrycollection'
     );
     $html .= '<tbody>';
+    /* @var $column PMA_Index_Column */
     foreach ($index->getColumns() as $column) {
         $html .= '<tr class="';
         $html .= $odd_row ? 'odd' : 'even';

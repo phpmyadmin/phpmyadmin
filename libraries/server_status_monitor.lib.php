@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Prints html with monitor
  *
- * @param object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -381,7 +381,7 @@ function PMA_getHtmlForSettingsDialog()
 /**
  * Define some data and links needed on the client side
  *
- * @param object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
