@@ -10,7 +10,7 @@ Please report [bugs on SourceForge.net][1].
 
 ## Patches submission
 
-Patches are welcome either as [pull requests on GitHub][2].
+Patches are welcome as [pull requests on GitHub][2].
 
 [2]: https://github.com/phpmyadmin/phpmyadmin/pulls
 
