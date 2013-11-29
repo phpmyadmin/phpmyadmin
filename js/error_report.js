@@ -252,6 +252,9 @@ var ErrorReport = {
                 }
             };
             new_func.wrapped = true;
+            //Set guid of wrapped function same as original function, so it can be removed
+            //See bug#4146 (problem with jquery draggable and sortable)
+            new_func.guid = func.guid = func.guid || new_func.guid || jQuery.guid++;
             return new_func;
         } else {
             return func;
