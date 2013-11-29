@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-25 16:20-0500\n"
-"PO-Revision-Date: 2013-08-23 11:42+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"uk/>\n"
+"PO-Revision-Date: 2013-11-29 18:55+0200\n"
+"Last-Translator: Andriy Bandura <andriykopanytsia@gmail.com>\n"
+"Language-Team: Ukrainian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -37,10 +37,9 @@ msgstr "Коментар бази даних: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Коментарі таблиці"
+msgstr "Коментарі до таблиці:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -271,24 +270,21 @@ msgstr "використовується"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Створення"
+msgstr "Створення:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Останнє оновлення"
+msgstr "Останнє оновлення:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Остання перевірка"
+msgstr "Остання перевірка:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -499,22 +495,20 @@ msgstr "Використовуйте OpenStreetMaps як базовий плас
 # Ідентифікатор просторової системи координат
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Геометрія"
+msgstr "Геометрія %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Точка"
+msgstr "Точка:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
@@ -538,22 +532,21 @@ msgid "Add a point"
 msgstr "Додати точку"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Відрізок"
+msgstr "Ламана %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Зовнішнє кільце"
+msgstr "Зовнішнє кільце:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Внутрішнє кільце"
+msgstr "Внутрішнє кільце %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
@@ -564,10 +557,10 @@ msgid "Add an inner ring"
 msgstr "Додати внутрішнє кільце"
 
 #: gis_data_editor.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Полігон"
+msgstr "Многокутник %d:"
 
 #: gis_data_editor.php:386 js/messages.php:335
 msgid "Add a polygon"
@@ -714,10 +707,9 @@ msgid "Back"
 msgstr "Назад"
 
 #: index.php:115 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "Домашня сторінка phpMyAdmin"
+msgstr "Демо-сервер phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -757,62 +749,54 @@ msgid "Server:"
 msgstr "Сервер:"
 
 #: index.php:254
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
-msgstr "Порт сервера"
+msgstr "Тип сервера:"
 
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Версія сервера"
+msgstr "Версія сервера:"
 
 #: index.php:264
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Версія протоколу"
+msgstr "Версія протоколу:"
 
 #: index.php:268
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Користувач"
+msgstr "Користувач:"
 
 #: index.php:273
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Кодування символів серверу"
+msgstr "Кодування символів серверу:"
 
 #: index.php:287
 msgid "Web server"
 msgstr "Веб-сервер"
 
 #: index.php:303
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Версія клієнту бази даних"
+msgstr "Версія клієнту бази даних:"
 
 #: index.php:307
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP розширення"
+msgstr "PHP розширення:"
 
 #: index.php:321
 msgid "Show PHP information"
 msgstr "Показати інформацію про PHP"
 
 #: index.php:344
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Відомості про версію"
+msgstr "Відомості про версію:"
 
 #: index.php:353 libraries/Util.class.php:429 libraries/Util.class.php:496
 #: libraries/config/FormDisplay.tpl.php:148
@@ -980,20 +964,19 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Ця операція може зайняти багато часу.  Продовжити ?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Ви дійсно бажаєте виконати \"%s\"?"
+msgstr "Ви дійсно бажаєте видалити групу користувачів \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "Не задано значення для форми!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Невірний номер порту"
+msgstr "Введіть вірний номер"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
@@ -1793,16 +1776,14 @@ msgid "Show search criteria"
 msgstr "Показати критерії пошуку"
 
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Сховати критерії пошуку"
+msgstr "Сховати критерії пошуку та заміни"
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Показати критерії пошуку"
+msgstr "Показати критерії пошуку та заміни"
 
 #: js/messages.php:300 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -3062,7 +3043,7 @@ msgstr "SQL"
 #: libraries/Util.class.php:4121 libraries/Util.class.php:4137
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
-msgstr "Шукати"
+msgstr "Пошук"
 
 #: libraries/Menu.class.php:318 libraries/Util.class.php:3187
 #: libraries/Util.class.php:3407 libraries/Util.class.php:3408
@@ -6215,6 +6196,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
+"Для відключення можливості зберігання налаштувань інтерфейсу таблиць через "
+"сесії, залиште поле порожнім, рекомендується: [kbd]pma__table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:437
 msgid "UI preferences table"
@@ -10521,7 +10504,7 @@ msgstr "Користувач"
 #: libraries/server_privileges.lib.php:2704
 #: libraries/server_privileges.lib.php:2884
 msgid "Grant"
-msgstr "Grant"
+msgstr "Ґрант"
 
 #: libraries/server_privileges.lib.php:1862
 msgid "User has been added."
@@ -12972,10 +12955,9 @@ msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY зв'язок доданий"
 
 #: pmd_relation_new.php:84
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Помилка: Зв'язок не доданий."
+msgstr "Помилка: реляційні функції вимкнені!"
 
 #: pmd_relation_new.php:100
 msgid "Internal relation added"
@@ -13483,10 +13465,9 @@ msgid "The table name is empty!"
 msgstr "Порожня назва таблиці!"
 
 #: tbl_structure.php:93
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Рядків не вибрано"
+msgstr "Жодного стовпчика не вибрано."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
