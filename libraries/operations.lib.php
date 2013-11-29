@@ -373,10 +373,10 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
  * remove all foreign key constraints and return
  * sql constraints query for full database
  *
- * @param array   $tables_full       array of all tables in given db or dbs
- * @param object  $export_sql_plugin export plugin instance
- * @param boolean $move              whether database name is empty or not
- * @param string  $db                database name
+ * @param array     $tables_full       array of all tables in given db or dbs
+ * @param ExportSql $export_sql_plugin export plugin instance
+ * @param boolean   $move              whether database name is empty or not
+ * @param string    $db                database name
  *
  * @return string sql constraints query for full databases
  */
@@ -406,9 +406,9 @@ function PMA_getSqlConstraintsQueryForFullDb(
 /**
  * Get views as an array and create SQL view stand-in
  *
- * @param array  $tables_full       array of all tables in given db or dbs
- * @param object $export_sql_plugin export plugin instance
- * @param string $db                database name
+ * @param array     $tables_full       array of all tables in given db or dbs
+ * @param ExportSql $export_sql_plugin export plugin instance
+ * @param string    $db                database name
  *
  * @return array $views
  */

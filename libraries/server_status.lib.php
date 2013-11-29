@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Prints server status information: processes, connections and traffic
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -39,7 +39,7 @@ function PMA_getHtmlForServerStatus($ServerStatusData)
 /**
  * Prints server state General information
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -115,7 +115,7 @@ function PMA_getHtmlForServerStateGeneralInfo($ServerStatusData)
 /**
  * Prints server state traffic information
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -207,7 +207,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
 /**
  * Prints server state connections information
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -312,7 +312,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
 /**
  * Prints Server Process list
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */

@@ -65,8 +65,8 @@ class Advisor
     /**
      * Stores current error in run results.
      *
-     * @param string $description description of an error.
-     * @param object $exception   exception raised
+     * @param string    $description description of an error.
+     * @param Exception $exception   exception raised
      *
      * @return void
      */

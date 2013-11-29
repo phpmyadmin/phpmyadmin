@@ -508,7 +508,7 @@ class PMA_Index
     /**
      * Returns the columns of the index
      *
-     * @return array the columns of the index
+     * @return PMA_Index_Column[] the columns of the index
      */
     public function getColumns()
     {
