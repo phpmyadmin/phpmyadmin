@@ -1162,23 +1162,6 @@ function PMA_getBinaryAndBlobColumn(
 function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
-    static $min_max_data = array(
-        'signed' => array(
-            'tinyint'   => array('0', '255'),
-            'smallint'  => array('0', '65535'),
-            'mediumint' => array('0', '16777215'),
-            'int'       => array('0', '4294967295'),
-            'bigint'    => array('0', '18446744073709551615')
-        ),
-        'unsigned' => array(
-            'tinyint'   => array('-128', '127'),
-            'smallint'  => array('-32768', '32767'),
-            'mediumint' => array('-8388608', '8388607'),
-            'int'       => array('-2147483648', '2147483647'),
-            'bigint'    => array('-9223372036854775808', '9223372036854775807')
-        )
-    );
-
     $input_type = 'text';
     $the_class = 'textfield';
     if ($column['pma_type'] === 'date') {
@@ -1194,13 +1177,13 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $input_min_max = false;
     if (in_array(
         $column['True_Type'],
-        array('tinyint', 'smallint', 'mediumint', 'int', 'bigint')
+        $GLOBALS['PMA_Types']->getIntegerTypes()
     )) {
         $input_type = 'number';
         $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
-        $min_max_values
-            = $min_max_data[$is_unsigned ? 'unsigned' : 'signed']
-                [$column['True_Type']];
+        $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
+            $column['True_Type'], ! $is_unsigned
+        );
         $input_min_max = 'min="' . $min_max_values[0] . '" '
             . 'max="' . $min_max_values[1] . '" ';
     }
@@ -1950,11 +1933,11 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
 /**
  * Executes the sql query and get the result, then move back to the calling page
  *
- * @param array  $url_params url parameters array
- * @param array  $query      built query from PMA_buildSqlQuery()
+ * @param array $url_params url parameters array
+ * @param array $query      built query from PMA_buildSqlQuery()
  *
- * @return array             $url_params, $total_affected_rows, $last_messages
- *                           $warning_messages, $error_messages, $return_to_sql_query
+ * @return array            $url_params, $total_affected_rows, $last_messages
+ *                          $warning_messages, $error_messages, $return_to_sql_query
  */
 function PMA_executeSqlQuery($url_params, $query)
 {

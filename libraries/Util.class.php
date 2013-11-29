@@ -2047,7 +2047,8 @@ class PMA_Util
      *
      * @return void
      *
-     * @global boolean $checked_special flag whether any special variable was required
+     * @global boolean $checked_special flag whether any special variable
+     *                                       was required
      *
      * @access public
      */
@@ -3849,7 +3850,15 @@ class PMA_Util
             // (wildcard characters appear as being quoted with a backslash
             //  when querying TABLE_SCHEMA.SCHEMA_PRIVILEGES)
             $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
-            $query .= " AND TABLE_SCHEMA='%s'";
+            /*
+             * This is to take into account a wildcard db privilege
+             * so we replace % by .* and _ by . to be able to compare
+             * with REGEXP.
+             *
+             * Also, we need to double the inner % to please sprintf().
+             */
+            $query .= " AND '%s' REGEXP"
+                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*')";
             $schema_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,

@@ -354,6 +354,23 @@ Credits, in chronological order
 
   * Refactoring
 
+* Mohamed Ashraf (Google Summer of Code 2013)
+
+  * AJAX error reporting
+
+* Adam Kang (Google Summer of Code 2013)
+
+  * Automated testing
+
+* Ayush Chaudhary (Google Summer of Code 2013)
+
+  * Automated testing
+
+* Kasun Chathuranga (Google Summer of Code 2013)
+
+  * Interface improvements 
+
+
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
 2.1.0:

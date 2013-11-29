@@ -4,10 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-11-18 13:46+0200\n"
+"POT-Creation-Date: 2013-11-25 16:20-0500\n"
+"PO-Revision-Date: 2013-11-26 10:02+0200\n"
 "Last-Translator: Lakshmanan M <send2lakshman@gmail.com>\n"
 "Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/master/ta/>\n"
 "Language: ta\n"
@@ -22,12 +22,12 @@ msgstr ""
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "%s கோப்பு இந்த அமைப்பில் இல்லை, மேலும் தகவலுக்கு www.phpmyadmin.net செல்லுங்கள்"
+msgstr "%s கோப்பு இந்த அமைப்பில் இல்லை, மேலும் தகவலுக்கு www.phpmyadmin.net செல்லுங்கள்."
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "%1$s தரவுத்தளம் உருவாக்கப்பட்டது"
+msgstr "%1$s தரவுத்தளம் உருவாக்கப்பட்டது."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -36,10 +36,8 @@ msgstr "தரவுத்தள கருத்துரை "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table comments:"
-msgstr "அட்டவணைக் கருத்துரைகள்"
+msgstr "அட்டவணைக் கருத்துரைகள்:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -203,7 +201,7 @@ msgstr "தரவுத்தளத்தின் திட்ட வடிவ�
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:572 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "அட்டவணைகள் எதுவும் தரவுத்தளத்தில் காணப்படவில்லை"
+msgstr "அட்டவணைகள் எதுவும் தரவுத்தளத்தில் காணப்படவில்லை."
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
@@ -225,10 +223,9 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "%1$s தரவுத்தளமானது %2$s ஆக பெயர் மாற்றப்பட்டது"
 
 #: db_operations.php:136
-#, fuzzy, php-format
-#| msgid "Database %s has been copied to %s"
+#, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "%s தரவுத்தளமானது %s இற்கு பிரதி செய்யப்பட்டது"
+msgstr "%1$s தரவுத்தளமானது %2$s இற்கு பிரதி செய்யப்பட்டது"
 
 #: db_operations.php:260
 #, php-format
@@ -237,7 +234,7 @@ msgid ""
 "click %shere%s."
 msgstr ""
 "PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்க செய்யப்பட்டுள்ளது. ஏன் எனக் கண்டுபிடிக்க %sஇங்கே%s "
-"கிளிக் செய்யவும்"
+"கிளிக் செய்யவும்."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:516
@@ -271,24 +268,20 @@ msgstr "பயன்பாட்டில்"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
-#| msgid "Creation"
 msgid "Creation:"
-msgstr "உருவாக்கம்"
+msgstr "உருவாக்கம்:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "இறுதி இற்றைப்படுத்தல்"
+msgstr "இறுதி இற்றைப்படுத்தல்:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "கடைசி சோதனை"
+msgstr "கடைசி சோதனை:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -446,10 +439,9 @@ msgid "Unfortunately the submission failed."
 msgstr ""
 
 #: export.php:160
-#, fuzzy
 #| msgid "Index type:"
 msgid "Bad type!"
-msgstr "சுட்டு வகை"
+msgstr "கெட்ட வகை!"
 
 #: export.php:211
 msgid "Selected export type has to be saved in file!"
@@ -497,22 +489,20 @@ msgstr ""
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "கேத்திர கணிதம்"
+msgstr "கேத்திர கணிதம் %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "புள்ளி"
+msgstr "புள்ளி:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
@@ -526,10 +516,10 @@ msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:289 gis_data_editor.php:362
 #: js/messages.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Point"
 msgid "Point %d"
-msgstr "புள்ளி"
+msgstr "புள்ளி %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:302 gis_data_editor.php:375
 #: js/messages.php:333
@@ -537,48 +527,45 @@ msgid "Add a point"
 msgstr "ஒரு புள்ளியை சேர்"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add constraints"
 msgid "Linestring %d:"
-msgstr "கட்டுப்பாடுகளை சேர்க்க"
+msgstr "வரி சரம் %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy
 #| msgid "Outer Ring:"
 msgid "Outer ring:"
-msgstr "வெளிப்புற வளையம்"
+msgstr "வெளிப்புற வளையம்:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "உள்ப்புற வளையம்"
+msgstr "உள்ப்புற வளையம் %d:"
 
 #: gis_data_editor.php:305
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "கட்டுப்பாடுகளை சேர்க்க"
+msgstr "வரி சரம் சேர்க்க"
 
 #: gis_data_editor.php:306 gis_data_editor.php:380 js/messages.php:334
 msgid "Add an inner ring"
 msgstr "உள்ப்புற வளையத்தை சேர்"
 
 #: gis_data_editor.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "பல்கோணி"
+msgstr "பல்கோணி %d:"
 
 #: gis_data_editor.php:386 js/messages.php:335
 msgid "Add a polygon"
 msgstr "ஒரு பல்கோணியை சேர்"
 
 #: gis_data_editor.php:392
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add geometry"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "வடிவியல் சேர்க்க"
 
 #: gis_data_editor.php:398 js/messages.php:225
 #: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1690
@@ -613,7 +600,7 @@ msgstr "புதிய பயனாளரை சேர்க்க"
 #: libraries/tbl_chart.lib.php:216
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:386 libraries/tbl_tracking.lib.php:454
-#: pmd_pdf.php:158 prefs_manage.php:272 prefs_manage.php:322
+#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:327
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
 msgstr "செல்"
@@ -631,8 +618,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 
 #: import.php:284 import.php:550
@@ -732,7 +719,7 @@ msgstr "பாதுகாப்பற்ற இணைப்பு"
 msgid "Appearance Settings"
 msgstr ""
 
-#: index.php:226 prefs_manage.php:281
+#: index.php:226 prefs_manage.php:286
 msgid "More settings"
 msgstr ""
 
@@ -1483,7 +1470,7 @@ msgstr "பக்கத்தை திரும்ப ஏற்று"
 
 #: js/messages.php:200
 msgid "Affected rows:"
-msgstr "பாவனையான வரிசைகள்"
+msgstr "பாவனையான வரிசைகள்:"
 
 #: js/messages.php:203
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1499,7 +1486,7 @@ msgstr ""
 #: libraries/Util.class.php:4109 libraries/Util.class.php:4124
 #: libraries/Util.class.php:4140 libraries/config/messages.inc.php:171
 #: libraries/display_import.lib.php:108
-#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:238
+#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
 msgid "Import"
 msgstr "இறக்குமதி"
@@ -2378,16 +2365,16 @@ msgstr "ஒரு மணி நேரத்திற்கு"
 msgid "per day"
 msgstr "ஒரு நாளைக்கு"
 
-#: libraries/Config.class.php:1144
+#: libraries/Config.class.php:1151
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/Config.class.php:1174
+#: libraries/Config.class.php:1181
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1751
+#: libraries/Config.class.php:1758
 msgid "Font size"
 msgstr "எழுத்துரு அளவு"
 
@@ -2757,8 +2744,8 @@ msgstr ""
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4926
@@ -2813,7 +2800,7 @@ msgstr "அனைத்தையும் தெரி"
 #: libraries/server_privileges.lib.php:2231
 #: libraries/server_privileges.lib.php:2906
 #: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:297
-#: prefs_manage.php:295 setup/frames/menu.inc.php:27
+#: prefs_manage.php:300 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "ஏற்றுமதி"
 
@@ -2869,7 +2856,7 @@ msgstr ""
 
 #: libraries/File.class.php:288
 msgid "Missing a temporary folder."
-msgstr "ஒரு தற்காலிய உறையை காணவில்லை"
+msgstr "ஒரு தற்காலிய உறையை காணவில்லை."
 
 #: libraries/File.class.php:291
 msgid "Failed to write file to disk."
@@ -3148,22 +3135,22 @@ msgstr "வலு"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d வரிசை மாற்றப்பட்டுள்ளது"
-msgstr[1] "%1$d வரிசைகள் மாற்றப்பட்டுள்ளன"
+msgstr[0] "%1$d வரிசை மாற்றப்பட்டுள்ளது."
+msgstr[1] "%1$d வரிசைகள் மாற்றப்பட்டுள்ளன."
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d வரிசை அகற்றப்பட்டுள்ளது"
-msgstr[1] "%1$d வரிசைகள் அகற்றப்பட்டுள்ளன"
+msgstr[0] "%1$d வரிசை அகற்றப்பட்டுள்ளது."
+msgstr[1] "%1$d வரிசைகள் அகற்றப்பட்டுள்ளன."
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d வரிசை சேர்க்கப்பட்டுள்ளது"
-msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்டுள்ளன"
+msgstr[0] "%1$d வரிசை சேர்க்கப்பட்டுள்ளது."
+msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்டுள்ளன."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2475
 #: libraries/browse_foreigners.lib.php:393
@@ -3172,7 +3159,7 @@ msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்ட
 #: libraries/schema/User_Schema.class.php:434
 #: libraries/select_lang.lib.php:535
 msgid "Page number:"
-msgstr "பக்க எண்"
+msgstr "பக்க எண்:"
 
 #: libraries/PDF.class.php:126
 msgid "Error while creating PDF:"
@@ -3568,14 +3555,14 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3890,49 +3877,49 @@ msgstr "ஞாயிறு"
 #: libraries/Util.class.php:1638
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr "%B %d, %Y இல் %I:%M %p"
 
 #: libraries/Util.class.php:1985
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s நாட்கள் %s மணித்தியாலங்கள் %s நிமிடங்கள் மற்றும் %s செக்கன்கள்"
+msgstr "%s நாட்கள் %s மணித்தியாலங்கள் %s நிமிடங்கள் மற்றும் %s நொடிகள்"
 
 #: libraries/Util.class.php:2073
 msgid "Missing parameter:"
-msgstr ""
+msgstr "அளவுருக்கள் காணப்படவில்லை:"
 
 #: libraries/Util.class.php:2593
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
-msgstr ""
+msgstr "தரவுத்தளம் தாவி செல்லவும் &quot;%s&quot;."
 
 #: libraries/Util.class.php:2617
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "%s செயல்பாடு ஒரு அறியப்படுகிற பிழையால் பாதிக்கப்பட்டுள்ளது, %s பார்க்க"
 
 #: libraries/Util.class.php:2798
 msgid "Click to toggle"
-msgstr ""
+msgstr "மாறுவதற்கு கிளிக் செய்யவும்"
 
 #: libraries/Util.class.php:3322 libraries/sql_query_form.lib.php:477
-#: prefs_manage.php:248
+#: prefs_manage.php:249
 msgid "Browse your computer:"
-msgstr "உனது கணினியை உலாவு"
+msgstr "உனது கணினியை உலாவு:"
 
 #: libraries/Util.class.php:3347
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr ""
+msgstr "வலை சேவையகம் பதிவேற்ற அடைவை <b>%s</b> தேர்ந்தெடுங்கள்:"
 
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1233
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr ""
+msgstr "நீங்கள் தேர்வு செய்த வலை சேவையகம் பதிவேற்றை அடைய இயலவில்லை."
 
 #: libraries/Util.class.php:3387
 msgid "There are no files to upload"
-msgstr ""
+msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை"
 
 #: libraries/Util.class.php:3412 libraries/Util.class.php:3413
 #: libraries/structure.lib.php:305
@@ -4316,8 +4303,8 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1603
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:327
-#: prefs_manage.php:334
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:332
+#: prefs_manage.php:339
 msgid "Reset"
 msgstr ""
 
@@ -4602,7 +4589,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr ""
 
-#: libraries/config/messages.inc.php:70 prefs_manage.php:305
+#: libraries/config/messages.inc.php:70 prefs_manage.php:310
 msgid "Save as file"
 msgstr ""
 
@@ -6530,7 +6517,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:400 libraries/replication_gui.lib.php:838
 #: libraries/server_privileges.lib.php:1433
 msgid "Password:"
-msgstr "கடவுச்சொல்"
+msgstr "கடவுச்சொல்:"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:862
@@ -6692,8 +6679,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7143,8 +7130,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7230,6 +7217,7 @@ msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr ""
 
 #: libraries/insert_edit.lib.php:216 libraries/insert_edit.lib.php:247
+#: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
 #: pmd_general.php:183
 msgid "Hide"
 msgstr ""
@@ -7595,29 +7583,29 @@ msgstr "phpMyAdmin ஆவணச்சான்று"
 msgid "Reload navigation panel"
 msgstr "அட்டவணை தெரிவுகள்"
 
-#: libraries/navigation/NavigationTree.class.php:717
+#: libraries/navigation/NavigationTree.class.php:720
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:826
+#: libraries/navigation/NavigationTree.class.php:829
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1042
+#: libraries/navigation/NavigationTree.class.php:1045
 #, fuzzy
 #| msgid "The database name is empty!"
 msgid "Filter databases by name or regex"
 msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது"
 
-#: libraries/navigation/NavigationTree.class.php:1044
-#: libraries/navigation/NavigationTree.class.php:1078
+#: libraries/navigation/NavigationTree.class.php:1047
+#: libraries/navigation/NavigationTree.class.php:1081
 msgid "Clear fast filter"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1077
+#: libraries/navigation/NavigationTree.class.php:1080
 #, fuzzy
 #| msgid "The database name is empty!"
 msgid "Filter by name or regex"
@@ -7650,6 +7638,12 @@ msgstr ""
 #| msgid "Table options"
 msgid "Database operations"
 msgstr "அட்டவணை தெரிவுகள்"
+
+#: libraries/navigation/Nodes/Node_Database.class.php:318
+#, fuzzy
+#| msgid "Show indexes"
+msgid "Show hidden items"
+msgstr "சுட்டுகளை காட்டு"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -7735,7 +7729,7 @@ msgstr "தரவுத்தளத்தைப் பெயர் மாற்�
 #: libraries/operations.lib.php:107
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
+msgstr "%s தரவுத்தளம் இரத்து செய்யப்பட்டது."
 
 #: libraries/operations.lib.php:119
 msgid "Remove database"
@@ -7919,11 +7913,11 @@ msgstr "வரவேற்கிறது %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க கோவையை %2$s "
-"பயன்படுத்தலாம்"
+"பயன்படுத்தலாம்."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -8002,21 +7996,21 @@ msgstr ""
 msgid "Can not find signon authentication script:"
 msgstr ""
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:138
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr ""
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
 msgid "Hardware authentication failed!"
 msgstr ""
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
 msgstr ""
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:220
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
 msgid "Authenticating…"
 msgstr ""
 
@@ -8422,13 +8416,13 @@ msgid ""
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:282
-#: libraries/plugins/import/ImportCsv.class.php:557
+#: libraries/plugins/import/ImportCsv.class.php:298
+#: libraries/plugins/import/ImportCsv.class.php:576
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
-#: libraries/plugins/import/ImportCsv.class.php:438
+#: libraries/plugins/import/ImportCsv.class.php:455
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
@@ -10143,8 +10137,8 @@ msgstr "இறுதிப்பர்வை"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3864
@@ -10153,7 +10147,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:4085
 msgid "You have added a new user."
-msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்"
+msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்."
 
 #: libraries/server_status.lib.php:56
 #, php-format
@@ -11619,11 +11613,11 @@ msgstr ""
 
 #: libraries/tbl_chart.lib.php:94
 msgid "X-Axis:"
-msgstr "X-அச்சு"
+msgstr "X-அச்சு:"
 
 #: libraries/tbl_chart.lib.php:128
 msgid "Series:"
-msgstr "தொடர்கள்"
+msgstr "தொடர்கள்:"
 
 #: libraries/tbl_chart.lib.php:181
 msgid "X-Axis label:"
@@ -11787,7 +11781,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:260
 msgid "Index name:"
-msgstr "சுட்டுப் பெயர்"
+msgstr "சுட்டுப் பெயர்:"
 
 #: libraries/tbl_indexes.lib.php:264
 msgid ""
@@ -11802,7 +11796,7 @@ msgstr "கருத்துரை"
 
 #: libraries/tbl_indexes.lib.php:298
 msgid "Index type:"
-msgstr "சுட்டு வகை"
+msgstr "சுட்டு வகை:"
 
 #: libraries/tbl_printview.lib.php:30
 #, fuzzy
@@ -12003,7 +11997,7 @@ msgstr ""
 msgid "Manage your settings"
 msgstr ""
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:298
+#: libraries/user_preferences.inc.php:46 prefs_manage.php:303
 msgid "Configuration has been saved"
 msgstr ""
 
@@ -12233,54 +12227,54 @@ msgstr ""
 msgid "Do you want to import remaining settings?"
 msgstr ""
 
-#: prefs_manage.php:232 prefs_manage.php:258
+#: prefs_manage.php:232 prefs_manage.php:261
 msgid "Saved on: @DATE@"
 msgstr ""
 
-#: prefs_manage.php:246
+#: prefs_manage.php:247
 msgid "Import from file"
 msgstr ""
 
-#: prefs_manage.php:252
+#: prefs_manage.php:255
 msgid "Import from browser's storage"
 msgstr ""
 
-#: prefs_manage.php:255
+#: prefs_manage.php:258
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 
-#: prefs_manage.php:261
+#: prefs_manage.php:264
 msgid "You have no saved settings!"
 msgstr ""
 
-#: prefs_manage.php:265 prefs_manage.php:318
+#: prefs_manage.php:269 prefs_manage.php:323
 msgid "This feature is not supported by your web browser"
 msgstr ""
 
-#: prefs_manage.php:270
+#: prefs_manage.php:275
 msgid "Merge with current configuration"
 msgstr ""
 
-#: prefs_manage.php:284
+#: prefs_manage.php:289
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
 
-#: prefs_manage.php:308
+#: prefs_manage.php:313
 msgid "Save to browser's storage"
 msgstr ""
 
-#: prefs_manage.php:312
+#: prefs_manage.php:317
 msgid "Settings will be saved in your browser's local storage."
 msgstr ""
 
-#: prefs_manage.php:314
+#: prefs_manage.php:319
 msgid "Existing settings will be overwritten!"
 msgstr ""
 
-#: prefs_manage.php:331
+#: prefs_manage.php:336
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
@@ -12647,10 +12641,8 @@ msgid "The table name is empty!"
 msgstr ""
 
 #: tbl_structure.php:93
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No column selected."
-msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
+msgstr "தெரிவுசெய்யப்பட தூண் இல்லை."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
@@ -13026,8 +13018,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13154,8 +13146,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

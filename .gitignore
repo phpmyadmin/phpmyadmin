@@ -41,3 +41,5 @@ phpunit.xml
 /build/
 # Netbeans ide stuff
 /nbproject/
+# Eclipse ide stuff
+/.pydevproject

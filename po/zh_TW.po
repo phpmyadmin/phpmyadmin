@@ -1,19 +1,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.0-beta2\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-20 06:16-0500\n"
-"PO-Revision-Date: 2013-11-02 14:26+0200\n"
+"POT-Creation-Date: 2013-11-25 16:20-0500\n"
+"PO-Revision-Date: 2013-11-29 15:23+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.8-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -414,18 +414,17 @@ msgid "You may want to refresh the page."
 msgstr "您需要重新整理頁面。"
 
 #: error_report.php:45
-#, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
 #| "submitted based on your settings."
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr "已偵測到問題發生，根據你的系統設定錯誤報告已自動傳送給開發團隊。"
+msgstr "偵測到系統發生錯誤，並已產生錯誤報告但傳送給開發團隊失敗。"
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "若您遇到任何問題請手動回報錯誤報告給開發團隊。"
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
@@ -433,7 +432,7 @@ msgstr "非常感謝您回報此錯誤。"
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "錯誤報告傳送失敗。"
 
 #: export.php:160
 msgid "Bad type!"
@@ -584,7 +583,7 @@ msgstr "新增幾何形"
 #: libraries/tbl_chart.lib.php:216
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:386 libraries/tbl_tracking.lib.php:454
-#: pmd_pdf.php:158 prefs_manage.php:272 prefs_manage.php:322
+#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:327
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
 msgstr "執行"
@@ -604,8 +603,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr "您上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
 
 #: import.php:284 import.php:550
@@ -710,7 +709,7 @@ msgstr "伺服器連線編碼與排序"
 msgid "Appearance Settings"
 msgstr "外觀設定"
 
-#: index.php:226 prefs_manage.php:281
+#: index.php:226 prefs_manage.php:286
 msgid "More settings"
 msgstr "更多設定"
 
@@ -1466,7 +1465,7 @@ msgstr "無法使用匯入的設定檔建立圖表，將重設為預設的設定
 #: libraries/Util.class.php:4109 libraries/Util.class.php:4124
 #: libraries/Util.class.php:4140 libraries/config/messages.inc.php:171
 #: libraries/display_import.lib.php:108
-#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:238
+#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
 msgid "Import"
 msgstr "匯入"
@@ -1970,12 +1969,11 @@ msgid "Submit Error Report"
 msgstr "送出錯誤報告"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occurred. Do you want to send an error report?"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "發生錯誤，您是否要傳送錯誤報告?"
+msgstr "發生嚴重錯誤，您是否要回報錯誤報告?"
 
 #: js/messages.php:413
 msgid "Change Report Settings"
@@ -2305,16 +2303,16 @@ msgstr "每小時"
 msgid "per day"
 msgstr "每天"
 
-#: libraries/Config.class.php:1144
+#: libraries/Config.class.php:1151
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "無法讀取已存在的設定檔 %s。"
 
-#: libraries/Config.class.php:1174
+#: libraries/Config.class.php:1181
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "設定檔權限錯誤，其他人不應擁有寫入權。"
 
-#: libraries/Config.class.php:1751
+#: libraries/Config.class.php:1758
 msgid "Font size"
 msgstr "字體大小"
 
@@ -2665,8 +2663,8 @@ msgstr "查詢中"
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentation%s。"
 
 #: libraries/DisplayResults.class.php:4926
@@ -2719,7 +2717,7 @@ msgstr "全選"
 #: libraries/server_privileges.lib.php:2231
 #: libraries/server_privileges.lib.php:2906
 #: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:297
-#: prefs_manage.php:295 setup/frames/menu.inc.php:27
+#: prefs_manage.php:300 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "匯出"
 
@@ -3461,16 +3459,16 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "浮點數，範圍為 -3.402823466E+38 至 -1.175494351E-38、0 及 1.175494351E-38 至 "
 "3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "倍準浮點數，範圍為 -1.7976931348623157E+308 至 -2.2250738585072014E-308、0 "
@@ -3827,7 +3825,7 @@ msgid "Click to toggle"
 msgstr "點此切換"
 
 #: libraries/Util.class.php:3322 libraries/sql_query_form.lib.php:477
-#: prefs_manage.php:248
+#: prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr "由電腦上傳:"
 
@@ -4217,8 +4215,8 @@ msgid "Apply"
 msgstr "應用"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1603
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:327
-#: prefs_manage.php:334
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:332
+#: prefs_manage.php:339
 msgid "Reset"
 msgstr "重新設定"
 
@@ -4508,7 +4506,7 @@ msgstr "設定 Script 允許執行的時間限制 (秒，[kbd]0[/kbd] 爲不設�
 msgid "Maximum execution time"
 msgstr "執行時間限制"
 
-#: libraries/config/messages.inc.php:70 prefs_manage.php:305
+#: libraries/config/messages.inc.php:70 prefs_manage.php:310
 msgid "Save as file"
 msgstr "另存新檔"
 
@@ -6625,8 +6623,8 @@ msgstr "，@TABLE@ 會替換為資料表名稱"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "此數值會使用 %1$sstrftime%2$s 來解析，所以您可以使用時間格式的字串。除此之"
 "外，以下資料格式也會被轉換: %3$s。其他的文字則會保持原樣。請參考 %4$s常見問"
@@ -7105,8 +7103,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr "有關 PBXT 的更相關資訊請可以 %sPrimeBase XT 首頁%s 中找到。"
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7193,6 +7191,7 @@ msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "在第 %s 個欄位建立索引"
 
 #: libraries/insert_edit.lib.php:216 libraries/insert_edit.lib.php:247
+#: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
 #: pmd_general.php:183
 msgid "Hide"
 msgstr "隱藏"
@@ -7537,31 +7536,30 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 檔案"
 
 #: libraries/navigation/NavigationHeader.class.php:250
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "重新整理導覽區"
+msgstr "重新讀取導覽區"
 
-#: libraries/navigation/NavigationTree.class.php:717
+#: libraries/navigation/NavigationTree.class.php:720
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "找到 %s 個其他結果"
 
-#: libraries/navigation/NavigationTree.class.php:826
+#: libraries/navigation/NavigationTree.class.php:829
 msgid "Expand/Collapse"
 msgstr "展開/摺疊"
 
-#: libraries/navigation/NavigationTree.class.php:1042
+#: libraries/navigation/NavigationTree.class.php:1045
 msgid "Filter databases by name or regex"
 msgstr "依名稱或正規表示法篩選資料庫"
 
-#: libraries/navigation/NavigationTree.class.php:1044
-#: libraries/navigation/NavigationTree.class.php:1078
+#: libraries/navigation/NavigationTree.class.php:1047
+#: libraries/navigation/NavigationTree.class.php:1081
 msgid "Clear fast filter"
 msgstr "清除快速篩選器"
 
-#: libraries/navigation/NavigationTree.class.php:1077
+#: libraries/navigation/NavigationTree.class.php:1080
 msgid "Filter by name or regex"
 msgstr "依名稱或正規表示法篩選"
 
@@ -7590,6 +7588,11 @@ msgstr "新增"
 #: libraries/navigation/Nodes/Node_Database.class.php:34
 msgid "Database operations"
 msgstr "資料庫操作"
+
+#: libraries/navigation/Nodes/Node_Database.class.php:318
+#| msgid "Show hint"
+msgid "Show hidden items"
+msgstr "顯示隱藏項目"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -7853,8 +7856,8 @@ msgstr "歡迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr "您可能還沒有建立設定檔案。您可以使用 %1$s 設定指令 %2$s 來建立。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -7933,21 +7936,21 @@ msgstr "帳號/密碼錯誤，拒絕訪問。"
 msgid "Can not find signon authentication script:"
 msgstr "無法找到對應的認證指令:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:138
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "檔案 %s 未包含任何密鑰"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:180
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
 msgid "Hardware authentication failed!"
 msgstr "硬體身份驗證失敗！"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:187
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
 msgstr "無有效的認証密鑰"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:220
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
 msgid "Authenticating…"
 msgstr "正在認證…"
 
@@ -8345,13 +8348,13 @@ msgstr ""
 "無效欄位 (%s)！請檢查欄位名稱是否拼寫正確，使用半角逗號分隔，並且不要用引號括"
 "起。"
 
-#: libraries/plugins/import/ImportCsv.class.php:282
-#: libraries/plugins/import/ImportCsv.class.php:557
+#: libraries/plugins/import/ImportCsv.class.php:298
+#: libraries/plugins/import/ImportCsv.class.php:576
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV 輸入的第 %d 行格式有錯。"
 
-#: libraries/plugins/import/ImportCsv.class.php:438
+#: libraries/plugins/import/ImportCsv.class.php:455
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV 輸入的第 %d 行欄位數有錯。"
@@ -10064,8 +10067,8 @@ msgstr "檢視使用者"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
 "限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
@@ -11928,7 +11931,7 @@ msgstr "已建立版本 %1$s，%2$s 的追蹤已啓用。"
 msgid "Manage your settings"
 msgstr "管理您的設定"
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:298
+#: libraries/user_preferences.inc.php:46 prefs_manage.php:303
 msgid "Configuration has been saved"
 msgstr "設定已儲存"
 
@@ -12157,56 +12160,56 @@ msgstr "部分設定含有錯誤的資料。"
 msgid "Do you want to import remaining settings?"
 msgstr "是否匯入其餘的設定？"
 
-#: prefs_manage.php:232 prefs_manage.php:258
+#: prefs_manage.php:232 prefs_manage.php:261
 msgid "Saved on: @DATE@"
 msgstr "儲存於: @DATE@"
 
-#: prefs_manage.php:246
+#: prefs_manage.php:247
 msgid "Import from file"
 msgstr "從檔案匯入"
 
-#: prefs_manage.php:252
+#: prefs_manage.php:255
 msgid "Import from browser's storage"
 msgstr "從瀏覽器記錄匯入"
 
-#: prefs_manage.php:255
+#: prefs_manage.php:258
 msgid "Settings will be imported from your browser's local storage."
 msgstr "使用瀏覽器的本地儲存記錄匯入設定。"
 
-#: prefs_manage.php:261
+#: prefs_manage.php:264
 msgid "You have no saved settings!"
 msgstr "您尚未儲存設定！"
 
-#: prefs_manage.php:265 prefs_manage.php:318
+#: prefs_manage.php:269 prefs_manage.php:323
 msgid "This feature is not supported by your web browser"
 msgstr "您所使用的瀏覽器不支援此功能"
 
-#: prefs_manage.php:270
+#: prefs_manage.php:275
 msgid "Merge with current configuration"
 msgstr "與目前設定合併"
 
-#: prefs_manage.php:284
+#: prefs_manage.php:289
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程"
-"式%s 。"
+"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程式%"
+"s 。"
 
-#: prefs_manage.php:308
+#: prefs_manage.php:313
 msgid "Save to browser's storage"
 msgstr "儲存到瀏覽器記錄"
 
-#: prefs_manage.php:312
+#: prefs_manage.php:317
 msgid "Settings will be saved in your browser's local storage."
 msgstr "設定將儲存到瀏覽器的本地記錄。"
 
-#: prefs_manage.php:314
+#: prefs_manage.php:319
 msgid "Existing settings will be overwritten!"
 msgstr "現有設定將被覆蓋！"
 
-#: prefs_manage.php:331
+#: prefs_manage.php:336
 msgid "You can reset all your settings and restore them to default values."
 msgstr "您可以重新設定所有設定恢復爲預設值。"
 
@@ -12966,8 +12969,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr "目前閒置查詢快取記憶體為全部查詢快取的大小的 %s%%，這個值應高於 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -13103,8 +13106,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr "有 %s%% 的排序會產生臨時表，這個值應低於 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -14682,8 +14685,8 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
-#~ "html#faq6-29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation.html#faq6-29"
+#~ "\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "新增新使用者"

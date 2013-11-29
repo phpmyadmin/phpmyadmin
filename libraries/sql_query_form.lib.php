@@ -372,7 +372,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     }
     $html .= '</div>' . "\n";
     $html .= '<input type="submit" id="button_submit_query" name="SQL"';
-    if ($is_querywindow){
+    if ($is_querywindow) {
         $html .= 'onclick="var form = this.parentNode.parentNode;'
             . ' window.opener.name = \'sqlParentWindow\';'
             . ' form.target = \'sqlParentWindow\';'
@@ -435,7 +435,7 @@ function PMA_getHtmlForSqlQueryFormBookmark()
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '</fieldset>' . "\n";
 
-    $html .= '<fieldset id="fieldsetBookmarkOptionsFooter" class="tblFooters">' . "\n";
+    $html .= '<fieldset id="fieldsetBookmarkOptionsFooter" class="tblFooters">';
     $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="'
         . __('Go') . '" />';
     $html .= '<div class="clearfloat"></div>' . "\n";
