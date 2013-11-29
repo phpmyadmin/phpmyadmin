@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_pbxt extends PMA_StorageEngine
+class PMA_StorageEngine_Pbxt extends PMA_StorageEngine
 {
     /**
      * Returns array with variable names dedicated to PBXT storage engine

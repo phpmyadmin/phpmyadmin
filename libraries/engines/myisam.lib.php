@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_myisam extends PMA_StorageEngine
+class PMA_StorageEngine_Myisam extends PMA_StorageEngine
 {
     /**
      * Returns array with variable names dedicated to MyISAM storage engine

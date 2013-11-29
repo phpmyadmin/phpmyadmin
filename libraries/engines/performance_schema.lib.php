@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_performance_schema extends PMA_StorageEngine
+class PMA_StorageEngine_Performance_schema extends PMA_StorageEngine
 {
     /**
      * returns string with filename for the MySQL helppage

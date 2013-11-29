@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_innodb extends PMA_StorageEngine
+class PMA_StorageEngine_Innodb extends PMA_StorageEngine
 {
     /**
      * Returns array with variable names related to InnoDB storage engine

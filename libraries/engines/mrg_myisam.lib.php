@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * The MERGE storage engine
+ *
  * @package PhpMyAdmin-Engines
  */
 if (! defined('PHPMYADMIN')) {
@@ -13,10 +15,11 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/engines/merge.lib.php';
 
 /**
+ * The MERGE storage engine
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_mrg_myisam extends PMA_StorageEngine_merge
+class PMA_StorageEngine_Mrg_myisam extends PMA_StorageEngine_merge
 {
     /**
      * returns string with filename for the MySQL helppage

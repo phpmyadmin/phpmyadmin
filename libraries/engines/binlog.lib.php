@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_binlog extends PMA_StorageEngine
+class PMA_StorageEngine_Binlog extends PMA_StorageEngine
 {
     /**
      * returns string with filename for the MySQL helppage

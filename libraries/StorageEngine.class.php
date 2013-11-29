@@ -145,7 +145,7 @@ class PMA_StorageEngine
         $engine = str_replace('/', '', str_replace('.', '', $engine));
         $filename = './libraries/engines/' . strtolower($engine) . '.lib.php';
         if (file_exists($filename) && include_once $filename) {
-            $class_name = 'PMA_StorageEngine_' . $engine;
+            $class_name = 'PMA_StorageEngine_' . ucfirst($engine);
             $engine_object = new $class_name($engine);
         } else {
             $engine_object = new PMA_StorageEngine($engine);

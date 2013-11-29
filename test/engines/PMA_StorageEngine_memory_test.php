@@ -15,7 +15,7 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
-class PMA_StorageEngine_memory_Test extends PHPUnit_Framework_TestCase
+class PMA_StorageEngine_Memory_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -31,7 +31,7 @@ class PMA_StorageEngine_memory_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_memory('memory');
+        $this->object = new PMA_StorageEngine_Memory('memory');
     }
 
     /**
