@@ -1555,42 +1555,44 @@ function PMA_updatePassword($err_url, $username, $hostname)
     }
 
     // here $nopass could be == 1
-    if (empty($message)) {
-
-        $hashing_function
-            = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old'
-                ? 'OLD_'
-                : ''
-            )
-            . 'PASSWORD';
-
-        // in $sql_query which will be displayed, hide the password
-        $sql_query        = 'SET PASSWORD FOR \''
-            . PMA_Util::sqlAddSlashes($username)
-            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
-            . (($_POST['pma_pw'] == '')
-                ? '\'\''
-                : $hashing_function . '(\''
-                . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
-
-        $local_query      = 'SET PASSWORD FOR \''
-            . PMA_Util::sqlAddSlashes($username)
-            . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
-            . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
-            . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
-
-        $GLOBALS['dbi']->tryQuery($local_query)
-            or PMA_Util::mysqlDie(
-                $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
-            );
-        $message = PMA_Message::success(
-            __('The password for %s was changed successfully.')
-        );
-        $message->addParam(
-            '\'' . htmlspecialchars($username)
-            . '\'@\'' . htmlspecialchars($hostname) . '\''
-        );
+    if (!empty($message)) {
+        return $message;
     }
+
+    $hashing_function
+        = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old'
+            ? 'OLD_'
+            : ''
+        )
+        . 'PASSWORD';
+
+    // in $sql_query which will be displayed, hide the password
+    $sql_query        = 'SET PASSWORD FOR \''
+        . PMA_Util::sqlAddSlashes($username)
+        . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
+        . (($_POST['pma_pw'] == '')
+            ? '\'\''
+            : $hashing_function . '(\''
+            . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
+
+    $local_query      = 'SET PASSWORD FOR \''
+        . PMA_Util::sqlAddSlashes($username)
+        . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
+        . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
+        . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
+
+    $GLOBALS['dbi']->tryQuery($local_query)
+        or PMA_Util::mysqlDie(
+            $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
+        );
+    $message = PMA_Message::success(
+        __('The password for %s was changed successfully.')
+    );
+    $message->addParam(
+        '\'' . htmlspecialchars($username)
+        . '\'@\'' . htmlspecialchars($hostname) . '\''
+    );
+
     return $message;
 }
 
@@ -3315,31 +3317,38 @@ function PMA_getDataForChangeOrCopyUser()
     $queries = null;
     $password = null;
 
-    if (isset($_REQUEST['change_copy'])) {
-        $user_host_condition = ' WHERE `User` = '
-            . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
-            . ' AND `Host` = '
-            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
-        $row = $GLOBALS['dbi']->fetchSingleRow(
-            'SELECT * FROM `mysql`.`user` ' . $user_host_condition
-        );
-        if (! $row) {
-            $response = PMA_Response::getInstance();
-            $response->addHTML(
-                PMA_Message::notice(__('No user found.'))->getDisplay()
-            );
-            unset($_REQUEST['change_copy']);
-        } else {
-            extract($row, EXTR_OVERWRITE);
-            // Recent MySQL versions have the field "Password" in mysql.user,
-            // so the previous extract creates $Password but this script
-            // uses $password
-            if (! isset($password) && isset($Password)) {
-                $password = $Password;
-            }
-            $queries = array();
-        }
+    //If don't receive change_copy, leave.
+    if (!isset($_REQUEST['change_copy'])) {
+        return array($queries, $password);
     }
+
+    $user_host_condition = ' WHERE `User` = '
+        . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
+        . ' AND `Host` = '
+        . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
+    $row = $GLOBALS['dbi']->fetchSingleRow(
+        'SELECT * FROM `mysql`.`user` ' . $user_host_condition
+    );
+
+    //If user is not found, add error and leave.
+    if (! $row) {
+        $response = PMA_Response::getInstance();
+        $response->addHTML(
+            PMA_Message::notice(__('No user found.'))->getDisplay()
+        );
+        unset($_REQUEST['change_copy']);
+        return array($queries, $password);
+    }
+
+    //Here we have received change_copy and found the user.
+    extract($row, EXTR_OVERWRITE);
+    // Recent MySQL versions have the field "Password" in mysql.user,
+    // so the previous extract creates $Password but this script
+    // uses $password
+    if (! isset($password) && isset($Password)) {
+        $password = $Password;
+    }
+    $queries = array();
 
     return array($queries, $password);
 }
@@ -3451,76 +3460,86 @@ function PMA_addUser(
     $queries = null;
     $queries_for_display = null;
     $sql_query = null;
-    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
-        $sql_query = '';
-        if ($_POST['pred_username'] == 'any') {
-            $username = '';
-        }
-        switch ($_POST['pred_hostname']) {
-        case 'any':
-            $hostname = '%';
-            break;
-        case 'localhost':
-            $hostname = 'localhost';
-            break;
-        case 'hosttable':
-            $hostname = '';
-            break;
-        case 'thishost':
-            $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-            $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
-            unset($_user_name);
-            break;
-        }
-        $sql = "SELECT '1' FROM `mysql`.`user`"
-            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
-        if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
-            $message = PMA_Message::error(__('The user %s already exists!'));
-            $message->addParam(
-                '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
-            );
-            $_REQUEST['adduser'] = true;
-            $_add_user_error = true;
-        } else {
-            list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-                = PMA_getSqlQueriesForDisplayAndAddUser(
-                    $username, $hostname, (isset ($password) ? $password : '')
-                );
 
-            if (empty($_REQUEST['change_copy'])) {
-                $_error = false;
+    //If no need to create a user, leave.
+    if (!isset($_REQUEST['adduser_submit']) && !isset($_REQUEST['change_copy'])) {
+        return array(
+            $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+        );
+    }
 
-                if (isset($create_user_real)) {
-                    if (! $GLOBALS['dbi']->tryQuery($create_user_real)) {
-                        $_error = true;
-                    }
-                    $sql_query = $create_user_show . $sql_query;
-                }
-                list($sql_query, $message) = PMA_addUserAndCreateDatabase(
-                    $_error, $real_sql_query, $sql_query, $username, $hostname,
-                    isset($dbname) ? $dbname : null
-                );
-                if (! empty($_REQUEST['userGroup']) && $is_menuwork) {
-                    PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
-                }
+    $sql_query = '';
+    if ($_POST['pred_username'] == 'any') {
+        $username = '';
+    }
+    switch ($_POST['pred_hostname']) {
+    case 'any':
+        $hostname = '%';
+        break;
+    case 'localhost':
+        $hostname = 'localhost';
+        break;
+    case 'hosttable':
+        $hostname = '';
+        break;
+    case 'thishost':
+        $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
+        $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
+        unset($_user_name);
+        break;
+    }
+    $sql = "SELECT '1' FROM `mysql`.`user`"
+        . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+        . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
 
-            } else {
-                if (isset($create_user_real)) {
-                    $queries[] = $create_user_real;
-                }
-                $queries[] = $real_sql_query;
-                // we put the query containing the hidden password in
-                // $queries_for_display, at the same position occupied
-                // by the real query in $queries
-                $tmp_count = count($queries);
-                if (isset($create_user_real)) {
-                    $queries_for_display[$tmp_count - 2] = $create_user_show;
-                }
-                $queries_for_display[$tmp_count - 1] = $sql_query;
+    //If user already exists, add an error and leave.
+    if ($GLOBALS['dbi']->fetchValue($sql) == 1) {
+        $message = PMA_Message::error(__('The user %s already exists!'));
+        $message->addParam(
+            '[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'
+        );
+        $_REQUEST['adduser'] = true;
+        $_add_user_error = true;
+        return array(
+            $message, $queries, $queries_for_display, $sql_query, $_add_user_error
+        );
+    }
+
+    list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
+        = PMA_getSqlQueriesForDisplayAndAddUser(
+            $username, $hostname, (isset ($password) ? $password : '')
+        );
+
+    if (empty($_REQUEST['change_copy'])) {
+        $_error = false;
+
+        if (isset($create_user_real)) {
+            if (! $GLOBALS['dbi']->tryQuery($create_user_real)) {
+                $_error = true;
             }
-            unset($res, $real_sql_query);
+            $sql_query = $create_user_show . $sql_query;
         }
+        list($sql_query, $message) = PMA_addUserAndCreateDatabase(
+            $_error, $real_sql_query, $sql_query, $username, $hostname,
+            isset($dbname) ? $dbname : null
+        );
+        if (! empty($_REQUEST['userGroup']) && $is_menuwork) {
+            PMA_setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
+        }
+
+    } else {
+        if (isset($create_user_real)) {
+            $queries[] = $create_user_real;
+        }
+        $queries[] = $real_sql_query;
+        // we put the query containing the hidden password in
+        // $queries_for_display, at the same position occupied
+        // by the real query in $queries
+        $tmp_count = count($queries);
+        if (isset($create_user_real)) {
+            $queries_for_display[$tmp_count - 2] = $create_user_show;
+        }
+        $queries_for_display[$tmp_count - 1] = $sql_query;
     }
 
     return array(

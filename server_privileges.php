@@ -202,7 +202,10 @@ if (isset($_REQUEST['revokeall'])) {
 /**
  * Updates the password
  */
-if (isset($_REQUEST['change_pw'])) {
+if (isset($_REQUEST['change_pw'])
+    || (isset($_REQUEST['change_copy'])
+    && 'keep' != $_REQUEST['pred_password'])
+) {
     $message = PMA_updatePassword(
         $err_url, $username, $hostname
     );
@@ -213,7 +216,8 @@ if (isset($_REQUEST['change_pw'])) {
  *   (Changes / copies a user, part IV)
  */
 if (isset($_REQUEST['delete'])
-    || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
+    || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4
+    && ($username != $_POST['old_username'] || $hostname != $_POST['old_hostname']))
 ) {
     $queries = PMA_getDataForDeleteUsers($queries);
     if (empty($_REQUEST['change_copy'])) {
@@ -225,6 +229,8 @@ if (isset($_REQUEST['delete'])
  * Changes / copies a user, part V
  */
 if (isset($_REQUEST['change_copy'])) {
+    /*var_dump($queries);
+    die();*/
     $queries = PMA_getDataForQueries($queries, $queries_for_display);
     $message = PMA_Message::success();
     $sql_query = join("\n", $queries);
