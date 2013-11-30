@@ -519,7 +519,7 @@ class PMA_NavigationTree
     }
 
     /**
-     * Recursively groups tree nodes given a sperarator
+     * Recursively groups tree nodes given a separator
      *
      * @param Node $node The node to group
      *
