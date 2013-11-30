@@ -229,8 +229,6 @@ if (isset($_REQUEST['delete'])
  * Changes / copies a user, part V
  */
 if (isset($_REQUEST['change_copy'])) {
-    /*var_dump($queries);
-    die();*/
     $queries = PMA_getDataForQueries($queries, $queries_for_display);
     $message = PMA_Message::success();
     $sql_query = join("\n", $queries);
