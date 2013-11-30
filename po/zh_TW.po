@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-25 16:20-0500\n"
+"POT-Creation-Date: 2013-12-01 00:40+0100\n"
 "PO-Revision-Date: 2013-11-29 15:23+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
-"Language: zh_TW\n"
+"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
+"phpmyadmin/master/zh_TW/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -39,7 +39,7 @@ msgstr "表註釋："
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
-#: libraries/insert_edit.lib.php:1620
+#: libraries/insert_edit.lib.php:1603
 #: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
@@ -85,7 +85,7 @@ msgid "Type"
 msgstr "型態"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1283 libraries/insert_edit.lib.php:1629
+#: libraries/TableSearch.class.php:1283 libraries/insert_edit.lib.php:1612
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
 #: libraries/plugins/export/ExportLatex.class.php:512
@@ -331,7 +331,7 @@ msgid "Updated"
 msgstr "更新"
 
 #: db_tracking.php:85 js/messages.php:177 libraries/Menu.class.php:516
-#: libraries/Util.class.php:4106 libraries/rte/rte_events.lib.php:426
+#: libraries/Util.class.php:4115 libraries/rte/rte_events.lib.php:426
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:363
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
@@ -359,7 +359,7 @@ msgid "Delete tracking data for this table"
 msgstr "刪除此資料表的追蹤資料"
 
 #: db_tracking.php:103 libraries/Index.class.php:627
-#: libraries/Util.class.php:3410 libraries/Util.class.php:3411
+#: libraries/Util.class.php:3411 libraries/Util.class.php:3412
 #: libraries/server_databases.lib.php:156 libraries/structure.lib.php:307
 #: libraries/structure.lib.php:1384 libraries/structure.lib.php:2071
 #: libraries/structure.lib.php:2073
@@ -414,9 +414,6 @@ msgid "You may want to refresh the page."
 msgstr "您需要重新整理頁面。"
 
 #: error_report.php:45
-#| msgid ""
-#| "An error has been detected and an error report has been automatically "
-#| "submitted based on your settings."
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -556,8 +553,8 @@ msgstr "新增幾何形"
 #: libraries/core.lib.php:554 libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:368
-#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1601
-#: libraries/insert_edit.lib.php:1636 libraries/operations.lib.php:39
+#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1584
+#: libraries/insert_edit.lib.php:1619 libraries/operations.lib.php:39
 #: libraries/operations.lib.php:82 libraries/operations.lib.php:210
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
@@ -583,7 +580,7 @@ msgstr "新增幾何形"
 #: libraries/tbl_chart.lib.php:216
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:386 libraries/tbl_tracking.lib.php:454
-#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:327
+#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:336
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
 msgstr "執行"
@@ -943,7 +940,7 @@ msgstr "新增索引"
 msgid "Edit Index"
 msgstr "編輯索引"
 
-#: js/messages.php:52 libraries/tbl_indexes.lib.php:394
+#: js/messages.php:52 libraries/tbl_indexes.lib.php:395
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "增加 %s 個欄位至索引"
@@ -1158,7 +1155,7 @@ msgid "Traffic"
 msgstr "流量"
 
 #: js/messages.php:119 libraries/Menu.class.php:549
-#: libraries/Util.class.php:4110 libraries/server_status_monitor.lib.php:299
+#: libraries/Util.class.php:4119 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
 msgstr "設定"
 
@@ -1462,8 +1459,8 @@ msgstr "無法使用匯入的設定檔建立圖表，將重設為預設的設定
 
 #: js/messages.php:206 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
-#: libraries/Util.class.php:4109 libraries/Util.class.php:4124
-#: libraries/Util.class.php:4140 libraries/config/messages.inc.php:171
+#: libraries/Util.class.php:4118 libraries/Util.class.php:4133
+#: libraries/Util.class.php:4149 libraries/config/messages.inc.php:171
 #: libraries/display_import.lib.php:108
 #: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
@@ -1672,8 +1669,8 @@ msgstr "顯示查詢框"
 
 #: js/messages.php:282 libraries/DisplayResults.class.php:3352
 #: libraries/Index.class.php:593 libraries/Util.class.php:667
-#: libraries/Util.class.php:1212 libraries/Util.class.php:3414
-#: libraries/Util.class.php:3415 libraries/config/messages.inc.php:492
+#: libraries/Util.class.php:1212 libraries/Util.class.php:3415
+#: libraries/Util.class.php:3416 libraries/config/messages.inc.php:492
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:176
@@ -1700,7 +1697,7 @@ msgstr "查詢執行時間"
 msgid "%d is not valid row number."
 msgstr "%d 不是有效的資料列編號。"
 
-#: js/messages.php:289 libraries/insert_edit.lib.php:1514
+#: js/messages.php:289 libraries/insert_edit.lib.php:1497
 #: libraries/schema/User_Schema.class.php:390
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1769,8 +1766,8 @@ msgstr "查詢結果"
 msgid "Data point content"
 msgstr "資料點內容"
 
-#: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2608
-#: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
+#: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2591
+#: libraries/tbl_indexes.lib.php:334 libraries/tbl_indexes.lib.php:370
 msgid "Ignore"
 msgstr "忽略"
 
@@ -1969,7 +1966,6 @@ msgid "Submit Error Report"
 msgstr "送出錯誤報告"
 
 #: js/messages.php:411
-#| msgid "An error has occurred. Do you want to send an error report?"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -2312,7 +2308,7 @@ msgstr "無法讀取已存在的設定檔 %s。"
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "設定檔權限錯誤，其他人不應擁有寫入權。"
 
-#: libraries/Config.class.php:1758
+#: libraries/Config.class.php:1759
 msgid "Font size"
 msgstr "字體大小"
 
@@ -2455,8 +2451,8 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s 筆資料符合 <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:350 libraries/Menu.class.php:295
-#: libraries/Util.class.php:3188 libraries/Util.class.php:3403
-#: libraries/Util.class.php:3404 libraries/Util.class.php:4134
+#: libraries/Util.class.php:3189 libraries/Util.class.php:3404
+#: libraries/Util.class.php:3405 libraries/Util.class.php:4143
 #: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/structure.lib.php:1374
 msgid "Browse"
@@ -2512,29 +2508,29 @@ msgstr "儲存"
 msgid "Restore column order"
 msgstr "還原欄位的順序"
 
-#: libraries/DisplayResults.class.php:815 libraries/Util.class.php:2483
-#: libraries/Util.class.php:2487
+#: libraries/DisplayResults.class.php:815 libraries/Util.class.php:2484
+#: libraries/Util.class.php:2488
 msgctxt "First page"
 msgid "Begin"
 msgstr "最前頁"
 
-#: libraries/DisplayResults.class.php:818 libraries/Util.class.php:2485
-#: libraries/Util.class.php:2488 libraries/server_bin_log.lib.php:171
+#: libraries/DisplayResults.class.php:818 libraries/Util.class.php:2486
+#: libraries/Util.class.php:2489 libraries/server_bin_log.lib.php:171
 #: libraries/server_bin_log.lib.php:173
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "上一頁"
 
 # 這應該使用於選擇日期的小月曆
-#: libraries/DisplayResults.class.php:875 libraries/Util.class.php:2520
-#: libraries/Util.class.php:2523 libraries/server_bin_log.lib.php:205
+#: libraries/DisplayResults.class.php:875 libraries/Util.class.php:2521
+#: libraries/Util.class.php:2524 libraries/server_bin_log.lib.php:205
 #: libraries/server_bin_log.lib.php:207
 msgctxt "Next page"
 msgid "Next"
 msgstr "下一頁"
 
-#: libraries/DisplayResults.class.php:904 libraries/Util.class.php:2521
-#: libraries/Util.class.php:2524
+#: libraries/DisplayResults.class.php:904 libraries/Util.class.php:2522
+#: libraries/Util.class.php:2525
 msgctxt "Last page"
 msgid "End"
 msgstr "最末頁"
@@ -2710,9 +2706,9 @@ msgstr "全選"
 #: libraries/DisplayResults.class.php:5057
 #: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
-#: libraries/Util.class.php:3416 libraries/Util.class.php:3417
-#: libraries/Util.class.php:4108 libraries/Util.class.php:4123
-#: libraries/Util.class.php:4139 libraries/config/messages.inc.php:165
+#: libraries/Util.class.php:3417 libraries/Util.class.php:3418
+#: libraries/Util.class.php:4117 libraries/Util.class.php:4132
+#: libraries/Util.class.php:4148 libraries/config/messages.inc.php:165
 #: libraries/display_export.lib.php:163
 #: libraries/server_privileges.lib.php:2231
 #: libraries/server_privileges.lib.php:2906
@@ -2897,9 +2893,9 @@ msgid "View"
 msgstr "檢視表"
 
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:401
-#: libraries/Util.class.php:3184 libraries/Util.class.php:3191
-#: libraries/Util.class.php:3409 libraries/Util.class.php:4119
-#: libraries/Util.class.php:4135 libraries/config/setup.forms.php:303
+#: libraries/Util.class.php:3185 libraries/Util.class.php:3192
+#: libraries/Util.class.php:3410 libraries/Util.class.php:4128
+#: libraries/Util.class.php:4144 libraries/config/setup.forms.php:303
 #: libraries/config/setup.forms.php:340 libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:198
 #: libraries/config/user_preferences.forms.php:235
@@ -2913,32 +2909,32 @@ msgid "Structure"
 msgstr "結構"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:405
-#: libraries/Menu.class.php:512 libraries/Util.class.php:3185
-#: libraries/Util.class.php:3192 libraries/Util.class.php:4105
-#: libraries/Util.class.php:4120 libraries/Util.class.php:4136
+#: libraries/Menu.class.php:512 libraries/Util.class.php:3186
+#: libraries/Util.class.php:3193 libraries/Util.class.php:4114
+#: libraries/Util.class.php:4129 libraries/Util.class.php:4145
 #: libraries/config/messages.inc.php:215
 #: libraries/navigation/Nodes/Node_Table.class.php:45 querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:308 libraries/Menu.class.php:408
-#: libraries/Util.class.php:3186 libraries/Util.class.php:3193
-#: libraries/Util.class.php:3405 libraries/Util.class.php:3406
-#: libraries/Util.class.php:4121 libraries/Util.class.php:4137
+#: libraries/Util.class.php:3187 libraries/Util.class.php:3194
+#: libraries/Util.class.php:3406 libraries/Util.class.php:3407
+#: libraries/Util.class.php:4130 libraries/Util.class.php:4146
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
 msgstr "搜尋"
 
-#: libraries/Menu.class.php:318 libraries/Util.class.php:3187
-#: libraries/Util.class.php:3407 libraries/Util.class.php:3408
-#: libraries/Util.class.php:4138
+#: libraries/Menu.class.php:318 libraries/Util.class.php:3188
+#: libraries/Util.class.php:3408 libraries/Util.class.php:3409
+#: libraries/Util.class.php:4147
 #: libraries/navigation/Nodes/Node_Table.class.php:42
 #: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
 msgid "Insert"
 msgstr "新增"
 
 #: libraries/Menu.class.php:340 libraries/Menu.class.php:443
-#: libraries/Util.class.php:4126 libraries/Util.class.php:4141
+#: libraries/Util.class.php:4135 libraries/Util.class.php:4150
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:1816
 #: libraries/server_privileges.lib.php:1924
 #: libraries/server_privileges.lib.php:2703
@@ -2947,20 +2943,20 @@ msgid "Privileges"
 msgstr "權限"
 
 #: libraries/Menu.class.php:349 libraries/Menu.class.php:376
-#: libraries/Menu.class.php:435 libraries/Util.class.php:3194
-#: libraries/Util.class.php:4125 libraries/Util.class.php:4142
+#: libraries/Menu.class.php:435 libraries/Util.class.php:3195
+#: libraries/Util.class.php:4134 libraries/Util.class.php:4151
 #: view_operations.php:92
 msgid "Operations"
 msgstr "操作"
 
 #: libraries/Menu.class.php:353 libraries/Menu.class.php:469
-#: libraries/Util.class.php:4130 libraries/Util.class.php:4143
+#: libraries/Util.class.php:4139 libraries/Util.class.php:4152
 #: libraries/relation.lib.php:236
 msgid "Tracking"
 msgstr "追蹤"
 
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:463
-#: libraries/Util.class.php:4129 libraries/Util.class.php:4144
+#: libraries/Util.class.php:4138 libraries/Util.class.php:4153
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
@@ -2976,70 +2972,70 @@ msgstr "觸發器"
 msgid "Database seems to be empty!"
 msgstr "資料庫是空的！"
 
-#: libraries/Menu.class.php:415 libraries/Util.class.php:4122
+#: libraries/Menu.class.php:415 libraries/Util.class.php:4131
 msgid "Query"
 msgstr "查詢"
 
-#: libraries/Menu.class.php:448 libraries/Util.class.php:4127
+#: libraries/Menu.class.php:448 libraries/Util.class.php:4136
 #: libraries/rte/rte_words.lib.php:34
 msgid "Routines"
 msgstr "預存程序"
 
-#: libraries/Menu.class.php:456 libraries/Util.class.php:4128
+#: libraries/Menu.class.php:456 libraries/Util.class.php:4137
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:833
 #: libraries/rte/rte_words.lib.php:58
 msgid "Events"
 msgstr "事件"
 
-#: libraries/Menu.class.php:475 libraries/Util.class.php:4131
+#: libraries/Menu.class.php:475 libraries/Util.class.php:4140
 #: libraries/relation.lib.php:203
 msgid "Designer"
 msgstr "設計器"
 
-#: libraries/Menu.class.php:508 libraries/Util.class.php:4104
+#: libraries/Menu.class.php:508 libraries/Util.class.php:4113
 #: libraries/config/messages.inc.php:178 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3696
 msgid "Databases"
 msgstr "資料庫"
 
-#: libraries/Menu.class.php:531 libraries/Util.class.php:4107
+#: libraries/Menu.class.php:531 libraries/Util.class.php:4116
 msgid "Users"
 msgstr "使用者"
 
 #: libraries/Menu.class.php:558 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4111 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4120 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "二進位記錄"
 
 #: libraries/Menu.class.php:564 libraries/ServerStatusData.class.php:199
-#: libraries/Util.class.php:4112 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4121 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 msgid "Replication"
 msgstr "備援"
 
 #: libraries/Menu.class.php:569 libraries/ServerStatusData.class.php:261
-#: libraries/Util.class.php:4113 libraries/server_engines.lib.php:109
+#: libraries/Util.class.php:4122 libraries/server_engines.lib.php:109
 #: libraries/server_engines.lib.php:113
 msgid "Variables"
 msgstr "變數"
 
-#: libraries/Menu.class.php:573 libraries/Util.class.php:4114
+#: libraries/Menu.class.php:573 libraries/Util.class.php:4123
 msgid "Charsets"
 msgstr "字元編碼"
 
-#: libraries/Menu.class.php:578 libraries/Util.class.php:4115
+#: libraries/Menu.class.php:578 libraries/Util.class.php:4124
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr "附加元件"
 
-#: libraries/Menu.class.php:582 libraries/Util.class.php:4116
+#: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "引擎"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:629
 #: libraries/core.lib.php:229 libraries/import.lib.php:174
-#: libraries/insert_edit.lib.php:1232 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1215 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "錯誤"
@@ -3062,7 +3058,7 @@ msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "新增了 %1$d 行。"
 
-#: libraries/PDF.class.php:70 libraries/Util.class.php:2475
+#: libraries/PDF.class.php:70 libraries/Util.class.php:2476
 #: libraries/browse_foreigners.lib.php:393
 #: libraries/schema/Pdf_Relation_Schema.class.php:1199
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223
@@ -3282,7 +3278,7 @@ msgid "Operator"
 msgstr "運算子"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1284
-#: libraries/insert_edit.lib.php:1630 libraries/replication_gui.lib.php:520
+#: libraries/insert_edit.lib.php:1613 libraries/replication_gui.lib.php:520
 #: libraries/rte/rte_routines.lib.php:1604
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:511
 #: pmd_general.php:570 pmd_general.php:693 pmd_general.php:810
@@ -3297,7 +3293,7 @@ msgstr "資料表搜尋"
 msgid "Find and Replace"
 msgstr "搜尋和替換"
 
-#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1404
+#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1387
 msgid "Edit/Insert"
 msgstr "修改/新增"
 
@@ -3305,7 +3301,7 @@ msgstr "修改/新增"
 msgid "Select columns (at least one):"
 msgstr "選擇欄位 (至少一個):"
 
-#: libraries/TableSearch.class.php:821 libraries/insert_edit.lib.php:1236
+#: libraries/TableSearch.class.php:821 libraries/insert_edit.lib.php:1219
 #: libraries/server_privileges.lib.php:438
 msgid "Or"
 msgstr "或"
@@ -3415,18 +3411,18 @@ msgstr "找不到佈景主題 %s 的路徑！"
 msgid "Theme:"
 msgstr "主題："
 
-#: libraries/Types.class.php:297
+#: libraries/Types.class.php:320
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr "1 位元組整數，有號數範圍由 -128 至 127，無號數範圍由 0 至 255"
 
-#: libraries/Types.class.php:299
+#: libraries/Types.class.php:322
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr "2 位元組整數，有號數範圍由 -32,768 至 32,767，無號數範圍由 0 至 65,535"
 
-#: libraries/Types.class.php:301
+#: libraries/Types.class.php:324
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -3434,7 +3430,7 @@ msgstr ""
 "3 位元組整數，有號數範圍由 -8,388,608 至 8,388,607，無號數範圍由 0 至 "
 "16,777,215"
 
-#: libraries/Types.class.php:303
+#: libraries/Types.class.php:326
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -3442,7 +3438,7 @@ msgstr ""
 "四個位元組的整數，如果包含負數，範圍將在-2147483648至2147483647，如果不包含負"
 "數，範圍則在0至4294967295"
 
-#: libraries/Types.class.php:305
+#: libraries/Types.class.php:328
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -3450,14 +3446,14 @@ msgstr ""
 "8 位元組整數，有號數範圍由 -9,223,372,036,854,775,808 至 "
 "9,223,372,036,854,775,807，無號數範圍由 0 至 18,446,744,073,709,551,615"
 
-#: libraries/Types.class.php:307 libraries/Types.class.php:714
+#: libraries/Types.class.php:330 libraries/Types.class.php:779
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
 "定點數 (M, D) - (M) 最大為 65 位數 (預設 10)，(D) 小數位數最大為 30 (預設 0)"
 
-#: libraries/Types.class.php:309
+#: libraries/Types.class.php:332
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to -"
 "1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -3465,7 +3461,7 @@ msgstr ""
 "浮點數，範圍為 -3.402823466E+38 至 -1.175494351E-38、0 及 1.175494351E-38 至 "
 "3.402823466E+38"
 
-#: libraries/Types.class.php:311
+#: libraries/Types.class.php:334
 msgid ""
 "A double-precision floating-point number, allowable values are -"
 "1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -3474,39 +3470,39 @@ msgstr ""
 "倍準浮點數，範圍為 -1.7976931348623157E+308 至 -2.2250738585072014E-308、0 "
 "及 2.2250738585072014E-308 至 1.7976931348623157E+308"
 
-#: libraries/Types.class.php:313
+#: libraries/Types.class.php:336
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr "倍準浮點數的別名 (例外: 在 REAL_AS_FLOAT 的模式中為 FLOAT 的別名)"
 
-#: libraries/Types.class.php:315
+#: libraries/Types.class.php:338
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr "位元欄型態 (M)，每個值使用 M 個位元 (預設值為 1，最大值為 64)"
 
-#: libraries/Types.class.php:317
+#: libraries/Types.class.php:340
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr "TINYINT(1) 的別名，當值為 0 時視為 false，非 0 的值則視為 true"
 
-#: libraries/Types.class.php:319
+#: libraries/Types.class.php:342
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE 的別名"
 
-#: libraries/Types.class.php:321 libraries/Types.class.php:724
+#: libraries/Types.class.php:344 libraries/Types.class.php:789
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "日期的有效範圍爲 %1$s 至 %2$s"
 
-#: libraries/Types.class.php:323 libraries/Types.class.php:726
+#: libraries/Types.class.php:346 libraries/Types.class.php:791
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "日期與時間組合的有效範圍為 %1$s 至 %2$s"
 
-#: libraries/Types.class.php:325
+#: libraries/Types.class.php:348
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -3514,12 +3510,12 @@ msgstr ""
 "時間戳記的有效範圍為 1970-01-01 00:00:01 UTC 至 2038-01-09 03:14:07 UTC，使用"
 "自 1970-01-01 00:00:00 UTC 計算的秒數儲存"
 
-#: libraries/Types.class.php:327 libraries/Types.class.php:730
+#: libraries/Types.class.php:350 libraries/Types.class.php:795
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "時間的有效範圍為 %1$s 至 %2$s"
 
-#: libraries/Types.class.php:329
+#: libraries/Types.class.php:352
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -3527,20 +3523,20 @@ msgstr ""
 "以 4 位數或 2 位數的方式表示年份的有效範圍為 70 (1970) 至 69 (2069) 或 1901 "
 "至 2155 和 0000"
 
-#: libraries/Types.class.php:331
+#: libraries/Types.class.php:354
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr "固定長度 (0 至 255，預設為 1) 的字串，在儲存長度不足時會自右邊補足空白"
 
-#: libraries/Types.class.php:333 libraries/Types.class.php:732
+#: libraries/Types.class.php:356 libraries/Types.class.php:797
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr "可變長度 (%s) 的字串，最大的有效長度需視資料列大小限制而定"
 
-#: libraries/Types.class.php:335
+#: libraries/Types.class.php:358
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -3548,7 +3544,7 @@ msgstr ""
 "純文字(TEXT)欄位，最大長度為 255 (2^8 - 1) 個字元，儲存時會附加 1 個位元組在"
 "最前面用來記錄長度"
 
-#: libraries/Types.class.php:337 libraries/Types.class.php:734
+#: libraries/Types.class.php:360 libraries/Types.class.php:799
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -3556,7 +3552,7 @@ msgstr ""
 "純文字(TEXT)欄位，最大長度為 65,535 (2^16 - 1) 個字元，儲存時會附加 2 個位元"
 "組在最前面用來記錄長度"
 
-#: libraries/Types.class.php:339
+#: libraries/Types.class.php:362
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -3564,7 +3560,7 @@ msgstr ""
 "純文字(TEXT)欄位，最大長度為 16,777,215 (2^24 - 1) 個字元，儲存時會附加 3 個"
 "位元組在最前面用來記錄長度"
 
-#: libraries/Types.class.php:341
+#: libraries/Types.class.php:364
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -3573,19 +3569,19 @@ msgstr ""
 "純文字(TEXT)欄位，最大長度為 4GiB (2^32 - 1) 個字元，儲存時會附加 4 個位元組"
 "在最前面用來記錄長度"
 
-#: libraries/Types.class.php:343
+#: libraries/Types.class.php:366
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "類似 CHAR 型態，但此類型以二進位的方式儲存字串 而不是字元"
 
-#: libraries/Types.class.php:345
+#: libraries/Types.class.php:368
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "類似 VARCHAR 型態，但此類型以二進位的方式儲存字串 而不是字元"
 
-#: libraries/Types.class.php:347
+#: libraries/Types.class.php:370
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -3593,7 +3589,7 @@ msgstr ""
 "大型二進位物件(BLOB)欄位，最大長度為 255 (2^8 - 1) 個位元組，儲存時會附加 1 "
 "個位元組在最前面用來記錄長度"
 
-#: libraries/Types.class.php:349
+#: libraries/Types.class.php:372
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -3601,7 +3597,7 @@ msgstr ""
 "大型二進位物件(BLOB)欄位，最大長度為 16,777,215 (2^24 - 1) 個位元組，儲存時會"
 "附加 3 個位元組在最前面用來記錄長度"
 
-#: libraries/Types.class.php:351 libraries/Types.class.php:738
+#: libraries/Types.class.php:374 libraries/Types.class.php:803
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -3609,7 +3605,7 @@ msgstr ""
 "大型二進位物件(BLOB)欄位，最大長度為 65,535 (2^16 - 1) 個位元組，儲存時會附"
 "加 2 個位元組在最前面用來記錄長度"
 
-#: libraries/Types.class.php:353
+#: libraries/Types.class.php:376
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -3617,73 +3613,73 @@ msgstr ""
 "大型二進位物件(BLOB)欄位，最大長度為 4,294,967,295 or 4GiB (2^32 - 1) 個位元"
 "組，儲存時會附加 4 個位元組在最前面用來記錄長度"
 
-#: libraries/Types.class.php:355
+#: libraries/Types.class.php:378
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr "列舉型態(ENUM)在清單中最多可有 65,535 個值或錯誤值 ''"
 
-#: libraries/Types.class.php:357
+#: libraries/Types.class.php:380
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "可從最多可 64 個成員中複選組成的一個值"
 
-#: libraries/Types.class.php:359
+#: libraries/Types.class.php:382
 msgid "A type that can store a geometry of any type"
 msgstr "類型可以存儲幾何的任何型態"
 
-#: libraries/Types.class.php:361
+#: libraries/Types.class.php:384
 msgid "A point in 2-dimensional space"
 msgstr "2 維空間的點"
 
-#: libraries/Types.class.php:363
+#: libraries/Types.class.php:386
 msgid "A curve with linear interpolation between points"
 msgstr "點與點之間的線性插值曲線"
 
-#: libraries/Types.class.php:365
+#: libraries/Types.class.php:388
 msgid "A polygon"
 msgstr "一個多邊形"
 
-#: libraries/Types.class.php:367
+#: libraries/Types.class.php:390
 msgid "A collection of points"
 msgstr "一群點的集合"
 
-#: libraries/Types.class.php:369
+#: libraries/Types.class.php:392
 msgid "A collection of curves with linear interpolation between points"
 msgstr "點與點之間線性插值曲線的集合"
 
-#: libraries/Types.class.php:371
+#: libraries/Types.class.php:394
 msgid "A collection of polygons"
 msgstr "一個多邊形的集合"
 
-#: libraries/Types.class.php:373
+#: libraries/Types.class.php:396
 msgid "A collection of geometry objects of any type"
 msgstr "任何類型幾何物件的集合"
 
-#: libraries/Types.class.php:626 libraries/Types.class.php:976
+#: libraries/Types.class.php:649 libraries/Types.class.php:1041
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "數值"
 
-#: libraries/Types.class.php:645 libraries/Types.class.php:979
+#: libraries/Types.class.php:668 libraries/Types.class.php:1044
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "日期及時間"
 
-#: libraries/Types.class.php:654 libraries/Types.class.php:982
+#: libraries/Types.class.php:677 libraries/Types.class.php:1047
 msgctxt "string types"
 msgid "String"
 msgstr "字串"
 
-#: libraries/Types.class.php:675
+#: libraries/Types.class.php:698
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "空間類型"
 
-#: libraries/Types.class.php:710
+#: libraries/Types.class.php:775
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
 msgstr "4 個位元組整數，範圍是 -2,147,483,648 到 2,147,483,647 之間"
 
-#: libraries/Types.class.php:712
+#: libraries/Types.class.php:777
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
@@ -3691,23 +3687,23 @@ msgstr ""
 "8 個位元組整數，範圍是 -9,223,372,036,854,775,808 到 "
 "9,223,372,036,854,775,807"
 
-#: libraries/Types.class.php:716
+#: libraries/Types.class.php:781
 msgid "A system's default double-precision floating-point number"
 msgstr "系統預設為雙精度浮點數"
 
-#: libraries/Types.class.php:718
+#: libraries/Types.class.php:783
 msgid "True or false"
 msgstr "True 或 false"
 
-#: libraries/Types.class.php:720
+#: libraries/Types.class.php:785
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "為 BIGINT NOT NULL AUTO_INCREMENT UNIQUE 的別名"
 
-#: libraries/Types.class.php:722
+#: libraries/Types.class.php:787
 msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr "存儲一個通用唯一識別碼 (UUID)"
 
-#: libraries/Types.class.php:728
+#: libraries/Types.class.php:793
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
@@ -3715,13 +3711,13 @@ msgstr ""
 "時間戳記，範圍由 '0001-01-01 00:00:00' UTC 到 '9999-12-31 23:59:59' UTC；"
 "TIMESTAMP(6) 可以存儲到微秒"
 
-#: libraries/Types.class.php:736
+#: libraries/Types.class.php:801
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr "可變長度 (0-65,535) 字串，使用二進位編碼與排序做資料比對"
 
-#: libraries/Types.class.php:740
+#: libraries/Types.class.php:805
 msgid "An enumeration, chosen from the list of defined values"
 msgstr "列舉型態，可從已定義的清單中選擇一個值"
 
@@ -3806,67 +3802,67 @@ msgstr "%Y 年 %m 月 %d 日 %H:%M"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小時，%s 分 %s 秒"
 
-#: libraries/Util.class.php:2073
+#: libraries/Util.class.php:2074
 msgid "Missing parameter:"
 msgstr "未填寫必要的參數:"
 
-#: libraries/Util.class.php:2593
+#: libraries/Util.class.php:2594
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "切換到資料庫「%s」。"
 
-#: libraries/Util.class.php:2617
+#: libraries/Util.class.php:2618
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 功能受到一個已知的問題影響，詳情請參考 %s"
 
-#: libraries/Util.class.php:2798
+#: libraries/Util.class.php:2799
 msgid "Click to toggle"
 msgstr "點此切換"
 
-#: libraries/Util.class.php:3322 libraries/sql_query_form.lib.php:477
+#: libraries/Util.class.php:3323 libraries/sql_query_form.lib.php:477
 #: prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr "由電腦上傳:"
 
-#: libraries/Util.class.php:3347
+#: libraries/Util.class.php:3348
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "由網頁伺服器上傳目錄中選擇 <b>%s</b>:"
 
-#: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1233
+#: libraries/Util.class.php:3377 libraries/insert_edit.lib.php:1216
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
 msgstr "設定之上傳目錄錯誤，無法使用。"
 
-#: libraries/Util.class.php:3387
+#: libraries/Util.class.php:3388
 msgid "There are no files to upload"
 msgstr "目前無可上傳的檔案"
 
-#: libraries/Util.class.php:3412 libraries/Util.class.php:3413
+#: libraries/Util.class.php:3413 libraries/Util.class.php:3414
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "清空"
 
-#: libraries/Util.class.php:3418 libraries/Util.class.php:3419
+#: libraries/Util.class.php:3419 libraries/Util.class.php:3420
 msgid "Execute"
 msgstr "執行"
 
-#: libraries/Util.class.php:3948
+#: libraries/Util.class.php:3957
 msgid "Print"
 msgstr "列印"
 
-#: libraries/Util.class.php:4049 libraries/structure.lib.php:798
+#: libraries/Util.class.php:4058 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1775 libraries/tbl_printview.lib.php:239
 msgid "Creation"
 msgstr "建立時間"
 
-#: libraries/Util.class.php:4055 libraries/structure.lib.php:805
+#: libraries/Util.class.php:4064 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1783 libraries/tbl_printview.lib.php:250
 msgid "Last update"
 msgstr "最後更新"
 
-#: libraries/Util.class.php:4061 libraries/structure.lib.php:812
+#: libraries/Util.class.php:4070 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1791 libraries/tbl_printview.lib.php:261
 msgid "Last check"
 msgstr "最後檢查"
@@ -4214,9 +4210,9 @@ msgstr "允許使用者自訂此值"
 msgid "Apply"
 msgstr "應用"
 
-#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1603
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:332
-#: prefs_manage.php:339
+#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1586
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
+#: prefs_manage.php:349
 msgid "Reset"
 msgstr "重新設定"
 
@@ -4506,7 +4502,7 @@ msgstr "設定 Script 允許執行的時間限制 (秒，[kbd]0[/kbd] 爲不設�
 msgid "Maximum execution time"
 msgstr "執行時間限制"
 
-#: libraries/config/messages.inc.php:70 prefs_manage.php:310
+#: libraries/config/messages.inc.php:70 prefs_manage.php:313
 msgid "Save as file"
 msgstr "另存新檔"
 
@@ -6793,7 +6789,7 @@ msgstr "檔案正在處理中，請稍候。"
 msgid "Language"
 msgstr "語系"
 
-#: libraries/engines/bdb.lib.php:25
+#: libraries/engines/bdb.lib.php:28
 msgid "Version information"
 msgstr "版本資訊"
 
@@ -7209,57 +7205,57 @@ msgstr "因長度問題，<br /> 該欄位可能無法編輯"
 msgid "Binary - do not edit"
 msgstr "二進位 - 無法編輯"
 
-#: libraries/insert_edit.lib.php:1237 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1220 libraries/sql_query_form.lib.php:491
 msgid "web server upload directory:"
 msgstr "網站伺服器上傳資料夾："
 
-#: libraries/insert_edit.lib.php:1454
+#: libraries/insert_edit.lib.php:1437
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "繼續新增 %s 列"
 
-#: libraries/insert_edit.lib.php:1484
+#: libraries/insert_edit.lib.php:1467
 msgid "and then"
 msgstr "然後"
 
-#: libraries/insert_edit.lib.php:1517
+#: libraries/insert_edit.lib.php:1500
 msgid "Insert as new row"
 msgstr "以新資料列新增"
 
-#: libraries/insert_edit.lib.php:1520
+#: libraries/insert_edit.lib.php:1503
 msgid "Insert as new row and ignore errors"
 msgstr "以新資料列新增 (忽略錯誤)"
 
-#: libraries/insert_edit.lib.php:1523
+#: libraries/insert_edit.lib.php:1506
 msgid "Show insert query"
 msgstr "顯示新增指令"
 
-#: libraries/insert_edit.lib.php:1543
+#: libraries/insert_edit.lib.php:1526
 msgid "Go back to previous page"
 msgstr "返回上一頁"
 
-#: libraries/insert_edit.lib.php:1546
+#: libraries/insert_edit.lib.php:1529
 msgid "Insert another new row"
 msgstr "新增其他新資料列"
 
-#: libraries/insert_edit.lib.php:1551
+#: libraries/insert_edit.lib.php:1534
 msgid "Go back to this page"
 msgstr "返回到本頁"
 
-#: libraries/insert_edit.lib.php:1573
+#: libraries/insert_edit.lib.php:1556
 msgid "Edit next row"
 msgstr "編輯下一行"
 
-#: libraries/insert_edit.lib.php:1595
+#: libraries/insert_edit.lib.php:1578
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "按 TAB 鍵跳到下一個數值，或 CTRL+方向鍵 作隨意移動"
 
-#: libraries/insert_edit.lib.php:1978 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1961 libraries/sql.lib.php:1632
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/insert_edit.lib.php:2003 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1986 libraries/sql.lib.php:1612
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 id: %1$d"
@@ -7536,7 +7532,6 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 檔案"
 
 #: libraries/navigation/NavigationHeader.class.php:250
-#| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
 msgstr "重新讀取導覽區"
 
@@ -7590,7 +7585,6 @@ msgid "Database operations"
 msgstr "資料庫操作"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#| msgid "Show hint"
 msgid "Show hidden items"
 msgstr "顯示隱藏項目"
 
@@ -9343,24 +9337,24 @@ msgid "There are no events to display."
 msgstr "沒有事件可供顯示。"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:237
-#: libraries/schema/Eps_Relation_Schema.class.php:428
+#: libraries/schema/Eps_Relation_Schema.class.php:359
 #: libraries/schema/Pdf_Relation_Schema.class.php:417
-#: libraries/schema/Svg_Relation_Schema.class.php:438
+#: libraries/schema/Svg_Relation_Schema.class.php:330
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr "資料表 %s 不存在！"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:275
-#: libraries/schema/Eps_Relation_Schema.class.php:479
+#: libraries/schema/Eps_Relation_Schema.class.php:410
 #: libraries/schema/Pdf_Relation_Schema.class.php:459
-#: libraries/schema/Svg_Relation_Schema.class.php:491
+#: libraries/schema/Svg_Relation_Schema.class.php:383
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "請設定表 %s 的座標"
 
-#: libraries/schema/Eps_Relation_Schema.class.php:834
+#: libraries/schema/Eps_Relation_Schema.class.php:764
 #: libraries/schema/Pdf_Relation_Schema.class.php:872
-#: libraries/schema/Svg_Relation_Schema.class.php:855
+#: libraries/schema/Svg_Relation_Schema.class.php:745
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "資料庫 %s 的大綱 - 第 %s 頁"
@@ -11931,7 +11925,7 @@ msgstr "已建立版本 %1$s，%2$s 的追蹤已啓用。"
 msgid "Manage your settings"
 msgstr "管理您的設定"
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:303
+#: libraries/user_preferences.inc.php:46 prefs_manage.php:304
 msgid "Configuration has been saved"
 msgstr "設定已儲存"
 
@@ -12180,7 +12174,7 @@ msgstr "使用瀏覽器的本地儲存記錄匯入設定。"
 msgid "You have no saved settings!"
 msgstr "您尚未儲存設定！"
 
-#: prefs_manage.php:269 prefs_manage.php:323
+#: prefs_manage.php:269 prefs_manage.php:329
 msgid "This feature is not supported by your web browser"
 msgstr "您所使用的瀏覽器不支援此功能"
 
@@ -12197,19 +12191,19 @@ msgstr ""
 "透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程式%"
 "s 。"
 
-#: prefs_manage.php:313
+#: prefs_manage.php:318
 msgid "Save to browser's storage"
 msgstr "儲存到瀏覽器記錄"
 
-#: prefs_manage.php:317
+#: prefs_manage.php:322
 msgid "Settings will be saved in your browser's local storage."
 msgstr "設定將儲存到瀏覽器的本地記錄。"
 
-#: prefs_manage.php:319
+#: prefs_manage.php:324
 msgid "Existing settings will be overwritten!"
 msgstr "現有設定將被覆蓋！"
 
-#: prefs_manage.php:336
+#: prefs_manage.php:346
 msgid "You can reset all your settings and restore them to default values."
 msgstr "您可以重新設定所有設定恢復爲預設值。"
 
@@ -12237,6 +12231,10 @@ msgstr "無資料庫"
 #: server_export.php:21
 msgid "View dump (schema) of databases"
 msgstr "檢視資料庫結構的匯出資料"
+
+#: server_privileges.php:142
+msgid "Username and hostname didn't change."
+msgstr ""
 
 #: server_status.php:32
 #, php-format
