@@ -12813,7 +12813,7 @@ msgstr "Schéma et/ou contenu des bases de données"
 
 #: server_privileges.php:142
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "Ni le code utilisateur ni le nom du serveur n'ont été modifiés."
 
 #: server_status.php:32
 #, php-format
