@@ -132,6 +132,19 @@ if (! $is_superuser) {
 }
 
 /**
+ * Checks if the user is using "Change Login Information / Copy User" dialog
+ * only to update the password
+ */
+if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
+    && $hostname == $_REQUEST['old_hostname']
+) {
+    $response->addHTML(
+        PMA_Message::error(__('Username and hostname didn\'t change.'))->getDisplay()
+    );
+    exit;
+}
+
+/**
  * Changes / copies a user, part I
  */
 list($queries, $password) = PMA_getDataForChangeOrCopyUser();
