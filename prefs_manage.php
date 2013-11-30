@@ -315,18 +315,20 @@ echo '</div>'
     . '<input type="radio" id="export_local_storage" name="export_type"'
     . ' value="local_storage" disabled="disabled" />'
     . '<label for="export_local_storage">'
-    .  __('Save to browser\'s storage') . '</label>';
+    .  __('Save to browser\'s storage') . '</label>'
+    . '</div>'
+    . '<div id="opts_export_local_storage" class="prefsmanage_opts disabled">'
+    . '<span class="localStorage-supported">'
+    . __('Settings will be saved in your browser\'s local storage.')
+    . '<span class="localStorage-exists">'
+    . '<br /><b>' . __('Existing settings will be overwritten!') . '</b>'
+    . '</span>'
+    . '</span>'
+    . '<div class="localStorage-unsupported">'
+    . PMA_Message::notice(
+        __('This feature is not supported by your web browser')
+    )->display();
 ?>
-                </div>
-                <div id="opts_export_local_storage" class="prefsmanage_opts disabled">
-                    <span class="localStorage-supported">
-                        <?php echo __('Settings will be saved in your browser\'s local storage.') ?>
-                        <span class="localStorage-exists">
-                            <br /><b><?php echo __('Existing settings will be overwritten!') ?></b>
-                        </span>
-                    </span>
-                    <div class="localStorage-unsupported">
-                        <?php PMA_Message::notice(__('This feature is not supported by your web browser'))->display() ?>
                     </div>
                 </div>
                 <br />
