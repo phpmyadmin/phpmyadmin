@@ -1577,12 +1577,12 @@ function PMA_updatePassword($err_url, $username, $hostname)
             . PMA_Util::sqlAddSlashes($username)
             . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\' = '
             . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
-                . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
+            . '(\'' . PMA_Util::sqlAddSlashes($_POST['pma_pw']) . '\')');
 
         $GLOBALS['dbi']->tryQuery($local_query)
-        or PMA_Util::mysqlDie(
-            $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
-        );
+            or PMA_Util::mysqlDie(
+                $GLOBALS['dbi']->getError(), $sql_query, false, $err_url
+            );
         $message = PMA_Message::success(
             __('The password for %s was changed successfully.')
         );
@@ -3457,20 +3457,20 @@ function PMA_addUser(
             $username = '';
         }
         switch ($_POST['pred_hostname']) {
-            case 'any':
-                $hostname = '%';
-                break;
-            case 'localhost':
-                $hostname = 'localhost';
-                break;
-            case 'hosttable':
-                $hostname = '';
-                break;
-            case 'thishost':
-                $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
-                $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
-                unset($_user_name);
-                break;
+        case 'any':
+            $hostname = '%';
+            break;
+        case 'localhost':
+            $hostname = 'localhost';
+            break;
+        case 'hosttable':
+            $hostname = '';
+            break;
+        case 'thishost':
+            $_user_name = $GLOBALS['dbi']->fetchValue('SELECT USER()');
+            $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
+            unset($_user_name);
+            break;
         }
         $sql = "SELECT '1' FROM `mysql`.`user`"
             . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
@@ -3485,8 +3485,8 @@ function PMA_addUser(
         } else {
             list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
                 = PMA_getSqlQueriesForDisplayAndAddUser(
-                $username, $hostname, (isset ($password) ? $password : '')
-            );
+                    $username, $hostname, (isset ($password) ? $password : '')
+                );
 
             if (empty($_REQUEST['change_copy'])) {
                 $_error = false;
