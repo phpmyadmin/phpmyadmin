@@ -567,7 +567,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                         }
                     });
                     PMA_ajaxRemoveMessage($msgbox);
-                    // Attach syntax highlited editor to export dialog
+                    // Attach syntax highlighted editor to export dialog
                     if (typeof CodeMirror != 'undefined') {
                         CodeMirror.fromTextArea(
                             $ajaxDialog.find('textarea')[0],
@@ -623,7 +623,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     }
                 });
                 PMA_ajaxRemoveMessage($msgbox);
-                // Attach syntax highlited editor to export dialog
+                // Attach syntax highlighted editor to export dialog
                 if (typeof CodeMirror != 'undefined') {
                     CodeMirror.fromTextArea(
                         $ajaxDialog.find('textarea')[0],

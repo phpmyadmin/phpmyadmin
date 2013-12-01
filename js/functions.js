@@ -3878,7 +3878,7 @@ function PMA_createViewDialog($this)
                     $(this).remove();
                 }
             });
-            // Attach syntax highlited editor
+            // Attach syntax highlighted editor
             if (typeof CodeMirror !== 'undefined') {
                 var $elm = $dialog.find('textarea');
                 var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql", lineWrapping: true};
