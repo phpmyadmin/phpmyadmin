@@ -141,6 +141,7 @@ if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
     $response->addHTML(
         PMA_Message::error(__('Username and hostname didn\'t change.'))->getDisplay()
     );
+    $response->isSuccess(false);
     exit;
 }
 
