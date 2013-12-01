@@ -493,7 +493,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                 } //Show SQL Query that was executed
 
                 // Remove the old row if the old user is deleted
-                if ($row_to_remove !== null) {
+                if (typeof $row_to_remove != 'undefined' && $row_to_remove !== null) {
                     $row_to_remove.remove();
                 }
 
