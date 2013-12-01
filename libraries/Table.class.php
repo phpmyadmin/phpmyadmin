@@ -374,10 +374,10 @@ class PMA_Table
             $disable_error = true;
         }
 
+        // sometimes there is only one entry (ExactRows) so
+        // we have to get the table's details
         if (! isset(PMA_Table::$cache[$db][$table])
             || $force_read
-            // sometimes there is only one entry (ExactRows) so
-            // we have to get the table's details
             || count(PMA_Table::$cache[$db][$table]) == 1
         ) {
             $GLOBALS['dbi']->getTablesFull($db, $table);
@@ -1062,14 +1062,29 @@ class PMA_Table
                     );
 
                     // Write every comment as new copied entry. [MIME]
-                    while ($comments_copy_row = $GLOBALS['dbi']->fetchAssoc($comments_copy_rs)) {
-                        $new_comment_query = 'REPLACE INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
-                                    . ' (db_name, table_name, column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
-                                    . ' VALUES('
-                                    . '\'' . PMA_Util::sqlAddSlashes($target_db) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($target_table) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['column_name']) . '\''
-                                    . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
+                    while ($comments_copy_row
+                        = $GLOBALS['dbi']->fetchAssoc($comments_copy_rs)) {
+                        $new_comment_query = 'REPLACE INTO '
+                            . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                            . '.'
+                            . PMA_Util::backquote(
+                                $GLOBALS['cfgRelation']['column_info']
+                            )
+                            . ' (db_name, table_name, column_name, comment'
+                            . ($GLOBALS['cfgRelation']['mimework']
+                            ? ', mimetype, transformation, transformation_options'
+                            : '')
+                            . ') '
+                            . ' VALUES('
+                            . '\'' . PMA_Util::sqlAddSlashes($target_db)
+                            . '\','
+                            . '\'' . PMA_Util::sqlAddSlashes($target_table)
+                            . '\','
+                            . '\''
+                            . PMA_Util::sqlAddSlashes(
+                                $comments_copy_row['column_name']
+                            ) . '\''
+                            . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
                                             . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
                                             . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
                                             . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\'' : '')
