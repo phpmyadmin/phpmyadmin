@@ -60,6 +60,7 @@ phpMyAdmin - ChangeLog
 - bug #4153 Unable to import if newline encoding is MAC style
 - bug #4096 horizontal scrollbar should not overflow on the left column
 - bug #4159 bug with navigation between database and table filter
+- bug #4119 Huge session data with $cfg['Error_Handler']['gather']
 
 4.0.10.0 (not yet released)
 - bug #4150 Clicking database name in query window opens a new tab
