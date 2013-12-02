@@ -223,20 +223,6 @@ class PMA_Error_Handler
     }
 
     /**
-     * display the whole error page with all errors
-     *
-     * @return void
-     */
-    public function dispErrorPage()
-    {
-        if (! headers_sent()) {
-            $this->dispPageStart();
-        }
-        $this->dispAllErrors();
-        $this->dispPageEnd();
-    }
-
-    /**
      * Displays user errors not displayed
      *
      * @return void
@@ -289,18 +275,6 @@ class PMA_Error_Handler
     protected function dispPageEnd()
     {
         echo '</body></html>';
-    }
-
-    /**
-     * display all errors regardless already displayed or user errors
-     *
-     * @return void
-     */
-    public function dispAllErrors()
-    {
-        foreach ($this->getErrors() as $error) {
-            $error->display();
-        }
     }
 
     /**
