@@ -59,36 +59,25 @@ class PMA_Error_Handler
                 $_SESSION['errors'] = array();
             }
 
-            if (isset($GLOBALS['cfg']['Error_Handler'])
-                && $GLOBALS['cfg']['Error_Handler']['gather']
-            ) {
-                // remember all errors
-                $_SESSION['errors'] = array_merge(
-                    $_SESSION['errors'],
-                    $this->errors
-                );
-            } else {
-                // remember only not displayed errors
-                foreach ($this->errors as $key => $error) {
-                    /**
-                     * We don't want to store all errors here as it would
-                     * explode user session. In case  you want them all set
-                     * $GLOBALS['cfg']['Error_Handler']['gather'] to true
-                     */
-                    if (count($_SESSION['errors']) >= 20) {
-                        $error = new PMA_Error(
-                            0,
-                            __('Too many error messages, some are not displayed.'),
-                            __FILE__,
-                            __LINE__
-                        );
-                        $_SESSION['errors'][$error->getHash()] = $error;
-                        break;
-                    } else if (($error instanceof PMA_Error)
-                        && ! $error->isDisplayed()
-                    ) {
-                        $_SESSION['errors'][$key] = $error;
-                    }
+            // remember only not displayed errors
+            foreach ($this->errors as $key => $error) {
+                /**
+                 * We don't want to store all errors here as it would
+                 * explode user session.
+                 */
+                if (count($_SESSION['errors']) >= 10) {
+                    $error = new PMA_Error(
+                        0,
+                        __('Too many error messages, some are not displayed.'),
+                        __FILE__,
+                        __LINE__
+                    );
+                    $_SESSION['errors'][$error->getHash()] = $error;
+                    break;
+                } else if (($error instanceof PMA_Error)
+                    && ! $error->isDisplayed()
+                ) {
+                    $_SESSION['errors'][$key] = $error;
                 }
             }
         }
@@ -234,20 +223,6 @@ class PMA_Error_Handler
     }
 
     /**
-     * display the whole error page with all errors
-     *
-     * @return void
-     */
-    public function dispErrorPage()
-    {
-        if (! headers_sent()) {
-            $this->dispPageStart();
-        }
-        $this->dispAllErrors();
-        $this->dispPageEnd();
-    }
-
-    /**
      * Displays user errors not displayed
      *
      * @return void
@@ -300,18 +275,6 @@ class PMA_Error_Handler
     protected function dispPageEnd()
     {
         echo '</body></html>';
-    }
-
-    /**
-     * display all errors regardless already displayed or user errors
-     *
-     * @return void
-     */
-    public function dispAllErrors()
-    {
-        foreach ($this->getErrors() as $error) {
-            $error->display();
-        }
     }
 
     /**

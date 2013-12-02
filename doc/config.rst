@@ -2806,10 +2806,3 @@ Developer
 
     Whether to display errors from PHP or not.
 
-.. config:option:: $cfg['Error_Handler']['gather']
-
-    :type: boolean
-    :default: false
-
-    Whether to gather errors from PHP or not.
-
