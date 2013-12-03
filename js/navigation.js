@@ -473,9 +473,6 @@ function PMA_showCurrentNavigation()
         } else {
             // no containers, highlight the item
             var $tableOrView = findLoadedItem($container, table, null, true);
-            if ($tableOrView){
-                scrollToView($tableOrView, $('#pma_navigation_tree_content'));
-            }
         }
     }
 
@@ -492,9 +489,6 @@ function PMA_showCurrentNavigation()
                 $tableContainer.children('div.list_container'),
                 table, 'table', true
             );
-            if ($table) {
-                scrollToView($table, $('#pma_navigation_tree_content'));
-            }
         } else if ($viewContainer.length > 0) {
             highlightView($viewContainer, table);
         }
@@ -525,18 +519,12 @@ function PMA_showCurrentNavigation()
                     $viewContainer.children('div.list_container'),
                     view, 'view', true
                 );
-                if ($view) {
-                    scrollToView($view, $('#pma_navigation_tree_content'));
-                }
             });
         } else {
             var $view = findLoadedItem(
                 $viewContainer.children('div.list_container'),
                 view, 'view', true
             );
-            if ($view) {
-                scrollToView($view, $('#pma_navigation_tree_content'));
-            }
         }
     }
 }
