@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-08-23 11:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2817,7 +2817,7 @@ msgstr "GIS data megjelenítése"
 msgid "Link not found"
 msgstr "Nem található a hivatkozás"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "Túl sok hibaüzenet, néhány nem megjeleníthető."
 
@@ -3309,29 +3309,29 @@ msgstr "A(z) „%s” forrás adatbázis nem található!"
 msgid "Target database `%s` was not found!"
 msgstr "A(z) „%s” cél adatbázis nem található!"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 msgid "Invalid database:"
 msgstr "Érvénytelen adatbázis:"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 msgid "Invalid table name:"
 msgstr "Érvénytelen táblanév:"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Hiba történt a(z) %1$s tábla %2$s névre történő átnevezésekor"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "A(z) %1$s tábla átnevezése %2$s névre megtörtént."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "A tábla UI beállításainak mentése sikertelen"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3340,7 +3340,7 @@ msgstr ""
 "Tábla UI beállításainak tisztítása sikertelen (lásd $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8285,21 +8285,21 @@ msgstr "Hibás felhasználónév/jelszó. A hozzáférés megtagadva."
 msgid "Can not find signon authentication script:"
 msgstr "Bejelentkezés hitelesítési parancsfájl nem található:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "A(z) %s fájl nem tartalmaz semmilyen kulcsazonosítót"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "A hardveres hitelesítés nem sikerült!"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "Nem történt meg érvényes hitelesítő kulcs csatlakoztatása"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "Hitelesítés…"
 
@@ -8807,6 +8807,12 @@ msgid ""
 msgstr ""
 "Szöveget fűz hozzá egy karakterlánchoz. Az egyedüli opció a hozzáfűzendő "
 "szöveg (aposztrófok között, alapértelmezetten üres karakterlánc)."
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
+msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""

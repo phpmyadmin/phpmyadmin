@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-09-19 23:07+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -2852,7 +2852,7 @@ msgstr ""
 msgid "Link not found"
 msgstr "लिंक नहीं मिला"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
@@ -3355,41 +3355,41 @@ msgstr "स्रोत डेटाबेस"
 msgid "Target database `%s` was not found!"
 msgstr "विषयवस्तु %s नहीं मिला है!"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "अमान्य डेटाबेस"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "अवैध टेबल नाम"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "टेबल का नाम %1$s से %2$s में बदलने में त्रुटि।"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "टेबल %s का नाम बदल कर %s रखा गया है."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr ""
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8284,21 +8284,21 @@ msgstr "यूसरनेम/पासवर्ड गलत है।  प्�
 msgid "Can not find signon authentication script:"
 msgstr "विन्यास प्रमाणीकरण"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "%s फाइल में कोई भी प्रमुख आईडी नहीं है"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "हार्डवेयर प्रमाणीकरण असफल"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "कोई वैध प्रमाणीकरण कुंजी नहीं पाई गई."
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "सत्यापन…"
 
@@ -8827,6 +8827,12 @@ msgstr ""
 msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31

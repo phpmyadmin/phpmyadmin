@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-11-25 15:37+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
@@ -3130,7 +3130,7 @@ msgstr ""
 msgid "Link not found"
 msgstr "Алоқа топилмади"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
@@ -3644,41 +3644,41 @@ msgstr "Манба база"
 msgid "Target database `%s` was not found!"
 msgstr "\"%s\" мавзуси топилмади!"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Нотўғри маълумотлар базаси"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Жадвал номи нотўғри"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s жадвалини %2$s деб қайта номлашда хатолик"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "`\"%s\"` жадвалининг номи `\"%s\"` деб ўзгартирилди."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr ""
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8950,21 +8950,21 @@ msgstr "Киритилган маълумотлар нотўғри. Кириш �
 msgid "Can not find signon authentication script:"
 msgstr "Аутентификация усули учун логин танловларини киритиш"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "\"%s\" файлида калит идентификатори мавжуд эмас"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "Ускунавий аутентификация муваффақиятсиз якунланди"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "Тўғри аутентификация калити уланмаган"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "Aутентификация…"
 
@@ -9519,6 +9519,12 @@ msgstr ""
 msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-11-26 07:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -2792,7 +2792,7 @@ msgstr "Zobrazit data GIS"
 msgid "Link not found"
 msgstr "Odkaz nenalezen"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "Příliš mnoho chyb, některé nebudou zobrazeny."
 
@@ -3284,29 +3284,29 @@ msgstr "Zdrojová databáze „%s“ nebyla nalezena!"
 msgid "Target database `%s` was not found!"
 msgstr "Cílová databáze „%s“ nebyla nalezena!"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 msgid "Invalid database:"
 msgstr "Chybné jméno databáze:"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 msgid "Invalid table name:"
 msgstr "Chybné jméno tabulky:"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Chyba při přejmenování tabulky %1$s na %2$s"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabulka %1$s byla přejmenována na %2$s."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "Nepodařilo se uložit nastavení prohlížení tabulky"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3315,7 +3315,7 @@ msgstr ""
 "Selhalo vyčištění tabulky s nastavením procházení (viz $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8162,21 +8162,21 @@ msgstr "Špatné uživatelské jméno nebo heslo. Přístup odepřen."
 msgid "Can not find signon authentication script:"
 msgstr "Nepodařilo se nalézt autentizační skript pro signon:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "Soubor %s neobsahuje ID klíče"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "Hardwarové přihlašování selhalo!"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "Nebyl připojen přihlašovací klíč"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "Authentizuji…"
 
@@ -8678,6 +8678,12 @@ msgid ""
 msgstr ""
 "Přidá k hodnotě text. Jediným parametrem je text, který má být přidaný (v "
 "jednoduchých uvozovkách, výchozí je prázdný)."
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
+msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""

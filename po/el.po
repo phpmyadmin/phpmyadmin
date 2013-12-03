@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-11-26 09:40+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -2824,7 +2824,7 @@ msgstr "Οπτικοποίηση δεδομένων GIS"
 msgid "Link not found"
 msgstr "Δεν βρέθηκε η σύνδεση"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "Πολλά μηνύματα σφάλματος, ορισμένα δεν εμφανίζονται."
 
@@ -3318,29 +3318,29 @@ msgstr "Η Βάση δεδομένων προέλευσης «%s» δεν βρέ
 msgid "Target database `%s` was not found!"
 msgstr "Η βάση δεδομένων προορισμού «%s» δεν βρέθηκε!"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 msgid "Invalid database:"
 msgstr "Μη έγκυρη βάση δεδομένων:"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 msgid "Invalid table name:"
 msgstr "Μη έγκυρο όνομα πίνακα:"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Σφάλμα μετονομασίας του πίνακα %1$s σε %2$s"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Ο πίνακας %1$s μετονομάσθηκε σε %2$s."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "Αδύνατη η αποθήκευση του πίανακα ρυθμίσεων UI"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3349,7 +3349,7 @@ msgstr ""
 "Αδύνατη η εκκαθάριση του πίνακα προτιμήσεων του περιβάλλοντος εργασίας "
 "(δείτε το $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8300,21 +8300,21 @@ msgstr "Λανθασμένο όνομα χρήστη/κωδικός πρόσβα
 msgid "Can not find signon authentication script:"
 msgstr "Αδύνατη η εύρεση του κώδικα πιστοποίησης σύνδεσης:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "Το αρχείο %s δεν περιέχει καμιά ταυτότητα κλειδιού"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "Η επικύρωση του υλικού απέτυχε!"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "Δεν τοποθετήθηκε κανένα έγκυρο κλειδί επικύρωσης"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "Επικύρωση…"
 
@@ -8823,6 +8823,12 @@ msgstr ""
 "Προστίθεται κείμενο σε μια συμβολοσειρά. Η μοναδική επιλογή είναι το κείμενο "
 "να προσαρτηθεί (περικλειόμενο σε μονά εισαγωγικά, προεπιλογή η κενή "
 "συμβολοσειρά)."
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
+msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""

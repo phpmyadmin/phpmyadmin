@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-11-25 15:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
@@ -2823,7 +2823,7 @@ msgstr "แสดงภาพของข้อมูล GIS"
 msgid "Link not found"
 msgstr "ไม่พบลิงก์"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "มีข้อความผิดพลาดจำนวนมาก บางส่วนจึงซ่อนไว้ไม่แสดง"
 
@@ -3312,34 +3312,34 @@ msgstr "ค้นหาในฐานข้อมูล"
 msgid "Target database `%s` was not found!"
 msgstr "ค้นหาในฐานข้อมูล"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "ชื่อฐานข้อมูลไม่ถูกต้อง"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "ชื่อตารางไม่ถูกต้อง"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "มีข้อผิดพลาดจากเปลี่ยนชื่อตาราง %1$s เป็น %2$s"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s"
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "ไม่สามารถบันทึกการกำหนดลักษณะตาราง UI"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3348,7 +3348,7 @@ msgstr ""
 "มีปัญหาในการล้างข้อมูลการตั้งค่าตาราง UL (ดูได้ที่ $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, fuzzy, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8152,21 +8152,21 @@ msgstr "อนุญาตให้เข้าใช้ไม่ได้ ช�
 msgid "Can not find signon authentication script:"
 msgstr "﻿สามารถค้นหา signon สำหรับตรวจสอบสคริปต์:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "﻿แฟ้ม %s ไม่ควรประกอบไปด้วยรหัสคีย์ใดๆ"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "﻿ตรวจสอบฮาร์ดแวร์ล้มเหลว"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "ไม่มีคีย์รับรองความถูกต้อง"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "กำลังตรวจสอบ…"
 
@@ -8696,6 +8696,12 @@ msgstr ""
 msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31

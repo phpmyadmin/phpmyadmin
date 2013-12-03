@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-08-11 13:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -2868,7 +2868,7 @@ msgstr "空間情報のデータを視覚化する"
 msgid "Link not found"
 msgstr "リンク先が見つかりません"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "エラーメッセージが多すぎます。いくつかは表示されません。"
 
@@ -3358,33 +3358,33 @@ msgstr "元にするデータベース `%s` が見つかりません！"
 msgid "Target database `%s` was not found!"
 msgstr "対象先のデータベース `%s` が見つかりません！"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "不正なデータベースです"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "テーブル名が不正です"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "テーブル名を %1$s から %2$s に変更するときにエラーが発生しました"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "テーブル %1$s の名称を %2$s に変更しました。"
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "テーブルに対する環境設定が保存できません"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3393,7 +3393,7 @@ msgstr ""
 "テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8472,21 +8472,21 @@ msgstr ""
 msgid "Can not find signon authentication script:"
 msgstr "サインオン認証スクリプトが見つかりません："
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "ファイル %s にキー ID が含まれていません"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "ハードウェア認証に失敗しました"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "有効な認証キーが接続されていません"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "認証中…"
 
@@ -9009,6 +9009,12 @@ msgstr "幾何データ型「%s」は、この MySQL でサポートされてい
 msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31

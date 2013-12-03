@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-11-25 22:30+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
@@ -2822,7 +2822,7 @@ msgstr "Visualiser les données GIS"
 msgid "Link not found"
 msgstr "Lien absent"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 "Les messages d'erreur sont trop nombreux, certains ne sont pas affichés."
@@ -3316,29 +3316,29 @@ msgstr "La base de données source `%s` n'existe pas !"
 msgid "Target database `%s` was not found!"
 msgstr "La base de données cible `%s` n'existe pas !"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 msgid "Invalid database:"
 msgstr "Nom de base de données invalide : "
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 msgid "Invalid table name:"
 msgstr "Nom de table invalide : "
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Erreur lors du renommage de %1$s en %2$s"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "La table %1$s se nomme maintenant %2$s."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "Impossible de sauvegarder les préférences d'interface de tables"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3347,7 +3347,7 @@ msgstr ""
 "Echec lors de la tentative de vidage de la table UI Préférences (voir $cfg"
 "['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8286,21 +8286,21 @@ msgstr "Erreur d'utilisateur/mot de passe. Accès refusé."
 msgid "Can not find signon authentication script:"
 msgstr "Ne peut trouver le script d'authentification pour le mode signon : "
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "Le fichier %s ne contient pas d'identifiant de clé"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "L'authentification matérielle a échoué !"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "La clé d'authentification n'est pas branchée"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "Authentification en cours…"
 
@@ -8811,6 +8811,12 @@ msgid ""
 msgstr ""
 "Ajoute du texte à une chaîne. La seule option est le texte à ajouter "
 "(entouré de guillemets simples, par défaut une chaîne vide)."
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
+msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""

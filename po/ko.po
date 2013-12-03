@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-11-29 11:18+0200\n"
 "Last-Translator: 흥재 신 <xfp.730700@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -2775,7 +2775,7 @@ msgstr "GIS 데이터를 시각화"
 msgid "Link not found"
 msgstr "링크를 찾을 수 없습니다."
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "오류메시지가 너무 많기 때문에 일부 메시지는 출력되지 않습니다."
 
@@ -3259,29 +3259,29 @@ msgstr "원본 데이터베이스 '%s'를 찾을 수 없습니다."
 msgid "Target database `%s` was not found!"
 msgstr "목표 데이터베이스 '%s'를 찾을 수 없습니다."
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 msgid "Invalid database:"
 msgstr "잘못된 데이터베이스:"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 msgid "Invalid table name:"
 msgstr "잘못된 테이블 이름:"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "%1$s 에서 %2$s 로 테이블 이름을 바꾸는데 오류가 발생하였습니다."
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "테이블 %1$s을(를) %2$s(으)로 이름을 변경하였습니다."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "테이블 UI 설정을 저장할 수 없습니다."
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3290,7 +3290,7 @@ msgstr ""
 "테이블 UI 설정을 정리하는 데 실패했습니다. ($cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s 를 참조하세요)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8077,21 +8077,21 @@ msgstr "사용자명/암호가 틀렸습니다. 접근이 거부되었습니다.
 msgid "Can not find signon authentication script:"
 msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "%s 파일은 어떤 key id도 포함하지 않습니다."
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "하드웨어 인증 실패"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "유효하지 않은 인증키가 입력되었습니다."
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "인증중입니다…"
 
@@ -8591,6 +8591,12 @@ msgstr ""
 msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31

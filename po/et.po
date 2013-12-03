@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-12-02 09:30+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
-"Language: et\n"
+"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2787,7 +2787,7 @@ msgstr "Visualiseeri GIS andmed"
 msgid "Link not found"
 msgstr "Linki ei leitud"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "Liiga palju veasõnumeid, mõningaid pole näha."
 
@@ -3274,29 +3274,29 @@ msgstr "Lähteandmebaasi `%s` ei leitud!"
 msgid "Target database `%s` was not found!"
 msgstr "Sihtandmebaasi `%s` ei leitud!"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 msgid "Invalid database:"
 msgstr "Vigane andmebaas:"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 msgid "Invalid table name:"
 msgstr "Vigane tabeli nimi:"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Esines viga %1$s tabeli ümbernimetamisel nimeks %2$s"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "Tabeli UI eelistusi ei saanud salvestada"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3305,7 +3305,7 @@ msgstr ""
 "Tabeli UI eelistuste puhastamine ebaõnnestus (vaata $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8158,21 +8158,21 @@ msgstr "Vale kasutajanimi/parool. Ligipääs keelatud."
 msgid "Can not find signon authentication script:"
 msgstr "Ei leia sisselogimise autentimise skripti:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "%s fail ei sisalda ühegi võtme id'd"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "Riistvara autentimine ebaõnnestus!"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "Ühtegi kehtivat autentimise võtit pole sisestatud"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "Autentimine…"
 
@@ -8676,6 +8676,12 @@ msgid ""
 msgstr ""
 "Lisab teksti sõnesse. Ainus valik on lisatav tekst (ümbritsetud ühekordsete "
 "jutumärkidega, vaikimisi tühi sõne)."
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
+msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""

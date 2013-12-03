@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-11-29 15:23+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
@@ -2743,7 +2743,7 @@ msgstr "視覺化的 GIS 資料"
 msgid "Link not found"
 msgstr "找不到連結"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "錯誤訊息過多，有一些沒有被顯示出來。"
 
@@ -3223,29 +3223,29 @@ msgstr "找不到來源資料庫「%s」！"
 msgid "Target database `%s` was not found!"
 msgstr "找不到目標資料庫「%s」！"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 msgid "Invalid database:"
 msgstr "無效的資料庫："
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 msgid "Invalid table name:"
 msgstr "無效的資料資料表名稱："
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "將表 %1$s 改名爲 %2$s 時發生錯誤"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "已將資料表 %1$s 改名爲 %2$s。"
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "無法儲存資料表「介面偏好」"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3254,7 +3254,7 @@ msgstr ""
 "在清空資料表「介面偏好」時發生錯誤。（詳見 $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s）"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -7930,21 +7930,21 @@ msgstr "帳號/密碼錯誤，拒絕訪問。"
 msgid "Can not find signon authentication script:"
 msgstr "無法找到對應的認證指令:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "檔案 %s 未包含任何密鑰"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "硬體身份驗證失敗！"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "無有效的認証密鑰"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "正在認證…"
 
@@ -8436,6 +8436,12 @@ msgid ""
 "(enclosed in single quotes, default empty string)."
 msgstr ""
 "將文字加到字串後面。要附加的文字是唯一的選擇 (括在單引號中，預設為空字串)。"
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
+msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
