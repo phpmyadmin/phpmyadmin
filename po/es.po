@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-03 12:52-0500\n"
-"PO-Revision-Date: 2013-12-03 20:26+0200\n"
+"PO-Revision-Date: 2013-12-03 20:40+0200\n"
 "Last-Translator: Gabriela Solis <gaby_ta_sol@hotmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -12905,7 +12905,7 @@ msgstr "Ver el volcado (schema) de la base de datos"
 
 #: server_privileges.php:142
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "Nombre del usuario y el nombre del sistema central no cambiaron."
 
 #: server_status.php:32
 #, php-format
