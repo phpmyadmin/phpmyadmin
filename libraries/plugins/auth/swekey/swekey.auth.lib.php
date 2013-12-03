@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Swekey 
+ *
  * @package Swekey
  */
 
@@ -10,6 +12,8 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Checks Swekey authentication.
+ *
+ * @return boolean whether authentication succeeded or not
  */
 function Swekey_Auth_check()
 {
@@ -33,7 +37,8 @@ function Swekey_Auth_check()
             if (preg_match("/^[0-9A-F]{32}:.+$/", $line) != false) {
                 $items = explode(":", $line);
                 if (count($items) == 2) {
-                    $_SESSION['SWEKEY']['VALID_SWEKEYS'][$items[0]] = trim($items[1]);
+                    $_SESSION['SWEKEY']['VALID_SWEKEYS'][$items[0]]
+                        = trim($items[1]);
                 }
             } elseif (preg_match("/^[A-Z_]+=.*$/", $line) != false) {
                 $items = explode("=", $line);
@@ -165,7 +170,7 @@ function Swekey_Auth_error()
     if (file_exists($caFile)) {
         Swekey_SetCAFile($caFile);
     } elseif (! empty($caFile)
-     && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")) {
+        && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")) {
         return "Internal Error: CA File $caFile not found";
     }
 
@@ -179,13 +184,16 @@ function Swekey_Auth_error()
             unset($swekey_id);
         } else {
             if (strlen($swekey_id) == 32) {
-                $res = Swekey_CheckOtp($swekey_id, $_SESSION['SWEKEY']['RND_TOKEN'], $swekey_otp);
+                $res = Swekey_CheckOtp(
+                    $swekey_id, $_SESSION['SWEKEY']['RND_TOKEN'], $swekey_otp
+                );
                 unset($_SESSION['SWEKEY']['RND_TOKEN']);
                 if (! $res) {
                     $result = __('Hardware authentication failed!') . ' (' . Swekey_GetLastError() . ')';
                 } else {
                     $_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'] = $swekey_id;
-                    $_SESSION['SWEKEY']['FORCE_USER'] = $_SESSION['SWEKEY']['VALID_SWEKEYS'][$swekey_id];
+                    $_SESSION['SWEKEY']['FORCE_USER']
+                        = $_SESSION['SWEKEY']['VALID_SWEKEYS'][$swekey_id];
                     return null;
                 }
             } else {
