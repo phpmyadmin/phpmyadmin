@@ -1271,8 +1271,9 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
  *
  * @return array
  */
-function PMA_getFormParamsForOldColumn($columnMeta, $length, $form_params)
-{
+function PMA_getFormParamsForOldColumn(
+    $columnMeta, $length, $form_params, $columnNumber
+) {
     if (isset($columnMeta['Field'])) {
         $form_params['field_orig[' . $columnNumber . ']']
             = $columnMeta['Field'];

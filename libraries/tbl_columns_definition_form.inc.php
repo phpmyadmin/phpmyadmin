@@ -126,7 +126,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // old column attributes
     if ($is_backup) {
         $_form_params = PMA_getFormParamsForOldColumn(
-            $columnMeta, $length, $_form_params
+            $columnMeta, $length, $_form_params, $columnNumber
         );
     }
 
