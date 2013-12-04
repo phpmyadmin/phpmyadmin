@@ -119,7 +119,7 @@ TimelineChart.prototype.validateColumns = function (dataTable) {
  */
 var DataTable = function () {
     var columns = [];
-    var data;
+    var data = null;
 
     this.addColumn = function (type, name) {
         columns.push({
@@ -145,7 +145,7 @@ var DataTable = function () {
         if (columns.length === 0) {
             throw new Error("Set columns first");
         }
-        var row, column;
+        var row;
         for (var i = 0; i < data.length; i++) {
             row = data[i];
             if (row.length > columns.length) {
@@ -180,7 +180,7 @@ var JQPlotChartFactory = function () {
 };
 JQPlotChartFactory.prototype = new ChartFactory();
 JQPlotChartFactory.prototype.createChart = function (type, elementId) {
-    var chart;
+    var chart = null;
     switch (type) {
     case ChartType.LINE:
         chart = new JQPlotLineChart(elementId);
