@@ -39,6 +39,13 @@ details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+Licensing of current contributions
+----------------------------------
+
+Beginning on 2013-12-01, new contributions to this codebase are all licensed
+under terms compatible with GPLv2-or-later.  phpMyAdmin is currently
+transitioning older code to GPLv2-or-later, but work is not yet complete.
+
 Third party licenses
 --------------------
 
