@@ -272,7 +272,7 @@ function get_tab_pos()
  * Prepares XML output for js/pmd/ajax.js to display a message
  *
  */
-function PMD_return_upd($b, $ret)
+function PMD_Return_upd($b, $ret)
 {
     // not sure where this was defined...
     global $K;
