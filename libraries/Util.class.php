@@ -442,8 +442,6 @@ class PMA_Util
      */
     public static function getMySQLDocuURL($link, $anchor = '')
     {
-        global $cfg;
-
         // Fixup for newly used names:
         $link = str_replace('_', '-', strtolower($link));
 
