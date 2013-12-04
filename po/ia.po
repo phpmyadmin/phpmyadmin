@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-03 12:52-0500\n"
-"PO-Revision-Date: 2013-12-04 13:57+0200\n"
+"PO-Revision-Date: 2013-12-04 14:16+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -5004,56 +5004,56 @@ msgstr "Importa / exporta"
 
 #: libraries/config/messages.inc.php:175
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Fixa le optiones de compression e le dossiers de importar e exportar"
 
 #: libraries/config/messages.inc.php:176
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:179
 msgid "Databases display options"
-msgstr ""
+msgstr "Optiones pro monstrar base de datos"
 
 #: libraries/config/messages.inc.php:180 setup/frames/menu.inc.php:21
 msgid "Navigation panel"
-msgstr ""
+msgstr "Pannello de navigation"
 
 #: libraries/config/messages.inc.php:181
 msgid "Customize appearance of the navigation panel"
-msgstr ""
+msgstr "Personalisa apparentia del pannello de navigation"
 
 #: libraries/config/messages.inc.php:182 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:141
 msgid "Servers"
-msgstr ""
+msgstr "Servitores"
 
 #: libraries/config/messages.inc.php:183
 msgid "Servers display options"
-msgstr ""
+msgstr "Optiones pro monstrar servitores"
 
 #: libraries/config/messages.inc.php:185
 msgid "Tables display options"
-msgstr ""
+msgstr "Optiones pro monstrar tabellas"
 
 #: libraries/config/messages.inc.php:186 setup/frames/menu.inc.php:23
 msgid "Main panel"
-msgstr ""
+msgstr "Pannello principal"
 
 #: libraries/config/messages.inc.php:187
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/config/messages.inc.php:191
 msgid "Other core settings"
-msgstr ""
+msgstr "Altere preferentias principal"
 
 #: libraries/config/messages.inc.php:192
 msgid "Settings that didn't fit anywhere else"
-msgstr ""
+msgstr "Altere preferentias que on non pote poner in altere loco"
 
 #: libraries/config/messages.inc.php:193
 msgid "Page titles"
-msgstr ""
+msgstr "Titulos de pagina"
 
 #: libraries/config/messages.inc.php:194
 msgid ""
@@ -5064,37 +5064,39 @@ msgstr ""
 #: libraries/config/messages.inc.php:195
 #: libraries/navigation/NavigationHeader.class.php:216
 msgid "Query window"
-msgstr ""
+msgstr "Fenestra de query"
 
 #: libraries/config/messages.inc.php:196
 msgid "Customize query window options"
-msgstr ""
+msgstr "Personalisa le optiones de fenestra de query"
 
 #: libraries/config/messages.inc.php:197
 msgid "Security"
-msgstr ""
+msgstr "Securitate"
 
 #: libraries/config/messages.inc.php:198
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Pro favor tu nota que phpMyAdmin es solo un interfacie e su characteristicas "
+"non limita MySQL"
 
 #: libraries/config/messages.inc.php:199
 msgid "Basic settings"
-msgstr ""
+msgstr "Preferentias basic"
 
 #: libraries/config/messages.inc.php:200
 msgid "Authentication"
-msgstr ""
+msgstr "Authentication"
 
 #: libraries/config/messages.inc.php:201
 msgid "Authentication settings"
-msgstr ""
+msgstr "Preferentias de authentication"
 
 #: libraries/config/messages.inc.php:202
 msgid "Server configuration"
-msgstr ""
+msgstr "Configuration del servitor"
 
 #: libraries/config/messages.inc.php:203
 msgid ""
@@ -5104,11 +5106,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:204
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Inserta parametros de connexion del servitor"
 
 #: libraries/config/messages.inc.php:205
 msgid "Configuration storage"
-msgstr ""
+msgstr "Immagazinage de configuration"
 
 #: libraries/config/messages.inc.php:206
 msgid ""
@@ -5119,7 +5121,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:207
 msgid "Changes tracking"
-msgstr ""
+msgstr "Traciamento de modificationes"
 
 #: libraries/config/messages.inc.php:208
 msgid ""
@@ -5129,40 +5131,40 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:209
 msgid "Customize export options"
-msgstr ""
+msgstr "Personalisa optiones de exportar"
 
 #: libraries/config/messages.inc.php:211
 msgid "Customize import defaults"
-msgstr ""
+msgstr "Personalisa optiones predefinite de importar"
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize navigation panel"
-msgstr ""
+msgstr "Personalisa pannello de navigation"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize main panel"
-msgstr ""
+msgstr "Personalisa pannello principal"
 
 #: libraries/config/messages.inc.php:214 libraries/config/messages.inc.php:219
 #: setup/frames/menu.inc.php:19
 msgid "SQL queries"
-msgstr ""
+msgstr "Queries de SQL"
 
 #: libraries/config/messages.inc.php:216
 msgid "SQL Query box"
-msgstr ""
+msgstr "Quadro de Query de SQL"
 
 #: libraries/config/messages.inc.php:217
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Personalisa ligamines monstrate in le quadros de Query de SQL"
 
 #: libraries/config/messages.inc.php:220
 msgid "SQL queries settings"
-msgstr ""
+msgstr "Preferentias de queries de SQL"
 
 #: libraries/config/messages.inc.php:221
 msgid "SQL Validator"
-msgstr ""
+msgstr "Validator de SQL"
 
 #: libraries/config/messages.inc.php:222
 msgid ""
@@ -5174,55 +5176,57 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:223
 msgid "Startup"
-msgstr ""
+msgstr "Initiar"
 
 #: libraries/config/messages.inc.php:224
 msgid "Customize startup page"
-msgstr ""
+msgstr "Personalisa le pagina de initiar"
 
 #: libraries/config/messages.inc.php:225
 msgid "Database structure"
-msgstr ""
+msgstr "Structura de base de datos"
 
 #: libraries/config/messages.inc.php:226
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Selige qual detalios monstrar in le structura de base de datos (lista de "
+"tabellas)"
 
 #: libraries/config/messages.inc.php:227
 msgid "Table structure"
-msgstr ""
+msgstr "Structura de tabella"
 
 #: libraries/config/messages.inc.php:228
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Preferentias del structura de tabella (lista de columnas)"
 
 #: libraries/config/messages.inc.php:229
 msgid "Tabs"
-msgstr ""
+msgstr "Schedas"
 
 #: libraries/config/messages.inc.php:230
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Selige como tu vole que le schedas functiona"
 
 #: libraries/config/messages.inc.php:231
 msgid "Text fields"
-msgstr ""
+msgstr "Campos de texto"
 
 #: libraries/config/messages.inc.php:232
 msgid "Customize text input fields"
-msgstr ""
+msgstr "Personalisa le campos de ingresso de texto"
 
 #: libraries/config/messages.inc.php:233
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! texto"
 
 #: libraries/config/messages.inc.php:235
 msgid "Warnings"
-msgstr ""
+msgstr "Avisos"
 
 #: libraries/config/messages.inc.php:236
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Dishabilita alcun avisos monstrate per phpMyAdmin"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
