@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-25 16:19-0500\n"
-"PO-Revision-Date: 2013-11-25 23:01+0200\n"
+"PO-Revision-Date: 2013-12-04 13:55+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -438,6 +438,8 @@ msgstr ""
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Si tu ha experientia de ulle problema, pro favor tu submitte un reporto de "
+"error (bug) manualmente."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
@@ -445,7 +447,7 @@ msgstr "Gratias pro submitter iste reporto."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Infortunatemente on falleva a submitter."
 
 #: export.php:160
 msgid "Bad type!"
@@ -4654,10 +4656,12 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Dishabilita le operationes massive de mantenentia de tabella, como optimisar "
+"o reparar le tabellas seligite de un base de datos."
 
 #: libraries/config/messages.inc.php:63
 msgid "Disable multi table maintenance"
-msgstr ""
+msgstr "Dishabilita le mantenentia multiple de tabella"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
@@ -4915,81 +4919,83 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Ordina elementos in le menu a rolar del claves externe, [kbd]content[/kbd] "
+"es le datos de referentia,[kbd]id[/kbd]  es le valor del clave"
 
 #: libraries/config/messages.inc.php:152
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Ordine del clave externe del menu a rolar"
 
 #: libraries/config/messages.inc.php:153
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Un menu a rolar essera usate si on ha minus elementos presente"
 
 #: libraries/config/messages.inc.php:154
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Limite de clave externe"
 
 #: libraries/config/messages.inc.php:155
 msgid "Browse mode"
-msgstr ""
+msgstr "Modo de navigation"
 
 #: libraries/config/messages.inc.php:156
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Personalisa modo de navigation"
 
 #: libraries/config/messages.inc.php:158 libraries/config/messages.inc.php:160
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:188
 #: libraries/config/messages.inc.php:190 libraries/config/messages.inc.php:218
 #: libraries/config/messages.inc.php:234
 msgid "Customize default options"
-msgstr ""
+msgstr "Personalisa optiones predefinite"
 
 #: libraries/config/messages.inc.php:159 libraries/config/setup.forms.php:249
 #: libraries/config/setup.forms.php:323
 #: libraries/config/user_preferences.forms.php:146
 #: libraries/config/user_preferences.forms.php:218
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: libraries/config/messages.inc.php:161
 msgid "Developer"
-msgstr ""
+msgstr "Disveloppator"
 
 #: libraries/config/messages.inc.php:162
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Preferentias pro disveloppatores de phpMyAdmin"
 
 #: libraries/config/messages.inc.php:163
 msgid "Edit mode"
-msgstr ""
+msgstr "Modo de modificar"
 
 #: libraries/config/messages.inc.php:164
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Personalisa le modo de modificar"
 
 #: libraries/config/messages.inc.php:166
 msgid "Export defaults"
-msgstr ""
+msgstr "Exporta le predefinites"
 
 #: libraries/config/messages.inc.php:167
 msgid "Customize default export options"
-msgstr ""
+msgstr "Personalisa le optiones de exportar predefinite"
 
 #: libraries/config/messages.inc.php:168 libraries/config/messages.inc.php:210
 #: setup/frames/menu.inc.php:17
 msgid "Features"
-msgstr ""
+msgstr "Characteristicas"
 
 #: libraries/config/messages.inc.php:169
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: libraries/config/messages.inc.php:170
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Fixa alcun optiones usate communemente"
 
 #: libraries/config/messages.inc.php:172
 msgid "Import defaults"
-msgstr ""
+msgstr "Importa valores predefinite"
 
 #: libraries/config/messages.inc.php:173
 msgid "Customize default common import options"
