@@ -64,7 +64,7 @@ phpMyAdmin - ChangeLog
 - bug #4169 Table list jumps to table on click
 - bug #4168 Rename multiple columns is not working
 
-4.0.10.0 (not yet released)
+4.0.10.0 (2013-12-04)
 - bug #4150 Clicking database name in query window opens a new tab
 - bug #4141 Wrong page is shown after editing; also, do not show a modal
             dialog for multi-row edit
