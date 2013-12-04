@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
 "PO-Revision-Date: 2013-11-25 15:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
@@ -2857,7 +2857,7 @@ msgstr ""
 msgid "Link not found"
 msgstr "پيوند پيدا نشد"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "خطای زیاد،برخی نمایش داده نشدند."
 
@@ -3348,34 +3348,34 @@ msgstr "جستجو در پايگاه‌داده"
 msgid "Target database `%s` was not found!"
 msgstr "جستجو در پايگاه‌داده"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "پایگاه داده  نامعتبر"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid table name:"
 msgstr "پایگاه داده  نامعتبر"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr ""
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "جدول %s به %s تغيير نام داده‌شد"
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "تنظیمات UI جدول قابل ذخیره سازی نیست"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3384,7 +3384,7 @@ msgstr ""
 "پاک سازی تنظیمات UI جداول موفقیت آمیز نبود(به $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s مراجعه کنید)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8135,21 +8135,21 @@ msgstr "نام كاربر/اسم رمز اشتباه است. دسترسي مجا
 msgid "Can not find signon authentication script:"
 msgstr "کد ورود یافت نشد :"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "فایل %s دارای کلید id نمی باشد"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "ورود سخنت افزاری نا موفق بود"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "کلید ورود معتبری داده نشده است"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "در حال ورود…"
 
@@ -8667,6 +8667,12 @@ msgstr ""
 msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31

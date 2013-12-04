@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-01 00:40+0100\n"
-"PO-Revision-Date: 2013-11-26 13:57+0200\n"
-"Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"POT-Creation-Date: 2013-12-03 12:52-0500\n"
+"PO-Revision-Date: 2013-12-03 20:40+0200\n"
+"Last-Translator: Gabriela Solis <gaby_ta_sol@hotmail.com>\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2834,7 +2834,7 @@ msgstr "Visualizar datos GIS"
 msgid "Link not found"
 msgstr "No se encontró el enlace"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr "Demasiados mensajes de error, algunos no son mostrados."
 
@@ -3329,29 +3329,29 @@ msgstr "¡No se encontró la base de datos de origen «%s»!"
 msgid "Target database `%s` was not found!"
 msgstr "¡No se encontró la base de datos de destino «%s»!"
 
-#: libraries/Table.class.php:1257
+#: libraries/Table.class.php:1272
 msgid "Invalid database:"
 msgstr "La base de datos no es válida:"
 
-#: libraries/Table.class.php:1271
+#: libraries/Table.class.php:1286
 msgid "Invalid table name:"
 msgstr "El nombre de la tabla no es válido:"
 
-#: libraries/Table.class.php:1306
+#: libraries/Table.class.php:1321
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Error al cambiar el nombre de la tabla %1$s a %2$s"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "La tabla %1$s ahora se llama %2$s."
 
-#: libraries/Table.class.php:1471
+#: libraries/Table.class.php:1486
 msgid "Could not save table UI preferences"
 msgstr "No se pudieron guardar las preferencias de interfaz"
 
-#: libraries/Table.class.php:1500
+#: libraries/Table.class.php:1515
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3360,7 +3360,7 @@ msgstr ""
 "Falló la limpieza de las preferencia de interfaz de tablas (ver $cfg"
 "['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1647
+#: libraries/Table.class.php:1662
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -8342,21 +8342,21 @@ msgstr ""
 msgid "Can not find signon authentication script:"
 msgstr "No se pudo encontrar el script de autenticación «signon»:"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:145
 #, php-format
 msgid "File %s does not contain any key id"
 msgstr "El archivo %s no contiene ningún id de clave"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:213
 msgid "Hardware authentication failed!"
 msgstr "¡Fracasó la autenticación de hardware!"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:200
 msgid "No valid authentication key plugged"
 msgstr "No se ha conectado una clave de autenticación válida"
 
-#: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
+#: libraries/plugins/auth/swekey/swekey.auth.lib.php:233
 msgid "Authenticating…"
 msgstr "Autenticando…"
 
@@ -8869,6 +8869,14 @@ msgid ""
 msgstr ""
 "Adjunta texto a una cadena. La única opción es agregar el texto al final "
 "(entre comillas simple, la cadena vacía de forma predeterminada)."
+
+#: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
+msgid ""
+"Converts Boolean values to text (default 'T' and 'F'). First option is for "
+"TRUE, second for FALSE. Nonzero=true."
+msgstr ""
+"Convierte los valores de Boolean a texto(por defecto 'T' y 'F'). La primera "
+"opcion es Verdadero(T), y la segunda es por Falso(F). No cero= verdad"
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -12897,7 +12905,7 @@ msgstr "Ver el volcado (schema) de la base de datos"
 
 #: server_privileges.php:142
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "Nombre del usuario y el nombre del sistema central no cambiaron."
 
 #: server_status.php:32
 #, php-format
