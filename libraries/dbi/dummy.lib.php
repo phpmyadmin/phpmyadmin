@@ -200,29 +200,50 @@ $GLOBALS['dummy_queries'] = array(
         'result' => array(array(0)),
     ),
     array(
-        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'TRIGGER\'',
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
+            . '`USER_PRIVILEGES`'
+            . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
+            . ' AND PRIVILEGE_TYPE=\'TRIGGER\'',
         'result' => array(),
     ),
     array(
-        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'TRIGGER\' AND TABLE_SCHEMA=\'pma\\\\_test\'',
-
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
+            . '`SCHEMA_PRIVILEGES`'
+            . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
+            . ' AND PRIVILEGE_TYPE=\'TRIGGER\' AND \'pma\\\\_test\''
+            . ' REGEXP REPLACE(REPLACE(TABLE_SCHEMA, \'_\', \'.\'), \'%\', \'.*\')',
         'result' => array(),
     ),
     array(
-        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'TRIGGER\' AND TABLE_SCHEMA=\'pma\\\\_test\' AND TABLE_NAME=\'table1\'',
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
+            . '`TABLE_PRIVILEGES`'
+            . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
+            . ' AND PRIVILEGE_TYPE=\'TRIGGER\' AND \'pma\\\\_test\''
+            . ' REGEXP REPLACE(REPLACE(TABLE_SCHEMA, \'_\', \'.\'), \'%\', \'.*\')'
+            . ' AND TABLE_NAME=\'table1\'',
         'result' => array(),
     ),
     array(
-        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'EVENT\'',
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
+            . '`USER_PRIVILEGES`'
+            . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
+            . ' AND PRIVILEGE_TYPE=\'EVENT\'',
         'result' => array(),
     ),
     array(
-        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'EVENT\' AND TABLE_SCHEMA=\'pma\\\\_test\'',
-
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
+            . '`SCHEMA_PRIVILEGES`'
+            . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
+            . ' AND PRIVILEGE_TYPE=\'EVENT\' AND \'pma\\\\_test\''
+            . ' REGEXP REPLACE(REPLACE(TABLE_SCHEMA, \'_\', \'.\'), \'%\', \'.*\')',
         'result' => array(),
     ),
     array(
-        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\' AND PRIVILEGE_TYPE=\'EVENT\' AND TABLE_SCHEMA=\'pma\\\\_test\' AND TABLE_NAME=\'table1\'',
+        'query' => 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.'
+            . '`TABLE_PRIVILEGES`'
+            . ' WHERE GRANTEE=\'\'\'pma_test\'\'@\'\'localhost\'\'\''
+            . ' AND PRIVILEGE_TYPE=\'EVENT\''
+            . ' AND TABLE_SCHEMA=\'pma\\\\_test\' AND TABLE_NAME=\'table1\'',
         'result' => array(),
     ),
     array(
