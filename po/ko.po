@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-25 16:19-0500\n"
-"PO-Revision-Date: 2013-11-29 11:18+0200\n"
-"Last-Translator: 흥재 신 <xfp.730700@gmail.com>\n"
+"PO-Revision-Date: 2013-12-05 12:51+0200\n"
+"Last-Translator: Alfred Woo <joona0825@digutsoft.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -432,7 +432,7 @@ msgstr "보고서를 제출해 주셔서 고맙습니다."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "안타깝지만 제출하지 못했습니다."
 
 #: export.php:160
 msgid "Bad type!"
@@ -1993,10 +1993,9 @@ msgid "Create view"
 msgstr "뷰 생성"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "전송오류 보고서"
+msgstr "오류 보고서 전송"
 
 #: js/messages.php:409
 msgid "Submit Error Report"
