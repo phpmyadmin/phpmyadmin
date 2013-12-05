@@ -293,14 +293,15 @@ function expandTreeNode($expandElem, callback) {
  * Auto-scrolls the newly chosen database
  *
  * @param  object   $element    The element to set to view
+ * @param  boolean  $forceToTop Whether to force scroll to top
  *
  */
-function scrollToView($element) {
+function scrollToView($element, $forceToTop) {
     var $container = $('#pma_navigation_tree_content');
     var elemTop = $element.offset().top - $container.offset().top;
     var textHeight = 20;
     var scrollPadding = 20; // extra padding from top of bottom when scrolling to view
-    if (elemTop < 0) {
+    if (elemTop < 0 || $forceToTop) {
         $container.stop().animate({
             scrollTop: elemTop + $container.scrollTop() - scrollPadding
         });
@@ -406,10 +407,10 @@ function PMA_showCurrentNavigation() {
             if ($tableContainer.length > 0) {
                 var $expander = $tableContainer.children('div:first').children('a.expander');
                 expandTreeNode($expander, function () {
-                    scrollToView($dbItem);
+                    scrollToView($dbItem, true);
                 });
             } else {
-                scrollToView($dbItem);
+                scrollToView($dbItem, true);
             }
         }
     }
@@ -480,7 +481,7 @@ function PMA_showCurrentNavigation() {
             // no containers, highlight the item
             var $tableOrView = findLoadedItem($container, table, null, true);
             if ($tableOrView){
-                scrollToView($tableOrView);
+                scrollToView($tableOrView, false);
             }
         }
     }
@@ -498,7 +499,7 @@ function PMA_showCurrentNavigation() {
                 table, 'table', true
             );
             if ($table) {
-                scrollToView($table);
+                scrollToView($table, false);
             }
         } else if ($viewContainer.length > 0) {
             highlightView($viewContainer, table);
@@ -530,7 +531,7 @@ function PMA_showCurrentNavigation() {
                     view, 'view', true
                 );
                 if ($view) {
-                    scrollToView($view);
+                    scrollToView($view, false);
                 }
             });
         } else {
@@ -539,7 +540,7 @@ function PMA_showCurrentNavigation() {
                 view, 'view', true
             );
             if ($view) {
-                scrollToView($view);
+                scrollToView($view, false);
             }
         }
     }
