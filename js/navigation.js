@@ -244,8 +244,7 @@ $(function () {
  *
  * @returns void
  */
-function expandTreeNode($expandElem, callback)
-{
+function expandTreeNode($expandElem, callback) {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
@@ -294,14 +293,23 @@ function expandTreeNode($expandElem, callback)
  * Auto-scrolls the newly chosen database
  *
  * @param  object   $element    The element to set to view
- * @param  object   $container  The container srollable element
+ * @param  boolean  $forceToTop Whether to force scroll to top
  *
  */
-function scrollToView($element, $container) {
-    var pushToOffset = $element.offset().top - $container.offset().top + $container.scrollTop();
-    $('#pma_navigation_tree_content').stop().animate({
-        scrollTop: pushToOffset
-    });
+function scrollToView($element, $forceToTop) {
+    var $container = $('#pma_navigation_tree_content');
+    var elemTop = $element.offset().top - $container.offset().top;
+    var textHeight = 20;
+    var scrollPadding = 20; // extra padding from top of bottom when scrolling to view
+    if (elemTop < 0 || $forceToTop) {
+        $container.stop().animate({
+            scrollTop: elemTop + $container.scrollTop() - scrollPadding
+        });
+    } else if (elemTop + textHeight > $container.height()) {
+        $container.stop().animate({
+            scrollTop: elemTop + textHeight - $container.height() + $container.scrollTop() + scrollPadding
+        });
+    }
 }
 
 /**
@@ -365,8 +373,7 @@ function loadChildNodes($expandElem, callback) {
  *
  * @returns void
  */
-function PMA_showCurrentNavigation()
-{
+function PMA_showCurrentNavigation() {
     var db = PMA_commonParams.get('db');
     var table = PMA_commonParams.get('table');
     $('#pma_navigation_tree')
@@ -400,10 +407,10 @@ function PMA_showCurrentNavigation()
             if ($tableContainer.length > 0) {
                 var $expander = $tableContainer.children('div:first').children('a.expander');
                 expandTreeNode($expander, function () {
-                    scrollToView($dbItem, $('#pma_navigation_tree_content'));
+                    scrollToView($dbItem, true);
                 });
             } else {
-                scrollToView($dbItem, $('#pma_navigation_tree_content'));
+                scrollToView($dbItem, true);
             }
         }
     }
@@ -473,11 +480,13 @@ function PMA_showCurrentNavigation()
         } else {
             // no containers, highlight the item
             var $tableOrView = findLoadedItem($container, table, null, true);
+            if ($tableOrView){
+                scrollToView($tableOrView, false);
+            }
         }
     }
 
-    function highlightTableOrView($tableContainer, $viewContainer, table)
-    {
+    function highlightTableOrView($tableContainer, $viewContainer, table) {
         if (isItemInContainer($tableContainer, table, 'table')) {
             var $expander = $tableContainer
                 .children('div:first')
@@ -489,13 +498,15 @@ function PMA_showCurrentNavigation()
                 $tableContainer.children('div.list_container'),
                 table, 'table', true
             );
+            if ($table) {
+                scrollToView($table, false);
+            }
         } else if ($viewContainer.length > 0) {
             highlightView($viewContainer, table);
         }
     }
 
-    function isItemInContainer($container, name, clazz)
-    {
+    function isItemInContainer($container, name, clazz) {
         $items = $container.find('li.' + clazz);
         var found = false;
         $items.each(function () {
@@ -519,12 +530,18 @@ function PMA_showCurrentNavigation()
                     $viewContainer.children('div.list_container'),
                     view, 'view', true
                 );
+                if ($view) {
+                    scrollToView($view, false);
+                }
             });
         } else {
             var $view = findLoadedItem(
                 $viewContainer.children('div.list_container'),
                 view, 'view', true
             );
+            if ($view) {
+                scrollToView($view, false);
+            }
         }
     }
 }
@@ -611,8 +628,7 @@ function PMA_reloadNavigation(callback) {
  *
  * @return void
  */
-function PMA_navigationTreePagination($this)
-{
+function PMA_navigationTreePagination($this) {
     var $msgbox = PMA_ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url, params;
@@ -1080,8 +1096,7 @@ var PMA_fastFilter = {
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.update = function (searchClause)
-{
+PMA_fastFilter.filter.prototype.update = function (searchClause) {
     if (this.searchClause != searchClause) {
         this.searchClause = searchClause;
         this.$this.find('.moreResults').remove();
@@ -1094,8 +1109,7 @@ PMA_fastFilter.filter.prototype.update = function (searchClause)
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.request = function ()
-{
+PMA_fastFilter.filter.prototype.request = function () {
     var self = this;
     clearTimeout(self.timeout);
     if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
@@ -1151,8 +1165,7 @@ PMA_fastFilter.filter.prototype.request = function ()
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.swap = function (list)
-{
+PMA_fastFilter.filter.prototype.swap = function (list) {
     this.swapped = true;
     this.$this
         .html($(list).html())
@@ -1170,8 +1183,7 @@ PMA_fastFilter.filter.prototype.swap = function (list)
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.restore = function (focus)
-{
+PMA_fastFilter.filter.prototype.restore = function (focus) {
     if (this.swapped) {
         this.swapped = false;
         this.$this.html(this.$clone.html()).children().show();
