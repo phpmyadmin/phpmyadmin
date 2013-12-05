@@ -76,8 +76,8 @@ $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
 
 /**
- * Whether to display image or text or both image and text in table row
- * action segment. Value can be either of 'image', 'text' or 'both'.
+ * Whether to display icons or text or both icons and text in table row
+ * action segment. Value can be either of 'icons', 'text' or 'both'.
  */
 //$cfg['RowActionType'] = 'both';
 

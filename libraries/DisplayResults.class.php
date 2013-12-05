@@ -71,7 +71,7 @@ class PMA_DisplayResults
     const ROUTINE_PROCEDURE = 'procedure';
     const ROUTINE_FUNCTION = 'function';
     
-    const ACTION_LINK_CONTENT_IMAGE = 'image';
+    const ACTION_LINK_CONTENT_ICONS = 'icons';
     const ACTION_LINK_CONTENT_TEXT = 'text';
 
 
@@ -3476,7 +3476,7 @@ class PMA_DisplayResults
         $linkContent = '';
         
         if (isset($GLOBALS['cfg']['RowActionType'])
-            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_IMAGE
+            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_ICONS
         ) {
             
             $linkContent .= '<span class="nowrap">'
