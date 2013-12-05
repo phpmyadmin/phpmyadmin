@@ -2806,3 +2806,11 @@ Developer
 
     Whether to display errors from PHP or not.
 
+.. config:option:: $cfg['RowActionType']
+
+    :type: string
+    :default: ``'both'``
+
+    Whether to display image or text or both image and text in table row action
+    segment. Value can be either of ``'image'``, ``'text'`` or ``'both'``.
+

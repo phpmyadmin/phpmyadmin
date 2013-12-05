@@ -70,6 +70,9 @@ class PMA_DisplayResults
 
     const ROUTINE_PROCEDURE = 'procedure';
     const ROUTINE_FUNCTION = 'function';
+    
+    const ACTION_LINK_CONTENT_IMAGE = 'image';
+    const ACTION_LINK_CONTENT_TEXT = 'text';
 
 
     // Declare global fields
@@ -3348,10 +3351,10 @@ class PMA_DisplayResults
                 $_url_params + array('default_action' => 'insert')
             );
 
-        $edit_str = PMA_Util::getIcon(
+        $edit_str = $this->_getActionLinkContent(
             'b_edit.png', __('Edit')
         );
-        $copy_str = PMA_Util::getIcon(
+        $copy_str = $this->_getActionLinkContent(
             'b_insrow.png', __('Copy')
         );
 
@@ -3420,10 +3423,8 @@ class PMA_DisplayResults
                 . ' WHERE ' . PMA_jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
-            $del_str = PMA_Util::getIcon(
-                'b_drop.png', __('Delete')
-            );
-
+            $del_str = $this->_getActionLinkContent('b_drop.png', __('Delete'));
+            
         } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
 
             $_url_params = array(
@@ -3455,6 +3456,52 @@ class PMA_DisplayResults
         return array($del_query, $del_url, $del_str, $js_conf);
 
     } // end of the '_getDeleteAndKillLinks()' function
+
+
+    /**
+     * Get content inside the table row action links (Edit/Copy/Delete)
+     *
+     * @param string $icon         The name of the file to get
+     * @param string $display_text The text displaying after the image icon
+     *
+     * @return  string
+     * 
+     * @access  private
+     * 
+     * @see     _getModifiedLinks(), _getDeleteAndKillLinks()
+     */
+    private function _getActionLinkContent($icon, $display_text)
+    {
+        
+        $linkContent = '';
+        
+        if (isset($GLOBALS['cfg']['RowActionType'])
+            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_IMAGE
+        ) {
+            
+            $linkContent .= '<span class="nowrap">'
+                . PMA_Util::getImage(
+                    $icon, $display_text
+                )
+                . '</span>';
+            
+        } else if (isset($GLOBALS['cfg']['RowActionType'])
+            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_TEXT
+        ) {
+            
+            $linkContent .= '<span class="nowrap">' . $display_text . '</span>';
+            
+        } else {
+            
+            $linkContent .= PMA_Util::getIcon(
+                $icon, $display_text
+            );
+            
+        }
+        
+        return $linkContent;
+        
+    }
 
 
     /**
