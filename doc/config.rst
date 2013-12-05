@@ -2806,7 +2806,7 @@ Developer
 
     Whether to display errors from PHP or not.
 
-.. config:option:: $cfg['row_action_type']
+.. config:option:: $cfg['RowActionType']
 
     :type: string
     :default: ``'both'``

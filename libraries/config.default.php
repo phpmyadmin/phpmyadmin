@@ -1287,6 +1287,12 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
  */
 $cfg['DefaultTabTable'] = 'sql.php';
 
+/**
+ * Whether to display image or text or both image and text in table row
+ * action segment. Value can be either of ``image``, ``text`` or ``both``.
+ */
+$cfg['RowActionType'] = 'both';
+
 /*******************************************************************************
  * Export defaults
  */

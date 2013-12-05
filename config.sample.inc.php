@@ -79,7 +79,7 @@ $cfg['SaveDir'] = '';
  * Whether to display image or text or both image and text in table row
  * action segment. Value can be either of 'image', 'text' or 'both'.
  */
-//$cfg['row_action_type'] = 'both';
+//$cfg['RowActionType'] = 'both';
 
 /**
  * Defines whether a user should be displayed a "show all (records)"

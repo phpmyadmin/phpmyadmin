@@ -3475,8 +3475,8 @@ class PMA_DisplayResults
         
         $linkContent = '';
         
-        if (isset($GLOBALS['cfg']['row_action_type'])
-            && $GLOBALS['cfg']['row_action_type'] == self::ACTION_LINK_CONTENT_IMAGE
+        if (isset($GLOBALS['cfg']['RowActionType'])
+            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_IMAGE
         ) {
             
             $linkContent .= '<span class="nowrap">'
@@ -3485,8 +3485,8 @@ class PMA_DisplayResults
                 )
                 . '</span>';
             
-        } else if (isset($GLOBALS['cfg']['row_action_type'])
-            && $GLOBALS['cfg']['row_action_type'] == self::ACTION_LINK_CONTENT_TEXT
+        } else if (isset($GLOBALS['cfg']['RowActionType'])
+            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_TEXT
         ) {
             
             $linkContent .= '<span class="nowrap">' . $display_text . '</span>';
