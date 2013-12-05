@@ -33,7 +33,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
     if (isset($existrel_foreign[$F2])
         && isset($existrel_foreign[$F2]['constraint'])
     ) {
-         PMD_return_new(0, __('Error: relation already exists.'));
+         PMD_Return_new(0, __('Error: relation already exists.'));
     }
     // note: in InnoDB, the index does not requires to be on a PRIMARY
     // or UNIQUE key
@@ -76,12 +76,12 @@ if (PMA_Util::isForeignKeySupported($type_T1)
             $upd_query   .= ' ON UPDATE ' . $on_update;
         }
         $upd_query .= ';';
-        $GLOBALS['dbi']->tryQuery($upd_query) or PMD_return_new(0, __('Error: Relation not added.'));
-        PMD_return_new(1, __('FOREIGN KEY relation added'));
+        $GLOBALS['dbi']->tryQuery($upd_query) or PMD_Return_new(0, __('Error: Relation not added.'));
+        PMD_Return_new(1, __('FOREIGN KEY relation added'));
     }
 } else { // internal (pmadb) relation
     if ($GLOBALS['cfgRelation']['relwork'] == false) {
-        PMD_return_new(0, __('Error: Relational features are disabled!'));
+        PMD_Return_new(0, __('Error: Relational features are disabled!'));
     } else {
         // no need to recheck if the keys are primary or unique at this point,
         // this was checked on the interface part
@@ -97,9 +97,9 @@ if (PMA_Util::isForeignKeySupported($type_T1)
                             . '\'' . PMA_Util::sqlAddSlashes($F1) . '\')';
 
         if (PMA_queryAsControlUser($q, false, PMA_DatabaseInterface::QUERY_STORE)) {
-            PMD_return_new(1, __('Internal relation added'));
+            PMD_Return_new(1, __('Internal relation added'));
         } else {
-            PMD_return_new(0, __('Error: Relation not added.'));
+            PMD_Return_new(0, __('Error: Relation not added.'));
         }
     }
 }
@@ -110,7 +110,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
  * @param string $b   Value of attribute "b"
  * @param string $ret Value of attribute "return"
  */
-function PMD_return_new($b,$ret)
+function PMD_Return_new($b,$ret)
 {
     global $db,$T1,$F1,$T2,$F2;
     header("Content-Type: text/xml; charset=utf-8");
