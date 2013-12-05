@@ -293,14 +293,22 @@ function expandTreeNode($expandElem, callback) {
  * Auto-scrolls the newly chosen database
  *
  * @param  object   $element    The element to set to view
- * @param  object   $container  The container srollable element
  *
  */
-function scrollToView($element, $container) {
-    var pushToOffset = $element.offset().top - $container.offset().top + $container.scrollTop();
-    $('#pma_navigation_tree_content').stop().animate({
-        scrollTop: pushToOffset
-    });
+function scrollToView($element) {
+    var $container = $('#pma_navigation_tree_content');
+    var elemTop = $element.offset().top - $container.offset().top;
+    var textHeight = 20;
+    var scrollPadding = 20; // extra padding from top of bottom when scrolling to view
+    if (elemTop < 0) {
+        $container.stop().animate({
+            scrollTop: elemTop + $container.scrollTop() - scrollPadding
+        });
+    } else if (elemTop + textHeight > $container.height()) {
+        $container.stop().animate({
+            scrollTop: elemTop + textHeight - $container.height() + $container.scrollTop() + scrollPadding
+        });
+    }
 }
 
 /**
@@ -398,10 +406,10 @@ function PMA_showCurrentNavigation() {
             if ($tableContainer.length > 0) {
                 var $expander = $tableContainer.children('div:first').children('a.expander');
                 expandTreeNode($expander, function () {
-                    scrollToView($dbItem, $('#pma_navigation_tree_content'));
+                    scrollToView($dbItem);
                 });
             } else {
-                scrollToView($dbItem, $('#pma_navigation_tree_content'));
+                scrollToView($dbItem);
             }
         }
     }
@@ -471,6 +479,9 @@ function PMA_showCurrentNavigation() {
         } else {
             // no containers, highlight the item
             var $tableOrView = findLoadedItem($container, table, null, true);
+            if ($tableOrView){
+                scrollToView($tableOrView);
+            }
         }
     }
 
@@ -486,6 +497,9 @@ function PMA_showCurrentNavigation() {
                 $tableContainer.children('div.list_container'),
                 table, 'table', true
             );
+            if ($table) {
+                scrollToView($table);
+            }
         } else if ($viewContainer.length > 0) {
             highlightView($viewContainer, table);
         }
@@ -515,12 +529,18 @@ function PMA_showCurrentNavigation() {
                     $viewContainer.children('div.list_container'),
                     view, 'view', true
                 );
+                if ($view) {
+                    scrollToView($view);
+                }
             });
         } else {
             var $view = findLoadedItem(
                 $viewContainer.children('div.list_container'),
                 view, 'view', true
             );
+            if ($view) {
+                scrollToView($view);
+            }
         }
     }
 }
