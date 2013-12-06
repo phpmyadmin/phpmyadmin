@@ -115,8 +115,9 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     10 => 'Text/Plain: Imagelink',
                     11 => 'Text/Plain: Link',
                     12 => 'Text/Plain: Longtoipv4',
-                    13 => 'Text/Plain: Sql',
-                    14 => 'Text/Plain: Substring',
+                    13 => 'Text/Plain: Preappend',
+                    14 => 'Text/Plain: Sql',
+                    15 => 'Text/Plain: Substring',
                     ),
                 'transformation_file' => array (
                     0 => 'Application_Octetstream_Download.class.php',
@@ -132,8 +133,9 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     10 => 'Text_Plain_Imagelink.class.php',
                     11 => 'Text_Plain_Link.class.php',
                     12 => 'Text_Plain_Longtoipv4.class.php',
-                    13 => 'Text_Plain_Sql.class.php',
-                    14 => 'Text_Plain_Substring.class.php',
+                    13 => 'Text_Plain_Preappend.class.php',
+                    14 => 'Text_Plain_Sql.class.php',
+                    15 => 'Text_Plain_Substring.class.php',
                 ),
             ),
             PMA_getAvailableMIMEtypes()
