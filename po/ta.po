@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-03 12:52-0500\n"
+"POT-Creation-Date: 2013-12-06 06:23-0500\n"
 "PO-Revision-Date: 2013-11-26 10:02+0200\n"
 "Last-Translator: Lakshmanan M <send2lakshman@gmail.com>\n"
 "Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/master/ta/>\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -187,7 +187,7 @@ msgstr "இல்லை"
 #: libraries/server_privileges.lib.php:2640
 #: libraries/server_privileges.lib.php:2977
 #: libraries/server_privileges.lib.php:3002 libraries/structure.lib.php:1274
-#: libraries/structure.lib.php:2617 libraries/tbl_printview.lib.php:115
+#: libraries/structure.lib.php:2616 libraries/tbl_printview.lib.php:115
 #: libraries/tbl_tracking.lib.php:776 libraries/tbl_tracking.lib.php:851
 #: libraries/tbl_tracking.lib.php:856 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -251,8 +251,8 @@ msgstr "அட்டவணை"
 
 #: db_printview.php:48 libraries/Table.class.php:352
 #: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:184
-#: libraries/structure.lib.php:768 libraries/structure.lib.php:1729
-#: libraries/structure.lib.php:1922 libraries/tbl_printview.lib.php:194
+#: libraries/structure.lib.php:768 libraries/structure.lib.php:1728
+#: libraries/structure.lib.php:1921 libraries/tbl_printview.lib.php:194
 msgid "Rows"
 msgstr "வரிசைகள்"
 
@@ -336,7 +336,7 @@ msgid "Updated"
 msgstr "புதுப்பிக்கப்பட்டது"
 
 #: db_tracking.php:85 js/messages.php:177 libraries/Menu.class.php:516
-#: libraries/Util.class.php:4115 libraries/rte/rte_events.lib.php:426
+#: libraries/Util.class.php:4113 libraries/rte/rte_events.lib.php:426
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:363
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
@@ -364,10 +364,10 @@ msgid "Delete tracking data for this table"
 msgstr ""
 
 #: db_tracking.php:103 libraries/Index.class.php:627
-#: libraries/Util.class.php:3411 libraries/Util.class.php:3412
+#: libraries/Util.class.php:3409 libraries/Util.class.php:3410
 #: libraries/server_databases.lib.php:156 libraries/structure.lib.php:307
-#: libraries/structure.lib.php:1384 libraries/structure.lib.php:2071
-#: libraries/structure.lib.php:2073
+#: libraries/structure.lib.php:1384 libraries/structure.lib.php:2070
+#: libraries/structure.lib.php:2072
 msgid "Drop"
 msgstr "அழி"
 
@@ -399,7 +399,7 @@ msgstr ""
 msgid "Untracked tables"
 msgstr ""
 
-#: db_tracking.php:222 libraries/structure.lib.php:1535
+#: db_tracking.php:222 libraries/structure.lib.php:1534
 msgid "Track table"
 msgstr "அட்டவணைத் தடம்"
 
@@ -555,7 +555,7 @@ msgid "Add geometry"
 msgstr "வடிவியல் சேர்க்க"
 
 #: gis_data_editor.php:398 js/messages.php:225
-#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1690
+#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1693
 #: libraries/TableSearch.class.php:1230 libraries/browse_foreigners.lib.php:51
 #: libraries/core.lib.php:554 libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:71
@@ -583,7 +583,7 @@ msgstr "வடிவியல் சேர்க்க"
 #: libraries/server_privileges.lib.php:3083
 #: libraries/server_privileges.lib.php:3918
 #: libraries/sql_query_form.lib.php:381 libraries/sql_query_form.lib.php:440
-#: libraries/sql_query_form.lib.php:509 libraries/structure.lib.php:1603
+#: libraries/sql_query_form.lib.php:509 libraries/structure.lib.php:1602
 #: libraries/tbl_chart.lib.php:216
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:386 libraries/tbl_tracking.lib.php:454
@@ -605,8 +605,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
 #: import.php:284 import.php:550
@@ -668,7 +668,7 @@ msgid ""
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 
-#: import_status.php:87 libraries/Util.class.php:735
+#: import_status.php:87 libraries/Util.class.php:733
 #: libraries/schema/Export_Relation_Schema.class.php:246 user_password.php:239
 msgid "Back"
 msgstr "திரும்பி"
@@ -774,7 +774,7 @@ msgstr ""
 msgid "Version information:"
 msgstr ""
 
-#: index.php:353 libraries/Util.class.php:429 libraries/Util.class.php:496
+#: index.php:353 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:241
@@ -994,12 +994,12 @@ msgid "Other"
 msgstr "ஏனையது"
 
 #. l10n: Thousands separator
-#: js/messages.php:71 libraries/Util.class.php:1440
+#: js/messages.php:71 libraries/Util.class.php:1438
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:73 libraries/Util.class.php:1442
+#: js/messages.php:73 libraries/Util.class.php:1440
 msgid "."
 msgstr "."
 
@@ -1100,39 +1100,39 @@ msgid "Processes"
 msgstr "செயலாக்கங்கள்"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:107 libraries/Util.class.php:1386
+#: js/messages.php:107 libraries/Util.class.php:1384
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:108 libraries/Util.class.php:1388
+#: js/messages.php:108 libraries/Util.class.php:1386
 #: libraries/server_status_monitor.lib.php:259
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:109 libraries/Util.class.php:1390
+#: js/messages.php:109 libraries/Util.class.php:1388
 #: libraries/server_status_monitor.lib.php:260
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:110 libraries/Util.class.php:1392
+#: js/messages.php:110 libraries/Util.class.php:1390
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:111 libraries/Util.class.php:1394
+#: js/messages.php:111 libraries/Util.class.php:1392
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:112 libraries/Util.class.php:1396
+#: js/messages.php:112 libraries/Util.class.php:1394
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:113 libraries/Util.class.php:1398
+#: js/messages.php:113 libraries/Util.class.php:1396
 msgid "EiB"
 msgstr "EiB"
 
@@ -1153,7 +1153,7 @@ msgid "Traffic"
 msgstr "போக்குவரத்து"
 
 #: js/messages.php:119 libraries/Menu.class.php:549
-#: libraries/Util.class.php:4119 libraries/server_status_monitor.lib.php:299
+#: libraries/Util.class.php:4117 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
@@ -1173,7 +1173,7 @@ msgstr "வரைபடத்தை கட்டத்தில் சேர்"
 msgid "Please add at least one variable to the series"
 msgstr ""
 
-#: js/messages.php:125 libraries/DisplayResults.class.php:1327
+#: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:881 libraries/TableSearch.class.php:1040
 #: libraries/display_export.lib.php:572
 #: libraries/plugins/export/ExportSql.class.php:1578
@@ -1470,8 +1470,8 @@ msgstr ""
 
 #: js/messages.php:206 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
-#: libraries/Util.class.php:4118 libraries/Util.class.php:4133
-#: libraries/Util.class.php:4149 libraries/config/messages.inc.php:171
+#: libraries/Util.class.php:4116 libraries/Util.class.php:4131
+#: libraries/Util.class.php:4147 libraries/config/messages.inc.php:171
 #: libraries/display_import.lib.php:108
 #: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
@@ -1690,10 +1690,10 @@ msgstr "வினவல் பெட்டியை மறை"
 msgid "Show query box"
 msgstr "வினவல் பெட்டியை காண்பி"
 
-#: js/messages.php:282 libraries/DisplayResults.class.php:3352
-#: libraries/Index.class.php:593 libraries/Util.class.php:667
-#: libraries/Util.class.php:1212 libraries/Util.class.php:3415
-#: libraries/Util.class.php:3416 libraries/config/messages.inc.php:492
+#: js/messages.php:282 libraries/DisplayResults.class.php:3355
+#: libraries/Index.class.php:593 libraries/Util.class.php:665
+#: libraries/Util.class.php:1210 libraries/Util.class.php:3413
+#: libraries/Util.class.php:3414 libraries/config/messages.inc.php:492
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:176
@@ -1704,8 +1704,8 @@ msgstr "தொகு"
 msgid "No rows selected"
 msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
 
-#: js/messages.php:284 libraries/DisplayResults.class.php:5044
-#: libraries/structure.lib.php:1380 libraries/structure.lib.php:2069
+#: js/messages.php:284 libraries/DisplayResults.class.php:5091
+#: libraries/structure.lib.php:1380 libraries/structure.lib.php:2068
 #: querywindow.php:85
 msgid "Change"
 msgstr "மாற்று"
@@ -1714,8 +1714,8 @@ msgstr "மாற்று"
 msgid "Query execution time"
 msgstr "வினவல் நிறைவேற்றுகை நேரம்"
 
-#: js/messages.php:286 libraries/DisplayResults.class.php:761
-#: libraries/DisplayResults.class.php:769
+#: js/messages.php:286 libraries/DisplayResults.class.php:764
+#: libraries/DisplayResults.class.php:772
 #, php-format
 msgid "%d is not valid row number."
 msgstr ""
@@ -1802,7 +1802,7 @@ msgstr ""
 msgid "Ignore"
 msgstr "புறக்கணி"
 
-#: js/messages.php:323 libraries/DisplayResults.class.php:3355
+#: js/messages.php:323 libraries/DisplayResults.class.php:3358
 msgid "Copy"
 msgstr "நகல்"
 
@@ -1818,7 +1818,7 @@ msgstr ""
 msgid "Polygon"
 msgstr "பல்கோணி"
 
-#: js/messages.php:330 libraries/DisplayResults.class.php:1674
+#: js/messages.php:330 libraries/DisplayResults.class.php:1677
 msgid "Geometry"
 msgstr "கேத்திர கணிதம்"
 
@@ -1895,7 +1895,7 @@ msgstr ""
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
 
-#: js/messages.php:364 libraries/DisplayResults.class.php:849
+#: js/messages.php:364 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:359
 #: libraries/browse_foreigners.lib.php:409
 #: libraries/server_privileges.lib.php:3142
@@ -1986,7 +1986,7 @@ msgstr "புதிய பதிப்பை பார்வையிடவு�
 msgid "up to date"
 msgstr ""
 
-#: js/messages.php:405 libraries/DisplayResults.class.php:5159
+#: js/messages.php:405 libraries/DisplayResults.class.php:5206
 #: view_create.php:178
 msgid "Create view"
 msgstr ""
@@ -2088,27 +2088,27 @@ msgid "December"
 msgstr "டிசம்பர்"
 
 #. l10n: Short month name
-#: js/messages.php:470 libraries/Util.class.php:1597
+#: js/messages.php:470 libraries/Util.class.php:1595
 msgid "Jan"
 msgstr "தை"
 
 #. l10n: Short month name
-#: js/messages.php:472 libraries/Util.class.php:1599
+#: js/messages.php:472 libraries/Util.class.php:1597
 msgid "Feb"
 msgstr "மாசி"
 
 #. l10n: Short month name
-#: js/messages.php:474 libraries/Util.class.php:1601
+#: js/messages.php:474 libraries/Util.class.php:1599
 msgid "Mar"
 msgstr "பங்குனி"
 
 #. l10n: Short month name
-#: js/messages.php:476 libraries/Util.class.php:1603
+#: js/messages.php:476 libraries/Util.class.php:1601
 msgid "Apr"
 msgstr "சித்திரை"
 
 #. l10n: Short month name
-#: js/messages.php:478 libraries/Util.class.php:1605
+#: js/messages.php:478 libraries/Util.class.php:1603
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2116,37 +2116,37 @@ msgid "May"
 msgstr "வைகாசி"
 
 #. l10n: Short month name
-#: js/messages.php:480 libraries/Util.class.php:1607
+#: js/messages.php:480 libraries/Util.class.php:1605
 msgid "Jun"
 msgstr "ஆணி"
 
 #. l10n: Short month name
-#: js/messages.php:482 libraries/Util.class.php:1609
+#: js/messages.php:482 libraries/Util.class.php:1607
 msgid "Jul"
 msgstr "ஆடி"
 
 #. l10n: Short month name
-#: js/messages.php:484 libraries/Util.class.php:1611
+#: js/messages.php:484 libraries/Util.class.php:1609
 msgid "Aug"
 msgstr "ஆவணி"
 
 #. l10n: Short month name
-#: js/messages.php:486 libraries/Util.class.php:1613
+#: js/messages.php:486 libraries/Util.class.php:1611
 msgid "Sep"
 msgstr "புரட்டாதி"
 
 #. l10n: Short month name
-#: js/messages.php:488 libraries/Util.class.php:1615
+#: js/messages.php:488 libraries/Util.class.php:1613
 msgid "Oct"
 msgstr "ஐப்பசி"
 
 #. l10n: Short month name
-#: js/messages.php:490 libraries/Util.class.php:1617
+#: js/messages.php:490 libraries/Util.class.php:1615
 msgid "Nov"
 msgstr "காத்திகை"
 
 #. l10n: Short month name
-#: js/messages.php:492 libraries/Util.class.php:1619
+#: js/messages.php:492 libraries/Util.class.php:1617
 msgid "Dec"
 msgstr "மார்கழி"
 
@@ -2195,32 +2195,32 @@ msgid "Sun"
 msgstr "ஞாயி"
 
 #. l10n: Short week day name
-#: js/messages.php:513 libraries/Util.class.php:1624
+#: js/messages.php:513 libraries/Util.class.php:1622
 msgid "Mon"
 msgstr "திங்"
 
 #. l10n: Short week day name
-#: js/messages.php:515 libraries/Util.class.php:1626
+#: js/messages.php:515 libraries/Util.class.php:1624
 msgid "Tue"
 msgstr "செவ்"
 
 #. l10n: Short week day name
-#: js/messages.php:517 libraries/Util.class.php:1628
+#: js/messages.php:517 libraries/Util.class.php:1626
 msgid "Wed"
 msgstr "புத"
 
 #. l10n: Short week day name
-#: js/messages.php:519 libraries/Util.class.php:1630
+#: js/messages.php:519 libraries/Util.class.php:1628
 msgid "Thu"
 msgstr "வியா"
 
 #. l10n: Short week day name
-#: js/messages.php:521 libraries/Util.class.php:1632
+#: js/messages.php:521 libraries/Util.class.php:1630
 msgid "Fri"
 msgstr "வெள்"
 
 #. l10n: Short week day name
-#: js/messages.php:523 libraries/Util.class.php:1634
+#: js/messages.php:523 libraries/Util.class.php:1632
 msgid "Sat"
 msgstr "சனி"
 
@@ -2365,18 +2365,18 @@ msgstr ""
 msgid "Font size"
 msgstr "எழுத்துரு அளவு"
 
-#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1311
-#: libraries/DisplayResults.class.php:2044
-#: libraries/DisplayResults.class.php:2052 libraries/TableSearch.class.php:852
+#: libraries/DBQbe.class.php:346 libraries/DisplayResults.class.php:1314
+#: libraries/DisplayResults.class.php:2047
+#: libraries/DisplayResults.class.php:2055 libraries/TableSearch.class.php:852
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:315
 #: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:452
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
 msgid "Ascending"
 msgstr "ஏறுவரிசை"
 
-#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1323
-#: libraries/DisplayResults.class.php:2039
-#: libraries/DisplayResults.class.php:2057 libraries/TableSearch.class.php:853
+#: libraries/DBQbe.class.php:349 libraries/DisplayResults.class.php:1326
+#: libraries/DisplayResults.class.php:2042
+#: libraries/DisplayResults.class.php:2060 libraries/TableSearch.class.php:853
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:315
 #: libraries/server_databases.lib.php:340 libraries/server_status.lib.php:449
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2460,7 +2460,7 @@ msgstr ""
 msgid "SQL query on database <b>%s</b>:"
 msgstr "தரவுத்தளம் மீது <b>%s</b> SQL வினவல்:"
 
-#: libraries/DBQbe.class.php:1367 libraries/Util.class.php:1241
+#: libraries/DBQbe.class.php:1367 libraries/Util.class.php:1239
 msgid "Submit Query"
 msgstr "வினவலை சமர்ப்பி"
 
@@ -2520,8 +2520,8 @@ msgstr[0] "%s அட்டவணையில் பொருந்தியவ�
 msgstr[1] "%s அட்டவணையில் பொருந்தியவைகள் <i>%s</i>"
 
 #: libraries/DbSearch.class.php:350 libraries/Menu.class.php:295
-#: libraries/Util.class.php:3189 libraries/Util.class.php:3404
-#: libraries/Util.class.php:3405 libraries/Util.class.php:4143
+#: libraries/Util.class.php:3187 libraries/Util.class.php:3402
+#: libraries/Util.class.php:3403 libraries/Util.class.php:4141
 #: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/structure.lib.php:1374
 msgid "Browse"
@@ -2532,8 +2532,8 @@ msgstr "உலாவு"
 msgid "Delete the matches for the %s table?"
 msgstr "%s அட்டவணையில் பொருத்தப்பாடுகளை நீக்குவதா?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3424
-#: libraries/DisplayResults.class.php:5027
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3426
+#: libraries/DisplayResults.class.php:5074
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2569,70 +2569,70 @@ msgstr "அட்டவணைகளில்:"
 msgid "Inside column:"
 msgstr "நிரல் உள்ளே:"
 
-#: libraries/DisplayResults.class.php:738
+#: libraries/DisplayResults.class.php:741
 msgid "Save edited data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:744
+#: libraries/DisplayResults.class.php:747
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
 msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
 
-#: libraries/DisplayResults.class.php:815 libraries/Util.class.php:2484
-#: libraries/Util.class.php:2488
+#: libraries/DisplayResults.class.php:818 libraries/Util.class.php:2482
+#: libraries/Util.class.php:2486
 msgctxt "First page"
 msgid "Begin"
 msgstr "ஆரம்பம்"
 
-#: libraries/DisplayResults.class.php:818 libraries/Util.class.php:2486
-#: libraries/Util.class.php:2489 libraries/server_bin_log.lib.php:171
+#: libraries/DisplayResults.class.php:821 libraries/Util.class.php:2484
+#: libraries/Util.class.php:2487 libraries/server_bin_log.lib.php:171
 #: libraries/server_bin_log.lib.php:173
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "முந்தைய"
 
-#: libraries/DisplayResults.class.php:875 libraries/Util.class.php:2521
-#: libraries/Util.class.php:2524 libraries/server_bin_log.lib.php:205
+#: libraries/DisplayResults.class.php:878 libraries/Util.class.php:2519
+#: libraries/Util.class.php:2522 libraries/server_bin_log.lib.php:205
 #: libraries/server_bin_log.lib.php:207
 msgctxt "Next page"
 msgid "Next"
 msgstr "அடுத்து"
 
-#: libraries/DisplayResults.class.php:904 libraries/Util.class.php:2522
-#: libraries/Util.class.php:2525
+#: libraries/DisplayResults.class.php:907 libraries/Util.class.php:2520
+#: libraries/Util.class.php:2523
 msgctxt "Last page"
 msgid "End"
 msgstr "முடிவு"
 
-#: libraries/DisplayResults.class.php:951 libraries/display_export.lib.php:322
+#: libraries/DisplayResults.class.php:954 libraries/display_export.lib.php:322
 #: libraries/tbl_chart.lib.php:210
 msgid "Number of rows:"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:959
+#: libraries/DisplayResults.class.php:962
 #, fuzzy
 #| msgid "Mon"
 msgid "Mode:"
 msgstr "திங்கள்"
 
-#: libraries/DisplayResults.class.php:961
+#: libraries/DisplayResults.class.php:964
 msgid "horizontal"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:962
+#: libraries/DisplayResults.class.php:965
 msgid "horizontal (rotated headers)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:963
+#: libraries/DisplayResults.class.php:966
 msgid "vertical"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1269
+#: libraries/DisplayResults.class.php:1272
 msgid "Sort by key"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1610 libraries/TableSearch.class.php:794
+#: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:794
 #: libraries/import.lib.php:1203 libraries/import.lib.php:1235
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -2655,68 +2655,68 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:57
 #: libraries/plugins/import/ImportSql.class.php:50
 #: libraries/plugins/import/ImportXml.class.php:58
-#: libraries/rte/rte_routines.lib.php:982 libraries/structure.lib.php:1714
+#: libraries/rte/rte_routines.lib.php:982 libraries/structure.lib.php:1713
 msgid "Options"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1616
-#: libraries/DisplayResults.class.php:1723
+#: libraries/DisplayResults.class.php:1619
+#: libraries/DisplayResults.class.php:1726
 msgid "Partial texts"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1617
-#: libraries/DisplayResults.class.php:1727
+#: libraries/DisplayResults.class.php:1620
+#: libraries/DisplayResults.class.php:1730
 msgid "Full texts"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1632
+#: libraries/DisplayResults.class.php:1635
 msgid "Relational key"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1633
+#: libraries/DisplayResults.class.php:1636
 msgid "Relational display column"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1645
+#: libraries/DisplayResults.class.php:1648
 msgid "Show binary contents"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1650
+#: libraries/DisplayResults.class.php:1653
 msgid "Show BLOB contents"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1655
+#: libraries/DisplayResults.class.php:1658
 #: libraries/config/messages.inc.php:59
 msgid "Show binary contents as HEX"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1666
+#: libraries/DisplayResults.class.php:1669
 msgid "Hide browser transformation"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1675
+#: libraries/DisplayResults.class.php:1678
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1676
+#: libraries/DisplayResults.class.php:1679
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3397
-#: libraries/DisplayResults.class.php:3413
+#: libraries/DisplayResults.class.php:3400
+#: libraries/DisplayResults.class.php:3416
 msgid "The row has been deleted"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3451
-#: libraries/DisplayResults.class.php:5027 libraries/server_status.lib.php:520
+#: libraries/DisplayResults.class.php:3452
+#: libraries/DisplayResults.class.php:5074 libraries/server_status.lib.php:520
 msgid "Kill"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4485 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4532 libraries/structure.lib.php:771
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4539 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4586 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1447
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
@@ -2724,36 +2724,36 @@ msgstr ""
 msgid "Your SQL query has been executed successfully"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4876
+#: libraries/DisplayResults.class.php:4923
 msgid "in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4960 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4926
+#: libraries/DisplayResults.class.php:4973
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4938
+#: libraries/DisplayResults.class.php:4985
 #, fuzzy, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d total"
 msgstr "%s அட்டவணை"
 
-#: libraries/DisplayResults.class.php:4950 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:4997 libraries/sql.lib.php:1642
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5034
-#: libraries/DisplayResults.class.php:5040 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5081
+#: libraries/DisplayResults.class.php:5087 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:147
 #: libraries/server_databases.lib.php:151
 #: libraries/server_privileges.lib.php:2898
@@ -2763,8 +2763,8 @@ msgstr ""
 msgid "With selected:"
 msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 
-#: libraries/DisplayResults.class.php:5038
-#: libraries/DisplayResults.class.php:5039
+#: libraries/DisplayResults.class.php:5085
+#: libraries/DisplayResults.class.php:5086
 #: libraries/server_databases.lib.php:149
 #: libraries/server_databases.lib.php:150
 #: libraries/server_privileges.lib.php:1005
@@ -2777,12 +2777,12 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 msgid "Check All"
 msgstr "அனைத்தையும் தெரி"
 
-#: libraries/DisplayResults.class.php:5057
-#: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5104
+#: libraries/DisplayResults.class.php:5374 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
-#: libraries/Util.class.php:3417 libraries/Util.class.php:3418
-#: libraries/Util.class.php:4117 libraries/Util.class.php:4132
-#: libraries/Util.class.php:4148 libraries/config/messages.inc.php:165
+#: libraries/Util.class.php:3415 libraries/Util.class.php:3416
+#: libraries/Util.class.php:4115 libraries/Util.class.php:4130
+#: libraries/Util.class.php:4146 libraries/config/messages.inc.php:165
 #: libraries/display_export.lib.php:163
 #: libraries/server_privileges.lib.php:2231
 #: libraries/server_privileges.lib.php:2906
@@ -2791,31 +2791,31 @@ msgstr "அனைத்தையும் தெரி"
 msgid "Export"
 msgstr "ஏற்றுமதி"
 
-#: libraries/DisplayResults.class.php:5215
+#: libraries/DisplayResults.class.php:5262
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5251 libraries/Header.class.php:343
+#: libraries/DisplayResults.class.php:5298 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
-#: libraries/structure.lib.php:1503
+#: libraries/structure.lib.php:1502
 msgid "Print view"
 msgstr "அச்சுப் பார்வை"
 
-#: libraries/DisplayResults.class.php:5269
+#: libraries/DisplayResults.class.php:5316
 msgid "Print view (with full texts)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5340 libraries/tbl_chart.lib.php:266
+#: libraries/DisplayResults.class.php:5387 libraries/tbl_chart.lib.php:266
 #, fuzzy
 #| msgid "Add into comments"
 msgid "Display chart"
 msgstr "கருதிட்குள் சேர்க்க"
 
-#: libraries/DisplayResults.class.php:5365
+#: libraries/DisplayResults.class.php:5412
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5582
+#: libraries/DisplayResults.class.php:5629
 msgid "Link not found"
 msgstr ""
 
@@ -2910,7 +2910,7 @@ msgid "Keyname"
 msgstr "முக்கியபெயர்"
 
 #: libraries/Index.class.php:565 libraries/structure.lib.php:1393
-#: libraries/structure.lib.php:2079 libraries/structure.lib.php:2089
+#: libraries/structure.lib.php:2078 libraries/structure.lib.php:2088
 #: libraries/tbl_tracking.lib.php:816
 msgid "Unique"
 msgstr "தனித்தன்மை"
@@ -2928,7 +2928,7 @@ msgstr ""
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:818
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
-#: libraries/structure.lib.php:1187 libraries/structure.lib.php:1722
+#: libraries/structure.lib.php:1187 libraries/structure.lib.php:1721
 #: libraries/tbl_columns_definition_form.lib.php:295
 #: libraries/tbl_tracking.lib.php:733 libraries/tbl_tracking.lib.php:820
 msgid "Collation"
@@ -2969,9 +2969,9 @@ msgid "View"
 msgstr "நோக்கு"
 
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:401
-#: libraries/Util.class.php:3185 libraries/Util.class.php:3192
-#: libraries/Util.class.php:3410 libraries/Util.class.php:4128
-#: libraries/Util.class.php:4144 libraries/config/setup.forms.php:303
+#: libraries/Util.class.php:3183 libraries/Util.class.php:3190
+#: libraries/Util.class.php:3408 libraries/Util.class.php:4126
+#: libraries/Util.class.php:4142 libraries/config/setup.forms.php:303
 #: libraries/config/setup.forms.php:340 libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:198
 #: libraries/config/user_preferences.forms.php:235
@@ -2985,32 +2985,32 @@ msgid "Structure"
 msgstr "கட்டமைப்பு"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:405
-#: libraries/Menu.class.php:512 libraries/Util.class.php:3186
-#: libraries/Util.class.php:3193 libraries/Util.class.php:4114
-#: libraries/Util.class.php:4129 libraries/Util.class.php:4145
+#: libraries/Menu.class.php:512 libraries/Util.class.php:3184
+#: libraries/Util.class.php:3191 libraries/Util.class.php:4112
+#: libraries/Util.class.php:4127 libraries/Util.class.php:4143
 #: libraries/config/messages.inc.php:215
 #: libraries/navigation/Nodes/Node_Table.class.php:45 querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:308 libraries/Menu.class.php:408
-#: libraries/Util.class.php:3187 libraries/Util.class.php:3194
-#: libraries/Util.class.php:3406 libraries/Util.class.php:3407
-#: libraries/Util.class.php:4130 libraries/Util.class.php:4146
+#: libraries/Util.class.php:3185 libraries/Util.class.php:3192
+#: libraries/Util.class.php:3404 libraries/Util.class.php:3405
+#: libraries/Util.class.php:4128 libraries/Util.class.php:4144
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
 msgstr "தேடு"
 
-#: libraries/Menu.class.php:318 libraries/Util.class.php:3188
-#: libraries/Util.class.php:3408 libraries/Util.class.php:3409
-#: libraries/Util.class.php:4147
+#: libraries/Menu.class.php:318 libraries/Util.class.php:3186
+#: libraries/Util.class.php:3406 libraries/Util.class.php:3407
+#: libraries/Util.class.php:4145
 #: libraries/navigation/Nodes/Node_Table.class.php:42
 #: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
 msgid "Insert"
 msgstr "செருகு"
 
 #: libraries/Menu.class.php:340 libraries/Menu.class.php:443
-#: libraries/Util.class.php:4135 libraries/Util.class.php:4150
+#: libraries/Util.class.php:4133 libraries/Util.class.php:4148
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:1816
 #: libraries/server_privileges.lib.php:1924
 #: libraries/server_privileges.lib.php:2703
@@ -3019,20 +3019,20 @@ msgid "Privileges"
 msgstr ""
 
 #: libraries/Menu.class.php:349 libraries/Menu.class.php:376
-#: libraries/Menu.class.php:435 libraries/Util.class.php:3195
-#: libraries/Util.class.php:4134 libraries/Util.class.php:4151
+#: libraries/Menu.class.php:435 libraries/Util.class.php:3193
+#: libraries/Util.class.php:4132 libraries/Util.class.php:4149
 #: view_operations.php:92
 msgid "Operations"
 msgstr "செயல்பாடுகள்"
 
 #: libraries/Menu.class.php:353 libraries/Menu.class.php:469
-#: libraries/Util.class.php:4139 libraries/Util.class.php:4152
+#: libraries/Util.class.php:4137 libraries/Util.class.php:4150
 #: libraries/relation.lib.php:236
 msgid "Tracking"
 msgstr ""
 
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:463
-#: libraries/Util.class.php:4138 libraries/Util.class.php:4153
+#: libraries/Util.class.php:4136 libraries/Util.class.php:4151
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
@@ -3048,70 +3048,70 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/Menu.class.php:415 libraries/Util.class.php:4131
+#: libraries/Menu.class.php:415 libraries/Util.class.php:4129
 msgid "Query"
 msgstr ""
 
-#: libraries/Menu.class.php:448 libraries/Util.class.php:4136
+#: libraries/Menu.class.php:448 libraries/Util.class.php:4134
 #: libraries/rte/rte_words.lib.php:34
 msgid "Routines"
 msgstr ""
 
-#: libraries/Menu.class.php:456 libraries/Util.class.php:4137
+#: libraries/Menu.class.php:456 libraries/Util.class.php:4135
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:833
 #: libraries/rte/rte_words.lib.php:58
 msgid "Events"
 msgstr ""
 
-#: libraries/Menu.class.php:475 libraries/Util.class.php:4140
+#: libraries/Menu.class.php:475 libraries/Util.class.php:4138
 #: libraries/relation.lib.php:203
 msgid "Designer"
 msgstr ""
 
-#: libraries/Menu.class.php:508 libraries/Util.class.php:4113
+#: libraries/Menu.class.php:508 libraries/Util.class.php:4111
 #: libraries/config/messages.inc.php:178 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3696
 msgid "Databases"
 msgstr "தரவுத்தளங்கள்"
 
-#: libraries/Menu.class.php:531 libraries/Util.class.php:4116
+#: libraries/Menu.class.php:531 libraries/Util.class.php:4114
 #, fuzzy
 #| msgid "Usage"
 msgid "Users"
 msgstr "பாவனையளவு"
 
 #: libraries/Menu.class.php:558 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4120 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4118 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr ""
 
 #: libraries/Menu.class.php:564 libraries/ServerStatusData.class.php:199
-#: libraries/Util.class.php:4121 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4119 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 msgid "Replication"
 msgstr "படியெடுத்தல்"
 
 #: libraries/Menu.class.php:569 libraries/ServerStatusData.class.php:261
-#: libraries/Util.class.php:4122 libraries/server_engines.lib.php:109
+#: libraries/Util.class.php:4120 libraries/server_engines.lib.php:109
 #: libraries/server_engines.lib.php:113
 msgid "Variables"
 msgstr ""
 
-#: libraries/Menu.class.php:573 libraries/Util.class.php:4123
+#: libraries/Menu.class.php:573 libraries/Util.class.php:4121
 msgid "Charsets"
 msgstr ""
 
-#: libraries/Menu.class.php:578 libraries/Util.class.php:4124
+#: libraries/Menu.class.php:578 libraries/Util.class.php:4122
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr ""
 
-#: libraries/Menu.class.php:582 libraries/Util.class.php:4125
+#: libraries/Menu.class.php:582 libraries/Util.class.php:4123
 msgid "Engines"
 msgstr ""
 
-#: libraries/Message.class.php:199 libraries/Util.class.php:629
+#: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:174
 #: libraries/insert_edit.lib.php:1215 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
@@ -3139,7 +3139,7 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d வரிசை சேர்க்கப்பட்டுள்ளது."
 msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்டுள்ளன."
 
-#: libraries/PDF.class.php:70 libraries/Util.class.php:2476
+#: libraries/PDF.class.php:70 libraries/Util.class.php:2474
 #: libraries/browse_foreigners.lib.php:393
 #: libraries/schema/Pdf_Relation_Schema.class.php:1199
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223
@@ -3542,14 +3542,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3793,13 +3793,13 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr ""
 
-#: libraries/Util.class.php:642 libraries/sql.lib.php:429
+#: libraries/Util.class.php:640 libraries/sql.lib.php:429
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
 msgstr "SQL வினவல்"
 
-#: libraries/Util.class.php:686 libraries/rte/rte_events.lib.php:114
+#: libraries/Util.class.php:684 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
 #: libraries/rte/rte_events.lib.php:161 libraries/rte/rte_routines.lib.php:311
 #: libraries/rte/rte_routines.lib.php:320
@@ -3812,127 +3812,127 @@ msgstr "SQL வினவல்"
 msgid "MySQL said: "
 msgstr "MySQL சொன்னது: "
 
-#: libraries/Util.class.php:1137
+#: libraries/Util.class.php:1135
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/Util.class.php:1179 libraries/config/messages.inc.php:493
+#: libraries/Util.class.php:1177 libraries/config/messages.inc.php:493
 msgid "Explain SQL"
 msgstr ""
 
-#: libraries/Util.class.php:1186
+#: libraries/Util.class.php:1184
 msgid "Skip Explain SQL"
 msgstr ""
 
-#: libraries/Util.class.php:1226
+#: libraries/Util.class.php:1224
 msgid "Without PHP Code"
 msgstr "PHP குறிமுறை இல்லாமல்"
 
-#: libraries/Util.class.php:1229 libraries/config/messages.inc.php:495
+#: libraries/Util.class.php:1227 libraries/config/messages.inc.php:495
 msgid "Create PHP Code"
 msgstr "PHP குறிமுறை உருவாக்கு"
 
-#: libraries/Util.class.php:1255 libraries/config/messages.inc.php:494
+#: libraries/Util.class.php:1253 libraries/config/messages.inc.php:494
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "புதுப்பி"
 
-#: libraries/Util.class.php:1265
+#: libraries/Util.class.php:1263
 msgid "Skip Validate SQL"
 msgstr "SQL உறுதி செய் தாவிச்செல்"
 
-#: libraries/Util.class.php:1268 libraries/config/messages.inc.php:497
+#: libraries/Util.class.php:1266 libraries/config/messages.inc.php:497
 msgid "Validate SQL"
 msgstr "SQL உறுதி செய்"
 
-#: libraries/Util.class.php:1309 libraries/sql.lib.php:460
+#: libraries/Util.class.php:1307 libraries/sql.lib.php:460
 msgid "Profiling"
 msgstr "விவரக்குறிப்பு"
 
-#: libraries/Util.class.php:1321
+#: libraries/Util.class.php:1319
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "உள்வரிசை"
 
 #. l10n: Short week day name
-#: libraries/Util.class.php:1622
+#: libraries/Util.class.php:1620
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "ஞாயிறு"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.class.php:1638
+#: libraries/Util.class.php:1636
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y இல் %I:%M %p"
 
-#: libraries/Util.class.php:1985
+#: libraries/Util.class.php:1983
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s நாட்கள் %s மணித்தியாலங்கள் %s நிமிடங்கள் மற்றும் %s நொடிகள்"
 
-#: libraries/Util.class.php:2074
+#: libraries/Util.class.php:2072
 msgid "Missing parameter:"
 msgstr "அளவுருக்கள் காணப்படவில்லை:"
 
-#: libraries/Util.class.php:2594
+#: libraries/Util.class.php:2592
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "தரவுத்தளம் தாவி செல்லவும் &quot;%s&quot;."
 
-#: libraries/Util.class.php:2618
+#: libraries/Util.class.php:2616
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s செயல்பாடு ஒரு அறியப்படுகிற பிழையால் பாதிக்கப்பட்டுள்ளது, %s பார்க்க"
 
-#: libraries/Util.class.php:2799
+#: libraries/Util.class.php:2797
 msgid "Click to toggle"
 msgstr "மாறுவதற்கு கிளிக் செய்யவும்"
 
-#: libraries/Util.class.php:3323 libraries/sql_query_form.lib.php:477
+#: libraries/Util.class.php:3321 libraries/sql_query_form.lib.php:477
 #: prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr "உனது கணினியை உலாவு:"
 
-#: libraries/Util.class.php:3348
+#: libraries/Util.class.php:3346
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "வலை சேவையகம் பதிவேற்ற அடைவை <b>%s</b> தேர்ந்தெடுங்கள்:"
 
-#: libraries/Util.class.php:3377 libraries/insert_edit.lib.php:1216
+#: libraries/Util.class.php:3375 libraries/insert_edit.lib.php:1216
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
 msgstr "நீங்கள் தேர்வு செய்த வலை சேவையகம் பதிவேற்றை அடைய இயலவில்லை."
 
-#: libraries/Util.class.php:3388
+#: libraries/Util.class.php:3386
 msgid "There are no files to upload"
 msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை"
 
-#: libraries/Util.class.php:3413 libraries/Util.class.php:3414
+#: libraries/Util.class.php:3411 libraries/Util.class.php:3412
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "வெறுமை"
 
-#: libraries/Util.class.php:3419 libraries/Util.class.php:3420
+#: libraries/Util.class.php:3417 libraries/Util.class.php:3418
 msgid "Execute"
 msgstr "நிறைவேற்று"
 
-#: libraries/Util.class.php:3957
+#: libraries/Util.class.php:3955
 msgid "Print"
 msgstr "அச்சிடு"
 
-#: libraries/Util.class.php:4058 libraries/structure.lib.php:798
-#: libraries/structure.lib.php:1775 libraries/tbl_printview.lib.php:239
+#: libraries/Util.class.php:4056 libraries/structure.lib.php:798
+#: libraries/structure.lib.php:1774 libraries/tbl_printview.lib.php:239
 msgid "Creation"
 msgstr "உருவாக்கம்"
 
-#: libraries/Util.class.php:4064 libraries/structure.lib.php:805
-#: libraries/structure.lib.php:1783 libraries/tbl_printview.lib.php:250
+#: libraries/Util.class.php:4062 libraries/structure.lib.php:805
+#: libraries/structure.lib.php:1782 libraries/tbl_printview.lib.php:250
 msgid "Last update"
 msgstr "இறுதி இற்றைப்படுத்தல்"
 
-#: libraries/Util.class.php:4070 libraries/structure.lib.php:812
-#: libraries/structure.lib.php:1791 libraries/tbl_printview.lib.php:261
+#: libraries/Util.class.php:4068 libraries/structure.lib.php:812
+#: libraries/structure.lib.php:1790 libraries/tbl_printview.lib.php:261
 msgid "Last check"
 msgstr "கடைசி சோதனை"
 
@@ -3976,20 +3976,20 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:243
 #: libraries/config/user_preferences.forms.php:266
 #: libraries/config/user_preferences.forms.php:271
-#: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2189
+#: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2188
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
 msgstr "தரவு"
 
 #: libraries/build_html_for_db.lib.php:47 libraries/engines/innodb.lib.php:171
 #: libraries/server_databases.lib.php:183 libraries/server_status.lib.php:180
-#: libraries/server_status.lib.php:291 libraries/structure.lib.php:2211
+#: libraries/server_status.lib.php:291 libraries/structure.lib.php:2210
 #: libraries/tbl_printview.lib.php:336
 msgid "Total"
 msgstr "மொத்தம்"
 
 #: libraries/build_html_for_db.lib.php:52 libraries/structure.lib.php:791
-#: libraries/structure.lib.php:2202 libraries/tbl_printview.lib.php:320
+#: libraries/structure.lib.php:2201 libraries/tbl_printview.lib.php:320
 msgid "Overhead"
 msgstr ""
 
@@ -4585,7 +4585,7 @@ msgid "Character set of the file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:72 libraries/config/messages.inc.php:88
-#: libraries/structure.lib.php:1703
+#: libraries/structure.lib.php:1702
 #: libraries/tbl_gis_visualization.lib.php:312
 #: libraries/tbl_printview.lib.php:179
 msgid "Format"
@@ -6666,8 +6666,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7117,8 +7117,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7655,8 +7655,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Index.class.php:32
-#: libraries/structure.lib.php:1397 libraries/structure.lib.php:2077
-#: libraries/structure.lib.php:2087 libraries/structure.lib.php:2195
+#: libraries/structure.lib.php:1397 libraries/structure.lib.php:2076
+#: libraries/structure.lib.php:2086 libraries/structure.lib.php:2194
 #: libraries/tbl_columns_definition_form.lib.php:303
 #: libraries/tbl_printview.lib.php:311
 msgid "Index"
@@ -7820,7 +7820,7 @@ msgid "Repair table"
 msgstr "அட்டவணையை திருத்து"
 
 #: libraries/operations.lib.php:1182 libraries/structure.lib.php:312
-#: libraries/structure.lib.php:1646
+#: libraries/structure.lib.php:1645
 msgid "Optimize table"
 msgstr "அட்டவணையை உகப்பாக்கு"
 
@@ -7900,8 +7900,8 @@ msgstr "வரவேற்கிறது %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "நீங்கள் அமைப்பு கோப்பை உருவாக்கவில்லை. அதை உருவாக்க நீங்கள் %1$s உருவாக்க கோவையை %2$s "
 "பயன்படுத்தலாம்."
@@ -8560,6 +8560,13 @@ msgstr ""
 msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
+msgstr ""
+
+#: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
+msgid ""
+"Prepends and/or Appends text to a string. First option is text to be "
+"prepended, second is appended (enclosed in single quotes, default empty "
+"string)."
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
@@ -9571,7 +9578,7 @@ msgstr ""
 msgid "Original position"
 msgstr ""
 
-#: libraries/server_bin_log.lib.php:134 libraries/structure.lib.php:2180
+#: libraries/server_bin_log.lib.php:134 libraries/structure.lib.php:2179
 msgid "Information"
 msgstr ""
 
@@ -10130,8 +10137,8 @@ msgstr "இறுதிப்பர்வை"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3864
@@ -11388,22 +11395,22 @@ msgstr "ஒன்றுமில்லாத"
 msgid "Column %s has been dropped"
 msgstr ""
 
-#: libraries/structure.lib.php:1389 libraries/structure.lib.php:2075
-#: libraries/structure.lib.php:2085
+#: libraries/structure.lib.php:1389 libraries/structure.lib.php:2074
+#: libraries/structure.lib.php:2084
 msgid "Primary"
 msgstr ""
 
-#: libraries/structure.lib.php:1404 libraries/structure.lib.php:2081
-#: libraries/structure.lib.php:2091
+#: libraries/structure.lib.php:1404 libraries/structure.lib.php:2080
+#: libraries/structure.lib.php:2090
 msgid "Spatial"
 msgstr ""
 
-#: libraries/structure.lib.php:1414 libraries/structure.lib.php:2083
-#: libraries/structure.lib.php:2093
+#: libraries/structure.lib.php:1414 libraries/structure.lib.php:2082
+#: libraries/structure.lib.php:2092
 msgid "Fulltext"
 msgstr ""
 
-#: libraries/structure.lib.php:1429 libraries/structure.lib.php:1539
+#: libraries/structure.lib.php:1429 libraries/structure.lib.php:1538
 #, fuzzy
 #| msgid "Add columns"
 msgid "Move columns"
@@ -11413,144 +11420,144 @@ msgstr "நெடுக்கைகளை சேர்"
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
-#: libraries/structure.lib.php:1482 view_create.php:178
+#: libraries/structure.lib.php:1481 view_create.php:178
 msgid "Edit view"
 msgstr "தொகுப்பு பார்வை"
 
-#: libraries/structure.lib.php:1515
+#: libraries/structure.lib.php:1514
 msgid "Relation view"
 msgstr "தொடர்பு பார்வை"
 
-#: libraries/structure.lib.php:1527
+#: libraries/structure.lib.php:1526
 msgid "Propose table structure"
 msgstr ""
 
-#: libraries/structure.lib.php:1561
+#: libraries/structure.lib.php:1560
 #: libraries/tbl_columns_definition_form.lib.php:178
 #, fuzzy
 #| msgid "You have added a new user."
 msgid "You have to add at least one column."
 msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்"
 
-#: libraries/structure.lib.php:1572
+#: libraries/structure.lib.php:1571
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "%s களத்தை சேர்க்க"
 
-#: libraries/structure.lib.php:1578
+#: libraries/structure.lib.php:1577
 #: libraries/tbl_columns_definition_form.lib.php:168
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "%s களத்தை சேர்க்க"
 
-#: libraries/structure.lib.php:1595
+#: libraries/structure.lib.php:1594
 msgid "At End of Table"
 msgstr ""
 
-#: libraries/structure.lib.php:1596
+#: libraries/structure.lib.php:1595
 msgid "At Beginning of Table"
 msgstr ""
 
-#: libraries/structure.lib.php:1597
+#: libraries/structure.lib.php:1596
 #, php-format
 msgid "After %s"
 msgstr "%s பின்"
 
-#: libraries/structure.lib.php:1691
+#: libraries/structure.lib.php:1690
 #, fuzzy
 #| msgid "Query statistics"
 msgid "Row statistics"
 msgstr "வினவல் புள்ளிவிவரவியல்"
 
-#: libraries/structure.lib.php:1696 libraries/tbl_printview.lib.php:182
+#: libraries/structure.lib.php:1695 libraries/tbl_printview.lib.php:182
 msgid "static"
 msgstr "மாறா"
 
-#: libraries/structure.lib.php:1698 libraries/tbl_printview.lib.php:184
+#: libraries/structure.lib.php:1697 libraries/tbl_printview.lib.php:184
 msgid "dynamic"
 msgstr "இறக்காற்றல்"
 
-#: libraries/structure.lib.php:1709
+#: libraries/structure.lib.php:1708
 msgid "partitioned"
 msgstr ""
 
-#: libraries/structure.lib.php:1746 libraries/tbl_printview.lib.php:205
+#: libraries/structure.lib.php:1745 libraries/tbl_printview.lib.php:205
 msgid "Row length"
 msgstr "நிரல் நீளம்"
 
-#: libraries/structure.lib.php:1759 libraries/tbl_printview.lib.php:219
+#: libraries/structure.lib.php:1758 libraries/tbl_printview.lib.php:219
 msgid "Row size"
 msgstr "நிரல் அளவு"
 
-#: libraries/structure.lib.php:1767 libraries/tbl_printview.lib.php:228
+#: libraries/structure.lib.php:1766 libraries/tbl_printview.lib.php:228
 msgid "Next autoindex"
 msgstr ""
 
-#: libraries/structure.lib.php:1893 libraries/structure.lib.php:1974
-#: libraries/structure.lib.php:1982 libraries/structure.lib.php:1999
+#: libraries/structure.lib.php:1892 libraries/structure.lib.php:1973
+#: libraries/structure.lib.php:1981 libraries/structure.lib.php:1998
 #, php-format
 msgid "An index has been added on %s"
 msgstr ""
 
-#: libraries/structure.lib.php:1964
+#: libraries/structure.lib.php:1963
 #, php-format
 msgid "A primary key has been added on %s"
 msgstr ""
 
-#: libraries/structure.lib.php:2024 libraries/structure.lib.php:2095
+#: libraries/structure.lib.php:2023 libraries/structure.lib.php:2094
 #, fuzzy
 #| msgid "Session value"
 msgid "Distinct values"
 msgstr "அமர்வு மதிப்பு"
 
-#: libraries/structure.lib.php:2027 libraries/structure.lib.php:2030
+#: libraries/structure.lib.php:2026 libraries/structure.lib.php:2029
 msgid "Add primary key"
 msgstr ""
 
-#: libraries/structure.lib.php:2033 libraries/structure.lib.php:2036
+#: libraries/structure.lib.php:2032 libraries/structure.lib.php:2035
 msgid "Add index"
 msgstr ""
 
-#: libraries/structure.lib.php:2039 libraries/structure.lib.php:2042
+#: libraries/structure.lib.php:2038 libraries/structure.lib.php:2041
 msgid "Add unique index"
 msgstr ""
 
-#: libraries/structure.lib.php:2045 libraries/structure.lib.php:2048
+#: libraries/structure.lib.php:2044 libraries/structure.lib.php:2047
 msgid "Add SPATIAL index"
 msgstr ""
 
-#: libraries/structure.lib.php:2051 libraries/structure.lib.php:2054
+#: libraries/structure.lib.php:2050 libraries/structure.lib.php:2053
 msgid "Add FULLTEXT index"
 msgstr ""
 
-#: libraries/structure.lib.php:2185
+#: libraries/structure.lib.php:2184
 msgid "Space usage"
 msgstr ""
 
-#: libraries/structure.lib.php:2205 libraries/tbl_printview.lib.php:327
+#: libraries/structure.lib.php:2204 libraries/tbl_printview.lib.php:327
 msgid "Effective"
 msgstr "பயனுடைய"
 
-#: libraries/structure.lib.php:2386 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2385 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully"
 msgstr ""
 
-#: libraries/structure.lib.php:2434 libraries/tbl_tracking.lib.php:920
+#: libraries/structure.lib.php:2433 libraries/tbl_tracking.lib.php:920
 #: libraries/tbl_tracking.lib.php:950
 msgid "Query error"
 msgstr "வினவல் வழு"
 
-#: libraries/structure.lib.php:2532
+#: libraries/structure.lib.php:2531
 #, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "The columns have been moved successfully."
 msgstr "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
 
-#: libraries/structure.lib.php:2580
+#: libraries/structure.lib.php:2579
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
@@ -12180,19 +12187,19 @@ msgstr ""
 msgid "Error: relation already exists."
 msgstr ""
 
-#: pmd_relation_new.php:79 pmd_relation_new.php:102
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 msgid "Error: Relation not added."
 msgstr ""
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:81
 msgid "FOREIGN KEY relation added"
 msgstr ""
 
-#: pmd_relation_new.php:84
+#: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: pmd_relation_new.php:100
+#: pmd_relation_new.php:104
 msgid "Internal relation added"
 msgstr ""
 
@@ -13015,8 +13022,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13143,8 +13150,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
