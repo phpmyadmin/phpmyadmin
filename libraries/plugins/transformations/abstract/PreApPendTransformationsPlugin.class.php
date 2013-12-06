@@ -29,8 +29,9 @@ abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
     public static function getInfo()
     {
         return __(
-            'Prepends and/or Appends text to a string. First option is text to be prepended,'
-            . ' second is appended (enclosed in single quotes, default empty string).'
+            'Prepends and/or Appends text to a string. First option is text'
+            . ' to be prepended, second is appended (enclosed in single'
+            . ' quotes, default empty string).'
         );
     }
 
@@ -52,7 +53,8 @@ abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
             $options[1] = '';                             // default empty strings
         
         //just prepend and/or append the options to the original text
-        $newtext = htmlspecialchars($options[0]) . $buffer . htmlspecialchars($options[1]);
+        $newtext = htmlspecialchars($options[0]) . $buffer
+            . htmlspecialchars($options[1]);
 
         return $newtext;
     }
