@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-06 06:23-0500\n"
-"PO-Revision-Date: 2013-11-26 07:46+0200\n"
+"PO-Revision-Date: 2013-12-06 13:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -8684,6 +8684,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Převede booleovské hodnoty na text (výchozí 'T' a 'F'). Prvním parameterem "
+"je text pro TRUE, druhým pro FALSE. Nenulová hodnota odpovídá TRUE."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -8776,7 +8778,6 @@ msgstr ""
 "odděleném tečkami."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Appends text to a string. The only option is the text to be appended "
 #| "(enclosed in single quotes, default empty string)."
@@ -8785,8 +8786,8 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
-"Přidá k hodnotě text. Jediným parametrem je text, který má být přidaný (v "
-"jednoduchých uvozovkách, výchozí je prázdný)."
+"Přidá k hodnotě text. První parametr bude přidaný na začátek, druhý na konec "
+"(v jednoduchých uvozovkách, výchozí je prázdný řetezec)."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -12622,7 +12623,7 @@ msgstr "Export databází"
 
 #: server_privileges.php:142
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "Jméno uživatele a počítače se nezměnilo."
 
 #: server_status.php:32
 #, php-format
