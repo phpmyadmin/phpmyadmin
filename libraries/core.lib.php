@@ -340,7 +340,7 @@ function PMA_getTableCount($db)
  * (renamed with PMA prefix to avoid double definition when embedded
  * in Moodle)
  *
- * @param string $size size
+ * @param string|int $size size (Default = 0)
  *
  * @return integer $size
  */

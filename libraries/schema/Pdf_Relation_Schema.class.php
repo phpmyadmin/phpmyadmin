@@ -58,11 +58,11 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * Sets the scaling factor, defines minimum coordinates and margins
      *
-     * @param float $scale      The scaling factor
-     * @param float $xMin       The minimum X coordinate
-     * @param float $yMin       The minimum Y coordinate
-     * @param float $leftMargin The left margin
-     * @param float $topMargin  The top margin
+     * @param float|int $scale      The scaling factor
+     * @param float|int $xMin       The minimum X coordinate
+     * @param float|int $yMin       The minimum Y coordinate
+     * @param float|int $leftMargin The left margin
+     * @param float|int $topMargin  The top margin
      *
      * @access public
      *
@@ -85,14 +85,14 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * Outputs a scaled cell
      *
-     * @param float   $w      The cell width
-     * @param float   $h      The cell height
-     * @param string  $txt    The text to output
-     * @param mixed   $border Whether to add borders or not
-     * @param integer $ln     Where to put the cursor once the output is done
-     * @param string  $align  Align mode
-     * @param integer $fill   Whether to fill the cell with a color or not
-     * @param string  $link   Link
+     * @param float|int   $w      The cell width
+     * @param float|int   $h      The cell height
+     * @param string      $txt    The text to output
+     * @param mixed       $border Whether to add borders or not
+     * @param integer     $ln     Where to put the cursor once the output is done
+     * @param string      $align  Align mode
+     * @param integer     $fill   Whether to fill the cell with a color or not
+     * @param string      $link   Link
      *
      * @access public
      *
