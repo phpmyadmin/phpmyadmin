@@ -52,30 +52,34 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
     $GLOBALS['plugin_param'] = $plugin_param;
     /* Scan for plugins */
     $plugin_list = array();
-    if ($handle = @opendir($plugins_dir)) {
-        while ($file = @readdir($handle)) {
-            // In some situations, Mac OS creates a new file for each file
-            // (for example ._csv.php) so the following regexp
-            // matches a file which does not start with a dot but ends
-            // with ".php"
-            $class_type = strtoupper($plugin_type[0])
-                . strtolower(substr($plugin_type, 1));
-            if (is_file($plugins_dir . $file)
-                && preg_match(
-                    '@^' . $class_type . '(.+)\.class\.php$@i',
-                    $file,
-                    $matches
-                )
-            ) {
-                $GLOBALS['skip_import'] = false;
-                include_once $plugins_dir . $file;
-                if (! $GLOBALS['skip_import']) {
-                    $class_name = $class_type . $matches[1];
-                    $plugin_list [] = new $class_name;
-                }
+    if (!($handle = @opendir($plugins_dir))) {
+        ksort($plugin_list);
+        return $plugin_list;
+    }
+
+    while ($file = @readdir($handle)) {
+        // In some situations, Mac OS creates a new file for each file
+        // (for example ._csv.php) so the following regexp
+        // matches a file which does not start with a dot but ends
+        // with ".php"
+        $class_type = strtoupper($plugin_type[0])
+            . strtolower(substr($plugin_type, 1));
+        if (is_file($plugins_dir . $file)
+            && preg_match(
+                '@^' . $class_type . '(.+)\.class\.php$@i',
+                $file,
+                $matches
+            )
+        ) {
+            $GLOBALS['skip_import'] = false;
+            include_once $plugins_dir . $file;
+            if (! $GLOBALS['skip_import']) {
+                $class_name = $class_type . $matches[1];
+                $plugin_list [] = new $class_name;
             }
         }
     }
+
     ksort($plugin_list);
     return $plugin_list;
 }
@@ -132,31 +136,36 @@ function PMA_pluginGetDefault($section, $opt)
     if (isset($_GET[$opt])) {
         // If the form is being repopulated using $_GET data, that is priority
         return htmlspecialchars($_GET[$opt]);
-    } elseif (isset($GLOBALS['timeout_passed'])
+    }
+
+    if (isset($GLOBALS['timeout_passed'])
         && $GLOBALS['timeout_passed']
         && isset($_REQUEST[$opt])
     ) {
         return htmlspecialchars($_REQUEST[$opt]);
-    } elseif (isset($GLOBALS['cfg'][$section][$opt])) {
-        $matches = array();
-        /* Possibly replace localised texts */
-        if (preg_match_all(
-            '/(str[A-Z][A-Za-z0-9]*)/',
-            $GLOBALS['cfg'][$section][$opt],
-            $matches
-        )) {
-            $val = $GLOBALS['cfg'][$section][$opt];
-            foreach ($matches[0] as $match) {
-                if (isset($GLOBALS[$match])) {
-                    $val = str_replace($match, $GLOBALS[$match], $val);
-                }
-            }
-            return htmlspecialchars($val);
-        } else {
-            return htmlspecialchars($GLOBALS['cfg'][$section][$opt]);
+    }
+
+    if (!isset($GLOBALS['cfg'][$section][$opt])) {
+        return '';
+    }
+
+    $matches = array();
+    /* Possibly replace localised texts */
+    if (!preg_match_all(
+        '/(str[A-Z][A-Za-z0-9]*)/',
+        $GLOBALS['cfg'][$section][$opt],
+        $matches
+    )) {
+        return htmlspecialchars($GLOBALS['cfg'][$section][$opt]);
+    }
+
+    $val = $GLOBALS['cfg'][$section][$opt];
+    foreach ($matches[0] as $match) {
+        if (isset($GLOBALS[$match])) {
+            $val = str_replace($match, $GLOBALS[$match], $val);
         }
     }
-    return '';
+    return htmlspecialchars($val);
 }
 
 /**
