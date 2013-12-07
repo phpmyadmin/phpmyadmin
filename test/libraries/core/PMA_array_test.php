@@ -326,4 +326,30 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
         PMA_arrayWalkRecursive($arr, 'stripslashes', true);
         $this->assertEquals($arr, $target);
     }
+
+    /**
+     * @dataProvider prov_arrayKeyExists
+     */
+    function testArrayKeyExists($expected, $path, $array)
+    {
+        $this->assertEquals($expected, PMA_arrayKeyExists($path, $array));
+    }
+
+    function prov_arrayKeyExists()
+    {
+        return array(
+            array(true, 'k1', array('k1' => 'v1')),
+            array(true, 'k1/k2', array('k1' => array('k2' => 'v2'))),
+            array(true, 'k1/k2', array('k1' => array('k3' => 'v3', 'k2' => 'v2'))),
+            array(true, 'k1/k2', array('k1' => array('k2' => array('k3' => 'v3')))),
+            array(
+                true, 'k1/k2/k3', array('k1' => array('k2' => array('k3' => 'v3')))
+            ),
+            array(false, '', array('k1' => 'v1')),
+            array(false, 'k1/k2', array('k1' => 'v1')),
+            array(false, 'k1/k2', array('k1' => 'v1', 'k2' => 'v2')),
+            array(false, 'k1/k3', array('k1' => array('k2' => 'v2'))),
+            array(false, 'k2', array('k1' => array('k2' => 'v2'))),
+        );
+    }
 }
