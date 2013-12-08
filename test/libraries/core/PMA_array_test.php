@@ -338,18 +338,18 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
     function prov_arrayKeyExists()
     {
         return array(
-            array(true, 'k1', array('k1' => 'v1')),
-            array(true, 'k1/k2', array('k1' => array('k2' => 'v2'))),
-            array(true, 'k1/k2', array('k1' => array('k3' => 'v3', 'k2' => 'v2'))),
-            array(true, 'k1/k2', array('k1' => array('k2' => array('k3' => 'v3')))),
+            array(true, 'k1', array('k1' => array())),
+            array(true, 'k1/k2', array('k1' => array('k2' => array()))),
+            array(true, 'k1/k2', array('k1' => array('k3' => array(), 'k2' => array()))),
+            array(true, 'k1/k2', array('k1' => array('k2' => array('k3' => array())))),
             array(
-                true, 'k1/k2/k3', array('k1' => array('k2' => array('k3' => 'v3')))
+                true, 'k1/k2/k3', array('k1' => array('k2' => array('k3' => array())))
             ),
-            array(false, '', array('k1' => 'v1')),
-            array(false, 'k1/k2', array('k1' => 'v1')),
-            array(false, 'k1/k2', array('k1' => 'v1', 'k2' => 'v2')),
-            array(false, 'k1/k3', array('k1' => array('k2' => 'v2'))),
-            array(false, 'k2', array('k1' => array('k2' => 'v2'))),
+            array(false, '', array('k1' => array())),
+            array(false, 'k1/k2', array('k1' => array())),
+            array(false, 'k1/k2', array('k1' => array(), 'k2' => array())),
+            array(false, 'k1/k3', array('k1' => array('k2' => array()))),
+            array(false, 'k2', array('k1' => array('k2' => array()))),
         );
     }
 }
