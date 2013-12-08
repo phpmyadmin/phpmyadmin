@@ -164,14 +164,14 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider prov_getD
+     * @dataProvider prov_getDecimalScale
      */
-    function testGetD($expected, $size)
+    function testGetDecimalScale($expected, $size)
     {
-        $this->assertEquals($expected, PMA_getD($size));
+        $this->assertEquals($expected, PMA_getDecimalScale($size));
     }
 
-    function prov_getD()
+    function prov_getDecimalScale()
     {
         return array(
             array(1, '2,1'),

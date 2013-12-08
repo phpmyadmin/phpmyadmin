@@ -525,7 +525,7 @@ function PMA_getM($last_cumulative_size)
  * @return int Scale of the given decimal size notation
  * @access  public
  */
-function PMA_getD($last_cumulative_size)
+function PMA_getDecimalScale($last_cumulative_size)
 {
     return (int) substr(
         $last_cumulative_size,
@@ -651,7 +651,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
             $size = PMA_getDecimalSize($cell);
 
             $oldM = PMA_getM($last_cumulative_size);
-            $oldD = PMA_getD($last_cumulative_size);
+            $oldD = PMA_getDecimalScale($last_cumulative_size);
 
             /* New val if M or D is greater than current largest */
             if ($size[M] > $oldM || $size[D] > $oldD) {
@@ -709,7 +709,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
              * The last cumulative type was DECIMAL
              */
             $oldM = PMA_getM($last_cumulative_size);
-            $oldD = PMA_getD($last_cumulative_size);
+            $oldD = PMA_getDecimalScale($last_cumulative_size);
             $oldInt = $oldM - $oldD;
             $newInt = strlen((string)$cell);
 
