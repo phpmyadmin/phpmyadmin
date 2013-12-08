@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 + rfe #1474 Text transformation combines Append and Prepend
 
 4.1.1.0 (not yet released)
+- bug #4154 Error using UNION query
 
 4.1.0.0 (not yet released)
 + rfe #499 On user creation, warn if the user already exists
