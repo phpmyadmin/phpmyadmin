@@ -2272,9 +2272,10 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $full_sql_query = $sql_query;
 
     // Handle remembered sorting order, only for single table query
-    // Handling is not required when its a union query
+    // Handling is not required when it's a union query
+    // (the parser never sets the 'union' key to 0)
     if (PMA_isRememberSortingOrder($analyzed_sql_results) 
-        && $analyzed_sql_results['analyzed_sql'][0]['queryflags']['union']==null
+        && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
     ) {
         PMA_handleSortOrder($db, $table, $analyzed_sql_results, $full_sql_query);
     }
