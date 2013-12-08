@@ -51,13 +51,15 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
  */
 function PMA_getWhereClauseArray($where_clause)
 {
-    if (isset ($where_clause)) {
-        if (is_array($where_clause)) {
-            return $where_clause;
-        } else {
-            return array(0 => $where_clause);
-        }
+    if (!isset($where_clause)) {
+        return;
     }
+
+    if (is_array($where_clause)) {
+        return $where_clause;
+    }
+
+    return array(0 => $where_clause);
 }
 
 /**

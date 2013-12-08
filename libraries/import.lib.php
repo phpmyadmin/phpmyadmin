@@ -354,27 +354,27 @@ function PMA_importGetNextChunk($size = 32768)
 
     if ($charset_conversion) {
         return PMA_convertString($charset_of_file, 'utf-8', $result);
-    } else {
-        /**
-         * Skip possible byte order marks (I do not think we need more
-         * charsets, but feel free to add more, you can use wikipedia for
-         * reference: <http://en.wikipedia.org/wiki/Byte_Order_Mark>)
-         *
-         * @todo BOM could be used for charset autodetection
-         */
-        if ($GLOBALS['offset'] == $size) {
-            // UTF-8
-            if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
-                $result = substr($result, 3);
-                // UTF-16 BE, LE
-            } elseif (strncmp($result, "\xFE\xFF", 2) == 0
-                || strncmp($result, "\xFF\xFE", 2) == 0
-            ) {
-                $result = substr($result, 2);
-            }
-        }
-        return $result;
     }
+
+    /**
+     * Skip possible byte order marks (I do not think we need more
+     * charsets, but feel free to add more, you can use wikipedia for
+     * reference: <http://en.wikipedia.org/wiki/Byte_Order_Mark>)
+     *
+     * @todo BOM could be used for charset autodetection
+     */
+    if ($GLOBALS['offset'] == $size) {
+        // UTF-8
+        if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
+            $result = substr($result, 3);
+            // UTF-16 BE, LE
+        } elseif (strncmp($result, "\xFE\xFF", 2) == 0
+            || strncmp($result, "\xFF\xFE", 2) == 0
+        ) {
+            $result = substr($result, 2);
+        }
+    }
+    return $result;
 }
 
 /**
@@ -451,29 +451,29 @@ function PMA_getColumnAlphaName($num)
  */
 function PMA_getColumnNumberFromName($name)
 {
-    if (! empty($name)) {
-        $name = strtoupper($name);
-        $num_chars = strlen($name);
-        $column_number = 0;
-        for ($i = 0; $i < $num_chars; ++$i) {
-            // read string from back to front
-            $char_pos = ($num_chars - 1) - $i;
-
-            // convert capital character to ASCII value
-            // and subtract 64 to get corresponding decimal value
-            // ASCII value of "A" is 65, "B" is 66, etc.
-            // Decimal equivalent of "A" is 1, "B" is 2, etc.
-            $number = (ord($name[$char_pos]) - 64);
-
-            // base26 to base10 conversion : multiply each number
-            // with corresponding value of the position, in this case
-            // $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
-            $column_number += $number * PMA_Util::pow(26, $i);
-        }
-        return $column_number;
-    } else {
+    if (empty($name)) {
         return 0;
     }
+
+    $name = strtoupper($name);
+    $num_chars = strlen($name);
+    $column_number = 0;
+    for ($i = 0; $i < $num_chars; ++$i) {
+        // read string from back to front
+        $char_pos = ($num_chars - 1) - $i;
+
+        // convert capital character to ASCII value
+        // and subtract 64 to get corresponding decimal value
+        // ASCII value of "A" is 65, "B" is 66, etc.
+        // Decimal equivalent of "A" is 1, "B" is 2, etc.
+        $number = (ord($name[$char_pos]) - 64);
+
+        // base26 to base10 conversion : multiply each number
+        // with corresponding value of the position, in this case
+        // $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
+        $column_number += $number * PMA_Util::pow(26, $i);
+    }
+    return $column_number;
 }
 
 /**
@@ -779,25 +779,27 @@ function PMA_detectType($last_cumulative_type, $cell)
     if (! strcmp('NULL', $cell)) {
         if ($last_cumulative_type === null || $last_cumulative_type == NONE) {
             return NONE;
-        } else {
-            return $last_cumulative_type;
         }
-    } elseif (is_numeric($cell)) {
+
+        return $last_cumulative_type;
+    }
+
+    if (is_numeric($cell)) {
         if ($cell == (string)(float)$cell
             && strpos($cell, ".") !== false
             && substr_count($cell, ".") == 1
         ) {
             return DECIMAL;
-        } else {
-            if (abs($cell) > 2147483647) {
-                return BIGINT;
-            } else {
-                return INT;
-            }
         }
-    } else {
-        return VARCHAR;
+
+        if (abs($cell) > 2147483647) {
+            return BIGINT;
+        }
+
+        return INT;
     }
+
+    return VARCHAR;
 }
 
 /**
@@ -836,69 +838,69 @@ function PMA_analyzeTable(&$table)
     $curr_type = NONE;
 
     /* If the passed array is not of the correct form, do not process it */
-    if (is_array($table)
-        && ! is_array($table[TBL_NAME])
-        && is_array($table[COL_NAMES])
-        && is_array($table[ROWS])
+    if (!is_array($table)
+        || is_array($table[TBL_NAME])
+        || !is_array($table[COL_NAMES])
+        || !is_array($table[ROWS])
     ) {
-        /* Analyze each column */
-        for ($i = 0; $i < $numCols; ++$i) {
-            /* Analyze the column in each row */
-            for ($j = 0; $j < $numRows; ++$j) {
-                /* Determine type of the current cell */
-                $curr_type = PMA_detectType($types[$i], $table[ROWS][$j][$i]);
-                /* Determine size of the current cell */
-                $sizes[$i] = PMA_detectSize(
-                    $sizes[$i],
-                    $types[$i],
-                    $curr_type,
-                    $table[ROWS][$j][$i]
-                );
-
-                /**
-                 * If a type for this column has already been declared,
-                 * only alter it if it was a number and a varchar was found
-                 */
-                if ($curr_type != NONE) {
-                    if ($curr_type == VARCHAR) {
-                        $types[$i] = VARCHAR;
-                    } else if ($curr_type == DECIMAL) {
-                        if ($types[$i] != VARCHAR) {
-                            $types[$i] = DECIMAL;
-                        }
-                    } else if ($curr_type == BIGINT) {
-                        if ($types[$i] != VARCHAR && $types[$i] != DECIMAL) {
-                            $types[$i] = BIGINT;
-                        }
-                    } else if ($curr_type == INT) {
-                        if ($types[$i] != VARCHAR
-                            && $types[$i] != DECIMAL
-                            && $types[$i] != BIGINT
-                        ) {
-                            $types[$i] = INT;
-                        }
-                    }
-                }
-            }
-        }
-
-        /* Check to ensure that all types are valid */
-        $len = count($types);
-        for ($n = 0; $n < $len; ++$n) {
-            if (! strcmp(NONE, $types[$n])) {
-                $types[$n] = VARCHAR;
-                $sizes[$n] = '10';
-            }
-        }
-
-        return array($types, $sizes);
-    } else {
         /**
          * TODO: Handle this better
          */
 
         return false;
     }
+
+    /* Analyze each column */
+    for ($i = 0; $i < $numCols; ++$i) {
+        /* Analyze the column in each row */
+        for ($j = 0; $j < $numRows; ++$j) {
+            /* Determine type of the current cell */
+            $curr_type = PMA_detectType($types[$i], $table[ROWS][$j][$i]);
+            /* Determine size of the current cell */
+            $sizes[$i] = PMA_detectSize(
+                $sizes[$i],
+                $types[$i],
+                $curr_type,
+                $table[ROWS][$j][$i]
+            );
+
+            /**
+             * If a type for this column has already been declared,
+             * only alter it if it was a number and a varchar was found
+             */
+            if ($curr_type != NONE) {
+                if ($curr_type == VARCHAR) {
+                    $types[$i] = VARCHAR;
+                } else if ($curr_type == DECIMAL) {
+                    if ($types[$i] != VARCHAR) {
+                        $types[$i] = DECIMAL;
+                    }
+                } else if ($curr_type == BIGINT) {
+                    if ($types[$i] != VARCHAR && $types[$i] != DECIMAL) {
+                        $types[$i] = BIGINT;
+                    }
+                } else if ($curr_type == INT) {
+                    if ($types[$i] != VARCHAR
+                        && $types[$i] != DECIMAL
+                        && $types[$i] != BIGINT
+                    ) {
+                        $types[$i] = INT;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Check to ensure that all types are valid */
+    $len = count($types);
+    for ($n = 0; $n < $len; ++$n) {
+        if (! strcmp(NONE, $types[$n])) {
+            $types[$n] = VARCHAR;
+            $sizes[$n] = '10';
+        }
+    }
+
+    return array($types, $sizes);
 }
 
 /* Needed to quell the beast that is PMA_Message */

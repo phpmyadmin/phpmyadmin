@@ -61,16 +61,16 @@ function PMA_getReportData($pretty_print = true)
         $report['steps'] = $_REQUEST['description'];
     }
 
-    if ($pretty_print) {
-        /* JSON_PRETTY_PRINT available since PHP 5.4 */
-        if (defined('JSON_PRETTY_PRINT')) {
-            return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-        } else {
-            return PMA_prettyPrint($report);
-        }
-    } else {
+    if (!$pretty_print) {
         return $report;
     }
+
+    /* JSON_PRETTY_PRINT available since PHP 5.4 */
+    if (defined('JSON_PRETTY_PRINT')) {
+        return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    }
+
+    return PMA_prettyPrint($report);
 }
 
 /**
@@ -148,25 +148,31 @@ function PMA_sendErrorReport($report)
             false,
             stream_context_create($context)
         );
-    } else if (function_exists('curl_init')) {
-        $curl_handle = curl_init(SUBMISSION_URL);
-        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_PROXYUSERPWD,
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-            }
-        }
-        curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
-        curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec($curl_handle);
-        curl_close($curl_handle);
+        return $response;
     }
+
+    if (!function_exists('curl_init')) {
+        return null;
+    }
+
+    $curl_handle = curl_init(SUBMISSION_URL);
+    if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
+        curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+        if (strlen($GLOBALS['cfg']['ProxyUser'])) {
+            curl_setopt(
+                $curl_handle,
+                CURLOPT_PROXYUSERPWD,
+                $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+            );
+        }
+    }
+    curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
+    curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
+    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($curl_handle);
+    curl_close($curl_handle);
+
     return $response;
 }
 
@@ -180,21 +186,21 @@ function PMA_sendErrorReport($report)
 function PMA_countLines($filename)
 {
     global $LINE_COUNT;
-    if (!defined('LINE_COUNTS')) {
-        $linecount = 0;
-        $handle = fopen('./js/' . $filename, 'r');
-        while (!feof($handle)) {
-            $line = fgets($handle);
-            if ($line === false) {
-                break;
-            }
-            $linecount++;
-        }
-        fclose($handle);
-        return $linecount;
-    } else {
+    if (defined('LINE_COUNTS')) {
         return $LINE_COUNT[$filename];
     }
+
+    $linecount = 0;
+    $handle = fopen('./js/' . $filename, 'r');
+    while (!feof($handle)) {
+        $line = fgets($handle);
+        if ($line === false) {
+            break;
+        }
+        $linecount++;
+    }
+    fclose($handle);
+    return $linecount;
 }
 
 /**
