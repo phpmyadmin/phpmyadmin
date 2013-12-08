@@ -146,14 +146,14 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider prov_getM
+     * @dataProvider prov_getDecimalPrecision
      */
-    function testGetM($expected, $size)
+    function testGetDecimalPrecision($expected, $size)
     {
-        $this->assertEquals($expected, PMA_getM($size));
+        $this->assertEquals($expected, PMA_getDecimalPrecision($size));
     }
 
-    function prov_getM()
+    function prov_getDecimalPrecision()
     {
         return array(
             array(2, '2,1'),

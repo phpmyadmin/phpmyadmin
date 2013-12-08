@@ -511,7 +511,7 @@ define("FORMATTEDSQL", 2);
  * @return int Precision of the given decimal size notation
  * @access  public
  */
-function PMA_getM($last_cumulative_size)
+function PMA_getDecimalPrecision($last_cumulative_size)
 {
     return (int)substr($last_cumulative_size, 0, strpos($last_cumulative_size, ","));
 }
@@ -597,7 +597,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
             /**
              * The last cumulative type was DECIMAL
              */
-            $oldM = PMA_getM($last_cumulative_size);
+            $oldM = PMA_getDecimalPrecision($last_cumulative_size);
 
             if ($curr_size >= $oldM) {
                 return $curr_size;
@@ -650,7 +650,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
              */
             $size = PMA_getDecimalSize($cell);
 
-            $oldM = PMA_getM($last_cumulative_size);
+            $oldM = PMA_getDecimalPrecision($last_cumulative_size);
             $oldD = PMA_getDecimalScale($last_cumulative_size);
 
             /* New val if M or D is greater than current largest */
@@ -708,7 +708,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
             /**
              * The last cumulative type was DECIMAL
              */
-            $oldM = PMA_getM($last_cumulative_size);
+            $oldM = PMA_getDecimalPrecision($last_cumulative_size);
             $oldD = PMA_getDecimalScale($last_cumulative_size);
             $oldInt = $oldM - $oldD;
             $newInt = strlen((string)$cell);
