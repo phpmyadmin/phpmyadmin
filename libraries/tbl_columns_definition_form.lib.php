@@ -314,6 +314,9 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
         $header_cells[] = __('MIME type');
         $header_cells[] = '<a href="transformation_overview.php?'
             . PMA_URL_getCommon($db, $table)
+            . '" title="' . __(
+                'List of available transformations and their options'
+            )
             . '" target="_blank">'
             . __('Browser transformation')
             . '</a>';
