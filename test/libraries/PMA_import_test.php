@@ -25,8 +25,18 @@ require_once 'libraries/Tracker.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
 
+/**
+ * Tests for import functions
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Import_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for PMA_checkTimeout
+     *
+     * @return void
+     */
     function testCheckTimeout()
     {
         global $timestamp, $maximum_time, $timeout_passed;
@@ -67,6 +77,11 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_checkTimeout());
     }
 
+    /**
+     * Test for PMA_lookForUse
+     *
+     * @return void
+     */
     function testLookForUse()
     {
         $this->assertEquals(
@@ -106,14 +121,26 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider prov_getColumnAlphaName
+     * Test for PMA_getColumnAlphaName
+     *
+     * @param string $expected Expected result of the function
+     * @param int    $num      The column number
+     *
+     * @return void
+     *
+     * @dataProvider provGetColumnAlphaName
      */
     function testGetColumnAlphaName($expected, $num)
     {
         $this->assertEquals($expected, PMA_getColumnAlphaName($num));
     }
 
-    function prov_getColumnAlphaName()
+    /**
+     * Data provider for testGetColumnAlphaName
+     *
+     * @return array
+     */
+    function provGetColumnAlphaName()
     {
         return array(
             array('A', 1),
@@ -126,14 +153,26 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider prov_getColumnNumberFromNamee
+     * Test for PMA_getColumnNumberFromName
+     *
+     * @param int         $expected Expected result of the function
+     * @param string|null $name     column name(i.e. "A", or "BC", etc.)
+     *
+     * @return void
+     *
+     * @dataProvider provGetColumnNumberFromNamee
      */
     function testGetColumnNumberFromName($expected, $name)
     {
         $this->assertEquals($expected, PMA_getColumnNumberFromName($name));
     }
 
-    function prov_getColumnNumberFromNamee()
+    /**
+     * Data provider for testGetColumnNumberFromName
+     *
+     * @return array
+     */
+    function provGetColumnNumberFromNamee()
     {
         return array(
             array(1, 'A'),
@@ -146,14 +185,26 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider prov_getDecimalPrecision
+     * Test for PMA_getDecimalPrecision
+     *
+     * @param int         $expected Expected result of the function
+     * @param string|null $size     Size of field
+     *
+     * @return void
+     *
+     * @dataProvider provGetDecimalPrecision
      */
     function testGetDecimalPrecision($expected, $size)
     {
         $this->assertEquals($expected, PMA_getDecimalPrecision($size));
     }
 
-    function prov_getDecimalPrecision()
+    /**
+     * Data provider for testGetDecimalPrecision
+     *
+     * @return array
+     */
+    function provGetDecimalPrecision()
     {
         return array(
             array(2, '2,1'),
@@ -164,14 +215,26 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider prov_getDecimalScale
+     * Test for PMA_getDecimalScale
+     *
+     * @param int         $expected Expected result of the function
+     * @param string|null $size     Size of field
+     *
+     * @return void
+     *
+     * @dataProvider provGetDecimalScale
      */
     function testGetDecimalScale($expected, $size)
     {
         $this->assertEquals($expected, PMA_getDecimalScale($size));
     }
 
-    function prov_getDecimalScale()
+    /**
+     * Data provider for testGetDecimalScale
+     *
+     * @return array
+     */
+    function provGetDecimalScale()
     {
         return array(
             array(1, '2,1'),
@@ -182,14 +245,26 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider prov_getDecimalSize
+     * Test for PMA_getDecimalSize
+     *
+     * @param array       $expected Expected result of the function
+     * @param string|null $cell     Cell content
+     *
+     * @return void
+     *
+     * @dataProvider provGetDecimalSize
      */
-    function testGetDecimalSize($expected, $size)
+    function testGetDecimalSize($expected, $cell)
     {
-        $this->assertEquals($expected, PMA_getDecimalSize($size));
+        $this->assertEquals($expected, PMA_getDecimalSize($cell));
     }
 
-    function prov_getDecimalSize()
+    /**
+     * Data provider for testGetDecimalSize
+     *
+     * @return array
+     */
+    function provGetDecimalSize()
     {
         return array(
             array(array(2, 1, '2,1'), '2.1'),
@@ -200,14 +275,29 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider prov_detectType
+     * Test for PMA_detectType
+     *
+     * @param int         $expected Expected result of the function
+     * @param int|null    $type     Last cumulative column type (VARCHAR or INT or
+     *                              BIGINT or DECIMAL or NONE)
+     * @param string|null $cell     String representation of the cell for which a
+     *                              best-fit type is to be determined
+     *
+     * @return void
+     *
+     * @dataProvider provDetectType
      */
     function testDetectType($expected, $type, $cell)
     {
         $this->assertEquals($expected, PMA_detectType($type, $cell));
     }
 
-    function prov_detectType()
+    /**
+     * Data provider for testDetectType
+     *
+     * @return array
+     */
+    function provDetectType()
     {
         return array(
             array(NONE, null, 'NULL'),
