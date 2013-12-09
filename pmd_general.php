@@ -12,10 +12,10 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
-$script_display_field = get_tables_info();
-$tab_column       = get_columns_info();
+$script_display_field = PMA_getTablesInfo();
+$tab_column       = PMA_getColumnsInfo();
 $script_tables    = get_script_tabs();
-$script_contr     = get_script_contr();
+$script_contr     = PMA_getScriptContr();
 $tab_pos          = get_tab_pos();
 $tables_pk_or_unique_keys = get_pk_or_unique_keys();
 $tables_all_keys  = get_all_keys();

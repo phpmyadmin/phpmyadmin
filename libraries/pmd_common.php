@@ -26,7 +26,7 @@ $cfgRelation = PMA_getRelationsParam();
  *
  * @return array with table info
  */
-function get_tables_info()
+function PMA_getTablesInfo()
 {
     $retval = array();
 
@@ -78,7 +78,7 @@ function get_tables_info()
  *
  * @return array   table column nfo
  */
-function get_columns_info()
+function PMA_getColumnsInfo()
 {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $tab_column = array();
@@ -107,11 +107,11 @@ function get_columns_info()
 }
 
 /**
- * returns JavaScript code for intializing vars
+ * returns JavaScript code for initializing vars
  *
  * @return string   JavaScript code
  */
-function get_script_contr()
+function PMA_getScriptContr()
 {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $con["C_NAME"] = array();
