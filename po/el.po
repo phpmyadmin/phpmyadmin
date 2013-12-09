@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-08 19:16-0500\n"
-"PO-Revision-Date: 2013-12-06 12:52+0200\n"
+"PO-Revision-Date: 2013-12-09 08:38+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -12237,10 +12237,9 @@ msgid "Move column"
 msgstr "Απομάκρυνση στήλης"
 
 #: libraries/tbl_columns_definition_form.lib.php:318
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Διαθέσιμες μετατροπές"
+msgstr "Κατάλογος διαθέσιμων μετατροπών και οι επιλογές τους"
 
 #: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
