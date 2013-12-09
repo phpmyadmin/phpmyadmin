@@ -368,11 +368,6 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
             'MIME type',
             $result
         );
-
-        $this->assertContains(
-            'transformation_overview.php?db=db&amp;table=table',
-            $result[count($result)-1]
-        );
     }
 
     /**
