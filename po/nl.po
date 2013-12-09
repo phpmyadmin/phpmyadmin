@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-08 19:16-0500\n"
-"PO-Revision-Date: 2013-12-06 13:22+0200\n"
+"PO-Revision-Date: 2013-12-09 16:05+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -12206,10 +12206,9 @@ msgid "Move column"
 msgstr "Kolom verplaatsen"
 
 #: libraries/tbl_columns_definition_form.lib.php:318
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Beschikbare transformaties"
+msgstr "Lijst met beschikbare transformaties en hun opties"
 
 #: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
