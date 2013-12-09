@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 
 4.1.1.0 (not yet released)
 - bug #4154 Error using UNION query
+- bug #4173 Transformations overview not reachable
 
 4.1.0.0 (not yet released)
 + rfe #499 On user creation, warn if the user already exists
