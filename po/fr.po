@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-06 06:23-0500\n"
+"POT-Creation-Date: 2013-12-08 19:16-0500\n"
 "PO-Revision-Date: 2013-12-06 14:01+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +41,7 @@ msgstr "Commentaires sur la table : "
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
-#: libraries/insert_edit.lib.php:1603
+#: libraries/insert_edit.lib.php:1605
 #: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
@@ -52,7 +53,7 @@ msgstr "Commentaires sur la table : "
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1374
 #: libraries/schema/Pdf_Relation_Schema.class.php:1397
-#: libraries/tbl_columns_definition_form.lib.php:574
+#: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:316 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:731
@@ -61,8 +62,8 @@ msgid "Column"
 msgstr "Colonne"
 
 #: db_datadict.php:169 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:243
-#: libraries/insert_edit.lib.php:247
+#: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:245
+#: libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
 #: libraries/plugins/export/ExportLatex.class.php:511
@@ -86,7 +87,7 @@ msgid "Type"
 msgstr "Type"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1283 libraries/insert_edit.lib.php:1612
+#: libraries/TableSearch.class.php:1283 libraries/insert_edit.lib.php:1614
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
 #: libraries/plugins/export/ExportLatex.class.php:512
@@ -564,11 +565,11 @@ msgstr "Ajouter géométrie"
 #: gis_data_editor.php:398 js/messages.php:225
 #: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1693
 #: libraries/TableSearch.class.php:1230 libraries/browse_foreigners.lib.php:51
-#: libraries/core.lib.php:554 libraries/display_change_password.lib.php:94
+#: libraries/core.lib.php:564 libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:368
-#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1584
-#: libraries/insert_edit.lib.php:1619 libraries/operations.lib.php:39
+#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1586
+#: libraries/insert_edit.lib.php:1621 libraries/operations.lib.php:39
 #: libraries/operations.lib.php:82 libraries/operations.lib.php:210
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
@@ -1218,7 +1219,7 @@ msgstr "Veuillez ajouter au moins une variable à la série"
 #: libraries/server_privileges.lib.php:2610
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:694 pmd_general.php:545
+#: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:545
 msgid "None"
 msgstr "Aucune"
 
@@ -1747,7 +1748,7 @@ msgstr "Durée d'exécution de la requête"
 msgid "%d is not valid row number."
 msgstr "%d n'est pas un numéro de ligne valable."
 
-#: js/messages.php:289 libraries/insert_edit.lib.php:1497
+#: js/messages.php:289 libraries/insert_edit.lib.php:1499
 #: libraries/schema/User_Schema.class.php:390
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1819,7 +1820,7 @@ msgstr "Opérations sur les résultats"
 msgid "Data point content"
 msgstr "Données reliées à ce point"
 
-#: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2591
+#: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2593
 #: libraries/tbl_indexes.lib.php:334 libraries/tbl_indexes.lib.php:370
 msgid "Ignore"
 msgstr "Ignorer"
@@ -1922,8 +1923,8 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "Cliquer sur la flèche<br />pour gérer l'affichage des colonnes"
 
 #: js/messages.php:364 libraries/DisplayResults.class.php:852
-#: libraries/browse_foreigners.lib.php:359
-#: libraries/browse_foreigners.lib.php:409
+#: libraries/browse_foreigners.lib.php:364
+#: libraries/browse_foreigners.lib.php:417
 #: libraries/server_privileges.lib.php:3142
 msgid "Show all"
 msgstr "Tout afficher"
@@ -2637,7 +2638,7 @@ msgid "Sort by key"
 msgstr "Trier sur l'index"
 
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:794
-#: libraries/import.lib.php:1203 libraries/import.lib.php:1235
+#: libraries/import.lib.php:1205 libraries/import.lib.php:1237
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -2913,8 +2914,8 @@ msgstr "Aucun index n'est défini !"
 msgid "Indexes"
 msgstr "Index"
 
-#: libraries/Index.class.php:563 libraries/browse_foreigners.lib.php:62
-#: libraries/browse_foreigners.lib.php:66 libraries/tbl_tracking.lib.php:814
+#: libraries/Index.class.php:563 libraries/browse_foreigners.lib.php:68
+#: libraries/browse_foreigners.lib.php:72 libraries/tbl_tracking.lib.php:814
 msgid "Keyname"
 msgstr "Nom de l'index"
 
@@ -2933,7 +2934,7 @@ msgid "Cardinality"
 msgstr "Cardinalité"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
-#: libraries/build_html_for_db.lib.php:21 libraries/mysql_charsets.lib.php:33
+#: libraries/build_html_for_db.lib.php:21 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:818
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
@@ -2987,7 +2988,7 @@ msgstr "Vue"
 #: libraries/config/user_preferences.forms.php:198
 #: libraries/config/user_preferences.forms.php:235
 #: libraries/config/user_preferences.forms.php:261
-#: libraries/import.lib.php:1235
+#: libraries/import.lib.php:1237
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
@@ -3122,7 +3123,7 @@ msgstr "Moteurs"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:174
-#: libraries/insert_edit.lib.php:1215 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1217 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Erreur"
@@ -3149,7 +3150,7 @@ msgstr[0] "%1$d ligne insérée."
 msgstr[1] "%1$d lignes insérées."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2474
-#: libraries/browse_foreigners.lib.php:393
+#: libraries/browse_foreigners.lib.php:401
 #: libraries/schema/Pdf_Relation_Schema.class.php:1199
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223
 #: libraries/schema/User_Schema.class.php:434
@@ -3357,8 +3358,8 @@ msgstr ""
 "sera pas persistant après actualisation de cette page. Merci de vérifier si "
 "la structure de la table a changé."
 
-#: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:211
-#: libraries/insert_edit.lib.php:217
+#: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:213
+#: libraries/insert_edit.lib.php:219
 #: libraries/navigation/Nodes/Node_Function.class.php:34
 #: libraries/rte/rte_routines.lib.php:1602
 msgid "Function"
@@ -3371,7 +3372,7 @@ msgid "Operator"
 msgstr "Opérateur"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1284
-#: libraries/insert_edit.lib.php:1613 libraries/replication_gui.lib.php:520
+#: libraries/insert_edit.lib.php:1615 libraries/replication_gui.lib.php:520
 #: libraries/rte/rte_routines.lib.php:1604
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:511
 #: pmd_general.php:570 pmd_general.php:693 pmd_general.php:810
@@ -3386,7 +3387,7 @@ msgstr "Recherche dans la table"
 msgid "Find and Replace"
 msgstr "Chercher et remplacer"
 
-#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1387
+#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1389
 msgid "Edit/Insert"
 msgstr "Modifier/Insérer"
 
@@ -3394,7 +3395,7 @@ msgstr "Modifier/Insérer"
 msgid "Select columns (at least one):"
 msgstr "Choisir les colonnes (au moins une) : "
 
-#: libraries/TableSearch.class.php:821 libraries/insert_edit.lib.php:1219
+#: libraries/TableSearch.class.php:821 libraries/insert_edit.lib.php:1221
 #: libraries/server_privileges.lib.php:438
 msgid "Or"
 msgstr "Ou"
@@ -3963,7 +3964,7 @@ msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr ""
 "Choisissez depuis le répertoire de téléchargement du serveur web <b>%s</b> : "
 
-#: libraries/Util.class.php:3375 libraries/insert_edit.lib.php:1216
+#: libraries/Util.class.php:3375 libraries/insert_edit.lib.php:1218
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Le répertoire de transfert est inaccessible."
@@ -4008,8 +4009,8 @@ msgstr "partagé"
 msgid "Search:"
 msgstr "Rechercher : "
 
-#: libraries/browse_foreigners.lib.php:63
-#: libraries/browse_foreigners.lib.php:65
+#: libraries/browse_foreigners.lib.php:69
+#: libraries/browse_foreigners.lib.php:71
 #: libraries/server_collations.lib.php:36
 #: libraries/server_collations.lib.php:48 libraries/server_engines.lib.php:50
 #: libraries/server_plugins.lib.php:133
@@ -4017,11 +4018,11 @@ msgstr "Rechercher : "
 msgid "Description"
 msgstr "Description"
 
-#: libraries/browse_foreigners.lib.php:206
+#: libraries/browse_foreigners.lib.php:211
 msgid "Use this value"
 msgstr "Utiliser cette valeur"
 
-#: libraries/browse_foreigners.lib.php:292
+#: libraries/browse_foreigners.lib.php:297
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -4356,7 +4357,7 @@ msgstr "Permettre aux utilisateurs de personnaliser cette valeur"
 msgid "Apply"
 msgstr "Appliquer"
 
-#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1586
+#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1588
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
 #: prefs_manage.php:349
 msgid "Reset"
@@ -4782,7 +4783,7 @@ msgstr "Clé de l'étiquette"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
-#: libraries/tbl_columns_definition_form.lib.php:327
+#: libraries/tbl_columns_definition_form.lib.php:314
 msgid "MIME type"
 msgstr "Type MIME"
 
@@ -6726,7 +6727,7 @@ msgstr "Texte OpenDocument"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Il manque l'extension %s. Veuillez vérifier votre configuration PHP."
 
-#: libraries/core.lib.php:446
+#: libraries/core.lib.php:447
 msgid "possible deep recursion attack"
 msgstr "possible attaque récursive"
 
@@ -7450,7 +7451,7 @@ msgstr "Liens connexes"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr "Le blogue de PrimeBase XT par Paul McCullagh"
 
-#: libraries/error_report.lib.php:279
+#: libraries/error_report.lib.php:285
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
@@ -7461,65 +7462,65 @@ msgstr ""
 "pertinents pour les transmettre à l'équipe phpMyAdmin, pour nous aider à "
 "déboguer le problème."
 
-#: libraries/error_report.lib.php:286
+#: libraries/error_report.lib.php:292
 msgid "You may examine the data in the error report:"
 msgstr "Vous pouvez examiner les données dans le rapport d'erreur :"
 
-#: libraries/error_report.lib.php:293
+#: libraries/error_report.lib.php:299
 msgid "Please explain the steps that lead to the error:"
 msgstr "Veuillez expliquez les étapes qui mènent à l'erreur :"
 
-#: libraries/error_report.lib.php:301
+#: libraries/error_report.lib.php:307
 msgid "Automatically send report next time"
 msgstr "La prochaine fois, envoyer automatiquement le rapport"
 
-#: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
+#: libraries/import.lib.php:190 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (aucune ligne)."
 
-#: libraries/import.lib.php:1197
+#: libraries/import.lib.php:1199
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Les structures suivantes ont été créées ou modifiées. Ici vous pouvez :"
 
-#: libraries/import.lib.php:1198
+#: libraries/import.lib.php:1200
 msgid "View a structure's contents by clicking on its name"
 msgstr "Consulter le contenu d'une structure en cliquant sur son nom"
 
-#: libraries/import.lib.php:1199
+#: libraries/import.lib.php:1201
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 "Modifiez l'un des paramètres en cliquant le lien «Options» correspondant"
 
-#: libraries/import.lib.php:1200
+#: libraries/import.lib.php:1202
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Modifier sa structure via le lien «Structure»"
 
-#: libraries/import.lib.php:1206
+#: libraries/import.lib.php:1208
 #, php-format
 msgid "Go to database: %s"
 msgstr "Aller à la base de données : %s"
 
-#: libraries/import.lib.php:1212 libraries/import.lib.php:1253
+#: libraries/import.lib.php:1214 libraries/import.lib.php:1255
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Paramètres de modification pour %s"
 
-#: libraries/import.lib.php:1238
+#: libraries/import.lib.php:1240
 #, php-format
 msgid "Go to table: %s"
 msgstr "Aller à la table : %s"
 
-#: libraries/import.lib.php:1246
+#: libraries/import.lib.php:1248
 #, php-format
 msgid "Structure of %s"
 msgstr "Structure de %s"
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1266
 #, php-format
 msgid "Go to view: %s"
 msgstr "Aller à la vue : %s"
@@ -7529,80 +7530,80 @@ msgstr "Aller à la vue : %s"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Créer un index sur &nbsp;%s&nbsp;colonnes"
 
-#: libraries/insert_edit.lib.php:216 libraries/insert_edit.lib.php:247
+#: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
 #: pmd_general.php:183
 msgid "Hide"
 msgstr "Cacher"
 
-#: libraries/insert_edit.lib.php:460 libraries/mysql_charsets.lib.php:137
-#: libraries/mysql_charsets.lib.php:339
+#: libraries/insert_edit.lib.php:462 libraries/mysql_charsets.lib.php:151
+#: libraries/mysql_charsets.lib.php:353
 msgid "Binary"
 msgstr "Binaire"
 
-#: libraries/insert_edit.lib.php:656
+#: libraries/insert_edit.lib.php:658
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 "Il est possible que cette colonne<br />ne soit pas éditable<br />en raison "
 "de sa longueur"
 
-#: libraries/insert_edit.lib.php:1100
+#: libraries/insert_edit.lib.php:1102
 msgid "Binary - do not edit"
 msgstr "Binaire - ne pas éditer"
 
-#: libraries/insert_edit.lib.php:1220 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1222 libraries/sql_query_form.lib.php:491
 msgid "web server upload directory:"
 msgstr "répertoire de transfert du serveur web : "
 
-#: libraries/insert_edit.lib.php:1437
+#: libraries/insert_edit.lib.php:1439
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Continuer l'insertion avec %s lignes"
 
-#: libraries/insert_edit.lib.php:1467
+#: libraries/insert_edit.lib.php:1469
 msgid "and then"
 msgstr "et ensuite"
 
-#: libraries/insert_edit.lib.php:1500
+#: libraries/insert_edit.lib.php:1502
 msgid "Insert as new row"
 msgstr "Sauvegarder une nouvelle ligne"
 
-#: libraries/insert_edit.lib.php:1503
+#: libraries/insert_edit.lib.php:1505
 msgid "Insert as new row and ignore errors"
 msgstr "Sauvegarder une nouvelle ligne en ignorant les erreurs"
 
-#: libraries/insert_edit.lib.php:1506
+#: libraries/insert_edit.lib.php:1508
 msgid "Show insert query"
 msgstr "Afficher l'énoncé d'insertion"
 
-#: libraries/insert_edit.lib.php:1526
+#: libraries/insert_edit.lib.php:1528
 msgid "Go back to previous page"
 msgstr "Retourner à la page précédente"
 
-#: libraries/insert_edit.lib.php:1529
+#: libraries/insert_edit.lib.php:1531
 msgid "Insert another new row"
 msgstr "Insérer une nouvelle ligne"
 
-#: libraries/insert_edit.lib.php:1534
+#: libraries/insert_edit.lib.php:1536
 msgid "Go back to this page"
 msgstr "Demeurer sur cette page"
 
-#: libraries/insert_edit.lib.php:1556
+#: libraries/insert_edit.lib.php:1558
 msgid "Edit next row"
 msgstr "Modifier la ligne suivante"
 
-#: libraries/insert_edit.lib.php:1578
+#: libraries/insert_edit.lib.php:1580
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Utilisez la tabulation pour aller d'une valeur à l'autre, ou CTRL+flèches "
 "pour aller n'importe où"
 
-#: libraries/insert_edit.lib.php:1961 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1963 libraries/sql.lib.php:1632
 msgid "Showing SQL query"
 msgstr "Affichage de la requête SQL"
 
-#: libraries/insert_edit.lib.php:1986 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1988 libraries/sql.lib.php:1612
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identifiant de la ligne insérée : %1$d"
@@ -7655,189 +7656,189 @@ msgstr "Ajouter un préfixe"
 msgid "Do you really want to execute the following query?"
 msgstr "Voulez-vous vraiment exécuter la requête suivante ?"
 
-#: libraries/mysql_charsets.lib.php:33
+#: libraries/mysql_charsets.lib.php:47
 msgid "Charset"
 msgstr "Jeu de caractères"
 
-#: libraries/mysql_charsets.lib.php:149
+#: libraries/mysql_charsets.lib.php:163
 msgid "Bulgarian"
 msgstr "Bulgare"
 
-#: libraries/mysql_charsets.lib.php:153 libraries/mysql_charsets.lib.php:279
+#: libraries/mysql_charsets.lib.php:167 libraries/mysql_charsets.lib.php:293
 msgid "Simplified Chinese"
 msgstr "Chinois simplifié"
 
-#: libraries/mysql_charsets.lib.php:155 libraries/mysql_charsets.lib.php:299
+#: libraries/mysql_charsets.lib.php:169 libraries/mysql_charsets.lib.php:313
 msgid "Traditional Chinese"
 msgstr "Chinois traditionnel"
 
-#: libraries/mysql_charsets.lib.php:159 libraries/mysql_charsets.lib.php:346
+#: libraries/mysql_charsets.lib.php:173 libraries/mysql_charsets.lib.php:360
 msgid "case-insensitive"
 msgstr "insensible à la casse"
 
-#: libraries/mysql_charsets.lib.php:162 libraries/mysql_charsets.lib.php:348
+#: libraries/mysql_charsets.lib.php:176 libraries/mysql_charsets.lib.php:362
 msgid "case-sensitive"
 msgstr "sensible à la casse"
 
-#: libraries/mysql_charsets.lib.php:165
+#: libraries/mysql_charsets.lib.php:179
 msgid "Croatian"
 msgstr "Croate"
 
-#: libraries/mysql_charsets.lib.php:168
+#: libraries/mysql_charsets.lib.php:182
 msgid "Czech"
 msgstr "Tchèque"
 
-#: libraries/mysql_charsets.lib.php:171
+#: libraries/mysql_charsets.lib.php:185
 msgid "Danish"
 msgstr "Danois"
 
-#: libraries/mysql_charsets.lib.php:174
+#: libraries/mysql_charsets.lib.php:188
 msgid "English"
 msgstr "Anglais"
 
-#: libraries/mysql_charsets.lib.php:177
+#: libraries/mysql_charsets.lib.php:191
 msgid "Esperanto"
 msgstr "Espéranto"
 
-#: libraries/mysql_charsets.lib.php:180
+#: libraries/mysql_charsets.lib.php:194
 msgid "Estonian"
 msgstr "Estonien"
 
-#: libraries/mysql_charsets.lib.php:183 libraries/mysql_charsets.lib.php:186
+#: libraries/mysql_charsets.lib.php:197 libraries/mysql_charsets.lib.php:200
 msgid "German"
 msgstr "Allemand"
 
-#: libraries/mysql_charsets.lib.php:183
+#: libraries/mysql_charsets.lib.php:197
 msgid "dictionary"
 msgstr "dictionnaire"
 
-#: libraries/mysql_charsets.lib.php:186
+#: libraries/mysql_charsets.lib.php:200
 msgid "phone book"
 msgstr "annuaire téléphonique"
 
-#: libraries/mysql_charsets.lib.php:189
+#: libraries/mysql_charsets.lib.php:203
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: libraries/mysql_charsets.lib.php:192
+#: libraries/mysql_charsets.lib.php:206
 msgid "Icelandic"
 msgstr "Islandais"
 
-#: libraries/mysql_charsets.lib.php:195 libraries/mysql_charsets.lib.php:286
+#: libraries/mysql_charsets.lib.php:209 libraries/mysql_charsets.lib.php:300
 msgid "Japanese"
 msgstr "Japonais"
 
-#: libraries/mysql_charsets.lib.php:198
+#: libraries/mysql_charsets.lib.php:212
 msgid "Latvian"
 msgstr "Letton"
 
-#: libraries/mysql_charsets.lib.php:201
+#: libraries/mysql_charsets.lib.php:215
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: libraries/mysql_charsets.lib.php:204 libraries/mysql_charsets.lib.php:308
+#: libraries/mysql_charsets.lib.php:218 libraries/mysql_charsets.lib.php:322
 msgid "Korean"
 msgstr "Cor&eacute;en"
 
-#: libraries/mysql_charsets.lib.php:207
+#: libraries/mysql_charsets.lib.php:221
 msgid "Persian"
 msgstr "Farsi"
 
-#: libraries/mysql_charsets.lib.php:210
+#: libraries/mysql_charsets.lib.php:224
 msgid "Polish"
 msgstr "Polonais"
 
-#: libraries/mysql_charsets.lib.php:213 libraries/mysql_charsets.lib.php:262
+#: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:276
 msgid "West European"
 msgstr "Europe de l'ouest"
 
-#: libraries/mysql_charsets.lib.php:216
+#: libraries/mysql_charsets.lib.php:230
 msgid "Romanian"
 msgstr "Roumain"
 
-#: libraries/mysql_charsets.lib.php:219
+#: libraries/mysql_charsets.lib.php:233
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: libraries/mysql_charsets.lib.php:222
+#: libraries/mysql_charsets.lib.php:236
 msgid "Slovenian"
 msgstr "Slovène"
 
-#: libraries/mysql_charsets.lib.php:225
+#: libraries/mysql_charsets.lib.php:239
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: libraries/mysql_charsets.lib.php:228
+#: libraries/mysql_charsets.lib.php:242
 msgid "Traditional Spanish"
 msgstr "Espagnol traditionnel"
 
-#: libraries/mysql_charsets.lib.php:231 libraries/mysql_charsets.lib.php:329
+#: libraries/mysql_charsets.lib.php:245 libraries/mysql_charsets.lib.php:343
 msgid "Swedish"
 msgstr "Suédois"
 
-#: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:332
+#: libraries/mysql_charsets.lib.php:248 libraries/mysql_charsets.lib.php:346
 msgid "Thai"
 msgstr "Tha&iuml;"
 
-#: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:251 libraries/mysql_charsets.lib.php:340
 msgid "Turkish"
 msgstr "Turc"
 
-#: libraries/mysql_charsets.lib.php:240 libraries/mysql_charsets.lib.php:323
+#: libraries/mysql_charsets.lib.php:254 libraries/mysql_charsets.lib.php:337
 msgid "Ukrainian"
 msgstr "Ukrainien"
 
-#: libraries/mysql_charsets.lib.php:243 libraries/mysql_charsets.lib.php:253
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:267
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/mysql_charsets.lib.php:243 libraries/mysql_charsets.lib.php:253
-#: libraries/mysql_charsets.lib.php:262 libraries/mysql_charsets.lib.php:269
-#: libraries/mysql_charsets.lib.php:291 libraries/mysql_charsets.lib.php:302
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:267
+#: libraries/mysql_charsets.lib.php:276 libraries/mysql_charsets.lib.php:283
+#: libraries/mysql_charsets.lib.php:305 libraries/mysql_charsets.lib.php:316
 msgid "multilingual"
 msgstr "multilingue"
 
-#: libraries/mysql_charsets.lib.php:269
+#: libraries/mysql_charsets.lib.php:283
 msgid "Central European"
 msgstr "Europe centrale"
 
-#: libraries/mysql_charsets.lib.php:274
+#: libraries/mysql_charsets.lib.php:288
 msgid "Russian"
 msgstr "Russe"
 
-#: libraries/mysql_charsets.lib.php:291
+#: libraries/mysql_charsets.lib.php:305
 msgid "Baltic"
 msgstr "Baltique"
 
-#: libraries/mysql_charsets.lib.php:296
+#: libraries/mysql_charsets.lib.php:310
 msgid "Armenian"
 msgstr "Arménien"
 
-#: libraries/mysql_charsets.lib.php:302
+#: libraries/mysql_charsets.lib.php:316
 msgid "Cyrillic"
 msgstr "Cyrillique"
 
-#: libraries/mysql_charsets.lib.php:305
+#: libraries/mysql_charsets.lib.php:319
 msgid "Arabic"
 msgstr "Arabe"
 
-#: libraries/mysql_charsets.lib.php:311
+#: libraries/mysql_charsets.lib.php:325
 msgid "Hebrew"
 msgstr "H&eacute;breu"
 
-#: libraries/mysql_charsets.lib.php:314
+#: libraries/mysql_charsets.lib.php:328
 msgid "Georgian"
 msgstr "G&eacute;orgien"
 
-#: libraries/mysql_charsets.lib.php:317
+#: libraries/mysql_charsets.lib.php:331
 msgid "Greek"
 msgstr "Grec"
 
-#: libraries/mysql_charsets.lib.php:320
+#: libraries/mysql_charsets.lib.php:334
 msgid "Czech-Slovak"
 msgstr "Tchèque-slovaque"
 
-#: libraries/mysql_charsets.lib.php:335 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:349 libraries/mysql_charsets.lib.php:356
 #: libraries/structure.lib.php:1068
 msgid "unknown"
 msgstr "inconnu"
@@ -8181,7 +8182,7 @@ msgstr "Supprimer le partitionnement"
 msgid "Check referential integrity:"
 msgstr "Vérifier l'intégrité référentielle : "
 
-#: libraries/plugin_interface.lib.php:502
+#: libraries/plugin_interface.lib.php:511
 msgid "This format has no options"
 msgstr "Ce format ne comporte pas d'options"
 
@@ -8803,14 +8804,6 @@ msgstr "XML"
 msgid "Geometry type '%s' is not supported by MySQL."
 msgstr "Le type géométrique '%s' n'est pas supporté par MySQL."
 
-#: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:32
-msgid ""
-"Appends text to a string. The only option is the text to be appended "
-"(enclosed in single quotes, default empty string)."
-msgstr ""
-"Ajoute du texte à une chaîne. La seule option est le texte à ajouter "
-"(entouré de guillemets simples, par défaut une chaîne vide)."
-
 #: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
 msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
@@ -8915,9 +8908,6 @@ msgstr ""
 "séparés par des points."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#| msgid ""
-#| "Appends text to a string. The only option is the text to be appended "
-#| "(enclosed in single quotes, default empty string)."
 msgid ""
 "Prepends and/or Appends text to a string. First option is text to be "
 "prepended, second is appended (enclosed in single quotes, default empty "
@@ -8925,8 +8915,7 @@ msgid ""
 msgstr ""
 "Ajoute du texte à une chaîne, en préfixe ou suffixe. La première option "
 "contient le texte à ajouter au début, la seconde option contient le texte à "
-"ajouter à la fin (entouré de guillemets simples, par défaut une chaîne "
-"vide)."
+"ajouter à la fin (entouré de guillemets simples, par défaut une chaîne vide)."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -8997,7 +8986,7 @@ msgid "Displaying Column Comments"
 msgstr "Commentaires de colonnes"
 
 #: libraries/relation.lib.php:165
-#: libraries/tbl_columns_definition_form.lib.php:328
+#: libraries/tbl_columns_definition_form.lib.php:321
 #: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "Transformation"
@@ -12204,20 +12193,17 @@ msgstr ""
 msgid "Move column"
 msgstr "Déplacer une colonne"
 
-#: libraries/tbl_columns_definition_form.lib.php:317
-#, php-format
-msgid ""
-"For a list of available transformation options and their MIME type "
-"transformations, click on %stransformation descriptions%s"
-msgstr ""
-"La %sdescription des transformations%s explique les transformations "
-"possibles en fonction des types MIME"
+#: libraries/tbl_columns_definition_form.lib.php:318
+#, fuzzy
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "Transformations disponibles"
 
-#: libraries/tbl_columns_definition_form.lib.php:329
+#: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
 msgstr "Options de transformation"
 
-#: libraries/tbl_columns_definition_form.lib.php:332
+#: libraries/tbl_columns_definition_form.lib.php:326
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -12229,29 +12215,29 @@ msgstr ""
 "une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:752
+#: libraries/tbl_columns_definition_form.lib.php:745
 msgid "first"
 msgstr "en premier"
 
-#: libraries/tbl_columns_definition_form.lib.php:761
+#: libraries/tbl_columns_definition_form.lib.php:754
 #, php-format
 msgid "after %s"
 msgstr "après %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1049
+#: libraries/tbl_columns_definition_form.lib.php:1042
 msgid "ENUM or SET data too long?"
 msgstr "Données trop longues pour ENUM ou SET ?"
 
-#: libraries/tbl_columns_definition_form.lib.php:1051
+#: libraries/tbl_columns_definition_form.lib.php:1044
 msgid "Get more editing space"
 msgstr "Obtenir plus d'espace d'édition"
 
-#: libraries/tbl_columns_definition_form.lib.php:1076
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgctxt "for default"
 msgid "None"
 msgstr "Aucune"
 
-#: libraries/tbl_columns_definition_form.lib.php:1077
+#: libraries/tbl_columns_definition_form.lib.php:1070
 msgid "As defined:"
 msgstr "Tel que défini : "
 
@@ -14557,6 +14543,20 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid ""
+#~ "Appends text to a string. The only option is the text to be appended "
+#~ "(enclosed in single quotes, default empty string)."
+#~ msgstr ""
+#~ "Ajoute du texte à une chaîne. La seule option est le texte à ajouter "
+#~ "(entouré de guillemets simples, par défaut une chaîne vide)."
+
+#~ msgid ""
+#~ "For a list of available transformation options and their MIME type "
+#~ "transformations, click on %stransformation descriptions%s"
+#~ msgstr ""
+#~ "La %sdescription des transformations%s explique les transformations "
+#~ "possibles en fonction des types MIME"
 
 #~ msgid ""
 #~ "Uncheck this to prevent the sending of error reports for javascript errors"

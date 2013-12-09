@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-06 06:23-0500\n"
+"POT-Creation-Date: 2013-12-08 19:16-0500\n"
 "PO-Revision-Date: 2013-09-19 23:07+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -40,7 +40,7 @@ msgstr "तालिका टिप्पणी:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
-#: libraries/insert_edit.lib.php:1603
+#: libraries/insert_edit.lib.php:1605
 #: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
@@ -52,7 +52,7 @@ msgstr "तालिका टिप्पणी:"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1374
 #: libraries/schema/Pdf_Relation_Schema.class.php:1397
-#: libraries/tbl_columns_definition_form.lib.php:574
+#: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:316 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:731
@@ -61,8 +61,8 @@ msgid "Column"
 msgstr "स्तम्भ"
 
 #: db_datadict.php:169 db_printview.php:49 libraries/Index.class.php:564
-#: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:243
-#: libraries/insert_edit.lib.php:247
+#: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:245
+#: libraries/insert_edit.lib.php:249
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
 #: libraries/plugins/export/ExportLatex.class.php:511
@@ -86,7 +86,7 @@ msgid "Type"
 msgstr "प्रकार/किस्म"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1283 libraries/insert_edit.lib.php:1612
+#: libraries/TableSearch.class.php:1283 libraries/insert_edit.lib.php:1614
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
 #: libraries/plugins/export/ExportLatex.class.php:512
@@ -557,11 +557,11 @@ msgstr "ज्यामिति जोडें"
 #: gis_data_editor.php:398 js/messages.php:225
 #: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1693
 #: libraries/TableSearch.class.php:1230 libraries/browse_foreigners.lib.php:51
-#: libraries/core.lib.php:554 libraries/display_change_password.lib.php:94
+#: libraries/core.lib.php:564 libraries/display_change_password.lib.php:94
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:368
-#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1584
-#: libraries/insert_edit.lib.php:1619 libraries/operations.lib.php:39
+#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1586
+#: libraries/insert_edit.lib.php:1621 libraries/operations.lib.php:39
 #: libraries/operations.lib.php:82 libraries/operations.lib.php:210
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
@@ -1202,7 +1202,7 @@ msgstr "कृपया, श्रृंखला में कम से कम
 #: libraries/server_privileges.lib.php:2610
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:694 pmd_general.php:545
+#: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:545
 msgid "None"
 msgstr "कुछ नहीं"
 
@@ -1741,7 +1741,7 @@ msgstr "क्वॅरी क्रियान्वन में लगा �
 msgid "%d is not valid row number."
 msgstr "%d एक वैध पंक्ति संख्या नहीं है।"
 
-#: js/messages.php:289 libraries/insert_edit.lib.php:1497
+#: js/messages.php:289 libraries/insert_edit.lib.php:1499
 #: libraries/schema/User_Schema.class.php:390
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1814,7 +1814,7 @@ msgstr "क्वॅरी परिणाम"
 msgid "Data point content"
 msgstr "डॅटा बिन्दु सामग्री"
 
-#: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2591
+#: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2593
 #: libraries/tbl_indexes.lib.php:334 libraries/tbl_indexes.lib.php:370
 msgid "Ignore"
 msgstr "उपेक्षा करें"
@@ -1919,8 +1919,8 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "कॉलम को दिखने / छुपाने के लिए <br /> ड्रॉप-डाउन तीर पर क्लिक करें"
 
 #: js/messages.php:364 libraries/DisplayResults.class.php:852
-#: libraries/browse_foreigners.lib.php:359
-#: libraries/browse_foreigners.lib.php:409
+#: libraries/browse_foreigners.lib.php:364
+#: libraries/browse_foreigners.lib.php:417
 #: libraries/server_privileges.lib.php:3142
 msgid "Show all"
 msgstr "सभी दिखाएँ"
@@ -2664,7 +2664,7 @@ msgid "Sort by key"
 msgstr "कुंजी सॉर्ट"
 
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:794
-#: libraries/import.lib.php:1203 libraries/import.lib.php:1235
+#: libraries/import.lib.php:1205 libraries/import.lib.php:1237
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -2943,8 +2943,8 @@ msgstr "परिभाषित सूचकांक  नहीं पाए �
 msgid "Indexes"
 msgstr "सूचकांक"
 
-#: libraries/Index.class.php:563 libraries/browse_foreigners.lib.php:62
-#: libraries/browse_foreigners.lib.php:66 libraries/tbl_tracking.lib.php:814
+#: libraries/Index.class.php:563 libraries/browse_foreigners.lib.php:68
+#: libraries/browse_foreigners.lib.php:72 libraries/tbl_tracking.lib.php:814
 msgid "Keyname"
 msgstr "मुख्यनाम"
 
@@ -2963,7 +2963,7 @@ msgid "Cardinality"
 msgstr "प्रमुखता"
 
 #: libraries/Index.class.php:569 libraries/TableSearch.class.php:187
-#: libraries/build_html_for_db.lib.php:21 libraries/mysql_charsets.lib.php:33
+#: libraries/build_html_for_db.lib.php:21 libraries/mysql_charsets.lib.php:47
 #: libraries/operations.lib.php:240 libraries/operations.lib.php:818
 #: libraries/server_collations.lib.php:35
 #: libraries/server_collations.lib.php:47 libraries/structure.lib.php:780
@@ -3015,7 +3015,7 @@ msgstr "दृश्य"
 #: libraries/config/user_preferences.forms.php:198
 #: libraries/config/user_preferences.forms.php:235
 #: libraries/config/user_preferences.forms.php:261
-#: libraries/import.lib.php:1235
+#: libraries/import.lib.php:1237
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
@@ -3152,7 +3152,7 @@ msgstr "इंजन"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:174
-#: libraries/insert_edit.lib.php:1215 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1217 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "त्रुटि"
@@ -3179,7 +3179,7 @@ msgstr[0] "एकवचन %1$d पंक्ति डाली।"
 msgstr[1] "बहुवचन %1$d पंक्तिया डाली।"
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2474
-#: libraries/browse_foreigners.lib.php:393
+#: libraries/browse_foreigners.lib.php:401
 #: libraries/schema/Pdf_Relation_Schema.class.php:1199
 #: libraries/schema/Pdf_Relation_Schema.class.php:1223
 #: libraries/schema/User_Schema.class.php:434
@@ -3397,8 +3397,8 @@ msgid ""
 "changed."
 msgstr ""
 
-#: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:211
-#: libraries/insert_edit.lib.php:217
+#: libraries/TableSearch.class.php:181 libraries/insert_edit.lib.php:213
+#: libraries/insert_edit.lib.php:219
 #: libraries/navigation/Nodes/Node_Function.class.php:34
 #: libraries/rte/rte_routines.lib.php:1602
 msgid "Function"
@@ -3411,7 +3411,7 @@ msgid "Operator"
 msgstr "ऑपरेटर"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1284
-#: libraries/insert_edit.lib.php:1613 libraries/replication_gui.lib.php:520
+#: libraries/insert_edit.lib.php:1615 libraries/replication_gui.lib.php:520
 #: libraries/rte/rte_routines.lib.php:1604
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:511
 #: pmd_general.php:570 pmd_general.php:693 pmd_general.php:810
@@ -3428,7 +3428,7 @@ msgstr "ढूंढें"
 msgid "Find and Replace"
 msgstr ""
 
-#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1387
+#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1389
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -3438,7 +3438,7 @@ msgstr "इनसर्ट"
 msgid "Select columns (at least one):"
 msgstr "स्तंभ चुनें (कम से कम एक):"
 
-#: libraries/TableSearch.class.php:821 libraries/insert_edit.lib.php:1219
+#: libraries/TableSearch.class.php:821 libraries/insert_edit.lib.php:1221
 #: libraries/server_privileges.lib.php:438
 msgid "Or"
 msgstr "अथवा"
@@ -3966,7 +3966,7 @@ msgstr "अपना कंप्यूटर ब्राउज़ करें
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "अपने वेब सर्वर की अपलोड डिरेक्टरी से चुने <b>%s</b>:"
 
-#: libraries/Util.class.php:3375 libraries/insert_edit.lib.php:1216
+#: libraries/Util.class.php:3375 libraries/insert_edit.lib.php:1218
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
 msgstr "आपकी अपलोड दिरेक्टोरी तक पहुंचा नहीं जा सकता"
@@ -4011,8 +4011,8 @@ msgstr "साझा"
 msgid "Search:"
 msgstr "खोज करे"
 
-#: libraries/browse_foreigners.lib.php:63
-#: libraries/browse_foreigners.lib.php:65
+#: libraries/browse_foreigners.lib.php:69
+#: libraries/browse_foreigners.lib.php:71
 #: libraries/server_collations.lib.php:36
 #: libraries/server_collations.lib.php:48 libraries/server_engines.lib.php:50
 #: libraries/server_plugins.lib.php:133
@@ -4020,11 +4020,11 @@ msgstr "खोज करे"
 msgid "Description"
 msgstr "वर्णन"
 
-#: libraries/browse_foreigners.lib.php:206
+#: libraries/browse_foreigners.lib.php:211
 msgid "Use this value"
 msgstr "इस मान का उपयोग करें"
 
-#: libraries/browse_foreigners.lib.php:292
+#: libraries/browse_foreigners.lib.php:297
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
@@ -4364,7 +4364,7 @@ msgstr "कर्ता को इस मूल्य को अनुकूल�
 msgid "Apply"
 msgstr ""
 
-#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1586
+#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1588
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
 #: prefs_manage.php:349
 msgid "Reset"
@@ -4793,7 +4793,7 @@ msgstr "लेबल कुंजी"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
-#: libraries/tbl_columns_definition_form.lib.php:327
+#: libraries/tbl_columns_definition_form.lib.php:314
 msgid "MIME type"
 msgstr "MIME प्रकार"
 
@@ -6736,7 +6736,7 @@ msgstr "दस्तावेज़ खोलें"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s विस्तार गायब है. कृपया अपने PHP विन्यास की जाँच करें"
 
-#: libraries/core.lib.php:446
+#: libraries/core.lib.php:447
 msgid "possible deep recursion attack"
 msgstr ""
 
@@ -7402,80 +7402,80 @@ msgstr "पसंबंधित लिंक"
 msgid "The PrimeBase XT Blog by Paul McCullagh"
 msgstr ""
 
-#: libraries/error_report.lib.php:279
+#: libraries/error_report.lib.php:285
 msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
 
-#: libraries/error_report.lib.php:286
+#: libraries/error_report.lib.php:292
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: libraries/error_report.lib.php:293
+#: libraries/error_report.lib.php:299
 msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
-#: libraries/error_report.lib.php:301
+#: libraries/error_report.lib.php:307
 #, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
 msgstr "स्वतः संस्करण बनाना"
 
-#: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
+#: libraries/import.lib.php:190 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ने एक खाली परिणाम सेट लोताया"
 
-#: libraries/import.lib.php:1197
+#: libraries/import.lib.php:1199
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "निम्नलिखित संरचनाओं या तो बनाया गया है या बदल दिया| यहाँ पर आप:"
 
-#: libraries/import.lib.php:1198
+#: libraries/import.lib.php:1200
 #, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name"
 msgstr "संरचना की सामग्री को नाम पर क्लिक करके देखें"
 
-#: libraries/import.lib.php:1199
+#: libraries/import.lib.php:1201
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr "सेटिंग्स को बदलने के लिए \"विकल्प\" लिंक पर क्लिक करें"
 
-#: libraries/import.lib.php:1200
+#: libraries/import.lib.php:1202
 #, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "इसकी संरचना को संपादित करने के लिए \"संरचना\" लिंक पर क्लिक करें"
 
-#: libraries/import.lib.php:1206
+#: libraries/import.lib.php:1208
 #, fuzzy, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
 msgstr "डेटाबेस पर जायें"
 
-#: libraries/import.lib.php:1212 libraries/import.lib.php:1253
+#: libraries/import.lib.php:1214 libraries/import.lib.php:1255
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "%s के लिए डेटा लापता"
 
-#: libraries/import.lib.php:1238
+#: libraries/import.lib.php:1240
 #, fuzzy, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "टेबल पर जायें"
 
-#: libraries/import.lib.php:1246
+#: libraries/import.lib.php:1248
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "केवल संरचना"
 
-#: libraries/import.lib.php:1264
+#: libraries/import.lib.php:1266
 #, fuzzy, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
@@ -7486,78 +7486,78 @@ msgstr "दृश्य पर जायें"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "&nbsp;%s&nbsp; कोलम पर इन्डेक्स बनाऐं"
 
-#: libraries/insert_edit.lib.php:216 libraries/insert_edit.lib.php:247
+#: libraries/insert_edit.lib.php:218 libraries/insert_edit.lib.php:249
 #: libraries/navigation/Nodes/Node_DatabaseChild.class.php:39
 #: pmd_general.php:183
 msgid "Hide"
 msgstr "छिपाना"
 
-#: libraries/insert_edit.lib.php:460 libraries/mysql_charsets.lib.php:137
-#: libraries/mysql_charsets.lib.php:339
+#: libraries/insert_edit.lib.php:462 libraries/mysql_charsets.lib.php:151
+#: libraries/mysql_charsets.lib.php:353
 msgid "Binary"
 msgstr "बइनरी"
 
-#: libraries/insert_edit.lib.php:656
+#: libraries/insert_edit.lib.php:658
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1100
+#: libraries/insert_edit.lib.php:1102
 msgid "Binary - do not edit"
 msgstr "बइनरी - एडिट मत करिये"
 
-#: libraries/insert_edit.lib.php:1220 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1222 libraries/sql_query_form.lib.php:491
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "वेब सर्वर अपलोड निर्देशिका"
 
-#: libraries/insert_edit.lib.php:1437
+#: libraries/insert_edit.lib.php:1439
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1467
+#: libraries/insert_edit.lib.php:1469
 msgid "and then"
 msgstr "और फिर"
 
-#: libraries/insert_edit.lib.php:1500
+#: libraries/insert_edit.lib.php:1502
 msgid "Insert as new row"
 msgstr "इसको नया रौ में जोडे"
 
-#: libraries/insert_edit.lib.php:1503
+#: libraries/insert_edit.lib.php:1505
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1506
+#: libraries/insert_edit.lib.php:1508
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1526
+#: libraries/insert_edit.lib.php:1528
 msgid "Go back to previous page"
 msgstr "पिछले पृष्ट पर वापस जाएँ"
 
-#: libraries/insert_edit.lib.php:1529
+#: libraries/insert_edit.lib.php:1531
 msgid "Insert another new row"
 msgstr "एक और नई रो इनसर्ट करें"
 
-#: libraries/insert_edit.lib.php:1534
+#: libraries/insert_edit.lib.php:1536
 msgid "Go back to this page"
 msgstr "इस पृष्ठ पर वापस जाएँ"
 
-#: libraries/insert_edit.lib.php:1556
+#: libraries/insert_edit.lib.php:1558
 msgid "Edit next row"
 msgstr "अगली रो को संपादित करें"
 
-#: libraries/insert_edit.lib.php:1578
+#: libraries/insert_edit.lib.php:1580
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1961 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1963 libraries/sql.lib.php:1632
 msgid "Showing SQL query"
 msgstr "SQL क्वेरी शो"
 
-#: libraries/insert_edit.lib.php:1986 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1988 libraries/sql.lib.php:1612
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "इनसर्ट रो id: %1$d"
@@ -7624,189 +7624,189 @@ msgstr "अनुक्रमणिका जोड़"
 msgid "Do you really want to execute the following query?"
 msgstr "क्या आप सचमुच चाहते है की"
 
-#: libraries/mysql_charsets.lib.php:33
+#: libraries/mysql_charsets.lib.php:47
 msgid "Charset"
 msgstr "कोई"
 
-#: libraries/mysql_charsets.lib.php:149
+#: libraries/mysql_charsets.lib.php:163
 msgid "Bulgarian"
 msgstr "बल्गेरियन्"
 
-#: libraries/mysql_charsets.lib.php:153 libraries/mysql_charsets.lib.php:279
+#: libraries/mysql_charsets.lib.php:167 libraries/mysql_charsets.lib.php:293
 msgid "Simplified Chinese"
 msgstr "चीनी सरलीकृत"
 
-#: libraries/mysql_charsets.lib.php:155 libraries/mysql_charsets.lib.php:299
+#: libraries/mysql_charsets.lib.php:169 libraries/mysql_charsets.lib.php:313
 msgid "Traditional Chinese"
 msgstr "पारंपरिक चीनी"
 
-#: libraries/mysql_charsets.lib.php:159 libraries/mysql_charsets.lib.php:346
+#: libraries/mysql_charsets.lib.php:173 libraries/mysql_charsets.lib.php:360
 msgid "case-insensitive"
 msgstr "असंवेदनशील मामला"
 
-#: libraries/mysql_charsets.lib.php:162 libraries/mysql_charsets.lib.php:348
+#: libraries/mysql_charsets.lib.php:176 libraries/mysql_charsets.lib.php:362
 msgid "case-sensitive"
 msgstr "संवेदनशील मामला"
 
-#: libraries/mysql_charsets.lib.php:165
+#: libraries/mysql_charsets.lib.php:179
 msgid "Croatian"
 msgstr "क्रोएशियाई"
 
-#: libraries/mysql_charsets.lib.php:168
+#: libraries/mysql_charsets.lib.php:182
 msgid "Czech"
 msgstr "चेक"
 
-#: libraries/mysql_charsets.lib.php:171
+#: libraries/mysql_charsets.lib.php:185
 msgid "Danish"
 msgstr "डेनिश"
 
-#: libraries/mysql_charsets.lib.php:174
+#: libraries/mysql_charsets.lib.php:188
 msgid "English"
 msgstr "अंग्रेजी"
 
-#: libraries/mysql_charsets.lib.php:177
+#: libraries/mysql_charsets.lib.php:191
 msgid "Esperanto"
 msgstr "एस्पेरांतो"
 
-#: libraries/mysql_charsets.lib.php:180
+#: libraries/mysql_charsets.lib.php:194
 msgid "Estonian"
 msgstr "एस्तोनियावासी"
 
-#: libraries/mysql_charsets.lib.php:183 libraries/mysql_charsets.lib.php:186
+#: libraries/mysql_charsets.lib.php:197 libraries/mysql_charsets.lib.php:200
 msgid "German"
 msgstr "जर्मन"
 
-#: libraries/mysql_charsets.lib.php:183
+#: libraries/mysql_charsets.lib.php:197
 msgid "dictionary"
 msgstr "शब्दकोश"
 
-#: libraries/mysql_charsets.lib.php:186
+#: libraries/mysql_charsets.lib.php:200
 msgid "phone book"
 msgstr "फोन की किताब"
 
-#: libraries/mysql_charsets.lib.php:189
+#: libraries/mysql_charsets.lib.php:203
 msgid "Hungarian"
 msgstr "हंगेरी"
 
-#: libraries/mysql_charsets.lib.php:192
+#: libraries/mysql_charsets.lib.php:206
 msgid "Icelandic"
 msgstr "आइसलैंड का"
 
-#: libraries/mysql_charsets.lib.php:195 libraries/mysql_charsets.lib.php:286
+#: libraries/mysql_charsets.lib.php:209 libraries/mysql_charsets.lib.php:300
 msgid "Japanese"
 msgstr "जापानी"
 
-#: libraries/mysql_charsets.lib.php:198
+#: libraries/mysql_charsets.lib.php:212
 msgid "Latvian"
 msgstr "लात्वीयावासी"
 
-#: libraries/mysql_charsets.lib.php:201
+#: libraries/mysql_charsets.lib.php:215
 msgid "Lithuanian"
 msgstr "लिथुआनियाई"
 
-#: libraries/mysql_charsets.lib.php:204 libraries/mysql_charsets.lib.php:308
+#: libraries/mysql_charsets.lib.php:218 libraries/mysql_charsets.lib.php:322
 msgid "Korean"
 msgstr "कोरियन"
 
-#: libraries/mysql_charsets.lib.php:207
+#: libraries/mysql_charsets.lib.php:221
 msgid "Persian"
 msgstr "फ़ारसी"
 
-#: libraries/mysql_charsets.lib.php:210
+#: libraries/mysql_charsets.lib.php:224
 msgid "Polish"
 msgstr "फ़ारसी"
 
-#: libraries/mysql_charsets.lib.php:213 libraries/mysql_charsets.lib.php:262
+#: libraries/mysql_charsets.lib.php:227 libraries/mysql_charsets.lib.php:276
 msgid "West European"
 msgstr "पश्चिम यूरोपीय"
 
-#: libraries/mysql_charsets.lib.php:216
+#: libraries/mysql_charsets.lib.php:230
 msgid "Romanian"
 msgstr "रोमानियाई"
 
-#: libraries/mysql_charsets.lib.php:219
+#: libraries/mysql_charsets.lib.php:233
 msgid "Slovak"
 msgstr "स्लोवाक"
 
-#: libraries/mysql_charsets.lib.php:222
+#: libraries/mysql_charsets.lib.php:236
 msgid "Slovenian"
 msgstr "स्लोवेनियाई"
 
-#: libraries/mysql_charsets.lib.php:225
+#: libraries/mysql_charsets.lib.php:239
 msgid "Spanish"
 msgstr "स्पेनिश"
 
-#: libraries/mysql_charsets.lib.php:228
+#: libraries/mysql_charsets.lib.php:242
 msgid "Traditional Spanish"
 msgstr "पारंपरिक स्पेनिश"
 
-#: libraries/mysql_charsets.lib.php:231 libraries/mysql_charsets.lib.php:329
+#: libraries/mysql_charsets.lib.php:245 libraries/mysql_charsets.lib.php:343
 msgid "Swedish"
 msgstr "स्वीडिश"
 
-#: libraries/mysql_charsets.lib.php:234 libraries/mysql_charsets.lib.php:332
+#: libraries/mysql_charsets.lib.php:248 libraries/mysql_charsets.lib.php:346
 msgid "Thai"
 msgstr "थाई"
 
-#: libraries/mysql_charsets.lib.php:237 libraries/mysql_charsets.lib.php:326
+#: libraries/mysql_charsets.lib.php:251 libraries/mysql_charsets.lib.php:340
 msgid "Turkish"
 msgstr "तुर्क"
 
-#: libraries/mysql_charsets.lib.php:240 libraries/mysql_charsets.lib.php:323
+#: libraries/mysql_charsets.lib.php:254 libraries/mysql_charsets.lib.php:337
 msgid "Ukrainian"
 msgstr "यूक्रेनी"
 
-#: libraries/mysql_charsets.lib.php:243 libraries/mysql_charsets.lib.php:253
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:267
 msgid "Unicode"
 msgstr "यूनिकोड"
 
-#: libraries/mysql_charsets.lib.php:243 libraries/mysql_charsets.lib.php:253
-#: libraries/mysql_charsets.lib.php:262 libraries/mysql_charsets.lib.php:269
-#: libraries/mysql_charsets.lib.php:291 libraries/mysql_charsets.lib.php:302
+#: libraries/mysql_charsets.lib.php:257 libraries/mysql_charsets.lib.php:267
+#: libraries/mysql_charsets.lib.php:276 libraries/mysql_charsets.lib.php:283
+#: libraries/mysql_charsets.lib.php:305 libraries/mysql_charsets.lib.php:316
 msgid "multilingual"
 msgstr "बहुभाषी"
 
-#: libraries/mysql_charsets.lib.php:269
+#: libraries/mysql_charsets.lib.php:283
 msgid "Central European"
 msgstr "सामान्य यूरोपीय"
 
-#: libraries/mysql_charsets.lib.php:274
+#: libraries/mysql_charsets.lib.php:288
 msgid "Russian"
 msgstr "रशियन"
 
-#: libraries/mysql_charsets.lib.php:291
+#: libraries/mysql_charsets.lib.php:305
 msgid "Baltic"
 msgstr "बाल्टिक"
 
-#: libraries/mysql_charsets.lib.php:296
+#: libraries/mysql_charsets.lib.php:310
 msgid "Armenian"
 msgstr "आर्मेनियन"
 
-#: libraries/mysql_charsets.lib.php:302
+#: libraries/mysql_charsets.lib.php:316
 msgid "Cyrillic"
 msgstr ""
 
-#: libraries/mysql_charsets.lib.php:305
+#: libraries/mysql_charsets.lib.php:319
 msgid "Arabic"
 msgstr "अरबी"
 
-#: libraries/mysql_charsets.lib.php:311
+#: libraries/mysql_charsets.lib.php:325
 msgid "Hebrew"
 msgstr "यहूदी"
 
-#: libraries/mysql_charsets.lib.php:314
+#: libraries/mysql_charsets.lib.php:328
 msgid "Georgian"
 msgstr "जॉर्जियाई"
 
-#: libraries/mysql_charsets.lib.php:317
+#: libraries/mysql_charsets.lib.php:331
 msgid "Greek"
 msgstr "ग्रीक"
 
-#: libraries/mysql_charsets.lib.php:320
+#: libraries/mysql_charsets.lib.php:334
 msgid "Czech-Slovak"
 msgstr "चेक-स्लोवाक"
 
-#: libraries/mysql_charsets.lib.php:335 libraries/mysql_charsets.lib.php:342
+#: libraries/mysql_charsets.lib.php:349 libraries/mysql_charsets.lib.php:356
 #: libraries/structure.lib.php:1068
 msgid "unknown"
 msgstr "अज्ञात"
@@ -8181,7 +8181,7 @@ msgstr "विभाजन हटायें"
 msgid "Check referential integrity:"
 msgstr "Referential अखंडता की जाँच करें"
 
-#: libraries/plugin_interface.lib.php:502
+#: libraries/plugin_interface.lib.php:511
 msgid "This format has no options"
 msgstr "इस प्रारूप के कोई विकल्प नहीं है"
 
@@ -8823,12 +8823,6 @@ msgstr "XML"
 msgid "Geometry type '%s' is not supported by MySQL."
 msgstr ""
 
-#: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:32
-msgid ""
-"Appends text to a string. The only option is the text to be appended "
-"(enclosed in single quotes, default empty string)."
-msgstr ""
-
 #: libraries/plugins/transformations/abstract/Bool2TextTransformationsPlugin.class.php:32
 msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
@@ -8963,7 +8957,7 @@ msgid "Displaying Column Comments"
 msgstr "काँलम सामग्री प्रदर्शित"
 
 #: libraries/relation.lib.php:165
-#: libraries/tbl_columns_definition_form.lib.php:328
+#: libraries/tbl_columns_definition_form.lib.php:321
 #: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "सामग्री दिखाने"
@@ -12181,18 +12175,17 @@ msgstr ""
 msgid "Move column"
 msgstr "काँलम हटाना"
 
-#: libraries/tbl_columns_definition_form.lib.php:317
-#, php-format
-msgid ""
-"For a list of available transformation options and their MIME type "
-"transformations, click on %stransformation descriptions%s"
-msgstr ""
+#: libraries/tbl_columns_definition_form.lib.php:318
+#, fuzzy
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "उपलब्ध परिवर्तन"
 
-#: libraries/tbl_columns_definition_form.lib.php:329
+#: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
 msgstr "परिवर्तन के विकल्प"
 
-#: libraries/tbl_columns_definition_form.lib.php:332
+#: libraries/tbl_columns_definition_form.lib.php:326
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -12200,32 +12193,32 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:752
+#: libraries/tbl_columns_definition_form.lib.php:745
 msgid "first"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:761
+#: libraries/tbl_columns_definition_form.lib.php:754
 #, fuzzy, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "%s के बाद"
 
-#: libraries/tbl_columns_definition_form.lib.php:1049
+#: libraries/tbl_columns_definition_form.lib.php:1042
 msgid "ENUM or SET data too long?"
 msgstr "ENUM या SET डेटा बहुत लंबा है?"
 
-#: libraries/tbl_columns_definition_form.lib.php:1051
+#: libraries/tbl_columns_definition_form.lib.php:1044
 msgid "Get more editing space"
 msgstr "अधिक संपादन स्थान की जरूरत"
 
-#: libraries/tbl_columns_definition_form.lib.php:1076
+#: libraries/tbl_columns_definition_form.lib.php:1069
 #, fuzzy
 #| msgid "No"
 msgctxt "for default"
 msgid "None"
 msgstr "डिफ़ॉल्ट के लिए"
 
-#: libraries/tbl_columns_definition_form.lib.php:1077
+#: libraries/tbl_columns_definition_form.lib.php:1070
 msgid "As defined:"
 msgstr "जैसे परिभाषित:"
 
