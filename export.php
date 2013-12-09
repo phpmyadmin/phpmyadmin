@@ -599,7 +599,7 @@ if (!defined('TESTSUITE')) {
             if ($export_type == 'server' && isset($_REQUEST['db_select'])) {
                 $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
             } elseif ($export_type == 'database'
-             && isset($_REQUEST['table_select'])
+                && isset($_REQUEST['table_select'])
             ) {
                 $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
             }
