@@ -256,7 +256,7 @@ class PMA_Response
     private function _getDisplay()
     {
         // The header may contain nothing at all,
-        // if it's content was already rendered
+        // if its content was already rendered
         // and, in this case, the header will be
         // in the content part of the request
         $retval  = $this->_header->getDisplay();
