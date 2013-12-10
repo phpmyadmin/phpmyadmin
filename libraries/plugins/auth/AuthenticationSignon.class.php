@@ -50,7 +50,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
     }
 
-     /**
+    /**
      * Gets advanced authentication settings
      *
      * @global  string $PHP_AUTH_USER the username if register_globals is on
@@ -61,8 +61,10 @@ class AuthenticationSignon extends AuthenticationPlugin
      *                                register_globals is off
      * @global  string                the username for the ? server
      * @global  string                the password for the ? server
-     * @global  string                the username for the WebSite Professional server
-     * @global  string                the password for the WebSite Professional server
+     * @global  string                the username for the WebSite Professional
+     *                                server
+     * @global  string                the password for the WebSite Professional
+     *                                server
      * @global  string                the username of the user who logs out
      *
      * @return boolean   whether we get authentication settings or not
