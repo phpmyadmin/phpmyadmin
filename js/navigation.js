@@ -195,7 +195,7 @@ $(function () {
                 buttonOptions[PMA_messages.strClose] = function () {
                     $(this).dialog("close");
                 };
-                var $dialog = $('<div/>')
+                $('<div/>')
                     .attr('id', 'unhideNavItemDialog')
                     .append(data.message)
                     .dialog({
@@ -553,7 +553,7 @@ function PMA_showCurrentNavigation() {
  * @return void
  */
 function PMA_reloadNavigation(callback) {
-    var $throbber = $('#pma_navigation .throbber')
+    $('#pma_navigation .throbber')
         .first()
         .css({
             'visibility' : 'visible',
@@ -1146,7 +1146,7 @@ PMA_fastFilter.filter.prototype.request = function () {
                 if (data && data.results) {
                     var $listItem = $('<li />', {'class': 'moreResults'})
                         .appendTo(self.$this.find('li.fast_filter'));
-                    var $link = $('<a />', {href: '#'})
+                    $('<a />', {href: '#'})
                         .text(data.results)
                         .appendTo($listItem)
                         .click(function (event) {
