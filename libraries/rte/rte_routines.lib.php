@@ -1316,188 +1316,7 @@ function PMA_RTN_handleExecute()
         $routine = PMA_RTN_getDataFromName(
             $_REQUEST['item_name'], $_REQUEST['item_type'], false
         );
-        if ($routine !== false) {
-            $queries   = array();
-            $end_query = array();
-            $args      = array();
-            $all_functions = $GLOBALS['PMA_Types']->getAllFunctions();
-            for ($i=0; $i<$routine['item_num_params']; $i++) {
-                if (isset($_REQUEST['params'][$routine['item_param_name'][$i]])) {
-                    $value = $_REQUEST['params'][$routine['item_param_name'][$i]];
-                    if (is_array($value)) { // is SET type
-                        $value = implode(',', $value);
-                    }
-                    $value = PMA_Util::sqlAddSlashes($value);
-                    if (! empty($_REQUEST['funcs'][$routine['item_param_name'][$i]])
-                        && in_array(
-                            $_REQUEST['funcs'][$routine['item_param_name'][$i]],
-                            $all_functions
-                        )
-                    ) {
-                        $queries[] = "SET @p$i="
-                            . $_REQUEST['funcs'][$routine['item_param_name'][$i]]
-                            . "('$value');\n";
-                    } else {
-                        $queries[] = "SET @p$i='$value';\n";
-                    }
-                    $args[] = "@p$i";
-                } else {
-                    $args[] = "@p$i";
-                }
-                if ($routine['item_type'] == 'PROCEDURE') {
-                    if ($routine['item_param_dir'][$i] == 'OUT'
-                        || $routine['item_param_dir'][$i] == 'INOUT'
-                    ) {
-                        $end_query[] = "@p$i AS "
-                            . PMA_Util::backquote($routine['item_param_name'][$i]);
-                    }
-                }
-            }
-            if ($routine['item_type'] == 'PROCEDURE') {
-                $queries[] = "CALL " . PMA_Util::backquote($routine['item_name'])
-                           . "(" . implode(', ', $args) . ");\n";
-                if (count($end_query)) {
-                    $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
-                }
-            } else {
-                $queries[] = "SELECT " . PMA_Util::backquote($routine['item_name'])
-                           . "(" . implode(', ', $args) . ") "
-                           . "AS " . PMA_Util::backquote($routine['item_name'])
-                            . ";\n";
-            }
-
-            // Get all the queries as one SQL statement
-            $multiple_query = implode("", $queries);
-
-            $outcome = true;
-            $affected = 0;
-
-            // Execute query
-            if (! $GLOBALS['dbi']->tryMultiQuery($multiple_query)) {
-                $outcome = false;
-            }
-
-            // Generate output
-            if ($outcome) {
-
-                // Pass the SQL queries through the "pretty printer"
-                $output  = PMA_Util::formatSql(implode($queries, "\n"));
-
-                // Display results
-                $output .= "<fieldset><legend>";
-                $output .= sprintf(
-                    __('Execution results of routine %s'),
-                    PMA_Util::backquote(htmlspecialchars($routine['item_name']))
-                );
-                $output .= "</legend>";
-
-                $num_of_rusults_set_to_display = 0;
-
-                do {
-
-                    $result = $GLOBALS['dbi']->storeResult();
-                    $num_rows = $GLOBALS['dbi']->numRows($result);
-
-                    if (($result !== false) && ($num_rows > 0)) {
-
-                        $output .= "<table><tr>";
-                        foreach ($GLOBALS['dbi']->getFieldsMeta($result)
-                            as $key => $field) {
-                            $output .= "<th>";
-                            $output .= htmlspecialchars($field->name);
-                            $output .= "</th>";
-                        }
-                        $output .= "</tr>";
-
-                        $color_class = 'odd';
-
-                        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                            $output .= "<tr>";
-                            foreach ($row as $key => $value) {
-                                if ($value === null) {
-                                    $value = '<i>NULL</i>';
-                                } else {
-                                    $value = htmlspecialchars($value);
-                                }
-                                $output .= "<td class='" . $color_class . "'>"
-                                    . $value . "</td>";
-                            }
-                            $output .= "</tr>";
-                            $color_class = ($color_class == 'odd') ? 'even' : 'odd';
-                        }
-
-                        $output .= "</table>";
-                        $num_of_rusults_set_to_display++;
-                        $affected = $num_rows;
-
-                    }
-
-                    if (! $GLOBALS['dbi']->moreResults()) {
-                        break;
-                    }
-
-                    $output .= "<br/>";
-
-                    $GLOBALS['dbi']->freeResult($result);
-
-                } while ($GLOBALS['dbi']->nextResult());
-
-                $output .= "</fieldset>";
-
-                $message = __('Your SQL query has been executed successfully');
-                if ($routine['item_type'] == 'PROCEDURE') {
-                    $message .= '<br />';
-
-                    // TODO : message need to be modified according to the
-                    // output from the routine
-                    $message .= sprintf(
-                        _ngettext(
-                            '%d row affected by the last statement inside the procedure',
-                            '%d rows affected by the last statement inside the procedure',
-                            $affected
-                        ),
-                        $affected
-                    );
-                }
-                $message = PMA_message::success($message);
-
-                if ($num_of_rusults_set_to_display == 0) {
-                    $notice = __(
-                        'MySQL returned an empty result set (i.e. zero rows).'
-                    );
-                    $output .= PMA_message::notice($notice)->getDisplay();
-                }
-
-            } else {
-                $output = '';
-                $message = PMA_message::error(
-                    sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($multiple_query)
-                    )
-                    . '<br /><br />'
-                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null)
-                );
-            }
-
-            // Print/send output
-            if ($GLOBALS['is_ajax_request']) {
-                $response = PMA_Response::getInstance();
-                $response->isSuccess($message->isSuccess());
-                $response->addJSON('message', $message->getDisplay() . $output);
-                $response->addJSON('dialog', false);
-                exit;
-            } else {
-                echo $message->getDisplay() . $output;
-                if ($message->isError()) {
-                    // At least one query has failed, so shouldn't
-                    // execute any more queries, so we quit.
-                    exit;
-                }
-                unset($_POST);
-                // Now deliberately fall through to displaying the routines list
-            }
-        } else {
+        if ($routine === false) {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
@@ -1515,6 +1334,188 @@ function PMA_RTN_handleExecute()
                 unset($_POST);
             }
         }
+
+        $queries   = array();
+        $end_query = array();
+        $args      = array();
+        $all_functions = $GLOBALS['PMA_Types']->getAllFunctions();
+        for ($i=0; $i<$routine['item_num_params']; $i++) {
+            if (isset($_REQUEST['params'][$routine['item_param_name'][$i]])) {
+                $value = $_REQUEST['params'][$routine['item_param_name'][$i]];
+                if (is_array($value)) { // is SET type
+                    $value = implode(',', $value);
+                }
+                $value = PMA_Util::sqlAddSlashes($value);
+                if (! empty($_REQUEST['funcs'][$routine['item_param_name'][$i]])
+                    && in_array(
+                        $_REQUEST['funcs'][$routine['item_param_name'][$i]],
+                        $all_functions
+                    )
+                ) {
+                    $queries[] = "SET @p$i="
+                        . $_REQUEST['funcs'][$routine['item_param_name'][$i]]
+                        . "('$value');\n";
+                } else {
+                    $queries[] = "SET @p$i='$value';\n";
+                }
+                $args[] = "@p$i";
+            } else {
+                $args[] = "@p$i";
+            }
+            if ($routine['item_type'] == 'PROCEDURE') {
+                if ($routine['item_param_dir'][$i] == 'OUT'
+                    || $routine['item_param_dir'][$i] == 'INOUT'
+                ) {
+                    $end_query[] = "@p$i AS "
+                        . PMA_Util::backquote($routine['item_param_name'][$i]);
+                }
+            }
+        }
+        if ($routine['item_type'] == 'PROCEDURE') {
+            $queries[] = "CALL " . PMA_Util::backquote($routine['item_name'])
+                       . "(" . implode(', ', $args) . ");\n";
+            if (count($end_query)) {
+                $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
+            }
+        } else {
+            $queries[] = "SELECT " . PMA_Util::backquote($routine['item_name'])
+                       . "(" . implode(', ', $args) . ") "
+                       . "AS " . PMA_Util::backquote($routine['item_name'])
+                        . ";\n";
+        }
+
+        // Get all the queries as one SQL statement
+        $multiple_query = implode("", $queries);
+
+        $outcome = true;
+        $affected = 0;
+
+        // Execute query
+        if (! $GLOBALS['dbi']->tryMultiQuery($multiple_query)) {
+            $outcome = false;
+        }
+
+        // Generate output
+        if ($outcome) {
+
+            // Pass the SQL queries through the "pretty printer"
+            $output  = PMA_Util::formatSql(implode($queries, "\n"));
+
+            // Display results
+            $output .= "<fieldset><legend>";
+            $output .= sprintf(
+                __('Execution results of routine %s'),
+                PMA_Util::backquote(htmlspecialchars($routine['item_name']))
+            );
+            $output .= "</legend>";
+
+            $num_of_rusults_set_to_display = 0;
+
+            do {
+
+                $result = $GLOBALS['dbi']->storeResult();
+                $num_rows = $GLOBALS['dbi']->numRows($result);
+
+                if (($result !== false) && ($num_rows > 0)) {
+
+                    $output .= "<table><tr>";
+                    foreach ($GLOBALS['dbi']->getFieldsMeta($result)
+                        as $key => $field) {
+                        $output .= "<th>";
+                        $output .= htmlspecialchars($field->name);
+                        $output .= "</th>";
+                    }
+                    $output .= "</tr>";
+
+                    $color_class = 'odd';
+
+                    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                        $output .= "<tr>";
+                        foreach ($row as $key => $value) {
+                            if ($value === null) {
+                                $value = '<i>NULL</i>';
+                            } else {
+                                $value = htmlspecialchars($value);
+                            }
+                            $output .= "<td class='" . $color_class . "'>"
+                                . $value . "</td>";
+                        }
+                        $output .= "</tr>";
+                        $color_class = ($color_class == 'odd') ? 'even' : 'odd';
+                    }
+
+                    $output .= "</table>";
+                    $num_of_rusults_set_to_display++;
+                    $affected = $num_rows;
+
+                }
+
+                if (! $GLOBALS['dbi']->moreResults()) {
+                    break;
+                }
+
+                $output .= "<br/>";
+
+                $GLOBALS['dbi']->freeResult($result);
+
+            } while ($GLOBALS['dbi']->nextResult());
+
+            $output .= "</fieldset>";
+
+            $message = __('Your SQL query has been executed successfully');
+            if ($routine['item_type'] == 'PROCEDURE') {
+                $message .= '<br />';
+
+                // TODO : message need to be modified according to the
+                // output from the routine
+                $message .= sprintf(
+                    _ngettext(
+                        '%d row affected by the last statement inside the procedure',
+                        '%d rows affected by the last statement inside the procedure',
+                        $affected
+                    ),
+                    $affected
+                );
+            }
+            $message = PMA_message::success($message);
+
+            if ($num_of_rusults_set_to_display == 0) {
+                $notice = __(
+                    'MySQL returned an empty result set (i.e. zero rows).'
+                );
+                $output .= PMA_message::notice($notice)->getDisplay();
+            }
+
+        } else {
+            $output = '';
+            $message = PMA_message::error(
+                sprintf(
+                    __('The following query has failed: "%s"'),
+                    htmlspecialchars($multiple_query)
+                )
+                . '<br /><br />'
+                . __('MySQL said: ') . $GLOBALS['dbi']->getError(null)
+            );
+        }
+
+        // Print/send output
+        if ($GLOBALS['is_ajax_request']) {
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('message', $message->getDisplay() . $output);
+            $response->addJSON('dialog', false);
+            exit;
+        } else {
+            echo $message->getDisplay() . $output;
+            if ($message->isError()) {
+                // At least one query has failed, so shouldn't
+                // execute any more queries, so we quit.
+                exit;
+            }
+            unset($_POST);
+            // Now deliberately fall through to displaying the routines list
+        }
+        return;
     } else if (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
         /**
          * Display the execute form for a routine.
