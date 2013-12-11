@@ -1028,7 +1028,9 @@ function PMA_handleRequestForSlaveServerControl()
         $qReset = $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
         $qStart = PMA_Replication_Slave_control("START");
 
-        $result = ($qStop !== false && $qStop !== -1 && $qReset !== false && $qReset !== -1 && $qStart !== false && $qStart !== -1);
+        $result = ($qStop !== false && $qStop !== -1 &&
+            $qReset !== false && $qReset !== -1 &&
+            $qStart !== false && $qStart !== -1);
     } else {
         $qControl = PMA_Replication_Slave_control(
             $_REQUEST['sr_slave_action'],
@@ -1057,7 +1059,9 @@ function PMA_handleRequestForSlaveSkipError()
     $qSkip = $GLOBALS['dbi']->tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
     $qStart = PMA_Replication_Slave_control("START");
 
-    $result = ($qStop !== false && $qStop !== -1 && $qSkip !== false && $qSkip !== -1 && $qStart !== false && $qStart !== -1);
+    $result = ($qStop !== false && $qStop !== -1 &&
+        $qSkip !== false && $qSkip !== -1 &&
+        $qStart !== false && $qStart !== -1);
 
     return $result;
 }
