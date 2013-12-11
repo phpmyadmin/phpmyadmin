@@ -1471,7 +1471,8 @@ function PMA_RTN_handleExecute()
                 $message .= sprintf(
                     _ngettext(
                         '%d row affected by the last statement inside the procedure',
-                        '%d rows affected by the last statement inside the procedure',
+                        '%d rows affected by the last statement inside the '
+                        . 'procedure',
                         $affected
                     ),
                     $affected
