@@ -727,7 +727,8 @@ class PMA_Index
         while ($while_index = array_pop($indexes)) {
             // ... compare with every remaining index in stack
             foreach ($indexes as $each_index) {
-                if ($each_index->getCompareData() !== $while_index->getCompareData()) {
+                if ($each_index->getCompareData() !== $while_index->getCompareData()
+                ) {
                     continue;
                 }
 

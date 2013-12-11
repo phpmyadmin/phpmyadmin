@@ -313,7 +313,8 @@ class PMA_DbQbe
     {
         $html_output = '';
         $html_output .= '<td class="center">';
-        $html_output .= '<select name="criteriaColumn[' . $column_number . ']" size="1">';
+        $html_output .= '<select name="criteriaColumn[' . $column_number
+            . ']" size="1">';
         $html_output .= '<option value="">&nbsp;</option>';
         foreach ($this->_columnNames as $column) {
             $html_output .= '<option value="' . htmlspecialchars($column) . '"'
@@ -363,7 +364,11 @@ class PMA_DbQbe
         $html_output = '<tr class="odd noclick">';
         $html_output .= '<th>' . __('Column:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+        for (
+            $column_index = 0;
+            $column_index < $this->_criteria_column_count;
+            $column_index++
+        ) {
             if (isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
@@ -405,7 +410,11 @@ class PMA_DbQbe
         $html_output = '<tr class="even noclick">';
         $html_output .= '<th>' . __('Sort:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+        for (
+            $column_index = 0;
+            $column_index < $this->_criteria_column_count;
+            $column_index++
+        ) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -467,7 +476,11 @@ class PMA_DbQbe
         $html_output = '<tr class="odd noclick">';
         $html_output .= '<th>' . __('Show:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+        for (
+            $column_index = 0;
+            $column_index < $this->_criteria_column_count;
+            $column_index++
+        ) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -512,7 +525,11 @@ class PMA_DbQbe
         $html_output = '<tr class="even noclick">';
         $html_output .= '<th>' . __('Criteria:') . '</th>';
         $new_column_count = 0;
-        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+        for (
+            $column_index = 0;
+            $column_index < $this->_criteria_column_count;
+            $column_index++
+        ) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -786,7 +803,11 @@ class PMA_DbQbe
     {
         $html_output = '';
         $new_column_count = 0;
-        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+        for (
+            $column_index = 0;
+            $column_index < $this->_criteria_column_count;
+            $column_index++
+        ) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -846,7 +867,8 @@ class PMA_DbQbe
             ) {
                 $checked_options['or']  = ' checked="checked"';
                 $checked_options['and'] = '';
-                $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
+                $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even')
+                    . ' noclick">';
                 $html_output .= $this->_getInsDelAndOrCell(
                     $new_row_count, $checked_options
                 );
@@ -875,7 +897,8 @@ class PMA_DbQbe
                 $checked_options['or']  =  ' checked="checked"';
                 $checked_options['and'] =  '';
             }
-            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
+            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even')
+                . ' noclick">';
             $html_output .= $this->_getInsDelAndOrCell(
                 $new_row_count, $checked_options
             );
@@ -899,7 +922,11 @@ class PMA_DbQbe
     {
         $select_clause = '';
         $select_clauses = array();
-        for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
+        for (
+            $column_index = 0;
+            $column_index < $this->_criteria_column_count;
+            $column_index++
+        ) {
             if (! empty($this->_curField[$column_index])
                 && isset($this->_curShow[$column_index])
                 && $this->_curShow[$column_index] == 'on'

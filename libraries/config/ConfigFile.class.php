@@ -187,9 +187,9 @@ class ConfigFile
     /**
      * Sets config value
      *
-     * @param string $path
-     * @param mixed  $value
-     * @param string $canonical_path
+     * @param string $path           Path
+     * @param mixed  $value          Value
+     * @param string $canonical_path Canonical path
      *
      * @return void
      */
@@ -238,9 +238,9 @@ class ConfigFile
      * (eg. 'key/subkey').
      * Used as array_walk() callback.
      *
-     * @param mixed $value
-     * @param mixed $key
-     * @param mixed $prefix
+     * @param mixed $value  Value
+     * @param mixed $key    Key
+     * @param mixed $prefix Prefix
      *
      * @return void
      */
@@ -273,7 +273,7 @@ class ConfigFile
      * Updates config with values read from given array
      * (config will contain differences to defaults from config.defaults.php).
      *
-     * @param array $cfg
+     * @param array $cfg Configuration
      *
      * @return void
      */
@@ -314,8 +314,8 @@ class ConfigFile
      * exist in config.default.php ($cfg) and config.values.php
      * ($_cfg_db['_overrides'])
      *
-     * @param string $canonical_path
-     * @param mixed  $default
+     * @param string $canonical_path Canonical path
+     * @param mixed  $default        Default value
      *
      * @return mixed
      */
@@ -328,8 +328,8 @@ class ConfigFile
      * Returns config value, if it's not set uses the default one; returns
      * $default if the path isn't set and doesn't contain a default value
      *
-     * @param string $path
-     * @param mixed  $default
+     * @param string $path    Path
+     * @param mixed  $default Default value
      *
      * @return mixed
      */
@@ -346,7 +346,7 @@ class ConfigFile
     /**
      * Returns canonical path
      *
-     * @param string $path
+     * @param string $path Path
      *
      * @return string
      */

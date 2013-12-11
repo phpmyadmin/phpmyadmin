@@ -279,7 +279,8 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
 
     $html_output .= '<input type="checkbox" id="tablesForm_checkall" '
         . 'class="checkall_box" title="' . __('Check All') .'" />';
-    $html_output .= '<label for="tablesForm_checkall">' .__('Check All') . '</label>';
+    $html_output .= '<label for="tablesForm_checkall">' .__('Check All')
+        . '</label>';
 
     if ($overhead_check != '') {
         $html_output .= PMA_getHtmlForCheckTablesHavingOverheadlink(
@@ -1498,7 +1499,8 @@ function PMA_getHtmlForEditView($url_params)
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
-    $html_output = '<a href="tbl_printview.php?' . $url_query . '" target="print_view">'
+    $html_output = '<a href="tbl_printview.php?' . $url_query
+        . '" target="print_view">'
         . PMA_Util::getIcon('b_print.png', __('Print view'), true)
         . '</a>';
 
@@ -1880,7 +1882,8 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
         && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
     ) {
-        $html_output .= '<a rel="samepage" href="sql.php?' . $url_query . '&amp;sql_query='
+        $html_output .= '<a rel="samepage" href="sql.php?' . $url_query
+            . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ' ADD FULLTEXT(' . PMA_Util::backquote($row['Field'])
@@ -2152,7 +2155,8 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
             $showtable['Data_free'], $max_digits, $decimals
         );
         list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
-            $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'],
+            $showtable['Data_length'] + $showtable['Index_length']
+            - $showtable['Data_free'],
             $max_digits, $decimals
         );
     } else {
@@ -2167,7 +2171,8 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     );
     if ($table_info_num_rows > 0) {
         list($avg_size, $avg_unit) = PMA_Util::formatByteDown(
-            ($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'],
+            ($showtable['Data_length'] + $showtable['Index_length'])
+            / $showtable['Rows'],
             6, 1
         );
     }
@@ -2259,7 +2264,9 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
      * @todo optimize in case of multiple fields to modify
      */
     for ($i = 0; $i < $selected_cnt; $i++) {
-        $fields_meta[] = $GLOBALS['dbi']->getColumns($db, $table, $selected[$i], true);
+        $fields_meta[] = $GLOBALS['dbi']->getColumns(
+            $db, $table, $selected[$i], true
+        );
     }
     $num_fields  = count($fields_meta);
     // set these globals because tbl_columns_definition_form.inc.php
@@ -2284,7 +2291,8 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     // in MySQL 4.0.25).
 
     $show_create_table = $GLOBALS['dbi']->fetchValue(
-        'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
+        'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
+        . PMA_Util::backquote($table),
         0, 1
     );
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -2356,8 +2364,12 @@ function PMA_updateColumns($db, $table)
     if (count($key_fields)) {
         $fields = array();
         foreach ($key_fields as $each_field) {
-            if (isset($_REQUEST['field_name'][$each_field]) && strlen($_REQUEST['field_name'][$each_field])) {
-                $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$each_field]);
+            if (isset($_REQUEST['field_name'][$each_field])
+                && strlen($_REQUEST['field_name'][$each_field])
+            ) {
+                $fields[] = PMA_Util::backquote(
+                    $_REQUEST['field_name'][$each_field]
+                );
             }
         } // end for
         $key_query = ', ADD KEY (' . implode(', ', $fields) . ') ';
@@ -2430,7 +2442,9 @@ function PMA_updateColumns($db, $table)
         $response->isSuccess(false);
         $response->addJSON(
             'message',
-            PMA_Message::rawError(__('Query error') . ':<br />'.$GLOBALS['dbi']->getError())
+            PMA_Message::rawError(
+                __('Query error') . ':<br />'.$GLOBALS['dbi']->getError()
+            )
         );
         $regenerate = true;
     }
@@ -2468,7 +2482,9 @@ function PMA_moveColumns($db, $table)
         // it is not, let's move it to index $i
         $data = $columns[$column];
         $extracted_columnspec = PMA_Util::extractColumnSpec($data['Type']);
-        if (isset($data['Extra']) && $data['Extra'] == 'on update CURRENT_TIMESTAMP') {
+        if (isset($data['Extra'])
+            && $data['Extra'] == 'on update CURRENT_TIMESTAMP'
+        ) {
             $extracted_columnspec['attribute'] = $data['Extra'];
             unset($data['Extra']);
         }

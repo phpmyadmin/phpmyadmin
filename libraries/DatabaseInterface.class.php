@@ -568,7 +568,8 @@ class PMA_DatabaseInterface
                     if ($sort_by == 'Data_length') {
                         foreach ($each_tables as $table_name => $table_data) {
                             ${$sort_by}[$table_name] = strtolower(
-                                $table_data['Data_length'] + $table_data['Index_length']
+                                $table_data['Data_length']
+                                + $table_data['Index_length']
                             );
                         }
                     } else {
@@ -680,7 +681,7 @@ class PMA_DatabaseInterface
         //  we would lose a db name thats consists only of numbers
         foreach ($tables as $one_database => $its_tables) {
             if (isset(PMA_Table::$cache[$one_database])) {
-                // the + operator does not do the intended effect 
+                // the + operator does not do the intended effect
                 // when the cache for one table already exists
                 if ($table
                     && isset(PMA_Table::$cache[$one_database][$table])
@@ -1156,8 +1157,12 @@ class PMA_DatabaseInterface
                 FROM data_dictionary.columns
                 WHERE table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
                     AND table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
-                    " . (($column != null) ? "
-                    AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'" : '');
+                    " . (
+                        ($column != null)
+                            ? "
+                    AND column_name = '" . PMA_Util::sqlAddSlashes($column) . "'"
+                            : ''
+                        );
             // ORDER BY ordinal_position
         } else {
             $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '

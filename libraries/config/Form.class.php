@@ -84,7 +84,7 @@ class Form
     /**
      * Returns allowed values for select fields
      *
-     * @param string $option_path
+     * @param string $option_path Option path
      *
      * @return array
      */
@@ -127,9 +127,9 @@ class Form
      * array_walk callback function, reads path of form fields from
      * array (see file comment in setup.forms.php or user_preferences.forms.inc)
      *
-     * @param mixed $value
-     * @param mixed $key
-     * @param mixed $prefix
+     * @param mixed $value  Value
+     * @param mixed $key    Key
+     * @param mixed $prefix Prefix
      *
      * @return void
      */
@@ -156,7 +156,7 @@ class Form
     /**
      * Reads form paths to {@link $fields}
      *
-     * @param array $form
+     * @param array $form Form
      *
      * @return void
      */
@@ -204,8 +204,8 @@ class Form
      * Reads form settings and prepares class to work with given subset of
      * config file
      *
-     * @param string $form_name
-     * @param array  $form
+     * @param string $form_name Form name
+     * @param array  $form      Form
      *
      * @return void
      */

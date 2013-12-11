@@ -85,14 +85,14 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * Outputs a scaled cell
      *
-     * @param float|int   $w      The cell width
-     * @param float|int   $h      The cell height
-     * @param string      $txt    The text to output
-     * @param mixed       $border Whether to add borders or not
-     * @param integer     $ln     Where to put the cursor once the output is done
-     * @param string      $align  Align mode
-     * @param integer     $fill   Whether to fill the cell with a color or not
-     * @param string      $link   Link
+     * @param float|int $w      The cell width
+     * @param float|int $h      The cell height
+     * @param string    $txt    The text to output
+     * @param mixed     $border Whether to add borders or not
+     * @param integer   $ln     Where to put the cursor once the output is done
+     * @param string    $align  Align mode
+     * @param integer   $fill   Whether to fill the cell with a color or not
+     * @param string    $link   Link
      *
      * @access public
      *
@@ -1432,7 +1432,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     (isset($row['Default']) ? $row['Default'] : ''),
                     $row['Extra'],
                     (isset($res_rel[$field_name])
-                        ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']
+                        ? $res_rel[$field_name]['foreign_table'] . ' -> '
+                            . $res_rel[$field_name]['foreign_field']
                         : ''),
                     (isset($comments[$field_name])
                         ? $comments[$field_name]

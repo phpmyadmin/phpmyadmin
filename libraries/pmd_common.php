@@ -271,6 +271,10 @@ function get_tab_pos()
 /**
  * Prepares XML output for js/pmd/ajax.js to display a message
  *
+ * @param string $b   b attribute value
+ * @param string $ret Return attribute value
+ *
+ * @return void
  */
 function PMD_Return_upd($b, $ret)
 {

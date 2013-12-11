@@ -28,7 +28,8 @@ class PMA_ExportPdf extends PMA_PDF
      * Add page if needed.
      *
      * @param float|int $h       cell height. Default value: 0
-     * @param mixed     $y       starting y position, leave empty for current position
+     * @param mixed     $y       starting y position, leave empty for current
+     *                           position
      * @param boolean   $addpage if true add a page, otherwise only return
      *                           the true/false state
      *

@@ -275,7 +275,9 @@ function PMA_getQueryStrFromSelected(
     } // end for
 
     if ($deletes) {
-        $_REQUEST['pos'] = PMA_calculatePosForLastPage($db, $table, $_REQUEST['pos']);
+        $_REQUEST['pos'] = PMA_calculatePosForLastPage(
+            $db, $table, $_REQUEST['pos']
+        );
     }
 
     return array(

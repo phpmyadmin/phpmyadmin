@@ -126,8 +126,10 @@ class PMA_EPS
         $this->font = $value;
         $this->fontSize = $size;
         $this->stringCommands .= "/" . $value . " findfont   % Get the basic font\n";
-        $this->stringCommands .= "" . $size . " scalefont            % Scale the font to $size points\n";
-        $this->stringCommands .= "setfont                 % Make it the current font\n";
+        $this->stringCommands .= ""
+            . $size . " scalefont            % Scale the font to $size points\n";
+        $this->stringCommands
+            .= "setfont                 % Make it the current font\n";
     }
 
     /**
@@ -441,7 +443,8 @@ class Table_Stats_Eps
     private function _getTitle()
     {
         return ($this->_showInfo
-            ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->heightCell)
+            ? sprintf('%.0f', $this->width) . 'x'
+                . sprintf('%.0f', $this->heightCell)
             : '') . ' ' . $this->_tableName;
     }
 
@@ -562,8 +565,9 @@ class Relation_Stats_Eps
      *
      * @see Relation_Stats_Eps::_getXy
      */
-    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
-    {
+    function __construct(
+        $master_table, $master_field, $foreign_table, $foreign_field
+    ) {
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         /*
@@ -841,7 +845,8 @@ class PMA_Eps_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see _setMinMax,Table_Stats_Eps::__construct(),Relation_Stats_Eps::__construct()
+     * @see _setMinMax,Table_Stats_Eps::__construct(),
+     * Relation_Stats_Eps::__construct()
      */
     private function _addRelation(
         $masterTable, $font, $fontSize, $masterField,

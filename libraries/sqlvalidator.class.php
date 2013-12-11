@@ -200,7 +200,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
          */
         function __construct()
         {
-            $this->url                           = 'http://sqlvalidator.mimer.com/v1/services';
+            $this->url
+                = 'http://sqlvalidator.mimer.com/v1/services';
             $this->service_name                  = 'SQL99Validator';
             $this->wsdl                          = '?wsdl';
 
@@ -331,7 +332,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
             $connection_technology, $connection_technology_version
         ) {
             $this->connection_technology         .= ' - ' . $connection_technology;
-            $this->connection_technology_version .= ' - ' . $connection_technology_version;
+            $this->connection_technology_version
+                .= ' - ' . $connection_technology_version;
         } // end of the "appendConnectionTechnology()" function
 
 
