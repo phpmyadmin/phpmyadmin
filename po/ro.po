@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.0-rc1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-11-25 16:19-0500\n"
-"PO-Revision-Date: 2013-10-24 20:31+0200\n"
-"Last-Translator: Sergiu Bivol <sergiu@ase.md>\n"
-"Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
-">\n"
+"PO-Revision-Date: 2013-12-11 22:31+0200\n"
+"Last-Translator: Raul Malea <raul.malea@gmail.com>\n"
+"Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/ro/>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 1.8-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -764,10 +763,9 @@ msgid "Protocol version:"
 msgstr "Versiune protocol"
 
 #: index.php:268
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Utilizator"
+msgstr "Utilizator:"
 
 #: index.php:273
 #, fuzzy
