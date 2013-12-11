@@ -176,7 +176,7 @@ function PMA_applyUserprefs(array $config_data)
 /**
  * Reads user preferences field names
  *
- * @param array|null $forms
+ * @param array|null $forms Forms
  *
  * @return array
  */
@@ -236,9 +236,9 @@ function PMA_persistOption($path, $value, $default_value)
 /**
  * Redirects after saving new user preferences
  *
- * @param string $file_name
- * @param array  $params
- * @param string $hash
+ * @param string $file_name Filename
+ * @param array  $params    URL parameters
+ * @param string $hash      Hash value
  *
  * @return void
  */

@@ -506,7 +506,7 @@ define("FORMATTEDSQL", 2);
 /**
  * Obtains the precision (total # of digits) from a size of type decimal
  *
- * @param string $last_cumulative_size
+ * @param string $last_cumulative_size Size of type decimal
  *
  * @return int Precision of the given decimal size notation
  * @access  public
@@ -520,7 +520,7 @@ function PMA_getDecimalPrecision($last_cumulative_size)
  * Obtains the scale (# of digits to the right of the decimal point)
  * from a size of type decimal
  *
- * @param string $last_cumulative_size
+ * @param string $last_cumulative_size Size of type decimal
  *
  * @return int Scale of the given decimal size notation
  * @access  public
