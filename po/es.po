@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-11 20:47-0500\n"
-"PO-Revision-Date: 2013-12-12 14:33+0200\n"
+"PO-Revision-Date: 2013-12-12 15:12+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/4-1/es/>\n"
 "Language: es\n"
@@ -9392,10 +9392,9 @@ msgid "Generate Password:"
 msgstr "Generar la contraseña:"
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Estado de replicación"
+msgstr "Se inició correctamente la replicación."
 
 #: libraries/replication_gui.lib.php:909
 #| msgid "Master replication"
@@ -9413,20 +9412,18 @@ msgid "Error stopping replication."
 msgstr "Error al detener la replicación."
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Estado de replicación"
+msgstr "Se reinició correctamente la replicación."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Replicación maestra"
+msgstr "Error al reiniciar la replicación."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
-msgstr ""
+msgstr "Éxito."
 
 #: libraries/replication_gui.lib.php:924
 #| msgid "Error"
