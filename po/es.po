@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-11 20:48-0500\n"
-"PO-Revision-Date: 2013-12-06 14:15+0200\n"
+"PO-Revision-Date: 2013-12-12 15:13+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9404,50 +9404,43 @@ msgid "Generate Password:"
 msgstr "Generar la contraseña:"
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Estado de replicación"
+msgstr "Se inició correctamente la replicación."
 
 #: libraries/replication_gui.lib.php:910
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Replicación maestra"
+msgstr "Error al iniciar replicación."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication stopped successfully."
-msgstr "Estado de replicación"
+msgstr "Se detuvo correctamente la replicación."
 
 #: libraries/replication_gui.lib.php:915
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Replicación maestra"
+msgstr "Error al detener la replicación."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Estado de replicación"
+msgstr "Se reinició correctamente la replicación."
 
 #: libraries/replication_gui.lib.php:920
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Replicación maestra"
+msgstr "Error al reiniciar la replicación."
 
 #: libraries/replication_gui.lib.php:924
 msgid "Success."
-msgstr ""
+msgstr "Éxito."
 
 #: libraries/replication_gui.lib.php:925
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Error"
+msgstr "Error."
 
 #: libraries/replication_gui.lib.php:967
 msgid "Unknown error"
@@ -12322,10 +12315,9 @@ msgid "Move column"
 msgstr "Mover columna"
 
 #: libraries/tbl_columns_definition_form.lib.php:318
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "Transformaciones disponibles"
+msgstr "Lista de transformaciones disponibles y sus opciones"
 
 #: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
