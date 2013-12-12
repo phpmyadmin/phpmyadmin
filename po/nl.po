@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-11 20:48-0500\n"
-"PO-Revision-Date: 2013-12-09 16:05+0200\n"
+"PO-Revision-Date: 2013-12-12 14:54+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -9344,50 +9344,43 @@ msgid "Generate Password:"
 msgstr "Wachtwoord genereren:"
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Replicatiestatus"
+msgstr "Replicatie is succesvol gestart."
 
 #: libraries/replication_gui.lib.php:910
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Masterreplicatie"
+msgstr "Fout bij starten van replicatie."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "De grafiek werd succesvol aangemaakt."
+msgstr "Replicatie werd succesvol gestopt."
 
 #: libraries/replication_gui.lib.php:915
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Masterreplicatie"
+msgstr "Fout bij stoppen van replicatie."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Replicatiestatus"
+msgstr "Opnieuw instellen van replicatie was succesvol."
 
 #: libraries/replication_gui.lib.php:920
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Masterreplicatie"
+msgstr "Fout bij opnieuw instellen van replicatie."
 
 #: libraries/replication_gui.lib.php:924
 msgid "Success."
-msgstr ""
+msgstr "Geslaagd."
 
 #: libraries/replication_gui.lib.php:925
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Fout"
+msgstr "Mislukt."
 
 #: libraries/replication_gui.lib.php:967
 msgid "Unknown error"
