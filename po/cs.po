@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-11 20:48-0500\n"
-"PO-Revision-Date: 2013-12-12 11:43+0200\n"
+"PO-Revision-Date: 2013-12-12 15:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -9197,22 +9197,19 @@ msgid "Generate Password:"
 msgstr "Vytvořit heslo:"
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Stav replikace"
+msgstr "Replikace byla úspěšně spuštěna."
 
 #: libraries/replication_gui.lib.php:910
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Replikace nadřízeného"
+msgstr "Chyba při spuštění replikace."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Graf byl úspěšně vytvořen."
+msgstr "Replikace byla úspěšně zastavena."
 
 #: libraries/replication_gui.lib.php:915
 #| msgid "Master replication"
@@ -9220,10 +9217,9 @@ msgid "Error stopping replication."
 msgstr "Chyba při zastavování replikace."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Stav replikace"
+msgstr "Replikace byla úspěšně obnovena."
 
 #: libraries/replication_gui.lib.php:920
 #| msgid "Master replication"
