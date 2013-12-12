@@ -1,19 +1,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.0-rc1\n"
+"Project-Id-Version: phpMyAdmin 4.1.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-11-25 16:19-0500\n"
+"POT-Creation-Date: 2013-12-11 20:47-0500\n"
 "PO-Revision-Date: 2013-08-23 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian <http://l10n.cihar.com/projects/phpmyadmin/master/bs/"
 ">\n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bs\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -54,7 +54,7 @@ msgstr "Komentari tabele"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1374
 #: libraries/schema/Pdf_Relation_Schema.class.php:1397
-#: libraries/tbl_columns_definition_form.lib.php:574
+#: libraries/tbl_columns_definition_form.lib.php:564
 #: libraries/tbl_indexes.lib.php:316 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:731
@@ -343,7 +343,7 @@ msgid "Updated"
 msgstr ""
 
 #: db_tracking.php:85 js/messages.php:177 libraries/Menu.class.php:516
-#: libraries/Util.class.php:4106 libraries/rte/rte_events.lib.php:426
+#: libraries/Util.class.php:4114 libraries/rte/rte_events.lib.php:426
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:363
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
@@ -628,8 +628,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 
 #: import.php:284 import.php:550
@@ -1211,7 +1211,7 @@ msgid "Traffic"
 msgstr "Saobraćaj"
 
 #: js/messages.php:119 libraries/Menu.class.php:549
-#: libraries/Util.class.php:4110 libraries/server_status_monitor.lib.php:299
+#: libraries/Util.class.php:4118 libraries/server_status_monitor.lib.php:299
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
@@ -1241,7 +1241,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2610
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:694 pmd_general.php:545
+#: libraries/tbl_columns_definition_form.lib.php:684 pmd_general.php:545
 msgid "None"
 msgstr "nema"
 
@@ -1542,8 +1542,8 @@ msgstr ""
 
 #: js/messages.php:206 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
-#: libraries/Util.class.php:4109 libraries/Util.class.php:4124
-#: libraries/Util.class.php:4140 libraries/config/messages.inc.php:171
+#: libraries/Util.class.php:4117 libraries/Util.class.php:4132
+#: libraries/Util.class.php:4148 libraries/config/messages.inc.php:171
 #: libraries/display_import.lib.php:108
 #: libraries/server_status_monitor.lib.php:364 prefs_manage.php:238
 #: setup/frames/menu.inc.php:25
@@ -2683,7 +2683,7 @@ msgstr[1] "%s pogodaka unutar tabele <i>%s</i>"
 
 #: libraries/DbSearch.class.php:350 libraries/Menu.class.php:295
 #: libraries/Util.class.php:3188 libraries/Util.class.php:3403
-#: libraries/Util.class.php:3404 libraries/Util.class.php:4134
+#: libraries/Util.class.php:3404 libraries/Util.class.php:4142
 #: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/structure.lib.php:1374
 msgid "Browse"
@@ -2920,8 +2920,8 @@ msgstr "u upitu"
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4926
@@ -2970,8 +2970,8 @@ msgstr "Označi sve"
 #: libraries/DisplayResults.class.php:5327 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3416 libraries/Util.class.php:3417
-#: libraries/Util.class.php:4108 libraries/Util.class.php:4123
-#: libraries/Util.class.php:4139 libraries/config/messages.inc.php:165
+#: libraries/Util.class.php:4116 libraries/Util.class.php:4131
+#: libraries/Util.class.php:4147 libraries/config/messages.inc.php:165
 #: libraries/display_export.lib.php:163
 #: libraries/server_privileges.lib.php:2231
 #: libraries/server_privileges.lib.php:2906
@@ -3008,7 +3008,7 @@ msgstr ""
 msgid "Link not found"
 msgstr "Veza nije pronađena"
 
-#: libraries/Error_Handler.class.php:81
+#: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
@@ -3163,8 +3163,8 @@ msgstr ""
 
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:401
 #: libraries/Util.class.php:3184 libraries/Util.class.php:3191
-#: libraries/Util.class.php:3409 libraries/Util.class.php:4119
-#: libraries/Util.class.php:4135 libraries/config/setup.forms.php:303
+#: libraries/Util.class.php:3409 libraries/Util.class.php:4127
+#: libraries/Util.class.php:4143 libraries/config/setup.forms.php:303
 #: libraries/config/setup.forms.php:340 libraries/config/setup.forms.php:366
 #: libraries/config/user_preferences.forms.php:198
 #: libraries/config/user_preferences.forms.php:235
@@ -3179,8 +3179,8 @@ msgstr "Struktura"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:405
 #: libraries/Menu.class.php:512 libraries/Util.class.php:3185
-#: libraries/Util.class.php:3192 libraries/Util.class.php:4105
-#: libraries/Util.class.php:4120 libraries/Util.class.php:4136
+#: libraries/Util.class.php:3192 libraries/Util.class.php:4113
+#: libraries/Util.class.php:4128 libraries/Util.class.php:4144
 #: libraries/config/messages.inc.php:215
 #: libraries/navigation/Nodes/Node_Table.class.php:45 querywindow.php:59
 msgid "SQL"
@@ -3189,21 +3189,21 @@ msgstr "SQL"
 #: libraries/Menu.class.php:308 libraries/Menu.class.php:408
 #: libraries/Util.class.php:3186 libraries/Util.class.php:3193
 #: libraries/Util.class.php:3405 libraries/Util.class.php:3406
-#: libraries/Util.class.php:4121 libraries/Util.class.php:4137
+#: libraries/Util.class.php:4129 libraries/Util.class.php:4145
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
 msgstr "Pretraživanje"
 
 #: libraries/Menu.class.php:318 libraries/Util.class.php:3187
 #: libraries/Util.class.php:3407 libraries/Util.class.php:3408
-#: libraries/Util.class.php:4138
+#: libraries/Util.class.php:4146
 #: libraries/navigation/Nodes/Node_Table.class.php:42
 #: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
 msgid "Insert"
 msgstr "Novi zapis"
 
 #: libraries/Menu.class.php:340 libraries/Menu.class.php:443
-#: libraries/Util.class.php:4126 libraries/Util.class.php:4141
+#: libraries/Util.class.php:4134 libraries/Util.class.php:4149
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:1816
 #: libraries/server_privileges.lib.php:1924
 #: libraries/server_privileges.lib.php:2703
@@ -3213,19 +3213,19 @@ msgstr "Privilegije"
 
 #: libraries/Menu.class.php:349 libraries/Menu.class.php:376
 #: libraries/Menu.class.php:435 libraries/Util.class.php:3194
-#: libraries/Util.class.php:4125 libraries/Util.class.php:4142
+#: libraries/Util.class.php:4133 libraries/Util.class.php:4150
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Operacije"
 
 #: libraries/Menu.class.php:353 libraries/Menu.class.php:469
-#: libraries/Util.class.php:4130 libraries/Util.class.php:4143
+#: libraries/Util.class.php:4138 libraries/Util.class.php:4151
 #: libraries/relation.lib.php:236
 msgid "Tracking"
 msgstr ""
 
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:463
-#: libraries/Util.class.php:4129 libraries/Util.class.php:4144
+#: libraries/Util.class.php:4137 libraries/Util.class.php:4152
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
@@ -3241,68 +3241,68 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/Menu.class.php:415 libraries/Util.class.php:4122
+#: libraries/Menu.class.php:415 libraries/Util.class.php:4130
 msgid "Query"
 msgstr "Upit po primeru"
 
-#: libraries/Menu.class.php:448 libraries/Util.class.php:4127
+#: libraries/Menu.class.php:448 libraries/Util.class.php:4135
 #: libraries/rte/rte_words.lib.php:34
 msgid "Routines"
 msgstr ""
 
-#: libraries/Menu.class.php:456 libraries/Util.class.php:4128
+#: libraries/Menu.class.php:456 libraries/Util.class.php:4136
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:833
 #: libraries/rte/rte_words.lib.php:58
 msgid "Events"
 msgstr ""
 
-#: libraries/Menu.class.php:475 libraries/Util.class.php:4131
+#: libraries/Menu.class.php:475 libraries/Util.class.php:4139
 #: libraries/relation.lib.php:203
 msgid "Designer"
 msgstr ""
 
-#: libraries/Menu.class.php:508 libraries/Util.class.php:4104
+#: libraries/Menu.class.php:508 libraries/Util.class.php:4112
 #: libraries/config/messages.inc.php:178 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3696
 msgid "Databases"
 msgstr "Baze"
 
-#: libraries/Menu.class.php:531 libraries/Util.class.php:4107
+#: libraries/Menu.class.php:531 libraries/Util.class.php:4115
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "Korisnik"
 
 #: libraries/Menu.class.php:558 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4111 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4119 libraries/server_common.lib.php:36
 #, fuzzy
 msgid "Binary log"
 msgstr "Binarni"
 
 #: libraries/Menu.class.php:564 libraries/ServerStatusData.class.php:199
-#: libraries/Util.class.php:4112 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4120 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 #, fuzzy
 msgid "Replication"
 msgstr "Relacije"
 
 #: libraries/Menu.class.php:569 libraries/ServerStatusData.class.php:261
-#: libraries/Util.class.php:4113 libraries/server_engines.lib.php:109
+#: libraries/Util.class.php:4121 libraries/server_engines.lib.php:109
 #: libraries/server_engines.lib.php:113
 msgid "Variables"
 msgstr "Promjenljive"
 
-#: libraries/Menu.class.php:573 libraries/Util.class.php:4114
+#: libraries/Menu.class.php:573 libraries/Util.class.php:4122
 msgid "Charsets"
 msgstr "Kodne strane"
 
-#: libraries/Menu.class.php:578 libraries/Util.class.php:4115
+#: libraries/Menu.class.php:578 libraries/Util.class.php:4123
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr ""
 
-#: libraries/Menu.class.php:582 libraries/Util.class.php:4116
+#: libraries/Menu.class.php:582 libraries/Util.class.php:4124
 msgid "Engines"
 msgstr ""
 
@@ -3753,14 +3753,14 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4130,21 +4130,21 @@ msgstr "Isprazni"
 msgid "Execute"
 msgstr ""
 
-#: libraries/Util.class.php:3948
+#: libraries/Util.class.php:3956
 msgid "Print"
 msgstr "Štampaj"
 
-#: libraries/Util.class.php:4049 libraries/structure.lib.php:798
+#: libraries/Util.class.php:4057 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1775 libraries/tbl_printview.lib.php:239
 msgid "Creation"
 msgstr "Napravljeno"
 
-#: libraries/Util.class.php:4055 libraries/structure.lib.php:805
+#: libraries/Util.class.php:4063 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1783 libraries/tbl_printview.lib.php:250
 msgid "Last update"
 msgstr "Posljednja izmjena"
 
-#: libraries/Util.class.php:4061 libraries/structure.lib.php:812
+#: libraries/Util.class.php:4069 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1791 libraries/tbl_printview.lib.php:261
 msgid "Last check"
 msgstr "Posljednja provjera"
@@ -4951,7 +4951,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportOdt.class.php:482
-#: libraries/tbl_columns_definition_form.lib.php:327
+#: libraries/tbl_columns_definition_form.lib.php:314
 msgid "MIME type"
 msgstr "MIME-tipovi"
 
@@ -7022,8 +7022,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7490,8 +7490,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8307,8 +8307,8 @@ msgstr "Dobrodošli na %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -9102,7 +9102,7 @@ msgid "Displaying Column Comments"
 msgstr "Prikazujem komentare kolone"
 
 #: libraries/relation.lib.php:165
-#: libraries/tbl_columns_definition_form.lib.php:328
+#: libraries/tbl_columns_definition_form.lib.php:318
 #: transformation_overview.php:39
 msgid "Browser transformation"
 msgstr "Tranformacije čitača"
@@ -9444,25 +9444,65 @@ msgstr "Ponovite unos"
 msgid "Generate Password:"
 msgstr "Promeni lozinku"
 
-#: libraries/replication_gui.lib.php:931
+#: libraries/replication_gui.lib.php:908
+#, fuzzy
+#| msgid "Chart generated successfully."
+msgid "Replication started successfully."
+msgstr "Privilegije su uspešno ponovo učitane."
+
+#: libraries/replication_gui.lib.php:909
+msgid "Error starting replication."
+msgstr ""
+
+#: libraries/replication_gui.lib.php:913
+#, fuzzy
+#| msgid "Chart generated successfully."
+msgid "Replication stopped successfully."
+msgstr "Privilegije su uspešno ponovo učitane."
+
+#: libraries/replication_gui.lib.php:914
+msgid "Error stopping replication."
+msgstr ""
+
+#: libraries/replication_gui.lib.php:918
+#, fuzzy
+#| msgid "Chart generated successfully."
+msgid "Replication resetting successfully."
+msgstr "Privilegije su uspešno ponovo učitane."
+
+#: libraries/replication_gui.lib.php:919
+msgid "Error resetting replication."
+msgstr ""
+
+#: libraries/replication_gui.lib.php:923
+msgid "Success."
+msgstr ""
+
+#: libraries/replication_gui.lib.php:924
+#, fuzzy
+#| msgid "Error"
+msgid "Error."
+msgstr "Greška"
+
+#: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:941
+#: libraries/replication_gui.lib.php:976
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:952
+#: libraries/replication_gui.lib.php:987
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:970
+#: libraries/replication_gui.lib.php:1005
 msgid "Unable to change master"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:974
+#: libraries/replication_gui.lib.php:1009
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
@@ -10686,8 +10726,8 @@ msgstr "Pregled korisnika"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Napomena: phpMyAdmin uzima privilegije korisnika direktno iz MySQL tabela "
 "privilegija. Sadržaj ove tabele može se razlikovati od privilegija koje "
@@ -12299,20 +12339,11 @@ msgstr ""
 msgid "Move column"
 msgstr "Dodaj/obriši kolonu"
 
-#: libraries/tbl_columns_definition_form.lib.php:317
-#, php-format
-msgid ""
-"For a list of available transformation options and their MIME type "
-"transformations, click on %stransformation descriptions%s"
-msgstr ""
-"Za listu dostupnih opcija transformacije i njihove transformacije MIME-"
-"tipova, kliknite na %sopise transformacija%s"
-
-#: libraries/tbl_columns_definition_form.lib.php:329
+#: libraries/tbl_columns_definition_form.lib.php:320
 msgid "Transformation options"
 msgstr "Opcije transformacije"
 
-#: libraries/tbl_columns_definition_form.lib.php:332
+#: libraries/tbl_columns_definition_form.lib.php:323
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -12324,32 +12355,32 @@ msgstr ""
 "apostrof (\"'\") u te vrijednosti, stavite obrnutu kosu crtu ispred njih (na "
 "primjer '\\\\xyz' ili 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:752
+#: libraries/tbl_columns_definition_form.lib.php:742
 msgid "first"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:761
+#: libraries/tbl_columns_definition_form.lib.php:751
 #, fuzzy, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "Poslije %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1049
+#: libraries/tbl_columns_definition_form.lib.php:1039
 msgid "ENUM or SET data too long?"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1051
+#: libraries/tbl_columns_definition_form.lib.php:1041
 msgid "Get more editing space"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1076
+#: libraries/tbl_columns_definition_form.lib.php:1066
 #, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "nema"
 
-#: libraries/tbl_columns_definition_form.lib.php:1077
+#: libraries/tbl_columns_definition_form.lib.php:1067
 msgid "As defined:"
 msgstr ""
 
@@ -13696,8 +13727,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13824,8 +13855,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14485,6 +14516,13 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr ""
 
+#~ msgid ""
+#~ "For a list of available transformation options and their MIME type "
+#~ "transformations, click on %stransformation descriptions%s"
+#~ msgstr ""
+#~ "Za listu dostupnih opcija transformacije i njihove transformacije MIME-"
+#~ "tipova, kliknite na %sopise transformacija%s"
+
 #, fuzzy
 #~| msgid "Add new field"
 #~ msgid "Edit index"
@@ -14838,9 +14876,6 @@ msgstr ""
 #~ msgstr ""
 #~ "<b>Statistike upita</b>: %s upita je postavljeno serveru od njegovog "
 #~ "pokretanja."
-
-#~ msgid "Chart generated successfully."
-#~ msgstr "Privilegije su uspešno ponovo učitane."
 
 #~ msgid "Add a New User"
 #~ msgstr "Dodaj novog korisnika"
