@@ -867,7 +867,7 @@ $cfg['Error_Handler']['gather'] = false;
 /**
  * maximum number of items displayed in navigation panel
  *
- * @global integer $cfg['MaxDbList']
+ * @global integer $cfg['MaxNavigationItems']
  */
 $cfg['MaxNavigationItems'] = 250;
 
