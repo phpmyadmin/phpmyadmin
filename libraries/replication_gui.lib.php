@@ -893,20 +893,55 @@ function PMA_handleControlRequest()
 {
     if (isset($_REQUEST['sr_take_action'])) {
         $refresh = false;
+        $result = null;
+        $messageSuccess = null;
+        $messageError = null;
+
         if (isset($_REQUEST['slave_changemaster'])) {
-            PMA_handleRequestForSlaveChangeMaster();
+            $result = PMA_handleRequestForSlaveChangeMaster();
         } elseif (isset($_REQUEST['sr_slave_server_control'])) {
-            PMA_handleRequestForSlaveServerControl();
+            $result = PMA_handleRequestForSlaveServerControl();
             $refresh = true;
+
+            switch ($_REQUEST['sr_slave_action']) {
+                case 'start':
+                    $messageSuccess = __('Replication started successfully.');
+                    $messageError = __('Error starting replication.');
+                    break;
+
+                case 'stop':
+                    $messageSuccess = __('Replication stopped successfully.');
+                    $messageError = __('Error stopping replication.');
+                    break;
+
+                case 'reset':
+                    $messageSuccess = __('Replication resetting successfully.');
+                    $messageError = __('Error resetting replication.');
+                    break;
+
+                default:
+                    $messageSuccess = __('Success.');
+                    $messageError = __('Error.');
+                    break;
+            }
         } elseif (isset($_REQUEST['sr_slave_skip_error'])) {
-            PMA_handleRequestForSlaveSkipError();
+            $result = PMA_handleRequestForSlaveSkipError();
         }
 
         if ($refresh) {
-            Header(
-                "Location: server_replication.php"
-                . PMA_URL_getCommon($GLOBALS['url_params'])
-            );
+            $response = PMA_Response::getInstance();
+            if ($response->isAjax()) {
+                $response->isSuccess($result);
+                $response->addJSON(
+                    'message',
+                    $result ? PMA_Message::success($messageSuccess) : PMA_Message::error($messageError)
+                );
+            } else {
+                PMA_sendHeaderLocation(
+                    $GLOBALS['cfg']['PmaAbsoluteUri'] . 'server_replication.php'
+                    . PMA_URL_getCommon($GLOBALS['url_params'], '&')
+                );
+            }
         }
         unset($refresh);
     }
@@ -914,7 +949,7 @@ function PMA_handleControlRequest()
 /**
  * handle control requests for Slave Change Master
  *
- * @return NULL
+ * @return boolean
  */
 function PMA_handleRequestForSlaveChangeMaster()
 {
@@ -977,31 +1012,44 @@ function PMA_handleRequestForSlaveChangeMaster()
             }
         }
     }
+
+    return $_SESSION['replication']['sr_action_status'] === 'success';
 }
 
 /**
  * handle control requests for Slave Server Control
  *
- * @return NULL
+ * @return boolean
  */
 function PMA_handleRequestForSlaveServerControl()
 {
+    if (empty($_REQUEST['sr_slave_control_parm'])) {
+        $_REQUEST['sr_slave_control_parm'] = null;
+    }
     if ($_REQUEST['sr_slave_action'] == 'reset') {
-        PMA_Replication_Slave_control("STOP");
-        $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
-        PMA_Replication_Slave_control("START");
+        $qStop = PMA_Replication_Slave_control("STOP");
+        $qReset = $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
+        $qStart = PMA_Replication_Slave_control("START");
+
+        $result = ($qStop !== false && $qStop !== -1 &&
+            $qReset !== false && $qReset !== -1 &&
+            $qStart !== false && $qStart !== -1);
     } else {
-        PMA_Replication_Slave_control(
+        $qControl = PMA_Replication_Slave_control(
             $_REQUEST['sr_slave_action'],
             $_REQUEST['sr_slave_control_parm']
         );
+
+        $result = ($qControl !== false && $qControl !== -1);
     }
+
+    return $result;
 }
 
 /**
  * handle control requests for Slave Skip Error
  *
- * @return NULL
+ * @return boolean
  */
 function PMA_handleRequestForSlaveSkipError()
 {
@@ -1009,8 +1057,15 @@ function PMA_handleRequestForSlaveSkipError()
     if (isset($_REQUEST['sr_skip_errors_count'])) {
         $count = $_REQUEST['sr_skip_errors_count'] * 1;
     }
-    PMA_Replication_Slave_control("STOP");
-    $GLOBALS['dbi']->tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
-    PMA_Replication_Slave_control("START");
+
+    $qStop = PMA_Replication_Slave_control("STOP");
+    $qSkip = $GLOBALS['dbi']->tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
+    $qStart = PMA_Replication_Slave_control("START");
+
+    $result = ($qStop !== false && $qStop !== -1 &&
+        $qSkip !== false && $qSkip !== -1 &&
+        $qStart !== false && $qStart !== -1);
+
+    return $result;
 }
 ?>
