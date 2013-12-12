@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-11 20:47-0500\n"
-"PO-Revision-Date: 2013-11-26 09:40+0200\n"
+"PO-Revision-Date: 2013-12-12 13:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/4-1/el/>\n"
 "Language: el\n"
@@ -9362,10 +9362,9 @@ msgid "Error starting replication."
 msgstr "Πρωτεύουσα αναπαραγωγή"
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Το διάγραμμα δημιουργήθηκε επιτυχώς."
+msgstr "Η αναπαραγωγή σταμάτησε επιτυχώς."
 
 #: libraries/replication_gui.lib.php:914
 #, fuzzy
@@ -9374,26 +9373,23 @@ msgid "Error stopping replication."
 msgstr "Πρωτεύουσα αναπαραγωγή"
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Κατάσταση αναπαραγωγής"
+msgstr "Η αναπαραγωγή επαναφέρθηκε επιτυχώς."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Πρωτεύουσα αναπαραγωγή"
+msgstr "Σφάλμα επαναφοράς αναπαραγωγής."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Λάθος"
+msgstr "Λάθος."
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
