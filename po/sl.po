@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-11 20:47-0500\n"
-"PO-Revision-Date: 2013-11-25 23:08+0200\n"
+"PO-Revision-Date: 2013-12-12 20:50+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-1/sl/"
-">\n"
+"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-1/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9260,50 +9259,43 @@ msgid "Generate Password:"
 msgstr "Ustvari geslo:"
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Stanje podvojevanja"
+msgstr "Podvojevanje se je uspešno začelo."
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Podvojevanje glavnega strežnika"
+msgstr "Napaka pri zagonu podvojevanja."
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Grafikon je uspešno ustvarjen."
+msgstr "Podvojevanje je uspešno ustavljeno."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Podvojevanje glavnega strežnika"
+msgstr "Napaka pri ustavljanju podvojevanja."
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Stanje podvojevanja"
+msgstr "Ponastavljanje podvojevanja je bilo uspešno."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Podvojevanje glavnega strežnika"
+msgstr "Napaka pri ponastavljanju podvojevanja."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
-msgstr ""
+msgstr "Uspešno."
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Napaka"
+msgstr "Napaka."
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
