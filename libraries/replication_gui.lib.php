@@ -1023,6 +1023,9 @@ function PMA_handleRequestForSlaveChangeMaster()
  */
 function PMA_handleRequestForSlaveServerControl()
 {
+    if (empty($_REQUEST['sr_slave_control_parm'])) {
+        $_REQUEST['sr_slave_control_parm'] = null;
+    }
     if ($_REQUEST['sr_slave_action'] == 'reset') {
         $qStop = PMA_Replication_Slave_control("STOP");
         $qReset = $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
