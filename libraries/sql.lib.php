@@ -230,7 +230,8 @@ function PMA_handleSortOrder($db, $table, &$analyzed_sql_results, &$full_sql_que
     if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause'])) {
         $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
         if ($sorted_col) {
-            //remove the backquoting and tablename from retrived preference to get just column name
+            //remove the backquoting and tablename from retrieved preference
+            //to get just column name
             $sorted_col = str_replace('`', '', $sorted_col);
             $sorted_col = str_replace($table . '.', '', $sorted_col);
             // retrieve the remembered sorting order for current table

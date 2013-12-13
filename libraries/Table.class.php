@@ -1558,7 +1558,7 @@ class PMA_Table
         // do checking based on property
         if ($property == self::PROP_SORTED_COLUMN) {
             if (isset($this->uiprefs[$property])) {
-                // check if the column name is exist in this table
+                // check if the column name exists in this table
                 $tmp = explode(' ', $this->uiprefs[$property]);
                 $colname = $tmp[0];               
                 //remove backquoting from colname 
