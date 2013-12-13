@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4173 Transformations overview not reachable
 - bug #4149 Js freezes in the management of replication
 - bug #3903 Query fails when using aliases after ordering result
+- bug #4181 Adding columns in table creation clears existing columns
 
 4.1.0.0 (2013-12-11)
 + rfe #499 On user creation, warn if the user already exists
