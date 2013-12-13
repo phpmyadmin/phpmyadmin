@@ -19,7 +19,7 @@ msgstr ""
 #: changelog.php:36 license.php:28
 #, php-format
 msgid ""
-"The %s file is not available on this system, please visit www.phpmyadmin.net "
+"The %s file is not available on this system. Please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
 "файл %s недоступний на сервері, будь ласка завітайте на www.phpmyadmin.net "
