@@ -75,12 +75,16 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
     }
 }
-
+if (isset($_REQUEST['submit_num_fields'])) {
+    //if adding new fields, set regenerate to keep the original values
+    $regenerate = 1;
+}
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {
         list($columnMeta, $submit_length, $submit_attribute,
             $submit_default_current_timestamp, $comments_map, $mime_map)
                 = PMA_handleRegeneration(
+                    $columnNumber,
                     isset($available_mime) ? $mime_map : null,
                     $comments_map, $mime_map
                 );
