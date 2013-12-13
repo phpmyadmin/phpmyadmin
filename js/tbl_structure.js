@@ -389,7 +389,8 @@ AJAX.registerOnload('tbl_structure.js', function () {
         }
         col_list.sortable({
             axis: 'y',
-            containment: $("#move_columns_dialog div")
+            containment: $("#move_columns_dialog div"),
+            tolerance: 'pointer'
         }).disableSelection();
         var $form = $("#move_columns_dialog form");
         $form.data("serialized-unmoved", $form.serialize());
