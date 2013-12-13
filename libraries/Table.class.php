@@ -1576,7 +1576,10 @@ class PMA_Table
                 // check if the column name is exist in this table
                 $tmp = explode(' ', $this->uiprefs[$property]);
                 $colname = $tmp[0];
-                $avail_columns = $this->getColumns();
+                //remove backquoting from colname 
+                $colname = str_replace('`', '', $colname);
+                //get the available column name without backquoting
+                $avail_columns = $this->getColumns(false);
                 foreach ($avail_columns as $each_col) {
                     // check if $each_col ends with $colname
                     if (substr_compare(
