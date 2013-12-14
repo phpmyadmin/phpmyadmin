@@ -359,7 +359,7 @@ function PMA_getMoveColumns($db, $table)
 /**
  * Function to get row data for regenerating previous when error occurred.
  *
- * @param int   $columnNumber    coulmn number
+ * @param int   $columnNumber    column number
  * @param array $submit_fulltext submit full text
  *
  * @return array
@@ -439,7 +439,7 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 /**
  * Function to get submit properties for regenerating previous when error occurred.
  *
- * @param int $columnNumber coulmn number
+ * @param int $columnNumber column number
  *
  * @return array
  */
@@ -468,7 +468,7 @@ function PMA_getSubmitPropertiesForRegeneration($columnNumber)
  * An error happened with previous inputs, so we will restore the data
  * to embed it once again in this form.
  *
- * @param int   $columnNumber    coulmn number
+ * @param int   $columnNumber    column number
  * @param array $submit_fulltext submit full text
  * @param array $comments_map    comments map
  * @param array $mime_map        mime map

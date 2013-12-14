@@ -2351,7 +2351,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         } elseif ($type == 'protected') {
             // here we are in protected mode (asked in the config)
             // so tbl_change has put this special value in the
-            // coulmns array, so we do not change the column value
+            // columns array, so we do not change the column value
             // but we can still handle column upload
 
             // when in UPDATE mode, do not alter field's contents. When in INSERT
