@@ -194,7 +194,6 @@ class PMA_Validator
     /**
      * Test database connection
      *
-     * @param string $extension    'drizzle', 'mysql' or 'mysqli'
      * @param string $connect_type 'tcp' or 'socket'
      * @param string $host         host name
      * @param string $port         tcp port to use
@@ -206,7 +205,6 @@ class PMA_Validator
      * @return bool|array
      */
     public static function testDBConnection(
-        $extension,
         $connect_type,
         $host,
         $port,
@@ -219,6 +217,14 @@ class PMA_Validator
         $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
         $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
         $error = null;
+
+        if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
+            $extension = 'mysqli';
+        } else {
+            $extension = 'mysql';
+        }
+
+        // dead code (drizzle extension)
         if ($extension == 'drizzle') {
             while (1) {
                 $drizzle = @drizzle_create();
@@ -315,7 +321,6 @@ class PMA_Validator
             $password = $values['Servers/1/nopassword'] ? null
                 : $values['Servers/1/password'];
             $test = static::testDBConnection(
-                $values['Servers/1/extension'],
                 $values['Servers/1/connect_type'],
                 $values['Servers/1/host'],
                 $values['Servers/1/port'],
@@ -365,7 +370,7 @@ class PMA_Validator
         }
         if (! $error) {
             $test = static::testDBConnection(
-                $values['Servers/1/extension'], $values['Servers/1/connect_type'],
+                $values['Servers/1/connect_type'],
                 $values['Servers/1/host'], $values['Servers/1/port'],
                 $values['Servers/1/socket'], $values['Servers/1/controluser'],
                 $values['Servers/1/controlpass'], 'Server_pmadb'

@@ -218,8 +218,7 @@ generally caused by using MySQL version 4.1 or newer. MySQL changed
 the authentication hash and your PHP is trying to use the old method.
 The proper solution is to use the `mysqli extension
 <http://www.php.net/mysqli>`_ with the proper client library to match
-your MySQL installation. Your chosen extension is specified in 
-:config:option:`$cfg['Servers'][$i]['extension']`. More
+your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
 Documentation <http://dev.mysql.com/doc/mysql/en/old-client.html>`_.
 
@@ -239,20 +238,19 @@ files to use font faces. Please refers to the `TCPDF manual
 
 .. _faqmysql:
 
-1.20 I receive the error "cannot load MySQL extension, please check PHP Configuration".
----------------------------------------------------------------------------------------
+1.20 I receive an error about missing mysqli and mysql extensions.
+------------------------------------------------------------------
 
 To connect to a MySQL server, PHP needs a set of MySQL functions
 called "MySQL extension". This extension may be part of the PHP
 distribution (compiled-in), otherwise it needs to be loaded
-dynamically. Its name is probably *mysql.so* or *php\_mysql.dll*.
+dynamically. Its name is probably *mysqli.so* or *php\_mysqli.dll*.
 phpMyAdmin tried to load the extension but failed. Usually, the
 problem is solved by installing a software package called "PHP-MySQL"
 or something similar.
 
 There are currently two interfaces PHP provides as MySQL extensions - ``mysql``
-and ``mysqli`` and you can change which of then is being used by
-:config:option:`$cfg['Servers'][$i]['extension']`.
+and ``mysqli``. The ``mysqli`` is tried first, because it's the best one.
 
 .. _faq1_21:
 

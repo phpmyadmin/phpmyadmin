@@ -69,16 +69,6 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             $this->object->getDefault('fontsize')
         );
 
-        if (extension_loaded('mysqli')) {
-            $expect = "mysqli";
-        } else {
-            $expect = "mysql";
-        }
-
-        $this->assertEquals(
-            $expect,
-            $this->object->getDefault('Servers/1/extension')
-        );
         $this->assertEquals(
             array(),
             $this->object->getConfig()

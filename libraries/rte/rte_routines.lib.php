@@ -70,7 +70,7 @@ function PMA_RTN_main($type)
     /**
      * Display a warning for users with PHP's old "mysql" extension.
      */
-    if ($GLOBALS['cfg']['Server']['extension'] === 'mysql') {
+    if (! PMA_DatabaseInterface::checkDbExtension('mysqli')) {
         trigger_error(
             __(
                 'You are using PHP\'s deprecated \'mysql\' extension, '

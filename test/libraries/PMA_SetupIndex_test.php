@@ -434,7 +434,6 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             'ForceSSL',
             'Servers/1/AllowNoPassword',
             'Servers/1/auth_type',
-            'Servers/1/extension',
             'Servers/1/ssl'
         );
 

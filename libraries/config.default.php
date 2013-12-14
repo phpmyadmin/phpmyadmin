@@ -188,13 +188,6 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 
 /**
- * The PHP MySQL extension to use ('mysql' or 'mysqli')
- *
- * @global string $cfg['Servers'][$i]['extension']
- */
-$cfg['Servers'][$i]['extension'] = 'mysqli';
-
-/**
  * Use compressed protocol for the MySQL connection
  *
  * @global boolean $cfg['Servers'][$i]['compress']

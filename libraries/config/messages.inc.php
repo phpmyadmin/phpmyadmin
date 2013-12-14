@@ -586,9 +586,6 @@ $strConfigServers_designer_coords_desc = __(
     'Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/kbd]'
 );
 $strConfigServers_designer_coords_name = __('Designer table');
-$strConfigServers_extension_desc
-    = __('What PHP extension to use; you should use mysqli if supported');
-$strConfigServers_extension_name = __('PHP extension to use');
 $strConfigServers_hide_db_desc
     = __('Hide databases matching regular expression (PCRE)');
 $strConfigServers_hide_db_name = __('Hide databases');

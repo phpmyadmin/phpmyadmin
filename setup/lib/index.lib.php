@@ -326,21 +326,6 @@ function PMA_performConfigChecks()
         }
 
         //
-        // $cfg['Servers'][$i]['extension']
-        // warn about using 'mysql'
-        //
-        if ($cf->getValue("Servers/$i/extension") == 'mysql') {
-            $title = PMA_lang(PMA_langName('Servers/1/extension'))
-                . " ($server_name)";
-            PMA_messagesSet(
-                'notice',
-                "Servers/$i/extension",
-                $title,
-                __('You should use mysqli for performance reasons.')
-            );
-        }
-
-        //
         // $cfg['Servers'][$i]['auth_type']
         // warn about full user credentials if 'auth_type' is 'config'
         //
