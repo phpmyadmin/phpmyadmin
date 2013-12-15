@@ -262,7 +262,8 @@ class PMA_StorageEngine
         $res = $GLOBALS['dbi']->query($sql_query);
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
             if (isset($variables[$row['Variable_name']])) {
-                $mysql_vars[$row['Variable_name']] = $variables[$row['Variable_name']];
+                $mysql_vars[$row['Variable_name']]
+                    = $variables[$row['Variable_name']];
             } elseif (! $like
                 && strpos(strtolower($row['Variable_name']), strtolower($this->engine)) !== 0
             ) {

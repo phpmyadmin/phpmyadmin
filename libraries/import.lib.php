@@ -111,9 +111,12 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                 if (! $sql_query_disabled) {
                     $sql_query .= $import_run_buffer['full'];
                 }
+
+                $pattern = '@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?'
+                    . 'DATABASE @i';
                 if (! $cfg['AllowUserDropDatabase']
                     && ! $is_superuser
-                    && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])
+                    && preg_match($pattern, $import_run_buffer['sql'])
                 ) {
                     $GLOBALS['message'] = PMA_Message::error(__('"DROP DATABASE" statements are disabled.'));
                     $error = true;
@@ -121,12 +124,13 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
 
                     $executed_queries++;
 
+                    $pattern = '/^[\s]*(SELECT|SHOW|HANDLER)/i';
                     if ($run_query
                         && $GLOBALS['finished']
                         && empty($sql)
                         && ! $error
                         && ((! empty($import_run_buffer['sql'])
-                        && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql']))
+                        && preg_match($pattern, $import_run_buffer['sql']))
                         || ($executed_queries == 1))
                     ) {
                         $go_sql = true;
@@ -219,8 +223,10 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                             );
                         }
 
+                        $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)'
+                            . '?(TABLE|DATABASE)[[:space:]]+(.+)@im';
                         if ($result != false
-                            && preg_match('@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im', $import_run_buffer['sql'])
+                            && preg_match($pattern, $import_run_buffer['sql'])
                         ) {
                             $reload = true;
                         }
