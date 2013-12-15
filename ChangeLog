@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - bug #4181 Adding columns in table creation clears existing columns
 - bug #4023 Requires wildcard EXECUTE/ALTER ROUTINE on DB to allow
 Procedures to be executed by user
+- bug #4186 Adding a column when creating a table does not propagate index info
 
 4.1.0.0 (2013-12-11)
 + rfe #499 On user creation, warn if the user already exists
