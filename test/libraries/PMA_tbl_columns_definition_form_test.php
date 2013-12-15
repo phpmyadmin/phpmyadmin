@@ -408,7 +408,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     {
         $_REQUEST = array(
             'field_name' => array(1 => 'name'),
-            'field_type' => array(0 => 'type'),
+            'field_type' => array(1 => 'type'),
             'field_collation' => array(1 => 'colltn'),
             'field_null' => array(1 => true),
             'field_key' => array(1 => "fulltext_1"),
@@ -424,10 +424,10 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(
                 'Field' => 'name',
-                'Type' => '',
+                'Type' => 'type',
                 'Collation' => 'colltn',
-                'Null' => '1',
-                'Key' => '',
+                'Null' => true,
+                'Key' => 'FULLTEXT',
                 'DefaultType' => 'USER_DEFINED',
                 'DefaultValue' => 'DEF',
                 'Default' => 'DEF',
