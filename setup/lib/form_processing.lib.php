@@ -9,7 +9,7 @@
 /**
  * Processes forms registered in $form_display, handles error correction
  *
- * @param FormDisplay $form_display
+ * @param FormDisplay $form_display Form
  *
  * @return void
  */

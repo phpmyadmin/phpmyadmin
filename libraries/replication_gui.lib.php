@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Functions for the replication GUI 
+ * Functions for the replication GUI
  *
  * @package PhpMyAdmin
  */
@@ -905,25 +905,25 @@ function PMA_handleControlRequest()
             $refresh = true;
 
             switch ($_REQUEST['sr_slave_action']) {
-                case 'start':
-                    $messageSuccess = __('Replication started successfully.');
-                    $messageError = __('Error starting replication.');
-                    break;
+            case 'start':
+                $messageSuccess = __('Replication started successfully.');
+                $messageError = __('Error starting replication.');
+                break;
 
-                case 'stop':
-                    $messageSuccess = __('Replication stopped successfully.');
-                    $messageError = __('Error stopping replication.');
-                    break;
+            case 'stop':
+                $messageSuccess = __('Replication stopped successfully.');
+                $messageError = __('Error stopping replication.');
+                break;
 
-                case 'reset':
-                    $messageSuccess = __('Replication resetting successfully.');
-                    $messageError = __('Error resetting replication.');
-                    break;
+            case 'reset':
+                $messageSuccess = __('Replication resetting successfully.');
+                $messageError = __('Error resetting replication.');
+                break;
 
-                default:
-                    $messageSuccess = __('Success.');
-                    $messageError = __('Error.');
-                    break;
+            default:
+                $messageSuccess = __('Success.');
+                $messageError = __('Error.');
+                break;
             }
         } elseif (isset($_REQUEST['sr_slave_skip_error'])) {
             $result = PMA_handleRequestForSlaveSkipError();
@@ -935,7 +935,9 @@ function PMA_handleControlRequest()
                 $response->isSuccess($result);
                 $response->addJSON(
                     'message',
-                    $result ? PMA_Message::success($messageSuccess) : PMA_Message::error($messageError)
+                    $result
+                    ? PMA_Message::success($messageSuccess)
+                    : PMA_Message::error($messageError)
                 );
             } else {
                 PMA_sendHeaderLocation(
@@ -1060,7 +1062,9 @@ function PMA_handleRequestForSlaveSkipError()
     }
 
     $qStop = PMA_Replication_Slave_control("STOP");
-    $qSkip = $GLOBALS['dbi']->tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
+    $qSkip = $GLOBALS['dbi']->tryQuery(
+        "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";"
+    );
     $qStart = PMA_Replication_Slave_control("START");
 
     $result = ($qStop !== false && $qStop !== -1 &&
