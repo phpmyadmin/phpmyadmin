@@ -212,7 +212,6 @@ function PMA_performConfigChecks()
 {
     $cf = $GLOBALS['ConfigFile'];
     $blowfish_secret = $cf->get('blowfish_secret');
-    $blowfish_secret_set = false;
     $cookie_auth_used = false;
 
     $strAllowArbitraryServerWarning = __('This %soption%s should be disabled as it allows attackers to bruteforce login to any MySQL server. If you feel this is necessary, use %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
@@ -296,111 +295,16 @@ function PMA_performConfigChecks()
         '%s'
     );
 
-    for ($i = 1, $server_cnt = $cf->getServerCount(); $i <= $server_cnt; $i++) {
-        $cookie_auth_server = ($cf->getValue("Servers/$i/auth_type") == 'cookie');
-        $cookie_auth_used |= $cookie_auth_server;
-        $server_name = $cf->getServerName($i);
-        if ($server_name == 'localhost') {
-            $server_name .=  " [$i]";
-        }
-        $server_name = htmlspecialchars($server_name);
+    list($cookie_auth_used, $blowfish_secret, $blowfish_secret_set)
+        = PMA_performConfigChecksServers(
+            $cf, $cookie_auth_used, $blowfish_secret, $strServerAuthConfigMsg,
+            $strSecurityInfoMsg
+        );
 
-        if ($cookie_auth_server && $blowfish_secret === null) {
-            $blowfish_secret = uniqid('', true);
-            $blowfish_secret_set = true;
-            $cf->set('blowfish_secret', $blowfish_secret);
-        }
-
-        //
-        // $cfg['Servers'][$i]['ssl']
-        // should be enabled if possible
-        //
-        if (!$cf->getValue("Servers/$i/ssl")) {
-            $title = PMA_lang(PMA_langName('Servers/1/ssl')) . " ($server_name)";
-            PMA_messagesSet(
-                'notice',
-                "Servers/$i/ssl",
-                $title,
-                __('You should use SSL connections if your database server supports it.')
-            );
-        }
-
-        //
-        // $cfg['Servers'][$i]['auth_type']
-        // warn about full user credentials if 'auth_type' is 'config'
-        //
-        if ($cf->getValue("Servers/$i/auth_type") == 'config'
-            && $cf->getValue("Servers/$i/user") != ''
-            && $cf->getValue("Servers/$i/password") != ''
-        ) {
-            $title = PMA_lang(PMA_langName('Servers/1/auth_type'))
-                . " ($server_name)";
-            PMA_messagesSet(
-                'notice',
-                "Servers/$i/auth_type",
-                $title,
-                PMA_lang($strServerAuthConfigMsg, $i) . ' '
-                . PMA_lang($strSecurityInfoMsg, $i)
-            );
-        }
-
-        //
-        // $cfg['Servers'][$i]['AllowRoot']
-        // $cfg['Servers'][$i]['AllowNoPassword']
-        // serious security flaw
-        //
-        if ($cf->getValue("Servers/$i/AllowRoot")
-            && $cf->getValue("Servers/$i/AllowNoPassword")
-        ) {
-            $title = PMA_lang(PMA_langName('Servers/1/AllowNoPassword'))
-                . " ($server_name)";
-            PMA_messagesSet(
-                'notice',
-                "Servers/$i/AllowNoPassword",
-                $title,
-                __('You allow for connecting to the server without a password.') . ' '
-                . PMA_lang($strSecurityInfoMsg, $i)
-            );
-        }
-    }
-
-    //
-    // $cfg['blowfish_secret']
-    // it's required for 'cookie' authentication
-    //
-    if ($cookie_auth_used) {
-        if ($blowfish_secret_set) {
-            // 'cookie' auth used, blowfish_secret was generated
-            PMA_messagesSet(
-                'notice',
-                'blowfish_secret_created',
-                PMA_lang(PMA_langName('blowfish_secret')),
-                $strBlowfishSecretMsg
-            );
-        } else {
-            $blowfish_warnings = array();
-            // check length
-            if (strlen($blowfish_secret) < 8) {
-                // too short key
-                $blowfish_warnings[] = __('Key is too short, it should have at least 8 characters.');
-            }
-            // check used characters
-            $has_digits = (bool) preg_match('/\d/', $blowfish_secret);
-            $has_chars = (bool) preg_match('/\S/', $blowfish_secret);
-            $has_nonword = (bool) preg_match('/\W/', $blowfish_secret);
-            if (!$has_digits || !$has_chars || !$has_nonword) {
-                $blowfish_warnings[] = PMA_lang(__('Key should contain letters, numbers [em]and[/em] special characters.'));
-            }
-            if (!empty($blowfish_warnings)) {
-                PMA_messagesSet(
-                    'error',
-                    'blowfish_warnings' . count($blowfish_warnings),
-                    PMA_lang(PMA_langName('blowfish_secret')),
-                    implode('<br />', $blowfish_warnings)
-                );
-            }
-        }
-    }
+    PMA_performConfigChecksBlowfish(
+        $cookie_auth_used, $blowfish_secret_set, $strBlowfishSecretMsg,
+        $blowfish_secret
+    );
 
     //
     // $cfg['ForceSSL']
@@ -496,6 +400,27 @@ function PMA_performConfigChecks()
         );
     }
 
+    PMA_performConfigChecksCompressions(
+        $cf, $strGZipDumpWarning, $strBZipDumpWarning, $strZipDumpImportWarning,
+        $strZipDumpExportWarning
+    );
+}
+
+/**
+ * Check activated compressions
+ *
+ * @param ConfigFile $cf                      Configuration
+ * @param string     $strGZipDumpWarning      Warning GZipDump
+ * @param string     $strBZipDumpWarning      Warning BZipDump
+ * @param string     $strZipDumpImportWarning Warning ZipDump import
+ * @param string     $strZipDumpExportWarning Warning ZipDump export
+ *
+ * @return void
+ */
+function PMA_performConfigChecksCompressions(
+    $cf, $strGZipDumpWarning, $strBZipDumpWarning, $strZipDumpImportWarning,
+    $strZipDumpExportWarning
+) {
     //
     // $cfg['GZipDump']
     // requires zlib functions
@@ -519,11 +444,11 @@ function PMA_performConfigChecks()
         && (!@function_exists('bzopen') || !@function_exists('bzcompress'))
     ) {
         $functions = @function_exists('bzopen')
-                ? '' :
-                'bzopen';
+            ? '' :
+            'bzopen';
         $functions .= @function_exists('bzcompress')
-                ? ''
-                : ($functions ? ', ' : '') . 'bzcompress';
+            ? ''
+            : ($functions ? ', ' : '') . 'bzcompress';
         PMA_messagesSet(
             'error',
             'BZipDump',
@@ -558,4 +483,154 @@ function PMA_performConfigChecks()
         );
     }
 }
-?>
+
+/**
+ * Check the blowfish
+ *
+ * @param boolean $cookie_auth_used     Use cookie authentication
+ * @param boolean $blowfish_secret_set  Use blowfish secret
+ * @param string  $strBlowfishSecretMsg Blowfish message
+ * @param string  $blowfish_secret      Blowfish secret
+ *
+ * @return void
+ */
+function PMA_performConfigChecksBlowfish(
+    $cookie_auth_used, $blowfish_secret_set, $strBlowfishSecretMsg, $blowfish_secret
+) {
+    //
+    // $cfg['blowfish_secret']
+    // it's required for 'cookie' authentication
+    //
+    if ($cookie_auth_used) {
+        return;
+    }
+
+    if ($blowfish_secret_set) {
+        // 'cookie' auth used, blowfish_secret was generated
+        PMA_messagesSet(
+            'notice',
+            'blowfish_secret_created',
+            PMA_lang(PMA_langName('blowfish_secret')),
+            $strBlowfishSecretMsg
+        );
+        return;
+    }
+
+    $blowfish_warnings = array();
+    // check length
+    if (strlen($blowfish_secret) < 8) {
+        // too short key
+        $blowfish_warnings[]
+            = __('Key is too short, it should have at least 8 characters.');
+    }
+
+    // check used characters
+    $has_digits = (bool)preg_match('/\d/', $blowfish_secret);
+    $has_chars = (bool)preg_match('/\S/', $blowfish_secret);
+    $has_nonword = (bool)preg_match('/\W/', $blowfish_secret);
+    if (!$has_digits || !$has_chars || !$has_nonword) {
+        $blowfish_warnings[] = PMA_lang(
+            __(
+                'Key should contain letters, numbers [em]and[/em] special '
+                . 'characters.'
+            )
+        );
+    }
+
+    if (!empty($blowfish_warnings)) {
+        PMA_messagesSet(
+            'error',
+            'blowfish_warnings' . count($blowfish_warnings),
+            PMA_lang(PMA_langName('blowfish_secret')),
+            implode('<br />', $blowfish_warnings)
+        );
+    }
+}
+
+/**
+ * Check the servers
+ *
+ * @param ConfigFile $cf                     Configuration
+ * @param boolean    $cookie_auth_used       Use of cookie authentication
+ * @param string     $blowfish_secret        Blowfish secret
+ * @param string     $strServerAuthConfigMsg Server authentication message
+ * @param string     $strSecurityInfoMsg     Security information message
+ *
+ * @return array
+ */
+function PMA_performConfigChecksServers(
+    $cf, $cookie_auth_used, $blowfish_secret, $strServerAuthConfigMsg,
+    $strSecurityInfoMsg
+) {
+    $blowfish_secret_set = false;
+
+    for ($i = 1, $server_cnt = $cf->getServerCount(); $i <= $server_cnt; $i++) {
+        $cookie_auth_server = ($cf->getValue("Servers/$i/auth_type") == 'cookie');
+        $cookie_auth_used |= $cookie_auth_server;
+        $server_name = $cf->getServerName($i);
+        if ($server_name == 'localhost') {
+            $server_name .= " [$i]";
+        }
+        $server_name = htmlspecialchars($server_name);
+
+        if ($cookie_auth_server && $blowfish_secret === null) {
+            $blowfish_secret = uniqid('', true);
+            $blowfish_secret_set = true;
+            $cf->set('blowfish_secret', $blowfish_secret);
+        }
+
+        //
+        // $cfg['Servers'][$i]['ssl']
+        // should be enabled if possible
+        //
+        if (!$cf->getValue("Servers/$i/ssl")) {
+            $title = PMA_lang(PMA_langName('Servers/1/ssl')) . " ($server_name)";
+            PMA_messagesSet(
+                'notice',
+                "Servers/$i/ssl",
+                $title,
+                __('You should use SSL connections if your database server supports it.')
+            );
+        }
+
+        //
+        // $cfg['Servers'][$i]['auth_type']
+        // warn about full user credentials if 'auth_type' is 'config'
+        //
+        if ($cf->getValue("Servers/$i/auth_type") == 'config'
+            && $cf->getValue("Servers/$i/user") != ''
+            && $cf->getValue("Servers/$i/password") != ''
+        ) {
+            $title = PMA_lang(PMA_langName('Servers/1/auth_type'))
+                . " ($server_name)";
+            PMA_messagesSet(
+                'notice',
+                "Servers/$i/auth_type",
+                $title,
+                PMA_lang($strServerAuthConfigMsg, $i) . ' '
+                . PMA_lang($strSecurityInfoMsg, $i)
+            );
+        }
+
+        //
+        // $cfg['Servers'][$i]['AllowRoot']
+        // $cfg['Servers'][$i]['AllowNoPassword']
+        // serious security flaw
+        //
+        if ($cf->getValue("Servers/$i/AllowRoot")
+            && $cf->getValue("Servers/$i/AllowNoPassword")
+        ) {
+            $title = PMA_lang(PMA_langName('Servers/1/AllowNoPassword'))
+                . " ($server_name)";
+            PMA_messagesSet(
+                'notice',
+                "Servers/$i/AllowNoPassword",
+                $title,
+                __('You allow for connecting to the server without a password.') . ' '
+                . PMA_lang($strSecurityInfoMsg, $i)
+            );
+        }
+    }
+
+    return array($cookie_auth_used, $blowfish_secret, $blowfish_secret_set);
+}
