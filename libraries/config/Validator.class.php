@@ -33,40 +33,34 @@ class PMA_Validator
     {
         static $validators = null;
 
-        if ($validators !== null) {
-            return $validators;
-        }
-
-        $validators = $cf->getDbEntry('_validators', array());
-        if (defined('PMA_SETUP')) {
-            return $validators;
-        }
-
-        // not in setup script: load additional validators for user
-        // preferences we need original config values not overwritten
-        // by user preferences, creating a new PMA_Config instance is a
-        // better idea than hacking into its code
-        $uvs = $cf->getDbEntry('_userValidators', array());
-        foreach ($uvs as $field => $uv_list) {
-            $uv_list = (array)$uv_list;
-            foreach ($uv_list as &$uv) {
-                if (!is_array($uv)) {
-                    continue;
-                }
-                for ($i = 1; $i < count($uv); $i++) {
-                    if (substr($uv[$i], 0, 6) != 'value:') {
-                        continue;
+        if ($validators === null) {
+            $validators = $cf->getDbEntry('_validators', array());
+            if (!defined('PMA_SETUP')) {
+                // not in setup script: load additional validators for user
+                // preferences we need original config values not overwritten
+                // by user preferences, creating a new PMA_Config instance is a
+                // better idea than hacking into its code
+                $uvs = $cf->getDbEntry('_userValidators', array());
+                foreach ($uvs as $field => $uv_list) {
+                    $uv_list = (array)$uv_list;
+                    foreach ($uv_list as &$uv) {
+                        if (!is_array($uv)) {
+                            continue;
+                        }
+                        for ($i = 1; $i < count($uv); $i++) {
+                            if (substr($uv[$i], 0, 6) == 'value:') {
+                                $uv[$i] = PMA_arrayRead(
+                                    substr($uv[$i], 6),
+                                    $GLOBALS['PMA_Config']->base_settings
+                                );
+                            }
+                        }
                     }
-
-                    $uv[$i] = PMA_arrayRead(
-                        substr($uv[$i], 6),
-                        $GLOBALS['PMA_Config']->base_settings
-                    );
+                    $validators[$field] = isset($validators[$field])
+                        ? array_merge((array)$validators[$field], $uv_list)
+                        : $uv_list;
                 }
             }
-            $validators[$field] = isset($validators[$field])
-                ? array_merge((array)$validators[$field], $uv_list)
-                : $uv_list;
         }
         return $validators;
     }

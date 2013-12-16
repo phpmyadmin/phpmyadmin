@@ -1603,310 +1603,307 @@ class ExportSql extends ExportPlugin
             );
         }
 
-        if ($result == false) {
-            $GLOBALS['dbi']->freeResult($result);
-            return true;
-        }
+        if ($result != false) {
+            $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
-        $fields_cnt = $GLOBALS['dbi']->numFields($result);
-
-        // Get field information
-        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-        $field_flags = array();
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
-        }
-
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
-                $field_set[$j] = PMA_Util::backquoteCompat(
-                    $analyzed_sql[0]['select_expr'][$j]['column'],
-                    $compat,
-                    $sql_backquotes
-                );
-            } else {
-                $field_set[$j] = PMA_Util::backquoteCompat(
-                    $fields_meta[$j]->name,
-                    $compat,
-                    $sql_backquotes
-                );
-            }
-        }
-
-        if (isset($GLOBALS['sql_type'])
-            && $GLOBALS['sql_type'] == 'UPDATE'
-        ) {
-            // update
-            $schema_insert  = 'UPDATE ';
-            if (isset($GLOBALS['sql_ignore'])) {
-                $schema_insert .= 'IGNORE ';
-            }
-            // avoid EOL blank
-            $schema_insert .= PMA_Util::backquoteCompat(
-                $table,
-                $compat,
-                $sql_backquotes
-            ) . ' SET';
-        } else {
-            // insert or replace
-            if (isset($GLOBALS['sql_type'])
-                && $GLOBALS['sql_type'] == 'REPLACE'
-            ) {
-                $sql_command = 'REPLACE';
-            } else {
-                $sql_command = 'INSERT';
-            }
-
-            // delayed inserts?
-            if (isset($GLOBALS['sql_delayed'])) {
-                $insert_delayed = ' DELAYED';
-            } else {
-                $insert_delayed = '';
-            }
-
-            // insert ignore?
-            if (isset($GLOBALS['sql_type'])
-                && $GLOBALS['sql_type'] == 'INSERT'
-                && isset($GLOBALS['sql_ignore'])
-            ) {
-                $insert_delayed .= ' IGNORE';
-            }
-            //truncate table before insert
-            if (isset($GLOBALS['sql_truncate'])
-                && $GLOBALS['sql_truncate']
-                && $sql_command == 'INSERT'
-            ) {
-                $truncate = 'TRUNCATE TABLE '
-                    . PMA_Util::backquoteCompat(
-                        $table,
-                        $compat,
-                        $sql_backquotes
-                    ) . ";";
-                $truncatehead = $this->_possibleCRLF()
-                    . $this->_exportComment()
-                    . $this->_exportComment(
-                        __('Truncate table before insert') . ' '
-                        . $formatted_table_name
-                    )
-                    . $this->_exportComment()
-                    . $crlf;
-                PMA_exportOutputHandler($truncatehead);
-                PMA_exportOutputHandler($truncate);
-            } else {
-                $truncate = '';
-            }
-
-            // scheme for inserting fields
-            if ($GLOBALS['sql_insert_syntax'] == 'complete'
-                || $GLOBALS['sql_insert_syntax'] == 'both'
-            ) {
-                $fields        = implode(', ', $field_set);
-                $schema_insert = $sql_command . $insert_delayed .' INTO '
-                    . PMA_Util::backquoteCompat(
-                        $table,
-                        $compat,
-                        $sql_backquotes
-                    )
-                    // avoid EOL blank
-                    . ' (' . $fields . ') VALUES';
-            } else {
-                $schema_insert = $sql_command . $insert_delayed .' INTO '
-                    . PMA_Util::backquoteCompat(
-                        $table,
-                        $compat,
-                        $sql_backquotes
-                    )
-                    . ' VALUES';
-            }
-        }
-
-        //\x08\\x09, not required
-        $search      = array("\x00", "\x0a", "\x0d", "\x1a");
-        $replace     = array('\0', '\n', '\r', '\Z');
-        $current_row = 0;
-        $query_size  = 0;
-        if (($GLOBALS['sql_insert_syntax'] == 'extended'
-            || $GLOBALS['sql_insert_syntax'] == 'both')
-            && (! isset($GLOBALS['sql_type'])
-            || $GLOBALS['sql_type'] != 'UPDATE')
-        ) {
-            $separator      = ',';
-            $schema_insert .= $crlf;
-        } else {
-            $separator      = ';';
-        }
-
-        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-            if ($current_row == 0) {
-                $head = $this->_possibleCRLF()
-                    . $this->_exportComment()
-                    . $this->_exportComment(
-                        __('Dumping data for table') . ' '
-                        . $formatted_table_name
-                    )
-                    . $this->_exportComment()
-                    . $crlf;
-                if (! PMA_exportOutputHandler($head)) {
-                    return false;
-                }
-            }
-             // We need to SET IDENTITY_INSERT ON for MSSQL
-            if (isset($GLOBALS['sql_compatibility'])
-                && $GLOBALS['sql_compatibility'] == 'MSSQL'
-                && $current_row == 0
-            ) {
-                if (! PMA_exportOutputHandler(
-                    'SET IDENTITY_INSERT '
-                    . PMA_Util::backquoteCompat(
-                        $table,
-                        $compat
-                    )
-                    . ' ON ;'.$crlf
-                )) {
-                    return false;
-                }
-            }
-            $current_row++;
+            // Get field information
+            $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+            $field_flags = array();
             for ($j = 0; $j < $fields_cnt; $j++) {
-                // NULL
-                if (! isset($row[$j]) || is_null($row[$j])) {
-                    $values[] = 'NULL';
-                } elseif ($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type != 'timestamp'
-                    && ! $fields_meta[$j]->blob
-                ) {
-                    // a number
-                    // timestamp is numeric on some MySQL 4.1, BLOBs are
-                    // sometimes numeric
-                    $values[] = $row[$j];
-                } elseif (stristr($field_flags[$j], 'BINARY')
-                    && $fields_meta[$j]->blob
-                    && isset($GLOBALS['sql_hex_for_blob'])
-                ) {
-                    // a true BLOB
-                    // - mysqldump only generates hex data when the --hex-blob
-                    //   option is used, for fields having the binary attribute
-                    //   no hex is generated
-                    // - a TEXT field returns type blob but a real blob
-                    //   returns also the 'binary' flag
+                $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
+            }
 
-                    // empty blobs need to be different, but '0' is also empty
-                    // :-(
-                    if (empty($row[$j]) && $row[$j] != '0') {
-                        $values[] = '\'\'';
-                    } else {
-                        $values[] = '0x' . bin2hex($row[$j]);
-                    }
-                } elseif ($fields_meta[$j]->type == 'bit') {
-                    // detection of 'bit' works only on mysqli extension
-                    $values[] = "b'" . PMA_Util::sqlAddSlashes(
-                        PMA_Util::printableBitValue(
-                            $row[$j], $fields_meta[$j]->length
-                        )
-                    )
-                        . "'";
+            for ($j = 0; $j < $fields_cnt; $j++) {
+                if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
+                    $field_set[$j] = PMA_Util::backquoteCompat(
+                        $analyzed_sql[0]['select_expr'][$j]['column'],
+                        $compat,
+                        $sql_backquotes
+                    );
                 } else {
-                    // something else -> treat as a string
-                    $values[] = '\''
-                        . str_replace(
-                            $search, $replace,
-                            PMA_Util::sqlAddSlashes($row[$j])
-                        )
-                        . '\'';
-                } // end if
-            } // end for
+                    $field_set[$j] = PMA_Util::backquoteCompat(
+                        $fields_meta[$j]->name,
+                        $compat,
+                        $sql_backquotes
+                    );
+                }
+            }
 
-            // should we make update?
             if (isset($GLOBALS['sql_type'])
                 && $GLOBALS['sql_type'] == 'UPDATE'
             ) {
-
-                $insert_line = $schema_insert;
-                for ($i = 0; $i < $fields_cnt; $i++) {
-                    if (0 == $i) {
-                        $insert_line .= ' ';
-                    }
-                    if ($i > 0) {
-                        // avoid EOL blank
-                        $insert_line .= ',';
-                    }
-                    $insert_line .= $field_set[$i] . ' = ' . $values[$i];
+                // update
+                $schema_insert  = 'UPDATE ';
+                if (isset($GLOBALS['sql_ignore'])) {
+                    $schema_insert .= 'IGNORE ';
+                }
+                // avoid EOL blank
+                $schema_insert .= PMA_Util::backquoteCompat(
+                    $table,
+                    $compat,
+                    $sql_backquotes
+                ) . ' SET';
+            } else {
+                // insert or replace
+                if (isset($GLOBALS['sql_type'])
+                    && $GLOBALS['sql_type'] == 'REPLACE'
+                ) {
+                    $sql_command = 'REPLACE';
+                } else {
+                    $sql_command = 'INSERT';
                 }
 
-                list($tmp_unique_condition, $tmp_clause_is_unique)
-                    = PMA_Util::getUniqueCondition(
-                        $result,
-                        $fields_cnt,
-                        $fields_meta,
-                        $row
-                    );
-                $insert_line .= ' WHERE ' . $tmp_unique_condition;
-                unset($tmp_unique_condition, $tmp_clause_is_unique);
+                // delayed inserts?
+                if (isset($GLOBALS['sql_delayed'])) {
+                    $insert_delayed = ' DELAYED';
+                } else {
+                    $insert_delayed = '';
+                }
 
-            } else {
+                // insert ignore?
+                if (isset($GLOBALS['sql_type'])
+                    && $GLOBALS['sql_type'] == 'INSERT'
+                    && isset($GLOBALS['sql_ignore'])
+                ) {
+                    $insert_delayed .= ' IGNORE';
+                }
+                //truncate table before insert
+                if (isset($GLOBALS['sql_truncate'])
+                    && $GLOBALS['sql_truncate']
+                    && $sql_command == 'INSERT'
+                ) {
+                    $truncate = 'TRUNCATE TABLE '
+                        . PMA_Util::backquoteCompat(
+                            $table,
+                            $compat,
+                            $sql_backquotes
+                        ) . ";";
+                    $truncatehead = $this->_possibleCRLF()
+                        . $this->_exportComment()
+                        . $this->_exportComment(
+                            __('Truncate table before insert') . ' '
+                            . $formatted_table_name
+                        )
+                        . $this->_exportComment()
+                        . $crlf;
+                    PMA_exportOutputHandler($truncatehead);
+                    PMA_exportOutputHandler($truncate);
+                } else {
+                    $truncate = '';
+                }
 
-                // Extended inserts case
-                if ($GLOBALS['sql_insert_syntax'] == 'extended'
+                // scheme for inserting fields
+                if ($GLOBALS['sql_insert_syntax'] == 'complete'
                     || $GLOBALS['sql_insert_syntax'] == 'both'
                 ) {
-                    if ($current_row == 1) {
-                        $insert_line  = $schema_insert . '('
-                            . implode(', ', $values) . ')';
-                    } else {
-                        $insert_line  = '(' . implode(', ', $values) . ')';
-                        $sql_max_size = $GLOBALS['sql_max_query_size'];
-                        if (isset($sql_max_size)
-                            && $sql_max_size > 0
-                            && $query_size + strlen($insert_line) > $sql_max_size
-                        ) {
-                            if (! PMA_exportOutputHandler(';' . $crlf)) {
-                                return false;
-                            }
-                            $query_size  = 0;
-                            $current_row = 1;
-                            $insert_line = $schema_insert . $insert_line;
-                        }
-                    }
-                    $query_size += strlen($insert_line);
-                    // Other inserts case
+                    $fields        = implode(', ', $field_set);
+                    $schema_insert = $sql_command . $insert_delayed .' INTO '
+                        . PMA_Util::backquoteCompat(
+                            $table,
+                            $compat,
+                            $sql_backquotes
+                        )
+                        // avoid EOL blank
+                        . ' (' . $fields . ') VALUES';
                 } else {
-                    $insert_line = $schema_insert
-                        . '('
-                        . implode(', ', $values)
-                        . ')';
+                    $schema_insert = $sql_command . $insert_delayed .' INTO '
+                        . PMA_Util::backquoteCompat(
+                            $table,
+                            $compat,
+                            $sql_backquotes
+                        )
+                        . ' VALUES';
                 }
             }
-            unset($values);
 
-            if (! PMA_exportOutputHandler(
-                ($current_row == 1 ? '' : $separator . $crlf)
-                . $insert_line
-            )) {
-                return false;
+            //\x08\\x09, not required
+            $search      = array("\x00", "\x0a", "\x0d", "\x1a");
+            $replace     = array('\0', '\n', '\r', '\Z');
+            $current_row = 0;
+            $query_size  = 0;
+            if (($GLOBALS['sql_insert_syntax'] == 'extended'
+                || $GLOBALS['sql_insert_syntax'] == 'both')
+                && (! isset($GLOBALS['sql_type'])
+                || $GLOBALS['sql_type'] != 'UPDATE')
+            ) {
+                $separator      = ',';
+                $schema_insert .= $crlf;
+            } else {
+                $separator      = ';';
             }
 
-        } // end while
+            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+                if ($current_row == 0) {
+                    $head = $this->_possibleCRLF()
+                        . $this->_exportComment()
+                        . $this->_exportComment(
+                            __('Dumping data for table') . ' '
+                            . $formatted_table_name
+                        )
+                        . $this->_exportComment()
+                        . $crlf;
+                    if (! PMA_exportOutputHandler($head)) {
+                        return false;
+                    }
+                }
+                 // We need to SET IDENTITY_INSERT ON for MSSQL
+                if (isset($GLOBALS['sql_compatibility'])
+                    && $GLOBALS['sql_compatibility'] == 'MSSQL'
+                    && $current_row == 0
+                ) {
+                    if (! PMA_exportOutputHandler(
+                        'SET IDENTITY_INSERT '
+                        . PMA_Util::backquoteCompat(
+                            $table,
+                            $compat
+                        )
+                        . ' ON ;'.$crlf
+                    )) {
+                        return false;
+                    }
+                }
+                $current_row++;
+                for ($j = 0; $j < $fields_cnt; $j++) {
+                    // NULL
+                    if (! isset($row[$j]) || is_null($row[$j])) {
+                        $values[] = 'NULL';
+                    } elseif ($fields_meta[$j]->numeric
+                        && $fields_meta[$j]->type != 'timestamp'
+                        && ! $fields_meta[$j]->blob
+                    ) {
+                        // a number
+                        // timestamp is numeric on some MySQL 4.1, BLOBs are
+                        // sometimes numeric
+                        $values[] = $row[$j];
+                    } elseif (stristr($field_flags[$j], 'BINARY')
+                        && $fields_meta[$j]->blob
+                        && isset($GLOBALS['sql_hex_for_blob'])
+                    ) {
+                        // a true BLOB
+                        // - mysqldump only generates hex data when the --hex-blob
+                        //   option is used, for fields having the binary attribute
+                        //   no hex is generated
+                        // - a TEXT field returns type blob but a real blob
+                        //   returns also the 'binary' flag
 
-        if ($current_row > 0) {
-            if (! PMA_exportOutputHandler(';' . $crlf)) {
-                return false;
-            }
-        }
+                        // empty blobs need to be different, but '0' is also empty
+                        // :-(
+                        if (empty($row[$j]) && $row[$j] != '0') {
+                            $values[] = '\'\'';
+                        } else {
+                            $values[] = '0x' . bin2hex($row[$j]);
+                        }
+                    } elseif ($fields_meta[$j]->type == 'bit') {
+                        // detection of 'bit' works only on mysqli extension
+                        $values[] = "b'" . PMA_Util::sqlAddSlashes(
+                            PMA_Util::printableBitValue(
+                                $row[$j], $fields_meta[$j]->length
+                            )
+                        )
+                            . "'";
+                    } else {
+                        // something else -> treat as a string
+                        $values[] = '\''
+                            . str_replace(
+                                $search, $replace,
+                                PMA_Util::sqlAddSlashes($row[$j])
+                            )
+                            . '\'';
+                    } // end if
+                } // end for
 
-        // We need to SET IDENTITY_INSERT OFF for MSSQL
-        if (isset($GLOBALS['sql_compatibility'])
-            && $GLOBALS['sql_compatibility'] == 'MSSQL'
-            && $current_row > 0
-        ) {
-            $outputSucceeded = PMA_exportOutputHandler(
-                $crlf . 'SET IDENTITY_INSERT '
-                . PMA_Util::backquoteCompat($table, $compat)
-                . ' OFF;' . $crlf
-            );
-            if (! $outputSucceeded) {
-                return false;
+                // should we make update?
+                if (isset($GLOBALS['sql_type'])
+                    && $GLOBALS['sql_type'] == 'UPDATE'
+                ) {
+
+                    $insert_line = $schema_insert;
+                    for ($i = 0; $i < $fields_cnt; $i++) {
+                        if (0 == $i) {
+                            $insert_line .= ' ';
+                        }
+                        if ($i > 0) {
+                            // avoid EOL blank
+                            $insert_line .= ',';
+                        }
+                        $insert_line .= $field_set[$i] . ' = ' . $values[$i];
+                    }
+
+                    list($tmp_unique_condition, $tmp_clause_is_unique)
+                        = PMA_Util::getUniqueCondition(
+                            $result,
+                            $fields_cnt,
+                            $fields_meta,
+                            $row
+                        );
+                    $insert_line .= ' WHERE ' . $tmp_unique_condition;
+                    unset($tmp_unique_condition, $tmp_clause_is_unique);
+
+                } else {
+
+                    // Extended inserts case
+                    if ($GLOBALS['sql_insert_syntax'] == 'extended'
+                        || $GLOBALS['sql_insert_syntax'] == 'both'
+                    ) {
+                        if ($current_row == 1) {
+                            $insert_line  = $schema_insert . '('
+                                . implode(', ', $values) . ')';
+                        } else {
+                            $insert_line  = '(' . implode(', ', $values) . ')';
+                            $sql_max_size = $GLOBALS['sql_max_query_size'];
+                            if (isset($sql_max_size)
+                                && $sql_max_size > 0
+                                && $query_size + strlen($insert_line) > $sql_max_size
+                            ) {
+                                if (! PMA_exportOutputHandler(';' . $crlf)) {
+                                    return false;
+                                }
+                                $query_size  = 0;
+                                $current_row = 1;
+                                $insert_line = $schema_insert . $insert_line;
+                            }
+                        }
+                        $query_size += strlen($insert_line);
+                        // Other inserts case
+                    } else {
+                        $insert_line = $schema_insert
+                            . '('
+                            . implode(', ', $values)
+                            . ')';
+                    }
+                }
+                unset($values);
+
+                if (! PMA_exportOutputHandler(
+                    ($current_row == 1 ? '' : $separator . $crlf)
+                    . $insert_line
+                )) {
+                    return false;
+                }
+
+            } // end while
+
+            if ($current_row > 0) {
+                if (! PMA_exportOutputHandler(';' . $crlf)) {
+                    return false;
+                }
             }
-        }
+
+            // We need to SET IDENTITY_INSERT OFF for MSSQL
+            if (isset($GLOBALS['sql_compatibility'])
+                && $GLOBALS['sql_compatibility'] == 'MSSQL'
+                && $current_row > 0
+            ) {
+                $outputSucceeded = PMA_exportOutputHandler(
+                    $crlf . 'SET IDENTITY_INSERT '
+                    . PMA_Util::backquoteCompat($table, $compat)
+                    . ' OFF;' . $crlf
+                );
+                if (! $outputSucceeded) {
+                    return false;
+                }
+            }
+        } // end if ($result != false)
         $GLOBALS['dbi']->freeResult($result);
 
         return true;

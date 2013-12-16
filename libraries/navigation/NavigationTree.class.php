@@ -239,151 +239,142 @@ class PMA_NavigationTree
     private function _buildPathPart($path, $type2, $pos2, $type3, $pos3)
     {
         $retval = true;
-        if (count($path) <= 1) {
-            return $retval;
-        }
+        if (count($path) > 1) {
+            array_shift($path); // remove 'root'
+            $db = $this->_tree->getChild($path[0]);
+            $retval = $db;
 
-        array_shift($path); // remove 'root'
-        $db = $this->_tree->getChild($path[0]);
-        $retval = $db;
-
-        if ($db === false) {
-            return false;
-        }
-
-        $containers = $this->_addDbContainers($db, $type2, $pos2);
-
-        array_shift($path); // remove db
-
-        if ((count($path) <= 0
-            || !array_key_exists($path[0], $containers))
-            && count($containers) != 1
-        ) {
-            return $retval;
-        }
-
-        if (count($containers) == 1) {
-            $container = array_shift($containers);
-        } else {
-            $container = $db->getChild($path[0], true);
-            if ($container === false) {
+            if ($db === false) {
                 return false;
             }
-        }
-        $retval = $container;
 
-        if (count($container->children) <= 1) {
-            $dbData = $db->getData(
-                $container->real_name,
-                $pos2,
-                $this->_searchClause2
-            );
-            foreach ($dbData as $item) {
-                switch ($container->real_name) {
-                case 'events':
-                    $node = PMA_NodeFactory::getInstance(
-                        'Node_Event',
-                        $item
-                    );
-                    break;
-                case 'functions':
-                    $node = PMA_NodeFactory::getInstance(
-                        'Node_Function',
-                        $item
-                    );
-                    break;
-                case 'procedures':
-                    $node = PMA_NodeFactory::getInstance(
-                        'Node_Procedure',
-                        $item
-                    );
-                    break;
-                case 'tables':
-                    $node = PMA_NodeFactory::getInstance(
-                        'Node_Table',
-                        $item
-                    );
-                    break;
-                case 'views':
-                    $node = PMA_NodeFactory::getInstance(
-                        'Node_View',
-                        $item
-                    );
-                    break;
-                default:
-                    break;
-                }
-                if (isset($node)) {
-                    if ($type2 == $container->real_name) {
-                        $node->pos2 = $pos2;
+            $containers = $this->_addDbContainers($db, $type2, $pos2);
+
+            array_shift($path); // remove db
+
+            if ((count($path) > 0
+                && array_key_exists($path[0], $containers))
+                || count($containers) == 1
+            ) {
+                if (count($containers) == 1) {
+                    $container = array_shift($containers);
+                } else {
+                    $container = $db->getChild($path[0], true);
+                    if ($container === false) {
+                        return false;
                     }
-                    $container->addChild($node);
                 }
-            }
-        }
+                $retval = $container;
 
-        if (count($path) <= 1 || $path[0] == 'tables') {
-            $retval = false;
-            return $retval;
-        }
-
-        array_shift($path); // remove container
-        if (count($path) <= 0) {
-            return $retval;
-        }
-        $table = $container->getChild($path[0], true);
-        if ($table === false) {
-            return false;
-        }
-        $retval = $table;
-        $containers = $this->_addTableContainers(
-            $table,
-            $pos2,
-            $type3,
-            $pos3
-        );
-        array_shift($path); // remove table
-        if (count($path) <= 0
-            || !array_key_exists($path[0], $containers)
-        ) {
-            return $retval;
-        }
-
-        $container = $table->getChild($path[0], true);
-        $retval = $container;
-        $tableData = $table->getData(
-            $container->real_name,
-            $pos3
-        );
-        foreach ($tableData as $item) {
-            switch ($container->real_name) {
-            case 'indexes':
-                $node = PMA_NodeFactory::getInstance(
-                    'Node_Index',
-                    $item
-                );
-                break;
-            case 'columns':
-                $node = PMA_NodeFactory::getInstance(
-                    'Node_Column',
-                    $item
-                );
-                break;
-            case 'triggers':
-                $node = PMA_NodeFactory::getInstance(
-                    'Node_Trigger',
-                    $item
-                );
-                break;
-            default:
-                break;
-            }
-            if (isset($node)) {
-                $node->pos2 = $container->parent->pos2;
-                if ($type3 == $container->real_name) {
-                    $node->pos3 = $pos3;
+                if (count($container->children) <= 1) {
+                    $dbData = $db->getData(
+                        $container->real_name,
+                        $pos2,
+                        $this->_searchClause2
+                    );
+                    foreach ($dbData as $item) {
+                        switch ($container->real_name) {
+                        case 'events':
+                            $node = PMA_NodeFactory::getInstance(
+                                'Node_Event',
+                                $item
+                            );
+                            break;
+                        case 'functions':
+                            $node = PMA_NodeFactory::getInstance(
+                                'Node_Function',
+                                $item
+                            );
+                            break;
+                        case 'procedures':
+                            $node = PMA_NodeFactory::getInstance(
+                                'Node_Procedure',
+                                $item
+                            );
+                            break;
+                        case 'tables':
+                            $node = PMA_NodeFactory::getInstance(
+                                'Node_Table',
+                                $item
+                            );
+                            break;
+                        case 'views':
+                            $node = PMA_NodeFactory::getInstance(
+                                'Node_View',
+                                $item
+                            );
+                            break;
+                        default:
+                            break;
+                        }
+                        if (isset($node)) {
+                            if ($type2 == $container->real_name) {
+                                $node->pos2 = $pos2;
+                            }
+                            $container->addChild($node);
+                        }
+                    }
                 }
-                $container->addChild($node);
+                if (count($path) > 1 && $path[0] != 'tables') {
+                    $retval = false;
+                } else {
+                    array_shift($path); // remove container
+                    if (count($path) > 0) {
+                        $table = $container->getChild($path[0], true);
+                        if ($table === false) {
+                            return false;
+                        }
+                        $retval = $table;
+                        $containers = $this->_addTableContainers(
+                            $table,
+                            $pos2,
+                            $type3,
+                            $pos3
+                        );
+                        array_shift($path); // remove table
+                        if (count($path) > 0
+                            && array_key_exists($path[0], $containers)
+                        ) {
+                            $container = $table->getChild($path[0], true);
+                            $retval = $container;
+                            $tableData = $table->getData(
+                                $container->real_name,
+                                $pos3
+                            );
+                            foreach ($tableData as $item) {
+                                switch ($container->real_name) {
+                                case 'indexes':
+                                    $node = PMA_NodeFactory::getInstance(
+                                        'Node_Index',
+                                        $item
+                                    );
+                                    break;
+                                case 'columns':
+                                    $node = PMA_NodeFactory::getInstance(
+                                        'Node_Column',
+                                        $item
+                                    );
+                                    break;
+                                case 'triggers':
+                                    $node = PMA_NodeFactory::getInstance(
+                                        'Node_Trigger',
+                                        $item
+                                    );
+                                    break;
+                                default:
+                                    break;
+                                }
+                                if (isset($node)) {
+                                    $node->pos2 = $container->parent->pos2;
+                                    if ($type3 == $container->real_name) {
+                                        $node->pos3 = $pos3;
+                                    }
+                                    $container->addChild($node);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         return $retval;
@@ -536,113 +527,108 @@ class PMA_NavigationTree
      */
     public function groupNode($node)
     {
-        if ($node->type != Node::CONTAINER) {
-            return;
-        }
-
-        $separators = array();
-        if (is_array($node->separator)) {
-            $separators = $node->separator;
-        } else if (strlen($node->separator)) {
-            $separators[] = $node->separator;
-        }
-        $prefixes = array();
-        if ($node->separator_depth > 0) {
-            foreach ($node->children as $child) {
-                $prefix_pos = false;
-                foreach ($separators as $separator) {
-                    $sep_pos = strpos($child->name, $separator);
-                    if ($sep_pos != false
-                        && $sep_pos != strlen($child->name)
-                        && $sep_pos != 0
-                        && ($prefix_pos == false || $sep_pos < $prefix_pos)
-                    ) {
-                        $prefix_pos = $sep_pos;
-                    }
-                }
-                if ($prefix_pos !== false) {
-                    $prefix = substr($child->name, 0, $prefix_pos);
-                    if (! isset($prefixes[$prefix])) {
-                        $prefixes[$prefix] = 1;
-                    } else {
-                        $prefixes[$prefix]++;
-                    }
-                }
+        if ($node->type == Node::CONTAINER) {
+            $separators = array();
+            if (is_array($node->separator)) {
+                $separators = $node->separator;
+            } else if (strlen($node->separator)) {
+                $separators[] = $node->separator;
             }
-        }
-        foreach ($prefixes as $key => $value) {
-            if ($value == 1) {
-                unset($prefixes[$key]);
-            }
-        }
-
-        if (!count($prefixes)) {
-            return;
-        }
-
-        $groups = array();
-        foreach ($prefixes as $key => $value) {
-            $groups[$key] = new Node(
-                $key,
-                Node::CONTAINER,
-                true
-            );
-            $groups[$key]->separator = $node->separator;
-            $groups[$key]->separator_depth = $node->separator_depth - 1;
-            $groups[$key]->icon = '';
-            if (PMA_Util::showIcons('TableNavigationLinksMode')) {
-                $groups[$key]->icon = PMA_Util::getImage(
-                    'b_group.png'
-                );
-            }
-            $groups[$key]->pos2 = $node->pos2;
-            $groups[$key]->pos3 = $node->pos3;
-            if ($node instanceof Node_Table_Container
-                || $node instanceof Node_View_Container
-            ) {
-                $tblGroup = '&amp;tbl_group='
-                    . urlencode($key . $node->separator);
-                $groups[$key]->links = array(
-                    'text' => $node->links['text'] . $tblGroup,
-                    'icon' => $node->links['icon'] . $tblGroup
-                );
-            }
-            $node->addChild($groups[$key]);
-            foreach ($separators as $separator) {
-                // FIXME: this could be more efficient
+            $prefixes = array();
+            if ($node->separator_depth > 0) {
                 foreach ($node->children as $child) {
-                    $name_substring = substr(
-                        $child->name, 0, strlen($key) + strlen($separator)
-                    );
-                    if (($name_substring == $key . $separator
-                        || $child->name == $key)
-                        && $child->type == Node::OBJECT
-                    ) {
-                        $class = get_class($child);
-                        $new_child = PMA_NodeFactory::getInstance(
-                            $class,
-                            substr(
-                                $child->name,
-                                strlen($key) + strlen($separator)
-                            )
-                        );
-                        $new_child->real_name = $child->real_name;
-                        $new_child->icon = $child->icon;
-                        $new_child->links = $child->links;
-                        $new_child->pos2 = $child->pos2;
-                        $new_child->pos3 = $child->pos3;
-                        $groups[$key]->addChild($new_child);
-                        foreach ($child->children as $elm) {
-                            $new_child->addChild($elm);
+                    $prefix_pos = false;
+                    foreach ($separators as $separator) {
+                        $sep_pos = strpos($child->name, $separator);
+                        if ($sep_pos != false
+                            && $sep_pos != strlen($child->name)
+                            && $sep_pos != 0
+                            && ($prefix_pos == false || $sep_pos < $prefix_pos)
+                        ) {
+                            $prefix_pos = $sep_pos;
                         }
-                        $node->removeChild($child->name);
+                    }
+                    if ($prefix_pos !== false) {
+                        $prefix = substr($child->name, 0, $prefix_pos);
+                        if (! isset($prefixes[$prefix])) {
+                            $prefixes[$prefix] = 1;
+                        } else {
+                            $prefixes[$prefix]++;
+                        }
                     }
                 }
             }
-        }
-        foreach ($prefixes as $key => $value) {
-            $this->groupNode($groups[$key]);
-            $groups[$key]->classes = "navGroup";
+            foreach ($prefixes as $key => $value) {
+                if ($value == 1) {
+                    unset($prefixes[$key]);
+                }
+            }
+            if (count($prefixes)) {
+                $groups = array();
+                foreach ($prefixes as $key => $value) {
+                    $groups[$key] = new Node(
+                        $key,
+                        Node::CONTAINER,
+                        true
+                    );
+                    $groups[$key]->separator = $node->separator;
+                    $groups[$key]->separator_depth = $node->separator_depth - 1;
+                    $groups[$key]->icon = '';
+                    if (PMA_Util::showIcons('TableNavigationLinksMode')) {
+                        $groups[$key]->icon = PMA_Util::getImage(
+                            'b_group.png'
+                        );
+                    }
+                    $groups[$key]->pos2 = $node->pos2;
+                    $groups[$key]->pos3 = $node->pos3;
+                    if ($node instanceof Node_Table_Container
+                        || $node instanceof Node_View_Container
+                    ) {
+                        $tblGroup = '&amp;tbl_group='
+                            . urlencode($key . $node->separator);
+                        $groups[$key]->links = array(
+                            'text' => $node->links['text'] . $tblGroup,
+                            'icon' => $node->links['icon'] . $tblGroup
+                        );
+                    }
+                    $node->addChild($groups[$key]);
+                    foreach ($separators as $separator) {
+                        // FIXME: this could be more efficient
+                        foreach ($node->children as $child) {
+                            $name_substring = substr(
+                                $child->name, 0, strlen($key) + strlen($separator)
+                            );
+                            if (($name_substring == $key . $separator
+                                || $child->name == $key)
+                                && $child->type == Node::OBJECT
+                            ) {
+                                $class = get_class($child);
+                                $new_child = PMA_NodeFactory::getInstance(
+                                    $class,
+                                    substr(
+                                        $child->name,
+                                        strlen($key) + strlen($separator)
+                                    )
+                                );
+                                $new_child->real_name = $child->real_name;
+                                $new_child->icon = $child->icon;
+                                $new_child->links = $child->links;
+                                $new_child->pos2 = $child->pos2;
+                                $new_child->pos3 = $child->pos3;
+                                $groups[$key]->addChild($new_child);
+                                foreach ($child->children as $elm) {
+                                    $new_child->addChild($elm);
+                                }
+                                $node->removeChild($child->name);
+                            }
+                        }
+                    }
+                }
+                foreach ($prefixes as $key => $value) {
+                    $this->groupNode($groups[$key]);
+                    $groups[$key]->classes = "navGroup";
+                }
+            }
         }
     }
 
