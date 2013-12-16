@@ -409,51 +409,59 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
 
         // Classify inner rings to their respective outer rings.
         foreach ($row_data['parts'] as $j => $ring1) {
-            if (! $ring1['isOuter']) {
-                foreach ($row_data['parts'] as $k => $ring2) {
-                    if ($ring2['isOuter']) {
-                        // If the pointOnSurface of the inner ring
-                        // is also inside the outer ring
-                        if (PMA_GIS_Polygon::isPointInsidePolygon(
-                            $ring1['pointOnSurface'], $ring2['points']
-                        )) {
-                            if (! isset($ring2['inner'])) {
-                                $row_data['parts'][$k]['inner'] = array();
-                            }
-                            $row_data['parts'][$k]['inner'][] = $j;
-                        }
-                    }
+            if ($ring1['isOuter']) {
+                continue;
+            }
+
+            foreach ($row_data['parts'] as $k => $ring2) {
+                if (!$ring2['isOuter']) {
+                    continue;
                 }
+
+                // If the pointOnSurface of the inner ring
+                // is also inside the outer ring
+                if (!PMA_GIS_Polygon::isPointInsidePolygon(
+                    $ring1['pointOnSurface'], $ring2['points']
+                )) {
+                    continue;
+                }
+
+                if (! isset($ring2['inner'])) {
+                    $row_data['parts'][$k]['inner'] = array();
+                }
+                $row_data['parts'][$k]['inner'][] = $j;
             }
         }
 
         $wkt = 'MULTIPOLYGON(';
         // for each polygon
         foreach ($row_data['parts'] as $ring) {
-            if ($ring['isOuter']) {
-                $wkt .= '('; // start of polygon
-
-                $wkt .= '('; // start of outer ring
-                foreach ($ring['points'] as $point) {
-                    $wkt .= $point['x'] . ' ' . $point['y'] . ',';
-                }
-                $wkt = substr($wkt, 0, strlen($wkt) - 1);
-                $wkt .= ')'; // end of outer ring
-
-                // inner rings if any
-                if (isset($ring['inner'])) {
-                    foreach ($ring['inner'] as $j) {
-                        $wkt .= ',('; // start of inner ring
-                        foreach ($row_data['parts'][$j]['points'] as $innerPoint) {
-                            $wkt .= $innerPoint['x'] . ' ' . $innerPoint['y'] . ',';
-                        }
-                        $wkt = substr($wkt, 0, strlen($wkt) - 1);
-                        $wkt .= ')';  // end of inner ring
-                    }
-                }
-
-                $wkt .= '),'; // end of polygon
+            if (!$ring['isOuter']) {
+                continue;
             }
+
+            $wkt .= '('; // start of polygon
+
+            $wkt .= '('; // start of outer ring
+            foreach ($ring['points'] as $point) {
+                $wkt .= $point['x'] . ' ' . $point['y'] . ',';
+            }
+            $wkt = substr($wkt, 0, strlen($wkt) - 1);
+            $wkt .= ')'; // end of outer ring
+
+            // inner rings if any
+            if (isset($ring['inner'])) {
+                foreach ($ring['inner'] as $j) {
+                    $wkt .= ',('; // start of inner ring
+                    foreach ($row_data['parts'][$j]['points'] as $innerPoint) {
+                        $wkt .= $innerPoint['x'] . ' ' . $innerPoint['y'] . ',';
+                    }
+                    $wkt = substr($wkt, 0, strlen($wkt) - 1);
+                    $wkt .= ')';  // end of inner ring
+                }
+            }
+
+            $wkt .= '),'; // end of polygon
         }
         $wkt = substr($wkt, 0, strlen($wkt) - 1);
 
