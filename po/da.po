@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-11 20:47-0500\n"
-"PO-Revision-Date: 2013-11-13 02:05+0200\n"
+"PO-Revision-Date: 2013-12-16 19:53+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/4-1/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -419,7 +418,6 @@ msgid "You may want to refresh the page."
 msgstr "Du skal muligvis genindlæse siden."
 
 #: error_report.php:45
-#, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
 #| "submitted based on your settings."
@@ -427,8 +425,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Der er opdaget en fejl, og der er automatisk blevet sendt en fejlrapport, "
-"baseret på dine indstillinger."
+"Der er opdaget en fejl, og der er oprettet en fejlrapport, men den kunne "
+"ikke afsendes."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
@@ -7863,10 +7861,9 @@ msgid "Database operations"
 msgstr "Databasehandlinger"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Vis hint"
+msgstr "Vis skjulte elementer"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -9246,50 +9243,43 @@ msgid "Generate Password:"
 msgstr "Generer adgangskode:"
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Status for replikation"
+msgstr "Replikation blev påbegyndt."
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Master replikation"
+msgstr "Fejl ved start af replikation."
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Privilegierne blev korrekt genindlæst."
+msgstr "Replikeringen blev stoppet."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Master replikation"
+msgstr "Fejl ved stop af replikering."
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Status for replikation"
+msgstr "Nulstilling af replikering blev gennemført."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Master replikation"
+msgstr "Fejl ved nulstilling af replikering."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Fejl"
+msgstr "Fejl."
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
