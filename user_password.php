@@ -222,9 +222,9 @@ function PMA_changePassAuthType($_url_params, $password)
 /**
  * Display the page
  *
- * @param string $message     Message
- * @param string $sql_query   SQL query
- * @param array  $_url_params Parameters of URL
+ * @param string  $message     Message
+ * @param string  $sql_query   SQL query
+ * @param array   $_url_params Parameters of URL
  *
  * @return void
  */
