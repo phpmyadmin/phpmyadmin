@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-14 14:27-0500\n"
-"PO-Revision-Date: 2013-12-12 15:32+0200\n"
+"PO-Revision-Date: 2013-12-17 08:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -6630,6 +6630,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Používáte rozšíření mysql, které je zastaralé. Prosím zvažte použití "
+"rozšíření mysqli."
 
 #: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:224
