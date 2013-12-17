@@ -164,40 +164,43 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    if ($routine['ROUTINE_DEFINITION'] !== null
-        && PMA_Util::currentUserHasPrivilege('EXECUTE', $db)
-    ) {
-        // Check if he routine has any input parameters. If it does,
-        // we will show a dialog to get values for these parameters,
-        // otherwise we can execute it directly.
-        $routine_details = PMA_RTN_getDataFromName(
-            $routine['SPECIFIC_NAME'],
-            $routine['ROUTINE_TYPE'],
-            false
-        );
-        if ($routine !== false) {
-            $execute_action = 'execute_routine';
-            for ($i=0; $i<$routine_details['item_num_params']; $i++) {
-                if ($routine_details['item_type'] == 'PROCEDURE'
-                    && $routine_details['item_param_dir'][$i] == 'OUT'
-                ) {
-                    continue;
-                }
-                $execute_action = 'execute_dialog';
-                break;
+
+    // There is a problem with PMA_Util::currentUserHasPrivilege():
+    // it does not detect all kinds of privileges, for example
+    // a direct privilege on a specific routine. So, at this point,
+    // we show the Execute link, hoping that the user has the correct rights.
+    // Also, information_schema might be hiding the ROUTINE_DEFINITION
+    // but a routine with no input parameters can be nonetheless executed.
+
+    // Check if he routine has any input parameters. If it does,
+    // we will show a dialog to get values for these parameters,
+    // otherwise we can execute it directly.
+    $routine_details = PMA_RTN_getDataFromName(
+        $routine['SPECIFIC_NAME'],
+        $routine['ROUTINE_TYPE'],
+        false
+    );
+    if ($routine !== false) {
+        $execute_action = 'execute_routine';
+        for ($i=0; $i<$routine_details['item_num_params']; $i++) {
+            if ($routine_details['item_type'] == 'PROCEDURE'
+                && $routine_details['item_param_dir'][$i] == 'OUT'
+            ) {
+                continue;
             }
-            $retval .= '                <a ' . $ajax_class['exec']
-                                             . ' href="db_routines.php?'
-                                             . $url_query
-                                             . '&amp;' . $execute_action . '=1'
-                                             . '&amp;item_name='
-                                             . urlencode($routine['SPECIFIC_NAME'])
-                                             . '&amp;' . $type_link
-                                             . '">' . $titles['Execute'] . "</a>\n";
+            $execute_action = 'execute_dialog';
+            break;
         }
-    } else {
-        $retval .= "                {$titles['NoExecute']}\n";
+        $retval .= '                <a ' . $ajax_class['exec']
+                                         . ' href="db_routines.php?'
+                                         . $url_query
+                                         . '&amp;' . $execute_action . '=1'
+                                         . '&amp;item_name='
+                                         . urlencode($routine['SPECIFIC_NAME'])
+                                         . '&amp;' . $type_link
+                                         . '">' . $titles['Execute'] . "</a>\n";
     }
+
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= '                <a ' . $ajax_class['export']

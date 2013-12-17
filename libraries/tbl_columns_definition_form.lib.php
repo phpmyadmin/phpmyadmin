@@ -378,7 +378,7 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 
     $columnMeta['Key'] = '';
     if (isset($_REQUEST['field_key'][$columnNumber])) {
-        $parts = explode($_REQUEST['field_key'][$columnNumber], '_', 2);
+        $parts = explode('_', $_REQUEST['field_key'][$columnNumber], 2);
         if (count($parts) == 2 && $parts[1] == $columnNumber) {
             switch ($parts[0]) {
             case 'primary':
