@@ -642,37 +642,41 @@ class FormDisplay
         }
 
         // save forms
-        if ($allow_partial_save || empty($this->_errors)) {
-            foreach ($to_save as $work_path => $path) {
-                // TrustedProxies requires changes before saving
-                if ($path == 'TrustedProxies') {
-                    $proxies = array();
-                    $i = 0;
-                    foreach ($values[$path] as $value) {
-                        $matches = array();
-                        $match = preg_match(
-                            "/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches
-                        );
-                        if ($match) {
-                            // correct 'IP: HTTP header' pair
-                            $ip = trim($matches[1]);
-                            $proxies[$ip] = trim($matches[2]);
-                        } else {
-                            // save also incorrect values
-                            $proxies["-$i"] = $value;
-                            $i++;
-                        }
+        if (!$allow_partial_save && !empty($this->_errors)) {
+            // don't look for non-critical errors
+            $this->_validate();
+            return $result;
+        }
+
+        foreach ($to_save as $work_path => $path) {
+            // TrustedProxies requires changes before saving
+            if ($path == 'TrustedProxies') {
+                $proxies = array();
+                $i = 0;
+                foreach ($values[$path] as $value) {
+                    $matches = array();
+                    $match = preg_match(
+                        "/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches
+                    );
+                    if ($match) {
+                        // correct 'IP: HTTP header' pair
+                        $ip = trim($matches[1]);
+                        $proxies[$ip] = trim($matches[2]);
+                    } else {
+                        // save also incorrect values
+                        $proxies["-$i"] = $value;
+                        $i++;
                     }
-                    $values[$path] = $proxies;
                 }
-                $this->_configFile->set($work_path, $values[$path], $path);
+                $values[$path] = $proxies;
             }
-            if ($is_setup_script) {
-                $this->_configFile->set(
-                    'UserprefsDisallow',
-                    array_keys($this->_userprefsDisallow)
-                );
-            }
+            $this->_configFile->set($work_path, $values[$path], $path);
+        }
+        if ($is_setup_script) {
+            $this->_configFile->set(
+                'UserprefsDisallow',
+                array_keys($this->_userprefsDisallow)
+            );
         }
 
         // don't look for non-critical errors

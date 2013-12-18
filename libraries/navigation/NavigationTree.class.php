@@ -648,10 +648,10 @@ class PMA_NavigationTree
         $children = $this->_tree->children;
         usort($children, array('PMA_NavigationTree', 'sortNode'));
         $this->_setVisibility();
-        for ($i=0; $i<count($children); $i++) {
+        for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
             if ($i == 0) {
                 $retval .= $this->_renderNode($children[0], true, 'first');
-            } else if ($i + 1 != count($children)) {
+            } else if ($i + 1 != $nbChildren) {
                 $retval .= $this->_renderNode($children[$i], true);
             } else {
                 $retval .= $this->_renderNode($children[$i], true, 'last');
@@ -680,8 +680,8 @@ class PMA_NavigationTree
             $retval .= $this->_getPageSelector($node);
             $children = $node->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
-            for ($i=0; $i<count($children); $i++) {
-                if ($i + 1 != count($children)) {
+            for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
+                if ($i + 1 != $nbChildren) {
                     $retval .= $this->_renderNode($children[$i], true);
                 } else {
                     $retval .= $this->_renderNode($children[$i], true, 'last');
@@ -959,8 +959,8 @@ class PMA_NavigationTree
             $children = $node->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             $buffer = '';
-            for ($i=0; $i<count($children); $i++) {
-                if ($i + 1 != count($children)) {
+            for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
+                if ($i + 1 != $nbChildren) {
                     $buffer .= $this->_renderNode(
                         $children[$i],
                         true,

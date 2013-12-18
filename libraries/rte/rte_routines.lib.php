@@ -656,75 +656,78 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $retval['item_param_opts_text'] = $params['opts'];
 
     // Get extra data
-    if ($all) {
-        if ($retval['item_type'] == 'FUNCTION') {
-            $retval['item_type_toggle'] = 'PROCEDURE';
-        } else {
-            $retval['item_type_toggle'] = 'FUNCTION';
-        }
-        $retval['item_returntype']   = '';
-        $retval['item_returnlength'] = '';
-        $retval['item_returnopts_num']  = '';
-        $retval['item_returnopts_text'] = '';
-        if (! empty($routine['DTD_IDENTIFIER'])) {
-            if (strlen($routine['DTD_IDENTIFIER']) > 63) {
-                // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
-                // at least 64 characters, then it may actually have been
-                // chopped because that column is a varchar(64), so we will
-                // parse the output of SHOW CREATE query to get accurate
-                // information about the return variable.
-                $dtd = '';
-                $fetching = false;
-                for ($i=0; $i<$parsed_query['len']; $i++) {
-                    if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
-                        && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
-                    ) {
-                        $fetching = true;
-                    } else if ($fetching == true
-                        && $parsed_query[$i]['type'] == 'alpha_reservedWord'
-                    ) {
-                        // We will not be looking for options such as UNSIGNED
-                        // or ZEROFILL because there is no way that a numeric
-                        // field's DTD_IDENTIFIER can be longer than 64
-                        // characters. We can safely assume that the return
-                        // datatype is either ENUM or SET, so we only look
-                        // for CHARSET.
-                        $word = strtoupper($parsed_query[$i]['data']);
-                        if ($word == 'CHARSET'
-                            && ($parsed_query[$i+1]['type'] == 'alpha_charset'
-                            || $parsed_query[$i+1]['type'] == 'alpha_identifier')
-                        ) {
-                            $dtd .= $word . ' ' . $parsed_query[$i+1]['data'];
-                        }
-                        break;
-                    } else if ($fetching == true) {
-                        $dtd .= $parsed_query[$i]['data'] . ' ';
-                    }
-                }
-                $routine['DTD_IDENTIFIER'] = $dtd;
-            }
-            $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
-            $retval['item_returntype']      = $returnparam[2];
-            $retval['item_returnlength']    = $returnparam[3];
-            $retval['item_returnopts_num']  = $returnparam[4];
-            $retval['item_returnopts_text'] = $returnparam[4];
-        }
-        $retval['item_definer'] = PMA_RTN_parseRoutineDefiner($parsed_query);
-        $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
-        $retval['item_isdeterministic'] = '';
-        if ($routine['IS_DETERMINISTIC'] == 'YES') {
-            $retval['item_isdeterministic'] = " checked='checked'";
-        }
-        $retval['item_securitytype_definer'] = '';
-        $retval['item_securitytype_invoker'] = '';
-        if ($routine['SECURITY_TYPE'] == 'DEFINER') {
-            $retval['item_securitytype_definer'] = " selected='selected'";
-        } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
-            $retval['item_securitytype_invoker'] = " selected='selected'";
-        }
-        $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
-        $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
+    if (!$all) {
+        return $retval;
     }
+
+    if ($retval['item_type'] == 'FUNCTION') {
+        $retval['item_type_toggle'] = 'PROCEDURE';
+    } else {
+        $retval['item_type_toggle'] = 'FUNCTION';
+    }
+    $retval['item_returntype']   = '';
+    $retval['item_returnlength'] = '';
+    $retval['item_returnopts_num']  = '';
+    $retval['item_returnopts_text'] = '';
+    if (! empty($routine['DTD_IDENTIFIER'])) {
+        if (strlen($routine['DTD_IDENTIFIER']) > 63) {
+            // If the DTD_IDENTIFIER string from INFORMATION_SCHEMA is
+            // at least 64 characters, then it may actually have been
+            // chopped because that column is a varchar(64), so we will
+            // parse the output of SHOW CREATE query to get accurate
+            // information about the return variable.
+            $dtd = '';
+            $fetching = false;
+            for ($i=0; $i<$parsed_query['len']; $i++) {
+                if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+                    && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
+                ) {
+                    $fetching = true;
+                } else if ($fetching == true
+                    && $parsed_query[$i]['type'] == 'alpha_reservedWord'
+                ) {
+                    // We will not be looking for options such as UNSIGNED
+                    // or ZEROFILL because there is no way that a numeric
+                    // field's DTD_IDENTIFIER can be longer than 64
+                    // characters. We can safely assume that the return
+                    // datatype is either ENUM or SET, so we only look
+                    // for CHARSET.
+                    $word = strtoupper($parsed_query[$i]['data']);
+                    if ($word == 'CHARSET'
+                        && ($parsed_query[$i+1]['type'] == 'alpha_charset'
+                        || $parsed_query[$i+1]['type'] == 'alpha_identifier')
+                    ) {
+                        $dtd .= $word . ' ' . $parsed_query[$i+1]['data'];
+                    }
+                    break;
+                } else if ($fetching == true) {
+                    $dtd .= $parsed_query[$i]['data'] . ' ';
+                }
+            }
+            $routine['DTD_IDENTIFIER'] = $dtd;
+        }
+        $returnparam = PMA_RTN_parseOneParameter($routine['DTD_IDENTIFIER']);
+        $retval['item_returntype']      = $returnparam[2];
+        $retval['item_returnlength']    = $returnparam[3];
+        $retval['item_returnopts_num']  = $returnparam[4];
+        $retval['item_returnopts_text'] = $returnparam[4];
+    }
+
+    $retval['item_definer'] = PMA_RTN_parseRoutineDefiner($parsed_query);
+    $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
+    $retval['item_isdeterministic'] = '';
+    if ($routine['IS_DETERMINISTIC'] == 'YES') {
+        $retval['item_isdeterministic'] = " checked='checked'";
+    }
+    $retval['item_securitytype_definer'] = '';
+    $retval['item_securitytype_invoker'] = '';
+    if ($routine['SECURITY_TYPE'] == 'DEFINER') {
+        $retval['item_securitytype_definer'] = " selected='selected'";
+    } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
+        $retval['item_securitytype_invoker'] = " selected='selected'";
+    }
+    $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
+    $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
 
     return $retval;
 } // PMA_RTN_getDataFromName()
