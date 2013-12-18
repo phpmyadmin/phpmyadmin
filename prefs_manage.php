@@ -260,15 +260,15 @@ echo '<h2>' . __('Import') . '</h2>'
     . '<div class="localStorage-exists">'
     . __('Saved on: @DATE@')
     . '</div>'
-    . '<div class="localStorage-empty">'
-    . PMA_Message::notice(__('You have no saved settings!'))->display()
+    . '<div class="localStorage-empty">';
+PMA_Message::notice(__('You have no saved settings!'))->display();
+echo  '</div>'
     . '</div>'
-    . '</div>'
-    . '<div class="localStorage-unsupported">'
-    . PMA_Message::notice(
+    . '<div class="localStorage-unsupported">';
+PMA_Message::notice(
         __('This feature is not supported by your web browser')
-    )->display()
-    . '</div>'
+    )->display();
+echo '</div>'
     . '</div>'
     . '<input type="checkbox" id="import_merge" name="import_merge" />'
     . '<label for="import_merge">'
