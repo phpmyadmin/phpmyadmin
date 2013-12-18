@@ -85,7 +85,7 @@ function PMA_getHtmlForSqlQueryForm(
     // start output
     if ($is_querywindow) {
         $html .= '<form method="post" id="sqlqueryform"';
-        $html .= ' action="sql.php" ' . $enctype . ' name="sqlform"';
+        $html .= ' action="import.php" ' . $enctype . ' name="sqlform"';
     } else {
         $html .= '<form method="post" action="import.php" ' . $enctype;
         $html .= ' class="ajax"';

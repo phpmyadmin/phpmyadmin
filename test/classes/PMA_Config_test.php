@@ -1021,6 +1021,9 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckHTTP()
     {
+        if (! function_exists('curl_init')) {
+            $this->markTestSkipped('Missing curl extension!');
+        }
         $this->assertTrue(
             $this->object->checkHTTP("http://www.phpmyadmin.net/test/data")
         );

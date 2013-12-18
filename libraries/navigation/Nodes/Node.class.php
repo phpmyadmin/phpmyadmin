@@ -233,11 +233,11 @@ class Node
     public function realParent()
     {
         $retval = $this->parents();
-        if (count($retval) > 0) {
-            return $retval[0];
-        } else {
+        if (count($retval) <= 0) {
             return false;
         }
+
+        return $retval[0];
     }
 
     /**
@@ -281,14 +281,15 @@ class Node
         $paths  = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
             $retval = true;
-        } else {
-            foreach ($this->parent->children as $child) {
-                if ($child !== $this
-                    && ($child->type == Node::OBJECT || $child->hasChildren(false))
-                ) {
-                    $retval = true;
-                    break;
-                }
+            return $retval;
+        }
+
+        foreach ($this->parent->children as $child) {
+            if ($child !== $this
+                && ($child->type == Node::OBJECT || $child->hasChildren(false))
+            ) {
+                $retval = true;
+                break;
             }
         }
         return $retval;
@@ -359,7 +360,7 @@ class Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
-        if ($type == 'databases' 
+        if ($type == 'databases'
             && ! empty($GLOBALS['cfg']['Server']['only_db'])
         ) {
             $db_list = $GLOBALS['cfg']['Server']['only_db'];

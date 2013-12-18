@@ -103,20 +103,22 @@ class Form
         if (isset($value[0]) && $value[0] === '#') {
             // remove first element ('#')
             array_shift($value);
-        } else {
-            // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
-            $has_string_keys = false;
-            $keys = array();
-            for ($i = 0; $i < count($value); $i++) {
-                if (!isset($value[$i])) {
-                    $has_string_keys = true;
-                    break;
-                }
-                $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
+            // $value has keys and value names, return it
+            return $value;
+        }
+
+        // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
+        $has_string_keys = false;
+        $keys = array();
+        for ($i = 0; $i < count($value); $i++) {
+            if (!isset($value[$i])) {
+                $has_string_keys = true;
+                break;
             }
-            if (! $has_string_keys) {
-                $value = array_combine($keys, $value);
-            }
+            $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
+        }
+        if (! $has_string_keys) {
+            $value = array_combine($keys, $value);
         }
 
         // $value has keys and value names, return it
@@ -140,17 +142,18 @@ class Form
         if (is_array($value)) {
             $prefix .= $key . '/';
             array_walk($value, array($this, '_readFormPathsCallback'), $prefix);
-        } else {
-            if (!is_int($key)) {
-                $this->default[$prefix . $key] = $value;
-                $value = $key;
-            }
-            // add unique id to group ends
-            if ($value == ':group:end') {
-                $value .= ':' . $group_counter++;
-            }
-            $this->fields[] = $prefix . $value;
+            return;
         }
+
+        if (!is_int($key)) {
+            $this->default[$prefix . $key] = $value;
+            $value = $key;
+        }
+        // add unique id to group ends
+        if ($value == ':group:end') {
+            $value .= ':' . $group_counter++;
+        }
+        $this->fields[] = $prefix . $value;
     }
 
     /**

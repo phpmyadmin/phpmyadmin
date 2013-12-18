@@ -205,31 +205,35 @@ class ConfigFile
             return;
         }
         // if the path isn't protected it may be removed
-        if (!isset($this->_persistKeys[$canonical_path])) {
-            $default_value = $this->getDefault($canonical_path);
-            $remove_path = $value === $default_value;
-            if ($this->_isInSetup) {
-                // remove if it has a default value or is empty
-                $remove_path = $remove_path
-                    || (empty($value) && empty($default_value));
-            } else {
-                // get original config values not overwritten by user
-                // preferences to allow for overwriting options set in
-                // config.inc.php with default values
-                $instance_default_value = PMA_arrayRead(
-                    $canonical_path,
-                    $this->_baseCfg
-                );
-                // remove if it has a default value and base config (config.inc.php)
-                // uses default value
-                $remove_path = $remove_path
-                    && ($instance_default_value === $default_value);
-            }
-            if ($remove_path) {
-                PMA_arrayRemove($path, $_SESSION[$this->_id]);
-                return;
-            }
+        if (isset($this->_persistKeys[$canonical_path])) {
+            PMA_arrayWrite($path, $_SESSION[$this->_id], $value);
+            return;
         }
+
+        $default_value = $this->getDefault($canonical_path);
+        $remove_path = $value === $default_value;
+        if ($this->_isInSetup) {
+            // remove if it has a default value or is empty
+            $remove_path = $remove_path
+                || (empty($value) && empty($default_value));
+        } else {
+            // get original config values not overwritten by user
+            // preferences to allow for overwriting options set in
+            // config.inc.php with default values
+            $instance_default_value = PMA_arrayRead(
+                $canonical_path,
+                $this->_baseCfg
+            );
+            // remove if it has a default value and base config (config.inc.php)
+            // uses default value
+            $remove_path = $remove_path
+                && ($instance_default_value === $default_value);
+        }
+        if ($remove_path) {
+            PMA_arrayRemove($path, $_SESSION[$this->_id]);
+            return;
+        }
+
         PMA_arrayWrite($path, $_SESSION[$this->_id], $value);
     }
 

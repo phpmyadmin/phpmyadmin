@@ -730,14 +730,16 @@ class FormDisplay
      */
     private function _loadUserprefsInfo()
     {
-        if ($this->_userprefsKeys === null) {
-            $this->_userprefsKeys = array_flip(PMA_readUserprefsFieldNames());
-            // read real config for user preferences display
-            $userprefs_disallow = defined('PMA_SETUP')
-                ? $this->_configFile->get('UserprefsDisallow', array())
-                : $GLOBALS['cfg']['UserprefsDisallow'];
-            $this->_userprefsDisallow = array_flip($userprefs_disallow);
+        if ($this->_userprefsKeys !== null) {
+            return;
         }
+
+        $this->_userprefsKeys = array_flip(PMA_readUserprefsFieldNames());
+        // read real config for user preferences display
+        $userprefs_disallow = defined('PMA_SETUP')
+            ? $this->_configFile->get('UserprefsDisallow', array())
+            : $GLOBALS['cfg']['UserprefsDisallow'];
+        $this->_userprefsDisallow = array_flip($userprefs_disallow);
     }
 
     /**
@@ -794,7 +796,9 @@ class FormDisplay
             }
             if (!function_exists($funcs[$system_path][1])) {
                 $comment .= ($comment ? '; ' : '') . sprintf(
-                    __('Compressed export will not work due to missing function %s.'),
+                    __(
+                        'Compressed export will not work due to missing function %s.'
+                    ),
                     $funcs[$system_path][1]
                 );
             }
