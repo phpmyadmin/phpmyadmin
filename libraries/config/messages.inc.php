@@ -64,7 +64,6 @@ $strConfigDisableMultiTableMaintenance_name = __('Disable multi table maintenanc
 $strConfigEditInWindow_desc = __('Edit SQL queries in popup window');
 $strConfigEditInWindow_name = __('Edit in window');
 $strConfigError_Handler_display_name = __('Display errors');
-$strConfigError_Handler_gather_name = __('Gather errors');
 $strConfigExecTimeLimit_desc = __('Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no limit)');
 $strConfigExecTimeLimit_name = __('Maximum execution time');
 $strConfigExport_asfile_name = __('Save as file');

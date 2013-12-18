@@ -124,7 +124,6 @@ $forms['Features']['Warnings'] = array(
 $forms['Features']['Developer'] = array(
     'UserprefsDeveloperTab',
     'Error_Handler/display',
-    'Error_Handler/gather',
     'DBG/sql');
 $forms['Features']['Other_core_settings'] = array(
     'NaturalOrder',

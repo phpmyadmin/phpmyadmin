@@ -833,32 +833,6 @@ $cfg['Error_Handler'] = array();
  */
 $cfg['Error_Handler']['display'] = false;
 
-/**
- * (NOT IMPLEMENTED YET)
- * where to log errors, false or empty to disable
- *
- * <code>
- * // EXAMPLE log to std PHP error log
- * $cfg['Error_Handler']['log'] = array(0);
- * // EXAMPLE mail errors
- * $cfg['Error_Handler']['log'] = array(1, 'admin@example.org');
- * // EXAMPLE append to specific file
- * $cfg['Error_Handler']['log'] = array(3, '/var/log/phpmyadmin_error.log');
- * </code>
- *
- * @see     http://php.net/error_log
- * @global  string $cfg['Error_Handler']['log']
- */
-//$cfg['Error_Handler']['log'] = false;
-
-/**
- * gather all errors in session to be displayed on a error reporting page
- * for viewing and/or sending to phpMyAdmin developer team
- *
- * @global boolean $cfg['Error_Handler']['gather']
- */
-$cfg['Error_Handler']['gather'] = false;
-
 
 /*******************************************************************************
  * Navigation panel setup
