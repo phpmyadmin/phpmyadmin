@@ -629,6 +629,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }
                         $this_field.find('span').text(new_html);
                     }
+                    if ($this_field.is('.bit')) {
+                        $this_field.find('span').text($this_field.data('value'));
+                    }
                 }
                 if (data.transformations !== undefined) {
                     $.each(data.transformations, function (cell_index, value) {
