@@ -24,7 +24,7 @@ if (defined('TESTSUITE')) {
      * First check for the mysqli extension, as it's the one recommended
      * for the MySQL server's version that we support
      */
-    $extension = 'mysqli'; 
+    $extension = 'mysqli';
     if (! PMA_DatabaseInterface::checkDbExtension($extension)) {
 
         $docurl = PMA_Util::getDocuLink('faq', 'faqmysql');
@@ -47,9 +47,10 @@ if (defined('TESTSUITE')) {
                 __(
                     'You are using the mysql extension which is deprecated in '
                     . 'phpMyAdmin. Please consider installing the mysqli '
-                    . 'extension.') . ' ' . $doclink,
-                    E_USER_WARNING
-                );
+                    . 'extension.'
+                ) . ' ' . $doclink,
+                E_USER_WARNING
+            );
             // tell the user just once per session
             $_SESSION['mysqlwarning'] = true;
         }
