@@ -629,6 +629,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         }
                         $this_field.find('span').text(new_html);
                     }
+                    if ($this_field.is('.bit')) {
+                        $this_field.find('span').text($this_field.data('value'));
+                    }
                 }
                 if (data.transformations !== undefined) {
                     $.each(data.transformations, function (cell_index, value) {
@@ -1097,6 +1100,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
              * multi edit variables
              */
             var me_fields_name = [];
+            var me_fields_type = [];
             var me_fields = [];
             var me_fields_null = [];
 
@@ -1117,6 +1121,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                  * @TODO array indices are still not correct, they should be md5 of field's name
                  */
                 var fields_name = [];
+                var fields_type = [];
                 var fields = [];
                 var fields_null = [];
 
@@ -1154,6 +1159,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         fields_null.push('on');
                         fields.push('');
                     } else {
+                        if ($this_field.is('.bit')) {
+                            fields_type.push('bit');
+                        }
                         fields_null.push('');
                         fields.push($this_field.data('value'));
 
@@ -1193,6 +1201,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $tr.find('.condition_array').val(JSON.stringify(condition_array));
 
                 me_fields_name.push(fields_name);
+                me_fields_type.push(fields_type);
                 me_fields.push(fields);
                 me_fields_null.push(fields_null);
 
@@ -1215,6 +1224,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             'where_clause' : full_where_clause,
                             'fields[multi_edit]' : me_fields,
                             'fields_name[multi_edit]' : me_fields_name,
+                            'fields_type[multi_edit]' : me_fields_type,
                             'fields_null[multi_edit]' : me_fields_null,
                             'rel_fields_list' : rel_fields_list,
                             'do_transformations' : transformation_fields,
@@ -1345,7 +1355,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
             } else {
                 if ($this_field.is('.bit')) {
-                    this_field_params[field_name] = '0b' + $(g.cEdit).find('.edit_box').val();
+                    this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 } else if ($this_field.is('.set')) {
                     $test_element = $(g.cEdit).find('select');
                     this_field_params[field_name] = $test_element.map(function () {
