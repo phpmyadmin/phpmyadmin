@@ -452,7 +452,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
     public static function getPointOnSurface($ring)
     {
         // Find two consecutive distinct points.
-        for ($i = 0; $i < count($ring) - 1; $i++) {
+        for ($i = 0, $nb = count($ring) - 1; $i < $nb; $i++) {
             if ($ring[$i]['y'] != $ring[$i + 1]['y']) {
                 $x0 = $ring[$i]['x'];
                 $x1 = $ring[$i + 1]['x'];

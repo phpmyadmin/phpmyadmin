@@ -547,7 +547,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     public function realQuery($query, $link = null, $options = 0)
     {
         $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
-        for ($i = 0; $i < count($GLOBALS['dummy_queries']); $i++) {
+        for ($i = 0, $nb = count($GLOBALS['dummy_queries']); $i < $nb; $i++) {
             if ($GLOBALS['dummy_queries'][$i]['query'] != $query) {
                 continue;
             }

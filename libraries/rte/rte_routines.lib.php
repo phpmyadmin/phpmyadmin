@@ -1152,7 +1152,7 @@ function PMA_RTN_getQueryFromRequest()
         $item_param_type = $_REQUEST['item_param_type'];
         $item_param_length = $_REQUEST['item_param_length'];
 
-        for ($i=0; $i < count($item_param_name); $i++) {
+        for ($i=0, $nb = count($item_param_name); $i < $nb; $i++) {
             if (! empty($item_param_name[$i])
                 && ! empty($item_param_type[$i])
             ) {

@@ -879,7 +879,7 @@ EOT;
             . __("Use this column to label each point") . '</label></td>';
         $html_output .= '<td><select name="dataLabel" id="dataLabel" >'
             . '<option value = "">' . __('None') . '</option>';
-        for ($j = 0; $j < count($this->_columnNames); $j++) {
+        for ($j = 0, $nb = count($this->_columnNames); $j < $nb; $j++) {
             if (isset($dataLabel)
                 && $dataLabel == htmlspecialchars($this->_columnNames[$j])
             ) {
@@ -970,8 +970,8 @@ EOT;
         $html_output = '';
         // for every column present in table
         for (
-            $column_index = 0;
-            $column_index < count($this->_columnNames);
+            $column_index = 0, $nb = count($this->_columnNames);
+            $column_index < $nb;
             $column_index++
         ) {
             $html_output .= '<tr class="noclick '

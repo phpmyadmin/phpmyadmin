@@ -121,7 +121,7 @@ class ConfigGenerator
      */
     private static function _isZeroBasedArray(array $array)
     {
-        for ($i = 0; $i < count($array); $i++) {
+        for ($i = 0, $nb = count($array); $i < $nb; $i++) {
             if (! isset($array[$i])) {
                 return false;
             }
