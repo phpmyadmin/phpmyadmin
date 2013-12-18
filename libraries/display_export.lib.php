@@ -290,8 +290,8 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
     $html .= PMA_Util::getExternalBug(
         __('SQL compatibility mode'), 'mysql', '50027', '14515'
     );
-
-    $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" />';
+    global $cfg;
+    $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" onclick="check_time_out('.$cfg['ExecTimeLimit'].')"/>';
     $html .= '</div>';
 
     return $html;
