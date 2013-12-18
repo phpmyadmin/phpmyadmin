@@ -1041,9 +1041,9 @@ class PMA_DbQbe
         $orderby_clause = '';
         $orderby_clauses = array();
         for (
-        $column_index = 0;
-        $column_index < $this->_criteria_column_count;
-        $column_index++
+            $column_index = 0;
+            $column_index < $this->_criteria_column_count;
+            $column_index++
         ) {
             // if all columns are chosen with * selector,
             // then sorting isn't available
@@ -1238,9 +1238,9 @@ class PMA_DbQbe
         $where_clause_tables = array();
         // Now we need all tables that we have in the where clause
         for (
-        $column_index = 0;
-        $column_index < count($this->_criteria);
-        $column_index++
+            $column_index = 0, $nb = count($this->_criteria);
+            $column_index < $nb;
+            $column_index++
         ) {
             $current_table = explode('.', $_POST['criteriaColumn'][$column_index]);
             if (empty($current_table[0]) || empty($current_table[1])) {

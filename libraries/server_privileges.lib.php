@@ -2023,13 +2023,14 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
     if (! empty($privMap)) {
         foreach ($privMap as $current_user => $val) {
             foreach ($val as $current_host => $current_privileges) {
+                $nbPrivileges = count($current_privileges);
                 $html_output .= '<tr class="noclick '
                     . ($odd_row ? 'odd' : 'even') . '">';
 
                 // user
                 $html_output .= '<td';
-                if (count($current_privileges) > 1) {
-                    $html_output .= ' rowspan="' . count($current_privileges) . '"';
+                if ($nbPrivileges > 1) {
+                    $html_output .= ' rowspan="' . $nbPrivileges . '"';
                 }
                 $html_output .= '>';
                 if (empty($current_user)) {
@@ -2042,14 +2043,14 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
 
                 // host
                 $html_output .= '<td';
-                if (count($current_privileges) > 1) {
-                    $html_output .= ' rowspan="' . count($current_privileges) . '"';
+                if ($nbPrivileges > 1) {
+                    $html_output .= ' rowspan="' . $nbPrivileges . '"';
                 }
                 $html_output .= '>';
                 $html_output .= htmlspecialchars($current_host);
                 $html_output .= '</td>';
 
-                for ($i = 0; $i < count($current_privileges); $i++) {
+                for ($i = 0; $i < $nbPrivileges; $i++) {
                     $current = $current_privileges[$i];
 
                     // type
@@ -2132,7 +2133,7 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
                     $html_output .= '</td>';
 
                     $html_output .= '</tr>';
-                    if (($i + 1) < count($current_privileges)) {
+                    if (($i + 1) < $nbPrivileges) {
                         $html_output .= '<tr class="noclick '
                             . ($odd_row ? 'odd' : 'even') . '">';
                     }

@@ -110,7 +110,7 @@ class Form
         // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
         $has_string_keys = false;
         $keys = array();
-        for ($i = 0; $i < count($value); $i++) {
+        for ($i = 0, $nb = count($value); $i < $nb; $i++) {
             if (!isset($value[$i])) {
                 $has_string_keys = true;
                 break;

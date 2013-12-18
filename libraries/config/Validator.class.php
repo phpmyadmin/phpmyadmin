@@ -53,7 +53,7 @@ class PMA_Validator
                 if (!is_array($uv)) {
                     continue;
                 }
-                for ($i = 1; $i < count($uv); $i++) {
+                for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
                     if (substr($uv[$i], 0, 6) == 'value:') {
                         $uv[$i] = PMA_arrayRead(
                             substr($uv[$i], 6),

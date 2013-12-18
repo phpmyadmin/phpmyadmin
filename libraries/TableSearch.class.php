@@ -1039,7 +1039,7 @@ EOT;
                 . 'tableid_' . $i . '" >';
             $html_output .= '<option value="' . 'pma_null' . '">' . __('None')
                 . '</option>';
-            for ($j = 0 ; $j < count($this->_columnNames); $j++) {
+            for ($j = 0, $nb = count($this->_columnNames); $j < $nb; $j++) {
                 if (isset($_POST['criteriaColumnNames'][$i])
                     && $_POST['criteriaColumnNames'][$i] == htmlspecialchars($this->_columnNames[$j])
                 ) {
@@ -1288,8 +1288,8 @@ EOT;
         $html_output .= '<tbody>';
         $odd_row = true;
         for (
-            $column_index = 0;
-            $column_index < count($this->_columnNames);
+            $column_index = 0, $nb = count($this->_columnNames);
+            $column_index < $nb;
             $column_index++
         ) {
             $fieldpopup = $this->_columnNames[$column_index];
@@ -1344,7 +1344,7 @@ EOT;
             . '<input type="text" value="" name="replaceWith" required />';
 
         $htmlOutput .= __('Column:') . '<select name="columnIndex">';
-        for ($i = 0; $i < count($this->_columnNames); $i++) {
+        for ($i = 0, $nb = count($this->_columnNames); $i < $nb; $i++) {
             $type = preg_replace('@\(.*@s', '', $this->_columnTypes[$i]);
             if ($GLOBALS['PMA_Types']->getTypeClass($type) == 'CHAR') {
                 $column = $this->_columnNames[$i];

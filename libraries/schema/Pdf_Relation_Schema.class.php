@@ -1067,7 +1067,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->SetMargins(0, 0);
         $pdf->SetDrawColor(200, 200, 200);
         // Draws horizontal lines
-        for ($l = 0; $l <= intval(($pdf->getPageHeight() - $topSpace - $bottomSpace) / $gridSize); $l++) {
+        for ($l = 0, $size = intval(($pdf->getPageHeight() - $topSpace - $bottomSpace) / $gridSize); $l <= $size; $l++) {
             $pdf->line(
                 0, $l * $gridSize + $topSpace,
                 $pdf->getPageWidth(), $l * $gridSize + $topSpace
@@ -1086,7 +1086,11 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             } // end if
         } // end for
         // Draws vertical lines
-        for ($j = 0; $j <= intval($pdf->getPageWidth() / $gridSize); $j++) {
+        for (
+            $j = 0, $size = intval($pdf->getPageWidth() / $gridSize);
+            $j <= $size;
+            $j++
+        ) {
             $pdf->line(
                 $j * $gridSize,
                 $topSpace,

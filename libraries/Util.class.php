@@ -3530,7 +3530,7 @@ class PMA_Util
             'geometrycollection'
         );
         if ($upper_case) {
-            for ($i = 0; $i < count($gis_data_types); $i++) {
+            for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
                 $gis_data_types[$i] = strtoupper($gis_data_types[$i]);
             }
         }
@@ -3975,7 +3975,7 @@ class PMA_Util
         $in_string = false;
         $buffer = '';
 
-        for ($i=0; $i<strlen($values_string); $i++) {
+        for ($i=0, $length = strlen($values_string); $i < $length; $i++) {
 
             $curr = $values_string[$i];
             $next = ($i == strlen($values_string)-1) ? '' : $values_string[$i+1];
