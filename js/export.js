@@ -216,7 +216,7 @@ function toggle_quick_or_custom()
 var time_out;
 function check_time_out(time_limit)
 {
-    //margin  of one second to avoid race condition to set/access session variable
+    //margin of one second to avoid race condition to set/access session variable
     time_limit = time_limit + 1;
     var href = "export.php";
     var params = {
@@ -227,16 +227,16 @@ function check_time_out(time_limit)
      clearTimeout(time_out);
      time_out = setTimeout(function(){        
          $.get(href, params, function (data) {
-            if(data['message'] !== 'success') {
+            if (data['message'] !== 'success') {
                 PMA_ajaxShowMessage(
-                '<div class="error">' +
-                PMA_messages.strTimeOutError +
-                '</div>',
-                false
+                    '<div class="error">' +
+                    PMA_messages.strTimeOutError +
+                    '</div>',
+                    false
                 );
             }
         });
-     },time_limit*1000);
+     }, time_limit * 1000);
      
 }
 AJAX.registerOnload('export.js', function () {

@@ -21,16 +21,16 @@ if (!defined('TESTSUITE')) {
     include_once 'libraries/zip.lib.php';
     include_once 'libraries/plugin_interface.lib.php';
     
-    //check if its the GET request to check export time out
+    //check if it's the GET request to check export time out
     if (isset($_GET['check_time_out'])) {
-        if(isset($_SESSION['pma_export_error'])) {
+        if (isset($_SESSION['pma_export_error'])) {
             $err = $_SESSION['pma_export_error'];
             unset($_SESSION['pma_export_error']);
             echo $err;
         } else {
             echo "success";
         }
-        return;
+        exit;
     }
     /**
      * Sets globals from $_POST
@@ -266,15 +266,21 @@ if (!defined('TESTSUITE')) {
     // We send fake headers to avoid browser timeout when buffering
     $time_start = time();
 }
+
+/**
+ * Sets a session variable upon a possible fatal error during export 
+ *
+ * @return void 
+ */
 function PMA_shutdown()
 {
-     $a = error_get_last();
-     if ($a != null && strpos($a['message'], "execution time")) {
-         //writting in partially downloaded file for future reference of user
-         print_r($a);
-         //set session variable to check if there was error while exporting
-         $_SESSION['pma_export_error'] = $a['message'];
-     }
+    $a = error_get_last();
+    if ($a != null && strpos($a['message'], "execution time")) {
+        //write in partially downloaded file for future reference of user
+        print_r($a);
+        //set session variable to check if there was error while exporting
+        $_SESSION['pma_export_error'] = $a['message'];
+    }
 }
 /**
  * Detect ob_gzhandler
