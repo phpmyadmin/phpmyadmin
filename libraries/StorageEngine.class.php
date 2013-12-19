@@ -51,12 +51,12 @@ class PMA_StorageEngine
     var $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
-     * returns array of storage engines
+     * Returns array of storage engines
      *
      * @static
      * @staticvar array $storage_engines storage engines
-     * @access  public
-     * @return array    of storage engines
+     * @access public
+     * @return array array of storage engines
      */
     static public function getStorageEngines()
     {
@@ -86,7 +86,7 @@ class PMA_StorageEngine
     }
 
     /**
-     * returns HTML code for storage engine select box
+     * Returns HTML code for storage engine select box
      *
      * @param string  $name                    The name of the select form element
      * @param string  $id                      The ID of the form field
@@ -95,7 +95,7 @@ class PMA_StorageEngine
      *                                         engines be offered?
      *
      * @static
-     * @return string  html selectbox
+     * @return string html selectbox
      */
     static public function getHtmlSelect(
         $name = 'engine', $id = null,
@@ -132,12 +132,11 @@ class PMA_StorageEngine
     }
 
     /**
-     * public static final PMA_StorageEngine getEngine()
-     *
      * Loads the corresponding engine plugin, if available.
      *
      * @param string $engine The engine ID
      *
+     * @static
      * @return PMA_StorageEngine The engine plugin
      */
     static public function getEngine($engine)
@@ -154,7 +153,7 @@ class PMA_StorageEngine
     }
 
     /**
-     * return true if given engine name is supported/valid, otherwise false
+     * Returns true if given engine name is supported/valid, otherwise false
      *
      * @param string $engine name of engine
      *
@@ -171,7 +170,7 @@ class PMA_StorageEngine
     }
 
     /**
-     * returns as HTML table of the engine's server variables
+     * Returns as HTML table of the engine's server variables
      *
      * @return string The table that was generated based on the retrieved
      *                information
@@ -241,9 +240,9 @@ class PMA_StorageEngine
     }
 
     /**
-     * returns array with detailed info about engine specific server variables
+     * Returns array with detailed info about engine specific server variables
      *
-     * @return array   with detailed info about specific engine server variables
+     * @return array array with detailed info about specific engine server variables
      */
     public function getVariablesStatus()
     {
@@ -317,8 +316,6 @@ class PMA_StorageEngine
     }
 
     /**
-     * public String getTitle()
-     *
      * Reveals the engine's title
      *
      * @return string The title
@@ -329,8 +326,6 @@ class PMA_StorageEngine
     }
 
     /**
-     * public String getComment()
-     *
      * Fetches the server's comment about this engine
      *
      * @return string The comment
@@ -341,9 +336,9 @@ class PMA_StorageEngine
     }
 
     /**
-     * public String getSupportInformationMessage()
+     * Information message on whether this storge engine is supported
      *
-     * @return string   The localized message.
+     * @return string The localized message.
      */
     public function getSupportInformationMessage()
     {
@@ -365,14 +360,11 @@ class PMA_StorageEngine
     }
 
     /**
-     * public string[][] getVariables()
-     *
      * Generates a list of MySQL variables that provide information about this
      * engine. This function should be overridden when extending this class
      * for a particular engine.
      *
-     * @abstract
-     * @return Array   The list of variables.
+     * @return array The list of variables.
      */
     public function getVariables()
     {
@@ -380,10 +372,10 @@ class PMA_StorageEngine
     }
 
     /**
-     * returns string with filename for the MySQL helppage
+     * Returns string with filename for the MySQL helppage
      * about this storage engine
      *
-     * @return string  mysql helppage filename
+     * @return string MySQL help page filename
      */
     public function getMysqlHelpPage()
     {
@@ -391,10 +383,10 @@ class PMA_StorageEngine
     }
 
     /**
-     * public string getVariablesLikePattern()
+     * Returns the pattern to be used in the query for SQL variables
+     * related to the storage engine
      *
-     * @abstract
-     * @return string  SQL query LIKE pattern
+     * @return string SQL query LIKE pattern
      */
     public function getVariablesLikePattern()
     {
@@ -402,12 +394,9 @@ class PMA_StorageEngine
     }
 
     /**
-     * public String[] getInfoPages()
-     *
      * Returns a list of available information pages with labels
      *
-     * @abstract
-     * @return array    The list
+     * @return string[] The list
      */
     public function getInfoPages()
     {
@@ -415,15 +404,11 @@ class PMA_StorageEngine
     }
 
     /**
-     * public String getPage()
-     *
      * Generates the requested information page
      *
      * @param string $id The page ID
      *
-     * @abstract
-     * @return string      The page
-     *          boolean     or false on error.
+     * @return string|boolean The page or false on error.
      */
     public function getPage($id)
     {
