@@ -273,9 +273,9 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '        ' . __('Server charset:') . ' '
        . '        <span lang="en" dir="ltr">';
     if (! PMA_DRIZZLE) {
-        echo $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
+        echo '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
     }
-    echo ' (' . $mysql_charset_map['utf-8'] . ')'
+    echo '           (' . $mysql_charset_map['utf-8'] . ')'
        . '        </span>'
        . '    </li>'
        . '  </ul>'
@@ -291,7 +291,12 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
 
         if ($server > 0) {
             $client_version_str = $GLOBALS['dbi']->getClientInfo();
-            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)) {
+            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)
+                && in_array(
+                    $GLOBALS['cfg']['Server']['extension'],
+                    array('mysql', 'mysqli')
+                )
+            ) {
                 $client_version_str = 'libmysql - ' . $client_version_str;
             }
             PMA_printListItem(
@@ -299,15 +304,10 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
                 'li_mysql_client_version'
             );
 
-            $php_ext_string = __('PHP extension:') . ' ';
-            if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
-                $extension = 'mysqli';
-            } else {
-                $extension = 'mysql';
-            }
-            $php_ext_string .= $extension . ' '
+            $php_ext_string = __('PHP extension:') . ' '
+                . $GLOBALS['cfg']['Server']['extension'] . ' '
                 . PMA_Util::showPHPDocu(
-                    'book.' . $extension . '.php'
+                    'book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'
                 );
             PMA_printListItem(
                 $php_ext_string,
