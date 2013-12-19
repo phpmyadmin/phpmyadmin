@@ -176,7 +176,7 @@ class PMA_StorageEngine
      * @return string The table that was generated based on the retrieved
      *                information
      */
-    function getHtmlVariables()
+    public function getHtmlVariables()
     {
         $odd_row    = false;
         $ret        = '';
@@ -235,7 +235,7 @@ class PMA_StorageEngine
      *
      * @return string the formatted value and its unit
      */
-    function resolveTypeSize($value)
+    public function resolveTypeSize($value)
     {
         return PMA_Util::formatByteDown($value);
     }
@@ -245,7 +245,7 @@ class PMA_StorageEngine
      *
      * @return array   with detailed info about specific engine server variables
      */
-    function getVariablesStatus()
+    public function getVariablesStatus()
     {
         $variables = $this->getVariables();
         $like = $this->getVariablesLikePattern();
@@ -289,7 +289,7 @@ class PMA_StorageEngine
      *
      * @param string $engine The engine ID
      */
-    function __construct($engine)
+    public function __construct($engine)
     {
         $storage_engines = PMA_StorageEngine::getStorageEngines();
         if (! empty($storage_engines[$engine])) {
@@ -323,7 +323,7 @@ class PMA_StorageEngine
      *
      * @return string The title
      */
-    function getTitle()
+    public function getTitle()
     {
         return $this->title;
     }
@@ -335,7 +335,7 @@ class PMA_StorageEngine
      *
      * @return string The comment
      */
-    function getComment()
+    public function getComment()
     {
         return $this->comment;
     }
@@ -345,7 +345,7 @@ class PMA_StorageEngine
      *
      * @return string   The localized message.
      */
-    function getSupportInformationMessage()
+    public function getSupportInformationMessage()
     {
         switch ($this->support) {
         case PMA_ENGINE_SUPPORT_DEFAULT:
@@ -374,7 +374,7 @@ class PMA_StorageEngine
      * @abstract
      * @return Array   The list of variables.
      */
-    function getVariables()
+    public function getVariables()
     {
         return array();
     }
@@ -385,7 +385,7 @@ class PMA_StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    function getMysqlHelpPage()
+    public function getMysqlHelpPage()
     {
         return $this->engine . '-storage-engine';
     }
@@ -396,7 +396,7 @@ class PMA_StorageEngine
      * @abstract
      * @return string  SQL query LIKE pattern
      */
-    function getVariablesLikePattern()
+    public function getVariablesLikePattern()
     {
         return false;
     }
@@ -409,7 +409,7 @@ class PMA_StorageEngine
      * @abstract
      * @return array    The list
      */
-    function getInfoPages()
+    public function getInfoPages()
     {
         return array();
     }
@@ -425,7 +425,7 @@ class PMA_StorageEngine
      * @return string      The page
      *          boolean     or false on error.
      */
-    function getPage($id)
+    public function getPage($id)
     {
         return false;
     }
