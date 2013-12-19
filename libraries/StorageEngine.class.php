@@ -87,7 +87,7 @@ class PMA_StorageEngine
      * @static
      * @staticvar array $storage_engines storage engines
      * @access public
-     * @return array array of storage engines
+     * @return string[] array of storage engines
      */
     static public function getStorageEngines()
     {
