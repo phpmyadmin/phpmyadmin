@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-16 18:47+0200\n"
+"PO-Revision-Date: 2013-12-19 18:19+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2044,6 +2044,8 @@ msgstr "Rapor Ayrıntılarını Göster"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Dışa aktarmanız PHP seviyesindeki düşük çalıştırma süresinden dolayı "
+"tamamlanmadı"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -9374,11 +9376,10 @@ msgid "Event %1$s has been created."
 msgstr "Olay %1$s oluşturuldu."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>İsteğiniz işlenirken bir ya da daha fazla hata meydana geldi:</b>"
+msgstr "İsteğiniz işlenirken bir ya da daha fazla hata meydana geldi:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
