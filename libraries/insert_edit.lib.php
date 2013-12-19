@@ -1675,7 +1675,10 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time'
     ) {
-        $special_chars = PMA_Util::addMicroseconds($current_row[$column['Field']]);
+        $current_row[$column['Field']] = PMA_Util::addMicroseconds(
+            $current_row[$column['Field']]
+        );
+        $special_chars = htmlspecialchars($current_row[$column['Field']]);
     } elseif (in_array($column['True_Type'], $gis_data_types)) {
         // Convert gis data to Well Know Text format
         $current_row[$column['Field']] = PMA_Util::asWKT(
