@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.1.2.0 (not yet released)
 - bug #4178 Quick edit for BIT type does not work
+- bug #2760 Warn about incomplete exports
 
 4.1.1.0 (2013-12-17)
 - bug #4154 Error using UNION query
