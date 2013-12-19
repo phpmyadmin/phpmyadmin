@@ -14,13 +14,24 @@ if (!defined('TESTSUITE')) {
      * If we are sending the export file (as opposed to just displaying it
      * as text), we have to bypass the usual PMA_Response mechanism
      */
-    if ($_POST['output_format'] == 'sendit') {
+    if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
         define('PMA_BYPASS_GET_INSTANCE', 1);
     }
     include_once 'libraries/common.inc.php';
     include_once 'libraries/zip.lib.php';
     include_once 'libraries/plugin_interface.lib.php';
-
+    
+    //check if it's the GET request to check export time out
+    if (isset($_GET['check_time_out'])) {
+        if (isset($_SESSION['pma_export_error'])) {
+            $err = $_SESSION['pma_export_error'];
+            unset($_SESSION['pma_export_error']);
+            echo $err;
+        } else {
+            echo "success";
+        }
+        exit;
+    }
     /**
      * Sets globals from $_POST
      *
@@ -247,7 +258,7 @@ if (!defined('TESTSUITE')) {
     if (! empty($cfg['MemoryLimit'])) {
         @ini_set('memory_limit', $cfg['MemoryLimit']);
     }
-
+    register_shutdown_function('PMA_shutdown');
     // Start with empty buffer
     $dump_buffer = '';
     $dump_buffer_len = 0;
@@ -256,6 +267,21 @@ if (!defined('TESTSUITE')) {
     $time_start = time();
 }
 
+/**
+ * Sets a session variable upon a possible fatal error during export 
+ *
+ * @return void 
+ */
+function PMA_shutdown()
+{
+    $a = error_get_last();
+    if ($a != null && strpos($a['message'], "execution time")) {
+        //write in partially downloaded file for future reference of user
+        print_r($a);
+        //set session variable to check if there was error while exporting
+        $_SESSION['pma_export_error'] = $a['message'];
+    }
+}
 /**
  * Detect ob_gzhandler
  *

@@ -213,7 +213,32 @@ function toggle_quick_or_custom()
         $("#output_quick_export").show();
     }
 }
-
+var time_out;
+function check_time_out(time_limit)
+{
+    //margin of one second to avoid race condition to set/access session variable
+    time_limit = time_limit + 1;
+    var href = "export.php";
+    var params = {
+        'ajax_request' : true,
+        'token' : PMA_commonParams.get('token'),
+        'check_time_out' : true
+    };
+     clearTimeout(time_out);
+     time_out = setTimeout(function(){        
+         $.get(href, params, function (data) {
+            if (data['message'] !== 'success') {
+                PMA_ajaxShowMessage(
+                    '<div class="error">' +
+                    PMA_messages.strTimeOutError +
+                    '</div>',
+                    false
+                );
+            }
+        });
+     }, time_limit * 1000);
+     
+}
 AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
 

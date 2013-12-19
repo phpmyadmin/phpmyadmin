@@ -413,7 +413,9 @@ $js_messages['strErrorOccurred'] = __(
 $js_messages['strChangeReportSettings'] = __("Change Report Settings");
 $js_messages['strShowReportDetails'] = __("Show Report Details");
 $js_messages['strIgnore'] = __("Ignore");
-
+$js_messages['strTimeOutError'] = __(
+    "Your export is incomplete, due to a low execution time limit at the PHP level"
+);
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);
