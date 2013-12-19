@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-12-12 15:32+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-12-19 15:24+0200\n"
+"Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/4-1/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -2055,6 +2055,8 @@ msgstr "Εμφάνιση Λεπτομερειών Αναφοράς"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Η εξαγωγή σας είναι ημιτελής, λόγω χαμηλού ορίου χρόνου εκτέλεσης στο "
+"επίπεδο της PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -9355,20 +9357,18 @@ msgid "Replication started successfully."
 msgstr "Η αναπαραγωγή εκκινήθηκε επιτυχώς."
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Πρωτεύουσα αναπαραγωγή"
+msgstr "Σφάλμα έναρξης αναπαραγωγής."
 
 #: libraries/replication_gui.lib.php:913
 msgid "Replication stopped successfully."
 msgstr "Η αναπαραγωγή σταμάτησε επιτυχώς."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Πρωτεύουσα αναπαραγωγή"
+msgstr "Σφάλμα λήξης αναπαραγωγής."
 
 #: libraries/replication_gui.lib.php:918
 msgid "Replication resetting successfully."
