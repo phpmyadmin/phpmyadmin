@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2013-12-14 14:27-0500\n"
+"POT-Creation-Date: 2013-12-19 06:31-0500\n"
 "PO-Revision-Date: 2013-08-23 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/master/sq/"
@@ -33,7 +33,7 @@ msgstr "U krijua baza e të dhënave %1$s."
 msgid "Database comment: "
 msgstr "Komenti për databazën: "
 
-#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
+#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
 msgid "Table comments:"
@@ -51,8 +51,8 @@ msgstr "Kërkim:"
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/schema/Pdf_Relation_Schema.class.php:1374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
+#: libraries/schema/Pdf_Relation_Schema.class.php:1401
 #: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:316 libraries/tbl_printview.lib.php:473
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
@@ -75,8 +75,8 @@ msgstr "Kolonë(a)"
 #: libraries/rte/rte_routines.lib.php:951
 #: libraries/rte/rte_routines.lib.php:980
 #: libraries/rte/rte_routines.lib.php:1602
-#: libraries/schema/Pdf_Relation_Schema.class.php:1375
-#: libraries/schema/Pdf_Relation_Schema.class.php:1398
+#: libraries/schema/Pdf_Relation_Schema.class.php:1379
+#: libraries/schema/Pdf_Relation_Schema.class.php:1402
 #: libraries/server_privileges.lib.php:1815
 #: libraries/server_privileges.lib.php:1923 libraries/structure.lib.php:777
 #: libraries/structure.lib.php:1187
@@ -95,8 +95,8 @@ msgstr "Lloji"
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:273
 #: libraries/plugins/export/ExportTexytext.class.php:373
-#: libraries/schema/Pdf_Relation_Schema.class.php:1377
-#: libraries/schema/Pdf_Relation_Schema.class.php:1400
+#: libraries/schema/Pdf_Relation_Schema.class.php:1381
+#: libraries/schema/Pdf_Relation_Schema.class.php:1404
 #: libraries/structure.lib.php:1190
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:734
@@ -111,8 +111,8 @@ msgstr "Null"
 #: libraries/plugins/export/ExportOdt.class.php:467
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1378
-#: libraries/schema/Pdf_Relation_Schema.class.php:1401
+#: libraries/schema/Pdf_Relation_Schema.class.php:1382
+#: libraries/schema/Pdf_Relation_Schema.class.php:1405
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1191
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:735
@@ -123,21 +123,21 @@ msgstr "Prezgjedhur"
 #: libraries/plugins/export/ExportLatex.class.php:515
 #: libraries/plugins/export/ExportOdt.class.php:471
 #: libraries/plugins/export/ExportTexytext.class.php:376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1380
-#: libraries/schema/Pdf_Relation_Schema.class.php:1403
+#: libraries/schema/Pdf_Relation_Schema.class.php:1384
+#: libraries/schema/Pdf_Relation_Schema.class.php:1407
 #: libraries/tbl_printview.lib.php:478
 msgid "Links to"
 msgstr "Lidhje me"
 
 #: db_datadict.php:175 db_printview.php:53
-#: libraries/config/messages.inc.php:135 libraries/config/messages.inc.php:151
-#: libraries/config/messages.inc.php:178
+#: libraries/config/messages.inc.php:134 libraries/config/messages.inc.php:150
+#: libraries/config/messages.inc.php:177
 #: libraries/plugins/export/ExportHtmlword.class.php:411
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
 #: libraries/plugins/export/ExportTexytext.class.php:379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1391
-#: libraries/schema/Pdf_Relation_Schema.class.php:1404
+#: libraries/schema/Pdf_Relation_Schema.class.php:1395
+#: libraries/schema/Pdf_Relation_Schema.class.php:1408
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
@@ -151,14 +151,14 @@ msgstr "Komente"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1430
-#: libraries/server_privileges.lib.php:2116
-#: libraries/server_privileges.lib.php:2303
-#: libraries/server_privileges.lib.php:2324
-#: libraries/server_privileges.lib.php:2636
-#: libraries/server_privileges.lib.php:2642
-#: libraries/server_privileges.lib.php:2980
-#: libraries/server_privileges.lib.php:3002 libraries/structure.lib.php:1275
+#: libraries/schema/Pdf_Relation_Schema.class.php:1434
+#: libraries/server_privileges.lib.php:2117
+#: libraries/server_privileges.lib.php:2304
+#: libraries/server_privileges.lib.php:2325
+#: libraries/server_privileges.lib.php:2637
+#: libraries/server_privileges.lib.php:2643
+#: libraries/server_privileges.lib.php:2981
+#: libraries/server_privileges.lib.php:3003 libraries/structure.lib.php:1275
 #: libraries/tbl_printview.lib.php:114 libraries/tbl_tracking.lib.php:776
 #: libraries/tbl_tracking.lib.php:853 libraries/tbl_tracking.lib.php:858
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
@@ -177,16 +177,16 @@ msgstr "Jo"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1431
+#: libraries/schema/Pdf_Relation_Schema.class.php:1435
 #: libraries/server_databases.lib.php:476
 #: libraries/server_databases.lib.php:486
-#: libraries/server_privileges.lib.php:2116
-#: libraries/server_privileges.lib.php:2300
-#: libraries/server_privileges.lib.php:2322
-#: libraries/server_privileges.lib.php:2635
-#: libraries/server_privileges.lib.php:2640
-#: libraries/server_privileges.lib.php:2977
-#: libraries/server_privileges.lib.php:3002 libraries/structure.lib.php:1275
+#: libraries/server_privileges.lib.php:2117
+#: libraries/server_privileges.lib.php:2301
+#: libraries/server_privileges.lib.php:2323
+#: libraries/server_privileges.lib.php:2636
+#: libraries/server_privileges.lib.php:2641
+#: libraries/server_privileges.lib.php:2978
+#: libraries/server_privileges.lib.php:3003 libraries/structure.lib.php:1275
 #: libraries/structure.lib.php:2632 libraries/tbl_printview.lib.php:115
 #: libraries/tbl_tracking.lib.php:776 libraries/tbl_tracking.lib.php:851
 #: libraries/tbl_tracking.lib.php:856 libraries/user_preferences.lib.php:294
@@ -199,7 +199,7 @@ msgid "View dump (schema) of database"
 msgstr "Shfaq dump (skema) e databazës"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:572 libraries/DBQbe.class.php:268
+#: export.php:598 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Nuk gjenden tabela në databazë."
 
@@ -237,13 +237,13 @@ msgstr ""
 "janë ç'aktivizuar. Për të kuptuar përse, klikoni %skëtu%s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
-#: libraries/Menu.class.php:235 libraries/config/messages.inc.php:760
+#: libraries/Menu.class.php:235 libraries/config/messages.inc.php:759
 #: libraries/plugins/export/ExportXml.class.php:467
-#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:355
+#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:361
 #: libraries/schema/User_Schema.class.php:305
-#: libraries/server_privileges.lib.php:2473
-#: libraries/server_privileges.lib.php:2701
-#: libraries/server_privileges.lib.php:3710 libraries/structure.lib.php:758
+#: libraries/server_privileges.lib.php:2474
+#: libraries/server_privileges.lib.php:2702
+#: libraries/server_privileges.lib.php:3711 libraries/structure.lib.php:758
 #: libraries/tbl_relation.lib.php:311 libraries/tbl_relation.lib.php:527
 #: libraries/tbl_tracking.lib.php:196
 msgid "Table"
@@ -267,17 +267,17 @@ msgid "in use"
 msgstr "në përdorim"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
-#: libraries/schema/Pdf_Relation_Schema.class.php:1353
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
 msgid "Creation:"
 msgstr "Krijim:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
-#: libraries/schema/Pdf_Relation_Schema.class.php:1358
+#: libraries/schema/Pdf_Relation_Schema.class.php:1362
 msgid "Last update:"
 msgstr "Ndryshimi i fundit:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
+#: libraries/schema/Pdf_Relation_Schema.class.php:1367
 msgid "Last check:"
 msgstr "Kontrolli i fundit:"
 
@@ -310,14 +310,14 @@ msgid "Tracked tables"
 msgstr "Tabela të monitoruara"
 
 #: db_tracking.php:80 libraries/Menu.class.php:212
-#: libraries/config/messages.inc.php:754
+#: libraries/config/messages.inc.php:753
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
 #: libraries/server_databases.lib.php:311
-#: libraries/server_privileges.lib.php:2457
-#: libraries/server_privileges.lib.php:2701
-#: libraries/server_privileges.lib.php:3696
+#: libraries/server_privileges.lib.php:2458
+#: libraries/server_privileges.lib.php:2702
+#: libraries/server_privileges.lib.php:3697
 #: libraries/server_status.lib.php:351 libraries/tbl_relation.lib.php:288
 #: libraries/tbl_relation.lib.php:477 libraries/tbl_tracking.lib.php:195
 msgid "Database"
@@ -336,7 +336,7 @@ msgid "Updated"
 msgstr "Përditësuar"
 
 #: db_tracking.php:85 js/messages.php:177 libraries/Menu.class.php:516
-#: libraries/Util.class.php:4113 libraries/rte/rte_events.lib.php:426
+#: libraries/Util.class.php:4113 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:363
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
@@ -347,8 +347,8 @@ msgstr "Gjendja"
 #: libraries/rte/rte_list.lib.php:79 libraries/server_databases.lib.php:405
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1926
-#: libraries/server_privileges.lib.php:2711
-#: libraries/server_privileges.lib.php:2885
+#: libraries/server_privileges.lib.php:2712
+#: libraries/server_privileges.lib.php:2886
 #: libraries/server_user_groups.lib.php:82 libraries/structure.lib.php:766
 #: libraries/structure.lib.php:1205
 msgid "Action"
@@ -436,24 +436,24 @@ msgstr ""
 msgid "Unfortunately the submission failed."
 msgstr ""
 
-#: export.php:160
+#: export.php:171
 msgid "Bad type!"
 msgstr "Lloj i gabuar!"
 
-#: export.php:211
+#: export.php:222
 msgid "Selected export type has to be saved in file!"
 msgstr "Tipi i eksportit te perzgjedhur duhet te ruhet ne nje skedar!"
 
-#: export.php:240
+#: export.php:251
 msgid "Bad parameters!"
 msgstr "Parametra të gabuar!"
 
-#: export.php:339 export.php:370 export.php:957
+#: export.php:365 export.php:396 export.php:983
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Hapësirë e pamjaftueshme për të ruajtur file %s."
 
-#: export.php:512
+#: export.php:538
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -461,12 +461,12 @@ msgstr ""
 "File %s ekziston në server: të lutem, ndrysho emrin e file ose zgjidh "
 "opcionin \"Mbishkruaj\"."
 
-#: export.php:521 export.php:530
+#: export.php:547 export.php:556
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Serveri web nuk ka të drejtat e duhura për të ruajtur file %s."
 
-#: export.php:963
+#: export.php:989
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump u ruajt tek file %s."
@@ -569,19 +569,19 @@ msgstr "Shto një gjeometri"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:284
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:294
 #: libraries/replication_gui.lib.php:440 libraries/replication_gui.lib.php:883
-#: libraries/rte/rte_events.lib.php:542
+#: libraries/rte/rte_events.lib.php:548
 #: libraries/rte/rte_routines.lib.php:1093
 #: libraries/rte/rte_routines.lib.php:1692
-#: libraries/rte/rte_triggers.lib.php:420
+#: libraries/rte/rte_triggers.lib.php:426
 #: libraries/schema/User_Schema.class.php:170
 #: libraries/schema/User_Schema.class.php:233
 #: libraries/schema/User_Schema.class.php:495
 #: libraries/schema/User_Schema.class.php:546
 #: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:688
 #: libraries/server_privileges.lib.php:1722
-#: libraries/server_privileges.lib.php:2439
-#: libraries/server_privileges.lib.php:3083
-#: libraries/server_privileges.lib.php:3918
+#: libraries/server_privileges.lib.php:2440
+#: libraries/server_privileges.lib.php:3084
+#: libraries/server_privileges.lib.php:3919
 #: libraries/sql_query_form.lib.php:381 libraries/sql_query_form.lib.php:440
 #: libraries/sql_query_form.lib.php:509 libraries/structure.lib.php:1604
 #: libraries/tbl_chart.lib.php:216
@@ -690,7 +690,7 @@ msgstr ""
 "në PHP."
 
 #: import_status.php:87 libraries/Util.class.php:733
-#: libraries/schema/Export_Relation_Schema.class.php:246 user_password.php:239
+#: libraries/schema/Export_Relation_Schema.class.php:247 user_password.php:239
 msgid "Back"
 msgstr "Mbrapa"
 
@@ -1001,8 +1001,8 @@ msgstr "Fjalëkalimi nuk korrispondon!"
 #: js/messages.php:63 libraries/server_privileges.lib.php:1679
 #: libraries/server_privileges.lib.php:1883
 #: libraries/server_privileges.lib.php:2004
-#: libraries/server_privileges.lib.php:3046
-#: libraries/server_privileges.lib.php:3657
+#: libraries/server_privileges.lib.php:3047
+#: libraries/server_privileges.lib.php:3658
 msgid "Add user"
 msgstr "Shto përdorues"
 
@@ -1212,7 +1212,7 @@ msgstr "Ju lutem shtoni së paku një ndryshore në seri"
 #: libraries/TableSearch.class.php:881 libraries/TableSearch.class.php:1040
 #: libraries/display_export.lib.php:572
 #: libraries/plugins/export/ExportSql.class.php:1578
-#: libraries/server_privileges.lib.php:2610
+#: libraries/server_privileges.lib.php:2611
 #: libraries/server_status.lib.php:525
 #: libraries/server_status_monitor.lib.php:278
 #: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:594
@@ -1388,7 +1388,7 @@ msgstr ""
 msgid "Explain output"
 msgstr "Shpjego nxjerrjen"
 
-#: js/messages.php:178 js/messages.php:567
+#: js/messages.php:178 js/messages.php:569
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1483,7 +1483,7 @@ msgstr ""
 #: js/messages.php:206 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
 #: libraries/Util.class.php:4116 libraries/Util.class.php:4131
-#: libraries/Util.class.php:4147 libraries/config/messages.inc.php:222
+#: libraries/Util.class.php:4147 libraries/config/messages.inc.php:221
 #: libraries/display_import.lib.php:108
 #: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
@@ -1693,7 +1693,7 @@ msgstr "Afisho kutinë e query"
 #: js/messages.php:282 libraries/DisplayResults.class.php:3355
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1210 libraries/Util.class.php:3413
-#: libraries/Util.class.php:3414 libraries/config/messages.inc.php:736
+#: libraries/Util.class.php:3414 libraries/config/messages.inc.php:735
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:176
@@ -1894,7 +1894,7 @@ msgstr ""
 #: js/messages.php:364 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:364
 #: libraries/browse_foreigners.lib.php:417
-#: libraries/server_privileges.lib.php:3142
+#: libraries/server_privileges.lib.php:3143
 msgid "Show all"
 msgstr "Shfaqi të gjithë"
 
@@ -2008,257 +2008,262 @@ msgstr "Modifiko parametrat"
 msgid "Show Report Details"
 msgstr "Shfaq tabelat"
 
+#: js/messages.php:417
+msgid ""
+"Your export is incomplete, due to a low execution time limit at the PHP level"
+msgstr ""
+
 #. l10n: Display text for calendar close link
-#: js/messages.php:436
+#: js/messages.php:438
 msgid "Done"
 msgstr "Kryer"
 
-#: js/messages.php:440
+#: js/messages.php:442
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Paraardhësi"
 
-#: js/messages.php:445
+#: js/messages.php:447
 msgctxt "Next month"
 msgid "Next"
 msgstr "Pasardhësi"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:448
+#: js/messages.php:450
 msgid "Today"
 msgstr "Sot"
 
-#: js/messages.php:452
+#: js/messages.php:454
 msgid "January"
 msgstr "Janar"
 
-#: js/messages.php:453
+#: js/messages.php:455
 msgid "February"
 msgstr ""
 
-#: js/messages.php:454
+#: js/messages.php:456
 msgid "March"
 msgstr "Mars"
 
-#: js/messages.php:455
+#: js/messages.php:457
 msgid "April"
 msgstr "Prill"
 
-#: js/messages.php:456
+#: js/messages.php:458
 msgid "May"
 msgstr "Maj"
 
-#: js/messages.php:457
+#: js/messages.php:459
 msgid "June"
 msgstr "Qershor"
 
-#: js/messages.php:458
+#: js/messages.php:460
 msgid "July"
 msgstr "Korrik"
 
-#: js/messages.php:459
+#: js/messages.php:461
 msgid "August"
 msgstr "Gusht"
 
-#: js/messages.php:460
+#: js/messages.php:462
 msgid "September"
 msgstr ""
 
-#: js/messages.php:461
+#: js/messages.php:463
 msgid "October"
 msgstr "Tetor"
 
-#: js/messages.php:462
+#: js/messages.php:464
 msgid "November"
 msgstr ""
 
-#: js/messages.php:463
+#: js/messages.php:465
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:470 libraries/Util.class.php:1595
+#: js/messages.php:472 libraries/Util.class.php:1595
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:472 libraries/Util.class.php:1597
+#: js/messages.php:474 libraries/Util.class.php:1597
 msgid "Feb"
 msgstr "Shk"
 
 #. l10n: Short month name
-#: js/messages.php:474 libraries/Util.class.php:1599
+#: js/messages.php:476 libraries/Util.class.php:1599
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:476 libraries/Util.class.php:1601
+#: js/messages.php:478 libraries/Util.class.php:1601
 msgid "Apr"
 msgstr "Pri"
 
 #. l10n: Short month name
-#: js/messages.php:478 libraries/Util.class.php:1603
+#: js/messages.php:480 libraries/Util.class.php:1603
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maj"
 
 #. l10n: Short month name
-#: js/messages.php:480 libraries/Util.class.php:1605
+#: js/messages.php:482 libraries/Util.class.php:1605
 msgid "Jun"
 msgstr "Qer"
 
 #. l10n: Short month name
-#: js/messages.php:482 libraries/Util.class.php:1607
+#: js/messages.php:484 libraries/Util.class.php:1607
 msgid "Jul"
 msgstr "Kor"
 
 #. l10n: Short month name
-#: js/messages.php:484 libraries/Util.class.php:1609
+#: js/messages.php:486 libraries/Util.class.php:1609
 msgid "Aug"
 msgstr "Gsh"
 
 #. l10n: Short month name
-#: js/messages.php:486 libraries/Util.class.php:1611
+#: js/messages.php:488 libraries/Util.class.php:1611
 msgid "Sep"
 msgstr "Sht"
 
 #. l10n: Short month name
-#: js/messages.php:488 libraries/Util.class.php:1613
+#: js/messages.php:490 libraries/Util.class.php:1613
 msgid "Oct"
 msgstr "Tet"
 
 #. l10n: Short month name
-#: js/messages.php:490 libraries/Util.class.php:1615
+#: js/messages.php:492 libraries/Util.class.php:1615
 msgid "Nov"
 msgstr "Nën"
 
 #. l10n: Short month name
-#: js/messages.php:492 libraries/Util.class.php:1617
+#: js/messages.php:494 libraries/Util.class.php:1617
 msgid "Dec"
 msgstr "Dhj"
 
-#: js/messages.php:498
+#: js/messages.php:500
 msgid "Sunday"
 msgstr "E diel"
 
-#: js/messages.php:499
+#: js/messages.php:501
 msgid "Monday"
 msgstr "E hënë"
 
-#: js/messages.php:500
+#: js/messages.php:502
 msgid "Tuesday"
 msgstr "E martë"
 
-#: js/messages.php:501
+#: js/messages.php:503
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:502
+#: js/messages.php:504
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:503
+#: js/messages.php:505
 msgid "Friday"
 msgstr "E premte"
 
-#: js/messages.php:504
+#: js/messages.php:506
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:511
+#: js/messages.php:513
 msgid "Sun"
 msgstr "Die"
 
 #. l10n: Short week day name
-#: js/messages.php:513 libraries/Util.class.php:1622
+#: js/messages.php:515 libraries/Util.class.php:1622
 msgid "Mon"
 msgstr "Hën"
 
 #. l10n: Short week day name
-#: js/messages.php:515 libraries/Util.class.php:1624
+#: js/messages.php:517 libraries/Util.class.php:1624
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:517 libraries/Util.class.php:1626
+#: js/messages.php:519 libraries/Util.class.php:1626
 msgid "Wed"
 msgstr "Mër"
 
 #. l10n: Short week day name
-#: js/messages.php:519 libraries/Util.class.php:1628
+#: js/messages.php:521 libraries/Util.class.php:1628
 msgid "Thu"
 msgstr "Enj"
 
 #. l10n: Short week day name
-#: js/messages.php:521 libraries/Util.class.php:1630
+#: js/messages.php:523 libraries/Util.class.php:1630
 msgid "Fri"
 msgstr "Pre"
 
 #. l10n: Short week day name
-#: js/messages.php:523 libraries/Util.class.php:1632
+#: js/messages.php:525 libraries/Util.class.php:1632
 msgid "Sat"
 msgstr "Sht"
 
 #. l10n: Minimal week day name
-#: js/messages.php:530
+#: js/messages.php:532
 msgid "Su"
 msgstr "Di"
 
 #. l10n: Minimal week day name
-#: js/messages.php:532
+#: js/messages.php:534
 msgid "Mo"
 msgstr "Hë"
 
 #. l10n: Minimal week day name
-#: js/messages.php:534
+#: js/messages.php:536
 msgid "Tu"
 msgstr "Ma"
 
 #. l10n: Minimal week day name
-#: js/messages.php:536
+#: js/messages.php:538
 msgid "We"
 msgstr "Më"
 
 #. l10n: Minimal week day name
-#: js/messages.php:538
+#: js/messages.php:540
 msgid "Th"
 msgstr "En"
 
 #. l10n: Minimal week day name
-#: js/messages.php:540
+#: js/messages.php:542
 msgid "Fr"
 msgstr "Pr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:542
+#: js/messages.php:544
 msgid "Sa"
 msgstr "Sh"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:546
+#: js/messages.php:548
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:553
+#: js/messages.php:555
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:556
+#: js/messages.php:558
 msgctxt "Year suffix"
 msgid "none"
 msgstr "asnjë"
 
-#: js/messages.php:568
+#: js/messages.php:570
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:569
+#: js/messages.php:571
 msgid "Minute"
 msgstr "Minutë"
 
-#: js/messages.php:570
+#: js/messages.php:572
 msgid "Second"
 msgstr "Sekondë"
 
@@ -2287,42 +2292,42 @@ msgstr ""
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
-#: libraries/Advisor.class.php:400
+#: libraries/Advisor.class.php:401
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
-#: libraries/Advisor.class.php:417
+#: libraries/Advisor.class.php:420
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr ""
 
-#: libraries/Advisor.class.php:425
+#: libraries/Advisor.class.php:428
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr ""
 
-#: libraries/Advisor.class.php:439
+#: libraries/Advisor.class.php:443
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 
-#: libraries/Advisor.class.php:472
+#: libraries/Advisor.class.php:478
 msgid "per second"
 msgstr "në sekondë"
 
-#: libraries/Advisor.class.php:475
+#: libraries/Advisor.class.php:481
 msgid "per minute"
 msgstr "në minutë"
 
-#: libraries/Advisor.class.php:478 libraries/server_status.lib.php:137
+#: libraries/Advisor.class.php:484 libraries/server_status.lib.php:137
 #: libraries/server_status.lib.php:221
 #: libraries/server_status_queries.lib.php:98
 msgid "per hour"
 msgstr "në orë"
 
-#: libraries/Advisor.class.php:481
+#: libraries/Advisor.class.php:487
 msgid "per day"
 msgstr ""
 
@@ -2734,8 +2739,8 @@ msgstr "Query ka zgjatur %01.4f sec"
 #: libraries/DisplayResults.class.php:5087 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:147
 #: libraries/server_databases.lib.php:151
-#: libraries/server_privileges.lib.php:2898
-#: libraries/server_privileges.lib.php:2902 libraries/structure.lib.php:278
+#: libraries/server_privileges.lib.php:2899
+#: libraries/server_privileges.lib.php:2903 libraries/structure.lib.php:278
 #: libraries/structure.lib.php:294 libraries/structure.lib.php:296
 #: libraries/structure.lib.php:1364 libraries/structure.lib.php:1371
 msgid "With selected:"
@@ -2747,8 +2752,8 @@ msgstr "N.q.s. të zgjedhur:"
 #: libraries/server_databases.lib.php:150
 #: libraries/server_privileges.lib.php:1005
 #: libraries/server_privileges.lib.php:1006
-#: libraries/server_privileges.lib.php:2900
 #: libraries/server_privileges.lib.php:2901
+#: libraries/server_privileges.lib.php:2902
 #: libraries/server_user_groups.lib.php:230 libraries/structure.lib.php:281
 #: libraries/structure.lib.php:282 libraries/structure.lib.php:1367
 #: libraries/structure.lib.php:1368
@@ -2760,10 +2765,10 @@ msgstr "Zgjidh gjithçka"
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3415 libraries/Util.class.php:3416
 #: libraries/Util.class.php:4115 libraries/Util.class.php:4130
-#: libraries/Util.class.php:4146 libraries/config/messages.inc.php:216
+#: libraries/Util.class.php:4146 libraries/config/messages.inc.php:215
 #: libraries/display_export.lib.php:163
-#: libraries/server_privileges.lib.php:2231
-#: libraries/server_privileges.lib.php:2906
+#: libraries/server_privileges.lib.php:2232
+#: libraries/server_privileges.lib.php:2907
 #: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:298
 #: prefs_manage.php:300 setup/frames/menu.inc.php:27
 msgid "Export"
@@ -2916,7 +2921,7 @@ msgstr ""
 msgid "Collation"
 msgstr "Rradhitja"
 
-#: libraries/Index.class.php:572 libraries/rte/rte_events.lib.php:529
+#: libraries/Index.class.php:572 libraries/rte/rte_events.lib.php:535
 #: libraries/rte/rte_routines.lib.php:1080 libraries/tbl_tracking.lib.php:737
 #: libraries/tbl_tracking.lib.php:822
 msgid "Comment"
@@ -2939,7 +2944,7 @@ msgid ""
 msgstr ""
 
 #: libraries/Menu.class.php:195 libraries/ServerStatusData.class.php:366
-#: libraries/config/messages.inc.php:758
+#: libraries/config/messages.inc.php:757
 msgid "Server"
 msgstr "Serveri"
 
@@ -2953,11 +2958,11 @@ msgstr "Paraqitje"
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:401
 #: libraries/Util.class.php:3183 libraries/Util.class.php:3190
 #: libraries/Util.class.php:3408 libraries/Util.class.php:4126
-#: libraries/Util.class.php:4142 libraries/config/setup.forms.php:302
-#: libraries/config/setup.forms.php:339 libraries/config/setup.forms.php:365
-#: libraries/config/user_preferences.forms.php:198
-#: libraries/config/user_preferences.forms.php:235
-#: libraries/config/user_preferences.forms.php:261
+#: libraries/Util.class.php:4142 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:364
+#: libraries/config/user_preferences.forms.php:197
+#: libraries/config/user_preferences.forms.php:234
+#: libraries/config/user_preferences.forms.php:260
 #: libraries/import.lib.php:1243
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
@@ -2970,7 +2975,7 @@ msgstr "Struktura"
 #: libraries/Menu.class.php:512 libraries/Util.class.php:3184
 #: libraries/Util.class.php:3191 libraries/Util.class.php:4112
 #: libraries/Util.class.php:4127 libraries/Util.class.php:4143
-#: libraries/config/messages.inc.php:285
+#: libraries/config/messages.inc.php:284
 #: libraries/navigation/Nodes/Node_Table.class.php:45 querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
@@ -2995,8 +3000,8 @@ msgstr "Shto"
 #: libraries/Util.class.php:4133 libraries/Util.class.php:4148
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:1816
 #: libraries/server_privileges.lib.php:1924
-#: libraries/server_privileges.lib.php:2703
-#: libraries/server_privileges.lib.php:3618
+#: libraries/server_privileges.lib.php:2704
+#: libraries/server_privileges.lib.php:3619
 msgid "Privileges"
 msgstr "Të drejtat"
 
@@ -3021,7 +3026,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:1480
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
-#: libraries/rte/rte_words.lib.php:46
+#: libraries/rte/rte_words.lib.php:50
 msgid "Triggers"
 msgstr ""
 
@@ -3035,14 +3040,14 @@ msgid "Query"
 msgstr "Query nga shembull"
 
 #: libraries/Menu.class.php:448 libraries/Util.class.php:4134
-#: libraries/rte/rte_words.lib.php:34
+#: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr ""
 
 #: libraries/Menu.class.php:456 libraries/Util.class.php:4135
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:833
-#: libraries/rte/rte_words.lib.php:58
+#: libraries/rte/rte_words.lib.php:64
 msgid "Events"
 msgstr ""
 
@@ -3052,8 +3057,8 @@ msgid "Designer"
 msgstr ""
 
 #: libraries/Menu.class.php:508 libraries/Util.class.php:4111
-#: libraries/config/messages.inc.php:230 libraries/server_common.lib.php:48
-#: libraries/server_privileges.lib.php:3696
+#: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
+#: libraries/server_privileges.lib.php:3697
 msgid "Databases"
 msgstr "Databazat"
 
@@ -3124,8 +3129,8 @@ msgstr[1] "%1$d rreshta të shtuar."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2474
 #: libraries/browse_foreigners.lib.php:401
-#: libraries/schema/Pdf_Relation_Schema.class.php:1199
-#: libraries/schema/Pdf_Relation_Schema.class.php:1223
+#: libraries/schema/Pdf_Relation_Schema.class.php:1203
+#: libraries/schema/Pdf_Relation_Schema.class.php:1227
 #: libraries/schema/User_Schema.class.php:434
 #: libraries/select_lang.lib.php:583
 msgid "Page number:"
@@ -3189,7 +3194,7 @@ msgstr ""
 
 #: libraries/ServerStatusData.class.php:201
 #: libraries/build_html_for_db.lib.php:27
-#: libraries/config/messages.inc.php:236
+#: libraries/config/messages.inc.php:235
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:116
@@ -3811,7 +3816,7 @@ msgstr "Mesazh nga MySQL: "
 msgid "Failed to connect to SQL validator!"
 msgstr ""
 
-#: libraries/Util.class.php:1177 libraries/config/messages.inc.php:737
+#: libraries/Util.class.php:1177 libraries/config/messages.inc.php:736
 msgid "Explain SQL"
 msgstr "Shpjego SQL"
 
@@ -3823,11 +3828,11 @@ msgstr "Mos shpjego SQL"
 msgid "Without PHP Code"
 msgstr "pa kod PHP"
 
-#: libraries/Util.class.php:1227 libraries/config/messages.inc.php:739
+#: libraries/Util.class.php:1227 libraries/config/messages.inc.php:738
 msgid "Create PHP Code"
 msgstr "Krijo kodin PHP"
 
-#: libraries/Util.class.php:1253 libraries/config/messages.inc.php:738
+#: libraries/Util.class.php:1253 libraries/config/messages.inc.php:737
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Rifresko"
@@ -3836,7 +3841,7 @@ msgstr "Rifresko"
 msgid "Skip Validate SQL"
 msgstr "Mos vleftëso SQL"
 
-#: libraries/Util.class.php:1266 libraries/config/messages.inc.php:741
+#: libraries/Util.class.php:1266 libraries/config/messages.inc.php:740
 msgid "Validate SQL"
 msgstr "Vleftëso SQL"
 
@@ -3963,13 +3968,13 @@ msgstr ""
 "keni mbyllur dritaren prind ose rregullimet mbrojtëse të shfletuesit tuaj të "
 "ndalojnë përditësimet nëpërmjet dritareve."
 
-#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:311
-#: libraries/config/setup.forms.php:347 libraries/config/setup.forms.php:370
-#: libraries/config/setup.forms.php:375
-#: libraries/config/user_preferences.forms.php:207
-#: libraries/config/user_preferences.forms.php:243
-#: libraries/config/user_preferences.forms.php:266
-#: libraries/config/user_preferences.forms.php:271
+#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:310
+#: libraries/config/setup.forms.php:346 libraries/config/setup.forms.php:369
+#: libraries/config/setup.forms.php:374
+#: libraries/config/user_preferences.forms.php:206
+#: libraries/config/user_preferences.forms.php:242
+#: libraries/config/user_preferences.forms.php:265
+#: libraries/config/user_preferences.forms.php:270
 #: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2193
 #: libraries/tbl_printview.lib.php:304
 msgid "Data"
@@ -4212,28 +4217,28 @@ msgid "neither of the above"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:96
-#: libraries/config/Validator.class.php:544
+#: libraries/config/Validator.class.php:550
 msgid "Not a positive number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:97
-#: libraries/config/Validator.class.php:566
+#: libraries/config/Validator.class.php:572
 msgid "Not a non-negative number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:98
-#: libraries/config/Validator.class.php:522
+#: libraries/config/Validator.class.php:528
 msgid "Not a valid port number"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
-#: libraries/config/Validator.class.php:584
+#: libraries/config/Validator.class.php:590
 msgid "Incorrect value"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:100
-#: libraries/config/Validator.class.php:600
+#: libraries/config/Validator.class.php:606
 #, php-format
 msgid "Value must be equal or lower than %s"
 msgstr ""
@@ -4243,42 +4248,42 @@ msgstr ""
 msgid "Missing data for %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:757
-#: libraries/config/FormDisplay.class.php:763
-#: libraries/config/FormDisplay.class.php:770
+#: libraries/config/FormDisplay.class.php:759
+#: libraries/config/FormDisplay.class.php:765
+#: libraries/config/FormDisplay.class.php:772
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "E ndryshueshme"
 
-#: libraries/config/FormDisplay.class.php:759
-#: libraries/config/FormDisplay.class.php:765
-#: libraries/config/FormDisplay.class.php:772
+#: libraries/config/FormDisplay.class.php:761
+#: libraries/config/FormDisplay.class.php:767
+#: libraries/config/FormDisplay.class.php:774
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:791
+#: libraries/config/FormDisplay.class.php:793
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:797
+#: libraries/config/FormDisplay.class.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:807
+#: libraries/config/FormDisplay.class.php:811
 msgid "SQL Validator is disabled"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:814
+#: libraries/config/FormDisplay.class.php:818
 #, fuzzy
 #| msgid "Link not found"
 msgid "SOAP extension not found"
 msgstr "Lidhja nuk u gjet"
 
-#: libraries/config/FormDisplay.class.php:824
+#: libraries/config/FormDisplay.class.php:828
 #, php-format
 msgid "maximum %s"
 msgstr ""
@@ -4293,7 +4298,7 @@ msgid "Set value: %s"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:313
-#: libraries/config/messages.inc.php:531
+#: libraries/config/messages.inc.php:530
 msgid "Restore default value"
 msgstr ""
 
@@ -4311,45 +4316,45 @@ msgstr ""
 msgid "Reset"
 msgstr "Rinis"
 
-#: libraries/config/Validator.class.php:232
+#: libraries/config/Validator.class.php:238
 msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
-#: libraries/config/Validator.class.php:241
-#: libraries/config/Validator.class.php:249
+#: libraries/config/Validator.class.php:247
+#: libraries/config/Validator.class.php:255
 msgid "Could not connect to Drizzle server"
 msgstr ""
 
-#: libraries/config/Validator.class.php:260
-#: libraries/config/Validator.class.php:267
+#: libraries/config/Validator.class.php:266
+#: libraries/config/Validator.class.php:273
 msgid "Could not connect to MySQL server"
 msgstr ""
 
-#: libraries/config/Validator.class.php:300
+#: libraries/config/Validator.class.php:306
 msgid "Empty username while using config authentication method"
 msgstr ""
 
-#: libraries/config/Validator.class.php:307
+#: libraries/config/Validator.class.php:313
 msgid "Empty signon session name while using signon authentication method"
 msgstr ""
 
-#: libraries/config/Validator.class.php:316
+#: libraries/config/Validator.class.php:322
 msgid "Empty signon URL while using signon authentication method"
 msgstr ""
 
-#: libraries/config/Validator.class.php:363
+#: libraries/config/Validator.class.php:369
 msgid "Empty phpMyAdmin control user while using pmadb"
 msgstr ""
 
-#: libraries/config/Validator.class.php:368
+#: libraries/config/Validator.class.php:374
 msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr ""
 
-#: libraries/config/Validator.class.php:452
+#: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
 msgstr ""
 
-#: libraries/config/Validator.class.php:461
+#: libraries/config/Validator.class.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
@@ -4585,45 +4590,41 @@ msgstr ""
 msgid "Display errors"
 msgstr "Shfaq karakteristikat"
 
-#: libraries/config/messages.inc.php:105
-msgid "Gather errors"
-msgstr ""
-
-#: libraries/config/messages.inc.php:107
+#: libraries/config/messages.inc.php:106
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:110
+#: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
 msgstr ""
 
-#: libraries/config/messages.inc.php:111 prefs_manage.php:313
+#: libraries/config/messages.inc.php:110 prefs_manage.php:313
 msgid "Save as file"
 msgstr "Ruaje skedarin me emër"
 
-#: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:333
+#: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:332
 #, fuzzy
 msgid "Character set of the file"
 msgstr "Familja gërmave të file:"
 
-#: libraries/config/messages.inc.php:113 libraries/config/messages.inc.php:129
+#: libraries/config/messages.inc.php:112 libraries/config/messages.inc.php:128
 #: libraries/structure.lib.php:1704
 #: libraries/tbl_gis_visualization.lib.php:312
 #: libraries/tbl_printview.lib.php:179
 msgid "Format"
 msgstr "Formati"
 
-#: libraries/config/messages.inc.php:114
+#: libraries/config/messages.inc.php:113
 msgid "Compression"
 msgstr "Kompresim"
 
-#: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:122
-#: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:134
-#: libraries/config/messages.inc.php:148 libraries/config/messages.inc.php:150
-#: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:192
-#: libraries/config/messages.inc.php:194
+#: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:121
+#: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:133
+#: libraries/config/messages.inc.php:147 libraries/config/messages.inc.php:149
+#: libraries/config/messages.inc.php:188 libraries/config/messages.inc.php:191
+#: libraries/config/messages.inc.php:193
 #: libraries/plugins/export/ExportCsv.class.php:91
 #: libraries/plugins/export/ExportExcel.class.php:68
 #: libraries/plugins/export/ExportHtmlword.class.php:90
@@ -4635,75 +4636,75 @@ msgstr "Kompresim"
 msgid "Put columns names in the first row"
 msgstr "Vendos emrat e kollonave tek rreshti i parë"
 
-#: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:335
-#: libraries/config/messages.inc.php:345
+#: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:334
+#: libraries/config/messages.inc.php:344
 #: libraries/plugins/import/ImportCsv.class.php:150
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
 msgstr "Fushë e përbërë nga"
 
-#: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:336
-#: libraries/config/messages.inc.php:346
+#: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:335
+#: libraries/config/messages.inc.php:345
 #: libraries/plugins/import/ImportCsv.class.php:157
 #, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with"
 msgstr "Fushë e kufizuar nga"
 
-#: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:124
-#: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:140
-#: libraries/config/messages.inc.php:149 libraries/config/messages.inc.php:153
-#: libraries/config/messages.inc.php:190 libraries/config/messages.inc.php:193
-#: libraries/config/messages.inc.php:195
+#: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:123
+#: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:139
+#: libraries/config/messages.inc.php:148 libraries/config/messages.inc.php:152
+#: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:192
+#: libraries/config/messages.inc.php:194
 #, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with"
 msgstr "Zëvendëso NULL me"
 
-#: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:125
+#: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:124
 msgid "Remove CRLF characters within columns"
 msgstr ""
 
-#: libraries/config/messages.inc.php:120 libraries/config/messages.inc.php:339
-#: libraries/config/messages.inc.php:350
+#: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:338
+#: libraries/config/messages.inc.php:349
 #: libraries/plugins/import/ImportCsv.class.php:135
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated with"
 msgstr "Rreshta që mbarojnë me"
 
-#: libraries/config/messages.inc.php:121 libraries/config/messages.inc.php:334
+#: libraries/config/messages.inc.php:120 libraries/config/messages.inc.php:333
 #: libraries/plugins/import/ImportCsv.class.php:164
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with"
 msgstr "Rreshta që mbarojnë me"
 
-#: libraries/config/messages.inc.php:123
+#: libraries/config/messages.inc.php:122
 #, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Edicion i Excel"
 
-#: libraries/config/messages.inc.php:126
+#: libraries/config/messages.inc.php:125
 #, fuzzy
 msgid "Database name template"
 msgstr "Emri i file template"
 
-#: libraries/config/messages.inc.php:127
+#: libraries/config/messages.inc.php:126
 #, fuzzy
 msgid "Server name template"
 msgstr "Emri i file template"
 
-#: libraries/config/messages.inc.php:128
+#: libraries/config/messages.inc.php:127
 #, fuzzy
 msgid "Table name template"
 msgstr "Emri i file template"
 
-#: libraries/config/messages.inc.php:132 libraries/config/messages.inc.php:146
-#: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:185
-#: libraries/config/messages.inc.php:191
+#: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:145
+#: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:184
+#: libraries/config/messages.inc.php:190
 #: libraries/plugins/export/ExportHtmlword.class.php:63
 #: libraries/plugins/export/ExportLatex.class.php:97
 #: libraries/plugins/export/ExportMediawiki.class.php:63
@@ -4714,414 +4715,414 @@ msgstr "Emri i file template"
 msgid "Dump table"
 msgstr "%s tabela(at)"
 
-#: libraries/config/messages.inc.php:133
+#: libraries/config/messages.inc.php:132
 #: libraries/plugins/export/ExportLatex.class.php:89
 msgid "Include table caption"
 msgstr "Përfshi nëntitullin e tabelës"
 
-#: libraries/config/messages.inc.php:136 libraries/config/messages.inc.php:142
+#: libraries/config/messages.inc.php:135 libraries/config/messages.inc.php:141
 msgid "Table caption"
 msgstr "Titulli i Tabelës caption"
 
-#: libraries/config/messages.inc.php:137 libraries/config/messages.inc.php:144
+#: libraries/config/messages.inc.php:136 libraries/config/messages.inc.php:143
 msgid "Continued table caption"
 msgstr "Nëntitulli i tabelës vazhduese"
 
-#: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:145
+#: libraries/config/messages.inc.php:137 libraries/config/messages.inc.php:144
 msgid "Label key"
 msgstr "Kyçi i etiketës"
 
-#: libraries/config/messages.inc.php:139 libraries/config/messages.inc.php:152
-#: libraries/config/messages.inc.php:181
+#: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:151
+#: libraries/config/messages.inc.php:180
 #: libraries/plugins/export/ExportOdt.class.php:482
 #: libraries/tbl_columns_definition_form.lib.php:314
 msgid "MIME type"
 msgstr "Lloji MIME"
 
-#: libraries/config/messages.inc.php:141 libraries/config/messages.inc.php:154
-#: libraries/config/messages.inc.php:184 libraries/tbl_relation.lib.php:214
+#: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:153
+#: libraries/config/messages.inc.php:183 libraries/tbl_relation.lib.php:214
 msgid "Relations"
 msgstr "Relacione"
 
-#: libraries/config/messages.inc.php:147
+#: libraries/config/messages.inc.php:146
 #, fuzzy
 #| msgid "Export type"
 msgid "Export method"
 msgstr "Lloji i Eksportit"
 
-#: libraries/config/messages.inc.php:156 libraries/config/messages.inc.php:158
+#: libraries/config/messages.inc.php:155 libraries/config/messages.inc.php:157
 msgid "Save on server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:157 libraries/config/messages.inc.php:160
+#: libraries/config/messages.inc.php:156 libraries/config/messages.inc.php:159
 #: libraries/display_export.lib.php:387 libraries/display_export.lib.php:422
 msgid "Overwrite existing file(s)"
 msgstr "Mbishkruaj file(s) ekzistues"
 
-#: libraries/config/messages.inc.php:161
+#: libraries/config/messages.inc.php:160
 #, fuzzy
 msgid "Remember file name template"
 msgstr "Emri i file template"
 
-#: libraries/config/messages.inc.php:162 libraries/operations.lib.php:195
+#: libraries/config/messages.inc.php:161 libraries/operations.lib.php:195
 #: libraries/operations.lib.php:698 libraries/operations.lib.php:1039
 msgid "Add AUTO_INCREMENT value"
 msgstr "Shto vlerë AUTO_INCREMENT"
 
-#: libraries/config/messages.inc.php:164
+#: libraries/config/messages.inc.php:163
 #, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Përdor backquotes me emrat e tabelave dhe fushave"
 
-#: libraries/config/messages.inc.php:165 libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:358
 #: libraries/display_export.lib.php:291
 msgid "SQL compatibility mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:167
+#: libraries/config/messages.inc.php:166
 #: libraries/plugins/export/ExportSql.class.php:278
 msgid "<code>CREATE TABLE</code> options:"
 msgstr ""
 
-#: libraries/config/messages.inc.php:168
+#: libraries/config/messages.inc.php:167
 msgid "Creation/Update/Check dates"
 msgstr "Datat e Krijimit/Përditësimit/Kontrollit"
 
-#: libraries/config/messages.inc.php:169
+#: libraries/config/messages.inc.php:168
 msgid "Use delayed inserts"
 msgstr "Përdor shtimet me vonesë"
 
-#: libraries/config/messages.inc.php:170
+#: libraries/config/messages.inc.php:169
 #: libraries/plugins/export/ExportSql.class.php:142
 msgid "Disable foreign key checks"
 msgstr "Ç'aktivo kontrollin e kyçeve të jashtëm"
 
-#: libraries/config/messages.inc.php:171
+#: libraries/config/messages.inc.php:170
 #: libraries/plugins/export/ExportSql.class.php:155
 #, fuzzy
 #| msgid "Create table on database %s"
 msgid "Export views as tables"
 msgstr "Krijo një tabelë të re tek databaza %s"
 
-#: libraries/config/messages.inc.php:172 libraries/config/messages.inc.php:174
-#: libraries/config/messages.inc.php:176 libraries/config/messages.inc.php:183
+#: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:173
+#: libraries/config/messages.inc.php:175 libraries/config/messages.inc.php:182
 #: libraries/operations.lib.php:190 libraries/operations.lib.php:1035
 #, php-format
 msgid "Add %s"
 msgstr "Shto %s"
 
-#: libraries/config/messages.inc.php:175
+#: libraries/config/messages.inc.php:174
 msgid "Use hexadecimal for BLOB"
 msgstr ""
 
-#: libraries/config/messages.inc.php:177
+#: libraries/config/messages.inc.php:176
 msgid "Use ignore inserts"
 msgstr "Përdor shpërfill shtimet"
 
-#: libraries/config/messages.inc.php:179
+#: libraries/config/messages.inc.php:178
 msgid "Syntax to use when inserting data"
 msgstr ""
 
-#: libraries/config/messages.inc.php:180
+#: libraries/config/messages.inc.php:179
 #: libraries/plugins/export/ExportSql.class.php:398
 msgid "Maximal length of created query"
 msgstr ""
 
-#: libraries/config/messages.inc.php:186
+#: libraries/config/messages.inc.php:185
 #, fuzzy
 msgid "Export type"
 msgstr "Lloji i Eksportit"
 
-#: libraries/config/messages.inc.php:187
+#: libraries/config/messages.inc.php:186
 #: libraries/plugins/export/ExportSql.class.php:129
 msgid "Enclose export in a transaction"
 msgstr "Përfshi eksportin në një transacion"
 
-#: libraries/config/messages.inc.php:188
+#: libraries/config/messages.inc.php:187
 #, fuzzy
 msgid "Export time in UTC"
 msgstr "Lloji i Eksportit"
 
-#: libraries/config/messages.inc.php:196
+#: libraries/config/messages.inc.php:195
 msgid "Force secured connection while using phpMyAdmin"
 msgstr ""
 
-#: libraries/config/messages.inc.php:197
+#: libraries/config/messages.inc.php:196
 msgid "Force SSL connection"
 msgstr ""
 
-#: libraries/config/messages.inc.php:199
+#: libraries/config/messages.inc.php:198
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
 
-#: libraries/config/messages.inc.php:202
+#: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
 msgstr ""
 
-#: libraries/config/messages.inc.php:204
+#: libraries/config/messages.inc.php:203
 msgid "A dropdown will be used if fewer items are present"
 msgstr ""
 
-#: libraries/config/messages.inc.php:205
+#: libraries/config/messages.inc.php:204
 msgid "Foreign key limit"
 msgstr ""
 
-#: libraries/config/messages.inc.php:206
+#: libraries/config/messages.inc.php:205
 msgid "Browse mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:207
+#: libraries/config/messages.inc.php:206
 msgid "Customize browse mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:209 libraries/config/messages.inc.php:211
-#: libraries/config/messages.inc.php:229 libraries/config/messages.inc.php:240
-#: libraries/config/messages.inc.php:242 libraries/config/messages.inc.php:288
-#: libraries/config/messages.inc.php:312
+#: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:210
+#: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:311
 #, fuzzy
 msgid "Customize default options"
 msgstr "Opcione të eksportimit të databazës"
 
-#: libraries/config/messages.inc.php:210 libraries/config/setup.forms.php:248
-#: libraries/config/setup.forms.php:322
-#: libraries/config/user_preferences.forms.php:146
-#: libraries/config/user_preferences.forms.php:218
+#: libraries/config/messages.inc.php:209 libraries/config/setup.forms.php:247
+#: libraries/config/setup.forms.php:321
+#: libraries/config/user_preferences.forms.php:145
+#: libraries/config/user_preferences.forms.php:217
 msgid "CSV"
 msgstr "të dhëna CSV"
 
-#: libraries/config/messages.inc.php:212
+#: libraries/config/messages.inc.php:211
 msgid "Developer"
 msgstr ""
 
-#: libraries/config/messages.inc.php:213
+#: libraries/config/messages.inc.php:212
 msgid "Settings for phpMyAdmin developers"
 msgstr ""
 
-#: libraries/config/messages.inc.php:214
+#: libraries/config/messages.inc.php:213
 msgid "Edit mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:215
+#: libraries/config/messages.inc.php:214
 msgid "Customize edit mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:217
+#: libraries/config/messages.inc.php:216
 msgid "Export defaults"
 msgstr ""
 
-#: libraries/config/messages.inc.php:218
+#: libraries/config/messages.inc.php:217
 msgid "Customize default export options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:219 libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:218 libraries/config/messages.inc.php:279
 #: setup/frames/menu.inc.php:17
 msgid "Features"
 msgstr ""
 
-#: libraries/config/messages.inc.php:220
+#: libraries/config/messages.inc.php:219
 #, fuzzy
 msgid "General"
 msgstr "Gjeneruar nga"
 
-#: libraries/config/messages.inc.php:221
+#: libraries/config/messages.inc.php:220
 msgid "Set some commonly used options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:223
+#: libraries/config/messages.inc.php:222
 #, fuzzy
 msgid "Import defaults"
 msgstr "Importo files"
 
-#: libraries/config/messages.inc.php:224
+#: libraries/config/messages.inc.php:223
 msgid "Customize default common import options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:225
+#: libraries/config/messages.inc.php:224
 msgid "Import / export"
 msgstr ""
 
-#: libraries/config/messages.inc.php:227
+#: libraries/config/messages.inc.php:226
 msgid "Set import and export directories and compression options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:228
+#: libraries/config/messages.inc.php:227
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:231
+#: libraries/config/messages.inc.php:230
 #, fuzzy
 msgid "Databases display options"
 msgstr "Opcione të eksportimit të databazës"
 
-#: libraries/config/messages.inc.php:232 setup/frames/menu.inc.php:21
+#: libraries/config/messages.inc.php:231 setup/frames/menu.inc.php:21
 msgid "Navigation panel"
 msgstr ""
 
-#: libraries/config/messages.inc.php:233
+#: libraries/config/messages.inc.php:232
 msgid "Customize appearance of the navigation panel"
 msgstr ""
 
-#: libraries/config/messages.inc.php:234 libraries/select_server.lib.php:44
+#: libraries/config/messages.inc.php:233 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:141
 #, fuzzy
 msgid "Servers"
 msgstr "Serveri"
 
-#: libraries/config/messages.inc.php:235
+#: libraries/config/messages.inc.php:234
 msgid "Servers display options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:237
+#: libraries/config/messages.inc.php:236
 msgid "Tables display options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:238 setup/frames/menu.inc.php:23
+#: libraries/config/messages.inc.php:237 setup/frames/menu.inc.php:23
 #, fuzzy
 #| msgid "Indexes"
 msgid "Main panel"
 msgstr "Tregues"
 
-#: libraries/config/messages.inc.php:239
+#: libraries/config/messages.inc.php:238
 msgid "Microsoft Office"
 msgstr ""
 
-#: libraries/config/messages.inc.php:243
+#: libraries/config/messages.inc.php:242
 msgid "Other core settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:245
+#: libraries/config/messages.inc.php:244
 msgid "Settings that didn't fit anywhere else"
 msgstr ""
 
-#: libraries/config/messages.inc.php:246
+#: libraries/config/messages.inc.php:245
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
 msgstr "Numri i faqes:"
 
-#: libraries/config/messages.inc.php:248
+#: libraries/config/messages.inc.php:247
 msgid ""
 "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
 "[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
-#: libraries/config/messages.inc.php:252
+#: libraries/config/messages.inc.php:251
 #: libraries/navigation/NavigationHeader.class.php:216
 msgid "Query window"
 msgstr "Dritarja e Query"
 
-#: libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:252
 msgid "Customize query window options"
 msgstr ""
 
-#: libraries/config/messages.inc.php:254
+#: libraries/config/messages.inc.php:253
 msgid "Security"
 msgstr ""
 
-#: libraries/config/messages.inc.php:256
+#: libraries/config/messages.inc.php:255
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
 
-#: libraries/config/messages.inc.php:259
+#: libraries/config/messages.inc.php:258
 msgid "Basic settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:259
 #, fuzzy
 #| msgid "Documentation"
 msgid "Authentication"
 msgstr "Dokumentet"
 
-#: libraries/config/messages.inc.php:261
+#: libraries/config/messages.inc.php:260
 msgid "Authentication settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:262
+#: libraries/config/messages.inc.php:261
 msgid "Server configuration"
 msgstr ""
 
-#: libraries/config/messages.inc.php:264
+#: libraries/config/messages.inc.php:263
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
 
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:266
 msgid "Enter server connection parameters"
 msgstr ""
 
-#: libraries/config/messages.inc.php:268
+#: libraries/config/messages.inc.php:267
 msgid "Configuration storage"
 msgstr ""
 
-#: libraries/config/messages.inc.php:270
+#: libraries/config/messages.inc.php:269
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
 
-#: libraries/config/messages.inc.php:274
+#: libraries/config/messages.inc.php:273
 msgid "Changes tracking"
 msgstr ""
 
-#: libraries/config/messages.inc.php:276
+#: libraries/config/messages.inc.php:275
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 
-#: libraries/config/messages.inc.php:279
+#: libraries/config/messages.inc.php:278
 #, fuzzy
 msgid "Customize export options"
 msgstr "Opcione të eksportimit të databazës"
 
-#: libraries/config/messages.inc.php:281
+#: libraries/config/messages.inc.php:280
 msgid "Customize import defaults"
 msgstr ""
 
-#: libraries/config/messages.inc.php:282
+#: libraries/config/messages.inc.php:281
 #, fuzzy
 msgid "Customize navigation panel"
 msgstr "Opcione të eksportimit të databazës"
 
-#: libraries/config/messages.inc.php:283
+#: libraries/config/messages.inc.php:282
 #, fuzzy
 msgid "Customize main panel"
 msgstr "Opcione të eksportimit të databazës"
 
-#: libraries/config/messages.inc.php:284 libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:288
 #: setup/frames/menu.inc.php:19
 #, fuzzy
 msgid "SQL queries"
 msgstr "query SQL"
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:285
 #, fuzzy
 msgid "SQL Query box"
 msgstr "query SQL"
 
-#: libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:286
 msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
-#: libraries/config/messages.inc.php:290
+#: libraries/config/messages.inc.php:289
 #, fuzzy
 msgid "SQL queries settings"
 msgstr "query SQL"
 
-#: libraries/config/messages.inc.php:291
+#: libraries/config/messages.inc.php:290
 #, fuzzy
 #| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "Kronollogjia e SQL"
 
-#: libraries/config/messages.inc.php:293
+#: libraries/config/messages.inc.php:292
 msgid ""
 "If you wish to use the SQL Validator service, you should be aware that "
 "[strong]all SQL statements are stored anonymously for statistical purposes[/"
@@ -5129,205 +5130,205 @@ msgid ""
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:298
 #, fuzzy
 msgid "Startup"
 msgstr "Gjendja"
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:299
 msgid "Customize startup page"
 msgstr ""
 
-#: libraries/config/messages.inc.php:301
+#: libraries/config/messages.inc.php:300
 #, fuzzy
 #| msgid "Databases"
 msgid "Database structure"
 msgstr "Databazat"
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:302
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:304
+#: libraries/config/messages.inc.php:303
 #, fuzzy
 #| msgid "Databases"
 msgid "Table structure"
 msgstr "Databazat"
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:305
 msgid "Settings for the table structure (list of columns)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:306
 #, fuzzy
 msgid "Tabs"
 msgstr "Tabela"
 
-#: libraries/config/messages.inc.php:308
+#: libraries/config/messages.inc.php:307
 msgid "Choose how you want tabs to work"
 msgstr ""
 
-#: libraries/config/messages.inc.php:309
+#: libraries/config/messages.inc.php:308
 #, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
 msgstr "Përdor fushë teksti"
 
-#: libraries/config/messages.inc.php:310
+#: libraries/config/messages.inc.php:309
 #, fuzzy
 msgid "Customize text input fields"
 msgstr "Opcione të eksportimit të databazës"
 
-#: libraries/config/messages.inc.php:311
+#: libraries/config/messages.inc.php:310
 msgid "Texy! text"
 msgstr ""
 
-#: libraries/config/messages.inc.php:313
+#: libraries/config/messages.inc.php:312
 msgid "Warnings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:315
+#: libraries/config/messages.inc.php:314
 msgid "Disable some of the warnings shown by phpMyAdmin"
 msgstr ""
 
-#: libraries/config/messages.inc.php:317
+#: libraries/config/messages.inc.php:316
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations"
 msgstr ""
 
-#: libraries/config/messages.inc.php:320
+#: libraries/config/messages.inc.php:319
 msgid "GZip"
 msgstr ""
 
-#: libraries/config/messages.inc.php:321
+#: libraries/config/messages.inc.php:320
 msgid "Extra parameters for iconv"
 msgstr ""
 
-#: libraries/config/messages.inc.php:323
+#: libraries/config/messages.inc.php:322
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:326
+#: libraries/config/messages.inc.php:325
 msgid "Ignore multiple statement errors"
 msgstr ""
 
-#: libraries/config/messages.inc.php:328
+#: libraries/config/messages.inc.php:327
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
 
-#: libraries/config/messages.inc.php:332
+#: libraries/config/messages.inc.php:331
 msgid "Partial import: allow interrupt"
 msgstr ""
 
-#: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:336 libraries/config/messages.inc.php:346
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:73
 msgid "Do not abort on INSERT error"
 msgstr ""
 
-#: libraries/config/messages.inc.php:338 libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:337 libraries/config/messages.inc.php:348
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
 msgstr "Zëvendëso të dhënat e tabelës me file"
 
-#: libraries/config/messages.inc.php:341
+#: libraries/config/messages.inc.php:340
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
 
-#: libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:343
 msgid "Format of imported file"
 msgstr ""
 
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:347
 #: libraries/plugins/import/ImportLdi.class.php:78
 msgid "Use LOCAL keyword"
 msgstr ""
 
-#: libraries/config/messages.inc.php:351 libraries/config/messages.inc.php:362
-#: libraries/config/messages.inc.php:363
+#: libraries/config/messages.inc.php:350 libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:362
 #, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Column names in first row"
 msgstr "Vendos emrat e kollonave tek rreshti i parë"
 
-#: libraries/config/messages.inc.php:352
+#: libraries/config/messages.inc.php:351
 #: libraries/plugins/import/ImportOds.class.php:83
 msgid "Do not import empty rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:354
+#: libraries/config/messages.inc.php:353
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:356
+#: libraries/config/messages.inc.php:355
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:356
 msgid "Number of queries to skip from start"
 msgstr ""
 
-#: libraries/config/messages.inc.php:358
+#: libraries/config/messages.inc.php:357
 msgid "Partial import: skip queries"
 msgstr ""
 
-#: libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:360
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Shto vlerë AUTO_INCREMENT"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:363
 msgid "Initial state for sliders"
 msgstr ""
 
-#: libraries/config/messages.inc.php:365
+#: libraries/config/messages.inc.php:364
 msgid "How many rows can be inserted at one time"
 msgstr ""
 
-#: libraries/config/messages.inc.php:366
+#: libraries/config/messages.inc.php:365
 msgid "Number of inserted rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:367
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
 msgstr ""
 
-#: libraries/config/messages.inc.php:370
+#: libraries/config/messages.inc.php:369
 msgid "Limit column characters"
 msgstr ""
 
-#: libraries/config/messages.inc.php:372
+#: libraries/config/messages.inc.php:371
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
 
-#: libraries/config/messages.inc.php:376
+#: libraries/config/messages.inc.php:375
 msgid "Delete all cookies on logout"
 msgstr ""
 
-#: libraries/config/messages.inc.php:378
+#: libraries/config/messages.inc.php:377
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:381
+#: libraries/config/messages.inc.php:380
 msgid "Recall user name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:383
+#: libraries/config/messages.inc.php:382
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -5335,1064 +5336,1064 @@ msgid ""
 "recommended for non-trusted environments."
 msgstr ""
 
-#: libraries/config/messages.inc.php:388
+#: libraries/config/messages.inc.php:387
 msgid "Login cookie store"
 msgstr ""
 
-#: libraries/config/messages.inc.php:390
+#: libraries/config/messages.inc.php:389
 msgid "Define how long (in seconds) a login cookie is valid"
 msgstr ""
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:390
 msgid "Login cookie validity"
 msgstr ""
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:392
 msgid "Double size of textarea for LONGTEXT columns"
 msgstr ""
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:393
 msgid "Bigger textarea for LONGTEXT"
 msgstr ""
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:395
 msgid "Maximum number of characters used when a SQL query is displayed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:396
 msgid "Maximum displayed SQL length"
 msgstr ""
 
-#: libraries/config/messages.inc.php:398 libraries/config/messages.inc.php:412
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:397 libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:511
 msgid "Users cannot set a higher value"
 msgstr ""
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:399
 msgid "Maximum number of databases displayed in database list"
 msgstr ""
 
-#: libraries/config/messages.inc.php:401
+#: libraries/config/messages.inc.php:400
 msgid "Maximum databases"
 msgstr ""
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:402
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr ""
 
-#: libraries/config/messages.inc.php:405
+#: libraries/config/messages.inc.php:404
 msgid "Maximum items in branch"
 msgstr ""
 
-#: libraries/config/messages.inc.php:407
+#: libraries/config/messages.inc.php:406
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
 
-#: libraries/config/messages.inc.php:411
+#: libraries/config/messages.inc.php:410
 msgid "Maximum number of rows to display"
 msgstr ""
 
-#: libraries/config/messages.inc.php:413
+#: libraries/config/messages.inc.php:412
 msgid "Maximum number of tables displayed in table list"
 msgstr ""
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:413
 msgid "Maximum tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:415
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:418
 msgid "mcrypt warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:421
+#: libraries/config/messages.inc.php:420
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:423
 #, fuzzy
 msgid "Memory limit"
 msgstr "Limitet e rezervave"
 
-#: libraries/config/messages.inc.php:425
+#: libraries/config/messages.inc.php:424
 msgid "Show logo in navigation panel"
 msgstr ""
 
-#: libraries/config/messages.inc.php:426
+#: libraries/config/messages.inc.php:425
 msgid "Display logo"
 msgstr ""
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:427
 msgid "URL where logo in the navigation panel will point to"
 msgstr ""
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:428
 msgid "Logo link URL"
 msgstr ""
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:430
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:433
 msgid "Logo link target"
 msgstr ""
 
-#: libraries/config/messages.inc.php:436
+#: libraries/config/messages.inc.php:435
 msgid "Display server choice at the top of the navigation panel"
 msgstr ""
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:436
 msgid "Display servers selection"
 msgstr ""
 
-#: libraries/config/messages.inc.php:438
+#: libraries/config/messages.inc.php:437
 msgid "Target for quick access icon"
 msgstr ""
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:439
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
 
-#: libraries/config/messages.inc.php:444
+#: libraries/config/messages.inc.php:443
 msgid "Minimum number of items to display the filter box"
 msgstr ""
 
-#: libraries/config/messages.inc.php:446
+#: libraries/config/messages.inc.php:445
 msgid "Minimum number of databases to display the database filter box"
 msgstr ""
 
-#: libraries/config/messages.inc.php:448
+#: libraries/config/messages.inc.php:447
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:450
+#: libraries/config/messages.inc.php:449
 msgid "Group items in the tree"
 msgstr ""
 
-#: libraries/config/messages.inc.php:452
+#: libraries/config/messages.inc.php:451
 msgid "String that separates databases into different tree levels"
 msgstr ""
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:452
 msgid "Database tree separator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:454
 msgid "String that separates tables into different tree levels"
 msgstr ""
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:455
 msgid "Table tree separator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:457
+#: libraries/config/messages.inc.php:456
 msgid "Maximum table tree depth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:458
 msgid "Highlight server under the mouse cursor"
 msgstr ""
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:459
 msgid "Enable highlighting"
 msgstr ""
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:461
 msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr ""
 
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:462
 #, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used tables"
 msgstr "Analizo tabelën"
 
-#: libraries/config/messages.inc.php:464
+#: libraries/config/messages.inc.php:463
 msgid "These are Edit, Copy and Delete links"
 msgstr ""
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:464
 msgid "Where to show the table row links"
 msgstr ""
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:466
 msgid "Use natural order for sorting table and database names"
 msgstr ""
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:467
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Transformo tabelën e renditur sipas"
 
-#: libraries/config/messages.inc.php:469 libraries/config/messages.inc.php:500
-#: libraries/config/messages.inc.php:502
+#: libraries/config/messages.inc.php:468 libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 msgid "Use only icons, only text or both"
 msgstr ""
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table navigation bar"
 msgstr "Titulli i Tabelës caption"
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:471
 msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgstr ""
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:472
 msgid "GZip output buffering"
 msgstr ""
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:474
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
 
-#: libraries/config/messages.inc.php:478
+#: libraries/config/messages.inc.php:477
 msgid "Default sorting order"
 msgstr ""
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:479
 msgid "Use persistent connections to MySQL databases"
 msgstr ""
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:480
 msgid "Persistent connections"
 msgstr ""
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:482
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:487
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:489
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:494
+#: libraries/config/messages.inc.php:493
 msgid "Server/library difference warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:496
+#: libraries/config/messages.inc.php:495
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
 msgstr ""
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:498
 msgid "MySQL reserved word warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:500
 msgid "How to display the menu tabs"
 msgstr ""
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:502
 msgid "How to display various action links"
 msgstr ""
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:503
 msgid "Disallow BLOB and BINARY columns from editing"
 msgstr ""
 
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:504
 msgid "Protect binary columns"
 msgstr ""
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:506
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:510
 msgid "Permanent query history"
 msgstr ""
 
-#: libraries/config/messages.inc.php:513
+#: libraries/config/messages.inc.php:512
 msgid "How many queries are kept in history"
 msgstr ""
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:513
 msgid "Query history length"
 msgstr ""
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:515
 msgid "Tab displayed when opening a new query window"
 msgstr ""
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:516
 msgid "Default query window tab"
 msgstr ""
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:517
 msgid "Query window height (in pixels)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:519
+#: libraries/config/messages.inc.php:518
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window height"
 msgstr "Dritarja e Query"
 
-#: libraries/config/messages.inc.php:520
+#: libraries/config/messages.inc.php:519
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Dritarja e Query"
 
-#: libraries/config/messages.inc.php:521
+#: libraries/config/messages.inc.php:520
 #, fuzzy
 #| msgid "Query window"
 msgid "Query window width"
 msgstr "Dritarja e Query"
 
-#: libraries/config/messages.inc.php:523
+#: libraries/config/messages.inc.php:522
 msgid "Select which functions will be used for character set conversion"
 msgstr ""
 
-#: libraries/config/messages.inc.php:524
+#: libraries/config/messages.inc.php:523
 msgid "Recoding engine"
 msgstr ""
 
-#: libraries/config/messages.inc.php:526
+#: libraries/config/messages.inc.php:525
 msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
 
-#: libraries/config/messages.inc.php:527
+#: libraries/config/messages.inc.php:526
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "Riemërto tabelën në"
 
-#: libraries/config/messages.inc.php:529
+#: libraries/config/messages.inc.php:528
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
 
-#: libraries/config/messages.inc.php:530
+#: libraries/config/messages.inc.php:529
 msgid "Repeat headers"
 msgstr ""
 
-#: libraries/config/messages.inc.php:532
+#: libraries/config/messages.inc.php:531
 msgid "Grid editing: trigger action"
 msgstr ""
 
-#: libraries/config/messages.inc.php:533
+#: libraries/config/messages.inc.php:532
 msgid "Grid editing: save all edited cells at once"
 msgstr ""
 
-#: libraries/config/messages.inc.php:534
+#: libraries/config/messages.inc.php:533
 msgid "Directory where exports can be saved on server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:535
+#: libraries/config/messages.inc.php:534
 msgid "Save directory"
 msgstr ""
 
-#: libraries/config/messages.inc.php:536
+#: libraries/config/messages.inc.php:535
 msgid "Leave blank if not used"
 msgstr ""
 
-#: libraries/config/messages.inc.php:537
+#: libraries/config/messages.inc.php:536
 msgid "Host authorization order"
 msgstr ""
 
-#: libraries/config/messages.inc.php:538
+#: libraries/config/messages.inc.php:537
 msgid "Leave blank for defaults"
 msgstr ""
 
-#: libraries/config/messages.inc.php:539
+#: libraries/config/messages.inc.php:538
 msgid "Host authorization rules"
 msgstr ""
 
-#: libraries/config/messages.inc.php:540
+#: libraries/config/messages.inc.php:539
 msgid "Allow logins without a password"
 msgstr ""
 
-#: libraries/config/messages.inc.php:541
+#: libraries/config/messages.inc.php:540
 msgid "Allow root login"
 msgstr ""
 
-#: libraries/config/messages.inc.php:543
+#: libraries/config/messages.inc.php:542
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:544
+#: libraries/config/messages.inc.php:543
 msgid "HTTP Realm"
 msgstr ""
 
-#: libraries/config/messages.inc.php:546
+#: libraries/config/messages.inc.php:545
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:550
+#: libraries/config/messages.inc.php:549
 msgid "SweKey config file"
 msgstr ""
 
-#: libraries/config/messages.inc.php:551
+#: libraries/config/messages.inc.php:550
 msgid "Authentication method to use"
 msgstr ""
 
-#: libraries/config/messages.inc.php:552 setup/frames/index.inc.php:160
+#: libraries/config/messages.inc.php:551 setup/frames/index.inc.php:160
 msgid "Authentication type"
 msgstr ""
 
-#: libraries/config/messages.inc.php:554
+#: libraries/config/messages.inc.php:553
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:557
+#: libraries/config/messages.inc.php:556
 msgid "Bookmark table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:559
+#: libraries/config/messages.inc.php:558
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:562
+#: libraries/config/messages.inc.php:561
 msgid "Column information table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:563
+#: libraries/config/messages.inc.php:562
 msgid "Compress connection to MySQL server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:564
+#: libraries/config/messages.inc.php:563
 msgid "Compress connection"
 msgstr ""
 
-#: libraries/config/messages.inc.php:566
+#: libraries/config/messages.inc.php:565
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
 
-#: libraries/config/messages.inc.php:567
+#: libraries/config/messages.inc.php:566
 #, fuzzy
 msgid "Connection type"
 msgstr "Lidhje"
 
-#: libraries/config/messages.inc.php:568
+#: libraries/config/messages.inc.php:567
 msgid "Control user password"
 msgstr ""
 
-#: libraries/config/messages.inc.php:570
+#: libraries/config/messages.inc.php:569
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:573
+#: libraries/config/messages.inc.php:572
 msgid "Control user"
 msgstr ""
 
-#: libraries/config/messages.inc.php:575
+#: libraries/config/messages.inc.php:574
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
 
-#: libraries/config/messages.inc.php:578
+#: libraries/config/messages.inc.php:577
 #, fuzzy
 #| msgid "Any host"
 msgid "Control host"
 msgstr "Çfarëdo host"
 
-#: libraries/config/messages.inc.php:580
+#: libraries/config/messages.inc.php:579
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host"
 msgstr ""
 
-#: libraries/config/messages.inc.php:584
+#: libraries/config/messages.inc.php:583
 #, fuzzy
 #| msgid "Any host"
 msgid "Control port"
 msgstr "Çfarëdo host"
 
-#: libraries/config/messages.inc.php:586
+#: libraries/config/messages.inc.php:585
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:588
+#: libraries/config/messages.inc.php:587
 #, fuzzy
 msgid "Designer table"
 msgstr "Defragmento tabelën"
 
-#: libraries/config/messages.inc.php:590
+#: libraries/config/messages.inc.php:589
 msgid "Hide databases matching regular expression (PCRE)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:591
+#: libraries/config/messages.inc.php:590
 #, fuzzy
 msgid "Hide databases"
 msgstr "Asnjë databazë"
 
-#: libraries/config/messages.inc.php:593
+#: libraries/config/messages.inc.php:592
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:596
+#: libraries/config/messages.inc.php:595
 msgid "SQL query history table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:597
+#: libraries/config/messages.inc.php:596
 msgid "Hostname where MySQL server is running"
 msgstr ""
 
-#: libraries/config/messages.inc.php:598
+#: libraries/config/messages.inc.php:597
 #, fuzzy
 msgid "Server hostname"
 msgstr "Zgjedhja e serverit"
 
-#: libraries/config/messages.inc.php:599
+#: libraries/config/messages.inc.php:598
 msgid "Logout URL"
 msgstr ""
 
-#: libraries/config/messages.inc.php:601
+#: libraries/config/messages.inc.php:600
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:605
+#: libraries/config/messages.inc.php:604
 msgid "Maximal number of table preferences to store"
 msgstr ""
 
-#: libraries/config/messages.inc.php:606
+#: libraries/config/messages.inc.php:605
 msgid "Try to connect without password"
 msgstr ""
 
-#: libraries/config/messages.inc.php:607
+#: libraries/config/messages.inc.php:606
 msgid "Connect without password"
 msgstr ""
 
-#: libraries/config/messages.inc.php:609
+#: libraries/config/messages.inc.php:608
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 
-#: libraries/config/messages.inc.php:613
+#: libraries/config/messages.inc.php:612
 msgid "Show only listed databases"
 msgstr ""
 
-#: libraries/config/messages.inc.php:614 libraries/config/messages.inc.php:702
+#: libraries/config/messages.inc.php:613 libraries/config/messages.inc.php:701
 msgid "Leave empty if not using config auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:615
+#: libraries/config/messages.inc.php:614
 msgid "Password for config auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:617
+#: libraries/config/messages.inc.php:616
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:619
+#: libraries/config/messages.inc.php:618
 msgid "PDF schema: pages table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:621
+#: libraries/config/messages.inc.php:620
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:625
+#: libraries/config/messages.inc.php:624
 #: libraries/display_create_database.lib.php:31
 #, fuzzy
 #| msgid "Database"
 msgid "Database name"
 msgstr "Databazat"
 
-#: libraries/config/messages.inc.php:627
+#: libraries/config/messages.inc.php:626
 msgid "Port on which MySQL server is listening, leave empty for default"
 msgstr ""
 
-#: libraries/config/messages.inc.php:628
+#: libraries/config/messages.inc.php:627
 #, fuzzy
 msgid "Server port"
 msgstr "Zgjedhja e serverit"
 
-#: libraries/config/messages.inc.php:630
+#: libraries/config/messages.inc.php:629
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:633
+#: libraries/config/messages.inc.php:632
 #, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
 msgstr "Analizo tabelën"
 
-#: libraries/config/messages.inc.php:635
+#: libraries/config/messages.inc.php:634
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
 "[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:639
+#: libraries/config/messages.inc.php:638
 #, fuzzy
 msgid "Relation table"
 msgstr "Riparo tabelën"
 
-#: libraries/config/messages.inc.php:641
+#: libraries/config/messages.inc.php:640
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
 "[/a] for an example"
 msgstr ""
 
-#: libraries/config/messages.inc.php:644
+#: libraries/config/messages.inc.php:643
 msgid "Signon session name"
 msgstr ""
 
-#: libraries/config/messages.inc.php:645
+#: libraries/config/messages.inc.php:644
 msgid "Signon URL"
 msgstr ""
 
-#: libraries/config/messages.inc.php:647
+#: libraries/config/messages.inc.php:646
 msgid "Socket on which MySQL server is listening, leave empty for default"
 msgstr ""
 
-#: libraries/config/messages.inc.php:648
+#: libraries/config/messages.inc.php:647
 #, fuzzy
 msgid "Server socket"
 msgstr "Zgjedhja e serverit"
 
-#: libraries/config/messages.inc.php:649
+#: libraries/config/messages.inc.php:648
 msgid "Enable SSL for connection to MySQL server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:650
+#: libraries/config/messages.inc.php:649
 msgid "Use SSL"
 msgstr ""
 
-#: libraries/config/messages.inc.php:652
+#: libraries/config/messages.inc.php:651
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:654
+#: libraries/config/messages.inc.php:653
 msgid "PDF schema: table coordinates"
 msgstr ""
 
-#: libraries/config/messages.inc.php:656
+#: libraries/config/messages.inc.php:655
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:659
+#: libraries/config/messages.inc.php:658
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
 msgstr "Vizualizimi i komenteve të kollonave"
 
-#: libraries/config/messages.inc.php:661
+#: libraries/config/messages.inc.php:660
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:664
+#: libraries/config/messages.inc.php:663
 #, fuzzy
 #| msgid "Defragment table"
 msgid "UI preferences table"
 msgstr "Defragmento tabelën"
 
-#: libraries/config/messages.inc.php:666
+#: libraries/config/messages.inc.php:665
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: libraries/config/messages.inc.php:669
+#: libraries/config/messages.inc.php:668
 msgid "Add DROP DATABASE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:671
+#: libraries/config/messages.inc.php:670
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: libraries/config/messages.inc.php:674
+#: libraries/config/messages.inc.php:673
 msgid "Add DROP TABLE"
 msgstr ""
 
-#: libraries/config/messages.inc.php:676
+#: libraries/config/messages.inc.php:675
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: libraries/config/messages.inc.php:679
+#: libraries/config/messages.inc.php:678
 msgid "Add DROP VIEW"
 msgstr ""
 
-#: libraries/config/messages.inc.php:681
+#: libraries/config/messages.inc.php:680
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: libraries/config/messages.inc.php:682
+#: libraries/config/messages.inc.php:681
 #, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
 msgstr "Instruksione"
 
-#: libraries/config/messages.inc.php:684
+#: libraries/config/messages.inc.php:683
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
 "[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:687
+#: libraries/config/messages.inc.php:686
 msgid "SQL query tracking table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:689
+#: libraries/config/messages.inc.php:688
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: libraries/config/messages.inc.php:693
+#: libraries/config/messages.inc.php:692
 #, fuzzy
 msgid "Automatically create versions"
 msgstr "Versioni i MySQL"
 
-#: libraries/config/messages.inc.php:694
+#: libraries/config/messages.inc.php:693
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: [kbd]"
 "pma__userconfig[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:695
+#: libraries/config/messages.inc.php:694
 msgid "User preferences storage table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:696
+#: libraries/config/messages.inc.php:695
 msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
 "[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:697
+#: libraries/config/messages.inc.php:696
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "Përdor tabelat"
 
-#: libraries/config/messages.inc.php:698
+#: libraries/config/messages.inc.php:697
 msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]"
 "pma__usergroups[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:699
+#: libraries/config/messages.inc.php:698
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "Përdor Tabelën e Host-it"
 
-#: libraries/config/messages.inc.php:700
+#: libraries/config/messages.inc.php:699
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:701
+#: libraries/config/messages.inc.php:700
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:703
+#: libraries/config/messages.inc.php:702
 msgid "User for config auth"
 msgstr ""
 
-#: libraries/config/messages.inc.php:704
+#: libraries/config/messages.inc.php:703
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
 
-#: libraries/config/messages.inc.php:705
+#: libraries/config/messages.inc.php:704
 msgid "Verbose name of this server"
 msgstr ""
 
-#: libraries/config/messages.inc.php:706
+#: libraries/config/messages.inc.php:705
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
 
-#: libraries/config/messages.inc.php:707
+#: libraries/config/messages.inc.php:706
 msgid "Allow to display all the rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:708
+#: libraries/config/messages.inc.php:707
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
 
-#: libraries/config/messages.inc.php:709
+#: libraries/config/messages.inc.php:708
 msgid "Show password change form"
 msgstr ""
 
-#: libraries/config/messages.inc.php:710
+#: libraries/config/messages.inc.php:709
 msgid "Show create database form"
 msgstr ""
 
-#: libraries/config/messages.inc.php:711
+#: libraries/config/messages.inc.php:710
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:712
+#: libraries/config/messages.inc.php:711
 #, fuzzy
 #| msgid "Show PHP information"
 msgid "Show Creation timestamp"
 msgstr "Trego info mbi PHP"
 
-#: libraries/config/messages.inc.php:713
+#: libraries/config/messages.inc.php:712
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:714
+#: libraries/config/messages.inc.php:713
 msgid "Show Last update timestamp"
 msgstr ""
 
-#: libraries/config/messages.inc.php:715
+#: libraries/config/messages.inc.php:714
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:716
+#: libraries/config/messages.inc.php:715
 msgid "Show Last check timestamp"
 msgstr ""
 
-#: libraries/config/messages.inc.php:717
+#: libraries/config/messages.inc.php:716
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:718
+#: libraries/config/messages.inc.php:717
 #, fuzzy
 msgid "Show display direction"
 msgstr "Opcione të eksportimit të databazës"
 
-#: libraries/config/messages.inc.php:719
+#: libraries/config/messages.inc.php:718
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:720
+#: libraries/config/messages.inc.php:719
 #, fuzzy
 msgid "Show field types"
 msgstr "Shfaq tabelat"
 
-#: libraries/config/messages.inc.php:721
+#: libraries/config/messages.inc.php:720
 msgid "Display the function fields in edit/insert mode"
 msgstr ""
 
-#: libraries/config/messages.inc.php:722
+#: libraries/config/messages.inc.php:721
 msgid "Show function fields"
 msgstr ""
 
-#: libraries/config/messages.inc.php:723
+#: libraries/config/messages.inc.php:722
 msgid "Whether to show hint or not"
 msgstr ""
 
-#: libraries/config/messages.inc.php:724
+#: libraries/config/messages.inc.php:723
 #, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
 msgstr "Shfaq rrjetën"
 
-#: libraries/config/messages.inc.php:725
+#: libraries/config/messages.inc.php:724
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
 
-#: libraries/config/messages.inc.php:726
+#: libraries/config/messages.inc.php:725
 msgid "Show phpinfo() link"
 msgstr ""
 
-#: libraries/config/messages.inc.php:727
+#: libraries/config/messages.inc.php:726
 msgid "Show detailed MySQL server information"
 msgstr ""
 
-#: libraries/config/messages.inc.php:728
+#: libraries/config/messages.inc.php:727
 msgid "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:729
+#: libraries/config/messages.inc.php:728
 #, fuzzy
 msgid "Show SQL queries"
 msgstr "Shfaq të gjitha kërkesat"
 
-#: libraries/config/messages.inc.php:730
+#: libraries/config/messages.inc.php:729
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
 
-#: libraries/config/messages.inc.php:731 libraries/sql_query_form.lib.php:370
+#: libraries/config/messages.inc.php:730 libraries/sql_query_form.lib.php:370
 #, fuzzy
 msgid "Retain query box"
 msgstr "query SQL"
 
-#: libraries/config/messages.inc.php:732
+#: libraries/config/messages.inc.php:731
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:733
+#: libraries/config/messages.inc.php:732
 #, fuzzy
 msgid "Show statistics"
 msgstr "Statistikat e rreshtave"
 
-#: libraries/config/messages.inc.php:734
+#: libraries/config/messages.inc.php:733
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:735
+#: libraries/config/messages.inc.php:734
 msgid "Skip locked tables"
 msgstr ""
 
-#: libraries/config/messages.inc.php:740
+#: libraries/config/messages.inc.php:739
 msgid "Requires SQL Validator to be enabled"
 msgstr ""
 
-#: libraries/config/messages.inc.php:742 libraries/replication_gui.lib.php:406
+#: libraries/config/messages.inc.php:741 libraries/replication_gui.lib.php:406
 #: libraries/replication_gui.lib.php:843 libraries/replication_gui.lib.php:859
 #: libraries/server_privileges.lib.php:1437
 #: libraries/server_privileges.lib.php:1461
-#: libraries/server_privileges.lib.php:2875
+#: libraries/server_privileges.lib.php:2876
 msgid "Password"
 msgstr "Fjalëkalimi"
 
-#: libraries/config/messages.inc.php:743
+#: libraries/config/messages.inc.php:742
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed"
 msgstr ""
 
-#: libraries/config/messages.inc.php:744
+#: libraries/config/messages.inc.php:743
 msgid "Enable SQL Validator"
 msgstr ""
 
-#: libraries/config/messages.inc.php:745
+#: libraries/config/messages.inc.php:744
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])"
 msgstr ""
 
-#: libraries/config/messages.inc.php:746 libraries/tbl_tracking.lib.php:500
+#: libraries/config/messages.inc.php:745 libraries/tbl_tracking.lib.php:500
 #: libraries/tbl_tracking.lib.php:598
 #, fuzzy
 msgid "Username"
 msgstr "Emri i përdoruesit:"
 
-#: libraries/config/messages.inc.php:747
+#: libraries/config/messages.inc.php:746
 msgid "A warning is displayed on the main page if Suhosin is detected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:748
+#: libraries/config/messages.inc.php:747
 msgid "Suhosin warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:749
+#: libraries/config/messages.inc.php:748
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:750
+#: libraries/config/messages.inc.php:749
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "Shto/Fshi kollonat e fushës"
 
-#: libraries/config/messages.inc.php:751
+#: libraries/config/messages.inc.php:750
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:752
+#: libraries/config/messages.inc.php:751
 msgid "Textarea rows"
 msgstr ""
 
-#: libraries/config/messages.inc.php:753
+#: libraries/config/messages.inc.php:752
 msgid "Title of browser window when a database is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:755
+#: libraries/config/messages.inc.php:754
 msgid "Title of browser window when nothing is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:756
+#: libraries/config/messages.inc.php:755
 #, fuzzy
 #| msgid "Default"
 msgid "Default title"
 msgstr "Prezgjedhur"
 
-#: libraries/config/messages.inc.php:757
+#: libraries/config/messages.inc.php:756
 msgid "Title of browser window when a server is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:759
+#: libraries/config/messages.inc.php:758
 msgid "Title of browser window when a table is selected"
 msgstr ""
 
-#: libraries/config/messages.inc.php:761
+#: libraries/config/messages.inc.php:760
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6400,52 +6401,52 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
 
-#: libraries/config/messages.inc.php:762
+#: libraries/config/messages.inc.php:761
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 
-#: libraries/config/messages.inc.php:763
+#: libraries/config/messages.inc.php:762
 msgid "Directory on server where you can upload files for import"
 msgstr ""
 
-#: libraries/config/messages.inc.php:764
+#: libraries/config/messages.inc.php:763
 msgid "Upload directory"
 msgstr ""
 
-#: libraries/config/messages.inc.php:765
+#: libraries/config/messages.inc.php:764
 msgid "Allow for searching inside the entire database"
 msgstr ""
 
-#: libraries/config/messages.inc.php:766
+#: libraries/config/messages.inc.php:765
 msgid "Use database search"
 msgstr ""
 
-#: libraries/config/messages.inc.php:767
+#: libraries/config/messages.inc.php:766
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right"
 msgstr ""
 
-#: libraries/config/messages.inc.php:768
+#: libraries/config/messages.inc.php:767
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/config/messages.inc.php:769 setup/frames/index.inc.php:310
+#: libraries/config/messages.inc.php:768 setup/frames/index.inc.php:310
 msgid "Check for latest version"
 msgstr ""
 
-#: libraries/config/messages.inc.php:770
+#: libraries/config/messages.inc.php:769
 msgid "Enables check for latest version on main phpMyAdmin page"
 msgstr ""
 
-#: libraries/config/messages.inc.php:771 setup/lib/index.lib.php:117
+#: libraries/config/messages.inc.php:770 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
 #: setup/lib/index.lib.php:156 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:171
 msgid "Version check"
 msgstr ""
 
-#: libraries/config/messages.inc.php:772
+#: libraries/config/messages.inc.php:771
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6453,63 +6454,63 @@ msgid ""
 "the internet. The format is: \"hostname:portnumber\""
 msgstr ""
 
-#: libraries/config/messages.inc.php:773
+#: libraries/config/messages.inc.php:772
 msgid "Proxy url"
 msgstr ""
 
-#: libraries/config/messages.inc.php:774
+#: libraries/config/messages.inc.php:773
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: libraries/config/messages.inc.php:775
+#: libraries/config/messages.inc.php:774
 #, fuzzy
 msgid "Proxy username"
 msgstr "Emri i përdoruesit:"
 
-#: libraries/config/messages.inc.php:776
+#: libraries/config/messages.inc.php:775
 msgid "The password for authenticating with the proxy"
 msgstr ""
 
-#: libraries/config/messages.inc.php:777
+#: libraries/config/messages.inc.php:776
 #, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "Fjalëkalimi"
 
-#: libraries/config/messages.inc.php:779
+#: libraries/config/messages.inc.php:778
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations"
 msgstr ""
 
-#: libraries/config/messages.inc.php:780
+#: libraries/config/messages.inc.php:779
 msgid "ZIP"
 msgstr ""
 
-#: libraries/config/messages.inc.php:781
+#: libraries/config/messages.inc.php:780
 msgid "Enter your public key for your domain reCaptcha service"
 msgstr ""
 
-#: libraries/config/messages.inc.php:782
+#: libraries/config/messages.inc.php:781
 msgid "Public key for reCaptcha"
 msgstr ""
 
-#: libraries/config/messages.inc.php:783
+#: libraries/config/messages.inc.php:782
 msgid "Enter your private key for your domain reCaptcha service"
 msgstr ""
 
-#: libraries/config/messages.inc.php:784
+#: libraries/config/messages.inc.php:783
 msgid "Private key for reCaptcha"
 msgstr ""
 
-#: libraries/config/messages.inc.php:786
+#: libraries/config/messages.inc.php:785
 msgid "Choose the default action when sending error reports"
 msgstr ""
 
-#: libraries/config/messages.inc.php:787
+#: libraries/config/messages.inc.php:786
 #, fuzzy
 msgid "Send error reports"
 msgstr "Zgjedhja e serverit"
@@ -6530,46 +6531,46 @@ msgstr ""
 msgid "Signon authentication"
 msgstr ""
 
-#: libraries/config/setup.forms.php:256
-#: libraries/config/user_preferences.forms.php:154
+#: libraries/config/setup.forms.php:255
+#: libraries/config/user_preferences.forms.php:153
 msgid "CSV using LOAD DATA"
 msgstr ""
 
-#: libraries/config/setup.forms.php:265 libraries/config/setup.forms.php:359
-#: libraries/config/user_preferences.forms.php:162
-#: libraries/config/user_preferences.forms.php:255
+#: libraries/config/setup.forms.php:264 libraries/config/setup.forms.php:358
+#: libraries/config/user_preferences.forms.php:161
+#: libraries/config/user_preferences.forms.php:254
 #, fuzzy
 #| msgid "Documentation"
 msgid "OpenDocument Spreadsheet"
 msgstr "Dokumentet"
 
-#: libraries/config/setup.forms.php:272
-#: libraries/config/user_preferences.forms.php:169
+#: libraries/config/setup.forms.php:271
+#: libraries/config/user_preferences.forms.php:168
 msgid "Quick"
 msgstr ""
 
-#: libraries/config/setup.forms.php:276
-#: libraries/config/user_preferences.forms.php:173
+#: libraries/config/setup.forms.php:275
+#: libraries/config/user_preferences.forms.php:172
 msgid "Custom"
 msgstr ""
 
-#: libraries/config/setup.forms.php:298
-#: libraries/config/user_preferences.forms.php:194
+#: libraries/config/setup.forms.php:297
+#: libraries/config/user_preferences.forms.php:193
 msgid "Database export options"
 msgstr "Opcione të eksportimit të databazës"
 
-#: libraries/config/setup.forms.php:331
-#: libraries/config/user_preferences.forms.php:227
+#: libraries/config/setup.forms.php:330
+#: libraries/config/user_preferences.forms.php:226
 msgid "CSV for MS Excel"
 msgstr "CSV për të dhëna MS Excel"
 
-#: libraries/config/setup.forms.php:354
-#: libraries/config/user_preferences.forms.php:250
+#: libraries/config/setup.forms.php:353
+#: libraries/config/user_preferences.forms.php:249
 msgid "Microsoft Word 2000"
 msgstr ""
 
-#: libraries/config/setup.forms.php:363
-#: libraries/config/user_preferences.forms.php:259
+#: libraries/config/setup.forms.php:362
+#: libraries/config/user_preferences.forms.php:258
 #, fuzzy
 #| msgid "Documentation"
 msgid "OpenDocument Text"
@@ -6595,8 +6596,8 @@ msgid ""
 "consider installing the mysqli extension."
 msgstr ""
 
-#: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
-#: libraries/dbi/DBIMysqli.class.php:224
+#: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
+#: libraries/dbi/DBIMysqli.class.php:229
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -6656,7 +6657,7 @@ msgid "Create database:"
 msgstr "Krijo një databazë të re"
 
 #: libraries/display_create_database.lib.php:61
-#: libraries/server_privileges.lib.php:3767 server_privileges.php:130
+#: libraries/server_privileges.lib.php:3768 server_privileges.php:130
 #: server_replication.php:32
 msgid "No Privileges"
 msgstr "Asnjë e drejtë"
@@ -8253,7 +8254,7 @@ msgstr "Dump i të dhënave për tabelën"
 #: libraries/plugins/export/ExportHtmlword.class.php:487
 #: libraries/plugins/export/ExportOdt.class.php:567
 #: libraries/plugins/export/ExportTexytext.class.php:438
-#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:387
+#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:393
 #, fuzzy
 msgid "Event"
 msgstr "Dërguar"
@@ -8261,9 +8262,9 @@ msgstr "Dërguar"
 #: libraries/plugins/export/ExportHtmlword.class.php:488
 #: libraries/plugins/export/ExportOdt.class.php:570
 #: libraries/plugins/export/ExportTexytext.class.php:439
-#: libraries/rte/rte_events.lib.php:513
+#: libraries/rte/rte_events.lib.php:519
 #: libraries/rte/rte_routines.lib.php:1043
-#: libraries/rte/rte_triggers.lib.php:401
+#: libraries/rte/rte_triggers.lib.php:407
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
@@ -9183,7 +9184,7 @@ msgstr "Serveri"
 #: libraries/server_privileges.lib.php:1421
 #: libraries/server_privileges.lib.php:1814
 #: libraries/server_privileges.lib.php:1922
-#: libraries/server_privileges.lib.php:2874
+#: libraries/server_privileges.lib.php:2875
 #: libraries/server_status.lib.php:347
 msgid "Host"
 msgstr "Pritësi"
@@ -9217,7 +9218,7 @@ msgstr "Çfarëdo përdorues"
 #: libraries/replication_gui.lib.php:789 libraries/replication_gui.lib.php:822
 #: libraries/replication_gui.lib.php:855
 #: libraries/server_privileges.lib.php:1414
-#: libraries/server_privileges.lib.php:2767
+#: libraries/server_privileges.lib.php:2768
 #, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
@@ -9256,55 +9257,55 @@ msgstr "Të drejtat u përditësuan me sukses."
 msgid "Error starting replication."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:914
+#: libraries/replication_gui.lib.php:913
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "Të drejtat u përditësuan me sukses."
 
-#: libraries/replication_gui.lib.php:915
+#: libraries/replication_gui.lib.php:914
 msgid "Error stopping replication."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:919
+#: libraries/replication_gui.lib.php:917
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication resetting successfully."
 msgstr "Të drejtat u përditësuan me sukses."
 
-#: libraries/replication_gui.lib.php:920
+#: libraries/replication_gui.lib.php:918
 msgid "Error resetting replication."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:924
+#: libraries/replication_gui.lib.php:921
 msgid "Success."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:925
+#: libraries/replication_gui.lib.php:922
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "Gabim"
 
-#: libraries/replication_gui.lib.php:967
+#: libraries/replication_gui.lib.php:964
 msgid "Unknown error"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:977
+#: libraries/replication_gui.lib.php:974
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:988
+#: libraries/replication_gui.lib.php:985
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: libraries/replication_gui.lib.php:1006
+#: libraries/replication_gui.lib.php:1003
 msgid "Unable to change master"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:1010
+#: libraries/replication_gui.lib.php:1007
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
@@ -9341,105 +9342,104 @@ msgstr "Tabela %s u eleminua"
 msgid "Event %1$s has been created."
 msgstr "Tabela %s u eleminua"
 
-#: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:378
-#: libraries/rte/rte_triggers.lib.php:147
-msgid "<b>One or more errors have occurred while processing your request:</b>"
+#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
+msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:228
+#: libraries/rte/rte_events.lib.php:234
 #, fuzzy
 msgid "Edit event"
 msgstr "Dërguar"
 
-#: libraries/rte/rte_events.lib.php:255 libraries/rte/rte_export.lib.php:43
+#: libraries/rte/rte_events.lib.php:261 libraries/rte/rte_export.lib.php:43
 #: libraries/rte/rte_routines.lib.php:476
 #: libraries/rte/rte_routines.lib.php:1320
 #: libraries/rte/rte_routines.lib.php:1543
-#: libraries/rte/rte_triggers.lib.php:230
+#: libraries/rte/rte_triggers.lib.php:236
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request:"
 msgstr "Proceset"
 
-#: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:943
-#: libraries/rte/rte_triggers.lib.php:347 view_create.php:177
+#: libraries/rte/rte_events.lib.php:423 libraries/rte/rte_routines.lib.php:943
+#: libraries/rte/rte_triggers.lib.php:353 view_create.php:177
 msgid "Details"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:420
+#: libraries/rte/rte_events.lib.php:426
 #, fuzzy
 msgid "Event name"
 msgstr "Lloji i Eksportit"
 
-#: libraries/rte/rte_events.lib.php:441 libraries/server_bin_log.lib.php:131
+#: libraries/rte/rte_events.lib.php:447 libraries/server_bin_log.lib.php:131
 #, fuzzy
 msgid "Event type"
 msgstr "Lloji i Eksportit"
 
-#: libraries/rte/rte_events.lib.php:463 libraries/rte/rte_routines.lib.php:966
+#: libraries/rte/rte_events.lib.php:469 libraries/rte/rte_routines.lib.php:966
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
 msgstr "Ndrysho"
 
-#: libraries/rte/rte_events.lib.php:469
+#: libraries/rte/rte_events.lib.php:475
 msgid "Execute at"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:477
+#: libraries/rte/rte_events.lib.php:483
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Execute every"
 msgstr "Zbaton query nga libërshënuesi"
 
-#: libraries/rte/rte_events.lib.php:496
+#: libraries/rte/rte_events.lib.php:502
 #, fuzzy
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Gjendja"
 
-#: libraries/rte/rte_events.lib.php:505
+#: libraries/rte/rte_events.lib.php:511
 #, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Fund"
 
-#: libraries/rte/rte_events.lib.php:519
+#: libraries/rte/rte_events.lib.php:525
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "On completion preserve"
 msgstr "Të shtuarat komplet"
 
-#: libraries/rte/rte_events.lib.php:524
+#: libraries/rte/rte_events.lib.php:530
 #: libraries/rte/rte_routines.lib.php:1054
-#: libraries/rte/rte_triggers.lib.php:407 view_create.php:206
+#: libraries/rte/rte_triggers.lib.php:413 view_create.php:206
 msgid "Definer"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:567
+#: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1121
-#: libraries/rte/rte_triggers.lib.php:445
+#: libraries/rte/rte_triggers.lib.php:451
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:574
+#: libraries/rte/rte_events.lib.php:580
 msgid "You must provide an event name"
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:588
+#: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:603
+#: libraries/rte/rte_events.lib.php:611
 msgid "You must provide a valid execution time for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:607
+#: libraries/rte/rte_events.lib.php:615
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:631
+#: libraries/rte/rte_events.lib.php:639
 msgid "You must provide an event definition."
 msgstr ""
 
@@ -9489,6 +9489,10 @@ msgstr "Tabela %s u eleminua"
 #, fuzzy, php-format
 msgid "Routine %1$s has been created."
 msgstr "Tabela %s u eleminua"
+
+#: libraries/rte/rte_routines.lib.php:378
+msgid "<b>One or more errors have occurred while processing your request:</b>"
+msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
@@ -9620,41 +9624,41 @@ msgstr "Tabela %s u eleminua"
 msgid "Trigger %1$s has been created."
 msgstr "Tabela %s u eleminua"
 
-#: libraries/rte/rte_triggers.lib.php:204
+#: libraries/rte/rte_triggers.lib.php:210
 #, fuzzy
 msgid "Edit trigger"
 msgstr "Shto një përdorues të ri"
 
-#: libraries/rte/rte_triggers.lib.php:350
+#: libraries/rte/rte_triggers.lib.php:356
 #, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
 msgstr "Emri i përdoruesit"
 
-#: libraries/rte/rte_triggers.lib.php:373
+#: libraries/rte/rte_triggers.lib.php:379
 #, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Koha"
 
-#: libraries/rte/rte_triggers.lib.php:452
+#: libraries/rte/rte_triggers.lib.php:458
 msgid "You must provide a trigger name"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:459
+#: libraries/rte/rte_triggers.lib.php:465
 msgid "You must provide a valid timing for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:466
+#: libraries/rte/rte_triggers.lib.php:472
 msgid "You must provide a valid event for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:474
+#: libraries/rte/rte_triggers.lib.php:480
 msgid "You must provide a valid table name"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:480
+#: libraries/rte/rte_triggers.lib.php:486
 msgid "You must provide a trigger definition."
 msgstr ""
 
@@ -9673,87 +9677,87 @@ msgstr ""
 msgid "routine"
 msgstr "Shto një fushë të re"
 
-#: libraries/rte/rte_words.lib.php:31
+#: libraries/rte/rte_words.lib.php:32
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
 msgstr "Nuk ke të drejta të mjaftueshme për të kryer këtë operacion!"
 
-#: libraries/rte/rte_words.lib.php:32
+#: libraries/rte/rte_words.lib.php:34
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "Nuk gjenden tabela në databazë."
 
-#: libraries/rte/rte_words.lib.php:33
+#: libraries/rte/rte_words.lib.php:35
 msgid "There are no routines to display."
 msgstr ""
 
-#: libraries/rte/rte_words.lib.php:39
+#: libraries/rte/rte_words.lib.php:41
 #, fuzzy
 msgid "Add trigger"
 msgstr "Shto një përdorues të ri"
 
-#: libraries/rte/rte_words.lib.php:41
+#: libraries/rte/rte_words.lib.php:43
 #, php-format
 msgid "Export of trigger %s"
 msgstr ""
 
-#: libraries/rte/rte_words.lib.php:42
+#: libraries/rte/rte_words.lib.php:44
 #, fuzzy
 msgid "trigger"
 msgstr "Shto një përdorues të ri"
 
-#: libraries/rte/rte_words.lib.php:43
+#: libraries/rte/rte_words.lib.php:46
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Nuk ke të drejta të mjaftueshme për të kryer këtë operacion!"
 
-#: libraries/rte/rte_words.lib.php:44
+#: libraries/rte/rte_words.lib.php:48
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Nuk gjenden tabela në databazë."
 
-#: libraries/rte/rte_words.lib.php:45
+#: libraries/rte/rte_words.lib.php:49
 msgid "There are no triggers to display."
 msgstr ""
 
-#: libraries/rte/rte_words.lib.php:51
+#: libraries/rte/rte_words.lib.php:55
 #, fuzzy
 msgid "Add event"
 msgstr "Shto një përdorues të ri"
 
-#: libraries/rte/rte_words.lib.php:53
+#: libraries/rte/rte_words.lib.php:57
 #, fuzzy, php-format
 #| msgid "No rows selected"
 msgid "Export of event %s"
 msgstr "Nuk ka rreshta të zgjedhur"
 
-#: libraries/rte/rte_words.lib.php:54
+#: libraries/rte/rte_words.lib.php:58
 #, fuzzy
 msgid "event"
 msgstr "Dërguar"
 
-#: libraries/rte/rte_words.lib.php:55
+#: libraries/rte/rte_words.lib.php:60
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
 msgstr "Nuk ke të drejta të mjaftueshme për të kryer këtë operacion!"
 
-#: libraries/rte/rte_words.lib.php:56
+#: libraries/rte/rte_words.lib.php:62
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
 msgstr "Nuk gjenden tabela në databazë."
 
-#: libraries/rte/rte_words.lib.php:57
+#: libraries/rte/rte_words.lib.php:63
 msgid "There are no events to display."
 msgstr ""
 
-#: libraries/schema/Dia_Relation_Schema.class.php:237
-#: libraries/schema/Eps_Relation_Schema.class.php:361
+#: libraries/schema/Dia_Relation_Schema.class.php:238
+#: libraries/schema/Eps_Relation_Schema.class.php:362
 #: libraries/schema/Pdf_Relation_Schema.class.php:417
 #: libraries/schema/Svg_Relation_Schema.class.php:330
 #, fuzzy, php-format
@@ -9761,15 +9765,15 @@ msgstr ""
 msgid "The %s table doesn't exist!"
 msgstr "Tabela \"%s\" nuk ekziston!"
 
-#: libraries/schema/Dia_Relation_Schema.class.php:275
-#: libraries/schema/Eps_Relation_Schema.class.php:412
+#: libraries/schema/Dia_Relation_Schema.class.php:276
+#: libraries/schema/Eps_Relation_Schema.class.php:413
 #: libraries/schema/Pdf_Relation_Schema.class.php:459
 #: libraries/schema/Svg_Relation_Schema.class.php:383
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Ju lutem, konfiguroni koordinatat për tabelën %s"
 
-#: libraries/schema/Eps_Relation_Schema.class.php:768
+#: libraries/schema/Eps_Relation_Schema.class.php:769
 #: libraries/schema/Pdf_Relation_Schema.class.php:872
 #: libraries/schema/Svg_Relation_Schema.class.php:745
 #, fuzzy, php-format
@@ -9777,32 +9781,32 @@ msgstr "Ju lutem, konfiguroni koordinatat për tabelën %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Skema e databazës \"%s\" - Faqja %s"
 
-#: libraries/schema/Export_Relation_Schema.class.php:208
+#: libraries/schema/Export_Relation_Schema.class.php:209
 msgid "This page does not contain any tables!"
 msgstr ""
 
-#: libraries/schema/Export_Relation_Schema.class.php:236
+#: libraries/schema/Export_Relation_Schema.class.php:237
 msgid "SCHEMA ERROR: "
 msgstr ""
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:894
-#: libraries/schema/Pdf_Relation_Schema.class.php:1228
+#: libraries/schema/Pdf_Relation_Schema.class.php:1232
 msgid "Relational schema"
 msgstr "Skema relacionale"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1191
+#: libraries/schema/Pdf_Relation_Schema.class.php:1195
 msgid "Table of contents"
 msgstr "Tabela e përmbajtjes"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1399
+#: libraries/schema/Pdf_Relation_Schema.class.php:1380
+#: libraries/schema/Pdf_Relation_Schema.class.php:1403
 #: libraries/structure.lib.php:1189
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Attributes"
 msgstr "Pronësi"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1402
+#: libraries/schema/Pdf_Relation_Schema.class.php:1383
+#: libraries/schema/Pdf_Relation_Schema.class.php:1406
 #: libraries/structure.lib.php:1192 libraries/tbl_tracking.lib.php:736
 msgid "Extra"
 msgstr "Shtesë"
@@ -10211,7 +10215,7 @@ msgstr "Asnjë lloj"
 
 #: libraries/server_privileges.lib.php:495
 #: libraries/server_privileges.lib.php:521
-#: libraries/server_privileges.lib.php:2882
+#: libraries/server_privileges.lib.php:2883
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
 msgstr ""
@@ -10256,14 +10260,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:827
 #: libraries/server_privileges.lib.php:1002
-#: libraries/server_privileges.lib.php:2695
-#: libraries/server_privileges.lib.php:2707
+#: libraries/server_privileges.lib.php:2696
+#: libraries/server_privileges.lib.php:2708
 msgid "Table-specific privileges"
 msgstr "Të drejta relative me tabelat"
 
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1009
-#: libraries/server_privileges.lib.php:2878
+#: libraries/server_privileges.lib.php:2879
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Shënim: emrat e të drejtave të MySQL janë në Anglisht"
 
@@ -10272,12 +10276,12 @@ msgid "Administration"
 msgstr "Administrimi"
 
 #: libraries/server_privileges.lib.php:998
-#: libraries/server_privileges.lib.php:2876
+#: libraries/server_privileges.lib.php:2877
 msgid "Global privileges"
 msgstr "Të drejtat e përgjithshme"
 
 #: libraries/server_privileges.lib.php:1000
-#: libraries/server_privileges.lib.php:2694
+#: libraries/server_privileges.lib.php:2695
 msgid "Database-specific privileges"
 msgstr "Të drejta specifike të databazës"
 
@@ -10301,7 +10305,7 @@ msgstr "Informacione mbi Identifikimin"
 
 #: libraries/server_privileges.lib.php:1288
 #: libraries/server_privileges.lib.php:1456
-#: libraries/server_privileges.lib.php:2830
+#: libraries/server_privileges.lib.php:2831
 msgid "Use text field"
 msgstr "Përdor fushë teksti"
 
@@ -10350,17 +10354,17 @@ msgstr "Përdoruesit që kanë hyrje tek &quot;%s&quot;"
 
 #: libraries/server_privileges.lib.php:1813
 #: libraries/server_privileges.lib.php:1921
-#: libraries/server_privileges.lib.php:2873
-#: libraries/server_privileges.lib.php:3633
-#: libraries/server_privileges.lib.php:3679
+#: libraries/server_privileges.lib.php:2874
+#: libraries/server_privileges.lib.php:3634
+#: libraries/server_privileges.lib.php:3680
 #: libraries/server_status.lib.php:343 libraries/server_user_groups.lib.php:38
 msgid "User"
 msgstr "Përdorues"
 
 #: libraries/server_privileges.lib.php:1817
 #: libraries/server_privileges.lib.php:1925
-#: libraries/server_privileges.lib.php:2704
-#: libraries/server_privileges.lib.php:2884
+#: libraries/server_privileges.lib.php:2705
+#: libraries/server_privileges.lib.php:2885
 msgid "Grant"
 msgstr "Dhënie"
 
@@ -10376,161 +10380,161 @@ msgctxt "Create new user"
 msgid "New"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2037
-#: libraries/server_privileges.lib.php:2293
-#: libraries/server_privileges.lib.php:2970
+#: libraries/server_privileges.lib.php:2038
+#: libraries/server_privileges.lib.php:2294
+#: libraries/server_privileges.lib.php:2971
 msgid "Any"
 msgstr "Çfarëdo"
 
-#: libraries/server_privileges.lib.php:2058
+#: libraries/server_privileges.lib.php:2059
 msgid "global"
 msgstr "globale"
 
-#: libraries/server_privileges.lib.php:2061
+#: libraries/server_privileges.lib.php:2062
 msgid "database-specific"
 msgstr "specifik i databazës"
 
-#: libraries/server_privileges.lib.php:2063
+#: libraries/server_privileges.lib.php:2064
 msgid "wildcard"
 msgstr "karakteri përgjithësues"
 
-#: libraries/server_privileges.lib.php:2069
+#: libraries/server_privileges.lib.php:2070
 #, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
 msgstr "specifik i databazës"
 
-#: libraries/server_privileges.lib.php:2146
-#: libraries/server_privileges.lib.php:3329
+#: libraries/server_privileges.lib.php:2147
+#: libraries/server_privileges.lib.php:3330
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Nuk u gjet asnjë përdorues."
 
-#: libraries/server_privileges.lib.php:2178
+#: libraries/server_privileges.lib.php:2179
 msgid "Edit Privileges"
 msgstr "Ndrysho të drejtat"
 
-#: libraries/server_privileges.lib.php:2205
+#: libraries/server_privileges.lib.php:2206
 msgid "Revoke"
 msgstr "Hiq"
 
-#: libraries/server_privileges.lib.php:2248
+#: libraries/server_privileges.lib.php:2249
 msgid "Edit user group"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2401
+#: libraries/server_privileges.lib.php:2402
 msgid "… keep the old one."
 msgstr "… mbaj të vjetrin."
 
-#: libraries/server_privileges.lib.php:2402
+#: libraries/server_privileges.lib.php:2403
 msgid "… delete the old one from the user tables."
 msgstr "… elemino të vjetrin nga tabela e përdoruesve."
 
-#: libraries/server_privileges.lib.php:2404
+#: libraries/server_privileges.lib.php:2405
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… hiq të gjitha të drejtat nga i vjetri e pastaj eleminoje."
 
-#: libraries/server_privileges.lib.php:2408
+#: libraries/server_privileges.lib.php:2409
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 "… elemino të vjetrin nga tabela e përdoruesve e pastaj rilexo të drejtat."
 
-#: libraries/server_privileges.lib.php:2422
+#: libraries/server_privileges.lib.php:2423
 msgid "Change Login Information / Copy User"
 msgstr "Ndrysho Informacionet e Login / Kopjo përdoruesin"
 
-#: libraries/server_privileges.lib.php:2428
+#: libraries/server_privileges.lib.php:2429
 msgid "Create a new user with the same privileges and …"
 msgstr "Krijo një përdorues të ri me të njëjta të drejta dhe …"
 
-#: libraries/server_privileges.lib.php:2708
+#: libraries/server_privileges.lib.php:2709
 msgid "Column-specific privileges"
 msgstr "Të drejtat relative të kollonave"
 
-#: libraries/server_privileges.lib.php:2763
+#: libraries/server_privileges.lib.php:2764
 #, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
 msgstr "Shto të drejta tek databaza në vazhdim"
 
-#: libraries/server_privileges.lib.php:2790
+#: libraries/server_privileges.lib.php:2791
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:2808
+#: libraries/server_privileges.lib.php:2809
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
 msgstr "Shto të drejta tek tabela në vazhdim"
 
-#: libraries/server_privileges.lib.php:3052
+#: libraries/server_privileges.lib.php:3053
 msgid "Remove selected users"
 msgstr "Heq përdoruesit e zgjedhur"
 
-#: libraries/server_privileges.lib.php:3058
+#: libraries/server_privileges.lib.php:3059
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Hiqja të gjitha të drejtat aktive përdoruesve dhe pastaj eleminoi."
 
-#: libraries/server_privileges.lib.php:3066
-#: libraries/server_privileges.lib.php:3072
-#: libraries/server_privileges.lib.php:3075
+#: libraries/server_privileges.lib.php:3067
+#: libraries/server_privileges.lib.php:3073
+#: libraries/server_privileges.lib.php:3076
 msgid "Drop the databases that have the same names as the users."
 msgstr "Elemino databazat që kanë emër të njëjtë me përdoruesit."
 
-#: libraries/server_privileges.lib.php:3209
+#: libraries/server_privileges.lib.php:3210
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3212
+#: libraries/server_privileges.lib.php:3213
 msgid "Reloading the privileges"
 msgstr "Duke ringarkuar të drejtat"
 
-#: libraries/server_privileges.lib.php:3231
+#: libraries/server_privileges.lib.php:3232
 msgid "The selected users have been deleted successfully."
 msgstr "Përdoruesit e zgjedhur u hoqën me sukses."
 
-#: libraries/server_privileges.lib.php:3298
+#: libraries/server_privileges.lib.php:3299
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ke rifreskuar lejet për %s."
 
-#: libraries/server_privileges.lib.php:3368
+#: libraries/server_privileges.lib.php:3369
 #, php-format
 msgid "Deleting %s"
 msgstr "Në fshirje e sipër të %s"
 
-#: libraries/server_privileges.lib.php:3397
+#: libraries/server_privileges.lib.php:3398
 msgid "The privileges were reloaded successfully."
 msgstr "Të drejtat u përditësuan me sukses."
 
-#: libraries/server_privileges.lib.php:3479
+#: libraries/server_privileges.lib.php:3480
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Përdoruesi %s ekziston!"
 
-#: libraries/server_privileges.lib.php:3624
+#: libraries/server_privileges.lib.php:3625
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Të drejtat"
 
-#: libraries/server_privileges.lib.php:3678
+#: libraries/server_privileges.lib.php:3679
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
 msgstr "Ndrysho të drejtat"
 
-#: libraries/server_privileges.lib.php:3739 libraries/server_users.lib.php:25
+#: libraries/server_privileges.lib.php:3740 libraries/server_users.lib.php:25
 #, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
 msgstr "Paraqitja e përgjithshme e përdoruesve"
 
-#: libraries/server_privileges.lib.php:3814
+#: libraries/server_privileges.lib.php:3815
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -10543,11 +10547,11 @@ msgstr ""
 "drejtave të përdorura nga serveri nëse janë kryer ndryshime manuale. Në këtë "
 "rast, duhet të %srifreskoni të drejtat%s para se të vazhdoni."
 
-#: libraries/server_privileges.lib.php:3864
+#: libraries/server_privileges.lib.php:3865
 msgid "The selected user was not found in the privilege table."
 msgstr "Përdoruesi i zgjedhur nuk u gjet tek tabela e të drejtave."
 
-#: libraries/server_privileges.lib.php:4085
+#: libraries/server_privileges.lib.php:4086
 msgid "You have added a new user."
 msgstr "Ke shtuar një përdorues të ri."
 
