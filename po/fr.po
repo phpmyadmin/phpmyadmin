@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-15 12:43+0200\n"
+"PO-Revision-Date: 2013-12-19 18:26+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2052,6 +2051,8 @@ msgstr "Montrer les détails du rapport"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Votre exportation est incomplète en raison d'une limite de temps d'exécution "
+"trop basse au niveau PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -9433,12 +9434,10 @@ msgid "Event %1$s has been created."
 msgstr "L'événement %1$s a été créé."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr ""
-"<b>Au moins une erreur s'est produite lors du traitement de la requête :</b>"
+msgstr "Au moins une erreur s'est produite lors du traitement de la requête :"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
