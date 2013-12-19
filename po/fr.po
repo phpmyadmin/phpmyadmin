@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-12-12 12:19+0200\n"
+"PO-Revision-Date: 2013-12-19 17:59+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/4-1/fr/>\n"
 "Language: fr\n"
@@ -2051,6 +2051,8 @@ msgstr "Montrer les détails du rapport"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Votre exportation est incomplète en raison d'une limite de temps d'exécution "
+"trop basse au niveau PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
