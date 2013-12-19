@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-17 08:14+0200\n"
+"PO-Revision-Date: 2013-12-19 16:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -2022,7 +2022,7 @@ msgstr "Zobrazit podrobnosti hlášení"
 #: js/messages.php:417
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
-msgstr ""
+msgstr "Váš export není kompletní kvůli omezené době běhu PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -9285,11 +9285,10 @@ msgid "Event %1$s has been created."
 msgstr "Byla vytvořena událost %1$s."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>Při zpracování požadavku došlo k několika chybám:</b>"
+msgstr "Při zpracování požadavku došlo k několika chybám:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
