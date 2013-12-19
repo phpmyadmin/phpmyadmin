@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-12 13:42+0200\n"
+"PO-Revision-Date: 2013-12-19 15:29+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -6747,6 +6747,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Χρησιμοποιείτε την επέκταση mysql που έχει αποσυρθεί στην phpMyAdmin. "
+"Σκεφτείτε να εγκαταστήσετε την επέκταση mysqli."
 
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
@@ -9361,20 +9363,18 @@ msgid "Replication started successfully."
 msgstr "Η αναπαραγωγή εκκινήθηκε επιτυχώς."
 
 #: libraries/replication_gui.lib.php:910
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Πρωτεύουσα αναπαραγωγή"
+msgstr "Σφάλμα έναρξης αναπαραγωγής."
 
 #: libraries/replication_gui.lib.php:913
 msgid "Replication stopped successfully."
 msgstr "Η αναπαραγωγή σταμάτησε επιτυχώς."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Πρωτεύουσα αναπαραγωγή"
+msgstr "Σφάλμα λήξης αναπαραγωγής."
 
 #: libraries/replication_gui.lib.php:917
 msgid "Replication resetting successfully."
