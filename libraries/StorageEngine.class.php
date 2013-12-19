@@ -51,6 +51,37 @@ class PMA_StorageEngine
     var $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
+     * Constructor
+     *
+     * @param string $engine The engine ID
+     */
+    public function __construct($engine)
+    {
+        $storage_engines = PMA_StorageEngine::getStorageEngines();
+        if (! empty($storage_engines[$engine])) {
+            $this->engine  = $engine;
+            $this->title   = $storage_engines[$engine]['Engine'];
+            $this->comment = (isset($storage_engines[$engine]['Comment'])
+                ? $storage_engines[$engine]['Comment']
+                : '');
+            switch ($storage_engines[$engine]['Support']) {
+            case 'DEFAULT':
+                $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
+                break;
+            case 'YES':
+                $this->support = PMA_ENGINE_SUPPORT_YES;
+                break;
+            case 'DISABLED':
+                $this->support = PMA_ENGINE_SUPPORT_DISABLED;
+                break;
+            case 'NO':
+            default:
+                $this->support = PMA_ENGINE_SUPPORT_NO;
+            }
+        }
+    }
+
+    /**
      * Returns array of storage engines
      *
      * @static
@@ -281,38 +312,6 @@ class PMA_StorageEngine
         $GLOBALS['dbi']->freeResult($res);
 
         return $mysql_vars;
-    }
-
-    /**
-     * Constructor
-     *
-     * @param string $engine The engine ID
-     */
-    public function __construct($engine)
-    {
-        $storage_engines = PMA_StorageEngine::getStorageEngines();
-        if (! empty($storage_engines[$engine])) {
-            $this->engine  = $engine;
-            $this->title   = $storage_engines[$engine]['Engine'];
-            $this->comment
-                = (isset($storage_engines[$engine]['Comment'])
-                    ? $storage_engines[$engine]['Comment']
-                    : '');
-            switch ($storage_engines[$engine]['Support']) {
-            case 'DEFAULT':
-                $this->support = PMA_ENGINE_SUPPORT_DEFAULT;
-                break;
-            case 'YES':
-                $this->support = PMA_ENGINE_SUPPORT_YES;
-                break;
-            case 'DISABLED':
-                $this->support = PMA_ENGINE_SUPPORT_DISABLED;
-                break;
-            case 'NO':
-            default:
-                $this->support = PMA_ENGINE_SUPPORT_NO;
-            }
-        }
     }
 
     /**
