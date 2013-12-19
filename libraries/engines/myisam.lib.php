@@ -21,7 +21,7 @@ class PMA_StorageEngine_Myisam extends PMA_StorageEngine
      *
      * @return array   variable names
      */
-    function getVariables()
+    public function getVariables()
     {
         return array(
             'myisam_data_pointer_size' => array(

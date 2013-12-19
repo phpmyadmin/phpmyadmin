@@ -21,7 +21,7 @@ class PMA_StorageEngine_Memory extends PMA_StorageEngine
      *
      * @return array   variable names
      */
-    function getVariables()
+    public function getVariables()
     {
         return array(
             'max_heap_table_size' => array(

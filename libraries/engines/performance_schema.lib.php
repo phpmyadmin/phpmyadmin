@@ -19,7 +19,7 @@ class PMA_StorageEngine_Performance_schema extends PMA_StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    function getMysqlHelpPage()
+    public function getMysqlHelpPage()
     {
         return 'performance-schema';
     }

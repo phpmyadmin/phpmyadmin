@@ -19,7 +19,7 @@ class PMA_StorageEngine_Binlog extends PMA_StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    function getMysqlHelpPage()
+    public function getMysqlHelpPage()
     {
         return 'binary-log';
     }

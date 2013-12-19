@@ -27,7 +27,7 @@ class PMA_StorageEngine_Mrg_myisam extends PMA_StorageEngine_merge
      *
      * @return string  mysql helppage filename
      */
-    function getMysqlHelpPage()
+    public function getMysqlHelpPage()
     {
         return 'merge-storage-engine';
     }
