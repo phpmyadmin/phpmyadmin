@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-11-25 22:25+0200\n"
+"PO-Revision-Date: 2013-12-20 20:38+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/4-1/et/>\n"
 "Language: et\n"
@@ -2023,6 +2023,8 @@ msgstr "Näita raporteerimise detaile"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Su eksport ei ole täielik, sest PHP skripti käivitamiseks lubatud aeg on "
+"liiga väike"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -9182,50 +9184,43 @@ msgid "Generate Password:"
 msgstr "Genereeri parool:"
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Paljundamise staatus"
+msgstr "Paljundamine algas edukalt."
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Ülema paljundamine"
+msgstr "Viga paljundamise alustamisel."
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Diagramm koostati edukalt."
+msgstr "Paljundamine lõpetati edukalt."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Ülema paljundamine"
+msgstr "Viga paljundamise lõpetamisel."
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Paljundamise staatus"
+msgstr "Paljundamine lähtestati edukalt."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Ülema paljundamine"
+msgstr "Viga paljundamise lähtestamisel."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
-msgstr ""
+msgstr "Edukas."
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Viga"
+msgstr "Viga."
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
