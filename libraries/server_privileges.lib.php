@@ -2059,99 +2059,124 @@ function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = n
             $html_output .= htmlspecialchars($current_host);
             $html_output .= '</td>';
 
-            for ($i = 0; $i < $nbPrivileges; $i++) {
-                $current = $current_privileges[$i];
+            $html_output .= PMA_getHtmlListOfPrivs(
+                $db, $current_privileges, $current_user,
+                $current_host, $odd_row
+            );
 
-                // type
-                $html_output .= '<td>';
-                if ($current['Type'] == 'g') {
-                    $html_output .= __('global');
-                } elseif ($current['Type'] == 'd') {
-                    if ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
-                        $html_output .= __('database-specific');
-                    } else {
-                        $html_output .= __('wildcard'). ': '
-                            . '<code>'
-                            . htmlspecialchars($current['Db'])
-                            . '</code>';
-                    }
-                } elseif ($current['Type'] == 't') {
-                    $html_output .= __('table-specific');
-                }
-                $html_output .= '</td>';
-
-                // privileges
-                $html_output .= '<td>';
-                if (isset($current['Table_name'])) {
-                    $privList = explode(',', $current['Table_priv']);
-                    $privs = array();
-                    $grantsArr = PMA_getTableGrantsArray();
-                    foreach ($grantsArr as $grant) {
-                        $privs[$grant[0]] = 'N';
-                        foreach ($privList as $priv) {
-                            if ($grant[0] == $priv) {
-                                $privs[$grant[0]] = 'Y';
-                            }
-                        }
-                    }
-                    $html_output .=  '<code>'
-                       . join(
-                           ',',
-                           PMA_extractPrivInfo($privs, true, true)
-                       )
-                       . '</code>';
-                } else {
-                    $html_output .=  '<code>'
-                       . join(
-                           ',',
-                           PMA_extractPrivInfo($current, true, false)
-                       )
-                       . '</code>';
-                }
-                $html_output .=  '</td>';
-
-                // grant
-                $html_output .= '<td>';
-                $containsGrant = false;
-                if (isset($current['Table_name'])) {
-                    $privList = explode(',', $current['Table_priv']);
-                    foreach ($privList as $priv) {
-                        if ($priv == 'Grant') {
-                            $containsGrant = true;
-                        }
-                    }
-                } else {
-                    $containsGrant = $current['Grant_priv'] == 'Y';
-                }
-                $html_output .= ($containsGrant ? __('Yes') : __('No'));
-                $html_output .= '</td>';
-
-                // action
-                $html_output .= '<td>';
-                $specific_db = (isset($current['Db']) && $current['Db'] != '*')
-                    ? $current['Db'] : '';
-                $specific_table = (isset($current['Table_name'])
-                    && $current['Table_name'] != '*')
-                    ? $current['Table_name'] : '';
-                $html_output .= PMA_getUserEditLink(
-                    $current_user,
-                    $current_host,
-                    $specific_db,
-                    $specific_table
-                );
-                $html_output .= '</td>';
-
-                $html_output .= '</tr>';
-                if (($i + 1) < $nbPrivileges) {
-                    $html_output .= '<tr class="noclick '
-                        . ($odd_row ? 'odd' : 'even') . '">';
-                }
-            }
             $odd_row = ! $odd_row;
         }
     }
     $html_output .= '</tbody>';
 
+    return $html_output;
+}
+
+/**
+ * Get HTML to display privileges
+ *
+ * @param string  $db                 Database name
+ * @param array   $current_privileges List of privileges
+ * @param string  $current_user       Current user
+ * @param string  $current_host       Current host
+ * @param boolean $odd_row            Current row is odd
+ *
+ * @return string HTML to display privileges
+ */
+function PMA_getHtmlListOfPrivs(
+    $db, $current_privileges, $current_user,
+    $current_host, $odd_row
+) {
+    $nbPrivileges = count($current_privileges);
+    $html_output = null;
+    for ($i = 0; $i < $nbPrivileges; $i++) {
+        $current = $current_privileges[$i];
+
+        // type
+        $html_output .= '<td>';
+        if ($current['Type'] == 'g') {
+            $html_output .= __('global');
+        } elseif ($current['Type'] == 'd') {
+            if ($current['Db'] == PMA_Util::escapeMysqlWildcards($db)) {
+                $html_output .= __('database-specific');
+            } else {
+                $html_output .= __('wildcard') . ': '
+                    . '<code>'
+                    . htmlspecialchars($current['Db'])
+                    . '</code>';
+            }
+        } elseif ($current['Type'] == 't') {
+            $html_output .= __('table-specific');
+        }
+        $html_output .= '</td>';
+
+        // privileges
+        $html_output .= '<td>';
+        if (isset($current['Table_name'])) {
+            $privList = explode(',', $current['Table_priv']);
+            $privs = array();
+            $grantsArr = PMA_getTableGrantsArray();
+            foreach ($grantsArr as $grant) {
+                $privs[$grant[0]] = 'N';
+                foreach ($privList as $priv) {
+                    if ($grant[0] == $priv) {
+                        $privs[$grant[0]] = 'Y';
+                    }
+                }
+            }
+            $html_output .= '<code>'
+                . join(
+                    ',',
+                    PMA_extractPrivInfo($privs, true, true)
+                )
+                . '</code>';
+        } else {
+            $html_output .= '<code>'
+                . join(
+                    ',',
+                    PMA_extractPrivInfo($current, true, false)
+                )
+                . '</code>';
+        }
+        $html_output .= '</td>';
+
+        // grant
+        $html_output .= '<td>';
+        $containsGrant = false;
+        if (isset($current['Table_name'])) {
+            $privList = explode(',', $current['Table_priv']);
+            foreach ($privList as $priv) {
+                if ($priv == 'Grant') {
+                    $containsGrant = true;
+                }
+            }
+        } else {
+            $containsGrant = $current['Grant_priv'] == 'Y';
+        }
+        $html_output .= ($containsGrant ? __('Yes') : __('No'));
+        $html_output .= '</td>';
+
+        // action
+        $html_output .= '<td>';
+        $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+            ? $current['Db'] : '';
+        $specific_table = (isset($current['Table_name'])
+            && $current['Table_name'] != '*')
+            ? $current['Table_name'] : '';
+        $html_output .= PMA_getUserEditLink(
+            $current_user,
+            $current_host,
+            $specific_db,
+            $specific_table
+        );
+        $html_output .= '</td>';
+
+        $html_output .= '</tr>';
+        if (($i + 1) < $nbPrivileges) {
+            $html_output .= '<tr class="noclick '
+                . ($odd_row ? 'odd' : 'even') . '">';
+        }
+    }
     return $html_output;
 }
 
