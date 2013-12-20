@@ -2100,11 +2100,6 @@ fieldset .disabled-field td {
     width: 100%;
 }
 
-form#resultsForm > .data {
-    overflow-x: auto;
-    overflow-y: hidden;
-}
-
 .cDrop {
     left: 0;
     position: absolute;

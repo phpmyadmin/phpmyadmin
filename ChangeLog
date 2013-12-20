@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - bug #4178 Quick edit for BIT type does not work
 - bug #2760 Warn about incomplete exports
 - bug #4190 Fractional seconds cause row update even if the value is not changed
+- bug #4170 Overflow scroll for table grid is not a good solution
 
 4.1.1.0 (2013-12-17)
 - bug #4154 Error using UNION query
