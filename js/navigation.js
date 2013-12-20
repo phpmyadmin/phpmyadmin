@@ -749,6 +749,8 @@ var ResizeHandler = function () {
     this.getPos = function (event) {
         var pos = event.pageX;
         var windowWidth = $(window).width();
+        var windowScroll = $(window).scrollLeft();
+        pos = pos - windowScroll;
         if (this.left != 'left') {
             pos = windowWidth - event.pageX;
         }
