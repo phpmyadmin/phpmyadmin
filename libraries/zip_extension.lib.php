@@ -157,7 +157,7 @@ function PMA_zipExtract($zip_path, $destination, $entries)
 /**
   * Gets zip error message
   *
-  * @param integer $code error code
+  * @param resource $code error code
   *
   * @return string error message
  */
