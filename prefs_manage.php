@@ -266,8 +266,8 @@ echo  '</div>'
     . '</div>'
     . '<div class="localStorage-unsupported">';
 PMA_Message::notice(
-        __('This feature is not supported by your web browser')
-    )->display();
+    __('This feature is not supported by your web browser')
+)->display();
 echo '</div>'
     . '</div>'
     . '<input type="checkbox" id="import_merge" name="import_merge" />'

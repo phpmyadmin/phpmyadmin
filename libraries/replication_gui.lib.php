@@ -1057,7 +1057,9 @@ function PMA_handleRequestForSlaveSkipError()
     }
 
     $qStop = PMA_Replication_Slave_control("STOP");
-    $qSkip = $GLOBALS['dbi']->tryQuery("SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";");
+    $qSkip = $GLOBALS['dbi']->tryQuery(
+        "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";"
+    );
     $qStart = PMA_Replication_Slave_control("START");
 
     $result = ($qStop !== false && $qStop !== -1 &&

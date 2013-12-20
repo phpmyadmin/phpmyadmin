@@ -494,7 +494,11 @@ function PMA_SQP_parse($sql)
         var_dump($GLOBALS['PMA_String']->isSqlIdentifier($c, false));
         var_dump($c == '@');
         var_dump($c == '.');
-        var_dump($GLOBALS['PMA_String']->isDigit($GLOBALS['PMA_String']->substr($sql, $count2 + 1, 1)));
+        var_dump(
+            $GLOBALS['PMA_String']->isDigit(
+                $GLOBALS['PMA_String']->substr($sql, $count2 + 1, 1)
+            )
+        );
         var_dump($previous_was_space);
         var_dump($previous_was_bracket);
         var_dump($previous_was_listsep);
@@ -774,7 +778,11 @@ function PMA_SQP_parse($sql)
             $d_next_upper = '';
         }
 
-        //DEBUG echo "[prev: <strong>".$d_prev."</strong> ".$t_prev."][cur: <strong>".$d_cur."</strong> ".$t_cur."][next: <strong>".$d_next."</strong> ".$t_next."]<br />";
+        /* DEBUG
+        echo "[prev: <strong>".$d_prev."</strong> ".$t_prev."][cur: <strong>"
+            . $d_cur."</strong> ".$t_cur."][next: <strong>".$d_next."</strong> "
+            . $t_next."]<br />";
+        */
 
         if ($t_cur == 'alpha') {
             $t_suffix     = '_identifier';
@@ -932,7 +940,8 @@ function PMA_SQP_analyze($arr)
     $size            = $arr['len'];
     $subresult       = array(
         'querytype'      => '',
-        'select_expr_clause'=> '', // the whole stuff between SELECT and FROM , except DISTINCT
+        // the whole stuff between SELECT and FROM , except DISTINCT
+        'select_expr_clause'=> '',
         'position_of_first_select' => '', // the array index
         'from_clause'=> '',
         'group_by_clause'=> '',
@@ -1617,6 +1626,11 @@ function PMA_SQP_analyze($arr)
     $number_of_brackets = 0;
     $in_subquery = false;
 
+    $arrayFunctions = array(
+        "SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"
+    );
+    $arrayKeyWords = array("BY", "HAVING", "SELECT");
+
     for ($i = 0; $i < $size; $i++) {
         //DEBUG echo "Loop2 <strong>"  . $arr[$i]['data']
         //. "</strong> (" . $arr[$i]['type'] . ")<br />";
@@ -1808,7 +1822,7 @@ function PMA_SQP_analyze($arr)
                     && $subresult['queryflags']['select_from'] == 1
                     && ($i + 1) < $size
                     && $arr[$i + 1]['type'] == 'alpha_reservedWord'
-                    && in_array(strtoupper($arr[$i + 1]['data']), array("BY", "HAVING", "SELECT"))
+                    && in_array(strtoupper($arr[$i + 1]['data']), $arrayKeyWords)
                     && ($i + 2) < $size
                     && $arr[$i + 2]['type'] == 'alpha_reservedWord'
                     && strtoupper($arr[$i + 2]['data']) == 'DISTINCT'
@@ -1940,7 +1954,7 @@ function PMA_SQP_analyze($arr)
 
         // for the presence of SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND
         if ($arr[$i]['type'] == 'alpha_functionName'
-            && in_array(strtoupper($arr[$i]['data']), array("SUM","AVG","STD","STDDEV","MIN","MAX","BIT_OR","BIT_AND"))
+            && in_array(strtoupper($arr[$i]['data']), $arrayFunctions)
             && isset($subresult['queryflags']['select_from'])
             && $subresult['queryflags']['select_from'] == 1
             && !isset($subresult['queryflags']['is_group'])

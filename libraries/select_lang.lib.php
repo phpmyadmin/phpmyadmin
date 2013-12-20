@@ -156,8 +156,11 @@ function PMA_langDetect($str, $envType)
         if (strpos($expr, '[-_]') === false) {
             $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
         }
-        if (($envType == 1 && preg_match('/^(' . addcslashes($expr, '/') . ')(;q=[0-9]\\.[0-9])?$/i', $str))
-            || ($envType == 2 && preg_match('/(\(|\[|;[[:space:]])(' . addcslashes($expr, '/') . ')(;|\]|\))/i', $str))
+        $pattern1 = '/^(' . addcslashes($expr, '/') . ')(;q=[0-9]\\.[0-9])?$/i';
+        $pattern2 = '/(\(|\[|;[[:space:]])(' . addcslashes($expr, '/')
+            . ')(;|\]|\))/i';
+        if (($envType == 1 && preg_match($pattern1, $str))
+            || ($envType == 2 && preg_match($pattern2, $str))
         ) {
             if (PMA_langSet($lang)) {
                 return true;
@@ -430,9 +433,10 @@ function PMA_langList()
 
     /* Process all files */
     while (false !== ($file = readdir($handle))) {
+        $path = $GLOBALS['lang_path'] . '/' . $file . '/LC_MESSAGES/phpmyadmin.mo';
         if ($file != "."
             && $file != ".."
-            && file_exists($GLOBALS['lang_path'] . '/' . $file . '/LC_MESSAGES/phpmyadmin.mo')
+            && file_exists($path)
         ) {
             $result[$file] = PMA_langDetails($file);
         }
