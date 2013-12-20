@@ -698,7 +698,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
 /**
  * Get HTML snippet view table
  *
- * @param type $is_show_stats whether stats show or not
+ * @param boolean $is_show_stats whether stats show or not
  *
  * @return string $html_output
  */

@@ -160,10 +160,10 @@ function PMA_changePassHashingFunction()
 /**
  * Generate the error url and submit the query
  *
- * @param string  $password
- * @param array   $_url_params
- * @param string  $sql_query
- * @param string  $hashing_function
+ * @param string $password         Password
+ * @param array  $_url_params      URL parameters
+ * @param string $sql_query        SQL query
+ * @param string $hashing_function Hashing function
  *
  * @return void
  */
@@ -182,8 +182,8 @@ function PMA_changePassUrlParamsAndSubmitQuery(
 /**
  * Change password authentication type
  *
- * @param array   $_url_params
- * @param string  $password
+ * @param array  $_url_params URL parameters
+ * @param string $password    Password
  *
  * @return array   $_url_params
  */
@@ -222,9 +222,9 @@ function PMA_changePassAuthType($_url_params, $password)
 /**
  * Display the page
  *
- * @param string  $message
- * @param string  $sql_query
- * @param array   $_url_params
+ * @param string $message     Message
+ * @param string $sql_query   SQL query
+ * @param array  $_url_params URL parameters
  *
  * @return void
  */
