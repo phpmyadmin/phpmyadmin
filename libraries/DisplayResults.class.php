@@ -2841,7 +2841,10 @@ class PMA_DisplayResults
                 && (trim($row[$i]) != '')
             ) {
                 $row[$i] = PMA_Util::formatSql($row[$i]);
-                include_once $this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][0];
+                include_once $this->transformation_info
+                    [strtolower($this->__get('db'))]
+                    [strtolower($this->__get('table'))]
+                    [strtolower($meta->name)][0];
                 $transformation_plugin = new $this->transformation_info
                     [strtolower($this->__get('db'))]
                     [strtolower($this->__get('table'))]
@@ -2855,7 +2858,9 @@ class PMA_DisplayResults
 
                 $meta->mimetype = str_replace(
                     '_', '/',
-                    $this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][2]
+                    $this->transformation_info[strtolower($this->__get('db'))]
+                        [strtolower($this->__get('table'))]
+                        [strtolower($meta->name)][2]
                 );
 
             }

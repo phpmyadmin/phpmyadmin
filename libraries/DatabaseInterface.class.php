@@ -1209,13 +1209,14 @@ class PMA_DatabaseInterface
                 }
             }
             if (! $has_pk && $has_pk_candidates) {
+                $secureDatabase = PMA_Util::sqlAddSlashes($database);
                 // check whether we can promote some unique index to PRI
                 $sql = "
                     SELECT i.index_name, p.column_name
                     FROM data_dictionary.indexes i
                         JOIN data_dictionary.index_parts p
                         USING (table_schema, table_name)
-                    WHERE i.table_schema = '" . PMA_Util::sqlAddSlashes($database) . "'
+                    WHERE i.table_schema = '" . $secureDatabase . "'
                         AND i.table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
                         AND i.is_unique
                             AND NOT i.is_nullable";

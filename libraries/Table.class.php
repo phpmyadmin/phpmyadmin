@@ -1473,9 +1473,11 @@ class PMA_Table
         $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
             . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
 
+        $secureDbName = PMA_Util::sqlAddSlashes($this->db_name);
+
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
-            . " VALUES ('" . $username . "', '" . PMA_Util::sqlAddSlashes($this->db_name)
+            . " VALUES ('" . $username . "', '" . $secureDbName
             . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
             . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
@@ -1543,7 +1545,8 @@ class PMA_Table
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
             // check whether we can get from pmadb
-            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name]
+            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
+            [$this->name]
                 = (strlen($GLOBALS['cfg']['Server']['pmadb'])
                     && strlen($GLOBALS['cfg']['Server']['table_uiprefs']))
                     ?  $this->getUiPrefsFromDb()
