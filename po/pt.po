@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-11-25 11:12+0200\n"
-"Last-Translator: Edu Rib PT <edurib.pt@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"PO-Revision-Date: 2013-12-20 21:46+0200\n"
+"Last-Translator: Tony Nascimento <gtonynasc@gmail.com>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2047,6 +2047,8 @@ msgstr "Ver os detalhes do relatório"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Exportação incompleta devido a um limite de tempo de execução baixo a nível "
+"do PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -4126,7 +4128,7 @@ msgstr "Erro: testemunho inválido ou trocado"
 
 #: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "Tentativa de sobrescrever GLOBALS"
 
 #: libraries/common.inc.php:1128
 msgid "possible exploit"
@@ -4354,37 +4356,37 @@ msgstr "Limpa"
 
 #: libraries/config/Validator.class.php:238
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "Impossível inicializar biblioteca de conexão Drizzle"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
 msgid "Could not connect to Drizzle server"
-msgstr ""
+msgstr "Impossível conectar ao servidor Drizzle"
 
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
 msgid "Could not connect to MySQL server"
-msgstr ""
+msgstr "Impossível conectar ao servidor MySQL"
 
 #: libraries/config/Validator.class.php:306
 msgid "Empty username while using config authentication method"
-msgstr ""
+msgstr "Nome de utilizador vazio ao usar método de autenticação por config"
 
 #: libraries/config/Validator.class.php:313
 msgid "Empty signon session name while using signon authentication method"
-msgstr ""
+msgstr "Nome de sessão signon vazia ao usar método de autenticação signon"
 
 #: libraries/config/Validator.class.php:322
 msgid "Empty signon URL while using signon authentication method"
-msgstr ""
+msgstr "URL signon vazia ao usar método de autenticação signon"
 
 #: libraries/config/Validator.class.php:369
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr ""
+msgstr "Utilizador de controle phpMyAdmin vazio ao usar pmadb"
 
 #: libraries/config/Validator.class.php:374
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
+msgstr "Senha do utilizador de controle phpMyAdmin vazia ao usar pmadb"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -4393,7 +4395,7 @@ msgstr "Valor incorrecto:"
 #: libraries/config/Validator.class.php:467
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Endereço IP incorrecto: %s"
 
 #: libraries/config/messages.inc.php:18
 msgid ""
@@ -4484,10 +4486,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Use o nosso editor amigável para editar queries "
+"([a@http://codemirror.net/]CodeMirror[/a]) com realce de sintaxe e número de "
+"linhas"
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Activar CodeMirror"
 
 #: libraries/config/messages.inc.php:55
 msgid ""
@@ -4597,7 +4602,7 @@ msgstr "Separador padrão para a tabela"
 
 #: libraries/config/messages.inc.php:90
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Se as acções da estrutura da tabela devem ser escondidas"
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
@@ -5026,6 +5031,9 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
 "[/doc] for magic strings that can be used to get special values."
 msgstr ""
+"Especifica o texto da barra de títulos do browser. Consulte "
+"[doc@cfg_TitleTable]documentation[/doc] para strings mágicas que podem ser "
+"utilizadas para obter valores especiais."
 
 #: libraries/config/messages.inc.php:251
 #: libraries/navigation/NavigationHeader.class.php:216
@@ -5086,6 +5094,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
+"Faça a configuração de armazenamento do PhpMyAdmin para ter acesso a "
+"funcionalidades adicionais, consulte [doc@linked-tables]phpMyAdmin "
+"configuration storage[/doc] na documentação"
 
 #: libraries/config/messages.inc.php:273
 msgid "Changes tracking"
@@ -5164,6 +5175,8 @@ msgstr "Estrutura da base de dados"
 #: libraries/config/messages.inc.php:302
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Escolha que detalhes mostrar na estrutura da base de dados (lista de "
+"tabelas)"
 
 #: libraries/config/messages.inc.php:303
 msgid "Table structure"
@@ -5171,7 +5184,7 @@ msgstr "Estrutura da tabela"
 
 #: libraries/config/messages.inc.php:305
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Definições para a estrutura da tabela (lista de colunas)"
 
 #: libraries/config/messages.inc.php:306
 msgid "Tabs"
@@ -5409,10 +5422,12 @@ msgstr "Número máximo de bases de dados"
 msgid ""
 "The number of items that can be displayed on each page of the navigation tree"
 msgstr ""
+"O número de itens que podem ser mostradas em cada página da árvore de "
+"navegação"
 
 #: libraries/config/messages.inc.php:404
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Máximo de itens por ramo"
 
 #: libraries/config/messages.inc.php:406
 msgid ""
@@ -5515,6 +5530,8 @@ msgstr "Número mínimo de itens a apresentar na caixa de filtragem"
 #: libraries/config/messages.inc.php:445
 msgid "Minimum number of databases to display the database filter box"
 msgstr ""
+"Número mínimo de bases de dados para mostrar a caixa de filtragem de base de "
+"dados"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
@@ -5526,7 +5543,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:449
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Agrupar itens na árvore"
 
 #: libraries/config/messages.inc.php:451
 msgid "String that separates databases into different tree levels"
@@ -5644,7 +5661,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:493
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Aviso de divergência Servidor/Biblioteca"
 
 #: libraries/config/messages.inc.php:495
 msgid ""
@@ -5657,15 +5674,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:498
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Aviso de palavra reservada ao MySQL"
 
 #: libraries/config/messages.inc.php:500
 msgid "How to display the menu tabs"
-msgstr ""
+msgstr "Como mostrar os separadores do menu"
 
 #: libraries/config/messages.inc.php:502
 msgid "How to display various action links"
-msgstr ""
+msgstr "Como mostrar várias ligações de acções"
 
 #: libraries/config/messages.inc.php:503
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -5754,7 +5771,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:532
 msgid "Grid editing: save all edited cells at once"
-msgstr ""
+msgstr "Edição em grade: gravar todas as células editadas duma única vez"
 
 #: libraries/config/messages.inc.php:533
 msgid "Directory where exports can be saved on server"
@@ -6152,6 +6169,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"Se uma instrução DROP VIEW IF EXISTS será adicionada como primeira linha ao "
+"log, quando se cria um view."
 
 #: libraries/config/messages.inc.php:678
 msgid "Add DROP VIEW"
@@ -6160,12 +6179,12 @@ msgstr "Adicionar DROP VIEW"
 #: libraries/config/messages.inc.php:680
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Define a lista de instruções que o auto-creation usa para novas versões."
 
 #: libraries/config/messages.inc.php:681
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "Itens"
+msgstr "Instruções para rastrear"
 
 #: libraries/config/messages.inc.php:683
 #, fuzzy
@@ -6181,7 +6200,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:686
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "Tabela de histórico de queries do SQL"
 
 #: libraries/config/messages.inc.php:688
 msgid ""
