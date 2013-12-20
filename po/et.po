@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-09 10:57+0200\n"
+"PO-Revision-Date: 2013-12-20 20:40+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2024,6 +2024,8 @@ msgstr "Näita raporteerimise detaile"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Su eksport ei ole täielik, sest PHP skripti käivitamiseks lubatud aeg on "
+"liiga väike"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -6630,6 +6632,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Sa kasutad mysql laiendust, mis phpMyAdmin'is on iganenud. Palun kaalu "
+"mysqli laienduse paigaldamist."
 
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
@@ -9191,50 +9195,43 @@ msgid "Generate Password:"
 msgstr "Genereeri parool:"
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Paljundamise staatus"
+msgstr "Paljundamine algas edukalt."
 
 #: libraries/replication_gui.lib.php:910
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Ülema paljundamine"
+msgstr "Viga paljundamise alustamisel."
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Diagramm koostati edukalt."
+msgstr "Paljundamine lõpetati edukalt."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Ülema paljundamine"
+msgstr "Viga paljundamise lõpetamisel."
 
 #: libraries/replication_gui.lib.php:917
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Paljundamise staatus"
+msgstr "Paljundamine lähtestati edukalt."
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Ülema paljundamine"
+msgstr "Viga paljundamise lähtestamisel."
 
 #: libraries/replication_gui.lib.php:921
 msgid "Success."
-msgstr ""
+msgstr "Edukas."
 
 #: libraries/replication_gui.lib.php:922
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Viga"
+msgstr "Viga."
 
 #: libraries/replication_gui.lib.php:964
 msgid "Unknown error"
@@ -9291,11 +9288,10 @@ msgid "Event %1$s has been created."
 msgstr "%1$s sündmus on loodud."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>Sinu päringu töötlemisel esines vähemalt üks viga:</b>"
+msgstr "Sinu päringu töötlemisel esines vähemalt üks viga:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
