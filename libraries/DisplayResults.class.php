@@ -70,7 +70,7 @@ class PMA_DisplayResults
 
     const ROUTINE_PROCEDURE = 'procedure';
     const ROUTINE_FUNCTION = 'function';
-    
+
     const ACTION_LINK_CONTENT_ICONS = 'icons';
     const ACTION_LINK_CONTENT_TEXT = 'text';
 
@@ -3429,7 +3429,7 @@ class PMA_DisplayResults
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
             $del_str = $this->_getActionLinkContent('b_drop.png', __('Delete'));
-            
+
         } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
 
             $_url_params = array(
@@ -3470,42 +3470,42 @@ class PMA_DisplayResults
      * @param string $display_text The text displaying after the image icon
      *
      * @return  string
-     * 
+     *
      * @access  private
-     * 
+     *
      * @see     _getModifiedLinks(), _getDeleteAndKillLinks()
      */
     private function _getActionLinkContent($icon, $display_text)
     {
-        
+
         $linkContent = '';
-        
+
         if (isset($GLOBALS['cfg']['RowActionType'])
             && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_ICONS
         ) {
-            
+
             $linkContent .= '<span class="nowrap">'
                 . PMA_Util::getImage(
                     $icon, $display_text
                 )
                 . '</span>';
-            
+
         } else if (isset($GLOBALS['cfg']['RowActionType'])
             && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_TEXT
         ) {
-            
+
             $linkContent .= '<span class="nowrap">' . $display_text . '</span>';
-            
+
         } else {
-            
+
             $linkContent .= PMA_Util::getIcon(
                 $icon, $display_text
             );
-            
+
         }
-        
+
         return $linkContent;
-        
+
     }
 
 
@@ -5593,17 +5593,19 @@ class PMA_DisplayResults
                 $alias = $analyzed_sql[0]['select_expr']
                     [$select_expr_position]['alias'];
 
-                if (isset($alias) && strlen($alias)) {
-                    $true_column = $analyzed_sql[0]['select_expr']
-                        [$select_expr_position]['column'];
-
-                    if ($alias == $meta->name) {
-                        // this change in the parameter does not matter
-                        // outside of the function
-                        $meta->name = $true_column;
-                    } // end if
-
+                if (!isset($alias) || !strlen($alias)) {
+                    continue;
                 } // end if
+
+                $true_column = $analyzed_sql[0]['select_expr']
+                    [$select_expr_position]['column'];
+
+                if ($alias == $meta->name) {
+                    // this change in the parameter does not matter
+                    // outside of the function
+                    $meta->name = $true_column;
+                } // end if
+
             } // end foreach
         } // end if
 
