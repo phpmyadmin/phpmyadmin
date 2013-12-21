@@ -277,10 +277,13 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
 }
 
 /**
- * @param $import_run_buffer
- * @param $sql
- * @param $full
- * @return array
+ * Return import run buffer
+ *
+ * @param array  $import_run_buffer Buffer of queries for import
+ * @param string $sql               SQL query
+ * @param string $full              Query to display
+ *
+ * @return array Buffer of queries for import
  */
 function PMA_importRunQuery_post($import_run_buffer, $sql, $full)
 {
