@@ -31,7 +31,7 @@ function PMA_getZipContents($file, $specific_entry = null)
     }
 
     $first_zip_entry = zip_read($zip_handle);
-    if (false !== $first_zip_entry) {
+    if (false === $first_zip_entry) {
         $error_message = __('No files found inside ZIP archive!');
         zip_close($zip_handle);
         return (array('error' => $error_message, 'data' => $file_data));
