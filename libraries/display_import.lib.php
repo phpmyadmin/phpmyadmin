@@ -241,7 +241,6 @@ function PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list)
         $html .= '            </ul>';
 
     } elseif ($GLOBALS['is_upload']) {
-        $uid = uniqid('');
         $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
     } elseif (!$GLOBALS['is_upload']) {
         $html .= PMA_Message::notice(
