@@ -23,7 +23,7 @@ function PMA_getHtmlForTablesInfo($the_tables)
 
     if ($multi_tables) {
         $tbl_list     = '';
-        foreach ($the_tables as $key => $table) {
+        foreach ($the_tables as $table) {
             $tbl_list .= (empty($tbl_list) ? '' : ', ')
                       . PMA_Util::backquote($table);
         }
@@ -71,7 +71,6 @@ function PMA_getHtmlForPrintViewColumns(
     foreach ($columns as $row) {
         $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
         $type = $extracted_columnspec['print_type'];
-        $attribute = $extracted_columnspec['attribute'];
 
         if (! isset($row['Default'])) {
             if ($row['Null'] != ''  && $row['Null'] != 'NO') {
@@ -530,7 +529,7 @@ function PMA_getHtmlForTablesDetail(
     $multi_tables = (count($the_tables) > 1);
     $counter = 0;
 
-    foreach ($the_tables as $key => $table) {
+    foreach ($the_tables as $table) {
         if ($counter + 1 >= $tables_cnt) {
             $breakstyle = '';
         } else {

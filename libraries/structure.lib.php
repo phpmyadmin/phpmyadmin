@@ -1970,6 +1970,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             __('A primary key has been added on %s'),
             'Primary', $titles, $row, true
         );
+    unset($primary_enabled);
     $html_output .= $primary;
     list($unique, $unique_enabled)
         = PMA_getHtmlForActionRowInStructureTable(
@@ -1980,6 +1981,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             __('An index has been added on %s'),
             'Unique', $titles, $row, false
         );
+    unset($unique_enabled);
     $html_output .= $unique;
     list($index, $index_enabled)
         = PMA_getHtmlForActionRowInStructureTable(
@@ -1988,6 +1990,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             $primary, 'ADD INDEX', __('An index has been added on %s'),
             'Index', $titles, $row, false
         );
+    unset($index_enabled);
     $html_output .= $index;
     if (!PMA_DRIZZLE) {
         $spatial_types = array(
@@ -2005,12 +2008,14 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
                 __('An index has been added on %s'), 'Spatial',
                 $titles, $row, false
             );
+        unset($spatial_enabled);
         $html_output .= $spatial;
 
         // FULLTEXT is possible on TEXT, CHAR and VARCHAR
         list ($fulltext, $fulltext_enabled) = PMA_getHtmlForFullTextAction(
             $tbl_storage_engine, $type, $url_query, $row, $titles
         );
+        unset($fulltext_enabled);
         $html_output .= $fulltext;
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
@@ -2658,7 +2663,7 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
 ) {
     $GLOBALS['active_page'] = 'sql.php';
     $sql_query = '';
-    foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
+    foreach ($_REQUEST['selected_fld'] as $sval) {
         if ($sql_query == '') {
             $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
         } else {
