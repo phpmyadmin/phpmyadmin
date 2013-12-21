@@ -59,6 +59,10 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam()
 {
+    // avoid breakage if pmadb got unconfigured after login
+    if (empty($GLOBALS['cfg']['Server']['pmadb'])) {
+        unset($_SESSION['relation'][$GLOBALS['server']]);
+    }
     if (empty($_SESSION['relation'][$GLOBALS['server']])) {
         $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
     }
@@ -527,7 +531,7 @@ function PMA_checkRelationsParam()
     ) {
         $cfgRelation['allworks'] = true;
     }
-
+error_log(var_export($cfgRelation, true));
     return $cfgRelation;
 } // end of the 'PMA_getRelationsParam()' function
 
