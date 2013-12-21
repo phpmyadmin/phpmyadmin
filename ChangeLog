@@ -14,7 +14,6 @@ phpMyAdmin - ChangeLog
 - bug #2760 Warn about incomplete exports
 - bug #4190 Fractional seconds cause row update even if the value is not changed
 - bug #4170 Overflow scroll for table grid is not a good solution
-- bug #2961 Relations settings not updated on config change
 
 4.1.1.0 (2013-12-17)
 - bug #4154 Error using UNION query
