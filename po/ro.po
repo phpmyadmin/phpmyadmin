@@ -226,7 +226,7 @@ msgstr "Baza de date %1$s a fost redenumită în %2$s"
 #: db_operations.php:136
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Baza de date %1$s a fost copiata la %2$s"
+msgstr "Baza de date %1$s a fost copiată la %2$s"
 
 #: db_operations.php:260
 #, php-format
@@ -255,7 +255,7 @@ msgstr "Tabel"
 #: libraries/structure.lib.php:769 libraries/structure.lib.php:1730
 #: libraries/structure.lib.php:1924 libraries/tbl_printview.lib.php:194
 msgid "Rows"
-msgstr "Rînduri"
+msgstr "Rânduri"
 
 #: db_printview.php:51 libraries/structure.lib.php:788
 #: libraries/tbl_indexes.lib.php:317
@@ -414,11 +414,13 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"A fost detectată o eroare şi un raport de erori a fost "
+"generat automat conform setărilor."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Ar fi bine să reîncărcaţi pagina."
 
 #: error_report.php:45
 msgid ""
@@ -428,7 +430,7 @@ msgstr ""
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Dacă întâmpunaţi probleme vă rugăm să raportaţi un bug manual."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
@@ -436,7 +438,7 @@ msgstr "Mulțumim că ai trimis acest raport."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Din păcate trimiterea a eşuat."
 
 #: export.php:171
 msgid "Bad type!"
@@ -475,7 +477,7 @@ msgstr "Copia a fost salvată în fișierul %s."
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr "Tip nevalid de export"
+msgstr "Tip invalid de export"
 
 #: gis_data_editor.php:113
 #, php-format
@@ -497,7 +499,7 @@ msgstr "SRID"
 #, fuzzy, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometrie"
+msgstr "Geometrie %d:"
 
 #: gis_data_editor.php:208
 msgid "Point:"
@@ -624,7 +626,7 @@ msgstr ""
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
-msgstr "Afișînd semn de carte"
+msgstr "Afișând semn de carte"
 
 #: import.php:299 import.php:546
 msgid "The bookmark has been deleted."
@@ -702,7 +704,7 @@ msgstr "Înapoi"
 #: index.php:115 libraries/Footer.class.php:70
 #, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "Documentație phpMyAdmin"
+msgstr "Server Demo phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -714,7 +716,7 @@ msgstr ""
 
 #: index.php:129
 msgid "General Settings"
-msgstr "Configurări generale"
+msgstr "Setări generale"
 
 #: index.php:157 libraries/display_change_password.lib.php:46
 #: user_password.php:233
@@ -729,11 +731,11 @@ msgstr "MySQL connection collation"
 
 #: index.php:196
 msgid "Appearance Settings"
-msgstr "Configurări de aspect"
+msgstr "Setări aspect"
 
 #: index.php:226 prefs_manage.php:286
 msgid "More settings"
-msgstr "Configurări suplimentare"
+msgstr "Mai multe setări"
 
 #: index.php:247
 msgid "Database server"
@@ -747,7 +749,7 @@ msgstr "Server:"
 #, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
-msgstr "Portul serverului"
+msgstr "Port-ul server-ului:"
 
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
@@ -15765,16 +15767,16 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Afișează tabele deschise"
 
 #~ msgid "% connections used"
-#~ msgstr "Conexiuni"
+#~ msgstr "% conexiuni folosite"
 
 #~ msgid "% aborted connections"
-#~ msgstr "Comprimă conexiunea"
+#~ msgstr "% conexiuni anulate"
 
 #~ msgid "CPU Usage"
-#~ msgstr "Utilizare"
+#~ msgstr "Utilizare CPU"
 
 #~ msgid "Swap Usage"
-#~ msgstr "Utilizare"
+#~ msgstr "Utilizare Swap"
 
 #~ msgctxt "PDF"
 #~ msgid "page"
@@ -15812,10 +15814,10 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Utilizator pentru „config auth”"
 
 #~ msgid "Server traffic"
-#~ msgstr "Alegerea serverului"
+#~ msgstr "Trafic server"
 
 #~ msgid "Value too long in the form!"
-#~ msgstr "Valoarea lipsește în formular !"
+#~ msgstr "Valoarea introdusă în formular este prea lungă!"
 
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Modul de export"
@@ -15827,10 +15829,10 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "No valid image path for theme %s found!"
 
 #~ msgid "row(s) starting from row #"
-#~ msgstr "linii începînd cu"
+#~ msgstr "linii începând cu rândul #"
 
 #~ msgid "in %s mode and repeat headers after %s cells"
-#~ msgstr "în mod %s și repetare colontitlu după %s celule"
+#~ msgstr "în mod %s și repetare titlu coloană după %s celule"
 
 #~ msgid ""
 #~ "phpMyAdmin was unable to read your configuration file!<br />This might "
@@ -15851,13 +15853,13 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Proceduri"
 
 #~ msgid "Theme / Style"
-#~ msgstr "Șablon/stil"
+#~ msgstr "Șablon / stil"
 
 #~ msgid "seconds"
 #~ msgstr "pe secundă"
 
 #~ msgid "The number of free memory blocks in query cache."
-#~ msgstr "The number of free memory blocks in query cache."
+#~ msgstr "Numărul de blocuri de memorie libere în memoria cache de interogare."
 
 #~ msgctxt "$strShowStatusReset"
 #~ msgid "Reset"
@@ -15899,7 +15901,7 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Șterge datele urmărite din acest tabel"
 
 #~ msgid "Show left delete link"
-#~ msgstr "Arată/ascunde meniul stîng"
+#~ msgstr "Arată/ascunde meniul stâng"
 
 #~ msgid "yes"
 #~ msgstr "da"
@@ -15924,7 +15926,7 @@ msgstr "concurrent_insert este setat cu 0"
 #~ "dezactivate. Pentru a afla de ce …  %shere%s."
 
 #~ msgid "Ignore duplicate rows"
-#~ msgstr "Ignoră rînduri duplicate"
+#~ msgstr "Ignoră rânduri duplicate"
 
 #~ msgid "No tables"
 #~ msgstr "Nu există tabele"
@@ -15954,7 +15956,7 @@ msgstr "concurrent_insert este setat cu 0"
 #~ "\\xyz' sau 'a\\'b')."
 
 #~ msgid "New table"
-#~ msgstr "Nu există tabele"
+#~ msgstr "Tabelă nouă"
 
 #~ msgid "server name"
 #~ msgstr "nume server"
@@ -15966,10 +15968,10 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Editează paginile PDF"
 
 #~ msgid "Data Dictionary Format"
-#~ msgstr "Data Dictionary Format"
+#~ msgstr "Format dicţionar dată"
 
 #~ msgid "PMA database"
-#~ msgstr "Nu sînt baze de date"
+#~ msgstr "Nu sunt baze de date"
 
 #~ msgid "<code>AUTO_INCREMENT</code>"
 #~ msgstr "Adaugă valoare pentru AUTO_INCREMENT"
@@ -15987,7 +15989,7 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Adăugare la comentarii"
 
 #~ msgid "Invalid column (%s) specified!"
-#~ msgstr "Coloană nevalidă (%s) specificată!"
+#~ msgstr "Coloană invalidă (%s) specificată!"
 
 #~ msgid "Actions"
 #~ msgstr "Acțiuni"
