@@ -59,6 +59,10 @@ function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
  */
 function PMA_getRelationsParam()
 {
+    // avoid breakage if pmadb got unconfigured after login
+    if (! defined('TESTSUITE') && empty($GLOBALS['cfg']['Server']['pmadb'])) {
+        unset($_SESSION['relation'][$GLOBALS['server']]);
+    }
     if (empty($_SESSION['relation'][$GLOBALS['server']])) {
         $_SESSION['relation'][$GLOBALS['server']] = PMA_checkRelationsParam();
     }
