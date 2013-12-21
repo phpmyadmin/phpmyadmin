@@ -163,7 +163,7 @@ if (!defined('TESTSUITE')) {
         )
     );
 
-    // Backward compatbility
+    // Backward compatibility
     $type = $what;
 
     // Check export type
