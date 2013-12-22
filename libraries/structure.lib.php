@@ -1881,7 +1881,7 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         || $tbl_storage_engine == 'ARIA'
         || $tbl_storage_engine == 'MARIA'
         || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
-        && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
+        && (strpos($type, 'text') !== false || strpos($type, 'char') !== false)
     ) {
         $html_output .= '<a rel="samepage" href="sql.php?' . $url_query
             . '&amp;sql_query='
