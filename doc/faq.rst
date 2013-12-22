@@ -1002,6 +1002,14 @@ for the appropriate type. If you know you will be adding larger items
 to that column then you should manually adjust the column sizes
 accordingly. This is done for the sake of efficiency.
 
+.. _faq3_20:
+
+3.20 After upgrading, some bookmarks are gone or their content cannot be shown.
+-------------------------------------------------------------------------------
+
+At some point, the character set used to store bookmark content has changed.
+It's better to recreate your bookmark from the newer phpMyAdmin version.
+
 .. _faqmultiuser:
 
 ISPs, multi-user installations
