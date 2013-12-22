@@ -789,7 +789,6 @@ div#tablestatistics table {
 
 #serverinfo .item {
     white-space:        nowrap;
-    float: <?php echo $left; ?>
 }
 
 #goto_pagetop {

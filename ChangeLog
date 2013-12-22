@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - bug #2961 Relations settings not updated on config change
 - bug #4187 SQL query inline edit doesn't post changes on the first run
 + rfe #1465 Docs for connections to IPv6 only MySQL instances
++ rfe #1468 [interface] No floating for server breadcrumb menu
 
 4.1.1.0 (2013-12-17)
 - bug #4154 Error using UNION query
