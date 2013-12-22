@@ -378,16 +378,8 @@ function confirmQuery(theForm1, sqlQuery1)
  */
 function checkSqlQuery(theForm)
 {
-
-    // First check if codemirror is active.
-    if (codemirror_editor) {
-        theForm.elements['sql_query'].value = codemirror_editor.getValue();
-    }
-
     var sqlQuery = theForm.elements['sql_query'];
-
     var isEmpty  = 1;
-
     var space_re = new RegExp('\\s+');
     if (typeof(theForm.elements['sql_file']) != 'undefined' &&
             theForm.elements['sql_file'].value.replace(space_re, '') !== '') {
