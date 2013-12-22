@@ -1862,8 +1862,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
 }
 
 /**
- * Get HTML for fulltext action,
- * and this function returns $fulltext_enabled boolean value also
+ * Get HTML for fulltext action
  *
  * @param string $tbl_storage_engine table storage engine
  * @param string $type               column type
@@ -1871,7 +1870,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
  * @param array  $row                current row
  * @param array  $titles             titles array
  *
- * @return array $html_output, $fulltext_enabled
+ * @return string $html_output
  */
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles
@@ -1900,13 +1899,11 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
             )
             . '">';
         $html_output .= $titles['IdxFulltext'] . '</a>';
-        $fulltext_enabled = true;
     } else {
         $html_output .= $titles['NoIdxFulltext'];
-        $fulltext_enabled = false;
     }
     $html_output .= '</li>';
-    return array($html_output, $fulltext_enabled);
+    return $html_output;
 }
 
 /**
@@ -1998,11 +1995,9 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         );
 
         // FULLTEXT is possible on TEXT, CHAR and VARCHAR
-        list ($fulltext, $fulltext_enabled) = PMA_getHtmlForFullTextAction(
+        $html_output .= PMA_getHtmlForFullTextAction(
             $tbl_storage_engine, $type, $url_query, $row, $titles
         );
-        unset($fulltext_enabled);
-        $html_output .= $fulltext;
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
     $html_output .= '</ul></td>';
