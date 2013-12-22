@@ -196,6 +196,11 @@ Server connection settings
     * dot - ``'.'``, i.e., use named pipes on windows systems
     * empty - ``''``, disables this server
 
+    .. note::
+
+        phpMyAdmin supports connecting to MySQL servers reachable via IPv6 only.
+		To connect to an IPv6 MySQL server, enter its IPv6 address in this field.
+
 .. config:option:: $cfg['Servers'][$i]['port']
 
     :type: string
