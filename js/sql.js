@@ -232,6 +232,9 @@ AJAX.registerOnload('sql.js', function () {
         event.preventDefault();
 
         var $form = $(this);
+        if (codemirror_editor) {
+            $form[0].elements['sql_query'].value = codemirror_editor.getValue();
+        }
         if (! checkSqlQuery($form[0])) {
             return false;
         }
