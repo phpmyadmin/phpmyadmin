@@ -1824,7 +1824,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
  * @param array   $row                current row
  * @param boolean $isPrimary          is primary action
  *
- * @return array $html_output, $action_enabled
+ * @return string $html_output
  */
 function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
@@ -1838,7 +1838,6 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
         || $hasField
     ) {
         $html_output .= $titles['No' . $action];
-        $action_enabled = false;
     } else {
         $html_output .= '<a rel="samepage" '
             . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' : '')
@@ -1856,11 +1855,10 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
                 )
             ) . '" >'
             . $titles[$action] . '</a>';
-        $action_enabled = true;
     }
     $html_output .= '</li>';
 
-    return array($html_output, $action_enabled);
+    return $html_output;
 }
 
 /**
@@ -1960,8 +1958,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $columns_with_unique_index
 ) {
     $html_output = '<td><ul class="table-structure-actions resizable-menu">';
-    list($primary, $primary_enabled)
-        = PMA_getHtmlForActionRowInStructureTable(
+    $html_output .= PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
             'primary nowrap',
             ($primary && $primary->hasColumn($field_name)),
@@ -1970,10 +1967,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             __('A primary key has been added on %s'),
             'Primary', $titles, $row, true
         );
-    unset($primary_enabled);
-    $html_output .= $primary;
-    list($unique, $unique_enabled)
-        = PMA_getHtmlForActionRowInStructureTable(
+    $html_output .= PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
             'unique nowrap',
             isset($columns_with_unique_index[$field_name]),
@@ -1981,24 +1975,18 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             __('An index has been added on %s'),
             'Unique', $titles, $row, false
         );
-    unset($unique_enabled);
-    $html_output .= $unique;
-    list($index, $index_enabled)
-        = PMA_getHtmlForActionRowInStructureTable(
+    $html_output .= PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
             'index nowrap', false, false, $url_query,
             $primary, 'ADD INDEX', __('An index has been added on %s'),
             'Index', $titles, $row, false
         );
-    unset($index_enabled);
-    $html_output .= $index;
     if (!PMA_DRIZZLE) {
         $spatial_types = array(
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
             'multilinestring', 'multipolygon', 'geomtrycollection'
         );
-        list($spatial, $spatial_enabled)
-            = PMA_getHtmlForActionRowInStructureTable(
+        $html_output .= PMA_getHtmlForActionRowInStructureTable(
                 $type, $tbl_storage_engine,
                 'spatial nowrap',
                 (! in_array($type, $spatial_types)
@@ -2008,8 +1996,6 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
                 __('An index has been added on %s'), 'Spatial',
                 $titles, $row, false
             );
-        unset($spatial_enabled);
-        $html_output .= $spatial;
 
         // FULLTEXT is possible on TEXT, CHAR and VARCHAR
         list ($fulltext, $fulltext_enabled) = PMA_getHtmlForFullTextAction(
