@@ -66,7 +66,6 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
                 PMA_Util::getMessage(null, $sql_query)
             );
         } else {
-            $active_page = 'tbl_structure.php';
             include 'tbl_structure.php';
         }
         exit;

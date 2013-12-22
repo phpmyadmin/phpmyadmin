@@ -350,11 +350,6 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
 {
     $foreigners = PMA_getForeigners($db, $table, $column);
 
-    $display_field = PMA_getDisplayField(
-        $foreigners[$column]['foreign_db'],
-        $foreigners[$column]['foreign_table']
-    );
-
     $foreignData = PMA_getForeignData($foreigners, $column, false, '', '');
 
     if ($foreignData['disp_row'] == null) {
@@ -1946,7 +1941,7 @@ function PMA_getHtmlForIndexesProblems($query_type, $selected, $db)
         && is_array($selected)
     ) {
         $indexes_problems_html = '';
-        foreach ($selected as $idx => $tbl_name) {
+        foreach ($selected as $tbl_name) {
             $check = PMA_Index::findDuplicates($tbl_name, $db);
             if (! empty($check)) {
                 $indexes_problems_html .= sprintf(
@@ -2278,7 +2273,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     // Handle remembered sorting order, only for single table query
     // Handling is not required when it's a union query
     // (the parser never sets the 'union' key to 0)
-    if (PMA_isRememberSortingOrder($analyzed_sql_results) 
+    if (PMA_isRememberSortingOrder($analyzed_sql_results)
         && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
     ) {
         PMA_handleSortOrder($db, $table, $analyzed_sql_results, $full_sql_query);

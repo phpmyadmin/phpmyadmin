@@ -337,10 +337,8 @@ function PMA_getHtmlForReplicationDbMultibox()
         if ($GLOBALS['dbi']->isSystemSchema($current_db)) {
             continue;
         }
-        /* TODO: where $selectall should come from? */
-        if (! empty($selectall)
-            || (isset($tmp_select)
-            && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
+        if (isset($tmp_select)
+            && strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
             $is_selected = ' selected="selected"';
         } else {

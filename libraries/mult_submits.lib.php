@@ -40,7 +40,7 @@ function PMA_getUrlParams(
         $_url_params['db']= $db;
         $_url_params['table']= $table;
     }
-    foreach ($selected as $idx => $sval) {
+    foreach ($selected as $sval) {
         if ($what == 'row_delete') {
             $_url_params['selected'][] = 'DELETE FROM '
                 . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table)
@@ -540,7 +540,7 @@ function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views
 
     $selected_cnt   = count($selected);
     $i = 0;
-    foreach ($selected as $idx => $sval) {
+    foreach ($selected as $sval) {
         switch ($what) {
         case 'row_delete':
             $full_query .= 'DELETE FROM ' . PMA_Util::backquote($db)

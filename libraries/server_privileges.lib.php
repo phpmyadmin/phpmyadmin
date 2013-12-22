@@ -1818,7 +1818,6 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         . '<th>' . __('Action') . '</th>' . "\n"
         . '</tr>' . "\n"
         . '</thead>' . "\n";
-    $odd_row = true;
     // now, we build the table...
     list($list_of_privileges, $list_of_compared_privileges)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
@@ -3547,7 +3546,7 @@ function PMA_addUser(
                 }
                 $queries_for_display[$tmp_count - 1] = $sql_query;
             }
-            unset($res, $real_sql_query);
+            unset($real_sql_query);
         }
     }
 
@@ -3589,7 +3588,6 @@ function PMA_getDataForDBInfo()
 
     if (PMA_isValid($_REQUEST['pred_dbname'])) {
         $dbname = $_REQUEST['pred_dbname'];
-        unset($pred_dbname);
     } elseif (PMA_isValid($_REQUEST['dbname'])) {
         $dbname = $_REQUEST['dbname'];
     } else {
