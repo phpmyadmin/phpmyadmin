@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-12-11 22:31+0200\n"
-"Last-Translator: Raul Malea <raul.malea@gmail.com>\n"
+"PO-Revision-Date: 2013-12-22 19:47+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -225,7 +225,7 @@ msgstr "Baza de date %1$s a fost redenumită în %2$s"
 #: db_operations.php:136
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Baza de date %1$s a fost copiata la %2$s"
+msgstr "Baza de date %1$s a fost copiată la %2$s"
 
 #: db_operations.php:260
 #, php-format
@@ -254,7 +254,7 @@ msgstr "Tabel"
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1729
 #: libraries/structure.lib.php:1922 libraries/tbl_printview.lib.php:194
 msgid "Rows"
-msgstr "Rînduri"
+msgstr "Rânduri"
 
 #: db_printview.php:51 libraries/structure.lib.php:787
 #: libraries/tbl_indexes.lib.php:317
@@ -413,11 +413,13 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"A fost detectată o eroare şi un raport de erori a fost generat automat "
+"conform setărilor."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Ar fi bine să reîncărcaţi pagina."
 
 #: error_report.php:45
 msgid ""
@@ -427,7 +429,7 @@ msgstr ""
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Dacă întâmpunaţi probleme vă rugăm să raportaţi un bug manual."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
@@ -435,7 +437,7 @@ msgstr "Mulțumim că ai trimis acest raport."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Din păcate trimiterea a eşuat."
 
 #: export.php:171
 msgid "Bad type!"
@@ -474,7 +476,7 @@ msgstr "Copia a fost salvată în fișierul %s."
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr "Tip nevalid de export"
+msgstr "Tip invalid de export"
 
 #: gis_data_editor.php:113
 #, php-format
@@ -713,7 +715,7 @@ msgstr ""
 
 #: index.php:129
 msgid "General Settings"
-msgstr "Configurări generale"
+msgstr "Setări generale"
 
 #: index.php:157 libraries/display_change_password.lib.php:46
 #: user_password.php:233
@@ -728,11 +730,11 @@ msgstr "MySQL connection collation"
 
 #: index.php:196
 msgid "Appearance Settings"
-msgstr "Configurări de aspect"
+msgstr "Setări aspect"
 
 #: index.php:226 prefs_manage.php:281
 msgid "More settings"
-msgstr "Configurări suplimentare"
+msgstr "Mai multe setări"
 
 #: index.php:247
 msgid "Database server"
