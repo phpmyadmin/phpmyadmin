@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-11 22:31+0200\n"
-"Last-Translator: Raul Malea <raul.malea@gmail.com>\n"
-"Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
-">\n"
+"PO-Revision-Date: 2013-12-22 19:47+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Romanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -626,7 +626,7 @@ msgstr ""
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
-msgstr "Afișând semn de carte"
+msgstr "Afișînd semn de carte"
 
 #: import.php:299 import.php:546
 msgid "The bookmark has been deleted."
