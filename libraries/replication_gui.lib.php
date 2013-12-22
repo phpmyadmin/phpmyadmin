@@ -337,16 +337,9 @@ function PMA_getHtmlForReplicationDbMultibox()
         if ($GLOBALS['dbi']->isSystemSchema($current_db)) {
             continue;
         }
-        if (isset($tmp_select)
-            && strpos(' ' . $tmp_select, '|' . $current_db . '|')
-        ) {
-            $is_selected = ' selected="selected"';
-        } else {
-            $is_selected = '';
-        }
         $current_db = htmlspecialchars($current_db);
         $multi_values .= '                <option value="' . $current_db . '" ';
-        $multi_values .= $is_selected . '>';
+        $multi_values .= '>';
         $multi_values .= $current_db . '</option>';
     } // end while
 
