@@ -1959,43 +1959,43 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
 ) {
     $html_output = '<td><ul class="table-structure-actions resizable-menu">';
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
-            $type, $tbl_storage_engine,
-            'primary nowrap',
-            ($primary && $primary->hasColumn($field_name)),
-            true, $url_query, $primary,
-            'ADD PRIMARY KEY',
-            __('A primary key has been added on %s'),
-            'Primary', $titles, $row, true
-        );
+        $type, $tbl_storage_engine,
+        'primary nowrap',
+        ($primary && $primary->hasColumn($field_name)),
+        true, $url_query, $primary,
+        'ADD PRIMARY KEY',
+        __('A primary key has been added on %s'),
+        'Primary', $titles, $row, true
+    );
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
-            $type, $tbl_storage_engine,
-            'unique nowrap',
-            isset($columns_with_unique_index[$field_name]),
-            false, $url_query, $primary, 'ADD UNIQUE',
-            __('An index has been added on %s'),
-            'Unique', $titles, $row, false
-        );
+        $type, $tbl_storage_engine,
+        'unique nowrap',
+        isset($columns_with_unique_index[$field_name]),
+        false, $url_query, $primary, 'ADD UNIQUE',
+        __('An index has been added on %s'),
+        'Unique', $titles, $row, false
+    );
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
-            $type, $tbl_storage_engine,
-            'index nowrap', false, false, $url_query,
-            $primary, 'ADD INDEX', __('An index has been added on %s'),
-            'Index', $titles, $row, false
-        );
+        $type, $tbl_storage_engine,
+        'index nowrap', false, false, $url_query,
+        $primary, 'ADD INDEX', __('An index has been added on %s'),
+        'Index', $titles, $row, false
+    );
     if (!PMA_DRIZZLE) {
         $spatial_types = array(
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
             'multilinestring', 'multipolygon', 'geomtrycollection'
         );
         $html_output .= PMA_getHtmlForActionRowInStructureTable(
-                $type, $tbl_storage_engine,
-                'spatial nowrap',
-                (! in_array($type, $spatial_types)
-                    || 'MYISAM' != $tbl_storage_engine
-                ),
-                false, $url_query, $primary, 'ADD SPATIAL',
-                __('An index has been added on %s'), 'Spatial',
-                $titles, $row, false
-            );
+            $type, $tbl_storage_engine,
+            'spatial nowrap',
+            (! in_array($type, $spatial_types)
+                || 'MYISAM' != $tbl_storage_engine
+            ),
+            false, $url_query, $primary, 'ADD SPATIAL',
+            __('An index has been added on %s'), 'Spatial',
+            $titles, $row, false
+        );
 
         // FULLTEXT is possible on TEXT, CHAR and VARCHAR
         list ($fulltext, $fulltext_enabled) = PMA_getHtmlForFullTextAction(
