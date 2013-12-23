@@ -66,6 +66,13 @@ $cfg_db['TabsMode'] = array(
     'text'  => __('Text'),
     'both'  => __('Both')
 );
+$cfg_db['PDFDefaultPageSize'] = array(
+    'A3'     => 'A3',
+    'A4'     => 'A4',
+    'A5'     => 'A5',
+    'letter' => 'letter',
+    'legal'  => 'legal'
+);
 $cfg_db['ActionLinksMode'] = array(
     'icons' => __('Icons'),
     'text'  => __('Text'),
