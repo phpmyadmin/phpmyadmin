@@ -38,7 +38,8 @@ if (isset($_GET['version_check'])) {
 //
 // Perform various security, compatibility and consistency checks
 //
-ServerConfigChecks::performConfigChecks($GLOBALS['ConfigFile']);
+$configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
+$configChecker->performConfigChecks();
 
 //
 // Check whether we can read/write configuration
