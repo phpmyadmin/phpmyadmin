@@ -141,7 +141,7 @@ class ServerConfigChecks
         $sSecurityInfoMsg, $blowfishSecretSet
     ) {
         for ($i = 1, $serverCnt = $this->cfg->getServerCount(); $i <= $serverCnt; $i++) {
-            $cookieAuthServer = ($this->cfg->getValue("Servers/$i/auth_type") == 'cookie');
+            $cookieAuthServer = $this->cfg->getValue("Servers/$i/auth_type") == 'cookie';
             $cookieAuthUsed |= $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
                 $this->cfg->getServerName($i), $i
