@@ -15,6 +15,7 @@ require_once 'libraries/config/config_functions.lib.php';
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
+require_once 'libraries/config/ServerConfigChecks.class.php';
 require_once 'setup/lib/index.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sanitizing.lib.php';
@@ -385,11 +386,11 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_performConfigChecks
+     * Test for ServerConfigChecks::performConfigChecks
      *
      * @return void
      */
-    public function testPMAPerformConfigChecks()
+    public function testServerConfigChecksPerformConfigChecks()
     {
 
         $GLOBALS['cfg']['AvailableCharsets'] = array();
@@ -457,7 +458,8 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             $errorArrayKeys[] = 'ZipDump_export';
         }
 
-        PMA_performConfigChecks();
+        $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
+        $configChecker->performConfigChecks();
 
         foreach ($noticeArrayKeys as $noticeKey) {
             $this->assertArrayHasKey(
@@ -499,7 +501,9 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $_SESSION[$sessionID]['BZipDump'] = false;
         $_SESSION[$sessionID]['ZipDump'] = false;
 
-        PMA_performConfigChecks();
+        $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
+        $configChecker->performConfigChecks();
+
         $this->assertArrayHasKey(
             'blowfish_secret_created',
             $_SESSION['messages']['notice']
@@ -527,12 +531,14 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
                 'auth_type' => 'cookie'
             )
         );
-        PMA_performConfigChecks();
+
+        $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
+        $configChecker->performConfigChecks();
+
         $this->assertArrayHasKey(
             'blowfish_warnings2',
             $_SESSION['messages']['error']
         );
-
     }
 }
 ?>
