@@ -15,6 +15,7 @@ if (!defined('PHPMYADMIN')) {
  */
 require_once './libraries/display_select_lang.lib.php';
 require_once './libraries/config/FormDisplay.class.php';
+require_once './libraries/config/ServerConfigChecks.class.php';
 require_once './setup/lib/index.lib.php';
 
 // prepare unfiltered language list
@@ -37,7 +38,8 @@ if (isset($_GET['version_check'])) {
 //
 // Perform various security, compatibility and consistency checks
 //
-PMA_performConfigChecks();
+$configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
+$configChecker->performConfigChecks();
 
 //
 // Check whether we can read/write configuration
