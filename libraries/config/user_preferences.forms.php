@@ -133,6 +133,9 @@ $forms['Main_panel']['Tabs'] = array(
     'DefaultTabServer',
     'DefaultTabDatabase',
     'DefaultTabTable');
+$forms['Main_panel']['DisplayRelationalSchema'] = array(
+    'PDFDefaultPageSize');
+
 $forms['Import']['Import_defaults'] = array(
     'Import/format',
     'Import/charset',
