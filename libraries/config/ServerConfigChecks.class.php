@@ -17,15 +17,28 @@
 class ServerConfigChecks
 {
     /**
-     * Perform config checks
+     * @var ConfigFile configurations being checked
+     */
+    protected $cfg;
+
+    /**
+     * Constructor.
      *
-     * @param object $cfg Configuration
+     * @param ConfigFile $cfg Configuration
+     */
+    public function __construct(ConfigFile $cfg)
+    {
+        $this->cfg = $cfg;
+    }
+
+    /**
+     * Perform config checks
      *
      * @return void
      */
-    public static function performConfigChecks($cfg)
+    public function performConfigChecks()
     {
-        $blowfishSecret = $cfg->get('blowfish_secret');
+        $blowfishSecret = $this->cfg->get('blowfish_secret');
         $blowfishSecretSet = false;
         $cookieAuthUsed = false;
 
@@ -39,12 +52,12 @@ class ServerConfigChecks
         ) = self::defineMessages();
 
         list($cookieAuthUsed, $blowfishSecret, $blowfishSecretSet)
-            = self::performConfigChecksServers(
-                $cfg, $cookieAuthUsed, $blowfishSecret, $sSrvAuthCfgMsg,
+            = $this->performConfigChecksServers(
+                $cookieAuthUsed, $blowfishSecret, $sSrvAuthCfgMsg,
                 $sSecurityInfoMsg, $blowfishSecretSet
             );
 
-        self::performConfigChecksCookieAuthUsed(
+        $this->performConfigChecksCookieAuthUsed(
             $cookieAuthUsed, $blowfishSecretSet, $sBlowfishSecretMsg,
             $blowfishSecret
         );
@@ -53,7 +66,7 @@ class ServerConfigChecks
         // $cfg['ForceSSL']
         // should be enabled if possible
         //
-        if (!$cfg->getValue('ForceSSL')) {
+        if (!$this->cfg->getValue('ForceSSL')) {
             PMA_messagesSet(
                 'notice',
                 'ForceSSL',
@@ -66,7 +79,7 @@ class ServerConfigChecks
         // $cfg['AllowArbitraryServer']
         // should be disabled
         //
-        if ($cfg->getValue('AllowArbitraryServer')) {
+        if ($this->cfg->getValue('AllowArbitraryServer')) {
             PMA_messagesSet(
                 'notice',
                 'AllowArbitraryServer',
@@ -75,8 +88,8 @@ class ServerConfigChecks
             );
         }
 
-        self::performConfigChecksLoginCookie(
-            $cfg, $sLoginCookieValidityWarn, $sLoginCookieValidityWarn2,
+        $this->performConfigChecksLoginCookie(
+            $sLoginCookieValidityWarn, $sLoginCookieValidityWarn2,
             $sLoginCookieValidityWarn3
         );
 
@@ -84,7 +97,7 @@ class ServerConfigChecks
         // $cfg['SaveDir']
         // should not be world-accessible
         //
-        if ($cfg->getValue('SaveDir') != '') {
+        if ($this->cfg->getValue('SaveDir') != '') {
             PMA_messagesSet(
                 'notice',
                 'SaveDir',
@@ -97,7 +110,7 @@ class ServerConfigChecks
         // $cfg['TempDir']
         // should not be world-accessible
         //
-        if ($cfg->getValue('TempDir') != '') {
+        if ($this->cfg->getValue('TempDir') != '') {
             PMA_messagesSet(
                 'notice',
                 'TempDir',
@@ -106,8 +119,8 @@ class ServerConfigChecks
             );
         }
 
-        self::performConfigChecksZips(
-            $cfg, $sGZipDumpWarn, $sBZipDumpWarn, $sZipDumpImportWarn,
+        $this->performConfigChecksZips(
+            $sGZipDumpWarn, $sBZipDumpWarn, $sZipDumpImportWarn,
             $sZipDumpExportWarn
         );
     }
@@ -115,7 +128,6 @@ class ServerConfigChecks
     /**
      * Check config of servers
      *
-     * @param object  $cfg               Configuration
      * @param boolean $cookieAuthUsed    Cookie auth is used
      * @param string  $blowfishSecret    Blowfish secret
      * @param string  $sServerAuthCfgMsg Message for server auth config
@@ -124,28 +136,28 @@ class ServerConfigChecks
      *
      * @return array
      */
-    protected static function performConfigChecksServers(
-        $cfg, $cookieAuthUsed, $blowfishSecret, $sServerAuthCfgMsg,
+    protected function performConfigChecksServers(
+        $cookieAuthUsed, $blowfishSecret, $sServerAuthCfgMsg,
         $sSecurityInfoMsg, $blowfishSecretSet
     ) {
-        for ($i = 1, $serverCnt = $cfg->getServerCount(); $i <= $serverCnt; $i++) {
-            $cookieAuthServer = ($cfg->getValue("Servers/$i/auth_type") == 'cookie');
+        for ($i = 1, $serverCnt = $this->cfg->getServerCount(); $i <= $serverCnt; $i++) {
+            $cookieAuthServer = ($this->cfg->getValue("Servers/$i/auth_type") == 'cookie');
             $cookieAuthUsed |= $cookieAuthServer;
-            $serverName = self::performConfigChecksServersGetServerName(
-                $cfg->getServerName($i), $i
+            $serverName = $this->performConfigChecksServersGetServerName(
+                $this->cfg->getServerName($i), $i
             );
             $serverName = htmlspecialchars($serverName);
 
             list($blowfishSecret, $blowfishSecretSet)
-                = self::performConfigChecksServersSetBlowfishSecret(
-                    $cfg, $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
+                = $this->performConfigChecksServersSetBlowfishSecret(
+                    $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
                 );
 
             //
             // $cfg['Servers'][$i]['ssl']
             // should be enabled if possible
             //
-            if (!$cfg->getValue("Servers/$i/ssl")) {
+            if (!$this->cfg->getValue("Servers/$i/ssl")) {
                 $title = PMA_lang(PMA_langName('Servers/1/ssl')) . " ($serverName)";
                 PMA_messagesSet(
                     'notice',
@@ -159,9 +171,9 @@ class ServerConfigChecks
             // $cfg['Servers'][$i]['auth_type']
             // warn about full user credentials if 'auth_type' is 'config'
             //
-            if ($cfg->getValue("Servers/$i/auth_type") == 'config'
-                && $cfg->getValue("Servers/$i/user") != ''
-                && $cfg->getValue("Servers/$i/password") != ''
+            if ($this->cfg->getValue("Servers/$i/auth_type") == 'config'
+                && $this->cfg->getValue("Servers/$i/user") != ''
+                && $this->cfg->getValue("Servers/$i/password") != ''
             ) {
                 $title = PMA_lang(PMA_langName('Servers/1/auth_type'))
                     . " ($serverName)";
@@ -179,8 +191,8 @@ class ServerConfigChecks
             // $cfg['Servers'][$i]['AllowNoPassword']
             // serious security flaw
             //
-            if ($cfg->getValue("Servers/$i/AllowRoot")
-                && $cfg->getValue("Servers/$i/AllowNoPassword")
+            if ($this->cfg->getValue("Servers/$i/AllowRoot")
+                && $this->cfg->getValue("Servers/$i/AllowNoPassword")
             ) {
                 $title = PMA_lang(PMA_langName('Servers/1/AllowNoPassword'))
                     . " ($serverName)";
@@ -199,20 +211,19 @@ class ServerConfigChecks
     /**
      * Set blowfish secret
      *
-     * @param object  $cfg               Configuration
      * @param string  $blowfishSecret    Blowfish secret
      * @param boolean $cookieAuthServer  Cookie auth is used
      * @param boolean $blowfishSecretSet Blowfish secret set
      *
      * @return array
      */
-    protected static function performConfigChecksServersSetBlowfishSecret(
-        $cfg, $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
+    protected function performConfigChecksServersSetBlowfishSecret(
+        $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
     ) {
         if ($cookieAuthServer && $blowfishSecret === null) {
             $blowfishSecret = uniqid('', true);
             $blowfishSecretSet = true;
-            $cfg->set('blowfish_secret', $blowfishSecret);
+            $this->cfg->set('blowfish_secret', $blowfishSecret);
             return array($blowfishSecret, $blowfishSecretSet);
         }
         return array($blowfishSecret, $blowfishSecretSet);
@@ -226,7 +237,7 @@ class ServerConfigChecks
      *
      * @return string Server name
      */
-    protected static function performConfigChecksServersGetServerName(
+    protected function performConfigChecksServersGetServerName(
         $serverName, $serverId
     ) {
         if ($serverName == 'localhost') {
@@ -239,7 +250,6 @@ class ServerConfigChecks
     /**
      * Perform config checks for zip part.
      *
-     * @param object $cfg                Configuration
      * @param string $sGZipDumpWarning   Gzip dump warning
      * @param string $sBZipDumpWarning   Bzip dump warning
      * @param string $sZipDumpImportWarn Zip dump import warning
@@ -247,34 +257,33 @@ class ServerConfigChecks
      *
      * @return void
      */
-    protected static function performConfigChecksZips(
-        $cfg, $sGZipDumpWarning, $sBZipDumpWarning, $sZipDumpImportWarn,
+    protected function performConfigChecksZips(
+        $sGZipDumpWarning, $sBZipDumpWarning, $sZipDumpImportWarn,
         $sZipDumpExportWarn
     ) {
-        self::performConfigChecksServerGZipdump($cfg, $sGZipDumpWarning);
-        self::performConfigChecksServerBZipdump($cfg, $sBZipDumpWarning);
-        self::performConfigChecksServersZipdump(
-            $cfg, $sZipDumpImportWarn, $sZipDumpExportWarn
+        $this->performConfigChecksServerGZipdump($sGZipDumpWarning);
+        $this->performConfigChecksServerBZipdump($sBZipDumpWarning);
+        $this->performConfigChecksServersZipdump(
+            $sZipDumpImportWarn, $sZipDumpExportWarn
         );
     }
 
     /**
      * Perform config checks for zip part.
      *
-     * @param object $cfg                Configuration
      * @param string $sZipDumpImportWarn Zip dump import warning
      * @param string $sZipDumpExportWarn Zip dump export warning
      *
      * @return void
      */
-    protected static function performConfigChecksServersZipdump(
-        $cfg, $sZipDumpImportWarn, $sZipDumpExportWarn
+    protected function performConfigChecksServersZipdump(
+        $sZipDumpImportWarn, $sZipDumpExportWarn
     ) {
         //
         // $cfg['ZipDump']
         // requires zip_open in import
         //
-        if ($cfg->getValue('ZipDump') && !@function_exists('zip_open')) {
+        if ($this->cfg->getValue('ZipDump') && !@function_exists('zip_open')) {
             PMA_messagesSet(
                 'error',
                 'ZipDump_import',
@@ -287,7 +296,7 @@ class ServerConfigChecks
         // $cfg['ZipDump']
         // requires gzcompress in export
         //
-        if ($cfg->getValue('ZipDump') && !@function_exists('gzcompress')) {
+        if ($this->cfg->getValue('ZipDump') && !@function_exists('gzcompress')) {
             PMA_messagesSet(
                 'error',
                 'ZipDump_export',
@@ -307,7 +316,7 @@ class ServerConfigChecks
      *
      * @return array
      */
-    protected static function performConfigChecksCookieAuthUsed(
+    protected function performConfigChecksCookieAuthUsed(
         $cookieAuthUsed, $blowfishSecretSet, $sBlowfishSecretMsg,
         $blowfishSecret
     ) {
@@ -449,22 +458,21 @@ class ServerConfigChecks
     /**
      * Check configuration for login cookie
      *
-     * @param object $cfg                       Configuration
      * @param string $sLoginCookieValidityWarn  Warning 1 for login cookie validity
      * @param string $sLoginCookieValidityWarn2 Warning 2 for login cookie validity
      * @param string $sLoginCookieValidityWarn3 Warning 3 for login cookie validity
      *
      * @return void
      */
-    protected static function performConfigChecksLoginCookie(
-        $cfg, $sLoginCookieValidityWarn, $sLoginCookieValidityWarn2,
+    protected function performConfigChecksLoginCookie(
+        $sLoginCookieValidityWarn, $sLoginCookieValidityWarn2,
         $sLoginCookieValidityWarn3
     ) {
         //
         // $cfg['LoginCookieValidity']
         // value greater than session.gc_maxlifetime will cause
         // random session invalidation after that time
-        if ($cfg->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
+        if ($this->cfg->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
         ) {
             PMA_messagesSet(
                 'error',
@@ -478,7 +486,7 @@ class ServerConfigChecks
         // $cfg['LoginCookieValidity']
         // should be at most 1800 (30 min)
         //
-        if ($cfg->getValue('LoginCookieValidity') > 1800) {
+        if ($this->cfg->getValue('LoginCookieValidity') > 1800) {
             PMA_messagesSet(
                 'notice',
                 'LoginCookieValidity',
@@ -492,8 +500,8 @@ class ServerConfigChecks
         // $cfg['LoginCookieStore']
         // LoginCookieValidity must be less or equal to LoginCookieStore
         //
-        if ($cfg->getValue('LoginCookieStore') != 0
-            && $cfg->getValue('LoginCookieValidity') > $cfg->getValue('LoginCookieStore')
+        if ($this->cfg->getValue('LoginCookieStore') != 0
+            && $this->cfg->getValue('LoginCookieValidity') > $this->cfg->getValue('LoginCookieStore')
         ) {
             PMA_messagesSet(
                 'error',
@@ -507,19 +515,17 @@ class ServerConfigChecks
     /**
      * Check GZipDump configuration
      *
-     * @param object $cfg           Configuration
      * @param string $sBZipDumpWarn Warning for BZipDumpWarning
      *
      * @return void
      */
-    protected static function performConfigChecksServerBZipdump(
-        $cfg, $sBZipDumpWarn
-    ) {
+    protected function performConfigChecksServerBZipdump($sBZipDumpWarn)
+    {
         //
         // $cfg['BZipDump']
         // requires bzip2 functions
         //
-        if ($cfg->getValue('BZipDump')
+        if ($this->cfg->getValue('BZipDump')
             && (!@function_exists('bzopen') || !@function_exists('bzcompress'))
         ) {
             $functions = @function_exists('bzopen')
@@ -540,19 +546,17 @@ class ServerConfigChecks
     /**
      * Check GZipDump configuration
      *
-     * @param object $cfg           Configuration
      * @param string $sGZipDumpWarn Warning for GZipDumpWarning
      *
      * @return void
      */
-    protected static function performConfigChecksServerGZipdump(
-        $cfg, $sGZipDumpWarn
-    ) {
+    protected function performConfigChecksServerGZipdump($sGZipDumpWarn)
+    {
         //
         // $cfg['GZipDump']
         // requires zlib functions
         //
-        if ($cfg->getValue('GZipDump')
+        if ($this->cfg->getValue('GZipDump')
             && (@!function_exists('gzopen') || @!function_exists('gzencode'))
         ) {
             PMA_messagesSet(
