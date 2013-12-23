@@ -9,7 +9,9 @@ phpMyAdmin - ChangeLog
 + Added warning about the mysql extension being deprecated
   and removed the extension directive
 
-4.1.2.0 (not yet released)
+4.1.3.0 (not yet released)
+
+4.1.2.0 (2013-12-23)
 - bug #4178 Quick edit for BIT type does not work
 - bug #2760 Warn about incomplete exports
 - bug #4190 Fractional seconds cause row update even if the value is not changed
