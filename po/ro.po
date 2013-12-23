@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-12-23 09:48+0200\n"
+"PO-Revision-Date: 2013-12-23 09:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/ro/>\n"
 "Language: ro\n"
@@ -957,7 +957,7 @@ msgstr "Se şterge cheia primară/indexul"
 
 #: js/messages.php:43
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Această operație poate dura. Continuați oricum?"
+msgstr "Această operație poate dura mult timp. Continuați oricum?"
 
 #: js/messages.php:44
 #, fuzzy, php-format
@@ -967,7 +967,7 @@ msgstr "Sigur doriți să "
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
-msgstr "Valoarea lipsește în formular!"
+msgstr "Valoarea lipsește din formular!"
 
 #: js/messages.php:48
 #, fuzzy
@@ -977,7 +977,7 @@ msgstr "Nu este un număr valid de port"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Vă rugăm să introduceţi o dimensiune validă"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -999,16 +999,16 @@ msgstr "Valori Y"
 
 #: js/messages.php:59
 msgid "The host name is empty!"
-msgstr "Numele gazdei este gol!"
+msgstr "Câmpul nume gazdă nu a fost completat!"
 
 #: js/messages.php:60
 msgid "The user name is empty!"
-msgstr "Numele de utilizator este gol!"
+msgstr "Câmpul nume de utilizator nu a fost completat!"
 
 #: js/messages.php:61 libraries/server_privileges.lib.php:1553
 #: user_password.php:110
 msgid "The password is empty!"
-msgstr "Parola este goală!"
+msgstr "Câmpul parolă nu a fost completat!"
 
 #: js/messages.php:62 libraries/server_privileges.lib.php:1551
 #: user_password.php:113
@@ -1054,7 +1054,7 @@ msgstr "."
 
 #: js/messages.php:75
 msgid "Connections / Processes"
-msgstr "Conexiuni / procese"
+msgstr "Conexiuni / Procese"
 
 #: js/messages.php:78
 #, fuzzy
@@ -1349,7 +1349,7 @@ msgstr "Unitate"
 
 #: js/messages.php:159
 msgid "From slow log"
-msgstr ""
+msgstr "Din log-ul cu înregistrări lente"
 
 #: js/messages.php:160
 msgid "From general log"
@@ -1358,6 +1358,8 @@ msgstr "Din jurnalul general"
 #: js/messages.php:162
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"Numele bazei de date nu este cunoscut pentru această interogare în log-urile "
+"server-uui."
 
 #: js/messages.php:164
 msgid "Analysing logs"
