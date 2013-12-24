@@ -8,7 +8,8 @@ var ChartType = {
     BAR : 'bar',
     COLUMN : 'column',
     PIE : 'pie',
-    TIMELINE: 'timeline'
+    TIMELINE: 'timeline',
+    SCATTER: 'scatter'
 };
 
 /**
@@ -115,6 +116,28 @@ TimelineChart.prototype.validateColumns = function (dataTable) {
 };
 
 /**
+ * Abstract scatter chart
+ *
+ * @param elementId
+ *            id of the div element the chart is drawn in
+ */
+var ScatterChart = function(elementId) {
+    BaseChart.call(this, elementId);
+};
+ScatterChart.prototype = new BaseChart();
+ScatterChart.prototype.constructor = ScatterChart;
+ScatterChart.prototype.validateColumns = function (dataTable) {
+    var result = BaseChart.prototype.validateColumns.call(this, dataTable);
+    if (result) {
+        var columns = dataTable.getColumns();
+        if (columns[0].type != ColumnType.NUMBER) {
+            throw new Error("First column of scatter chart need to be a numeric column");
+        }
+    }
+    return result;
+};
+
+/**
  * The data table contains column information and data for the chart.
  */
 var DataTable = function () {
@@ -202,6 +225,9 @@ JQPlotChartFactory.prototype.createChart = function (type, elementId) {
         break;
     case ChartType.PIE:
         chart = new JQPlotPieChart(elementId);
+        break;
+    case ChartType.SCATTER:
+        chart = new JQPlotScatterChart(elementId);
         break;
     }
 
@@ -333,6 +359,72 @@ JQPlotSplineChart.prototype.populateOptions = function (dataTable, options) {
     };
     $.extend(true, optional, opt, compulsory);
     return optional;
+};
+
+/**
+ * JQPlot scatter chart
+ *
+ * @param elementId
+ *            id of the div element the chart is drawn in
+ */
+var JQPlotScatterChart = function (elementId) {
+    JQPlotLineChart.call(this, elementId);
+};
+JQPlotScatterChart.prototype = new JQPlotLineChart();
+JQPlotScatterChart.prototype.constructor = JQPlotScatterChart;
+
+JQPlotScatterChart.prototype.populateOptions = function (dataTable, options) {
+    var columns = dataTable.getColumns();
+    var optional = {
+        axes : {
+            xaxis : {
+                label : columns[0].name
+            },
+            yaxis : {
+                label : (columns.length == 2 ? columns[1].name : 'Values'),
+                labelRenderer : $.jqplot.CanvasAxisLabelRenderer
+            }
+        },
+        series : []
+    };
+    for (var i = 1; i < columns.length; i++) {
+        optional.series.push({
+            label : columns[i].name.toString()
+        });
+    }
+
+    var compulsory = {
+        seriesDefaults : {
+            showLine: false,
+            markerOptions: {
+                size: 7,
+                style: "x"
+            }
+        }
+    };
+
+    $.extend(true, optional, options, compulsory);
+    return optional;
+};
+
+JQPlotScatterChart.prototype.prepareData = function (dataTable) {
+    var data = dataTable.getData(), row;
+    var retData = [], retRow;
+    for (var i = 0; i < data.length; i++) {
+        row = data[i];
+        if (row[0]) {
+            var x = parseFloat(row[0]);
+            for (var j = 1; j < row.length; j++) {
+                retRow = retData[j - 1];
+                if (retRow === undefined) {
+                    retRow = [];
+                    retData[j - 1] = retRow;
+                }
+                retRow.push([x, row[j]]);
+            }
+        }
+    }
+    return retData;
 };
 
 /**

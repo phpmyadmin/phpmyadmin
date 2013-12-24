@@ -225,6 +225,12 @@ AJAX.registerOnload('tbl_chart.js', function () {
         dateTimeCols.push(parseInt(v, 10));
     });
 
+    var numericCols = [];
+    var vals = $('input[name="numericCols"]').val().split(' ');
+    $.each(vals, function (i, v) {
+        numericCols.push(parseInt(v, 10));
+    });
+
     // handle changing the x-axis
     $('select[name="chartXAxis"]').change(function () {
         currentSettings.mainAxis = parseInt($(this).val(), 10);
@@ -233,6 +239,15 @@ AJAX.registerOnload('tbl_chart.js', function () {
         } else {
             $('span.span_timeline').hide();
             if (currentSettings.type == 'timeline') {
+                $('input#radio_line').prop('checked', true);
+                currentSettings.type = 'line';
+            }
+        }
+        if (numericCols.indexOf(currentSettings.mainAxis) != -1) {
+            $('span.span_scatter').show();
+        } else {
+            $('span.span_scatter').hide();
+            if (currentSettings.type == 'scatter') {
                 $('input#radio_line').prop('checked', true);
                 currentSettings.type = 'line';
             }
