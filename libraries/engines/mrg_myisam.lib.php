@@ -19,7 +19,7 @@ require_once './libraries/engines/merge.lib.php';
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_Mrg_myisam extends PMA_StorageEngine_merge
+class PMA_StorageEngine_MrgMyisam extends PMA_StorageEngine_Merge
 {
     /**
      * returns string with filename for the MySQL helppage
