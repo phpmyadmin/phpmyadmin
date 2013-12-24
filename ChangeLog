@@ -9,13 +9,18 @@ phpMyAdmin - ChangeLog
 + Added warning about the mysql extension being deprecated
   and removed the extension directive
 
-4.1.2.0 (not yet released)
+4.1.3.0 (not yet released)
+- bug #3938 PDFDefaultPageSize doc and easy configurability
+
+4.1.2.0 (2013-12-23)
 - bug #4178 Quick edit for BIT type does not work
 - bug #2760 Warn about incomplete exports
 - bug #4190 Fractional seconds cause row update even if the value is not changed
 - bug #4170 Overflow scroll for table grid is not a good solution
 - bug #2961 Relations settings not updated on config change
 - bug #4187 SQL query inline edit doesn't post changes on the first run
++ rfe #1465 Docs for connections to IPv6 only MySQL instances
++ rfe #1468 [interface] No floating for server breadcrumb menu
 
 4.1.1.0 (2013-12-17)
 - bug #4154 Error using UNION query

@@ -51,7 +51,6 @@ class PMA_Scripts
     private function _includeFiles($files)
     {
         $dynamic_scripts = "";
-        $params = array();
         foreach ($files as $value) {
             if (strpos($value['filename'], "?") === false) {
                 $include = true;
