@@ -150,6 +150,11 @@ AJAX.registerOnload('sql.js', function () {
         PMA_makegrid($('#table_results')[0]);
     });
 
+    /*
+     * Attach a custom event for sticky column headings which will be
+     * triggered manually everytime the table of results is reloaded
+     * @memberOf    jQuery
+     */
     $("#sqlqueryresults").live('stickycolumns', function () {
         if ($("#table_results").length === 0) {
             return;
@@ -497,6 +502,9 @@ function initProfilingTables()
     });
 }
 
+/*
+ * Set position, left, top, width of sticky_columns div
+ */
 function setStickyColumnsPosition(position, top, left) {
     if ($("#sticky_columns").length !== 0) {
         $("#sticky_columns")
@@ -507,6 +515,9 @@ function setStickyColumnsPosition(position, top, left) {
     }
 }
 
+/*
+ * Initialize sticky columns
+ */
 function initStickyColumns() {
     fixedTop = $('#floating_menubar').height();
     if ($("#sticky_columns").length === 0) {
@@ -521,6 +532,9 @@ function initStickyColumns() {
     }
 }
 
+/*
+ * Adjust sticky columns on horizontal/vertical scroll
+ */
 function handleStickyColumns() {
     var currentScrollX = $(window).scrollLeft();
     var windowOffset = $(window).scrollTop();
