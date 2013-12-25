@@ -159,4 +159,32 @@ function PMA_exportOutputHandler($line)
     }
     return true;
 } // end of the 'PMA_exportOutputHandler()' function
+
+/**
+ * Returns HTML containing the footer for a displayed export
+ *
+ * @param string $back_button the link for going Back
+ *
+ * @return string $html the HTML output
+ */
+function PMA_getHtmlForDisplayedExportFooter($back_button)
+{
+    /**
+     * Close the html tags and add the footers for on-screen export 
+     */
+    $html = '</textarea>'
+        . '    </form>'
+        // bottom back button
+        . $back_button
+        . '</div>'
+        . '<script type="text/javascript">' . "\n"
+        . '//<![CDATA[' . "\n"
+        . 'var $body = $("body");' . "\n"
+        . '$("#textSQLDUMP")' . "\n"
+        . '.width($body.width() - 50)' . "\n"
+        . '.height($body.height() - 100);' . "\n"
+        . '//]]>' . "\n"
+        . '</script>' . "\n";
+    return $html;
+}
 ?>

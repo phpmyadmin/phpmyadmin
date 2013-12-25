@@ -20,7 +20,7 @@ if (!defined('TESTSUITE')) {
     include_once 'libraries/common.inc.php';
     include_once 'libraries/zip.lib.php';
     include_once 'libraries/plugin_interface.lib.php';
-    require_once 'libraries/export.lib.php';
+    include_once 'libraries/export.lib.php';
     
     //check if it's the GET request to check export time out
     if (isset($_GET['check_time_out'])) {
@@ -860,28 +860,7 @@ if (!defined('TESTSUITE')) {
             echo $dump_buffer;
         }
     } else {
-        /**
-         * Displays the dump...
-         *
-         * Close the html tags and add the footers if dump is displayed on screen
-         */
-        echo '</textarea>' . "\n"
-           . '    </form>' . "\n";
-        echo $back_button;
-
-        echo "\n";
-        echo '</div>' . "\n";
-        echo "\n";
-        ?>
-        <script type="text/javascript">
-        //<![CDATA[
-            var $body = $("body");
-            $("#textSQLDUMP")
-                .width($body.width() - 50)
-                .height($body.height() - 100);
-        //]]>
-        </script>
-        <?php
+        echo PMA_getHtmlForDisplayedExportFooter($back_button);
     } // end if
 }
 ?>
