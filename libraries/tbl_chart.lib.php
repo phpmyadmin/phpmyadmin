@@ -76,7 +76,7 @@ function PMA_getHtmlForChartTypeOptions()
  */
 function PMA_getHtmlForStackedOption()
 {
-    $html = '<span class="barStacked">'
+    $html = '<span class="barStacked" style="display:none;">'
     . '<input type="checkbox" name="barStacked" value="1"'
     . ' id="checkbox_barStacked" />'
     . '<label for ="checkbox_barStacked">' . __('Stacked') . '</label>'
