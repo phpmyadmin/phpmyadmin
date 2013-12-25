@@ -69,6 +69,8 @@ function PMA_queryChart(data, columnNames, settings) {
     var dataTable = new DataTable();
     if (settings.type == 'timeline') {
         dataTable.addColumn(ColumnType.DATE, columnNames[settings.mainAxis]);
+    } else if (settings.type == 'scatter') {
+        dataTable.addColumn(ColumnType.NUMBER, columnNames[settings.mainAxis]);
     } else {
         dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
     }
