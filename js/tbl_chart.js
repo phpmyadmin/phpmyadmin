@@ -110,7 +110,7 @@ function drawChart() {
     currentSettings.width = $('#resizer').width() - 20;
     currentSettings.height = $('#resizer').height() - 20;
 
-    // todo: a better way using .redraw() ?
+    // TODO: a better way using .redraw() ?
     if (currentChart !== null) {
         currentChart.destroy();
     }
@@ -181,21 +181,20 @@ AJAX.registerOnload('tbl_chart.js', function () {
 
     // handle chart type changes
     $('input[name="chartType"]').click(function () {
-        currentSettings.type = $(this).val();
-        drawChart();
-        if ($(this).val() == 'bar' || $(this).val() == 'column' ||
-            $(this).val() == 'line' || $(this).val() == 'area' ||
-            $(this).val() == 'timeline' || $(this).val() == 'spline'
-        ) {
+        var type = currentSettings.type = $(this).val();
+        if (type == 'bar' || type == 'column' || type == 'area') {
             $('span.barStacked').show();
         } else {
+            $('input[name="barStacked"]').attr('checked', false);
+            $.extend(true, currentSettings, {stackSeries : false});
             $('span.barStacked').hide();
         }
+        drawChart();
     });
 
     // handle stacking for bar, column and area charts
     $('input[name="barStacked"]').click(function () {
-        if (this.checked) {
+        if ($(this).is(':checked')) {
             $.extend(true, currentSettings, {stackSeries : true});
         } else {
             $.extend(true, currentSettings, {stackSeries : false});
@@ -204,16 +203,19 @@ AJAX.registerOnload('tbl_chart.js', function () {
     });
 
     // handle changes in chart title
-    $('input[name="chartTitle"]').focus(function () {
+    $('input[name="chartTitle"]')
+    .focus(function () {
         temp_chart_title = $(this).val();
-    }).keyup(function () {
+    })
+    .keyup(function () {
         var title = $(this).val();
         if (title.length === 0) {
             title = ' ';
         }
         currentSettings.title = $('input[name="chartTitle"]').val();
         drawChart();
-    }).blur(function () {
+    })
+    .blur(function () {
         if ($(this).val() != temp_chart_title) {
             drawChart();
         }
