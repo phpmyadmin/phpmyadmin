@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-25 16:25+0200\n"
+"PO-Revision-Date: 2013-12-25 16:40+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -1716,7 +1716,7 @@ msgstr "顯示搜尋條件"
 
 #: js/messages.php:296
 msgid "Hide find and replace criteria"
-msgstr "隱藏搜尋和替換條件"
+msgstr "隱藏搜尋與取代條件"
 
 #: js/messages.php:297
 msgid "Show find and replace criteria"
@@ -3296,7 +3296,7 @@ msgstr "資料表搜尋"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1217
 msgid "Find and Replace"
-msgstr "搜尋和替換"
+msgstr "搜尋與取代"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1389
 msgid "Edit/Insert"
@@ -3325,7 +3325,7 @@ msgstr "顯示順序:"
 
 #: libraries/TableSearch.class.php:879
 msgid "Use this column to label each point"
-msgstr "使用此欄位做為每個資料點的標籤"
+msgstr "選擇作為資料點標籤的欄位"
 
 #: libraries/TableSearch.class.php:902
 msgid "Maximum rows to plot"
@@ -3362,7 +3362,7 @@ msgstr "重設縮放大小"
 
 #: libraries/TableSearch.class.php:1343
 msgid "Replace with:"
-msgstr "替換爲："
+msgstr "取代爲："
 
 #: libraries/TableSearch.class.php:1403
 msgid "Find and replace - preview"
@@ -4554,7 +4554,7 @@ msgstr "內容跳脫符號"
 #: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:192
 #: libraries/config/messages.inc.php:194
 msgid "Replace NULL with"
-msgstr "將 NULL 替換爲"
+msgstr "將 NULL 取代爲"
 
 #: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:124
 msgid "Remove CRLF characters within columns"
@@ -7975,7 +7975,7 @@ msgstr "換行符號:"
 #: libraries/plugins/export/ExportOdt.class.php:132
 #: libraries/plugins/export/ExportTexytext.class.php:89
 msgid "Replace NULL with:"
-msgstr "將 NULL 替換爲:"
+msgstr "將 NULL 取代爲:"
 
 #: libraries/plugins/export/ExportCsv.class.php:86
 #: libraries/plugins/export/ExportExcel.class.php:63
