@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-12-25 09:32+0200\n"
+"PO-Revision-Date: 2013-12-25 09:39+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/zh_TW/>\n"
@@ -12297,14 +12297,14 @@ msgstr ""
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
-msgstr "您現在沒有使用安全連線，所有資料(包括敏感資訊，如密碼)均爲純文字傳輸！"
+msgstr "您現在未使用安全協定連線，所有資料(包括敏感資訊，如密碼)均未加密傳輸！"
 
 #: setup/frames/index.inc.php:80
 #, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
-msgstr "如果您的伺服器已經設定好支援 HTTPS，請[a@%s]點選這裏[/a]使用安全連線。"
+msgstr "如果您的伺服器已經設定為接受 HTTPS 協定，請依 [a@%s]此處[/a] 說明以使用安全協定連線。"
 
 #: setup/frames/index.inc.php:87
 msgid "Insecure connection"
