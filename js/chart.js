@@ -414,14 +414,13 @@ JQPlotScatterChart.prototype.prepareData = function (dataTable) {
     for (var i = 0; i < data.length; i++) {
         row = data[i];
         if (row[0]) {
-            var x = parseFloat(row[0]);
             for (var j = 1; j < row.length; j++) {
                 retRow = retData[j - 1];
                 if (retRow === undefined) {
                     retRow = [];
                     retData[j - 1] = retRow;
                 }
-                retRow.push([x, row[j]]);
+                retRow.push([row[0], row[j]]);
             }
         }
     }

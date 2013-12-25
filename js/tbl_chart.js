@@ -92,6 +92,8 @@ function PMA_queryChart(data, columnNames, settings) {
             if (j === 0) {
                 if (settings.type == 'timeline') { // first column is date type
                     newRow.push(extractDate(row[col]));
+                } else if (settings.type == 'scatter') {
+                    newRow.push(parseFloat(row[col]));
                 } else { // first column is string type
                     newRow.push(row[col]);
                 }
