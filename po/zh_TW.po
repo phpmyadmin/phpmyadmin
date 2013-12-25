@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-11-29 15:23+0200\n"
+"PO-Revision-Date: 2013-12-25 09:34+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1982,7 +1982,7 @@ msgstr "顯示報告詳細資訊"
 #: js/messages.php:417
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
-msgstr ""
+msgstr "因 PHP 執行期時間限制太短，您的資料未完成匯出"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -6436,7 +6436,7 @@ msgstr "請參考 %sour 文件 %s 以取得更多的資訊。"
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
-msgstr ""
+msgstr "目前 phpMyAdmin 所使用 mysql 擴充套件已被建議停止使用，請考慮案裝 mysqli 擴充套件。"
 
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
@@ -8434,6 +8434,7 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"轉換布林值(Boolean)為文字 (預設為 'T' 與 'F')，第一個項目代表 TRUE，第二個項目代表 FALSE，非零值即為 true。"
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -8515,7 +8516,6 @@ msgid ""
 msgstr "將一個 IPv4 (互聯網協定第四版) 網址轉換成點分十進位標準格式。"
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Appends text to a string. The only option is the text to be appended "
 #| "(enclosed in single quotes, default empty string)."
@@ -8523,8 +8523,7 @@ msgid ""
 "Prepends and/or Appends text to a string. First option is text to be "
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
-msgstr ""
-"將文字加到字串後面。要附加的文字是唯一的選擇 (括在單引號中，預設為空字串)。"
+msgstr "在字串前面附加文字且/或在字串後面附加文字。第一個項目是在前面附加文字，第二個選項是在後面附加文字 (以單引號標示，預設為空字串)。"
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -8930,50 +8929,43 @@ msgid "Generate Password:"
 msgstr "產生密碼："
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "備援狀態"
+msgstr "備援啟動成功。"
 
 #: libraries/replication_gui.lib.php:910
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "啟動備援錯誤。"
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "圖表產生成功"
+msgstr "備援停止成功。"
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "備援停止錯誤。"
 
 #: libraries/replication_gui.lib.php:917
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "備援狀態"
+msgstr "備援重設成功。"
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "重設備援錯誤。"
 
 #: libraries/replication_gui.lib.php:921
 msgid "Success."
-msgstr ""
+msgstr "成功。"
 
 #: libraries/replication_gui.lib.php:922
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "錯誤"
+msgstr "錯誤。"
 
 #: libraries/replication_gui.lib.php:964
 msgid "Unknown error"
@@ -9029,11 +9021,10 @@ msgid "Event %1$s has been created."
 msgstr "建立事件 %1$s 成功。"
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>在處理您的請求時發生錯誤：</b>"
+msgstr "在處理您的請求時發生一個或多個錯誤："
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -11686,10 +11677,9 @@ msgid "Move column"
 msgstr "移動欄位"
 
 #: libraries/tbl_columns_definition_form.lib.php:318
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "可用的轉換"
+msgstr "列出所有可用的轉換方式與選項"
 
 #: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
@@ -12295,7 +12285,7 @@ msgstr "檢視資料庫結構的匯出資料"
 
 #: server_privileges.php:142
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "使用者名稱與主機名稱未變更。"
 
 #: server_status.php:32
 #, php-format
