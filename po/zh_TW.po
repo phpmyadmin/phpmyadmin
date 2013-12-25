@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-11-29 15:23+0200\n"
+"PO-Revision-Date: 2013-12-25 09:32+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/4-1/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-1/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1982,7 +1982,7 @@ msgstr "顯示報告詳細資訊"
 #: js/messages.php:417
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
-msgstr ""
+msgstr "因 PHP 執行期時間限制太短，您的資料未完成匯出"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -8921,50 +8921,43 @@ msgid "Generate Password:"
 msgstr "產生密碼："
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "備援狀態"
+msgstr "備援啟動成功。"
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "啟動備援錯誤。"
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "圖表產生成功"
+msgstr "備援停止成功。"
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "備援停止錯誤。"
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "備援狀態"
+msgstr "備援重設成功。"
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "重設備援錯誤。"
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
-msgstr ""
+msgstr "成功。"
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "錯誤"
+msgstr "錯誤。"
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
