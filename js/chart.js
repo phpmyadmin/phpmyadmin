@@ -520,7 +520,12 @@ JQPlotPieChart.prototype = new JQPlotChart();
 JQPlotPieChart.prototype.constructor = JQPlotPieChart;
 
 JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
-    var optional = {};
+    var optional = {
+        highlighter: {
+            formatString:'%s, %d',
+            useAxesFormatters: false
+        }
+    };
     var compulsory = {
         seriesDefaults : {
             renderer : $.jqplot.PieRenderer
