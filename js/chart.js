@@ -368,9 +368,10 @@ JQPlotSplineChart.prototype.populateOptions = function (dataTable, options) {
  *            id of the div element the chart is drawn in
  */
 var JQPlotScatterChart = function (elementId) {
-    JQPlotLineChart.call(this, elementId);
+    JQPlotChart.call(this, elementId);
+    this.validator = ScatterChart.prototype;
 };
-JQPlotScatterChart.prototype = new JQPlotLineChart();
+JQPlotScatterChart.prototype = new JQPlotChart();
 JQPlotScatterChart.prototype.constructor = JQPlotScatterChart;
 
 JQPlotScatterChart.prototype.populateOptions = function (dataTable, options) {
@@ -438,7 +439,7 @@ var JQPlotTimelineChart = function (elementId) {
     this.validator = TimelineChart.prototype;
 };
 JQPlotTimelineChart.prototype = new JQPlotLineChart();
-JQPlotTimelineChart.prototype.constructor = JQPlotAreaChart;
+JQPlotTimelineChart.prototype.constructor = JQPlotTimelineChart;
 
 JQPlotTimelineChart.prototype.populateOptions = function (dataTable, options) {
     var optional = {
