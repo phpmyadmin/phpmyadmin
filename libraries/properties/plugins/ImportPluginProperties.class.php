@@ -19,4 +19,16 @@ require_once 'PluginPropertyItem.class.php';
  */
 class ImportPluginProperties extends PluginPropertyItem
 {
+    /**
+     * Returns the property item type of either an instance of
+     *  - OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
+     *  - OptionsPropertyGroup   ( "root", "main" or "subgroup" )
+     *  - PluginPropertyItem     ( "export", "import", "transformations" )
+     *
+     * @return string
+     */
+    public function getItemType()
+    {
+        return "import";
+    }
 }

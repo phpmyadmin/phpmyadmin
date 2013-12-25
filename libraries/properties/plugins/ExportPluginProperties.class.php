@@ -31,6 +31,19 @@ class ExportPluginProperties extends PluginPropertyItem
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
+     * Returns the property item type of either an instance of
+     *  - OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
+     *  - OptionsPropertyGroup   ( "root", "main" or "subgroup" )
+     *  - PluginPropertyItem     ( "export", "import", "transformations" )
+     *
+     * @return string
+     */
+    public function getItemType()
+    {
+        return "export";
+    }
+
+    /**
      * Gets the force file parameter
      *
      * @return bool
