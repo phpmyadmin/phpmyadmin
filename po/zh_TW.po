@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-25 09:39+0200\n"
+"PO-Revision-Date: 2013-12-25 16:25+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -6522,7 +6522,7 @@ msgstr "無法載入匯出插件，請檢查安裝！"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
-msgstr "正在從目前伺服器中匯出資料庫"
+msgstr "從目前的伺服器中匯出資料庫"
 
 #: libraries/display_export.lib.php:168
 #, php-format
@@ -6652,7 +6652,7 @@ msgstr "bzip 壓縮"
 
 #: libraries/display_export.lib.php:619
 msgid "View output as text"
-msgstr "直接使用文字區塊顯示"
+msgstr "直接顯示在文字區塊"
 
 #: libraries/display_export.lib.php:644
 msgid "Save output to a file"
@@ -7546,7 +7546,7 @@ msgstr "展開/摺疊"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 msgid "Filter databases by name or regex"
-msgstr "依名稱或正規表示法篩選資料庫"
+msgstr "依名稱或 Regex 篩選資料庫"
 
 #: libraries/navigation/NavigationTree.class.php:1047
 #: libraries/navigation/NavigationTree.class.php:1081
@@ -7555,7 +7555,7 @@ msgstr "清除快速篩選器"
 
 #: libraries/navigation/NavigationTree.class.php:1080
 msgid "Filter by name or regex"
-msgstr "依名稱或正規表示法篩選"
+msgstr "依名稱或 Regex 篩選"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -7980,7 +7980,7 @@ msgstr "將 NULL 替換爲:"
 #: libraries/plugins/export/ExportCsv.class.php:86
 #: libraries/plugins/export/ExportExcel.class.php:63
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "刪除欄位中的回車換行符號"
+msgstr "移除欄位中的換行符號(CR/LF)"
 
 #: libraries/plugins/export/ExportExcel.class.php:79
 msgid "Excel edition:"
@@ -8044,7 +8044,7 @@ msgstr "@TABLE@ 表的內容"
 
 #: libraries/plugins/export/ExportLatex.class.php:44
 msgid "(continued)"
-msgstr "(持續的)"
+msgstr "(續)"
 
 #: libraries/plugins/export/ExportLatex.class.php:45
 msgid "Structure of table @TABLE@"
@@ -8059,17 +8059,17 @@ msgstr "物件建立選項"
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
 msgid "Table caption:"
-msgstr "表的標題："
+msgstr "表格標題："
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
 msgid "Table caption (continued):"
-msgstr "表的標題(續上)："
+msgstr "表格標題(續)："
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key:"
-msgstr "標籤鍵值："
+msgstr "標籤名稱："
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8131,7 +8131,7 @@ msgstr "結構："
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
-msgstr "匯出的資料表名稱"
+msgstr "匯出資料表的名稱"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
 msgid "Export table headers"
@@ -9598,13 +9598,12 @@ msgstr "資料庫統計"
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
-msgstr ""
-"注意: 在此啓用資料庫統計可能導致網站伺服器和 MySQL 伺服器之間的流量驟增。"
+msgstr "注意: 在此開啟資料庫統計可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
 
 #: libraries/server_databases.lib.php:371
 #: libraries/server_databases.lib.php:372
 msgid "Enable Statistics"
-msgstr "啓用統計"
+msgstr "開啟統計資訊"
 
 #: libraries/server_databases.lib.php:493
 #, php-format
@@ -9957,7 +9956,7 @@ msgstr "使用者"
 #: libraries/server_privileges.lib.php:2705
 #: libraries/server_privileges.lib.php:2885
 msgid "Grant"
-msgstr "授權"
+msgstr "允許授權"
 
 #: libraries/server_privileges.lib.php:1862
 msgid "User has been added."
