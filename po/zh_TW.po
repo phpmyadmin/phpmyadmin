@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-25 16:40+0200\n"
+"PO-Revision-Date: 2013-12-25 16:41+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -1769,7 +1769,7 @@ msgstr "資料點內容"
 #: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2593
 #: libraries/tbl_indexes.lib.php:334 libraries/tbl_indexes.lib.php:370
 msgid "Ignore"
-msgstr "忽略"
+msgstr "略過"
 
 #: js/messages.php:323 libraries/DisplayResults.class.php:3358
 msgid "Copy"
