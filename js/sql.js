@@ -8,6 +8,7 @@
  */
 
 var $data_a;
+var prevScrollX = 0, fixedTop;
 
 /**
  * decode a string URL_encoded
@@ -70,6 +71,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('#bookmarkQueryForm').die('submit');
     $('input#bkm_label').unbind('keyup');
     $("#sqlqueryresults").die('makegrid');
+    $("#sqlqueryresults").die('stickycolumns');
     $("#togglequerybox").unbind('click');
     $("#button_submit_query").die('click');
     $("input[name=bookmark_variable]").unbind("keypress");
@@ -81,6 +83,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('a.browse_foreign').die('click');
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
+    $(window).unbind('scroll');
 });
 
 /**
@@ -145,6 +148,18 @@ AJAX.registerOnload('sql.js', function () {
      */
     $("#sqlqueryresults").live('makegrid', function () {
         PMA_makegrid($('#table_results')[0]);
+    });
+
+    $("#sqlqueryresults").live('stickycolumns', function () {
+        if ($("#table_results").length === 0) {
+            return;
+        }
+        //add sticky columns div
+        initStickyColumns();
+        //adjust sticky columns on scroll
+        $(window).bind('scroll', function() {
+            handleStickyColumns();
+        });
     });
 
     /**
@@ -325,7 +340,7 @@ AJAX.registerOnload('sql.js', function () {
                     });
                 }
 
-                $sqlqueryresults.show().trigger('makegrid');
+                $sqlqueryresults.show().trigger('makegrid').trigger('stickycolumns');
                 $('#togglequerybox').show();
                 PMA_init_slider();
 
@@ -374,7 +389,6 @@ AJAX.registerOnload('sql.js', function () {
     }); //end displayOptionsForm handler
 }); // end $()
 
-
 /**
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
@@ -422,7 +436,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * create resizable table
      */
-    $("#sqlqueryresults").trigger('makegrid');
+    $("#sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
 });
 
 /*
@@ -481,6 +495,59 @@ function initProfilingTables()
             }
         }
     });
+}
+
+function setStickyColumnsPosition(position, top, left) {
+    if ($("#sticky_columns").length !== 0) {
+        $("#sticky_columns")
+            .css("position", position)
+            .css("top", top)
+            .css("left", left ? left : "auto")
+            .css("width", $("#table_results").width());
+    }
+}
+
+function initStickyColumns() {
+    fixedTop = $('#floating_menubar').height();
+    if ($("#sticky_columns").length === 0) {
+        $('<table id="sticky_columns"></table>')
+            .insertBefore('#page_content')
+            .css("position", "fixed")
+            .css("z-index", "99")
+            .css("width", $("#table_results").width())
+            .css("margin-left", $('#page_content').css("margin-left"))
+            .css("top", fixedTop)
+            .css("display", "none");
+    }
+}
+
+function handleStickyColumns() {
+    var currentScrollX = $(window).scrollLeft();
+    var windowOffset = $(window).scrollTop();
+    var tableStartOffset = $("#table_results").offset().top;
+    var tableEndOffset = tableStartOffset + $("#table_results").height();
+    var $sticky_columns = $("#sticky_columns");
+    if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
+        //for horizontal scrolling
+        if(prevScrollX != currentScrollX) {
+            prevScrollX = currentScrollX;
+            setStickyColumnsPosition("absolute", fixedTop + windowOffset);
+        //for vertical scrolling
+        } else {
+            setStickyColumnsPosition("fixed", fixedTop, $("#pma_navigation").width() - currentScrollX);
+        }
+        $sticky_columns.show();
+    } else {
+        var $originalHeader = $("#table_results > thead");
+        var $originalColumns = $originalHeader.find("tr:first").children();
+        var $clonedHeader = $originalHeader.clone();
+        // clone width per cell
+        $clonedHeader.find("tr:first").children().width(function(i,val) {
+            return $originalColumns.eq(i).width();
+        });
+        $sticky_columns.empty().append($clonedHeader);
+        $sticky_columns.hide();
+    }
 }
 
 AJAX.registerOnload('sql.js', function () {
