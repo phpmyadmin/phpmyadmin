@@ -297,6 +297,11 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
                 labelRenderer : $.jqplot.CanvasAxisLabelRenderer
             }
         },
+        highlighter: {
+            show: true,
+            tooltipAxes: 'y',
+            formatString:'%d'
+        },
         series : []
     };
     $.extend(true, optional, options);
@@ -385,6 +390,11 @@ JQPlotScatterChart.prototype.populateOptions = function (dataTable, options) {
                 label : (columns.length == 2 ? columns[1].name : 'Values'),
                 labelRenderer : $.jqplot.CanvasAxisLabelRenderer
             }
+        },
+        highlighter: {
+            show: true,
+            tooltipAxes: 'xy',
+            formatString:'%d, %d'
         },
         series : []
     };
@@ -567,6 +577,11 @@ JQPlotBarChart.prototype.populateOptions = function (dataTable, options) {
                 labelRenderer : $.jqplot.CanvasAxisLabelRenderer
             }
         },
+        highlighter: {
+            show: true,
+            tooltipAxes: 'x',
+            formatString:'%d'
+        },
         series : [],
         seriesDefaults : {
             fillToZero : true
@@ -614,6 +629,8 @@ JQPlotPieChart.prototype.constructor = JQPlotPieChart;
 JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
     var optional = {
         highlighter: {
+            show: true,
+            tooltipAxes: 'xy',
             formatString:'%s, %d',
             useAxesFormatters: false
         }
