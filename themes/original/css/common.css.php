@@ -1274,6 +1274,15 @@ li.no_bullets {
     float: <?php echo $left; ?>;
 }
 
+#div_mysql_charset_collations table th,
+#div_mysql_charset_collations table td {
+    padding: 0.4em;
+}
+
+#div_mysql_charset_collations table th#collationHeader {
+    width: 35%;
+}
+
 .operations_half_width {
     width: 48%;
     float: <?php echo $left; ?>;
