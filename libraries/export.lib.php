@@ -187,4 +187,38 @@ function PMA_getHtmlForDisplayedExportFooter($back_button)
         . '</script>' . "\n";
     return $html;
 }
+
+/**
+ * Computes the memory limit for export 
+ *
+ * @return int $memory_limit the memory limit 
+ */
+function PMA_getMemoryLimitForExport()
+{
+    $memory_limit = trim(@ini_get('memory_limit'));
+    $memory_limit_num = (int)substr($memory_limit, 0, -1);
+    // 2 MB as default
+    if (empty($memory_limit)) {
+        $memory_limit = 2 * 1024 * 1024;
+    } elseif (strtolower(substr($memory_limit, -1)) == 'm') {
+        $memory_limit = $memory_limit_num * 1024 * 1024;
+    } elseif (strtolower(substr($memory_limit, -1)) == 'k') {
+        $memory_limit = $memory_limit_num * 1024;
+    } elseif (strtolower(substr($memory_limit, -1)) == 'g') {
+        $memory_limit = $memory_limit_num * 1024 * 1024 * 1024;
+    } else {
+        $memory_limit = (int)$memory_limit;
+    }
+
+    // Some of memory is needed for other things and as threshold.
+    // During export I had allocated (see memory_get_usage function)
+    // approx 1.2MB so this comes from that.
+    if ($memory_limit > 1500000) {
+        $memory_limit -= 1500000;
+    }
+
+    // Some memory is needed for compression, assume 1/3
+    $memory_limit /= 8;
+    return $memory_limit;
+}
 ?>
