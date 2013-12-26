@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-12-26 10:38+0200\n"
+"PO-Revision-Date: 2013-12-26 10:39+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/ro/>\n"
 "Language: ro\n"
@@ -1698,7 +1698,7 @@ msgstr "Definiția unei funcții stocate trebuie să conțină o declarație RET
 
 #: js/messages.php:270 libraries/rte/rte_routines.lib.php:802
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Editor ENUM/SET"
 
 #: js/messages.php:271
 #, php-format
@@ -3381,15 +3381,15 @@ msgstr "Statisticile rîndului"
 
 #: libraries/ServerStatusData.class.php:374
 msgid "All status variables"
-msgstr ""
+msgstr "Toate variabilele de stare"
 
 #: libraries/ServerStatusData.class.php:378
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: libraries/ServerStatusData.class.php:382
 msgid "Advisor"
-msgstr ""
+msgstr "Consilier"
 
 #: libraries/StorageEngine.class.php:216
 msgid ""
@@ -3459,7 +3459,7 @@ msgstr "Tabelului %s i s-a dat un numele de %s"
 
 #: libraries/Table.class.php:1471
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Nu am putut salva tabela cu preferinţele UI"
 
 #: libraries/Table.class.php:1500
 #, php-format
@@ -3505,7 +3505,7 @@ msgstr "Caută"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1217
 msgid "Find and Replace"
-msgstr ""
+msgstr "Caută şi Înlocuieşte"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1404
 #, fuzzy
@@ -3538,11 +3538,11 @@ msgstr "Ordine de afișare:"
 
 #: libraries/TableSearch.class.php:879
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Foloseşte această coloana pentru a eticheta fiecare punct"
 
 #: libraries/TableSearch.class.php:902
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Numărul maxim de afişat"
 
 #: libraries/TableSearch.class.php:931 libraries/TableSearch.class.php:1250
 #: libraries/sql.lib.php:375 tbl_change.php:142
@@ -3566,7 +3566,7 @@ msgstr "Execută o interogare prin exemplu (metacaracter: \"%\")"
 
 #: libraries/TableSearch.class.php:1261
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Parcurge/Editează punctele"
 
 #: libraries/TableSearch.class.php:1268
 #, fuzzy
@@ -3588,7 +3588,7 @@ msgstr "Înlocuire NULL cu"
 
 #: libraries/TableSearch.class.php:1403
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Caută şi înlocuieşte - previzualizare"
 
 #: libraries/TableSearch.class.php:1407
 #, fuzzy
@@ -3617,7 +3617,7 @@ msgstr "Replicare"
 #: libraries/Theme.class.php:170
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "Nu există o cale validă pentru tema %s!"
 
 #: libraries/Theme.class.php:402
 msgid "No preview available."
@@ -3652,30 +3652,41 @@ msgstr "Temă"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Un întreg de 1 octet, are valori de la -128 la 127, iar un întreg fără semn "
+"are valori de 0 la 255"
 
 #: libraries/Types.class.php:299
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Un întreg de 2 octeţi, are valori de la -32,768 la 32,767, iar un întreg "
+"fără semn are valori de 0 la 65,535"
 
 #: libraries/Types.class.php:301
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Un întreg de 3 octeţi, are valori de la -8,388,608 la 8,388,607, iar un "
+"întreg fără semn are valori de 0 la 16,777,215"
 
 #: libraries/Types.class.php:303
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"Un întreg de 4 octeţi, are valori de la -2,147,483,648 la 2,147,483,647, iar "
+"un întreg fără semn are valori de 0 la 4,294,967,295"
 
 #: libraries/Types.class.php:305
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Un întreg de 8 octeţi, are valori de la -9,223,372,036,854,775,808 la "
+"9,223,372,036,854,775,807 , iar un întreg fără semn are valori de 0 la "
+"18,446,744,073,709,551,615"
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:714
 msgid ""
@@ -3726,7 +3737,7 @@ msgstr "Creare relație"
 #: libraries/Types.class.php:323 libraries/Types.class.php:726
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "O combinaţie de dată şi timp este suportată în intervalul %1$s la %2$s"
 
 #: libraries/Types.class.php:325
 msgid ""
@@ -3828,19 +3839,19 @@ msgstr ""
 
 #: libraries/Types.class.php:357
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "O singură valoare aleasă dintr-un set de până la 64 de membri"
 
 #: libraries/Types.class.php:359
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Un tip poate stoca o geometrie de orice tip"
 
 #: libraries/Types.class.php:361
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Un punct într-un plan bidimensional"
 
 #: libraries/Types.class.php:363
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "O curbă cu o interpolare liniară între două puncte"
 
 #: libraries/Types.class.php:365
 #, fuzzy
@@ -3850,24 +3861,24 @@ msgstr "Adaugă %s cîmp(uri)"
 
 #: libraries/Types.class.php:367
 msgid "A collection of points"
-msgstr ""
+msgstr "O colecţie de puncte"
 
 #: libraries/Types.class.php:369
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "O colecţie de curbe cu interpolare liniară între puncte"
 
 #: libraries/Types.class.php:371
 msgid "A collection of polygons"
-msgstr ""
+msgstr "O colecţie de poligoane"
 
 #: libraries/Types.class.php:373
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "O colecţie de obiecte geometrice de orice tip"
 
 #: libraries/Types.class.php:626 libraries/Types.class.php:976
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "tip numeric"
 
 #: libraries/Types.class.php:645 libraries/Types.class.php:979
 #, fuzzy
@@ -3892,13 +3903,15 @@ msgstr "Număr de fișiere-jurnal"
 
 #: libraries/Types.class.php:710
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Un întreg pe 4 octeţi are valori între -2,147,483,648 şi 2,147,483,647"
 
 #: libraries/Types.class.php:712
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Un întreg pe 4 octeţi are valori între -9,223,372,036,854,775,808 şi "
+"9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:716
 msgid "A system's default double-precision floating-point number"
@@ -3906,7 +3919,7 @@ msgstr ""
 
 #: libraries/Types.class.php:718
 msgid "True or false"
-msgstr ""
+msgstr "Adevărat sau fals"
 
 #: libraries/Types.class.php:720
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
@@ -4090,7 +4103,7 @@ msgstr "Ultima verficare"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
-msgstr ""
+msgstr "comun"
 
 #: libraries/browse_foreigners.lib.php:43
 #, fuzzy
@@ -4151,7 +4164,7 @@ msgstr "Sari la baza de date"
 
 #: libraries/build_html_for_db.lib.php:143
 msgid "Not replicated"
-msgstr ""
+msgstr "Fără replicare"
 
 #: libraries/build_html_for_db.lib.php:154
 #, fuzzy
@@ -4228,15 +4241,15 @@ msgstr "Ar trebui sa reactualizati serverul %s %s la o versiune mai noua."
 
 #: libraries/common.inc.php:1087
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Eroare: Tokenii nu se potrivesc"
 
 #: libraries/common.inc.php:1119
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "S-a încercat suprascrierea valorilor globale"
 
 #: libraries/common.inc.php:1126
 msgid "possible exploit"
-msgstr ""
+msgstr "potenţială vulnerabilitate"
 
 #: libraries/common.inc.php:1135
 msgid "numeric key detected"
@@ -4275,11 +4288,11 @@ msgstr "Dreapta"
 
 #: libraries/config.values.php:75
 msgid "Click"
-msgstr ""
+msgstr "Click"
 
 #: libraries/config.values.php:76
 msgid "Double click"
-msgstr ""
+msgstr "Click dublu"
 
 #: libraries/config.values.php:77 libraries/config.values.php:108
 #: libraries/config/FormDisplay.tpl.php:218 libraries/relation.lib.php:96
@@ -4299,15 +4312,15 @@ msgstr "Citare neînchisă"
 
 #: libraries/config.values.php:111
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Întreabă înainte de a trimite rapoarte de eroare"
 
 #: libraries/config.values.php:112
 msgid "Always send error reports"
-msgstr ""
+msgstr "Trimite mereu rapoarte de eroare"
 
 #: libraries/config.values.php:113
 msgid "Never send error reports"
-msgstr ""
+msgstr "Nu trimite niciodată rapoarte de eroare"
 
 #: libraries/config.values.php:142
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -4540,7 +4553,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Permite încadrarea unei părţi terţe"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -4554,7 +4567,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:23
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Secret blowfish"
 
 #: libraries/config/messages.inc.php:24
 msgid "Highlight selected rows"
@@ -4562,7 +4575,7 @@ msgstr "Evidențiază rândurile selectate"
 
 #: libraries/config/messages.inc.php:25
 msgid "Row marker"
-msgstr ""
+msgstr "Evidenţiator de înregistrări"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight row pointed by the mouse cursor"
@@ -4606,7 +4619,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:33
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Activează CodeMirror"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
