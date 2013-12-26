@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-12-25 09:39+0200\n"
+"PO-Revision-Date: 2013-12-26 05:54+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/zh_TW/>\n"
@@ -209,7 +209,7 @@ msgstr "全選"
 #: db_export.php:47 libraries/DbSearch.class.php:448
 #: libraries/display_export.lib.php:48
 msgid "Unselect All"
-msgstr "全不選"
+msgstr "全部取消"
 
 #: db_operations.php:45 tbl_create.php:21
 msgid "The database name is empty!"
@@ -1716,7 +1716,7 @@ msgstr "顯示搜尋條件"
 
 #: js/messages.php:296
 msgid "Hide find and replace criteria"
-msgstr "隱藏搜尋和替換條件"
+msgstr "隱藏搜尋與取代條件"
 
 #: js/messages.php:297
 msgid "Show find and replace criteria"
@@ -1769,7 +1769,7 @@ msgstr "資料點內容"
 #: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2608
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
-msgstr "忽略"
+msgstr "略過"
 
 #: js/messages.php:323 libraries/DisplayResults.class.php:3355
 msgid "Copy"
@@ -3296,7 +3296,7 @@ msgstr "資料表搜尋"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1217
 msgid "Find and Replace"
-msgstr "搜尋和替換"
+msgstr "搜尋與取代"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1404
 msgid "Edit/Insert"
@@ -3325,7 +3325,7 @@ msgstr "顯示順序:"
 
 #: libraries/TableSearch.class.php:879
 msgid "Use this column to label each point"
-msgstr "使用此欄位做為每個資料點的標籤"
+msgstr "選擇作為資料點標籤的欄位"
 
 #: libraries/TableSearch.class.php:902
 msgid "Maximum rows to plot"
@@ -3362,7 +3362,7 @@ msgstr "重設縮放大小"
 
 #: libraries/TableSearch.class.php:1343
 msgid "Replace with:"
-msgstr "替換爲："
+msgstr "取代爲："
 
 #: libraries/TableSearch.class.php:1403
 msgid "Find and replace - preview"
@@ -4554,7 +4554,7 @@ msgstr "內容跳脫符號"
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
 #: libraries/config/messages.inc.php:147
 msgid "Replace NULL with"
-msgstr "將 NULL 替換爲"
+msgstr "將 NULL 取代爲"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 msgid "Remove CRLF characters within columns"
@@ -6524,7 +6524,7 @@ msgstr "無法載入匯出插件，請檢查安裝！"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
-msgstr "正在從目前伺服器中匯出資料庫"
+msgstr "從目前的伺服器中匯出資料庫"
 
 #: libraries/display_export.lib.php:168
 #, php-format
@@ -6654,7 +6654,7 @@ msgstr "bzip 壓縮"
 
 #: libraries/display_export.lib.php:619
 msgid "View output as text"
-msgstr "直接使用文字區塊顯示"
+msgstr "直接顯示在文字區塊"
 
 #: libraries/display_export.lib.php:644
 msgid "Save output to a file"
@@ -7548,7 +7548,7 @@ msgstr "展開/摺疊"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 msgid "Filter databases by name or regex"
-msgstr "依名稱或正規表示法篩選資料庫"
+msgstr "依名稱或 Regex 篩選資料庫"
 
 #: libraries/navigation/NavigationTree.class.php:1047
 #: libraries/navigation/NavigationTree.class.php:1081
@@ -7557,7 +7557,7 @@ msgstr "清除快速篩選器"
 
 #: libraries/navigation/NavigationTree.class.php:1080
 msgid "Filter by name or regex"
-msgstr "依名稱或正規表示法篩選"
+msgstr "依名稱或 Regex 篩選"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -7977,12 +7977,12 @@ msgstr "換行符號:"
 #: libraries/plugins/export/ExportOdt.class.php:132
 #: libraries/plugins/export/ExportTexytext.class.php:89
 msgid "Replace NULL with:"
-msgstr "將 NULL 替換爲:"
+msgstr "將 NULL 取代爲:"
 
 #: libraries/plugins/export/ExportCsv.class.php:86
 #: libraries/plugins/export/ExportExcel.class.php:63
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "刪除欄位中的回車換行符號"
+msgstr "移除欄位中的換行符號(CR/LF)"
 
 #: libraries/plugins/export/ExportExcel.class.php:79
 msgid "Excel edition:"
@@ -8046,7 +8046,7 @@ msgstr "@TABLE@ 表的內容"
 
 #: libraries/plugins/export/ExportLatex.class.php:44
 msgid "(continued)"
-msgstr "(持續的)"
+msgstr "(續)"
 
 #: libraries/plugins/export/ExportLatex.class.php:45
 msgid "Structure of table @TABLE@"
@@ -8061,17 +8061,17 @@ msgstr "物件建立選項"
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
 msgid "Table caption:"
-msgstr "表的標題："
+msgstr "表格標題："
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
 msgid "Table caption (continued):"
-msgstr "表的標題(續上)："
+msgstr "表格標題(續)："
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key:"
-msgstr "標籤鍵值："
+msgstr "標籤名稱："
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8100,7 +8100,7 @@ msgstr "首行儲存欄位名稱："
 #: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:682
 #: libraries/server_privileges.lib.php:1320 libraries/sql.lib.php:425
 msgid "Host:"
-msgstr "主機："
+msgstr "主機:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
@@ -8133,7 +8133,7 @@ msgstr "結構："
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
-msgstr "匯出的資料表名稱"
+msgstr "匯出資料表的名稱"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
 msgid "Export table headers"
@@ -8667,7 +8667,7 @@ msgstr "新增次要(Slave)伺服器使用者"
 
 #: libraries/replication_gui.lib.php:87
 msgid "Master configuration"
-msgstr "主伺服器設定"
+msgstr "主要伺服器設定"
 
 #: libraries/replication_gui.lib.php:89
 msgid ""
@@ -8683,11 +8683,11 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:98
 msgid "Replicate all databases; Ignore:"
-msgstr "複製所有資料庫，除了:"
+msgstr "備援所有資料庫，除了下列資料庫:"
 
 #: libraries/replication_gui.lib.php:100
 msgid "Ignore all databases; Replicate:"
-msgstr "忽略所有資料庫;備援(Replicate):"
+msgstr "不備援所有資料庫，只挑選下列資料庫:"
 
 #: libraries/replication_gui.lib.php:104
 msgid "Please select databases:"
@@ -8697,17 +8697,14 @@ msgstr "請選擇資料庫:"
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
-msgstr ""
-"現在，將下列文字新增到您的 my.cnf 檔案末端，然後重新啓動 MySQL 伺服器。"
+msgstr "現在，將下列設定新增到您的 my.cnf 設定檔中 [mysqld] 設定區塊的最末端，然後重新啓動 MySQL 伺服器。"
 
 #: libraries/replication_gui.lib.php:113
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
-msgstr ""
-"當 MySQL 伺服器重新啓動後，請點選 執行 按鈕。您應該看見一條提示資訊說此伺服器"
-"<b>已經</b>被設定爲主伺服器。"
+msgstr "當 MySQL 伺服器重新啓動後，請點選 執行 按鈕。您應該看見資訊提示說明此伺服器<b>已經</b>被設定爲主要伺服器。"
 
 #: libraries/replication_gui.lib.php:140
 #: libraries/server_databases.lib.php:396
@@ -8729,7 +8726,7 @@ msgstr "伺服器已被設定爲一個備援程序中的次要(Slave)伺服器�
 
 #: libraries/replication_gui.lib.php:211
 msgid "See slave status table"
-msgstr "查看從伺服器狀態"
+msgstr "查看次要伺服器狀態"
 
 #: libraries/replication_gui.lib.php:216
 msgid "Control slave:"
@@ -8782,7 +8779,7 @@ msgstr "錯誤管理:"
 
 #: libraries/replication_gui.lib.php:282
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr "忽略錯誤可能導致主從伺服器間不同步！"
+msgstr "忽略錯誤可能導致主要與次要伺服器間不同步！"
 
 #: libraries/replication_gui.lib.php:286
 msgid "Skip current error"
@@ -8807,24 +8804,23 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:356
 msgid "Uncheck All"
-msgstr "全不選"
+msgstr "全部取消"
 
 #: libraries/replication_gui.lib.php:378
 msgid "Slave configuration"
-msgstr "從伺服器設定"
+msgstr "次要伺服器設定"
 
 #: libraries/replication_gui.lib.php:381
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
-"請確保在您的設定檔案 (my.cnf) 中具有唯一的伺服器標識 (server-id) 。若沒有，請"
-"新增此行到 [mysqld] 一節中:"
+"請確認在您的設定檔(my.cnf)中已設定了一個唯一的伺服器代號(server-id)。若沒有，請將下列設定新增到 [mysqld] 設定區塊中:"
 
 #: libraries/replication_gui.lib.php:388 libraries/replication_gui.lib.php:772
 #: libraries/server_privileges.lib.php:1259
 msgid "User name:"
-msgstr "帳號："
+msgstr "帳號:"
 
 #: libraries/replication_gui.lib.php:394 libraries/replication_gui.lib.php:776
 #: libraries/replication_gui.lib.php:792
@@ -8835,15 +8831,15 @@ msgstr "帳號"
 
 #: libraries/replication_gui.lib.php:423
 msgid "Port:"
-msgstr "連接埠："
+msgstr "連接埠:"
 
 #: libraries/replication_gui.lib.php:507
 msgid "Master status"
-msgstr "主伺服器狀態"
+msgstr "主要伺服器狀態"
 
 #: libraries/replication_gui.lib.php:510
 msgid "Slave status"
-msgstr "從伺服器狀態"
+msgstr "次要伺服器狀態"
 
 #: libraries/replication_gui.lib.php:519
 #: libraries/server_status_variables.lib.php:219
@@ -8870,7 +8866,7 @@ msgstr "主機"
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
-msgstr "僅透過 --report-host=主機名 參數啓動的從伺服器可見。"
+msgstr "只有執行時加入 --report-host=host_name 參數的次要伺服器會列在此清單。"
 
 #: libraries/replication_gui.lib.php:729
 #: libraries/server_privileges.lib.php:1378
@@ -8966,7 +8962,7 @@ msgstr "未知錯誤"
 #: libraries/replication_gui.lib.php:976
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "無法連線到主伺服器 %s。"
+msgstr "無法連線到主要伺服器 %s。"
 
 #: libraries/replication_gui.lib.php:987
 msgid ""
@@ -8975,12 +8971,12 @@ msgstr "無法讀取主要(Master)伺服器記錄。主要伺服器的權限設�
 
 #: libraries/replication_gui.lib.php:1005
 msgid "Unable to change master"
-msgstr "無法修改主伺服器"
+msgstr "無法更改主要伺服器"
 
 #: libraries/replication_gui.lib.php:1009
 #, php-format
 msgid "Master server changed successfully to %s"
-msgstr "主伺服器成功修改至 %s"
+msgstr "主要伺服器成功更改至 %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
@@ -9585,13 +9581,12 @@ msgstr "資料庫統計"
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
-msgstr ""
-"注意: 在此啓用資料庫統計可能導致網站伺服器和 MySQL 伺服器之間的流量驟增。"
+msgstr "注意: 在此開啟資料庫統計可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
 
 #: libraries/server_databases.lib.php:371
 #: libraries/server_databases.lib.php:372
 msgid "Enable Statistics"
-msgstr "啓用統計"
+msgstr "開啟統計資訊"
 
 #: libraries/server_databases.lib.php:493
 #, php-format
@@ -9944,7 +9939,7 @@ msgstr "使用者"
 #: libraries/server_privileges.lib.php:2704
 #: libraries/server_privileges.lib.php:2884
 msgid "Grant"
-msgstr "授權"
+msgstr "允許授權"
 
 #: libraries/server_privileges.lib.php:1862
 msgid "User has been added."
@@ -10598,8 +10593,8 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"從資料檔案中讀取行的請求數。如果您在掃描很多表，該值會很大。通常情況下這意味"
-"着您的表沒有做好索引，或者您的查詢指令沒有使用好索引欄位。"
+"請求由資料檔案中讀取下一列(Row)的數量，此值會因掃描資料表的數量增加而增加。一般情況下這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已"
+"建立索引的欄位。"
 
 #: libraries/server_status_variables.lib.php:423
 msgid "The number of internal ROLLBACK statements."
@@ -10869,7 +10864,7 @@ msgstr "將一個鍵塊寫入快取的請求數。"
 
 #: libraries/server_status_variables.lib.php:614
 msgid "The number of physical writes of a key block to disk."
-msgstr "將鍵塊物理寫入到硬碟的次數。"
+msgstr "將鍵值資料區塊實體寫入到硬碟的次數。"
 
 #: libraries/server_status_variables.lib.php:617
 msgid ""
@@ -11008,7 +11003,7 @@ msgstr "自伺服器啟動開始從次要(Slave)備援伺服所接收到的交�
 
 #: libraries/server_status_variables.lib.php:708
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "如果該值爲 ON，則這臺伺服器是一臺已經連線到主伺服器的從伺服器。"
+msgstr "若此伺服器為次要伺服器，且已連線到主要伺服器時，此欄位值會顯示為 ON。"
 
 #: libraries/server_status_variables.lib.php:711
 msgid ""
@@ -11153,7 +11148,7 @@ msgstr "設定變數失敗"
 #: libraries/server_variables.lib.php:197
 #: libraries/server_variables.lib.php:263
 msgid "Session value"
-msgstr "連線值"
+msgstr "連線階段值"
 
 #: libraries/server_variables.lib.php:197
 msgid "Global value"
@@ -12414,7 +12409,7 @@ msgstr "讀取版本資訊失敗。你可能為離線或是更新伺服器未回
 
 #: setup/lib/index.lib.php:132
 msgid "Got invalid version string from server"
-msgstr "從伺服器取得版本錯誤"
+msgstr "從伺服器取得的版本資訊錯誤"
 
 #: setup/lib/index.lib.php:145
 msgid "Unparsable version string"
