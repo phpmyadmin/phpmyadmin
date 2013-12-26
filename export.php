@@ -295,62 +295,13 @@ if (!defined('TESTSUITE')) {
 
     // Generate filename and mime type if needed
     if ($asfile) {
-        $pma_uri_parts = parse_url($cfg['PmaAbsoluteUri']);
-        if ($export_type == 'server') {
-            if (isset($remember_template)) {
-                $GLOBALS['PMA_Config']->setUserValue(
-                    'pma_server_filename_template',
-                    'Export/file_template_server',
-                    $filename_template
-                );
-            }
-        } elseif ($export_type == 'database') {
-            if (isset($remember_template)) {
-                $GLOBALS['PMA_Config']->setUserValue(
-                    'pma_db_filename_template',
-                    'Export/file_template_database',
-                    $filename_template
-                );
-            }
-        } else {
-            if (isset($remember_template)) {
-                $GLOBALS['PMA_Config']->setUserValue(
-                    'pma_table_filename_template',
-                    'Export/file_template_table',
-                    $filename_template
-                );
-            }
+        if (empty($remember_template)) {
+            $remember_template = '';
         }
-        $filename = PMA_Util::expandUserString($filename_template);
-        // remove dots in filename (coming from either the template or already
-        // part of the filename) to avoid a remote code execution vulnerability
-        $filename = PMA_sanitizeFilename($filename, $replaceDots = true);
-
-        // Grab basic dump extension and mime type
-        // Check if the user already added extension;
-        // get the substring where the extension would be if it was included
-        $extension_start_pos = strlen($filename) - strlen(
-            $export_plugin->getProperties()->getExtension()
-        ) - 1;
-        $user_extension = substr($filename, $extension_start_pos, strlen($filename));
-        $required_extension = "." . $export_plugin->getProperties()->getExtension();
-        if (strtolower($user_extension) != $required_extension) {
-            $filename  .= $required_extension;
-        }
-        $mime_type  = $export_plugin->getProperties()->getMimeType();
-
-        // If dump is going to be compressed, set correct mime_type and add
-        // compression to extension
-        if ($compression == 'bzip2') {
-            $filename  .= '.bz2';
-            $mime_type = 'application/x-bzip2';
-        } elseif ($compression == 'gzip') {
-            $filename  .= '.gz';
-            $mime_type = 'application/x-gzip';
-        } elseif ($compression == 'zip') {
-            $filename  .= '.zip';
-            $mime_type = 'application/zip';
-        }
+        list($filename, $mime_type) = PMA_getExportFilenameAndMimetype(
+            $export_type, $remember_template, $export_plugin, $compression,
+            $filename_template
+        );
     }
 
     // Open file on server if needed
