@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-25 16:41+0200\n"
+"PO-Revision-Date: 2013-12-26 05:01+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -8691,11 +8691,11 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:99
 msgid "Replicate all databases; Ignore:"
-msgstr "複製所有資料庫，除了:"
+msgstr "備援所有資料庫，除了下列資料庫:"
 
 #: libraries/replication_gui.lib.php:101
 msgid "Ignore all databases; Replicate:"
-msgstr "忽略所有資料庫;備援(Replicate):"
+msgstr "不備援所有資料庫，只挑選下列資料庫:"
 
 #: libraries/replication_gui.lib.php:105
 msgid "Please select databases:"
