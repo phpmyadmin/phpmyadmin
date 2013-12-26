@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-26 05:17+0200\n"
+"PO-Revision-Date: 2013-12-26 05:54+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -209,7 +209,7 @@ msgstr "全選"
 #: db_export.php:47 libraries/DbSearch.class.php:448
 #: libraries/display_export.lib.php:48
 msgid "Unselect All"
-msgstr "全不選"
+msgstr "全部取消"
 
 #: db_operations.php:45 tbl_create.php:21
 msgid "The database name is empty!"
@@ -8098,7 +8098,7 @@ msgstr "首行儲存欄位名稱："
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:683
 #: libraries/server_privileges.lib.php:1320 libraries/sql.lib.php:425
 msgid "Host:"
-msgstr "主機："
+msgstr "主機:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
@@ -8675,7 +8675,7 @@ msgstr "新增次要(Slave)伺服器使用者"
 
 #: libraries/replication_gui.lib.php:88
 msgid "Master configuration"
-msgstr "主伺服器設定"
+msgstr "主要伺服器設定"
 
 #: libraries/replication_gui.lib.php:90
 msgid ""
@@ -8705,16 +8705,14 @@ msgstr "請選擇資料庫:"
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
-msgstr "現在，將下列文字新增到您的 my.cnf 設定檔中 [mysqld] 區塊的最末端，然後重新啓動 MySQL 伺服器。"
+msgstr "現在，將下列設定新增到您的 my.cnf 設定檔中 [mysqld] 設定區塊的最末端，然後重新啓動 MySQL 伺服器。"
 
 #: libraries/replication_gui.lib.php:114
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
-msgstr ""
-"當 MySQL 伺服器重新啓動後，請點選 執行 按鈕。您應該看見一條提示資訊說此伺服器"
-"<b>已經</b>被設定爲主伺服器。"
+msgstr "當 MySQL 伺服器重新啓動後，請點選 執行 按鈕。您應該看見資訊提示說明此伺服器<b>已經</b>被設定爲主要伺服器。"
 
 #: libraries/replication_gui.lib.php:141
 #: libraries/server_databases.lib.php:396
@@ -8736,7 +8734,7 @@ msgstr "伺服器已被設定爲一個備援程序中的次要(Slave)伺服器�
 
 #: libraries/replication_gui.lib.php:212
 msgid "See slave status table"
-msgstr "查看從伺服器狀態"
+msgstr "查看次要伺服器狀態"
 
 #: libraries/replication_gui.lib.php:217
 msgid "Control slave:"
@@ -8789,7 +8787,7 @@ msgstr "錯誤管理:"
 
 #: libraries/replication_gui.lib.php:283
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr "忽略錯誤可能導致主從伺服器間不同步！"
+msgstr "忽略錯誤可能導致主要與次要伺服器間不同步！"
 
 #: libraries/replication_gui.lib.php:287
 msgid "Skip current error"
@@ -8814,24 +8812,23 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:357
 msgid "Uncheck All"
-msgstr "全不選"
+msgstr "全部取消"
 
 #: libraries/replication_gui.lib.php:379
 msgid "Slave configuration"
-msgstr "從伺服器設定"
+msgstr "次要伺服器設定"
 
 #: libraries/replication_gui.lib.php:382
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
-"請確保在您的設定檔案 (my.cnf) 中具有唯一的伺服器標識 (server-id) 。若沒有，請"
-"新增此行到 [mysqld] 一節中:"
+"請確認在您的設定檔(my.cnf)中已設定了一個唯一的伺服器代號(server-id)。若沒有，請將下列設定新增到 [mysqld] 設定區塊中:"
 
 #: libraries/replication_gui.lib.php:389 libraries/replication_gui.lib.php:773
 #: libraries/server_privileges.lib.php:1259
 msgid "User name:"
-msgstr "帳號："
+msgstr "帳號:"
 
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:777
 #: libraries/replication_gui.lib.php:793
@@ -8842,15 +8839,15 @@ msgstr "帳號"
 
 #: libraries/replication_gui.lib.php:424
 msgid "Port:"
-msgstr "連接埠："
+msgstr "連接埠:"
 
 #: libraries/replication_gui.lib.php:508
 msgid "Master status"
-msgstr "主伺服器狀態"
+msgstr "主要伺服器狀態"
 
 #: libraries/replication_gui.lib.php:511
 msgid "Slave status"
-msgstr "從伺服器狀態"
+msgstr "次要伺服器狀態"
 
 #: libraries/replication_gui.lib.php:520
 #: libraries/server_status_variables.lib.php:219
@@ -8877,7 +8874,7 @@ msgstr "主機"
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
-msgstr "僅透過 --report-host=主機名 參數啓動的從伺服器可見。"
+msgstr "只有執行時加入 --report-host=host_name 參數的次要伺服器會列在此清單。"
 
 #: libraries/replication_gui.lib.php:730
 #: libraries/server_privileges.lib.php:1378
@@ -8973,7 +8970,7 @@ msgstr "未知錯誤"
 #: libraries/replication_gui.lib.php:974
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "無法連線到主伺服器 %s。"
+msgstr "無法連線到主要伺服器 %s。"
 
 #: libraries/replication_gui.lib.php:985
 msgid ""
@@ -8982,12 +8979,12 @@ msgstr "無法讀取主要(Master)伺服器記錄。主要伺服器的權限設�
 
 #: libraries/replication_gui.lib.php:1003
 msgid "Unable to change master"
-msgstr "無法修改主伺服器"
+msgstr "無法更改主要伺服器"
 
 #: libraries/replication_gui.lib.php:1007
 #, php-format
 msgid "Master server changed successfully to %s"
-msgstr "主伺服器成功修改至 %s"
+msgstr "主要伺服器成功更改至 %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
@@ -10609,8 +10606,8 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"從資料檔案中讀取行的請求數。如果您在掃描很多表，該值會很大。通常情況下這意味"
-"着您的表沒有做好索引，或者您的查詢指令沒有使用好索引欄位。"
+"請求由資料檔案中讀取下一列(Row)的數量，此值會因掃描資料表的數量增加而增加。一般情況下這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已"
+"建立索引的欄位。"
 
 #: libraries/server_status_variables.lib.php:423
 msgid "The number of internal ROLLBACK statements."
@@ -10880,7 +10877,7 @@ msgstr "將一個鍵塊寫入快取的請求數。"
 
 #: libraries/server_status_variables.lib.php:614
 msgid "The number of physical writes of a key block to disk."
-msgstr "將鍵塊物理寫入到硬碟的次數。"
+msgstr "將鍵值資料區塊實體寫入到硬碟的次數。"
 
 #: libraries/server_status_variables.lib.php:617
 msgid ""
@@ -11019,7 +11016,7 @@ msgstr "自伺服器啟動開始從次要(Slave)備援伺服所接收到的交�
 
 #: libraries/server_status_variables.lib.php:708
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "如果該值爲 ON，則這臺伺服器是一臺已經連線到主伺服器的從伺服器。"
+msgstr "若此伺服器為次要伺服器，且已連線到主要伺服器時，此欄位值會顯示為 ON。"
 
 #: libraries/server_status_variables.lib.php:711
 msgid ""
@@ -11164,7 +11161,7 @@ msgstr "設定變數失敗"
 #: libraries/server_variables.lib.php:197
 #: libraries/server_variables.lib.php:263
 msgid "Session value"
-msgstr "連線值"
+msgstr "連線階段值"
 
 #: libraries/server_variables.lib.php:197
 msgid "Global value"
@@ -12434,7 +12431,7 @@ msgstr "讀取版本資訊失敗。你可能為離線或是更新伺服器未回
 
 #: setup/lib/index.lib.php:132
 msgid "Got invalid version string from server"
-msgstr "從伺服器取得版本錯誤"
+msgstr "從伺服器取得的版本資訊錯誤"
 
 #: setup/lib/index.lib.php:145
 msgid "Unparsable version string"
