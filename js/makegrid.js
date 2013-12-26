@@ -1273,6 +1273,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             if (typeof data.sql_query != 'undefined') {
                                 // display feedback
                                 $('#sqlqueryresults').prepend(data.sql_query);
+                                PMA_highlightSQL($('#result_query'));
                             }
                             // hide and/or update the successfully saved cells
                             g.hideEditCell(true, data);
