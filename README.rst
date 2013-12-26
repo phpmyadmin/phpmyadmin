@@ -20,6 +20,11 @@ Translations:
     :alt: Translation status
     :target: http://l10n.cihar.com/engage/phpmyadmin/?utm_source=widget
 
+Code coverage:
+
+.. image:: https://coveralls.io/repos/phpmyadmin/phpmyadmin/badge.png?branch=master
+    :target: https://coveralls.io/r/phpmyadmin/phpmyadmin?branch=master
+
 Download
 --------
 

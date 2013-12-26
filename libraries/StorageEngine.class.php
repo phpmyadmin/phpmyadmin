@@ -175,12 +175,35 @@ class PMA_StorageEngine
         $engine = str_replace('/', '', str_replace('.', '', $engine));
         $filename = './libraries/engines/' . strtolower($engine) . '.lib.php';
         if (file_exists($filename) && include_once $filename) {
-            $class_name = 'PMA_StorageEngine_' . ucfirst($engine);
-            $engine_object = new $class_name($engine);
+            switch(strtolower($engine)) {
+            case 'bdb':
+                return new PMA_StorageEngine_Bdb($engine);
+            case 'berkeleydb':
+                return new PMA_StorageEngine_Berkeleydb($engine);
+            case 'binlog':
+                return new PMA_StorageEngine_Binlog($engine);
+            case 'innobase':
+                return new PMA_StorageEngine_Innobase($engine);
+            case 'innodb':
+                return new PMA_StorageEngine_Innodb($engine);
+            case 'memory':
+                return new PMA_StorageEngine_Memory($engine);
+            case 'merge':
+                return new PMA_StorageEngine_Merge($engine);
+            case 'mrg_myisam':
+                return new PMA_StorageEngine_MrgMyisam($engine);
+            case 'myisam':
+                return new PMA_StorageEngine_Myisam($engine);
+            case 'ndbcluster':
+                return new PMA_StorageEngine_Ndbcluster($engine);
+            case 'pbxt':
+                return new PMA_StorageEngine_Pbxt($engine);
+            case 'performance_schema':
+                return new PMA_StorageEngine_PerformanceSchema($engine);
+            }
         } else {
-            $engine_object = new PMA_StorageEngine($engine);
+            return new PMA_StorageEngine($engine);
         }
-        return $engine_object;
     }
 
     /**

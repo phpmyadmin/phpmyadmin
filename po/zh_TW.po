@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-11-29 15:23+0200\n"
+"PO-Revision-Date: 2013-12-25 16:41+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1716,7 +1716,7 @@ msgstr "顯示搜尋條件"
 
 #: js/messages.php:296
 msgid "Hide find and replace criteria"
-msgstr "隱藏搜尋和替換條件"
+msgstr "隱藏搜尋與取代條件"
 
 #: js/messages.php:297
 msgid "Show find and replace criteria"
@@ -1769,7 +1769,7 @@ msgstr "資料點內容"
 #: js/messages.php:322 js/messages.php:415 libraries/insert_edit.lib.php:2593
 #: libraries/tbl_indexes.lib.php:334 libraries/tbl_indexes.lib.php:370
 msgid "Ignore"
-msgstr "忽略"
+msgstr "略過"
 
 #: js/messages.php:323 libraries/DisplayResults.class.php:3358
 msgid "Copy"
@@ -1982,7 +1982,7 @@ msgstr "顯示報告詳細資訊"
 #: js/messages.php:417
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
-msgstr ""
+msgstr "因 PHP 執行期時間限制太短，您的資料未完成匯出"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -3296,7 +3296,7 @@ msgstr "資料表搜尋"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1217
 msgid "Find and Replace"
-msgstr "搜尋和替換"
+msgstr "搜尋與取代"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1389
 msgid "Edit/Insert"
@@ -3325,7 +3325,7 @@ msgstr "顯示順序:"
 
 #: libraries/TableSearch.class.php:879
 msgid "Use this column to label each point"
-msgstr "使用此欄位做為每個資料點的標籤"
+msgstr "選擇作為資料點標籤的欄位"
 
 #: libraries/TableSearch.class.php:902
 msgid "Maximum rows to plot"
@@ -3362,7 +3362,7 @@ msgstr "重設縮放大小"
 
 #: libraries/TableSearch.class.php:1343
 msgid "Replace with:"
-msgstr "替換爲："
+msgstr "取代爲："
 
 #: libraries/TableSearch.class.php:1403
 msgid "Find and replace - preview"
@@ -4554,7 +4554,7 @@ msgstr "內容跳脫符號"
 #: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:192
 #: libraries/config/messages.inc.php:194
 msgid "Replace NULL with"
-msgstr "將 NULL 替換爲"
+msgstr "將 NULL 取代爲"
 
 #: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:124
 msgid "Remove CRLF characters within columns"
@@ -6436,7 +6436,7 @@ msgstr "請參考 %sour 文件 %s 以取得更多的資訊。"
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
-msgstr ""
+msgstr "目前 phpMyAdmin 所使用 mysql 擴充套件已被建議停止使用，請考慮案裝 mysqli 擴充套件。"
 
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
@@ -6522,7 +6522,7 @@ msgstr "無法載入匯出插件，請檢查安裝！"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
-msgstr "正在從目前伺服器中匯出資料庫"
+msgstr "從目前的伺服器中匯出資料庫"
 
 #: libraries/display_export.lib.php:168
 #, php-format
@@ -6652,7 +6652,7 @@ msgstr "bzip 壓縮"
 
 #: libraries/display_export.lib.php:619
 msgid "View output as text"
-msgstr "直接使用文字區塊顯示"
+msgstr "直接顯示在文字區塊"
 
 #: libraries/display_export.lib.php:644
 msgid "Save output to a file"
@@ -7546,7 +7546,7 @@ msgstr "展開/摺疊"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 msgid "Filter databases by name or regex"
-msgstr "依名稱或正規表示法篩選資料庫"
+msgstr "依名稱或 Regex 篩選資料庫"
 
 #: libraries/navigation/NavigationTree.class.php:1047
 #: libraries/navigation/NavigationTree.class.php:1081
@@ -7555,7 +7555,7 @@ msgstr "清除快速篩選器"
 
 #: libraries/navigation/NavigationTree.class.php:1080
 msgid "Filter by name or regex"
-msgstr "依名稱或正規表示法篩選"
+msgstr "依名稱或 Regex 篩選"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -7975,12 +7975,12 @@ msgstr "換行符號:"
 #: libraries/plugins/export/ExportOdt.class.php:132
 #: libraries/plugins/export/ExportTexytext.class.php:89
 msgid "Replace NULL with:"
-msgstr "將 NULL 替換爲:"
+msgstr "將 NULL 取代爲:"
 
 #: libraries/plugins/export/ExportCsv.class.php:86
 #: libraries/plugins/export/ExportExcel.class.php:63
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "刪除欄位中的回車換行符號"
+msgstr "移除欄位中的換行符號(CR/LF)"
 
 #: libraries/plugins/export/ExportExcel.class.php:79
 msgid "Excel edition:"
@@ -8044,7 +8044,7 @@ msgstr "@TABLE@ 表的內容"
 
 #: libraries/plugins/export/ExportLatex.class.php:44
 msgid "(continued)"
-msgstr "(持續的)"
+msgstr "(續)"
 
 #: libraries/plugins/export/ExportLatex.class.php:45
 msgid "Structure of table @TABLE@"
@@ -8059,17 +8059,17 @@ msgstr "物件建立選項"
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
 msgid "Table caption:"
-msgstr "表的標題："
+msgstr "表格標題："
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
 msgid "Table caption (continued):"
-msgstr "表的標題(續上)："
+msgstr "表格標題(續)："
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
 msgid "Label key:"
-msgstr "標籤鍵值："
+msgstr "標籤名稱："
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8131,7 +8131,7 @@ msgstr "結構："
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
-msgstr "匯出的資料表名稱"
+msgstr "匯出資料表的名稱"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
 msgid "Export table headers"
@@ -8434,6 +8434,7 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"轉換布林值(Boolean)為文字 (預設為 'T' 與 'F')，第一個項目代表 TRUE，第二個項目代表 FALSE，非零值即為 true。"
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -8515,7 +8516,6 @@ msgid ""
 msgstr "將一個 IPv4 (互聯網協定第四版) 網址轉換成點分十進位標準格式。"
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Appends text to a string. The only option is the text to be appended "
 #| "(enclosed in single quotes, default empty string)."
@@ -8523,8 +8523,7 @@ msgid ""
 "Prepends and/or Appends text to a string. First option is text to be "
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
-msgstr ""
-"將文字加到字串後面。要附加的文字是唯一的選擇 (括在單引號中，預設為空字串)。"
+msgstr "在字串前面附加文字且/或在字串後面附加文字。第一個項目是在前面附加文字，第二個選項是在後面附加文字 (以單引號標示，預設為空字串)。"
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -8930,50 +8929,43 @@ msgid "Generate Password:"
 msgstr "產生密碼："
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "備援狀態"
+msgstr "備援啟動成功。"
 
 #: libraries/replication_gui.lib.php:910
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "啟動備援錯誤。"
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "圖表產生成功"
+msgstr "備援停止成功。"
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "備援停止錯誤。"
 
 #: libraries/replication_gui.lib.php:917
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "備援狀態"
+msgstr "備援重設成功。"
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "主要(Master)備援伺服器"
+msgstr "重設備援錯誤。"
 
 #: libraries/replication_gui.lib.php:921
 msgid "Success."
-msgstr ""
+msgstr "成功。"
 
 #: libraries/replication_gui.lib.php:922
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "錯誤"
+msgstr "錯誤。"
 
 #: libraries/replication_gui.lib.php:964
 msgid "Unknown error"
@@ -9029,11 +9021,10 @@ msgid "Event %1$s has been created."
 msgstr "建立事件 %1$s 成功。"
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>在處理您的請求時發生錯誤：</b>"
+msgstr "在處理您的請求時發生一個或多個錯誤："
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -9607,13 +9598,12 @@ msgstr "資料庫統計"
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
-msgstr ""
-"注意: 在此啓用資料庫統計可能導致網站伺服器和 MySQL 伺服器之間的流量驟增。"
+msgstr "注意: 在此開啟資料庫統計可能導致網頁伺服器和 MySQL 伺服器之間的流量驟增。"
 
 #: libraries/server_databases.lib.php:371
 #: libraries/server_databases.lib.php:372
 msgid "Enable Statistics"
-msgstr "啓用統計"
+msgstr "開啟統計資訊"
 
 #: libraries/server_databases.lib.php:493
 #, php-format
@@ -9966,7 +9956,7 @@ msgstr "使用者"
 #: libraries/server_privileges.lib.php:2705
 #: libraries/server_privileges.lib.php:2885
 msgid "Grant"
-msgstr "授權"
+msgstr "允許授權"
 
 #: libraries/server_privileges.lib.php:1862
 msgid "User has been added."
@@ -11686,10 +11676,9 @@ msgid "Move column"
 msgstr "移動欄位"
 
 #: libraries/tbl_columns_definition_form.lib.php:318
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "可用的轉換"
+msgstr "列出所有可用的轉換方式與選項"
 
 #: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
@@ -12295,7 +12284,7 @@ msgstr "檢視資料庫結構的匯出資料"
 
 #: server_privileges.php:142
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "使用者名稱與主機名稱未變更。"
 
 #: server_status.php:32
 #, php-format
@@ -12329,14 +12318,14 @@ msgstr ""
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
-msgstr "您現在沒有使用安全連線，所有資料(包括敏感資訊，如密碼)均爲純文字傳輸！"
+msgstr "您現在未使用安全協定連線，所有資料(包括敏感資訊，如密碼)均未加密傳輸！"
 
 #: setup/frames/index.inc.php:80
 #, php-format
 msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
-msgstr "如果您的伺服器已經設定好支援 HTTPS，請[a@%s]點選這裏[/a]使用安全連線。"
+msgstr "如果您的伺服器已經設定為接受 HTTPS 協定，請依 [a@%s]此處[/a] 說明以使用安全協定連線。"
 
 #: setup/frames/index.inc.php:87
 msgid "Insecure connection"
