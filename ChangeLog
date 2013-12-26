@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - bug #4198 Hovering over pie chart gives fatal JS error
 + rfe #1478 Make Column Headings Sticky
 - bug #4200 Missing syntax highlighting
+- bug #4201 Exports are not compressed
 
 4.1.2.0 (2013-12-23)
 - bug #4178 Quick edit for BIT type does not work
