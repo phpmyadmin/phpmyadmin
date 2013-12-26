@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:30-0500\n"
-"PO-Revision-Date: 2013-12-23 09:49+0200\n"
+"PO-Revision-Date: 2013-12-26 10:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/ro/>\n"
 "Language: ro\n"
@@ -1367,7 +1367,7 @@ msgstr "Se analizează jurnalele"
 
 #: js/messages.php:165
 msgid "Analysing & loading logs. This may take a while."
-msgstr "Se analizează și se încarcă jurnalele. Poate dura."
+msgstr "Se analizează și se încarcă jurnalele. Poate dura o vvreme."
 
 #: js/messages.php:166
 msgid "Cancel request"
@@ -1391,13 +1391,13 @@ msgid ""
 "data."
 msgstr ""
 "Din moment ce gruparea interogărilor INSERT a fost aleasă, interogările "
-"INSERT în același tabel sîunt și ele grupate împreună, indiferent de datele "
+"INSERT în același tabel sunt și ele grupate împreună, indiferent de datele "
 "inserate."
 
 #: js/messages.php:169
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
-"Datele din jurnal au fost încărcate. Interogările executate in acest "
+"Datele din jurnal au fost încărcate. Interogările executate în acest "
 "inverval de timp:"
 
 #: js/messages.php:171
@@ -1477,7 +1477,7 @@ msgstr "Grupează interogări, ignorând datele din variabilele din clauza WHERE
 
 #: js/messages.php:192
 msgid "Sum of grouped rows:"
-msgstr "Suma rîndurilor grupate:"
+msgstr "Suma rândurilor grupate:"
 
 #: js/messages.php:193
 msgid "Total:"
@@ -1504,18 +1504,20 @@ msgstr "Reîncarcă pagina"
 
 #: js/messages.php:200
 msgid "Affected rows:"
-msgstr "Rînduri afectate:"
+msgstr "Rânduri afectate:"
 
 #: js/messages.php:203
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
-"Parcurgereafișierului de configurare a eșuat. Codul JSON nu pare să fie "
+"Parcurgere afișierului de configurare a eșuat. Codul JSON nu pare să fie "
 "valid."
 
 #: js/messages.php:205
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"Nu a reuşit construirea diagramei cu datele ce au fost importate. Revin la "
+"configuraţia iniţială…"
 
 #: js/messages.php:206 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
@@ -1543,7 +1545,7 @@ msgstr "Analizează interogarea"
 
 #: js/messages.php:214
 msgid "Advisor system"
-msgstr ""
+msgstr "Consilier de sistem"
 
 #: js/messages.php:215
 msgid "Possible performance issues"
@@ -1583,7 +1585,7 @@ msgstr "Renunță"
 #: js/messages.php:229 libraries/navigation/NavigationHeader.class.php:55
 #: libraries/server_status_monitor.lib.php:164
 msgid "Loading…"
-msgstr "încărcare…"
+msgstr "Încărcare…"
 
 #: js/messages.php:230
 msgid "Processing Request"
@@ -1606,7 +1608,7 @@ msgstr "Text eroare: %s"
 #: js/messages.php:234 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:462
 msgid "No databases selected."
-msgstr "Nu e aleasă nicio bază de date."
+msgstr "Nu a fost aleasă nici o bază de date."
 
 #: js/messages.php:235
 msgid "Dropping Column"
@@ -1628,7 +1630,7 @@ msgstr "Apăsați pentru a înlătura această notificare"
 
 #: js/messages.php:241
 msgid "Renaming Databases"
-msgstr "Se redenumesc baze de date"
+msgstr "Se redenumesc bazele de date"
 
 #: js/messages.php:242
 msgid "Reload Database"
@@ -1664,11 +1666,11 @@ msgstr "Verificare chei străine:"
 
 #: js/messages.php:256 libraries/mult_submits.lib.php:432
 msgid "(Enabled)"
-msgstr "(activată)"
+msgstr "(Activată)"
 
 #: js/messages.php:257 libraries/mult_submits.lib.php:432
 msgid "(Disabled)"
-msgstr "(dezactivată)"
+msgstr "(Dezactivată)"
 
 #: js/messages.php:260
 msgid "Searching"
@@ -1714,7 +1716,7 @@ msgstr "Introduceți fiecare valoare într-un câmp separat"
 #: js/messages.php:274
 #, php-format
 msgid "Add %d value(s)"
-msgstr "Se adaugă %d valori"
+msgstr "Se adaugă %d valore(i)"
 
 #: js/messages.php:277
 msgid ""
@@ -1743,7 +1745,7 @@ msgstr "Modifică"
 
 #: js/messages.php:283
 msgid "No rows selected"
-msgstr "Niciun rând selectat"
+msgstr "Nici un rând selectat"
 
 #: js/messages.php:284 libraries/DisplayResults.class.php:5044
 #: libraries/structure.lib.php:1380 libraries/structure.lib.php:2069
@@ -1759,7 +1761,7 @@ msgstr "Durata de execuție a interogării"
 #: libraries/DisplayResults.class.php:769
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d nu este un număr valid de rînduri."
+msgstr "%d nu este un număr valid de rânduri."
 
 #: js/messages.php:289 libraries/insert_edit.lib.php:1514
 #: libraries/schema/User_Schema.class.php:390
@@ -3249,9 +3251,9 @@ msgstr[2] "%1$d rânduri afectate."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d rînduri șterse."
-msgstr[1] "%1$d rînd șters."
-msgstr[2] "%1$d rînduri șterse."
+msgstr[0] "%1$d rânduri șterse."
+msgstr[1] "%1$d rând șters."
+msgstr[2] "%1$d rânduri șterse."
 
 #: libraries/Message.class.php:292
 #, php-format
@@ -3447,7 +3449,7 @@ msgstr "Denumire de tabel nevalidă"
 #: libraries/Table.class.php:1306
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
-msgstr "Eroare la redenumirea tabelului %1$s în %2$s"
+msgstr "Eroare la redenumirea tabelului din %1$s în %2$s"
 
 #: libraries/Table.class.php:1325
 #, fuzzy, php-format
@@ -4380,12 +4382,12 @@ msgstr "Nu este un număr pozitiv"
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:561
 msgid "Not a non-negative number"
-msgstr "Nu este un număr ne-negativ"
+msgstr "Nu este un număr pozitiv"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:517
 msgid "Not a valid port number"
-msgstr "Nu este un număr valid de port"
+msgstr "Nu este un număr valid pentru port"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
@@ -4460,7 +4462,7 @@ msgstr "Restaurează valoarea implicită"
 
 #: libraries/config/FormDisplay.tpl.php:327
 msgid "Allow users to customize this value"
-msgstr "Permite utilizatorilor să customizeze această valoare"
+msgstr "Permite utilizatorilor să personalizeze această valoare"
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
@@ -4564,7 +4566,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight row pointed by the mouse cursor"
-msgstr "Evidențiază rând indicat de cursorul mouse-ului"
+msgstr "Evidențiază rândul indicat de cursorul mouse-ului"
 
 #: libraries/config/messages.inc.php:27
 msgid "Highlight pointer"
@@ -5034,7 +5036,7 @@ msgstr "Un dropdown va fi folosit dacă sunt prezente mai puține elemente"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key limit"
-msgstr "Limita de chei străine"
+msgstr "Limită de chei străine"
 
 #: libraries/config/messages.inc.php:154
 msgid "Browse mode"
@@ -7938,7 +7940,7 @@ msgstr "Înapoi la această pagină"
 
 #: libraries/insert_edit.lib.php:1573
 msgid "Edit next row"
-msgstr "Editează rîndul următor"
+msgstr "Editează rândul următor"
 
 #: libraries/insert_edit.lib.php:1595
 msgid ""
@@ -7954,7 +7956,7 @@ msgstr "Afișare interogare SQL"
 #: libraries/insert_edit.lib.php:2003 libraries/sql.lib.php:1616
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr "ID rînd inserat: %1$d"
+msgstr "ID rând inserat: %1$d"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:147
@@ -10882,7 +10884,7 @@ msgstr "Informații de autentificare"
 #: libraries/server_privileges.lib.php:1456
 #: libraries/server_privileges.lib.php:2830
 msgid "Use text field"
-msgstr "Utilizare cîmp text"
+msgstr "Utilizare câmp text"
 
 #: libraries/server_privileges.lib.php:1310
 msgid ""
@@ -11647,7 +11649,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:429
 msgid "The number of requests to insert a row in a table."
-msgstr "Numărul de cereri de a insera un rînd într-un tabel."
+msgstr "Numărul de cereri de a insera un rând într-un tabel."
 
 #: libraries/server_status_variables.lib.php:432
 msgid "The number of pages containing data (dirty or clean)."
@@ -11841,11 +11843,11 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:575
 msgid "The number of rows read from InnoDB tables."
-msgstr "Numărul de rînduri citite din tabelele InnoDB."
+msgstr "Numărul de rânduri citite din tabelele InnoDB."
 
 #: libraries/server_status_variables.lib.php:578
 msgid "The number of rows updated in InnoDB tables."
-msgstr "Numărul de rînduri actualizate în tabelele InnoDB."
+msgstr "Numărul de rânduri actualizate în tabelele InnoDB."
 
 #: libraries/server_status_variables.lib.php:581
 msgid ""
@@ -12046,7 +12048,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:727
 msgid "The number of sorted rows."
-msgstr "Numărul de rînduri sortate."
+msgstr "Numărul de rânduri sortate."
 
 #: libraries/server_status_variables.lib.php:730
 msgid "The number of sorts that were done by scanning the table."
