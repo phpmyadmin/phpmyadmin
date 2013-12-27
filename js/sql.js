@@ -537,6 +537,9 @@ function initStickyColumns() {
  * Adjust sticky columns on horizontal/vertical scroll
  */
 function handleStickyColumns() {
+    if ($("#table_results").length === 0) {
+        return;
+    }
     var currentScrollX = $(window).scrollLeft();
     var windowOffset = $(window).scrollTop();
     var tableStartOffset = $("#table_results").offset().top;
