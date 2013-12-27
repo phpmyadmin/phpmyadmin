@@ -13,12 +13,12 @@
  *
  * @return void
  */
-function process_formset(FormDisplay $form_display)
+function PMA_process_formset(FormDisplay $form_display)
 {
     if (filter_input(INPUT_GET, 'mode') == 'revert') {
         // revert erroneous fields to their default values
         $form_display->fixErrors();
-        generateHeader303();
+        PMA_generateHeader303();
     }
 
     if (!$form_display->process(false)) {
@@ -29,7 +29,7 @@ function process_formset(FormDisplay $form_display)
 
     // check for form errors
     if (!$form_display->hasErrors()) {
-        generateHeader303();
+        PMA_generateHeader303();
         return;
     }
 
@@ -66,7 +66,7 @@ function process_formset(FormDisplay $form_display)
  *
  * @return void
  */
-function generateHeader303()
+function PMA_generateHeader303()
 {
     // drop post data
     header('HTTP/1.1 303 See Other');
