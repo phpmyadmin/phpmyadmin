@@ -2944,14 +2944,14 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
 function PMA_getTableBodyForUserRightsTable($db_rights)
 {
     if ($GLOBALS['cfgRelation']['menuswork']) {
-        $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        $users_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
             . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
-        $sqlQuery = "SELECT * FROM " . $usersTable;
-        $result = PMA_queryAsControlUser($sqlQuery, false);
-        $groupAssignment = array();
+        $sql_query = 'SELECT * FROM ' . $users_table;
+        $result = PMA_queryAsControlUser($sql_query, false);
+        $group_assignment = array();
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                $groupAssignment[$row['username']] = $row['usergroup'];
+                $group_assignment[$row['username']] = $row['usergroup'];
             }
         }
         $GLOBALS['dbi']->freeResult($result);
@@ -3004,8 +3004,8 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
                 . '</code></td>' . "\n";
             if ($GLOBALS['cfgRelation']['menuswork']) {
                 $html_output .= '<td class="usrGroup">' . "\n"
-                    . (isset($groupAssignment[$host['User']])
-                        ? $groupAssignment[$host['User']]
+                    . (isset($group_assignment[$host['User']])
+                        ? $group_assignment[$host['User']]
                         : ''
                     )
                     . '</td>' . "\n";
