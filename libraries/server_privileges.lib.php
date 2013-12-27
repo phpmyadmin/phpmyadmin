@@ -2288,6 +2288,11 @@ function PMA_getExtraDataForAjaxBehavior(
         }
     }
 
+    $user_group_count = 0;
+    if ($GLOBALS['cfgRelation']['menuswork']) {
+        $user_group_count = PMA_getUserGroupCount();
+    }
+
     $extra_data = array();
     if (strlen($sql_query)) {
         $extra_data['sql_query']
@@ -2347,7 +2352,7 @@ function PMA_getExtraDataForAjaxBehavior(
             . PMA_getUserEditLink($username, $hostname)
             . '</td>' . "\n";
 
-        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+        if (isset($cfgRelation['menuswork']) && $user_group_count > 0) {
             $new_user_string .= '<td>'
                 . PMA_getUserGroupEditLink($username)
                 . '</td>' . "\n";
