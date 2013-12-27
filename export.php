@@ -217,24 +217,6 @@ if (!defined('TESTSUITE')) {
         }
     }
 
-    // Does export require to be into file?
-    if ($export_plugin->getProperties()->getForceFile() != null && ! $asfile) {
-        $message = PMA_Message::error(
-            __('Selected export type has to be saved in file!')
-        );
-        if ($export_type == 'server') {
-            $active_page = 'server_export.php';
-            include 'server_export.php';
-        } elseif ($export_type == 'database') {
-            $active_page = 'db_export.php';
-            include 'db_export.php';
-        } else {
-            $active_page = 'tbl_export.php';
-            include 'tbl_export.php';
-        }
-        exit();
-    }
-
     // Generate error url and check for needed variables
     if ($export_type == 'server') {
         $err_url = 'server_export.php?' . PMA_URL_getCommon();
