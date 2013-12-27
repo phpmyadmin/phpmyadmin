@@ -2884,6 +2884,10 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         $db_rights[$row['User']][$row['Host']] = $row;
     }
     @$GLOBALS['dbi']->freeResult($result);
+    $user_group_count = 0;
+    if ($GLOBALS['cfgRelation']['menuswork']) {
+        $user_group_count = PMA_getUserGroupCount();
+    }
 
     $html_output
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
@@ -2904,7 +2908,8 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         $html_output .= '<th>' . __('User group') . '</th>' . "\n";
     }
     $html_output .= '<th>' . __('Grant') . '</th>' . "\n"
-        . '<th colspan="3">' . __('Action') . '</th>' . "\n"
+        . '<th colspan="' . ($user_group_count > 0 ? '3' : '2') . '">'
+        . __('Action') . '</th>' . "\n"
         . '</tr>' . "\n"
         . '</thead>' . "\n";
 
