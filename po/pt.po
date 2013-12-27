@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:58-0500\n"
-"PO-Revision-Date: 2013-12-25 01:12+0200\n"
-"Last-Translator: Beatriz Magalhães <mbeatrizmagalhaes@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"PO-Revision-Date: 2013-12-27 21:37+0200\n"
+"Last-Translator: Tony Nascimento <gtonynasc@gmail.com>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4323,7 +4323,7 @@ msgstr "Restaurar valor padrão"
 
 #: libraries/config/FormDisplay.tpl.php:327
 msgid "Allow users to customize this value"
-msgstr "Permitir a todos os utilizadores alterarem este valor"
+msgstr "Permitir utilizadores personalizar este valor"
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
@@ -4685,7 +4685,7 @@ msgstr "Separador padrão do servidor"
 
 #: libraries/config/messages.inc.php:87
 msgid "Tab that is displayed when entering a table"
-msgstr "Separador que é mostrado quando entrar numa tabela"
+msgstr "Separador que é mostrado quando se entra numa tabela"
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
@@ -4697,7 +4697,7 @@ msgstr "Se as acções da estrutura da tabela devem ser escondidas"
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
-msgstr "Ocultar as acções estruturais da tabela"
+msgstr "Ocultar as acções à estrutura da tabela"
 
 #: libraries/config/messages.inc.php:92
 msgid "Show binary contents as HEX by default"
