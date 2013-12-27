@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - bug #4200 Missing syntax highlighting
 - bug #4201 Exports are not compressed
 - bug #4131 Import: "number of rows to skip" is ambiguous
+- bug #4205 Add a user shows additional "edit user group" link
 
 4.1.2.0 (2013-12-23)
 - bug #4178 Quick edit for BIT type does not work
