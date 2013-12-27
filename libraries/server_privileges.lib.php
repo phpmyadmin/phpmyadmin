@@ -2250,6 +2250,23 @@ function PMA_getUserGroupEditLink($username)
 }
 
 /**
+ * Returns number of defined user groups
+ *
+ * @return integer $user_group_count
+ */
+function PMA_getUserGroupCount()
+{
+    $user_group_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . '.' . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
+    $user_group_count = $GLOBALS['dbi']->fetchValue(
+        $sql_query, 0, 0, $GLOBALS['controllink']
+    );
+
+    return $user_group_count;
+}
+
+/**
  * This function return the extra data array for the ajax behavior
  *
  * @param string $password  password
@@ -2939,12 +2956,7 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
         }
         $GLOBALS['dbi']->freeResult($result);
 
-        $userGroupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-        $sqlQuery = "SELECT COUNT(*) FROM " . $userGroupTable;
-        $userGroupCount = $GLOBALS['dbi']->fetchValue(
-            $sqlQuery, 0, 0, $GLOBALS['controllink']
-        );
+        $user_group_count = PMA_getUserGroupCount();
     }
 
     $odd_row = true;
@@ -3008,7 +3020,7 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
                     $host['Host']
                 )
                 . '</td>';
-            if ($GLOBALS['cfgRelation']['menuswork'] && $userGroupCount > 0) {
+            if ($GLOBALS['cfgRelation']['menuswork'] && $user_group_count > 0) {
                 if (empty($host['User'])) {
                     $html_output .= '<td class="center"></td>';
                 } else {
