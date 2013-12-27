@@ -294,4 +294,52 @@ function PMA_getExportFilenameAndMimetype(
     }
     return array($filename, $mime_type);
 }
+
+/**
+ * Open the export file
+ *
+ * @param string  $filename     the export filename
+ * @param boolean $quick_export whether it's a quick export or not 
+ *
+ * @return array the full save filename, possible message and the file handle  
+ */
+function PMA_openExportFile($filename, $quick_export)
+{
+    $file_handle = null;
+    $message = '';
+
+    $save_filename = PMA_Util::userDir($GLOBALS['cfg']['SaveDir'])
+        . preg_replace('@[/\\\\]@', '_', $filename);
+
+    if (file_exists($save_filename)
+        && ((! $quick_export && empty($_REQUEST['onserverover']))
+        || ($quick_export
+        && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
+    ) {
+        $message = PMA_Message::error(
+            __(
+                'File %s already exists on server, '
+                . 'change filename or check overwrite option.'
+            )
+        );
+        $message->addParam($save_filename);
+    } elseif (is_file($save_filename) && ! is_writable($save_filename)) {
+        $message = PMA_Message::error(
+            __(
+                'The web server does not have permission '
+                . 'to save the file %s.'
+            )
+        );
+        $message->addParam($save_filename);
+    } elseif (! $file_handle = @fopen($save_filename, 'w')) {
+        $message = PMA_Message::error(
+            __(
+                'The web server does not have permission '
+                . 'to save the file %s.'
+            )
+        );
+        $message->addParam($save_filename);
+    }
+    return array($save_filename, $message, $file_handle);
+}
 ?>

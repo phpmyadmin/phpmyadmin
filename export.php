@@ -288,43 +288,12 @@ if (!defined('TESTSUITE')) {
 
     // Open file on server if needed
     if ($save_on_server) {
-        $save_filename = PMA_Util::userDir($cfg['SaveDir'])
-            . preg_replace('@[/\\\\]@', '_', $filename);
-        unset($message);
-        if (file_exists($save_filename)
-            && ((! $quick_export && empty($_REQUEST['onserverover']))
-            || ($quick_export
-            && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
-        ) {
-            $message = PMA_Message::error(
-                __(
-                    'File %s already exists on server, '
-                    . 'change filename or check overwrite option.'
-                )
-            );
-            $message->addParam($save_filename);
-        } else {
-            if (is_file($save_filename) && ! is_writable($save_filename)) {
-                $message = PMA_Message::error(
-                    __(
-                        'The web server does not have permission '
-                        . 'to save the file %s.'
-                    )
-                );
-                $message->addParam($save_filename);
-            } else {
-                if (! $file_handle = @fopen($save_filename, 'w')) {
-                    $message = PMA_Message::error(
-                        __(
-                            'The web server does not have permission '
-                            . 'to save the file %s.'
-                        )
-                    );
-                    $message->addParam($save_filename);
-                }
-            }
-        }
-        if (isset($message)) {
+        list($save_filename, $message, $file_handle) = PMA_openExportFile(
+            $filename, $quick_export
+        );
+
+        // problem opening export file on server?
+        if (! empty($message)) {
             if ($export_type == 'server') {
                 $active_page = 'server_export.php';
                 include 'server_export.php';
