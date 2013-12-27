@@ -7195,6 +7195,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Ignorer ce nombre de requêtes (pour SQL) ou de lignes (autres formats), à "
+"partir du début :"
 
 #: libraries/display_import.lib.php:341
 msgid "Format-Specific Options:"
