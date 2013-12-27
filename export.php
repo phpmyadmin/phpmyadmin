@@ -658,7 +658,7 @@ if (!defined('TESTSUITE')) {
     } while (false);
     // End of fake loop
 
-    if ($save_on_server && isset($message)) {
+    if ($save_on_server && ! empty($message)) {
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
             include 'server_export.php';
