@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-19 06:31-0500\n"
-"PO-Revision-Date: 2013-12-26 05:54+0200\n"
+"PO-Revision-Date: 2013-12-27 10:54+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -6125,11 +6125,11 @@ msgstr "顯示 SQL 查詢"
 #: libraries/config/messages.inc.php:729
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
-msgstr "是否在查詢過後繼續顯示查詢框在畫面上"
+msgstr "是否在查詢過後繼續在畫面上顯示查詢框"
 
 #: libraries/config/messages.inc.php:730 libraries/sql_query_form.lib.php:370
 msgid "Retain query box"
-msgstr "持續顯示查詢框"
+msgstr "繼續顯示查詢框"
 
 #: libraries/config/messages.inc.php:731
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -7528,7 +7528,7 @@ msgstr "登出"
 
 #: libraries/navigation/NavigationHeader.class.php:226
 msgid "phpMyAdmin documentation"
-msgstr "phpMyAdmin 檔案"
+msgstr "phpMyAdmin 操作文件"
 
 #: libraries/navigation/NavigationHeader.class.php:250
 msgid "Reload navigation panel"
@@ -11177,11 +11177,11 @@ msgstr "產生者："
 
 #: libraries/sql.lib.php:467
 msgid "Detailed profile"
-msgstr "性能明細"
+msgstr "效能分析明細"
 
 #: libraries/sql.lib.php:470
 msgid "Order"
-msgstr "順序"
+msgstr "項次"
 
 #: libraries/sql.lib.php:472 libraries/sql.lib.php:488
 msgid "State"
@@ -11189,11 +11189,11 @@ msgstr "狀態"
 
 #: libraries/sql.lib.php:485
 msgid "Summary by state"
-msgstr "狀態總結"
+msgstr "狀態摘要"
 
 #: libraries/sql.lib.php:491
 msgid "Total Time"
-msgstr "總計耗時"
+msgstr "總時間"
 
 #: libraries/sql.lib.php:493
 msgid "% Time"
@@ -11201,7 +11201,7 @@ msgstr "% 時間"
 
 #: libraries/sql.lib.php:495
 msgid "Calls"
-msgstr "次呼叫"
+msgstr "呼叫數"
 
 #: libraries/sql.lib.php:497
 msgid "ø Time"
@@ -11269,11 +11269,11 @@ msgstr "將此 SQL 查詢加爲書籤："
 
 #: libraries/sql_query_form.lib.php:332
 msgid "Replace existing bookmark of same name"
-msgstr "替換現有的同名的書籤"
+msgstr "取代現有相同名稱的書籤"
 
 #: libraries/sql_query_form.lib.php:348
 msgid "Do not overwrite this query from outside the window"
-msgstr "不從視窗外覆蓋此查詢"
+msgstr "不許其他視窗覆蓋此查詢視窗內容"
 
 #: libraries/sql_query_form.lib.php:353
 msgid "Delimiter"
