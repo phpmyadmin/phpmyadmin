@@ -40,7 +40,7 @@ function PMA_process_formset(FormDisplay $form_display)
     $formset = $formset ? "{$separator}formset=$formset" : '';
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     if ($id === null && $page == 'servers') {
-        // we've just added a new server, get it's id
+        // we've just added a new server, get its id
         $id = $form_display->getConfigFile()->getServerCount();
     }
     $id = $id ? "{$separator}id=$id" : '';
