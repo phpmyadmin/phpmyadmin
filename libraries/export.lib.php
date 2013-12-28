@@ -374,4 +374,27 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
     }
     return $message;
 }
+
+/**
+ * Compress the export buffer 
+ *
+ * @param string $dump_buffer the current dump buffer
+ * @param string $compression the compression mode
+ *
+ * @return object $message a message object (or empty string)
+ */
+function PMA_compressExport($dump_buffer, $compression)
+{
+    if ($compression == 'zip' && @function_exists('gzcompress')) {
+        $zipfile = new ZipFile();
+        $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
+        $dump_buffer = $zipfile->file();
+    } elseif ($compression == 'bzip2' && @function_exists('bzcompress')) {
+        $dump_buffer = bzcompress($dump_buffer);
+    } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
+        // without the optional parameter level because it bugs
+        $dump_buffer = gzencode($dump_buffer);
+    }
+    return $dump_buffer;
+}
 ?>

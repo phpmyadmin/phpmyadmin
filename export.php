@@ -685,23 +685,9 @@ if (!defined('TESTSUITE')) {
             );
         }
 
-        // Do the compression
-        // 1. as a zipped file
-        if ($compression == 'zip') {
-            if (@function_exists('gzcompress')) {
-                $zipfile = new ZipFile();
-                $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
-                $dump_buffer = $zipfile->file();
-            }
-        } elseif ($compression == 'bzip2') {
-            // 2. as a bzipped file
-            if (@function_exists('bzcompress')) {
-                $dump_buffer = bzcompress($dump_buffer);
-            }
-        } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
-            // 3. as a gzipped file
-            // without the optional parameter level because it bugs
-                $dump_buffer = gzencode($dump_buffer);
+        // Compression needed?
+        if ($compression) {
+            $dump_buffer = PMA_compressExport($dump_buffer, $compression);
         }
 
         /* If we saved on server, we have to close file now */
