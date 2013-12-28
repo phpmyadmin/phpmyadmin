@@ -544,7 +544,11 @@ AJAX.cache = {
      * @return void
      */
     navigate: function (index) {
-        if (typeof this.pages[index] === 'undefined') {
+        if (typeof this.pages[index] === 'undefined'
+            || typeof this.pages[index].content === 'undefined'
+            || typeof this.pages[index].menu === 'undefined'
+            || ! AJAX.cache.menus.get(this.pages[index].menu)
+        ) {
             PMA_ajaxShowMessage(
                 '<div class="error">' + PMA_messages.strInvalidPage + '</div>',
                 false
@@ -557,7 +561,7 @@ AJAX.cache = {
                 $('#selflink').html(record.selflink);
                 AJAX.cache.menus.replace(AJAX.cache.menus.get(record.menu));
                 PMA_commonParams.setAll(record.params);
-                AJAX.scriptHandler.load(record.scripts, record.params.token);
+                AJAX.scriptHandler.load(record.scripts, record.params ? record.params.token : PMA_commonParams.get('token'));
                 AJAX.cache.current = ++index;
             });
         }
