@@ -436,7 +436,7 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
     foreach ($_REQUEST as $name => $value) {
         $back_button .= '&amp;' . urlencode($name) . '=' . urlencode($value);
     }
-    $back_button .= '&amp;repopulate=1">Back</a> ]</p>';
+    $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
 
     $html .= $back_button
         . '<form name="nofunction">'
