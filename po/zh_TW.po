@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 18:16-0500\n"
-"PO-Revision-Date: 2013-12-28 04:33+0200\n"
+"PO-Revision-Date: 2013-12-28 06:04+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -662,7 +662,7 @@ msgstr "返回"
 
 #: index.php:115 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin 展示主機"
+msgstr "phpMyAdmin 展示伺服器"
 
 #: index.php:119
 #, php-format
@@ -670,9 +670,7 @@ msgid ""
 "You are using the demo server. You can do anything here, but please do not "
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
-msgstr ""
-"您正在使用展示主機。您可以在此做任何事情，但請勿更改 root、debian-sys-maint "
-"及 pma 使用者。這兒有更多的資訊 %s。"
+msgstr "您正在使用展示主機，您可以在此做任何事情，但請勿更改 root、debian-sys-maint 及 pma 使用者。這兒有更多的資訊 %s。"
 
 #: index.php:129
 msgid "General Settings"
@@ -711,19 +709,19 @@ msgstr "伺服器類別:"
 #: libraries/plugins/export/ExportSql.class.php:631
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
-msgstr "伺服器版本："
+msgstr "伺服器版本:"
 
 #: index.php:264
 msgid "Protocol version:"
-msgstr "協定版本："
+msgstr "協定版本:"
 
 #: index.php:268
 msgid "User:"
-msgstr "使用者："
+msgstr "使用者:"
 
 #: index.php:273
 msgid "Server charset:"
-msgstr "伺服器字元集："
+msgstr "伺服器字元集:"
 
 #: index.php:288
 msgid "Web server"
@@ -731,11 +729,11 @@ msgstr "網頁伺服器"
 
 #: index.php:304
 msgid "Database client version:"
-msgstr "資料庫用戶端版本："
+msgstr "資料庫用戶端版本:"
 
 #: index.php:308
 msgid "PHP extension:"
-msgstr "PHP 套件："
+msgstr "PHP 套件:"
 
 #: index.php:322
 msgid "Show PHP information"
@@ -743,7 +741,7 @@ msgstr "顯示 PHP 資訊"
 
 #: index.php:345
 msgid "Version information:"
-msgstr "版本資訊："
+msgstr "版本資訊:"
 
 #: index.php:354 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
@@ -1274,7 +1272,7 @@ msgstr "差異"
 #: js/messages.php:156
 #, php-format
 msgid "Divided by %s"
-msgstr "使用 %s 切割"
+msgstr "使用 %s 區分"
 
 #: js/messages.php:157
 msgid "Unit"
@@ -1421,9 +1419,7 @@ msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
-msgstr ""
-"在向伺服器取得新的圖表資料時取得無效的回應，可能是您的 SESSION 已經過期。 請"
-"重新整理頁面並重新輸入帳號密碼解決此問題。"
+msgstr "在向伺服器取得新的圖表資料時取得無效的回應，可能是您的連線階段已經過期。 請重新整理頁面並重新輸入帳號密碼解決此問題。"
 
 #: js/messages.php:198
 msgid "Reload page"
@@ -1680,7 +1676,7 @@ msgstr "查詢執行時間"
 #: libraries/DisplayResults.class.php:772
 #, php-format
 msgid "%d is not valid row number."
-msgstr "%d 不是有效的資料列編號。"
+msgstr "%d 不是有效的資料列號。"
 
 #: js/messages.php:289 libraries/insert_edit.lib.php:1499
 #: libraries/schema/User_Schema.class.php:390
@@ -2338,7 +2334,7 @@ msgstr "條件："
 
 #: libraries/DBQbe.class.php:595
 msgid "Add/Delete criteria rows"
-msgstr "新增/刪除基準行"
+msgstr "新增/刪除基準列"
 
 #: libraries/DBQbe.class.php:595
 msgid "Add/Delete columns"
@@ -2651,7 +2647,7 @@ msgstr "查詢中"
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr "這個檢視至少需包含這個數目的資料，請參考%sdocumentation%s。"
+msgstr "這個檢視表至少需有此數量的資料列，請參考%sdocumentation%s。"
 
 #: libraries/DisplayResults.class.php:4978
 #, php-format
@@ -3033,19 +3029,19 @@ msgstr "錯誤"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "影響了 %1$d 行。"
+msgstr[0] "影響了 %1$d 列。"
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "刪除了 %1$d 行。"
+msgstr[0] "刪除了 %1$d 列。"
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "新增了 %1$d 行。"
+msgstr[0] "新增了 %1$d 列。"
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2472
 #: libraries/browse_foreigners.lib.php:401
@@ -3228,7 +3224,7 @@ msgstr "將表 %1$s 改名爲 %2$s 時發生錯誤"
 #: libraries/Table.class.php:1340
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "已將資料表 %1$s 改名爲 %2$s。"
+msgstr "資料表 %1$s 已重新命名為 %2$s。"
 
 #: libraries/Table.class.php:1488
 msgid "Could not save table UI preferences"
@@ -4353,7 +4349,7 @@ msgstr "使用 config 認證方式時 config 認證方式的帳號不能爲空"
 
 #: libraries/config/Validator.class.php:313
 msgid "Empty signon session name while using signon authentication method"
-msgstr "使用 singon 認證方式時 Signon 連線名不能爲空"
+msgstr "選擇使用 Signon 認證方式時 Signon 連線階段名稱必須填寫"
 
 #: libraries/config/Validator.class.php:322
 msgid "Empty signon URL while using signon authentication method"
@@ -5243,7 +5239,7 @@ msgstr "第一行資料為欄位名稱"
 #: libraries/config/messages.inc.php:355
 #: libraries/plugins/import/ImportOds.class.php:83
 msgid "Do not import empty rows"
-msgstr "不匯入空行"
+msgstr "不匯入空資料列"
 
 #: libraries/config/messages.inc.php:357
 msgid "Import currencies ($5.00 to 5.00)"
@@ -6136,7 +6132,7 @@ msgstr "伺服器名稱"
 
 #: libraries/config/messages.inc.php:709
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
-msgstr "是否顯示 顯示全部資料列 的按鈕"
+msgstr "是否顯示 &quot;顯示全部資料列&quot; 的按鈕"
 
 #: libraries/config/messages.inc.php:710
 msgid "Allow to display all the rows"
@@ -6699,7 +6695,7 @@ msgstr "轉換編碼:"
 
 #: libraries/display_export.lib.php:311 libraries/sql.lib.php:432
 msgid "Rows:"
-msgstr "記錄:"
+msgstr "資料列數:"
 
 #: libraries/display_export.lib.php:319
 msgid "Dump some row(s)"
@@ -6860,9 +6856,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"允許中斷匯入的動作，當偵測到執行時間已接近 PHP 執行時間的限制時。<i>(若要匯入"
-"大型檔案這是很好的方法之一，不過使用這種方法會破壞指令中的交易(Trnsaction)動"
-"作。)</i>"
+"允許中斷匯入的動作，當偵測到執行時間已接近 PHP "
+"執行時間的限制時。<i>(若要匯入大型檔案這是很好的方法之一，不過使用這種方法會破壞指令中的交易(Transaction)動作。)</i>"
 
 #: libraries/display_import.lib.php:302
 msgid ""
@@ -7272,7 +7267,7 @@ msgstr "網頁伺服器沒有權限儲存 %s 檔案。"
 #: libraries/rte/rte_routines.lib.php:1488 libraries/sql.lib.php:1636
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL 回傳的查詢結果為空 (即零行)。"
+msgstr "MySQL 回傳空的查詢結果 (即零資料列)。"
 
 #: libraries/import.lib.php:1239
 msgid ""
@@ -7799,7 +7794,7 @@ msgstr "新增"
 
 #: libraries/operations.lib.php:75
 msgid "Rename database to:"
-msgstr "將資料庫改名為："
+msgstr "重新命名資料庫為："
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -9381,7 +9376,7 @@ msgstr "執行預存程序 %s 的結果"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] "程序中最後一個語句影響了 %d 行"
+msgstr[0] "程序中最後指令影響了 %d 列"
 
 #: libraries/rte/rte_routines.lib.php:1533
 #: libraries/rte/rte_routines.lib.php:1541
@@ -11702,7 +11697,7 @@ msgstr "長條圖"
 #: libraries/tbl_chart.lib.php:41
 msgctxt "Chart type"
 msgid "Column"
-msgstr "欄位"
+msgstr "直行圖"
 
 #: libraries/tbl_chart.lib.php:45
 msgctxt "Chart type"
@@ -11760,7 +11755,7 @@ msgstr "Y 軸標籤:"
 
 #: libraries/tbl_chart.lib.php:234
 msgid "Start row:"
-msgstr "開始列："
+msgstr "起始列號:"
 
 #: libraries/tbl_chart.lib.php:300
 msgid "Chart title"
@@ -11768,15 +11763,15 @@ msgstr "圖表標題"
 
 #: libraries/tbl_columns_definition_form.lib.php:72
 msgid "Storage Engine:"
-msgstr "儲存引擎："
+msgstr "儲存引擎:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
 msgid "Collation:"
-msgstr "排序規則："
+msgstr "編碼與排序:"
 
 #: libraries/tbl_columns_definition_form.lib.php:110
 msgid "PARTITION definition:"
-msgstr "分區定義："
+msgstr "PARTITION 定義:"
 
 #: libraries/tbl_columns_definition_form.lib.php:160
 msgid "Table name"
@@ -11789,15 +11784,14 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如果欄位類型為 \"enum\" 或 \"set\"，請使用以下格式輸入值: 'a','b','c'…<br />"
-"如果您需要輸入反斜線(\"\\\")或單引號(\"'\")，請在前面加上反斜線(如 '\\\\xyz' "
-"or 'a\\'b')。"
+"如果欄位類型為 \"enum\" 或 \"set\"，請使用以下格式輸入值: 'a','b','c'…<br "
+"/>如果您需要輸入反斜線(\"\\\")或單引號(\"'\")，請在前面加上反斜線(如 '\\\\xyz' 或 'a\\'b')。"
 
 #: libraries/tbl_columns_definition_form.lib.php:291
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
-msgstr "欄位預設值，請輸入一個值，不可加反斜線或引號，如: a"
+msgstr "欄位預設值，請輸入單一值，不可加反斜線或引號，如: a"
 
 #: libraries/tbl_columns_definition_form.lib.php:310
 msgid "Move column"
@@ -11870,7 +11864,7 @@ msgstr "-- 無 --"
 
 #: libraries/tbl_gis_visualization.lib.php:269
 msgid "Display GIS Visualization"
-msgstr "顯示可視化地理訊息"
+msgstr "顯示視覺化地理資訊(GIS)"
 
 #: libraries/tbl_gis_visualization.lib.php:287
 msgid "Redraw"
@@ -11887,11 +11881,11 @@ msgstr "下載"
 
 #: libraries/tbl_indexes.lib.php:113
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "主鍵的名稱必須稱爲 \"PRIMARY\"！"
+msgstr "主鍵的名稱必須稱爲 \"PRIMARY\"!"
 
 #: libraries/tbl_indexes.lib.php:123
 msgid "Can't rename index to PRIMARY!"
-msgstr "無法將索引改爲主鍵 (PRIMARY) ！"
+msgstr "無法將索引更改爲主鍵(PRIMARY)!"
 
 #: libraries/tbl_indexes.lib.php:139
 msgid "No index parts defined!"
@@ -11916,19 +11910,19 @@ msgstr "索引類型:"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
-msgstr "顯示資料表："
+msgstr "顯示資料表:"
 
 #: libraries/tbl_printview.lib.php:173
 msgid "Row Statistics:"
-msgstr "行統計："
+msgstr "列數統計:"
 
 #: libraries/tbl_printview.lib.php:300
 msgid "Space usage:"
-msgstr "已用空間："
+msgstr "空間用量:"
 
 #: libraries/tbl_relation.lib.php:386
 msgid "Choose column to display:"
-msgstr "選擇要顯示的欄位："
+msgstr "選擇要顯示的欄位:"
 
 #: libraries/tbl_relation.lib.php:419
 msgid "Internal relation"
@@ -11938,29 +11932,29 @@ msgstr "內部關聯"
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr "當對應的 FOREIGN KEY 存在時，則不需要內部的關聯。"
+msgstr "當外鍵(FOREIGN KEY)關連存在時就不需要使用內部關聯。"
 
 #: libraries/tbl_relation.lib.php:433
 msgid "Foreign key constraint"
-msgstr "外鍵與限制(Constraint)"
+msgstr "外鍵限制式"
 
 #: libraries/tbl_relation.lib.php:553
 msgid "Constraint name"
-msgstr "限制名稱"
+msgstr "限制式名稱"
 
 #: libraries/tbl_relation.lib.php:584
 msgid "No index defined! Create one below"
-msgstr "尚未定義索引，請於下方建立一個索引"
+msgstr "尚未定義索引，請於下方建立"
 
 #: libraries/tbl_relation.lib.php:998
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr "在 %1$s 建立外鍵時發生錯誤 (檢查資料類型)"
+msgstr "建立外鍵 %1$s 時發生錯誤 (檢查資料類型)"
 
 #: libraries/tbl_tracking.lib.php:60
 #, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "爲 %2$s 建立版本 %1$s"
+msgstr "建立 %2$s 的追蹤版本 %1$s"
 
 #: libraries/tbl_tracking.lib.php:67
 msgid "Track these data definition statements:"
@@ -12003,7 +11997,7 @@ msgstr "追蹤指令"
 #: libraries/tbl_tracking.lib.php:389 libraries/tbl_tracking.lib.php:439
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "顯示自 %2$s 起至 %3$s 使用者 %4$s 執行的 %1$s %5$s"
+msgstr "顯示自 %2$s 起至 %3$s 由使用者 %4$s 執行的 %1$s %5$s"
 
 #: libraries/tbl_tracking.lib.php:397
 msgid "Delete tracking data row from report"
@@ -12049,7 +12043,7 @@ msgstr "資料定義指令"
 #: libraries/tbl_tracking.lib.php:698
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr "版本 %s 的快照 (SQL 程式碼)"
+msgstr "版本 %s 的結構快照 (SQL 程式碼)"
 
 #: libraries/tbl_tracking.lib.php:917
 msgid "Tracking data definition successfully deleted"
@@ -12072,26 +12066,26 @@ msgstr "如果您不需要，請註解以下兩行。"
 
 #: libraries/tbl_tracking.lib.php:981
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "SQL 指令已匯出，您可以複製或者執行。"
+msgstr "已匯出 SQL 指令，您可以複製內容或者直接執行。"
 
 #: libraries/tbl_tracking.lib.php:1009
 msgid "SQL statements executed."
-msgstr "SQL 指令已執行。"
+msgstr "已執行 SQL 指令。"
 
 #: libraries/tbl_tracking.lib.php:1027
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr "`%s` 的追蹤報告"
+msgstr "資料表 `%s` 的追蹤報告"
 
 #: libraries/tbl_tracking.lib.php:1055
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "在版本 %2$s 已啟用 %1$s 的追。"
+msgstr "已啟用 %1$s 版本 %2$s 的追蹤。"
 
 #: libraries/tbl_tracking.lib.php:1077
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "在版本 %2$s 已停用 %1$s 的追蹤。"
+msgstr "已停用 %1$s 版本 %2$s 的追蹤。"
 
 #: libraries/tbl_tracking.lib.php:1149
 #, php-format
@@ -12104,7 +12098,7 @@ msgstr "管理您的設定"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:304
 msgid "Configuration has been saved"
-msgstr "設定已儲存"
+msgstr "已儲存設定"
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12122,20 +12116,20 @@ msgstr "無法儲存設定"
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
-msgstr "您的瀏覽器中有目前域的 phpMyAdmin 設定。是否匯入到目前連線中？"
+msgstr "您的瀏覽器中有此網域的 phpMyAdmin 設定，是否匯入到目前的連線階段?"
 
 #: libraries/zip_extension.lib.php:27 libraries/zip_extension.lib.php:81
 #: libraries/zip_extension.lib.php:84
 msgid "Error in ZIP archive:"
-msgstr "ZIP 包中有錯誤:"
+msgstr "ZIP 壓縮檔錯誤:"
 
 #: libraries/zip_extension.lib.php:35
 msgid "No files found inside ZIP archive!"
-msgstr "ZIP 包中未找到檔案！"
+msgstr "ZIP 壓縮檔中查無任何檔案!"
 
 #: navigation.php:20
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "錯誤: 只能經由 AJAX 使用導覽"
+msgstr "嚴重錯誤: 導覽頁只能使用 AJAX 存取"
 
 #: pmd_display_field.php:60 pmd_save_pos.php:87
 msgid "Modifications have been saved"
@@ -12147,7 +12141,7 @@ msgstr "顯示/隱藏左側選單"
 
 #: pmd_general.php:74
 msgid "View in fullscreen"
-msgstr "在全螢幕檢視"
+msgstr "全螢幕檢視"
 
 #: pmd_general.php:79
 msgid "Exit fullscreen"
@@ -12215,7 +12209,7 @@ msgstr "隱藏/顯示沒有關聯的表"
 
 #: pmd_general.php:225
 msgid "Number of tables:"
-msgstr "資料表數量："
+msgstr "資料表數:"
 
 #: pmd_general.php:499
 msgid "Delete relation"
@@ -12678,7 +12672,7 @@ msgstr "檢視表名稱"
 
 #: view_operations.php:96
 msgid "Rename view to"
-msgstr "將檢視表更名為"
+msgstr "重新命名檢視表為"
 
 #: view_operations.php:133
 msgid "Delete the view (DROP)"
@@ -13166,11 +13160,11 @@ msgstr "平均臨時表: %s，此值應每小時小於 1。"
 
 #: libraries/advisory_rules.txt:225
 msgid "Sort rows"
-msgstr "排序筆數"
+msgstr "資料列排序"
 
 #: libraries/advisory_rules.txt:228
 msgid "There are lots of rows being sorted."
-msgstr "有大量的資料被排序。"
+msgstr "有大量的資料列被排序。"
 
 #: libraries/advisory_rules.txt:229
 msgid ""
@@ -13185,7 +13179,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:230
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr "平均排序筆數: %s"
+msgstr "平均排序列數: %s"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
