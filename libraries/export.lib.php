@@ -397,4 +397,52 @@ function PMA_compressExport($dump_buffer, $compression)
     }
     return $dump_buffer;
 }
+
+/**
+ * Returns HTML containing the header for a displayed export
+ *
+ * @param string $export_type the export type
+ * @param string $db          the database name
+ * @param string $table       the table name
+ *
+ * @return array the generated HTML and back button
+ */
+function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
+{
+    $html = '<div style="text-align: ' . $GLOBALS['cell_align_left'] . '">';
+
+    /**
+     * Displays a back button with all the $_REQUEST data in the URL
+     * (store in a variable to also display after the textarea)
+     */
+    $back_button = '<p>[ <a href="';
+    if ($export_type == 'server') {
+        $back_button .= 'server_export.php?' . PMA_URL_getCommon();
+    } elseif ($export_type == 'database') {
+        $back_button .= 'db_export.php?' . PMA_URL_getCommon($db);
+    } else {
+        $back_button .= 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
+    }
+
+    // Convert the multiple select elements from an array to a string
+    if ($export_type == 'server' && isset($_REQUEST['db_select'])) {
+        $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
+    } elseif ($export_type == 'database'
+        && isset($_REQUEST['table_select'])
+    ) {
+        $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
+    }
+
+    foreach ($_REQUEST as $name => $value) {
+        $back_button .= '&amp;' . urlencode($name) . '=' . urlencode($value);
+    }
+    $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
+
+    $html .= $back_button
+        . '<form name="nofunction">'
+        . '<textarea name="sqldump" cols="50" rows="30" '
+        . 'id="textSQLDUMP" wrap="OFF">';
+
+    return array($html, $back_button);
+}
 ?>
