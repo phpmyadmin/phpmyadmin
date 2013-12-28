@@ -706,24 +706,9 @@ if (!defined('TESTSUITE')) {
 
         /* If we saved on server, we have to close file now */
         if ($save_on_server) {
-            $write_result = @fwrite($file_handle, $dump_buffer);
-            fclose($file_handle);
-            if (strlen($dump_buffer) > 0
-                && (! $write_result || ($write_result != strlen($dump_buffer)))
-            ) {
-                $message = new PMA_Message(
-                    __('Insufficient space to save the file %s.'),
-                    PMA_Message::ERROR,
-                    $save_filename
-                );
-            } else {
-                $message = new PMA_Message(
-                    __('Dump has been saved to file %s.'),
-                    PMA_Message::SUCCESS,
-                    $save_filename
-                );
-            }
-
+            $message = PMA_closeExportFile(
+                $file_handle, $dump_buffer, $save_filename
+            );
             if ($export_type == 'server') {
                 $active_page = 'server_export.php';
                 include_once 'server_export.php';
