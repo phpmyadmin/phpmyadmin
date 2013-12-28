@@ -334,40 +334,11 @@ if (!defined('TESTSUITE')) {
                     exit();
                 }
             }
-            echo "\n" . '<div style="text-align: ' . $cell_align_left . '">' . "\n";
-            //echo '    <pre>' . "\n";
-
-            /**
-             * Displays a back button with all the $_REQUEST data in the URL
-             * (store in a variable to also display after the textarea)
-             */
-            $back_button = '<p>[ <a href="';
-            if ($export_type == 'server') {
-                $back_button .= 'server_export.php?' . PMA_URL_getCommon();
-            } elseif ($export_type == 'database') {
-                $back_button .= 'db_export.php?' . PMA_URL_getCommon($db);
-            } else {
-                $back_button .= 'tbl_export.php?' . PMA_URL_getCommon($db, $table);
-            }
-
-            // Convert the multiple select elements from an array to a string
-            if ($export_type == 'server' && isset($_REQUEST['db_select'])) {
-                $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
-            } elseif ($export_type == 'database'
-                && isset($_REQUEST['table_select'])
-            ) {
-                $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
-            }
-
-            foreach ($_REQUEST as $name => $value) {
-                $back_button .= '&amp;' . urlencode($name) . '=' . urlencode($value);
-            }
-            $back_button .= '&amp;repopulate=1">Back</a> ]</p>';
-
-            echo $back_button;
-            echo '<form name="nofunction">' . "\n";
-            echo '<textarea name="sqldump" cols="50" rows="30" '
-                . 'id="textSQLDUMP" wrap="OFF">' . "\n";
+            list($html, $back_button) = PMA_getHtmlForDisplayedExportHeader(
+                $export_type, $db, $table
+            );
+            echo $html;
+            unset($html);
         } // end download
     }
 
