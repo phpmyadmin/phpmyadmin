@@ -30,12 +30,12 @@ $response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->setBodyId('pmd_body');
 $scripts = $header->getScripts();
+$scripts->addFile('jquery/jquery.fullscreen.js');
 $scripts->addFile('pmd/ajax.js');
 $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
 $scripts->addFile('pmd/iecanvas.js', true);
 $scripts->addFile('pmd/init.js');
-$scripts->addFile('jquery/jquery.fullscreen.js');
 
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';
