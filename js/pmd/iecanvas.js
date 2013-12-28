@@ -7,7 +7,7 @@
 /**
  *
  */
-if (!window.all) { // if IE
+if (document.all) { // if IE
     document.attachEvent(
         "onreadystatechange", // document load
         function () {
