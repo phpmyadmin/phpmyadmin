@@ -685,45 +685,16 @@ if (!defined('TESTSUITE')) {
             );
         }
 
-        // Do the compression
-        // 1. as a zipped file
-        if ($compression == 'zip') {
-            if (@function_exists('gzcompress')) {
-                $zipfile = new ZipFile();
-                $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
-                $dump_buffer = $zipfile->file();
-            }
-        } elseif ($compression == 'bzip2') {
-            // 2. as a bzipped file
-            if (@function_exists('bzcompress')) {
-                $dump_buffer = bzcompress($dump_buffer);
-            }
-        } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
-            // 3. as a gzipped file
-            // without the optional parameter level because it bugs
-                $dump_buffer = gzencode($dump_buffer);
+        // Compression needed?
+        if ($compression) {
+            $dump_buffer = PMA_compressExport($dump_buffer, $compression);
         }
 
         /* If we saved on server, we have to close file now */
         if ($save_on_server) {
-            $write_result = @fwrite($file_handle, $dump_buffer);
-            fclose($file_handle);
-            if (strlen($dump_buffer) > 0
-                && (! $write_result || ($write_result != strlen($dump_buffer)))
-            ) {
-                $message = new PMA_Message(
-                    __('Insufficient space to save the file %s.'),
-                    PMA_Message::ERROR,
-                    $save_filename
-                );
-            } else {
-                $message = new PMA_Message(
-                    __('Dump has been saved to file %s.'),
-                    PMA_Message::SUCCESS,
-                    $save_filename
-                );
-            }
-
+            $message = PMA_closeExportFile(
+                $file_handle, $dump_buffer, $save_filename
+            );
             if ($export_type == 'server') {
                 $active_page = 'server_export.php';
                 include_once 'server_export.php';

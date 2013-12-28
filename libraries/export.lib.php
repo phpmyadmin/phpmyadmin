@@ -342,4 +342,59 @@ function PMA_openExportFile($filename, $quick_export)
     }
     return array($save_filename, $message, $file_handle);
 }
+
+/**
+ * Close the export file
+ *
+ * @param resource $file_handle   the export file handle
+ * @param string   $dump_buffer   the current dump buffer
+ * @param string   $save_filename the export filename
+ *
+ * @return object $message a message object (or empty string)
+ */
+function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
+{
+    $message = '';
+    $write_result = @fwrite($file_handle, $dump_buffer);
+    fclose($file_handle);
+    if (strlen($dump_buffer) > 0
+        && (! $write_result || ($write_result != strlen($dump_buffer)))
+    ) {
+        $message = new PMA_Message(
+            __('Insufficient space to save the file %s.'),
+            PMA_Message::ERROR,
+            $save_filename
+        );
+    } else {
+        $message = new PMA_Message(
+            __('Dump has been saved to file %s.'),
+            PMA_Message::SUCCESS,
+            $save_filename
+        );
+    }
+    return $message;
+}
+
+/**
+ * Compress the export buffer 
+ *
+ * @param string $dump_buffer the current dump buffer
+ * @param string $compression the compression mode
+ *
+ * @return object $message a message object (or empty string)
+ */
+function PMA_compressExport($dump_buffer, $compression)
+{
+    if ($compression == 'zip' && @function_exists('gzcompress')) {
+        $zipfile = new ZipFile();
+        $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
+        $dump_buffer = $zipfile->file();
+    } elseif ($compression == 'bzip2' && @function_exists('bzcompress')) {
+        $dump_buffer = bzcompress($dump_buffer);
+    } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
+        // without the optional parameter level because it bugs
+        $dump_buffer = gzencode($dump_buffer);
+    }
+    return $dump_buffer;
+}
 ?>
