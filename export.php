@@ -334,9 +334,6 @@ if (!defined('TESTSUITE')) {
                     exit();
                 }
             }
-            $backup_cfgServer = $cfg['Server'];
-            $cfg['Server'] = $backup_cfgServer;
-            unset($backup_cfgServer);
             echo "\n" . '<div style="text-align: ' . $cell_align_left . '">' . "\n";
             //echo '    <pre>' . "\n";
 
