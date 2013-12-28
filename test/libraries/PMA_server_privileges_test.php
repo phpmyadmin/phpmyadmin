@@ -66,6 +66,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Confirm'] = "Confirm";
         $GLOBALS['cfg']['ShowHint'] = true;
 
+        $GLOBALS['cfgRelation'] = array();
+        $GLOBALS['cfgRelation']['menuswork'] = false;
         $GLOBALS['table'] = "table";
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['pmaThemeImage'] = 'image';
