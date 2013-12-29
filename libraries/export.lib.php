@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return void 
  */
-function PMA_shutdown()
+function PMA_shutdownDuringExport()
 {
     $a = error_get_last();
     if ($a != null && strpos($a['message'], "execution time")) {

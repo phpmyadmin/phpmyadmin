@@ -241,7 +241,7 @@ if (!defined('TESTSUITE')) {
     if (! empty($cfg['MemoryLimit'])) {
         @ini_set('memory_limit', $cfg['MemoryLimit']);
     }
-    register_shutdown_function('PMA_shutdown');
+    register_shutdown_function('PMA_shutdownDuringExport');
     // Start with empty buffer
     $dump_buffer = '';
     $dump_buffer_len = 0;
