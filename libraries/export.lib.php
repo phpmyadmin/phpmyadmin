@@ -558,4 +558,109 @@ function PMA_exportServer(
         }
     } // end foreach database
 }
+
+/**
+ * Export at the database level 
+ *
+ * @param string $db              the database to export
+ * @param string $tables          the tables to export
+ * @param string $whatStrucOrData structure or data or both
+ * @param object $export_plugin   the selected export plugin
+ * @param string $crlf            end of line character(s)
+ * @param string $err_url         the URL in case of error
+ * @param string $export_type     the export type
+ * @param string $do_relation     whether to export relation info
+ * @param string $do_comments     whether to add comments
+ * @param string $do_mime         whether to add MIME info
+ * @param string $do_dates        whether to add dates
+ *
+ * @return void
+ */ 
+function PMA_exportDatabase(
+    $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
+    $export_type, $do_relation, $do_comments, $do_mime, $do_dates
+) {
+    if (! $export_plugin->exportDBHeader($db)) {
+        return;
+    }
+    if (! $export_plugin->exportDBCreate($db)) {
+        return;
+    }
+
+    if (method_exists($export_plugin, 'exportRoutines')
+        && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
+        && isset($GLOBALS['sql_procedure_function'])
+    ) {
+        $export_plugin->exportRoutines($db);
+    }
+
+    $views = array();
+
+    // $tables contains the choices from the user (via $table_select)
+    foreach ($tables as $table) {
+        // if this is a view, collect it for later;
+        // views must be exported after the tables
+        $is_view = PMA_Table::isView($db, $table);
+        if ($is_view) {
+            $views[] = $table;
+        }
+        if ($whatStrucOrData == 'structure'
+            || $whatStrucOrData == 'structure_and_data'
+        ) {
+            // for a view, export a stand-in definition of the table
+            // to resolve view dependencies
+            if (! $export_plugin->exportStructure(
+                $db, $table, $crlf, $err_url,
+                $is_view ? 'stand_in' : 'create_table', $export_type,
+                $do_relation, $do_comments, $do_mime, $do_dates
+            )) {
+                break 1;
+            }
+        }
+        // if this is a view or a merge table, don't export data
+        if (($whatStrucOrData == 'data'
+            || $whatStrucOrData == 'structure_and_data')
+            && ! ($is_view || PMA_Table::isMerge($db, $table))
+        ) {
+            $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
+                . '.' . PMA_Util::backquote($table);
+            if (! $export_plugin->exportData(
+                $db, $table, $crlf, $err_url, $local_query
+            )) {
+                break 1;
+            }
+        }
+        // now export the triggers (needs to be done after the data because
+        // triggers can modify already imported tables)
+        if ($whatStrucOrData == 'structure'
+            || $whatStrucOrData == 'structure_and_data'
+        ) {
+            if (! $export_plugin->exportStructure(
+                $db, $table, $crlf, $err_url,
+                'triggers', $export_type,
+                $do_relation, $do_comments, $do_mime, $do_dates
+            )) {
+                break 1;
+            }
+        }
+    }
+    foreach ($views as $view) {
+        // no data export for a view
+        if ($whatStrucOrData == 'structure'
+            || $whatStrucOrData == 'structure_and_data'
+        ) {
+            if (! $export_plugin->exportStructure(
+                $db, $view, $crlf, $err_url,
+                'create_view', $export_type,
+                $do_relation, $do_comments, $do_mime, $do_dates
+            )) {
+                break 1;
+            }
+        }
+    }
+
+    if (! $export_plugin->exportDBFooter($db)) {
+        return;
+    }
+}
 ?>
