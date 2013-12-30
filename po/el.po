@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 18:16-0500\n"
-"PO-Revision-Date: 2013-12-19 15:29+0200\n"
+"PO-Revision-Date: 2013-12-30 18:50+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -2037,7 +2037,7 @@ msgstr "Εμφάνιση Λεπτομερειών Αναφοράς"
 #: js/messages.php:417
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
-msgstr ""
+msgstr "Η εξαγωγή σας ήταν ανεπιτυχής, λόγω χαμηλού χρονικού ορίου στην PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -7215,6 +7215,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Αγνόηση αυτού του αριθμού ερωτημάτων (για SQL) ή γραμμών (για άλλες μορφές), "
+"ξεκινόντας από το πρώτο:"
 
 #: libraries/display_import.lib.php:341
 msgid "Format-Specific Options:"
@@ -9607,13 +9609,11 @@ msgid "Event %1$s has been created."
 msgstr "Το συμβάν %1$s έχει δημιουργηθεί."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
-"<b>Ένα ή περισσότερα σφάλματα έλαβαν χώρα κατά την προώθηση του αιτήματός "
-"σας:</b>"
+"Ένα ή περισσότερα σφάλματα έλαβαν χώρα κατά την προώθηση του αιτήματός σας:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -12360,7 +12360,7 @@ msgstr "Χρονολόγιο"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Διασπορά"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
