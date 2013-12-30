@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-12-26 10:39+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2013-12-30 14:30+0200\n"
+"Last-Translator: Nicu Plai <nicu.plai@gmail.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -497,10 +497,10 @@ msgid "SRID:"
 msgstr "SRID"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometrie"
+msgstr "Geometrie %d:"
 
 #: gis_data_editor.php:208
 msgid "Point:"
@@ -528,25 +528,24 @@ msgid "Add a point"
 msgstr "Adaugă un punct"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Lines terminated by"
 msgid "Linestring %d:"
-msgstr "Linii terminate de"
+msgstr "Rând de caractere %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
 msgid "Outer ring:"
-msgstr ""
+msgstr "Inelul exterior:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "Inelul interior %d:"
 
 #: gis_data_editor.php:305
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Adaugă un utilizator nou"
+msgstr "Adaugă un nou rând de caractere"
 
 #: gis_data_editor.php:306 gis_data_editor.php:380 js/messages.php:334
 #, fuzzy
@@ -555,10 +554,10 @@ msgid "Add an inner ring"
 msgstr "Adaugă un utilizator nou"
 
 #: gis_data_editor.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Poligon"
+msgstr "Poligon %d:"
 
 #: gis_data_editor.php:386 js/messages.php:335
 msgid "Add a polygon"
@@ -615,6 +614,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"Alege \"GeomFromText\" din coloana \"Function\" si salveaza valoarea alaturata "
+"in atributul \"Value\""
 
 #: import.php:116
 #, php-format
