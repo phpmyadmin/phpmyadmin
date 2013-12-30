@@ -43,10 +43,19 @@ $(function () {
      */
     $('#pma_navigation_reload').live('click', function (event) {
         event.preventDefault();
-        $('#pma_navigation .throbber')
-            .first()
-            .css('visibility', 'visible');
+        // reload icon object
+        var $icon = $(this).find('img');
+        // source of the hidden throbber icon
+        var icon_throbber_src = $('#pma_navigation .throbber').attr('src');
+        // source of the reload icon
+        var icon_reload_src = $icon.attr('src');
+        // replace the source of the reload icon with the one for throbber
+        $icon.attr('src', icon_throbber_src);
         PMA_reloadNavigation();
+        // after one second, put back the reload icon
+        setTimeout(function () {
+            $icon.attr('src', icon_reload_src);
+        }, 1000);
     });
 
     /**
@@ -260,7 +269,7 @@ function expandTreeNode($expandElem, callback)
         var $throbber = $('#pma_navigation .throbber')
             .first()
             .clone()
-            .css('visibility', 'visible')
+            .css({visibility: 'visible', display: 'block'})
             .click(false);
         $icon.hide();
         $throbber.insertBefore($icon);
@@ -557,12 +566,6 @@ function PMA_showCurrentNavigation()
  * @return void
  */
 function PMA_reloadNavigation(callback) {
-    var $throbber = $('#pma_navigation .throbber')
-        .first()
-        .css({
-            'visibility' : 'visible',
-            'display' : 'block'
-        });
     var params = {
         reload: true,
         pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
@@ -605,10 +608,6 @@ function PMA_reloadNavigation(callback) {
     });
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.post(url, params, function (data) {
-        // Hide throbber if it's visible
-        $('#pma_navigation .throbber')
-            .first()
-            .css('visibility', 'hidden');
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
             PMA_showCurrentNavigation();
@@ -1127,7 +1126,7 @@ PMA_fastFilter.filter.prototype.request = function ()
                 $('#pma_navigation_content')
                     .find('img.throbber')
                     .clone()
-                    .css('visibility', 'visible')
+                    .css({visibility: 'visible', display: 'block'})
             )
         );
     }
