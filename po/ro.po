@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 18:16-0500\n"
-"PO-Revision-Date: 2013-12-30 14:26+0200\n"
+"PO-Revision-Date: 2013-12-30 14:30+0200\n"
 "Last-Translator: Nicu Plai <nicu.plai@gmail.com>\n"
 "Language-Team: Romanian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
@@ -515,7 +515,7 @@ msgstr "Adaugă un punct"
 #, php-format
 #| msgid "Lines terminated by"
 msgid "Linestring %d:"
-msgstr "Linii terminate de %d:"
+msgstr "Rând de caractere %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
 msgid "Outer ring:"
@@ -527,10 +527,9 @@ msgid "Inner ring %d:"
 msgstr "Inelul interior %d:"
 
 #: gis_data_editor.php:306
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Adaugă un utilizator nou"
+msgstr "Adaugă un nou rând de caractere"
 
 #: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:334
 #, fuzzy
@@ -539,10 +538,10 @@ msgid "Add an inner ring"
 msgstr "Adaugă un utilizator nou"
 
 #: gis_data_editor.php:328
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Poligon"
+msgstr "Poligon %d:"
 
 #: gis_data_editor.php:392 js/messages.php:335
 msgid "Add a polygon"
@@ -599,6 +598,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
+"Alege \"GeomFromText\" din coloana \"Function\" si salveaza valoarea alaturata "
+"in atributul \"Value\""
 
 #: import.php:116
 #, php-format
