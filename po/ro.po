@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 18:16-0500\n"
-"PO-Revision-Date: 2013-12-30 14:21+0200\n"
+"PO-Revision-Date: 2013-12-30 14:25+0200\n"
 "Last-Translator: Nicu Plai <nicu.plai@gmail.com>\n"
 "Language-Team: Romanian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ro/>\n"
@@ -512,14 +512,14 @@ msgid "Add a point"
 msgstr "Adaugă un punct"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Lines terminated by"
 msgid "Linestring %d:"
-msgstr "Linii terminate de"
+msgstr "Linii terminate de %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
 msgid "Outer ring:"
-msgstr ""
+msgstr "Inelul exterior:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:346
 #, php-format
