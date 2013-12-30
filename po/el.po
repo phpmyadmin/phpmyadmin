@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-12-27 21:38+0200\n"
+"PO-Revision-Date: 2013-12-30 18:49+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/4-1/el/>\n"
 "Language: el\n"
@@ -2054,9 +2054,7 @@ msgstr "Εμφάνιση Λεπτομερειών Αναφοράς"
 #: js/messages.php:417
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
-msgstr ""
-"Η εξαγωγή σας είναι ημιτελής, λόγω χαμηλού ορίου χρόνου εκτέλεσης στο "
-"επίπεδο της PHP"
+msgstr "Η εξαγωγή σας ήταν ανεπιτυχής, λόγω χαμηλού χρονικού ορίου στην PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -7083,7 +7081,7 @@ msgid ""
 "from the first one:"
 msgstr ""
 "Αγνόηση αυτού του αριθμού ερωτημάτων (για SQL) ή γραμμών (για άλλες μορφές), "
-"ξεκινώντας από το πρώτο:"
+"ξεκινόντας από το πρώτο:"
 
 #: libraries/display_import.lib.php:342
 msgid "Format-Specific Options:"
