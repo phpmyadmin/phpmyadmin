@@ -394,7 +394,6 @@ if (!defined('TESTSUITE')) {
                 $export_plugin->exportRoutines($db);
             }
 
-            $i = 0;
             $views = array();
 
             // $tables contains the choices from the user (via $table_select)
