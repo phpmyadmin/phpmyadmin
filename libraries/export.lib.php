@@ -476,10 +476,10 @@ function PMA_exportServer(
             && strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
             if (! $export_plugin->exportDBHeader($current_db)) {
-                break 2;
+                break 1;
             }
             if (! $export_plugin->exportDBCreate($current_db)) {
-                break 2;
+                break 1;
             }
             if (method_exists($export_plugin, 'exportRoutines')
                 && strpos($whatStrucOrData, 'structure') !== false
@@ -507,7 +507,7 @@ function PMA_exportServer(
                         $is_view ? 'stand_in' : 'create_table', $export_type,
                         $do_relation, $do_comments, $do_mime, $do_dates
                     )) {
-                        break 3;
+                        break 2;
                     }
                 }
                 // if this is a view or a merge table, don't export data
@@ -521,7 +521,7 @@ function PMA_exportServer(
                     if (! $export_plugin->exportData(
                         $current_db, $table, $crlf, $err_url, $local_query
                     )) {
-                        break 3;
+                        break 2;
                     }
                 }
                 // now export the triggers (needs to be done after the data
@@ -534,7 +534,7 @@ function PMA_exportServer(
                         'triggers', $export_type,
                         $do_relation, $do_comments, $do_mime, $do_dates
                     )) {
-                        break 2;
+                        break 1;
                     }
                 }
             }
@@ -548,12 +548,12 @@ function PMA_exportServer(
                         'create_view', $export_type,
                         $do_relation, $do_comments, $do_mime, $do_dates
                     )) {
-                        break 3;
+                        break 2;
                     }
                 }
             }
             if (! $export_plugin->exportDBFooter($current_db)) {
-                break 2;
+                break 1;
             }
         }
     } // end foreach database
