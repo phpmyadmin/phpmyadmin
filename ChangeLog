@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 - bug #4205 Add a user shows additional "edit user group" link
 - bug #4202 Cannot read property 'token' of undefined
 - bug #4203 On refreshing designer, $.FullScreen is undefined
+- bug #3920 Lost space in navigation area
 
 4.1.2.0 (2013-12-23)
 - bug #4178 Quick edit for BIT type does not work
