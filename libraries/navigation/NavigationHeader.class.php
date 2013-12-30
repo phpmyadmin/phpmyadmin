@@ -53,7 +53,7 @@ class PMA_NavigationHeader
         $buffer .= PMA_Util::getImage(
             'ajax_clock_small.gif',
             __('Loading…'),
-            array('style' => 'visibility: hidden;', 'class' => 'throbber')
+            array('style' => 'visibility: hidden; display:none', 'class' => 'throbber')
         );
         $buffer .= '</div>'; // pma_navigation_header
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
