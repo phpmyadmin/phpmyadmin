@@ -370,7 +370,6 @@ if (!defined('TESTSUITE')) {
         /**
          * Builds the dump
          */
-        // Gets the number of tables if a dump of a database has been required
         if ($export_type == 'server') {
             if (! isset($db_select)) {
                 $db_select = '';
