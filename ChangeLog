@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.1.4.0 (not yet released)
+- bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times
 
 4.1.3.0 (2013-12-31)
 - bug #3938 PDFDefaultPageSize doc and easy configurability

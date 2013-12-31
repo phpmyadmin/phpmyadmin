@@ -648,6 +648,11 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
         header('Content-Disposition: attachment; filename="' . $filename . '"');
     }
     header('Content-Type: ' . $mimetype);
+    // inform the server that compression has been done,
+    // to avoid a double compression (for example with Apache + mod_deflate)
+    if (strpos($mimetype, 'gzip') !== false) {
+        header('Content-Encoding: gzip');
+    }
     header('Content-Transfer-Encoding: binary');
     if ($length > 0) {
         header('Content-Length: ' . $length);
