@@ -3168,14 +3168,17 @@ function PMA_getHtmlForDisplayTheInitials($array_initials)
 
     uksort($array_initials, "strnatcasecmp");
 
-    $html_output = '<table id="initials_table" <cellspacing="5">'
+    $html_output = '<table id="initials_table" cellspacing="5">'
         . '<tr>';
     foreach ($array_initials as $tmp_initial => $initial_was_found) {
         if (! empty($tmp_initial)) {
             if ($initial_was_found) {
                 $html_output .= '<td>'
-                    . '<a class="ajax"'
-                    . ' href="server_privileges.php'
+                    . '<a class="ajax'
+                    . ((isset($_REQUEST['initial'])
+                        && $_REQUEST['initial'] === $tmp_initial
+                        ) ? ' active' : '')
+                    . '" href="server_privileges.php'
                     . PMA_URL_getCommon(array('initial' => $tmp_initial))
                     . '">' . $tmp_initial
                     . '</a>'
@@ -3188,7 +3191,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials)
     $html_output .= '<td>'
         . '<a href="server_privileges.php'
         . PMA_URL_getCommon(array('showall' => 1))
-        . '" class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
+        . '" class="nowrap">' . __('Show all') . '</a></td>' . "\n";
     $html_output .= '</tr></table>';
 
     return $html_output;
@@ -3787,7 +3790,10 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
        . __('Users overview') . "\n"
        . '</h2>' . "\n";
 
-    $sql_query = 'SELECT *,' .
+    // $sql_query is for the initial-filtered,
+    // $sql_query_all is for counting the total no. of users
+
+    $sql_query = $sql_query_all = 'SELECT *,' .
         "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'" .
         '  FROM `mysql`.`user`';
 
@@ -3796,9 +3802,15 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
         : '');
 
     $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
+    $sql_query_all .= ' ;';
+
     $res = $GLOBALS['dbi']->tryQuery(
         $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
     );
+    $res_all = $GLOBALS['dbi']->tryQuery(
+    $sql_query_all, null, PMA_DatabaseInterface::QUERY_STORE
+    );
+
 
     if (! $res) {
         // the query failed! This may have two reasons:
@@ -3833,9 +3845,9 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
 
         /**
          * Displays the initials
-         * Also not necassary if there is less than 20 privileges
+         * Also not necessary if there is less than 20 privileges
          */
-        if ($GLOBALS['dbi']->numRows($res) > 20 ) {
+        if ($GLOBALS['dbi']->numRows($res_all) > 20) {
             $html_output .= PMA_getHtmlForDisplayTheInitials($array_initials);
         }
 

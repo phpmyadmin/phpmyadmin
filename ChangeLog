@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
   and removed the extension directive
 + Added support for scatter charts
 + rfe #1478 Make Column Headings Sticky
++ rfe #1480 Enhance privileges initials table
 
 4.1.4.0 (not yet released)
 - bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times

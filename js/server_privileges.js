@@ -661,8 +661,11 @@ AJAX.registerOnload('server_privileges.js', function () {
                 $("#usersForm").hide("medium").remove();
                 $("#fieldset_add_user").hide("medium").remove();
                 $("#initials_table")
+                    .prop("id", "initials_table_old")
                     .after(data.message).show("medium")
                     .siblings("h2").not(":first").remove();
+                // prevent double initials table
+                $("#initials_table_old").remove();
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }

@@ -134,6 +134,10 @@ a:hover {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
+#initials_table a.active {
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'ffffff'); ?>
+}
+
 dfn {
     font-style: normal;
 }
