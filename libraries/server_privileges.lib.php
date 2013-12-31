@@ -3168,7 +3168,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials)
 
     uksort($array_initials, "strnatcasecmp");
 
-    $html_output = '<table id="initials_table" <cellspacing="5">'
+    $html_output = '<table id="initials_table" cellspacing="5">'
         . '<tr>';
     foreach ($array_initials as $tmp_initial => $initial_was_found) {
         if (! empty($tmp_initial)) {
