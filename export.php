@@ -385,76 +385,16 @@ if (!defined('TESTSUITE')) {
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates
             );
         } else {
-            if (! $export_plugin->exportDBHeader($db)) {
-                break;
-            }
             // We export just one table
             // $allrows comes from the form when "Dump all rows" has been selected
-            if (isset($allrows)
-                && $allrows == '0'
-                && $limit_to > 0
-                && $limit_from >= 0
-            ) {
-                $add_query  = ' LIMIT '
-                            . (($limit_from > 0) ? $limit_from . ', ' : '')
-                            . $limit_to;
-            } else {
-                $add_query  = '';
+            if (! isset($allrows)) {
+                $allrows = '';
             }
-
-            $is_view = PMA_Table::isView($db, $table);
-            if ($whatStrucOrData == 'structure'
-                || $whatStrucOrData == 'structure_and_data'
-            ) {
-                if (! $export_plugin->exportStructure(
-                    $db, $table, $crlf, $err_url,
-                    $is_view ? 'create_view' : 'create_table', $export_type,
-                    $do_relation, $do_comments, $do_mime, $do_dates
-                )) {
-                    break;
-                }
-            }
-            // If this is an export of a single view, we have to export data;
-            // for example, a PDF report
-            // if it is a merge table, no data is exported
-            if (($whatStrucOrData == 'data'
-                || $whatStrucOrData == 'structure_and_data')
-                && ! PMA_Table::isMerge($db, $table)
-            ) {
-                if (! empty($sql_query)) {
-                    // only preg_replace if needed
-                    if (! empty($add_query)) {
-                        // remove trailing semicolon before adding a LIMIT
-                        $sql_query = preg_replace('%;\s*$%', '', $sql_query);
-                    }
-                    $local_query = $sql_query . $add_query;
-                    $GLOBALS['dbi']->selectDb($db);
-                } else {
-                    $local_query  = 'SELECT * FROM ' . PMA_Util::backquote($db)
-                        . '.' . PMA_Util::backquote($table) . $add_query;
-                }
-                if (! $export_plugin->exportData(
-                    $db, $table, $crlf, $err_url, $local_query
-                )) {
-                    break;
-                }
-            }
-            // now export the triggers (needs to be done after the data because
-            // triggers can modify already imported tables)
-            if ($whatStrucOrData == 'structure'
-                || $whatStrucOrData == 'structure_and_data'
-            ) {
-                if (! $export_plugin->exportStructure(
-                    $db, $table, $crlf, $err_url,
-                    'triggers', $export_type,
-                    $do_relation, $do_comments, $do_mime, $do_dates
-                )) {
-                    break 2;
-                }
-            }
-            if (! $export_plugin->exportDBFooter($db)) {
-                break;
-            }
+            PMA_exportTable(
+                $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
+                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
+                $allrows, $limit_to, $limit_from, $sql_query
+            );
         }
         if (! $export_plugin->exportFooter()) {
             break;
