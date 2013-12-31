@@ -12,7 +12,9 @@ phpMyAdmin - ChangeLog
 + Added support for scatter charts
 + rfe #1478 Make Column Headings Sticky
 
-4.1.3.0 (not yet released)
+4.1.4.0 (not yet released)
+
+4.1.3.0 (2013-12-31)
 - bug #3938 PDFDefaultPageSize doc and easy configurability
 - bug #4198 Hovering over pie chart gives fatal JS error
 - bug #4200 Missing syntax highlighting
