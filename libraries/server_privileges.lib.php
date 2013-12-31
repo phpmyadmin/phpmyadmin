@@ -3174,8 +3174,11 @@ function PMA_getHtmlForDisplayTheInitials($array_initials)
         if (! empty($tmp_initial)) {
             if ($initial_was_found) {
                 $html_output .= '<td>'
-                    . '<a class="ajax"'
-                    . ' href="server_privileges.php'
+                    . '<a class="ajax'
+                    . ((isset($_REQUEST['initial'])
+                        && $_REQUEST['initial'] === $tmp_initial
+                        ) ? ' active' : '')
+                    . '" href="server_privileges.php'
                     . PMA_URL_getCommon(array('initial' => $tmp_initial))
                     . '">' . $tmp_initial
                     . '</a>'
