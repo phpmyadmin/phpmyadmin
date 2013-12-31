@@ -3790,7 +3790,10 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
        . __('Users overview') . "\n"
        . '</h2>' . "\n";
 
-    $sql_query = 'SELECT *,' .
+    // $sql_query is for the initial-filtered,
+    // $sql_query_all is for counting the total no. of users
+
+    $sql_query = $sql_query_all = 'SELECT *,' .
         "       IF(`Password` = _latin1 '', 'N', 'Y') AS 'Password'" .
         '  FROM `mysql`.`user`';
 
@@ -3799,9 +3802,15 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
         : '');
 
     $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
+    $sql_query_all .= ' ;';
+
     $res = $GLOBALS['dbi']->tryQuery(
         $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
     );
+    $res_all = $GLOBALS['dbi']->tryQuery(
+    $sql_query_all, null, PMA_DatabaseInterface::QUERY_STORE
+    );
+
 
     if (! $res) {
         // the query failed! This may have two reasons:
@@ -3836,9 +3845,9 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
 
         /**
          * Displays the initials
-         * Also not necassary if there is less than 20 privileges
+         * Also not necessary if there is less than 20 privileges
          */
-        if ($GLOBALS['dbi']->numRows($res) > 20 ) {
+        if ($GLOBALS['dbi']->numRows($res_all) > 20) {
             $html_output .= PMA_getHtmlForDisplayTheInitials($array_initials);
         }
 
