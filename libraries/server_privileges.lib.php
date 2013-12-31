@@ -3191,7 +3191,7 @@ function PMA_getHtmlForDisplayTheInitials($array_initials)
     $html_output .= '<td>'
         . '<a href="server_privileges.php'
         . PMA_URL_getCommon(array('showall' => 1))
-        . '" class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
+        . '" class="nowrap">' . __('Show all') . '</a></td>' . "\n";
     $html_output .= '</tr></table>';
 
     return $html_output;
