@@ -5594,17 +5594,19 @@ class PMA_DisplayResults
                 $alias = $analyzed_sql[0]['select_expr']
                     [$select_expr_position]['alias'];
 
-                if (isset($alias) && strlen($alias)) {
-                    $true_column = $analyzed_sql[0]['select_expr']
-                        [$select_expr_position]['column'];
-
-                    if ($alias == $meta->name) {
-                        // this change in the parameter does not matter
-                        // outside of the function
-                        $meta->name = $true_column;
-                    } // end if
-
+                if (!isset($alias) || !strlen($alias)) {
+                    continue;
                 } // end if
+
+                $true_column = $analyzed_sql[0]['select_expr']
+                    [$select_expr_position]['column'];
+
+                if ($alias == $meta->name) {
+                    // this change in the parameter does not matter
+                    // outside of the function
+                    $meta->name = $true_column;
+                } // end if
+
             } // end foreach
         } // end if
 

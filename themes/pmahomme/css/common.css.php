@@ -134,6 +134,10 @@ a:hover {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
+#initials_table a.active {
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'ffffff'); ?>
+}
+
 dfn {
     font-style: normal;
 }
@@ -1634,6 +1638,15 @@ li.no_bullets {
 
 #div_mysql_charset_collations table {
     float: <?php echo $left; ?>;
+}
+
+#div_mysql_charset_collations table th,
+#div_mysql_charset_collations table td {
+    padding: 0.4em;
+}
+
+#div_mysql_charset_collations table th#collationHeader {
+    width: 35%;
 }
 
 .operations_half_width {

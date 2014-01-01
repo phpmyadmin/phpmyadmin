@@ -111,7 +111,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                     $("#sqlqueryresults").html(data.sql_query);
                 } else { // results found
                     $("#sqlqueryresults").html(data.message);
-                    $("#sqlqueryresults").trigger('makegrid');
+                    $("#sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
                 }
                 $('#tbl_search_form')
                 // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.

@@ -53,12 +53,7 @@ function PMA_queryChart(data, columnNames, settings) {
                 label : settings.yaxisLabel
             }
         },
-        stackSeries : settings.stackSeries,
-        highlighter: {
-            show: true,
-            showTooltip: true,
-            tooltipAxes: 'xy'
-        }
+        stackSeries : settings.stackSeries
     };
 
     // create the chart

@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.0.0 (not yet released)
++ rfe #1447 Single table for display Character Sets and Collations
 + rfe #1455 Display icons/text/both for the table row actions
 + rfe #1473 Transformation to convert Boolean value to text
 - bug #4157 Changing users password will delete it
@@ -9,10 +10,24 @@ phpMyAdmin - ChangeLog
 + Added warning about the mysql extension being deprecated
   and removed the extension directive
 + Added support for scatter charts
++ rfe #1478 Make Column Headings Sticky
++ rfe #1480 Enhance privileges initials table
 
-4.1.3.0 (not yet released)
+4.1.4.0 (not yet released)
+- bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times
+- bug #4209 Missing compression in one case
+- bug #4208 Can't browse tables after sorting on columns with fieldnames that have a '-'
+
+4.1.3.0 (2013-12-31)
 - bug #3938 PDFDefaultPageSize doc and easy configurability
 - bug #4198 Hovering over pie chart gives fatal JS error
+- bug #4200 Missing syntax highlighting
+- bug #4201 Exports are not compressed
+- bug #4131 Import: "number of rows to skip" is ambiguous
+- bug #4205 Add a user shows additional "edit user group" link
+- bug #4202 Cannot read property 'token' of undefined
+- bug #4203 On refreshing designer, $.FullScreen is undefined
+- bug #3920 Lost space in navigation area
 
 4.1.2.0 (2013-12-23)
 - bug #4178 Quick edit for BIT type does not work

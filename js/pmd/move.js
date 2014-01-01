@@ -404,7 +404,7 @@ function Line0(x1, y1, x2, y2, color_line)
 }
 
 /**
- * draws a angualr relation/constraint line
+ * draws a angular relation/constraint line
  */
 function Line2(x1, y1, x2, y2, color_line)
 {
