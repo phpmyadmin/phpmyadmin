@@ -301,8 +301,9 @@ function PMA_isGzHandlerEnabled()
 function PMA_gzencodeNeeded()
 {
     if (@function_exists('gzencode')
-        && ! @ini_get('zlib.output_compression')
-        && ! PMA_isGzHandlerEnabled()
+        && ((! @ini_get('zlib.output_compression')
+        && ! PMA_isGzHandlerEnabled())
+        || $GLOBALS['save_on_server'])
     ) {
         return true;
     } else {
