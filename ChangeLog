@@ -3,8 +3,8 @@ phpMyAdmin - ChangeLog
 
 4.1.4.0 (not yet released)
 - bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times
+- bug #4209 Missing compression in one case
 - bug #4208 Can't browse tables after sorting on columns with fieldnames that have a '-'
-
 4.1.3.0 (2013-12-31)
 - bug #3938 PDFDefaultPageSize doc and easy configurability
 - bug #4198 Hovering over pie chart gives fatal JS error
