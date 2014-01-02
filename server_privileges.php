@@ -360,7 +360,7 @@ if (isset($_REQUEST['adduser'])) {
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
-            PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
+            PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         );
     } else {
         // A user was selected -> display the user's properties
@@ -375,7 +375,7 @@ if (isset($_REQUEST['adduser'])) {
             )
         );
         $response->addHTML(
-            PMA_getHtmlForDisplayUserProperties(
+            PMA_getHtmlForUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
                 $url_dbname, $username, $hostname,
                 (isset($dbname) ? $dbname : ''),
