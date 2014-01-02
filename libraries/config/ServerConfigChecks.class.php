@@ -140,8 +140,10 @@ class ServerConfigChecks
         $cookieAuthUsed, $blowfishSecret, $sServerAuthCfgMsg,
         $sSecurityInfoMsg, $blowfishSecretSet
     ) {
-        for ($i = 1, $serverCnt = $this->cfg->getServerCount(); $i <= $serverCnt; $i++) {
-            $cookieAuthServer = ($this->cfg->getValue("Servers/$i/auth_type") == 'cookie');
+        $serverCnt = $this->cfg->getServerCount();
+        for ($i = 1; $i <= $serverCnt; $i++) {
+            $cookieAuthServer
+                = ($this->cfg->getValue("Servers/$i/auth_type") == 'cookie');
             $cookieAuthUsed |= $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
                 $this->cfg->getServerName($i), $i
@@ -472,7 +474,8 @@ class ServerConfigChecks
         // $cfg['LoginCookieValidity']
         // value greater than session.gc_maxlifetime will cause
         // random session invalidation after that time
-        if ($this->cfg->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
+        $loginCookieValidity = $this->cfg->getValue('LoginCookieValidity');
+        if ($loginCookieValidity > ini_get('session.gc_maxlifetime')
         ) {
             PMA_messagesSet(
                 'error',
@@ -486,7 +489,7 @@ class ServerConfigChecks
         // $cfg['LoginCookieValidity']
         // should be at most 1800 (30 min)
         //
-        if ($this->cfg->getValue('LoginCookieValidity') > 1800) {
+        if ($loginCookieValidity > 1800) {
             PMA_messagesSet(
                 'notice',
                 'LoginCookieValidity',
@@ -500,8 +503,8 @@ class ServerConfigChecks
         // $cfg['LoginCookieStore']
         // LoginCookieValidity must be less or equal to LoginCookieStore
         //
-        if ($this->cfg->getValue('LoginCookieStore') != 0
-            && $this->cfg->getValue('LoginCookieValidity') > $this->cfg->getValue('LoginCookieStore')
+        if (($this->cfg->getValue('LoginCookieStore') != 0)
+            && ($loginCookieValidity > $this->cfg->getValue('LoginCookieStore'))
         ) {
             PMA_messagesSet(
                 'error',
