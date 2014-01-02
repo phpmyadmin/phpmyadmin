@@ -411,7 +411,7 @@ function PMA_getGrantsArray()
  *
  * @return string $html_output html snippet
  */
-function PMA_getHtmlForDisplayColumnPrivileges($columns, $row, $name_for_select,
+function PMA_getHtmlForColumnPrivileges($columns, $row, $name_for_select,
     $priv_for_header, $name, $name_for_dfn, $name_for_current
 ) {
     $html_output = '<div class="item" id="div_item_' . $name . '">' . "\n"
@@ -698,7 +698,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*',
  *
  * @return string html snippet
  */
-function PMA_getHtmlForDisplayResourceLimits($row)
+function PMA_getHtmlForResourceLimits($row)
 {
     $html_output = '<fieldset>' . "\n"
         . '<legend>' . __('Resource limits') . '</legend>' . "\n"
@@ -856,22 +856,22 @@ function PMA_getHtmlForTableSpecificPrivileges(
  */
 function PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row)
 {
-    $html_output = PMA_getHtmlForDisplayColumnPrivileges(
+    $html_output = PMA_getHtmlForColumnPrivileges(
         $columns, $row, 'Select_priv', 'SELECT',
         'select', __('Allows reading data.'), 'Select'
     );
 
-    $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
+    $html_output .= PMA_getHtmlForColumnPrivileges(
         $columns, $row, 'Insert_priv', 'INSERT',
         'insert', __('Allows inserting and replacing data.'), 'Insert'
     );
 
-    $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
+    $html_output .= PMA_getHtmlForColumnPrivileges(
         $columns, $row, 'Update_priv', 'UPDATE',
         'update', __('Allows changing data.'), 'Update'
     );
 
-    $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
+    $html_output .= PMA_getHtmlForColumnPrivileges(
         $columns, $row, 'References_priv', 'REFERENCES', 'references',
         __('Has no effect in this MySQL version.'), 'References'
     );
@@ -1016,7 +1016,7 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
 
     // The "Resource limits" box is not displayed for db-specific privs
     if ($db == '*') {
-        $html_output .= PMA_getHtmlForDisplayResourceLimits($row);
+        $html_output .= PMA_getHtmlForResourceLimits($row);
     }
     // for Safari 2.0.2
     $html_output .= '<div class="clearfloat"></div>';
@@ -1245,7 +1245,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
  *
  * @return string $html_output  a HTML snippet
  */
-function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
+function PMA_getHtmlForLoginInformationFields($mode = 'new')
 {
     list($username_length, $hostname_length) = PMA_getUsernameAndHostnameLength();
 
@@ -1681,7 +1681,7 @@ function PMA_getHtmlForAddUser($dbname)
        . '<form name="usersForm" class="ajax" id="addUsersForm"'
        . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
        . PMA_URL_getHiddenInputs('', '')
-       . PMA_getHtmlForDisplayLoginInformationFields('new');
+       . PMA_getHtmlForLoginInformationFields('new');
 
     $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
         . '<legend>' . __('Database for user') . '</legend>' . "\n";
@@ -2470,7 +2470,7 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         . '<fieldset id="fieldset_change_copy_user">' . "\n"
         . '<legend>' . __('Change Login Information / Copy User')
         . '</legend>' . "\n"
-        . PMA_getHtmlForDisplayLoginInformationFields('change');
+        . PMA_getHtmlForLoginInformationFields('change');
 
     $html_output .= '<fieldset id="fieldset_mode">' . "\n"
         . ' <legend>'
@@ -2648,7 +2648,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
  *
  * @return array $found_rows, $html_output
  */
-function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
+function PMA_getHtmlForUserRights($db_rights, $dbname,
     $hostname, $username
 ) {
     $html_output = '';
@@ -2728,7 +2728,7 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $dbname,
  *
  * @return array $html_output, $found_rows
  */
-function PMA_getTableForDisplayAllTableSpecificRights(
+function PMA_getHtmlForAllTableSpecificRights(
     $username, $hostname, $dbname
 ) {
     // table header
@@ -2782,7 +2782,7 @@ function PMA_getTableForDisplayAllTableSpecificRights(
 
     $html_output .= '<tbody>' . "\n";
     // display rows
-    list ($found_rows, $html_out) =  PMA_getHtmlForDisplayUserRightsInRows(
+    list ($found_rows, $html_out) =  PMA_getHtmlForUserRights(
         $db_rights, $dbname, $hostname, $username
     );
 
@@ -2800,7 +2800,7 @@ function PMA_getTableForDisplayAllTableSpecificRights(
  *
  * @return string HTML snippet
  */
-function PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows)
+function PMA_getHtmlForSelectDbInEditPrivs($found_rows)
 {
     // we already have the list of databases from libraries/common.inc.php
     // via $pma = new PMA;
@@ -2941,7 +2941,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . '</thead>' . "\n";
 
     $html_output .= '<tbody>' . "\n";
-    $html_output .= PMA_getTableBodyForUserRightsTable($db_rights);
+    $html_output .= PMA_getHtmlTableBodyForUserRights($db_rights);
     $html_output .= '</tbody>'
         . '</table>' . "\n";
 
@@ -2978,7 +2978,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
  *
  * @return string HTML snippet
  */
-function PMA_getTableBodyForUserRightsTable($db_rights)
+function PMA_getHtmlTableBodyForUserRights($db_rights)
 {
     if ($GLOBALS['cfgRelation']['menuswork']) {
         $users_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
@@ -3144,7 +3144,7 @@ function PMA_getFieldsetForAddDeleteUser()
  *
  * @return string HTML snippet
  */
-function PMA_getHtmlForDisplayTheInitials($array_initials)
+function PMA_getHtmlForInitials($array_initials)
 {
     // initialize to false the letters A-Z
     for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
@@ -3721,7 +3721,7 @@ function PMA_getAddUserHtmlFieldset()
  *
  * @return string $html_output
  */
-function PMA_getHtmlHeaderForDisplayUserProperties(
+function PMA_getHtmlHeaderForUserProperties(
     $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
 ) {
     $html_output = '<h2>' . "\n"
@@ -3783,7 +3783,7 @@ function PMA_getHtmlHeaderForDisplayUserProperties(
  *
  * @return string $html_output
  */
-function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
+function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
 {
     $html_output = '<h2>' . "\n"
        . PMA_Util::getIcon('b_usrlist.png')
@@ -3808,7 +3808,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
         $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
     );
     $res_all = $GLOBALS['dbi']->tryQuery(
-    $sql_query_all, null, PMA_DatabaseInterface::QUERY_STORE
+        $sql_query_all, null, PMA_DatabaseInterface::QUERY_STORE
     );
 
 
@@ -3848,7 +3848,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
          * Also not necessary if there is less than 20 privileges
          */
         if ($GLOBALS['dbi']->numRows($res_all) > 20) {
-            $html_output .= PMA_getHtmlForDisplayTheInitials($array_initials);
+            $html_output .= PMA_getHtmlForInitials($array_initials);
         }
 
         /**
@@ -3906,10 +3906,10 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
  *
  * @return string $html_output
  */
-function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
+function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
     $username, $hostname, $dbname, $tablename
 ) {
-    $html_output = PMA_getHtmlHeaderForDisplayUserProperties(
+    $html_output = PMA_getHtmlHeaderForUserProperties(
         $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
     );
 
@@ -3923,7 +3923,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         $html_output .= PMA_Message::error(
             __('The selected user was not found in the privilege table.')
         )->getDisplay();
-        $html_output .= PMA_getHtmlForDisplayLoginInformationFields();
+        $html_output .= PMA_getHtmlForLoginInformationFields();
             //exit;
     }
 
@@ -3960,14 +3960,14 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         // unescape wildcards in dbname at table level
         $unescaped_db = PMA_Util::unescapeMysqlWildcards($dbname);
         list($html_rightsTable, $found_rows)
-            = PMA_getTableForDisplayAllTableSpecificRights(
+            = PMA_getHtmlForAllTableSpecificRights(
                 $username, $hostname, $unescaped_db
             );
         $html_output .= $html_rightsTable;
 
         if (! strlen($dbname)) {
             // no database name was given, display select db
-            $html_output .= PMA_getHtmlForDisplaySelectDbInEditPrivs($found_rows);
+            $html_output .= PMA_getHtmlForSelectDbInEditPrivs($found_rows);
 
         } else {
             $html_output .= PMA_displayTablesInEditPrivs($dbname, $found_rows);
