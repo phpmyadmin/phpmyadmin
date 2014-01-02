@@ -131,11 +131,13 @@ a:hover {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'e0e0e0'); ?>
 }
 
 #initials_table a.active {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'ffffff'); ?>
+    border: 1px solid #666;
+    box-shadow: 0 0 2px #999;
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('bbbbbb', 'ffffff'); ?>
 }
 
 dfn {
