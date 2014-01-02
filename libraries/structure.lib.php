@@ -1451,7 +1451,6 @@ function PMA_getHtmlDivForMoveColumnsDialog()
  */
 function PMA_getHtmlForEditView($url_params)
 {
-    $retval = array();
     $query = "SELECT `VIEW_DEFINITION`, `CHECK_OPTION`, `DEFINER`, `SECURITY_TYPE`"
         . " FROM `INFORMATION_SCHEMA`.`VIEWS`"
         . " WHERE TABLE_SCHEMA='" . PMA_Util::sqlAddSlashes($GLOBALS['db']) . "'"
@@ -1836,7 +1835,11 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
         $action_enabled = false;
     } else {
         $html_output .= '<a rel="samepage" '
-            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' : '')
+            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' : 
+               ($action=='Index' ? 'class="ajax add_index_anchor"' : 
+                ($action=='Unique' ? 'class="ajax add_unique_anchor"' : ' ')
+               )
+              )
             . 'href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
@@ -1968,7 +1971,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     list($unique, $unique_enabled)
         = PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
-            'unique nowrap',
+            'add_unique nowrap',
             isset($columns_with_unique_index[$field_name]),
             false, $url_query, $primary, 'ADD UNIQUE',
             __('An index has been added on %s'),
@@ -1978,7 +1981,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     list($index, $index_enabled)
         = PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
-            'index nowrap', false, false, $url_query,
+            'add_index nowrap', false, false, $url_query,
             $primary, 'ADD INDEX', __('An index has been added on %s'),
             'Index', $titles, $row, false
         );
