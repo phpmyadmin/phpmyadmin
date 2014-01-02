@@ -70,6 +70,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
         $current_table = array(
             'TABLE_ROWS' => 3,
             'TABLE_NAME' => 'name1',
+            'TABLE_COMMENT' => 'This is a test comment'
         );
         $table_is_view = false;
         $tbl_url_query = 'tbl_url_query';
@@ -136,6 +137,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
         $current_table = array(
             'TABLE_ROWS' => 0,
             'TABLE_NAME' => 'name1',
+            'TABLE_COMMENT' => 'This is a test comment'
         );
         $table_is_view = false;
         list(
