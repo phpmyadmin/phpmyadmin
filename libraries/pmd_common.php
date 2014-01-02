@@ -180,9 +180,9 @@ function PMA_getScriptContr()
  *
  * @return array unique or primary indices
  */
-function get_pk_or_unique_keys()
+function PMA_getPKOrUniqueKeys()
 {
-    return get_all_keys(true);
+    return PMA_getAllKeys(true);
 }
 
 /**
@@ -192,7 +192,7 @@ function get_pk_or_unique_keys()
  *
  * @return array indices
  */
-function get_all_keys($unique_only = false)
+function PMA_getAllKeys($unique_only = false)
 {
     include_once './libraries/Index.class.php';
 
@@ -219,7 +219,7 @@ function get_all_keys($unique_only = false)
  *
  * @return string
  */
-function get_script_tabs()
+function PMA_getScriptTabs()
 {
     $retval = array(
         'j_tabs' => array(),
@@ -242,7 +242,7 @@ function get_script_tabs()
  *
  * @return array table positions and sizes
  */
-function get_tab_pos()
+function PMA_getTabPos()
 {
     $cfgRelation = PMA_getRelationsParam();
 
@@ -276,7 +276,7 @@ function get_tab_pos()
  *
  * @return void
  */
-function PMD_Return_upd($b, $ret)
+function PMA_returnUpd($b, $ret)
 {
     // not sure where this was defined...
     global $K;

@@ -64,6 +64,6 @@ if ($try_to_delete_internal_relation) {
         PMA_DatabaseInterface::QUERY_STORE
     );
 }
-PMD_Return_upd(1, __('Relation deleted'));
+PMA_returnUpd(1, __('Relation deleted'));
 
 ?>

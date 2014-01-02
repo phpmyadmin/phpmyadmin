@@ -14,11 +14,11 @@ require_once 'libraries/pmd_common.php';
 
 $script_display_field = PMA_getTablesInfo();
 $tab_column       = PMA_getColumnsInfo();
-$script_tables    = get_script_tabs();
+$script_tables    = PMA_getScriptTabs();
 $script_contr     = PMA_getScriptContr();
-$tab_pos          = get_tab_pos();
-$tables_pk_or_unique_keys = get_pk_or_unique_keys();
-$tables_all_keys  = get_all_keys();
+$tab_pos          = PMA_getTabPos();
+$tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
+$tables_all_keys  = PMA_getAllKeys();
 
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($_GET['db'])) {
