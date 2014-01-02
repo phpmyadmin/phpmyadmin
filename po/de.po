@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-11-19 10:34+0200\n"
-"Last-Translator: Ramona Hapke <ramona.hapke@gmail.com>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2014-01-02 22:11+0200\n"
+"Last-Translator: Denny Sandner <dennysandner@googlemail.com>\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/4-1/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1773,16 +1772,14 @@ msgid "Show search criteria"
 msgstr "Suchkriterien anzeigen"
 
 #: js/messages.php:296
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Suchkriterien ausblenden"
+msgstr "Suchkriterien ausblenden und Kriterien ersetzen"
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Suchkriterien anzeigen"
+msgstr "Suchkriterien anzeigen und Kriterien ersetzen"
 
 #: js/messages.php:300 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -2011,10 +2008,9 @@ msgid "Hide Panel"
 msgstr "Panel ausblenden"
 
 #: js/messages.php:394
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Logo im Navigationspanel anzeigen"
+msgstr "Zeige versteckte Navigationselemente"
 
 #: js/messages.php:397
 msgid "The requested page was not found in the history, it may have expired."
@@ -2054,24 +2050,23 @@ msgid "Submit Error Report"
 msgstr ""
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occurred. Do you want to send an error report?"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "Es ist ein Fehler aufgetreten. Möchten Sie einen Fehlerbericht senden?"
+msgstr ""
+"Es ist ein JavaScript Fehler aufgetreten. Möchten Sie einen Fehlerbericht "
+"senden?"
 
 #: js/messages.php:413
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Einstellungen ändern"
+msgstr "Einstellungen für Berichte ändern"
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Zeige alle offenen Tabellen"
+msgstr "Berichtdetails anzeigen"
 
 #: js/messages.php:417
 msgid ""
@@ -2376,11 +2371,10 @@ msgid "Unexpected characters on line %s."
 msgstr "Unerwartete Zeichen in Zeile %s."
 
 #: libraries/Advisor.class.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
-"Unerwartetes Zeichen in Zeile %1$s. Tab erwartet, aber \"%2$s\" gefunden"
+msgstr "Unerwartetes Zeichen in Zeile %1$s. Tab erwartet, aber \"%2$s\" gefunden."
 
 #: libraries/Advisor.class.php:472
 msgid "per second"
@@ -2434,28 +2428,24 @@ msgid "Descending"
 msgstr "Absteigend"
 
 #: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1346
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Spalte"
+msgstr "Spalte:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Sortierung"
+msgstr "Sortierung:"
 
 #: libraries/DBQbe.class.php:468
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Zeige"
+msgstr "Anzeige:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Kriterium"
+msgstr "Kriterium:"
 
 #: libraries/DBQbe.class.php:578
 msgid "Add/Delete criteria rows"
@@ -2474,10 +2464,9 @@ msgid "Use Tables"
 msgstr "Verwendete Tabellen"
 
 #: libraries/DBQbe.class.php:655 libraries/DBQbe.class.php:763
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "Oder"
+msgstr "Oder:"
 
 #: libraries/DBQbe.class.php:659 libraries/DBQbe.class.php:748
 msgid "And:"
@@ -2492,10 +2481,9 @@ msgid "Del"
 msgstr "Entf"
 
 #: libraries/DBQbe.class.php:682
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Verändern"
+msgstr "Änderung:"
 
 #: libraries/DBQbe.class.php:743
 msgid "Ins:"
@@ -2661,10 +2649,9 @@ msgid "Number of rows:"
 msgstr "Anzahl der Datensätze:"
 
 #: libraries/DisplayResults.class.php:959
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Art und Weise"
+msgstr "Modus:"
 
 #: libraries/DisplayResults.class.php:961
 msgid "horizontal"
@@ -2933,10 +2920,9 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/Footer.class.php:81
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Versionsinformationen"
+msgstr "Versionsinformationen fehlt!"
 
 #: libraries/Footer.class.php:155 libraries/Footer.class.php:159
 #: libraries/Footer.class.php:162
@@ -3366,16 +3352,14 @@ msgid "Target database `%s` was not found!"
 msgstr "Ziel-Datenbank `%s` nicht gefunden!"
 
 #: libraries/Table.class.php:1257
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Ungültige Datenbank"
+msgstr "Ungültige Datenbank:"
 
 #: libraries/Table.class.php:1271
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Ungültiger Tabellenname"
+msgstr "Ungültiger Tabellenname:"
 
 #: libraries/Table.class.php:1306
 #, php-format
@@ -3505,38 +3489,33 @@ msgid "Reset zoom"
 msgstr "Zoom zurücksetzen"
 
 #: libraries/TableSearch.class.php:1343
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace with:"
-msgstr "Ersetze NULL durch:"
+msgstr "Ersetze durch:"
 
 #: libraries/TableSearch.class.php:1403
 msgid "Find and replace - preview"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1407
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Spalte"
+msgstr "Zähler"
 
 #: libraries/TableSearch.class.php:1408
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Ursprungsposition"
+msgstr "Ursprungstext"
 
 #: libraries/TableSearch.class.php:1409
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Verwandte Links"
+msgstr "ersetzter Text"
 
 #: libraries/TableSearch.class.php:1433
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Repliziert"
+msgstr "Ersetzen"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3567,10 +3546,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "Pfad für das Oberflächendesign %s nicht gefunden!"
 
 #: libraries/Theme_Manager.class.php:369
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Oberflächendesign"
+msgstr "Design:"
 
 #: libraries/Types.class.php:297
 msgid ""
@@ -3921,10 +3899,9 @@ msgid "Max: %s%s"
 msgstr "Maximal: %s%s"
 
 #: libraries/Util.class.php:642 libraries/sql.lib.php:433
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL-Befehl"
+msgstr "SQL-Befehl:"
 
 #: libraries/Util.class.php:686 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -4178,10 +4155,10 @@ msgstr ""
 "Konfiguration."
 
 #: libraries/common.inc.php:657
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Server"
+msgstr "Server %d"
 
 #: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
@@ -4373,16 +4350,18 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" benötigt %s Erweiterung"
 
 #: libraries/config/FormDisplay.class.php:791
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "Import wird nicht ausgeführt, fehlende Funktion (%s)"
+msgstr ""
+"Komprimierter Import wird wegen fehlender Funktion (%s) nicht funktionieren."
 
 #: libraries/config/FormDisplay.class.php:797
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "Export wird nicht ausgeführt, fehlende Funktion (%s)"
+msgstr ""
+"Komprimierter Export wird wegen fehlender Funktion (%s) nicht funktionieren."
 
 #: libraries/config/FormDisplay.class.php:807
 msgid "SQL Validator is disabled"
@@ -4461,10 +4440,9 @@ msgstr ""
 "Passwort des phpMyAdmin Control-users ist leer, obwohl pmadb verwendet wird"
 
 #: libraries/config/Validator.class.php:447
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Ungültiger Wert"
+msgstr "Ungültiger Wert:"
 
 #: libraries/config/Validator.class.php:456
 #, php-format
@@ -4765,28 +4743,25 @@ msgstr "Spaltennamen in die erste Zeile setzen"
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:249
 #: libraries/config/messages.inc.php:256
 #: libraries/plugins/import/ImportCsv.class.php:150
-#, fuzzy
 #| msgid "Columns enclosed with:"
 msgid "Columns enclosed with"
-msgstr "Spalten eingeschlossen von:"
+msgstr "Spalten eingeschlossen von"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:250
 #: libraries/config/messages.inc.php:257
 #: libraries/plugins/import/ImportCsv.class.php:157
-#, fuzzy
 #| msgid "Columns escaped with:"
 msgid "Columns escaped with"
-msgstr "Spalten escaped mit:"
+msgstr "Spalten escaped mit"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:98
 #: libraries/config/messages.inc.php:106 libraries/config/messages.inc.php:110
 #: libraries/config/messages.inc.php:142 libraries/config/messages.inc.php:145
 #: libraries/config/messages.inc.php:147
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace NULL with"
-msgstr "Ersetze NULL durch:"
+msgstr "Ersetze NULL durch"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:83
 msgid "Remove CRLF characters within columns"
@@ -4795,17 +4770,15 @@ msgstr "CRLF-Zeichen aus den Zeilen entfernen"
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:253
 #: libraries/config/messages.inc.php:261
 #: libraries/plugins/import/ImportCsv.class.php:135
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
-msgstr "Spalten enden auf"
+msgstr "Spalten enden mit"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:248
 #: libraries/plugins/import/ImportCsv.class.php:164
-#, fuzzy
 #| msgid "Lines terminated with:"
 msgid "Lines terminated with"
-msgstr "Zeilen enden auf:"
+msgstr "Zeilen enden mit"
 
 #: libraries/config/messages.inc.php:81
 msgid "Excel edition"
@@ -4914,10 +4887,9 @@ msgstr "Fremdschlüsselüberprüfung deaktivieren"
 
 #: libraries/config/messages.inc.php:125
 #: libraries/plugins/export/ExportSql.class.php:155
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Exportiere Datensätze aus Tabelle \"%s\""
+msgstr "Exportiere Ansicht als Tabelle"
 
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:127
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:135
@@ -13064,7 +13036,7 @@ msgstr "FOREIGN KEY Relation hinzugefügt"
 
 #: pmd_relation_new.php:84
 msgid "Error: Relational features are disabled!"
-msgstr "Fehler: Zusammenhängende Funktionen wurden deaktiviert!"
+msgstr "Fehler: Beziehungsfunktionen wurde deaktiviert!"
 
 #: pmd_relation_new.php:100
 msgid "Internal relation added"
