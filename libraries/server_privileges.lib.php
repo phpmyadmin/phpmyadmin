@@ -3808,7 +3808,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
         $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
     );
     $res_all = $GLOBALS['dbi']->tryQuery(
-    $sql_query_all, null, PMA_DatabaseInterface::QUERY_STORE
+        $sql_query_all, null, PMA_DatabaseInterface::QUERY_STORE
     );
 
 
