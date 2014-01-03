@@ -4,7 +4,7 @@
  * @package PhpMyAdmin-Designer
  */
 /**
- * block attempts to directly run this script
+ * Block attempts to directly run this script
  */
 if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
@@ -22,7 +22,7 @@ $GLOBALS['PMD']['STYLE']          = 'default';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
- * retrieves table info and stores it in $GLOBALS['PMD']
+ * Retrieves table info and stores it in $GLOBALS['PMD']
  *
  * @return array with table info
  */
@@ -74,7 +74,7 @@ function PMA_getTablesInfo()
 }
 
 /**
- * retrieves table column info
+ * Retrieves table column info
  *
  * @return array   table column nfo
  */
@@ -107,7 +107,7 @@ function PMA_getColumnsInfo()
 }
 
 /**
- * returns JavaScript code for initializing vars
+ * Returns JavaScript code for initializing vars
  *
  * @return string   JavaScript code
  */
@@ -186,7 +186,7 @@ function PMA_getPKOrUniqueKeys()
 }
 
 /**
- * returns all indices
+ * Returns all indices
  *
  * @param bool $unique_only whether to include only unique ones
  *
