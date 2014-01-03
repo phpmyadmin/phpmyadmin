@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 18:16-0500\n"
-"PO-Revision-Date: 2013-12-19 16:12+0200\n"
+"PO-Revision-Date: 2014-01-03 10:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -7091,6 +7091,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Přeskočit daný počet dotazů (pro SQL) nebo řádek (pro ostatní formáty), "
+"počínaje od:"
 
 #: libraries/display_import.lib.php:341
 msgid "Format-Specific Options:"
@@ -12104,7 +12106,7 @@ msgstr "Časový"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Bodový"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
