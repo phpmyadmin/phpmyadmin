@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2013-07-15 11:25+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Kazakh <http://l10n.cihar.com/projects/phpmyadmin/master/kk/"
-">\n"
+"PO-Revision-Date: 2014-01-03 21:27+0200\n"
+"Last-Translator: sand wedge <sandibek_aktau@mail.ru>\n"
+"Language-Team: Kazakh <http://l10n.cihar.com/projects/phpmyadmin/master/kk/>\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,8 +24,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s файлы табылмады. Барлық қосымша ақпараттар, www.phpmyadmin.net сайтында "
-"орналасқан."
+"%s файлы табылмады. Барлық қосымша ақпараттарды, www.phpmyadmin.net сайтынан "
+"таба аласыздар."
 
 #: db_create.php:61
 #, php-format
@@ -40,7 +39,6 @@ msgstr "Дерекқорына түсініктеме: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
 msgstr "Кестеге түсініктеме:"
@@ -274,24 +272,21 @@ msgstr "қолданыста"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Құру"
+msgstr "Құру:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Соңғы жаңартылым"
+msgstr "Соңғы жаңарту:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Соңғы тексерім"
+msgstr "Соңғы тексеріс:"
 
 #: db_printview.php:149 libraries/structure.lib.php:177
 #, php-format
@@ -424,25 +419,30 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Қате анықталды және қателік жөніндегі баяндама автоматты түрде "
+"баптауларыңызғ негізделіп жолданды."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Бетті жаңартуыңызға болады."
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Қателік анықталды және қателік баяндамасы құрылды, бірақ жіберілмей қалды."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Егер сізде қандай да бір мәселелер туындаса қателік баяндамасын өзіңіз "
+"жолдаңыз."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Баяндаманы жолдағаныңыз үшін рахмет."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
@@ -536,10 +536,10 @@ msgid "Add an inner ring"
 msgstr ""
 
 #: gis_data_editor.php:328
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Көпбұрыш"
+msgstr "%d көпбұрышы:"
 
 #: gis_data_editor.php:392 js/messages.php:335
 msgid "Add a polygon"
