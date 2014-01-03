@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 18:16-0500\n"
-"PO-Revision-Date: 2013-11-25 15:40+0200\n"
+"PO-Revision-Date: 2014-01-03 14:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
-">\n"
+"Language-Team: Bengali "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3889,7 +3889,7 @@ msgstr "রবিবার"
 #: libraries/Util.class.php:1634
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%B %d, %Y at %I:%M %p"
+msgstr ""
 
 #: libraries/Util.class.php:1981
 #, php-format
