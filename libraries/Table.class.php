@@ -1318,7 +1318,7 @@ class PMA_Table
                 }
             }
             $this->errors[] = sprintf(
-                __('Error renaming table %1$s to %2$s'),
+                __('Failed to rename table %1$s to %2$s!'),
                 $this->getFullName(),
                 $new_table->getFullName()
             );
@@ -1578,8 +1578,8 @@ class PMA_Table
             if (isset($this->uiprefs[$property])) {
                 // check if the column name exists in this table
                 $tmp = explode(' ', $this->uiprefs[$property]);
-                $colname = $tmp[0];               
-                //remove backquoting from colname 
+                $colname = $tmp[0];
+                //remove backquoting from colname
                 $colname = str_replace('`', '', $colname);
                 //get the available column name without backquoting
                 $avail_columns = $this->getColumns(false);
