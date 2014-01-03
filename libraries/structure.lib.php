@@ -52,8 +52,7 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
     }
     $search_table .= '</a>';
 
-    $browse_table_label = '<a href="sql.php?' . $tbl_url_query
-        . '&amp;pos=0" title="' . $current_table['TABLE_COMMENT'] . '">'
+    $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">'
         . $truename . '</a>';
 
     if (!$db_is_information_schema) {
@@ -280,8 +279,7 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
 
     $html_output .= '<input type="checkbox" id="tablesForm_checkall" '
         . 'class="checkall_box" title="' . __('Check All') .'" />';
-    $html_output .= '<label for="tablesForm_checkall">' .__('Check All')
-        . '</label>';
+    $html_output .= '<label for="tablesForm_checkall">' .__('Check All') . '</label>';
 
     if ($overhead_check != '') {
         $html_output .= PMA_getHtmlForCheckTablesHavingOverheadlink(
@@ -699,7 +697,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
 /**
  * Get HTML snippet view table
  *
- * @param boolean $is_show_stats whether stats show or not
+ * @param type $is_show_stats whether stats show or not
  *
  * @return string $html_output
  */
@@ -956,19 +954,16 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
     $do = false;
     include_once 'libraries/replication.inc.php';
     if ($server_slave_status) {
-        $nbServerSlaveDoDb = count($server_slave_Do_DB);
-        $nbServerSlaveIgnoreDb = count($server_slave_Ignore_DB);
         if ((strlen(array_search($truename, $server_slave_Do_Table)) > 0)
             || (strlen(array_search($GLOBALS['db'], $server_slave_Do_DB)) > 0)
-            || ($nbServerSlaveDoDb == 1 && $nbServerSlaveIgnoreDb == 1)
+            || (count($server_slave_Do_DB) == 1 && count($server_slave_Ignore_DB) == 1)
         ) {
             $do = true;
         }
         foreach ($server_slave_Wild_Do_Table as $db_table) {
             $table_part = PMA_extractDbOrTable($db_table, 'table');
-            $pattern = "@^" . substr($table_part, 0, strlen($table_part) - 1) . "@";
             if (($GLOBALS['db'] == PMA_extractDbOrTable($db_table, 'db'))
-                && (preg_match($pattern, $truename))
+                && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
             ) {
                 $do = true;
             }
@@ -981,9 +976,8 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
         }
         foreach ($server_slave_Wild_Ignore_Table as $db_table) {
             $table_part = PMA_extractDbOrTable($db_table, 'table');
-            $pattern = "@^" . substr($table_part, 0, strlen($table_part) - 1) . "@";
             if (($db == PMA_extractDbOrTable($db_table))
-                && (preg_match($pattern, $truename))
+                && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
             ) {
                 $ignored = true;
             }
@@ -1504,8 +1498,7 @@ function PMA_getHtmlForEditView($url_params)
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
-    $html_output = '<a href="tbl_printview.php?' . $url_query
-        . '" target="print_view">'
+    $html_output = '<a href="tbl_printview.php?' . $url_query . '" target="print_view">'
         . PMA_Util::getIcon('b_print.png', __('Print view'), true)
         . '</a>';
 
@@ -1825,7 +1818,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
  * @param array   $row                current row
  * @param boolean $isPrimary          is primary action
  *
- * @return string $html_output
+ * @return array $html_output, $action_enabled
  */
 function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
@@ -1839,9 +1832,14 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
         || $hasField
     ) {
         $html_output .= $titles['No' . $action];
+        $action_enabled = false;
     } else {
         $html_output .= '<a rel="samepage" '
-            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' : '')
+            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' : 
+               ($action=='Index' ? 'class="ajax add_index_anchor"' : 
+                ($action=='Unique' ? 'class="ajax add_unique_anchor"' : ' ')
+               )
+              )
             . 'href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
@@ -1856,14 +1854,16 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
                 )
             ) . '" >'
             . $titles[$action] . '</a>';
+        $action_enabled = true;
     }
     $html_output .= '</li>';
 
-    return $html_output;
+    return array($html_output, $action_enabled);
 }
 
 /**
- * Get HTML for fulltext action
+ * Get HTML for fulltext action,
+ * and this function returns $fulltext_enabled boolean value also
  *
  * @param string $tbl_storage_engine table storage engine
  * @param string $type               column type
@@ -1871,7 +1871,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
  * @param array  $row                current row
  * @param array  $titles             titles array
  *
- * @return string $html_output
+ * @return array $html_output, $fulltext_enabled
  */
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles
@@ -1882,10 +1882,9 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         || $tbl_storage_engine == 'ARIA'
         || $tbl_storage_engine == 'MARIA'
         || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
-        && (strpos($type, 'text') !== false || strpos($type, 'char') !== false)
+        && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
     ) {
-        $html_output .= '<a rel="samepage" href="sql.php?' . $url_query
-            . '&amp;sql_query='
+        $html_output .= '<a rel="samepage" href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ' ADD FULLTEXT(' . PMA_Util::backquote($row['Field'])
@@ -1900,11 +1899,13 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
             )
             . '">';
         $html_output .= $titles['IdxFulltext'] . '</a>';
+        $fulltext_enabled = true;
     } else {
         $html_output .= $titles['NoIdxFulltext'];
+        $fulltext_enabled = false;
     }
     $html_output .= '</li>';
-    return $html_output;
+    return array($html_output, $fulltext_enabled);
 }
 
 /**
@@ -1956,49 +1957,58 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $columns_with_unique_index
 ) {
     $html_output = '<td><ul class="table-structure-actions resizable-menu">';
-    $html_output .= PMA_getHtmlForActionRowInStructureTable(
-        $type, $tbl_storage_engine,
-        'primary nowrap',
-        ($primary && $primary->hasColumn($field_name)),
-        true, $url_query, $primary,
-        'ADD PRIMARY KEY',
-        __('A primary key has been added on %s'),
-        'Primary', $titles, $row, true
-    );
-    $html_output .= PMA_getHtmlForActionRowInStructureTable(
-        $type, $tbl_storage_engine,
-        'unique nowrap',
-        isset($columns_with_unique_index[$field_name]),
-        false, $url_query, $primary, 'ADD UNIQUE',
-        __('An index has been added on %s'),
-        'Unique', $titles, $row, false
-    );
-    $html_output .= PMA_getHtmlForActionRowInStructureTable(
-        $type, $tbl_storage_engine,
-        'index nowrap', false, false, $url_query,
-        $primary, 'ADD INDEX', __('An index has been added on %s'),
-        'Index', $titles, $row, false
-    );
+    list($primary, $primary_enabled)
+        = PMA_getHtmlForActionRowInStructureTable(
+            $type, $tbl_storage_engine,
+            'primary nowrap',
+            ($primary && $primary->hasColumn($field_name)),
+            true, $url_query, $primary,
+            'ADD PRIMARY KEY',
+            __('A primary key has been added on %s'),
+            'Primary', $titles, $row, true
+        );
+    $html_output .= $primary;
+    list($unique, $unique_enabled)
+        = PMA_getHtmlForActionRowInStructureTable(
+            $type, $tbl_storage_engine,
+            'add_unique nowrap',
+            isset($columns_with_unique_index[$field_name]),
+            false, $url_query, $primary, 'ADD UNIQUE',
+            __('An index has been added on %s'),
+            'Unique', $titles, $row, false
+        );
+    $html_output .= $unique;
+    list($index, $index_enabled)
+        = PMA_getHtmlForActionRowInStructureTable(
+            $type, $tbl_storage_engine,
+            'add_index nowrap', false, false, $url_query,
+            $primary, 'ADD INDEX', __('An index has been added on %s'),
+            'Index', $titles, $row, false
+        );
+    $html_output .= $index;
     if (!PMA_DRIZZLE) {
         $spatial_types = array(
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
             'multilinestring', 'multipolygon', 'geomtrycollection'
         );
-        $html_output .= PMA_getHtmlForActionRowInStructureTable(
-            $type, $tbl_storage_engine,
-            'spatial nowrap',
-            (! in_array($type, $spatial_types)
-                || 'MYISAM' != $tbl_storage_engine
-            ),
-            false, $url_query, $primary, 'ADD SPATIAL',
-            __('An index has been added on %s'), 'Spatial',
-            $titles, $row, false
-        );
+        list($spatial, $spatial_enabled)
+            = PMA_getHtmlForActionRowInStructureTable(
+                $type, $tbl_storage_engine,
+                'spatial nowrap',
+                (! in_array($type, $spatial_types)
+                    || 'MYISAM' != $tbl_storage_engine
+                ),
+                false, $url_query, $primary, 'ADD SPATIAL',
+                __('An index has been added on %s'), 'Spatial',
+                $titles, $row, false
+            );
+        $html_output .= $spatial;
 
         // FULLTEXT is possible on TEXT, CHAR and VARCHAR
-        $html_output .= PMA_getHtmlForFullTextAction(
+        list ($fulltext, $fulltext_enabled) = PMA_getHtmlForFullTextAction(
             $tbl_storage_engine, $type, $url_query, $row, $titles
         );
+        $html_output .= $fulltext;
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
     $html_output .= '</ul></td>';
@@ -2146,8 +2156,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
             $showtable['Data_free'], $max_digits, $decimals
         );
         list($effect_size, $effect_unit) = PMA_Util::formatByteDown(
-            $showtable['Data_length'] + $showtable['Index_length']
-            - $showtable['Data_free'],
+            $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'],
             $max_digits, $decimals
         );
     } else {
@@ -2162,8 +2171,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     );
     if ($table_info_num_rows > 0) {
         list($avg_size, $avg_unit) = PMA_Util::formatByteDown(
-            ($showtable['Data_length'] + $showtable['Index_length'])
-            / $showtable['Rows'],
+            ($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'],
             6, 1
         );
     }
@@ -2255,9 +2263,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
      * @todo optimize in case of multiple fields to modify
      */
     for ($i = 0; $i < $selected_cnt; $i++) {
-        $fields_meta[] = $GLOBALS['dbi']->getColumns(
-            $db, $table, $selected[$i], true
-        );
+        $fields_meta[] = $GLOBALS['dbi']->getColumns($db, $table, $selected[$i], true);
     }
     $num_fields  = count($fields_meta);
     // set these globals because tbl_columns_definition_form.inc.php
@@ -2282,8 +2288,7 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     // in MySQL 4.0.25).
 
     $show_create_table = $GLOBALS['dbi']->fetchValue(
-        'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.'
-        . PMA_Util::backquote($table),
+        'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
         0, 1
     );
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -2355,12 +2360,8 @@ function PMA_updateColumns($db, $table)
     if (count($key_fields)) {
         $fields = array();
         foreach ($key_fields as $each_field) {
-            if (isset($_REQUEST['field_name'][$each_field])
-                && strlen($_REQUEST['field_name'][$each_field])
-            ) {
-                $fields[] = PMA_Util::backquote(
-                    $_REQUEST['field_name'][$each_field]
-                );
+            if (isset($_REQUEST['field_name'][$each_field]) && strlen($_REQUEST['field_name'][$each_field])) {
+                $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$each_field]);
             }
         } // end for
         $key_query = ', ADD KEY (' . implode(', ', $fields) . ') ';
@@ -2433,9 +2434,7 @@ function PMA_updateColumns($db, $table)
         $response->isSuccess(false);
         $response->addJSON(
             'message',
-            PMA_Message::rawError(
-                __('Query error') . ':<br />'.$GLOBALS['dbi']->getError()
-            )
+            PMA_Message::rawError(__('Query error') . ':<br />'.$GLOBALS['dbi']->getError())
         );
         $regenerate = true;
     }
@@ -2473,9 +2472,7 @@ function PMA_moveColumns($db, $table)
         // it is not, let's move it to index $i
         $data = $columns[$column];
         $extracted_columnspec = PMA_Util::extractColumnSpec($data['Type']);
-        if (isset($data['Extra'])
-            && $data['Extra'] == 'on update CURRENT_TIMESTAMP'
-        ) {
+        if (isset($data['Extra']) && $data['Extra'] == 'on update CURRENT_TIMESTAMP') {
             $extracted_columnspec['attribute'] = $data['Extra'];
             unset($data['Extra']);
         }
@@ -2645,7 +2642,7 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
 ) {
     $GLOBALS['active_page'] = 'sql.php';
     $sql_query = '';
-    foreach ($_REQUEST['selected_fld'] as $sval) {
+    foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
         if ($sql_query == '') {
             $sql_query .= 'SELECT ' . PMA_Util::backquote($sval);
         } else {
