@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 18:16-0500\n"
-"PO-Revision-Date: 2013-12-19 16:38+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2014-01-03 13:43+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -2035,6 +2035,8 @@ msgstr "Toon verslag details"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Uw uitvoer is onvolledig, als gevolg van een lage uitvoeringstijdbeperking "
+"op PHP niveau"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -7198,6 +7200,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Sla dit aantal queries (voor SQL) of regels (voor andere formaten) over, "
+"beginnend bij de eerste :"
 
 #: libraries/display_import.lib.php:341
 msgid "Format-Specific Options:"
