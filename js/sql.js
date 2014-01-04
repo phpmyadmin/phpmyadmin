@@ -161,6 +161,7 @@ AJAX.registerOnload('sql.js', function () {
         }
         //add sticky columns div
         initStickyColumns();
+        rearrangeStickyColumns();
         //adjust sticky columns on scroll
         $(window).bind('scroll', function() {
             handleStickyColumns();
@@ -534,6 +535,21 @@ function initStickyColumns() {
 }
 
 /*
+ * Arrange/Rearrange columns in sticky header
+ */
+function rearrangeStickyColumns() {
+    var $sticky_columns = $("#sticky_columns");
+    var $originalHeader = $("#table_results > thead");
+    var $originalColumns = $originalHeader.find("tr:first").children();
+    var $clonedHeader = $originalHeader.clone();
+    // clone width per cell
+    $clonedHeader.find("tr:first").children().width(function(i,val) {
+        return $originalColumns.eq(i).width();
+    });
+    $sticky_columns.empty().append($clonedHeader);
+}
+
+/*
  * Adjust sticky columns on horizontal/vertical scroll
  */
 function handleStickyColumns() {
@@ -556,14 +572,6 @@ function handleStickyColumns() {
         }
         $sticky_columns.show();
     } else {
-        var $originalHeader = $("#table_results > thead");
-        var $originalColumns = $originalHeader.find("tr:first").children();
-        var $clonedHeader = $originalHeader.clone();
-        // clone width per cell
-        $clonedHeader.find("tr:first").children().width(function(i,val) {
-            return $originalColumns.eq(i).width();
-        });
-        $sticky_columns.empty().append($clonedHeader);
         $sticky_columns.hide();
     }
 }
