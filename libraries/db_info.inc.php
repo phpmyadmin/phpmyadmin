@@ -83,10 +83,10 @@ if (true === $cfg['SkipLockedTables'] && ! PMA_DRIZZLE) {
                 );
                 $tblGroupSql .= " WHERE ("
                     . PMA_Util::backquote('Tables_in_' . $db)
-                    . " LIKE '^" . $groupWithSeperator . "%'"
+                    . " LIKE '" . $groupWithSeperator . "%'"
                     . " OR "
                     . PMA_Util::backquote('Tables_in_' . $db)
-                    . " LIKE '^" . $group . "$')";
+                    . " LIKE '" . $group . "')";
                 $whereAdded = true;
             }
             if (PMA_isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
