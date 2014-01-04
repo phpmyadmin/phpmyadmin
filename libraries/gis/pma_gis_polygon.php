@@ -415,20 +415,30 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
         $p1 = $polygon[0];
         for ($i = 1; $i <= $no_of_points; $i++) {
             $p2 = $polygon[$i % $no_of_points];
-            if ($point['y'] > min(array($p1['y'], $p2['y']))) {
-                if ($point['y'] <= max(array($p1['y'], $p2['y']))) {
-                    if ($point['x'] <= max(array($p1['x'], $p2['x']))) {
-                        if ($p1['y'] != $p2['y']) {
-                            $xinters = ($point['y'] - $p1['y'])
-                                * ($p2['x'] - $p1['x'])
-                                / ($p2['y'] - $p1['y']) + $p1['x'];
-                            if ($p1['x'] == $p2['x'] || $point['x'] <= $xinters) {
-                                $counter++;
-                            }
-                        }
-                    }
+            if ($point['y'] <= min(array($p1['y'], $p2['y']))) {
+                $p1 = $p2;
+                continue;
+            }
+
+            if ($point['y'] > max(array($p1['y'], $p2['y']))) {
+                $p1 = $p2;
+                continue;
+            }
+
+            if ($point['x'] > max(array($p1['x'], $p2['x']))) {
+                $p1 = $p2;
+                continue;
+            }
+
+            if ($p1['y'] != $p2['y']) {
+                $xinters = ($point['y'] - $p1['y'])
+                    * ($p2['x'] - $p1['x'])
+                    / ($p2['y'] - $p1['y']) + $p1['x'];
+                if ($p1['x'] == $p2['x'] || $point['x'] <= $xinters) {
+                    $counter++;
                 }
             }
+
             $p1 = $p2;
         }
 
