@@ -137,21 +137,7 @@ function PMA_sendErrorReport($report)
                 'header' => "Content-Type: multipart/form-data\r\n",
             )
         );
-        //handleContext($context) (from Util.class.php will automatically fill in values to context
-
-        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
-            $context['http'] = array(
-                'proxy' => $GLOBALS['cfg']['ProxyUrl'],
-                'request_fulluri' => true
-            );
-            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
-                $auth = base64_encode(
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-                $context['http']['header'] .= 'Proxy-Authorization: Basic '
-                    . $auth . "\r\n";
-            }
-        }
+        $context = PMA_Util::handleContext($context);
         $response = file_get_contents(
             SUBMISSION_URL,
             false,

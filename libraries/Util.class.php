@@ -4158,12 +4158,16 @@ class PMA_Util
             return null;
         }
     }
+    
     /**
      * Returns information with regards to handling the http request
      *
-     * @return String array of updated context information
+     * @param array $context Data about the context for which
+     *                       to http request is sent
+     * 
+     * @return array of updated context information
      */
-    public static function handleContext(array $context)// will automatically fill in values to context
+    public static function handleContext(array $context)
     {
         if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
             $context['http'] = array(
@@ -4211,18 +4215,6 @@ class PMA_Util
                         'timeout' => $connection_timeout,
                     )
                 );
-                //handleContext($context) will automatically fill in values to context
-                /*if (strlen($cfg['ProxyUrl'])) {
-                    $context['http']['proxy'] = $cfg['ProxyUrl'];
-                    if (strlen($cfg['ProxyUser'])) {
-                        $auth = base64_encode(
-                            $cfg['ProxyUser'] . ':'
-                            . $cfg['ProxyPass']
-                        );
-                        $context['http']['header']
-                            = 'Proxy-Authorization: Basic ' . $auth;
-                    }
-                }*/
                 $context = PMA_Util::handleContext($context);
                 $response = file_get_contents(
                     $file,
