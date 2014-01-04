@@ -194,6 +194,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.reposDrop();
                 g.colRsz = false;
                 $(g.cRsz).find('div').removeClass('colborder_active');
+                if($('#sticky_columns').length !== 0) {
+                    rearrangeStickyColumns();
+                }
             } else if (g.colReorder) {
                 // shift columns
                 if (g.colReorder.newn != g.colReorder.n) {
@@ -220,6 +223,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $(g.cPointer).css('visibility', 'hidden');
 
                 g.colReorder = false;
+                if($('#sticky_columns').length !== 0) {
+                    rearrangeStickyColumns();
+                }
             }
             $(document.body).css('cursor', 'inherit').noSelect(false);
         },
