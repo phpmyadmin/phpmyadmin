@@ -5,6 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+
+/*
+ * Include for handleContext (in sendErrorReport.
+ */
+require_once 'libraries/Util.class.php';
+
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -130,19 +137,7 @@ function PMA_sendErrorReport($report)
                 'header' => "Content-Type: multipart/form-data\r\n",
             )
         );
-        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
-            $context['http'] = array(
-                'proxy' => $GLOBALS['cfg']['ProxyUrl'],
-                'request_fulluri' => true
-            );
-            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
-                $auth = base64_encode(
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-                $context['http']['header'] .= 'Proxy-Authorization: Basic '
-                    . $auth . "\r\n";
-            }
-        }
+        $context = PMA_Util::handleContext($context);
         $response = file_get_contents(
             SUBMISSION_URL,
             false,
@@ -156,16 +151,7 @@ function PMA_sendErrorReport($report)
     }
 
     $curl_handle = curl_init(SUBMISSION_URL);
-    if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
-        curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-        if (strlen($GLOBALS['cfg']['ProxyUser'])) {
-            curl_setopt(
-                $curl_handle,
-                CURLOPT_PROXYUSERPWD,
-                $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-            );
-        }
-    }
+    $context = PMA_Util::handleContext($context);
     curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
     curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
