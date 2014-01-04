@@ -4158,7 +4158,26 @@ class PMA_Util
             return null;
         }
     }
-
+    /**
+     * Returns information with regards to handling the http request
+     *
+     * @return String array of updated context information
+     */
+    public static function handleContext(array $context){// will automatically fill in values to context
+        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
+            $context['http'] = array(
+                'proxy' => $GLOBALS['cfg']['ProxyUrl'],
+                'request_fulluri' => true
+            );
+            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
+                $auth = base64_encode(
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+                $context['http']['header'] .= 'Proxy-Authorization: Basic '
+                    . $auth . "\r\n";
+            }
+        }
+    }
     /**
      * Returns information with latest version from phpmyadmin.net
      *
@@ -4190,6 +4209,7 @@ class PMA_Util
                         'timeout' => $connection_timeout,
                     )
                 );
+                //handleContext($context) will automatically fill in values to context
                 if (strlen($cfg['ProxyUrl'])) {
                     $context['http']['proxy'] = $cfg['ProxyUrl'];
                     if (strlen($cfg['ProxyUser'])) {
