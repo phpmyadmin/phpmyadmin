@@ -2613,6 +2613,13 @@ fieldset .disabled-field td {
     background: #DDD;
 }
 
+.turnOffSelect {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 #page_content {
     background-color: white;
 }
