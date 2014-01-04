@@ -300,9 +300,17 @@ function PMA_isGzHandlerEnabled()
  */
 function PMA_gzencodeNeeded()
 {
+    /*
+     * We should gzencode only if the function exists
+     * but we don't want to compress twice, therefore
+     * gzencode only if transparent compression is not enabled
+     * and gz compression was not asked via $cfg['OBGzip']
+     * but transparent compression does not apply when saving to server
+     */
     if (@function_exists('gzencode')
-        && ! @ini_get('zlib.output_compression')
-        && ! PMA_isGzHandlerEnabled()
+        && ((! @ini_get('zlib.output_compression')
+        && ! PMA_isGzHandlerEnabled())
+        || $GLOBALS['save_on_server'])
     ) {
         return true;
     } else {
@@ -440,7 +448,7 @@ if (!defined('TESTSUITE')) {
         $memory_limit = trim(@ini_get('memory_limit'));
         $memory_limit_num = (int)substr($memory_limit, 0, -1);
         // 2 MB as default
-        if (empty($memory_limit)) {
+        if (empty($memory_limit) || '-1' == $memory_limit) {
             $memory_limit = 2 * 1024 * 1024;
         } elseif (strtolower(substr($memory_limit, -1)) == 'm') {
             $memory_limit = $memory_limit_num * 1024 * 1024;

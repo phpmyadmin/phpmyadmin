@@ -289,6 +289,7 @@ AJAX.registerOnload('sql.js', function () {
                      .show()
                      .html(data.message);
                 }
+                PMA_highlightSQL($('#result_query'));
 
                 if (typeof data.ajax_reload != 'undefined') {
                     if (data.ajax_reload.reload) {

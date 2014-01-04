@@ -2250,6 +2250,23 @@ function PMA_getUserGroupEditLink($username)
 }
 
 /**
+ * Returns number of defined user groups
+ *
+ * @return integer $user_group_count
+ */
+function PMA_getUserGroupCount()
+{
+    $user_group_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . '.' . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
+    $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
+    $user_group_count = $GLOBALS['dbi']->fetchValue(
+        $sql_query, 0, 0, $GLOBALS['controllink']
+    );
+
+    return $user_group_count;
+}
+
+/**
  * This function return the extra data array for the ajax behavior
  *
  * @param string $password  password
@@ -2269,6 +2286,11 @@ function PMA_getExtraDataForAjaxBehavior(
         } else {
             $dbname_is_wildcard = false;
         }
+    }
+
+    $user_group_count = 0;
+    if ($GLOBALS['cfgRelation']['menuswork']) {
+        $user_group_count = PMA_getUserGroupCount();
     }
 
     $extra_data = array();
@@ -2330,7 +2352,7 @@ function PMA_getExtraDataForAjaxBehavior(
             . PMA_getUserEditLink($username, $hostname)
             . '</td>' . "\n";
 
-        if (isset($cfgRelation['users']) && isset($cfgRelation['usergroups'])) {
+        if (isset($cfgRelation['menuswork']) && $user_group_count > 0) {
             $new_user_string .= '<td>'
                 . PMA_getUserGroupEditLink($username)
                 . '</td>' . "\n";
@@ -2862,6 +2884,10 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         $db_rights[$row['User']][$row['Host']] = $row;
     }
     @$GLOBALS['dbi']->freeResult($result);
+    $user_group_count = 0;
+    if ($GLOBALS['cfgRelation']['menuswork']) {
+        $user_group_count = PMA_getUserGroupCount();
+    }
 
     $html_output
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
@@ -2882,7 +2908,8 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         $html_output .= '<th>' . __('User group') . '</th>' . "\n";
     }
     $html_output .= '<th>' . __('Grant') . '</th>' . "\n"
-        . '<th colspan="3">' . __('Action') . '</th>' . "\n"
+        . '<th colspan="' . ($user_group_count > 0 ? '3' : '2') . '">'
+        . __('Action') . '</th>' . "\n"
         . '</tr>' . "\n"
         . '</thead>' . "\n";
 
@@ -2927,24 +2954,19 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
 function PMA_getTableBodyForUserRightsTable($db_rights)
 {
     if ($GLOBALS['cfgRelation']['menuswork']) {
-        $usersTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        $users_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
             . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['users']);
-        $sqlQuery = "SELECT * FROM " . $usersTable;
-        $result = PMA_queryAsControlUser($sqlQuery, false);
-        $groupAssignment = array();
+        $sql_query = 'SELECT * FROM ' . $users_table;
+        $result = PMA_queryAsControlUser($sql_query, false);
+        $group_assignment = array();
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                $groupAssignment[$row['username']] = $row['usergroup'];
+                $group_assignment[$row['username']] = $row['usergroup'];
             }
         }
         $GLOBALS['dbi']->freeResult($result);
 
-        $userGroupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-            . "." . PMA_Util::backquote($GLOBALS['cfg']['Server']['usergroups']);
-        $sqlQuery = "SELECT COUNT(*) FROM " . $userGroupTable;
-        $userGroupCount = $GLOBALS['dbi']->fetchValue(
-            $sqlQuery, 0, 0, $GLOBALS['controllink']
-        );
+        $user_group_count = PMA_getUserGroupCount();
     }
 
     $odd_row = true;
@@ -2992,8 +3014,8 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
                 . '</code></td>' . "\n";
             if ($GLOBALS['cfgRelation']['menuswork']) {
                 $html_output .= '<td class="usrGroup">' . "\n"
-                    . (isset($groupAssignment[$host['User']])
-                        ? $groupAssignment[$host['User']]
+                    . (isset($group_assignment[$host['User']])
+                        ? $group_assignment[$host['User']]
                         : ''
                     )
                     . '</td>' . "\n";
@@ -3008,7 +3030,7 @@ function PMA_getTableBodyForUserRightsTable($db_rights)
                     $host['Host']
                 )
                 . '</td>';
-            if ($GLOBALS['cfgRelation']['menuswork'] && $userGroupCount > 0) {
+            if ($GLOBALS['cfgRelation']['menuswork'] && $user_group_count > 0) {
                 if (empty($host['User'])) {
                     $html_output .= '<td class="center"></td>';
                 } else {

@@ -5986,8 +5986,8 @@ class PMA_DisplayResults
     }
 
     /**
-     * Display binary fields as hex string for PHP <5.4,
-     * otherwise escape the contents if it may be displayed as hex
+     * Display binary columns as hex string if requested 
+     * otherwise escape the contents using the best possible way
      *
      * @param string $content        String to parse
      * @param string $binary_or_blob binary' or 'blob'
@@ -6004,22 +6004,29 @@ class PMA_DisplayResults
     private function _displayBinaryAsPrintable(
         $content, $binary_or_blob, $hexlength = null
     ) {
-        if ((PMA_PHP_INT_VERSION < 50400)
-            || (($binary_or_blob === 'binary')
+        if ($binary_or_blob === 'binary'
             && $_SESSION['tmpval']['display_binary_as_hex']
-            && PMA_Util::containsNonPrintableAscii($content))
         ) {
             $content = bin2hex($content);
             if ($hexlength !== null) {
                 $content = $GLOBALS['PMA_String']->substr($content, $hexlength);
             }
-        } else {
-            $content = htmlspecialchars(
-                PMA_Util::replaceBinaryContents(
-                    $content
-                ),
-                ENT_SUBSTITUTE
-            );
+        } elseif (PMA_Util::containsNonPrintableAscii($content)) {
+            if (PMA_PHP_INT_VERSION < 50400) {
+                $content = htmlspecialchars(
+                    PMA_Util::replaceBinaryContents(
+                        $content
+                    )
+                );
+            } else {
+                // The ENT_SUBSTITUTE option is available for PHP >= 5.4.0
+                $content = htmlspecialchars(
+                    PMA_Util::replaceBinaryContents(
+                        $content
+                    ),
+                    ENT_SUBSTITUTE
+                );
+            }
         }
         return $content;
     }
