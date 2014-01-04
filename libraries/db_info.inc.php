@@ -76,11 +76,17 @@ if (true === $cfg['SkipLockedTables'] && ! PMA_DRIZZLE) {
             $tblGroupSql = "";
             $whereAdded = false;
             if (PMA_isValid($_REQUEST['tbl_group'])) {
-                $tblGroupSql .= " WHERE "
+                $group = PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group']);
+                $groupWithSeperator = PMA_Util::escapeMysqlWildcards(
+                    $_REQUEST['tbl_group']
+                    . $GLOBALS['cfg']['NavigationTreeTableSeparator']
+                );
+                $tblGroupSql .= " WHERE ("
                     . PMA_Util::backquote('Tables_in_' . $db)
-                    . " LIKE '"
-                    . PMA_Util::escapeMysqlWildcards($_REQUEST['tbl_group'])
-                    . "%'";
+                    . " LIKE '^" . $groupWithSeperator . "%'"
+                    . " OR "
+                    . PMA_Util::backquote('Tables_in_' . $db)
+                    . " LIKE '^" . $group . "$')";
                 $whereAdded = true;
             }
             if (PMA_isValid($_REQUEST['tbl_type'], array('table', 'view'))) {
@@ -167,18 +173,27 @@ if (! isset($sot_ready)) {
     }
 
     $tbl_group = false;
+    $groupWithSeperator = false;
     $tbl_type = null;
     $limit_offset = 0;
     $limit_count = false;
+    $groupTable = array();
 
     if (! empty($_REQUEST['tbl_group']) || ! empty($_REQUEST['tbl_type'])) {
-        if (! empty($_REQUEST['tbl_group'])) {
-            // only tables for selected group
-            $tbl_group = $_REQUEST['tbl_group'];
-        }
         if (! empty($_REQUEST['tbl_type'])) {
             // only tables for selected type
             $tbl_type = $_REQUEST['tbl_type'];
+        }
+        if (! empty($_REQUEST['tbl_group'])) {
+            // only tables for selected group
+            $tbl_group = $_REQUEST['tbl_group'];
+            // include the table with the exact name of the group if such exists
+            $groupTable = $GLOBALS['dbi']->getTablesFull(
+                $db, $tbl_group, false, null, $limit_offset,
+                $limit_count, $sort, $sort_order, $tbl_type
+            );
+            $groupWithSeperator = $tbl_group
+                . $GLOBALS['cfg']['NavigationTreeTableSeparator'];
         }
     } else {
         // all tables in db
@@ -200,9 +215,12 @@ if (! isset($sot_ready)) {
             $limit_count = true;
         }
     }
-    $tables = $GLOBALS['dbi']->getTablesFull(
-        $db, $tbl_group, ($tbl_group != false), null, $limit_offset,
-        $limit_count, $sort, $sort_order, $tbl_type
+    $tables = array_merge(
+        $groupTable,
+        $GLOBALS['dbi']->getTablesFull(
+            $db, $groupWithSeperator, ($groupWithSeperator != false), null,
+            $limit_offset, $limit_count, $sort, $sort_order, $tbl_type
+        )
     );
 }
 
