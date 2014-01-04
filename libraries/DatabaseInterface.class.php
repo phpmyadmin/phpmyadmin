@@ -483,6 +483,24 @@ class PMA_DatabaseInterface
                 }
                 $tables[$one_database_name] = $one_database_tables;
             }
+        } else if ($sort_by == 'Data_length') { // Size = Data_length + Index_length
+            foreach ($tables as $one_database_name => $one_database_tables) {
+                uasort(
+                    $one_database_tables,
+                    function($a, $b) {
+                        $aLength = $a['Data_length'] + $a['Index_length'];
+                        $bLength = $b['Data_length'] + $b['Index_length'];
+                        return ($aLength == $bLength)
+                            ? 0
+                            : ($aLength < $bLength) ? -1 : 1;
+                    }
+                );
+
+                if ($sort_order == 'DESC') {
+                    $one_database_tables = array_reverse($one_database_tables);
+                }
+                $tables[$one_database_name] = $one_database_tables;
+            }
         }
         // end (get information from table schema)
 
@@ -680,7 +698,7 @@ class PMA_DatabaseInterface
         //  we would lose a db name thats consists only of numbers
         foreach ($tables as $one_database => $its_tables) {
             if (isset(PMA_Table::$cache[$one_database])) {
-                // the + operator does not do the intended effect 
+                // the + operator does not do the intended effect
                 // when the cache for one table already exists
                 if ($table
                     && isset(PMA_Table::$cache[$one_database][$table])
