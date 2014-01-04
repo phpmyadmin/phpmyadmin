@@ -77,7 +77,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation #pmalogo,
 #pma_navigation #serverChoice,
-#pma_navigation #leftframelinks,
+#pma_navigation #navipanellinks,
 #pma_navigation #recentTableList,
 #pma_navigation #databaseList,
 #pma_navigation div.pageselector.dbselector {

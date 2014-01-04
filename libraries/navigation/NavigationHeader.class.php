@@ -186,7 +186,7 @@ class PMA_NavigationHeader
         $showText = false;
 
         $retval  = '<!-- LINKS START -->';
-        $retval .= '<div id="leftframelinks">';
+        $retval .= '<div id="navipanellinks">';
         $retval .= $this->_getLink(
             'index.php?' . PMA_URL_getCommon(),
             $showText,
