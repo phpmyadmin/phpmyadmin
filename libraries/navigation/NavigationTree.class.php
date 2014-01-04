@@ -584,8 +584,7 @@ class PMA_NavigationTree
                     if ($node instanceof Node_Table_Container
                         || $node instanceof Node_View_Container
                     ) {
-                        $tblGroup = '&amp;tbl_group='
-                            . urlencode($key . $node->separator);
+                        $tblGroup = '&amp;tbl_group=' . urlencode($key);
                         $groups[$key]->links = array(
                             'text' => $node->links['text'] . $tblGroup,
                             'icon' => $node->links['icon'] . $tblGroup
