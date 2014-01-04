@@ -607,7 +607,7 @@ if (file_exists('libraries/language_stats.inc.php')) {
  * prints list item for main page
  *
  * @param string $name            displayed text
- * @param string $id              id, used for css styles
+ * @param string $htmlId          id, used for css styles
  * @param string $url             make item as link with $url as target
  * @param string $mysql_help_page display a link to MySQL's manual
  * @param string $target          special target for $url
@@ -618,11 +618,11 @@ if (file_exists('libraries/language_stats.inc.php')) {
  *
  * @return void
  */
-function PMA_printListItem($name, $id = null, $url = null,
+function PMA_printListItem($name, $htmlId = null, $url = null,
     $mysql_help_page = null, $target = null, $a_id = null, $class = null,
     $a_class = null
 ) {
-    echo '<li id="' . $id . '"';
+    echo '<li id="' . $htmlId . '"';
     if (null !== $class) {
         echo ' class="' . $class . '"';
     }

@@ -68,24 +68,24 @@ exit;
 /**
  * Send the message as an ajax request
  *
- * @param array  $change_password_message Message to display
- * @param string $sql_query               SQL query executed
+ * @param array  $chgPasswdMsg Message to display
+ * @param string $sql_query    SQL query executed
  *
  * @return void
  */
-function PMA_getChangePassMessage($change_password_message, $sql_query = '')
+function PMA_getChangePassMessage($chgPasswdMsg, $sql_query = '')
 {
     if ($GLOBALS['is_ajax_request'] == true) {
         /**
          * If in an Ajax request, we don't need to show the rest of the page
          */
         $response = PMA_Response::getInstance();
-        if ($change_password_message['error']) {
-            $response->addJSON('message', $change_password_message['msg']);
+        if ($chgPasswdMsg['error']) {
+            $response->addJSON('message', $chgPasswdMsg['msg']);
             $response->isSuccess(false);
         } else {
             $sql_query = PMA_Util::getMessage(
-                $change_password_message['msg'],
+                $chgPasswdMsg['msg'],
                 $sql_query,
                 'success'
             );
@@ -120,13 +120,13 @@ function PMA_setChangePasswordMsg()
 /**
  * Change the password
  *
- * @param string $password                New password
- * @param string $message                 Message
- * @param array  $change_password_message Message to show
+ * @param string $password     New password
+ * @param string $message      Message
+ * @param array  $chgPasswdMsg Message to show
  *
  * @return void
  */
-function PMA_changePassword($password, $message, $change_password_message)
+function PMA_changePassword($password, $message, $chgPasswdMsg)
 {
     // Defines the url to return to in case of error in the sql statement
     $_url_params = array();
@@ -138,7 +138,7 @@ function PMA_changePassword($password, $message, $change_password_message)
     );
 
     $new_url_params = PMA_changePassAuthType($_url_params, $password);
-    PMA_getChangePassMessage($change_password_message, $sql_query);
+    PMA_getChangePassMessage($chgPasswdMsg, $sql_query);
     PMA_changePassDisplayPage($message, $sql_query, $new_url_params);
 }
 

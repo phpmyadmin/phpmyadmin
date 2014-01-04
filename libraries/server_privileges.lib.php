@@ -422,16 +422,16 @@ function PMA_getHtmlForColumnPrivileges($columns, $row, $name_for_select,
         . '<select id="select_' . $name . '_priv" name="'
         . $name_for_select . '[]" multiple="multiple" size="8">' . "\n";
 
-    foreach ($columns as $current_column => $current_column_privileges) {
+    foreach ($columns as $currCol => $currColPrivs) {
         $html_output .= '<option '
-            . 'value="' . htmlspecialchars($current_column) . '"';
+            . 'value="' . htmlspecialchars($currCol) . '"';
         if ($row[$name_for_select] == 'Y'
-            || $current_column_privileges[$name_for_current]
+            || $currColPrivs[$name_for_current]
         ) {
             $html_output .= ' selected="selected"';
         }
         $html_output .= '>'
-            . htmlspecialchars($current_column) . '</option>' . "\n";
+            . htmlspecialchars($currCol) . '</option>' . "\n";
     }
 
     $html_output .= '</select>' . "\n"
@@ -1134,7 +1134,7 @@ function PMA_getStructurePrivilegeTable($table, $row)
  */
 function PMA_getAdministrationPrivilegeTable($db)
 {
-    $administration_privTable = array(
+    $adminPrivTable = array(
         array('Grant',
             'GRANT',
             __(
@@ -1144,7 +1144,7 @@ function PMA_getAdministrationPrivilegeTable($db)
         ),
     );
     if ($db == '*') {
-        $administration_privTable[] = array('Super',
+        $adminPrivTable[] = array('Super',
             'SUPER',
             __(
                 'Allows connecting, even if maximum number '
@@ -1153,46 +1153,46 @@ function PMA_getAdministrationPrivilegeTable($db)
                 . 'setting global variables or killing threads of other users.'
             )
         );
-        $administration_privTable[] = array('Process',
+        $adminPrivTable[] = array('Process',
             'PROCESS',
             __('Allows viewing processes of all users')
         );
-        $administration_privTable[] = array('Reload',
+        $adminPrivTable[] = array('Reload',
             'RELOAD',
             __('Allows reloading server settings and flushing the server\'s caches.')
         );
-        $administration_privTable[] = array('Shutdown',
+        $adminPrivTable[] = array('Shutdown',
             'SHUTDOWN',
             __('Allows shutting down the server.')
         );
-        $administration_privTable[] = array('Show_db',
+        $adminPrivTable[] = array('Show_db',
             'SHOW DATABASES',
             __('Gives access to the complete list of databases.')
         );
     }
-    $administration_privTable[] = array('Lock_tables',
+    $adminPrivTable[] = array('Lock_tables',
         'LOCK TABLES',
         __('Allows locking tables for the current thread.')
     );
-    $administration_privTable[] = array('References',
+    $adminPrivTable[] = array('References',
         'REFERENCES',
         __('Has no effect in this MySQL version.')
     );
     if ($db == '*') {
-        $administration_privTable[] = array('Repl_client',
+        $adminPrivTable[] = array('Repl_client',
             'REPLICATION CLIENT',
             __('Allows the user to ask where the slaves / masters are.')
         );
-        $administration_privTable[] = array('Repl_slave',
+        $adminPrivTable[] = array('Repl_slave',
             'REPLICATION SLAVE',
             __('Needed for the replication slaves.')
         );
-        $administration_privTable[] = array('Create_user',
+        $adminPrivTable[] = array('Create_user',
             'CREATE USER',
             __('Allows creating, dropping and renaming user accounts.')
         );
     }
-    return $administration_privTable;
+    return $adminPrivTable;
 }
 
 /**
@@ -1755,7 +1755,7 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
         . '`Alter_routine_priv`, '
         . '`Execute_priv`';
 
-    $list_of_compared_privileges
+    $listOfComparedPrivs
         = '`Select_priv` = \'N\''
         . ' AND `Insert_priv` = \'N\''
         . ' AND `Update_priv` = \'N\''
@@ -1776,11 +1776,11 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
         $list_of_privileges .=
             ', `Event_priv`, '
             . '`Trigger_priv`';
-        $list_of_compared_privileges .=
+        $listOfComparedPrivs .=
             ' AND `Event_priv` = \'N\''
             . ' AND `Trigger_priv` = \'N\'';
     }
-    return array($list_of_privileges, $list_of_compared_privileges);
+    return array($list_of_privileges, $listOfComparedPrivs);
 }
 
 /**
@@ -1819,19 +1819,19 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         . '</tr>' . "\n"
         . '</thead>' . "\n";
     // now, we build the table...
-    list($list_of_privileges, $list_of_compared_privileges)
+    list($listOfPrivs, $listOfComparedPrivs)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
 
-    $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`, \'d\' AS `Type`'
+    $sql_query = '(SELECT ' . $listOfPrivs . ', `Db`, \'d\' AS `Type`'
         .' FROM `mysql`.`db`'
         .' WHERE \'' . PMA_Util::sqlAddSlashes($db)
         . "'"
         .' LIKE `Db`'
-        .' AND NOT (' . $list_of_compared_privileges. ')) '
+        .' AND NOT (' . $listOfComparedPrivs. ')) '
         .'UNION '
-        .'(SELECT ' . $list_of_privileges . ', \'*\' AS `Db`, \'g\' AS `Type`'
+        .'(SELECT ' . $listOfPrivs . ', \'*\' AS `Db`, \'g\' AS `Type`'
         .' FROM `mysql`.`user` '
-        .' WHERE NOT (' . $list_of_compared_privileges . ')) '
+        .' WHERE NOT (' . $listOfComparedPrivs . ')) '
         .' ORDER BY `User` ASC,'
         .'  `Host` ASC,'
         .'  `Db` ASC;';
@@ -1926,20 +1926,20 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         . '</tr>'
         . '</thead>';
 
-    list($list_of_privileges, $list_of_compared_privileges)
+    list($listOfPrivs, $listOfComparedPrivs)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
     $sql_query
         = "("
-        . " SELECT " . $list_of_privileges . ", '*' AS `Db`, 'g' AS `Type`"
+        . " SELECT " . $listOfPrivs . ", '*' AS `Db`, 'g' AS `Type`"
         . " FROM `mysql`.`user`"
-        . " WHERE NOT (" . $list_of_compared_privileges . ")"
+        . " WHERE NOT (" . $listOfComparedPrivs . ")"
         . ")"
         . " UNION "
         . "("
-        . " SELECT " . $list_of_privileges . ", `Db`, 'd' AS `Type`"
+        . " SELECT " . $listOfPrivs . ", `Db`, 'd' AS `Type`"
         . " FROM `mysql`.`db`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
-        . "     AND NOT (" . $list_of_compared_privileges. ")"
+        . "     AND NOT (" . $listOfComparedPrivs. ")"
         . ")"
         . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC;";
     $res = $GLOBALS['dbi']->query($sql_query);
@@ -1978,9 +1978,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $privMap[$user][$host][] = $row;
     }
 
-    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs(
-        $privMap, $db, $table
-    );
+    $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
     $html_output .= '</table>';
     $html_output .= '</fieldset>';
     $html_output .= '</form>';
@@ -2011,11 +2009,10 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
  *
  * @param array   $privMap priviledge map
  * @param boolean $db      database
- * @param boolean $table   table
  *
  * @return string $html_output
  */
-function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table = null)
+function PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
 {
     $html_output = '<tbody>';
     $odd_row = true;
@@ -2402,11 +2399,11 @@ function PMA_getExtraDataForAjaxBehavior(
          * pagination
          */
         $new_user_initial = strtoupper(substr($username, 0, 1));
-        $new_user_initial_string = '<a href="server_privileges.php'
+        $newUserInitialString = '<a href="server_privileges.php'
             . PMA_URL_getCommon(array('initial' => $new_user_initial)) .'">'
             . $new_user_initial . '</a>';
         $extra_data['new_user_initial'] = $new_user_initial;
-        $extra_data['new_user_initial_string'] = $new_user_initial_string;
+        $extra_data['new_user_initial_string'] = $newUserInitialString;
     }
 
     if (isset($_POST['update_privs'])) {
@@ -2552,7 +2549,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 {
     if (! strlen($dbname)) {
-        $tables_to_search_for_users = array(
+        $tablesSearchForUsers = array(
             'tables_priv', 'columns_priv',
         );
         $dbOrTableName = 'Db';
@@ -2561,12 +2558,12 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
             ' AND `Db`'
             .' LIKE \''
             . PMA_Util::sqlAddSlashes($dbname, true) . "'";
-        $tables_to_search_for_users = array('columns_priv',);
+        $tablesSearchForUsers = array('columns_priv',);
         $dbOrTableName = 'Table_name';
     }
 
     $db_rights_sqls = array();
-    foreach ($tables_to_search_for_users as $table_search_in) {
+    foreach ($tablesSearchForUsers as $table_search_in) {
         if (in_array($table_search_in, $tables)) {
             $db_rights_sqls[] = '
                 SELECT DISTINCT `' . $dbOrTableName .'`
@@ -3207,12 +3204,12 @@ function PMA_getDbRightsForUserOverview()
     // we also want users not in table `user` but in other table
     $tables = $GLOBALS['dbi']->fetchResult('SHOW TABLES FROM `mysql`;');
 
-    $tables_to_search_for_users = array(
+    $tablesSearchForUsers = array(
         'user', 'db', 'tables_priv', 'columns_priv', 'procs_priv',
     );
 
     $db_rights_sqls = array();
-    foreach ($tables_to_search_for_users as $table_search_in) {
+    foreach ($tablesSearchForUsers as $table_search_in) {
         if (in_array($table_search_in, $tables)) {
             $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
                 . $table_search_in . '` '

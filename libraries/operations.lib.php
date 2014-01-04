@@ -332,10 +332,10 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
 {
     // lower_case_table_names=1 `DB` becomes `db`
     if (! PMA_DRIZZLE) {
-        $lower_case_table_names = $GLOBALS['dbi']->fetchValue(
+        $lowerCaseTableNames = $GLOBALS['dbi']->fetchValue(
             'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
         );
-        if ($lower_case_table_names === '1') {
+        if ($lowerCaseTableNames === '1') {
             $_REQUEST['newname'] = $GLOBALS['PMA_String']->strtolower(
                 $_REQUEST['newname']
             );
@@ -384,7 +384,7 @@ function PMA_getSqlConstraintsQueryForFullDb(
     $tables_full, $export_sql_plugin, $move, $db
 ) {
     global $sql_constraints, $sql_drop_foreign_keys;
-    $sql_constraints_query_full_db = array();
+    $sqlConstrQueryFullDb = array();
     foreach ($tables_full as $each_table => $tmp) {
         /* Following globals are set in getTableDef */
         $sql_constraints = '';
@@ -397,10 +397,10 @@ function PMA_getSqlConstraintsQueryForFullDb(
         }
         // keep the constraint we just dropped
         if (! empty($sql_constraints)) {
-            $sql_constraints_query_full_db[] = $sql_constraints;
+            $sqlConstrQueryFullDb[] = $sql_constraints;
         }
     }
-    return $sql_constraints_query_full_db;
+    return $sqlConstrQueryFullDb;
 }
 
 /**
@@ -969,15 +969,15 @@ function PMA_getPossibleRowFormat()
         )
     );
 
-    $innodb_engine_plugin = PMA_StorageEngine::getEngine('innodb');
-    $innodb_plugin_version = $innodb_engine_plugin->getInnodbPluginVersion();
-    if (!empty($innodb_plugin_version)) {
-        $innodb_file_format = $innodb_engine_plugin->getInnodbFileFormat();
+    $innodbEnginePlugin = PMA_StorageEngine::getEngine('innodb');
+    $innodbPluginVersion = $innodbEnginePlugin->getInnodbPluginVersion();
+    if (!empty($innodbPluginVersion)) {
+        $innodb_file_format = $innodbEnginePlugin->getInnodbFileFormat();
     } else {
         $innodb_file_format = '';
     }
     if ('Barracuda' == $innodb_file_format
-        && $innodb_engine_plugin->supportsFilePerTable()
+        && $innodbEnginePlugin->supportsFilePerTable()
     ) {
         $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
         $possible_row_formats['INNODB']['COMPRESSED'] = 'COMPRESSED';
@@ -1232,14 +1232,14 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link)
 /**
  * Get HTML for Delete data or table (truncate table, drop table)
  *
- * @param array $truncate_table_url_params url parameter array for truncate table
- * @param array $drop_table_url_params     url parameter array for drop table
+ * @param array $truncateTblUrlParams url parameter array for truncate table
+ * @param array $dropTableUrlParams   url parameter array for drop table
  *
  * @return string $html_output
  */
 function PMA_getHtmlForDeleteDataOrTable(
-    $truncate_table_url_params,
-    $drop_table_url_params
+    $truncateTblUrlParams,
+    $dropTableUrlParams
 ) {
     $html_output = '<div class="operations_half_width">'
         . '<fieldset class="caution">'
@@ -1247,17 +1247,17 @@ function PMA_getHtmlForDeleteDataOrTable(
 
     $html_output .= '<ul>';
 
-    if (! empty($truncate_table_url_params)) {
+    if (! empty($truncateTblUrlParams)) {
         $html_output .= PMA_getDeleteDataOrTablelink(
-            $truncate_table_url_params,
+            $truncateTblUrlParams,
             'TRUNCATE_TABLE',
             __('Empty the table (TRUNCATE)'),
             'truncate_tbl_anchor'
         );
     }
-    if (!empty ($drop_table_url_params)) {
+    if (!empty ($dropTableUrlParams)) {
         $html_output .= PMA_getDeleteDataOrTablelink(
-            $drop_table_url_params,
+            $dropTableUrlParams,
             'DROP_TABLE',
             __('Delete the table (DROP)'),
             'drop_tbl_anchor'
@@ -1274,15 +1274,15 @@ function PMA_getHtmlForDeleteDataOrTable(
  * @param array  $url_params url parameter array for delete data or table
  * @param string $syntax     TRUNCATE_TABLE or DROP_TABLE or DROP_DATABASE
  * @param string $link       link to be shown
- * @param string $id         id of the link
+ * @param string $htmlId     id of the link
  *
  * @return String html output
  */
-function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
+function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
 {
     return  '<li><a '
         . 'href="sql.php' . PMA_URL_getCommon($url_params) . '"'
-        . ' id="' . $id . '" class="ajax">'
+        . ' id="' . $htmlId . '" class="ajax">'
         . $link . '</a>'
         . PMA_Util::showMySQLDocu($syntax)
         . '</li>';
@@ -1439,25 +1439,25 @@ function PMA_getQueryAndResultForReorderingTable()
 /**
  * Get table alters array
  *
- * @param boolean $is_myisam_or_aria      whether MYISAM | ARIA or not
- * @param boolean $is_isam                whether ISAM or not
- * @param string  $pack_keys              pack keys
- * @param string  $checksum               value of checksum
- * @param boolean $is_aria                whether ARIA or not
- * @param string  $page_checksum          value of page checksum
- * @param string  $delay_key_write        delay key write
- * @param boolean $is_innodb              whether INNODB or not
- * @param boolean $is_pbxt                whether PBXT or not
- * @param string  $row_format             row format
- * @param string  $new_tbl_storage_engine table storage engine
- * @param string  $transactional          value of transactional
- * @param string  $tbl_collation          collation of the table
+ * @param boolean $is_myisam_or_aria   whether MYISAM | ARIA or not
+ * @param boolean $is_isam             whether ISAM or not
+ * @param string  $pack_keys           pack keys
+ * @param string  $checksum            value of checksum
+ * @param boolean $is_aria             whether ARIA or not
+ * @param string  $page_checksum       value of page checksum
+ * @param string  $delay_key_write     delay key write
+ * @param boolean $is_innodb           whether INNODB or not
+ * @param boolean $is_pbxt             whether PBXT or not
+ * @param string  $row_format          row format
+ * @param string  $newTblStorageEngine table storage engine
+ * @param string  $transactional       value of transactional
+ * @param string  $tbl_collation       collation of the table
  *
  * @return array  $table_alters
  */
 function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
-    $is_pbxt, $row_format, $new_tbl_storage_engine, $transactional, $tbl_collation
+    $is_pbxt, $row_format, $newTblStorageEngine, $transactional, $tbl_collation
 ) {
     global $auto_increment;
 
@@ -1469,10 +1469,10 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         $table_alters[] = 'COMMENT = \''
             . PMA_Util::sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
-    if (! empty($new_tbl_storage_engine)
-        && strtolower($new_tbl_storage_engine) !== strtolower($GLOBALS['tbl_storage_engine'])
+    if (! empty($newTblStorageEngine)
+        && strtolower($newTblStorageEngine) !== strtolower($GLOBALS['tbl_storage_engine'])
     ) {
-        $table_alters[] = 'ENGINE = ' . $new_tbl_storage_engine;
+        $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
     }
     if (! empty($_REQUEST['tbl_collation'])
         && $_REQUEST['tbl_collation'] !== $tbl_collation
@@ -1550,21 +1550,19 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
  */
 function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
 {
-    $is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb
-        = $is_aria = $is_pbxt = false;
-    $upper_tbl_storage_engine = strtoupper($tbl_storage_engine);
+    $upperTblStorEngine = strtoupper($tbl_storage_engine);
 
     //Options that apply to MYISAM usually apply to ARIA
-    $is_myisam_or_aria = ($upper_tbl_storage_engine == 'MYISAM'
-        || $upper_tbl_storage_engine == 'ARIA'
-        || $upper_tbl_storage_engine == 'MARIA'
+    $is_myisam_or_aria = ($upperTblStorEngine == 'MYISAM'
+        || $upperTblStorEngine == 'ARIA'
+        || $upperTblStorEngine == 'MARIA'
     );
-    $is_aria = ($upper_tbl_storage_engine == 'ARIA');
+    $is_aria = ($upperTblStorEngine == 'ARIA');
 
-    $is_isam = ($upper_tbl_storage_engine == 'ISAM');
-    $is_innodb = ($upper_tbl_storage_engine == 'INNODB');
-    $is_berkeleydb = ($upper_tbl_storage_engine == 'BERKELEYDB');
-    $is_pbxt = ($upper_tbl_storage_engine == 'PBXT');
+    $is_isam = ($upperTblStorEngine == 'ISAM');
+    $is_innodb = ($upperTblStorEngine == 'INNODB');
+    $is_berkeleydb = ($upperTblStorEngine == 'BERKELEYDB');
+    $is_pbxt = ($upperTblStorEngine == 'PBXT');
 
     return array(
         $is_myisam_or_aria, $is_innodb, $is_isam,

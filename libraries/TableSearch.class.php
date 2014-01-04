@@ -549,7 +549,6 @@ EOT;
         $backquoted_name = PMA_Util::backquote($names);
         $where = '';
         if ($unaryFlag) {
-            $criteriaValues = '';
             $where = $backquoted_name . ' ' . $func_type;
 
         } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
@@ -579,60 +578,60 @@ EOT;
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ('IN (...)' == $func_type
-                || 'NOT IN (...)' == $func_type
-                || 'BETWEEN' == $func_type
-                || 'NOT BETWEEN' == $func_type
+            if ('IN (...)' != $func_type
+                && 'NOT IN (...)' != $func_type
+                && 'BETWEEN' != $func_type
+                && 'NOT BETWEEN' != $func_type
             ) {
-                $func_type = str_replace(' (...)', '', $func_type);
-
-                //Don't explode if this is already an array
-                //(Case for (NOT) IN/BETWEEN.)
-                if (is_array($criteriaValues)) {
-                    $values = $criteriaValues;
-                } else {
-                    $values = explode(',', $criteriaValues);
-                }
-                // quote values one by one
-                $emptyKey = false;
-                foreach ($values as $key => &$value) {
-                    if ('' === $value) {
-                        $emptyKey = $key;
-                        $value = 'NULL';
-                        continue;
-                    }
-                    $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
-                        . $quot;
-                }
-
-                if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
-                    $where = $backquoted_name . ' ' . $func_type . ' '
-                        . (isset($values[0]) ? $values[0] : '')
-                        . ' AND ' . (isset($values[1]) ? $values[1] : '');
-                } else { //[NOT] IN
-                    if (false !== $emptyKey) {
-                        unset($values[$emptyKey]);
-                    }
-                    $wheres = array();
-                    if (!empty($values)) {
-                        $wheres[] = $backquoted_name . ' ' . $func_type
-                            . ' (' . implode(',', $values) . ')';
-                    }
-                    if (false !== $emptyKey) {
-                        $wheres[] = $backquoted_name . ' IS NULL';
-                    }
-                    $where = implode(' OR ', $wheres);
-                    if (1 < count($wheres)) {
-                        $where = '(' . $where . ')';
-                    }
-                }
-            } else {
                 if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
                     $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
                         . PMA_Util::sqlAddSlashes($criteriaValues, true) . $quot;
                 } else {
                     $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
                         . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
+                }
+                return $where;
+            }
+            $func_type = str_replace(' (...)', '', $func_type);
+
+            //Don't explode if this is already an array
+            //(Case for (NOT) IN/BETWEEN.)
+            if (is_array($criteriaValues)) {
+                $values = $criteriaValues;
+            } else {
+                $values = explode(',', $criteriaValues);
+            }
+            // quote values one by one
+            $emptyKey = false;
+            foreach ($values as $key => &$value) {
+                if ('' === $value) {
+                    $emptyKey = $key;
+                    $value = 'NULL';
+                    continue;
+                }
+                $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
+                    . $quot;
+            }
+
+            if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
+                $where = $backquoted_name . ' ' . $func_type . ' '
+                    . (isset($values[0]) ? $values[0] : '')
+                    . ' AND ' . (isset($values[1]) ? $values[1] : '');
+            } else { //[NOT] IN
+                if (false !== $emptyKey) {
+                    unset($values[$emptyKey]);
+                }
+                $wheres = array();
+                if (!empty($values)) {
+                    $wheres[] = $backquoted_name . ' ' . $func_type
+                        . ' (' . implode(',', $values) . ')';
+                }
+                if (false !== $emptyKey) {
+                    $wheres[] = $backquoted_name . ' IS NULL';
+                }
+                $where = implode(' OR ', $wheres);
+                if (1 < count($wheres)) {
+                    $where = '(' . $where . ')';
                 }
             }
         } // end if
@@ -1384,7 +1383,7 @@ EOT;
         $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
             . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
 
-        $rs = $GLOBALS['dbi']->query(
+        $res = $GLOBALS['dbi']->query(
             $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
         );
 
@@ -1411,7 +1410,7 @@ EOT;
 
         $htmlOutput .= '<tbody>';
         $odd = true;
-        while ($row = $GLOBALS['dbi']->fetchRow($rs)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($res)) {
             $val = $row[0];
             $replaced = $row[1];
             $count = $row[2];

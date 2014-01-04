@@ -910,9 +910,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         unset($routine['item_param_opts_text'][$routine['item_num_params']-1]);
         $routine['item_num_params']--;
     }
-    $disable_remove_parameter = '';
+    $disableRemoveParam = '';
     if (! $routine['item_num_params']) {
-        $disable_remove_parameter = " color: gray;' disabled='disabled";
+        $disableRemoveParam = " color: gray;' disabled='disabled";
     }
     $original_routine = '';
     if ($mode == 'edit') {
@@ -997,7 +997,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "        <input style='width: 49%;' type='button' \n";
     $retval .= "               name='routine_addparameter'\n";
     $retval .= "               value='" . __('Add parameter') . "' />\n";
-    $retval .= "        <input style='width: 49%;$disable_remove_parameter'\n";
+    $retval .= "        <input style='width: 49%;$disableRemoveParam'\n";
     $retval .= "               type='submit' \n";
     $retval .= "               name='routine_removeparameter'\n";
     $retval .= "               value='" . __('Remove last parameter') . "' />\n";
@@ -1412,7 +1412,7 @@ function PMA_RTN_handleExecute()
             );
             $output .= "</legend>";
 
-            $num_of_rusults_set_to_display = 0;
+            $nbResultsetToDisplay = 0;
 
             do {
 
@@ -1448,7 +1448,7 @@ function PMA_RTN_handleExecute()
                     }
 
                     $output .= "</table>";
-                    $num_of_rusults_set_to_display++;
+                    $nbResultsetToDisplay++;
                     $affected = $num_rows;
 
                 }
@@ -1483,7 +1483,7 @@ function PMA_RTN_handleExecute()
             }
             $message = PMA_message::success($message);
 
-            if ($num_of_rusults_set_to_display == 0) {
+            if ($nbResultsetToDisplay == 0) {
                 $notice = __(
                     'MySQL returned an empty result set (i.e. zero rows).'
                 );

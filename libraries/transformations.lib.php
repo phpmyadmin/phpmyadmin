@@ -232,21 +232,21 @@ function PMA_getMIME($db, $table, $strict = false)
 /**
  * Set a single mimetype to a certain value.
  *
- * @param string  $db                     the name of the db
- * @param string  $table                  the name of the table
- * @param string  $key                    the name of the column
- * @param string  $mimetype               the mimetype of the column
- * @param string  $transformation         the transformation of the column
- * @param string  $transformation_options the transformation options of the column
- * @param boolean $forcedelete            force delete, will erase any existing
- *                                        comments for this column
+ * @param string  $db                the name of the db
+ * @param string  $table             the name of the table
+ * @param string  $key               the name of the column
+ * @param string  $mimetype          the mimetype of the column
+ * @param string  $transformation    the transformation of the column
+ * @param string  $transformationOpt the transformation options of the column
+ * @param boolean $forcedelete       force delete, will erase any existing
+ *                                   comments for this column
  *
  * @access  public
  *
  * @return boolean  true, if comment-query was made.
  */
 function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
-    $transformation_options, $forcedelete = false
+    $transformationOpt, $forcedelete = false
 ) {
     $cfgRelation = PMA_getRelationsParam();
 
@@ -287,7 +287,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
 
         if (! $forcedelete
             && (strlen($mimetype) || strlen($transformation)
-            || strlen($transformation_options) || strlen($row['comment']))
+            || strlen($transformationOpt) || strlen($row['comment']))
         ) {
             $upd_query = 'UPDATE ' . PMA_Util::backquote($cfgRelation['db']) . '.'
                 . PMA_Util::backquote($cfgRelation['column_info'])
@@ -297,7 +297,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                 . '`transformation` = \''
                 . PMA_Util::sqlAddSlashes($transformation) . '\', '
                 . '`transformation_options` = \''
-                . PMA_Util::sqlAddSlashes($transformation_options) . '\'';
+                . PMA_Util::sqlAddSlashes($transformationOpt) . '\'';
         } else {
             $upd_query = 'DELETE FROM ' . PMA_Util::backquote($cfgRelation['db'])
                 . '.' . PMA_Util::backquote($cfgRelation['column_info']);
@@ -308,7 +308,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
               AND `column_name` = \'' . PMA_Util::sqlAddSlashes($key) . '\'';
     } elseif (strlen($mimetype)
         || strlen($transformation)
-        || strlen($transformation_options)
+        || strlen($transformationOpt)
     ) {
 
         $upd_query = 'INSERT INTO ' . PMA_Util::backquote($cfgRelation['db'])
@@ -321,7 +321,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             . '\'' . PMA_Util::sqlAddSlashes($key) . '\','
             . '\'' . PMA_Util::sqlAddSlashes($mimetype) . '\','
             . '\'' . PMA_Util::sqlAddSlashes($transformation) . '\','
-            . '\'' . PMA_Util::sqlAddSlashes($transformation_options) . '\')';
+            . '\'' . PMA_Util::sqlAddSlashes($transformationOpt) . '\')';
     }
 
     if (isset($upd_query)) {
