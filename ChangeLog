@@ -6,7 +6,8 @@ phpMyAdmin - ChangeLog
 - bug #4209 Missing compression in one case
 - bug #4208 Can't browse tables after sorting on columns with fieldnames that have a '-'
 - bug #4184 Switch to wrong page after adding an index
-- bug #3885 Additional fix for this bug 
+- bug #3885 Additional fix for this bug
+- bug #4212 Table "disappears" if it has the same name as its tablegroup
 
 4.1.3.0 (2013-12-31)
 - bug #3938 PDFDefaultPageSize doc and easy configurability
