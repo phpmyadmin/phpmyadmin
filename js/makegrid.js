@@ -1448,6 +1448,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // register events
             $(t).find('th.draggable')
                 .mousedown(function (e) {
+                    $('#sqlqueryresults').addClass("turnOffSelect");
                     if (g.visibleHeadersCount > 1) {
                         g.dragStartReorder(e, this);
                     }
@@ -1846,6 +1847,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.dragMove(e);
         });
         $(document).mouseup(function (e) {
+            $('#sqlqueryresults').removeClass("turnOffSelect");
             g.dragEnd(e);
         });
     }
