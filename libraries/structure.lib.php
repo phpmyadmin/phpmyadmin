@@ -893,9 +893,15 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         'db' => $_REQUEST['db'],
     );
 
-    $url = 'db_structure.php'.PMA_URL_getCommon($_url_params);
+    $url = 'db_structure.php' . PMA_URL_getCommon($_url_params);
     // We set the position back to 0 every time they sort.
     $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
+    if (! empty($_REQUEST['tbl_type'])) {
+        $url .= "&amp;tbl_type=" . $_REQUEST['tbl_type'];
+    }
+    if (! empty($_REQUEST['tbl_group'])) {
+        $url .= "&amp;tbl_group=" . $_REQUEST['tbl_group'];
+    }
 
     return PMA_Util::linkOrButton(
         $url, $title . $order_img, $order_link_params
@@ -1835,8 +1841,8 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
         $action_enabled = false;
     } else {
         $html_output .= '<a rel="samepage" '
-            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' : 
-               ($action=='Index' ? 'class="ajax add_index_anchor"' : 
+            . ($hasLinkClass ? 'class="ajax add_primary_key_anchor" ' :
+               ($action=='Index' ? 'class="ajax add_index_anchor"' :
                 ($action=='Unique' ? 'class="ajax add_unique_anchor"' : ' ')
                )
               )
