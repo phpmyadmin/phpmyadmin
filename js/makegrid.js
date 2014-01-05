@@ -1005,6 +1005,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             var micro = current_datetime_value.substring(23);
                             date.setHours(hour, min, sec, milli);
                             date.setMicroseconds(micro);
+                            var day = current_datetime_value.substring(8, 10);
+                            date.setDate(day);
                         } else {
                             date = new Date(current_datetime_value);
                         }

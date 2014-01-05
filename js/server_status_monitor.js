@@ -367,40 +367,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         defaultChartGrid['c5'] = presetCharts['swap'];
     }
 
-    /* Buttons that are on the top right corner of each chart */
-    var gridbuttons = {
-        cogButton: {
-            //enabled: true,
-            symbol: 'url(' + pmaThemeImage  + 's_cog.png)',
-            x: -36,
-            symbolFill: '#B5C9DF',
-            hoverSymbolFill: '#779ABF',
-            _titleKey: 'settings',
-            menuName: 'gridsettings',
-            menuItems: [{
-                textKey: 'editChart',
-                onclick: function () {
-                    editChart(this);
-                }
-            }, {
-                textKey: 'removeChart',
-                onclick: function () {
-                    removeChart(this);
-                }
-            }]
-        }
-    };
-
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').click(function (event) {
         event.preventDefault();
         editMode = !editMode;
         if ($(this).attr('href') == '#endChartEditMode') {
             editMode = false;
         }
-
-        // Icon graphics have zIndex 19, 20 and 21.
-        // Let's just hope nothing else has the same zIndex
-        $('#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode);
 
         $('a[href="#endChartEditMode"]').toggle(editMode);
 
@@ -414,79 +386,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     left: chartSize().width - 63,
                     width: 54,
                     height: 24
-                },
-                events: {
-                    // Drop event. The drag child element is moved into the drop element
-                    // and vice versa. So the parameters are switched.
-                    drop: function (drag, drop, pos) {
-                        var dragKey, dropKey, dropRender;
-                        var dragRender = $(drag).children().first().attr('id');
-
-                        if ($(drop).children().length > 0) {
-                            dropRender = $(drop).children().first().attr('id');
-                        }
-
-                        // Find the charts in the array
-                        $.each(runtime.charts, function (key, value) {
-                            if (value.chart.options.chart.renderTo == dragRender) {
-                                dragKey = key;
-                            }
-                            if (dropRender && value.chart.options.chart.renderTo == dropRender) {
-                                dropKey = key;
-                            }
-                        });
-
-                        // Case 1: drag and drop are charts -> Switch keys
-                        if (dropKey) {
-                            if (dragKey) {
-                                dragChart = runtime.charts[dragKey];
-                                runtime.charts[dragKey] = runtime.charts[dropKey];
-                                runtime.charts[dropKey] = dragChart;
-                            } else {
-                                // Case 2: drop is a empty cell => just completely rebuild the ids
-                                var keys = [];
-                                var dropKeyNum = parseInt(dropKey.substr(1), 10);
-                                var insertBefore = pos.col + pos.row * monitorSettings.columns;
-                                var values = [];
-                                var newChartList = {};
-                                var c = 0;
-
-                                $.each(runtime.charts, function (key, value) {
-                                    if (key != dropKey) {
-                                        keys.push(key);
-                                    }
-                                });
-
-                                keys.sort();
-
-                                // Rebuilds all ids, with the dragged chart correctly inserted
-                                for (var i = 0; i < keys.length; i++) {
-                                    if (keys[i] == insertBefore) {
-                                        newChartList['c' + (c++)] = runtime.charts[dropKey];
-                                        insertBefore = -1; // Insert ok
-                                    }
-                                    newChartList['c' + (c++)] = runtime.charts[keys[i]];
-                                }
-
-                                // Not inserted => put at the end
-                                if (insertBefore != -1) {
-                                    newChartList['c' + (c++)] = runtime.charts[dropKey];
-                                }
-
-                                runtime.charts = newChartList;
-                            }
-
-                            saveMonitor();
-                        }
-                    }
                 }
             });
 
         } else {
             $("#chartGrid").sortableTable('destroy');
-            saveMonitor(); // Save settings
         }
-
+        saveMonitor(); // Save settings
         return false;
     });
 
@@ -1384,61 +1290,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         runtime.chartAI++;
     }
 
-    /* Opens a dialog that allows one to edit the title and series labels of the supplied chart */
-    function editChart(chartObj) {
-        var htmlnode = chartObj.options.chart.renderTo;
-        if (! htmlnode) {
-            return;
-        }
-
-        var chart = null;
-        var chartKey = null;
-        $.each(runtime.charts, function (key, value) {
-            if (value.chart.options.chart.renderTo == htmlnode) {
-                chart = value;
-                chartKey = key;
-                return false;
-            }
-        });
-
-        if (chart === null) {
-            return;
-        }
-
-        var htmlStr = '<p><b>' + PMA_messages.strChartTitle + ': </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
-        htmlStr += '</p><p><b>' + PMA_messages.strSeries + ':</b> </p><ol>';
-        for (var i = 0; i < chart.nodes.length; i++) {
-            htmlStr += '<li><i>' + chart.nodes[i].dataPoints[0].name  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value="' + chart.nodes[i].name + '" /></li>';
-        }
-
-        dlgBtns = {};
-        dlgBtns[PMA_messages.strSave] = function () {
-            runtime.charts[chartKey].title = $('#emptyDialog input[name="chartTitle"]').val();
-            runtime.charts[chartKey].chart.setTitle({ text: runtime.charts[chartKey].title });
-
-            $('#emptyDialog input[name*="chartSerie"]').each(function () {
-                var $t = $(this);
-                var idx = $t.attr('name').split('-')[1];
-                runtime.charts[chartKey].nodes[idx].name = $t.val();
-                runtime.charts[chartKey].chart.series[idx].name = $t.val();
-            });
-
-            $(this).dialog('close');
-            saveMonitor();
-        };
-        dlgBtns[PMA_messages.strCancel] = function () {
-            $(this).dialog('close');
-        };
-
-        $('#emptyDialog').html(htmlStr + '</ol>');
-        $('#emptyDialog').dialog({
-            title: PMA_messages.strChartEdit,
-            width: 'auto',
-            height: 'auto',
-            buttons: dlgBtns
-        });
-    }
-
     function PMA_getLogAnalyseDialog(min, max) {
         $('#logAnalyseDialog input[name="dateStart"]')
             .val(PMA_formatDateTime(min, true));
@@ -1475,32 +1326,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             removeVariables: $('#removeVariables').prop('checked'),
             limitTypes: $('#limitTypes').prop('checked')
         });
-    }
-
-    /* Removes a chart from the grid */
-    function removeChart(chartObj) {
-        var htmlnode = chartObj.options.chart.renderTo;
-        if (! htmlnode) {
-            return;
-        }
-
-        $.each(runtime.charts, function (key, value) {
-            if (value.chart.options.chart.renderTo == htmlnode) {
-                delete runtime.charts[key];
-                return false;
-            }
-        });
-
-        buildRequiredDataList();
-
-        // Using settimeout() because clicking the remove link fires an onclick event
-        // which throws an error when the chart is destroyed
-        setTimeout(function () {
-            chartObj.destroy();
-            $('#' + htmlnode).remove();
-        }, 10);
-
-        saveMonitor(); // Save settings
     }
 
     /* Called in regular intervalls, this function updates the values of each chart in the grid */
