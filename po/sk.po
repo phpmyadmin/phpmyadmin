@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2014-01-05 13:02+0200\n"
+"PO-Revision-Date: 2014-01-05 13:03+0200\n"
 "Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -515,10 +515,10 @@ msgid "Outer ring:"
 msgstr "Vonkajší obrys:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Vnútorný obrys"
+msgstr "Vnútorný obrys %d:"
 
 #: gis_data_editor.php:306
 msgid "Add a linestring"
@@ -529,10 +529,10 @@ msgid "Add an inner ring"
 msgstr "Pridať vnútorný obrys"
 
 #: gis_data_editor.php:328
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Polygón"
+msgstr "Polygón %d:"
 
 #: gis_data_editor.php:392 js/messages.php:335
 msgid "Add a polygon"
