@@ -4158,7 +4158,32 @@ class PMA_Util
             return null;
         }
     }
-
+    
+    /**
+     * Returns information with regards to handling the http request
+     *
+     * @param array $context Data about the context for which
+     *                       to http request is sent
+     * 
+     * @return array of updated context information
+     */
+    public static function handleContext(array $context)
+    {
+        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
+            $context['http'] = array(
+                'proxy' => $GLOBALS['cfg']['ProxyUrl'],
+                'request_fulluri' => true
+            );
+            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
+                $auth = base64_encode(
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+                $context['http']['header'] .= 'Proxy-Authorization: Basic '
+                    . $auth . "\r\n";
+            }
+        }
+        return $context;
+    }
     /**
      * Returns information with latest version from phpmyadmin.net
      *
@@ -4190,17 +4215,7 @@ class PMA_Util
                         'timeout' => $connection_timeout,
                     )
                 );
-                if (strlen($cfg['ProxyUrl'])) {
-                    $context['http']['proxy'] = $cfg['ProxyUrl'];
-                    if (strlen($cfg['ProxyUser'])) {
-                        $auth = base64_encode(
-                            $cfg['ProxyUser'] . ':'
-                            . $cfg['ProxyPass']
-                        );
-                        $context['http']['header']
-                            = 'Proxy-Authorization: Basic ' . $auth;
-                    }
-                }
+                $context = PMA_Util::handleContext($context);
                 $response = file_get_contents(
                     $file,
                     false,
