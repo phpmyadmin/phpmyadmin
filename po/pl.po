@@ -3567,7 +3567,7 @@ msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
-"3-Bajtowa liczba całkowita, ze znakiem zakres-8,388,608 do 8,388,607, "
+"3-Bajtowa liczba całkowita, ze znakiem zakres -8,388,608 do 8,388,607, "
 "bez znaku zakres 0 do 16,777,215"
 
 #: libraries/Types.class.php:326
@@ -3640,7 +3640,7 @@ msgstr ""
 
 #: libraries/Types.class.php:342
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr "Alias unikatowy BIGINT niepodpisane nie NULL AUTO_INCREMENT"
+msgstr "Alias unikatowy BIGINT bez znaku nie NULL AUTO_INCREMENT"
 
 #: libraries/Types.class.php:344 libraries/Types.class.php:789
 #, php-format
