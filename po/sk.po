@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2014-01-05 13:03+0200\n"
+"PO-Revision-Date: 2014-01-05 13:04+0200\n"
 "Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -690,6 +690,8 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Používate demo server. Môžete robiť čokoľvek, ale prosíme, nemeňte "
+"užívateľov root, debian-sys-maint a pma. Viac informácii nájdete na %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -721,10 +723,9 @@ msgid "Server:"
 msgstr "Server:"
 
 #: index.php:254
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
-msgstr "Port servera"
+msgstr "Typ servera:"
 
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
