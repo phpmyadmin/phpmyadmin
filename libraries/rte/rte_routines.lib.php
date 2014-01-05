@@ -1004,19 +1004,19 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "    </td>";
     $retval .= "</tr>";
     // parameter handling end
-    $retval .= "<tr class='routine_return_row".$isfunction_class."'>";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
     $retval .= "    <td>" . __('Return type') . "</td>";
     $retval .= "    <td><select name='item_returntype'>";
     $retval .= PMA_Util::getSupportedDatatypes(true, $routine['item_returntype']);
     $retval .= "    </select></td>";
     $retval .= "</tr>";
-    $retval .= "<tr class='routine_return_row".$isfunction_class."'>";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
     $retval .= "    <td>" . __('Return length/values') . "</td>";
     $retval .= "    <td><input type='text' name='item_returnlength'";
     $retval .= "               value='".$routine['item_returnlength']."' /></td>";
     $retval .= "    <td class='hide no_len'>---</td>";
     $retval .= "</tr>";
-    $retval .= "<tr class='routine_return_row".$isfunction_class."'>";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
     $retval .= "    <td>" . __('Return options') . "</td>";
     $retval .= "    <td><div>";
     $retval .= PMA_generateCharsetDropdownBox(
@@ -1035,7 +1035,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         ) {
             $selected = " selected='selected'";
         }
-        $retval .= "<option".$selected.">".$value."</option>";
+        $retval .= "<option" . $selected . ">" . $value . "</option>";
     }
     $retval .= "    </select></div>";
     $retval .= "    <div class='hide no_opts'>---</div>";
@@ -1074,14 +1074,14 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         if ($routine['item_sqldataaccess'] == $value) {
             $selected = " selected='selected'";
         }
-        $retval .= "        <option".$selected.">".$value."</option>";
+        $retval .= "        <option" . $selected . ">" . $value . "</option>";
     }
     $retval .= "    </select></td>";
     $retval .= "</tr>";
     $retval .= "<tr>";
     $retval .= "    <td>" . __('Comment') . "</td>";
     $retval .= "    <td><input type='text' name='item_comment' maxlength='64'";
-    $retval .= "               value='".$routine['item_comment']."' /></td>";
+    $retval .= "    value='" . $routine['item_comment']."' /></td>";
     $retval .= "</tr>";
     $retval .= "</table>";
     $retval .= "</fieldset>";
