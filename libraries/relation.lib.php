@@ -343,25 +343,25 @@ function PMA_getDiagMessageForFeature($feature_name,
 /**
  * prints out one diagnostic message for a configuration parameter
  *
- * @param string  $parameter              config parameter name to display
- * @param boolean $relation_parameter_set whether this parameter is set
- * @param array   $messages               utility messages
- * @param string  $doc_anchor             anchor in documentation
+ * @param string  $parameter            config parameter name to display
+ * @param boolean $relationParameterSet whether this parameter is set
+ * @param array   $messages             utility messages
+ * @param string  $docAnchor            anchor in documentation
  *
  * @return string
  */
 function PMA_getDiagMessageForParameter($parameter,
-    $relation_parameter_set, $messages, $doc_anchor
+    $relationParameterSet, $messages, $docAnchor
 ) {
     $retval = '<tr><th class="left">';
     $retval .= '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
     $retval .= '</th><td class="right">';
-    if ($relation_parameter_set) {
+    if ($relationParameterSet) {
         $retval .= $messages['ok'];
     } else {
         $retval .= sprintf(
             $messages['error'],
-            PMA_Util::getDocuLink('config', 'cfg_Servers_' . $doc_anchor)
+            PMA_Util::getDocuLink('config', 'cfg_Servers_' . $docAnchor)
         );
     }
     $retval .= '</td></tr>' . "\n";
@@ -574,10 +574,10 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
 
     if (($source == 'both' || $source == 'foreign') && strlen($table)) {
 
-        $show_create_table_query = 'SHOW CREATE TABLE '
+        $showCreateTableQuery = 'SHOW CREATE TABLE '
             . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table);
         $show_create_table = $GLOBALS['dbi']->fetchValue(
-            $show_create_table_query, 0, 1
+            $showCreateTableQuery, 0, 1
         );
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 
@@ -625,12 +625,12 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
     /**
      * Emulating relations for some information_schema and data_dictionary tables
      */
-    $is_information_schema = strtolower($db) == 'information_schema';
+    $isInformationSchema = strtolower($db) == 'information_schema';
     $is_data_dictionary = PMA_DRIZZLE && strtolower($db) == 'data_dictionary';
-    if (($is_information_schema || $is_data_dictionary)
+    if (($isInformationSchema || $is_data_dictionary)
         && ($source == 'internal' || $source == 'both')
     ) {
-        if ($is_information_schema) {
+        if ($isInformationSchema) {
             $relations_key = 'information_schema_relations';
             include_once './libraries/information_schema_relations.lib.php';
         } else {

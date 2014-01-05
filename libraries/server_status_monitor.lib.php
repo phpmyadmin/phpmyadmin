@@ -552,20 +552,19 @@ function PMA_getJsonForChartingData()
  */
 function PMA_getJsonForLogDataTypeSlow($start, $end)
 {
-    $q  = 'SELECT start_time, user_host, ';
-    $q .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
-    $q .= 'Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, ';
-    $q .= 'SUM(rows_sent) AS rows_sent, ';
-    $q .= 'SUM(rows_examined) AS rows_examined, db, sql_text, ';
-    $q .= 'COUNT(sql_text) AS \'#\' ';
-    $q .= 'FROM `mysql`.`slow_log` ';
-    $q .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
-    $q .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
+    $query  = 'SELECT start_time, user_host, ';
+    $query .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
+    $query .= 'Sec_to_Time(Sum(Time_to_Sec(lock_time))) as lock_time, ';
+    $query .= 'SUM(rows_sent) AS rows_sent, ';
+    $query .= 'SUM(rows_examined) AS rows_examined, db, sql_text, ';
+    $query .= 'COUNT(sql_text) AS \'#\' ';
+    $query .= 'FROM `mysql`.`slow_log` ';
+    $query .= 'WHERE start_time > FROM_UNIXTIME(' . $start . ') ';
+    $query .= 'AND start_time < FROM_UNIXTIME(' . $end . ') GROUP BY sql_text';
 
-    $result = $GLOBALS['dbi']->tryQuery($q);
+    $result = $GLOBALS['dbi']->tryQuery($query);
 
     $return = array('rows' => array(), 'sum' => array());
-    $type = '';
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         $type = strtolower(
@@ -621,18 +620,17 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
             = 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ';
     }
 
-    $q = 'SELECT TIME(event_time) as event_time, user_host, thread_id, ';
-    $q .= 'server_id, argument, count(argument) as \'#\' ';
-    $q .= 'FROM `mysql`.`general_log` ';
-    $q .= 'WHERE command_type=\'Query\' ';
-    $q .= 'AND event_time > FROM_UNIXTIME(' . $start . ') ';
-    $q .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
-    $q .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
+    $query = 'SELECT TIME(event_time) as event_time, user_host, thread_id, ';
+    $query .= 'server_id, argument, count(argument) as \'#\' ';
+    $query .= 'FROM `mysql`.`general_log` ';
+    $query .= 'WHERE command_type=\'Query\' ';
+    $query .= 'AND event_time > FROM_UNIXTIME(' . $start . ') ';
+    $query .= 'AND event_time < FROM_UNIXTIME(' . $end . ') ';
+    $query .= $limitTypes . 'GROUP by argument'; // HAVING count > 1';
 
-    $result = $GLOBALS['dbi']->tryQuery($q);
+    $result = $GLOBALS['dbi']->tryQuery($query);
 
     $return = array('rows' => array(), 'sum' => array());
-    $type = '';
     $insertTables = array();
     $insertTablesFirst = -1;
     $i = 0;

@@ -1411,10 +1411,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $privMap = null;
         $db = "pma_dbname";
-        $table = "pma_table";
 
         //$privMap = null
-        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $this->assertContains(
             __('No user found.'),
             $html
@@ -1431,7 +1430,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
 
         //validate 1: $current_privileges
         $current_privileges = $privMap["user1"]["hostname1"];
