@@ -312,11 +312,9 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
 /**
  * Prints Server Process list
  *
- * @param PMA_ServerStatusData $ServerStatusData Server status data
- *
  * @return string
  */
-function PMA_getHtmlForServerProcesslist($ServerStatusData)
+function PMA_getHtmlForServerProcesslist()
 {
     $url_params = array();
 
@@ -368,7 +366,7 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
             'order_by_field' => 'Info'
         )
     );
-    $sortable_columns_count = count($sortable_columns);
+    $sortableColCount = count($sortable_columns);
 
     if (PMA_DRIZZLE) {
         $left_str = 'left(p.info, '
@@ -455,7 +453,7 @@ function PMA_getHtmlForServerProcesslist($ServerStatusData)
 
         $retval .= '</a>';
 
-        if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)) {
+        if (! PMA_DRIZZLE && (0 === --$sortableColCount)) {
             $retval .= '<a href="' . $full_text_link . '">';
             if ($show_full_sql) {
                 $retval .= PMA_Util::getImage(
