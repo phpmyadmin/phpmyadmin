@@ -408,9 +408,9 @@ class PMA_Util
                 $cfg['MaxCharactersInDisplayedSQL']
             ) . '[...]';
         }
-        return '<code class="sql"><pre>' . "\n"
+        return '<code class="sql">' . "\n"
             . htmlspecialchars($sql_query) . "\n"
-            . '</pre></code>';
+            . '</code>';
     } // end of the "formatSql()" function
 
     /**
