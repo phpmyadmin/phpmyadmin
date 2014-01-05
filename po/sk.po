@@ -679,10 +679,9 @@ msgid "Back"
 msgstr "Späť"
 
 #: index.php:115 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin domovská stránka"
+msgstr "phpMyAdmin Demo Server"
 
 #: index.php:119
 #, php-format
