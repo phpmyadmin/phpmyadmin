@@ -836,9 +836,9 @@ function insertValueQuery()
         else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart == "0") {
             var startPos = document.sqlform.sql_query.selectionStart;
             var endPos = document.sqlform.sql_query.selectionEnd;
-            var chaineSql = document.sqlform.sql_query.value;
+            var SqlString = document.sqlform.sql_query.value;
 
-            myQuery.value = chaineSql.substring(0, startPos) + columnsList + chaineSql.substring(endPos, chaineSql.length);
+            myQuery.value = SqlString.substring(0, startPos) + columnsList + SqlString.substring(endPos, SqlString.length);
         } else {
             myQuery.value += columnsList;
         }
