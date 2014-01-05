@@ -730,10 +730,9 @@ msgstr "Typ servera:"
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Verzia serveru"
+msgstr "Verzia serveru:"
 
 #: index.php:264
 #, fuzzy
