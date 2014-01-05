@@ -510,10 +510,9 @@ msgid "Linestring %d:"
 msgstr "Čiara %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Vonkajší obrys"
+msgstr "Vonkajší obrys:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:346
 #, fuzzy, php-format
