@@ -34,16 +34,16 @@ function PMA_messagesBegin()
  * Adds a new message to message list
  *
  * @param string $type    one of: notice, error
- * @param string $id      unique message identifier
+ * @param string $msgId   unique message identifier
  * @param string $title   language string id (in $str array)
  * @param string $message message text
  *
  * @return void
  */
-function PMA_messagesSet($type, $id, $title, $message)
+function PMA_messagesSet($type, $msgId, $title, $message)
 {
-    $fresh = ! isset($_SESSION['messages'][$type][$id]);
-    $_SESSION['messages'][$type][$id] = array(
+    $fresh = ! isset($_SESSION['messages'][$type][$msgId]);
+    $_SESSION['messages'][$type][$msgId] = array(
         'fresh' => $fresh,
         'active' => true,
         'title' => $title,

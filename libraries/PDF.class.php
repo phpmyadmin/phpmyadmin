@@ -105,8 +105,8 @@ class PMA_PDF extends TCPDF
     function _putpages()
     {
         if (count($this->Alias) > 0) {
-            $nb = count($this->pages);
-            for ($n = 1;$n <= $nb;$n++) {
+            $nbPages = count($this->pages);
+            for ($n = 1; $n <= $nbPages; $n++) {
                 $this->pages[$n] = strtr($this->pages[$n], $this->Alias);
             }
         }

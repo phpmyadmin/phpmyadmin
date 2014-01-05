@@ -910,9 +910,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         unset($routine['item_param_opts_text'][$routine['item_num_params']-1]);
         $routine['item_num_params']--;
     }
-    $disable_remove_parameter = '';
+    $disableRemoveParam = '';
     if (! $routine['item_num_params']) {
-        $disable_remove_parameter = " color: gray;' disabled='disabled";
+        $disableRemoveParam = " color: gray;' disabled='disabled";
     }
     $original_routine = '';
     if ($mode == 'edit') {
@@ -988,46 +988,45 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     for ($i=0; $i<$routine['item_num_params']; $i++) { // each parameter
         $retval .= PMA_RTN_getParameterRow($routine, $i, $isprocedure_class);
     }
-    $retval .= "        </table>\n";
-    $retval .= "    </td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>&nbsp;</td>\n";
-    $retval .= "    <td>\n";
-    $retval .= "        <input style='width: 49%;' type='button' \n";
-    $retval .= "               name='routine_addparameter'\n";
-    $retval .= "               value='" . __('Add parameter') . "' />\n";
-    $retval .= "        <input style='width: 49%;$disable_remove_parameter'\n";
-    $retval .= "               type='submit' \n";
-    $retval .= "               name='routine_removeparameter'\n";
-    $retval .= "               value='" . __('Remove last parameter') . "' />\n";
-    $retval .= "    </td>\n";
-    $retval .= "</tr>\n";
+    $retval .= "        </table>";
+    $retval .= "    </td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>&nbsp;</td>";
+    $retval .= "    <td>";
+    $retval .= "        <input style='width: 49%;' type='button'";
+    $retval .= "               name='routine_addparameter'";
+    $retval .= "               value='" . __('Add parameter') . "' />";
+    $retval .= "        <input style='width: 49%;".$disableRemoveParam."'";
+    $retval .= "               type='submit' ";
+    $retval .= "               name='routine_removeparameter'";
+    $retval .= "               value='" . __('Remove last parameter') . "' />";
+    $retval .= "    </td>";
+    $retval .= "</tr>";
     // parameter handling end
-    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return type') . "</td>\n";
-    $retval .= "    <td><select name='item_returntype'>\n";
-    $retval .= PMA_Util::getSupportedDatatypes(true, $routine['item_returntype'])
-        . "\n";
-    $retval .= "    </select></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return length/values') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_returnlength'\n";
-    $retval .= "               value='{$routine['item_returnlength']}' /></td>\n";
-    $retval .= "    <td class='hide no_len'>---</td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
-    $retval .= "    <td>" . __('Return options') . "</td>\n";
-    $retval .= "    <td><div>\n";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
+    $retval .= "    <td>" . __('Return type') . "</td>";
+    $retval .= "    <td><select name='item_returntype'>";
+    $retval .= PMA_Util::getSupportedDatatypes(true, $routine['item_returntype']);
+    $retval .= "    </select></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
+    $retval .= "    <td>" . __('Return length/values') . "</td>";
+    $retval .= "    <td><input type='text' name='item_returnlength'";
+    $retval .= "               value='".$routine['item_returnlength']."' /></td>";
+    $retval .= "    <td class='hide no_len'>---</td>";
+    $retval .= "</tr>";
+    $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
+    $retval .= "    <td>" . __('Return options') . "</td>";
+    $retval .= "    <td><div>";
     $retval .= PMA_generateCharsetDropdownBox(
         PMA_CSDROPDOWN_CHARSET,
         "item_returnopts_text",
         null,
         $routine['item_returnopts_text']
     );
-    $retval .= "\n    </div>\n";
-    $retval .= "    <div><select name='item_returnopts_num'>\n";
+    $retval .= "    </div>";
+    $retval .= "    <div><select name='item_returnopts_num'>";
     $retval .= "        <option value=''></option>";
     foreach ($param_opts_num as $key => $value) {
         $selected = "";
@@ -1036,68 +1035,68 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
         ) {
             $selected = " selected='selected'";
         }
-        $retval .= "<option$selected>$value</option>";
+        $retval .= "<option" . $selected . ">" . $value . "</option>";
     }
-    $retval .= "\n    </select></div>\n";
-    $retval .= "    <div class='hide no_opts'>---</div>\n";
-    $retval .= "</td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Definition') . "</td>\n";
+    $retval .= "    </select></div>";
+    $retval .= "    <div class='hide no_opts'>---</div>";
+    $retval .= "</td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Definition') . "</td>";
     $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>";
     $retval .= $routine['item_definition'];
-    $retval .= "</textarea></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Is deterministic') . "</td>\n";
+    $retval .= "</textarea></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Is deterministic') . "</td>";
     $retval .= "    <td><input type='checkbox' name='item_isdeterministic'"
-        . $routine['item_isdeterministic'] . " /></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Definer') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_definer'\n";
-    $retval .= "               value='{$routine['item_definer']}' /></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Security type') . "</td>\n";
-    $retval .= "    <td><select name='item_securitytype'>\n";
+        . $routine['item_isdeterministic'] . " /></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Definer') . "</td>";
+    $retval .= "    <td><input type='text' name='item_definer'";
+    $retval .= "               value='".$routine['item_definer']."' /></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Security type') . "</td>";
+    $retval .= "    <td><select name='item_securitytype'>";
     $retval .= "        <option value='DEFINER'"
-        . $routine['item_securitytype_definer'] . ">DEFINER</option>\n";
+        . $routine['item_securitytype_definer'] . ">DEFINER</option>";
     $retval .= "        <option value='INVOKER'"
-        . $routine['item_securitytype_invoker'] . ">INVOKER</option>\n";
-    $retval .= "    </select></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('SQL data access') . "</td>\n";
-    $retval .= "    <td><select name='item_sqldataaccess'>\n";
+        . $routine['item_securitytype_invoker'] . ">INVOKER</option>";
+    $retval .= "    </select></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('SQL data access') . "</td>";
+    $retval .= "    <td><select name='item_sqldataaccess'>";
     foreach ($param_sqldataaccess as $key => $value) {
         $selected = "";
         if ($routine['item_sqldataaccess'] == $value) {
             $selected = " selected='selected'";
         }
-        $retval .= "        <option$selected>$value</option>\n";
+        $retval .= "        <option" . $selected . ">" . $value . "</option>";
     }
-    $retval .= "    </select></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "<tr>\n";
-    $retval .= "    <td>" . __('Comment') . "</td>\n";
-    $retval .= "    <td><input type='text' name='item_comment' maxlength='64'\n";
-    $retval .= "               value='{$routine['item_comment']}' /></td>\n";
-    $retval .= "</tr>\n";
-    $retval .= "</table>\n";
-    $retval .= "</fieldset>\n";
+    $retval .= "    </select></td>";
+    $retval .= "</tr>";
+    $retval .= "<tr>";
+    $retval .= "    <td>" . __('Comment') . "</td>";
+    $retval .= "    <td><input type='text' name='item_comment' maxlength='64'";
+    $retval .= "    value='" . $routine['item_comment']."' /></td>";
+    $retval .= "</tr>";
+    $retval .= "</table>";
+    $retval .= "</fieldset>";
     if ($GLOBALS['is_ajax_request']) {
-        $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
-        $retval .= "       value='true' />\n";
-        $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
+        $retval .= "<input type='hidden' name='editor_process_".$mode."'";
+        $retval .= "       value='true' />";
+        $retval .= "<input type='hidden' name='ajax_request' value='true' />";
     } else {
-        $retval .= "<fieldset class='tblFooters'>\n";
-        $retval .= "    <input type='submit' name='editor_process_{$mode}'\n";
-        $retval .= "           value='" . __('Go') . "' />\n";
-        $retval .= "</fieldset>\n";
+        $retval .= "<fieldset class='tblFooters'>";
+        $retval .= "    <input type='submit' name='editor_process_".$mode."'";
+        $retval .= "           value='" . __('Go') . "' />";
+        $retval .= "</fieldset>";
     }
-    $retval .= "</form>\n\n";
-    $retval .= "<!-- END " . strtoupper($mode) . " ROUTINE FORM -->\n\n";
+    $retval .= "</form>";
+    $retval .= "<!-- END " . strtoupper($mode) . " ROUTINE FORM -->";
 
     return $retval;
 } // end PMA_RTN_getEditorForm()
@@ -1412,7 +1411,7 @@ function PMA_RTN_handleExecute()
             );
             $output .= "</legend>";
 
-            $num_of_rusults_set_to_display = 0;
+            $nbResultsetToDisplay = 0;
 
             do {
 
@@ -1448,7 +1447,7 @@ function PMA_RTN_handleExecute()
                     }
 
                     $output .= "</table>";
-                    $num_of_rusults_set_to_display++;
+                    $nbResultsetToDisplay++;
                     $affected = $num_rows;
 
                 }
@@ -1483,7 +1482,7 @@ function PMA_RTN_handleExecute()
             }
             $message = PMA_message::success($message);
 
-            if ($num_of_rusults_set_to_display == 0) {
+            if ($nbResultsetToDisplay == 0) {
                 $notice = __(
                     'MySQL returned an empty result set (i.e. zero rows).'
                 );

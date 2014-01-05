@@ -38,17 +38,17 @@ function PMA_process_formset(FormDisplay $form_display)
     $page = filter_input(INPUT_GET, 'page');
     $formset = filter_input(INPUT_GET, 'formset');
     $formset = $formset ? "{$separator}formset=$formset" : '';
-    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-    if ($id === null && $page == 'servers') {
+    $formId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    if ($formId === null && $page == 'servers') {
         // we've just added a new server, get its id
-        $id = $form_display->getConfigFile()->getServerCount();
+        $formId = $form_display->getConfigFile()->getServerCount();
     }
-    $id = $id ? "{$separator}id=$id" : '';
+    $formId = $formId ? "{$separator}id=$formId" : '';
     ?>
     <div class="error">
         <h4><?php echo __('Warning') ?></h4>
         <?php echo __('Submitted form contains errors') ?><br />
-        <a href="?page=<?php echo $page . $formset . $id . $separator ?>mode=revert">
+        <a href="?page=<?php echo $page . $formset . $formId . $separator ?>mode=revert">
             <?php echo __('Try to revert erroneous fields to their default values')
             ?>
         </a>
@@ -56,7 +56,7 @@ function PMA_process_formset(FormDisplay $form_display)
     <?php $form_display->displayErrors() ?>
     <a class="btn" href="index.php"><?php echo __('Ignore errors') ?></a>
     &nbsp;
-    <a class="btn" href="?page=<?php echo $page . $formset . $id
+    <a class="btn" href="?page=<?php echo $page . $formset . $formId
         . $separator ?>mode=edit"><?php echo __('Show form') ?></a>
     <?php
 }

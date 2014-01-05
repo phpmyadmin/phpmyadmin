@@ -794,9 +794,6 @@ class PMA_DatabaseInterface
             $limit_count = $GLOBALS['cfg']['MaxDbList'];
         }
 
-        // initialize to avoid errors when there are no databases
-        $databases = array();
-
         $apply_limit_and_order_manual = true;
 
         /**
@@ -1238,9 +1235,9 @@ class PMA_DatabaseInterface
                         AND i.table_name = '" . PMA_Util::sqlAddSlashes($table) . "'
                         AND i.is_unique
                             AND NOT i.is_nullable";
-                $fs = $this->fetchResult($sql, 'index_name', null, $link);
-                $fs = $fs ? array_shift($fs) : array();
-                foreach ($fs as $f) {
+                $result = $this->fetchResult($sql, 'index_name', null, $link);
+                $result = $result ? array_shift($result) : array();
+                foreach ($result as $f) {
                     $fields[$f]['Key'] = 'PRI';
                 }
             }
@@ -1506,11 +1503,10 @@ class PMA_DatabaseInterface
                         5
                     );
                 }
-                $set_collation_con_query = "SET collation_connection = '"
-                    . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
-                    . "';";
                 $this->query(
-                    $set_collation_con_query,
+                    "SET collation_connection = '"
+                    . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
+                    . "';",
                     $link,
                     self::QUERY_STORE
                 );
@@ -2052,18 +2048,18 @@ class PMA_DatabaseInterface
      * Checks whether given schema is a system schema: information_schema
      * (MySQL and Drizzle) or data_dictionary (Drizzle)
      *
-     * @param string $schema_name           Name of schema (database) to test
-     * @param bool   $test_for_mysql_schema Whether 'mysql' schema should
-     *                                      be treated the same as IS and DD
+     * @param string $schema_name        Name of schema (database) to test
+     * @param bool   $testForMysqlSchema Whether 'mysql' schema should
+     *                                   be treated the same as IS and DD
      *
      * @return bool
      */
-    public function isSystemSchema($schema_name, $test_for_mysql_schema = false)
+    public function isSystemSchema($schema_name, $testForMysqlSchema = false)
     {
         return strtolower($schema_name) == 'information_schema'
             || (!PMA_DRIZZLE && strtolower($schema_name) == 'performance_schema')
             || (PMA_DRIZZLE && strtolower($schema_name) == 'data_dictionary')
-            || ($test_for_mysql_schema && !PMA_DRIZZLE && $schema_name == 'mysql');
+            || ($testForMysqlSchema && !PMA_DRIZZLE && $schema_name == 'mysql');
     }
 
     /**

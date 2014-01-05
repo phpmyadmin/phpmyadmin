@@ -89,9 +89,9 @@ function PMA_RTE_getList($type, $items)
     }
     $retval .= "        </tr>\n";
     $retval .= "        <!-- TABLE DATA -->\n";
-    $ct = 0;
+    $count = 0;
     foreach ($items as $item) {
-        $rowclass = ($ct % 2 == 0) ? 'odd' : 'even';
+        $rowclass = ($count % 2 == 0) ? 'odd' : 'even';
         if ($GLOBALS['is_ajax_request'] && empty($_REQUEST['ajax_page_request'])) {
             $rowclass .= ' ajaxInsert hide';
         }
@@ -109,7 +109,7 @@ function PMA_RTE_getList($type, $items)
         default:
             break;
         }
-        $ct++;
+        $count++;
     }
     $retval .= "    </table>\n";
     $retval .= "</fieldset>\n";
