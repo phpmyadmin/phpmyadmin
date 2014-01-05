@@ -408,9 +408,9 @@ class PMA_Util
                 $cfg['MaxCharactersInDisplayedSQL']
             ) . '[...]';
         }
-        return '<code class="sql"><pre>' . "\n"
+        return '<code class="sql">' . "\n"
             . htmlspecialchars($sql_query) . "\n"
-            . '</pre></code>';
+            . '</code>';
     } // end of the "formatSql()" function
 
     /**
@@ -636,7 +636,35 @@ class PMA_Util
                 $error_msg .= '<br />' . "\n";
             }
             // ---
+
+            // modified to show the help on error-returns
+            // (now error-messages-server)
+            $error_msg .= '<p>' . "\n"
+                . '    <strong>' . __('MySQL said: ') . '</strong>'
+                . self::showMySQLDocu('Error-messages-server')
+                . "\n"
+                . '</p>' . "\n";
+
+            // The error message will be displayed within a CODE segment.
+            // To preserve original formatting, but allow wordwrapping,
+            // we do a couple of replacements
+
+            // Replace all non-single blanks with their HTML-counterpart
+            $error_message = str_replace('  ', '&nbsp;&nbsp;', $error_message);
+            // Replace TAB-characters with their HTML-counterpart
+            $error_message = str_replace(
+                "\t", '&nbsp;&nbsp;&nbsp;&nbsp;', $error_message
+            );
+            // Replace linebreaks
+            $error_message = nl2br($error_message);
+
+            $error_msg .= '<code>' . "\n"
+                . $error_message . "\n"
+                . '</code><br />' . "\n";
+           
+
             // modified to show the help on sql errors
+
             $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
             if (strstr(strtolower($formatted_sql), 'select')) {
                 // please show me help to the error on select
@@ -668,7 +696,8 @@ class PMA_Util
             $error_msg .= '    </p>' . "\n"
                 .'<p>' . "\n"
                 . $formatted_sql . "\n"
-                . '</p>' . "\n";
+                . '</p>' . "\n"
+                . '</div>';
         } // end if
 
         if (! empty($error_message)) {
@@ -678,31 +707,7 @@ class PMA_Util
                 $error_message
             );
         }
-        // modified to show the help on error-returns
-        // (now error-messages-server)
-        $error_msg .= '<p>' . "\n"
-            . '    <strong>' . __('MySQL said: ') . '</strong>'
-            . self::showMySQLDocu('Error-messages-server')
-            . "\n"
-            . '</p>' . "\n";
-
-        // The error message will be displayed within a CODE segment.
-        // To preserve original formatting, but allow wordwrapping,
-        // we do a couple of replacements
-
-        // Replace all non-single blanks with their HTML-counterpart
-        $error_message = str_replace('  ', '&nbsp;&nbsp;', $error_message);
-        // Replace TAB-characters with their HTML-counterpart
-        $error_message = str_replace(
-            "\t", '&nbsp;&nbsp;&nbsp;&nbsp;', $error_message
-        );
-        // Replace linebreaks
-        $error_message = nl2br($error_message);
-
-        $error_msg .= '<code>' . "\n"
-            . $error_message . "\n"
-            . '</code><br />' . "\n";
-        $error_msg .= '</div>';
+        
 
         $_SESSION['Import_message']['message'] = $error_msg;
 
