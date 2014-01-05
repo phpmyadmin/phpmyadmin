@@ -1383,7 +1383,7 @@ EOT;
         $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
             . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
 
-        $res = $GLOBALS['dbi']->query(
+        $resultSet = $GLOBALS['dbi']->query(
             $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
         );
 
@@ -1410,7 +1410,7 @@ EOT;
 
         $htmlOutput .= '<tbody>';
         $odd = true;
-        while ($row = $GLOBALS['dbi']->fetchRow($res)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($resultSet)) {
             $val = $row[0];
             $replaced = $row[1];
             $count = $row[2];

@@ -1503,11 +1503,10 @@ class PMA_DatabaseInterface
                         5
                     );
                 }
-                $setCollationConQuery = "SET collation_connection = '"
-                    . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
-                    . "';";
                 $this->query(
-                    $setCollationConQuery,
+                    "SET collation_connection = '"
+                    . PMA_Util::sqlAddSlashes($GLOBALS['collation_connection'])
+                    . "';",
                     $link,
                     self::QUERY_STORE
                 );

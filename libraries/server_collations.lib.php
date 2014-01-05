@@ -70,14 +70,14 @@ function PMA_getHtmlForCharsets($mysqlCharsets, $mysqlCollations,
  *
  * @param String $currCharset        Current Charset
  * @param Array  $mysqlColl          Collations list
- * @param Array  $mysqlDftColl       Default Collations list
+ * @param Array  $mysqlDefaultColl       Default Collations list
  * @param Array  $mysqlCollAvailable Available Collations list
  *
  * @return string
  */
 function PMA_getHtmlForCollationCurrentCharset(
     $currCharset, $mysqlColl,
-    $mysqlDftColl, $mysqlCollAvailable
+    $mysqlDefaultColl, $mysqlCollAvailable
 ) {
     $odd_row = true;
     $html = '';
@@ -85,7 +85,7 @@ function PMA_getHtmlForCollationCurrentCharset(
 
         $html .= '<tr class="'
             . ($odd_row ? 'odd' : 'even')
-            . ($mysqlDftColl[$currCharset] == $current_collation
+            . ($mysqlDefaultColl[$currCharset] == $current_collation
                 ? ' marked'
                 : '')
             . ($mysqlCollAvailable[$current_collation] ? '' : ' disabled')

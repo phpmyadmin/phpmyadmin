@@ -2549,7 +2549,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
 function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 {
     if (! strlen($dbname)) {
-        $tablesSearchForUsers = array(
+        $tables_to_search_for_users = array(
             'tables_priv', 'columns_priv',
         );
         $dbOrTableName = 'Db';
@@ -2558,12 +2558,12 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
             ' AND `Db`'
             .' LIKE \''
             . PMA_Util::sqlAddSlashes($dbname, true) . "'";
-        $tablesSearchForUsers = array('columns_priv',);
+        $tables_to_search_for_users = array('columns_priv',);
         $dbOrTableName = 'Table_name';
     }
 
     $db_rights_sqls = array();
-    foreach ($tablesSearchForUsers as $table_search_in) {
+    foreach ($tables_to_search_for_users as $table_search_in) {
         if (in_array($table_search_in, $tables)) {
             $db_rights_sqls[] = '
                 SELECT DISTINCT `' . $dbOrTableName .'`

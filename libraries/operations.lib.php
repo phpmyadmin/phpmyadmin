@@ -384,7 +384,7 @@ function PMA_getSqlConstraintsQueryForFullDb(
     $tables_full, $export_sql_plugin, $move, $db
 ) {
     global $sql_constraints, $sql_drop_foreign_keys;
-    $sqlConstrQueryFullDb = array();
+    $sql_constraints_query_full_db = array();
     foreach ($tables_full as $each_table => $tmp) {
         /* Following globals are set in getTableDef */
         $sql_constraints = '';
@@ -397,10 +397,10 @@ function PMA_getSqlConstraintsQueryForFullDb(
         }
         // keep the constraint we just dropped
         if (! empty($sql_constraints)) {
-            $sqlConstrQueryFullDb[] = $sql_constraints;
+            $sql_constraints_query_full_db[] = $sql_constraints;
         }
     }
-    return $sqlConstrQueryFullDb;
+    return $sql_constraints_query_full_db;
 }
 
 /**
@@ -1232,13 +1232,13 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link)
 /**
  * Get HTML for Delete data or table (truncate table, drop table)
  *
- * @param array $truncateTblUrlParams url parameter array for truncate table
- * @param array $dropTableUrlParams   url parameter array for drop table
+ * @param array $truncate_table_url_params url parameter array for truncate table
+ * @param array $dropTableUrlParams        url parameter array for drop table
  *
  * @return string $html_output
  */
 function PMA_getHtmlForDeleteDataOrTable(
-    $truncateTblUrlParams,
+    $truncate_table_url_params,
     $dropTableUrlParams
 ) {
     $html_output = '<div class="operations_half_width">'
@@ -1247,9 +1247,9 @@ function PMA_getHtmlForDeleteDataOrTable(
 
     $html_output .= '<ul>';
 
-    if (! empty($truncateTblUrlParams)) {
+    if (! empty($truncate_table_url_params)) {
         $html_output .= PMA_getDeleteDataOrTablelink(
-            $truncateTblUrlParams,
+            $truncate_table_url_params,
             'TRUNCATE_TABLE',
             __('Empty the table (TRUNCATE)'),
             'truncate_tbl_anchor'
