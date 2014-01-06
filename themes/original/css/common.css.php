@@ -378,8 +378,7 @@ img.lightbulb {
 /* leave some space between icons and text */
 .icon {
     vertical-align:     middle;
-    margin-right:       0.3em;
-    margin-left:        0.3em;
+    margin-<?php echo $left; ?>:        0.3em;
 }
 
 /* no extra space in table cells */
@@ -1613,7 +1612,16 @@ input#input_import_file {
     padding: 0.3em;
     margin: 0.1em;
 }
-
+#structure-action-links a {
+    margin-<?php echo $right; ?>: 1em;
+}
+#addColumns input[type="radio"] {
+    margin: 0;
+    margin-<?php echo $left; ?>: 1em;
+}
+#addColumns input[type="submit"] {
+    margin-<?php echo $left; ?>: 1em;
+}
 .margin#change_column_dialog {
     margin: 0 .5em;
 }
