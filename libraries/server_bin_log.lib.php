@@ -69,12 +69,11 @@ function PMA_getLogSelector($binary_log_file_names, $url_params)
 /**
  * Returns the html for binary log information.
  *
- * @param Array $binary_log_file_names Binary logs file names
- * @param Array $url_params            links parameters
+ * @param Array $url_params links parameters
  *
  * @return string
  */
-function PMA_getLogInfo($binary_log_file_names, $url_params)
+function PMA_getLogInfo($url_params)
 {
     /**
      * Need to find the real end of rows?
