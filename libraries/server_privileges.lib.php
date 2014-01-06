@@ -3996,7 +3996,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
  * Get queries for Table privileges to change or copy user
  *
  * @param string $user_host_condition user host condition to
-                                      select relevent table privileges
+ *                                    select relevent table privileges
  * @param array  $queries             queries array
  * @param string $username            username
  * @param string $hostname            host name
