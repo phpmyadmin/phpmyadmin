@@ -2041,6 +2041,13 @@ input#input_import_file {
     padding: 0.3em;
     margin: 0.1em;
 }
+#structure-action-links a {
+    margin-<?php echo $right; ?>: 1em;
+}
+#addColumns input[type="radio"] {
+    margin: 3px 0 0;
+    margin-<?php echo $left; ?>: 1em;
+}
 /**
  * Indexes
  */
