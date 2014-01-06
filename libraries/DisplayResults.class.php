@@ -2859,8 +2859,8 @@ class PMA_DisplayResults
                 $meta->mimetype = str_replace(
                     '_', '/',
                     $this->transformation_info[strtolower($this->__get('db'))]
-                        [strtolower($this->__get('table'))]
-                        [strtolower($meta->name)][2]
+                    [strtolower($this->__get('table'))]
+                    [strtolower($meta->name)][2]
                 );
 
             }
