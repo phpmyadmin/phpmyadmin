@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-12-30 14:30+0200\n"
-"Last-Translator: Nicu Plai <nicu.plai@gmail.com>\n"
+"PO-Revision-Date: 2014-01-06 12:16+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -13322,10 +13322,9 @@ msgid "FOREIGN KEY relation added"
 msgstr ""
 
 #: pmd_relation_new.php:84
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Eroare: Relația nu a fost adăugată."
+msgstr "Eroare: Relația nu a fost adăugată!"
 
 #: pmd_relation_new.php:100
 msgid "Internal relation added"
