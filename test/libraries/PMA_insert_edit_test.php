@@ -736,7 +736,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $titles['Browse'] = "'";
         $GLOBALS['cfg']['ServerDefault'] = 2;
         $result = PMA_getForeignLink(
-            $column, 'a', 'b', 'd', 2, 0, 1, "<s>", array('tbl', 'db'), 8, $titles
+            $column, 'a', 'b', 'd', 2, 0, 1, "abc", array('tbl', 'db'), 8, $titles
         );
 
         $this->assertTag(
@@ -751,8 +751,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 '<a class="foreign_values_anchor" target="_blank" onclick='
                 . '"window.open(this.href,\'foreigners\', \'width=640,height=240,'
                 . 'scrollbars=yes,resizable=yes\'); return false;" href="browse_'
-                . 'foreigners.php?db=db&table=tbl&field=f&rownumber=8&server=1'
-                . '&lang=en&token=token">',
+                . 'foreigners.php?db=db&table=tbl&field=f&rownumber=8&data=abc'
+                . '&server=1&lang=en&token=token">',
                 array('content' => "\\'")
             ),
             $result
@@ -760,7 +760,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<input type="text" name="fieldsb" class="textfield" d tabindex="2" '
-            . 'id="field_1_3" value="&lt;s&gt;"',
+            . 'id="field_1_3" value="abc"',
             $result
         );
 
