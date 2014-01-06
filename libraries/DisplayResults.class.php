@@ -4534,7 +4534,7 @@ class PMA_DisplayResults
             $pre_count = '~';
             $after_count = PMA_Util::showHint(
                 PMA_sanitize(
-                    __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]')
+                    __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
                 )
             );
         } else {
@@ -6041,7 +6041,7 @@ class PMA_DisplayResults
     }
 
     /**
-     * Display binary columns as hex string if requested 
+     * Display binary columns as hex string if requested
      * otherwise escape the contents using the best possible way
      *
      * @param string $content        String to parse
