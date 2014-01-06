@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-03 10:33+0200\n"
+"PO-Revision-Date: 2014-01-06 11:57+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/4-1/cs/>\n"
 "Language: cs\n"
@@ -8175,7 +8175,7 @@ msgstr "Špatné uživatelské jméno nebo heslo. Přístup odepřen."
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:107
 msgid "Can not find signon authentication script:"
-msgstr "Nepodařilo se nalézt autentizační skript pro signon:"
+msgstr "Nepodařilo se nalézt přihlašovací skript pro signon:"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
 #, php-format
@@ -14091,8 +14091,8 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
-"Připojení jsou obvykle přerušena pokud nemůže být autorizováno. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"Připojení jsou obvykle přerušena pokud nemohou být ověřena. <a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
 "source-of-aborted_connects/\">Tento článek</a> vám může pomoc najít příčinu."
 
 #: libraries/advisory_rules.txt:404
