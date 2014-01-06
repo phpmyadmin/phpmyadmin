@@ -14,6 +14,7 @@ require_once 'libraries/browse_foreigners.lib.php';
  * Sets globals from $_REQUEST
  */
 $request_params = array(
+    'data',
     'field'
 );
 

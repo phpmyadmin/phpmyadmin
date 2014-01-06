@@ -740,7 +740,8 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
                 'db' => $db,
                 'table' => $table,
                 'field' => $column['Field'],
-                'rownumber' => $rownumber
+                'rownumber' => $rownumber,
+                'data'      => $data
             )
         ) . '">'
         . str_replace("'", "\'", $titles['Browse']) . '</a>';
