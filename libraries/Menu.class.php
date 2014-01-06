@@ -285,7 +285,7 @@ class PMA_Menu
      */
     private function _getTableTabs()
     {
-        $db_is_information_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
+        $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
         $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
@@ -312,7 +312,7 @@ class PMA_Menu
             array('tbl_select.php', 'tbl_zoom_select.php', 'tbl_find_replace.php')
         );
 
-        if (! $db_is_information_schema) {
+        if (! $db_is_system_schema) {
             $tabs['insert']['icon'] = 'b_insrow.png';
             $tabs['insert']['link'] = 'tbl_change.php';
             $tabs['insert']['text'] = __('Insert');
@@ -326,12 +326,12 @@ class PMA_Menu
         /**
          * Don't display "Import" for views and information_schema
          */
-        if (! $tbl_is_view && ! $db_is_information_schema) {
+        if (! $tbl_is_view && ! $db_is_system_schema) {
             $tabs['import']['icon'] = 'b_tblimport.png';
             $tabs['import']['link'] = 'tbl_import.php';
             $tabs['import']['text'] = __('Import');
         }
-        if ($is_superuser && ! PMA_DRIZZLE && ! $db_is_information_schema) {
+        if ($is_superuser && ! PMA_DRIZZLE && ! $db_is_system_schema) {
             $tabs['privileges']['link'] = 'server_privileges.php';
             $tabs['privileges']['args']['checkprivsdb'] = $this->_db;
             $tabs['privileges']['args']['checkprivstable'] = $this->_table;
@@ -343,7 +343,7 @@ class PMA_Menu
         /**
          * Don't display "Operations" for views and information_schema
          */
-        if (! $tbl_is_view && ! $db_is_information_schema) {
+        if (! $tbl_is_view && ! $db_is_system_schema) {
             $tabs['operation']['icon'] = 'b_tblops.png';
             $tabs['operation']['link'] = 'tbl_operations.php';
             $tabs['operation']['text'] = __('Operations');
@@ -353,7 +353,7 @@ class PMA_Menu
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['link'] = 'tbl_tracking.php';
         }
-        if (! $db_is_information_schema
+        if (! $db_is_system_schema
             && ! PMA_DRIZZLE
             && PMA_Util::currentUserHasPrivilege(
                 'TRIGGER',
@@ -370,7 +370,7 @@ class PMA_Menu
         /**
          * Views support a limited number of operations
          */
-        if ($tbl_is_view && ! $db_is_information_schema) {
+        if ($tbl_is_view && ! $db_is_system_schema) {
             $tabs['operation']['icon'] = 'b_tblops.png';
             $tabs['operation']['link'] = 'view_operations.php';
             $tabs['operation']['text'] = __('Operations');
@@ -386,7 +386,7 @@ class PMA_Menu
      */
     private function _getDbTabs()
     {
-        $db_is_information_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
+        $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($this->_db);
         $num_tables = count($GLOBALS['dbi']->getTables($this->_db));
         $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
@@ -426,7 +426,7 @@ class PMA_Menu
             $tabs['export']['warning'] = __('Database seems to be empty!');
         }
 
-        if (! $db_is_information_schema) {
+        if (! $db_is_system_schema) {
             $tabs['import']['link'] = 'db_import.php';
             $tabs['import']['text'] = __('Import');
             $tabs['import']['icon'] = 'b_import.png';
@@ -471,7 +471,7 @@ class PMA_Menu
             $tabs['tracking']['link'] = 'db_tracking.php';
         }
 
-        if (! $db_is_information_schema && $cfgRelation['designerwork']) {
+        if (! $db_is_system_schema && $cfgRelation['designerwork']) {
             $tabs['designer']['text'] = __('Designer');
             $tabs['designer']['icon'] = 'b_relations.png';
             $tabs['designer']['link'] = 'pmd_general.php';

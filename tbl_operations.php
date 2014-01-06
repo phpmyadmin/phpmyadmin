@@ -321,12 +321,12 @@ $response->addHTML(
     )
 );
 
-if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+if (! (isset($db_is_system_schema) && $db_is_information_schema)) {
     $truncate_table_url_params = array();
     $drop_table_url_params = array();
 
     if (! $tbl_is_view
-        && ! (isset($db_is_information_schema) && $db_is_information_schema)
+        && ! (isset($db_is_system_schema) && $db_is_information_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
             . PMA_Util::backquote($GLOBALS['table']);
@@ -343,7 +343,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
             )
         );
     }
-    if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+    if (! (isset($db_is_system_schema) && $db_is_information_schema)) {
         $this_sql_query = 'DROP TABLE '
             . PMA_Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(

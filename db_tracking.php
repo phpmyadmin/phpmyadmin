@@ -50,7 +50,7 @@ $data = PMA_Tracker::getTrackedData($_REQUEST['db'], '', '1');
 if ($num_tables == 0 && count($data['ddlog']) == 0) {
     echo '<p>' . __('No tables found in database.') . '</p>' . "\n";
 
-    if (empty($db_is_information_schema)) {
+    if (empty($db_is_system_schema)) {
         include 'libraries/display_create_table.lib.php';
     }
     exit;
