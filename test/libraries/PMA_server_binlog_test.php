@@ -97,10 +97,6 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAGetLogInfo()
     {
-        $binary_log_file_names = array();
-        $binary_log_file_names[] = array("Log_name"=>"index1", "File_size"=>100);
-        $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
-
         $url_params = array();
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
@@ -153,7 +149,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         //Call the test function
-        $html = PMA_getLogInfo($binary_log_file_names, $url_params);
+        $html = PMA_getLogInfo($url_params);
 
         //validate 1: the sql has been executed
         $this->assertContains(

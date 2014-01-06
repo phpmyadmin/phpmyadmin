@@ -19,14 +19,14 @@ if (!defined('PHPMYADMIN')) {
  * @param string  $tbl_url_query            table url query
  * @param array   $titles                   titles and icons for action links
  * @param string  $truename                 table name
- * @param boolean $db_is_information_schema is database information schema or not
+ * @param boolean $db_is_system_schema is database information schema or not
  * @param string  $url_query                url query
  *
  * @return array ($browse_table, $search_table, $browse_table_label, $empty_table,
  *                $tracking_icon)
  */
 function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_query,
-    $titles, $truename, $db_is_information_schema, $url_query
+    $titles, $truename, $db_is_system_schema, $url_query
 ) {
     $empty_table = '';
 
@@ -56,7 +56,7 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         . '&amp;pos=0" title="' . $current_table['TABLE_COMMENT'] . '">'
         . $truename . '</a>';
 
-    if (!$db_is_information_schema) {
+    if (!$db_is_system_schema) {
         $empty_table = '<a class="truncate_table_anchor ajax"';
         $empty_table .= ' href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
@@ -143,7 +143,7 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
  *
  * @param integer $num_tables               number of tables
  * @param boolean $server_slave_status      server slave state
- * @param boolean $db_is_information_schema whether database is information
+ * @param boolean $db_is_system_schema whether database is information
  *                                          schema or not
  * @param integer $sum_entries              sum entries
  * @param string  $db_collation             collation of given db
@@ -158,7 +158,7 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
  * @return string $html_output
  */
 function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
-    $db_is_information_schema, $sum_entries, $db_collation, $is_show_stats,
+    $db_is_system_schema, $sum_entries, $db_collation, $is_show_stats,
     $sum_size, $overhead_size, $create_time_all, $update_time_all,
     $check_time_all, $sum_row_count_pre
 ) {
@@ -182,7 +182,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     if ($server_slave_status) {
         $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
     }
-    $html_output .= '<th colspan="'. ($db_is_information_schema ? 3 : 6) . '">'
+    $html_output .= '<th colspan="'. ($db_is_system_schema ? 3 : 6) . '">'
         . __('Sum')
         . '</th>';
     $html_output .= '<th class="value tbl_rows">'
@@ -264,14 +264,14 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
  * @param string  $pmaThemeImage            pma theme image url
  * @param string  $text_dir                 url for text directory
  * @param string  $overhead_check           overhead check
- * @param boolean $db_is_information_schema whether database is information
+ * @param boolean $db_is_system_schema whether database is information
  *                                          schema or not
  * @param string  $hidden_fields            hidden fields
  *
  * @return string $html_output
  */
 function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
-    $overhead_check, $db_is_information_schema, $hidden_fields
+    $overhead_check, $db_is_system_schema, $hidden_fields
 ) {
     $html_output = '<div class="clearfloat">';
     $html_output .= '<img class="selectallarrow" '
@@ -300,7 +300,7 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $html_output .= '<option value="print" >'
         . __('Print view') . '</option>' . "\n";
 
-    if (!$db_is_information_schema
+    if (!$db_is_system_schema
         && !$GLOBALS['cfg']['DisableMultiTableMaintenance']
     ) {
         $html_output .= '<option value="empty_tbl" >'
@@ -426,7 +426,7 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * @param string  $browse_table             browse table action link
  * @param string  $tbl_url_query            table url query
  * @param string  $search_table             search table action link
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param array   $titles                   titles array
  * @param string  $empty_table              empty table action link
  * @param string  $drop_query               table dropt query
@@ -449,7 +449,7 @@ function PMA_getHtmlForStructureTableRow(
     $curr, $odd_row, $table_is_view, $current_table,
     $browse_table_label, $tracking_icon,$server_slave_status,
     $browse_table, $tbl_url_query, $search_table,
-    $db_is_information_schema,$titles, $empty_table, $drop_query, $drop_message,
+    $db_is_system_schema,$titles, $empty_table, $drop_query, $drop_message,
     $collation, $formatted_size, $unit, $overhead, $create_time, $update_time,
     $check_time,$is_show_stats, $ignored, $do, $colspan_for_structure
 ) {
@@ -485,12 +485,12 @@ function PMA_getHtmlForStructureTableRow(
         . $titles['Structure'] . '</a></td>';
     $html_output .= '<td class="center">' . $search_table . '</td>';
 
-    if (! $db_is_information_schema) {
+    if (! $db_is_system_schema) {
         $html_output .= PMA_getHtmlForInsertEmptyDropActionLinks(
             $tbl_url_query, $table_is_view,
             $titles, $empty_table, $current_table, $drop_query, $drop_message
         );
-    } // end if (! $db_is_information_schema)
+    } // end if (! $db_is_system_schema)
 
     // there is a null value in the ENGINE
     // - when the table needs to be repaired, or
@@ -511,7 +511,7 @@ function PMA_getHtmlForStructureTableRow(
     } else {
         $html_output .= PMA_getHtmlForRepairtable(
             $colspan_for_structure,
-            $db_is_information_schema
+            $db_is_system_schema
         );
     } // end if (isset($current_table['TABLE_ROWS'])) else
     $html_output .= '</tr>';
@@ -719,16 +719,16 @@ function PMA_getHtmlForViewTable($is_show_stats)
  * display "in use" below for a table that needs to be repaired
  *
  * @param integer $colspan_for_structure    colspan for structure
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  *
  * @return string HTML snippet
  */
 function PMA_getHtmlForRepairtable(
     $colspan_for_structure,
-    $db_is_information_schema
+    $db_is_system_schema
 ) {
     return '<td colspan="'
-        . ($colspan_for_structure - ($db_is_information_schema ? 5 : 8)) . '"'
+        . ($colspan_for_structure - ($db_is_system_schema ? 5 : 8)) . '"'
         . 'class="center">'
         . __('in use')
         . '</td>';
@@ -737,16 +737,16 @@ function PMA_getHtmlForRepairtable(
 /**
  * display table header (<table><thead>...</thead><tbody>)
  *
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param boolean $replication              whether to sho replication status
  *
  * @return string html data
  */
-function PMA_tableHeader($db_is_information_schema = false, $replication = false)
+function PMA_tableHeader($db_is_system_schema = false, $replication = false)
 {
     $cnt = 0; // Let's count the columns...
 
-    if ($db_is_information_schema) {
+    if ($db_is_system_schema) {
         $action_colspan = 3;
     } else {
         $action_colspan = 6;
@@ -1004,7 +1004,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
  * $overhead_unit, $overhead_size, $table_is_view
  *
  * @param array   $current_table            current table
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param boolean $is_show_stats            whether stats show or not
  * @param boolean $table_is_view            whether table is view or not
  * @param double  $sum_size                 totle table size
@@ -1012,7 +1012,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename)
  *
  * @return array
  */
-function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schema,
+function PMA_getStuffForEngineTypeTable($current_table, $db_is_system_schema,
     $is_show_stats, $table_is_view, $sum_size, $overhead_size
 ) {
     $formatted_size = '-';
@@ -1032,7 +1032,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
     case 'Maria' :
         list($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $sum_size) = PMA_getValuesForAriaTable(
-            $db_is_information_schema, $current_table, $is_show_stats,
+            $db_is_system_schema, $current_table, $is_show_stats,
             $sum_size, $overhead_size, $formatted_size, $unit,
             $formatted_overhead, $overhead_unit
         );
@@ -1092,7 +1092,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
  * $current_table, $formatted_size, $unit, $formatted_overhead,
  * $overhead_unit, $overhead_size
  *
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param array   $current_table            current table
  * @param boolean $is_show_stats            whether stats show or not
  * @param double  $sum_size                 sum size
@@ -1104,11 +1104,11 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
  *
  * @return array
  */
-function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
+function PMA_getValuesForAriaTable($db_is_system_schema, $current_table,
     $is_show_stats, $sum_size, $overhead_size, $formatted_size, $unit,
     $formatted_overhead, $overhead_unit
 ) {
-    if ($db_is_information_schema) {
+    if ($db_is_system_schema) {
         $current_table['Rows'] = PMA_Table::countRecords(
             $GLOBALS['db'], $current_table['Name']
         );
@@ -1181,13 +1181,13 @@ function PMA_getValuesForInnodbTable($current_table, $is_show_stats, $sum_size)
 /**
  * Get the HTML snippet for structure table table header
  *
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param boolean $tbl_is_view              whether table is view or not
  *
  * @return string $html_output
  */
 function PMA_getHtmlForTableStructureHeader(
-    $db_is_information_schema,
+    $db_is_system_schema,
     $tbl_is_view
 ) {
     $html_output = '<thead>';
@@ -1202,7 +1202,7 @@ function PMA_getHtmlForTableStructureHeader(
         . '<th>' . __('Default') . '</th>'
         . '<th>' . __('Extra') . '</th>';
 
-    if ($db_is_information_schema || $tbl_is_view) {
+    if ($db_is_system_schema || $tbl_is_view) {
         $html_output .= '<th>' . __('View') . '</th>';
     } else { /* see tbl_structure.js, function moreOptsMenuResize() */
         $colspan = 9;
@@ -1239,7 +1239,7 @@ function PMA_getHtmlForTableStructureHeader(
  *                                          UNSIGNED ZEROFILL,
  *                                          on update CURRENT_TIMESTAMP)
  * @param boolean $tbl_is_view              whether tables is view or not
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param string  $url_query                url query
  * @param string  $field_encoded            field encoded
  * @param array   $titles                   tittles array
@@ -1249,7 +1249,7 @@ function PMA_getHtmlForTableStructureHeader(
  */
 function PMA_getHtmlTableStructureRow($row, $rownum,
     $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
-    $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
+    $field_charset, $attribute, $tbl_is_view, $db_is_system_schema,
     $url_query, $field_encoded, $titles, $table
 ) {
     $html_output = '<td class="center">'
@@ -1301,7 +1301,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
     $html_output .= '<td class="nowrap">' . strtoupper($row['Extra']) . '</td>';
 
     $html_output .= PMA_getHtmlForDropColumn(
-        $tbl_is_view, $db_is_information_schema,
+        $tbl_is_view, $db_is_system_schema,
         $url_query, $field_encoded,
         $titles, $table, $row
     );
@@ -1313,7 +1313,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
  * Get HTML code for "Drop" Action link
  *
  * @param boolean $tbl_is_view              whether tables is view or not
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param string  $url_query                url query
  * @param string  $field_encoded            field encoded
  * @param array   $titles                   tittles array
@@ -1322,12 +1322,12 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
  *
  * @return string $html_output
  */
-function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
+function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
     $url_query, $field_encoded, $titles, $table, $row
 ) {
     $html_output = '';
 
-    if (! $tbl_is_view && ! $db_is_information_schema) {
+    if (! $tbl_is_view && ! $db_is_system_schema) {
         $html_output .= '<td class="edit center">'
             . '<a class="change_column_anchor ajax"'
             . ' href="tbl_structure.php?'
@@ -1362,13 +1362,13 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
  * @param string  $pmaThemeImage            pma theme image url
  * @param string  $text_dir                 test directory
  * @param boolean $tbl_is_view              whether table is view or not
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param string  $tbl_storage_engine       table storage engine
  *
  * @return string $html_output
  */
 function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
-    $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
+    $tbl_is_view, $db_is_system_schema, $tbl_storage_engine
 ) {
     $html_output = '<img class="selectallarrow" '
         . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
@@ -1386,7 +1386,7 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
         __('Browse'), 'b_browse.png', 'browse'
     );
 
-    if (! $tbl_is_view && ! $db_is_information_schema) {
+    if (! $tbl_is_view && ! $db_is_system_schema) {
         $html_output .= PMA_Util::getButtonOrImage(
             'submit_mult', 'mult_submit change_columns_anchor ajax',
             'submit_mult_change', __('Change'), 'b_edit.png', 'change'
@@ -1501,21 +1501,21 @@ function PMA_getHtmlForEditView($url_params)
  *
  * @param string  $url_query                url query
  * @param boolean $tbl_is_view              whether table is view or not
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param string  $tbl_storage_engine       table storage engine
  * @param array   $cfgRelation              current relation parameters
  *
  * @return string $html_output
  */
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
-    $db_is_information_schema, $tbl_storage_engine, $cfgRelation
+    $db_is_system_schema, $tbl_storage_engine, $cfgRelation
 ) {
     $html_output = '<a href="tbl_printview.php?' . $url_query
         . '" target="print_view">'
         . PMA_Util::getIcon('b_print.png', __('Print view'), true)
         . '</a>';
 
-    if (! $tbl_is_view && ! $db_is_information_schema) {
+    if (! $tbl_is_view && ! $db_is_system_schema) {
         // if internal relations are available, or foreign keys are supported
         // ($tbl_storage_engine comes from libraries/tbl_info.inc.php
 
@@ -2106,7 +2106,7 @@ function PMA_getActionTitlesArray()
  * @param array   $showtable                full table status info
  * @param integer $table_info_num_rows      table info number of rows
  * @param boolean $tbl_is_view              whether table is view or not
- * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $db_is_system_schema whether db is information schema or not
  * @param string  $tbl_storage_engine       table storage engine
  * @param string  $url_query                url query
  * @param string  $tbl_collation            table collation
@@ -2114,7 +2114,7 @@ function PMA_getActionTitlesArray()
  * @return string $html_output
  */
 function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
-    $tbl_is_view, $db_is_information_schema, $tbl_storage_engine, $url_query,
+    $tbl_is_view, $db_is_system_schema, $tbl_storage_engine, $url_query,
     $tbl_collation
 ) {
     $html_output = '<div id="tablestatistics">';
@@ -2185,7 +2185,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
         . '<legend>' . __('Information') . '</legend>'
         . '<a id="showusage"></a>';
 
-    if (! $tbl_is_view && ! $db_is_information_schema) {
+    if (! $tbl_is_view && ! $db_is_system_schema) {
         $html_output .= '<table id="tablespaceusage" class="data">'
             . '<caption class="tblHeaders">' . __('Space usage') . '</caption>'
             . '<tbody>';

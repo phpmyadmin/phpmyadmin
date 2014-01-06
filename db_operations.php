@@ -237,7 +237,7 @@ if (!$is_information_schema) {
     // You won't be able to. Believe me. You won't.
     // Don't allow to easily drop mysql database, RFE #1327514.
     if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
-        && ! $db_is_information_schema
+        && ! $db_is_system_schema
         && (PMA_DRIZZLE || $db != 'mysql')
     ) {
         $response->addHTML(PMA_getHtmlForDropDatabaseLink($db));
