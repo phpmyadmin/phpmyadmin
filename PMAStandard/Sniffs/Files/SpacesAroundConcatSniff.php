@@ -41,7 +41,7 @@
  * @since       September, the 12th 2013
  * @version     Release: 1.0
  */
-class Self_Sniffs_Formatting_SpacesAroundConcatSniff implements PHP_CodeSniffer_Sniff
+class PMAStandard_Sniffs_Files_SpacesAroundConcatSniff implements PHP_CodeSniffer_Sniff
 {
 
     // {{{ register()
