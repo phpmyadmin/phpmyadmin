@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2013-12-16 19:53+0200\n"
-"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2014-01-06 12:03+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5730,7 +5729,6 @@ msgid "Maximum tables"
 msgstr "Maksimalt antal tabeller"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5738,8 +5736,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication."
 msgstr ""
-"Deaktiver standardadvarslen som vises, hvis mcrypt mangler til cookie "
-"autentifikation"
+"Deaktiver standardadvarslen som vises, hvis mcrypt mangler til cookie-"
+"godkendelse."
 
 #: libraries/config/messages.inc.php:422
 msgid "mcrypt warning"
@@ -6966,10 +6964,9 @@ msgid "Username"
 msgstr "Brugernavn"
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr "En advarsel vises på hovedsiden, hvis Suhosin er detekteret"
+msgstr "En advarsel vises på hovedsiden, hvis Suhosin registreres."
 
 #: libraries/config/messages.inc.php:751
 msgid "Suhosin warning"
