@@ -578,7 +578,7 @@ function PMA_setUserGroup($username, $userGroup)
  *
  * @param string  $db     the database
  * @param string  $table  the table
- * @param boolean $submit wheather to display the submit button or not
+ * @param boolean $submit whether to display the submit button or not
  *
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
