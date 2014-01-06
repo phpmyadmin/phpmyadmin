@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2013-08-11 13:31+0200\n"
+"PO-Revision-Date: 2014-01-06 12:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
-">\n"
+"Language-Team: Japanese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -5700,16 +5700,13 @@ msgid "Delete all cookies on logout"
 msgstr "ログアウト時にすべてのクッキーを削除する"
 
 #: libraries/config/messages.inc.php:381
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode."
-msgstr ""
-"cookie 認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義しま"
-"す。"
+msgstr "クッキー認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義します。"
 
 #: libraries/config/messages.inc.php:384
 msgid "Recall user name"
