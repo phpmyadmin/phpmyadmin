@@ -578,7 +578,7 @@ function PMA_setUserGroup($username, $userGroup)
  *
  * @param string  $db     the database
  * @param string  $table  the table
- * @param boolean $submit wheather to display the submit button or not
+ * @param boolean $submit whether to display the submit button or not
  *
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
@@ -993,19 +993,24 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
             - (isset($row['Grant_priv']) ? 1 : 0)
         )
         . '" />';
-    $html_output .= '<fieldset id="fieldset_user_global_rights"><legend>';
+    $legend = $menu_label = '';
     if ($db == '*') {
-        $html_output .= __('Global privileges');
+        $legend     = __('Global privileges');
+        $menu_label = __('Global');
     } else if ($table == '*') {
-        $html_output .= __('Database-specific privileges');
+        $legend     = __('Database-specific privileges');
+        $menu_label = __('Database');
     } else {
-        $html_output .= __('Table-specific privileges');
+        $legend     = __('Table-specific privileges');
+        $menu_label = __('Table');
     }
-    $html_output .= '<input type="checkbox" id="addUsersForm_checkall" '
+    $html_output .= '<fieldset id="fieldset_user_global_rights">'
+        . '<legend data-submenu-label="' . $menu_label . '">' . $legend
+        . '<input type="checkbox" id="addUsersForm_checkall" '
         . 'class="checkall_box" title="' . __('Check All') . '" /> '
-        . '<label for="addUsersForm_checkall">' . __('Check All') . '</label> ';
-    $html_output .= '</legend>';
-    $html_output .= '<p><small><i>'
+        . '<label for="addUsersForm_checkall">' . __('Check All') . '</label> '
+        . '</legend>'
+        . '<p><small><i>'
         . __('Note: MySQL privilege names are expressed in English')
         . '</i></small></p>';
 
@@ -2456,16 +2461,16 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         )
     );
 
-    $class = ' ajax';
     $html_output = '<form action="server_privileges.php" '
-        . 'method="post" class="copyUserForm' . $class .'">' . "\n"
+        . 'method="post" class="copyUserForm ajax submenu-item">' . "\n"
         . PMA_URL_getHiddenInputs('', '')
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
         . '<input type="hidden" name="old_hostname" '
         . 'value="' . htmlspecialchars($hostname) . '" />' . "\n"
         . '<fieldset id="fieldset_change_copy_user">' . "\n"
-        . '<legend>' . __('Change Login Information / Copy User')
+        . '<legend data-submenu-label="' . __('Login Information') . '">' . "\n"
+        . __('Change Login Information / Copy User')
         . '</legend>' . "\n"
         . PMA_getHtmlForLoginInformationFields('change');
 
@@ -2735,7 +2740,12 @@ function PMA_getHtmlForAllTableSpecificRights(
         . '<input type="hidden" name="hostname" '
         . 'value="' . htmlspecialchars($hostname) . '" />' . "\n"
         . '<fieldset>' . "\n"
-        . '<legend>'
+        . '<legend data-submenu-label="'
+        . (! strlen($dbname)
+            ? __('Database')
+            : __('Table')
+        )
+        . '">'
         . (! strlen($dbname)
             ? __('Database-specific privileges')
             : __('Table-specific privileges')
@@ -3924,7 +3934,6 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
             //exit;
     }
 
-    $class = ' class="ajax"';
     $_params = array(
         'username' => $username,
         'hostname' => $hostname,
@@ -3936,8 +3945,8 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         }
     }
 
-    $html_output .= '<form' . $class . ' name="usersForm" id="addUsersForm"'
-        . ' action="server_privileges.php" method="post">' . "\n";
+    $html_output .= '<form class="ajax submenu-item" name="usersForm" '
+        . 'id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
     $html_output .= PMA_URL_getHiddenInputs($_params);
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
         PMA_ifSetOr($dbname, '*', 'length'),
@@ -3951,7 +3960,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
         // no table name was given, display all table specific rights
         // but only if $dbname contains no wildcards
 
-        $html_output .= '<form action="server_privileges.php" '
+        $html_output .= '<form class="submenu-item" action="server_privileges.php" '
             . 'id="db_or_table_specific_priv" method="post">' . "\n";
 
         // unescape wildcards in dbname at table level
@@ -3996,7 +4005,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
  * Get queries for Table privileges to change or copy user
  *
  * @param string $user_host_condition user host condition to
-                                      select relevent table privileges
+ *                                    select relevent table privileges
  * @param array  $queries             queries array
  * @param string $username            username
  * @param string $hostname            host name
