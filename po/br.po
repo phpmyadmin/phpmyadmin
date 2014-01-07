@@ -228,10 +228,10 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "Deuet eo anv an diaz roadennoù %1$s da vezañ %2$s"
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Eilet eo bet an diaz roadennoù %s war %s"
+msgstr "Eilet eo bet an diaz roadennoù %1$s war %2$s"
 
 #: db_operations.php:260
 #, php-format
