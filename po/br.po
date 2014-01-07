@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-07 10:36+0200\n"
+"PO-Revision-Date: 2014-01-07 10:38+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
@@ -39,10 +39,9 @@ msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Evezhiadennoù diwar-benn an daolenn"
+msgstr "Evezhiadennoù diwar-benn an daolenn :"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
