@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-07 10:48+0200\n"
+"PO-Revision-Date: 2014-01-07 10:49+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
@@ -466,7 +466,7 @@ msgstr "Arventennoù fall !"
 #: export.php:365 export.php:396 export.php:983
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "N'eus ket egor a-walc'h evit gallout enrollañ ar restr %s."
+msgstr "N'eus ket pealec'h da enrollañ ar restr %s."
 
 #: export.php:538
 #, php-format
