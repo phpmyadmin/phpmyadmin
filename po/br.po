@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-07 10:44+0200\n"
+"PO-Revision-Date: 2014-01-07 10:47+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
@@ -434,10 +434,14 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Kavet ez eus bet ur fazi hag un danevell fazioù zo bet savet. Siwazh n'eus "
+"ket bet gallet kas anezhi."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Ma welit tra pe dra a-dreuz, kasit keloù war-eeun a-zivout an draen "
+"diskoachet ganeoc'h."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
