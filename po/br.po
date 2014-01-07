@@ -286,10 +286,9 @@ msgstr "Hizivadenn ziwezhañ :"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Gwiriadenn ziwezhañ"
+msgstr "Gwiriet da ziwezhañ :"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
