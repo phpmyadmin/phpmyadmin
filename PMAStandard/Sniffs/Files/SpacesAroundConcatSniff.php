@@ -12,7 +12,6 @@
  *
  * @category PHP
  * @package  PHP_CodeSniffer
- * @author   Nicolas Giraud <g.nicolas_89@hotmail.fr>
  * @since    September, the 12th 2013
  */
 
@@ -23,7 +22,6 @@
  * @category PHP
  * @package  PHP_CodeSniffer
  * @name     SpacesAroundConcatSniff
- * @author   Nicolas Giraud <g.nicolas_89@hotmail.fr>
  * @version  Release: 1.0
  */
 class PMAStandard_Sniffs_Files_SpacesAroundConcatSniff implements PHP_CodeSniffer_Sniff
