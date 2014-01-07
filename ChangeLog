@@ -15,7 +15,9 @@ phpMyAdmin - ChangeLog
 + rfe #1480 Enhance privileges initials table
 + rfe #1472 [interface] Break "Edit privileges" with sub-menus
 
-4.1.4.0 (not yet released)
+4.1.5.0 (not yet released)
+
+4.1.4.0 (2014-01-07)
 - bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times
 - bug #4209 Missing compression in one case
 - bug #4208 Can't browse tables after sorting on columns with fieldnames that have a '-'
