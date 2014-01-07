@@ -227,6 +227,7 @@ $js_messages['strCancel'] = __('Cancel');
 
 /* For Ajax Notifications */
 $js_messages['strLoading'] = __('Loading…');
+$js_messages['strAbortedRequest'] = __('Request Aborted!!');
 $js_messages['strProcessingRequest'] = __('Processing Request');
 $js_messages['strErrorProcessingRequest'] = __('Error in Processing Request');
 $js_messages['strErrorCode'] = __('Error code: %s');

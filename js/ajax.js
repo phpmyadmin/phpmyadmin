@@ -13,6 +13,10 @@ var AJAX = {
      */
     source: null,
     /**
+     * @var object xhr A reference to the ajax request that is currently running
+     */
+    xhr: null,
+    /**
      * @var function Callback to execute after a successful request
      *               Used by PMA_commonFunctions from common.js
      */
@@ -157,11 +161,25 @@ var AJAX = {
             event.stopImmediatePropagation();
         }
         if (AJAX.active === true) {
-            // Silently bail out, there is already a request in progress.
-            // TODO: save a reference to the request and cancel the old request
-            // when the user requests something else. Something like this is
-            // already implemented in the PMA_fastFilter object in navigation.js
-            return false;
+            // Cancel the old request if abortable, when the user requests
+            // something else. Otherwise silently bail out, as there is already
+            // a request well in progress.
+            if (AJAX.xhr) {
+                //In case of a link request, attempt aborting
+                AJAX.xhr.abort();
+                if(AJAX.xhr.status === 0 && AJAX.xhr.statusText === 'abort') {
+                    //If aborted
+                    AJAX.$msgbox = PMA_ajaxShowMessage(PMA_messages.strAbortedRequest);
+                    AJAX.active = false;
+                    AJAX.xhr = null;
+                } else {
+                    //If can't abort
+                    return false;
+                }
+            } else {
+                //In case submitting a form, don't attempt aborting
+                return false;
+            }
         }
 
         AJAX.source = $(this);
@@ -184,7 +202,8 @@ var AJAX = {
         if (isLink) {
             AJAX.active = true;
             AJAX.$msgbox = PMA_ajaxShowMessage();
-            $.get(url, params, AJAX.responseHandler);
+            //Save reference for the new link request
+            AJAX.xhr = $.get(url, params, AJAX.responseHandler);
         } else {
             /**
              * Manually fire the onsubmit event for the form, if any.
@@ -222,6 +241,7 @@ var AJAX = {
             if (data._redirect) {
                 PMA_ajaxShowMessage(data._redirect, false);
                 AJAX.active = false;
+                AJAX.xhr = null;
                 return;
             }
 
@@ -311,6 +331,7 @@ var AJAX = {
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
+            AJAX.xhr = null;
         }
     },
     /**
