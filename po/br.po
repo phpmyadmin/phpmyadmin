@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-07-15 11:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/"
-">\n"
+"PO-Revision-Date: 2014-01-07 10:36+0200\n"
+"Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
+"Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,8 +24,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"N'eo ket hegerz ar restr %s er servijer-mañ. Kit da welet war www.phpmyadmin."
-"net evit gouzout hiroc'h."
+"N'eo ket hegerz ar restr %s er reizhiad-mañ. Kit da welet war "
+"www.phpmyadmin.net evit gouzout hiroc'h."
 
 #: db_create.php:61
 #, php-format
