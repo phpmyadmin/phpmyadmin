@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-07 10:47+0200\n"
+"PO-Revision-Date: 2014-01-07 10:48+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
@@ -449,7 +449,7 @@ msgstr "Ho trugarekaat evit bezañ kaset an danevell-mañ."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Siwazh deoc'h, c'hwitet eo bet ar gasadenn."
 
 #: export.php:171
 msgid "Bad type!"
