@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - bug #4213 Datetime Quick Edit decrements by one day
 - bug #4217 Current value not highlighted when browsing foreign values
 - bug #4220 Incorrect key values in foreign key browser
+- bug #4215 MariaDB 5.5: error in Drizzle detection
 
 4.1.3.0 (2013-12-31)
 - bug #3938 PDFDefaultPageSize doc and easy configurability
