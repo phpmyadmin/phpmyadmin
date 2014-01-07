@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-07 10:50+0200\n"
+"PO-Revision-Date: 2014-01-07 10:51+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
@@ -501,16 +501,15 @@ msgstr "Ober gant OpenStreetMaps evit ar gwiskad diazez"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID :"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Mentoniezh"
+msgstr "Mentoniezh %d:"
 
 #: gis_data_editor.php:208
 #, fuzzy
