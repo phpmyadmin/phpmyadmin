@@ -1461,7 +1461,7 @@ class PMA_DatabaseInterface
 
                 /* Detect Drizzle - it does not support charsets */
                 $charset_result = $this->query(
-                    'SHOW VARIABLES LIKE "character_set_results"',
+                    "SHOW VARIABLES LIKE 'character_set_results'",
                     $link
                 );
                 if ($this->numRows($charset_result) == 0) {
