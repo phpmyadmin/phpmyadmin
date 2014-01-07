@@ -174,7 +174,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 
             $output .= PMA_getHtmlForColumnElement(
                 'class="nowrap"', $val_ordered_current_equals_data,
-                $key_ordered_current_key, $val_ordered_current_val,
+                $val_ordered_current_key, $val_ordered_current_val,
                 $val_ordered_current_val_title, $field
             );
             $output .= '</tr>';
