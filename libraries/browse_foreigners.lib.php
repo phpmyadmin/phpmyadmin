@@ -76,13 +76,13 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
         . '<tfoot>' . $header . '</tfoot>' . "\n"
         . '<tbody>' . "\n";
 
-    $values = array();
+    $descriptions = array();
     $keys   = array();
     foreach ($foreignData['disp_row'] as $relrow) {
         if ($foreignData['foreign_display'] != false) {
-            $values[] = $relrow[$foreignData['foreign_display']];
+            $descriptions[] = $relrow[$foreignData['foreign_display']];
         } else {
-            $values[] = '';
+            $descriptions[] = '';
         }
 
         $keys[] = $relrow[$foreignData['foreign_field']];
@@ -92,10 +92,13 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 
     $hcount = 0;
     $odd_row = true;
-    $val_ordered_current_row = 0;
-    $val_ordered_current_equals_data = false;
-    $key_ordered_current_equals_data = false;
-    foreach ($keys as $key_ordered_current_row => $value) {
+    $indexByDescription = 0;
+
+    // whether the keyname corresponds to the selected value in the form
+    $rightKeynameIsSelected = false;
+    $leftKeynameIsSelected = false;
+
+    foreach ($keys as $indexByKeyname => $value) {
         $hcount++;
 
         if ($GLOBALS['cfg']['RepeatCells'] > 0
@@ -106,67 +109,69 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
             $odd_row = true;
         }
 
-        $key_ordered_current_key = $keys[$key_ordered_current_row];
-        $key_ordered_current_val = $values[$key_ordered_current_row];
+        // keynames and descriptions for the left section,
+        // sorted by keynames
+        $leftKeyname = $keys[$indexByKeyname];
+        $leftDescription = $descriptions[$indexByKeyname];
 
-        $val_ordered_current_key = $keys[$val_ordered_current_row];
-        $val_ordered_current_val = $values[$val_ordered_current_row];
+        // keynames and descriptions for the right section,
+        // sorted by descriptions 
+        $rightKeyname = $keys[$indexByDescription];
+        $rightDescription = $descriptions[$indexByDescription];
 
-        $val_ordered_current_row++;
+        $indexByDescription++;
 
         $pmaString = $GLOBALS['PMA_String'];
         $limitChars = $GLOBALS['cfg']['LimitChars'];
-        if ($pmaString->strlen($val_ordered_current_val) <= $limitChars) {
-            $val_ordered_current_val = htmlspecialchars(
-                $val_ordered_current_val
+        if ($pmaString->strlen($rightDescription) <= $limitChars) {
+            $rightDescription = htmlspecialchars(
+                $rightDescription
             );
-            $val_ordered_current_val_title = '';
+            $rightDescriptionTitle = '';
         } else {
-            $val_ordered_current_val_title = htmlspecialchars(
-                $val_ordered_current_val
+            $rightDescriptionTitle = htmlspecialchars(
+                $rightDescriptionTitle
             );
-            $val_ordered_current_val = htmlspecialchars(
+            $rightDescription = htmlspecialchars(
                 $pmaString->substr(
-                    $val_ordered_current_val, 0, $limitChars
+                    $rightDescription, 0, $limitChars
                 )
                 . '...'
             );
         }
-        if ($pmaString->strlen($key_ordered_current_val) <= $limitChars) {
-            $key_ordered_current_val = htmlspecialchars(
-                $key_ordered_current_val
+        if ($pmaString->strlen($leftDescription) <= $limitChars) {
+            $leftDescription = htmlspecialchars(
+                $leftDescription
             );
-            $key_ordered_current_val_title = '';
+            $leftDescriptionTitle = '';
         } else {
-            $key_ordered_current_val_title = htmlspecialchars(
-                $key_ordered_current_val
+            $leftDescriptionTitle = htmlspecialchars(
+                $leftDescription
             );
-            $key_ordered_current_val = htmlspecialchars(
+            $leftDescription = htmlspecialchars(
                 $pmaString->substr(
-                    $key_ordered_current_val, 0, $limitChars
+                    $leftDescription, 0, $limitChars
                 ) . '...'
             );
         }
 
         if (! empty($data)) {
-            $val_ordered_current_equals_data
-                = $val_ordered_current_key == $data;
-            $key_ordered_current_equals_data
-                = $key_ordered_current_key == $data;
+            $rightKeynameIsSelected = $rightKeyname == $data;
+            $leftKeynameIsSelected = $leftKeyname == $data;
         }
 
         $output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $odd_row = ! $odd_row;
 
         $output .= PMA_getHtmlForColumnElement(
-            'class="nowrap"', $key_ordered_current_equals_data,
-            $key_ordered_current_key, $key_ordered_current_val,
-            $key_ordered_current_val_title, $field
+            'class="nowrap"', $leftKeynameIsSelected,
+            $leftKeyname, $leftDescription,
+            $leftDescriptionTitle, $field
         );
 
         $output .= PMA_getHtmlForColumnElement(
-            '', $key_ordered_current_equals_data, $key_ordered_current_key,
-            $key_ordered_current_val, $key_ordered_current_val_title, $field
+            '', $leftKeynameIsSelected, $leftKeyname,
+            $leftDescription, $leftDescriptionTitle, $field
         );
 
         $output .= '<td width="20%">'
@@ -174,14 +179,14 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
             . ' width="1" height="1" /></td>';
 
         $output .= PMA_getHtmlForColumnElement(
-            '', $val_ordered_current_equals_data, $key_ordered_current_key,
-            $val_ordered_current_val, $val_ordered_current_val_title, $field
+            '', $rightKeynameIsSelected, $leftKeyname,
+            $rightDescription, $rightDescriptionTitle, $field
         );
 
         $output .= PMA_getHtmlForColumnElement(
-            'class="nowrap"', $val_ordered_current_equals_data,
-            $val_ordered_current_key, $val_ordered_current_val,
-            $val_ordered_current_val_title, $field
+            'class="nowrap"', $rightKeynameIsSelected,
+            $rightKeyname, $rightDescription,
+            $rightDescriptionTitle, $field
         );
         $output .= '</tr>';
     } // end while
