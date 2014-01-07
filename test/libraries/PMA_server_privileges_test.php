@@ -856,7 +856,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 3: PMA_getHtmlForGlobalOrDbSpecificPrivs
         $this->assertContains(
-            '<fieldset id="fieldset_user_global_rights"><legend>',
+            '<fieldset id="fieldset_user_global_rights"><legend '
+            . 'data-submenu-label="' . __('Global') . '">',
             $html
         );
         $this->assertContains(
