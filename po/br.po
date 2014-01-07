@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-07 10:42+0200\n"
+"PO-Revision-Date: 2014-01-07 10:44+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
@@ -421,11 +421,13 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Kavet ez eus bet ur fazi hag un danevell fazioù zo bet kaset war-eeun, "
+"diouzh hoc'h arventennoù"
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "C'hoant hoc'h eus da freskaat ar bajenn marteze a-walc'h"
 
 #: error_report.php:45
 msgid ""
