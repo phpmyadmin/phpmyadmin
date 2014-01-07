@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-07 10:41+0200\n"
+"PO-Revision-Date: 2014-01-07 10:42+0200\n"
 "Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
@@ -378,7 +378,7 @@ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
 #: libraries/structure.lib.php:1384 libraries/structure.lib.php:2071
 #: libraries/structure.lib.php:2073
 msgid "Drop"
-msgstr "Diverkañ"
+msgstr "Dilezel"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:311
