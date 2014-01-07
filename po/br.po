@@ -427,7 +427,7 @@ msgstr ""
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr "C'hoant hoc'h eus da freskaat ar bajenn marteze a-walc'h"
+msgstr "C'hoant hoc'h eus da freskaat ar bajenn marteze a-walc'h."
 
 #: error_report.php:45
 msgid ""
