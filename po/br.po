@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2013-07-15 11:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/"
-">\n"
+"PO-Revision-Date: 2014-01-07 10:53+0200\n"
+"Last-Translator: Fulup <fulup.jakez@ofis-bzh.org>\n"
+"Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 1.6-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -25,8 +24,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"N'eo ket hegerz ar restr %s er servijer-mañ. Kit da welet war www.phpmyadmin."
-"net evit gouzout hiroc'h."
+"N'eo ket hegerz ar restr %s er reizhiad-mañ. Kit da welet war "
+"www.phpmyadmin.net evit gouzout hiroc'h."
 
 #: db_create.php:61
 #, php-format
@@ -40,10 +39,9 @@ msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Evezhiadennoù diwar-benn an daolenn"
+msgstr "Evezhiadennoù diwar-benn an daolenn :"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -224,16 +222,16 @@ msgid "The database name is empty!"
 msgstr "Goullo eo anv an diaz roadennoù !"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Deuet eo anv an diaz roadennoù %s da vezañ %s"
+msgstr "Deuet eo anv an diaz roadennoù %1$s da vezañ %2$s"
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Eilet eo bet an diaz roadennoù %s war %s"
+msgstr "Eilet eo bet an diaz roadennoù %1$s war %2$s"
 
 #: db_operations.php:260
 #, php-format
@@ -276,24 +274,21 @@ msgstr "en implij"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Krouiñ"
+msgstr "Krouiñ :"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Hizivadenn ziwezhañ"
+msgstr "Hizivadenn ziwezhañ :"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Gwiriadenn ziwezhañ"
+msgstr "Gwiriet da ziwezhañ :"
 
 #: db_printview.php:149 libraries/structure.lib.php:177
 #, php-format
@@ -383,7 +378,7 @@ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
 #: libraries/structure.lib.php:1390 libraries/structure.lib.php:2068
 #: libraries/structure.lib.php:2070
 msgid "Drop"
-msgstr "Diverkañ"
+msgstr "Dilezel"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:311
@@ -426,29 +421,35 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Kavet ez eus bet ur fazi hag un danevell fazioù zo bet kaset war-eeun, "
+"diouzh hoc'h arventennoù"
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "C'hoant hoc'h eus da freskaat ar bajenn marteze a-walc'h."
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Kavet ez eus bet ur fazi hag un danevell fazioù zo bet savet. Siwazh n'eus "
+"ket bet gallet kas anezhi."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Ma welit tra pe dra a-dreuz, kasit keloù war-eeun a-zivout an draen "
+"diskoachet ganeoc'h."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Ho trugarekaat evit bezañ kaset an danevell-mañ."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Siwazh deoc'h, c'hwitet eo bet ar gasadenn."
 
 #: export.php:172
 msgid "Bad type!"
@@ -473,22 +474,20 @@ msgstr "Ober gant OpenStreetMaps evit ar gwiskad diazez"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID :"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Mentoniezh"
+msgstr "Mentoniezh %d :"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Poent"
+msgstr "Poent :"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
 #: gis_data_editor.php:365 js/messages.php:324
@@ -512,10 +511,10 @@ msgid "Add a point"
 msgstr "Ouzhpennañ ur poent"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Aradennad linennoù"
+msgstr "Aradennad linennoù %d :"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
 #, fuzzy
@@ -7594,15 +7593,15 @@ msgstr ""
 #: libraries/export.lib.php:372
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "N'eus ket egor a-walc'h evit gallout enrollañ ar restr %s."
+msgstr "N'eus ket pealec'h da enrollañ ar restr %s."
 
 #: libraries/export.lib.php:329
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"Emañ ar restr %s war ar servijer dija; cheñch an anv pe klikañ war al log "
-"frikañ ar restroù zo dija."
+"Emañ ar restr %s war ar servijer c'hoazh; cheñch an anv pe gwiriañ al log "
+"frikañ ar restroù."
 
 #: libraries/export.lib.php:337 libraries/export.lib.php:345
 #, php-format
