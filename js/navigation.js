@@ -475,46 +475,12 @@ function PMA_showCurrentNavigation()
             .children('li.viewContainer');
 
         if ($tableContainer.length > 0) {
-            var $expander = $tableContainer
-                .children('div:first')
-                .children('a.expander');
-
-            if (! $expander.hasClass('loaded')) {
-                loadChildNodes($expander, function (data) {
-                    highlightTableOrView($tableContainer, $viewContainer, table);
-                });
-            } else {
-                highlightTableOrView($tableContainer, $viewContainer, table);
-            }
+            highlightTableOrView($tableContainer, table, 'table');
         } else if ($viewContainer.length > 0) {
-            highlightView($viewContainer, table);
+            highlightTableOrView($viewContainer, table, 'view');
         } else {
             // no containers, highlight the item
-            var $tableOrView = findLoadedItem($container, table, null, true);
-            if ($tableOrView){
-                scrollToView($tableOrView, false);
-            }
-        }
-    }
-
-    function highlightTableOrView($tableContainer, $viewContainer, table)
-    {
-        if (isItemInContainer($tableContainer, table, 'table')) {
-            var $expander = $tableContainer
-                .children('div:first')
-                .children('a.expander');
-            if ($expander.find('img').is('.ic_b_plus')) {
-                expandTreeNode($expander);
-            }
-            var $table = findLoadedItem(
-                $tableContainer.children('div.list_container'),
-                table, 'table', true
-            );
-            if ($table) {
-                scrollToView($table, false);
-            }
-        } else if ($viewContainer.length > 0) {
-            highlightView($viewContainer, table);
+            highlightTableOrView($dbItem, table, null);
         }
     }
 
@@ -531,29 +497,29 @@ function PMA_showCurrentNavigation()
         return found;
     }
 
-    function highlightView($viewContainer, view) {
-        var $expander = $viewContainer
+    function highlightTableOrView($container, item, clazz) {
+        var $expander = $container
             .children('div:first')
             .children('a.expander');
         if (! $expander.hasClass('loaded') ||
             $expander.find('img').is('.ic_b_plus')
         ) {
             expandTreeNode($expander, function () {
-                var $view = findLoadedItem(
-                    $viewContainer.children('div.list_container'),
-                    view, 'view', true
+                var $item = findLoadedItem(
+                    $container.children('div.list_container'),
+                    item, clazz, true
                 );
-                if ($view) {
-                    scrollToView($view, false);
+                if ($item) {
+                    scrollToView($item, false);
                 }
             });
         } else {
-            var $view = findLoadedItem(
-                $viewContainer.children('div.list_container'),
-                view, 'view', true
+            var $item = findLoadedItem(
+                $container.children('div.list_container'),
+                item, clazz, true
             );
-            if ($view) {
-                scrollToView($view, false);
+            if ($item) {
+                scrollToView($item, false);
             }
         }
     }
