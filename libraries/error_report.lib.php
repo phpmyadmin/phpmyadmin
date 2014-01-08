@@ -7,7 +7,7 @@
  */
 
 /*
- * Include for handleContext (in sendErrorReport.
+ * Include for handleContext() and configureCurl in PMA_sendErrorReport()
  */
 require_once 'libraries/Util.class.php';
 
@@ -151,16 +151,7 @@ function PMA_sendErrorReport($report)
     }
 
     $curl_handle = curl_init(SUBMISSION_URL);
-    if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
-        curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-        if (strlen($GLOBALS['cfg']['ProxyUser'])) {
-            curl_setopt(
-                $curl_handle,
-                CURLOPT_PROXYUSERPWD,
-                $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-            );
-        }
-    }
+    $curl_handle = PMA_Util::configureCurl($curl_handle);
     curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
     curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
