@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2013-12-23 17:06+0200\n"
-"Last-Translator: a1a1a1 a1a1a1a <filekhane@gmail.com>\n"
-"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"PO-Revision-Date: 2014-01-08 11:05+0200\n"
+"Last-Translator: Lakshmanan M <send2lakshman@gmail.com>\n"
+"Language-Team: English (United Kingdom) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -410,7 +410,6 @@ msgid "Database Log"
 msgstr "Database Log"
 
 #: error_report.php:33
-#, fuzzy
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -424,7 +423,6 @@ msgid "You may want to refresh the page."
 msgstr "You may want to refresh the page."
 
 #: error_report.php:45
-#, fuzzy
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -434,15 +432,15 @@ msgstr ""
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "If you experience any problems please submit a bug report manually."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Thank you for submitting this report."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Unfortunately the submission failed."
 
 #: export.php:172
 msgid "Bad type!"
@@ -1975,39 +1973,39 @@ msgid "Create view"
 msgstr "Create view"
 
 #: js/messages.php:408
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Server port"
+msgstr "Send Error Report"
 
 #: js/messages.php:409
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Submit Error Report"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "An error has occurred while loading the navigation tree"
+msgstr ""
+"A fatal JavaScript error has occurred. Would you like to send an error "
+"report?"
 
 #: js/messages.php:413
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Change settings"
+msgstr "Change Report Settings"
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Show open tables"
+msgstr "Show Report Details"
 
 #: js/messages.php:417
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:438
@@ -4127,15 +4125,15 @@ msgstr "Closed"
 
 #: libraries/config.values.php:117
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Ask before sending error reports"
 
 #: libraries/config.values.php:118
 msgid "Always send error reports"
-msgstr ""
+msgstr "Always send error reports"
 
 #: libraries/config.values.php:119
 msgid "Never send error reports"
-msgstr ""
+msgstr "Never send error reports"
 
 #: libraries/config.values.php:148
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -7106,7 +7104,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:776
 msgid "Proxy url"
-msgstr ""
+msgstr "Proxy url"
 
 #: libraries/config/messages.inc.php:777
 msgid ""
@@ -7119,10 +7117,9 @@ msgstr ""
 "will be performed. No other types of authentication are currently supported."
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Username"
+msgstr "Proxy username"
 
 #: libraries/config/messages.inc.php:779
 #, fuzzy
@@ -7131,10 +7128,9 @@ msgid "The password for authenticating with the proxy."
 msgstr "The password for authenticating with the proxy"
 
 #: libraries/config/messages.inc.php:780
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Password"
+msgstr "Proxy password"
 
 #: libraries/config/messages.inc.php:782
 #, fuzzy
@@ -7177,10 +7173,9 @@ msgid "Choose the default action when sending error reports."
 msgstr ""
 
 #: libraries/config/messages.inc.php:790
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Server port"
+msgstr "Send error reports"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7573,6 +7568,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Skip this number of queries (for SQL) or lines (for other formats), starting "
+"from the first one:"
 
 #: libraries/display_import.lib.php:341
 msgid "Format-Specific Options:"
@@ -7970,20 +7967,23 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"phpMyAdmin has encountered an error. We have collected data about this error "
+"as well as information about relevant configuration settings to send to the "
+"phpMyAdmin team to help us in debugging the problem."
 
 #: libraries/error_report.lib.php:292
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "You may examine the data in the error report:"
 
 #: libraries/error_report.lib.php:299
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Please explain the steps that lead to the error:"
 
 #: libraries/error_report.lib.php:307
 #, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Automatically create versions"
+msgstr "Automatically send report next time"
 
 #: libraries/export.lib.php:118 libraries/export.lib.php:149
 #: libraries/export.lib.php:372
@@ -8416,7 +8416,7 @@ msgstr "phpMyAdmin documentation"
 #, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "Reload navigation frame"
+msgstr "Reload navigation panel"
 
 #: libraries/navigation/NavigationTree.class.php:720
 #, php-format
@@ -8433,20 +8433,20 @@ msgstr ""
 #, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "filter databases by name"
+msgstr "Filter databases by name or regex"
 
 #: libraries/navigation/NavigationTree.class.php:1047
 #: libraries/navigation/NavigationTree.class.php:1081
 #, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
-msgstr "Clear Fast Filter"
+msgstr "Clear fast filter"
 
 #: libraries/navigation/NavigationTree.class.php:1080
 #, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "Filter tables by name"
+msgstr "Filter by name or regex"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -8474,13 +8474,13 @@ msgstr "New"
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Database export options"
+msgstr "Database operations"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
 #, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Show hint"
+msgstr "Show hidden items"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -8521,7 +8521,7 @@ msgstr "New"
 #, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedures"
+msgstr "Procedure"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
@@ -9873,37 +9873,37 @@ msgstr "Generate Password:"
 #, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Replication status"
+msgstr "Replication started successfully."
 
 #: libraries/replication_gui.lib.php:901
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Master replication"
+msgstr "Error starting replication."
 
 #: libraries/replication_gui.lib.php:904
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Chart generated successfully."
+msgstr "Replication stopped successfully."
 
 #: libraries/replication_gui.lib.php:905
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Master replication"
+msgstr "Error stopping replication."
 
 #: libraries/replication_gui.lib.php:908
 #, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Replication status"
+msgstr "Replication resetting successfully."
 
 #: libraries/replication_gui.lib.php:909
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Master replication"
+msgstr "Error resetting replication."
 
 #: libraries/replication_gui.lib.php:912
 msgid "Success."
@@ -9913,7 +9913,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Error"
+msgstr "Error."
 
 #: libraries/replication_gui.lib.php:955
 msgid "Unknown error"
