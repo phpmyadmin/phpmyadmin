@@ -199,34 +199,34 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 /**
  * Function to get html for each column element
  *
- * @param string $cssClass          class="nowrap" or ''
- * @param bool   $currentEqualsData whether current equals data
- * @param string $currentKey        current key
- * @param string $currentVal        current value
- * @param string $currentTitle      current title
- * @param string $field             field
+ * @param string $cssClass    class="nowrap" or ''
+ * @param bool   $isSelected  whether current equals form's value
+ * @param string $keyname     current key
+ * @param string $description current value
+ * @param string $title       current title
+ * @param string $field       field
  *
  * @return string
  */
-function PMA_getHtmlForColumnElement($cssClass, $currentEqualsData, $currentKey,
-    $currentVal, $currentTitle, $field
+function PMA_getHtmlForColumnElement($cssClass, $isSelected, $keyname,
+    $description, $title, $field
 ) {
     $output = '<td ' . $cssClass . '>'
-        . ($currentEqualsData ? '<strong>' : '')
+        . ($isSelected ? '<strong>' : '')
         . '<a href="#" title="' . __('Use this value')
-        . ($currentTitle != ''
-            ? ': ' . $currentTitle
+        . ($title != ''
+            ? ': ' . $title
             : '')
         . '" onclick="formupdate(\'' . md5($field) . '\', \''
-        . PMA_jsFormat($currentKey, false)
+        . PMA_jsFormat($keyname, false)
         . '\'); return false;">';
     if ($cssClass !== '') {
-        $output .= htmlspecialchars($currentKey);
+        $output .= htmlspecialchars($keyname);
     } else {
-        $output .= $currentVal;
+        $output .= $description;
     }
 
-    $output .=  '</a>' . ($currentEqualsData ? '</strong>' : '') . '</td>';
+    $output .=  '</a>' . ($isSelected ? '</strong>' : '') . '</td>';
 
     return $output;
 }
