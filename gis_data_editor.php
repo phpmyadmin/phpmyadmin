@@ -240,7 +240,7 @@ for ($a = 0; $a < $geom_count; $a++) {
             echo '<label for="y">' . __("Y") . '</label>';
             echo '<input type="text"'
                 . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][y]"'
-                . ' value="' . escape($gis_data[$a][$type][$i]['y']). '" />';
+                . ' value="' . escape($gis_data[$a][$type][$i]['y']) . '" />';
         }
         echo '<input type="submit"'
             . ' name="gis_data[' . $a . '][' . $type . '][add_point]"'

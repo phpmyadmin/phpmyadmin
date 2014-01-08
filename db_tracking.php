@@ -218,7 +218,7 @@ if (isset($my_tables)) {
     foreach ($my_tables as $key => $tablename) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query
-                . '&amp;table=' . htmlspecialchars($tablename) .'">';
+                . '&amp;table=' . htmlspecialchars($tablename) . '">';
             $my_link .= PMA_Util::getIcon('eye.png', __('Track table'));
             $my_link .= '</a>';
             ?>

@@ -666,7 +666,7 @@ class PMA_Util
                    . '</a>';
             } // end if
             $error_msg .= '    </p>' . "\n"
-                .'<p>' . "\n"
+                . '<p>' . "\n"
                 . $formatted_sql . "\n"
                 . '</p>' . "\n";
         } // end if
@@ -1739,17 +1739,17 @@ class PMA_Util
         }
 
         //Set the id for the tab, if set in the params
-        $id_string = ( empty($tab['id']) ? '' : ' id="'.$tab['id'].'" ' );
+        $id_string = ( empty($tab['id']) ? '' : ' id="' . $tab['id'] . '" ' );
         $out = '<li' . ($tab['class'] == 'active' ? ' class="active"' : '') . '>';
 
         if (! empty($tab['link'])) {
             $out .= '<a class="tab' . htmlentities($tab['class']) . '"'
-                .$id_string
-                .' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
+                . $id_string
+                . ' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
                 . $tab['text'] . '</a>';
         } else {
             $out .= '<span class="tab' . htmlentities($tab['class']) . '"'
-                . $id_string. '>' . $tab['text'] . '</span>';
+                . $id_string . '>' . $tab['text'] . '</span>';
         }
 
         $out .= '</li>';
@@ -1776,7 +1776,7 @@ class PMA_Util
 
         $tab_navigation = '<div id="' . htmlentities($menu_id)
             . 'container" class="menucontainer">'
-            .'<ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
+            . '<ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
 
         foreach ($tabs as $tab) {
             $tab_navigation .= self::getHtmlTab($tab, $url_params);
@@ -1784,8 +1784,8 @@ class PMA_Util
 
         $tab_navigation .=
              '</ul>' . "\n"
-            .'<div class="clearfloat"></div>'
-            .'</div>' . "\n";
+            . '<div class="clearfloat"></div>'
+            . '</div>' . "\n";
 
         return $tab_navigation;
     }
@@ -2275,8 +2275,8 @@ class PMA_Util
 
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
             return ' <input type="submit" name="' . $button_name . '"'
-                .' value="' . htmlspecialchars($value) . '"'
-                .' title="' . htmlspecialchars($text) . '" />' . "\n";
+                . ' value="' . htmlspecialchars($value) . '"'
+                . ' title="' . htmlspecialchars($text) . '" />' . "\n";
         }
 
         /* Opera has trouble with <input type="image"> */
@@ -2286,16 +2286,16 @@ class PMA_Util
                 . '" class="' . $button_class
                 . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text)
-                . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
+                . '" src="' . $GLOBALS['pmaThemeImage'] . $image . '" />'
                 . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
                     ? '&nbsp;' . htmlspecialchars($text)
                     : '') . "\n";
         } else {
             return '<button class="' . $button_class . '" type="submit"'
-                .' name="' . $button_name . '" value="' . htmlspecialchars($value)
+                . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text) . '">' . "\n"
                 . self::getIcon($image, $text)
-                .'</button>' . "\n";
+                . '</button>' . "\n";
         }
     } // end function
 
@@ -2498,8 +2498,8 @@ class PMA_Util
                     . '</a>';
             }
 
-            $list_navigator_html .= '<form action="' . basename($script).
-                '" method="post">';
+            $list_navigator_html .= '<form action="' . basename($script)
+                . '" method="post">';
 
             $list_navigator_html .= PMA_URL_getHiddenInputs($_url_params);
             $list_navigator_html .= self::pageselector(
@@ -4158,13 +4158,13 @@ class PMA_Util
             return null;
         }
     }
-    
+
     /**
      * Returns information with regards to handling the http request
      *
      * @param array $context Data about the context for which
      *                       to http request is sent
-     * 
+     *
      * @return array of updated context information
      */
     public static function handleContext(array $context)

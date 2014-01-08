@@ -151,7 +151,7 @@ if (! in_array(
 
 $post_patterns = array(
     '/^force_file_/',
-    '/^'. $format . '_/'
+    '/^' . $format . '_/'
 );
 foreach (array_keys($_POST) as $post_key) {
     foreach ($post_patterns as $one_post_pattern) {

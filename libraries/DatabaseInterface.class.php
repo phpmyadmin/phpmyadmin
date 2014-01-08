@@ -512,7 +512,7 @@ class PMA_DatabaseInterface
                 if ($table || (true === $tbl_is_group) || $tble_type) {
                     $sql = 'SHOW TABLE STATUS FROM '
                         . PMA_Util::backquote($each_database)
-                        .' WHERE';
+                        . ' WHERE';
                     $needAnd = false;
                     if ($table || (true === $tbl_is_group)) {
                         $sql .= " `Name` LIKE '"
@@ -1934,7 +1934,7 @@ class PMA_DatabaseInterface
                     . $one_result['full_trigger_name'];
                 $one_result['create'] = 'CREATE TRIGGER '
                     . $one_result['full_trigger_name'] . ' '
-                    . $trigger['ACTION_TIMING']. ' '
+                    . $trigger['ACTION_TIMING'] . ' '
                     . $trigger['EVENT_MANIPULATION']
                     . ' ON ' . PMA_Util::backquote($trigger['EVENT_OBJECT_TABLE'])
                     . "\n" . ' FOR EACH ROW '

@@ -594,7 +594,7 @@ class PMA_Tracker
             " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' ";
         if (! empty($tablename)) {
             $sql_query .= " AND `table_name` = '"
-                . PMA_Util::sqlAddSlashes($tablename) ."' ";
+                . PMA_Util::sqlAddSlashes($tablename) . "' ";
         }
         $sql_query .= " AND `version` = '" . PMA_Util::sqlAddSlashes($version)
             . "' " . " ORDER BY `version` DESC LIMIT 1";

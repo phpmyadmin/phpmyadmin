@@ -28,7 +28,7 @@ if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
     || isset($_POST['mult_btn'])
 ) {
     $action = 'db_structure.php';
-    $err_url = 'db_structure.php?'. PMA_URL_getCommon($db);
+    $err_url = 'db_structure.php?' . PMA_URL_getCommon($db);
 
     // see bug #2794840; in this case, code path is:
     // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
