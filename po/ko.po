@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-12-05 12:51+0200\n"
-"Last-Translator: Alfred Woo <joona0825@digutsoft.com>\n"
+"PO-Revision-Date: 2014-01-08 17:10+0200\n"
+"Last-Translator: Gyeongsu Han <hansim@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1675,7 +1675,7 @@ msgstr "%d 값 추가"
 #: js/messages.php:277
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "참고: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다"
+msgstr "참고: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다."
 
 #: js/messages.php:280
 msgid "Hide query box"
@@ -12698,10 +12698,9 @@ msgid "Try to revert erroneous fields to their default values"
 msgstr ""
 
 #: setup/lib/form_processing.lib.php:53
-#, fuzzy
 #| msgid "Ignore"
 msgid "Ignore errors"
-msgstr "무시"
+msgstr "오류 무시"
 
 #: setup/lib/form_processing.lib.php:55
 msgid "Show form"
