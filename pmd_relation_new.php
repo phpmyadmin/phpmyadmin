@@ -121,13 +121,13 @@ function PMD_Return_new($b,$ret)
     global $db,$T1,$F1,$T2,$F2;
     header("Content-Type: text/xml; charset=utf-8");
     header("Cache-Control: no-cache");
-    die('<root act="relation_new" return="'.$ret.'" b="'.$b.
-    '" DB1="'.urlencode($db).
-    '" T1="'.urlencode($T1).
-    '" F1="'.urlencode($F1).
-    '" DB2="'.urlencode($db).
-    '" T2="'.urlencode($T2).
-    '" F2="'.urlencode($F2).
+    die('<root act="relation_new" return="' . $ret . '" b="' . $b .
+    '" DB1="' . urlencode($db) .
+    '" T1="' . urlencode($T1) .
+    '" F1="' . urlencode($F1) .
+    '" DB2="' . urlencode($db) .
+    '" T2="' . urlencode($T2) .
+    '" F2="' . urlencode($F2) .
     '"></root>');
 }
 ?>
