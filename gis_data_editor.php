@@ -383,7 +383,7 @@ for ($a = 0; $a < $geom_count; $a++) {
             echo '<br/>';
             echo '<input type="submit"'
                 . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][add_line]"'
-                . ' class="add addLine" value="' . __('Add an inner ring'). '" />';
+                . ' class="add addLine" value="' . __('Add an inner ring') . '" />';
             echo '<br/>';
         }
         echo '<br/>';

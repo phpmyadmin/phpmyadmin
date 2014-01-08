@@ -223,7 +223,7 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     PMA_printListItem(
-        PMA_Util::getImage('b_tblops.png') . " " .__('More settings'),
+        PMA_Util::getImage('b_tblops.png') . " " . __('More settings'),
         'li_user_preferences',
         'prefs_manage.php?' . $common_url_query,
         null,
@@ -633,10 +633,10 @@ function PMA_printListItem($name, $listId = null, $url = null,
             echo ' target="' . $target . '"';
         }
         if (null != $a_id) {
-            echo ' id="' . $a_id .'"';
+            echo ' id="' . $a_id . '"';
         }
         if (null != $a_class) {
-            echo ' class="' . $a_class .'"';
+            echo ' class="' . $a_class . '"';
         }
         echo '>';
     }

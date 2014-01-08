@@ -75,14 +75,14 @@ if (isset($_POST['mode'])) {
     if ('import' == $_POST['mode']) {
         PMA_queryAsControlUser(
             'UPDATE ' . $pma_table . ',' . $pmd_table .
-            ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale_q . ',
-            ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '. $scale_q .'
+            ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * ' . $scale_q . ',
+            ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * ' . $scale_q . '
             WHERE
             ' . $pmd_table . '.`db_name`=' . $pma_table . '.`db_name`
             AND
             ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
             AND
-            ' . $pmd_table . '.`db_name`=\''. PMA_Util::sqlAddSlashes($db) . '\'
+            ' . $pmd_table . '.`db_name`=\'' . PMA_Util::sqlAddSlashes($db) . '\'
             AND pdf_page_number = ' . $pdf_page_number_q . ';',
             true, PMA_DatabaseInterface::QUERY_STORE
         );

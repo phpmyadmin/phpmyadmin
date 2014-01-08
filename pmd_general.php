@@ -257,10 +257,10 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     if (isset($_REQUEST['query'])) {
         echo '<td class="select_all">';
         echo '<input type="checkbox" value="select_all_'
-            .htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
-        echo 'id="select_all_'.htmlspecialchars($t_n_url).'" title="select all" ';
-        echo 'onclick="Select_all(\''. htmlspecialchars($t_n_url) .'\',\''
-            .htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\')"></td>';
+            . htmlspecialchars($t_n_url) . '" style="margin: 0px;" ';
+        echo 'id="select_all_' . htmlspecialchars($t_n_url) . '" title="select all" ';
+        echo 'onclick="Select_all(\'' . htmlspecialchars($t_n_url) . '\',\''
+            . htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]) . '\')"></td>';
     }
     ?>
     <td class="small_tab" onmouseover="this.className='small_tab2';"
@@ -292,11 +292,11 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     <?php
     if (isset($_REQUEST['query'])) {
         echo '<td class="tab_zag"  onmouseover="Table_onover(\''
-            .htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'
-            .htmlspecialchars($t_n_url).'_2"';
+            . htmlspecialchars($t_n_url) . '\',0,1)"  id="id_zag_'
+            . htmlspecialchars($t_n_url) . '_2"';
         echo 'onmousedown="cur_click=document.getElementById(\''
-            .htmlspecialchars($t_n_url).'\');"';
-        echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
+            . htmlspecialchars($t_n_url) . '\');"';
+        echo 'onmouseout="Table_onover(\'' . htmlspecialchars($t_n_url) . '\',1,1)">';
     }
     ?>
 </tr>
@@ -331,34 +331,34 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     onmouseout="this.className = old_class;"
     onmousedown="Click_field('<?php
     echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]."','"
-        .urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
+        . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
     if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
         echo (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
     } else {
         // if foreign keys are supported, it's not necessary that the
         // index is a primary key
-        echo (isset($tables_all_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
+        echo (isset($tables_all_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
     }
         ?>)">
     <?php
     if (isset($_REQUEST['query'])) {
         echo '<td class="select_all">';
-        echo '<input value="'.htmlspecialchars($t_n_url)
-            .urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'"';
-        echo 'type="checkbox" id="select_'.htmlspecialchars($t_n_url).'._'
-            .urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
-        echo 'style="margin: 0px;" title="select_'
-            .urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'" ';
+        echo '<input value="' . htmlspecialchars($t_n_url)
+            . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '"';
+        echo 'type="checkbox" id="select_' . htmlspecialchars($t_n_url) . '._'
+            . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '" ';
+        echo  'style="margin: 0px;" title="select_'
+            . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '" ';
         echo 'onclick="store_column(\''
-            .urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]).'\',\''
-            .htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\',\''
-            .urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\')"></td>';
+            . urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]) . '\',\''
+            . htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]) . '\',\''
+            . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '\')"></td>';
     }?>
     <td width="10px" colspan="3"
-        id="<?php echo $t_n_url.".".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
+        id="<?php echo $t_n_url . "." . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
         <div class="nowrap">
         <?php
-        if (isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])) {
+        if (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]])) {
             ?>
                 <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/FieldKey_small.png"
                     alt="*" />
@@ -399,7 +399,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
             echo 'onmouseout="this.className=\'small_tab_pref\';"';
             echo 'onclick="Click_option(\'pmd_optionse\',\''
                 . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '\',\''
-                . $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i].'\')" >';
+                . $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i] . '\')" >';
             echo  '<img src="'
                 . $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png')
                 . '" title="options" alt="" /></td> ';

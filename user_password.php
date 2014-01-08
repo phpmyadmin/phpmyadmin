@@ -234,9 +234,9 @@ function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
     echo PMA_Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php'.PMA_URL_getCommon($_url_params)
-        .' target="_parent">'. "\n"
-        .'<strong>'.__('Back').'</strong></a>';
+    echo '<a href="index.php' . PMA_URL_getCommon($_url_params)
+        . ' target="_parent">' . "\n"
+        . '<strong>' . __('Back') . '</strong></a>';
     exit;
 }
 ?>
