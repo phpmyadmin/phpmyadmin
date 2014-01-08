@@ -4185,14 +4185,35 @@ class PMA_Util
         return $context;
     }
     /**
+     * Updates an existing curl as necessary
+     *
+     * @param resource $curl_handle A curl_handle resource
+     *                              created by curl_init which should
+     *                              have several options set
+     *
+     * @return resource curl_handle with updated options
+     */
+    public static function configureCurl(resource $curl_handle)
+    {
+        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_PROXYUSERPWD,
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+            }
+        }
+        return $curl_handle;
+    }
+    /**
      * Returns information with latest version from phpmyadmin.net
      *
      * @return String JSON decoded object with the data
      */
     public static function getLatestVersion()
     {
-        global $cfg;
-
         // wait 3s at most for server response, it's enough to get information
         // from a working server
         $connection_timeout = 3;
@@ -4223,21 +4244,7 @@ class PMA_Util
                 );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
-                if (strlen($cfg['ProxyUrl'])) {
-                    curl_setopt(
-                        $curl_handle,
-                        CURLOPT_PROXY,
-                        $cfg['ProxyUrl']
-                    );
-                    if (strlen($cfg['ProxyUser'])) {
-                        curl_setopt(
-                            $curl_handle,
-                            CURLOPT_PROXYUSERPWD,
-                            $cfg['ProxyUser']
-                            . ':' . $cfg['ProxyPass']
-                        );
-                    }
-                }
+                $curl_handle = PMA_Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_HEADER,
