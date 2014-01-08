@@ -460,21 +460,21 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
 {
     if ($db == '*') {
         return "SELECT * FROM `mysql`.`user`"
-            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
     } elseif ($table == '*') {
         return "SELECT * FROM `mysql`.`db`"
-            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
-            ." AND '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
-            ." LIKE `Db`;";
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+            . " AND '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+            . " LIKE `Db`;";
     }
     return "SELECT `Table_priv`"
-        ." FROM `mysql`.`tables_priv`"
-        ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-        ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
-        ." AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
-        ." AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
+        . " FROM `mysql`.`tables_priv`"
+        . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+        . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+        . " AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+        . " AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
 }
 
 /**
@@ -797,17 +797,17 @@ function PMA_getHtmlForTableSpecificPrivileges(
 ) {
     $res = $GLOBALS['dbi']->query(
         'SELECT `Column_name`, `Column_priv`'
-        .' FROM `mysql`.`columns_priv`'
-        .' WHERE `User`'
-        .' = \'' . PMA_Util::sqlAddSlashes($username) . "'"
-        .' AND `Host`'
-        .' = \'' . PMA_Util::sqlAddSlashes($hostname) . "'"
-        .' AND `Db`'
-        .' = \'' . PMA_Util::sqlAddSlashes(
+        . ' FROM `mysql`.`columns_priv`'
+        . ' WHERE `User`'
+        . ' = \'' . PMA_Util::sqlAddSlashes($username) . "'"
+        . ' AND `Host`'
+        . ' = \'' . PMA_Util::sqlAddSlashes($hostname) . "'"
+        . ' AND `Db`'
+        . ' = \'' . PMA_Util::sqlAddSlashes(
             PMA_Util::unescapeMysqlWildcards($db)
         ) . "'"
-        .' AND `Table_name`'
-        .' = \'' . PMA_Util::sqlAddSlashes($table) . '\';'
+        . ' AND `Table_name`'
+        . ' = \'' . PMA_Util::sqlAddSlashes($table) . '\';'
     );
 
     while ($row1 = $GLOBALS['dbi']->fetchRow($res)) {
@@ -824,7 +824,7 @@ function PMA_getHtmlForTableSpecificPrivileges(
         . '<input type="hidden" name="column_count" '
         . 'value="' . count($columns) . '" />' . "\n"
         . '<fieldset id="fieldset_user_priv">' . "\n"
-        . '<legend>' . __('Table-specific privileges')
+        . '<legend data-submenu-label="Table">' . __('Table-specific privileges')
         . PMA_Util::showHint(
             __('Note: MySQL privilege names are expressed in English')
         )
@@ -1828,18 +1828,18 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         = PMA_getListOfPrivilegesAndComparedPrivileges();
 
     $sql_query = '(SELECT ' . $listOfPrivs . ', `Db`, \'d\' AS `Type`'
-        .' FROM `mysql`.`db`'
-        .' WHERE \'' . PMA_Util::sqlAddSlashes($db)
+        . ' FROM `mysql`.`db`'
+        . ' WHERE \'' . PMA_Util::sqlAddSlashes($db)
         . "'"
-        .' LIKE `Db`'
-        .' AND NOT (' . $listOfComparedPrivs. ')) '
-        .'UNION '
-        .'(SELECT ' . $listOfPrivs . ', \'*\' AS `Db`, \'g\' AS `Type`'
-        .' FROM `mysql`.`user` '
-        .' WHERE NOT (' . $listOfComparedPrivs . ')) '
-        .' ORDER BY `User` ASC,'
-        .'  `Host` ASC,'
-        .'  `Db` ASC;';
+        . ' LIKE `Db`'
+        . ' AND NOT (' . $listOfComparedPrivs . ')) '
+        . 'UNION '
+        . '(SELECT ' . $listOfPrivs . ', \'*\' AS `Db`, \'g\' AS `Type`'
+        . ' FROM `mysql`.`user` '
+        . ' WHERE NOT (' . $listOfComparedPrivs . ')) '
+        . ' ORDER BY `User` ASC,'
+        . '  `Host` ASC,'
+        . '  `Db` ASC;';
     $res = $GLOBALS['dbi']->query($sql_query);
 
     $privMap = array();
@@ -1880,7 +1880,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
                     'dbname' => $db,
                 )
             )
-            .'" rel="'
+            . '" rel="'
             . PMA_URL_getCommon(array('checkprivsdb' => $db))
             . '" class="ajax" name="db_specific">' . "\n"
             . PMA_Util::getIcon('b_usradd.png')
@@ -1944,7 +1944,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         . " SELECT " . $listOfPrivs . ", `Db`, 'd' AS `Type`"
         . " FROM `mysql`.`db`"
         . " WHERE '" . PMA_Util::sqlAddSlashes($db) . "' LIKE `Db`"
-        . "     AND NOT (" . $listOfComparedPrivs. ")"
+        . "     AND NOT (" . $listOfComparedPrivs . ")"
         . ")"
         . " ORDER BY `User` ASC, `Host` ASC, `Db` ASC;";
     $res = $GLOBALS['dbi']->query($sql_query);
@@ -2332,7 +2332,7 @@ function PMA_getExtraDataForAjaxBehavior(
         /**
          * generate html on the fly for the new user that was just created.
          */
-        $new_user_string = '<tr>'."\n"
+        $new_user_string = '<tr>' . "\n"
             . '<td> <input type="checkbox" name="selected_usr[]" '
             . 'id="checkbox_sel_users_"'
             . 'value="'
@@ -2355,7 +2355,7 @@ function PMA_getExtraDataForAjaxBehavior(
             . '</span>';
         };
 
-        $new_user_string .= '</td>'."\n";
+        $new_user_string .= '</td>' . "\n";
         $new_user_string .= '<td>'
             . '<code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code>'
             . '</td>'; //Fill in privileges here
@@ -2405,7 +2405,7 @@ function PMA_getExtraDataForAjaxBehavior(
          */
         $new_user_initial = strtoupper(substr($username, 0, 1));
         $newUserInitialString = '<a href="server_privileges.php'
-            . PMA_URL_getCommon(array('initial' => $new_user_initial)) .'">'
+            . PMA_URL_getCommon(array('initial' => $new_user_initial)) . '">'
             . $new_user_initial . '</a>';
         $extra_data['new_user_initial'] = $new_user_initial;
         $extra_data['new_user_initial_string'] = $newUserInitialString;
@@ -2561,7 +2561,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
     } else {
         $user_host_condition .=
             ' AND `Db`'
-            .' LIKE \''
+            . ' LIKE \''
             . PMA_Util::sqlAddSlashes($dbname, true) . "'";
         $tables_to_search_for_users = array('columns_priv',);
         $dbOrTableName = 'Table_name';
@@ -2571,7 +2571,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
     foreach ($tables_to_search_for_users as $table_search_in) {
         if (in_array($table_search_in, $tables)) {
             $db_rights_sqls[] = '
-                SELECT DISTINCT `' . $dbOrTableName .'`
+                SELECT DISTINCT `' . $dbOrTableName . '`
                 FROM `mysql`.' . PMA_Util::backquote($table_search_in)
                . $user_host_condition;
         }
@@ -2588,7 +2588,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
     $db_rights = array();
 
     $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-        .' ORDER BY `' . $dbOrTableName .'` ASC';
+        . ' ORDER BY `' . $dbOrTableName . '` ASC';
 
     $db_rights_result = $GLOBALS['dbi']->query($db_rights_sql);
 
@@ -2612,12 +2612,12 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
             . $user_host_condition . ' ORDER BY `Db` ASC';
     } else {
         $sql_query = 'SELECT `Table_name`,'
-            .' `Table_priv`,'
-            .' IF(`Column_priv` = _latin1 \'\', 0, 1)'
-            .' AS \'Column_priv\''
-            .' FROM `mysql`.`tables_priv`'
+            . ' `Table_priv`,'
+            . ' IF(`Column_priv` = _latin1 \'\', 0, 1)'
+            . ' AS \'Column_priv\''
+            . ' FROM `mysql`.`tables_priv`'
             . $user_host_condition
-            .' ORDER BY `Table_name` ASC;';
+            . ' ORDER BY `Table_name` ASC;';
     }
 
     $result = $GLOBALS['dbi']->query($sql_query);
@@ -2859,7 +2859,7 @@ function PMA_getHtmlForSelectDbInEditPrivs($found_rows)
 function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 {
     $html_output = '<input type="hidden" name="dbname"
-        '. 'value="' . htmlspecialchars($dbname) . '"/>' . "\n";
+        ' . 'value="' . htmlspecialchars($dbname) . '"/>' . "\n";
     $html_output .= '<label for="text_tablename">'
         . __('Add privileges on the following table:') . '</label>' . "\n";
 
@@ -3070,7 +3070,7 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 } else {
                     $html_output .= '<td class="center">'
                         . PMA_getUserGroupEditLink($host['User'])
-                        .'</td>';
+                        . '</td>';
                 }
             }
             $html_output .= '<td class="center">'
@@ -3240,7 +3240,7 @@ function PMA_getDbRightsForUserOverview()
     $db_rights = array();
 
     $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-        .' ORDER BY `User` ASC, `Host` ASC';
+        . ' ORDER BY `User` ASC, `Host` ASC';
 
     $db_rights_result = $GLOBALS['dbi']->query($db_rights_sql);
 
@@ -3376,7 +3376,7 @@ function PMA_getDataForChangeOrCopyUser()
 
     if (isset($_REQUEST['change_copy'])) {
         $user_host_condition = ' WHERE `User` = '
-            . "'". PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
+            . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
             . ' AND `Host` = '
             . "'" . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . "';";
         $row = $GLOBALS['dbi']->fetchSingleRow(
@@ -4025,16 +4025,16 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
 
         $res2 = $GLOBALS['dbi']->query(
             'SELECT `Column_name`, `Column_priv`'
-            .' FROM `mysql`.`columns_priv`'
-            .' WHERE `User`'
-            .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
-            .' AND `Host`'
-            .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . '\''
-            .' AND `Db`'
-            .' = \'' . PMA_Util::sqlAddSlashes($row['Db']) . "'"
-            .' AND `Table_name`'
-            .' = \'' . PMA_Util::sqlAddSlashes($row['Table_name']) . "'"
-            .';',
+            . ' FROM `mysql`.`columns_priv`'
+            . ' WHERE `User`'
+            . ' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
+            . ' AND `Host`'
+            . ' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . '\''
+            . ' AND `Db`'
+            . ' = \'' . PMA_Util::sqlAddSlashes($row['Db']) . "'"
+            . ' AND `Table_name`'
+            . ' = \'' . PMA_Util::sqlAddSlashes($row['Table_name']) . "'"
+            . ';',
             null,
             PMA_DatabaseInterface::QUERY_STORE
         );
@@ -4103,9 +4103,9 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
     $queries, $username, $hostname
 ) {
     $user_host_condition = ' WHERE `User`'
-        .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
-        .' AND `Host`'
-        .' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . '\';';
+        . ' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_username']) . "'"
+        . ' AND `Host`'
+        . ' = \'' . PMA_Util::sqlAddSlashes($_REQUEST['old_hostname']) . '\';';
 
     $res = $GLOBALS['dbi']->query(
         'SELECT * FROM `mysql`.`db`' . $user_host_condition
@@ -4113,8 +4113,8 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser(
 
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
         $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row))
-            .' ON ' . PMA_Util::backquote($row['Db']) . '.*'
-            .' TO \'' . PMA_Util::sqlAddSlashes($username)
+            . ' ON ' . PMA_Util::backquote($row['Db']) . '.*'
+            . ' TO \'' . PMA_Util::sqlAddSlashes($username)
             . '\'@\'' . PMA_Util::sqlAddSlashes($hostname) . '\''
             . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';');
     }
