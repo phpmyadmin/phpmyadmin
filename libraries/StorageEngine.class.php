@@ -148,7 +148,7 @@ class PMA_StorageEngine
                 continue;
             }
 
-            $output .= '    <option value="' . htmlspecialchars($key). '"'
+            $output .= '    <option value="' . htmlspecialchars($key) . '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
                 . (strtolower($key) == $selected

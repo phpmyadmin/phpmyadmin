@@ -778,7 +778,7 @@ class PMA_DisplayResults
                     )
                     . ')'
                 . ')'
-            .'">';
+            . '">';
 
         $table_navigation_html .= PMA_URL_getHiddenInputs(
             $this->__get('db'), $this->__get('table')
@@ -3132,9 +3132,9 @@ class PMA_DisplayResults
         } else {
             // Consider only the case of creating link for column field
             // sql query need to be pass as url param
-            $sql = 'SELECT `'.$column_value.'` FROM `'
-                . $row_info[$link_relations['link_param'][1]] .'`.`'
-                . $row_info[$link_relations['link_param'][2]] .'`';
+            $sql = 'SELECT `' . $column_value . '` FROM `'
+                . $row_info[$link_relations['link_param'][1]] . '`.`'
+                . $row_info[$link_relations['link_param'][2]] . '`';
             $linking_url_params[$link_relations['link_param'][0]] = $sql;
         }
 
@@ -3295,7 +3295,7 @@ class PMA_DisplayResults
 
                 $support_html .= '    <th colspan="'
                     . $vertical_display['emptypre'] . '">'
-                    . "\n".'        &nbsp;</th>' . "\n";
+                    . "\n" . '        &nbsp;</th>' . "\n";
 
             } else if ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
                 $support_html .= '    <th></th>' . "\n";
@@ -3659,7 +3659,7 @@ class PMA_DisplayResults
         if (! isset($column) || is_null($column)) {
 
             $cell = $this->_buildNullDisplay(
-                'right '.$class, $condition_field, $meta, ''
+                'right ' . $class, $condition_field, $meta, ''
             );
 
         } elseif ($column != '') {
@@ -3668,7 +3668,7 @@ class PMA_DisplayResults
             $where_comparison = ' = ' . $column;
 
             $cell = $this->_getRowData(
-                'right '.$class, $condition_field,
+                'right ' . $class, $condition_field,
                 $analyzed_sql, $meta, $map, $column,
                 $transformation_plugin, $default_function, $nowrap,
                 $where_comparison, $transform_options,
@@ -3677,7 +3677,7 @@ class PMA_DisplayResults
         } else {
 
             $cell = $this->_buildEmptyDisplay(
-                'right '.$class, $condition_field, $meta, ''
+                'right ' . $class, $condition_field, $meta, ''
             );
         }
 
@@ -5113,12 +5113,12 @@ class PMA_DisplayResults
         $links_html .= "\n";
 
         $links_html .= '<input type="hidden" name="sql_query"'
-            .' value="' . htmlspecialchars($this->__get('sql_query')) . '" />'
+            . ' value="' . htmlspecialchars($this->__get('sql_query')) . '" />'
             . "\n";
 
         if (! empty($url_query)) {
             $links_html .= '<input type="hidden" name="url_query"'
-                .' value="' . $url_query . '" />' . "\n";
+                . ' value="' . $url_query . '" />' . "\n";
         }
 
         // fetch last row of the result set
@@ -5140,7 +5140,7 @@ class PMA_DisplayResults
         $GLOBALS['dbi']->dataSeek($dt_result, 0);
 
         $links_html .= '<input type="hidden" name="clause_is_unique"'
-            .' value="' . $clause_is_unique . '" />' . "\n";
+            . ' value="' . $clause_is_unique . '" />' . "\n";
 
         $links_html .= '</form>' . "\n";
 
@@ -5487,7 +5487,7 @@ class PMA_DisplayResults
 
             $size = strlen($content);
             $display_size = PMA_Util::formatByteDown($size, 3, 1);
-            $result .= ' - '. $display_size[0] . ' ' . $display_size[1];
+            $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
 
         } else {
 
@@ -5743,7 +5743,7 @@ class PMA_DisplayResults
             );
 
             $result .= '<input type="hidden" class="data_browse_link" value="'
-                . PMA_URL_getCommon($_url_params_for_show_data_row). '" />';
+                . PMA_URL_getCommon($_url_params_for_show_data_row) . '" />';
 
         }
 

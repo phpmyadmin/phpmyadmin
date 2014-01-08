@@ -181,7 +181,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     if ($server_slave_status) {
         $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
     }
-    $html_output .= '<th colspan="'. ($db_is_system_schema ? 3 : 6) . '">'
+    $html_output .= '<th colspan="' . ($db_is_system_schema ? 3 : 6) . '">'
         . __('Sum')
         . '</th>';
     $html_output .= '<th class="value tbl_rows">'
@@ -200,7 +200,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
                 __('%s is the default storage engine on this MySQL server.'),
                 $default_engine
             )
-            . '">' .$default_engine . '</dfn></th>' . "\n";
+            . '">' . $default_engine . '</dfn></th>' . "\n";
         // we got a case where $db_collation was empty
         $html_output .= '<th>' . "\n";
 
@@ -273,12 +273,12 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
 ) {
     $html_output = '<div class="clearfloat">';
     $html_output .= '<img class="selectallarrow" '
-        . 'src="' .$pmaThemeImage .'arrow_'.$text_dir.'.png' . '"'
+        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
     $html_output .= '<input type="checkbox" id="tablesForm_checkall" '
-        . 'class="checkall_box" title="' . __('Check All') .'" />';
-    $html_output .= '<label for="tablesForm_checkall">' .__('Check All')
+        . 'class="checkall_box" title="' . __('Check All') . '" />';
+    $html_output .= '<label for="tablesForm_checkall">' . __('Check All')
         . '</label>';
 
     if ($overhead_check != '') {
@@ -454,12 +454,12 @@ function PMA_getHtmlForStructureTableRow(
     $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even');
     $odd_row = ! $odd_row;
     $html_output .= ($table_is_view ? ' is_view' : '')
-    .'" id="row_tbl_' . $curr . '">';
+        . '" id="row_tbl_' . $curr . '">';
 
     $html_output .= '<td class="center">'
         . '<input type="checkbox" name="selected_tbl[]" class="checkall" '
         . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '" '
-        . 'id="checkbox_tbl_' . $curr .'" /></td>';
+        . 'id="checkbox_tbl_' . $curr . '" /></td>';
 
     $html_output .= '<th>'
         . $browse_table_label
@@ -751,27 +751,27 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
     }
 
     $html_output = '<table class="data">' . "\n"
-        .'<thead>' . "\n"
-        .'<tr><th></th>' . "\n"
-        .'<th>'
+        . '<thead>' . "\n"
+        . '<tr><th></th>' . "\n"
+        . '<th>'
         . PMA_sortableTableHeader(__('Table'), 'table')
         . '</th>' . "\n";
     if ($replication) {
         $html_output .= '<th>' . "\n"
-            .'        ' . __('Replication') . "\n"
-            .'</th>';
+            . '        ' . __('Replication') . "\n"
+            . '</th>';
     }
     $html_output .= '<th colspan="' . $action_colspan . '">' . "\n"
-        .'        ' . __('Action') . "\n"
-        .'</th>'
+        . '        ' . __('Action') . "\n"
+        . '</th>'
         // larger values are more interesting so default sort order is DESC
-        .'<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
+        . '<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
         . PMA_Util::showHint(
             PMA_sanitize(
                 __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
             )
         ) . "\n"
-        .'</th>' . "\n";
+        . '</th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
         $html_output .= '<th>' . PMA_sortableTableHeader(__('Type'), 'type')
             . '</th>' . "\n";
@@ -1193,7 +1193,7 @@ function PMA_getHtmlForTableStructureHeader(
     $html_output .= '<th></th>'
         . '<th>#</th>'
         . '<th>' . __('Name') . '</th>'
-        . '<th>' . __('Type'). '</th>'
+        . '<th>' . __('Type') . '</th>'
         . '<th>' . __('Collation') . '</th>'
         . '<th>' . __('Attributes') . '</th>'
         . '<th>' . __('Null') . '</th>'
@@ -1266,7 +1266,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum,
         . '</th>';
 
     $html_output .= '<td' . $type_nowrap . '>'
-        .'<bdo dir="ltr" lang="en">'
+        . '<bdo dir="ltr" lang="en">'
         . $extracted_columnspec['displayed_type'] . $type_mime
         . '</bdo></td>';
 
@@ -1835,7 +1835,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
     $message, $action, $titles, $row, $isPrimary
 ) {
-    $html_output = '<li class="'. $class .'">';
+    $html_output = '<li class="' . $class . '">';
 
     if ($type == 'text'
         || $type == 'blob'
@@ -2442,7 +2442,7 @@ function PMA_updateColumns($db, $table)
         $response->addJSON(
             'message',
             PMA_Message::rawError(
-                __('Query error') . ':<br />'.$GLOBALS['dbi']->getError()
+                __('Query error') . ':<br />' . $GLOBALS['dbi']->getError()
             )
         );
         $regenerate = true;

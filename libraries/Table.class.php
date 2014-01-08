@@ -1446,7 +1446,7 @@ class PMA_Table
      */
     protected function getUiPrefsFromDb()
     {
-        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) ."."
+        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
             . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
 
         // Read from phpMyAdmin database

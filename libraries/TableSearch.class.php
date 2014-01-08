@@ -269,7 +269,7 @@ class PMA_TableSearch
         $html_output = '';
         if (is_array($foreignData['disp_row'])) {
             $html_output .=  '<select name="criteriaValues[' . $column_index . ']"'
-                . ' id="' . $column_id . $column_index .'">';
+                . ' id="' . $column_id . $column_index . '">';
             $html_output .= PMA_foreignDropdown(
                 $foreignData['disp_row'], $foreignData['foreign_field'],
                 $foreignData['foreign_display'], '', $foreignMaxLimit
@@ -280,7 +280,7 @@ class PMA_TableSearch
             $html_output .= '<input type="text" id="' . $column_id
                 . $column_index . '"'
                 . ' name="criteriaValues[' . $column_index . ']" id="field_'
-                . md5($column_name) . '[' . $column_index .']" class="textfield"'
+                . md5($column_name) . '[' . $column_index . ']" class="textfield"'
                 . (isset($criteriaValues[$column_index])
                     && is_string($criteriaValues[$column_index])
                     ? (' value="' . $criteriaValues[$column_index] . '"')
@@ -334,7 +334,7 @@ EOT;
             || (strncasecmp($column_type, 'set', 3) && $in_zoom_search_edit)
         ) {
             $html_output .= '<select name="criteriaValues[' . ($column_index)
-                . ']" id="' . $column_id . $column_index .'">';
+                . ']" id="' . $column_id . $column_index . '">';
         } else {
             $html_output .= '<select name="criteriaValues[' . $column_index . ']"'
                 . ' id="' . $column_id . $column_index . '" multiple="multiple"'
@@ -418,7 +418,7 @@ EOT;
             }
 
             $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
-                .' size="40" class="' . $the_class . '" id="'
+                . ' size="40" class="' . $the_class . '" id="'
                 . $column_id . $column_index . '"'
                 . (isset($criteriaValues[$column_index])
                     && is_string($criteriaValues[$column_index])

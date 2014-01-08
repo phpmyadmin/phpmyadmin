@@ -167,7 +167,7 @@ function PMA_buildIndexStatements($indexed_fields, $index_type,
         $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$field_nr]);
     }
     $statement[] = PMA_getStatementPrefix($is_create_tbl)
-    .' '.$index_type.' (' . implode(', ', $fields) . ') ';
+        . ' ' . $index_type . ' (' . implode(', ', $fields) . ') ';
     unset($fields);
 
     return $statement;

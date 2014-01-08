@@ -588,7 +588,7 @@ function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset, $type_upper)
 {
     $select_id = 'field_' . $columnNumber . '_' . ($ci - $ci_offset);
     $html = '<select class="column_type" name="field_type[' .
-        $columnNumber . ']"' .' id="' . $select_id . '">';
+        $columnNumber . ']"' . ' id="' . $select_id . '">';
     $html .= PMA_Util::getSupportedDatatypes(true, $type_upper);
     $html .= '    </select>';
 
@@ -749,7 +749,7 @@ function PMA_getHtmlForMoveColumn($columnNumber, $ci, $ci_offset, $move_columns,
             . (($current_index == $mi || $current_index == $mi + 1)
                 ? ' disabled="disabled"'
                 : '')
-            .'>'
+            . '>'
             . sprintf(
                 __('after %s'),
                 PMA_Util::backquote(

@@ -273,34 +273,34 @@ function PMA_getErrorReportForm()
 {
     $html = "";
     $html .= '<form action="error_report.php" method="post" name="report_frm"'
-            .' id="report_frm" class="ajax">'
-            .'<fieldset style="padding-top:0px">';
+            . ' id="report_frm" class="ajax">'
+            . '<fieldset style="padding-top:0px">';
 
     $html .= '<p>' . __(
         'phpMyAdmin has encountered an error. We have collected data about'
-        .' this error as well as information about relevant configuration'
-        .' settings to send to the phpMyAdmin team to help us in'
-        .' debugging the problem.'
-    ) .'</p>';
+        . ' this error as well as information about relevant configuration'
+        . ' settings to send to the phpMyAdmin team to help us in'
+        . ' debugging the problem.'
+    ) . '</p>';
 
     $html .= '<div class="label"><label><p>'
             . __('You may examine the data in the error report:')
-            .'</p></label></div>'
-            .'<pre class="report-data">'
-            .PMA_getReportData()
-            .'</pre>';
+            . '</p></label></div>'
+            . '<pre class="report-data">'
+            . PMA_getReportData()
+            . '</pre>';
 
     $html .= '<div class="label"><label><p>'
             . __('Please explain the steps that lead to the error:')
-            .'</p></label></div>'
-            .'<textarea class="report-description" name="description"'
-            .'id="report_description"></textarea>';
+            . '</p></label></div>'
+            . '<textarea class="report-description" name="description"'
+            . 'id="report_description"></textarea>';
 
     $html .= '<input type="checkbox" name="always_send"'
-            .' id="always_send_checkbox"/>'
-            .'<label for="always_send_checkbox">'
+            . ' id="always_send_checkbox"/>'
+            . '<label for="always_send_checkbox">'
             . __('Automatically send report next time')
-            .'</label>';
+            . '</label>';
 
     $html .= '</fieldset>';
 

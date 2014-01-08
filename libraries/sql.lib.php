@@ -367,7 +367,7 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
             . '</span>'
             . '<a href="browse_foreigners.php'
             . PMA_URL_getCommon($_url_params) . '"'
-            . ' target="_blank" class="browse_foreign" ' .'>'
+            . ' target="_blank" class="browse_foreign" ' . '>'
             . __('Browse foreign values')
             . '</a>';
     } else {
@@ -1684,7 +1684,7 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
         $createViewHTML = $displayResultsObject->getCreateViewQueryResultOp(
             $analyzed_sql
         );
-        $response->addHTML($createViewHTML.'<br />');
+        $response->addHTML($createViewHTML . '<br />');
     }
 
     $response->addJSON(isset($extra_data) ? $extra_data : array());

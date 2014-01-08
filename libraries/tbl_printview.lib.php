@@ -27,7 +27,7 @@ function PMA_getHtmlForTablesInfo($the_tables)
             $tbl_list .= (empty($tbl_list) ? '' : ', ')
                       . PMA_Util::backquote($table);
         }
-        $html .= '<strong>'.  __('Showing tables:') . ' '
+        $html .= '<strong>' .  __('Showing tables:') . ' '
             . htmlspecialchars($tbl_list) . '</strong>' . "\n";
         $html .= '<hr />' . "\n";
     } // end if
@@ -107,7 +107,7 @@ function PMA_getHtmlForPrintViewColumns(
             $html .= '    ' . $field_name . "\n";
         }
         $html .= '</td>';
-        $html .= '<td>' . $type. '<bdo dir="ltr"></bdo></td>';
+        $html .= '<td>' . $type . '<bdo dir="ltr"></bdo></td>';
         $html .= '<td>';
         $html .= (($row['Null'] == '' || $row['Null'] == 'NO')
             ? __('No')
@@ -224,7 +224,7 @@ function PMA_getHtmlForRowStatistics(
     if (isset($showtable['Auto_increment'])) {
         $html .= "\n";
         $html .= '<tr>';
-        $html .= '<td>' . __('Next autoindex'). ' </td>';
+        $html .= '<td>' . __('Next autoindex') . ' </td>';
         $html .= '<td class="right">';
         $html .= PMA_Util::formatNumber(
             $showtable['Auto_increment'], 0
@@ -309,7 +309,7 @@ function PMA_getHtmlForSpaceUsage(
         $html .= '<tr>';
         $html .= '<td style="padding-right: 10px">' . __('Index') . '</td>';
         $html .= '<td class="right">' . $index_size . '</td>';
-        $html .= '<td>' . $index_unit. '</td>';
+        $html .= '<td>' . $index_unit . '</td>';
         $html .= '</tr>';
     }
     if (isset($free_size)) {

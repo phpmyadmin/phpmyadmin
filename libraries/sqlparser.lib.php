@@ -407,7 +407,7 @@ function PMA_SQP_parse($sql)
                         }
                     } else {
                         $debugstr = __('Unclosed quote')
-                            . ' @ ' . $startquotepos. "\n"
+                            . ' @ ' . $startquotepos . "\n"
                             . 'STR: ' . htmlspecialchars($quotetype);
                         PMA_SQP_throwError($debugstr, $sql);
                         return $sql_array;

@@ -200,7 +200,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
                     $a_num_rows = (int)@$GLOBALS['dbi']->numRows($result);
                     $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
                     if ($a_num_rows > 0) {
-                        $msg .= __('Rows'). ': ' . $a_num_rows;
+                        $msg .= __('Rows') . ': ' . $a_num_rows;
                         $last_query_with_results = $import_run_buffer['sql'];
                     } elseif ($a_aff_rows > 0) {
                         $message = PMA_Message::getMessageForAffectedRows(
@@ -711,7 +711,7 @@ function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
             if ($size[M] >= $last_cumulative_size) {
                 return $size[FULL];
             } else {
-                return ($last_cumulative_size.",".$size[D]);
+                return ($last_cumulative_size . "," . $size[D]);
             }
         } elseif (! isset($last_cumulative_type) || $last_cumulative_type == NONE) {
             /**
