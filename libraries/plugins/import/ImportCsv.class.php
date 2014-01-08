@@ -259,7 +259,7 @@ class ImportCsv extends AbstractImportCsv
                 // Append new data to buffer
                 $buffer .= $data;
                 unset($data);
-                
+
                 // Force a trailing new line at EOF to prevent parsing problems
                 if ($finished && $buffer) {
                     $finalch = substr($buffer, -1);
@@ -268,13 +268,13 @@ class ImportCsv extends AbstractImportCsv
                         && $finalch != "\n"
                     ) {
                         $buffer .= "\n";
-                    } elseif ($csv_new_line != 'auto' 
+                    } elseif ($csv_new_line != 'auto'
                         && $finalch != $csv_new_line
                     ) {
                         $buffer .= $csv_new_line;
                     }
                 }
-                
+
                 // Do not parse string when we're not at the end
                 // and don't have new line inside
                 if (($csv_new_line == 'auto'
@@ -518,13 +518,13 @@ class ImportCsv extends AbstractImportCsv
             ) {
                 // Fill out column names
                 for ($i = 0; $i < $max_cols; ++$i) {
-                    $col_names[] = 'COL '.($i+1);
+                    $col_names[] = 'COL ' . ($i+1);
                 }
             }
 
             if (strlen($db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
-                $tbl_name = 'TABLE '.(count($result) + 1);
+                $tbl_name = 'TABLE ' . (count($result) + 1);
             } else {
                 $tbl_name = 'TBL_NAME';
             }

@@ -61,7 +61,7 @@ function PMA_Bookmark_getList($db)
         return array();
     }
 
-    $query  = 'SELECT label, id FROM '. PMA_Util::backquote($cfgBookmark['db'])
+    $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
         . '.' . PMA_Util::backquote($cfgBookmark['table'])
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'' . PMA_Util::sqlAddSlashes($cfgBookmark['user']) . '\''
@@ -70,7 +70,7 @@ function PMA_Bookmark_getList($db)
         $query, 'id', 'label', $controllink, PMA_DatabaseInterface::QUERY_STORE
     );
 
-    $query  = 'SELECT label, id FROM '. PMA_Util::backquote($cfgBookmark['db'])
+    $query  = 'SELECT label, id FROM ' . PMA_Util::backquote($cfgBookmark['db'])
         . '.' . PMA_Util::backquote($cfgBookmark['table'])
         . ' WHERE dbase = \'' . PMA_Util::sqlAddSlashes($db) . '\''
         . ' AND user = \'\''

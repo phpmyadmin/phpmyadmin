@@ -693,7 +693,7 @@ class ExportSql extends ExportPlugin
                 . '/*!40101 SET @OLD_CHARACTER_SET_RESULTS='
                 . '@@CHARACTER_SET_RESULTS */;' . $crlf
                 . '/*!40101 SET @OLD_COLLATION_CONNECTION='
-                . '@@COLLATION_CONNECTION */;'. $crlf
+                . '@@COLLATION_CONNECTION */;' . $crlf
                 . '/*!40101 SET NAMES ' . $set_names . ' */;' . $crlf . $crlf;
         }
 
@@ -1358,7 +1358,7 @@ class ExportSql extends ExportPlugin
             $schema_create .= $this->_possibleCRLF()
             . $this->_exportComment()
             . $this->_exportComment(
-                __('MIME TYPES FOR TABLE'). ' '
+                __('MIME TYPES FOR TABLE') . ' '
                 . PMA_Util::backquote($table, $sql_backquotes) . ':'
             );
             @reset($mime_map);
@@ -1464,7 +1464,7 @@ class ExportSql extends ExportPlugin
         switch($export_mode) {
         case 'create_table':
             $dump .= $this->_exportComment(
-                __('Table structure for table') . ' '. $formatted_table_name
+                __('Table structure for table') . ' ' . $formatted_table_name
             );
             $dump .= $this->_exportComment();
             $dump .= $this->getTableDef($db, $table, $crlf, $error_url, $dates);
@@ -1697,7 +1697,7 @@ class ExportSql extends ExportPlugin
                     || $GLOBALS['sql_insert_syntax'] == 'both'
                 ) {
                     $fields        = implode(', ', $field_set);
-                    $schema_insert = $sql_command . $insert_delayed .' INTO '
+                    $schema_insert = $sql_command . $insert_delayed . ' INTO '
                         . PMA_Util::backquoteCompat(
                             $table,
                             $compat,
@@ -1706,7 +1706,7 @@ class ExportSql extends ExportPlugin
                         // avoid EOL blank
                         . ' (' . $fields . ') VALUES';
                 } else {
-                    $schema_insert = $sql_command . $insert_delayed .' INTO '
+                    $schema_insert = $sql_command . $insert_delayed . ' INTO '
                         . PMA_Util::backquoteCompat(
                             $table,
                             $compat,
@@ -1757,7 +1757,7 @@ class ExportSql extends ExportPlugin
                             $table,
                             $compat
                         )
-                        . ' ON ;'.$crlf
+                        . ' ON ;' . $crlf
                     )) {
                         return false;
                     }

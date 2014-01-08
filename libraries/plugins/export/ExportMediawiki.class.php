@@ -227,7 +227,7 @@ class ExportMediawiki extends ExportPlugin
                 $output .= "! style=\"background:#ffffff\" | "
                     . $this->_exportCRLF();
                 for ($i = 0; $i < $row_cnt; ++$i) {
-                    $output .= " | " . $columns[$i]['Field']. $this->_exportCRLF();
+                    $output .= " | " . $columns[$i]['Field'] . $this->_exportCRLF();
                 }
             }
 
@@ -283,7 +283,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         // Print data comment
         $output = $this->_exportComment(
-            "Table data for ". PMA_Util::backquote($table)
+            "Table data for " . PMA_Util::backquote($table)
         );
 
         // Begin the table construction

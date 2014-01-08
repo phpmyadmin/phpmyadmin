@@ -291,7 +291,7 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
         __('SQL compatibility mode'), 'mysql', '50027', '14515'
     );
     global $cfg;
-    $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" onclick="check_time_out('.$cfg['ExecTimeLimit'].')"/>';
+    $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" onclick="check_time_out(' . $cfg['ExecTimeLimit'] . ')"/>';
     $html .= '</div>';
 
     return $html;
@@ -465,7 +465,7 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     $msg->addParam($trans);
     $doc_url = PMA_Util::getDocuLink('faq', 'faq6-27');
     $msg->addParam(
-        '<a href="'. $doc_url . '" target="documentation">',
+        '<a href="' . $doc_url . '" target="documentation">',
         false
     );
     $msg->addParam('</a>', false);

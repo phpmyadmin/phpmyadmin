@@ -28,7 +28,7 @@ if ($is_create_db_priv) {
     $html .= '<input type="hidden" name="reload" value="1" />';
     $html .= '<input type="text" name="new_db" value="' . $db_to_create
         . '" maxlength="64" class="textfield" id="text_create_db" '
-        . 'required placeholder="'.__('Database name').'"/>';
+        . 'required placeholder="' . __('Database name') . '"/>';
 
     include_once './libraries/mysql_charsets.inc.php';
     $html .= PMA_generateCharsetDropdownBox(
@@ -44,7 +44,7 @@ if ($is_create_db_priv) {
         $html .= '<input type="hidden" name="dbstats" value="1" />';
     }
 
-    $html .= '<input type="submit" value="' . __('Create') .'" id="buttonGo" />';
+    $html .= '<input type="submit" value="' . __('Create') . '" id="buttonGo" />';
     $html .= '</form>';
 } else {
     $html .= '<!-- db creation no privileges message -->';
@@ -58,6 +58,6 @@ if ($is_create_db_priv) {
             '',
             array('hspace' => 2, 'border' => 0, 'align' => 'middle')
         )
-        . '' . __('No Privileges') .'</span>';
+        . '' . __('No Privileges') . '</span>';
 } // end create db form or message
 ?>
