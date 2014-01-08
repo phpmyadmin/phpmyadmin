@@ -824,7 +824,7 @@ function PMA_getHtmlForTableSpecificPrivileges(
         . '<input type="hidden" name="column_count" '
         . 'value="' . count($columns) . '" />' . "\n"
         . '<fieldset id="fieldset_user_priv">' . "\n"
-        . '<legend>' . __('Table-specific privileges')
+        . '<legend data-submenu-label="Table">' . __('Table-specific privileges')
         . PMA_Util::showHint(
             __('Note: MySQL privilege names are expressed in English')
         )
