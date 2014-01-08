@@ -223,7 +223,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         } else {
             $ret .= 'false';
         }
-        $ret .= '" />'. "\n";
+        $ret .= '" />' . "\n";
     }
 
     return $ret;

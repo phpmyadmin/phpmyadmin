@@ -205,11 +205,11 @@ class PMA_ExportPdf extends PMA_PDF
                     $l += $this->tablewidths[$col];
                 }
 
-                if (! isset($tmpheight[$row.'-'.$this->page])) {
-                    $tmpheight[$row.'-'.$this->page] = 0;
+                if (! isset($tmpheight[$row . '-' . $this->page])) {
+                    $tmpheight[$row . '-' . $this->page] = 0;
                 }
-                if ($tmpheight[$row.'-'.$this->page] < $this->GetY()) {
-                    $tmpheight[$row.'-'.$this->page] = $this->GetY();
+                if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
+                    $tmpheight[$row . '-' . $this->page] = $this->GetY();
                 }
                 if ($this->page > $maxpage) {
                     $maxpage = $this->page;
@@ -218,7 +218,7 @@ class PMA_ExportPdf extends PMA_PDF
             }
 
             // get the height we were in the last used page
-            $h = $tmpheight[$row.'-'.$maxpage];
+            $h = $tmpheight[$row . '-' . $maxpage];
             // set the "pointer" to the left margin
             $l = $this->lMargin;
             // set the $currpage to the last page

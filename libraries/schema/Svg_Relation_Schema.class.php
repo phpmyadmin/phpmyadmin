@@ -506,7 +506,7 @@ class Table_Stats_Svg
             }
             $svg->printElement(
                 'rect', $this->x, $this->y + $this->currentCell, $this->width,
-                $this->heightCell, null, 'fill:'.$showColor.';stroke:black;'
+                $this->heightCell, null, 'fill:' . $showColor . ';stroke:black;'
             );
             $svg->printElement(
                 'text', $this->x + 5, $this->y + 14 + $this->currentCell,
@@ -804,7 +804,7 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
     function showOutput()
     {
         global $svg,$db;
-        $svg->showOutput($db.'-'.$this->pageNumber);
+        $svg->showOutput($db . '-' . $this->pageNumber);
     }
 
 

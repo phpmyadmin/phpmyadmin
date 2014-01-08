@@ -65,7 +65,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
             } else {
                 $selected = '';
             }
-            $retval .= '<option' . $selected . ' value="' . $section_id. '">';
+            $retval .= '<option' . $selected . ' value="' . $section_id . '">';
             $retval .= htmlspecialchars($section_name) . '</option>';
         }
     }

@@ -143,10 +143,10 @@ function PMA_getScriptContr()
         if ($row !== false) {
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
-                $con['DTN'][$i]    = urlencode($GLOBALS['db'].".".$val[0]);
+                $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
                 $con['DCN'][$i]    = urlencode($field);
                 $con['STN'][$i]    = urlencode(
-                    $value['foreign_db'].".".$value['foreign_table']
+                    $value['foreign_db'] . "." . $value['foreign_table']
                 );
                 $con['SCN'][$i]    = urlencode($value['foreign_field']);
                 $i++;
@@ -207,7 +207,7 @@ function PMA_getAllKeys($unique_only = false)
             }
             $columns = $index->getColumns();
             foreach ($columns as $column_name => $dummy) {
-                $keys[$schema . '.' .$table . '.' . $column_name] = 1;
+                $keys[$schema . '.' . $table . '.' . $column_name] = 1;
             }
         }
     }
@@ -283,6 +283,9 @@ function PMA_returnUpd($b, $ret)
 
     header("Content-Type: text/xml; charset=utf-8");
     header("Cache-Control: no-cache");
-    die('<root act="relation_upd" return="'.$ret.'" b="'.$b.'" K="'.$K.'"></root>');
+    die(
+        '<root act="relation_upd" return="' . $ret . '" b="'
+        . $b . '" K="' . $K . '"></root>'
+    );
 }
 ?>

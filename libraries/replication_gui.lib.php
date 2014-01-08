@@ -108,7 +108,7 @@ function PMA_getHtmlForMasterConfiguration()
     $html .= __(
         'Now, add the following lines at the end of [mysqld] section'
         . ' in your my.cnf and please restart the MySQL server afterwards.'
-    ). '<br />';
+    ) . '<br />';
     $html .= '<pre id="rep"></pre>';
     $html .= __(
         'Once you restarted MySQL server, please click on Go button. '
@@ -217,12 +217,12 @@ function PMA_getHtmlForSlaveConfiguration(
         $html .= __('Control slave:') . '</a>';
         $html .= ' <div id="slave_control_gui" style="display: none">';
         $html .= '  <ul>';
-        $html .= '   <li><a href="'. $slave_control_full_link . '">';
+        $html .= '   <li><a href="' . $slave_control_full_link . '">';
         $html .= (($server_slave_replication[0]['Slave_IO_Running'] == 'No' ||
                    $server_slave_replication[0]['Slave_SQL_Running'] == 'No')
                  ? __('Full start')
                  : __('Full stop')) . ' </a></li>';
-        $html .= '   <li><a href="'. $slave_control_reset_link . '">';
+        $html .= '   <li><a href="' . $slave_control_reset_link . '">';
         $html .= __('Reset slave') . '</a></li>';
         if ($server_slave_replication[0]['Slave_SQL_Running'] == 'No') {
             $html .= '   <li><a href="' . $slave_control_sql_link . '">';
@@ -451,7 +451,7 @@ function PMA_getHtmlForAddUserInputDiv($label_array, $input_array)
 
     $html .= '    <input ';
     foreach ($input_array as $key=>$value) {
-        $html .= ' ' . $key . '="' . $value. '" ';
+        $html .= ' ' . $key . '="' . $value . '" ';
     }
     $html .= ' />';
     $html .= '  </div>';
@@ -1049,7 +1049,7 @@ function PMA_handleRequestForSlaveSkipError()
 
     $qStop = PMA_Replication_Slave_control("STOP");
     $qSkip = $GLOBALS['dbi']->tryQuery(
-        "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ".$count.";"
+        "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = " . $count . ";"
     );
     $qStart = PMA_Replication_Slave_control("START");
 

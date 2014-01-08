@@ -56,7 +56,7 @@ function PMA_getFileSelectOptions($dir, $extensions = '', $active = '')
     }
     $result = '';
     foreach ($list as $val) {
-        $result .= '<option value="'. htmlspecialchars($val) . '"';
+        $result .= '<option value="' . htmlspecialchars($val) . '"';
         if ($val == $active) {
             $result .= ' selected="selected"';
         }

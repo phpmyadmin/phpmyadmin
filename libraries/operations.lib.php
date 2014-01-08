@@ -61,7 +61,7 @@ function PMA_getHtmlForRenameDatabase($db)
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
             . 'value="' . $_REQUEST['db_collation']
-            .'" />' . "\n";
+            . '" />' . "\n";
     }
     $html_output .= '<input type="hidden" name="what" value="data" />'
         . '<input type="hidden" name="db_rename" value="true" />'
@@ -162,7 +162,7 @@ function PMA_getHtmlForCopyDatabase($db)
 
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
-        . 'value="' . $_REQUEST['db_collation'] .'" />' . "\n";
+        . 'value="' . $_REQUEST['db_collation'] . '" />' . "\n";
     }
     $html_output .= '<input type="hidden" name="db_copy" value="true" />' . "\n"
         . PMA_URL_getHiddenInputs($db);
@@ -927,8 +927,8 @@ function PMA_getHtmlForTableRow($attribute, $label, $val)
 {
     return '<tr>'
         . '<td><label for="' . $attribute . '">' . $label . '</label></td>'
-        . '<td><input type="checkbox" name="'. $attribute .'"'
-        . ' id="' . $attribute .'"'
+        . '<td><input type="checkbox" name="' . $attribute . '"'
+        . ' id="' . $attribute . '"'
         . ' value="1"'
         . ((!empty($val) && $val == 1) ? ' checked="checked"' : '') . '/></td>'
         . '</tr>';
@@ -1009,7 +1009,7 @@ function PMA_getHtmlForCopytable()
     if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
             . 'size="30" name="target_db" '
-            . 'value="'. htmlspecialchars($GLOBALS['db']) . '"/>';
+            . 'value="' . htmlspecialchars($GLOBALS['db']) . '"/>';
     } else {
         $html_output .= '<select class="halfWidth" name="target_db">'
             . $GLOBALS['pma']->databases->getHtmlOptions(true, false)
@@ -1018,7 +1018,7 @@ function PMA_getHtmlForCopytable()
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
     $html_output .= '<input class="halfWidth" type="text" required '
         . 'size="20" name="new_name" onfocus="this.select()" '
-        . 'value="'. htmlspecialchars($GLOBALS['table']) . '"/><br />';
+        . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
     $choices = array(
             'structure' => __('Structure only'),
@@ -1044,7 +1044,7 @@ function PMA_getHtmlForCopytable()
         $html_output .= '<input type="checkbox" name="add_constraints" '
             . 'value="1" id="checkbox_constraints" />';
         $html_output .= '<label for="checkbox_constraints">'
-            .__('Add constraints') . '</label><br />';
+            . __('Add constraints') . '</label><br />';
     } // endif
 
     if (isset($_COOKIE['pma_switch_to_new'])
@@ -1063,7 +1063,7 @@ function PMA_getHtmlForCopytable()
         . '</fieldset>';
 
     $html_output .= '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submit_copy" value="' .__('Go') . '" />'
+        . '<input type="submit" name="submit_copy" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
         . '</div>';
@@ -1222,7 +1222,7 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link)
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
-        . PMA_URL_getCommon(array_merge($url_params, $params)) .'">'
+        . PMA_URL_getCommon(array_merge($url_params, $params)) . '">'
         . $action
         . '</a>'
         . PMA_Util::showMySQLDocu($link)

@@ -107,7 +107,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (! file_exists($script_name)) {
                 PMA_fatalError(
                     __('Can not find signon authentication script:')
-                    . ' '. $script_name
+                    . ' ' . $script_name
                 );
             }
             include $script_name;
