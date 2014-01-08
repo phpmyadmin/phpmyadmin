@@ -307,7 +307,7 @@ class PMA_SysInfoSunos extends PMA_SysInfo
      */
     private function _kstat($key)
     {
-        if ($m = shell_exec('kstat -p d '.$key)) {
+        if ($m = shell_exec('kstat -p d ' . $key)) {
             list($key, $value) = preg_split("/\t/", trim($m), 2);
             return $value;
         } else {

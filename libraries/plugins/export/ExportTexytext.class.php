@@ -495,7 +495,7 @@ class ExportTexytext extends ExportPlugin
 
         switch($export_mode) {
         case 'create_table':
-            $dump .= '== ' . __('Table structure for table') . ' ' .$table . "\n\n";
+            $dump .= '== ' . __('Table structure for table') . ' ' . $table . "\n\n";
             $dump .= $this->getTableDef(
                 $db, $table, $crlf, $error_url, $do_relation, $do_comments,
                 $do_mime, $dates
@@ -505,12 +505,12 @@ class ExportTexytext extends ExportPlugin
             $dump = '';
             $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
             if ($triggers) {
-                $dump .= '== ' . __('Triggers') . ' ' .$table . "\n\n";
+                $dump .= '== ' . __('Triggers') . ' ' . $table . "\n\n";
                 $dump .= $this->getTriggers($db, $table);
             }
             break;
         case 'create_view':
-            $dump .= '== ' . __('Structure for view') . ' ' .$table . "\n\n";
+            $dump .= '== ' . __('Structure for view') . ' ' . $table . "\n\n";
             $dump .= $this->getTableDef(
                 $db, $table, $crlf, $error_url, $do_relation, $do_comments,
                 $do_mime, $dates, true, true
@@ -518,7 +518,7 @@ class ExportTexytext extends ExportPlugin
             break;
         case 'stand_in':
             $dump .=  '== ' . __('Stand-in structure for view')
-                . ' ' .$table . "\n\n";
+                . ' ' . $table . "\n\n";
             // export a stand-in definition to resolve view dependencies
             $dump .= $this->getTableDefStandIn($db, $table, $crlf);
         } // end switch

@@ -211,7 +211,7 @@ function PMA_getHtmlForCommonFormRows($columns, $cfgRelation, $tbl_storage_engin
     $saved_row_cnt  = count($save_row);
 
     $html_output = '<fieldset>'
-        . '<legend>' . __('Relations'). '</legend>'
+        . '<legend>' . __('Relations') . '</legend>'
         . '<table id="relationalTable">';
 
     $html_output .= PMA_getHtmlForCommonFormTableHeaders(
@@ -394,7 +394,7 @@ function PMA_getHtmlForDisplayFieldInfos($db, $table, $save_row)
             $html_output .= ' selected="selected"';
         }
         $html_output .= '>' . htmlspecialchars($row['Field'])
-            . '</option>'. "\n";
+            . '</option>' . "\n";
     } // end while
 
     $html_output .= '</select>'

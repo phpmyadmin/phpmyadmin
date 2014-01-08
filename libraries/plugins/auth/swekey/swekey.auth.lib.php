@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Swekey 
+ * Swekey
  *
  * @package Swekey
  */
@@ -42,7 +42,7 @@ function Swekey_Auth_check()
                 }
             } elseif (preg_match("/^[A-Z_]+=.*$/", $line) != false) {
                 $items = explode("=", $line);
-                $_SESSION['SWEKEY']['CONF_'.trim($items[0])] = trim($items[1]);
+                $_SESSION['SWEKEY']['CONF_' . trim($items[0])] = trim($items[1]);
             }
         }
 
@@ -99,7 +99,7 @@ function Swekey_Auth_error()
     {
         var valids = "<?php
     foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
-                echo $key.',';
+                echo $key . ',';
     }
         ?>";
         var connected_keys = Swekey_ListKeyIds().split(",");
@@ -161,7 +161,7 @@ function Swekey_Auth_error()
         if ($pos === false) {
             $pos = strrpos($caFile, '\\'); // windows
         }
-        $caFile = substr($caFile, 0, $pos + 1).'musbe-ca.crt';
+        $caFile = substr($caFile, 0, $pos + 1) . 'musbe-ca.crt';
         //        echo "\n<!-- $caFile -->\n";
         //        if (file_exists($caFile))
         //            echo "<!-- exists -->\n";
@@ -225,7 +225,7 @@ function Swekey_Auth_error()
                 url = url.substr(0, url.indexOf("?"));
             }
             Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
-            var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);
+            var otp = Swekey_GetOtp(key, <?php echo '"' . $_SESSION['SWEKEY']['RND_TOKEN'] . '"';?>);
             window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
         }
         </script>
@@ -257,7 +257,7 @@ function Swekey_login($input_name, $input_go)
         if (empty($_SESSION['SWEKEY']['FORCE_USER'])) {
             echo 'var user = null;';
         } else {
-            echo 'var user = "'.$_SESSION['SWEKEY']['FORCE_USER'].'";';
+            echo 'var user = "' . $_SESSION['SWEKEY']['FORCE_USER'] . '";';
         }
 
         ?>

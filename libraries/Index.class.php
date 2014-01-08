@@ -404,7 +404,7 @@ class PMA_Index
                  . (($this->_choice == $each_index_choice)
                  ? ' selected="selected"'
                  : '')
-                 . '>'. $each_index_choice . '</option>' . "\n";
+                 . '>' . $each_index_choice . '</option>' . "\n";
         }
 
         return $html_options;

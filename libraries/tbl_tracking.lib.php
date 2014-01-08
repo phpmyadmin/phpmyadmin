@@ -169,8 +169,8 @@ function PMA_getListOfVersionsOfTable()
     $sql_query = " SELECT * FROM " .
          PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
          PMA_Util::backquote($GLOBALS['cfg']['Server']['tracking']) .
-         " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' ".
-         " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) ."' ".
+         " WHERE db_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['db']) . "' " .
+         " AND table_name = '" . PMA_Util::sqlAddSlashes($_REQUEST['table']) . "' " .
          " ORDER BY version DESC ";
 
     return PMA_queryAsControlUser($sql_query);
@@ -370,7 +370,7 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         . ($selection_schema ? ' selected="selected"' : '') . '>'
         . __('Structure only') . '</option>'
         . '<option value="data"'
-        . ($selection_data ? ' selected="selected"' : ''). '>'
+        . ($selection_data ? ' selected="selected"' : '') . '>'
         . __('Data only') . '</option>'
         . '<option value="schema_and_data"'
         . ($selection_both ? ' selected="selected"' : '') . '>'
@@ -448,10 +448,10 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
         . PMA_escapeJsString(
             __('This option will replace your table and contained data.')
         )
-        .'\')">' . __('SQL execution') . '</option>' . '</select>';
+        . '\')">' . __('SQL execution') . '</option>' . '</select>';
 
     $str_export2 = '<input type="hidden" name="report_export" value="1" />'
-                 . '<input type="submit" value="' . __('Go') .'" />';
+                 . '<input type="submit" value="' . __('Go') . '" />';
     $html .= '</form>';
     $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
         . PMA_URL_getCommon(

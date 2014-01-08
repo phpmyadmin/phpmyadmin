@@ -361,7 +361,7 @@ class PMA_DbSearch
                 . __('Delete') . '</a></td>';
         } else {
             $html_output .= '<td>&nbsp;</td>'
-                .'<td>&nbsp;</td>';
+                . '<td>&nbsp;</td>';
         }// end if else
         $html_output .= '</tr>';
         return $html_output;

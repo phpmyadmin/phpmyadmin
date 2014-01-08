@@ -219,7 +219,7 @@ class ExportXml extends ExportPlugin
                 $result = $GLOBALS['dbi']->fetchResult(
                     'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                     . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                    . ' = \''.PMA_Util::sqlAddSlashes($db).'\' LIMIT 1'
+                    . ' = \'' . PMA_Util::sqlAddSlashes($db) . '\' LIMIT 1'
                 );
             }
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
