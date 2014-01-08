@@ -107,7 +107,8 @@ if (! $result) {
             );
         } else {
             $current = array(
-                'SCHEMA_NAME' => $_POST['new_db']
+                'SCHEMA_NAME' => $_POST['new_db'],
+                'DEFAULT_COLLATION_NAME' => $db_collation_for_ajax
             );
         }
 
