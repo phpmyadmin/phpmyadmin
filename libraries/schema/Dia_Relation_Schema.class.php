@@ -357,7 +357,7 @@ class Table_Stats_Dia
             </dia:attribute>
             <dia:attribute name="obj_bb">
                 <dia:rectangle val="'
-            .($this->x * $factor) . ',' . ($this->y * $factor) . ';9.97,9.2"/>
+            . ($this->x * $factor) . ',' . ($this->y * $factor) . ';9.97,9.2"/>
             </dia:attribute>
             <dia:attribute name="meta">
                 <dia:composite type="dict"/>

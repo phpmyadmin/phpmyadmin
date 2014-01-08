@@ -118,7 +118,7 @@ function PMA_getHiddenFields($values, $pre = '')
 
     foreach ($values as $name => $value) {
         if (! empty($pre)) {
-            $name = $pre. '[' . $name . ']';
+            $name = $pre . '[' . $name . ']';
         }
 
         if (is_array($value)) {

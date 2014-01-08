@@ -33,7 +33,7 @@ function PMA_getHtmlForHiddenInputs($import_type, $db, $table)
         $html .= PMA_URL_getHiddenInputs($db, $table, 1);
     }
     $html .= '    <input type="hidden" name="import_type" value="'
-        . $import_type . '" />'."\n";
+        . $import_type . '" />' . "\n";
 
     return $html;
 }
@@ -483,7 +483,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
     $html .= '			complete = response.complete; ';
 
     $html .= '			if (total==0 && complete==0 && percent==0) { ';
-    $img_tag = '<img src="'. $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
+    $img_tag = '<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
     $html .= '				$("#upload_form_status_info").html(\''
         . $img_tag . ' width="16" height="16" alt="ajax clock" /> '
         . $promot_str . '\'); ';
@@ -507,7 +507,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
         . '<div class="upload_progress_bar_outer"><div class="percentage">'
         . '</div><div id="status" class="upload_progress_bar_inner">'
         . '<div class="percentage"></div></div></div><div>'
-        . '<img src="'. $GLOBALS['pmaThemeImage']
+        . '<img src="' . $GLOBALS['pmaThemeImage']
         . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
         . $upload_str . '</div><div id="statustext"></div></div>\') ';
     $html .= '					.show(); ';

@@ -195,7 +195,7 @@ function PMA_EVN_handleEditor()
                     . "AND EVENT_NAME='"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
                 $query   = "SELECT " . $columns
-                    . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where. ";";
+                    . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where . ";";
                 $event   = $GLOBALS['dbi']->fetchSingleRow($query);
                 $response->addJSON(
                     'name',

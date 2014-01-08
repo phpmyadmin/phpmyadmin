@@ -997,7 +997,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "        <input style='width: 49%;' type='button'";
     $retval .= "               name='routine_addparameter'";
     $retval .= "               value='" . __('Add parameter') . "' />";
-    $retval .= "        <input style='width: 49%;".$disableRemoveParam."'";
+    $retval .= "        <input style='width: 49%;" . $disableRemoveParam . "'";
     $retval .= "               type='submit' ";
     $retval .= "               name='routine_removeparameter'";
     $retval .= "               value='" . __('Remove last parameter') . "' />";
@@ -1013,7 +1013,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
     $retval .= "    <td>" . __('Return length/values') . "</td>";
     $retval .= "    <td><input type='text' name='item_returnlength'";
-    $retval .= "               value='".$routine['item_returnlength']."' /></td>";
+    $retval .= "               value='" . $routine['item_returnlength'] . "' /></td>";
     $retval .= "    <td class='hide no_len'>---</td>";
     $retval .= "</tr>";
     $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
@@ -1055,7 +1055,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr>";
     $retval .= "    <td>" . __('Definer') . "</td>";
     $retval .= "    <td><input type='text' name='item_definer'";
-    $retval .= "               value='".$routine['item_definer']."' /></td>";
+    $retval .= "               value='" . $routine['item_definer'] . "' /></td>";
     $retval .= "</tr>";
     $retval .= "<tr>";
     $retval .= "    <td>" . __('Security type') . "</td>";
@@ -1081,17 +1081,17 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr>";
     $retval .= "    <td>" . __('Comment') . "</td>";
     $retval .= "    <td><input type='text' name='item_comment' maxlength='64'";
-    $retval .= "    value='" . $routine['item_comment']."' /></td>";
+    $retval .= "    value='" . $routine['item_comment'] . "' /></td>";
     $retval .= "</tr>";
     $retval .= "</table>";
     $retval .= "</fieldset>";
     if ($GLOBALS['is_ajax_request']) {
-        $retval .= "<input type='hidden' name='editor_process_".$mode."'";
+        $retval .= "<input type='hidden' name='editor_process_" . $mode . "'";
         $retval .= "       value='true' />";
         $retval .= "<input type='hidden' name='ajax_request' value='true' />";
     } else {
         $retval .= "<fieldset class='tblFooters'>";
-        $retval .= "    <input type='submit' name='editor_process_".$mode."'";
+        $retval .= "    <input type='submit' name='editor_process_" . $mode . "'";
         $retval .= "           value='" . __('Go') . "' />";
         $retval .= "</fieldset>";
     }

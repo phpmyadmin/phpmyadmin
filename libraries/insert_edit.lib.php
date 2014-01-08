@@ -777,7 +777,7 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
     $html_output .= '<select name="fields' . $column_name_appendix . '"'
         . ' ' . $unnullify_trigger
         . ' class="textfield"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
         . ' id="field_' . $idindex . '_3">';
     $html_output .= PMA_foreignDropdown(
         $foreignData['disp_row'], $foreignData['foreign_field'],
@@ -871,7 +871,7 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
     }
     $column_enum_values = $column['values'];
     $html_output .= '<input type="hidden" name="fields_type'
-        . $column_name_appendix. '" value="enum" />';
+        . $column_name_appendix . '" value="enum" />';
     $html_output .= '<input type="hidden" name="fields'
         . $column_name_appendix . '" value="" />';
     $html_output .= "\n" . '            ' . $backup_field . "\n";
@@ -1105,7 +1105,7 @@ function PMA_getBinaryAndBlobColumn(
             $data_size = PMA_Util::formatByteDown(
                 strlen(stripslashes($data)), 3, 1
             );
-            $html_output .= ' ('. $data_size[0] . ' ' . $data_size[1] . ')';
+            $html_output .= ' (' . $data_size[0] . ' ' . $data_size[1] . ')';
             unset($data_size);
         }
         $html_output .= '<input type="hidden" name="fields_type'
@@ -1191,12 +1191,12 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
             . 'max="' . $min_max_values[1] . '" ';
     }
     return '<input type="' . $input_type . '"'
-        . ' name="fields'. $column_name_appendix . '"'
+        . ' name="fields' . $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
         . ($input_min_max !== false ? ' ' . $input_min_max : '')
         . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
-        . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
         . ' id="field_' . ($idindex) . '_3" />';
 }
 
@@ -1422,7 +1422,7 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
 
             $html_output .= '<input type="hidden"'
                 . ' name="where_clause[' . $key_id . ']"'
-                . ' value="' . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
+                . ' value="' . htmlspecialchars(trim($where_clause)) . '" />' . "\n";
         }
     }
     $tmp = '<select name="insert_rows" id="insert_rows">' . "\n";
@@ -1612,7 +1612,7 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
         $html_output .= PMA_showFunctionFieldsInEditMode($url_params, true);
     }
 
-    $html_output .= '<th>'. __('Null') . '</th>'
+    $html_output .= '<th>' . __('Null') . '</th>'
         . '<th>' . __('Value') . '</th>'
         . '</tr>'
         . '</thead>'
@@ -2414,7 +2414,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
 
     $extra_data['isNeedToRecheck'] = true;
 
-    $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
+    $sql_for_real_value = 'SELECT ' . PMA_Util::backquote($table) . '.'
         . PMA_Util::backquote($column_name)
         . ' FROM ' . PMA_Util::backquote($db) . '.'
         . PMA_Util::backquote($table)
@@ -2593,7 +2593,7 @@ function PMA_getHtmlForIgnoreOption($row_id)
     return '<input type="checkbox" checked="checked"'
             . ' name="insert_ignore_' . $row_id . '"'
             . ' id="insert_ignore_' . $row_id . '" />'
-            .'<label for="insert_ignore_' . $row_id . '">'
+            . '<label for="insert_ignore_' . $row_id . '">'
             . __('Ignore')
             . '</label><br />' . "\n";
 }
@@ -2726,7 +2726,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     $unnullify_trigger = $chg_evt_handler
         . "=\"return verificationsAfterFieldChange('"
         . PMA_escapeJsString($column['Field_md5']) . "', '"
-        . PMA_escapeJsString($jsvkey) . "','".$column['pma_type'] . "')\"";
+        . PMA_escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
 
     // Use an MD5 as an array index to avoid having special characters
     // in the name atttibute (see bug #1746964 )

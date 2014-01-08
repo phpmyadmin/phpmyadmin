@@ -367,7 +367,7 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
                         ? $data_row[$k][$i][$j]['x'] : $empty)
                         . ' ' . ((isset($data_row[$k][$i][$j]['y'])
                         && trim($data_row[$k][$i][$j]['y']) != '')
-                        ? $data_row[$k][$i][$j]['y'] : $empty) .',';
+                        ? $data_row[$k][$i][$j]['y'] : $empty) . ',';
                 }
                 $wkt = substr($wkt, 0, strlen($wkt) - 1);
                 $wkt .= '),';

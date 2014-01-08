@@ -321,7 +321,7 @@ class PMA_GIS_Polygon extends PMA_GIS_Geometry
                     ? $gis_data[$index]['POLYGON'][$i][$j]['x'] : $empty)
                     . ' ' . ((isset($gis_data[$index]['POLYGON'][$i][$j]['y'])
                     && trim($gis_data[$index]['POLYGON'][$i][$j]['y']) != '')
-                    ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) .',';
+                    ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
             $wkt = substr($wkt, 0, strlen($wkt) - 1);
             $wkt .= '),';

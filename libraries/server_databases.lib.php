@@ -180,7 +180,7 @@ function PMA_getHtmlForTableFooter(
     $html .= PMA_getHtmlForColumnOrder($column_order, $first_database);
 
     foreach ($replication_types as $type) {
-        if ($GLOBALS["server_" . $type. "_status"]) {
+        if ($GLOBALS["server_" . $type . "_status"]) {
             $html .= '    <th></th>' . "\n";
         }
     }
@@ -393,7 +393,7 @@ function PMA_getHtmlForReplicationType(
         }
 
         if ($GLOBALS["server_{$type}_status"]) {
-            $html .= '    <th>'. $name .'</th>' . "\n";
+            $html .= '    <th>' . $name . '</th>' . "\n";
         }
     }
 
