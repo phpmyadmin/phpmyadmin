@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2013-12-04 14:16+0200\n"
+"PO-Revision-Date: 2014-01-09 14:10+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3317,10 +3317,10 @@ msgid "Invalid table name:"
 msgstr "Nomine de tabella invalide:"
 
 #: libraries/Table.class.php:1321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Error durante que on renominava tabella %1$s a %2$s"
+msgstr "Il falleva renominar tabella ab %1$s a %2$s!"
 
 #: libraries/Table.class.php:1340
 #, php-format
@@ -4530,7 +4530,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Permitte le accesso de authentication a ulle servitor MySQL"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4540,9 +4539,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks."
 msgstr ""
-"So on habilita iste option, un paginna locate sur un differente dominio pro "
+"Si on habilita iste option, un pagina locate sur un differente dominio pro "
 "appellar phpMyAdmin intra un quadro, e il es un potential [strong]error de "
-"securitate[/strong] permittente attaccos de cross-frame scripting"
+"securitate[/strong] permittente attaccos de cross-frame scripting."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4553,7 +4552,6 @@ msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr "Monstra le ligamine &quot;Drop database&quot; a usatores normal"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -4561,8 +4559,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Le passphrase (phrase de cryptation) usate pro cryptar cookies in le "
-"authentication [kbd]cookie[/kbd]"
+"Le passphrase (phrase de cryptation)secrete usate pro cryptar cookies in le "
+"authentication [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4577,17 +4575,15 @@ msgid "Row marker"
 msgstr "Marcator de rango"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Evidentia rangos punctate per le cursor del mus"
+msgstr "Evidentia rangos punctate per le cursor del mus."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "Evidentia le punctator"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4596,14 +4592,13 @@ msgid ""
 "import and export operations."
 msgstr ""
 "Il habilita le compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"per operationes de importation e exportation"
+"per operationes de importation e exportation."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
@@ -4613,17 +4608,16 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Il defini qual typo de quadrato de modifica on usara pro insertar campos "
+"Il defini qual typo de controlos de modificar on usara pro insertar campos "
 "CHAR e VARCHAR; [kbd]input[/kbd] - permitte limitar le longitude del "
 "ingresso, [kbd]textarea[/kbd] - permitte insertar characteres de nove linea "
-"in columnas"
+"in columnas."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "Modifica columnas de CHAR"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4631,15 +4625,15 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Usa editor facile pro usatores pro modificar queries SQL ([a@http://"
-"codemirror.net/]CodeMirror[/a]) con evidentia de syntaxe e numeros de rango"
+"Usa editor facile pro usatores per modificar queries SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) con evidentia de syntaxe e "
+"numeros de rango."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "Habilita CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4648,14 +4642,13 @@ msgid ""
 "columns."
 msgstr ""
 "Il defini le grandor minime del campos de insertar generate pro columnas de "
-"CHAR e de VARCHAR"
+"CHAR e de VARCHAR."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Grandor minime del campo de insertar"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4664,27 +4657,25 @@ msgid ""
 "columns."
 msgstr ""
 "Il defini le grandor maxime del campos generate pro columnas de CHAR e "
-"VARCHAR"
+"VARCHAR."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "Maxime grandor del campo de insertar"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Numero de columnas pro areas de texto de campos CHAR/VARCHAR"
+msgstr "Numero de columnas pro areas de texto de campos CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "Columnas de area de texto CHAR"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Numero de rangos pro areas de texto de CHAR/VARCHAR"
+msgstr "Numero de rangos pro areas de texto de CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
