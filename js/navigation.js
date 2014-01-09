@@ -467,34 +467,77 @@ function PMA_showCurrentNavigation()
 
     function loadAndHighlightTableOrView($dbItem, table) {
         var $container = $dbItem.children('div.list_container');
-        var $tableContainer = $container
-            .children('ul')
-            .children('li.tableContainer');
-        var $viewContainer = $container
-            .children('ul')
-            .children('li.viewContainer');
-
-        if ($tableContainer.length > 0) {
-            highlightTableOrView($tableContainer, table, 'table');
-        } else if ($viewContainer.length > 0) {
-            highlightTableOrView($viewContainer, table, 'view');
+        var $expander;
+        var $whichItem = isItemInContainer($container, table, 'li.table, li.view');
+        //If item already there in some container
+        if ($whichItem) {
+            //get the relevant container while may also be a subcontainer
+            var $relatedContainer = $whichItem.closest('li.subContainer').length
+                ? $whichItem.closest('li.subContainer')
+                : $dbItem;
+            $whichItem = findLoadedItem(
+                $relatedContainer.children('div.list_container'),
+                table, null, true
+            );
+            //Show directly
+            showTableOrView($whichItem, $relatedContainer.children('div:first').children('a.expander'));
+        //else if item not there, try loading once
         } else {
-            // no containers, highlight the item
-            highlightTableOrView($dbItem, table, null);
+            var $sub_containers = $dbItem.find('.subContainer');
+            //If there are subContainers i.e. tableContainer or viewContainer
+            if($sub_containers.length > 0) {
+                var $containers = new Array();
+                $sub_containers.each(function (index) {
+                    $containers[index] = $(this);
+                    $expander = $containers[index]
+                        .children('div:first')
+                        .children('a.expander');
+                    collapseTreeNode($expander);
+                    loadAndShowTableOrView($expander, $containers[index], table);
+                });
+            // else if no subContainers
+            } else {
+                $expander = $dbItem
+                    .children('div:first')
+                    .children('a.expander');
+                collapseTreeNode($expander);
+                loadAndShowTableOrView($expander, $dbItem, table);
+            }
         }
+    }
+
+    function loadAndShowTableOrView($expander, $relatedContainer, table) {
+        loadChildNodes($expander, function (data) {
+            var $whichItem = findLoadedItem(
+                $relatedContainer.children('div.list_container'),
+                table, null, true
+            );
+            if ($whichItem) {
+                showTableOrView($whichItem, $expander);
+            }
+        });
+    }
+
+    function showTableOrView($whichItem, $expander) {
+        expandTreeNode($expander, function (data) {
+            if ($whichItem) {
+                scrollToView($whichItem, false);
+            }
+        });
     }
 
     function isItemInContainer($container, name, clazz)
     {
-        $items = $container.find('li.' + clazz);
+        var $whichItem = null;
+        $items = $container.find(clazz);
         var found = false;
         $items.each(function () {
             if ($(this).children('a').text() == name) {
-                found = true;
+                $whichItem = $(this);
                 return false;
             }
         });
-        return found;
+        return $whichItem;
     }
 
     function highlightTableOrView($container, item, clazz) {
