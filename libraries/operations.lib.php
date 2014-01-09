@@ -1339,8 +1339,8 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
 
     $html_output .= '</fieldset>'
         . '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submit_partition" '
-        . 'value="' . __('Go') . '" />'
+        . '<input type="hidden" name="submit_partition" value="1">'
+        . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
         . '</div>';
