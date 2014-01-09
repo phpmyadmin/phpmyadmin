@@ -213,17 +213,20 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
                     "<meta http-equiv=\"expires\" content=\"0\">\n" .
                     "<meta http-equiv=\"Pragma\" content=\"no-cache\">\n" .
                     "<meta http-equiv=\"Cache-Control\" content=\"no-cache\">\n" .
-                    "<meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\">\n" .
-                    "<script type=\"text/javascript\">\n".
+                    "<meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html
+                    . "\">\n" .
+                    "<script type=\"text/javascript\">\n" .
                     "//<![CDATA[\n" .
-                    "setTimeout(\"window.location = unescape('\"" . $testUri_js . "\"')\", 2000);\n" .
+                    "setTimeout(\"window.location = unescape('\"" . $testUri_js
+                    . "\"')\", 2000);\n" .
                     "//]]>\n" .
                     "</script>\n" .
                     "</head>\n" .
                     "<body>\n" .
                     "<script type=\"text/javascript\">\n" .
                     "//<![CDATA[\n" .
-                    "document.write('<p><a href=\"" . $testUri_html . "\">" . __('Go') . "</a></p>');\n" .
+                    "document.write('<p><a href=\"" . $testUri_html . "\">"
+                    . __('Go') . "</a></p>');\n" .
                     "//]]>\n" .
                     "</script></body></html>\n";
 

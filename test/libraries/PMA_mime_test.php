@@ -58,7 +58,7 @@ class PMA_MIME_Test extends PHPUnit_Framework_TestCase
                 'image/png'
             ),
             array(
-                chr(0xff).chr(0xd8),
+                chr(0xff) . chr(0xd8),
                 'image/jpeg'
             ),
         );

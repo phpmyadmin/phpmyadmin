@@ -45,9 +45,9 @@ header('Content-Type: text/html; charset=utf-8');
 
 $separator = '<span class=\'separator item\'>&nbsp;»</span>' . "\n";
 $item = '<a href="%1$s?%2$s" class="item">'
-    .' <img class="icon %5$s" src="../themes/dot.gif"'
-    .' width="16" height="16" alt="" /> ' . "\n"
-    .'%4$s: %3$s</a>' . "\n";
+    . ' <img class="icon %5$s" src="../themes/dot.gif"'
+    . ' width="16" height="16" alt="" /> ' . "\n"
+    . '%4$s: %3$s</a>' . "\n";
 
 echo '<div id="serverinfo">' . "\n";
 printf(
@@ -84,7 +84,7 @@ printf(
 );
 
 echo '<span class="table_comment" id="span_table_comment">'
-    .'&quot;Table comment&quot;</span>' . "\n";
+    . '&quot;Table comment&quot;</span>' . "\n";
 
 echo '</div>';
 
