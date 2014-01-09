@@ -130,7 +130,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
             $rightDescriptionTitle = '';
         } else {
             $rightDescriptionTitle = htmlspecialchars(
-                $rightDescriptionTitle
+                $rightDescription
             );
             $rightDescription = htmlspecialchars(
                 $pmaString->substr(
