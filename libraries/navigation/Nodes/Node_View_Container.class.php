@@ -39,7 +39,7 @@ class Node_View_Container extends Node
                 $GLOBALS['cfg']['NavigationTreeTableLevel']
             );
         }
-        $this->classes   = 'viewContainer';
+        $this->classes   = 'viewContainer subContainer';
         $this->real_name = 'views';
 
         $new_label = _pgettext('Create new view', 'New');

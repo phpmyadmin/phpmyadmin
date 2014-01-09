@@ -463,95 +463,79 @@ function PMA_showCurrentNavigation() {
         return ret;
     }
 
-    function loadAndHighlightTableOrView($dbItem, table) {
+    function loadAndHighlightTableOrView($dbItem, itemName) {
         var $container = $dbItem.children('div.list_container');
-        var $tableContainer = $container
-            .children('ul')
-            .children('li.tableContainer');
-        var $viewContainer = $container
-            .children('ul')
-            .children('li.viewContainer');
-
-        if ($tableContainer.length > 0) {
-            var $expander = $tableContainer
-                .children('div:first')
-                .children('a.expander');
-
-            if (! $expander.hasClass('loaded')) {
-                loadChildNodes($expander, function (data) {
-                    highlightTableOrView($tableContainer, $viewContainer, table);
-                });
-            } else {
-                highlightTableOrView($tableContainer, $viewContainer, table);
-            }
-        } else if ($viewContainer.length > 0) {
-            highlightView($viewContainer, table);
-        } else {
-            // no containers, highlight the item
-            var $tableOrView = findLoadedItem($container, table, null, true);
-            if ($tableOrView){
-                scrollToView($tableOrView, false);
-            }
-        }
-    }
-
-    function highlightTableOrView($tableContainer, $viewContainer, table) {
-        if (isItemInContainer($tableContainer, table, 'table')) {
-            var $expander = $tableContainer
-                .children('div:first')
-                .children('a.expander');
-            if ($expander.find('img').is('.ic_b_plus')) {
-                expandTreeNode($expander);
-            }
-            var $table = findLoadedItem(
-                $tableContainer.children('div.list_container'),
-                table, 'table', true
+        var $expander;
+        var $whichItem = isItemInContainer($container, itemName, 'li.table, li.view');
+        //If item already there in some container
+        if ($whichItem) {
+            //get the relevant container while may also be a subcontainer
+            var $relatedContainer = $whichItem.closest('li.subContainer').length
+                ? $whichItem.closest('li.subContainer')
+                : $dbItem;
+            $whichItem = findLoadedItem(
+                $relatedContainer.children('div.list_container'),
+                itemName, null, true
             );
-            if ($table) {
-                scrollToView($table, false);
+            //Show directly
+            showTableOrView($whichItem, $relatedContainer.children('div:first').children('a.expander'));
+        //else if item not there, try loading once
+        } else {
+            var $sub_containers = $dbItem.find('.subContainer');
+            //If there are subContainers i.e. tableContainer or viewContainer
+            if($sub_containers.length > 0) {
+                var $containers = new Array();
+                $sub_containers.each(function (index) {
+                    $containers[index] = $(this);
+                    $expander = $containers[index]
+                        .children('div:first')
+                        .children('a.expander');
+                    collapseTreeNode($expander);
+                    loadAndShowTableOrView($expander, $containers[index], itemName);
+                });
+            // else if no subContainers
+            } else {
+                $expander = $dbItem
+                    .children('div:first')
+                    .children('a.expander');
+                collapseTreeNode($expander);
+                loadAndShowTableOrView($expander, $dbItem, itemName);
             }
-        } else if ($viewContainer.length > 0) {
-            highlightView($viewContainer, table);
         }
     }
 
-    function isItemInContainer($container, name, clazz) {
-        $items = $container.find('li.' + clazz);
+    function loadAndShowTableOrView($expander, $relatedContainer, itemName) {
+        loadChildNodes($expander, function (data) {
+            var $whichItem = findLoadedItem(
+                $relatedContainer.children('div.list_container'),
+                itemName, null, true
+            );
+            if ($whichItem) {
+                showTableOrView($whichItem, $expander);
+            }
+        });
+    }
+
+    function showTableOrView($whichItem, $expander) {
+        expandTreeNode($expander, function (data) {
+            if ($whichItem) {
+                scrollToView($whichItem, false);
+            }
+        });
+    }
+
+    function isItemInContainer($container, name, clazz)
+    {
+        var $whichItem = null;
+        $items = $container.find(clazz);
         var found = false;
         $items.each(function () {
             if ($(this).children('a').text() == name) {
-                found = true;
+                $whichItem = $(this);
                 return false;
             }
         });
-        return found;
-    }
-
-    function highlightView($viewContainer, view) {
-        var $expander = $viewContainer
-            .children('div:first')
-            .children('a.expander');
-        if (! $expander.hasClass('loaded') ||
-            $expander.find('img').is('.ic_b_plus')
-        ) {
-            expandTreeNode($expander, function () {
-                var $view = findLoadedItem(
-                    $viewContainer.children('div.list_container'),
-                    view, 'view', true
-                );
-                if ($view) {
-                    scrollToView($view, false);
-                }
-            });
-        } else {
-            var $view = findLoadedItem(
-                $viewContainer.children('div.list_container'),
-                view, 'view', true
-            );
-            if ($view) {
-                scrollToView($view, false);
-            }
-        }
+        return $whichItem;
     }
 }
 
