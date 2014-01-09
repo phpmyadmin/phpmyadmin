@@ -612,79 +612,9 @@ class PMA_DatabaseInterface
                     );
                 }
 
-                foreach ($each_tables as $table_name => $each_table) {
-                    if (! isset($each_tables[$table_name]['Type'])
-                        && isset($each_tables[$table_name]['Engine'])
-                    ) {
-                        // pma BC, same parts of PMA still uses 'Type'
-                        $each_tables[$table_name]['Type']
-                            =& $each_tables[$table_name]['Engine'];
-                    } elseif (! isset($each_tables[$table_name]['Engine'])
-                        && isset($each_tables[$table_name]['Type'])
-                    ) {
-                        // old MySQL reports Type, newer MySQL reports Engine
-                        $each_tables[$table_name]['Engine']
-                            =& $each_tables[$table_name]['Type'];
-                    }
-
-                    // MySQL forward compatibility
-                    // so pma could use this array as if every server
-                    // is of version >5.0
-                    // todo : remove and check usage in the rest of the code,
-                    // MySQL 5.0 is required by current PMA version
-                    $each_tables[$table_name]['TABLE_SCHEMA']
-                        = $each_database;
-                    $each_tables[$table_name]['TABLE_NAME']
-                        =& $each_tables[$table_name]['Name'];
-                    $each_tables[$table_name]['ENGINE']
-                        =& $each_tables[$table_name]['Engine'];
-                    $each_tables[$table_name]['VERSION']
-                        =& $each_tables[$table_name]['Version'];
-                    $each_tables[$table_name]['ROW_FORMAT']
-                        =& $each_tables[$table_name]['Row_format'];
-                    $each_tables[$table_name]['TABLE_ROWS']
-                        =& $each_tables[$table_name]['Rows'];
-                    $each_tables[$table_name]['AVG_ROW_LENGTH']
-                        =& $each_tables[$table_name]['Avg_row_length'];
-                    $each_tables[$table_name]['DATA_LENGTH']
-                        =& $each_tables[$table_name]['Data_length'];
-                    $each_tables[$table_name]['MAX_DATA_LENGTH']
-                        =& $each_tables[$table_name]['Max_data_length'];
-                    $each_tables[$table_name]['INDEX_LENGTH']
-                        =& $each_tables[$table_name]['Index_length'];
-                    $each_tables[$table_name]['DATA_FREE']
-                        =& $each_tables[$table_name]['Data_free'];
-                    $each_tables[$table_name]['AUTO_INCREMENT']
-                        =& $each_tables[$table_name]['Auto_increment'];
-                    $each_tables[$table_name]['CREATE_TIME']
-                        =& $each_tables[$table_name]['Create_time'];
-                    $each_tables[$table_name]['UPDATE_TIME']
-                        =& $each_tables[$table_name]['Update_time'];
-                    $each_tables[$table_name]['CHECK_TIME']
-                        =& $each_tables[$table_name]['Check_time'];
-                    $each_tables[$table_name]['TABLE_COLLATION']
-                        =& $each_tables[$table_name]['Collation'];
-                    $each_tables[$table_name]['CHECKSUM']
-                        =& $each_tables[$table_name]['Checksum'];
-                    $each_tables[$table_name]['CREATE_OPTIONS']
-                        =& $each_tables[$table_name]['Create_options'];
-                    $each_tables[$table_name]['TABLE_COMMENT']
-                        =& $each_tables[$table_name]['Comment'];
-
-                    if (strtoupper($each_tables[$table_name]['Comment']) === 'VIEW'
-                        && $each_tables[$table_name]['Engine'] == null
-                    ) {
-                        $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
-                    } else {
-                        /**
-                         * @todo difference between 'TEMPORARY' and 'BASE TABLE'
-                         * but how to detect?
-                         */
-                        $each_tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
-                    }
-                }
-
-                $tables[$each_database] = $each_tables;
+                $tables[$each_database] = $this->copyTableProperties(
+                    $each_tables, $each_database
+                );
             }
         }
 
@@ -739,6 +669,90 @@ class PMA_DatabaseInterface
         } else {
             return $tables;
         }
+    }
+
+    /**
+     * Copies the table properties to the set of property names used by PMA.
+     *
+     * @param array  $tables   array of table properties
+     * @param string $database database name
+     *
+     * @return array array with added properties
+     */
+    public function copyTableProperties($tables, $database)
+    {
+        foreach ($tables as $table_name => $each_table) {
+            if (! isset($tables[$table_name]['Type'])
+                && isset($tables[$table_name]['Engine'])
+            ) {
+                // pma BC, same parts of PMA still uses 'Type'
+                $tables[$table_name]['Type']
+                    =& $tables[$table_name]['Engine'];
+            } elseif (! isset($tables[$table_name]['Engine'])
+                && isset($tables[$table_name]['Type'])
+            ) {
+                // old MySQL reports Type, newer MySQL reports Engine
+                $tables[$table_name]['Engine']
+                    =& $tables[$table_name]['Type'];
+            }
+
+            // MySQL forward compatibility
+            // so pma could use this array as if every server
+            // is of version >5.0
+            // todo : remove and check usage in the rest of the code,
+            // MySQL 5.0 is required by current PMA version
+            $tables[$table_name]['TABLE_SCHEMA']
+                = $database;
+            $tables[$table_name]['TABLE_NAME']
+                =& $tables[$table_name]['Name'];
+            $tables[$table_name]['ENGINE']
+                =& $tables[$table_name]['Engine'];
+            $tables[$table_name]['VERSION']
+                =& $tables[$table_name]['Version'];
+            $tables[$table_name]['ROW_FORMAT']
+                =& $tables[$table_name]['Row_format'];
+            $tables[$table_name]['TABLE_ROWS']
+                =& $tables[$table_name]['Rows'];
+            $tables[$table_name]['AVG_ROW_LENGTH']
+                =& $tables[$table_name]['Avg_row_length'];
+            $tables[$table_name]['DATA_LENGTH']
+                =& $tables[$table_name]['Data_length'];
+            $tables[$table_name]['MAX_DATA_LENGTH']
+                =& $tables[$table_name]['Max_data_length'];
+            $tables[$table_name]['INDEX_LENGTH']
+                =& $tables[$table_name]['Index_length'];
+            $tables[$table_name]['DATA_FREE']
+                =& $tables[$table_name]['Data_free'];
+            $tables[$table_name]['AUTO_INCREMENT']
+                =& $tables[$table_name]['Auto_increment'];
+            $tables[$table_name]['CREATE_TIME']
+                =& $tables[$table_name]['Create_time'];
+            $tables[$table_name]['UPDATE_TIME']
+                =& $tables[$table_name]['Update_time'];
+            $tables[$table_name]['CHECK_TIME']
+                =& $tables[$table_name]['Check_time'];
+            $tables[$table_name]['TABLE_COLLATION']
+                =& $tables[$table_name]['Collation'];
+            $tables[$table_name]['CHECKSUM']
+                =& $tables[$table_name]['Checksum'];
+            $tables[$table_name]['CREATE_OPTIONS']
+                =& $tables[$table_name]['Create_options'];
+            $tables[$table_name]['TABLE_COMMENT']
+                =& $tables[$table_name]['Comment'];
+
+            if (strtoupper($tables[$table_name]['Comment']) === 'VIEW'
+                && $tables[$table_name]['Engine'] == null
+            ) {
+                $tables[$table_name]['TABLE_TYPE'] = 'VIEW';
+            } else {
+                /**
+                 * @todo difference between 'TEMPORARY' and 'BASE TABLE'
+                 * but how to detect?
+                 */
+                $tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
+            }
+        }
+        return $tables;
     }
 
     /**
