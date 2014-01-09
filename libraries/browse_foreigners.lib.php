@@ -112,48 +112,20 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
         // keynames and descriptions for the left section,
         // sorted by keynames
         $leftKeyname = $keys[$indexByKeyname];
-        $leftDescription = $descriptions[$indexByKeyname];
+        list(
+            $leftDescription,
+            $leftDescriptionTitle
+        ) = PMA_getDescriptionAndTitle($descriptions[$indexByKeyname]);
 
         // keynames and descriptions for the right section,
         // sorted by descriptions 
         $rightKeyname = $keys[$indexByDescription];
-        $rightDescription = $descriptions[$indexByDescription];
+        list(
+            $rightDescription,
+            $rightDescriptionTitle
+        ) = PMA_getDescriptionAndTitle($descriptions[$indexByDescription]);
 
         $indexByDescription++;
-
-        $pmaString = $GLOBALS['PMA_String'];
-        $limitChars = $GLOBALS['cfg']['LimitChars'];
-        if ($pmaString->strlen($rightDescription) <= $limitChars) {
-            $rightDescription = htmlspecialchars(
-                $rightDescription
-            );
-            $rightDescriptionTitle = '';
-        } else {
-            $rightDescriptionTitle = htmlspecialchars(
-                $rightDescription
-            );
-            $rightDescription = htmlspecialchars(
-                $pmaString->substr(
-                    $rightDescription, 0, $limitChars
-                )
-                . '...'
-            );
-        }
-        if ($pmaString->strlen($leftDescription) <= $limitChars) {
-            $leftDescription = htmlspecialchars(
-                $leftDescription
-            );
-            $leftDescriptionTitle = '';
-        } else {
-            $leftDescriptionTitle = htmlspecialchars(
-                $leftDescription
-            );
-            $leftDescription = htmlspecialchars(
-                $pmaString->substr(
-                    $leftDescription, 0, $limitChars
-                ) . '...'
-            );
-        }
 
         if (! empty($data)) {
             $rightKeynameIsSelected = $rightKeyname == $data;
@@ -194,6 +166,36 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
         . '</table>';
 
     return $output;
+}
+
+/**
+ * Get the description (possibly truncated) and the title 
+ *
+ * @param string $description the keyname's description
+ *
+ * @return array the new description and title
+ */
+function PMA_getDescriptionAndTitle($description)
+{
+    $pmaString = $GLOBALS['PMA_String'];
+    $limitChars = $GLOBALS['cfg']['LimitChars'];
+    if ($pmaString->strlen($description) <= $limitChars) {
+        $description = htmlspecialchars(
+            $description
+        );
+        $descriptionTitle = '';
+    } else {
+        $descriptionTitle = htmlspecialchars(
+            $description
+        );
+        $description = htmlspecialchars(
+            $pmaString->substr(
+                $description, 0, $limitChars
+            )
+            . '...'
+        );
+    }
+    return array($description, $descriptionTitle);
 }
 
 /**
