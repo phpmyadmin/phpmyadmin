@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2014-01-09 14:10+0200\n"
+"PO-Revision-Date: 2014-01-09 14:12+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -4686,7 +4686,6 @@ msgid "Check config file permissions"
 msgstr "Verifica permissiones de file de configuration"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4697,7 +4696,7 @@ msgid ""
 msgstr ""
 "Comprime exportationes de gzip/bzip2 immediatemente sin le necessitate de "
 "usar multe memoria, si tu incontra problemas con le files create gzip/bzip2, "
-"tu dishabilita iste characteristica"
+"tu dishabilita iste characteristica."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4709,7 +4708,6 @@ msgid "Configuration file"
 msgstr "File de configuration"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 #| "when you're about to lose data"
@@ -4717,8 +4715,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Si on deberea monstrar un message de aviso (&quot;Tu es vermente secur…"
-"&quot;) quando tu es eliminante datos"
+"Si on deberea monstrar un message de aviso (&quot;Tu es vermente "
+"secur…&quot;) quando tu es eliminante datos."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4733,51 +4731,46 @@ msgid "Default display direction"
 msgstr "Orientation de monstrator predefinite"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
 msgstr ""
-"Tabulation que on monstra quando on inserta un elemento de base de datos"
+"Tabulation que on monstra quando on inserta un elemento de base de datos."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "Tabulation predefinite pro base de datos"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Tabulation que on monstra quando on inserta un servitor"
+msgstr "Tabulation que on monstra quando on inserta un servitor."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "Tabulation de servitor predefinite"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Tabulation que on monstra quando on inserta un tabella"
+msgstr "Tabulation que on monstra quando on inserta un tabella."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
 msgstr "Tabulation predefinite de tabella"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Si le actiones de structura de tabella deberea esser celate"
+msgstr "Si le actiones de structura de tabella deberea esser celate."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
 msgstr "Cela actiones de  structura de tabella"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
-msgstr "Monstra contentos binari de modo predefinite como HEX"
+msgstr "Monstra contentos binari de modo predefinite como HEX."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down"
@@ -4800,10 +4793,9 @@ msgid "Disable multi table maintenance"
 msgstr "Dishabilita le mantenentia multiple de tabella"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "Modifica queries de SQL in un fenestra de popup"
+msgstr "Modifica queries de SQL in un fenestra de popup."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4814,7 +4806,6 @@ msgid "Display errors"
 msgstr "Monstra errores"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -4823,7 +4814,7 @@ msgid ""
 "limit)."
 msgstr ""
 "Fixa le numero de secundas pro le qual un script es permittite executar  "
-"([kbd]0[/kbd] pro nulle limite)"
+"([kbd]0[/kbd] pro nulle limite)."
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -5045,17 +5036,15 @@ msgid "Export time in UTC"
 msgstr "Exporta tempore in UTC"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "Fortia connexion secur quando on usa phpMyAdmin"
+msgstr "Fortia connexion secur quando on usa phpMyAdmin."
 
 #: libraries/config/messages.inc.php:196
 msgid "Force SSL connection"
 msgstr "Fortia connexion SSL"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 #| "the referenced data, [kbd]id[/kbd] is the key value"
@@ -5064,7 +5053,7 @@ msgid ""
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
 "Ordina elementos in le menu a rolar del claves externe, [kbd]content[/kbd] "
-"es le datos de referentia,[kbd]id[/kbd]  es le valor del clave"
+"es le datos de referentia,[kbd]id[/kbd]  es le valor del clave."
 
 #: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
