@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2014-01-09 14:12+0200\n"
+"PO-Revision-Date: 2014-01-09 14:22+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -5074,18 +5074,16 @@ msgid "Browse mode"
 msgstr "Modo de navigation"
 
 #: libraries/config/messages.inc.php:206
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "Personalisa modo de navigation"
+msgstr "Personalisa modo de navigation."
 
 #: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:210
 #: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "Personalisa optiones predefinite"
+msgstr "Personalisa optiones predefinite."
 
 #: libraries/config/messages.inc.php:209 libraries/config/setup.forms.php:247
 #: libraries/config/setup.forms.php:321
@@ -5099,30 +5097,27 @@ msgid "Developer"
 msgstr "Disveloppator"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Preferentias pro disveloppatores de phpMyAdmin"
+msgstr "Preferentias pro disveloppatores de phpMyAdmin."
 
 #: libraries/config/messages.inc.php:213
 msgid "Edit mode"
 msgstr "Modo de modificar"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Personalisa le modo de modificar"
+msgstr "Personalisa le modo de modificar."
 
 #: libraries/config/messages.inc.php:216
 msgid "Export defaults"
 msgstr "Exporta le valores predefinite"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Personalisa le optiones de exportar predefinite"
+msgstr "Personalisa le optiones de exportar predefinite."
 
 #: libraries/config/messages.inc.php:218 libraries/config/messages.inc.php:279
 #: setup/frames/menu.inc.php:17
@@ -5134,20 +5129,18 @@ msgid "General"
 msgstr "General"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Fixa alcun optiones usate communemente"
+msgstr "Fixa alcun optiones usate communemente."
 
 #: libraries/config/messages.inc.php:222
 msgid "Import defaults"
 msgstr "Importa valores predefinite"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "Personalisa le optiones de importar commun predefinite"
+msgstr "Personalisa le optiones commun de importar predefinite."
 
 #: libraries/config/messages.inc.php:224
 msgid "Import / export"
