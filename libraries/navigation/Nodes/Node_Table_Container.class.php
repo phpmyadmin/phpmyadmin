@@ -40,7 +40,7 @@ class Node_Table_Container extends Node
             );
         }
         $this->real_name = 'tables';
-        $this->classes   = 'tableContainer';
+        $this->classes   = 'tableContainer subContainer';
 
         $new_label = _pgettext('Create new table', 'New');
         $new        = PMA_NodeFactory::getInstance('Node', $new_label);
