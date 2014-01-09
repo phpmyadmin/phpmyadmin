@@ -98,7 +98,7 @@ class PMA_PDF extends TCPDF
     }
 
     /**
-     * Improved with alias expading.
+     * Improved with alias expanding.
      *
      * @return void
      */

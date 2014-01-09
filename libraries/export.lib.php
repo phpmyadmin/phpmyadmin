@@ -65,7 +65,7 @@ function PMA_gzencodeNeeded()
 
 /**
  * Output handler for all exports, if needed buffering, it stores data into
- * $dump_buffer, otherwise it prints thems out.
+ * $dump_buffer, otherwise it prints them out.
  *
  * @param string $line the insert statement
  *
