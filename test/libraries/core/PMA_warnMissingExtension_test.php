@@ -61,7 +61,7 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
         $warn = 'The <a href="' . PMA_getPHPDocLink('book.' . $ext . '.php')
             . '" target="Documentation"><em>' . $ext
             . '</em></a> extension is missing. Please check your PHP configuration.'
-            . ' ' .$extra;
+            . ' ' . $extra;
 
         ob_start();
         PMA_warnMissingExtension($ext, true, $extra);

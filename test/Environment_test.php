@@ -59,7 +59,7 @@ class Environment_Test extends PHPUnit_Framework_TestCase
             );
         }
         catch (Exception $e) {
-            $this->markTestSkipped("Error: ".$e->getMessage());
+            $this->markTestSkipped("Error: " . $e->getMessage());
         }
 
         // Check id MySQL server is 5 version

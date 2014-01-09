@@ -370,9 +370,9 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         'pma_test',
         'pma_tbl',
         '1',
-        '". $date ."',
-        '". $date ."',
-        'a:2:{s:7:\"COLUMNS\";a:2:{".
+        '" . $date . "',
+        '" . $date . "',
+        'a:2:{s:7:\"COLUMNS\";a:2:{" .
         "i:0;a:3:{s:5:\"Field\";s:6:\"field1\";s:4:\"Type\";s:7:\"int(11)\";" .
         "s:3:\"Key\";s:3:\"PRI\";}" .
         "i:1;a:3:{s:5:\"Field\";s:6:\"field2\";s:4:\"Type\";s:4:\"text\";" .
@@ -380,9 +380,9 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         "s:7:\"INDEXES\";a:1:{" .
         "i:0;a:3:{s:5:\"Table\";s:7:\"pma_tbl\";s:5:\"Field\";s:6:\"field1\";" .
         "s:3:\"Key\";s:7:\"PRIMARY\";}}}',
-        '# log ". $date ." pma_test_user" .
+        '# log " . $date . " pma_test_user" .
         "\nDROP VIEW IF EXISTS `pma_tbl`;" .
-        "\n# log ". $date ." pma_test_user" .
+        "\n# log " . $date . " pma_test_user" .
         "\n\n;" .
         "\n',
         '" .
@@ -486,10 +486,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         'pma_test',
         '',
         '1',
-        '". $date ."',
-        '". $date ."',
+        '" . $date . "',
+        '" . $date . "',
         '',
-        '# log ". $date ." pma_test_user" .
+        '# log " . $date . " pma_test_user" .
         "\nSHOW DATABASES',
         '" .
         "\n',
@@ -538,10 +538,10 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
             ->getMock();
 
         $sql_query = " UPDATE pma_table_tracking SET `tracking_active` = " .
-        "'" . $new_state ."' " .
-        " WHERE `db_name` = '". $dbname ."' " .
-        " AND `table_name` = '". $tablename ."' " .
-        " AND `version` = '". $version ."' ";
+        "'" . $new_state . "' " .
+        " WHERE `db_name` = '" . $dbname . "' " .
+        " AND `table_name` = '" . $tablename . "' " .
+        " AND `version` = '" . $version . "' ";
 
         $GLOBALS['controllink'] = null;
 
@@ -775,7 +775,7 @@ class PMA_Tracker_Test extends PHPUnit_Framework_TestCase
         $sql_query = " SELECT * FROM `pma_db`.`tracking`" .
             " WHERE `db_name` = 'pma''db' " .
             " AND `table_name` = 'pma''table' " .
-            " AND `version` = '1.0' ".
+            " AND `version` = '1.0' " .
             " ORDER BY `version` DESC LIMIT 1";
 
         $GLOBALS['controllink'] = null;

@@ -8,12 +8,12 @@
  */
 
 require_once 'PHPUnit/TextUI/TestRunner.php';
-require_once __DIR__.'/selenium/PmaSeleniumTestCase.php';
-require_once __DIR__.'/selenium/PmaSeleniumLoginTest.php';
-require_once __DIR__.'/selenium/PmaSeleniumXssTest.php';
-require_once __DIR__.'/selenium/PmaSeleniumPrivilegesTest.php';
-require_once __DIR__.'/selenium/PmaSeleniumCreateDropDatabaseTest.php';
-require_once __DIR__.'/selenium/PmaSeleniumCreateRemoveUserTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumTestCase.php';
+require_once __DIR__ . '/selenium/PmaSeleniumLoginTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumXssTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumPrivilegesTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumCreateDropDatabaseTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumCreateRemoveUserTest.php';
 
 /**
  * AllSeleniumTests class

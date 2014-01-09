@@ -106,7 +106,7 @@ class PmaSeleniumDbOperationsTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->assertEquals(1, $result->num_rows);
 
         $result = $this->_helper->dbQuery(
-            "SHOW DATABASES LIKE '". $this->_dbname ."';"
+            "SHOW DATABASES LIKE '" . $this->_dbname . "';"
         );
         $this->assertEquals(0, $result->num_rows);
 
@@ -127,8 +127,8 @@ class PmaSeleniumDbOperationsTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->_helper->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Database " . $this->_dbname ." "
-            . "has been copied to pma_test_db_copy')]"
+            "//div[@class='success' and contains(., 'Database " . $this->_dbname
+            . " has been copied to pma_test_db_copy')]"
         );
 
         $result = $this->_helper->dbQuery(

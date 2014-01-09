@@ -490,8 +490,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`user`"
-            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
         $this->assertEquals(
             $sql,
             $ret
@@ -504,10 +504,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`db`"
-            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
-            ." AND '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
-            ." LIKE `Db`;";
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+            . " AND '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+            . " LIKE `Db`;";
         $this->assertEquals(
             $sql,
             $ret
@@ -520,11 +520,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT `Table_priv`"
-            ." FROM `mysql`.`tables_priv`"
-            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
-            ." AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
-            ." AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
+            . " FROM `mysql`.`tables_priv`"
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+            . " AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+            . " AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
         $this->assertEquals(
             $sql,
             $ret

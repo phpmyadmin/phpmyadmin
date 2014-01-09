@@ -50,7 +50,7 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
                 null,
                 array(
                     'error' => '',
-                    'data' => 'TEST FILE'. "\n"
+                    'data' => 'TEST FILE' . "\n"
                 )
             ),
             array(
