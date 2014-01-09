@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 4.1.5.0 (not yet released)
 - bug #3780 Allow aborting loading pages
 - bug #4223 Database list: Create database misses collation column
+- bug #4224 Empty table names when a table is "inuse"
 
 4.1.4.0 (2014-01-07)
 - bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times
