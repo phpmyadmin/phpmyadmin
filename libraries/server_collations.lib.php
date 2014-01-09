@@ -70,7 +70,7 @@ function PMA_getHtmlForCharsets($mysqlCharsets, $mysqlCollations,
  *
  * @param String $currCharset        Current Charset
  * @param Array  $mysqlColl          Collations list
- * @param Array  $mysqlDefaultColl       Default Collations list
+ * @param Array  $mysqlDefaultColl   Default Collations list
  * @param Array  $mysqlCollAvailable Available Collations list
  *
  * @return string

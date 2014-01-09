@@ -80,6 +80,8 @@ function Swekey_Auth_check()
 
 /**
  * Handle Swekey authentication error.
+ *
+ * @return string HTML
  */
 function Swekey_Auth_error()
 {
@@ -239,6 +241,11 @@ function Swekey_Auth_error()
 
 /**
  * Perform login using Swekey.
+ *
+ * @param string $input_name Input "Name"
+ * @param string $input_go   Input "Go"
+ *
+ * @return void
  */
 function Swekey_login($input_name, $input_go)
 {
