@@ -465,10 +465,10 @@ function PMA_showCurrentNavigation()
         return ret;
     }
 
-    function loadAndHighlightTableOrView($dbItem, table) {
+    function loadAndHighlightTableOrView($dbItem, itemName) {
         var $container = $dbItem.children('div.list_container');
         var $expander;
-        var $whichItem = isItemInContainer($container, table, 'li.table, li.view');
+        var $whichItem = isItemInContainer($container, itemName, 'li.table, li.view');
         //If item already there in some container
         if ($whichItem) {
             //get the relevant container while may also be a subcontainer
@@ -477,7 +477,7 @@ function PMA_showCurrentNavigation()
                 : $dbItem;
             $whichItem = findLoadedItem(
                 $relatedContainer.children('div.list_container'),
-                table, null, true
+                itemName, null, true
             );
             //Show directly
             showTableOrView($whichItem, $relatedContainer.children('div:first').children('a.expander'));
@@ -493,7 +493,7 @@ function PMA_showCurrentNavigation()
                         .children('div:first')
                         .children('a.expander');
                     collapseTreeNode($expander);
-                    loadAndShowTableOrView($expander, $containers[index], table);
+                    loadAndShowTableOrView($expander, $containers[index], itemName);
                 });
             // else if no subContainers
             } else {
@@ -501,16 +501,16 @@ function PMA_showCurrentNavigation()
                     .children('div:first')
                     .children('a.expander');
                 collapseTreeNode($expander);
-                loadAndShowTableOrView($expander, $dbItem, table);
+                loadAndShowTableOrView($expander, $dbItem, itemName);
             }
         }
     }
 
-    function loadAndShowTableOrView($expander, $relatedContainer, table) {
+    function loadAndShowTableOrView($expander, $relatedContainer, itemName) {
         loadChildNodes($expander, function (data) {
             var $whichItem = findLoadedItem(
                 $relatedContainer.children('div.list_container'),
-                table, null, true
+                itemName, null, true
             );
             if ($whichItem) {
                 showTableOrView($whichItem, $expander);
@@ -538,33 +538,6 @@ function PMA_showCurrentNavigation()
             }
         });
         return $whichItem;
-    }
-
-    function highlightTableOrView($container, item, clazz) {
-        var $expander = $container
-            .children('div:first')
-            .children('a.expander');
-        if (! $expander.hasClass('loaded') ||
-            $expander.find('img').is('.ic_b_plus')
-        ) {
-            expandTreeNode($expander, function () {
-                var $item = findLoadedItem(
-                    $container.children('div.list_container'),
-                    item, clazz, true
-                );
-                if ($item) {
-                    scrollToView($item, false);
-                }
-            });
-        } else {
-            var $item = findLoadedItem(
-                $container.children('div.list_container'),
-                item, clazz, true
-            );
-            if ($item) {
-                scrollToView($item, false);
-            }
-        }
     }
 }
 
