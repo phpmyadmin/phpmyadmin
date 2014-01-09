@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2014-01-09 14:22+0200\n"
+"PO-Revision-Date: 2014-01-09 14:48+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -4516,14 +4516,13 @@ msgid "Incorrect IP address: %s"
 msgstr "Adresse de IP incorrecte: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Si habilitate, le usator potera insertar ulle servitor MySQL in le forma de "
-"accesso per authorisation de cookie"
+"accesso per authorisation de cookie."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -5060,10 +5059,9 @@ msgid "Foreign key dropdown order"
 msgstr "Ordine del clave externe del menu a rolar"
 
 #: libraries/config/messages.inc.php:203
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Un menu a rolar essera usate si on ha minus elementos presente"
+msgstr "Un menu a rolar essera usate si on ha minus elementos presente."
 
 #: libraries/config/messages.inc.php:204
 msgid "Foreign key limit"
@@ -5147,30 +5145,27 @@ msgid "Import / export"
 msgstr "Importa / exporta"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr "Fixa le optiones de compression e le dossiers de importar e exportar"
+msgstr "Fixa le optiones de compression e le dossiers de importar e exportar."
 
 #: libraries/config/messages.inc.php:227
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "Optiones pro monstrar base de datos"
+msgstr "Optiones pro monstrar base de datos."
 
 #: libraries/config/messages.inc.php:231 setup/frames/menu.inc.php:21
 msgid "Navigation panel"
 msgstr "Pannello de navigation"
 
 #: libraries/config/messages.inc.php:232
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "Personalisa apparentia del pannello de navigation"
+msgstr "Personalisa apparentia del pannello de navigation."
 
 #: libraries/config/messages.inc.php:233 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
@@ -5178,16 +5173,14 @@ msgid "Servers"
 msgstr "Servitores"
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "Optiones pro monstrar servitores"
+msgstr "Optiones pro monstrar servitores."
 
 #: libraries/config/messages.inc.php:236
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "Optiones pro monstrar tabellas"
+msgstr "Optiones pro monstrar tabellas."
 
 #: libraries/config/messages.inc.php:237 setup/frames/menu.inc.php:23
 msgid "Main panel"
@@ -5202,10 +5195,9 @@ msgid "Other core settings"
 msgstr "Altere preferentias principal"
 
 #: libraries/config/messages.inc.php:244
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "Altere preferentias que on non pote poner in altere loco"
+msgstr "Altere preferentias que on non pote poner in altere loco."
 
 #: libraries/config/messages.inc.php:245
 msgid "Page titles"
@@ -5232,7 +5224,6 @@ msgid "Security"
 msgstr "Securitate"
 
 #: libraries/config/messages.inc.php:255
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
@@ -5241,7 +5232,7 @@ msgid ""
 "limit MySQL."
 msgstr ""
 "Pro favor tu nota que phpMyAdmin es solo un interfacie e su characteristicas "
-"non limita MySQL"
+"non limita MySQL."
 
 #: libraries/config/messages.inc.php:258
 msgid "Basic settings"
@@ -5252,10 +5243,9 @@ msgid "Authentication"
 msgstr "Authentication"
 
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "Preferentias de authentication"
+msgstr "Preferentias de authentication."
 
 #: libraries/config/messages.inc.php:261
 msgid "Server configuration"
@@ -5268,10 +5258,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:266
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "Inserta parametros de connexion del servitor"
+msgstr "Inserta parametros de connexion del servitor."
 
 #: libraries/config/messages.inc.php:267
 msgid "Configuration storage"
@@ -5320,16 +5309,14 @@ msgid "SQL Query box"
 msgstr "Quadro de Query de SQL"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "Personalisa ligamines monstrate in le quadros de Query de SQL"
+msgstr "Personalisa ligamines monstrate in le quadros de Query de SQL."
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "Preferentias de queries de SQL"
+msgstr "Preferentias de queries de SQL."
 
 #: libraries/config/messages.inc.php:290
 msgid "SQL Validator"
@@ -5348,44 +5335,40 @@ msgid "Startup"
 msgstr "Initiar"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "Personalisa le pagina de initiar"
+msgstr "Personalisa le pagina de initiar."
 
 #: libraries/config/messages.inc.php:300
 msgid "Database structure"
 msgstr "Structura de base de datos"
 
 #: libraries/config/messages.inc.php:302
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Selige qual detalios monstrar in le structura de base de datos (lista de "
-"tabellas)"
+"tabellas)."
 
 #: libraries/config/messages.inc.php:303
 msgid "Table structure"
 msgstr "Structura de tabella"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
-msgstr "Preferentias del structura de tabella (lista de columnas)"
+msgstr "Preferentias del structura de tabella (lista de columnas)."
 
 #: libraries/config/messages.inc.php:306
 msgid "Tabs"
 msgstr "Schedas"
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "Selige como tu vole que le schedas functiona"
+msgstr "Selige como tu vole que le schedas functiona."
 
 #: libraries/config/messages.inc.php:308
 #: libraries/schema/User_Schema.class.php:422
@@ -5402,10 +5385,9 @@ msgid "Text fields"
 msgstr "Campos de texto"
 
 #: libraries/config/messages.inc.php:313
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "Personalisa le campos de ingresso de texto"
+msgstr "Personalisa le campos de ingresso de texto."
 
 #: libraries/config/messages.inc.php:314
 msgid "Texy! text"
@@ -5420,13 +5402,11 @@ msgid "Warnings"
 msgstr "Avisos"
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "Dishabilita alcun avisos monstrate per phpMyAdmin"
+msgstr "Dishabilita alcun avisos monstrate per phpMyAdmin."
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -5435,7 +5415,7 @@ msgid ""
 "and export operations."
 msgstr ""
 "Il habilita le compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"per operationes de importation e exportation"
+"per operationes de importation e exportation."
 
 #: libraries/config/messages.inc.php:323
 msgid "GZip"
@@ -5653,7 +5633,6 @@ msgid "mcrypt warning"
 msgstr ""
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -5661,18 +5640,17 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"Fixa le numero de secundas pro le qual un script es permittite executar  "
-"([kbd]0[/kbd] pro nulle limite)"
+"Fixa le numero de bytes pro le qual un script es permittite allocar  "
+"[kbd]32M[/kbd] ([kbd]0[/kbd]  pro nulle limite)."
 
 #: libraries/config/messages.inc.php:427
 msgid "Memory limit"
 msgstr ""
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid "Reload navigation panel"
 msgid "Show logo in navigation panel."
-msgstr "Recarga pannello de navigation"
+msgstr "Monstra logo in le pannello de navigation."
 
 #: libraries/config/messages.inc.php:429
 msgid "Display logo"
@@ -5697,10 +5675,10 @@ msgid "Logo link target"
 msgstr ""
 
 #: libraries/config/messages.inc.php:439
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Personalisa apparentia del pannello de navigation"
+msgstr ""
+"Selection de servitor de monstrator al culmine del pannello de navigation."
 
 #: libraries/config/messages.inc.php:440
 msgid "Display servers selection"
@@ -5755,10 +5733,9 @@ msgid "Maximum table tree depth"
 msgstr ""
 
 #: libraries/config/messages.inc.php:462
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight server under the mouse cursor."
-msgstr "Evidentia rangos punctate per le cursor del mus"
+msgstr "Evidentia servitor sub le cursor del mus."
 
 #: libraries/config/messages.inc.php:463
 msgid "Enable highlighting"
@@ -5890,10 +5867,9 @@ msgid "Query history length"
 msgstr ""
 
 #: libraries/config/messages.inc.php:519
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab displayed when opening a new query window."
-msgstr "Tabulation que on monstra quando on inserta un servitor"
+msgstr "Tabulation que on monstra quando on aperi un nove fenestra de query."
 
 #: libraries/config/messages.inc.php:520
 msgid "Default query window tab"
@@ -6000,10 +5976,9 @@ msgid "SweKey config file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:554
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication method to use."
-msgstr "Preferentias de authentication"
+msgstr "Methodo de authentication de usar."
 
 #: libraries/config/messages.inc.php:555 setup/frames/index.inc.php:162
 msgid "Authentication type"
@@ -6020,7 +5995,6 @@ msgid "Bookmark table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:562
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__users[/kbd]"
@@ -6028,18 +6002,17 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Lassa vacue pro dishabilitar characteristica de menus configurabile, "
-"proponite:  [kbd]pma__users[/kbd]"
+"Lassa vacue pro nulle commentos/typos mime de columna, proponite:  "
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:565
 msgid "Column information table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:566
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "Il non pote connecter a servitor MySQL"
+msgstr "Comprime connexion a servitor MySQL."
 
 #: libraries/config/messages.inc.php:567
 msgid "Compress connection"
@@ -6089,7 +6062,6 @@ msgid "Control port"
 msgstr ""
 
 #: libraries/config/messages.inc.php:589
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__users[/kbd]"
@@ -6097,8 +6069,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Lassa vacue pro dishabilitar characteristica de menus configurabile, "
-"proponite:  [kbd]pma__users[/kbd]"
+"Lassa vacue pro nulle supporto de Designer, proponite:  "
+"[kbd]pma__designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:591
 msgid "Designer table"
@@ -6113,7 +6085,6 @@ msgid "Hide databases"
 msgstr ""
 
 #: libraries/config/messages.inc.php:596
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__users[/kbd]"
@@ -6121,8 +6092,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Lassa vacue pro dishabilitar characteristica de menus configurabile, "
-"proponite:  [kbd]pma__users[/kbd]"
+"Lassa vacue pro nulle supporto de historia de query SQL, proponite: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:599
 msgid "SQL query history table"
@@ -6178,15 +6149,14 @@ msgid "Password for config auth"
 msgstr ""
 
 #: libraries/config/messages.inc.php:620
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__users[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Lassa vacue pro dishabilitar characteristica de menus configurabile, "
-"proponite:  [kbd]pma__users[/kbd]"
+"Lassa vacue pro nulle supporto de sche,a PDF, proponite:  "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:622
 msgid "PDF schema: pages table"
@@ -6213,7 +6183,6 @@ msgid "Server port"
 msgstr ""
 
 #: libraries/config/messages.inc.php:633
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -6221,8 +6190,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
-"Lassa vacue pro necun preferentias de UI de tabulas \"persistente\" trans "
-"sessiones, proponite:  [kbd]pma__table_uiprefs[/kbd]"
+"Lassa vacue pro necun \"persistente\" recentemente usava tabellas trans "
+"sessiones, proponite:  [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:636
 msgid "Recently used table"
@@ -6261,17 +6230,15 @@ msgid "Server socket"
 msgstr ""
 
 #: libraries/config/messages.inc.php:652
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
-msgstr "Il non pote connecter a servitor MySQL"
+msgstr "Habilita SSL pro le connexion a servitor MySQL."
 
 #: libraries/config/messages.inc.php:653
 msgid "Use SSL"
 msgstr ""
 
 #: libraries/config/messages.inc.php:655
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -6279,8 +6246,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Lassa vacue pro necun preferentias de UI de tabulas \"persistente\" trans "
-"sessiones, proponite:  [kbd]pma__table_uiprefs[/kbd]"
+"Lassa vacue pro necun supporto de schema PDF, proponite:  "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:657
 msgid "PDF schema: table coordinates"
@@ -6297,7 +6264,6 @@ msgid "Display columns table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:664
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -6305,8 +6271,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"Lassa vacue pro necun preferentias de UI de tabulas \"persistente\" trans "
-"sessiones, proponite:  [kbd]pma__table_uiprefs[/kbd]"
+"Lassa vacue pro necun preferentias de UI de tabellas \"persistente\" trans "
+"sessiones, proponite:   [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:667
 msgid "UI preferences table"
@@ -6351,7 +6317,6 @@ msgid "Statements to track"
 msgstr ""
 
 #: libraries/config/messages.inc.php:687
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__users[/kbd]"
@@ -6359,8 +6324,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Lassa vacue pro dishabilitar characteristica de menus configurabile, "
-"proponite:  [kbd]pma__users[/kbd]"
+"Lassa vacue pro necun supporto de traciar query SQL, proponite:   "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:690
 msgid "SQL query tracking table"
@@ -6377,7 +6342,6 @@ msgid "Automatically create versions"
 msgstr ""
 
 #: libraries/config/messages.inc.php:697
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -6385,15 +6349,14 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"Lassa vacue pro necun preferentias de UI de tabulas \"persistente\" trans "
-"sessiones, proponite:  [kbd]pma__table_uiprefs[/kbd]"
+"Lassa vacue pro necun preferentias de usator per immagazinage in le base de "
+"datos, proponite:   [kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:698
 msgid "User preferences storage table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:699
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__users[/kbd]"
@@ -6402,14 +6365,13 @@ msgid ""
 "[kbd]pma__users[/kbd]."
 msgstr ""
 "Lassa vacue pro dishabilitar characteristica de menus configurabile, "
-"proponite:  [kbd]pma__users[/kbd]"
+"proponite:   [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:700
 msgid "Users table"
 msgstr "Tabula de usatores"
 
 #: libraries/config/messages.inc.php:701
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__usergroups[/kbd]"
@@ -6418,14 +6380,13 @@ msgid ""
 "[kbd]pma__usergroups[/kbd]."
 msgstr ""
 "Lassa vacue pro dishabilitar characteristica de menus configurabile, "
-"proponite:  [kbd]pma__usergroups[/kbd]"
+"proponite:  [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:702
 msgid "User groups table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__usergroups[/kbd]"
@@ -6433,8 +6394,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Lassa vacue pro dishabilitar characteristica de menus configurabile, "
-"proponite:  [kbd]pma__usergroups[/kbd]"
+"Lassa vacue pro dishabilitar characteristica de celar e monstrar elementos "
+"de navigation, proponite:   [kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:704
 msgid "Hidden navigation items table"
@@ -6590,10 +6551,9 @@ msgid "Skip locked tables"
 msgstr ""
 
 #: libraries/config/messages.inc.php:743
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Requires SQL Validator to be enabled."
-msgstr "Le validator SQL es dishabilitate"
+msgstr "Il require que le validator SQL es habilitate."
 
 #: libraries/config/messages.inc.php:745 libraries/replication_gui.lib.php:397
 #: libraries/replication_gui.lib.php:834 libraries/replication_gui.lib.php:850
@@ -6757,7 +6717,6 @@ msgid "Proxy password"
 msgstr "Contrasigno de proxy"
 
 #: libraries/config/messages.inc.php:782
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -6765,8 +6724,9 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Il habilita le compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"per operationes de importation e exportation"
+"Il habilita le compression  "
+"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a]  per operationes "
+"de importation e exportation."
 
 #: libraries/config/messages.inc.php:783
 msgid "ZIP"
@@ -6789,10 +6749,9 @@ msgid "Private key for reCaptcha"
 msgstr ""
 
 #: libraries/config/messages.inc.php:789
-#, fuzzy
 #| msgid "Ask before sending error reports"
 msgid "Choose the default action when sending error reports."
-msgstr "Demanda ante inviar reportos de error"
+msgstr "Selige le action predefinite quando on invia reportos de error."
 
 #: libraries/config/messages.inc.php:790
 msgid "Send error reports"
@@ -9321,10 +9280,9 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Error"
+msgstr "Error."
 
 #: libraries/replication_gui.lib.php:955
 msgid "Unknown error"
@@ -9380,10 +9338,9 @@ msgid "Event %1$s has been created."
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid "An error has occurred while loading the navigation tree"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "Un error ha occurrite quando on incargava le arbore de navigation"
+msgstr "Uno o plure errores ha occurrite quando on processava tu requesta:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
