@@ -1280,7 +1280,7 @@ class ExportSql extends ExportPlugin
                             $sql_auto_increments = $crlf
                                 . $this->_exportComment()
                                 . $this->_exportComment(
-                                    __('Auto Increments for dumped tables')
+                                    __('AUTO_INCREMENT for dumped tables')
                                 )
                                 . $this->_exportComment();
                         }
@@ -1290,7 +1290,7 @@ class ExportSql extends ExportPlugin
                         $sql_auto_increments .= $crlf
                         . $this->_exportComment()
                         . $this->_exportComment(
-                            __('Auto Increments for table')
+                            __('AUTO_INCREMENT for table')
                             . ' '
                             . PMA_Util::backquoteCompat($table, $compat)
                         )
