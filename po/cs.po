@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-06 12:09+0200\n"
+"PO-Revision-Date: 2014-01-10 17:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -1536,7 +1536,7 @@ msgstr "Nahrávám…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Požadavek byl přerušen!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -2676,10 +2676,9 @@ msgid "Kill"
 msgstr "Ukončit"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Počet nemusí být přesný, viz [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Počet nemusí být přesný, viz [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -4478,7 +4477,6 @@ msgid "Incorrect IP address: %s"
 msgstr "Nesprávná IP adresa: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth."
 msgid ""
@@ -10322,10 +10320,9 @@ msgid "Global privileges"
 msgstr "Globální oprávnění"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "globální"
+msgstr "Globální"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:2750
