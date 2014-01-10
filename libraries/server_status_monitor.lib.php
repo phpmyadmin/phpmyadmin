@@ -423,78 +423,11 @@ function PMA_getJsonForChartingData()
     $statusVars = array();
     $serverVars = array();
     $sysinfo = $cpuload = $memory = 0;
-    $pName = '';
 
     /* Accumulate all required variables and data */
-    // For each chart
-    foreach ($ret as $chart_id => $chartNodes) {
-        // For each data series
-        foreach ($chartNodes as $node_id => $nodeDataPoints) {
-            // For each data point in the series (usually just 1)
-            foreach ($nodeDataPoints as $point_id => $dataPoint) {
-                $pName = $dataPoint['name'];
-
-                switch ($dataPoint['type']) {
-                /* We only collect the status and server variables here to
-                 * read them all in one query,
-                 * and only afterwards assign them.
-                 * Also do some white list filtering on the names
-                */
-                case 'servervar':
-                    if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
-                        $serverVars[] = $pName;
-                    }
-                    break;
-
-                case 'statusvar':
-                    if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
-                        $statusVars[] = $pName;
-                    }
-                    break;
-
-                case 'proc':
-                    $result = $GLOBALS['dbi']->query('SHOW PROCESSLIST');
-                    $ret[$chart_id][$node_id][$point_id]['value']
-                        = $GLOBALS['dbi']->numRows($result);
-                    break;
-
-                case 'cpu':
-                    if (!$sysinfo) {
-                        include_once 'libraries/sysinfo.lib.php';
-                        $sysinfo = PMA_getSysInfo();
-                    }
-                    if (!$cpuload) {
-                        $cpuload = $sysinfo->loadavg();
-                    }
-
-                    if (PMA_getSysInfoOs() == 'Linux') {
-                        $ret[$chart_id][$node_id][$point_id]['idle']
-                            = $cpuload['idle'];
-                        $ret[$chart_id][$node_id][$point_id]['busy']
-                            = $cpuload['busy'];
-                    } else {
-                        $ret[$chart_id][$node_id][$point_id]['value']
-                            = $cpuload['loadavg'];
-                    }
-
-                    break;
-
-                case 'memory':
-                    if (!$sysinfo) {
-                        include_once 'libraries/sysinfo.lib.php';
-                        $sysinfo = PMA_getSysInfo();
-                    }
-                    if (!$memory) {
-                        $memory  = $sysinfo->memory();
-                    }
-
-                    $ret[$chart_id][$node_id][$point_id]['value']
-                        = $memory[$pName];
-                    break;
-                } /* switch */
-            } /* foreach */
-        } /* foreach */
-    } /* foreach */
+    list($serverVars, $statusVars, $ret) = PMA_getJsonForChartingDataGet(
+        $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
+    );
 
     // Retrieve all required status variables
     if (count($statusVars)) {
@@ -521,10 +454,27 @@ function PMA_getJsonForChartingData()
     }
 
     // ...and now assign them
+    $ret = PMA_getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
+
+    $ret['x'] = microtime(true) * 1000;
+    return $ret;
+}
+
+/**
+ * Assign the variables for real-time charting data
+ *
+ * @param array $ret             Real-time charting data
+ * @param array $statusVarValues Status variable values
+ * @param array $serverVarValues Server variable values
+ *
+ * @return array
+ */
+function PMA_getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues)
+{
     foreach ($ret as $chart_id => $chartNodes) {
         foreach ($chartNodes as $node_id => $nodeDataPoints) {
             foreach ($nodeDataPoints as $point_id => $dataPoint) {
-                switch($dataPoint['type']) {
+                switch ($dataPoint['type']) {
                 case 'statusvar':
                     $ret[$chart_id][$node_id][$point_id]['value']
                         = $statusVarValues[$dataPoint['name']];
@@ -537,9 +487,111 @@ function PMA_getJsonForChartingData()
             }
         }
     }
+    return $ret;
+}
 
-    $ret['x'] = microtime(true) * 1000;
-    return  $ret;
+/**
+ * @param array $ret             Real-time charting data
+ * @param array $statusVarValues Status variable values
+ * @param array $serverVarValues Server variable values
+ * @param $sysinfo
+ * @param $cpuload
+ * @param $memory
+ * @return array
+ *
+ */
+function PMA_getJsonForChartingDataGet(
+    $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
+) {
+    // For each chart
+    foreach ($ret as $chart_id => $chartNodes) {
+        // For each data series
+        foreach ($chartNodes as $node_id => $nodeDataPoints) {
+            // For each data point in the series (usually just 1)
+            foreach ($nodeDataPoints as $point_id => $dataPoint) {
+                list($serverVars, $statusVars, $ret[$chart_id][$node_id][$point_id])
+                    = PMA_getJsonForChartingDataSwitch(
+                        $dataPoint['type'], $dataPoint['name'], $serverVars,
+                        $statusVars, $ret[$chart_id][$node_id][$point_id],
+                        $sysinfo, $cpuload, $memory
+                    );
+            } /* foreach */
+        } /* foreach */
+    }
+    return array($serverVars, $statusVars, $ret);
+}
+
+/**
+ * @param $type
+ * @param $pName
+ * @param array $statusVarValues Status variable values
+ * @param array $serverVarValues Server variable values
+ * @param array $ret             Real-time charting data
+ * @param $sysinfo
+ * @param $cpuload
+ * @param $memory
+ *
+ * @return array
+ */
+function PMA_getJsonForChartingDataSwitch(
+    $type, $pName, $serverVars, $statusVars, $ret,
+    $sysinfo, $cpuload, $memory
+) {
+    switch ($type) {
+    /* We only collect the status and server variables here to
+     * read them all in one query,
+     * and only afterwards assign them.
+     * Also do some white list filtering on the names
+    */
+    case 'servervar':
+        if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+            $serverVars[] = $pName;
+        }
+        break;
+
+    case 'statusvar':
+        if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+            $statusVars[] = $pName;
+        }
+        break;
+
+    case 'proc':
+        $result = $GLOBALS['dbi']->query('SHOW PROCESSLIST');
+        $ret['value'] = $GLOBALS['dbi']->numRows($result);
+        break;
+
+    case 'cpu':
+        if (!$sysinfo) {
+            include_once 'libraries/sysinfo.lib.php';
+            $sysinfo = PMA_getSysInfo();
+        }
+        if (!$cpuload) {
+            $cpuload = $sysinfo->loadavg();
+        }
+
+        if (PMA_getSysInfoOs() == 'Linux') {
+            $ret['idle'] = $cpuload['idle'];
+            $ret['busy'] = $cpuload['busy'];
+        } else {
+            $ret['value'] = $cpuload['loadavg'];
+        }
+
+        break;
+
+    case 'memory':
+        if (!$sysinfo) {
+            include_once 'libraries/sysinfo.lib.php';
+            $sysinfo = PMA_getSysInfo();
+        }
+        if (!$memory) {
+            $memory = $sysinfo->memory();
+        }
+
+        $ret['value'] = $memory[$pName];
+        break;
+    }
+
+    return array($serverVars, $statusVars, $ret);
 }
 
 /**
