@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-10 21:46+0200\n"
+"PO-Revision-Date: 2014-01-10 21:49+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -6876,7 +6876,6 @@ msgid "Enable SQL Validator"
 msgstr "Activer le validateur SQL"
 
 #: libraries/config/messages.inc.php:749
-#, fuzzy
 #| msgid ""
 #| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
 #| "[/kbd])"
@@ -6885,7 +6884,7 @@ msgid ""
 "kbd])."
 msgstr ""
 "Si vous avez un code d'utilisateur, indiquez-le ici ([kbd]anonymous[/kbd] "
-"par défaut)"
+"par défaut)."
 
 #: libraries/config/messages.inc.php:750 libraries/tbl_tracking.lib.php:500
 #: libraries/tbl_tracking.lib.php:598
@@ -6893,18 +6892,16 @@ msgid "Username"
 msgstr "Utilisateur"
 
 #: libraries/config/messages.inc.php:751
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
 msgstr ""
-"Un avertissement est affiché sur la page principale si Suhosin est détecté"
+"Un avertissement est affiché sur la page principale si Suhosin est détecté."
 
 #: libraries/config/messages.inc.php:752
 msgid "Suhosin warning"
 msgstr "Avertissement Suhosin"
 
 #: libraries/config/messages.inc.php:753
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)"
@@ -6913,14 +6910,13 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
 "Taille des zones de texte (colonnes) en mode édition, cette valeur sera "
-"augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)"
+"augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)."
 
 #: libraries/config/messages.inc.php:754
 msgid "Textarea columns"
 msgstr "Taille horizontale pour une zone de texte"
 
 #: libraries/config/messages.inc.php:755
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)"
@@ -6929,43 +6925,38 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
 "Taille des zones de texte (lignes) en mode édition, cette valeur sera "
-"augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)"
+"augmentée pour les zones SQL (*2) et la fenêtre de requêtes (*1.25)."
 
 #: libraries/config/messages.inc.php:756
 msgid "Textarea rows"
 msgstr "Taille verticale pour une zone de texte"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
 msgstr ""
-"Titre de la fenêtre de navigateur quand une base de données est choisie"
+"Titre de la fenêtre de navigateur quand une base de données est choisie."
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
-msgstr "Titre de la fenêtre de navigateur quand rien n'est choisi"
+msgstr "Titre de la fenêtre de navigateur quand rien n'est choisi."
 
 #: libraries/config/messages.inc.php:760
 msgid "Default title"
 msgstr "Titre par défaut"
 
 #: libraries/config/messages.inc.php:761
-#, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
-msgstr "Titre de la fenêtre du navigateur quand un serveur est choisi"
+msgstr "Titre de la fenêtre du navigateur quand un serveur est choisi."
 
 #: libraries/config/messages.inc.php:763
-#, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
-msgstr "Titre de la fenêtre du navigateur quand une table est choisie"
+msgstr "Titre de la fenêtre du navigateur quand une table est choisie."
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
 #| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
@@ -6978,38 +6969,35 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 "Format des définitions : [kbd]IP: en-tête[/kbd]. Dans cet exemple, "
-"phpMyAdmin devrait faire confiance si l'en-tête HTTP_X_FORWARDED_FOR (X-"
-"Forwarded-For) provient du serveur 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
+"phpMyAdmin devrait faire confiance si l'en-tête HTTP_X_FORWARDED_FOR (X"
+"-Forwarded-For) provient du serveur 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/config/messages.inc.php:766
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Liste des serveurs mandataires de confiance en vue de IP allow/deny"
 
 #: libraries/config/messages.inc.php:767
-#, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr ""
 "Répertoire sur le serveur, dans lequel vous téléchargez des fichiers en vue "
-"de les importer"
+"de les importer."
 
 #: libraries/config/messages.inc.php:768
 msgid "Upload directory"
 msgstr "Répertoire de téléchargement"
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
-msgstr "Permet la recherche dans la base de données au complet"
+msgstr "Permet la recherche dans la base de données au complet."
 
 #: libraries/config/messages.inc.php:770
 msgid "Use database search"
 msgstr "Permet une recherche dans toute la base de données"
 
 #: libraries/config/messages.inc.php:771
-#, fuzzy
 #| msgid ""
 #| "When disabled, users cannot set any of the options below, regardless of "
 #| "the checkbox on the right"
@@ -7018,7 +7006,7 @@ msgid ""
 "checkbox on the right."
 msgstr ""
 "Si désactivé, les utilisateurs ne peuvent régler aucune des options ci-bas, "
-"peu importe la case à cocher à droite"
+"peu importe la case à cocher à droite."
 
 #: libraries/config/messages.inc.php:772
 msgid "Enable the Developer tab in settings"
@@ -7029,10 +7017,9 @@ msgid "Check for latest version"
 msgstr "Vérifier la présence d'une nouvelle version"
 
 #: libraries/config/messages.inc.php:774
-#, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "Active la vérification de version sur la page principale"
+msgstr "Active la vérification de version sur la page principale."
 
 #: libraries/config/messages.inc.php:775 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
@@ -7042,7 +7029,6 @@ msgid "Version check"
 msgstr "Vérification de version"
 
 #: libraries/config/messages.inc.php:776
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin or when submitting error reports. You need "
@@ -7057,8 +7043,8 @@ msgstr ""
 "L'URL du serveur mandataire à utiliser pour récupérer l'information au sujet "
 "de la plus récente version de phpMyAdmin ou lors de l'envoi de rapports "
 "d'erreurs. Ceci est nécessaire si le serveur sur lequel phpMyAdmin est "
-"installé n'a pas d'accès direct à Internet. Le format est «nom de serveur:"
-"numéro de port»"
+"installé n'a pas d'accès direct à Internet. Le format est «nom de "
+"serveur:numéro de port»."
 
 #: libraries/config/messages.inc.php:777
 msgid "Proxy url"
@@ -7080,17 +7066,15 @@ msgid "Proxy username"
 msgstr "Utilisateur du serveur mandataire"
 
 #: libraries/config/messages.inc.php:780
-#, fuzzy
 #| msgid "The password for authenticating with the proxy"
 msgid "The password for authenticating with the proxy."
-msgstr "Le mot de passe pour s'authentifier sur le serveur mandataire"
+msgstr "Le mot de passe pour s'authentifier sur le serveur mandataire."
 
 #: libraries/config/messages.inc.php:781
 msgid "Proxy password"
 msgstr "Mot de passe du serveur mandataire"
 
 #: libraries/config/messages.inc.php:783
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
 #| "compression for import and export operations"
@@ -7098,38 +7082,36 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Active la compression [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/"
-"a] pour les opérations d'importation et d'exportation"
+"Active la compression "
+"[a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] pour les "
+"opérations d'importation et d'exportation."
 
 #: libraries/config/messages.inc.php:784
 msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:785
-#, fuzzy
 #| msgid "Enter your public key for your domain reCaptcha service"
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr "Saisissez la clé publique du service reCaptcha pour votre domaine"
+msgstr "Saisissez la clé publique du service reCaptcha pour votre domaine."
 
 #: libraries/config/messages.inc.php:786
 msgid "Public key for reCaptcha"
 msgstr "Clé publique pour reCaptcha"
 
 #: libraries/config/messages.inc.php:787
-#, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service"
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr "Saisissez la clé privée du service reCaptcha pour votre domaine"
+msgstr "Saisissez la clé privée du service reCaptcha pour votre domaine."
 
 #: libraries/config/messages.inc.php:788
 msgid "Private key for reCaptcha"
 msgstr "Clé privée pour reCaptcha"
 
 #: libraries/config/messages.inc.php:790
-#, fuzzy
 #| msgid "Choose the default action when sending error reports"
 msgid "Choose the default action when sending error reports."
-msgstr "Choisissez l'action par défaut lors de l'envoi des rapports d'erreurs"
+msgstr "Choisissez l'action par défaut lors de l'envoi des rapports d'erreurs."
 
 #: libraries/config/messages.inc.php:791
 msgid "Send error reports"
@@ -10809,10 +10791,9 @@ msgid "Global privileges"
 msgstr "Privilèges globaux"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "global"
+msgstr "Global"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:2750
@@ -12666,7 +12647,7 @@ msgstr "Moment"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Nuage de points"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
