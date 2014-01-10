@@ -283,6 +283,51 @@ class PMA_DatabaseInterface
     }
 
     /**
+     * returns a segment of the SQL WHERE clause regarding table name and type
+     *
+     * @param string|bool $table        table or false
+     * @param boolean     $tbl_is_group $table is a table group
+     * @param string      $tble_type    whether table or view
+     *
+     * @return string a segment of the WHERE clause 
+     */
+    private function _getTableCondition($table, $tbl_is_group, $tble_type)
+    {
+        // get table information from information_schema
+        if ($table) {
+            if (true === $tbl_is_group) {
+                $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
+                    . PMA_Util::escapeMysqlWildcards(
+                        PMA_Util::sqlAddSlashes($table)
+                    )
+                    . '%\'';
+            } else {
+                $sql_where_table = 'AND t.`TABLE_NAME` = \''
+                    . PMA_Util::sqlAddSlashes($table) . '\'';
+            }
+        } else {
+            $sql_where_table = '';
+        }
+
+        if ($tble_type) {
+            if ($tble_type == 'view') {
+                if (PMA_DRIZZLE) {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE'";
+                } else {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
+                }
+            } else if ($tble_type == 'table') {
+                if (PMA_DRIZZLE) {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE'";
+                } else {
+                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
+                }
+            }
+        }
+        return $sql_where_table;
+    }
+
+    /**
      * returns array of all tables in given db or dbs
      * this function expects unquoted names:
      * RIGHT: my_database
@@ -327,37 +372,9 @@ class PMA_DatabaseInterface
 
         $tables = array();
 
-        // get table information from information_schema
-        if ($table) {
-            if (true === $tbl_is_group) {
-                $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                    . PMA_Util::escapeMysqlWildcards(
-                        PMA_Util::sqlAddSlashes($table)
-                    )
-                    . '%\'';
-            } else {
-                $sql_where_table = 'AND t.`TABLE_NAME` = \''
-                    . PMA_Util::sqlAddSlashes($table) . '\'';
-            }
-        } else {
-            $sql_where_table = '';
-        }
-
-        if ($tble_type) {
-            if ($tble_type == 'view') {
-                if (PMA_DRIZZLE) {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE'";
-                } else {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
-                }
-            } else if ($tble_type == 'table') {
-                if (PMA_DRIZZLE) {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE'";
-                } else {
-                    $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
-                }
-            }
-        }
+        $sql_where_table = $this->_getTableCondition(
+            $table, $tbl_is_group, $tble_type
+        );
 
         // for PMA bc:
         // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
