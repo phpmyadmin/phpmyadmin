@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-01 12:48+0200\n"
+"PO-Revision-Date: 2014-01-10 22:03+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-1/sl/>\n"
 "Language: sl\n"
@@ -5730,7 +5730,7 @@ msgstr "Določi katere funkcije bodo uporabljene za pretvorbo nabora znakov"
 
 #: libraries/config/messages.inc.php:362
 msgid "Recoding engine"
-msgstr "Pogon rekodiranja"
+msgstr "Snemalni pogon"
 
 #: libraries/config/messages.inc.php:363
 msgid "When browsing tables, the sorting of each table is remembered"
