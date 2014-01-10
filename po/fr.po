@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-10 18:50+0200\n"
+"PO-Revision-Date: 2014-01-10 18:56+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -1550,7 +1550,7 @@ msgstr "Chargement en cours…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Demande abandonnée !"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -4699,10 +4699,9 @@ msgid "CHAR textarea columns"
 msgstr "Taille horizontale pour un textarea contenant un CHAR"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Nombre de lignes pour les textareas CHAR/VARCHAR"
+msgstr "Nombre de lignes pour les textareas CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -4713,7 +4712,6 @@ msgid "Check config file permissions"
 msgstr "Vérifier les permissions du fichier de configuration"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4723,7 +4721,7 @@ msgid ""
 "you encounter problems with created gzip/bzip2 files disable this feature."
 msgstr ""
 "Comprime les exportations gzip/bzip2 à la volée avec économie de mémoire; si "
-"les fichiers gzip/bzip2 produits ne sont pas conformes, désactivez ceci"
+"les fichiers gzip/bzip2 produits ne sont pas conformes, désactivez ceci."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4735,7 +4733,6 @@ msgid "Configuration file"
 msgstr "Fichier de configuration"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 #| "when you're about to lose data"
@@ -4744,7 +4741,7 @@ msgid ""
 "when you're about to lose data."
 msgstr ""
 "Un message (Êtes-vous certain…) devrait-il s'afficher quand vous êtes sur le "
-"point de perdre des données"
+"point de perdre des données."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4759,50 +4756,45 @@ msgid "Default display direction"
 msgstr "Valeur par défaut de la direction de l'affichage"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "L'onglet affiché lors de l'entrée dans une base de données"
+msgstr "L'onglet affiché lors de l'entrée dans une base de données."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "Onglet par défaut pour bases de données"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "L'onglet initial dans l'affichage serveur"
+msgstr "L'onglet initial dans l'affichage serveur."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "Onglet par défaut pour serveur"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "L'onglet initial lors de l'accès à une table"
+msgstr "L'onglet initial lors de l'accès à une table."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
 msgstr "Onglet par défaut pour tables"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Les actions dans la structure de table devraient-elle être cachées?"
+msgstr "Si les actions dans la structure de table doivent être masquées."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
 msgstr "Cacher les actions dans la structure de table"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
-msgstr "Montrer par défaut le contenu binaire en hexadécimal"
+msgstr "Montrer par défaut le contenu binaire en hexadécimal."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down"
@@ -4825,10 +4817,9 @@ msgid "Disable multi table maintenance"
 msgstr "Désactiver la maintenance de tables multiples"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "Éditer les requêtes SQL dans une fenêtre popup"
+msgstr "Éditer les requêtes SQL dans une fenêtre popup."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
