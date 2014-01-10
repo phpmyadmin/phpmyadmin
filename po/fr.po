@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-10 18:56+0200\n"
+"PO-Revision-Date: 2014-01-10 19:00+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -4830,7 +4830,6 @@ msgid "Display errors"
 msgstr "Affichage des erreurs"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -4839,7 +4838,7 @@ msgid ""
 "limit)."
 msgstr ""
 "Nombre de secondes allouées à l'exécution des scripts ([kbd]0[/kbd] signifie "
-"illimité)"
+"illimité)."
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -5061,17 +5060,15 @@ msgid "Export time in UTC"
 msgstr "Exporter l'heure en format UTC"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "Force des connexions https entre le navigateur et phpMyAdmin"
+msgstr "Force des connexions https entre le navigateur et phpMyAdmin."
 
 #: libraries/config/messages.inc.php:196
 msgid "Force SSL connection"
 msgstr "Forcer les connexions SSL"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 #| "the referenced data, [kbd]id[/kbd] is the key value"
@@ -5080,19 +5077,18 @@ msgid ""
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
 "Ordre du tri pour les éléments de clé étrangère; [kbd]content[/kbd] signifie "
-"la donnée référencée, [kbd]id[/kbd] représente la valeur de la clé"
+"la donnée référencée, [kbd]id[/kbd] représente la valeur de la clé."
 
 #: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
 msgstr "Ordre dans le menu des clés étrangères"
 
 #: libraries/config/messages.inc.php:203
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
 msgstr ""
 "Un menu déroulant sera utilisé si le nombre de valeurs est inférieur à cette "
-"limite"
+"limite."
 
 #: libraries/config/messages.inc.php:204
 msgid "Foreign key limit"
@@ -5103,18 +5099,16 @@ msgid "Browse mode"
 msgstr "Mode de navigation"
 
 #: libraries/config/messages.inc.php:206
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "Personnaliser le mode affichage"
+msgstr "Personnaliser le mode affichage."
 
 #: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:210
 #: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "Personnaliser les options par défaut"
+msgstr "Personnaliser les options par défaut."
 
 #: libraries/config/messages.inc.php:209 libraries/config/setup.forms.php:247
 #: libraries/config/setup.forms.php:321
@@ -5128,30 +5122,27 @@ msgid "Developer"
 msgstr "Développeur"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Paramètres pour les développeurs phpMyAdmin"
+msgstr "Paramètres pour les développeurs phpMyAdmin."
 
 #: libraries/config/messages.inc.php:213
 msgid "Edit mode"
 msgstr "Mode édition"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Personnaliser le mode édition"
+msgstr "Personnaliser le mode édition."
 
 #: libraries/config/messages.inc.php:216
 msgid "Export defaults"
 msgstr "Valeurs par défaut pour exportation"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Personnaliser les valeurs utilisées habituellement"
+msgstr "Personnaliser les valeurs utilisées habituellement."
 
 #: libraries/config/messages.inc.php:218 libraries/config/messages.inc.php:279
 #: setup/frames/menu.inc.php:17
@@ -5163,52 +5154,47 @@ msgid "General"
 msgstr "Général"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Réglage de quelques options couramment utilisées"
+msgstr "Réglage de quelques options couramment utilisées."
 
 #: libraries/config/messages.inc.php:222
 msgid "Import defaults"
 msgstr "Valeurs par défaut pour importation"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "Personnaliser les valeurs utilisées habituellement"
+msgstr "Personnaliser les valeurs utilisées habituellement."
 
 #: libraries/config/messages.inc.php:224
 msgid "Import / export"
 msgstr "Importation / exportation"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
 msgstr ""
 "Configurez les répertoires d'importation et d'exportation ainsi que les "
-"options de compression"
+"options de compression."
 
 #: libraries/config/messages.inc.php:227
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "Options d'affichage des bases de données"
+msgstr "Options d'affichage des bases de données."
 
 #: libraries/config/messages.inc.php:231 setup/frames/menu.inc.php:21
 msgid "Navigation panel"
 msgstr "Panneau de navigation"
 
 #: libraries/config/messages.inc.php:232
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "Personnaliser l'apparence du panneau de navigation"
+msgstr "Personnaliser l'apparence du panneau de navigation."
 
 #: libraries/config/messages.inc.php:233 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
