@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-03 14:51+0100\n"
-"PO-Revision-Date: 2014-01-08 17:10+0200\n"
-"Last-Translator: Gyeongsu Han <hansim@gmail.com>\n"
+"PO-Revision-Date: 2014-01-10 02:57+0200\n"
+"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2347,7 +2347,6 @@ msgid "Show:"
 msgstr "보기:"
 
 #: libraries/DBQbe.class.php:526
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
 msgstr "조건:"
@@ -3243,10 +3242,10 @@ msgid "Invalid table name:"
 msgstr "잘못된 테이블 이름:"
 
 #: libraries/Table.class.php:1321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "%1$s 에서 %2$s 로 테이블 이름을 바꾸는데 오류가 발생하였습니다."
+msgstr "테이블 %1$s의 이름을 %2$s(으)로 바꾸는데 실패했습니다!"
 
 #: libraries/Table.class.php:1340
 #, php-format
