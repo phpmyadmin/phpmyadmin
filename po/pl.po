@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-07 15:37+0200\n"
-"Last-Translator: Łukasz Cieśluk <lukaszciesluk@gmail.com>\n"
+"PO-Revision-Date: 2014-01-10 09:11+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/4-1/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -3572,41 +3572,40 @@ msgstr "Motyw"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"1-Bajtowa liczba całkowita, podpisany zakres jest-128 do 127, niepodpisany "
-"zakres wynosi od 0 do 255"
+"1-Bajtowa liczba całkowita, ze znakiem zakres -128 do 127, bez znaku zakres "
+"wynosi od 0 do 255"
 
 #: libraries/Types.class.php:299
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"2-Bajtowa liczba całkowita, podpisany zakres jest-32,768 do 32 767, "
-"niepodpisany zakres wynosi od 0 do 65 535"
+"2-Bajtowa liczba całkowita, ze znakiem zakres -32,768 do 32 767, bez znaku "
+"zakres wynosi od 0 do 65 535"
 
 #: libraries/Types.class.php:301
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
-"3-Bajtowa liczba całkowita, podpisany zakres jest-8,388,608 do 8,388,607, "
-"jest niepodpisany zakres 0 do 16,777,215"
+"3-Bajtowa liczba całkowita, ze znakiem zakres -8,388,608 do 8,388,607, bez "
+"znaku zakres 0 do 16,777,215"
 
 #: libraries/Types.class.php:303
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
-"4-Bajtowa liczba całkowita, podpisany zakres jest-2,147,483,648 do 2 147 483 "
-"647, jest niepodpisany zakres 0 do 4 294 967 295"
+"4-Bajtowa liczba całkowita, ze znakiem zakres -2,147,483,648 do 2 147 483 "
+"647, bez znaku zakres 0 do 4 294 967 295"
 
 #: libraries/Types.class.php:305
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
-"8-Bajtowa liczba całkowita, podpisany zakres jest-9,223,372,036,854,775,808 "
-"do 9,223,372,036,854,775,807, jest niepodpisany zakres 0 do "
-"18,446,744,073,709,551,615"
+"8-Bajtowa liczba całkowita, ze znakiem zakres -9,223,372,036,854,775,808 do "
+"9,223,372,036,854,775,807, bez znaku zakres 0 do 18,446,744,073,709,551,615"
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:714
 msgid ""
@@ -3661,7 +3660,7 @@ msgstr ""
 
 #: libraries/Types.class.php:319
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr "Alias unikatowy BIGINT niepodpisane nie NULL AUTO_INCREMENT"
+msgstr "Alias unikatowy BIGINT bez znaku nie NULL AUTO_INCREMENT"
 
 #: libraries/Types.class.php:321 libraries/Types.class.php:724
 #, php-format
@@ -3678,14 +3677,14 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Sygnatura czasowa, zakres jest 1970-01-01 00: 00: 01 UTC do roku 2038-01-09 "
-"03: 14: 07 UTC, przechowywane jako liczba sekund od epoki (1970-01-01 00: "
-"00: 00 UTC)"
+"Sygnatura czasowa, zakres 1970-01-01 00: 00: 01 UTC do roku 2038-01-09 03: "
+"14: 07 UTC, przechowywane jako liczba sekund od epoki (1970-01-01 00: 00: 00 "
+"UTC)"
 
 #: libraries/Types.class.php:327 libraries/Types.class.php:730
 #, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "Czas, zakres jest %1$s do %2$s"
+msgstr "Czas, zakres %1$s do %2$s"
 
 #: libraries/Types.class.php:329
 msgid ""
@@ -3860,14 +3859,14 @@ msgstr "Przestrzenny"
 
 #: libraries/Types.class.php:710
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr "4-Bajtowa liczba całkowita, zakres jest-2,147,483,648 do 2 147 483 647"
+msgstr "4-Bajtowa liczba całkowita, zakres -2,147,483,648 do 2 147 483 647"
 
 #: libraries/Types.class.php:712
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
-"8-Bajtowa liczba całkowita, zakres jest-9,223,372,036,854,775,808 do "
+"8-Bajtowa liczba całkowita, zakre-9,223,372,036,854,775,808 do "
 "9,223,372,036,854,775,807"
 
 #: libraries/Types.class.php:716
@@ -3891,8 +3890,8 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
-"Sygnatury czasowej, zakres jest ' 0001-01-01 00: 00: 00' UTC do \"9999-12-31 "
-"23: 59: 59' UTC; TimeStamp(6) mogą być przechowywane w mikrosekundach"
+"Sygnatury czasowej, zakres ' 0001-01-01 00: 00: 00' UTC do \"9999-12-31 23: "
+"59: 59' UTC; TimeStamp(6) mogą być przechowywane w mikrosekundach"
 
 #: libraries/Types.class.php:736
 msgid ""
