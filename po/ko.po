@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-08 17:10+0200\n"
-"Last-Translator: Gyeongsu Han <hansim@gmail.com>\n"
+"PO-Revision-Date: 2014-01-10 02:55+0200\n"
+"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2373,7 +2373,6 @@ msgid "Show:"
 msgstr "보기:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
 msgstr "조건:"
