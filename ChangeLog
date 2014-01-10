@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 + rfe #1480 Enhance privileges initials table
 + rfe #1472 [interface] Break "Edit privileges" with sub-menus
 + rfe #1466 Minor refactoring required 
++ rfe #1004 Create indexes at the end in SQL export
 
 4.1.5.0 (not yet released)
 - bug #3780 Allow aborting loading pages
