@@ -1403,7 +1403,7 @@ class ExportSql extends ExportPlugin
                     $sql_indexes=rtrim($sql_indexes, ',');
                     $sql_indexes_query=rtrim($sql_indexes_query, ',');
                     //removes attional semicolon at the end
-                    if ($has_constraintsi == 1) {
+                    if ($has_constraints == 1) {
                         $sql_constraints .= ';' . $crlf;
                         $sql_constraints_query .= ';';
                     }
