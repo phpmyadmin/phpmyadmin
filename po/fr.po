@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-10 18:46+0200\n"
+"PO-Revision-Date: 2014-01-10 18:50+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -2704,10 +2704,9 @@ msgid "Kill"
 msgstr "Supprimer"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Peut être approximatif. Voir [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Peut être approximatif. Voir [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -3312,10 +3311,10 @@ msgid "Invalid table name:"
 msgstr "Nom de table invalide : "
 
 #: libraries/Table.class.php:1321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Erreur lors du renommage de %1$s en %2$s"
+msgstr "Erreur lors du renommage de %1$s en %2$s !"
 
 #: libraries/Table.class.php:1340
 #, php-format
@@ -4544,21 +4543,19 @@ msgid "Incorrect IP address: %s"
 msgstr "Adresse IP incorrecte : %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Si activé, permet d'entrer un nom de serveur MySQL sur le panneau de "
-"connexion en mode cookie"
+"connexion en mode cookie."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
 msgstr "Permettre de tenter une connexion à tout serveur MySQL"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4570,7 +4567,7 @@ msgid ""
 msgstr ""
 "Activer ceci permet à une page située dans un domaine différent d'appeler "
 "phpMyAdmin à l'intérieur d'un cadre et représente un trou potentiel de "
-"[strong]sécurité[/strong] pour les attaques de script inter-cadre"
+"[strong]sécurité[/strong] pour les attaques de script inter-cadre."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4582,7 +4579,6 @@ msgstr ""
 "Montrer le lien pour détruire une base de données aux utilisateurs ordinaires"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -4591,7 +4587,7 @@ msgid ""
 "authentication."
 msgstr ""
 "Mot de passe utilisé pour encrypter les cookies quand on utilise "
-"l'authentification [kbd]cookie[/kbd]"
+"l'authentification [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4606,17 +4602,15 @@ msgid "Row marker"
 msgstr "Activer le marqueur de lignes"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Mettre en surbrillance la ligne sur laquelle pointe la souris"
+msgstr "Mettre en surbrillance la ligne sur laquelle pointe la souris."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "Activer le pointeur de surbrillance"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4625,14 +4619,13 @@ msgid ""
 "import and export operations."
 msgstr ""
 "Active la compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] pour "
-"les opérations d'importation et d'exportation"
+"les opérations d'importation et d'exportation."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -4642,16 +4635,15 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; [kbd]input"
-"[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet la saisie "
-"de sauts de lignes"
+"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; "
+"[kbd]input[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet "
+"la saisie de sauts de lignes."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "Édition des colonnes CHAR"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4659,15 +4651,15 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Utiliser un éditeur convivial pour les requêtes SQL ([a@http://codemirror."
-"net/]CodeMirror[/a]) avec coloration syntaxique et numérotation des lignes"
+"Utiliser un éditeur convivial pour les requêtes SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) avec coloration syntaxique et "
+"numérotation des lignes."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "Activer CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4676,14 +4668,13 @@ msgid ""
 "columns."
 msgstr ""
 "Définit la taille minimum des champs de saisie générés pour les colonnes "
-"CHAR et VARCHAR"
+"CHAR et VARCHAR."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Taille minimum des champs de saisie"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4692,17 +4683,16 @@ msgid ""
 "columns."
 msgstr ""
 "Définit la taille maximum des champs de saisie générés pour les colonnes "
-"CHAR et VARCHAR"
+"CHAR et VARCHAR."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "Taille maximum pour les champs de saisie"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Nombre de colonnes pour les textareas CHAR/VARCHAR"
+msgstr "Nombre de colonnes pour les textareas CHAR/VARCHAR."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
