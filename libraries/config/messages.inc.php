@@ -15,7 +15,7 @@ if (!function_exists('__')) {
 }
 
 $strConfigAllowArbitraryServer_desc
-    = __('If enabled user can enter any MySQL server in login form for cookie auth.');
+    = __('If enabled, user can enter any MySQL server in login form for cookie auth.');
 $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
 $strConfigAllowThirdPartyFraming_desc = __(
     'Enabling this allows a page located on a different domain to call phpMyAdmin '
