@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-09 15:38+0200\n"
+"PO-Revision-Date: 2014-01-10 18:45+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2673,10 +2673,9 @@ msgid "Kill"
 msgstr "Sulge"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Võib olla umbkaudne. Vaata [doc@faq3-11]KKK 3.11[/doc]"
+msgstr "Võib olla umbkaudne. Vaata [doc@faq3-11]KKK 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -4475,7 +4474,6 @@ msgid "Incorrect IP address: %s"
 msgstr "Vale IP-aadress: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth."
 msgid ""
@@ -4597,10 +4595,9 @@ msgid "Maximum size for input field"
 msgstr "Sisestusvälja maksimaalne laius"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR tekstialade veergude hulk"
+msgstr "CHAR/VARCHAR tekstialade veergude hulk."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
@@ -5744,7 +5741,6 @@ msgid "Server/library difference warning"
 msgstr "Serveri/teegi erinevuse hoiatus"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words"
@@ -5753,7 +5749,7 @@ msgid ""
 "column names in a table are reserved MySQL words."
 msgstr ""
 "Keela vaikimisi hoiatus, mida näidatakse struktuuri lehel siis, kui tabeli "
-"veergude nimed on MySQLi reserveeritud sõnad"
+"veergude nimed on MySQLi reserveeritud sõnad."
 
 #: libraries/config/messages.inc.php:502
 msgid "MySQL reserved word warning"
@@ -6376,11 +6372,10 @@ msgid "Show create database form"
 msgstr "Näita andmebaasi loomise vormi"
 
 #: libraries/config/messages.inc.php:715
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
-msgstr "Näita või peida kõikides tabelites loomise ajatempli veerg"
+msgstr "Näita või peida kõikides tabelites loomise ajatempli veerg."
 
 #: libraries/config/messages.inc.php:716
 msgid "Show Creation timestamp"
@@ -10319,10 +10314,9 @@ msgid "Global privileges"
 msgstr "Globaalsed õigused"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "globaalne"
+msgstr "Globaalne"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:2750
