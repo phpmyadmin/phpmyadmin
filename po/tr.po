@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-10 18:05+0200\n"
+"PO-Revision-Date: 2014-01-10 21:18+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -2693,10 +2693,9 @@ msgid "Kill"
 msgstr "Sonlandır"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Yaklaşık olabilir. [doc@faq3-11]SSS 3.11[/doc]'e bakın"
+msgstr "Yaklaşık olabilir. [doc@faq3-11]SSS 3.11[/doc]'e bakın."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -4508,14 +4507,13 @@ msgid "Incorrect IP address: %s"
 msgstr "Yanlış IP adresi: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth."
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Eğer etkinleştirilirse kullanıcı herhangi MySQL sunucusuna tanımlama bilgisi "
-"kimlik doğrulamasıyla oturum açma formundan girebilir."
+"Eğer etkinleştirilirse, kullanıcı herhangi MySQL sunucusuna tanımlama "
+"bilgisi kimlik doğrulamasıyla oturum açma formundan girebilir."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -10409,10 +10407,9 @@ msgid "Global privileges"
 msgstr "Genel yetkiler"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "genel"
+msgstr "Genel"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:2750
