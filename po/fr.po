@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-10 19:00+0200\n"
+"PO-Revision-Date: 2014-01-10 21:37+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -5202,16 +5202,14 @@ msgid "Servers"
 msgstr "Serveurs"
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "Options d'affichage des serveurs"
+msgstr "Options d'affichage des serveurs."
 
 #: libraries/config/messages.inc.php:236
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "Options d'affichage des tables"
+msgstr "Options d'affichage des tables."
 
 #: libraries/config/messages.inc.php:237 setup/frames/menu.inc.php:23
 msgid "Main panel"
@@ -5226,10 +5224,9 @@ msgid "Other core settings"
 msgstr "Autres paramètres de base"
 
 #: libraries/config/messages.inc.php:244
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "Paramètres divers"
+msgstr "Paramètres divers."
 
 #: libraries/config/messages.inc.php:245
 msgid "Page titles"
@@ -5258,7 +5255,6 @@ msgid "Security"
 msgstr "Sécurité"
 
 #: libraries/config/messages.inc.php:255
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
@@ -5267,7 +5263,7 @@ msgid ""
 "limit MySQL."
 msgstr ""
 "Veuillez noter que phpMyAdmin n'est qu'une interface et que ses "
-"fonctionnalités ne limitent en rien MySQL"
+"fonctionnalités ne limitent en rien MySQL."
 
 #: libraries/config/messages.inc.php:258
 msgid "Basic settings"
@@ -5278,17 +5274,15 @@ msgid "Authentication"
 msgstr "Type d'authentification"
 
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "Paramètres d'authentification"
+msgstr "Paramètres d'authentification."
 
 #: libraries/config/messages.inc.php:261
 msgid "Server configuration"
 msgstr "Configuration du serveur"
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
@@ -5297,20 +5291,18 @@ msgid ""
 "what they are for."
 msgstr ""
 "Configuration avancée, assurez-vous de connaître la signification de ces "
-"options avant de les modifier"
+"options avant de les modifier."
 
 #: libraries/config/messages.inc.php:266
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "Entrez les paramètres de connexion au serveur"
+msgstr "Entrez les paramètres de connexion au serveur."
 
 #: libraries/config/messages.inc.php:267
 msgid "Configuration storage"
 msgstr "Stockage de configurations"
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
 #| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
@@ -5322,7 +5314,7 @@ msgid ""
 msgstr ""
 "Configurez le stockage de configurations phpMyAdmin pour activer des "
 "fonctionnalités additionnelles, voir [doc@linked-tables]phpMyAdmin "
-"configuration storage[/doc] dans la documentation"
+"configuration storage[/doc] dans la documentation."
 
 #: libraries/config/messages.inc.php:273
 msgid "Changes tracking"
@@ -5362,16 +5354,14 @@ msgid "SQL Query box"
 msgstr "Boîte de requêtes SQL"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "Personnaliser les liens affichés dans les boîtes de requêtes SQL"
+msgstr "Personnaliser les liens affichés dans les boîtes de requêtes SQL."
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "Paramètres des requêtes SQL"
+msgstr "Paramètres des requêtes SQL."
 
 #: libraries/config/messages.inc.php:290
 msgid "SQL Validator"
@@ -5394,42 +5384,38 @@ msgid "Startup"
 msgstr "Page de départ"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "Personnaliser la page de départ"
+msgstr "Personnaliser la page de départ."
 
 #: libraries/config/messages.inc.php:300
 msgid "Database structure"
 msgstr "Structure de base de données"
 
 #: libraries/config/messages.inc.php:302
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr "Choisissez les détails à afficher dans la liste des tables"
+msgstr "Choisissez les détails à afficher dans la liste des tables."
 
 #: libraries/config/messages.inc.php:303
 msgid "Table structure"
 msgstr "Structure de table"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
-msgstr "Réglages pour la structure de table (liste des colonnes)"
+msgstr "Réglages pour la structure de table (liste des colonnes)."
 
 #: libraries/config/messages.inc.php:306
 msgid "Tabs"
 msgstr "Onglets"
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "Personnaliser les onglets"
+msgstr "Personnaliser les onglets."
 
 #: libraries/config/messages.inc.php:308
 #: libraries/schema/User_Schema.class.php:422
@@ -5446,10 +5432,9 @@ msgid "Text fields"
 msgstr "Champs texte"
 
 #: libraries/config/messages.inc.php:313
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "Personnaliser les champs de saisie"
+msgstr "Personnaliser les champs de saisie."
 
 #: libraries/config/messages.inc.php:314
 msgid "Texy! text"
@@ -5464,13 +5449,11 @@ msgid "Warnings"
 msgstr "Avertissements"
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "Désactiver certains avertissements affichés"
+msgstr "Désactiver certains avertissements affichés."
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
@@ -5479,7 +5462,7 @@ msgid ""
 "and export operations."
 msgstr ""
 "Active la compression [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] pour les "
-"opérations d'importation et d'exportation"
+"opérations d'importation et d'exportation."
 
 #: libraries/config/messages.inc.php:323
 msgid "GZip"
@@ -5490,7 +5473,6 @@ msgid "Extra parameters for iconv"
 msgstr "Paramètres pour iconv"
 
 #: libraries/config/messages.inc.php:326
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
@@ -5499,7 +5481,7 @@ msgid ""
 "if one of the queries failed."
 msgstr ""
 "Si activé, phpMyAdmin continue le traitement des requêtes multi-énoncés même "
-"en cas d'échec de l'un des énoncés"
+"en cas d'échec de l'un des énoncés."
 
 #: libraries/config/messages.inc.php:329
 msgid "Ignore multiple statement errors"
@@ -5531,7 +5513,6 @@ msgid "Replace table data with file"
 msgstr "Remplacer les données de la table avec le fichier"
 
 #: libraries/config/messages.inc.php:344
-#, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
 #| "table) and only SQL is always available"
@@ -5540,7 +5521,7 @@ msgid ""
 "table) and only SQL is always available."
 msgstr ""
 "Format par défaut; soyez conscient que cette liste dépend du contexte (base "
-"de données, table) et que seul SQL est toujours disponible"
+"de données, table) et que seul SQL est toujours disponible."
 
 #: libraries/config/messages.inc.php:347
 msgid "Format of imported file"
@@ -5570,10 +5551,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importer les pourcentages en tant que décimales (12.00% devient .12)"
 
 #: libraries/config/messages.inc.php:360
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
-msgstr "Nombre de requêtes à sauter à partir du début"
+msgstr "Nombre de requêtes à sauter à partir du début."
 
 #: libraries/config/messages.inc.php:361
 msgid "Partial import: skip queries"
@@ -5588,17 +5568,15 @@ msgid "Initial state for sliders"
 msgstr "Valeur initiale des zones de glissement"
 
 #: libraries/config/messages.inc.php:368
-#, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "Le nombre de lignes qui peuvent être insérées à la fois"
+msgstr "Le nombre de lignes qui peuvent être insérées à la fois."
 
 #: libraries/config/messages.inc.php:369
 msgid "Number of inserted rows"
 msgstr "Nombre de lignes à insérer"
 
 #: libraries/config/messages.inc.php:371
-#, fuzzy
 #| msgid ""
 #| "Maximum number of characters shown in any non-numeric column on browse "
 #| "view"
@@ -5606,7 +5584,7 @@ msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Nombre maximum de caractères affichés dans toute colonne non numérique en "
-"mode Afficher"
+"mode Afficher."
 
 #: libraries/config/messages.inc.php:373
 msgid "Limit column characters"
@@ -5626,7 +5604,6 @@ msgid "Delete all cookies on logout"
 msgstr "Détruire tous les cookies à la déconnexion"
 
 #: libraries/config/messages.inc.php:381
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
@@ -5635,7 +5612,7 @@ msgid ""
 "authentication mode."
 msgstr ""
 "Définit si le nom de l'utilisateur précédent devrait apparaître dans le "
-"panneau de connexion en mode cookie"
+"panneau de connexion en mode cookie."
 
 #: libraries/config/messages.inc.php:384
 msgid "Recall user name"
