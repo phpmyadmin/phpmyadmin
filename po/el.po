@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-11 06:43-0500\n"
-"PO-Revision-Date: 2014-01-08 16:47+0200\n"
+"PO-Revision-Date: 2014-01-11 23:20+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -1557,7 +1557,7 @@ msgstr "Φόρτωση…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Το Αίτημα Απορρίφθηκε!!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -2707,10 +2707,9 @@ msgid "Kill"
 msgstr "Τερματισμός"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]"
+msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -3315,10 +3314,10 @@ msgid "Invalid table name:"
 msgstr "Μη έγκυρο όνομα πίνακα:"
 
 #: libraries/Table.class.php:1321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Σφάλμα μετονομασίας του πίνακα %1$s σε %2$s"
+msgstr "Αποτυχία μετονομασίας του πίνακα %1$s σε %2$s!"
 
 #: libraries/Table.class.php:1340
 #, php-format
@@ -4552,7 +4551,6 @@ msgid "Incorrect IP address: %s"
 msgstr "Εσφαλμένη διεύθυνση IP: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth."
 msgid ""
@@ -5834,7 +5832,6 @@ msgid "Server/library difference warning"
 msgstr "Προειδοποίηση διαφοράς διακομιστή/βιβλιοθήκης"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words"
@@ -5843,7 +5840,7 @@ msgid ""
 "column names in a table are reserved MySQL words."
 msgstr ""
 "Απενεργοποiήστε την προεπιλεγμένη προειδοποίηση που εμφανίζεται στη σελίδα "
-"Δομής, αν τα ονόματα στηλών είναι δεσμευμένες λέξεις της MySQL"
+"Δομής, αν τα ονόματα στηλών είναι δεσμευμένες λέξεις της MySQL."
 
 #: libraries/config/messages.inc.php:502
 msgid "MySQL reserved word warning"
@@ -6764,7 +6761,6 @@ msgid "Version check"
 msgstr "Έλεγχος έκδοσης"
 
 #: libraries/config/messages.inc.php:776
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin or when submitting error reports. You need "
@@ -6779,7 +6775,8 @@ msgstr ""
 "Το url του διακομιστή για χρήση όταν λαμβάνονται οι πληροφορίες για την "
 "τελευταία έκδοση του phpMyAdmin ή όταν υποβάλλονται αναφορές σφάλματος. Το "
 "χρειάζεστε αν ο διακομιστής που έχει εγκατασταθεί το phpMyAdmin δεν έχει "
-"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: «όνομαδιακομιστή:αριθμόςθύρας»"
+"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: "
+"«όνομαδιακομιστή:αριθμόςθύρας»."
 
 #: libraries/config/messages.inc.php:777
 msgid "Proxy url"
@@ -8859,28 +8856,24 @@ msgid "Constraints for table"
 msgstr "Περιορισμοί για πίνακα"
 
 #: libraries/plugins/export/ExportSql.class.php:1247
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Περιορισμοί για άχρηστους πίνακες"
+msgstr "Ευρετήρια για άχρηστους πίνακες"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "Μέσα στους πίνακες:"
+msgstr "Ευρετήρια για πίνακα"
 
 #: libraries/plugins/export/ExportSql.class.php:1283
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Να μην γίνεται AUTO_INCREMENT για μηδενικές τιμές"
+msgstr "AUTO_INCREMENT για άχρηστους πίνακες"
 
 #: libraries/plugins/export/ExportSql.class.php:1293
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Προσθήκη τιμής AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT για πίνακα"
 
 #: libraries/plugins/export/ExportSql.class.php:1493
 msgid "MIME TYPES FOR TABLE"
@@ -10537,10 +10530,9 @@ msgid "Global privileges"
 msgstr "Γενικά δικαιώματα"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "γενικός"
+msgstr "Γενικά"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:2750
