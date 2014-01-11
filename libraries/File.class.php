@@ -507,7 +507,7 @@ class PMA_File
     }
 
     /**
-     * Detects what compression filse uses
+     * Detects what compression the file uses
      *
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins

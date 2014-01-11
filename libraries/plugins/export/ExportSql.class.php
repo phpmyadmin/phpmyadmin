@@ -1399,10 +1399,10 @@ class ExportSql extends ExportPlugin
                             break;
                         }
                     }
-                    //removes attional comma at the end
+                    //removes superfluous comma at the end
                     $sql_indexes=rtrim($sql_indexes, ',');
                     $sql_indexes_query=rtrim($sql_indexes_query, ',');
-                    //removes attional semicolon at the end
+                    //removes superfluous semicolon at the end
                     if ($has_constraints == 1) {
                         $sql_constraints .= ';' . $crlf;
                         $sql_constraints_query .= ';';

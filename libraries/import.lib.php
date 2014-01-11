@@ -42,7 +42,7 @@ function PMA_checkTimeout()
 }
 
 /**
- * Detects what compression filse uses
+ * Detects what compression the file uses
  *
  * @param string $filepath filename to check
  *

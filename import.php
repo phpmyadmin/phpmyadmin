@@ -493,7 +493,7 @@ if (! $error && isset($skip)) {
     $original_skip = $skip;
     while ($skip > 0) {
         PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
-        // Disable read progresivity, otherwise we eat all memory!
+        // Disable read progressivity, otherwise we eat all memory!
         $read_multiply = 1;
         $skip -= $read_limit;
     }
