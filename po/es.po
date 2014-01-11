@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-10 10:34-0500\n"
-"PO-Revision-Date: 2014-01-08 17:15+0200\n"
+"PO-Revision-Date: 2014-01-11 07:05+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2719,10 +2719,9 @@ msgid "Kill"
 msgstr "Matar el proceso"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Podría ser aproximado. Ver [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Podría ser aproximado. Ver [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -3328,10 +3327,10 @@ msgid "Invalid table name:"
 msgstr "El nombre de la tabla no es válido:"
 
 #: libraries/Table.class.php:1321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Error al cambiar el nombre de la tabla %1$s a %2$s"
+msgstr "¡No se pudo cambiar el nombre de la tabla %1$s a %2$s!"
 
 #: libraries/Table.class.php:1340
 #, php-format
@@ -4576,14 +4575,13 @@ msgid "Incorrect IP address: %s"
 msgstr "La dirección IP es incorrecta: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth."
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Si el usuario habilitado puede elegir cualquier servidor MySQL en el "
-"formulario de inicio de sesión para la autenticación con cookies."
+"Si el usuario puede elegir cualquier servidor MySQL en el formulario de "
+"inicio de sesión para la autenticación con cookies."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -4737,7 +4735,6 @@ msgid "Configuration file"
 msgstr "Archivo de configuración"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 #| "when you're about to lose data"
@@ -4745,8 +4742,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Si se debe mostrar o no una advertencia (&quot;Está absolutamente seguro…"
-"&quot;) cuando está a punto de perder datos"
+"Si se debe mostrar o no una advertencia (&quot;Está absolutamente "
+"seguro…&quot;) cuando está a punto de perder datos."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4761,30 +4758,27 @@ msgid "Default display direction"
 msgstr "Dirección por defecto de la visualización"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "Ceja que se muestra cuando ingresa una base de datos"
+msgstr "Ceja que se muestra cuando ingresa una base de datos."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "Ceja predeterminada de la base de datos"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Ceja que se muestra cuando ingresa un servidor"
+msgstr "Ceja que se muestra cuando ingresa un servidor."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "Ceja predeterminada para el servidor"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Ceja que se muestra cuando ingresa una tabla"
+msgstr "Ceja que se muestra cuando ingresa una tabla."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
@@ -4823,10 +4817,9 @@ msgid "Disable multi table maintenance"
 msgstr "Dsactivar mantenimiento de muchas tabla"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "Editar las consultas SQL en una ventana emergente"
+msgstr "Editar las consultas SQL en una ventana emergente."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4837,7 +4830,6 @@ msgid "Display errors"
 msgstr "Mostrar errores"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -4846,7 +4838,7 @@ msgid ""
 "limit)."
 msgstr ""
 "Definir el tiempo máximo permitido (en segundos) para la ejecución de un "
-"script ([kbd]0[/kbd] para ilimitado)"
+"script ([kbd]0[/kbd] para ilimitado)."
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -5105,10 +5097,9 @@ msgid "Browse mode"
 msgstr "Modalidad de navegación"
 
 #: libraries/config/messages.inc.php:206
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "Cambiar las opciones de la modalidad de visualización"
+msgstr "Cambiar las opciones de la modalidad de visualización."
 
 #: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:210
 #: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
@@ -5274,7 +5265,6 @@ msgid "Server configuration"
 msgstr "Configuración del servidor"
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
@@ -5283,7 +5273,7 @@ msgid ""
 "what they are for."
 msgstr ""
 "Configuración avanzada del servidor, no cambie estas opciones a menos que "
-"usted conozca como funcionan"
+"usted conozca como funcionan."
 
 #: libraries/config/messages.inc.php:266
 msgid "Enter server connection parameters."
@@ -5389,20 +5379,18 @@ msgid "Table structure"
 msgstr "Estructura de tabla"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
-msgstr "Configuración de la estructura de la tabla (lista de columnas)"
+msgstr "Configuración de la estructura de la tabla (lista de columnas)."
 
 #: libraries/config/messages.inc.php:306
 msgid "Tabs"
 msgstr "Tabulaciones"
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "Seleccione como quiere que funcionen las tabulaciones"
+msgstr "Seleccione como quiere que funcionen las tabulaciones."
 
 #: libraries/config/messages.inc.php:308
 #: libraries/schema/User_Schema.class.php:422
@@ -5455,7 +5443,6 @@ msgid "Extra parameters for iconv"
 msgstr "Parámetros adicionales para iconv"
 
 #: libraries/config/messages.inc.php:326
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
@@ -5464,7 +5451,7 @@ msgid ""
 "if one of the queries failed."
 msgstr ""
 "De estar activado, phpMyAdmin continúa computando consultas con múltiples "
-"sentencias incluso si falló una de las consultas"
+"sentencias incluso si falló una de las consultas."
 
 #: libraries/config/messages.inc.php:329
 msgid "Ignore multiple statement errors"
@@ -5547,10 +5534,9 @@ msgid "Initial state for sliders"
 msgstr "Estado inicial de los deslizadores"
 
 #: libraries/config/messages.inc.php:368
-#, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "Cuántas filas se pueden insertar de una vez"
+msgstr "Cuántas filas se pueden insertar de una vez."
 
 #: libraries/config/messages.inc.php:369
 msgid "Number of inserted rows"
@@ -5630,10 +5616,9 @@ msgid "Bigger textarea for LONGTEXT"
 msgstr "textarea más grande para LONGTEXT"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "Número máximo de caracteres usados al mostrar una consulta SQL"
+msgstr "Número máximo de caracteres usados al mostrar una consulta SQL."
 
 #: libraries/config/messages.inc.php:400
 msgid "Maximum displayed SQL length"
@@ -10577,10 +10562,9 @@ msgid "Global privileges"
 msgstr "Privilegios globales"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "global"
+msgstr "Global"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:2750
