@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-11 06:43-0500\n"
-"PO-Revision-Date: 2014-01-11 14:18+0200\n"
-"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
+"PO-Revision-Date: 2014-01-11 14:22+0200\n"
+"Last-Translator: Beatriz Magalhães <mbeatrizmagalhaes@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -6887,9 +6887,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:739
-#, fuzzy
 msgid "Skip locked tables"
-msgstr "Mostra tabelas"
+msgstr "Ignorar tabelas bloqueadas"
 
 #: libraries/config/messages.inc.php:744
 #, fuzzy
