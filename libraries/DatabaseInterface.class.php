@@ -1172,7 +1172,9 @@ class PMA_DatabaseInterface
                     column_name        AS `Field`,
                     (CASE
                         WHEN character_maximum_length > 0
-                        THEN concat(lower(data_type), '(', character_maximum_length, ')')
+                        THEN concat(
+                            lower(data_type), '(', character_maximum_length, ')'
+                        )
                         WHEN numeric_precision > 0 OR numeric_scale > 0
                         THEN concat(lower(data_type), '(', numeric_precision,
                             ',', numeric_scale, ')')
