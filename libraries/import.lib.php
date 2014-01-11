@@ -55,19 +55,7 @@ function PMA_detectCompression($filepath)
     if (! $file) {
         return false;
     }
-    $test = fread($file, 4);
-    $len = strlen($test);
-    fclose($file);
-    if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
-        return 'application/gzip';
-    }
-    if ($len >= 3 && substr($test, 0, 3) == 'BZh') {
-        return 'application/bzip2';
-    }
-    if ($len >= 4 && $test == "PK\003\004") {
-        return 'application/zip';
-    }
-    return 'none';
+    return PMA_Util::getCompressionMimeType($file);
 }
 
 /**

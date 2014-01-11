@@ -539,20 +539,7 @@ class PMA_File
         }
          */
 
-        $test = fread($file, 4);
-        $len = strlen($test);
-        fclose($file);
-
-        if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
-            $this->_compression = 'application/gzip';
-        } elseif ($len >= 3 && substr($test, 0, 3) == 'BZh') {
-            $this->_compression = 'application/bzip2';
-        } elseif ($len >= 4 && $test == "PK\003\004") {
-            $this->_compression = 'application/zip';
-        } else {
-            $this->_compression = 'none';
-        }
-
+        $this->_compression = PMA_Util::getCompressionMimeType($file); 
         return $this->_compression;
     }
 
