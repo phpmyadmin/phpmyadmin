@@ -4373,7 +4373,7 @@ class PMA_Util
      *
      * @return string the MIME type for compression, or 'none'  
      */
-    public function getCompressionMimeType($file)
+    public static function getCompressionMimeType($file)
     {
         $test = fread($file, 4);
         $len = strlen($test);
