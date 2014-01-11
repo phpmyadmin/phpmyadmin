@@ -238,6 +238,23 @@ fieldset .formelement {
     white-space:        nowrap;
 }
 
+@media all and (min-width: 1600px) {
+    fieldset .formelement {
+        clear: none;
+    }
+    #relationalTable td:first-child + td {
+        width: 25%;  
+    }
+    #relationalTable td:first-child + td select {
+        width: 32%;
+        margin-right: 1%;
+    }
+    #relationalTable {
+        width: 100%;
+    }  
+    
+}
+
 /* revert for Gecko */
 fieldset div[class=formelement] {
     white-space:        normal;
