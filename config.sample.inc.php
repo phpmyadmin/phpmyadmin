@@ -32,6 +32,8 @@ $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['Servers'][$i]['cbe_utf8_char'] = 'utf8';
+$cfg['Servers'][$i]['cbe_utf8_coll'] = 'utf8_general_ci';
 
 /*
  * phpMyAdmin configuration storage settings.
