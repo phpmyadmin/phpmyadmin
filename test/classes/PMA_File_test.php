@@ -48,28 +48,6 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_File::getNextChunk
-     *
-     * @param string $file file string
-     * @param string $mime expected mime
-     *
-     * @return void
-     * @dataProvider compressedFiles
-     */
-    public function testContent($file, $mime)
-    {
-        $orig = file_get_contents('./test/test_data/test.file');
-        $file = new PMA_File($file);
-        $file->setDecompressContent(true);
-        $this->assertTrue($file->open());
-        if ($mime == 'application/zip') {
-            $this->assertEquals($orig, $file->content_uncompressed);
-        } else {
-            $this->assertEquals($orig, $file->getNextChunk());
-        }
-    }
-
-    /**
      * Test for PMA_File::getContent
      *
      * @param string $file file string
