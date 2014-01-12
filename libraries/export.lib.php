@@ -565,8 +565,8 @@ function PMA_exportDatabase(
         }
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if ($whatStrucOrData == 'structure'
-            || $whatStrucOrData == 'structure_and_data'
+        if (isset($GLOBALS['sql_create_trigger']) && ($whatStrucOrData == 'structure'
+            || $whatStrucOrData == 'structure_and_data')
         ) {
             if (! $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url,
