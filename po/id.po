@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-11 06:43-0500\n"
-"PO-Revision-Date: 2013-11-26 05:04+0200\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
-"Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"id/>\n"
+"PO-Revision-Date: 2014-01-12 07:07+0200\n"
+"Last-Translator: Mychael Go <admin@mychaelgo.com>\n"
+"Language-Team: Indonesian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -845,7 +845,6 @@ msgstr ""
 "File konfigurasi membutuhkan susunan kata-kata rahasia (blowfish_secret)."
 
 #: index.php:495
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -856,7 +855,7 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"Direktori [code]config[/code], yang digunakan oleh skrip pengaturan, masih "
+"Direktori [code]config[/code] yang digunakan oleh skrip pengaturan, masih "
 "ada di direktori phpMyAdmin Anda. Anda harus menghapusnya setelah phpMyAdmin "
 "dikonfigurasi."
 
@@ -1308,7 +1307,6 @@ msgid "Divided by %s"
 msgstr "Dibagi oleh %s"
 
 #: js/messages.php:157
-#, fuzzy
 msgid "Unit"
 msgstr "Unit"
 
@@ -2024,7 +2022,7 @@ msgstr "Tampilkan Detail Laporan"
 #: js/messages.php:418
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
-msgstr ""
+msgstr "Export belum selesai karena limit eksekusi dari PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:439
@@ -3705,7 +3703,6 @@ msgstr ""
 "byte, disimpan dengan awalan empat byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:378
-#, fuzzy
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -3760,7 +3757,6 @@ msgid "Date and time"
 msgstr "Tanggal dan waktu"
 
 #: libraries/Types.class.php:677 libraries/Types.class.php:1047
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
