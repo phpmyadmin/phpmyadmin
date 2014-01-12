@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-11 06:43-0500\n"
-"PO-Revision-Date: 2014-01-10 18:45+0200\n"
+"PO-Revision-Date: 2014-01-12 08:56+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8686,28 +8686,24 @@ msgid "Constraints for table"
 msgstr "Piirangud tabelile"
 
 #: libraries/plugins/export/ExportSql.class.php:1247
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Tõmmistatud tabelite piirangud"
+msgstr "Indeksid tõmmistatud tabelitele"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "Tabelitest:"
+msgstr "Indeksid tabelile"
 
 #: libraries/plugins/export/ExportSql.class.php:1283
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Ära kasuta AUTO_INCREMENT null-väärtuste jaoks"
+msgstr "AUTO_INCREMENT tõmmistatud tabelitele"
 
 #: libraries/plugins/export/ExportSql.class.php:1293
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Lisa AUTO_INCREMENT väärtus"
+msgstr "AUTO_INCREMENT tabelile"
 
 #: libraries/plugins/export/ExportSql.class.php:1493
 msgid "MIME TYPES FOR TABLE"
