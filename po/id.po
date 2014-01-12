@@ -3719,7 +3719,6 @@ msgstr ""
 "byte, disimpan dengan awalan empat byte menunjukkan panjang nilai"
 
 #: libraries/Types.class.php:355
-#, fuzzy
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
