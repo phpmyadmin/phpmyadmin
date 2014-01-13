@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-11 06:43-0500\n"
-"PO-Revision-Date: 2014-01-11 14:36+0200\n"
+"PO-Revision-Date: 2014-01-13 20:37+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -1549,7 +1549,7 @@ msgstr "Nalaganje…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Zahteva je prekinjena!!"
 
 #: js/messages.php:231
 msgid "Processing Request"
