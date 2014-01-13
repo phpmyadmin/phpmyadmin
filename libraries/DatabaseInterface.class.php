@@ -328,63 +328,15 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * returns array of all tables in given db or dbs
-     * this function expects unquoted names:
-     * RIGHT: my_database
-     * WRONG: `my_database`
-     * WRONG: my\_database
-     * if $tbl_is_group is true, $table is used as filter for table names
+     * returns the beginning of the SQL statement to fetch the list of tables 
      *
-     * <code>
-     * $GLOBALS['dbi']->getTablesFull('my_database');
-     * $GLOBALS['dbi']->getTablesFull('my_database', 'my_table'));
-     * $GLOBALS['dbi']->getTablesFull('my_database', 'my_tables_', true));
-     * </code>
+     * @param string $this_databases  databases to list
+     * @param string $sql_where_table additional condition 
      *
-     * @param string          $database     database
-     * @param string|bool     $table        table or false
-     * @param boolean         $tbl_is_group $table is a table group
-     * @param mixed           $link         mysql link
-     * @param integer         $limit_offset zero-based offset for the count
-     * @param boolean|integer $limit_count  number of tables to return
-     * @param string          $sort_by      table attribute to sort by
-     * @param string          $sort_order   direction to sort (ASC or DESC)
-     * @param string          $tble_type    whether table or view
-     *
-     * @todo    move into PMA_Table
-     *
-     * @return array           list of tables in given db(s)
+     * @return string the SQL statement 
      */
-    public function getTablesFull($database, $table = false,
-        $tbl_is_group = false,  $link = null, $limit_offset = 0,
-        $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC',
-        $tble_type = null
-    ) {
-        if (true === $limit_count) {
-            $limit_count = $GLOBALS['cfg']['MaxTableList'];
-        }
-        // prepare and check parameters
-        if (! is_array($database)) {
-            $databases = array($database);
-        } else {
-            $databases = $database;
-        }
-
-        $tables = array();
-
-        $sql_where_table = $this->_getTableCondition(
-            $table, $tbl_is_group, $tble_type
-        );
-
-        // for PMA bc:
-        // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
-        //
-        // on non-Windows servers,
-        // added BINARY in the WHERE clause to force a case sensitive
-        // comparison (if we are looking for the db Aa we don't want
-        // to find the db aa)
-        $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
-
+    private function _getSqlForTablesFull($this_databases, $sql_where_table)
+    { 
         if (PMA_DRIZZLE) {
             $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
             $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
@@ -464,6 +416,69 @@ class PMA_DatabaseInterface
                     IN (\'' . implode("', '", $this_databases) . '\')
                     ' . $sql_where_table;
         }
+        return $sql;
+    }
+
+    /**
+     * returns array of all tables in given db or dbs
+     * this function expects unquoted names:
+     * RIGHT: my_database
+     * WRONG: `my_database`
+     * WRONG: my\_database
+     * if $tbl_is_group is true, $table is used as filter for table names
+     *
+     * <code>
+     * $GLOBALS['dbi']->getTablesFull('my_database');
+     * $GLOBALS['dbi']->getTablesFull('my_database', 'my_table'));
+     * $GLOBALS['dbi']->getTablesFull('my_database', 'my_tables_', true));
+     * </code>
+     *
+     * @param string          $database     database
+     * @param string|bool     $table        table or false
+     * @param boolean         $tbl_is_group $table is a table group
+     * @param mixed           $link         mysql link
+     * @param integer         $limit_offset zero-based offset for the count
+     * @param boolean|integer $limit_count  number of tables to return
+     * @param string          $sort_by      table attribute to sort by
+     * @param string          $sort_order   direction to sort (ASC or DESC)
+     * @param string          $tble_type    whether table or view
+     *
+     * @todo    move into PMA_Table
+     *
+     * @return array           list of tables in given db(s)
+     */
+    public function getTablesFull($database, $table = false,
+        $tbl_is_group = false,  $link = null, $limit_offset = 0,
+        $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC',
+        $tble_type = null
+    ) {
+        if (true === $limit_count) {
+            $limit_count = $GLOBALS['cfg']['MaxTableList'];
+        }
+        // prepare and check parameters
+        if (! is_array($database)) {
+            $databases = array($database);
+        } else {
+            $databases = $database;
+        }
+
+        $tables = array();
+
+        $sql_where_table = $this->_getTableCondition(
+            $table, $tbl_is_group, $tble_type
+        );
+
+        // for PMA bc:
+        // `SCHEMA_FIELD_NAME` AS `SHOW_TABLE_STATUS_FIELD_NAME`
+        //
+        // on non-Windows servers,
+        // added BINARY in the WHERE clause to force a case sensitive
+        // comparison (if we are looking for the db Aa we don't want
+        // to find the db aa)
+        $this_databases = array_map('PMA_Util::sqlAddSlashes', $databases);
+
+        $sql = $this->_getSqlForTablesFull($this_databases, $sql_where_table);
+        unset($sql_where_table);
 
         // Sort the tables
         $sql .= " ORDER BY $sort_by $sort_order";
@@ -475,7 +490,7 @@ class PMA_DatabaseInterface
         $tables = $this->fetchResult(
             $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
         );
-        unset($sql_where_table, $sql);
+        unset($sql);
 
         if (PMA_DRIZZLE) {
             // correct I_S and D_D names returned by D_D.TABLES -
