@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-10 15:48+0200\n"
+"PO-Revision-Date: 2014-01-13 12:35+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -8373,11 +8373,11 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1209
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "Limites pro tabellas delite (dumped)"
 
 #: libraries/plugins/export/ExportSql.class.php:1220
 msgid "Constraints for table"
-msgstr ""
+msgstr "Limites pro tabella"
 
 #: libraries/plugins/export/ExportSql.class.php:1361
 msgid "MIME TYPES FOR TABLE"
