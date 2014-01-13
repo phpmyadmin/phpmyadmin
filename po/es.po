@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-11 06:43-0500\n"
-"PO-Revision-Date: 2014-01-11 17:51+0200\n"
+"PO-Revision-Date: 2014-01-13 15:49+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -1561,7 +1561,7 @@ msgstr "Cargando…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "¡Pedido cancelado!"
 
 #: js/messages.php:231
 msgid "Processing Request"

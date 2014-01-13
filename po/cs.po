@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-11 06:43-0500\n"
-"PO-Revision-Date: 2014-01-10 17:22+0200\n"
+"PO-Revision-Date: 2014-01-13 08:08+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -8693,28 +8693,24 @@ msgid "Constraints for table"
 msgstr "Omezení pro tabulku"
 
 #: libraries/plugins/export/ExportSql.class.php:1247
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Omezení pro exportované tabulky"
+msgstr "Klíče pro exportované tabulky"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "V tabulkách:"
+msgstr "Klíče pro tabulku"
 
 #: libraries/plugins/export/ExportSql.class.php:1283
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Nepoužívat AUTO_INCREMENT pro nulové hodnoty"
+msgstr "AUTO_INCREMENT pro tabulky"
 
 #: libraries/plugins/export/ExportSql.class.php:1293
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Přidat hodnotu AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT pro tabulku"
 
 #: libraries/plugins/export/ExportSql.class.php:1493
 msgid "MIME TYPES FOR TABLE"
