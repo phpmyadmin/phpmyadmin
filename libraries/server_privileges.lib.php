@@ -4153,10 +4153,7 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
 
     if (isset($_REQUEST['createdb-1'])) {
         // Create database with same name and grant all privileges
-        $q = 'CREATE DATABASE IF NOT EXISTS '
-            . PMA_Util::backquote(
-                PMA_Util::sqlAddSlashes($username)
-            ) . ';';
+        $q = 'CREATE DATABASE IF NOT EXISTS ' . PMA_Util::backquote ( PMA_Util::sqlAddSlashes($username) ) . 'DEFAULT CHARACTER SET ' . PMA_Util::backquote($GLOBALS['cfg']['Server']['cbe_utf8_char']) .' COLLATE ' . PMA_Util::backquote($GLOBALS['cfg']['Server']['cbe_utf8_coll']) . ';';
         $sql_query .= $q;
         if (! $GLOBALS['dbi']->tryQuery($q)) {
             $message = PMA_Message::rawError($GLOBALS['dbi']->getError());
