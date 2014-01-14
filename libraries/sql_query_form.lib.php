@@ -85,7 +85,7 @@ function PMA_getHtmlForSqlQueryForm(
     // start output
     if ($is_querywindow) {
         $html .= '<form method="post" id="sqlqueryform"';
-        $html .= ' action="import.php" ' . $enctype . ' name="sqlform"';
+        $html .= ' action="import.php" ' . $enctype . ' name="sqlform">';
     } else {
         $html .= '<form method="post" action="import.php" ' . $enctype;
         $html .= ' class="ajax"';
@@ -373,7 +373,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '</div>' . "\n";
     $html .= '<input type="submit" id="button_submit_query" name="SQL"';
     if ($is_querywindow){
-        $html .= 'onclick="var form = this.parentNode.parentNode;'
+        $html .= 'onclick="var form = document.getElementById(\'sqlqueryform\');'
             . ' window.opener.name = \'sqlParentWindow\';'
             . ' form.target = \'sqlParentWindow\';'
             . ' return checkSqlQuery(form);"';
