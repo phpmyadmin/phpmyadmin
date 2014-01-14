@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-11 21:00+0200\n"
+"PO-Revision-Date: 2014-01-14 19:21+0200\n"
 "Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/pt/>\n"
@@ -5193,10 +5193,9 @@ msgstr "Escolha como quer que as abas funcionem"
 
 #: libraries/config/messages.inc.php:230
 #: libraries/schema/User_Schema.class.php:422
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Esquema relacional"
+msgstr "Mostrar esquema relacional"
 
 #: libraries/config/messages.inc.php:232
 #: libraries/schema/User_Schema.class.php:492
@@ -5776,7 +5775,7 @@ msgstr "Repetir cabeçalhos"
 
 #: libraries/config/messages.inc.php:368
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Edição de grelha: executar ação."
 
 #: libraries/config/messages.inc.php:369
 msgid "Grid editing: save all edited cells at once"
