@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-14 16:23+0100\n"
-"PO-Revision-Date: 2014-01-14 11:00+0200\n"
-"Last-Translator: Alan Domio <alandomio@gmail.com>\n"
-"Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"PO-Revision-Date: 2014-01-14 21:59+0200\n"
+"Last-Translator: Giorgio Zanetti <gz77it@gmail.com>\n"
+"Language-Team: Italian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -425,7 +425,6 @@ msgid "You may want to refresh the page."
 msgstr "Si consiglia di aggiornare la pagina."
 
 #: error_report.php:45
-#, fuzzy
 #| msgid ""
 #| "An error has been detected and an error report has been automatically "
 #| "submitted based on your settings."
@@ -433,8 +432,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"È stato rilevato un errore e un rapporto di errore è stato inviato "
-"automaticamente in base alle impostazioni."
+"È stato rilevato un errore e un rapporto di errore è stato generato ma il "
+"suo invio non è riuscito."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
@@ -2027,12 +2026,13 @@ msgid "Submit Error Report"
 msgstr "Invia segnalazione di errore"
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "An error has occurred. Do you want to send an error report?"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "Si è verificato un errore. Vuoi inviare una segnalazione?"
+msgstr ""
+"Un errore fatale di JavaScript si è verificato. Vuoi inviare una "
+"segnalazione?"
 
 #: js/messages.php:414
 msgid "Change Report Settings"
