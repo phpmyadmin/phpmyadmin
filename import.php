@@ -623,6 +623,10 @@ if ($go_sql) {
     // parse sql query
     include_once 'libraries/parse_analyze.inc.php';
 
+    if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
+        $response = PMA_Response::getInstance();
+        $response->addJSON('ajax_reload', $ajax_reload);
+    }
     PMA_executeQueryAndSendQueryResponse(
         $analyzed_sql_results, false, $db, $table, null, $import_text, null,
         $analyzed_sql_results['is_affected'], null,
