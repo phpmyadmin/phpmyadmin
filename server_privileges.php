@@ -27,13 +27,9 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
-if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
-    && $GLOBALS['cfgRelation']['menuswork']
-) {
-    include_once 'libraries/server_users.lib.php';
-    $response->addHTML('<div>');
-    $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
-}
+include_once 'libraries/server_users.lib.php';
+$response->addHTML('<div>');
+$response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
 
 /**
  * Sets globals from $_POST patterns, for privileges and max_* vars
