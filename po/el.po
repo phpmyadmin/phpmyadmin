@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-14 16:23+0100\n"
-"PO-Revision-Date: 2014-01-11 23:20+0200\n"
+"PO-Revision-Date: 2014-01-14 17:20+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -4560,7 +4560,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Δικαίωμα σύνδεσης σε οποιοδήποτε διακομιστή MySQL"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4571,8 +4570,8 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Ενεργοποιώντας αυτό, επιτρέπει μια σελίδα που βρίσκεται σε άλλο διακομιστή "
-"να καλεί το phpMyAdmin μέσα σε ένα frame, κάτι που είναι [strong]τρύπα "
-"ασφαλείας[/strong] που επιτρέπει εισβολές στον κώδικα μέσω πλαισίων."
+"να καλεί το phpMyAdmin μέσα σε ένα πλαίσιο, κάτι που είναι [strong]τρύπα "
+"ασφαλείας[/strong] που επιτρέπει  (XSS) εισβολές στον κώδικα μέσω πλαισίων."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
