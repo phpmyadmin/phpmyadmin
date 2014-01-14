@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-11 06:43-0500\n"
+"POT-Creation-Date: 2014-01-14 16:23+0100\n"
 "PO-Revision-Date: 2014-01-06 16:18+0200\n"
 "Last-Translator: Douglas dreginatto <douglas@reginatto.com>\n"
 "Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
@@ -252,7 +252,7 @@ msgid "Table"
 msgstr "Tabela"
 
 #: db_printview.php:48 libraries/Table.class.php:352
-#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:203
+#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:191
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1739
 #: libraries/structure.lib.php:1932 libraries/tbl_printview.lib.php:193
 msgid "Rows"
@@ -263,27 +263,27 @@ msgstr "Linhas"
 msgid "Size"
 msgstr "Tamanho"
 
-#: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1129
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1129
 #: libraries/structure.lib.php:731
 msgid "in use"
 msgstr "em uso"
 
-#: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1055
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 msgid "Creation:"
 msgstr "Criação:"
 
-#: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1068
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 msgid "Last update:"
 msgstr "Última atualização:"
 
-#: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1081
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1081
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 msgid "Last check:"
 msgstr "Última verificação:"
 
-#: db_printview.php:149 libraries/structure.lib.php:176
+#: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -610,7 +610,7 @@ msgid "File could not be read"
 msgstr "O arquivo não pôde ser lido"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
-#: libraries/File.class.php:605
+#: libraries/File.class.php:592
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -888,7 +888,7 @@ msgstr ""
 "Servidor rodando com Suhosin. Favor utilizar a %sdocumentação%s para "
 "possíveis problemas."
 
-#: js/messages.php:29 libraries/import.lib.php:134 sql.php:138
+#: js/messages.php:29 libraries/import.lib.php:122 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "O comando \"DROP DATABASE\" está desabilitado."
 
@@ -1196,7 +1196,7 @@ msgstr "Por favor adicione no mínimo uma variável à série"
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:572
-#: libraries/plugins/export/ExportSql.class.php:1710
+#: libraries/plugins/export/ExportSql.class.php:1712
 #: libraries/server_privileges.lib.php:2661
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
@@ -2471,7 +2471,7 @@ msgstr "Consulta SQL ao banco de dados <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Enviar query"
 
-#: libraries/DatabaseInterface.class.php:2012
+#: libraries/DatabaseInterface.class.php:2029
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -2479,16 +2479,16 @@ msgstr ""
 "O servidor não está respondendo (ou o soquete do servidor local não está "
 "configurado corretamente)."
 
-#: libraries/DatabaseInterface.class.php:2017
+#: libraries/DatabaseInterface.class.php:2034
 msgid "The server is not responding."
 msgstr "O servidor não está respondendo."
 
-#: libraries/DatabaseInterface.class.php:2022
+#: libraries/DatabaseInterface.class.php:2039
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "Por favor verifique os privilégios do diretório que contém o banco de dados."
 
-#: libraries/DatabaseInterface.class.php:2032
+#: libraries/DatabaseInterface.class.php:2049
 msgid "Details…"
 msgstr "Detalhes…"
 
@@ -2637,7 +2637,7 @@ msgid "Sort by key"
 msgstr "Ordenar pela chave"
 
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:793
-#: libraries/import.lib.php:1245 libraries/import.lib.php:1277
+#: libraries/import.lib.php:1233 libraries/import.lib.php:1265
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -2985,7 +2985,7 @@ msgstr "Visualizar"
 #: libraries/config/user_preferences.forms.php:200
 #: libraries/config/user_preferences.forms.php:237
 #: libraries/config/user_preferences.forms.php:263
-#: libraries/import.lib.php:1277
+#: libraries/import.lib.php:1265
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
@@ -3045,7 +3045,7 @@ msgstr "Monitoramento"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
-#: libraries/plugins/export/ExportSql.class.php:1612
+#: libraries/plugins/export/ExportSql.class.php:1614
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
@@ -3119,7 +3119,7 @@ msgid "Engines"
 msgstr "Motores"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
-#: libraries/core.lib.php:229 libraries/import.lib.php:193
+#: libraries/core.lib.php:229 libraries/import.lib.php:181
 #: libraries/insert_edit.lib.php:1218 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
@@ -4574,7 +4574,7 @@ msgstr "Permitir login para qualquer servidor MySQL"
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
-"cross-frame scripting attacks."
+"cross-frame scripting (XSS) attacks."
 msgstr ""
 "Ativando essa opção permite uma página localizada em um domínio diferente "
 "para chamar phpMyAdmin dentro de um quadro, e é um potencial [strong] falha "
@@ -8115,53 +8115,53 @@ msgstr "O servidor web não tem permissão para salvar o arquivo %s."
 msgid "Dump has been saved to file %s."
 msgstr "Dump foi salvo no arquivo %s."
 
-#: libraries/import.lib.php:212 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou um conjunto vazio (ex. zero registros)."
 
-#: libraries/import.lib.php:1239
+#: libraries/import.lib.php:1227
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "As estruturas a seguir foram criadas ou alteradas. Aqui você pode:"
 
-#: libraries/import.lib.php:1240
+#: libraries/import.lib.php:1228
 msgid "View a structure's contents by clicking on its name"
 msgstr "Visualizar o conteúdo da estrutura clicando em seu nome"
 
-#: libraries/import.lib.php:1241
+#: libraries/import.lib.php:1229
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 "Alterar qualquer uma destas configurações clicando no link \"Opções\" "
 "correspondente"
 
-#: libraries/import.lib.php:1242
+#: libraries/import.lib.php:1230
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Editar a estrutura seguindo o link \"Estrutura\""
 
-#: libraries/import.lib.php:1248
+#: libraries/import.lib.php:1236
 #, php-format
 msgid "Go to database: %s"
 msgstr "Ir para o bando de dados: %s"
 
-#: libraries/import.lib.php:1254 libraries/import.lib.php:1295
+#: libraries/import.lib.php:1242 libraries/import.lib.php:1283
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Editar as configurações para %s"
 
-#: libraries/import.lib.php:1280
+#: libraries/import.lib.php:1268
 #, php-format
 msgid "Go to table: %s"
 msgstr "Ir para a tabela: %s"
 
-#: libraries/import.lib.php:1288
+#: libraries/import.lib.php:1276
 #, php-format
 msgid "Structure of %s"
 msgstr "Estrutura do %s"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1294
 #, php-format
 msgid "Go to view: %s"
 msgstr "Ir para a view: %s"
@@ -8995,7 +8995,7 @@ msgstr "Opções de dump de dados"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:1872
+#: libraries/plugins/export/ExportSql.class.php:1874
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "Fazendo dump de dados para tabela"
@@ -9018,21 +9018,21 @@ msgstr "Definição"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:643
-#: libraries/plugins/export/ExportSql.class.php:1599
+#: libraries/plugins/export/ExportSql.class.php:1601
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "Estrutura para tabela"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:667
-#: libraries/plugins/export/ExportSql.class.php:1628
+#: libraries/plugins/export/ExportSql.class.php:1630
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr "Estrutura para view"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
-#: libraries/plugins/export/ExportSql.class.php:1663
+#: libraries/plugins/export/ExportSql.class.php:1665
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr "Estrutura stand-in para view"
@@ -9120,7 +9120,7 @@ msgid "Database:"
 msgstr "Banco de dados:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
-#: libraries/plugins/export/ExportSql.class.php:1710
+#: libraries/plugins/export/ExportSql.class.php:1712
 msgid "Data:"
 msgstr "Dados:"
 
@@ -9197,7 +9197,7 @@ msgid "Data creation options"
 msgstr "Opções de criação de dados"
 
 #: libraries/plugins/export/ExportSql.class.php:315
-#: libraries/plugins/export/ExportSql.class.php:1816
+#: libraries/plugins/export/ExportSql.class.php:1818
 msgid "Truncate table before insert"
 msgstr "Tabela truncada antes do insert"
 
@@ -9304,20 +9304,20 @@ msgstr "Não usar AUTO_INCREMENT para valores zero"
 msgid "AUTO_INCREMENT for table"
 msgstr "Adicionar valor AUTO_INCREMENT"
 
-#: libraries/plugins/export/ExportSql.class.php:1493
+#: libraries/plugins/export/ExportSql.class.php:1495
 msgid "MIME TYPES FOR TABLE"
 msgstr "TIPOS MIME PARA TABELAS"
 
-#: libraries/plugins/export/ExportSql.class.php:1518
+#: libraries/plugins/export/ExportSql.class.php:1520
 msgid "RELATIONS FOR TABLE"
 msgstr "RELACIONAMENTOS PARA TABELAS"
 
-#: libraries/plugins/export/ExportSql.class.php:1645
+#: libraries/plugins/export/ExportSql.class.php:1647
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Estrutura da view %s exportado como tabela"
 
-#: libraries/plugins/export/ExportSql.class.php:1733
+#: libraries/plugins/export/ExportSql.class.php:1735
 msgid "Error reading data:"
 msgstr "Erro ao ler dados:"
 

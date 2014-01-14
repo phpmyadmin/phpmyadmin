@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-11 06:43-0500\n"
+"POT-Creation-Date: 2014-01-14 16:23+0100\n"
 "PO-Revision-Date: 2013-11-25 15:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
@@ -249,7 +249,7 @@ msgid "Table"
 msgstr "ตาราง"
 
 #: db_printview.php:48 libraries/Table.class.php:352
-#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:203
+#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:191
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1739
 #: libraries/structure.lib.php:1932 libraries/tbl_printview.lib.php:193
 msgid "Rows"
@@ -260,33 +260,33 @@ msgstr "แถว"
 msgid "Size"
 msgstr "ขนาด"
 
-#: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1129
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1129
 #: libraries/structure.lib.php:731
 msgid "in use"
 msgstr "ใช้อยู่"
 
-#: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1055
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "สร้างเมื่อ"
 
-#: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1068
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "ปรับปรุงครั้งสุดท้ายเมื่อ"
 
-#: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1081
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1081
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
 msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
 
-#: db_printview.php:149 libraries/structure.lib.php:176
+#: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -614,7 +614,7 @@ msgid "File could not be read"
 msgstr "อ่านไฟล์ไม่ได้"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
-#: libraries/File.class.php:605
+#: libraries/File.class.php:592
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -880,7 +880,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:29 libraries/import.lib.php:134 sql.php:138
+#: js/messages.php:29 libraries/import.lib.php:122 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
@@ -1185,7 +1185,7 @@ msgstr "กรุณาเพิ่มค่าตัวแปรอย่าง
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:572
-#: libraries/plugins/export/ExportSql.class.php:1710
+#: libraries/plugins/export/ExportSql.class.php:1712
 #: libraries/server_privileges.lib.php:2661
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
@@ -2445,23 +2445,23 @@ msgstr "คำค้นบนฐานข้อมูล <b>%s</b>:"
 msgid "Submit Query"
 msgstr "ประมวลผลคำค้น"
 
-#: libraries/DatabaseInterface.class.php:2012
+#: libraries/DatabaseInterface.class.php:2029
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2017
+#: libraries/DatabaseInterface.class.php:2034
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "เซิร์ฟเวอร์ดังกล่าวไม่ตอบสนอง"
 
-#: libraries/DatabaseInterface.class.php:2022
+#: libraries/DatabaseInterface.class.php:2039
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/DatabaseInterface.class.php:2032
+#: libraries/DatabaseInterface.class.php:2049
 msgid "Details…"
 msgstr ""
 
@@ -2618,7 +2618,7 @@ msgid "Sort by key"
 msgstr "เรียงโดยคีย์"
 
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:793
-#: libraries/import.lib.php:1245 libraries/import.lib.php:1277
+#: libraries/import.lib.php:1233 libraries/import.lib.php:1265
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -2974,7 +2974,7 @@ msgstr "ตารางจำลอง (View)"
 #: libraries/config/user_preferences.forms.php:200
 #: libraries/config/user_preferences.forms.php:237
 #: libraries/config/user_preferences.forms.php:263
-#: libraries/import.lib.php:1277
+#: libraries/import.lib.php:1265
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
@@ -3034,7 +3034,7 @@ msgstr "การติดตาม"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
-#: libraries/plugins/export/ExportSql.class.php:1612
+#: libraries/plugins/export/ExportSql.class.php:1614
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
@@ -3109,7 +3109,7 @@ msgid "Engines"
 msgstr "เครื่องมือ"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
-#: libraries/core.lib.php:229 libraries/import.lib.php:193
+#: libraries/core.lib.php:229 libraries/import.lib.php:181
 #: libraries/insert_edit.lib.php:1218 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
@@ -4503,7 +4503,7 @@ msgstr "ไม่สามารถล็อกอินเข้าเซิร
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
-"cross-frame scripting attacks."
+"cross-frame scripting (XSS) attacks."
 msgstr ""
 
 #: libraries/config/messages.inc.php:25
@@ -7524,52 +7524,52 @@ msgstr "บันทึกไฟล์ %s ไม่ได้ เพราะเ�
 msgid "Dump has been saved to file %s."
 msgstr "ข้อมูลที่ส่งออกถูกบันทึกไว้ในไฟล์ %s"
 
-#: libraries/import.lib.php:212 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL คืนผลลัพธ์ว่างเปล่ากลับมา (null / 0 แถว)."
 
-#: libraries/import.lib.php:1239
+#: libraries/import.lib.php:1227
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1240
+#: libraries/import.lib.php:1228
 msgid "View a structure's contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1241
+#: libraries/import.lib.php:1229
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1242
+#: libraries/import.lib.php:1230
 msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1248
+#: libraries/import.lib.php:1236
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "ไม่มีฐานข้อมูล"
 
-#: libraries/import.lib.php:1254 libraries/import.lib.php:1295
+#: libraries/import.lib.php:1242 libraries/import.lib.php:1283
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/import.lib.php:1280
+#: libraries/import.lib.php:1268
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "ไม่มีฐานข้อมูล"
 
-#: libraries/import.lib.php:1288
+#: libraries/import.lib.php:1276
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "เฉพาะโครงสร้าง"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1294
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
@@ -8457,7 +8457,7 @@ msgstr "สถิติฐานข้อมูล"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:1872
+#: libraries/plugins/export/ExportSql.class.php:1874
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "dump ตาราง"
@@ -8482,14 +8482,14 @@ msgstr "รายละเอียด"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:643
-#: libraries/plugins/export/ExportSql.class.php:1599
+#: libraries/plugins/export/ExportSql.class.php:1601
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "โครงสร้างตาราง"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:667
-#: libraries/plugins/export/ExportSql.class.php:1628
+#: libraries/plugins/export/ExportSql.class.php:1630
 #: libraries/plugins/export/ExportTexytext.class.php:513
 #, fuzzy
 msgid "Structure for view"
@@ -8497,7 +8497,7 @@ msgstr "เฉพาะโครงสร้าง"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
-#: libraries/plugins/export/ExportSql.class.php:1663
+#: libraries/plugins/export/ExportSql.class.php:1665
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr ""
@@ -8609,7 +8609,7 @@ msgid "Database:"
 msgstr "ฐานข้อมูล"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
-#: libraries/plugins/export/ExportSql.class.php:1710
+#: libraries/plugins/export/ExportSql.class.php:1712
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -8692,7 +8692,7 @@ msgid "Data creation options"
 msgstr "ตัวเลือกการแปลง"
 
 #: libraries/plugins/export/ExportSql.class.php:315
-#: libraries/plugins/export/ExportSql.class.php:1816
+#: libraries/plugins/export/ExportSql.class.php:1818
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -8787,20 +8787,20 @@ msgstr "เพิ่มค่า AUTO_INCREMENT"
 msgid "AUTO_INCREMENT for table"
 msgstr "เพิ่มค่า AUTO_INCREMENT"
 
-#: libraries/plugins/export/ExportSql.class.php:1493
+#: libraries/plugins/export/ExportSql.class.php:1495
 msgid "MIME TYPES FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1518
+#: libraries/plugins/export/ExportSql.class.php:1520
 msgid "RELATIONS FOR TABLE"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1645
+#: libraries/plugins/export/ExportSql.class.php:1647
 #, fuzzy, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "เฉพาะโครงสร้าง"
 
-#: libraries/plugins/export/ExportSql.class.php:1733
+#: libraries/plugins/export/ExportSql.class.php:1735
 #, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"

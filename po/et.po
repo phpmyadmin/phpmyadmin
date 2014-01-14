@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-11 06:43-0500\n"
+"POT-Creation-Date: 2014-01-14 16:23+0100\n"
 "PO-Revision-Date: 2014-01-13 14:35+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
+">\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -254,7 +254,7 @@ msgid "Table"
 msgstr "Tabel"
 
 #: db_printview.php:48 libraries/Table.class.php:352
-#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:203
+#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:191
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1739
 #: libraries/structure.lib.php:1932 libraries/tbl_printview.lib.php:193
 msgid "Rows"
@@ -265,27 +265,27 @@ msgstr "Ridu"
 msgid "Size"
 msgstr "Suurus"
 
-#: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1129
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1129
 #: libraries/structure.lib.php:731
 msgid "in use"
 msgstr "kasutusel"
 
-#: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1055
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 msgid "Creation:"
 msgstr "Loodud:"
 
-#: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1068
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 msgid "Last update:"
 msgstr "Viimati uuendatud:"
 
-#: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1081
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1081
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 msgid "Last check:"
 msgstr "Viimane kontroll:"
 
-#: db_printview.php:149 libraries/structure.lib.php:176
+#: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -608,7 +608,7 @@ msgid "File could not be read"
 msgstr "Faili ei saanud lugeda"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
-#: libraries/File.class.php:605
+#: libraries/File.class.php:592
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -879,7 +879,7 @@ msgstr ""
 "Server töötab koos Suhosin'iga. Võimalike probleemide kohta loe "
 "%sdokumentatsioonist%s."
 
-#: js/messages.php:29 libraries/import.lib.php:134 sql.php:138
+#: js/messages.php:29 libraries/import.lib.php:122 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" käsud on keelatud."
 
@@ -1181,7 +1181,7 @@ msgstr "Palun lisa seeriasse vähemalt üks muutuja"
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:572
-#: libraries/plugins/export/ExportSql.class.php:1710
+#: libraries/plugins/export/ExportSql.class.php:1712
 #: libraries/server_privileges.lib.php:2661
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
@@ -2429,22 +2429,22 @@ msgstr "SQL päring <b>%s</b> andmebaasis:"
 msgid "Submit Query"
 msgstr "Saada päring"
 
-#: libraries/DatabaseInterface.class.php:2012
+#: libraries/DatabaseInterface.class.php:2029
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "Server ei vasta (või kohaliku serveri sokkel ei ole õigesti seadistatud)."
 
-#: libraries/DatabaseInterface.class.php:2017
+#: libraries/DatabaseInterface.class.php:2034
 msgid "The server is not responding."
 msgstr "Server ei vasta."
 
-#: libraries/DatabaseInterface.class.php:2022
+#: libraries/DatabaseInterface.class.php:2039
 msgid "Please check privileges of directory containing database."
 msgstr "Palun kontrolli andmebaasi sisaldava kataloogi õigusi."
 
-#: libraries/DatabaseInterface.class.php:2032
+#: libraries/DatabaseInterface.class.php:2049
 msgid "Details…"
 msgstr "Detailid…"
 
@@ -2593,7 +2593,7 @@ msgid "Sort by key"
 msgstr "Sorteeri võtme alusel"
 
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:793
-#: libraries/import.lib.php:1245 libraries/import.lib.php:1277
+#: libraries/import.lib.php:1233 libraries/import.lib.php:1265
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -2936,7 +2936,7 @@ msgstr "Vaade"
 #: libraries/config/user_preferences.forms.php:200
 #: libraries/config/user_preferences.forms.php:237
 #: libraries/config/user_preferences.forms.php:263
-#: libraries/import.lib.php:1277
+#: libraries/import.lib.php:1265
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
@@ -2996,7 +2996,7 @@ msgstr "Jälgimine"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
-#: libraries/plugins/export/ExportSql.class.php:1612
+#: libraries/plugins/export/ExportSql.class.php:1614
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
@@ -3070,7 +3070,7 @@ msgid "Engines"
 msgstr "Mootorid"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
-#: libraries/core.lib.php:229 libraries/import.lib.php:193
+#: libraries/core.lib.php:229 libraries/import.lib.php:181
 #: libraries/insert_edit.lib.php:1218 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
@@ -4484,10 +4484,15 @@ msgid "Allow login to any MySQL server"
 msgstr "Luba sisse logida mistahes MySQL serverisse"
 
 #: libraries/config/messages.inc.php:21
+#, fuzzy
+#| msgid ""
+#| "Enabling this allows a page located on a different domain to call "
+#| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
+#| "strong] allowing cross-frame scripting attacks."
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
-"cross-frame scripting attacks."
+"cross-frame scripting (XSS) attacks."
 msgstr ""
 "Kui see lubada, siis phpMyAdmin kasutab raamimiseks teises domeenis asuvat "
 "lehte, kuid see on potentsiaalne [strong]turvaauk[/strong], sest võimaldab "
@@ -7528,51 +7533,51 @@ msgstr "Veebiserveril pole %s faili salvestamiseks õigusi."
 msgid "Dump has been saved to file %s."
 msgstr "Tõmmis salvestati %s faili."
 
-#: libraries/import.lib.php:212 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 
-#: libraries/import.lib.php:1239
+#: libraries/import.lib.php:1227
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Järgnevaid struktuure on kas loodud või muudetud. Siin saad:"
 
-#: libraries/import.lib.php:1240
+#: libraries/import.lib.php:1228
 msgid "View a structure's contents by clicking on its name"
 msgstr "Vaata struktuuri sisu, klikkides selle nimele"
 
-#: libraries/import.lib.php:1241
+#: libraries/import.lib.php:1229
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr "Muuda mistahes selle sätet, klikkides vastavat \"Valikud\" linki"
 
-#: libraries/import.lib.php:1242
+#: libraries/import.lib.php:1230
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Muuda struktuuri, klikkides \"Struktuur\" lingile"
 
-#: libraries/import.lib.php:1248
+#: libraries/import.lib.php:1236
 #, php-format
 msgid "Go to database: %s"
 msgstr "Mine andmebaasi: %s"
 
-#: libraries/import.lib.php:1254 libraries/import.lib.php:1295
+#: libraries/import.lib.php:1242 libraries/import.lib.php:1283
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Muuda %s sätteid"
 
-#: libraries/import.lib.php:1280
+#: libraries/import.lib.php:1268
 #, php-format
 msgid "Go to table: %s"
 msgstr "Mine tabelisse: %s"
 
-#: libraries/import.lib.php:1288
+#: libraries/import.lib.php:1276
 #, php-format
 msgid "Structure of %s"
 msgstr "%s struktuur"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1294
 #, php-format
 msgid "Go to view: %s"
 msgstr "Mine vaatesse: %s"
@@ -8399,7 +8404,7 @@ msgstr "Andmete tõmmise valikud"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:1872
+#: libraries/plugins/export/ExportSql.class.php:1874
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "Andmete tõmmistamine tabelile"
@@ -8422,21 +8427,21 @@ msgstr "Definitsioon"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:643
-#: libraries/plugins/export/ExportSql.class.php:1599
+#: libraries/plugins/export/ExportSql.class.php:1601
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "Tabeli struktuur tabelile"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:667
-#: libraries/plugins/export/ExportSql.class.php:1628
+#: libraries/plugins/export/ExportSql.class.php:1630
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr "Vaate struktuur"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
-#: libraries/plugins/export/ExportSql.class.php:1663
+#: libraries/plugins/export/ExportSql.class.php:1665
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr "Sise-vaate struktuur"
@@ -8524,7 +8529,7 @@ msgid "Database:"
 msgstr "Andmebaas:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
-#: libraries/plugins/export/ExportSql.class.php:1710
+#: libraries/plugins/export/ExportSql.class.php:1712
 msgid "Data:"
 msgstr "Andmed:"
 
@@ -8601,7 +8606,7 @@ msgid "Data creation options"
 msgstr "Andmete loomise valikud"
 
 #: libraries/plugins/export/ExportSql.class.php:315
-#: libraries/plugins/export/ExportSql.class.php:1816
+#: libraries/plugins/export/ExportSql.class.php:1818
 msgid "Truncate table before insert"
 msgstr "Kärbi tabelit enne lisamist"
 
@@ -8686,39 +8691,35 @@ msgid "Constraints for table"
 msgstr "Piirangud tabelile"
 
 #: libraries/plugins/export/ExportSql.class.php:1247
-#| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Indeksid tõmmistatud tabelitele"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
-#| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Indeksid tabelile"
 
 #: libraries/plugins/export/ExportSql.class.php:1283
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT tõmmistatud tabelitele"
 
 #: libraries/plugins/export/ExportSql.class.php:1293
-#| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT tabelile"
 
-#: libraries/plugins/export/ExportSql.class.php:1493
+#: libraries/plugins/export/ExportSql.class.php:1495
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/plugins/export/ExportSql.class.php:1518
+#: libraries/plugins/export/ExportSql.class.php:1520
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/plugins/export/ExportSql.class.php:1645
+#: libraries/plugins/export/ExportSql.class.php:1647
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Vaate %s struktuur eksporditi tabelina"
 
-#: libraries/plugins/export/ExportSql.class.php:1733
+#: libraries/plugins/export/ExportSql.class.php:1735
 msgid "Error reading data:"
 msgstr "Andmete lugemisel esines viga:"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-11 06:43-0500\n"
+"POT-Creation-Date: 2014-01-14 16:23+0100\n"
 "PO-Revision-Date: 2014-01-11 23:20+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -251,7 +251,7 @@ msgid "Table"
 msgstr "Πίνακας"
 
 #: db_printview.php:48 libraries/Table.class.php:352
-#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:203
+#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:191
 #: libraries/structure.lib.php:768 libraries/structure.lib.php:1739
 #: libraries/structure.lib.php:1932 libraries/tbl_printview.lib.php:193
 msgid "Rows"
@@ -262,27 +262,27 @@ msgstr "Εγγραφές"
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: db_printview.php:97 libraries/plugins/export/ExportSql.class.php:1129
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1129
 #: libraries/structure.lib.php:731
 msgid "in use"
 msgstr "σε χρήση"
 
-#: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1055
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 msgid "Creation:"
 msgstr "Δημιουργία:"
 
-#: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1068
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 msgid "Last update:"
 msgstr "Τελευταία ενημέρωση:"
 
-#: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1081
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1081
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 msgid "Last check:"
 msgstr "Tελευταίος έλεγχος:"
 
-#: db_printview.php:149 libraries/structure.lib.php:176
+#: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -609,7 +609,7 @@ msgid "File could not be read"
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
-#: libraries/File.class.php:605
+#: libraries/File.class.php:592
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -890,7 +890,7 @@ msgstr ""
 "Ο διακομιστής εκτελείται με Suhosin. Αναφερθείτε στην %sτεκμηρίωση%s για "
 "πιθανά ζητήματα."
 
-#: js/messages.php:29 libraries/import.lib.php:134 sql.php:138
+#: js/messages.php:29 libraries/import.lib.php:122 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
 
@@ -1192,7 +1192,7 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:572
-#: libraries/plugins/export/ExportSql.class.php:1710
+#: libraries/plugins/export/ExportSql.class.php:1712
 #: libraries/server_privileges.lib.php:2661
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
@@ -2462,7 +2462,7 @@ msgstr "Εντολή SQL στη βάση δεδομένων <b>%s</b>:"
 msgid "Submit Query"
 msgstr "Υποβολή ερωτήματος"
 
-#: libraries/DatabaseInterface.class.php:2012
+#: libraries/DatabaseInterface.class.php:2029
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -2470,15 +2470,15 @@ msgstr ""
 "Ο διακομιστής δεν αποκρίνεται (ή ο τοπικός διακομιστής δεν έχει ρυθμιστεί "
 "σωστά)."
 
-#: libraries/DatabaseInterface.class.php:2017
+#: libraries/DatabaseInterface.class.php:2034
 msgid "The server is not responding."
 msgstr "Ο διακομιστής δεν αποκρίνεται."
 
-#: libraries/DatabaseInterface.class.php:2022
+#: libraries/DatabaseInterface.class.php:2039
 msgid "Please check privileges of directory containing database."
 msgstr "Ελέξτε τα δικαιώματα του φακέλου που περιέχει τη βάση δεδομένων."
 
-#: libraries/DatabaseInterface.class.php:2032
+#: libraries/DatabaseInterface.class.php:2049
 msgid "Details…"
 msgstr "Λεπτομέρειες…"
 
@@ -2627,7 +2627,7 @@ msgid "Sort by key"
 msgstr "Ταξινόμηση ανά κλειδί"
 
 #: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:793
-#: libraries/import.lib.php:1245 libraries/import.lib.php:1277
+#: libraries/import.lib.php:1233 libraries/import.lib.php:1265
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
 #: libraries/plugins/export/ExportExcel.class.php:44
@@ -2707,7 +2707,6 @@ msgid "Kill"
 msgstr "Τερματισμός"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]."
 
@@ -2976,7 +2975,7 @@ msgstr "Προβολή"
 #: libraries/config/user_preferences.forms.php:200
 #: libraries/config/user_preferences.forms.php:237
 #: libraries/config/user_preferences.forms.php:263
-#: libraries/import.lib.php:1277
+#: libraries/import.lib.php:1265
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
@@ -3036,7 +3035,7 @@ msgstr "Παρακολούθηση"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
-#: libraries/plugins/export/ExportSql.class.php:1612
+#: libraries/plugins/export/ExportSql.class.php:1614
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
@@ -3110,7 +3109,7 @@ msgid "Engines"
 msgstr "Μηχανές"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
-#: libraries/core.lib.php:229 libraries/import.lib.php:193
+#: libraries/core.lib.php:229 libraries/import.lib.php:181
 #: libraries/insert_edit.lib.php:1218 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
@@ -3315,7 +3314,6 @@ msgstr "Μη έγκυρο όνομα πίνακα:"
 
 #: libraries/Table.class.php:1321
 #, php-format
-#| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Αποτυχία μετονομασίας του πίνακα %1$s σε %2$s!"
 
@@ -4551,8 +4549,6 @@ msgid "Incorrect IP address: %s"
 msgstr "Εσφαλμένη διεύθυνση IP: %s"
 
 #: libraries/config/messages.inc.php:18
-#| msgid ""
-#| "If enabled user can enter any MySQL server in login form for cookie auth."
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
@@ -4564,10 +4560,15 @@ msgid "Allow login to any MySQL server"
 msgstr "Δικαίωμα σύνδεσης σε οποιοδήποτε διακομιστή MySQL"
 
 #: libraries/config/messages.inc.php:21
+#, fuzzy
+#| msgid ""
+#| "Enabling this allows a page located on a different domain to call "
+#| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
+#| "strong] allowing cross-frame scripting attacks."
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
-"cross-frame scripting attacks."
+"cross-frame scripting (XSS) attacks."
 msgstr ""
 "Ενεργοποιώντας αυτό, επιτρέπει μια σελίδα που βρίσκεται σε άλλο διακομιστή "
 "να καλεί το phpMyAdmin μέσα σε ένα frame, κάτι που είναι [strong]τρύπα "
@@ -5832,9 +5833,6 @@ msgid "Server/library difference warning"
 msgstr "Προειδοποίηση διαφοράς διακομιστή/βιβλιοθήκης"
 
 #: libraries/config/messages.inc.php:499
-#| msgid ""
-#| "Disable the default warning that is displayed on the Structure page if "
-#| "column names in a table are reserved MySQL words"
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -6761,11 +6759,6 @@ msgid "Version check"
 msgstr "Έλεγχος έκδοσης"
 
 #: libraries/config/messages.inc.php:776
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin or when submitting error reports. You need "
-#| "this if the server where phpMyAdmin is installed does not have direct "
-#| "access to the internet. The format is: \"hostname:portnumber\""
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6775,8 +6768,8 @@ msgstr ""
 "Το url του διακομιστή για χρήση όταν λαμβάνονται οι πληροφορίες για την "
 "τελευταία έκδοση του phpMyAdmin ή όταν υποβάλλονται αναφορές σφάλματος. Το "
 "χρειάζεστε αν ο διακομιστής που έχει εγκατασταθεί το phpMyAdmin δεν έχει "
-"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: "
-"«όνομαδιακομιστή:αριθμόςθύρας»."
+"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: «όνομαδιακομιστή:"
+"αριθμόςθύρας»."
 
 #: libraries/config/messages.inc.php:777
 msgid "Proxy url"
@@ -7687,52 +7680,52 @@ msgstr "Ο διακομιστής δεν έχει δικαιώματα αποθ�
 msgid "Dump has been saved to file %s."
 msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
 
-#: libraries/import.lib.php:212 libraries/insert_edit.lib.php:124
+#: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
 
-#: libraries/import.lib.php:1239
+#: libraries/import.lib.php:1227
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Οι ακόλουθες δομές δημιουργήθηκαν ή αλλάχτηκαν. Εδώ μπορείτε να:"
 
-#: libraries/import.lib.php:1240
+#: libraries/import.lib.php:1228
 msgid "View a structure's contents by clicking on its name"
 msgstr "Προβολή των περιεχομένων δομής πατώντας στο όνομά της"
 
-#: libraries/import.lib.php:1241
+#: libraries/import.lib.php:1229
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr "Αλλάξτε τις ρυθμίσεις πατώντας τον αντίστοιχο σύνδεσμο «Επιλογές»"
 
-#: libraries/import.lib.php:1242
+#: libraries/import.lib.php:1230
 msgid "Edit structure by following the \"Structure\" link"
 msgstr "Επεξεργαστείτε τη δομή πατώντας τον σύνδεσμο «Δομή»"
 
-#: libraries/import.lib.php:1248
+#: libraries/import.lib.php:1236
 #, php-format
 msgid "Go to database: %s"
 msgstr "Μετάβαση στη βάση δεδομένων: %s"
 
-#: libraries/import.lib.php:1254 libraries/import.lib.php:1295
+#: libraries/import.lib.php:1242 libraries/import.lib.php:1283
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Επεξεργασία ρυθμίσεων για %s"
 
-#: libraries/import.lib.php:1280
+#: libraries/import.lib.php:1268
 #, php-format
 msgid "Go to table: %s"
 msgstr "Μετάβαση στον πίνακα: %s"
 
-#: libraries/import.lib.php:1288
+#: libraries/import.lib.php:1276
 #, php-format
 msgid "Structure of %s"
 msgstr "Δομή του %s"
 
-#: libraries/import.lib.php:1306
+#: libraries/import.lib.php:1294
 #, php-format
 msgid "Go to view: %s"
 msgstr "Μετάβαση στην προβολή: %s"
@@ -8566,7 +8559,7 @@ msgstr "Επιλογές απορριμμάτων δεδομένων"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:1872
+#: libraries/plugins/export/ExportSql.class.php:1874
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "Άδειασμα δεδομένων του πίνακα"
@@ -8589,21 +8582,21 @@ msgstr "Προσδιορισμός"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:643
-#: libraries/plugins/export/ExportSql.class.php:1599
+#: libraries/plugins/export/ExportSql.class.php:1601
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "Δομή πίνακα για τον πίνακα"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:667
-#: libraries/plugins/export/ExportSql.class.php:1628
+#: libraries/plugins/export/ExportSql.class.php:1630
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr "Δομή για προβολή"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
-#: libraries/plugins/export/ExportSql.class.php:1663
+#: libraries/plugins/export/ExportSql.class.php:1665
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr "Στημένη δομή για προβολή"
@@ -8691,7 +8684,7 @@ msgid "Database:"
 msgstr "Βάση δεδομένων:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
-#: libraries/plugins/export/ExportSql.class.php:1710
+#: libraries/plugins/export/ExportSql.class.php:1712
 msgid "Data:"
 msgstr "Δεδομένα:"
 
@@ -8769,7 +8762,7 @@ msgid "Data creation options"
 msgstr "Επιλογές δημιουργίας δεδομένων"
 
 #: libraries/plugins/export/ExportSql.class.php:315
-#: libraries/plugins/export/ExportSql.class.php:1816
+#: libraries/plugins/export/ExportSql.class.php:1818
 msgid "Truncate table before insert"
 msgstr "Εκκαθάριση του πίνακα πριν την εισαγωγή"
 
@@ -8856,39 +8849,35 @@ msgid "Constraints for table"
 msgstr "Περιορισμοί για πίνακα"
 
 #: libraries/plugins/export/ExportSql.class.php:1247
-#| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Ευρετήρια για άχρηστους πίνακες"
 
 #: libraries/plugins/export/ExportSql.class.php:1257
-#| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Ευρετήρια για πίνακα"
 
 #: libraries/plugins/export/ExportSql.class.php:1283
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT για άχρηστους πίνακες"
 
 #: libraries/plugins/export/ExportSql.class.php:1293
-#| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT για πίνακα"
 
-#: libraries/plugins/export/ExportSql.class.php:1493
+#: libraries/plugins/export/ExportSql.class.php:1495
 msgid "MIME TYPES FOR TABLE"
 msgstr "ΤΥΠΟΙ MIME ΓΙΑ ΠΙΝΑΚΑ"
 
-#: libraries/plugins/export/ExportSql.class.php:1518
+#: libraries/plugins/export/ExportSql.class.php:1520
 msgid "RELATIONS FOR TABLE"
 msgstr "ΣΥΣΧΕΤΙΣΕΙΣ ΓΙΑ ΠΙΝΑΚΑ"
 
-#: libraries/plugins/export/ExportSql.class.php:1645
+#: libraries/plugins/export/ExportSql.class.php:1647
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Δομή για προβολή %s εξαγώμενη ως πίνακας"
 
-#: libraries/plugins/export/ExportSql.class.php:1733
+#: libraries/plugins/export/ExportSql.class.php:1735
 msgid "Error reading data:"
 msgstr "Σφάλμα ανάγνωσης δεδομένων:"
 
@@ -10530,7 +10519,6 @@ msgid "Global privileges"
 msgstr "Γενικά δικαιώματα"
 
 #: libraries/server_privileges.lib.php:999
-#| msgid "global"
 msgid "Global"
 msgstr "Γενικά"
 
