@@ -20,7 +20,7 @@ $strConfigAllowArbitraryServer_name = __('Allow login to any MySQL server');
 $strConfigAllowThirdPartyFraming_desc = __(
     'Enabling this allows a page located on a different domain to call phpMyAdmin '
     . 'inside a frame, and is a potential [strong]security hole[/strong] allowing '
-    . 'cross-frame scripting attacks.'
+    . 'cross-frame scripting (XSS) attacks.'
 );
 $strConfigAllowThirdPartyFraming_name = __('Allow third party framing');
 $strConfigAllowUserDropDatabase_name
