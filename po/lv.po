@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-11-25 12:53+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-01-14 01:29+0200\n"
+"Last-Translator: Janis Reinsons <fixed2009@gmail.com>\n"
 "Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/4-1/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -35,10 +35,9 @@ msgstr "Datubāzes komentārs: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Komentārs tabulai"
+msgstr "Tabulas komentāri:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -272,32 +271,30 @@ msgstr "lietošanā"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Izveidošana"
+msgstr "Izveidošana:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Pēdējā atjaunošana"
+msgstr "Pēdējo reizi atjaunots:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Pēdējā pārbaude"
+msgstr "Pēdējā pārbaude:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table(s)"
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s tabula(s)"
-msgstr[1] "%s tabula(s)"
+msgstr[0] "%s tabula"
+msgstr[1] "%s tabulas"
+msgstr[2] "%s tabulu"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display"
@@ -403,9 +400,8 @@ msgstr ""
 
 #: db_tracking.php:149 libraries/tbl_tracking.lib.php:241
 #: libraries/tbl_tracking.lib.php:680
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Tikai struktūra"
+msgstr "Struktūras apskats"
 
 #: db_tracking.php:203
 msgid "Untracked tables"
@@ -425,29 +421,33 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Atrasta kļūda un balstoties uz Jūsu iestatījumiem, kļūdu atskaite tika "
+"automātiski nosūtīta."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Jūs varētu vēlēties atjaunot lapu."
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Kļūda tika atrasta un kļūdu atskaite tika izveidota, taču to neizdevās "
+"nosūtīt."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Ja Jums rodas problēmas, lūdzu manuāli iesniedziet kļūdu atskaiti."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Paldies Jums, ka iesniedzāt kļūdu atskaiti."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Diemžēl kļūdu atskaiti neizdevās nosūtīt."
 
 #: export.php:171
 msgid "Bad type!"
@@ -499,22 +499,20 @@ msgstr "Izmantot OpenStreetMaps kā pamata pārklājumu"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Ģeometrija"
+msgstr "Ģeometrija %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Punkts"
+msgstr "Punkts:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
@@ -538,22 +536,21 @@ msgid "Add a point"
 msgstr "Pievienot punktu"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Līnija"
+msgstr "Līnija %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Ārējais aplis"
+msgstr "Ārējais aplis:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Iekšējais aplis"
+msgstr "Iekšējais aplis %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
@@ -578,7 +575,7 @@ msgstr "Pievienot %s lauku(s)"
 #: gis_data_editor.php:392
 #, fuzzy
 msgid "Add geometry"
-msgstr "Pievienot jaunu lietotāju"
+msgstr "Pievienot jaunu ģeometriju"
 
 #: gis_data_editor.php:398 js/messages.php:225
 #: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1690
@@ -634,6 +631,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Visticamāk Jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Skaties %"
+"sdocumentation%s, lai atrastu risinājumu šai problēmai."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
@@ -655,6 +654,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"Jūs mēģinājāt augšupielādēt failu ar neatbalstītu kompresijas tipu (%s). Vai "
+"nu šis tips nav atbalstīts vai ir izslēgts konfigurācijā."
 
 #: import.php:461
 msgid ""
@@ -666,7 +667,7 @@ msgstr ""
 #: import.php:481
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "Nevar pārveidot faila rakstzīmju kodējumu bez tā bibliotēkas"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -700,9 +701,8 @@ msgid "Back"
 msgstr "Atpakaļ"
 
 #: index.php:115 libraries/Footer.class.php:70
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin dokumentācija"
+msgstr "phpMyAdmin Demo serveris"
 
 #: index.php:119
 #, php-format
@@ -711,12 +711,13 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Jūs izmantojat demo serveri. Jūs šeit varat darīt visu, bet lūdzu nemainat "
+"root, debian-sys-maint un pma users tabulas. Vairāk informācijas %s."
 
 #: index.php:129
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Galvenās relāciju īpašības"
+msgstr "Galvenie uzstādījumi"
 
 #: index.php:157 libraries/display_change_password.lib.php:46
 #: user_password.php:233
@@ -724,83 +725,72 @@ msgid "Change password"
 msgstr "Mainīt paroli"
 
 #: index.php:173
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "MySQL konekcijas kārtošana"
+msgstr "MySQL savienojuma kārtošana"
 
 #: index.php:196
 msgid "Appearance Settings"
-msgstr ""
+msgstr "Izskata uzstādījumi"
 
 #: index.php:226 prefs_manage.php:281
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "Galvenās relāciju īpašības"
+msgstr "Pārējie uzstādījumi"
 
 #: index.php:247
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "Datubāzes"
+msgstr "Datubāzes serveris"
 
 #: index.php:250 libraries/plugins/auth/AuthenticationCookie.class.php:207
 msgid "Server:"
 msgstr "Serveris:"
 
 #: index.php:254
-#, fuzzy
 msgid "Server type:"
-msgstr "Servera ID"
+msgstr "Servera tips:"
 
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Servera versija"
+msgstr "Servera versija:"
 
 #: index.php:264
-#, fuzzy
 msgid "Protocol version:"
-msgstr "Servera versija"
+msgstr "Protokola versija:"
 
 #: index.php:268
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Lietotājs"
+msgstr "Lietotājs:"
 
 #: index.php:273
-#, fuzzy
 msgid "Server charset:"
-msgstr "Servera izvēle"
+msgstr "Servera kodējums:"
 
 #: index.php:287
 msgid "Web server"
-msgstr ""
+msgstr "Web serveris"
 
 #: index.php:303
-#, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version:"
-msgstr "Datubāzes komentārs: "
+msgstr "Datubāzes klienta versija:"
 
 #: index.php:307
-#, fuzzy
 msgid "PHP extension:"
-msgstr "PHP Versija"
+msgstr "PHP paplašinājums:"
 
 #: index.php:321
 msgid "Show PHP information"
 msgstr "Parādīt PHP informāciju"
 
 #: index.php:344
-#, fuzzy
 msgid "Version information:"
-msgstr "Piekļuves informācija"
+msgstr "Versijas informācija:"
 
 #: index.php:353 libraries/Util.class.php:429 libraries/Util.class.php:496
 #: libraries/config/FormDisplay.tpl.php:148
@@ -812,7 +802,7 @@ msgstr "Dokumentācija"
 
 #: index.php:360
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: index.php:369
 msgid "Official Homepage"
@@ -826,13 +816,12 @@ msgstr "Atribūti"
 
 #: index.php:383
 msgid "Get support"
-msgstr ""
+msgstr "Saņemt atbalstu"
 
 #: index.php:390
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Netika labots"
+msgstr "Izmaiņu saraksts"
 
 #: index.php:412
 msgid ""
@@ -918,7 +907,7 @@ msgstr "\"DROP DATABASE\" komanda ir aizliegta."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Apstiprināt"
 
 #: js/messages.php:36
 #, php-format
@@ -938,10 +927,9 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
 #: js/messages.php:41
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Izsekošanas datu dzēšana"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
@@ -952,10 +940,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Šī operacīja var aizņemt ilgāku laiku. Turpināt?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Vai Jūs tiešām gribat izpildīt \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
@@ -963,11 +951,11 @@ msgstr "Formā trūkst vērtību!"
 
 #: js/messages.php:48
 msgid "Please enter a valid number"
-msgstr ""
+msgstr "Lūdzu ievadiet derīgu numuru"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Lūdzu ievadiet derīgu garumu"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -985,10 +973,9 @@ msgstr "Pievienot %d lauku(s) indeksam"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:56 libraries/tbl_chart.lib.php:188
-#, fuzzy
 #| msgid "Value"
 msgid "Y Values"
-msgstr "Vērtība"
+msgstr "Y Vērtība"
 
 #: js/messages.php:59
 msgid "The host name is empty!"
@@ -1062,9 +1049,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:81
-#, fuzzy
 msgid "Query cache efficiency"
-msgstr "Vaicājuma tips"
+msgstr "Vaicājuma kešatmiņas efektivitāte"
 
 #: js/messages.php:82
 msgid "Query cache usage"
@@ -1130,7 +1116,7 @@ msgstr ""
 
 #: js/messages.php:101
 msgid "Bytes sent"
-msgstr ""
+msgstr "Nosūtītie baiti"
 
 #: js/messages.php:102
 msgid "Bytes received"
@@ -1280,10 +1266,10 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:139
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "Saglabāt kā failu"
+msgstr "Saglabāt log_output kā %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:141
@@ -1348,9 +1334,8 @@ msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
 #: js/messages.php:164
-#, fuzzy
 msgid "Analysing logs"
-msgstr "Lokāls"
+msgstr "Analizē žurnālus"
 
 #: js/messages.php:165
 msgid "Analysing & loading logs. This may take a while."
@@ -1379,9 +1364,8 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
 #: js/messages.php:171
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "Nav datubāzu"
+msgstr "Pāriet uz žurnālu tabulu"
 
 #: js/messages.php:172
 msgid "No data found"
@@ -1441,10 +1425,9 @@ msgstr "Sērijas"
 
 #. l10n: A collection of available filters
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
-msgstr "Tabulas opcijas"
+msgstr "Žurnālu tabulas filtrēšanas opcijas"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:189
@@ -1470,9 +1453,8 @@ msgid "Total:"
 msgstr "Kopā:"
 
 #: js/messages.php:195
-#, fuzzy
 msgid "Loading logs"
-msgstr "Lokāls"
+msgstr "Ielādē žurnālus"
 
 #: js/messages.php:196
 msgid "Monitor refresh failed"
@@ -1581,12 +1563,12 @@ msgstr "Kļūda apstrādājot pieprasījumu"
 #: js/messages.php:232
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Kļūdas kods: %s"
 
 #: js/messages.php:233
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Kļūdas teksts: %s"
 
 #: js/messages.php:234 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:462
@@ -1612,10 +1594,9 @@ msgid "Click to dismiss this notification"
 msgstr ""
 
 #: js/messages.php:241
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
-msgstr "Pārsaukt datubāzi par"
+msgstr "Pārsauc datubāzes"
 
 #: js/messages.php:242
 msgid "Reload Database"
@@ -1630,34 +1611,29 @@ msgid "Changing Charset"
 msgstr "Maina kodējumu"
 
 #: js/messages.php:246
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
-msgstr "Izvēlieties vismaz vienu kolonnu attēlošanai"
+msgstr "Tabulai jāsatur vismaz viena kolonna"
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Lietot tabulas"
+msgstr "Ievietot tabulu"
 
 #: js/messages.php:253
-#, fuzzy
 #| msgid "Add new field"
 msgid "Hide indexes"
-msgstr "Pievienot jaunu lauku"
+msgstr "Slēpt indeksus"
 
 #: js/messages.php:254
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Rādīt režģi"
+msgstr "Rādīt indeksus"
 
 #: js/messages.php:255 libraries/mult_submits.lib.php:419
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Nepārbaudīt ārējās atslēgas"
+msgstr "Svešo atslēgu pārbaude:"
 
 #: js/messages.php:256 libraries/mult_submits.lib.php:432
 msgid "(Enabled)"
@@ -1696,10 +1672,10 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: js/messages.php:271
-#, fuzzy, php-format
+#, php-format
 #| msgid "Number of rows per page"
 msgid "Values for column %s"
-msgstr "Rindu skaits vienā lapā"
+msgstr "Tabulas %s vērtības"
 
 #: js/messages.php:272
 msgid "Values for a new column"
@@ -3584,7 +3560,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:1268
 msgid "How to use"
-msgstr ""
+msgstr "Kā lietot"
 
 #: libraries/TableSearch.class.php:1273
 #, fuzzy
@@ -13349,10 +13325,9 @@ msgid "The table name is empty!"
 msgstr "Tabulas nosaukums nav norādīts!"
 
 #: tbl_structure.php:93
-#, fuzzy
 #| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Rindas nav iezīmētas"
+msgstr "Nav izvēlēta kolonna."
 
 #: themes.php:17 themes.php:22
 msgid "Theme"
