@@ -70,6 +70,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
         $current_table = array(
             'TABLE_ROWS' => 3,
             'TABLE_NAME' => 'name1',
+            'TABLE_COMMENT' => 'This is a test comment'
         );
         $table_is_view = false;
         $tbl_url_query = 'tbl_url_query';
@@ -82,7 +83,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
             'NoEmpty' => 'NoEmpty1',
         );;
         $truename = 'truename';
-        $db_is_information_schema = null;
+        $db_is_system_schema = null;
         $url_query = 'url_query';
 
         //$table_is_view = true;
@@ -91,7 +92,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
             $empty_table, $tracking_icon
         ) = PMA_getHtmlForActionLinks(
             $current_table, $table_is_view, $tbl_url_query,
-            $titles, $truename, $db_is_information_schema, $url_query
+            $titles, $truename, $db_is_system_schema, $url_query
         );
 
         //$browse_table
@@ -136,6 +137,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
         $current_table = array(
             'TABLE_ROWS' => 0,
             'TABLE_NAME' => 'name1',
+            'TABLE_COMMENT' => 'This is a test comment'
         );
         $table_is_view = false;
         list(
@@ -143,7 +145,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
             $empty_table, $tracking_icon
         ) = PMA_getHtmlForActionLinks(
             $current_table, $table_is_view, $tbl_url_query,
-            $titles, $truename, $db_is_information_schema, $url_query
+            $titles, $truename, $db_is_system_schema, $url_query
         );
 
         //$browse_table

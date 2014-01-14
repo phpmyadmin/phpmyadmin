@@ -74,7 +74,7 @@ class PmaSeleniumTrackingTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->byLinkText($this->_dbname)->click();
         $this->_helper->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: ". $this->_dbname ."')]"
+            "//a[@class='item' and contains(., 'Database: " . $this->_dbname . "')]"
         );
         $ele = $this->byLinkText("More");
         $this->moveto($ele);

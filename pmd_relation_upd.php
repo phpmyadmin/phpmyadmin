@@ -53,7 +53,7 @@ if ($try_to_delete_internal_relation) {
     PMA_queryAsControlUser(
         'DELETE FROM '
         . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-        . $cfg['Server']['relation'].' WHERE '
+        . $cfg['Server']['relation'] . ' WHERE '
         . 'master_db = \'' . PMA_Util::sqlAddSlashes($DB2) . '\''
         . ' AND master_table = \'' . PMA_Util::sqlAddSlashes($T2) . '\''
         . ' AND master_field = \'' . PMA_Util::sqlAddSlashes($F2) . '\''
@@ -64,6 +64,6 @@ if ($try_to_delete_internal_relation) {
         PMA_DatabaseInterface::QUERY_STORE
     );
 }
-PMD_return_upd(1, __('Relation deleted'));
+PMA_returnUpd(1, __('Relation deleted'));
 
 ?>

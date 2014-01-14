@@ -47,7 +47,6 @@ class PMA_GetTableCount_Test extends PHPUnit_Framework_TestCase
 
     function testTableCount()
     {
-        $GLOBALS['cfg']['Server']['extension'] = 'mysql';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';
 

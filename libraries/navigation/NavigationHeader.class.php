@@ -53,7 +53,10 @@ class PMA_NavigationHeader
         $buffer .= PMA_Util::getImage(
             'ajax_clock_small.gif',
             __('Loading…'),
-            array('style' => 'visibility: hidden; display:none', 'class' => 'throbber')
+            array(
+                'style' => 'visibility: hidden; display:none',
+                'class' => 'throbber'
+            )
         );
         $buffer .= '</div>'; // pma_navigation_header
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
@@ -183,7 +186,7 @@ class PMA_NavigationHeader
         $showText = false;
 
         $retval  = '<!-- LINKS START -->';
-        $retval .= '<div id="leftframelinks">';
+        $retval .= '<div id="navipanellinks">';
         $retval .= $this->_getLink(
             'index.php?' . PMA_URL_getCommon(),
             $showText,

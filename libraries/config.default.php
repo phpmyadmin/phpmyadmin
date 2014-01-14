@@ -188,13 +188,6 @@ $cfg['Servers'][$i]['ssl_ciphers'] = null;
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 
 /**
- * The PHP MySQL extension to use ('mysql' or 'mysqli')
- *
- * @global string $cfg['Servers'][$i]['extension']
- */
-$cfg['Servers'][$i]['extension'] = 'mysqli';
-
-/**
  * Use compressed protocol for the MySQL connection
  *
  * @global boolean $cfg['Servers'][$i]['compress']
@@ -841,7 +834,7 @@ $cfg['Error_Handler']['display'] = false;
 /**
  * maximum number of items displayed in navigation panel
  *
- * @global integer $cfg['MaxDbList']
+ * @global integer $cfg['MaxNavigationItems']
  */
 $cfg['MaxNavigationItems'] = 250;
 
@@ -1260,6 +1253,12 @@ $cfg['DefaultTabDatabase'] = 'db_structure.php';
  * @global string $cfg['DefaultTabTable']
  */
 $cfg['DefaultTabTable'] = 'sql.php';
+
+/**
+ * Whether to display image or text or both image and text in table row
+ * action segment. Value can be either of ``image``, ``text`` or ``both``.
+ */
+$cfg['RowActionType'] = 'both';
 
 /*******************************************************************************
  * Export defaults

@@ -82,7 +82,7 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
         if (isset($visualizationSettings['labelColumn'])
             && $visualizationSettings['labelColumn'] != ''
         ) {
-            $modified_query .= '`' . $visualizationSettings['labelColumn'] .'`, ';
+            $modified_query .= '`' . $visualizationSettings['labelColumn'] . '`, ';
         }
 
         // Wrap the spatial column with 'ASTEXT()' function and add it

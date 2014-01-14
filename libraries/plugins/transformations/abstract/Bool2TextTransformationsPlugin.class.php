@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Abstract class for the append transformations plugins
+ * Abstract class for the Bool2Text transformations plugins
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Append
+ * @subpackage Bool2Text
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -14,12 +14,12 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/plugins/TransformationsPlugin.class.php';
 
 /**
- * Provides common methods for all of the append transformations plugins.
+ * Provides common methods for all of the Bool2Text transformations plugins.
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Append
+ * @subpackage Bool2Text
  */
-abstract class AppendTransformationsPlugin extends TransformationsPlugin
+abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -29,8 +29,8 @@ abstract class AppendTransformationsPlugin extends TransformationsPlugin
     public static function getInfo()
     {
         return __(
-            'Appends text to a string. The only option is the text to be appended'
-            . ' (enclosed in single quotes, default empty string).'
+            'Converts Boolean values to text (default \'T\' and \'F\').'
+            . ' First option is for TRUE, second for FALSE. Nonzero=true.'
         );
     }
 
@@ -41,15 +41,22 @@ abstract class AppendTransformationsPlugin extends TransformationsPlugin
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @return string
+     * @return void
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        if (! isset($options[0]) ||  $options[0] == '') {
-            $options[0] = '';
+        error_log('apply');
+        if (! isset($options[0])) {
+            $options[0] = 'T';    // default true  option
         }
-        //just append the option to the original text
-        return $buffer . htmlspecialchars($options[0]);
+        if (! isset($options[1])) {
+            $options[1] = 'F';    // default false option
+        }
+ 
+        if ($buffer == '0') {
+            return $options[1];   // return false label
+        }
+        return $options[0];       // or true one if nonzero
     }
 
     /**
@@ -78,7 +85,7 @@ abstract class AppendTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Append";
+        return "Bool2Text";
     }
 }
 ?>

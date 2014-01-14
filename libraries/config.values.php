@@ -24,7 +24,6 @@ $cfg_db['Servers'] = array(
     1 => array(
         'port'         => 'integer',
         'connect_type' => array('tcp', 'socket'),
-        'extension'    => array('mysql', 'mysqli'),
         'auth_type'    => array('config', 'http', 'signon', 'cookie'),
         'AllowDeny'    => array(
             'order' => array('', 'deny,allow', 'allow,deny', 'explicit')
@@ -201,8 +200,6 @@ $cfg_db['Export']['texytext_null'] = 'short_string';
  * Use only full paths
  */
 $cfg_db['_overrides'] = array();
-$cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
-    ? 'mysqli' : 'mysql';
 
 /**
  * Basic validator assignments (functions from libraries/config/Validator.class.php

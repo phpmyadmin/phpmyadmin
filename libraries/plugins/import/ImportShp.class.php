@@ -270,7 +270,7 @@ class ImportShp extends ImportPlugin
         // Set table name based on the number of tables
         if (strlen($db)) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
-            $table_name = 'TABLE '.(count($result) + 1);
+            $table_name = 'TABLE ' . (count($result) + 1);
         } else {
             $table_name = 'TBL_NAME';
         }

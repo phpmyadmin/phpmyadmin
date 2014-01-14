@@ -302,7 +302,7 @@ class Node_Database extends Node
                 . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
             $sqlQuery = "SELECT COUNT(*) FROM " . $navTable
                 . " WHERE `username`='"
-                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) ."'"
+                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
                 . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
             $count = $GLOBALS['dbi']->fetchValue(
                 $sqlQuery, 0, 0, $GLOBALS['controllink']

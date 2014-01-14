@@ -99,7 +99,7 @@ class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->_helper->waitForElement("byLinkText", $this->_dbname)->click();
         $this->_helper->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: ". $this->_dbname ."')]"
+            "//a[@class='item' and contains(., 'Database: " . $this->_dbname . "')]"
         );
 
         $text = $this->_doExport('db', $plugin);

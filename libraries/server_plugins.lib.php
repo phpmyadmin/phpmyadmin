@@ -182,7 +182,7 @@ function PMA_getModuleList($modules)
             $html .= '<td><b class="plugin-type">'
                 . htmlspecialchars($plugin_type) . '</b></td>';
             $html .= '<td>';
-            for ($i = 0; $i < count($plugin_list); $i++) {
+            for ($i = 0, $nb = count($plugin_list); $i < $nb; $i++) {
                 $html .= ($i != 0 ? '<br />' : '')
                     . htmlspecialchars($plugin_list[$i]['plugin_name']);
                 if (!$plugin_list[$i]['is_active']) {

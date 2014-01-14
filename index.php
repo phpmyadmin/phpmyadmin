@@ -169,7 +169,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' . "\n"
            . PMA_URL_getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                '. PMA_Util::getImage('s_asci.png') . " "
+           . '                ' . PMA_Util::getImage('s_asci.png') . " "
                                . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . PMA_Util::showMySQLDocu('Charset-connection')
@@ -223,7 +223,7 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     PMA_printListItem(
-        PMA_Util::getImage('b_tblops.png')." " .__('More settings'),
+        PMA_Util::getImage('b_tblops.png') . " " . __('More settings'),
         'li_user_preferences',
         'prefs_manage.php?' . $common_url_query,
         null,
@@ -273,7 +273,8 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '        ' . __('Server charset:') . ' '
        . '        <span lang="en" dir="ltr">';
     if (! PMA_DRIZZLE) {
-        echo '           ' . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
+        echo '           '
+            . $mysql_charsets_descriptions[$mysql_charset_map['utf-8']];
     }
     echo '           (' . $mysql_charset_map['utf-8'] . ')'
        . '        </span>'
@@ -606,7 +607,7 @@ if (file_exists('libraries/language_stats.inc.php')) {
  * prints list item for main page
  *
  * @param string $name            displayed text
- * @param string $id              id, used for css styles
+ * @param string $listId          id, used for css styles
  * @param string $url             make item as link with $url as target
  * @param string $mysql_help_page display a link to MySQL's manual
  * @param string $target          special target for $url
@@ -617,11 +618,11 @@ if (file_exists('libraries/language_stats.inc.php')) {
  *
  * @return void
  */
-function PMA_printListItem($name, $id = null, $url = null,
+function PMA_printListItem($name, $listId = null, $url = null,
     $mysql_help_page = null, $target = null, $a_id = null, $class = null,
     $a_class = null
 ) {
-    echo '<li id="' . $id . '"';
+    echo '<li id="' . $listId . '"';
     if (null !== $class) {
         echo ' class="' . $class . '"';
     }
@@ -632,10 +633,10 @@ function PMA_printListItem($name, $id = null, $url = null,
             echo ' target="' . $target . '"';
         }
         if (null != $a_id) {
-            echo ' id="' . $a_id .'"';
+            echo ' id="' . $a_id . '"';
         }
         if (null != $a_class) {
-            echo ' class="' . $a_class .'"';
+            echo ' class="' . $a_class . '"';
         }
         echo '>';
     }

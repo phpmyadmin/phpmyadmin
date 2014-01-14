@@ -374,10 +374,10 @@ class PMA_Table
             $disable_error = true;
         }
 
+        // sometimes there is only one entry (ExactRows) so
+        // we have to get the table's details
         if (! isset(PMA_Table::$cache[$db][$table])
             || $force_read
-            // sometimes there is only one entry (ExactRows) so
-            // we have to get the table's details
             || count(PMA_Table::$cache[$db][$table]) == 1
         ) {
             $GLOBALS['dbi']->getTablesFull($db, $table);
@@ -1062,14 +1062,29 @@ class PMA_Table
                     );
 
                     // Write every comment as new copied entry. [MIME]
-                    while ($comments_copy_row = $GLOBALS['dbi']->fetchAssoc($comments_copy_rs)) {
-                        $new_comment_query = 'REPLACE INTO ' . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_Util::backquote($GLOBALS['cfgRelation']['column_info'])
-                                    . ' (db_name, table_name, column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
-                                    . ' VALUES('
-                                    . '\'' . PMA_Util::sqlAddSlashes($target_db) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($target_table) . '\','
-                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['column_name']) . '\''
-                                    . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
+                    while ($comments_copy_row
+                        = $GLOBALS['dbi']->fetchAssoc($comments_copy_rs)) {
+                        $new_comment_query = 'REPLACE INTO '
+                            . PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
+                            . '.'
+                            . PMA_Util::backquote(
+                                $GLOBALS['cfgRelation']['column_info']
+                            )
+                            . ' (db_name, table_name, column_name, comment'
+                            . ($GLOBALS['cfgRelation']['mimework']
+                            ? ', mimetype, transformation, transformation_options'
+                            : '')
+                            . ') '
+                            . ' VALUES('
+                            . '\'' . PMA_Util::sqlAddSlashes($target_db)
+                            . '\','
+                            . '\'' . PMA_Util::sqlAddSlashes($target_table)
+                            . '\','
+                            . '\''
+                            . PMA_Util::sqlAddSlashes(
+                                $comments_copy_row['column_name']
+                            ) . '\''
+                            . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
                                             . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
                                             . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
                                             . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\'' : '')
@@ -1303,7 +1318,7 @@ class PMA_Table
                 }
             }
             $this->errors[] = sprintf(
-                __('Error renaming table %1$s to %2$s'),
+                __('Failed to rename table %1$s to %2$s!'),
                 $this->getFullName(),
                 $new_table->getFullName()
             );
@@ -1431,7 +1446,7 @@ class PMA_Table
      */
     protected function getUiPrefsFromDb()
     {
-        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) ."."
+        $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
             . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
 
         // Read from phpMyAdmin database
@@ -1458,9 +1473,11 @@ class PMA_Table
         $pma_table = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
             . PMA_Util::backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
 
+        $secureDbName = PMA_Util::sqlAddSlashes($this->db_name);
+
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
-            . " VALUES ('" . $username . "', '" . PMA_Util::sqlAddSlashes($this->db_name)
+            . " VALUES ('" . $username . "', '" . $secureDbName
             . "', '" . PMA_Util::sqlAddSlashes($this->name) . "', '"
             . PMA_Util::sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
@@ -1528,7 +1545,8 @@ class PMA_Table
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
             // check whether we can get from pmadb
-            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name][$this->name]
+            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->db_name]
+            [$this->name]
                 = (strlen($GLOBALS['cfg']['Server']['pmadb'])
                     && strlen($GLOBALS['cfg']['Server']['table_uiprefs']))
                     ?  $this->getUiPrefsFromDb()
@@ -1560,8 +1578,8 @@ class PMA_Table
             if (isset($this->uiprefs[$property])) {
                 // check if the column name exists in this table
                 $tmp = explode(' ', $this->uiprefs[$property]);
-                $colname = $tmp[0];               
-                //remove backquoting from colname 
+                $colname = $tmp[0];
+                //remove backquoting from colname
                 $colname = str_replace('`', '', $colname);
                 //get the available column name without backquoting
                 $avail_columns = $this->getColumns(false);

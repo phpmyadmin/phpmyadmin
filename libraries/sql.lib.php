@@ -351,11 +351,6 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
 {
     $foreigners = PMA_getForeigners($db, $table, $column);
 
-    $display_field = PMA_getDisplayField(
-        $foreigners[$column]['foreign_db'],
-        $foreigners[$column]['foreign_table']
-    );
-
     $foreignData = PMA_getForeignData($foreigners, $column, false, '', '');
 
     if ($foreignData['disp_row'] == null) {
@@ -372,7 +367,7 @@ function PMA_getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_valu
             . '</span>'
             . '<a href="browse_foreigners.php'
             . PMA_URL_getCommon($_url_params) . '"'
-            . ' target="_blank" class="browse_foreign" ' .'>'
+            . ' target="_blank" class="browse_foreign" ' . '>'
             . __('Browse foreign values')
             . '</a>';
     } else {
@@ -1689,7 +1684,7 @@ function PMA_sendAjaxResponseForNoResultsReturned($message, $analyzed_sql,
         $createViewHTML = $displayResultsObject->getCreateViewQueryResultOp(
             $analyzed_sql
         );
-        $response->addHTML($createViewHTML.'<br />');
+        $response->addHTML($createViewHTML . '<br />');
     }
 
     $response->addJSON(isset($extra_data) ? $extra_data : array());
@@ -1947,7 +1942,7 @@ function PMA_getHtmlForIndexesProblems($query_type, $selected, $db)
         && is_array($selected)
     ) {
         $indexes_problems_html = '';
-        foreach ($selected as $idx => $tbl_name) {
+        foreach ($selected as $tbl_name) {
             $check = PMA_Index::findDuplicates($tbl_name, $db);
             if (! empty($check)) {
                 $indexes_problems_html .= sprintf(

@@ -15,6 +15,13 @@ require_once 'libraries/Util.class.php';
 class PMA_ConvertBitDefaultValueTest extends PHPUnit_Framework_TestCase
 {
 
+    /**
+     * Provider for testConvertBitDefaultValueTest
+     *
+     * @return array 
+     *
+     * @dataProvider dataProvider
+     */
     function dataProvider()
     {
         return array(
@@ -25,9 +32,13 @@ class PMA_ConvertBitDefaultValueTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for convertBitDefaultValue
+     *
+     * @return void
+     *
      * @dataProvider dataProvider
      */
-    function testConvert_bit_default_value_test($bit, $val)
+    function testConvertBitDefaultValueTest($bit, $val)
     {
         $this->assertEquals(
             $val, PMA_Util::convertBitDefaultValue($bit)

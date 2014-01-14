@@ -307,17 +307,18 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         parse_str($_REQUEST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
-        foreach ($relation_fields as $cell_index => $curr_cell_rel_field) {
-            foreach ($curr_cell_rel_field as $relation_field => $relation_field_value) {
+        foreach ($relation_fields as $cell_index => $curr_rel_field) {
+            foreach ($curr_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
                 $dispval = PMA_getDisplayValueForForeignTableColumn(
                     $where_comparison, $relation_field_value, $map, $relation_field
                 );
 
-                $extra_data['relations'][$cell_index] = PMA_getLinkForRelationalDisplayField(
-                    $map, $relation_field, $where_comparison,
-                    $dispval, $relation_field_value
-                );
+                $extra_data['relations'][$cell_index]
+                    = PMA_getLinkForRelationalDisplayField(
+                        $map, $relation_field, $where_comparison,
+                        $dispval, $relation_field_value
+                    );
             }
         }   // end of loop for each relation cell
     }

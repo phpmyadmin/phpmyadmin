@@ -691,7 +691,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
 
         $mime = array(
             'fieldname' => array(
-                'transformation' => 'Text_Plain_Append.class.php',
+                'transformation' => 'Text_Plain_Preappend.class.php',
                 'transformation_options' => 'transops'
             )
         );
@@ -701,7 +701,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
                 'foo' => 'bar'
             ),
             'transformation_file' => array(
-                'foo' => 'Text_Plain_Append.class.php'
+                'foo' => 'Text_Plain_Preappend.class.php'
             )
         );
         $result = PMA_getHtmlForBrowserTransformation(
@@ -711,16 +711,6 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $this->assertTag(
             PMA_getTagArray(
                 '<select id="field_2_0" size="1" name="field_transformation[2]">'
-            ),
-            $result
-        );
-
-        $this->assertTag(
-            PMA_getTagArray(
-                '<option value="Text_Plain_Append.class.php" title="'
-                . 'Appends text to a string. The only option is the text to be '
-                . 'appended (enclosed in single quotes, default empty string).">',
-                array('content' => 'bar')
             ),
             $result
         );

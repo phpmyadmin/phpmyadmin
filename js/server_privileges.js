@@ -412,6 +412,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     PMA_highlightSQL($div);
                     $div = $('#edit_user_dialog');
                     displayPasswordGenerateButton();
+                    addOrUpdateSubmenu();
                     $(checkboxes_sel).trigger("change");
                     PMA_ajaxRemoveMessage($msgbox);
                     PMA_showHints($div);
@@ -567,7 +568,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                         }
                     });
                     PMA_ajaxRemoveMessage($msgbox);
-                    // Attach syntax highlited editor to export dialog
+                    // Attach syntax highlighted editor to export dialog
                     if (typeof CodeMirror != 'undefined') {
                         CodeMirror.fromTextArea(
                             $ajaxDialog.find('textarea')[0],
@@ -623,7 +624,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     }
                 });
                 PMA_ajaxRemoveMessage($msgbox);
-                // Attach syntax highlited editor to export dialog
+                // Attach syntax highlighted editor to export dialog
                 if (typeof CodeMirror != 'undefined') {
                     CodeMirror.fromTextArea(
                         $ajaxDialog.find('textarea')[0],
@@ -661,8 +662,11 @@ AJAX.registerOnload('server_privileges.js', function () {
                 $("#usersForm").hide("medium").remove();
                 $("#fieldset_add_user").hide("medium").remove();
                 $("#initials_table")
+                    .prop("id", "initials_table_old")
                     .after(data.message).show("medium")
                     .siblings("h2").not(":first").remove();
+                // prevent double initials table
+                $("#initials_table_old").remove();
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -684,4 +688,59 @@ AJAX.registerOnload('server_privileges.js', function () {
     });
 
     displayPasswordGenerateButton();
+
+    /*
+     * Create submenu for simpler interface
+     */
+    var addOrUpdateSubmenu = function () {
+        var $topmenu2 = $("#topmenu2"),
+            $edit_user_dialog = $("#edit_user_dialog"),
+            submenu_label,
+            submenu_link,
+            link_number;
+
+        // if submenu exists yet, remove it first
+        if ($topmenu2.length > 0) {
+            $topmenu2.remove();
+        }
+
+        // construct a submenu from the existing fieldsets
+        $topmenu2 = $("<ul/>").prop("id", "topmenu2");
+
+        $("#edit_user_dialog .submenu-item").each(function () {
+            submenu_label = $(this).find("legend[data-submenu-label]").data("submenu-label");
+
+            submenu_link = $("<a/>")
+            .prop("href", "#")
+            .html(submenu_label);
+
+            $("<li/>")
+            .append(submenu_link)
+            .appendTo($topmenu2);
+        });
+
+        // click handlers for submenu
+        $topmenu2.find("a").click(function (e) {
+            e.preventDefault();
+            // if already active, ignore click
+            if ($(this).hasClass("tabactive")) {
+                return;
+            }
+            $topmenu2.find("a").removeClass("tabactive");
+            $(this).addClass("tabactive");
+
+            // which section to show now?
+            link_number = $topmenu2.find("a").index($(this));
+            // hide all sections but the one to show
+            $("#edit_user_dialog .submenu-item").hide().eq(link_number).show();
+        });
+
+        // make first menu item active
+        // TODO: support URL hash history
+        $topmenu2.find("> :first-child a").addClass("tabactive");
+        $edit_user_dialog.prepend($topmenu2);
+
+        // hide all sections but the first
+        $("#edit_user_dialog .submenu-item").hide().eq(0).show();
+    };
 });

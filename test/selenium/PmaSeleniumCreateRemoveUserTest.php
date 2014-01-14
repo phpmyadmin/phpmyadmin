@@ -88,10 +88,10 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->assertContains('You have added a new user', $success->text());
 
         $el = $this->_helper->waitForElement("byId", "usersForm");
-        $temp = $this->_txtUsername."&amp;#27;localhost";
+        $temp = $this->_txtUsername . "&amp;#27;localhost";
 
         $this->byXPath(
-            "(//input[@name='selected_usr[]'])[@value='".$temp."']"
+            "(//input[@name='selected_usr[]'])[@value='" . $temp . "']"
         )->click();
 
         $this->byId("checkbox_drop_users_db")->click();

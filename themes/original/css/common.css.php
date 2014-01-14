@@ -238,6 +238,23 @@ fieldset .formelement {
     white-space:        nowrap;
 }
 
+@media all and (min-width: 1600px) {
+    fieldset .formelement {
+        clear: none;
+    }
+    #relationalTable td:first-child + td {
+        width: 25%;  
+    }
+    #relationalTable td:first-child + td select {
+        width: 32%;
+        margin-right: 1%;
+    }
+    #relationalTable {
+        width: 100%;
+    }  
+    
+}
+
 /* revert for Gecko */
 fieldset div[class=formelement] {
     white-space:        normal;
@@ -378,8 +395,7 @@ img.lightbulb {
 /* leave some space between icons and text */
 .icon {
     vertical-align:     middle;
-    margin-right:       0.3em;
-    margin-left:        0.3em;
+    margin-<?php echo $left; ?>:        0.3em;
 }
 
 /* no extra space in table cells */
@@ -1274,6 +1290,15 @@ li.no_bullets {
     float: <?php echo $left; ?>;
 }
 
+#div_mysql_charset_collations table th,
+#div_mysql_charset_collations table td {
+    padding: 0.4em;
+}
+
+#div_mysql_charset_collations table th#collationHeader {
+    width: 35%;
+}
+
 .operations_half_width {
     width: 48%;
     float: <?php echo $left; ?>;
@@ -1604,7 +1629,16 @@ input#input_import_file {
     padding: 0.3em;
     margin: 0.1em;
 }
-
+#structure-action-links a {
+    margin-<?php echo $right; ?>: 1em;
+}
+#addColumns input[type="radio"] {
+    margin: 0;
+    margin-<?php echo $left; ?>: 1em;
+}
+#addColumns input[type="submit"] {
+    margin-<?php echo $left; ?>: 1em;
+}
 .margin#change_column_dialog {
     margin: 0 .5em;
 }
@@ -2279,7 +2313,8 @@ body .ui-widget {
 
 /* jqPlot */
 
-/*rules for the plot target div.  These will be cascaded down to all plot elements according to css rules*/
+/*rules for the plot target div.  These will be cascaded down to all plot elements
+according to css rules*/
 .jqplot-target {
     position: relative;
     color: #222222;
@@ -2306,13 +2341,17 @@ body .ui-widget {
     margin-right: 10px;
 }
 
-.jqplot-y2axis, .jqplot-y3axis, .jqplot-y4axis, .jqplot-y5axis, .jqplot-y6axis, .jqplot-y7axis, .jqplot-y8axis, .jqplot-y9axis, .jqplot-yMidAxis {
+.jqplot-y2axis, .jqplot-y3axis, .jqplot-y4axis, .jqplot-y5axis, .jqplot-y6axis,
+.jqplot-y7axis, .jqplot-y8axis, .jqplot-y9axis, .jqplot-yMidAxis {
     margin-left: 10px;
     margin-right: 10px;
 }
 
 /*rules applied to all axis tick divs*/
-.jqplot-axis-tick, .jqplot-xaxis-tick, .jqplot-yaxis-tick, .jqplot-x2axis-tick, .jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick, .jqplot-yMidAxis-tick {
+.jqplot-axis-tick, .jqplot-xaxis-tick, .jqplot-yaxis-tick, .jqplot-x2axis-tick,
+.jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick,
+.jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick,
+.jqplot-yMidAxis-tick {
     position: absolute;
     white-space: pre;
 }
@@ -2351,7 +2390,8 @@ body .ui-widget {
     font-size: 1.5em;
 }
 
-.jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick {
+.jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick,
+.jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick {
     left: 0px;
     /* initial position untill tick is drawn in proper place */
     top: 15px;
@@ -2389,7 +2429,9 @@ body .ui-widget {
     position: absolute;
 }
 
-.jqplot-y2axis-label, .jqplot-y3axis-label, .jqplot-y4axis-label, .jqplot-y5axis-label, .jqplot-y6axis-label, .jqplot-y7axis-label, .jqplot-y8axis-label, .jqplot-y9axis-label {
+.jqplot-y2axis-label, .jqplot-y3axis-label, .jqplot-y4axis-label,
+.jqplot-y5axis-label, .jqplot-y6axis-label, .jqplot-y7axis-label,
+.jqplot-y8axis-label, .jqplot-y9axis-label {
 /*    text-align: center;*/
     font-size: 11pt;
     margin-left: 10px;

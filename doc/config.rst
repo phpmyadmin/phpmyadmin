@@ -233,11 +233,10 @@ Server connection settings
 
     Whether to enable SSL for the connection between phpMyAdmin and the MySQL server.
 
-    When using :config:option:`$cfg['Servers'][$i]['extension']` = ``'mysql'``,
+    When using the ``'mysql'`` extension,
     none of the remaining ``'ssl...'`` configuration options apply.
 
-    We strongly recommend using :config:option:`$cfg['Servers'][$i]['extension']` = ``'mysqli'``
-    when using this option.
+    We strongly recommend the ``'mysqli'`` extension when using this option.
 
 .. config:option:: $cfg['Servers'][$i]['ssl_key']
 
@@ -290,21 +289,6 @@ Server connection settings
     to be available on all MySQL servers, while sockets are not supported on
     some platforms. To use the socket mode, your MySQL server must be on the
     same machine as the Web server.
-
-.. config:option:: $cfg['Servers'][$i]['extension']
-
-    :type: string
-    :default: ``'mysqli'``
-
-    What php MySQL extension to use for the connection. Valid options are:
-
-    ``mysql``
-        The classic MySQL extension.
-
-    ``mysqli``
-        The improved MySQL extension. This extension became available with PHP
-        5.0.0 and is the recommended way to connect to a server running MySQL
-        4.1.x or newer.
 
 .. config:option:: $cfg['Servers'][$i]['compress']
 
@@ -2810,4 +2794,12 @@ Developer
     :default: false
 
     Whether to display errors from PHP or not.
+
+.. config:option:: $cfg['RowActionType']
+
+    :type: string
+    :default: ``'both'``
+
+    Whether to display icons or text or both icons and text in table row action
+    segment. Value can be either of ``'icons'``, ``'text'`` or ``'both'``.
 

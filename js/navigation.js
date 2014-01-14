@@ -204,7 +204,7 @@ $(function () {
                 buttonOptions[PMA_messages.strClose] = function () {
                     $(this).dialog("close");
                 };
-                var $dialog = $('<div/>')
+                $('<div/>')
                     .attr('id', 'unhideNavItemDialog')
                     .append(data.message)
                     .dialog({
@@ -253,8 +253,7 @@ $(function () {
  *
  * @returns void
  */
-function expandTreeNode($expandElem, callback)
-{
+function expandTreeNode($expandElem, callback) {
     var $children = $expandElem.closest('li').children('div.list_container');
     var $icon = $expandElem.find('img');
     if ($expandElem.hasClass('loaded')) {
@@ -383,8 +382,7 @@ function loadChildNodes($expandElem, callback) {
  *
  * @returns void
  */
-function PMA_showCurrentNavigation()
-{
+function PMA_showCurrentNavigation() {
     var db = PMA_commonParams.get('db');
     var table = PMA_commonParams.get('table');
     $('#pma_navigation_tree')
@@ -613,8 +611,7 @@ function PMA_reloadNavigation(callback) {
  *
  * @return void
  */
-function PMA_navigationTreePagination($this)
-{
+function PMA_navigationTreePagination($this) {
     var $msgbox = PMA_ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url, params;
@@ -810,6 +807,9 @@ var ResizeHandler = function () {
             event.preventDefault();
             var pos = event.data.resize_handler.getPos(event);
             event.data.resize_handler.setWidth(pos);
+        }
+        if($('#sticky_columns').length !== 0) {
+            handleStickyColumns();
         }
     };
     /**
@@ -1084,8 +1084,7 @@ var PMA_fastFilter = {
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.update = function (searchClause)
-{
+PMA_fastFilter.filter.prototype.update = function (searchClause) {
     if (this.searchClause != searchClause) {
         this.searchClause = searchClause;
         this.$this.find('.moreResults').remove();
@@ -1098,8 +1097,7 @@ PMA_fastFilter.filter.prototype.update = function (searchClause)
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.request = function ()
-{
+PMA_fastFilter.filter.prototype.request = function () {
     var self = this;
     clearTimeout(self.timeout);
     if (self.$this.find('li.fast_filter').find('img.throbber').length === 0) {
@@ -1136,7 +1134,7 @@ PMA_fastFilter.filter.prototype.request = function ()
                 if (data && data.results) {
                     var $listItem = $('<li />', {'class': 'moreResults'})
                         .appendTo(self.$this.find('li.fast_filter'));
-                    var $link = $('<a />', {href: '#'})
+                    $('<a />', {href: '#'})
                         .text(data.results)
                         .appendTo($listItem)
                         .click(function (event) {
@@ -1155,8 +1153,7 @@ PMA_fastFilter.filter.prototype.request = function ()
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.swap = function (list)
-{
+PMA_fastFilter.filter.prototype.swap = function (list) {
     this.swapped = true;
     this.$this
         .html($(list).html())
@@ -1174,8 +1171,7 @@ PMA_fastFilter.filter.prototype.swap = function (list)
  *
  * @return void
  */
-PMA_fastFilter.filter.prototype.restore = function (focus)
-{
+PMA_fastFilter.filter.prototype.restore = function (focus) {
     if (this.swapped) {
         this.swapped = false;
         this.$this.html(this.$clone.html()).children().show();

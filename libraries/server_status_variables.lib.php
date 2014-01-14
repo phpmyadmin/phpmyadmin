@@ -15,7 +15,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns the html for the list filter
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -65,7 +65,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
             } else {
                 $selected = '';
             }
-            $retval .= '<option' . $selected . ' value="' . $section_id. '">';
+            $retval .= '<option' . $selected . ' value="' . $section_id . '">';
             $retval .= htmlspecialchars($section_name) . '</option>';
         }
     }
@@ -87,7 +87,7 @@ function PMA_getHtmlForFilter($ServerStatusData)
 /**
  * Prints the suggestion links
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -122,7 +122,7 @@ function PMA_getHtmlForLinkSuggestions($ServerStatusData)
 /**
  * Returns a table with variables information
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
  *
  * @return string
  */
@@ -202,9 +202,9 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
 /**
  * Returns HTML for render variables list
  *
- * @param Object $ServerStatusData An instance of the PMA_ServerStatusData class
- * @param Array  $alerts           Alert Array
- * @param Array  $strShowStatus    Status Array
+ * @param PMA_ServerStatusData $ServerStatusData Server status data
+ * @param Array                $alerts           Alert Array
+ * @param Array                $strShowStatus    Status Array
  *
  * @return string
  */

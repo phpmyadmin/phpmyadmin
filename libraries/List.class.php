@@ -27,9 +27,13 @@ abstract class PMA_List extends ArrayObject
     /**
      * PMA_List constructor
      *
-     * @param array  $array          The input parameter accepts an array or an Object.
-     * @param int    $flags          Flags to control the behaviour of the ArrayObject object.
-     * @param string $iterator_class Specify the class that will be used for iteration of the ArrayObject object. ArrayIterator is the default class used.
+     * @param array  $array          The input parameter accepts an array or an
+     *                               Object.
+     * @param int    $flags          Flags to control the behaviour of the
+     *                               ArrayObject object.
+     * @param string $iterator_class Specify the class that will be used for
+     *                               iteration of the ArrayObject object.
+     *                               ArrayIterator is the default class used.
      */
     public function __construct(
         $array = array(), $flags = 0, $iterator_class = "ArrayIterator"

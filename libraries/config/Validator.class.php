@@ -33,34 +33,38 @@ class PMA_Validator
     {
         static $validators = null;
 
-        if ($validators === null) {
-            $validators = $cf->getDbEntry('_validators', array());
-            if (!defined('PMA_SETUP')) {
-                // not in setup script: load additional validators for user
-                // preferences we need original config values not overwritten
-                // by user preferences, creating a new PMA_Config instance is a
-                // better idea than hacking into its code
-                $uvs = $cf->getDbEntry('_userValidators', array());
-                foreach ($uvs as $field => $uv_list) {
-                    $uv_list = (array)$uv_list;
-                    foreach ($uv_list as &$uv) {
-                        if (!is_array($uv)) {
-                            continue;
-                        }
-                        for ($i = 1; $i < count($uv); $i++) {
-                            if (substr($uv[$i], 0, 6) == 'value:') {
-                                $uv[$i] = PMA_arrayRead(
-                                    substr($uv[$i], 6),
-                                    $GLOBALS['PMA_Config']->base_settings
-                                );
-                            }
-                        }
+        if ($validators !== null) {
+            return $validators;
+        }
+
+        $validators = $cf->getDbEntry('_validators', array());
+        if (defined('PMA_SETUP')) {
+            return $validators;
+        }
+
+        // not in setup script: load additional validators for user
+        // preferences we need original config values not overwritten
+        // by user preferences, creating a new PMA_Config instance is a
+        // better idea than hacking into its code
+        $uvs = $cf->getDbEntry('_userValidators', array());
+        foreach ($uvs as $field => $uv_list) {
+            $uv_list = (array)$uv_list;
+            foreach ($uv_list as &$uv) {
+                if (!is_array($uv)) {
+                    continue;
+                }
+                for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
+                    if (substr($uv[$i], 0, 6) == 'value:') {
+                        $uv[$i] = PMA_arrayRead(
+                            substr($uv[$i], 6),
+                            $GLOBALS['PMA_Config']->base_settings
+                        );
                     }
-                    $validators[$field] = isset($validators[$field])
-                        ? array_merge((array)$validators[$field], $uv_list)
-                        : $uv_list;
                 }
             }
+            $validators[$field] = isset($validators[$field])
+                ? array_merge((array)$validators[$field], $uv_list)
+                : $uv_list;
         }
         return $validators;
     }
@@ -121,19 +125,21 @@ class PMA_Validator
                 $r = call_user_func_array($vname, $args);
 
                 // merge results
-                if (is_array($r)) {
-                    foreach ($r as $key => $error_list) {
-                        // skip empty values if $isPostSource is false
-                        if (! $isPostSource && empty($error_list)) {
-                            continue;
-                        }
-                        if (! isset($result[$key])) {
-                            $result[$key] = array();
-                        }
-                        $result[$key] = array_merge(
-                            $result[$key], (array)$error_list
-                        );
+                if (!is_array($r)) {
+                    continue;
+                }
+
+                foreach ($r as $key => $error_list) {
+                    // skip empty values if $isPostSource is false
+                    if (! $isPostSource && empty($error_list)) {
+                        continue;
                     }
+                    if (! isset($result[$key])) {
+                        $result[$key] = array();
+                    }
+                    $result[$key] = array_merge(
+                        $result[$key], (array)$error_list
+                    );
                 }
             }
         }
@@ -194,7 +200,6 @@ class PMA_Validator
     /**
      * Test database connection
      *
-     * @param string $extension    'drizzle', 'mysql' or 'mysqli'
      * @param string $connect_type 'tcp' or 'socket'
      * @param string $host         host name
      * @param string $port         tcp port to use
@@ -206,7 +211,6 @@ class PMA_Validator
      * @return bool|array
      */
     public static function testDBConnection(
-        $extension,
         $connect_type,
         $host,
         $port,
@@ -219,6 +223,14 @@ class PMA_Validator
         $socket = empty($socket) || $connect_type == 'tcp' ? null : $socket;
         $port = empty($port) || $connect_type == 'socket' ? null : ':' . $port;
         $error = null;
+
+        if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
+            $extension = 'mysqli';
+        } else {
+            $extension = 'mysql';
+        }
+
+        // dead code (drizzle extension)
         if ($extension == 'drizzle') {
             while (1) {
                 $drizzle = @drizzle_create();
@@ -315,7 +327,6 @@ class PMA_Validator
             $password = $values['Servers/1/nopassword'] ? null
                 : $values['Servers/1/password'];
             $test = static::testDBConnection(
-                $values['Servers/1/extension'],
                 $values['Servers/1/connect_type'],
                 $values['Servers/1/host'],
                 $values['Servers/1/port'],
@@ -365,7 +376,7 @@ class PMA_Validator
         }
         if (! $error) {
             $test = static::testDBConnection(
-                $values['Servers/1/extension'], $values['Servers/1/connect_type'],
+                $values['Servers/1/connect_type'],
                 $values['Servers/1/host'], $values['Servers/1/port'],
                 $values['Servers/1/socket'], $values['Servers/1/controluser'],
                 $values['Servers/1/controlpass'], 'Server_pmadb'

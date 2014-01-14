@@ -22,7 +22,7 @@ class PMA_Footer
      * PMA_Scripts instance
      *
      * @access private
-     * @var object
+     * @var PMA_Scripts
      */
     private $_scripts;
     /**
@@ -73,7 +73,7 @@ class PMA_Footer
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
                 '<a target="_blank" href="' . $repobase . $fullrevision . '">'
-                . $revision .'</a>',
+                . $revision . '</a>',
                 '<a target="_blank" href="' . $repobranchbase . $branch . '">'
                 . $branch . '</a>'
             );

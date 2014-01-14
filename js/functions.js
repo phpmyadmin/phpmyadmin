@@ -767,27 +767,27 @@ function insertQuery(queryType)
 
     if (myListBox.options.length > 0) {
         sql_box_locked = true;
-        var chaineAj = "";
+        var columnsList = "";
         var valDis = "";
         var editDis = "";
         var NbSelect = 0;
         for (var i = 0; i < myListBox.options.length; i++) {
             NbSelect++;
             if (NbSelect > 1) {
-                chaineAj += ", ";
+                columnsList += ", ";
                 valDis += ",";
                 editDis += ",";
             }
-            chaineAj += myListBox.options[i].value;
+            columnsList += myListBox.options[i].value;
             valDis += "[value-" + NbSelect + "]";
             editDis += myListBox.options[i].value + "=[value-" + NbSelect + "]";
         }
         if (queryType == "selectall") {
             query = "SELECT * FROM `" + table + "` WHERE 1";
         } else if (queryType == "select") {
-            query = "SELECT " + chaineAj + " FROM `" + table + "` WHERE 1";
+            query = "SELECT " + columnsList + " FROM `" + table + "` WHERE 1";
         } else if (queryType == "insert") {
-            query = "INSERT INTO `" + table + "`(" + chaineAj + ") VALUES (" + valDis + ")";
+            query = "INSERT INTO `" + table + "`(" + columnsList + ") VALUES (" + valDis + ")";
         } else if (queryType == "update") {
             query = "UPDATE `" + table + "` SET " + editDis + " WHERE 1";
         } else if (queryType == "delete") {
@@ -810,37 +810,37 @@ function insertValueQuery()
 
     if (myListBox.options.length > 0) {
         sql_box_locked = true;
-        var chaineAj = "";
+        var columnsList = "";
         var NbSelect = 0;
         for (var i = 0; i < myListBox.options.length; i++) {
             if (myListBox.options[i].selected) {
                 NbSelect++;
                 if (NbSelect > 1) {
-                    chaineAj += ", ";
+                    columnsList += ", ";
                 }
-                chaineAj += myListBox.options[i].value;
+                columnsList += myListBox.options[i].value;
             }
         }
 
         /* CodeMirror support */
         if (codemirror_editor) {
-            codemirror_editor.replaceSelection(chaineAj);
+            codemirror_editor.replaceSelection(columnsList);
         //IE support
         } else if (document.selection) {
             myQuery.focus();
             var sel = document.selection.createRange();
-            sel.text = chaineAj;
+            sel.text = columnsList;
             document.sqlform.insert.focus();
         }
         //MOZILLA/NETSCAPE support
         else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart == "0") {
             var startPos = document.sqlform.sql_query.selectionStart;
             var endPos = document.sqlform.sql_query.selectionEnd;
-            var chaineSql = document.sqlform.sql_query.value;
+            var SqlString = document.sqlform.sql_query.value;
 
-            myQuery.value = chaineSql.substring(0, startPos) + chaineAj + chaineSql.substring(endPos, chaineSql.length);
+            myQuery.value = SqlString.substring(0, startPos) + columnsList + SqlString.substring(endPos, SqlString.length);
         } else {
-            myQuery.value += chaineAj;
+            myQuery.value += columnsList;
         }
         sql_box_locked = false;
     }
@@ -3870,7 +3870,7 @@ function PMA_createViewDialog($this)
                     $(this).remove();
                 }
             });
-            // Attach syntax highlited editor
+            // Attach syntax highlighted editor
             if (typeof CodeMirror !== 'undefined') {
                 var $elm = $dialog.find('textarea');
                 var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql", lineWrapping: true};

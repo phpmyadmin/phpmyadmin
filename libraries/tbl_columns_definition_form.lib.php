@@ -314,6 +314,9 @@ function PMA_getHeaderCells($is_backup, $columnMeta, $mimework, $db, $table)
         $header_cells[] = __('MIME type');
         $header_cells[] = '<a href="transformation_overview.php?'
             . PMA_URL_getCommon($db, $table)
+            . '" title="' . __(
+                'List of available transformations and their options'
+            )
             . '" target="_blank">'
             . __('Browser transformation')
             . '</a>';
@@ -356,7 +359,7 @@ function PMA_getMoveColumns($db, $table)
 /**
  * Function to get row data for regenerating previous when error occurred.
  *
- * @param int   $columnNumber    coulmn number
+ * @param int   $columnNumber    column number
  * @param array $submit_fulltext submit full text
  *
  * @return array
@@ -436,7 +439,7 @@ function PMA_getRowDataForRegeneration($columnNumber, $submit_fulltext)
 /**
  * Function to get submit properties for regenerating previous when error occurred.
  *
- * @param int $columnNumber coulmn number
+ * @param int $columnNumber column number
  *
  * @return array
  */
@@ -465,7 +468,7 @@ function PMA_getSubmitPropertiesForRegeneration($columnNumber)
  * An error happened with previous inputs, so we will restore the data
  * to embed it once again in this form.
  *
- * @param int   $columnNumber    coulmn number
+ * @param int   $columnNumber    column number
  * @param array $submit_fulltext submit full text
  * @param array $comments_map    comments map
  * @param array $mime_map        mime map
@@ -585,7 +588,7 @@ function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset, $type_upper)
 {
     $select_id = 'field_' . $columnNumber . '_' . ($ci - $ci_offset);
     $html = '<select class="column_type" name="field_type[' .
-        $columnNumber . ']"' .' id="' . $select_id . '">';
+        $columnNumber . ']"' . ' id="' . $select_id . '">';
     $html .= PMA_Util::getSupportedDatatypes(true, $type_upper);
     $html .= '    </select>';
 
@@ -746,7 +749,7 @@ function PMA_getHtmlForMoveColumn($columnNumber, $ci, $ci_offset, $move_columns,
             . (($current_index == $mi || $current_index == $mi + 1)
                 ? ' disabled="disabled"'
                 : '')
-            .'>'
+            . '>'
             . sprintf(
                 __('after %s'),
                 PMA_Util::backquote(
@@ -1255,10 +1258,10 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 /**
  * Function to get form parameters for old column
  *
- * @param array $columnMeta     column meta
- * @param int   $length         length
- * @param array $form_params    form parameters
- * @param int   $columnNumber   column/field number
+ * @param array $columnMeta   column meta
+ * @param int   $length       length
+ * @param array $form_params  form parameters
+ * @param int   $columnNumber column/field number
  *
  * @return array
  */

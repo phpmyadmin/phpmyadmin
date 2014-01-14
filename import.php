@@ -151,7 +151,7 @@ if (! in_array(
 
 $post_patterns = array(
     '/^force_file_/',
-    '/^'. $format . '_/'
+    '/^' . $format . '_/'
 );
 foreach (array_keys($_POST) as $post_key) {
     foreach ($post_patterns as $one_post_pattern) {
@@ -423,12 +423,12 @@ if ($import_file != 'none' && ! $error) {
                  * Load interface for zip extension.
                  */
                 include_once 'libraries/zip_extension.lib.php';
-                $result = PMA_getZipContents($import_file);
-                if (! empty($result['error'])) {
-                    $message = PMA_Message::rawError($result['error']);
+                $zipResult = PMA_getZipContents($import_file);
+                if (! empty($zipResult['error'])) {
+                    $message = PMA_Message::rawError($zipResult['error']);
                     $error = true;
                 } else {
-                    $import_text = $result['data'];
+                    $import_text = $zipResult['data'];
                 }
             } else {
                 $message = PMA_Message::error(
@@ -493,7 +493,7 @@ if (! $error && isset($skip)) {
     $original_skip = $skip;
     while ($skip > 0) {
         PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
-        // Disable read progresivity, otherwise we eat all memory!
+        // Disable read progressivity, otherwise we eat all memory!
         $read_multiply = 1;
         $skip -= $read_limit;
     }

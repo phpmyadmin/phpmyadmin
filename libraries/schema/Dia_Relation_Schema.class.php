@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Classes to create relation schema in Dia format.
  *
  * @package PhpMyAdmin
  */
@@ -356,7 +357,7 @@ class Table_Stats_Dia
             </dia:attribute>
             <dia:attribute name="obj_bb">
                 <dia:rectangle val="'
-            .($this->x * $factor) . ',' . ($this->y * $factor) . ';9.97,9.2"/>
+            . ($this->x * $factor) . ',' . ($this->y * $factor) . ';9.97,9.2"/>
             </dia:attribute>
             <dia:attribute name="meta">
                 <dia:composite type="dict"/>

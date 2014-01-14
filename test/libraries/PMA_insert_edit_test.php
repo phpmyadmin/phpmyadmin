@@ -50,6 +50,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
     }
 
     /**
@@ -2310,10 +2311,10 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_REQUEST['where_clause'] = 1;
-        $transformation['transformation_options'] = "'option ,, quoted',abd";
+        $transformation['transformation_options'] = "'','option ,, quoted',abd";
         $result = PMA_transformEditedValues(
             'db', 'table', $transformation, $edited_values,
-            'Text_Plain_Append.class.php', 'c', array('a' => 'b')
+            'Text_Plain_Preappend.class.php', 'c', array('a' => 'b')
         );
 
         $this->assertEquals(

@@ -9,6 +9,20 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Generate charset dropdown box
+ *
+ * @param int         $type               Type
+ * @param null        $name               Element name
+ * @param null        $id                 Element id
+ * @param null|string $default            Default value
+ * @param bool        $label              Label
+ * @param int         $indent             Indent
+ * @param bool        $submitOnChange     Submit on change
+ * @param bool        $displayUnavailable Display unavailable
+ *
+ * @return string
+ */
 function PMA_generateCharsetDropdownBox($type = PMA_CSDROPDOWN_COLLATION,
     $name = null, $id = null, $default = null, $label = true, $indent = 0,
     $submitOnChange = false, $displayUnavailable = false

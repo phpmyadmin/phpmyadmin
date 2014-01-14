@@ -33,7 +33,6 @@ $forms['Servers']['Server'] = array('Servers' => array(1 => array(
     'socket',
     'ssl',
     'connect_type',
-    'extension',
     'compress',
     'nopassword')));
 $forms['Servers']['Server_auth'] = array('Servers' => array(1 => array(

@@ -442,8 +442,6 @@ class PMA_Util
      */
     public static function getMySQLDocuURL($link, $anchor = '')
     {
-        global $cfg;
-
         // Fixup for newly used names:
         $link = str_replace('_', '-', strtolower($link));
 
@@ -668,7 +666,7 @@ class PMA_Util
                    . '</a>';
             } // end if
             $error_msg .= '    </p>' . "\n"
-                .'<p>' . "\n"
+                . '<p>' . "\n"
                 . $formatted_sql . "\n"
                 . '</p>' . "\n";
         } // end if
@@ -1177,11 +1175,9 @@ class PMA_Util
                 if ($is_select) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $_message = __('Explain SQL');
-                } elseif (
-                    preg_match(
-                        '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
-                    )
-                ) {
+                } elseif (preg_match(
+                    '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
+                )) {
                     $explain_params['sql_query'] = substr($sql_query, 8);
                     $_message = __('Skip Explain SQL');
                 }
@@ -1743,17 +1739,17 @@ class PMA_Util
         }
 
         //Set the id for the tab, if set in the params
-        $id_string = ( empty($tab['id']) ? '' : ' id="'.$tab['id'].'" ' );
+        $id_string = ( empty($tab['id']) ? '' : ' id="' . $tab['id'] . '" ' );
         $out = '<li' . ($tab['class'] == 'active' ? ' class="active"' : '') . '>';
 
         if (! empty($tab['link'])) {
             $out .= '<a class="tab' . htmlentities($tab['class']) . '"'
-                .$id_string
-                .' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
+                . $id_string
+                . ' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
                 . $tab['text'] . '</a>';
         } else {
             $out .= '<span class="tab' . htmlentities($tab['class']) . '"'
-                . $id_string. '>' . $tab['text'] . '</span>';
+                . $id_string . '>' . $tab['text'] . '</span>';
         }
 
         $out .= '</li>';
@@ -1780,7 +1776,7 @@ class PMA_Util
 
         $tab_navigation = '<div id="' . htmlentities($menu_id)
             . 'container" class="menucontainer">'
-            .'<ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
+            . '<ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
 
         foreach ($tabs as $tab) {
             $tab_navigation .= self::getHtmlTab($tab, $url_params);
@@ -1788,8 +1784,8 @@ class PMA_Util
 
         $tab_navigation .=
              '</ul>' . "\n"
-            .'<div class="clearfloat"></div>'
-            .'</div>' . "\n";
+            . '<div class="clearfloat"></div>'
+            . '</div>' . "\n";
 
         return $tab_navigation;
     }
@@ -2047,7 +2043,8 @@ class PMA_Util
      *
      * @return void
      *
-     * @global boolean $checked_special flag whether any special variable was required
+     * @global boolean $checked_special flag whether any special variable
+     *                                       was required
      *
      * @access public
      */
@@ -2278,8 +2275,8 @@ class PMA_Util
 
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
             return ' <input type="submit" name="' . $button_name . '"'
-                .' value="' . htmlspecialchars($value) . '"'
-                .' title="' . htmlspecialchars($text) . '" />' . "\n";
+                . ' value="' . htmlspecialchars($value) . '"'
+                . ' title="' . htmlspecialchars($text) . '" />' . "\n";
         }
 
         /* Opera has trouble with <input type="image"> */
@@ -2289,16 +2286,16 @@ class PMA_Util
                 . '" class="' . $button_class
                 . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text)
-                . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
+                . '" src="' . $GLOBALS['pmaThemeImage'] . $image . '" />'
                 . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
                     ? '&nbsp;' . htmlspecialchars($text)
                     : '') . "\n";
         } else {
             return '<button class="' . $button_class . '" type="submit"'
-                .' name="' . $button_name . '" value="' . htmlspecialchars($value)
+                . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text) . '">' . "\n"
                 . self::getIcon($image, $text)
-                .'</button>' . "\n";
+                . '</button>' . "\n";
         }
     } // end function
 
@@ -2501,8 +2498,8 @@ class PMA_Util
                     . '</a>';
             }
 
-            $list_navigator_html .= '<form action="' . basename($script).
-                '" method="post">';
+            $list_navigator_html .= '<form action="' . basename($script)
+                . '" method="post">';
 
             $list_navigator_html .= PMA_URL_getHiddenInputs($_url_params);
             $list_navigator_html .= self::pageselector(
@@ -3531,7 +3528,7 @@ class PMA_Util
             'geometrycollection'
         );
         if ($upper_case) {
-            for ($i = 0; $i < count($gis_data_types); $i++) {
+            for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
                 $gis_data_types[$i] = strtoupper($gis_data_types[$i]);
             }
         }
@@ -3976,7 +3973,7 @@ class PMA_Util
         $in_string = false;
         $buffer = '';
 
-        for ($i=0; $i<strlen($values_string); $i++) {
+        for ($i=0, $length = strlen($values_string); $i < $length; $i++) {
 
             $curr = $values_string[$i];
             $next = ($i == strlen($values_string)-1) ? '' : $values_string[$i+1];
@@ -4163,14 +4160,60 @@ class PMA_Util
     }
 
     /**
+     * Returns information with regards to handling the http request
+     *
+     * @param array $context Data about the context for which
+     *                       to http request is sent
+     *
+     * @return array of updated context information
+     */
+    public static function handleContext(array $context)
+    {
+        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
+            $context['http'] = array(
+                'proxy' => $GLOBALS['cfg']['ProxyUrl'],
+                'request_fulluri' => true
+            );
+            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
+                $auth = base64_encode(
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+                $context['http']['header'] .= 'Proxy-Authorization: Basic '
+                    . $auth . "\r\n";
+            }
+        }
+        return $context;
+    }
+    /**
+     * Updates an existing curl as necessary
+     *
+     * @param resource $curl_handle A curl_handle resource
+     *                              created by curl_init which should
+     *                              have several options set
+     *
+     * @return resource curl_handle with updated options
+     */
+    public static function configureCurl(resource $curl_handle)
+    {
+        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
+            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
+            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
+                curl_setopt(
+                    $curl_handle,
+                    CURLOPT_PROXYUSERPWD,
+                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                );
+            }
+        }
+        return $curl_handle;
+    }
+    /**
      * Returns information with latest version from phpmyadmin.net
      *
      * @return String JSON decoded object with the data
      */
     public static function getLatestVersion()
     {
-        global $cfg;
-
         // wait 3s at most for server response, it's enough to get information
         // from a working server
         $connection_timeout = 3;
@@ -4193,17 +4236,7 @@ class PMA_Util
                         'timeout' => $connection_timeout,
                     )
                 );
-                if (strlen($cfg['ProxyUrl'])) {
-                    $context['http']['proxy'] = $cfg['ProxyUrl'];
-                    if (strlen($cfg['ProxyUser'])) {
-                        $auth = base64_encode(
-                            $cfg['ProxyUser'] . ':'
-                            . $cfg['ProxyPass']
-                        );
-                        $context['http']['header']
-                            = 'Proxy-Authorization: Basic ' . $auth;
-                    }
-                }
+                $context = PMA_Util::handleContext($context);
                 $response = file_get_contents(
                     $file,
                     false,
@@ -4211,21 +4244,7 @@ class PMA_Util
                 );
             } else if (function_exists('curl_init')) {
                 $curl_handle = curl_init($file);
-                if (strlen($cfg['ProxyUrl'])) {
-                    curl_setopt(
-                        $curl_handle,
-                        CURLOPT_PROXY,
-                        $cfg['ProxyUrl']
-                    );
-                    if (strlen($cfg['ProxyUser'])) {
-                        curl_setopt(
-                            $curl_handle,
-                            CURLOPT_PROXYUSERPWD,
-                            $cfg['ProxyUser']
-                            . ':' . $cfg['ProxyPass']
-                        );
-                    }
-                }
+                $curl_handle = PMA_Util::configureCurl($curl_handle);
                 curl_setopt(
                     $curl_handle,
                     CURLOPT_HEADER,
@@ -4344,6 +4363,31 @@ class PMA_Util
         } else {
             return $value . '.000000';
         }
+    }
+
+    /**
+     * Reads the file, detects the compression MIME type, closes the file
+     * and returns the MIME type 
+     *
+     * @param resource $file the file handle
+     *
+     * @return string the MIME type for compression, or 'none'  
+     */
+    public static function getCompressionMimeType($file)
+    {
+        $test = fread($file, 4);
+        $len = strlen($test);
+        fclose($file);
+        if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
+            return 'application/gzip';
+        }
+        if ($len >= 3 && substr($test, 0, 3) == 'BZh') {
+            return 'application/bzip2';
+        }
+        if ($len >= 4 && $test == "PK\003\004") {
+            return 'application/zip';
+        }
+        return 'none';
     }
 }
 

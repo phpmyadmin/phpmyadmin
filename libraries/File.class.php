@@ -507,7 +507,7 @@ class PMA_File
     }
 
     /**
-     * Detects what compression filse uses
+     * Detects what compression the file uses
      *
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
@@ -539,20 +539,7 @@ class PMA_File
         }
          */
 
-        $test = fread($file, 4);
-        $len = strlen($test);
-        fclose($file);
-
-        if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
-            $this->_compression = 'application/gzip';
-        } elseif ($len >= 3 && substr($test, 0, 3) == 'BZh') {
-            $this->_compression = 'application/bzip2';
-        } elseif ($len >= 4 && $test == "PK\003\004") {
-            $this->_compression = 'application/zip';
-        } else {
-            $this->_compression = 'none';
-        }
-
+        $this->_compression = PMA_Util::getCompressionMimeType($file); 
         return $this->_compression;
     }
 
@@ -700,109 +687,6 @@ class PMA_File
         }
 
         return $this->_compression;
-    }
-
-    /**
-     * advances the file pointer in the file handle by $length bytes/chars
-     *
-     * @param integer $length numbers of chars/bytes to skip
-     *
-     * @return boolean
-     * @todo this function is unused
-     */
-    public function advanceFilePointer($length)
-    {
-        while ($length > 0) {
-            $this->getNextChunk($length);
-            $length -= $this->getChunkSize();
-        }
-    }
-
-    /**
-     * http://bugs.php.net/bug.php?id=29532
-     * bzip reads a maximum of 8192 bytes on windows systems
-     *
-     * @param int $max_size maximum size of the next chunk to be returned
-     *
-     * @return bool|string
-     * @todo this function is unused
-     */
-    public function getNextChunk($max_size = null)
-    {
-        if (null !== $max_size) {
-            $size = min($max_size, $this->getChunkSize());
-        } else {
-            $size = $this->getChunkSize();
-        }
-
-        // $result = $this->handler->getNextChunk($size);
-        $result = '';
-        switch ($this->getCompression()) {
-        case 'application/bzip2':
-            $result = '';
-            while (strlen($result) < $size - 8192 && ! feof($this->getHandle())) {
-                $result .= bzread($this->getHandle(), $size);
-            }
-            break;
-        case 'application/gzip':
-            $result = gzread($this->getHandle(), $size);
-            break;
-        case 'application/zip':
-            /*
-             * if getNextChunk() is used some day,
-             * replace this code by code similar to the one
-             * in open()
-             *
-            include_once './libraries/unzip.lib.php';
-            $import_handle = new SimpleUnzip();
-            $import_handle->ReadFile($this->getName());
-            if ($import_handle->Count() == 0) {
-                $this->_error_message = __('No files found inside ZIP archive!');
-                return false;
-            } elseif ($import_handle->GetError(0) != 0) {
-                $this->_error_message = __('Error in ZIP archive:')
-                    . ' ' . $import_handle->GetErrorMsg(0);
-                return false;
-            } else {
-                $result = $import_handle->GetData(0);
-            }
-             */
-            break;
-        case 'none':
-            $result = fread($this->getHandle(), $size);
-            break;
-        default:
-            return false;
-        }
-
-        if ($GLOBALS['charset_conversion']) {
-            $result = PMA_convertString($this->getCharset(), 'utf-8', $result);
-        } else {
-            /**
-             * Skip possible byte order marks (I do not think we need more
-             * charsets, but feel free to add more, you can use wikipedia for
-             * reference: <http://en.wikipedia.org/wiki/Byte_Order_Mark>)
-             *
-             * @todo BOM could be used for charset autodetection
-             */
-            if ($this->getOffset() === 0) {
-                // UTF-8
-                if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
-                    $result = substr($result, 3);
-                    // UTF-16 BE, LE
-                } elseif (strncmp($result, "\xFE\xFF", 2) == 0
-                    || strncmp($result, "\xFF\xFE", 2) == 0
-                ) {
-                    $result = substr($result, 2);
-                }
-            }
-        }
-
-        $this->_offset += $size;
-        if (0 === $result) {
-            return true;
-        }
-        return $result;
     }
 
     /**

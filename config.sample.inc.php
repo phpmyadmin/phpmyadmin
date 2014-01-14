@@ -31,8 +31,6 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
-/* Select mysql if your server does not have mysqli */
-$cfg['Servers'][$i]['extension'] = 'mysqli';
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
 /*
@@ -74,6 +72,12 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
  */
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
+
+/**
+ * Whether to display icons or text or both icons and text in table row
+ * action segment. Value can be either of 'icons', 'text' or 'both'.
+ */
+//$cfg['RowActionType'] = 'both';
 
 /**
  * Defines whether a user should be displayed a "show all (records)"

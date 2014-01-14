@@ -23,11 +23,11 @@ function PMA_getHtmlForTablesInfo($the_tables)
 
     if ($multi_tables) {
         $tbl_list     = '';
-        foreach ($the_tables as $key => $table) {
+        foreach ($the_tables as $table) {
             $tbl_list .= (empty($tbl_list) ? '' : ', ')
                       . PMA_Util::backquote($table);
         }
-        $html .= '<strong>'.  __('Showing tables:') . ' '
+        $html .= '<strong>' .  __('Showing tables:') . ' '
             . htmlspecialchars($tbl_list) . '</strong>' . "\n";
         $html .= '<hr />' . "\n";
     } // end if
@@ -71,7 +71,6 @@ function PMA_getHtmlForPrintViewColumns(
     foreach ($columns as $row) {
         $extracted_columnspec = PMA_Util::extractColumnSpec($row['Type']);
         $type = $extracted_columnspec['print_type'];
-        $attribute = $extracted_columnspec['attribute'];
 
         if (! isset($row['Default'])) {
             if ($row['Null'] != ''  && $row['Null'] != 'NO') {
@@ -108,7 +107,7 @@ function PMA_getHtmlForPrintViewColumns(
             $html .= '    ' . $field_name . "\n";
         }
         $html .= '</td>';
-        $html .= '<td>' . $type. '<bdo dir="ltr"></bdo></td>';
+        $html .= '<td>' . $type . '<bdo dir="ltr"></bdo></td>';
         $html .= '<td>';
         $html .= (($row['Null'] == '' || $row['Null'] == 'NO')
             ? __('No')
@@ -225,7 +224,7 @@ function PMA_getHtmlForRowStatistics(
     if (isset($showtable['Auto_increment'])) {
         $html .= "\n";
         $html .= '<tr>';
-        $html .= '<td>' . __('Next autoindex'). ' </td>';
+        $html .= '<td>' . __('Next autoindex') . ' </td>';
         $html .= '<td class="right">';
         $html .= PMA_Util::formatNumber(
             $showtable['Auto_increment'], 0
@@ -310,7 +309,7 @@ function PMA_getHtmlForSpaceUsage(
         $html .= '<tr>';
         $html .= '<td style="padding-right: 10px">' . __('Index') . '</td>';
         $html .= '<td class="right">' . $index_size . '</td>';
-        $html .= '<td>' . $index_unit. '</td>';
+        $html .= '<td>' . $index_unit . '</td>';
         $html .= '</tr>';
     }
     if (isset($free_size)) {
@@ -530,7 +529,7 @@ function PMA_getHtmlForTablesDetail(
     $multi_tables = (count($the_tables) > 1);
     $counter = 0;
 
-    foreach ($the_tables as $key => $table) {
+    foreach ($the_tables as $table) {
         if ($counter + 1 >= $tables_cnt) {
             $breakstyle = '';
         } else {

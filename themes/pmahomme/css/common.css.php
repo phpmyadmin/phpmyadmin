@@ -131,7 +131,13 @@ a:hover {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'e0e0e0'); ?>
+}
+
+#initials_table a.active {
+    border: 1px solid #666;
+    box-shadow: 0 0 2px #999;
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('bbbbbb', 'ffffff'); ?>
 }
 
 dfn {
@@ -434,6 +440,23 @@ fieldset .formelement {
     margin-<?php echo $right; ?>: .5em;
     /* IE */
     white-space: nowrap;
+}
+
+@media all and (min-width: 1600px) {
+    fieldset .formelement {
+        clear: none;
+    }
+    #relationalTable td:first-child + td {
+        width: 25%;  
+    }
+    #relationalTable td:first-child + td select {
+        width: 32%;
+        margin-right: 1%;
+    }
+    #relationalTable {
+        width: 100%;
+    }  
+    
 }
 
 /* revert for Gecko */
@@ -1636,6 +1659,15 @@ li.no_bullets {
     float: <?php echo $left; ?>;
 }
 
+#div_mysql_charset_collations table th,
+#div_mysql_charset_collations table td {
+    padding: 0.4em;
+}
+
+#div_mysql_charset_collations table th#collationHeader {
+    width: 35%;
+}
+
 .operations_half_width {
     width: 48%;
     float: <?php echo $left; ?>;
@@ -2025,6 +2057,13 @@ input#input_import_file {
 #fieldsForm ul.table-structure-actions .submenu li span {
     padding: 0.3em;
     margin: 0.1em;
+}
+#structure-action-links a {
+    margin-<?php echo $right; ?>: 1em;
+}
+#addColumns input[type="radio"] {
+    margin: 3px 0 0;
+    margin-<?php echo $left; ?>: 1em;
 }
 /**
  * Indexes

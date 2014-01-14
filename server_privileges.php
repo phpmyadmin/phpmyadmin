@@ -27,13 +27,9 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
-if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
-    && $GLOBALS['cfgRelation']['menuswork']
-) {
-    include_once 'libraries/server_users.lib.php';
-    $response->addHTML('<div>');
-    $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
-}
+include_once 'libraries/server_users.lib.php';
+$response->addHTML('<div>');
+$response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
 
 /**
  * Sets globals from $_POST patterns, for privileges and max_* vars
@@ -128,6 +124,20 @@ list(
 if (! $is_superuser) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
+    exit;
+}
+
+/**
+ * Checks if the user is using "Change Login Information / Copy User" dialog
+ * only to update the password
+ */
+if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
+    && $hostname == $_REQUEST['old_hostname']
+) {
+    $response->addHTML(
+        PMA_Message::error(__('Username and hostname didn\'t change.'))->getDisplay()
+    );
+    $response->isSuccess(false);
     exit;
 }
 
@@ -346,7 +356,7 @@ if (isset($_REQUEST['adduser'])) {
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
-            PMA_getHtmlForDisplayUserOverviewPage($pmaThemeImage, $text_dir)
+            PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         );
     } else {
         // A user was selected -> display the user's properties
@@ -361,7 +371,7 @@ if (isset($_REQUEST['adduser'])) {
             )
         );
         $response->addHTML(
-            PMA_getHtmlForDisplayUserProperties(
+            PMA_getHtmlForUserProperties(
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
                 $url_dbname, $username, $hostname,
                 (isset($dbname) ? $dbname : ''),

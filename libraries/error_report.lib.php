@@ -5,6 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+
+/*
+ * Include for handleContext() and configureCurl in PMA_sendErrorReport()
+ */
+require_once 'libraries/Util.class.php';
+
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -61,16 +68,16 @@ function PMA_getReportData($pretty_print = true)
         $report['steps'] = $_REQUEST['description'];
     }
 
-    if ($pretty_print) {
-        /* JSON_PRETTY_PRINT available since PHP 5.4 */
-        if (defined('JSON_PRETTY_PRINT')) {
-            return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-        } else {
-            return PMA_prettyPrint($report);
-        }
-    } else {
+    if (!$pretty_print) {
         return $report;
     }
+
+    /* JSON_PRETTY_PRINT available since PHP 5.4 */
+    if (defined('JSON_PRETTY_PRINT')) {
+        return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    }
+
+    return PMA_prettyPrint($report);
 }
 
 /**
@@ -130,43 +137,28 @@ function PMA_sendErrorReport($report)
                 'header' => "Content-Type: multipart/form-data\r\n",
             )
         );
-        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
-            $context['http'] = array(
-                'proxy' => $GLOBALS['cfg']['ProxyUrl'],
-                'request_fulluri' => true
-            );
-            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
-                $auth = base64_encode(
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-                $context['http']['header'] .= 'Proxy-Authorization: Basic '
-                    . $auth . "\r\n";
-            }
-        }
+        $context = PMA_Util::handleContext($context);
         $response = file_get_contents(
             SUBMISSION_URL,
             false,
             stream_context_create($context)
         );
-    } else if (function_exists('curl_init')) {
-        $curl_handle = curl_init(SUBMISSION_URL);
-        if (strlen($GLOBALS['cfg']['ProxyUrl'])) {
-            curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (strlen($GLOBALS['cfg']['ProxyUser'])) {
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_PROXYUSERPWD,
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
-                );
-            }
-        }
-        curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
-        curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec($curl_handle);
-        curl_close($curl_handle);
+        return $response;
     }
+
+    if (!function_exists('curl_init')) {
+        return null;
+    }
+
+    $curl_handle = curl_init(SUBMISSION_URL);
+    $curl_handle = PMA_Util::configureCurl($curl_handle);
+    curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array('Expect:'));
+    curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
+    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($curl_handle);
+    curl_close($curl_handle);
+
     return $response;
 }
 
@@ -180,21 +172,21 @@ function PMA_sendErrorReport($report)
 function PMA_countLines($filename)
 {
     global $LINE_COUNT;
-    if (!defined('LINE_COUNTS')) {
-        $linecount = 0;
-        $handle = fopen('./js/' . $filename, 'r');
-        while (!feof($handle)) {
-            $line = fgets($handle);
-            if ($line === false) {
-                break;
-            }
-            $linecount++;
-        }
-        fclose($handle);
-        return $linecount;
-    } else {
+    if (defined('LINE_COUNTS')) {
         return $LINE_COUNT[$filename];
     }
+
+    $linecount = 0;
+    $handle = fopen('./js/' . $filename, 'r');
+    while (!feof($handle)) {
+        $line = fgets($handle);
+        if ($line === false) {
+            break;
+        }
+        $linecount++;
+    }
+    fclose($handle);
+    return $linecount;
 }
 
 /**
@@ -272,34 +264,34 @@ function PMA_getErrorReportForm()
 {
     $html = "";
     $html .= '<form action="error_report.php" method="post" name="report_frm"'
-            .' id="report_frm" class="ajax">'
-            .'<fieldset style="padding-top:0px">';
+            . ' id="report_frm" class="ajax">'
+            . '<fieldset style="padding-top:0px">';
 
     $html .= '<p>' . __(
         'phpMyAdmin has encountered an error. We have collected data about'
-        .' this error as well as information about relevant configuration'
-        .' settings to send to the phpMyAdmin team to help us in'
-        .' debugging the problem.'
-    ) .'</p>';
+        . ' this error as well as information about relevant configuration'
+        . ' settings to send to the phpMyAdmin team to help us in'
+        . ' debugging the problem.'
+    ) . '</p>';
 
     $html .= '<div class="label"><label><p>'
             . __('You may examine the data in the error report:')
-            .'</p></label></div>'
-            .'<pre class="report-data">'
-            .PMA_getReportData()
-            .'</pre>';
+            . '</p></label></div>'
+            . '<pre class="report-data">'
+            . PMA_getReportData()
+            . '</pre>';
 
     $html .= '<div class="label"><label><p>'
             . __('Please explain the steps that lead to the error:')
-            .'</p></label></div>'
-            .'<textarea class="report-description" name="description"'
-            .'id="report_description"></textarea>';
+            . '</p></label></div>'
+            . '<textarea class="report-description" name="description"'
+            . 'id="report_description"></textarea>';
 
     $html .= '<input type="checkbox" name="always_send"'
-            .' id="always_send_checkbox"/>'
-            .'<label for="always_send_checkbox">'
+            . ' id="always_send_checkbox"/>'
+            . '<label for="always_send_checkbox">'
             . __('Automatically send report next time')
-            .'</label>';
+            . '</label>';
 
     $html .= '</fieldset>';
 
@@ -356,3 +348,5 @@ function PMA_prettyPrint($object, $namespace="")
     }
     return $output;
 }
+
+?>

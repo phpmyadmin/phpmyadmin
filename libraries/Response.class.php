@@ -25,14 +25,14 @@ class PMA_Response
      *
      * @access private
      * @static
-     * @var object
+     * @var PMA_Response
      */
     private static $_instance;
     /**
      * PMA_Header instance
      *
      * @access private
-     * @var object
+     * @var PMA_Header
      */
     private $_header;
     /**
@@ -54,7 +54,7 @@ class PMA_Response
      * PMA_Footer instance
      *
      * @access private
-     * @var object
+     * @var PMA_Footer
      */
     private $_footer;
     /**
@@ -256,7 +256,7 @@ class PMA_Response
     private function _getDisplay()
     {
         // The header may contain nothing at all,
-        // if it's content was already rendered
+        // if its content was already rendered
         // and, in this case, the header will be
         // in the content part of the request
         $retval  = $this->_header->getDisplay();

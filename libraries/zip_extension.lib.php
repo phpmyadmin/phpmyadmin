@@ -23,65 +23,72 @@ function PMA_getZipContents($file, $specific_entry = null)
     $error_message = '';
     $file_data = '';
     $zip_handle = zip_open($file);
-    if (is_resource($zip_handle)) {
-        $first_zip_entry = zip_read($zip_handle);
-        if (false === $first_zip_entry) {
-            $error_message = __('No files found inside ZIP archive!');
-        } else {
-            /* Is the the zip really an ODS file? */
-            $read = zip_entry_read($first_zip_entry);
-            $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
-            if (!strcmp($ods_mime, $read)) {
-                $specific_entry = '/^content\.xml$/';
-            }
-
-            if (isset($specific_entry)) {
-                /* Return the correct contents, not just the first entry */
-                for ( ; ; ) {
-                    $entry = zip_read($zip_handle);
-                    if (is_resource($entry)) {
-                        if (preg_match($specific_entry, zip_entry_name($entry))) {
-                            zip_entry_open($zip_handle, $entry, 'r');
-                            $file_data = zip_entry_read(
-                                $entry,
-                                zip_entry_filesize($entry)
-                            );
-                            zip_entry_close($entry);
-                            break;
-                        }
-                    } else {
-                        /**
-                         * Either we have reached the end of the zip and still
-                         * haven't found $specific_entry or there was a parsing
-                         * error that we must display
-                         */
-                        if ($entry === false) {
-                            $error_message = __('Error in ZIP archive:')
-                                . ' Could not find "' . $specific_entry . '"';
-                        } else {
-                            $error_message = __('Error in ZIP archive:')
-                                . ' ' . PMA_getZipError($zip_handle);
-                        }
-
-                        break;
-                    }
-                }
-            } else {
-                zip_entry_open($zip_handle, $first_zip_entry, 'r');
-                /* File pointer has already been moved,
-                 * so include what was read above */
-                $file_data = $read;
-                $file_data .= zip_entry_read(
-                    $first_zip_entry,
-                    zip_entry_filesize($first_zip_entry)
-                );
-                zip_entry_close($first_zip_entry);
-            }
-        }
-    } else {
+    if (!is_resource($zip_handle)) {
         $error_message = __('Error in ZIP archive:')
             . ' ' . PMA_getZipError($zip_handle);
+        zip_close($zip_handle);
+        return (array('error' => $error_message, 'data' => $file_data));
     }
+
+    $first_zip_entry = zip_read($zip_handle);
+    if (false === $first_zip_entry) {
+        $error_message = __('No files found inside ZIP archive!');
+        zip_close($zip_handle);
+        return (array('error' => $error_message, 'data' => $file_data));
+    }
+
+    /* Is the the zip really an ODS file? */
+    $read = zip_entry_read($first_zip_entry);
+    $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
+    if (!strcmp($ods_mime, $read)) {
+        $specific_entry = '/^content\.xml$/';
+    }
+
+    if (!isset($specific_entry)) {
+        zip_entry_open($zip_handle, $first_zip_entry, 'r');
+        /* File pointer has already been moved,
+         * so include what was read above */
+        $file_data = $read;
+        $file_data .= zip_entry_read(
+            $first_zip_entry,
+            zip_entry_filesize($first_zip_entry)
+        );
+        zip_entry_close($first_zip_entry);
+        zip_close($zip_handle);
+        return (array('error' => $error_message, 'data' => $file_data));
+    }
+
+    /* Return the correct contents, not just the first entry */
+    for ( ; ; ) {
+        $entry = zip_read($zip_handle);
+        if (is_resource($entry)) {
+            if (preg_match($specific_entry, zip_entry_name($entry))) {
+                zip_entry_open($zip_handle, $entry, 'r');
+                $file_data = zip_entry_read(
+                    $entry,
+                    zip_entry_filesize($entry)
+                );
+                zip_entry_close($entry);
+                break;
+            }
+        } else {
+            /**
+             * Either we have reached the end of the zip and still
+             * haven't found $specific_entry or there was a parsing
+             * error that we must display
+             */
+            if ($entry === false) {
+                $error_message = __('Error in ZIP archive:')
+                    . ' Could not find "' . $specific_entry . '"';
+            } else {
+                $error_message = __('Error in ZIP archive:')
+                    . ' ' . PMA_getZipError($zip_handle);
+            }
+
+            break;
+        }
+    }
+
     zip_close($zip_handle);
     return (array('error' => $error_message, 'data' => $file_data));
 }
@@ -157,7 +164,7 @@ function PMA_zipExtract($zip_path, $destination, $entries)
 /**
   * Gets zip error message
   *
-  * @param integer $code error code
+  * @param resource $code error code
   *
   * @return string error message
  */

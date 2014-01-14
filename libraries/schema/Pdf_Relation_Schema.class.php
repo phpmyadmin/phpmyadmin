@@ -58,11 +58,11 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * Sets the scaling factor, defines minimum coordinates and margins
      *
-     * @param float $scale      The scaling factor
-     * @param float $xMin       The minimum X coordinate
-     * @param float $yMin       The minimum Y coordinate
-     * @param float $leftMargin The left margin
-     * @param float $topMargin  The top margin
+     * @param float|int $scale      The scaling factor
+     * @param float|int $xMin       The minimum X coordinate
+     * @param float|int $yMin       The minimum Y coordinate
+     * @param float|int $leftMargin The left margin
+     * @param float|int $topMargin  The top margin
      *
      * @access public
      *
@@ -85,14 +85,14 @@ class PMA_Schema_PDF extends PMA_PDF
     /**
      * Outputs a scaled cell
      *
-     * @param float   $w      The cell width
-     * @param float   $h      The cell height
-     * @param string  $txt    The text to output
-     * @param mixed   $border Whether to add borders or not
-     * @param integer $ln     Where to put the cursor once the output is done
-     * @param string  $align  Align mode
-     * @param integer $fill   Whether to fill the cell with a color or not
-     * @param string  $link   Link
+     * @param float|int $w      The cell width
+     * @param float|int $h      The cell height
+     * @param string    $txt    The text to output
+     * @param mixed     $border Whether to add borders or not
+     * @param integer   $ln     Where to put the cursor once the output is done
+     * @param string    $align  Align mode
+     * @param integer   $fill   Whether to fill the cell with a color or not
+     * @param string    $link   Link
      *
      * @access public
      *
@@ -1067,7 +1067,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->SetMargins(0, 0);
         $pdf->SetDrawColor(200, 200, 200);
         // Draws horizontal lines
-        for ($l = 0; $l <= intval(($pdf->getPageHeight() - $topSpace - $bottomSpace) / $gridSize); $l++) {
+        for ($l = 0, $size = intval(($pdf->getPageHeight() - $topSpace - $bottomSpace) / $gridSize); $l <= $size; $l++) {
             $pdf->line(
                 0, $l * $gridSize + $topSpace,
                 $pdf->getPageWidth(), $l * $gridSize + $topSpace
@@ -1086,7 +1086,11 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             } // end if
         } // end for
         // Draws vertical lines
-        for ($j = 0; $j <= intval($pdf->getPageWidth() / $gridSize); $j++) {
+        for (
+            $j = 0, $size = intval($pdf->getPageWidth() / $gridSize);
+            $j <= $size;
+            $j++
+        ) {
             $pdf->line(
                 $j * $gridSize,
                 $topSpace,
@@ -1432,7 +1436,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                     (isset($row['Default']) ? $row['Default'] : ''),
                     $row['Extra'],
                     (isset($res_rel[$field_name])
-                        ? $res_rel[$field_name]['foreign_table'] . ' -> ' . $res_rel[$field_name]['foreign_field']
+                        ? $res_rel[$field_name]['foreign_table'] . ' -> '
+                            . $res_rel[$field_name]['foreign_field']
                         : ''),
                     (isset($comments[$field_name])
                         ? $comments[$field_name]

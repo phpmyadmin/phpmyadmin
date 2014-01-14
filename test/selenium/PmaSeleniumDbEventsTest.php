@@ -81,7 +81,7 @@ class PmaSeleniumDbEventsTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->_helper->dbQuery(
             "CREATE EVENT `test_event` ON SCHEDULE EVERY 2 MINUTE_SECOND STARTS "
             . "'$start' ENDS '$end' ON COMPLETION NOT PRESERVE ENABLE "
-            . "DO UPDATE `". $this->_dbname. "`.`test_table` SET val = val + 1"
+            . "DO UPDATE `" . $this->_dbname . "`.`test_table` SET val = val + 1"
         );
     }
 

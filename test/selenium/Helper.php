@@ -141,6 +141,8 @@ class Helper
      * Establishes a connection with the local database
      *
      * @return void
+     *
+     * @throws Exception
      */
     public function dbConnect()
     {
@@ -160,7 +162,9 @@ class Helper
      *
      * @param string $query SQL Query to be executed
      *
-     * @return void
+     * @return void|boolean|mysqli_result
+     *
+     * @throws Exception
      */
     public function dbQuery($query)
     {

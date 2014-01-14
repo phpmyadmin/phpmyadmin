@@ -51,13 +51,15 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
  */
 function PMA_getWhereClauseArray($where_clause)
 {
-    if (isset ($where_clause)) {
-        if (is_array($where_clause)) {
-            return $where_clause;
-        } else {
-            return array(0 => $where_clause);
-        }
+    if (!isset($where_clause)) {
+        return;
     }
+
+    if (is_array($where_clause)) {
+        return $where_clause;
+    }
+
+    return array(0 => $where_clause);
 }
 
 /**
@@ -775,7 +777,7 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
     $html_output .= '<select name="fields' . $column_name_appendix . '"'
         . ' ' . $unnullify_trigger
         . ' class="textfield"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
         . ' id="field_' . $idindex . '_3">';
     $html_output .= PMA_foreignDropdown(
         $foreignData['disp_row'], $foreignData['foreign_field'],
@@ -869,7 +871,7 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
     }
     $column_enum_values = $column['values'];
     $html_output .= '<input type="hidden" name="fields_type'
-        . $column_name_appendix. '" value="enum" />';
+        . $column_name_appendix . '" value="enum" />';
     $html_output .= '<input type="hidden" name="fields'
         . $column_name_appendix . '" value="" />';
     $html_output .= "\n" . '            ' . $backup_field . "\n";
@@ -1103,7 +1105,7 @@ function PMA_getBinaryAndBlobColumn(
             $data_size = PMA_Util::formatByteDown(
                 strlen(stripslashes($data)), 3, 1
             );
-            $html_output .= ' ('. $data_size[0] . ' ' . $data_size[1] . ')';
+            $html_output .= ' (' . $data_size[0] . ' ' . $data_size[1] . ')';
             unset($data_size);
         }
         $html_output .= '<input type="hidden" name="fields_type'
@@ -1163,23 +1165,6 @@ function PMA_getBinaryAndBlobColumn(
 function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
-    static $min_max_data = array(
-        'unsigned' => array(
-            'tinyint'   => array('0', '255'),
-            'smallint'  => array('0', '65535'),
-            'mediumint' => array('0', '16777215'),
-            'int'       => array('0', '4294967295'),
-            'bigint'    => array('0', '18446744073709551615')
-        ),
-        'signed' => array(
-            'tinyint'   => array('-128', '127'),
-            'smallint'  => array('-32768', '32767'),
-            'mediumint' => array('-8388608', '8388607'),
-            'int'       => array('-2147483648', '2147483647'),
-            'bigint'    => array('-9223372036854775808', '9223372036854775807')
-        )
-    );
-
     $input_type = 'text';
     $the_class = 'textfield';
     if ($column['pma_type'] === 'date') {
@@ -1195,23 +1180,23 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $input_min_max = false;
     if (in_array(
         $column['True_Type'],
-        array('tinyint', 'smallint', 'mediumint', 'int', 'bigint')
+        $GLOBALS['PMA_Types']->getIntegerTypes()
     )) {
         $input_type = 'number';
         $is_unsigned = substr($column['pma_type'], -9) === ' unsigned';
-        $min_max_values
-            = $min_max_data[$is_unsigned ? 'unsigned' : 'signed']
-                [$column['True_Type']];
+        $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
+            $column['True_Type'], ! $is_unsigned
+        );
         $input_min_max = 'min="' . $min_max_values[0] . '" '
             . 'max="' . $min_max_values[1] . '" ';
     }
     return '<input type="' . $input_type . '"'
-        . ' name="fields'. $column_name_appendix . '"'
+        . ' name="fields' . $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
         . ($input_min_max !== false ? ' ' . $input_min_max : '')
         . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
-        . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
         . ' id="field_' . ($idindex) . '_3" />';
 }
 
@@ -1437,7 +1422,7 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
 
             $html_output .= '<input type="hidden"'
                 . ' name="where_clause[' . $key_id . ']"'
-                . ' value="' . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
+                . ' value="' . htmlspecialchars(trim($where_clause)) . '" />' . "\n";
         }
     }
     $tmp = '<select name="insert_rows" id="insert_rows">' . "\n";
@@ -1559,7 +1544,7 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
         if (! is_array($where_clause)) {
             $where_clause = array($where_clause);
         }
-        for ($i = 0; $i < count($where_clause); $i++) {
+        for ($i = 0, $nb = count($where_clause); $i < $nb; $i++) {
             $is_numeric = preg_match(
                 '@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@',
                 $where_clause[$i]
@@ -1627,7 +1612,7 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
         $html_output .= PMA_showFunctionFieldsInEditMode($url_params, true);
     }
 
-    $html_output .= '<th>'. __('Null') . '</th>'
+    $html_output .= '<th>' . __('Null') . '</th>'
         . '<th>' . __('Value') . '</th>'
         . '</tr>'
         . '</thead>'
@@ -1954,11 +1939,11 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
 /**
  * Executes the sql query and get the result, then move back to the calling page
  *
- * @param array  $url_params url parameters array
- * @param array  $query      built query from PMA_buildSqlQuery()
+ * @param array $url_params url parameters array
+ * @param array $query      built query from PMA_buildSqlQuery()
  *
- * @return array             $url_params, $total_affected_rows, $last_messages
- *                           $warning_messages, $error_messages, $return_to_sql_query
+ * @return array            $url_params, $total_affected_rows, $last_messages
+ *                          $warning_messages, $error_messages, $return_to_sql_query
  */
 function PMA_executeSqlQuery($url_params, $query)
 {
@@ -2370,7 +2355,7 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         } elseif ($type == 'protected') {
             // here we are in protected mode (asked in the config)
             // so tbl_change has put this special value in the
-            // coulmns array, so we do not change the column value
+            // columns array, so we do not change the column value
             // but we can still handle column upload
 
             // when in UPDATE mode, do not alter field's contents. When in INSERT
@@ -2429,7 +2414,7 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
 
     $extra_data['isNeedToRecheck'] = true;
 
-    $sql_for_real_value = 'SELECT '. PMA_Util::backquote($table) . '.'
+    $sql_for_real_value = 'SELECT ' . PMA_Util::backquote($table) . '.'
         . PMA_Util::backquote($column_name)
         . ' FROM ' . PMA_Util::backquote($db) . '.'
         . PMA_Util::backquote($table)
@@ -2608,7 +2593,7 @@ function PMA_getHtmlForIgnoreOption($row_id)
     return '<input type="checkbox" checked="checked"'
             . ' name="insert_ignore_' . $row_id . '"'
             . ' id="insert_ignore_' . $row_id . '" />'
-            .'<label for="insert_ignore_' . $row_id . '">'
+            . '<label for="insert_ignore_' . $row_id . '">'
             . __('Ignore')
             . '</label><br />' . "\n";
 }
@@ -2741,7 +2726,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     $unnullify_trigger = $chg_evt_handler
         . "=\"return verificationsAfterFieldChange('"
         . PMA_escapeJsString($column['Field_md5']) . "', '"
-        . PMA_escapeJsString($jsvkey) . "','".$column['pma_type'] . "')\"";
+        . PMA_escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
 
     // Use an MD5 as an array index to avoid having special characters
     // in the name atttibute (see bug #1746964 )

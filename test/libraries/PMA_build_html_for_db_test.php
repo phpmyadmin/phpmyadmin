@@ -100,13 +100,13 @@ class PMA_BuildHtmlForDb_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_buildHtmlForDb
      *
-     * @param array   $current
-     * @param boolean $is_superuser
-     * @param string  $url_query
-     * @param array   $column_order
-     * @param array   $replication_types
-     * @param array   $replication_info
-     * @param array   $tags
+     * @param array   $current           Current
+     * @param boolean $is_superuser      Is superuser
+     * @param string  $url_query         URL query
+     * @param array   $column_order      Column order
+     * @param array   $replication_types Replication types
+     * @param array   $replication_info  Replication info
+     * @param array   $tags              Tags
      *
      * @return void
      * @dataProvider providerForTestBuildHtmlForDb

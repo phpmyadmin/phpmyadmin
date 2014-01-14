@@ -117,24 +117,29 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
 ) {
     // no suffix is needed if request is a table creation
     $sql_suffix = " ";
-    if (! $is_create_tbl) {
-        if ($_REQUEST['field_where'] != 'last') {
-            // Only the first field can be added somewhere other than at the end
-            if ($current_field_num == 0) {
-                if ($_REQUEST['field_where'] == 'first') {
-                    $sql_suffix .= ' FIRST';
-                } else {
-                    $sql_suffix .= ' AFTER '
-                            . PMA_Util::backquote($_REQUEST['after_field']);
-                }
-            } else {
-                $sql_suffix .= ' AFTER '
-                        . PMA_Util::backquote(
-                            $_REQUEST['field_name'][$current_field_num - 1]
-                        );
-            }
-        }
+    if ($is_create_tbl) {
+        return $sql_suffix;
     }
+
+    if ($_REQUEST['field_where'] == 'last') {
+        return $sql_suffix;
+    }
+
+    // Only the first field can be added somewhere other than at the end
+    if ($current_field_num == 0) {
+        if ($_REQUEST['field_where'] == 'first') {
+            $sql_suffix .= ' FIRST';
+        } else {
+            $sql_suffix .= ' AFTER '
+                    . PMA_Util::backquote($_REQUEST['after_field']);
+        }
+    } else {
+        $sql_suffix .= ' AFTER '
+                . PMA_Util::backquote(
+                    $_REQUEST['field_name'][$current_field_num - 1]
+                );
+    }
+
     return $sql_suffix;
 }
 
@@ -153,15 +158,17 @@ function PMA_buildIndexStatements($indexed_fields, $index_type,
     $is_create_tbl = true
 ) {
     $statement = array();
-    if (count($indexed_fields)) {
-        $fields = array();
-        foreach ($indexed_fields as $field_nr) {
-            $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$field_nr]);
-        }
-        $statement[] = PMA_getStatementPrefix($is_create_tbl)
-        .' '.$index_type.' (' . implode(', ', $fields) . ') ';
-        unset($fields);
+    if (!count($indexed_fields)) {
+        return $statement;
     }
+
+    $fields = array();
+    foreach ($indexed_fields as $field_nr) {
+        $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$field_nr]);
+    }
+    $statement[] = PMA_getStatementPrefix($is_create_tbl)
+        . ' ' . $index_type . ' (' . implode(', ', $fields) . ') ';
+    unset($fields);
 
     return $statement;
 }

@@ -71,6 +71,9 @@ class PMA_DisplayResults
     const ROUTINE_PROCEDURE = 'procedure';
     const ROUTINE_FUNCTION = 'function';
 
+    const ACTION_LINK_CONTENT_ICONS = 'icons';
+    const ACTION_LINK_CONTENT_TEXT = 'text';
+
 
     // Declare global fields
 
@@ -775,7 +778,7 @@ class PMA_DisplayResults
                     )
                     . ')'
                 . ')'
-            .'">';
+            . '">';
 
         $table_navigation_html .= PMA_URL_getHiddenInputs(
             $this->__get('db'), $this->__get('table')
@@ -2838,7 +2841,10 @@ class PMA_DisplayResults
                 && (trim($row[$i]) != '')
             ) {
                 $row[$i] = PMA_Util::formatSql($row[$i]);
-                include_once $this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][0];
+                include_once $this->transformation_info
+                    [strtolower($this->__get('db'))]
+                    [strtolower($this->__get('table'))]
+                    [strtolower($meta->name)][0];
                 $transformation_plugin = new $this->transformation_info
                     [strtolower($this->__get('db'))]
                     [strtolower($this->__get('table'))]
@@ -2852,7 +2858,9 @@ class PMA_DisplayResults
 
                 $meta->mimetype = str_replace(
                     '_', '/',
-                    $this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)][2]
+                    $this->transformation_info[strtolower($this->__get('db'))]
+                    [strtolower($this->__get('table'))]
+                    [strtolower($meta->name)][2]
                 );
 
             }
@@ -3124,9 +3132,9 @@ class PMA_DisplayResults
         } else {
             // Consider only the case of creating link for column field
             // sql query need to be pass as url param
-            $sql = 'SELECT `'.$column_value.'` FROM `'
-                . $row_info[$link_relations['link_param'][1]] .'`.`'
-                . $row_info[$link_relations['link_param'][2]] .'`';
+            $sql = 'SELECT `' . $column_value . '` FROM `'
+                . $row_info[$link_relations['link_param'][1]] . '`.`'
+                . $row_info[$link_relations['link_param'][2]] . '`';
             $linking_url_params[$link_relations['link_param'][0]] = $sql;
         }
 
@@ -3287,7 +3295,7 @@ class PMA_DisplayResults
 
                 $support_html .= '    <th colspan="'
                     . $vertical_display['emptypre'] . '">'
-                    . "\n".'        &nbsp;</th>' . "\n";
+                    . "\n" . '        &nbsp;</th>' . "\n";
 
             } else if ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
                 $support_html .= '    <th></th>' . "\n";
@@ -3348,10 +3356,10 @@ class PMA_DisplayResults
                 $_url_params + array('default_action' => 'insert')
             );
 
-        $edit_str = PMA_Util::getIcon(
+        $edit_str = $this->_getActionLinkContent(
             'b_edit.png', __('Edit')
         );
-        $copy_str = PMA_Util::getIcon(
+        $copy_str = $this->_getActionLinkContent(
             'b_insrow.png', __('Copy')
         );
 
@@ -3420,9 +3428,7 @@ class PMA_DisplayResults
                 . ' WHERE ' . PMA_jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
-            $del_str = PMA_Util::getIcon(
-                'b_drop.png', __('Delete')
-            );
+            $del_str = $this->_getActionLinkContent('b_drop.png', __('Delete'));
 
         } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
 
@@ -3455,6 +3461,52 @@ class PMA_DisplayResults
         return array($del_query, $del_url, $del_str, $js_conf);
 
     } // end of the '_getDeleteAndKillLinks()' function
+
+
+    /**
+     * Get content inside the table row action links (Edit/Copy/Delete)
+     *
+     * @param string $icon         The name of the file to get
+     * @param string $display_text The text displaying after the image icon
+     *
+     * @return  string
+     *
+     * @access  private
+     *
+     * @see     _getModifiedLinks(), _getDeleteAndKillLinks()
+     */
+    private function _getActionLinkContent($icon, $display_text)
+    {
+
+        $linkContent = '';
+
+        if (isset($GLOBALS['cfg']['RowActionType'])
+            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_ICONS
+        ) {
+
+            $linkContent .= '<span class="nowrap">'
+                . PMA_Util::getImage(
+                    $icon, $display_text
+                )
+                . '</span>';
+
+        } else if (isset($GLOBALS['cfg']['RowActionType'])
+            && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_TEXT
+        ) {
+
+            $linkContent .= '<span class="nowrap">' . $display_text . '</span>';
+
+        } else {
+
+            $linkContent .= PMA_Util::getIcon(
+                $icon, $display_text
+            );
+
+        }
+
+        return $linkContent;
+
+    }
 
 
     /**
@@ -3607,7 +3659,7 @@ class PMA_DisplayResults
         if (! isset($column) || is_null($column)) {
 
             $cell = $this->_buildNullDisplay(
-                'right '.$class, $condition_field, $meta, ''
+                'right ' . $class, $condition_field, $meta, ''
             );
 
         } elseif ($column != '') {
@@ -3616,7 +3668,7 @@ class PMA_DisplayResults
             $where_comparison = ' = ' . $column;
 
             $cell = $this->_getRowData(
-                'right '.$class, $condition_field,
+                'right ' . $class, $condition_field,
                 $analyzed_sql, $meta, $map, $column,
                 $transformation_plugin, $default_function, $nowrap,
                 $where_comparison, $transform_options,
@@ -3625,7 +3677,7 @@ class PMA_DisplayResults
         } else {
 
             $cell = $this->_buildEmptyDisplay(
-                'right '.$class, $condition_field, $meta, ''
+                'right ' . $class, $condition_field, $meta, ''
             );
         }
 
@@ -4482,7 +4534,7 @@ class PMA_DisplayResults
             $pre_count = '~';
             $after_count = PMA_Util::showHint(
                 PMA_sanitize(
-                    __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]')
+                    __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
                 )
             );
         } else {
@@ -5061,12 +5113,12 @@ class PMA_DisplayResults
         $links_html .= "\n";
 
         $links_html .= '<input type="hidden" name="sql_query"'
-            .' value="' . htmlspecialchars($this->__get('sql_query')) . '" />'
+            . ' value="' . htmlspecialchars($this->__get('sql_query')) . '" />'
             . "\n";
 
         if (! empty($url_query)) {
             $links_html .= '<input type="hidden" name="url_query"'
-                .' value="' . $url_query . '" />' . "\n";
+                . ' value="' . $url_query . '" />' . "\n";
         }
 
         // fetch last row of the result set
@@ -5082,12 +5134,13 @@ class PMA_DisplayResults
                 $this->__get('fields_meta'),
                 $row
             );
+        unset($where_clause, $condition_array);
 
         // reset to first row for the loop in _getTableBody()
         $GLOBALS['dbi']->dataSeek($dt_result, 0);
 
         $links_html .= '<input type="hidden" name="clause_is_unique"'
-            .' value="' . $clause_is_unique . '" />' . "\n";
+            . ' value="' . $clause_is_unique . '" />' . "\n";
 
         $links_html .= '</form>' . "\n";
 
@@ -5434,7 +5487,7 @@ class PMA_DisplayResults
 
             $size = strlen($content);
             $display_size = PMA_Util::formatByteDown($size, 3, 1);
-            $result .= ' - '. $display_size[0] . ' ' . $display_size[1];
+            $result .= ' - ' . $display_size[0] . ' ' . $display_size[1];
 
         } else {
 
@@ -5541,17 +5594,19 @@ class PMA_DisplayResults
                 $alias = $analyzed_sql[0]['select_expr']
                     [$select_expr_position]['alias'];
 
-                if (isset($alias) && strlen($alias)) {
-                    $true_column = $analyzed_sql[0]['select_expr']
-                        [$select_expr_position]['column'];
-
-                    if ($alias == $meta->name) {
-                        // this change in the parameter does not matter
-                        // outside of the function
-                        $meta->name = $true_column;
-                    } // end if
-
+                if (!isset($alias) || !strlen($alias)) {
+                    continue;
                 } // end if
+
+                $true_column = $analyzed_sql[0]['select_expr']
+                    [$select_expr_position]['column'];
+
+                if ($alias == $meta->name) {
+                    // this change in the parameter does not matter
+                    // outside of the function
+                    $meta->name = $true_column;
+                } // end if
+
             } // end foreach
         } // end if
 
@@ -5688,7 +5743,7 @@ class PMA_DisplayResults
             );
 
             $result .= '<input type="hidden" class="data_browse_link" value="'
-                . PMA_URL_getCommon($_url_params_for_show_data_row). '" />';
+                . PMA_URL_getCommon($_url_params_for_show_data_row) . '" />';
 
         }
 
@@ -5986,7 +6041,7 @@ class PMA_DisplayResults
     }
 
     /**
-     * Display binary columns as hex string if requested 
+     * Display binary columns as hex string if requested
      * otherwise escape the contents using the best possible way
      *
      * @param string $content        String to parse

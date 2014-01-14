@@ -111,7 +111,7 @@ if (! isset($_SESSION[' PMA_token '])) {
 
 /**
  * tries to secure session from hijacking and fixation
- * should be called before login and after successfull login
+ * should be called before login and after successful login
  * (only required if sensitive information stored in session)
  *
  * @return void

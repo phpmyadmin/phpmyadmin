@@ -142,16 +142,17 @@ class Node_Table extends Node_DatabaseChild
             $table  = PMA_Util::backquote($table);
             $query  = "SHOW INDEXES FROM $table FROM $db";
             $handle = $GLOBALS['dbi']->tryQuery($query);
-            if ($handle !== false) {
-                $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
-                    if (! in_array($arr['Key_name'], $retval)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Key_name'];
-                            $count++;
-                        }
-                        $pos--;
+            if ($handle === false) {
+                break;
+            }
+            $count = 0;
+            while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if (! in_array($arr['Key_name'], $retval)) {
+                    if ($pos <= 0 && $count < $maxItems) {
+                        $retval[] = $arr['Key_name'];
+                        $count++;
                     }
+                    $pos--;
                 }
             }
             break;

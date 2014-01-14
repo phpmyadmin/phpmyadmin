@@ -828,8 +828,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // no generic solution for loading preferences from cache as some settings
         // need to be kept for processing in PMA_Config::loadUserPreferences()
         $cache_key = 'server_' . $GLOBALS['server'];
-        if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])) {
-            $value = $_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'];
+        if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])
+        ) {
+            $value
+                = $_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'];
             $GLOBALS['PMA_Config']->set('LoginCookieValidity', $value);
             $GLOBALS['cfg']['LoginCookieValidity'] = $value;
             unset($value);

@@ -10,9 +10,13 @@ Please report [bugs on SourceForge.net][1].
 
 ## Patches submission
 
-Patches are welcome either as [pull requests on GitHub][2].
+Patches are welcome as [pull requests on GitHub][2].  Please include a
+Signed-off-by tag.  Note that by submitting patches with the Signed-off-by
+tag, you are giving permission to license the patch as GPLv2-or-later.  See
+[the DCO file][3] for details.
 
 [2]: https://github.com/phpmyadmin/phpmyadmin/pulls
+[3]: https://github.com/phpmyadmin/phpmyadmin/blob/master/DCO
 
 ## More information
 

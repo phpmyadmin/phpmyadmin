@@ -12,7 +12,6 @@ if (! defined('PHPMYADMIN')) {
 
 require_once './libraries/DatabaseInterface.class.php';
 
-$extension = null;
 if (defined('TESTSUITE')) {
     /**
      * For testsuite we use dummy driver which can fake some queries.
@@ -22,13 +21,12 @@ if (defined('TESTSUITE')) {
 } else {
 
     /**
-     * check for requested extension
+     * First check for the mysqli extension, as it's the one recommended
+     * for the MySQL server's version that we support
      */
-    $extensionName = $GLOBALS['cfg']['Server']['extension'];
-    if (! PMA_DatabaseInterface::checkDbExtension($extensionName)) {
+    $extension = 'mysqli';
+    if (! PMA_DatabaseInterface::checkDbExtension($extension)) {
 
-        // if it fails try alternative extension ...
-        // and display an error ...
         $docurl = PMA_Util::getDocuLink('faq', 'faqmysql');
         $doclink = sprintf(
             __('See %sour documentation%s for more information.'),
@@ -36,39 +34,32 @@ if (defined('TESTSUITE')) {
             '[/a]'
         );
 
-        /**
-         * @todo add different messages for alternative extension
-         * and complete fail (no alternative extension too)
-         */
-        PMA_warnMissingExtension(
-            $extensionName,
-            false,
-            $doclink
-        );
-
-        if ($extensionName === 'mysql') {
-            $alternativ_extension = 'mysqli';
-        } else {
-            $alternativ_extension = 'mysql';
-        }
-
-        if (! PMA_DatabaseInterface::checkDbExtension($alternativ_extension)) {
-            // if alternative fails too ...
+        $extension = 'mysql';
+        if (! PMA_DatabaseInterface::checkDbExtension($extension)) {
+            // warn about both extensions missing and exit
             PMA_warnMissingExtension(
-                $extensionName,
+                'mysqli|mysql',
                 true,
                 $doclink
             );
+        } elseif (empty($_SESSION['mysqlwarning'])) {
+            trigger_error(
+                __(
+                    'You are using the mysql extension which is deprecated in '
+                    . 'phpMyAdmin. Please consider installing the mysqli '
+                    . 'extension.'
+                ) . ' ' . $doclink,
+                E_USER_WARNING
+            );
+            // tell the user just once per session
+            $_SESSION['mysqlwarning'] = true;
         }
-
-        $GLOBALS['cfg']['Server']['extension'] = $alternativ_extension;
-        unset($alternativ_extension);
     }
 
     /**
      * Including The DBI Plugin
      */
-    switch($GLOBALS['cfg']['Server']['extension']) {
+    switch($extension) {
     case 'mysql' :
         include_once './libraries/dbi/DBIMysql.class.php';
         $extension = new PMA_DBI_Mysql();
@@ -76,10 +67,6 @@ if (defined('TESTSUITE')) {
     case 'mysqli' :
         include_once './libraries/dbi/DBIMysqli.class.php';
         $extension = new PMA_DBI_Mysqli();
-        break;
-    case 'drizzle' :
-        include_once './libraries/dbi/DBIDrizzle.class.php';
-        $extension = new PMA_DBI_Drizzle();
         break;
     }
 }

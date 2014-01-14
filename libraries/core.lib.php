@@ -300,15 +300,16 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
     }
     if ($fatal) {
         PMA_fatalError($message);
-    } else {
-        $GLOBALS['error_handler']->addError(
-            $message,
-            E_USER_WARNING,
-            '',
-            '',
-            false
-        );
+        return;
     }
+
+    $GLOBALS['error_handler']->addError(
+        $message,
+        E_USER_WARNING,
+        '',
+        '',
+        false
+    );
 }
 
 /**
@@ -340,7 +341,7 @@ function PMA_getTableCount($db)
  * (renamed with PMA prefix to avoid double definition when embedded
  * in Moodle)
  *
- * @param string $size size
+ * @param string|int $size size (Default = 0)
  *
  * @return integer $size
  */
@@ -482,14 +483,17 @@ function PMA_checkPageValidity(&$page, $whitelist)
 
     if (in_array($page, $whitelist)) {
         return true;
-    } elseif (in_array(substr($page, 0, strpos($page . '?', '?')), $whitelist)) {
-        return true;
-    } else {
-        $_page = urldecode($page);
-        if (in_array(substr($_page, 0, strpos($_page . '?', '?')), $whitelist)) {
-            return true;
-        }
     }
+
+    if (in_array(substr($page, 0, strpos($page . '?', '?')), $whitelist)) {
+        return true;
+    }
+
+    $_page = urldecode($page);
+    if (in_array(substr($_page, 0, strpos($_page . '?', '?')), $whitelist)) {
+        return true;
+    }
+
     return false;
 }
 
@@ -507,11 +511,17 @@ function PMA_getenv($var_name)
 {
     if (isset($_SERVER[$var_name])) {
         return $_SERVER[$var_name];
-    } elseif (isset($_ENV[$var_name])) {
+    }
+
+    if (isset($_ENV[$var_name])) {
         return $_ENV[$var_name];
-    } elseif (getenv($var_name)) {
+    }
+
+    if (getenv($var_name)) {
         return getenv($var_name);
-    } elseif (function_exists('apache_getenv')
+    }
+
+    if (function_exists('apache_getenv')
         && apache_getenv($var_name, true)
     ) {
         return apache_getenv($var_name, true);
@@ -555,36 +565,38 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         echo '//]]>' . "\n";
         echo '</script></body></html>' . "\n";
 
-    } else {
-        if (SID) {
-            if (strpos($uri, '?') === false) {
-                header('Location: ' . $uri . '?' . SID);
-            } else {
-                $separator = PMA_URL_getArgSeparator();
-                header('Location: ' . $uri . $separator . SID);
-            }
+        return;
+    }
+
+    if (SID) {
+        if (strpos($uri, '?') === false) {
+            header('Location: ' . $uri . '?' . SID);
         } else {
-            session_write_close();
-            if (headers_sent()) {
-                if (function_exists('debug_print_backtrace')) {
-                    echo '<pre>';
-                    debug_print_backtrace();
-                    echo '</pre>';
-                }
-                trigger_error(
-                    'PMA_sendHeaderLocation called when headers are already sent!',
-                    E_USER_ERROR
-                );
-            }
-            // bug #1523784: IE6 does not like 'Refresh: 0', it
-            // results in a blank page
-            // but we need it when coming from the cookie login panel)
-            if (PMA_IS_IIS && $use_refresh) {
-                header('Refresh: 0; ' . $uri);
-            } else {
-                header('Location: ' . $uri);
-            }
+            $separator = PMA_URL_getArgSeparator();
+            header('Location: ' . $uri . $separator . SID);
         }
+        return;
+    }
+
+    session_write_close();
+    if (headers_sent()) {
+        if (function_exists('debug_print_backtrace')) {
+            echo '<pre>';
+            debug_print_backtrace();
+            echo '</pre>';
+        }
+        trigger_error(
+            'PMA_sendHeaderLocation called when headers are already sent!',
+            E_USER_ERROR
+        );
+    }
+    // bug #1523784: IE6 does not like 'Refresh: 0', it
+    // results in a blank page
+    // but we need it when coming from the cookie login panel)
+    if (PMA_IS_IIS && $use_refresh) {
+        header('Refresh: 0; ' . $uri);
+    } else {
+        header('Location: ' . $uri);
     }
 }
 
@@ -615,13 +627,14 @@ function PMA_noCacheHeader()
          * Adding Pragma: public fixes this.
          */
         header('Pragma: public');
-    } else {
-        header('Pragma: no-cache'); // HTTP/1.0
-        // test case: exporting a database into a .gz file with Safari
-        // would produce files not having the current time
-        // (added this header for Safari but should not harm other browsers)
-        header('Last-Modified: ' . date(DATE_RFC1123));
+        return;
     }
+
+    header('Pragma: no-cache'); // HTTP/1.0
+    // test case: exporting a database into a .gz file with Safari
+    // would produce files not having the current time
+    // (added this header for Safari but should not harm other browsers)
+    header('Last-Modified: ' . date(DATE_RFC1123));
 }
 
 
@@ -782,14 +795,14 @@ function PMA_linkURL($url)
 {
     if (!preg_match('#^https?://#', $url) || defined('PMA_SETUP')) {
         return $url;
-    } else {
-        if (!function_exists('PMA_URL_getCommon')) {
-            include_once './libraries/url_generating.lib.php';
-        }
-        $params = array();
-        $params['url'] = $url;
-        return './url.php' . PMA_URL_getCommon($params);
     }
+
+    if (!function_exists('PMA_URL_getCommon')) {
+        include_once './libraries/url_generating.lib.php';
+    }
+    $params = array();
+    $params['url'] = $url;
+    return './url.php' . PMA_URL_getCommon($params);
 }
 
 /**

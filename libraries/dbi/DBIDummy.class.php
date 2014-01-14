@@ -547,15 +547,17 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     public function realQuery($query, $link = null, $options = 0)
     {
         $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
-        for ($i = 0; $i < count($GLOBALS['dummy_queries']); $i++) {
-            if ($GLOBALS['dummy_queries'][$i]['query'] == $query) {
-                $GLOBALS['dummy_queries'][$i]['pos'] = 0;
-                if (is_array($GLOBALS['dummy_queries'][$i]['result'])) {
-                    return $i;
-                } else {
-                    return false;
-                }
+        for ($i = 0, $nb = count($GLOBALS['dummy_queries']); $i < $nb; $i++) {
+            if ($GLOBALS['dummy_queries'][$i]['query'] != $query) {
+                continue;
             }
+
+            $GLOBALS['dummy_queries'][$i]['pos'] = 0;
+            if (!is_array($GLOBALS['dummy_queries'][$i]['result'])) {
+                return false;
+            }
+
+            return $i;
         }
         echo "Not supported query: $query\n";
         return false;
@@ -602,13 +604,14 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     public function fetchArray($result)
     {
         $data = $this->fetchAny($result);
-        if (is_array($data)
-            && isset($GLOBALS['dummy_queries'][$result]['columns'])
+        if (!is_array($data)
+            || !isset($GLOBALS['dummy_queries'][$result]['columns'])
         ) {
-            foreach ($data as $key => $val) {
-                $data[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
-            }
             return $data;
+        }
+
+        foreach ($data as $key => $val) {
+            $data[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
         }
         return $data;
     }
@@ -623,16 +626,17 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     public function fetchAssoc($result)
     {
         $data = $this->fetchAny($result);
-        if (is_array($data)
-            && isset($GLOBALS['dummy_queries'][$result]['columns'])
+        if (!is_array($data)
+            || !isset($GLOBALS['dummy_queries'][$result]['columns'])
         ) {
-            $ret = array();
-            foreach ($data as $key => $val) {
-                $ret[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
-            }
-            return $ret;
+            return $data;
         }
-        return $data;
+
+        $ret = array();
+        foreach ($data as $key => $val) {
+            $ret[$GLOBALS['dummy_queries'][$result]['columns'][$key]] = $val;
+        }
+        return $ret;
     }
 
     /**
@@ -766,11 +770,11 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      */
     public function numRows($result)
     {
-        if (!is_bool($result)) {
-            return count($GLOBALS['dummy_queries'][$result]['result']);
-        } else {
+        if (is_bool($result)) {
             return 0;
         }
+
+        return count($GLOBALS['dummy_queries'][$result]['result']);
     }
 
     /**
@@ -820,11 +824,11 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      */
     public function numFields($result)
     {
-        if (isset($GLOBALS['dummy_queries'][$result]['columns'])) {
-            return count($GLOBALS['dummy_queries'][$result]['columns']);
-        } else {
+        if (!isset($GLOBALS['dummy_queries'][$result]['columns'])) {
             return 0;
         }
+
+        return count($GLOBALS['dummy_queries'][$result]['columns']);
     }
 
     /**

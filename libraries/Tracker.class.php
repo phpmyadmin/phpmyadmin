@@ -281,7 +281,7 @@ class PMA_Tracker
         // int indices to reduce size
         $columns = array_values($columns);
         // remove Privileges to reduce size
-        for ($i = 0; $i < count($columns); $i++) {
+        for ($i = 0, $nb = count($columns); $i < $nb; $i++) {
             unset($columns[$i]['Privileges']);
         }
 
@@ -594,7 +594,7 @@ class PMA_Tracker
             " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' ";
         if (! empty($tablename)) {
             $sql_query .= " AND `table_name` = '"
-                . PMA_Util::sqlAddSlashes($tablename) ."' ";
+                . PMA_Util::sqlAddSlashes($tablename) . "' ";
         }
         $sql_query .= " AND `version` = '" . PMA_Util::sqlAddSlashes($version)
             . "' " . " ORDER BY `version` DESC LIMIT 1";
@@ -1050,7 +1050,7 @@ class PMA_Tracker
             // initialize flags
             $set = self::$_tracking_set_flags;
             $array = array();
-            for ($i = 0; $i < count($set); $i++) {
+            for ($i = 0, $nb = count($set); $i < $nb; $i++) {
                 $flag = 1 << $i;
                 $array[$flag] = $set[$i];
                 $array[$set[$i]] = $flag;
@@ -1063,7 +1063,7 @@ class PMA_Tracker
             $aflags = array();
             // count/2 - conversion table has both int > string
             // and string > int values
-            for ($i = 0; $i < count(self::$_tracking_set_flags)/2; $i++) {
+            for ($i = 0, $nb = count(self::$_tracking_set_flags)/2; $i < $nb; $i++) {
                 $flag = 1 << $i;
                 if ($tracking_set & $flag) {
                     $aflags[] = self::$_tracking_set_flags[$flag];

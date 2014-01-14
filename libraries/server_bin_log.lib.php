@@ -15,22 +15,22 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns the html for log selector.
  *
- * @param Array $binary_log_file_names Binary logs file names
- * @param Array $url_params            links parameters
+ * @param Array $binary_logs Binary logs file names
+ * @param Array $url_params  links parameters
  *
  * @return string
  */
-function PMA_getLogSelector($binary_log_file_names, $url_params)
+function PMA_getLogSelector($binary_logs, $url_params)
 {
     $html = "";
-    if (count($binary_log_file_names) > 1) {
+    if (count($binary_logs) > 1) {
         $html .= '<form action="server_binlog.php" method="get">';
         $html .= PMA_URL_getHiddenInputs($url_params);
         $html .= '<fieldset><legend>';
         $html .= __('Select binary log to view');
         $html .= '</legend><select name="log">';
         $full_size = 0;
-        foreach ($binary_log_file_names as $each_log) {
+        foreach ($binary_logs as $each_log) {
             $html .= '<option value="' . $each_log['Log_name'] . '"';
             if ($each_log['Log_name'] == $_REQUEST['log']) {
                 $html .= ' selected="selected"';
@@ -50,7 +50,7 @@ function PMA_getLogSelector($binary_log_file_names, $url_params)
             $html .= '</option>';
         }
         $html .= '</select> ';
-        $html .= count($binary_log_file_names) . ' ' . __('Files') . ', ';
+        $html .= count($binary_logs) . ' ' . __('Files') . ', ';
         if ($full_size > 0) {
             $html .= implode(
                 ' ', PMA_Util::formatByteDown($full_size)
@@ -69,12 +69,11 @@ function PMA_getLogSelector($binary_log_file_names, $url_params)
 /**
  * Returns the html for binary log information.
  *
- * @param Array $binary_log_file_names Binary logs file names
- * @param Array $url_params            links parameters
+ * @param Array $url_params links parameters
  *
  * @return string
  */
-function PMA_getLogInfo($binary_log_file_names, $url_params)
+function PMA_getLogInfo($url_params)
 {
     /**
      * Need to find the real end of rows?
@@ -190,7 +189,7 @@ function PMA_getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
     }
     $html .= '<a href="server_binlog.php' . PMA_URL_getCommon($this_url_params)
         . '" title="' . $tempTitle . '">'
-        . '<img src="' .$GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode . 'text.png"'
+        . '<img src="' . $GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode . 'text.png"'
         . 'alt="' . $tempTitle . '" /></a>';
 
     // we do not now how much rows are in the binlog

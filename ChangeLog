@@ -1,6 +1,24 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.2.0.0 (not yet released)
++ rfe #1662 Add table comment tool tip in database structure page
++ rfe #1447 Single table for display Character Sets and Collations
++ rfe #1455 Display icons/text/both for the table row actions
++ rfe #1473 Transformation to convert Boolean value to text
+- bug #4157 Changing users password will delete it
++ rfe #1474 Text transformation combines Append and Prepend
++ Added warning about the mysql extension being deprecated
+  and removed the extension directive
++ Added support for scatter charts
++ rfe #1478 Make Column Headings Sticky
++ rfe #1480 Enhance privileges initials table
++ rfe #1472 [interface] Break "Edit privileges" with sub-menus
++ rfe #1466 Minor refactoring required 
++ rfe #1004 Create indexes at the end in SQL export
++ rfe #1479 Relations edit form for larger monitors
++ rfe #1475 Inline query box vertical resize
+
 4.1.5.0 (not yet released)
 - bug #3780 Allow aborting loading pages
 - bug #4223 Database list: Create database misses collation column

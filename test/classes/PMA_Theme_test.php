@@ -99,7 +99,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     public function testLoadInfo()
     {
         $this->object->setPath('./themes/original');
-        $infofile = $this->object->getPath().'/info.inc.php';
+        $infofile = $this->object->getPath() . '/info.inc.php';
         $this->assertTrue($this->object->loadInfo());
 
         $this->assertEquals(

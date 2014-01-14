@@ -269,7 +269,7 @@ class PMA_TableSearch
         $html_output = '';
         if (is_array($foreignData['disp_row'])) {
             $html_output .=  '<select name="criteriaValues[' . $column_index . ']"'
-                . ' id="' . $column_id . $column_index .'">';
+                . ' id="' . $column_id . $column_index . '">';
             $html_output .= PMA_foreignDropdown(
                 $foreignData['disp_row'], $foreignData['foreign_field'],
                 $foreignData['foreign_display'], '', $foreignMaxLimit
@@ -280,7 +280,7 @@ class PMA_TableSearch
             $html_output .= '<input type="text" id="' . $column_id
                 . $column_index . '"'
                 . ' name="criteriaValues[' . $column_index . ']" id="field_'
-                . md5($column_name) . '[' . $column_index .']" class="textfield"'
+                . md5($column_name) . '[' . $column_index . ']" class="textfield"'
                 . (isset($criteriaValues[$column_index])
                     && is_string($criteriaValues[$column_index])
                     ? (' value="' . $criteriaValues[$column_index] . '"')
@@ -334,7 +334,7 @@ EOT;
             || (strncasecmp($column_type, 'set', 3) && $in_zoom_search_edit)
         ) {
             $html_output .= '<select name="criteriaValues[' . ($column_index)
-                . ']" id="' . $column_id . $column_index .'">';
+                . ']" id="' . $column_id . $column_index . '">';
         } else {
             $html_output .= '<select name="criteriaValues[' . $column_index . ']"'
                 . ' id="' . $column_id . $column_index . '" multiple="multiple"'
@@ -418,7 +418,7 @@ EOT;
             }
 
             $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
-                .' size="40" class="' . $the_class . '" id="'
+                . ' size="40" class="' . $the_class . '" id="'
                 . $column_id . $column_index . '"'
                 . (isset($criteriaValues[$column_index])
                     && is_string($criteriaValues[$column_index])
@@ -549,7 +549,6 @@ EOT;
         $backquoted_name = PMA_Util::backquote($names);
         $where = '';
         if ($unaryFlag) {
-            $criteriaValues = '';
             $where = $backquoted_name . ' ' . $func_type;
 
         } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
@@ -579,60 +578,60 @@ EOT;
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ('IN (...)' == $func_type
-                || 'NOT IN (...)' == $func_type
-                || 'BETWEEN' == $func_type
-                || 'NOT BETWEEN' == $func_type
+            if ('IN (...)' != $func_type
+                && 'NOT IN (...)' != $func_type
+                && 'BETWEEN' != $func_type
+                && 'NOT BETWEEN' != $func_type
             ) {
-                $func_type = str_replace(' (...)', '', $func_type);
-
-                //Don't explode if this is already an array
-                //(Case for (NOT) IN/BETWEEN.)
-                if (is_array($criteriaValues)) {
-                    $values = $criteriaValues;
-                } else {
-                    $values = explode(',', $criteriaValues);
-                }
-                // quote values one by one
-                $emptyKey = false;
-                foreach ($values as $key => &$value) {
-                    if ('' === $value) {
-                        $emptyKey = $key;
-                        $value = 'NULL';
-                        continue;
-                    }
-                    $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
-                        . $quot;
-                }
-
-                if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
-                    $where = $backquoted_name . ' ' . $func_type . ' '
-                        . (isset($values[0]) ? $values[0] : '')
-                        . ' AND ' . (isset($values[1]) ? $values[1] : '');
-                } else { //[NOT] IN
-                    if (false !== $emptyKey) {
-                        unset($values[$emptyKey]);
-                    }
-                    $wheres = array();
-                    if (!empty($values)) {
-                        $wheres[] = $backquoted_name . ' ' . $func_type
-                            . ' (' . implode(',', $values) . ')';
-                    }
-                    if (false !== $emptyKey) {
-                        $wheres[] = $backquoted_name . ' IS NULL';
-                    }
-                    $where = implode(' OR ', $wheres);
-                    if (1 < count($wheres)) {
-                        $where = '(' . $where . ')';
-                    }
-                }
-            } else {
                 if ($func_type == 'LIKE %...%' || $func_type == 'LIKE') {
                     $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
                         . PMA_Util::sqlAddSlashes($criteriaValues, true) . $quot;
                 } else {
                     $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
                         . PMA_Util::sqlAddSlashes($criteriaValues) . $quot;
+                }
+                return $where;
+            }
+            $func_type = str_replace(' (...)', '', $func_type);
+
+            //Don't explode if this is already an array
+            //(Case for (NOT) IN/BETWEEN.)
+            if (is_array($criteriaValues)) {
+                $values = $criteriaValues;
+            } else {
+                $values = explode(',', $criteriaValues);
+            }
+            // quote values one by one
+            $emptyKey = false;
+            foreach ($values as $key => &$value) {
+                if ('' === $value) {
+                    $emptyKey = $key;
+                    $value = 'NULL';
+                    continue;
+                }
+                $value = $quot . PMA_Util::sqlAddSlashes(trim($value))
+                    . $quot;
+            }
+
+            if ('BETWEEN' == $func_type || 'NOT BETWEEN' == $func_type) {
+                $where = $backquoted_name . ' ' . $func_type . ' '
+                    . (isset($values[0]) ? $values[0] : '')
+                    . ' AND ' . (isset($values[1]) ? $values[1] : '');
+            } else { //[NOT] IN
+                if (false !== $emptyKey) {
+                    unset($values[$emptyKey]);
+                }
+                $wheres = array();
+                if (!empty($values)) {
+                    $wheres[] = $backquoted_name . ' ' . $func_type
+                        . ' (' . implode(',', $values) . ')';
+                }
+                if (false !== $emptyKey) {
+                    $wheres[] = $backquoted_name . ' IS NULL';
+                }
+                $where = implode(' OR ', $wheres);
+                if (1 < count($wheres)) {
+                    $where = '(' . $where . ')';
                 }
             }
         } // end if
@@ -879,7 +878,7 @@ EOT;
             . __("Use this column to label each point") . '</label></td>';
         $html_output .= '<td><select name="dataLabel" id="dataLabel" >'
             . '<option value = "">' . __('None') . '</option>';
-        for ($j = 0; $j < count($this->_columnNames); $j++) {
+        for ($j = 0, $nb = count($this->_columnNames); $j < $nb; $j++) {
             if (isset($dataLabel)
                 && $dataLabel == htmlspecialchars($this->_columnNames[$j])
             ) {
@@ -970,8 +969,8 @@ EOT;
         $html_output = '';
         // for every column present in table
         for (
-            $column_index = 0;
-            $column_index < count($this->_columnNames);
+            $column_index = 0, $nb = count($this->_columnNames);
+            $column_index < $nb;
             $column_index++
         ) {
             $html_output .= '<tr class="noclick '
@@ -1039,7 +1038,7 @@ EOT;
                 . 'tableid_' . $i . '" >';
             $html_output .= '<option value="' . 'pma_null' . '">' . __('None')
                 . '</option>';
-            for ($j = 0 ; $j < count($this->_columnNames); $j++) {
+            for ($j = 0, $nb = count($this->_columnNames); $j < $nb; $j++) {
                 if (isset($_POST['criteriaColumnNames'][$i])
                     && $_POST['criteriaColumnNames'][$i] == htmlspecialchars($this->_columnNames[$j])
                 ) {
@@ -1288,8 +1287,8 @@ EOT;
         $html_output .= '<tbody>';
         $odd_row = true;
         for (
-            $column_index = 0;
-            $column_index < count($this->_columnNames);
+            $column_index = 0, $nb = count($this->_columnNames);
+            $column_index < $nb;
             $column_index++
         ) {
             $fieldpopup = $this->_columnNames[$column_index];
@@ -1344,7 +1343,7 @@ EOT;
             . '<input type="text" value="" name="replaceWith" required />';
 
         $htmlOutput .= __('Column:') . '<select name="columnIndex">';
-        for ($i = 0; $i < count($this->_columnNames); $i++) {
+        for ($i = 0, $nb = count($this->_columnNames); $i < $nb; $i++) {
             $type = preg_replace('@\(.*@s', '', $this->_columnTypes[$i]);
             if ($GLOBALS['PMA_Types']->getTypeClass($type) == 'CHAR') {
                 $column = $this->_columnNames[$i];
@@ -1384,7 +1383,7 @@ EOT;
         $sql_query .= " GROUP BY " . PMA_Util::backquote($column)
             . " ORDER BY " . PMA_Util::backquote($column) . " ASC";
 
-        $rs = $GLOBALS['dbi']->query(
+        $resultSet = $GLOBALS['dbi']->query(
             $sql_query, null, PMA_DatabaseInterface::QUERY_STORE
         );
 
@@ -1411,7 +1410,7 @@ EOT;
 
         $htmlOutput .= '<tbody>';
         $odd = true;
-        while ($row = $GLOBALS['dbi']->fetchRow($rs)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($resultSet)) {
             $val = $row[0];
             $replaced = $row[1];
             $count = $row[2];

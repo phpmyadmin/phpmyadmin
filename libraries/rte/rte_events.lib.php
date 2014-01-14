@@ -172,7 +172,13 @@ function PMA_EVN_handleEditor()
         }
 
         if (count($errors)) {
-            $message = PMA_Message::error(__('<b>One or more errors have occurred while processing your request:</b>'));
+            $message = PMA_Message::error(
+                '<b>'
+                . __(
+                    'One or more errors have occurred while processing your request:'
+                )
+                . '</b>'
+            );
             $message->addString('<ul>');
             foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');
@@ -189,7 +195,7 @@ function PMA_EVN_handleEditor()
                     . "AND EVENT_NAME='"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_name']) . "'";
                 $query   = "SELECT " . $columns
-                    . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where. ";";
+                    . " FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE " . $where . ";";
                 $event   = $GLOBALS['dbi']->fetchSingleRow($query);
                 $response->addJSON(
                     'name',
@@ -585,7 +591,8 @@ function PMA_EVN_getQueryFromRequest()
                 $query .= 'EVERY ' . intval($_REQUEST['item_interval_value']) . ' ';
                 $query .= $_REQUEST['item_interval_field'] . ' ';
             } else {
-                $errors[] = __('You must provide a valid interval value for the event.');
+                $errors[]
+                    = __('You must provide a valid interval value for the event.');
             }
             if (! empty($_REQUEST['item_starts'])) {
                 $query .= "STARTS '"
@@ -600,7 +607,8 @@ function PMA_EVN_getQueryFromRequest()
                 $query .= "AT '"
                     . PMA_Util::sqlAddSlashes($_REQUEST['item_execute_at']) . "' ";
             } else {
-                $errors[] = __('You must provide a valid execution time for the event.');
+                $errors[]
+                    = __('You must provide a valid execution time for the event.');
             }
         }
     } else {

@@ -303,11 +303,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForDisplayColumnPrivileges
+     * Test for PMA_getHtmlForColumnPrivileges
      *
      * @return void
      */
-    public function testPMAGetHtmlForDisplayColumnPrivileges()
+    public function testPMAGetHtmlForColumnPrivileges()
     {
         $columns = array(
             'row1' => 'name1'
@@ -321,7 +321,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $name_for_dfn = 'name_for_dfn';
         $name_for_current = 'name_for_current';
 
-        $html = PMA_getHtmlForDisplayColumnPrivileges(
+        $html = PMA_getHtmlForColumnPrivileges(
             $columns, $row, $name_for_select,
             $priv_for_header, $name, $name_for_dfn, $name_for_current
         );
@@ -420,11 +420,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForDisplayResourceLimits
+     * Test for PMA_getHtmlForResourceLimits
      *
      * @return void
      */
-    public function testPMAGetHtmlForDisplayResourceLimits()
+    public function testPMAGetHtmlForResourceLimits()
     {
         $row = array(
             'max_questions' => 'max_questions',
@@ -433,8 +433,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'max_user_connections' => 'max_user_connections',
         );
 
-        //PMA_getHtmlForDisplayResourceLimits
-        $html = PMA_getHtmlForDisplayResourceLimits($row);
+        //PMA_getHtmlForResourceLimits
+        $html = PMA_getHtmlForResourceLimits($row);
         $this->assertContains(
             '<legend>' . __('Resource limits') . '</legend>',
             $html
@@ -490,8 +490,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`user`"
-            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "';";
         $this->assertEquals(
             $sql,
             $ret
@@ -504,10 +504,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`db`"
-            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
-            ." AND '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
-            ." LIKE `Db`;";
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+            . " AND '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+            . " LIKE `Db`;";
         $this->assertEquals(
             $sql,
             $ret
@@ -520,11 +520,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $db, $table, $username, $hostname
         );
         $sql = "SELECT `Table_priv`"
-            ." FROM `mysql`.`tables_priv`"
-            ." WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
-            ." AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
-            ." AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
+            . " FROM `mysql`.`tables_priv`"
+            . " WHERE `User` = '" . PMA_Util::sqlAddSlashes($username) . "'"
+            . " AND `Host` = '" . PMA_Util::sqlAddSlashes($hostname) . "'"
+            . " AND `Db` = '" . PMA_Util::unescapeMysqlWildcards($db) . "'"
+            . " AND `Table_name` = '" . PMA_Util::sqlAddSlashes($table) . "';";
         $this->assertEquals(
             $sql,
             $ret
@@ -856,7 +856,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //validate 3: PMA_getHtmlForGlobalOrDbSpecificPrivs
         $this->assertContains(
-            '<fieldset id="fieldset_user_global_rights"><legend>',
+            '<fieldset id="fieldset_user_global_rights"><legend '
+            . 'data-submenu-label="' . __('Global') . '">',
             $html
         );
         $this->assertContains(
@@ -909,7 +910,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 5: PMA_getHtmlForDisplayResourceLimits
+        //validate 5: PMA_getHtmlForResourceLimits
         $this->assertContains(
             '<legend>' . __('Resource limits') . '</legend>',
             $html
@@ -1053,11 +1054,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForDisplayLoginInformationFields
+     * Test for PMA_getHtmlForLoginInformationFields
      *
      * @return void
      */
-    public function testPMAGetHtmlForDisplayLoginInformationFields()
+    public function testPMAGetHtmlForLoginInformationFields()
     {
         $GLOBALS['username'] = 'pma_username';
 
@@ -1081,7 +1082,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $html = PMA_getHtmlForDisplayLoginInformationFields();
+        $html = PMA_getHtmlForLoginInformationFields();
         list($username_length, $hostname_length)
             = PMA_getUsernameAndHostnameLength();
 
@@ -1200,9 +1201,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 2: PMA_getHtmlForDisplayLoginInformationFields
+        //validate 2: PMA_getHtmlForLoginInformationFields
         $this->assertContains(
-            PMA_getHtmlForDisplayLoginInformationFields('new'),
+            PMA_getHtmlForLoginInformationFields('new'),
             $html
         );
 
@@ -1411,10 +1412,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $privMap = null;
         $db = "pma_dbname";
-        $table = "pma_table";
 
         //$privMap = null
-        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $this->assertContains(
             __('No user found.'),
             $html
@@ -1431,7 +1431,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db, $table);
+        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
 
         //validate 1: $current_privileges
         $current_privileges = $privMap["user1"]["hostname1"];
@@ -1669,9 +1669,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_getHtmlForDisplayLoginInformationFields
+        //PMA_getHtmlForLoginInformationFields
         $this->assertContains(
-            PMA_getHtmlForDisplayLoginInformationFields('change'),
+            PMA_getHtmlForLoginInformationFields('change'),
             $html
         );
 
@@ -1930,11 +1930,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlHeaderForDisplayUserProperties
+     * Test for PMA_getHtmlHeaderForUserProperties
      *
      * @return void
      */
-    public function testPMAGetHtmlHeaderForDisplayUserProperties()
+    public function testPMAGetHtmlHeaderForUserProperties()
     {
         $dbname_is_wildcard = true;
         $url_dbname = "url_dbname";
@@ -1944,7 +1944,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $tablename = "tablename";
         $_REQUEST['tablename'] = "tablename";
 
-        $html = PMA_getHtmlHeaderForDisplayUserProperties(
+        $html = PMA_getHtmlHeaderForUserProperties(
             $dbname_is_wildcard, $url_dbname, $dbname,
             $username, $hostname, $tablename
         );

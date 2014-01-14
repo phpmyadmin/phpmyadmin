@@ -62,6 +62,9 @@ if (!$GLOBALS['sqlvalidator_error']) {
         var $connection_technology_version;
         var $interactive;
 
+        /**
+         *  @var SOAPClient
+         */
         var $service_link = null;
         var $session_data = null;
 
@@ -75,7 +78,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
          *
          * @param string $url URL of Mimer SQL Validator WSDL file
          *
-         * @return object  Object to use
+         * @return SOAPClient Object to use
          *
          * @access private
          */
@@ -93,17 +96,17 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Service initializer to connect to server
          *
-         * @param object  $obj                           Service object
-         * @param string  $username                      Username
-         * @param string  $password                      Password
-         * @param string  $calling_program               Name of calling program
-         * @param string  $calling_program_version       Version of calling program
-         * @param string  $target_dbms                   Target DBMS
-         * @param string  $target_dbms_version           Version of target DBMS
-         * @param string  $connection_technology         Connection Technology
-         * @param string  $connection_technology_version Con. Technology version
-         * @param integer $interactive                   boolean 1/0 to specify if
-         *                                               we are an interactive system
+         * @param SOAPClient $obj                     Service object
+         * @param string     $username                Username
+         * @param string     $password                Password
+         * @param string     $calling_program         Name of calling program
+         * @param string     $calling_program_version Version of calling program
+         * @param string     $target_dbms             Target DBMS
+         * @param string     $target_dbms_version     Version of target DBMS
+         * @param string     $con_technology          Connection Technology
+         * @param string     $con_technology_version  Con. Technology version
+         * @param integer    $interactive             boolean 1/0 to specify if
+         *                                            we are an interactive system
          *
          * @return object   stdClass return object with data
          *
@@ -111,7 +114,7 @@ if (!$GLOBALS['sqlvalidator_error']) {
          */
         function _openSession($obj, $username, $password, $calling_program,
             $calling_program_version, $target_dbms, $target_dbms_version,
-            $connection_technology, $connection_technology_version, $interactive
+            $con_technology, $con_technology_version, $interactive
         ) {
             $use_array = array(
                 "a_userName" => $username,
@@ -120,8 +123,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
                 "a_callingProgramVersion" => $calling_program_version,
                 "a_targetDbms" => $target_dbms,
                 "a_targetDbmsVersion" => $target_dbms_version,
-                "a_connectionTechnology" => $connection_technology,
-                "a_connectionTechnologyVersion" => $connection_technology_version,
+                "a_connectionTechnology" => $con_technology,
+                "a_connectionTechnologyVersion" => $con_technology_version,
                 "a_interactive" => $interactive,
             );
 
@@ -138,12 +141,12 @@ if (!$GLOBALS['sqlvalidator_error']) {
         /**
          * Validator sytem call
          *
-         * @param object $obj     Service object
-         * @param object $session Session object
-         * @param string $sql     SQL Query to validate
-         * @param string $method  Data return type
+         * @param SOAPClient $obj     Service object
+         * @param object     $session Session object
+         * @param string     $sql     SQL Query to validate
+         * @param string     $method  Data return type
          *
-         * @return object  stClass return with data
+         * @return object stClass return with data
          *
          * @access private
          */
@@ -197,7 +200,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
          */
         function __construct()
         {
-            $this->url                           = 'http://sqlvalidator.mimer.com/v1/services';
+            $this->url
+                = 'http://sqlvalidator.mimer.com/v1/services';
             $this->service_name                  = 'SQL99Validator';
             $this->wsdl                          = '?wsdl';
 
@@ -328,7 +332,8 @@ if (!$GLOBALS['sqlvalidator_error']) {
             $connection_technology, $connection_technology_version
         ) {
             $this->connection_technology         .= ' - ' . $connection_technology;
-            $this->connection_technology_version .= ' - ' . $connection_technology_version;
+            $this->connection_technology_version
+                .= ' - ' . $connection_technology_version;
         } // end of the "appendConnectionTechnology()" function
 
 

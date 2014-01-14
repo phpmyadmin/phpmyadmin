@@ -65,8 +65,8 @@ class Advisor
     /**
      * Stores current error in run results.
      *
-     * @param string $description description of an error.
-     * @param object $exception   exception raised
+     * @param string    $description description of an error.
+     * @param Exception $exception   exception raised
      *
      * @return void
      */
@@ -397,7 +397,10 @@ class Advisor
             if (substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
                     $errors[] = sprintf(
-                        __('Invalid rule declaration on line %1$s, expected line %2$s of previous rule.'),
+                        __(
+                            'Invalid rule declaration on line %1$s, expected line '
+                            . '%2$s of previous rule.'
+                        ),
                         $i + 1,
                         $ruleSyntax[$ruleLine++]
                     );
@@ -436,7 +439,10 @@ class Advisor
                 // Non tabbed lines are not
                 if ($line[0] != "\t") {
                     $errors[] = sprintf(
-                        __('Unexpected character on line %1$s. Expected tab, but found "%2$s".'),
+                        __(
+                            'Unexpected character on line %1$s. Expected tab, but '
+                            . 'found "%2$s".'
+                        ),
                         $i + 1,
                         $line[0]
                     );
