@@ -252,6 +252,9 @@ class ExportSql extends ExportPlugin
                         }
                     }
                 }
+                
+                $drop_clause .= '<code> / TRIGGER</code>';
+                
                 $leaf = new BoolPropertyItem();
                 $leaf->setName('drop_table');
                 $leaf->setText(sprintf(__('Add %s statement'), $drop_clause));
@@ -270,6 +273,12 @@ class ExportSql extends ExportPlugin
                     );
                     $subgroup->addProperty($leaf);
                 }
+                
+                // Add triggers option
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('create_trigger');
+                $leaf->setText(__('Add <code>CREATE TRIGGER</code> statement'));
+                $subgroup->addProperty($leaf);
 
                 // begin CREATE TABLE statements
                 $subgroup_create_table = new OptionsPropertySubgroup();
@@ -1616,7 +1625,9 @@ class ExportSql extends ExportPlugin
                     . $this->_exportComment();
                 $delimiter = '//';
                 foreach ($triggers as $trigger) {
-                    $dump .= $trigger['drop'] . ';' . $crlf;
+                    if (! empty($GLOBALS['sql_drop_table'])) {
+                        $dump .= $trigger['drop'] . ';' . $crlf;
+                    }
                     $dump .= 'DELIMITER ' . $delimiter . $crlf;
                     $dump .= $trigger['create'];
                     $dump .= 'DELIMITER ;' . $crlf;
