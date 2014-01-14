@@ -94,7 +94,9 @@ if ($num_tables == 0) {
             } // end if
         } else {
             echo '<td colspan="3" class="center">';
-            echo __('in use');
+            if (! PMA_Table::isView($db, $sts_data['TABLE_NAME'])) {
+                echo __('in use');
+            }
             echo '</td>';
         }
         echo '<td>';
