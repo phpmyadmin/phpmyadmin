@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-14 16:23+0100\n"
-"PO-Revision-Date: 2014-01-13 08:08+0200\n"
+"PO-Revision-Date: 2014-01-14 16:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -4487,7 +4487,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Povolit přihlášení k libovolnému MySQL serveru"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4499,7 +4498,7 @@ msgid ""
 msgstr ""
 "Toto nastavení umožňuje stránkám na jiných doménách začlenit phpMyAdmina do "
 "rámce, toto je potenciální [strong]bezpečnostní problém[/strong] a může "
-"umožnit XFS (Cross Frame Scripting) útoky."
+"umožnit XSS (Cross Frame Scripting) útoky."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
