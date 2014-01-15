@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 09:08-0500\n"
-"PO-Revision-Date: 2014-01-14 16:58+0200\n"
+"PO-Revision-Date: 2014-01-15 18:14+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -4600,7 +4599,6 @@ msgid "Highlight pointer"
 msgstr "Activer le pointeur de surbrillance"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations."
@@ -4609,7 +4607,7 @@ msgid ""
 "import operations."
 msgstr ""
 "Active la compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] pour "
-"les opérations d'importation et d'exportation."
+"les opérations d'importation."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -4686,7 +4684,6 @@ msgid "Check config file permissions"
 msgstr "Vérifier les permissions du fichier de configuration"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4695,8 +4692,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Comprime les exportations gzip/bzip2 à la volée avec économie de mémoire; si "
-"les fichiers gzip/bzip2 produits ne sont pas conformes, désactivez ceci."
+"Comprime les exportations gzip à la volée avec économie de mémoire; si les "
+"fichiers gzip produits ne sont pas conformes, désactivez ceci."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
