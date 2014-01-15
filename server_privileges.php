@@ -27,7 +27,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
-if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
+if (! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['adduser'])
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     include_once 'libraries/server_users.lib.php';
