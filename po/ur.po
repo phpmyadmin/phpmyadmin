@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-14 16:23+0100\n"
-"PO-Revision-Date: 2013-11-25 15:25+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-01-15 13:36+0200\n"
+"Last-Translator: Sag-e-Attar Junaid Atari <mj.atari@gmail.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "ڈیٹا بیس %1$s بنا دیا گیا۔"
+msgstr "ڈیٹا بیس %1$s بنا دیا گیا ہے۔"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -148,7 +148,7 @@ msgstr "ربط بطرف"
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
-msgstr "تبصرہ"
+msgstr "تبصرات"
 
 #: db_datadict.php:240 js/messages.php:250 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
@@ -208,7 +208,7 @@ msgstr "کوائفیہ کی ڈمپ (شجرہ) منظر کریں"
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:330 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "کوائفیہ میں کوئی جدول نہیں مِلا۔"
+msgstr "کوائفیہ میں جدول موجود نہیں۔"
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
@@ -242,8 +242,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin کی تشکیل زخیرہبند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے %share%s "
-"کلک کریں۔"
+"phpMyAdmin کی تشکیل زخیرہ بند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے %share%"
+"s دبائیں۔"
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:764
@@ -287,17 +287,15 @@ msgstr "بنائیں"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "آخری دفعہ کی تازہ کاری"
+msgstr "آخری تازہ کاری:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1081
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "آخری دفعہ کی پڑتال"
+msgstr "آخری پڑتال:"
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
@@ -308,7 +306,7 @@ msgstr[1] "%s جداول"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display"
-msgstr "آپ کو دکھانے کے لیے کم از کم ایک کالم چننا ہو گا"
+msgstr "آپ کو دکھانے کے لیے کم از کم ایک کالم منتخب کرنا ہو گا"
 
 #: db_qbe.php:70
 #, fuzzy, php-format
@@ -322,7 +320,7 @@ msgstr "بصری تعمیر کنندہ"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied"
-msgstr "‏‏رسائی نہیں دی گئی"
+msgstr "‏‏رسائی ممکن نہیں"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -378,7 +376,7 @@ msgstr "عمل"
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:196
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:147
 msgid "Show"
-msgstr "دکھائیں"
+msgstr "ظاہر کریں"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
@@ -390,7 +388,7 @@ msgstr "اس جدول کے لیے کھوج کوائف حذف کریں"
 #: libraries/structure.lib.php:1394 libraries/structure.lib.php:2072
 #: libraries/structure.lib.php:2074
 msgid "Drop"
-msgstr "چھوڑیں"
+msgstr "گرائیں"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:311
@@ -400,11 +398,11 @@ msgstr "فعال"
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:212
 #: libraries/tbl_tracking.lib.php:313
 msgid "not active"
-msgstr "فعال نہیں ہے"
+msgstr "غیر فعال"
 
 #: db_tracking.php:143
 msgid "Versions"
-msgstr "نسخے"
+msgstr "نسخہ جات"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:352
@@ -433,47 +431,46 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"غلطی کی کھوج لگا لی گئی ہے اور غلطی کی رپورٹ آپ کی ترتیبات کی بنیاد پر خود "
+"کار طریقے سے پیش کر دی گئی ہے۔"
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "آپ صفحہ کی تازہ کاری کرنا چاہتے ہیں."
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "غلطی کا پتہ لگایا گیا ہے لیکن غلطی کی رپورٹ بھیجی نہیں جا سکی۔"
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "اگر آپ کو کوئی مسئلہ درپیش ہے تو دستی طور پر رپورٹ پیش کریں۔"
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "رپورٹ پیش کرنے کا بہت شکریہ۔"
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "بدقسمتی سے جمع کرانے میں ناکام رہے."
 
 #: export.php:172
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "برآمد"
+msgstr "بری قسم!"
 
 #: export.php:234
-#, fuzzy
 #| msgid "Remove database"
 msgid "Bad parameters!"
-msgstr "کوائفیہ ہٹائیں"
+msgstr "خراب کوائف!"
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "برآمد قسم"
+msgstr "خراب برآمد قسم"
 
 #: gis_data_editor.php:113
 #, fuzzy, php-format
