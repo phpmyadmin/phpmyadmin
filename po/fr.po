@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 09:08-0500\n"
-"PO-Revision-Date: 2014-01-15 18:14+0200\n"
+"PO-Revision-Date: 2014-01-15 20:47+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -1550,7 +1550,7 @@ msgstr "Chargement en cours…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr "Demande abandonnée !"
+msgstr "Requête abandonnée !"
 
 #: js/messages.php:231
 msgid "Processing Request"
