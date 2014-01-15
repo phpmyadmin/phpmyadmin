@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 09:08-0500\n"
-"PO-Revision-Date: 2014-01-14 17:20+0200\n"
+"PO-Revision-Date: 2014-01-15 22:24+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -1557,7 +1557,7 @@ msgstr "Φόρτωση…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr "Το Αίτημα Απορρίφθηκε!!"
+msgstr "Το Αίτημα Διακόπηκε!!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -4606,7 +4606,6 @@ msgid "Highlight pointer"
 msgstr "Δείκτης επισήμανσης"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations."
@@ -4615,7 +4614,7 @@ msgid ""
 "import operations."
 msgstr ""
 "Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"για λειτουργίες εισαγωγής και εξαγωγής."
+"για λειτουργίες εισαγωγής."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -4691,7 +4690,6 @@ msgid "Check config file permissions"
 msgstr "Ελέξτε τα δικαιώματα του αρχείου ρυθμίσεων"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4700,9 +4698,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Η συμπίεση gzip/bzip2 εξάγει άμεσα χωρίς την ανάγκη για πολύ μνήμη, για αυτό "
-"αν παρουσιάστηκαν προβλήματα με τα δημιουργηθέντα αρχεία gzip/bzip2 "
-"απενεργοποιήστε αυτό το χαρακτηριστικό."
+"Η συμπίεση gzip εξάγει άμεσα χωρίς την ανάγκη για πολύ μνήμη, για αυτό αν "
+"παρουσιάστηκαν προβλήματα με τα δημιουργηθέντα αρχεία gzip απενεργοποιήστε "
+"αυτό το χαρακτηριστικό."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
