@@ -68,13 +68,13 @@ and :file:`index.php`.
 
 .. _faq1_7:
 
-1.7 How can I GZip or Bzip a dump or a CSV export? It does not seem to work.
-----------------------------------------------------------------------------
+1.7 How can I GZip a dump or a CSV export? It does not seem to work.
+--------------------------------------------------------------------
 
-These features are based on the ``gzencode()`` and ``bzcompress()``
-PHP functions to be more independent of the platform (Unix/Windows,
-Safe Mode or not, and so on). So, you must have Zlib/Bzip2 support
-(``--with-zlib`` and ``--with-bz2``).
+This feature is based on the ``gzencode()``
+PHP function to be more independent of the platform (Unix/Windows,
+Safe Mode or not, and so on). So, you must have Zlib support
+(``--with-zlib``).
 
 .. _faq1_8:
 
