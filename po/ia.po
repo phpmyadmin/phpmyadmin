@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-13 12:35+0200\n"
+"PO-Revision-Date: 2014-01-15 12:34+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -5135,6 +5135,8 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Traciamento de modificationes facite in le base de datos. Isto require "
+"immagazinage de configuration de phpMyAdmin."
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
@@ -5218,12 +5220,12 @@ msgstr "Selige como tu vole que le schedas functiona"
 #: libraries/config/messages.inc.php:230
 #: libraries/schema/User_Schema.class.php:422
 msgid "Display relational schema"
-msgstr ""
+msgstr "Monstra le schema relational"
 
 #: libraries/config/messages.inc.php:232
 #: libraries/schema/User_Schema.class.php:492
 msgid "Paper size"
-msgstr ""
+msgstr "Grandor de papiro"
 
 #: libraries/config/messages.inc.php:234
 msgid "Text fields"
@@ -5253,11 +5255,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:241
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:242
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Parametros extra pro iconv"
 
 #: libraries/config/messages.inc.php:243
 msgid ""
@@ -5267,7 +5269,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:244
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignora errores de instruction multiple"
 
 #: libraries/config/messages.inc.php:245
 msgid ""
@@ -5278,18 +5280,18 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:246
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Importation partial: permitte interruption"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:258
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:73
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Non aborta quando on ha un error de INSERT"
 
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
-msgstr ""
+msgstr "Reimplacia tabella de datos con file"
 
 #: libraries/config/messages.inc.php:254
 msgid ""
@@ -5299,30 +5301,30 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:255
 msgid "Format of imported file"
-msgstr ""
+msgstr "Formato del file importate"
 
 #: libraries/config/messages.inc.php:259
 #: libraries/plugins/import/ImportLdi.class.php:78
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "Usa parola clave LOCAL"
 
 #: libraries/config/messages.inc.php:262 libraries/config/messages.inc.php:270
 #: libraries/config/messages.inc.php:271
 msgid "Column names in first row"
-msgstr ""
+msgstr "Nomines de columna in le prime rango"
 
 #: libraries/config/messages.inc.php:263
 #: libraries/plugins/import/ImportOds.class.php:83
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "Non importa rangos vacue"
 
 #: libraries/config/messages.inc.php:264
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "Importa numerarios ($5.00 a 5.00)"
 
 #: libraries/config/messages.inc.php:265
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Importa percentages como proprie decimales (2.00% a .12)"
 
 #: libraries/config/messages.inc.php:266
 msgid "Number of queries to skip from start"
@@ -5330,15 +5332,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:267
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Importation partial: salta queries"
 
 #: libraries/config/messages.inc.php:269
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr ""
+msgstr "Non usa AUTO_INCREMENT pro le valor zero"
 
 #: libraries/config/messages.inc.php:272
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "Stato initial pro glissatores"
 
 #: libraries/config/messages.inc.php:273
 msgid "How many rows can be inserted at one time"
@@ -5346,7 +5348,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:274
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "Numero de rangos insertate"
 
 #: libraries/config/messages.inc.php:275
 msgid ""
