@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-14 16:23+0100\n"
+"POT-Creation-Date: 2014-01-15 09:08-0500\n"
 "PO-Revision-Date: 2014-01-05 13:27+0200\n"
 "Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
 ">\n"
-"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -199,7 +199,7 @@ msgid "View dump (schema) of database"
 msgstr "Zobraziť dump (schému) databázy"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:329 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Neboli nájdené žiadne tabuľky v tejto databáze."
 
@@ -449,7 +449,7 @@ msgstr "Odosielanie zlyhalo."
 msgid "Bad type!"
 msgstr "Nesprávny typ!"
 
-#: export.php:234
+#: export.php:233
 msgid "Bad parameters!"
 msgstr "Chybné parametre!"
 
@@ -589,8 +589,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Pravdepodobne ste sa pokúsili uploadnuť príliš veľký súbor. Prečítajte si "
 "prosím %sdokumentáciu%s, ako sa dá toto obmedzenie obísť."
@@ -667,7 +667,7 @@ msgstr ""
 "časový limit behu skriptu v php."
 
 #: import_status.php:87 libraries/Util.class.php:733
-#: libraries/export.lib.php:447
+#: libraries/export.lib.php:437
 #: libraries/schema/Export_Relation_Schema.class.php:247 user_password.php:239
 msgid "Back"
 msgstr "Späť"
@@ -880,8 +880,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s "
-"%sdokumentáciou%s."
+"Webový server beží so Suhosin-patchom. Možné dôsledky konzultujte s %"
+"sdokumentáciou%s."
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -1184,7 +1184,7 @@ msgstr "Pridajte prosím aspoň jednu hodnotu do série"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
-#: libraries/display_export.lib.php:572
+#: libraries/display_export.lib.php:571
 #: libraries/plugins/export/ExportSql.class.php:1712
 #: libraries/server_privileges.lib.php:2661
 #: libraries/server_status.lib.php:523
@@ -2706,8 +2706,8 @@ msgstr "v dopyte"
 #: libraries/DisplayResults.class.php:4965 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Tento pohľad má aspoň toľko riadok. Podrobnosti nájdete v %sdokumentaci%s."
 
@@ -3523,20 +3523,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do "
-"-1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
+"Číslo s plávajúcou desatinnou čiarkou, rozsahy: od -3,402823466E+38 do -"
+"1,175494351E-38; 0; od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Číslo s dvojitou presnosťou a plávajúcou desatinnou čiarkou, rozsah: od "
-"-1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
+"Číslo s dvojitou presnosťou a plávajúcou desatinnou čiarkou, rozsah: od -"
+"1,7976931348623157E+308 do -2,2250738585072014E-308; 0; od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4542,7 +4542,7 @@ msgstr "Zvýrazňovač"
 #| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-"import and export operations."
+"import operations."
 msgstr ""
 "Povoliť [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] kompresiu pre "
 "importovanie a exportovanie"
@@ -4649,8 +4649,8 @@ msgstr "Skontrolujte prístupové práva konfiguračného súboru"
 #| "if you encounter problems with created gzip/bzip2 files disable this "
 #| "feature"
 msgid ""
-"Compress gzip/bzip2 exports on the fly without the need for much memory; if "
-"you encounter problems with created gzip/bzip2 files disable this feature."
+"Compress gzip exports on the fly without the need for much memory; if you "
+"encounter problems with created gzip files disable this feature."
 msgstr ""
 "Komprimovať exporty za behu pomocou gzip/bzip2 bez veľkých pamäťových "
 "nárokov. Pokiaľ zistíte problémy s takto vytvorenými gzip/bzip2 súbormi, "
@@ -7400,7 +7400,7 @@ msgstr "Začať od riadku:"
 msgid "Dump all rows"
 msgstr "Vypísať všetky riadky"
 
-#: libraries/display_export.lib.php:367 libraries/display_export.lib.php:634
+#: libraries/display_export.lib.php:367 libraries/display_export.lib.php:626
 msgid "Output:"
 msgstr "Výstup:"
 
@@ -7429,8 +7429,8 @@ msgstr ", meno tabuľky bude zmenené na @TABLE@"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Táto hodnota je interpretovaná pomocou %1$sstrftime%2$s, takže môžete použiť "
 "reťazec pre formátovanie dátumu a času. Naviac budú vykonané tieto "
@@ -7446,27 +7446,23 @@ msgstr "použiť aj pre budúce exporty"
 msgid "Character set of the file:"
 msgstr "Znaková sada súboru:"
 
-#: libraries/display_export.lib.php:570
+#: libraries/display_export.lib.php:569
 msgid "Compression:"
 msgstr "Kompresia:"
 
-#: libraries/display_export.lib.php:578
+#: libraries/display_export.lib.php:577
 msgid "zipped"
 msgstr "zazipované"
 
-#: libraries/display_export.lib.php:585
+#: libraries/display_export.lib.php:584
 msgid "gzipped"
 msgstr "gzip-ované"
 
-#: libraries/display_export.lib.php:592
-msgid "bzipped"
-msgstr "bzip-ované"
-
-#: libraries/display_export.lib.php:619
+#: libraries/display_export.lib.php:611
 msgid "View output as text"
 msgstr "Zobraziť výstup ako text"
 
-#: libraries/display_export.lib.php:644
+#: libraries/display_export.lib.php:636
 msgid "Save output to a file"
 msgstr "Uložiť výstup do suboru"
 
@@ -7921,8 +7917,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7954,13 +7950,13 @@ msgstr ""
 msgid "Automatically send report next time"
 msgstr "Automaticky vytvárať verzie"
 
-#: libraries/export.lib.php:118 libraries/export.lib.php:149
-#: libraries/export.lib.php:372
+#: libraries/export.lib.php:113 libraries/export.lib.php:144
+#: libraries/export.lib.php:364
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Nedostatok miesta pre uloženie súboru %s."
 
-#: libraries/export.lib.php:329
+#: libraries/export.lib.php:321
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -7968,12 +7964,12 @@ msgstr ""
 "Súbor %s už existuje na servery, zmente názov súboru alebo zvolte prepísanie "
 "súboru."
 
-#: libraries/export.lib.php:337 libraries/export.lib.php:345
+#: libraries/export.lib.php:329 libraries/export.lib.php:337
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Web server nemá oprávenia na uloženie do súboru %s."
 
-#: libraries/export.lib.php:378
+#: libraries/export.lib.php:370
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Výpis bol uložený do súboru %s."
@@ -8736,8 +8732,8 @@ msgstr "Vitajte v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Pravdepodobná príčina je, že neexistuje konfiguračný súbor. Na jeho "
 "vytvorenie môžete použiť %1$skonfiguračný skript%2$s."
@@ -11081,13 +11077,13 @@ msgstr "Zoznam používatelov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získava práva používateľov priamo z tabuliek MySQL. "
 "Obsah týchto tabuliek sa môže líšiť od práv, ktoré používa server, ak boli "
-"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať "
-"%sznovunačítanie práv%s predtým ako budete pokračovať."
+"tieto tabuľky ručne upravené. V tomto prípade sa odporúča vykonať %"
+"sznovunačítanie práv%s predtým ako budete pokračovať."
 
 #: libraries/server_privileges.lib.php:3931
 msgid "The selected user was not found in the privilege table."
@@ -12428,8 +12424,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL validator nemohol byť inicializovaný. Prosím skontrolujte, či sú "
-"nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v "
-"%sdocumentation%s."
+"nainštalované všetky potrebné rozšírenia php, tak ako sú popísané v %"
+"sdocumentation%s."
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
@@ -13341,8 +13337,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím "
-"%sNastavovacieho skriptu%s."
+"Ďalšie nastavenia môžete urobiť úpravou config.inc.php, napr. použitím %"
+"sNastavovacieho skriptu%s."
 
 #: prefs_manage.php:318
 msgid "Save to browser's storage"
@@ -13965,8 +13961,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14084,8 +14080,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14731,6 +14727,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
+
+#~ msgid "bzipped"
+#~ msgstr "bzip-ované"
 
 #~ msgid "Selected export type has to be saved in file!"
 #~ msgstr "Vybraný typ exportu musí byť uložený do súboru!"
@@ -15535,8 +15534,8 @@ msgstr "concurrent_insert je nastavené na 0"
 
 #~ msgid "Imported file compression will be automatically detected from: %s"
 #~ msgstr ""
-#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: "
-#~ "%s"
+#~ "Kompresia importovaného súboru bude rozpoznaná automaticky. Podporované: %"
+#~ "s"
 
 #~ msgid "Add into comments"
 #~ msgstr "Pridať do komentárov"
