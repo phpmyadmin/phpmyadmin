@@ -159,7 +159,7 @@ $cfg_db['Export']['format'] = array(
     'codegen', 'csv', 'excel', 'htmlexcel','htmlword', 'latex', 'ods',
     'odt', 'pdf', 'sql', 'texytext', 'xls', 'xml', 'yaml'
 );
-$cfg_db['Export']['compression'] = array('none', 'zip', 'gzip', 'bzip2');
+$cfg_db['Export']['compression'] = array('none', 'zip', 'gzip');
 $cfg_db['Export']['charset'] = array_merge(
     array(''),
     $GLOBALS['cfg']['AvailableCharsets']
