@@ -560,11 +560,10 @@ function PMA_getHtmlForExportOptionsOutputCompression()
     }
 
     $html = "";
-    // zip, gzip and bzip2 encode features
+    // zip and gzip encode features
     $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
     $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
-    $is_bzip2 = ($cfg['BZipDump'] && @function_exists('bzcompress'));
-    if ($is_zip || $is_gzip || $is_bzip2) {
+    if ($is_zip || $is_gzip) {
         $html .= '<li>';
         $html .= '<label for="compression" class="desc">'
             . __('Compression:') . '</label>';
@@ -583,13 +582,6 @@ function PMA_getHtmlForExportOptionsOutputCompression()
                 $html .= 'selected="selected"';
             }
             $html .= '>' . __('gzipped') . '</option>';
-        }
-        if ($is_bzip2) {
-            $html .= '<option value="bzip2" ';
-            if ($selected_compression == "bzip2") {
-                $html .= 'selected="selected"';
-            }
-            $html .= '>' . __('bzipped') . '</option>';
         }
         $html .= '</select>';
         $html .= '</li>';

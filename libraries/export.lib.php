@@ -99,12 +99,7 @@ function PMA_exportOutputHandler($line)
                         $dump_buffer
                     );
                 }
-                // as bzipped
-                if ($GLOBALS['compression'] == 'bzip2'
-                    && @function_exists('bzcompress')
-                ) {
-                    $dump_buffer = bzcompress($dump_buffer);
-                } elseif ($GLOBALS['compression'] == 'gzip'
+                if ($GLOBALS['compression'] == 'gzip'
                     && PMA_gzencodeNeeded()
                 ) {
                     // as a gzipped file
@@ -290,10 +285,7 @@ function PMA_getExportFilenameAndMimetype(
 
     // If dump is going to be compressed, set correct mime_type and add
     // compression to extension
-    if ($compression == 'bzip2') {
-        $filename  .= '.bz2';
-        $mime_type = 'application/x-bzip2';
-    } elseif ($compression == 'gzip') {
+    if ($compression == 'gzip') {
         $filename  .= '.gz';
         $mime_type = 'application/x-gzip';
     } elseif ($compression == 'zip') {
@@ -397,8 +389,6 @@ function PMA_compressExport($dump_buffer, $compression)
         $zipfile = new ZipFile();
         $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
         $dump_buffer = $zipfile->file();
-    } elseif ($compression == 'bzip2' && @function_exists('bzcompress')) {
-        $dump_buffer = bzcompress($dump_buffer);
     } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
         // without the optional parameter level because it bugs
         $dump_buffer = gzencode($dump_buffer);

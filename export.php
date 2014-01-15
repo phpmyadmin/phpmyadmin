@@ -177,8 +177,7 @@ if (!defined('TESTSUITE')) {
      */
     $compression_methods = array(
         'zip',
-        'gzip',
-        'bzip2',
+        'gzip'
     );
 
     /**
@@ -270,7 +269,7 @@ if (!defined('TESTSUITE')) {
 
     // Use on the fly compression?
     $GLOBALS['onfly_compression'] = $GLOBALS['cfg']['CompressOnFly']
-        && ($compression == 'gzip' || $compression == 'bzip2');
+        && $compression == 'gzip';
     if ($GLOBALS['onfly_compression']) {
         $GLOBALS['memory_limit'] = PMA_getMemoryLimitForExport();
     }

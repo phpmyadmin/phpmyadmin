@@ -35,8 +35,8 @@ $strConfigBrowseMarkerEnable_name = __('Row marker');
 $strConfigBrowsePointerEnable_desc = __('Highlight row pointed by the mouse cursor.');
 $strConfigBrowsePointerEnable_name = __('Highlight pointer');
 $strConfigBZipDump_desc = __(
-    'Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for import '
-    . 'and export operations.'
+    'Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for'
+    . ' import operations.'
 );
 $strConfigBZipDump_name = __('Bzip2');
 $strConfigCharEditing_desc = __(
@@ -67,8 +67,8 @@ $strConfigCharTextareaRows_desc = __('Number of rows for CHAR/VARCHAR textareas.
 $strConfigCharTextareaRows_name = __('CHAR textarea rows');
 $strConfigCheckConfigurationPermissions_name = __('Check config file permissions');
 $strConfigCompressOnFly_desc = __(
-    'Compress gzip/bzip2 exports on the fly without the need for much memory; if '
-    . 'you encounter problems with created gzip/bzip2 files disable this feature.'
+    'Compress gzip exports on the fly without the need for much memory; if '
+    . 'you encounter problems with created gzip files disable this feature.'
 );
 $strConfigCompressOnFly_name = __('Compress on the fly');
 $strConfigConfigurationFile = __('Configuration file');
