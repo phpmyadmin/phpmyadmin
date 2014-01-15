@@ -129,13 +129,20 @@ class PMA_Footer
         $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $target = ! empty($_REQUEST['target']) ? $_REQUEST['target'] : '';
+        $params = array(
+            'db' => $db,
+            'table' => $table,
+            'server' => $GLOBALS['server'],
+            'target' => $target
+        );
+        // needed for server privileges tabs
+        if (isset($_REQUEST['viewing_mode'])
+            && in_array($_REQUEST['viewing_mode'], array('server', 'db', 'table'))
+        ) {
+            $params['viewing_mode'] = $_REQUEST['viewing_mode'];
+        }
         return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
-            array(
-                'db' => $db,
-                'table' => $table,
-                'server' => $GLOBALS['server'],
-                'target' => $target
-            ),
+            $params,
             $encoding
         );
     }
