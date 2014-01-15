@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-15 15:02+0200\n"
-"Last-Translator: جنید عطاری <mj.atari@gmail.com>\n"
+"PO-Revision-Date: 2014-01-15 15:03+0200\n"
+"Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/4-1/ur/>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -229,10 +229,10 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "کوائفیہ %2$ نام %1$ میں تبدیل ہو چکا ہے"
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "کوائفیہ %s نام %s میں نقل کیا جاچکا ہے"
+msgstr "کوائفیہ %1$ نام %2$ میں نقل کیا جاچکا ہے"
 
 #: db_operations.php:260
 #, php-format
