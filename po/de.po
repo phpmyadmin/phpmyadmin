@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 09:08-0500\n"
-"PO-Revision-Date: 2014-01-15 01:31+0200\n"
+"PO-Revision-Date: 2014-01-15 19:27+0200\n"
 "Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -688,7 +687,7 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Sie nutzen den Demo Server. Sie können hier alles tun, aber ändern Sie bitte "
+"Sie nutzen den Demo-Server. Sie können hier alles tun, aber ändern Sie bitte "
 "nicht die Benutzer root, debian-sys-maint und pma. Mehr Informationen ist "
 "unter %s verfügbar."
 
@@ -2465,7 +2464,7 @@ msgstr "Einfg:"
 
 #: libraries/DBQbe.class.php:775
 msgid "Del:"
-msgstr ""
+msgstr "Entf:"
 
 #: libraries/DBQbe.class.php:1380
 #, php-format
@@ -2723,12 +2722,11 @@ msgid "Kill"
 msgstr "Beenden"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Es kann sich hierbei um Näherungswerte handeln. Bitte lesen Sie auch "
-"[doc@faq3-11]FAQ 3.11[/doc]"
+"[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -2892,7 +2890,7 @@ msgstr "Die hochgeladene (verschobene) Datei kann nicht gelesen werden."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Momentan wit Git-Revision %1$s aus dem %2$s-Zweig ausgeführt."
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
@@ -3333,10 +3331,10 @@ msgid "Invalid table name:"
 msgstr "Ungültiger Tabellenname:"
 
 #: libraries/Table.class.php:1321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Fehler beim umbenennen von Tabelle %1$s nach %2$s"
+msgstr "Fehler beim Umbenennen von Tabelle %1$s nach %2$s!"
 
 #: libraries/Table.class.php:1340
 #, php-format
@@ -3394,7 +3392,7 @@ msgstr "Tabellensuche"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1216
 msgid "Find and Replace"
-msgstr ""
+msgstr "Suchen und Ersetzen"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1390
 msgid "Edit/Insert"
@@ -3466,7 +3464,7 @@ msgstr "Ersetze durch:"
 
 #: libraries/TableSearch.class.php:1402
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Suchen und Ersetzen – Vorschau"
 
 #: libraries/TableSearch.class.php:1406
 msgid "Count"
@@ -4199,15 +4197,15 @@ msgstr "Geschlossen"
 
 #: libraries/config.values.php:117
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Fragen, bevor Fehlerberichte gesendet werden"
 
 #: libraries/config.values.php:118
 msgid "Always send error reports"
-msgstr ""
+msgstr "Immer Fehlerberichte senden"
 
 #: libraries/config.values.php:119
 msgid "Never send error reports"
-msgstr ""
+msgstr "Nie Fehlerberichte senden"
 
 #: libraries/config.values.php:148
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -4357,7 +4355,7 @@ msgstr "Erlaube den Benutzern diesen Wert anzupassen"
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
-msgstr ""
+msgstr "Übernehmen"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1589
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
@@ -4446,7 +4444,7 @@ msgstr ""
 "diesem System nicht verfügbar sind."
 
 #: libraries/config/ServerConfigChecks.class.php:399
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -4455,9 +4453,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sLogincookie-Gültigkeit%s größer als 1440 Sekunden kann zufälligen Ablauf "
-"von Sitzungen verursachen, falls %ssession.gc_maxlifetime%s niedriger ist "
-"als dieser Wert (aktuell %d)."
+"%sLogincookie-Gültigkeit%s größer als %ssession.gc_maxlifetime%s kann "
+"zufälligen Ablauf von Sitzungen verursachen (aktuell beträgt "
+"session.gc_maxlifetime: %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4571,21 +4569,19 @@ msgid "Incorrect IP address: %s"
 msgstr "Ungültige IP-Adresse: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Wenn aktiv, kann ein Benutzer beim Login die Adresse eines beliebigen "
-"Servers für Cookie-Authentifizierung angeben"
+"Servers für Cookie-Authentifizierung angeben."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
 msgstr "Login zu beliebigen MySQL-Server erlauben"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4596,8 +4592,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Wenn diese Option aktiviert ist, kann eine Webseite einer fremden Domäne "
-"phpMyAdmin in einem Frame aufrufen. Dies stellt eine potentielle [strong]"
-"Sicherheitslücke[/strong] für Cross-Frame Scripting Attacken dar"
+"phpMyAdmin in einem Frame aufrufen. Dies stellt eine potentielle "
+"[strong]Sicherheitslücke[/strong] für Cross-Frame Scripting Attacken (XSS) "
+"dar."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4608,7 +4605,6 @@ msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr "&quot;Drop Database&quot;-Link normalen Benutzern anzeigen"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -4616,8 +4612,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Geheime Passphrase zum Verschlüsseln der Cookies bei [kbd]Cookie[/kbd]-"
-"Authentifizierung"
+"Geheime Passphrase zum Verschlüsseln der Cookies bei "
+"[kbd]Cookie[/kbd]-Authentifizierung."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4632,10 +4628,9 @@ msgid "Row marker"
 msgstr "Zeilenmarker"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Zeile unter Mauscursor hervorheben"
+msgstr "Zeile unter Mauscursor hervorheben."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
@@ -4644,7 +4639,6 @@ msgstr "Cursor hervorheben"
 # Maybe the wikipedia link should point to the german version of the article
 # (http://de.wikipedia.org/wiki/Bzip2 )
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4652,15 +4646,14 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations."
 msgstr ""
-"[a@http://de.wikipedia.org/wiki/Bzip2]bzip2[/a]-Kompression für Import und "
-"Export aktivieren"
+"[a@http://de.wikipedia.org/wiki/Bzip2]bzip2[/a]-Kompression für Import "
+"aktivieren."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -4672,14 +4665,13 @@ msgid ""
 msgstr ""
 "Definiert welcher Widgettyp zum Editieren von CHAR und VARCHAR-Feldern "
 "verwendet werden soll. [kbd]input[/kbd] - erlaubt das Limitieren der "
-"Eingabelänge, [kbd]textarea[/kbd] - erlaubt Zeilenumbrüche in Feldern"
+"Eingabelänge, [kbd]textarea[/kbd] - erlaubt Zeilenumbrüche in Feldern."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "Bearbeitung von CHAR-Felder"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4689,7 +4681,7 @@ msgid ""
 msgstr ""
 "Benutzerfreundlichen Editor ([a@http://codemirror.net/]CodeMirror[/a]) mit "
 "Syntaxhervorhebung und Zeilennummern zum Bearbeiten von SQL-Abfragen "
-"verwenden"
+"verwenden."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
@@ -6089,7 +6081,7 @@ msgstr "Wie sollen die Menüpunkte dargestellt werden"
 
 #: libraries/config/messages.inc.php:506
 msgid "How to display various action links"
-msgstr ""
+msgstr "Wie verschiedene Aktions-Links angezeigt werden"
 
 #: libraries/config/messages.inc.php:507
 #, fuzzy
@@ -6375,10 +6367,9 @@ msgstr ""
 "bereits definierten Host zu verwenden"
 
 #: libraries/config/messages.inc.php:587
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "pmadb Host"
+msgstr "Kontroll-Port"
 
 #: libraries/config/messages.inc.php:589
 #, fuzzy
@@ -6755,10 +6746,9 @@ msgstr ""
 "speichern, Vorschlag: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:701
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Verwendete Tabellen"
+msgstr "Benutzer-Tabelle"
 
 #: libraries/config/messages.inc.php:702
 #, fuzzy
@@ -6773,10 +6763,9 @@ msgstr ""
 "speichern, Vorschlag: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Verwende Hosttabelle"
+msgstr "Benutzergruppen-Tabelle"
 
 #: libraries/config/messages.inc.php:704
 #, fuzzy
@@ -6792,7 +6781,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:705
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabelle für ausgeblendete Navigations-Elemente"
 
 #: libraries/config/messages.inc.php:707
 msgid "User for config auth"
@@ -7215,7 +7204,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:777
 msgid "Proxy url"
-msgstr ""
+msgstr "Proxy-URL"
 
 #: libraries/config/messages.inc.php:778
 msgid ""
@@ -7223,22 +7212,24 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Der Benutzername zur Anmeldung beim Proxy. Standardmäßig wird keine "
+"Authentifizierung durchgeführt. Ist ein Benutzername angegeben, wird Basic-"
+"Authenfizierung verwendet. Momentan werden andere Arten der "
+"Authentifizierung nicht unterstützt."
 
 #: libraries/config/messages.inc.php:779
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Benutzername"
+msgstr "Proxy-Benutzername"
 
 #: libraries/config/messages.inc.php:780
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Passwort"
+msgstr "Proxy-Passwort"
 
 # Maybe wikipedia links should point to $lang.wikipedia.org, eg
 # http://de.wikipedia.org/wiki/ZIP-Dateiformat
@@ -7264,7 +7255,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:786
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Öffentlicher Schlüssel für reCaptcha"
 
 #: libraries/config/messages.inc.php:787
 msgid "Enter your private key for your domain reCaptcha service."
@@ -7272,17 +7263,16 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:788
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Privater Schlüssel für reCaptcha"
 
 #: libraries/config/messages.inc.php:790
 msgid "Choose the default action when sending error reports."
 msgstr ""
 
 #: libraries/config/messages.inc.php:791
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Port"
+msgstr "Fehlerberichte senden"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7353,7 +7343,7 @@ msgstr "möglicher Deep-Recursion-Angriff"
 #: libraries/database_interface.inc.php:32
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Siehe %sunsere Dokumentation%s für mehr Informationen."
 
 #: libraries/database_interface.inc.php:48
 msgid ""
@@ -7392,16 +7382,14 @@ msgstr "Passwort:"
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:854
 #: libraries/server_privileges.lib.php:1473
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Wiederholen"
+msgstr "Wiederholen:"
 
 #: libraries/display_change_password.lib.php:80
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Password-Verschlüsselung"
+msgstr "Password-Verschlüsselung:"
 
 #: libraries/display_change_password.lib.php:93
 msgid "MySQL 4.0 compatible"
@@ -7416,10 +7404,9 @@ msgid "Create"
 msgstr "Anlegen"
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "Neue Datenbank anlegen"
+msgstr "Neue Datenbank anlegen:"
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3834 server_privileges.php:130
@@ -7600,10 +7587,9 @@ msgid "no branch"
 msgstr "kein Zweig"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy
 #| msgid "Git revision"
 msgid "Git revision:"
-msgstr "Git-Revision"
+msgstr "Git-Revision:"
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7685,6 +7671,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Diese Anzahl Abfragen (für SQL) oder Zeilen (für andere Formate) "
+"überspringen, beginnend von der ersten:"
 
 #: libraries/display_import.lib.php:341
 msgid "Format-Specific Options:"
@@ -7708,7 +7696,6 @@ msgid "%s of %s"
 msgstr "%s von %s"
 
 #: libraries/display_import.lib.php:456
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "Import-Datei wird hochgeladen…"
@@ -8087,20 +8074,22 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"In phpMyAdmin ist ein Fehler aufgetreten. Wir haben sowohl Daten über diesen "
+"Fehler gesammelt als auch über relevante Konfigurations-Einstellungen, um "
+"sie an das phpMyAdmin-Team zu senden. Das hilft uns, das Problem zu beheben."
 
 #: libraries/error_report.lib.php:278
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Sie können einen Blick auf die Daten im Fehlerbericht werfen:"
 
 #: libraries/error_report.lib.php:285
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "Bitte erklären Sie die Schritte, die zu dem Fehler führen:"
 
 #: libraries/error_report.lib.php:293
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Versionen automatisch erzeugen"
+msgstr "Bericht nächstes Mal automatisch senden"
 
 #: libraries/export.lib.php:113 libraries/export.lib.php:144
 #: libraries/export.lib.php:364
@@ -8207,10 +8196,9 @@ msgid "Binary - do not edit"
 msgstr "Binär - nicht editierbar"
 
 #: libraries/insert_edit.lib.php:1223 libraries/sql_query_form.lib.php:491
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "Upload-Verzeichnis auf dem Webserver"
+msgstr "Upload-Verzeichnis auf dem Webserver:"
 
 #: libraries/insert_edit.lib.php:1440
 #, php-format
@@ -8281,16 +8269,14 @@ msgid "No change"
 msgstr "Keine Änderung"
 
 #: libraries/mult_submits.lib.php:331
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "Tabellenprefix ersetzen"
+msgstr "Tabellenpräfix ersetzen:"
 
 #: libraries/mult_submits.lib.php:333
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "Tabelle mit Prefix kopieren"
+msgstr "Tabelle mit Präfix kopieren:"
 
 #: libraries/mult_submits.lib.php:338
 msgid "From"
@@ -8306,14 +8292,13 @@ msgid "Submit"
 msgstr "Abschicken"
 
 #: libraries/mult_submits.lib.php:373
-#, fuzzy
 #| msgid "Add table prefix"
 msgid "Add table prefix:"
-msgstr "Tabellen-Prefix hinzufügen"
+msgstr "Tabellen-Präfix hinzufügen:"
 
 #: libraries/mult_submits.lib.php:376
 msgid "Add prefix"
-msgstr "Prefix hinzufügen"
+msgstr "Präfix hinzufügen"
 
 #: libraries/mult_submits.lib.php:410
 msgid "Do you really want to execute the following query?"
@@ -8507,40 +8492,34 @@ msgid "unknown"
 msgstr "unbekannt"
 
 #: libraries/navigation/Navigation.class.php:59
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Beim Laden des Navigationsbaums ist ein Fehler aufgetreten"
 
 #: libraries/navigation/Navigation.class.php:170
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Ereignisse"
+msgstr "Ereignisse:"
 
 #: libraries/navigation/Navigation.class.php:171
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Funktionen"
+msgstr "Funktionen:"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Prozeduren"
+msgstr "Prozeduren:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabellen"
+msgstr "Tabellen:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Ansichten"
+msgstr "Ansichten:"
 
 #: libraries/navigation/NavigationHeader.class.php:193
 msgid "Home"
@@ -8555,10 +8534,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin-Dokumentation"
 
 #: libraries/navigation/NavigationHeader.class.php:253
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "Navigations-Frame aktualisieren"
+msgstr "Navigations-Panel aktualisieren"
 
 #: libraries/navigation/NavigationTree.class.php:731
 #, php-format
@@ -8569,26 +8547,23 @@ msgstr[1] "%s weitere Ergebnisse gefunden"
 
 #: libraries/navigation/NavigationTree.class.php:840
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Auf-/Zuklappen"
 
 #: libraries/navigation/NavigationTree.class.php:1056
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "Datenbanken nach Namen filtern"
+msgstr "Datenbanken nach Namen oder Regex filtern"
 
 #: libraries/navigation/NavigationTree.class.php:1058
 #: libraries/navigation/NavigationTree.class.php:1092
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "Schnellfilter löschen"
 
 #: libraries/navigation/NavigationTree.class.php:1091
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "Nach Name filtern"
+msgstr "Nach Name oder Regex filtern"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -8615,19 +8590,16 @@ msgid "New"
 msgstr "Neu"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Export-Optionen der Datenbank"
+msgstr "Datenbank-Operationen"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Hinweis anzeigen"
+msgstr "Ausgeblendete Elemente anzeigen"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
@@ -8665,10 +8637,9 @@ msgid "New"
 msgstr "Neu"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Prozeduren"
+msgstr "Prozedur"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
@@ -8705,10 +8676,9 @@ msgid "New"
 msgstr "Neu"
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Datenbank umbenennen in"
+msgstr "Datenbank umbenennen in:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -8739,10 +8709,9 @@ msgid "Data only"
 msgstr "Nur Daten"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Datenbank kopieren nach"
+msgstr "Datenbank kopieren nach:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -8948,18 +8917,17 @@ msgid "Username:"
 msgstr "Benutzername:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:231
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Server auswählen"
+msgstr "Server auswählen:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:398
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Das eingegebene Captcha ist falsch, bitte erneut versuchen!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:407
 msgid "Please enter correct captcha!"
-msgstr ""
+msgstr "Bitte korrektes Captcha eingeben!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:679
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
@@ -9119,24 +9087,21 @@ msgstr "Objekterstellungsoptionen"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Tabellenbeschriftung"
+msgstr "Tabellenbeschriftung:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Tabellenbeschriftung (2)"
+msgstr "Tabellenbeschriftung (2):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Kennzeichen"
+msgstr "Kennzeichen:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -9156,59 +9121,52 @@ msgid "Display MIME types"
 msgstr "MIME-Typen anzeigen"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Spaltennamen in die erste Zeile setzen"
+msgstr "Spaltennamen in die erste Zeile setzen:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:403 libraries/replication_gui.lib.php:674
 #: libraries/server_privileges.lib.php:1325 libraries/sql.lib.php:421
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Host"
+msgstr "Host:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
 #: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:425
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Erstellungszeit"
+msgstr "Erstellungszeit:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:633
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP-Version"
+msgstr "PHP-Version:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:423
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Datenbank"
+msgstr "Datenbank:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
 #: libraries/plugins/export/ExportSql.class.php:1712
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Daten"
+msgstr "Daten:"
 
 #: libraries/plugins/export/ExportLatex.class.php:487
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Struktur"
+msgstr "Struktur:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -9400,10 +9358,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONEN DER TABELLE"
 
 #: libraries/plugins/export/ExportSql.class.php:1647
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Struktur des Views"
+msgstr "Struktur des Views %s als Tabelle exportiert"
 
 #: libraries/plugins/export/ExportSql.class.php:1735
 msgid "Error reading data:"
@@ -9418,10 +9376,9 @@ msgid "Export contents"
 msgstr "Export-Inhalte"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "Tabelle"
+msgstr "Tabelle:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -9511,10 +9468,9 @@ msgstr ""
 "korrigieren und erneut versuchen."
 
 #: libraries/plugins/import/ImportOds.class.php:183
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Open Document Kalkulationstabelle"
+msgstr "Fehler beim Lesen der OpenDocument-Arbeitsmappe!"
 
 #: libraries/plugins/import/ImportShp.class.php:54
 msgid "ESRI Shape File"
@@ -9782,16 +9738,14 @@ msgid "User preferences"
 msgstr "Benutzereinstellungen"
 
 #: libraries/relation.lib.php:268
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "Konfiguration: %s"
+msgstr "Konfigurierbare Menüs"
 
 #: libraries/relation.lib.php:279
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Navigations-Frame aktualisieren"
+msgstr "Navigations-Elemente aus-/einblenden"
 
 #: libraries/relation.lib.php:285
 msgid "Quick steps to setup advanced features:"
@@ -10012,10 +9966,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:380 libraries/replication_gui.lib.php:764
 #: libraries/server_privileges.lib.php:1264
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "Benutzername"
+msgstr "Benutzername:"
 
 #: libraries/replication_gui.lib.php:386 libraries/replication_gui.lib.php:768
 #: libraries/replication_gui.lib.php:784
@@ -10025,10 +9978,9 @@ msgid "User name"
 msgstr "Benutzername"
 
 #: libraries/replication_gui.lib.php:415
-#, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "Port"
+msgstr "Port:"
 
 #: libraries/replication_gui.lib.php:499
 msgid "Master status"
@@ -10091,10 +10043,9 @@ msgstr "Jeder Benutzer"
 #: libraries/replication_gui.lib.php:846
 #: libraries/server_privileges.lib.php:1419
 #: libraries/server_privileges.lib.php:2823
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Textfeld verwenden"
+msgstr "Textfeld verwenden:"
 
 #: libraries/replication_gui.lib.php:807
 #: libraries/server_privileges.lib.php:1410
@@ -10116,56 +10067,48 @@ msgid "Re-type"
 msgstr "Wiederholen"
 
 #: libraries/replication_gui.lib.php:862
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "Passwort generieren"
+msgstr "Passwort generieren:"
 
 #: libraries/replication_gui.lib.php:900
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Replikations-Status"
+msgstr "Replikation erfolgreich gestartet."
 
 #: libraries/replication_gui.lib.php:901
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Master Replikation"
+msgstr "Fehler beim Starten der Replikation."
 
 #: libraries/replication_gui.lib.php:904
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Diagramm erfolgreich generiert."
+msgstr "Replikation erfolgreich gestoppt."
 
 #: libraries/replication_gui.lib.php:905
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Master Replikation"
+msgstr "Fehler beim Stoppen der Replikation."
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Replikations-Status"
+msgstr "Replikation erfolgreich zurückgesetzt."
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Master Replikation"
+msgstr "Fehler beim Zurücksetzen der Replikation."
 
 #: libraries/replication_gui.lib.php:912
 msgid "Success."
-msgstr ""
+msgstr "Erfolg."
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Fehler"
+msgstr "Fehler."
 
 #: libraries/replication_gui.lib.php:955
 msgid "Unknown error"
@@ -10240,10 +10183,9 @@ msgstr "Event bearbeiten"
 #: libraries/rte/rte_routines.lib.php:1322
 #: libraries/rte/rte_routines.lib.php:1545
 #: libraries/rte/rte_triggers.lib.php:236
-#, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Fehler beim Bearbeiten der Anfrage"
+msgstr "Fehler beim Bearbeiten der Anfrage:"
 
 #: libraries/rte/rte_events.lib.php:423 libraries/rte/rte_routines.lib.php:946
 #: libraries/rte/rte_triggers.lib.php:353 view_create.php:177
@@ -10367,13 +10309,12 @@ msgid "Routine %1$s has been created."
 msgstr "Die Prozedur %1$s wurde erstellt."
 
 #: libraries/rte/rte_routines.lib.php:378
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
 msgstr ""
-"<b>Ein oder mehrere Fehler sind aufgetreten während Ihre Anfrage verarbeitet "
-"wurde:</b>"
+"<b>Ein oder mehrere Fehler sind aufgetreten, während Ihre Anfrage "
+"verarbeitet wurde:</b>"
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
@@ -10720,7 +10661,7 @@ msgstr "Tabellendimensionen anzeigen"
 
 #: libraries/schema/User_Schema.class.php:468
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Gleiche Breite für alle Tabellen"
 
 #: libraries/schema/User_Schema.class.php:472 libraries/structure.lib.php:379
 msgid "Data Dictionary"
@@ -10765,10 +10706,9 @@ msgid "Unknown language: %1$s."
 msgstr "Unbekannte Sprache: %1$s."
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
-#, fuzzy
 #| msgid "Current Server"
 msgid "Current Server:"
-msgstr "Aktueller Server"
+msgstr "Aktueller Server:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -11043,7 +10983,7 @@ msgstr "Kein(e)"
 #: libraries/server_privileges.lib.php:2942
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
-msgstr ""
+msgstr "Benutzergruppe"
 
 #: libraries/server_privileges.lib.php:704
 msgid "Resource limits"
@@ -11145,6 +11085,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. Are you sure you wish to proceed?"
 msgstr ""
+"Es besteht schon ein Konto mit dem gleichen Benutzernamen, aber eventuell "
+"anderem Hostnamen. Sind Sie sicher, dass Sie fortfahren wollen?"
 
 #: libraries/server_privileges.lib.php:1451
 msgid "Do not change the password"
@@ -11235,10 +11177,9 @@ msgid "wildcard"
 msgstr "Platzhalter"
 
 #: libraries/server_privileges.lib.php:2110
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "datenbankspezifisch"
+msgstr "tabellenspezifisch"
 
 #: libraries/server_privileges.lib.php:2207
 msgid "Edit Privileges"
@@ -11249,10 +11190,9 @@ msgid "Revoke"
 msgstr "Entfernen"
 
 #: libraries/server_privileges.lib.php:2277
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Server bearbeiten"
+msgstr "Benutzergruppe bearbeiten"
 
 #: libraries/server_privileges.lib.php:2452
 msgid "… keep the old one."
@@ -11286,10 +11226,9 @@ msgid "Column-specific privileges"
 msgstr "Spaltenspezifische Rechte"
 
 #: libraries/server_privileges.lib.php:2819
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
-msgstr "Rechte zu folgender Datenbank hinzufügen"
+msgstr "Rechte zu folgender Datenbank hinzufügen:"
 
 #: libraries/server_privileges.lib.php:2846
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -11298,10 +11237,9 @@ msgstr ""
 "Sonderzeichen einzubinden."
 
 #: libraries/server_privileges.lib.php:2864
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Rechte zu folgender Tabelle hinzufügen"
+msgstr "Rechte zu folgender Tabelle hinzufügen:"
 
 #: libraries/server_privileges.lib.php:3108
 msgid "Remove selected users"
@@ -11356,10 +11294,9 @@ msgid "Privileges for %s"
 msgstr "Rechte für %s"
 
 #: libraries/server_privileges.lib.php:3736
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "Rechte ändern"
+msgstr "Rechte ändern:"
 
 #: libraries/server_privileges.lib.php:3797 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -11677,16 +11614,14 @@ msgid "Instructions/Setup"
 msgstr "Einführung/Einrichtung"
 
 #: libraries/server_status_monitor.lib.php:307
-#, fuzzy
 #| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Umordnen/bearbeiten der Schaubilder beendet"
+msgstr "Umordnen der Schaubilder beendet"
 
 #: libraries/server_status_monitor.lib.php:326
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Hervorhebung ermöglichen"
+msgstr "Umordnen der Schaubilder aktivieren"
 
 #: libraries/server_status_monitor.lib.php:330
 msgid "Refresh rate"
@@ -11719,22 +11654,19 @@ msgid "Questions since startup: %s"
 msgstr "Verbindungen seit Start: %s"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "pro Stunde"
+msgstr "pro Stunde:"
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "pro Minute"
+msgstr "pro Minute:"
 
 #: libraries/server_status_queries.lib.php:54
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "pro Sekunde"
+msgstr "pro Sekunde:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -12497,83 +12429,73 @@ msgstr "Anzahl der Prozesse, die nicht schlafen."
 #: libraries/server_user_groups.lib.php:23
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Benutzer der Benutzergruppe '%s'"
 
 #: libraries/server_user_groups.lib.php:34
 msgid "No users were found belonging to this user group."
 msgstr ""
+"Es wurden keine Benutzer gefunden, die zu dieser Benutzergruppe gehören."
 
 #: libraries/server_user_groups.lib.php:65 libraries/server_users.lib.php:30
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Benutzer"
+msgstr "Benutzergruppen"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Server Version"
+msgstr "Tabs in der Server-Ansicht"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Datenbank-Server"
+msgstr "Tabs in der Datenbank-Ansicht"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Tabellen-Kommentar"
+msgstr "Tabs in der Tabellen-Ansicht"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Ansichten"
+msgstr "Benutzer anzeigen"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:208
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Benutzer hinzufügen"
+msgstr "Benutzergruppe hinzufügen"
 
 #: libraries/server_user_groups.lib.php:211
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Benutzergruppe bearbeiten: '%s'"
 
 #: libraries/server_user_groups.lib.php:227
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Keine Rechte."
+msgstr "Menü-Zuweisungen der Benutzergruppe"
 
 #: libraries/server_user_groups.lib.php:234
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Spaltennamen: "
+msgstr "Gruppenname:"
 
 #: libraries/server_user_groups.lib.php:268
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Server Version"
+msgstr "Tabs in der Server-Ansicht"
 
 #: libraries/server_user_groups.lib.php:271
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Datenbank-Server"
+msgstr "Tabs in der Datenbank-Ansicht"
 
 #: libraries/server_user_groups.lib.php:274
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Tabellen-Kommentar"
+msgstr "Tabs in der Tabellen-Ansicht"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
@@ -12593,67 +12515,58 @@ msgid "SQL result"
 msgstr "SQL-Abfrageergebnis"
 
 #: libraries/sql.lib.php:427
-#, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
-msgstr "Erstellt von"
+msgstr "Erstellt von:"
 
 #: libraries/sql.lib.php:463
-#, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
-msgstr "Dateiwachstumsgröße"
+msgstr "Detailliertes Profil"
 
 #: libraries/sql.lib.php:466
-#, fuzzy
 #| msgid "Other"
 msgid "Order"
-msgstr "Weitere"
+msgstr "Reihenfolge"
 
 #: libraries/sql.lib.php:468 libraries/sql.lib.php:484
-#, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
-msgstr "Start"
+msgstr "Status"
 
 #: libraries/sql.lib.php:481
 msgid "Summary by state"
-msgstr ""
+msgstr "Zusammenfassung nach Status"
 
 #: libraries/sql.lib.php:487
-#, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
-msgstr "Gesamt Zeit:"
+msgstr "Gesamtzeit"
 
 #: libraries/sql.lib.php:489
-#, fuzzy
 #| msgid "Time"
 msgid "% Time"
-msgstr "Zeit"
+msgstr "% Zeit"
 
 #: libraries/sql.lib.php:491
-#, fuzzy
 #| msgid "Close"
 msgid "Calls"
-msgstr "Schließen"
+msgstr "Aufrufe"
 
 #: libraries/sql.lib.php:493
-#, fuzzy
 #| msgid "Time"
 msgid "ø Time"
-msgstr "Zeit"
+msgstr "ø Zeit"
 
 #: libraries/sql.lib.php:761 libraries/sql.lib.php:781
 msgid "Bookmark this SQL query"
 msgstr "SQL-Abfrage speichern"
 
 #: libraries/sql.lib.php:765
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "Titel"
+msgstr "Titel:"
 
 #: libraries/sql.lib.php:773 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
@@ -12677,7 +12590,6 @@ msgid "Validated SQL"
 msgstr "Geprüftes SQL"
 
 #: libraries/sql.lib.php:1912
-#, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
 #| "Copy and Delete features are not available."
@@ -12685,7 +12597,7 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
-"Diese Tabelle enthält keine eindeutige (\"unique\") Spalte. Gitter-"
+"Die aktuelle Markierung enthält keine eindeutige (\"unique\") Spalte. Gitter-"
 "Bearbeitungsfunktion, Kontrollkästchen, Bearbeiten, Kopieren und Löschen von "
 "Links sind nicht verfügbar."
 
@@ -12709,10 +12621,9 @@ msgid "Clear"
 msgstr "Werte löschen"
 
 #: libraries/sql_query_form.lib.php:318
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "SQL-Abfrage speichern"
+msgstr "SQL-Abfrage speichern:"
 
 #: libraries/sql_query_form.lib.php:332
 msgid "Replace existing bookmark of same name"
@@ -13086,32 +12997,28 @@ msgid "Y-Axis label:"
 msgstr "Beschriftung Y-Achse:"
 
 #: libraries/tbl_chart.lib.php:234
-#, fuzzy
 #| msgid "Start row"
 msgid "Start row:"
-msgstr "Anfangs-Datensatz"
+msgstr "Anfangs-Datensatz:"
 
 #: libraries/tbl_chart.lib.php:300
 msgid "Chart title"
 msgstr "Titel des Reports"
 
 #: libraries/tbl_columns_definition_form.lib.php:72
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Tabellenformat"
+msgstr "Tabellenformat:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "Kollation"
+msgstr "Kollation:"
 
 #: libraries/tbl_columns_definition_form.lib.php:110
-#, fuzzy
 #| msgid "PARTITION definition"
 msgid "PARTITION definition:"
-msgstr "PARTITION Definition"
+msgstr "PARTITION Definition:"
 
 #: libraries/tbl_columns_definition_form.lib.php:160
 msgid "Table name"
@@ -13259,28 +13166,24 @@ msgid "Index type:"
 msgstr "Indextyp:"
 
 #: libraries/tbl_printview.lib.php:30
-#, fuzzy
 #| msgid "Showing tables"
 msgid "Showing tables:"
-msgstr "Tabellen anzeigen"
+msgstr "Tabellen anzeigen:"
 
 #: libraries/tbl_printview.lib.php:173
-#, fuzzy
 #| msgid "Row Statistics"
 msgid "Row Statistics:"
-msgstr "Datensatz-Statistiken"
+msgstr "Datensatz-Statistiken:"
 
 #: libraries/tbl_printview.lib.php:300
-#, fuzzy
 #| msgid "Space usage"
 msgid "Space usage:"
-msgstr "Speicherplatzverbrauch"
+msgstr "Speicherplatzverbrauch:"
 
 #: libraries/tbl_relation.lib.php:386
-#, fuzzy
 #| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "Anzuzeigende Spalte auswählen"
+msgstr "Anzuzeigende Spalte auswählen:"
 
 #: libraries/tbl_relation.lib.php:419
 msgid "Internal relation"
@@ -13577,10 +13480,9 @@ msgid "Hide/Show Tables with no relation"
 msgstr "Tabellen ohne Verknüpfung aus-/einblenden"
 
 #: pmd_general.php:225
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "Anzahl Tabellen"
+msgstr "Anzahl Tabellen:"
 
 #: pmd_general.php:499
 msgid "Delete relation"
@@ -13625,10 +13527,9 @@ msgid "Page creation failed"
 msgstr "Seitenerstellung fehlgeschlagen"
 
 #: pmd_pdf.php:118
-#, fuzzy
 #| msgid "Page"
 msgid "Page:"
-msgstr "Seite"
+msgstr "Seite:"
 
 #: pmd_pdf.php:128
 msgid "Import from selected page"
@@ -13647,10 +13548,9 @@ msgid "New page name: "
 msgstr "Name der neuen Seite: "
 
 #: pmd_pdf.php:146
-#, fuzzy
 #| msgid "Export/Import to scale"
 msgid "Export/Import to scale:"
-msgstr "Export/Import skalieren"
+msgstr "Export/Import skalieren:"
 
 #: pmd_pdf.php:152
 msgid "recommended"
@@ -13764,10 +13664,9 @@ msgid "All"
 msgstr "Alle"
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL-Verlaufsprotokoll"
+msgstr "SQL-Verlaufsprotokoll:"
 
 #: schema_edit.php:37 schema_edit.php:43 schema_edit.php:49 schema_edit.php:54
 #, php-format
