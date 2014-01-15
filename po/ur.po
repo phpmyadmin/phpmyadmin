@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-15 14:53+0200\n"
+"PO-Revision-Date: 2014-01-15 15:02+0200\n"
 "Last-Translator: جنید عطاری <mj.atari@gmail.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/4-1/ur/>\n"
 "Language: ur\n"
@@ -39,10 +39,9 @@ msgstr "کوائفیہ تبصرہ: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "جدول تبصرے"
+msgstr "جدول تبصرات:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -63,7 +62,6 @@ msgstr "جدول تبصرے"
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:731
 #: libraries/tbl_tracking.lib.php:818
-#, fuzzy
 #| msgid "Command"
 msgid "Column"
 msgstr "کالم"
@@ -225,10 +223,10 @@ msgid "The database name is empty!"
 msgstr "کوائفیہ نام خالی ہے!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "کوائفیہ %s() نام %s میں تبدیل ہوچکا ہے"
+msgstr "کوائفیہ %2$ نام %1$ میں تبدیل ہو چکا ہے"
 
 #: db_operations.php:136
 #, fuzzy, php-format
@@ -1250,23 +1248,23 @@ msgstr "general_log اور slow_query_log فعال ہیں۔"
 
 #: js/messages.php:130
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log فعال ہے۔"
 
 #: js/messages.php:131
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log فعال ہے۔"
 
 #: js/messages.php:132
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log اور general_log غیر فعال ہیں۔"
 
 #: js/messages.php:133
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output جدول کے لحاظ سے موزوں نہیں کیا ہوا۔"
 
 #: js/messages.php:134
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output جدول کے لحاظ سے موزوں ہے۔"
 
 #: js/messages.php:135
 #, php-format
@@ -1275,6 +1273,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log فعال ہے لیکن سرور لاگ درخواسات %d سے زیادہ ساعتیں لے رہی ہیں۔ "
+"ہمارا مشورہ ہے کہ آپ long_query_time کا وقت صفر سے 2 ساعتیں رکھیں، یہ ترتیب "
+"آپ کے نظام پر مشتمل ہے۔"
 
 #: js/messages.php:136
 #, php-format
