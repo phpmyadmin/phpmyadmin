@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.0.0 (not yet released)
++ rfe #1483 Export Server/Database/Table without triggers
 + rfe #1662 Add table comment tool tip in database structure page
 + rfe #1447 Single table for display Character Sets and Collations
 + rfe #1455 Display icons/text/both for the table row actions

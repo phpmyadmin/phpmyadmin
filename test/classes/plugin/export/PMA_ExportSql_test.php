@@ -262,8 +262,14 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             'Add <code>DROP TABLE / VIEW / PROCEDURE / FUNCTION</code>' .
-            '<code> / EVENT</code> statement',
+            '<code> / EVENT</code><code> / TRIGGER</code> statement',
             $leaf->getText()
+        );
+        
+        $leaf = array_shift($leaves);
+        $this->assertInstanceOf(
+            'BoolPropertyItem',
+            $leaf
         );
 
         $leaf = array_shift($leaves);
@@ -1647,6 +1653,9 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         unset($GLOBALS['sql_compatibility']);
         unset($GLOBALS['sql_backquotes']);
 
+        $GLOBALS['sql_create_trigger'] = true;
+        $GLOBALS['sql_drop_table'] = true;
+        
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
