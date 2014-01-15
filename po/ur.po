@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2014-01-15 14:42+0200\n"
+"PO-Revision-Date: 2014-01-15 14:53+0200\n"
 "Last-Translator: جنید عطاری <mj.atari@gmail.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/4-1/ur/>\n"
 "Language: ur\n"
@@ -1108,45 +1108,44 @@ msgstr "گئ یاداشت"
 
 #: js/messages.php:93
 msgid "Free memory"
-msgstr ""
+msgstr "بقیہ یاداشت"
 
 #: js/messages.php:94
 msgid "Used memory"
-msgstr ""
+msgstr "استعمال شدہ یاداشت"
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "میزان"
+msgstr "کل تبدادل"
 
 #: js/messages.php:97
 msgid "Cached Swap"
-msgstr ""
+msgstr "ذخیرہ شدہ تبادلہ"
 
 #: js/messages.php:98
 msgid "Used Swap"
-msgstr ""
+msgstr "استعمال شدہ تبادلہ"
 
 #: js/messages.php:99
 msgid "Free Swap"
-msgstr ""
+msgstr "بقیہ مبادلہ"
 
 #: js/messages.php:101
 msgid "Bytes sent"
-msgstr ""
+msgstr "بھیجے گئے بائٹس"
 
 #: js/messages.php:102
 msgid "Bytes received"
-msgstr ""
+msgstr "موصول شدہ بائٹس"
 
 #: js/messages.php:103 libraries/server_status.lib.php:220
 msgid "Connections"
-msgstr ""
+msgstr "تعلقات"
 
 #: js/messages.php:104 libraries/server_status.lib.php:414
 msgid "Processes"
-msgstr ""
+msgstr "عموامل"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:107 libraries/Util.class.php:1386
@@ -1194,21 +1193,19 @@ msgstr "%s جدول"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "نسخے"
+msgstr "سوالات"
 
 #: js/messages.php:118 libraries/server_status.lib.php:129
 msgid "Traffic"
-msgstr ""
+msgstr "آمدورفت"
 
 #: js/messages.php:119 libraries/Menu.class.php:549
 #: libraries/Util.class.php:4118 libraries/server_status_monitor.lib.php:299
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "جنرل ریلیشن فیچرز"
+msgstr "ترتیبات"
 
 #: js/messages.php:120
 #, fuzzy
@@ -1218,15 +1215,15 @@ msgstr "کوائفیہ ہٹائیں"
 
 #: js/messages.php:121
 msgid "Edit title and labels"
-msgstr ""
+msgstr "عنوان اور لیبلوں میں ترمیم کریں"
 
 #: js/messages.php:122
 msgid "Add chart to grid"
-msgstr ""
+msgstr "فلو چارٹ گرڈ میں اضافہ"
 
 #: js/messages.php:124
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "براہ کرم سیریز کے باب میں کم از کم ایک متخیر کا اضافہ کریں"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1327
 #: libraries/TableSearch.class.php:881 libraries/TableSearch.class.php:1040
@@ -1237,15 +1234,15 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:278
 #: libraries/tbl_columns_definition_form.lib.php:684 pmd_general.php:545
 msgid "None"
-msgstr ""
+msgstr "کوئی بھی نہیں"
 
 #: js/messages.php:126
 msgid "Resume monitor"
-msgstr ""
+msgstr "پڑتال بحال کریں"
 
 #: js/messages.php:127
 msgid "Pause monitor"
-msgstr ""
+msgstr "پڑتال ٹھہرائیں"
 
 #: js/messages.php:129
 msgid "general_log and slow_query_log are enabled."
