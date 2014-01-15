@@ -1246,7 +1246,7 @@ msgstr "پڑتال ٹھہرائیں"
 
 #: js/messages.php:129
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log اور slow_query_log فعال ہیں۔"
 
 #: js/messages.php:130
 msgid "general_log is enabled."
