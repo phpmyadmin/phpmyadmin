@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #4230 "in use" displayed for all views in database print view
 - bug #4226 Notice: Undefined index: pma_config_loading
 - bug #4221 Bzip2 export cannot be directly imported (so withdraw bz2 export)
+- bug #4204 Reloading user privileges hides user groups submenu
 
 4.1.4.0 (2014-01-07)
 - bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times
