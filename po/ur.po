@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-11-25 15:25+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-01-15 14:40+0200\n"
+"Last-Translator: جنید عطاری <mj.atari@gmail.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/4-1/ur/>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "ڈیٹا بیس %1$s بنا دیا گیا۔"
+msgstr "ڈیٹا بیس %1$s بنا دیا گیا ہے۔"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -148,7 +148,7 @@ msgstr "ربط بطرف"
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
-msgstr "تبصرہ"
+msgstr "تبصرات"
 
 #: db_datadict.php:240 js/messages.php:249 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:883
@@ -208,7 +208,7 @@ msgstr "کوائفیہ کی ڈمپ (شجرہ) منظر کریں"
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:598 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "کوائفیہ میں کوئی جدول نہیں مِلا۔"
+msgstr "کوائفیہ میں جدول موجود نہیں۔"
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
@@ -242,8 +242,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin کی تشکیل زخیرہبند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے %share%s "
-"کلک کریں۔"
+"phpMyAdmin کی تشکیل زخیرہ بند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے %share%"
+"s دبائیں۔"
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:519
@@ -285,17 +285,15 @@ msgstr "بنائیں"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "آخری دفعہ کی تازہ کاری"
+msgstr "آخری تازہ کاری:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "آخری دفعہ کی پڑتال"
+msgstr "آخری پڑتال:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -306,7 +304,7 @@ msgstr[1] "%s جداول"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display"
-msgstr "آپ کو دکھانے کے لیے کم از کم ایک کالم چننا ہو گا"
+msgstr "آپ کو دکھانے کے لیے کم از کم ایک کالم منتخب کرنا ہو گا"
 
 #: db_qbe.php:70
 #, fuzzy, php-format
@@ -320,7 +318,7 @@ msgstr "بصری تعمیر کنندہ"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:268
 msgid "Access denied"
-msgstr "‏‏رسائی نہیں دی گئی"
+msgstr "‏‏رسائی ممکن نہیں"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -374,7 +372,7 @@ msgstr "عمل"
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:196
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:147
 msgid "Show"
-msgstr "دکھائیں"
+msgstr "ظاہر کریں"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
@@ -386,7 +384,7 @@ msgstr "اس جدول کے لیے کھوج کوائف حذف کریں"
 #: libraries/structure.lib.php:1384 libraries/structure.lib.php:2071
 #: libraries/structure.lib.php:2073
 msgid "Drop"
-msgstr "چھوڑیں"
+msgstr "گرائیں"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:311
@@ -396,11 +394,11 @@ msgstr "فعال"
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:212
 #: libraries/tbl_tracking.lib.php:313
 msgid "not active"
-msgstr "فعال نہیں ہے"
+msgstr "غیر فعال"
 
 #: db_tracking.php:143
 msgid "Versions"
-msgstr "نسخے"
+msgstr "نسخہ جات"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:352
@@ -429,45 +427,45 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"غلطی کی کھوج لگا لی گئی ہے اور غلطی کی رپورٹ آپ کی ترتیبات کی بنیاد پر خود "
+"کار طریقے سے پیش کر دی گئی ہے۔"
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "آپ صفحہ کی تازہ کاری کرنا چاہتے ہیں."
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "غلطی کا پتہ لگایا گیا ہے لیکن غلطی کی رپورٹ بھیجی نہیں جا سکی۔"
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "اگر آپ کو کوئی مسئلہ درپیش ہے تو دستی طور پر رپورٹ پیش کریں۔"
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "رپورٹ پیش کرنے کا بہت شکریہ۔"
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "بدقسمتی سے جمع کرانے میں ناکام رہے."
 
 #: export.php:171
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "برآمد"
+msgstr "بری قسم!"
 
 #: export.php:222
 msgid "Selected export type has to be saved in file!"
 msgstr "منتخب برآمد قسم اس مسل میں محفوظ ہو!"
 
 #: export.php:251
-#, fuzzy
 #| msgid "Remove database"
 msgid "Bad parameters!"
-msgstr "کوائفیہ ہٹائیں"
+msgstr "خراب کوائف!"
 
 #: export.php:365 export.php:396 export.php:983
 #, php-format
@@ -493,10 +491,9 @@ msgid "Dump has been saved to file %s."
 msgstr "ڈمپ اس مسل %s میں محفوظ ہوچکی ہے۔"
 
 #: file_echo.php:22
-#, fuzzy
 #| msgid "Export type"
 msgid "Invalid export type"
-msgstr "برآمد قسم"
+msgstr "خراب برآمد قسم"
 
 #: gis_data_editor.php:113
 #, fuzzy, php-format
@@ -506,42 +503,42 @@ msgstr "کالم کی قدریں\"%s\""
 
 #: gis_data_editor.php:141 libraries/tbl_gis_visualization.lib.php:242
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "اوپن سٹریٹ میپ کو بطور بنیادی سطح استعمال کریں"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
 msgid "SRID:"
-msgstr ""
+msgstr "ایس آر آئی ڈی:"
 
 #: gis_data_editor.php:186
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "جیومیٹری %d:"
 
 #: gis_data_editor.php:208
 msgid "Point:"
-msgstr ""
+msgstr "نقطہ:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:295
 #: gis_data_editor.php:368 js/messages.php:325
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:289 gis_data_editor.php:362
 #: js/messages.php:327
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "نقطہ %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:302 gis_data_editor.php:375
 #: js/messages.php:333
 msgid "Add a point"
-msgstr "فیلڈ کالم شامل یا ختم کریں"
+msgstr "نقطہ شامل کیجیئے"
 
 #: gis_data_editor.php:264
 #, php-format
@@ -558,10 +555,9 @@ msgid "Inner ring %d:"
 msgstr "اندرونی حد %d:"
 
 #: gis_data_editor.php:305
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
-msgstr "پابندیاں لگائیں"
+msgstr "پابندی لگائیں"
 
 #: gis_data_editor.php:306 gis_data_editor.php:380 js/messages.php:334
 msgid "Add an inner ring"
@@ -570,7 +566,7 @@ msgstr "اندرونی حد شامل کریں"
 #: gis_data_editor.php:327
 #, php-format
 msgid "Polygon %d:"
-msgstr "کالم پولی گان %d شامل یا حذف کریں:"
+msgstr "پولی گان %d:"
 
 #: gis_data_editor.php:386 js/messages.php:335
 msgid "Add a polygon"
@@ -648,7 +644,7 @@ msgstr "نشانی دکھاتے ہوئے"
 
 #: import.php:299 import.php:546
 msgid "The bookmark has been deleted."
-msgstr "نشانی حذف ہوچکا ہے۔"
+msgstr "نشانی حذف ہو چکی ہے۔"
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
@@ -663,7 +659,7 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 "آپ نے غیر معاون سکڑاؤ (%s) کے ساتھ مسل لوڈ کرنے کی کوشش کی ہے۔ ممکن ہے کہ یہ "
-"معاونت لاگو نہیں ہے یا تشکیل میں نااہل کیا گیا ہے۔"
+"معاونت لاگو نہیں ہے یا پھر تشکیل میں نااہل کیا گیا ہے۔"
 
 #: import.php:461
 msgid ""
@@ -672,8 +668,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "درآمد کے لیے کوئی کوائف نہیں ملا۔ ممکن ہے کہ مسل نام بھیجا نہ گیا ہو یا مسل "
-"سائز مقررہ حد سے تجاوز کرگئی ہو جو آپ کے PHP تشکیل میں ہے۔ دیکھیں"
-"[doc@faq1-16]عمومی سوالات 1.16[/doc]."
+"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ "
+"دیکھیں[doc@faq1-16]عمومی سوالات 1.16[/doc]."
 
 #: import.php:481
 msgid ""
@@ -682,25 +678,25 @@ msgstr "حروف متبادل لائبریری کے بغیر مسل کے حرو�
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
-msgstr "درآمد پلگ ان لوڈ نہیں ہوسکے، اپنی تنصیب کا پڑتال کریں!"
+msgstr "درآمد پلگ ان لوڈ نہیں ہو سکے، اپنی تنصیب کی پڑتال کریں!"
 
 #: import.php:553 libraries/sql.lib.php:1025 libraries/sql.lib.php:1806
 #, php-format
 msgid "Bookmark %s created"
-msgstr "نشانی %s بنایا گیا"
+msgstr "نشانی %s بنا دی گئی"
 
 #: import.php:563 import.php:576
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "درآمد کامیابی سے مکمل ہوا, %d طلب چلائے۔"
+msgstr "درآمد کامیابی سے منکنار ہوئی, کل %d درخواستیں چلائی گئیں۔"
 
 #: import.php:591
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"سکرپٹ وقت ختم ہوا، اگر آپ درآمد مکمل کرنا چاہتے ہیں تو اسی مسل کو دوبارہ "
-"بھیجیں اور درآمد دوبارہ شروع ہوگا۔"
+"درخواست کا وقت پورا ہوا، اگر آپ درآمد مکمل کرنا چاہتے ہیں تو اسی مسل کو "
+"دوبارہ بھیجیں اور درآمد دوبارہ وہی سے شروع ہو گا۔"
 
 #: import.php:595
 msgid ""
@@ -708,7 +704,7 @@ msgid ""
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
 "بہرحال آخری دفعہ کوائف صرفی نہیں ہوا، اس کا مطلب ہے کہ phpMyAdmin اس درآمد "
-"کو اس وقت تک مکمل نہیں کرسکتا جب تک کہ php وقت حد کو آپ بڑھاتے نہیں۔"
+"کو اس وقت تک مکمل نہیں کر سکتا جب تک کہ php وقت حد کو آپ نہیں بڑھائیں گے۔"
 
 #: import_status.php:87 libraries/Util.class.php:735
 #: libraries/schema/Export_Relation_Schema.class.php:246 user_password.php:239
@@ -717,7 +713,7 @@ msgstr "واپس"
 
 #: index.php:115 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "phpMyAdmin آزمائشی سرور"
 
 #: index.php:119
 #, php-format
@@ -726,6 +722,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"آپ کو ڈیمو سرور استعمال کر رہے ہیں. آپ یہاں کچھ بھی کر سکتے ہیں، لیکن جڑ، "
+"DEBIAN-SYS-maint اور پی ایم اے صارفین کو براہ مہربانی مت تبدیل کیجیئے۔ مزید "
+"معلومات آپ کو %s پر مل جائیں گی."
 
 #: index.php:129
 msgid "General Settings"
@@ -734,7 +733,7 @@ msgstr "عمومی ترتیبات"
 #: index.php:157 libraries/display_change_password.lib.php:46
 #: user_password.php:233
 msgid "Change password"
-msgstr "پاسورڈ بدلیں"
+msgstr "خفیہ ہندسہ تبدیل کریں"
 
 #: index.php:173
 msgid "Server connection collation"
@@ -757,10 +756,9 @@ msgid "Server:"
 msgstr "سرور:"
 
 #: index.php:254
-#, fuzzy
 #| msgid "Server"
 msgid "Server type:"
-msgstr "سرور"
+msgstr "قسم برائے سرور:"
 
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
@@ -778,7 +776,7 @@ msgstr "صارف:"
 
 #: index.php:273
 msgid "Server charset:"
-msgstr "سرور حروف سیٹ:"
+msgstr "سرور حروف جدول:"
 
 #: index.php:287
 msgid "Web server"
@@ -790,7 +788,7 @@ msgstr "کوائفیہ صارف نسخہ:"
 
 #: index.php:307
 msgid "PHP extension:"
-msgstr "پی ایچ پی استعمال:"
+msgstr "پی ایچ پی توسیع:"
 
 #: index.php:321
 msgid "Show PHP information"
@@ -818,11 +816,11 @@ msgstr "دفتری ویب گاہ"
 
 #: index.php:376
 msgid "Contribute"
-msgstr ""
+msgstr "تعاون کریں"
 
 #: index.php:383
 msgid "Get support"
-msgstr ""
+msgstr "مدد لیں"
 
 #: index.php:390
 msgid "List of changes"
@@ -835,10 +833,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
-"آپ کی تشکیلی مسل (منتظم صارف بغیر پاسورڈ) میں مائی ایس کیو ایل ابتدائی کھاتے "
-"سے متعلق معلومات کا حامل ہوتا ہے۔ آپ کا سرور اس صارف کے ساتھ چل رہا ہوتا ہے "
-"جس میں مداخلت کا خطرہ ہوتا ہے اس لیے آپ کو چاہیے کہ منتظم صارف کے لیے لازمی "
-"پاسورڈ داخل کریں۔"
+"آپ کی تشکیلی مسل (منتظم صارف اعلی بغیر خفیہ لفظ) میں مائی ایس کیو ایل "
+"ابتدائی کھاتے سے متعلق معلومات کا حامل ہوتا ہے۔ آپ کا سرور اس صارف کے ساتھ "
+"چل رہا ہوتا ہے جس میں مداخلت کا خطرہ ہوتا ہے اس لیے آپ کو چاہیے کہ منتظم "
+"صارف کے لیے لازمی خفیہ لفظ رکھیں۔"
 
 #: index.php:429
 msgid ""
@@ -846,6 +844,9 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"آپ نے mbstring.func_overload کو PHP کی تنصیبات میں فعال کیا ہوا ہے. یہ تنصیب "
+"phpMyAdmin کے ساتھ مطابقت نہیں رکھتی اور ساتھ ساتھ اعداد و شمار خراب کرنے "
+"کا موجب بھی بن سکتی ہے!"
 
 #: index.php:444
 msgid ""
@@ -870,7 +871,7 @@ msgstr ""
 
 #: index.php:483
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr ""
+msgstr "تنصیبات کی مسل کو خفیہ لفظ (blowfish_secret) درکار ہے۔"
 
 #: index.php:494
 msgid ""
@@ -912,17 +913,17 @@ msgstr "\"DROP DATABASE\" بیانات نااہل ہیں۔"
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "تصدیق"
 
 #: js/messages.php:36
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "کیا آپ واقعی چاہتے ہیں"
+msgstr "کیا آپ واقعی \"%s\" چلانا چاہتے ہیں؟"
 
 #: js/messages.php:37 libraries/mult_submits.lib.php:406
 msgid "You are about to DESTROY a complete database!"
-msgstr "آپ ایک مکمل کوائفیہ کو DESTROY کررہے ہیں!"
+msgstr "آپ ایک مکمل کوائفیہ کو سرے سے ختم (DESTROY) کر رہے ہیں!"
 
 #: js/messages.php:38
 #, fuzzy
@@ -931,65 +932,61 @@ msgid "You are about to DESTROY a complete table!"
 msgstr "آپ ایک مکمل کوائفیہ کو DESTROY کررہے ہیں!"
 
 #: js/messages.php:39
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "آپ ایک مکمل کوائفیہ کو DESTROY کررہے ہیں!"
+msgstr "آپ ایک مکمل جدول میں تراش (TRUNCATE) کر رہے ہیں!"
 
 #: js/messages.php:41
 msgid "Deleting tracking data"
-msgstr "کھوج کوائف کو حذف کیا جارہا ہے"
+msgstr "کھوج کوائف حذف کیا جا رہے ہیں"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
-msgstr "بنیادی کلید/اشاریہ چھوڑا جارہا ہے"
+msgstr "بنیادی کلید/اشاریہ گرایا جا رہا ہے"
 
 #: js/messages.php:43
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "یہ عمل زیادہ وقت لے سکتا ہے۔ بہرصورت جاری رکھیں؟"
+msgstr "یہ عمل زیادہ وقت لے سکتا ہے۔ بہر صورت جاری رکھیں؟"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "کیا آپ واقعی چاہتے ہیں"
+msgstr "کیا آپ واقعی صارفین کے گروپ \"%s\" کو حذف کرنا چاہتے ہیں؟"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "فارم میں قدر موجود نہیں!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "ایک درست دہانہ ہندسہ نہیں ہے"
+msgstr "برائے مہربانی، درست ہندسہ داخل کیجیئے"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "برائے مہربانی درست لمبائی داخل کیجیئے"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Indexes"
 msgid "Add Index"
-msgstr "اشاریے"
+msgstr "اشاریے کا اضافہ"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "تدوین موڈ"
+msgstr "تدوینِ اشاریہ"
 
 #: js/messages.php:52 libraries/tbl_indexes.lib.php:394
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add/Delete Field Columns"
 msgid "Add %s column(s) to index"
-msgstr "فیلڈ کالمز شامل یا ختم کریں"
+msgstr "%s کا فیلڈ کالمز میں اضافہ کیجیئے"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:56 libraries/tbl_chart.lib.php:188
 msgid "Y Values"
-msgstr ""
+msgstr "Y قدریں"
 
 #: js/messages.php:59
 msgid "The host name is empty!"
@@ -1002,22 +999,21 @@ msgstr "صارف کا نام خالی ہے!"
 #: js/messages.php:61 libraries/server_privileges.lib.php:1553
 #: user_password.php:110
 msgid "The password is empty!"
-msgstr "پاس ورڈ خالی ہے!"
+msgstr "خفیہ لفظ خالی ہے!"
 
 #: js/messages.php:62 libraries/server_privileges.lib.php:1551
 #: user_password.php:113
 msgid "The passwords aren't the same!"
-msgstr "پاس ورڈ ایک جیسے نہیں ہیں!"
+msgstr "خفیہ الفاظ مشترک نہیں ہیں!"
 
 #: js/messages.php:63 libraries/server_privileges.lib.php:1679
 #: libraries/server_privileges.lib.php:1883
 #: libraries/server_privileges.lib.php:2004
 #: libraries/server_privileges.lib.php:3068
 #: libraries/server_privileges.lib.php:3679
-#, fuzzy
 #| msgid "Add %s"
 msgid "Add user"
-msgstr "اضافہ کریں %s"
+msgstr "صارف کا اضافہ"
 
 #: js/messages.php:64
 msgid "Reloading Privileges"
@@ -1025,18 +1021,18 @@ msgstr "استحقاق پھر لوڈ کرتے ہوئے"
 
 #: js/messages.php:65
 msgid "Removing Selected Users"
-msgstr "منتخب صارفین ہٹائے جارہے ہیں"
+msgstr "منتخب صارفین حذف کیے جا رہے ہیں"
 
 #: js/messages.php:66 js/messages.php:123 libraries/tbl_tracking.lib.php:353
 #: libraries/tbl_tracking.lib.php:681
 msgid "Close"
-msgstr "بند کریں"
+msgstr "بند"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:69 libraries/ServerStatusData.class.php:205
 #: libraries/server_status_queries.lib.php:145
 msgid "Other"
-msgstr ""
+msgstr "علاوہ"
 
 #. l10n: Thousands separator
 #: js/messages.php:71 libraries/Util.class.php:1440
@@ -1049,16 +1045,14 @@ msgid "."
 msgstr "."
 
 #: js/messages.php:75
-#, fuzzy
 #| msgid "Connection type"
 msgid "Connections / Processes"
-msgstr "جڑنے کی قسم"
+msgstr "تعلقات / عوامل"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Local monitor configuration incompatible"
-msgstr "تشکیلی مسل"
+msgstr "مقامی تنصیبات مطابقت نہیں رکھتیں"
 
 #: js/messages.php:79
 msgid ""
@@ -1069,26 +1063,23 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "SQL query history table"
 msgid "Query cache efficiency"
-msgstr "SQL طلب لاگ جدول"
+msgstr "درخواست کیشے کی کارکردگی"
 
 #: js/messages.php:82
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache usage"
-msgstr "طلب نتائج"
+msgstr "درخواست کیشے کا استعمال"
 
 #: js/messages.php:83
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache used"
-msgstr "طلب نتائج"
+msgstr "درخواست کیشے کا استعمال"
 
 #: js/messages.php:85
 msgid "System CPU Usage"
-msgstr ""
+msgstr "CPU نظام کا استعمال"
 
 #: js/messages.php:86
 msgid "System memory"
