@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 08:42-0500\n"
-"PO-Revision-Date: 2013-12-30 08:18+0200\n"
+"PO-Revision-Date: 2014-01-15 20:16+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/4-1/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -1557,7 +1557,7 @@ msgstr "Laadimine…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Päring katkestati!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -4407,7 +4407,6 @@ msgid "Highlight pointer"
 msgstr "Kursor tõstab esile"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4416,7 +4415,7 @@ msgid ""
 "import operations"
 msgstr ""
 "Luba [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] tihendamine "
-"importimistel ja eksportimistel"
+"importimistel"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4493,7 +4492,6 @@ msgid "Check config file permissions"
 msgstr "Kontrolli seadistusfaili õigusi"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4502,8 +4500,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature"
 msgstr ""
-"Tihenda lennult gzip/bzip2 eksportimised ilma suurt mäluhulka tarbimata. Kui "
-"sul esineb probleeme loodud gzip/bzip2 failidega, siis keela see võimalus"
+"Tihenda lennult gzip eksportimised ilma suurt mäluhulka tarbimata. Kui sul "
+"esineb probleeme loodud gzip failidega, siis keela see võimalus"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
