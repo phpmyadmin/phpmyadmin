@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.5-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-15 08:42-0500\n"
-"PO-Revision-Date: 2014-01-15 14:40+0200\n"
-"Last-Translator: جنید عطاری <mj.atari@gmail.com>\n"
+"POT-Creation-Date: 2013-12-27 10:57-0500\n"
+"PO-Revision-Date: 2014-01-15 15:03+0200\n"
+"Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/4-1/ur/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,10 +39,9 @@ msgstr "کوائفیہ تبصرہ: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "جدول تبصرے"
+msgstr "جدول تبصرات:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -63,7 +62,6 @@ msgstr "جدول تبصرے"
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:731
 #: libraries/tbl_tracking.lib.php:818
-#, fuzzy
 #| msgid "Command"
 msgid "Column"
 msgstr "کالم"
@@ -225,16 +223,16 @@ msgid "The database name is empty!"
 msgstr "کوائفیہ نام خالی ہے!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "کوائفیہ %s() نام %s میں تبدیل ہوچکا ہے"
+msgstr "کوائفیہ %2$ نام %1$ میں تبدیل ہو چکا ہے"
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "کوائفیہ %s نام %s میں نقل کیا جاچکا ہے"
+msgstr "کوائفیہ %1$ نام %2$ میں نقل کیا جاچکا ہے"
 
 #: db_operations.php:260
 #, php-format
@@ -1063,71 +1061,69 @@ msgstr "CPU نظام کا استعمال"
 
 #: js/messages.php:86
 msgid "System memory"
-msgstr ""
+msgstr "نظام کی یاداشت"
 
 #: js/messages.php:87
 msgid "System swap"
-msgstr ""
+msgstr "تبدیل ھو نے والے نظام"
 
 #: js/messages.php:89
 msgid "Average load"
-msgstr ""
+msgstr "اوسطاً بار"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "میزان"
+msgstr "کُل یاداشت"
 
 #: js/messages.php:91
 msgid "Cached memory"
-msgstr ""
+msgstr "ذخیرہ شدہ یاداشت"
 
 #: js/messages.php:92
 msgid "Buffered memory"
-msgstr ""
+msgstr "گئ یاداشت"
 
 #: js/messages.php:93
 msgid "Free memory"
-msgstr ""
+msgstr "بقیہ یاداشت"
 
 #: js/messages.php:94
 msgid "Used memory"
-msgstr ""
+msgstr "استعمال شدہ یاداشت"
 
 #: js/messages.php:96
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "میزان"
+msgstr "کل تبدادل"
 
 #: js/messages.php:97
 msgid "Cached Swap"
-msgstr ""
+msgstr "ذخیرہ شدہ تبادلہ"
 
 #: js/messages.php:98
 msgid "Used Swap"
-msgstr ""
+msgstr "استعمال شدہ تبادلہ"
 
 #: js/messages.php:99
 msgid "Free Swap"
-msgstr ""
+msgstr "بقیہ مبادلہ"
 
 #: js/messages.php:101
 msgid "Bytes sent"
-msgstr ""
+msgstr "بھیجے گئے بائٹس"
 
 #: js/messages.php:102
 msgid "Bytes received"
-msgstr ""
+msgstr "موصول شدہ بائٹس"
 
 #: js/messages.php:103 libraries/server_status.lib.php:220
 msgid "Connections"
-msgstr ""
+msgstr "تعلقات"
 
 #: js/messages.php:104 libraries/server_status.lib.php:414
 msgid "Processes"
-msgstr ""
+msgstr "عموامل"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:107 libraries/Util.class.php:1386
@@ -1175,21 +1171,19 @@ msgstr "%s جدول"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions"
-msgstr "نسخے"
+msgstr "سوالات"
 
 #: js/messages.php:118 libraries/server_status.lib.php:129
 msgid "Traffic"
-msgstr ""
+msgstr "آمدورفت"
 
 #: js/messages.php:119 libraries/Menu.class.php:549
 #: libraries/Util.class.php:4118 libraries/server_status_monitor.lib.php:299
-#, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
-msgstr "جنرل ریلیشن فیچرز"
+msgstr "ترتیبات"
 
 #: js/messages.php:120
 #, fuzzy
@@ -1199,15 +1193,15 @@ msgstr "کوائفیہ ہٹائیں"
 
 #: js/messages.php:121
 msgid "Edit title and labels"
-msgstr ""
+msgstr "عنوان اور لیبلوں میں ترمیم کریں"
 
 #: js/messages.php:122
 msgid "Add chart to grid"
-msgstr ""
+msgstr "فلو چارٹ گرڈ میں اضافہ"
 
 #: js/messages.php:124
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "براہ کرم سیریز کے باب میں کم از کم ایک متخیر کا اضافہ کریں"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1327
 #: libraries/TableSearch.class.php:881 libraries/TableSearch.class.php:1040
@@ -1218,39 +1212,39 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:278
 #: libraries/tbl_columns_definition_form.lib.php:684 pmd_general.php:545
 msgid "None"
-msgstr ""
+msgstr "کوئی بھی نہیں"
 
 #: js/messages.php:126
 msgid "Resume monitor"
-msgstr ""
+msgstr "پڑتال بحال کریں"
 
 #: js/messages.php:127
 msgid "Pause monitor"
-msgstr ""
+msgstr "پڑتال ٹھہرائیں"
 
 #: js/messages.php:129
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log اور slow_query_log فعال ہیں۔"
 
 #: js/messages.php:130
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log فعال ہے۔"
 
 #: js/messages.php:131
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log فعال ہے۔"
 
 #: js/messages.php:132
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log اور general_log غیر فعال ہیں۔"
 
 #: js/messages.php:133
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output جدول کے لحاظ سے موزوں نہیں کیا ہوا۔"
 
 #: js/messages.php:134
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output جدول کے لحاظ سے موزوں ہے۔"
 
 #: js/messages.php:135
 #, php-format
@@ -1259,6 +1253,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log فعال ہے لیکن سرور لاگ درخواسات %d سے زیادہ ساعتیں لے رہی ہیں۔ "
+"ہمارا مشورہ ہے کہ آپ long_query_time کا وقت صفر سے 2 ساعتیں رکھیں، یہ ترتیب "
+"آپ کے نظام پر مشتمل ہے۔"
 
 #: js/messages.php:136
 #, php-format
