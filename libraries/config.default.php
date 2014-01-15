@@ -1823,6 +1823,13 @@ $cfg['Export']['sql_procedure_function'] = true;
 /**
  *
  *
+ * @global boolean $cfg['Export']['sql_create_trigger']
+ */
+$cfg['Export']['sql_create_trigger'] = true;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['sql_auto_increment']
  */
 $cfg['Export']['sql_auto_increment'] = true;
