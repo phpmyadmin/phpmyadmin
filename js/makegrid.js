@@ -989,9 +989,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     ) {
                         $input_field.val(current_datetime_value);
                     } else {
-                        var date;
+                        var date = new Date(
+                                current_datetime_value.substring(0, 4),
+                                parseInt(current_datetime_value.substring(5, 7)) - 1,
+                                parseInt(current_datetime_value.substring(8, 10))
+                        );
                         if (current_datetime_value.match(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{6}$/)) {
-                            date = new Date(current_datetime_value.substring(0, 10));
                             var hour = current_datetime_value.substring(11, 13);
                             var min = current_datetime_value.substring(14, 16);
                             var sec = current_datetime_value.substring(17, 19);
@@ -999,10 +1002,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             var micro = current_datetime_value.substring(23);
                             date.setHours(hour, min, sec, milli);
                             date.setMicroseconds(micro);
-                            var day = current_datetime_value.substring(8, 10);
-                            date.setDate(day);
-                        } else {
-                            date = new Date(current_datetime_value);
                         }
                         $editArea.datetimepicker('setDate', date);
                     }
