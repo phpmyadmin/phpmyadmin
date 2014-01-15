@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 08:42-0500\n"
-"PO-Revision-Date: 2014-01-15 19:23+0200\n"
+"PO-Revision-Date: 2014-01-15 19:24+0200\n"
 "Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/4-1/de/>\n"
 "Language: de\n"
@@ -711,7 +711,7 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Sie nutzen den Demo Server. Sie können hier alles tun, aber ändern Sie bitte "
+"Sie nutzen den Demo-Server. Sie können hier alles tun, aber ändern Sie bitte "
 "nicht die Benutzer root, debian-sys-maint und pma. Mehr Informationen ist "
 "unter %s verfügbar."
 
@@ -1581,7 +1581,7 @@ msgstr "Laden…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Anfrage abgebrochen."
 
 #: js/messages.php:231
 msgid "Processing Request"
