@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2013-12-27 10:57-0500\n"
-"PO-Revision-Date: 2013-11-25 15:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-01-15 06:17+0200\n"
+"Last-Translator: Ebrahim Asadi <asadi.email@gmail.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/4-1/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -35,10 +35,9 @@ msgstr "توضيحات پایگاه داده: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "توضيحات جدول"
+msgstr "توضيحات جدول:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -103,7 +102,7 @@ msgstr "نوع"
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:734
 #: libraries/tbl_tracking.lib.php:821
 msgid "Null"
-msgstr "خالي"
+msgstr "تهی"
 
 #: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
@@ -118,7 +117,7 @@ msgstr "خالي"
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:476 libraries/tbl_tracking.lib.php:735
 msgid "Default"
-msgstr "پيش‌فرض"
+msgstr "پيش‌ فرض"
 
 #: db_datadict.php:173 libraries/plugins/export/ExportHtmlword.class.php:406
 #: libraries/plugins/export/ExportLatex.class.php:515
@@ -269,24 +268,21 @@ msgstr "در حال استفاده"
 
 #: db_printview.php:117 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "ایجاد"
+msgstr "ایجاد:"
 
 #: db_printview.php:126 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "آخرین به روز رسانی"
+msgstr "آخرین به روز رسانی:"
 
 #: db_printview.php:135 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "آخرین بازدید"
+msgstr "آخرین بازدید:"
 
 #: db_printview.php:149 libraries/structure.lib.php:176
 #, php-format
@@ -419,29 +415,32 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"خطایی شناسایی شد و گزارش خطا طبق تنظیماتی که انجام داده اید برای شما ارسال "
+"شد."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "ممکن است نیاز به refresh کردن صفحه داشته باشید."
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "خطایی شناسایی شد و گزارش خطا ساخته شد اما ارسال آن با مشکل مواجه شد."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"اگر با مشکلی مواجه می شوید لفاً گزارش اشکال را به صورت دستی ارسال نمایید."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "از این که این گزارش را ارسال کردید متشکریم."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "متاسفانه ارسال با شکست مواجه شد."
 
 #: export.php:171
 msgid "Bad type!"
@@ -449,7 +448,7 @@ msgstr "نوع اشتباه!"
 
 #: export.php:222
 msgid "Selected export type has to be saved in file!"
-msgstr "نوع صدور را انتخاب کنید تا در فایل ذخیره گردد!"
+msgstr "نوع صدور انتخاب شده باید در فایل ذخیره شود!"
 
 #: export.php:251
 msgid "Bad parameters!"
@@ -458,15 +457,15 @@ msgstr "ورودی های اشتباه!"
 #: export.php:365 export.php:396 export.php:983
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "فضای کافی برای ذخیره فایل %s ."
+msgstr "فضای کافی برای ذخیره فایل %s موجود نیست."
 
 #: export.php:538
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"فایل %s در حال حاضر وجود دارد , نام فایل را تغییر دهید و یا تنظیمات بازنویسی "
-"را چککنید ."
+"فایل %s در حال حاضر در سرور وجود دارد، نام فایل را تغییر دهید و یا تنظیمات "
+"بازنویسی را بررسی کنید ."
 
 #: export.php:547 export.php:556
 #, php-format
@@ -493,22 +492,20 @@ msgstr "استفاده از OpenStreetMaps به عنوان لایه پایه"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "هندسه"
+msgstr "هندسه %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "درجه"
+msgstr "نقطه:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:324
@@ -538,16 +535,15 @@ msgid "Linestring %d:"
 msgstr "رشته خطی"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "حلقه خارجی"
+msgstr "حلقه بیرونی:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "حلقه داخلی"
+msgstr "حلقه داخلی %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
@@ -558,10 +554,10 @@ msgid "Add an inner ring"
 msgstr "افزودن يك حلقه داخلی"
 
 #: gis_data_editor.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "چند گوشه"
+msgstr "چند ضلعی %d:"
 
 #: gis_data_editor.php:386 js/messages.php:335
 msgid "Add a polygon"
@@ -622,13 +618,13 @@ msgstr ""
 "\"مقدار\" وارد کنید"
 
 #: import.php:116
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"احتمالاً شما سعی کردید یک فایل حجیم را آپلود کنید. لطفاً برای راهکار در مورد "
-"این محدودیت به بخش متن مراجعه کنید."
+"احتمالاً شما سعی کرده اید یک فایل حجیم را آپلود کنید. لطفاً برای یافتن راه "
+"حلی برای این محدودیت به  %sdocumentation%s مراجعه کنید."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
@@ -645,13 +641,13 @@ msgstr "امکان خواندن فایل وجود ندارد"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:605
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"شما فایلی را با فشرده سازی پشتیبانی نشده بار گذاری میکنید یا ممکن است در "
-"تنظیمات غیر فعال باشد و یا پشتیبانی میسر نباشد ."
+"فایلی که می خواهید بارگذاری کنید با فرمت (%s) فشرده سازی شده است که پیاده "
+"سازی نشده یا در تنظیمات برنامه، غیر فعال شده است."
 
 #: import.php:461
 msgid ""
@@ -659,8 +655,8 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"اطلاعاتی برای ورود دریافت نشد یا نام فایل  انتخاب نشده ، یا  حجم فایل از حد "
-"مجاز بیشتر است."
+"داده ای برای وارد کردن دریافت نشد. یا نام فایل تعیین نشده، یا حجم فایل از "
+"حداکثر اندازه ای که در تنظیمات PHP مشخص شده، بیشتر است."
 
 #: import.php:481
 msgid ""
@@ -686,16 +682,17 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"زمان انتظار اسکریپت به پایان رسیده, اگر مایلید عملیات را به پایان برسانید , "
-"فایل مورد نظر را دوباره ثبت کنید تا وارد کردن اطلاعات ادامه پیدا کنید."
+"زمان انتظار اسکریپت به پایان رسیده، اگر مایلید عملیات را به پایان برسانید، "
+"همان فایل را دوباره ارسال کنید تا وارد کردن اطلاعات ادامه پیدا کنید."
 
 #: import.php:595
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که ویرایشگرنمی تواند "
-"ورود داده را تمام کند مگر اینکه شما حداکثر زمان اجرای برنامه را افزایش دهید."
+"اما در آخرین اجرا هیچ داده ای پردازش نشده است،این بدین معنا است که "
+"phpMyAdmin نمی تواند ورود داده را تمام کند مگر این که شما محدودیت های زمانی "
+"php را افزایش دهید."
 
 #: import_status.php:87 libraries/Util.class.php:735
 #: libraries/schema/Export_Relation_Schema.class.php:246 user_password.php:239
@@ -703,9 +700,8 @@ msgid "Back"
 msgstr "بازگشت"
 
 #: index.php:115 libraries/Footer.class.php:70
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "مستندات phpMyAdmin"
+msgstr "سرور دموی phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -714,6 +710,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"شما در حال استفاده از سرور دمو هستید. می توانید در اینجا هر کاری انجام دهید "
+"اما لطفاً کاربران root و debian-sys-maint و pma را تغییر ندهید. برای اطلاعات "
+"بیشتر رجوع کنید به %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -726,11 +725,11 @@ msgstr "تغيير کلمه ی عبور"
 
 #: index.php:173
 msgid "Server connection collation"
-msgstr "تلفیق اتصال سرور"
+msgstr "Collation اتصال سرور"
 
 #: index.php:196
 msgid "Appearance Settings"
-msgstr "تنظیمات ظاهر"
+msgstr "تنظیمات ظاهری"
 
 #: index.php:226 prefs_manage.php:281
 msgid "More settings"
@@ -745,45 +744,39 @@ msgid "Server:"
 msgstr "سرور:"
 
 #: index.php:254
-#, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
-msgstr "پورت سرور"
+msgstr "نوع سرور:"
 
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "نسخه سرور"
+msgstr "نسخه سرور:"
 
 #: index.php:264
-#, fuzzy
 msgid "Protocol version:"
-msgstr "نسخه سرور"
+msgstr "نسخه پروتکل:"
 
 #: index.php:268
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "كاربر"
+msgstr "كاربر:"
 
 #: index.php:273
-#, fuzzy
 #| msgid "Remove database"
 msgid "Server charset:"
-msgstr "حذف پایگاه داده"
+msgstr "کاراکترست سرور:"
 
 #: index.php:287
 msgid "Web server"
 msgstr "وب سرور"
 
 #: index.php:303
-#, fuzzy
 #| msgid "Database comment: "
 msgid "Database client version:"
-msgstr "توضيحات پایگاه داده:"
+msgstr "نسخه کلاینت پایگاه داده:"
 
 #: index.php:307
 #, fuzzy
@@ -795,9 +788,8 @@ msgid "Show PHP information"
 msgstr "نمايش اطلاعات پی اچ پی"
 
 #: index.php:344
-#, fuzzy
 msgid "Version information:"
-msgstr "اطلاعات ورود"
+msgstr "اطلاعات نسخه:"
 
 #: index.php:353 libraries/Util.class.php:429 libraries/Util.class.php:496
 #: libraries/config/FormDisplay.tpl.php:148
