@@ -1336,7 +1336,9 @@ class ExportSql extends ExportPlugin
                 }
 
                 if ($sql_auto_increments != '') {
-                    $sql_auto_increments = substr($sql_auto_increments, 0, -1) . ';';                  
+                    $sql_auto_increments = substr(
+                        $sql_auto_increments, 0, -1
+                    ) . ';';                  
                 }
                 // If we really found a constraint
                 if ($first_occur != $sql_count) {            
