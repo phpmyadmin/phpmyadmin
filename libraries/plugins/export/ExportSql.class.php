@@ -1183,17 +1183,19 @@ class ExportSql extends ExportPlugin
                 );
             }
 
+            //removes unnecessary details
+            $create_query = substr($create_query, 0, strrpos($create_query,')'));
+            $create_query = $create_query.")";
             //are there any constraints to cut out?
             if (preg_match('@CONSTRAINT|KEY@', $create_query)) {
-                $has_constraints=0;
-                $has_indexes=0;
-
+                $has_constraints = 0;
+                $has_indexes = 0;
                 //if there are constraints
                 if (preg_match(
                     '@CONSTRAINT@',
                     $create_query
                 )) {
-                    $has_constraints=1;                        
+                    $has_constraints = 1;                        
                     // comments -> constraints for dumped tables
                     if (! isset($sql_constraints)) {
                         if (isset($GLOBALS['no_constraints_comments'])) {
@@ -1234,7 +1236,7 @@ class ExportSql extends ExportPlugin
                     '@KEY@',
                     $create_query
                 )) { 
-                    $has_indexes=1;                         
+                    $has_indexes = 1;                         
 
                     // comments -> indexes for dumped tables
                     if (! isset($sql_indexes)) {
@@ -1402,8 +1404,8 @@ class ExportSql extends ExportPlugin
                         }
                     }
                     //removes superfluous comma at the end
-                    $sql_indexes=rtrim($sql_indexes, ',');
-                    $sql_indexes_query=rtrim($sql_indexes_query, ',');
+                    $sql_indexes = rtrim($sql_indexes, ',');
+                    $sql_indexes_query = rtrim($sql_indexes_query, ',');
                     //removes superfluous semicolon at the end
                     if ($has_constraints == 1) {
                         $sql_constraints .= ';' . $crlf;
