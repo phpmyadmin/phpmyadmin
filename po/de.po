@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 09:08-0500\n"
-"PO-Revision-Date: 2014-01-15 19:27+0200\n"
-"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
+"PO-Revision-Date: 2014-01-16 11:44+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -4688,7 +4688,6 @@ msgid "Enable CodeMirror"
 msgstr "CodeMirror aktivieren"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4696,14 +4695,13 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Lege die Mindestgröße der Eingabefelder für CHAR und VARCHAR-Spalten fest"
+"Lege die Mindestgröße der Eingabefelder für CHAR und VARCHAR-Spalten fest."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Mindestgröße für Eingabefeld"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4711,27 +4709,25 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Lege die maximale Größe der Eingabefelder für CHAR und VARCHAR-Spalten fest"
+"Lege die maximale Größe der Eingabefelder für CHAR und VARCHAR-Spalten fest."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "Maximale Größe für Eingabefeld"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Spaltenanzahl der CHAR/VARCHAR-Textfelder"
+msgstr "Spaltenanzahl der CHAR/VARCHAR-Textfelder."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "CHAR-Textfeldspalten"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Zeilenanzahl der CHAR/VARCHAR-Textfelder"
+msgstr "Zeilenanzahl der CHAR/VARCHAR-Textfelder."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -4742,7 +4738,6 @@ msgid "Check config file permissions"
 msgstr "Configfile-Berechtigungen überprüfen"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4751,9 +4746,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Komprimieren Sie Exporte mit gzip/bzip2 on the fly, um Platz zu sparen. "
-"Sollten Sie auf Probleme mit den erstellten gzip/bip2 Dateien stoßen, "
-"deaktivieren Sie dieses Feature"
+"Komprimieren Sie Exporte mit gzip on the fly, um Platz zu sparen. Sollten "
+"Sie auf Probleme mit den erstellten gzip Dateien stoßen, deaktivieren Sie "
+"dieses Feature."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4765,7 +4760,6 @@ msgid "Configuration file"
 msgstr "Konfigurationsdatei"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 #| "when you're about to lose data"
@@ -4774,7 +4768,7 @@ msgid ""
 "when you're about to lose data."
 msgstr ""
 "Warnung (&quot;Sind Sie wirklich sicher…&quot;) anzeigen, wenn Dateien "
-"verloren gehen könnten"
+"verloren gehen könnten."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4789,40 +4783,36 @@ msgid "Default display direction"
 msgstr "Standardanzeigerichtung"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "Angezeigter Reiter beim Öffnen einer Datenbank"
+msgstr "Angezeigter Reiter beim Öffnen einer Datenbank."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "Standardtab bei Datenbanken"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Angezeigter Reiter beim Öffnen eines Servers"
+msgstr "Angezeigter Reiter beim Öffnen eines Servers."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "Standardtab bei Servern"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Angezeigter Reiter beim Öffnen einer Tabelle"
+msgstr "Angezeigter Reiter beim Öffnen einer Tabelle."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
 msgstr "Standardtab bei Tabellen"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Sollen die Tabellenstrukturaktionen verborgen werden"
+msgstr "Sollen die Tabellenstrukturaktionen verborgen werden."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
