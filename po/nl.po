@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 09:08-0500\n"
-"PO-Revision-Date: 2014-01-03 13:43+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-01-16 11:40+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2703,10 +2703,9 @@ msgid "Kill"
 msgstr "stop proces"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -3309,10 +3308,10 @@ msgid "Invalid table name:"
 msgstr "Ongeldige tabelnaam:"
 
 #: libraries/Table.class.php:1321
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Fout bij het hernoemen van de tabel %1$s naar %2$s"
+msgstr "Fout bij hernoemen van tabel %1$s naar %2$s!"
 
 #: libraries/Table.class.php:1340
 #, php-format
@@ -4543,21 +4542,19 @@ msgid "Incorrect IP address: %s"
 msgstr "Foutief IP-adres: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Indien ingeschakeld kan de gebruiker elke MySQL-server opgeven op het "
-"aanmeldingsformulier voor cookie-authenticatie"
+"aanmeldingsformulier voor cookie-authenticatie."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
 msgstr "Aanmelden op gelijk welke MySQL-server toestaan"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4568,9 +4565,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Door deze optie in te schakelen is het toegestaan om phpMyAdmin vanuit een "
-"pagina op een ander domein in een frame te openen. Een potentieel [strong]"
-"beveiligingslek[/strong] wat cross-frame scripting aanvallen mogelijk kan "
-"maken"
+"pagina op een ander domein in een frame te openen. Een potentieel "
+"[strong]beveiligingslek[/strong] wat cross-frame scripting (XSS) aanvallen "
+"mogelijk kan maken."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4581,7 +4578,6 @@ msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr "Toon link &quot;Verwijder databank&quot; aan normale gebruikers"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -4589,8 +4585,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Geheime sleutelzin gebruikt voor de versleuteling van cookies in [kbd]cookie"
-"[/kbd]-authenticatie"
+"Geheime sleutelzin gebruikt voor de versleuteling van cookies in "
+"[kbd]cookie[/kbd]-authenticatie."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4605,17 +4601,15 @@ msgid "Row marker"
 msgstr "Rij markering"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "De door de muis aangewezen rij markeren"
+msgstr "De door de muis aangewezen rij markeren."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "Muispijl markeren"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4624,14 +4618,13 @@ msgid ""
 "import operations."
 msgstr ""
 "[a@http://nl.wikipedia.org/wiki/Bzip2]bzip2[/a]-compressie inschakelen voor "
-"import- en exportbewerkingen"
+"importbewerkingen."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -4644,14 +4637,13 @@ msgstr ""
 "Definieert welk type HTML-element zal worden gebruikt voor CHAR- en VARCHAR-"
 "kolommen; [kbd]input[/kbd] - maakt het mogelijk om de invoerlengte te "
 "beperken, [kbd]textarea[/kbd] - maakt het mogelijk om meerdere regels in te "
-"vullen"
+"vullen."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "CHAR-kolommen bewerken"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4659,15 +4651,15 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Gebruik de gebruiksvriendelijk editor voor SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) met syntaxmarkering en lijnnummers"
+"Gebruik de gebruiksvriendelijk editor voor SQL queries "
+"([a@http://codemirror.net/]CodeMirror[/a]) met syntaxmarkering en "
+"lijnnummers."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "CodeMirror inschakelen"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4676,14 +4668,13 @@ msgid ""
 "columns."
 msgstr ""
 "Definieert de minimale grootte voor invoervelden die gegenereerd worden voor "
-"CHAR- en VARCHAR-kolommen"
+"CHAR- en VARCHAR-kolommen."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Minimale grootte voor een invoerveld"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4692,27 +4683,25 @@ msgid ""
 "columns."
 msgstr ""
 "Definieert de maximale grootte voor invoervelden die gegenereerd worden voor "
-"CHAR- en VARCHAR-kolommen"
+"CHAR- en VARCHAR-kolommen."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "Maximale grootte voor een invoerveld"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Aantal kolommen voor CHAR/VARCHAR-tekstgebieden"
+msgstr "Aantal kolommen voor CHAR/VARCHAR-tekstgebieden."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "Kolommen van CHAR-tekstgebied"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Aantal regels voor CHAR/VARCHAR-tekstgebieden"
+msgstr "Aantal regels voor CHAR/VARCHAR-tekstgebieden."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -4723,7 +4712,6 @@ msgid "Check config file permissions"
 msgstr "Controleer de rechten op het configuratiebestand"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4732,9 +4720,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Comprimeer gzip/bzip2-exports in een keer zonder dat er veel geheugen voor "
-"nodig is; indien u problemen ondervindt met de gemaakte gzip/bzip2-"
-"bestanden, schakel deze functie dan uit"
+"Comprimeer gzip-exports in een keer zonder dat er veel geheugen voor nodig "
+"is; indien u problemen ondervindt met de gemaakte gzip-bestanden, schakel "
+"deze functie dan uit."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4746,7 +4734,6 @@ msgid "Configuration file"
 msgstr "Configuratiebestand"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 #| "when you're about to lose data"
@@ -4755,7 +4742,7 @@ msgid ""
 "when you're about to lose data."
 msgstr ""
 "Of er een waarschuwing(&quot;Weet u zeker…&quot;) moet worden getoond op het "
-"moment dat u gegevens gaat verwijderen"
+"moment dat u gegevens gaat verwijderen."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4770,40 +4757,36 @@ msgid "Default display direction"
 msgstr "Standaard weergaverichting"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "Het tabblad dat wordt getoond na het openen van een databank"
+msgstr "Het tabblad dat wordt getoond na het openen van een databank."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "Standaard databank tabblad"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Het tabblad dat wordt getoond na het openen van een server"
+msgstr "Het tabblad dat wordt getoond na het openen van een server."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "Standaard servertabblad"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Het tabblad dat wordt getoond na het openen van een tabel"
+msgstr "Het tabblad dat wordt getoond na het openen van een tabel."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
 msgstr "Standaard tabel tabblad"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Of de tabelstructuur acties verborgen moeten worden"
+msgstr "Of de tabelstructuur acties verborgen moeten worden."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
