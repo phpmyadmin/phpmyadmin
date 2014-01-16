@@ -1230,8 +1230,10 @@ class ExportSql extends ExportPlugin
                     . $crlf;                      
                 }
                 //if there are indexes
+                // (look for KEY followed by whitespace to avoid matching
+                //  keyworks like PACK_KEYS)
                 if (preg_match(
-                    '@KEY+[\s]@',
+                    '@KEY[\s]+@',
                     $create_query
                 )) { 
                     $has_indexes = 1;                         
@@ -1390,7 +1392,7 @@ class ExportSql extends ExportPlugin
                             }
                             $first = false;
                         } else if (preg_match(
-                            '@KEY+[\s]@',
+                            '@KEY[\s]+@',
                             $sql_lines[$j]
                         )) {                            
                             //if it's a index
