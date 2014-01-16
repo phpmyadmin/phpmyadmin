@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 09:08-0500\n"
-"PO-Revision-Date: 2014-01-14 23:56+0200\n"
+"PO-Revision-Date: 2014-01-16 15:39+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -4631,7 +4631,6 @@ msgid "Highlight pointer"
 msgstr "Resaltar puntero"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations."
@@ -4640,7 +4639,7 @@ msgid ""
 "import operations."
 msgstr ""
 "Habilitar la compresión [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
-"las operaciones de importación y exportación."
+"las operaciones de importación."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -4717,7 +4716,6 @@ msgid "Check config file permissions"
 msgstr "Revise los permisos en el archivo de configuración"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4726,9 +4724,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Comprima archivos exportados con gzip/bzip2 sobre la marcha sin necesidad de "
-"mucha memoria; si halla problemas con archivos comprimidos con gzip/bzip2 "
-"deshabilite esta opción."
+"Comprima archivos exportados con gzip sobre la marcha sin necesidad de mucha "
+"memoria; si halla problemas con archivos comprimidos con gzip deshabilite "
+"esta opción."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
