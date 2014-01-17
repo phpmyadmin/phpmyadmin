@@ -232,7 +232,8 @@ function PMA_getHtmlForTableVersionDetails($sql_result, $last_version, $url_para
             )
         );
         $html .= '">' . __('Tracking report') . '</a>';
-        $html .= '| <a href="tbl_tracking.php';
+        $html .= '&nbsp;|&nbsp;';
+        $html .= '<a href="tbl_tracking.php';
         $html .= PMA_URL_getCommon(
             $url_params + array(
                 'snapshot' => 'true', 'version' => $version['version']
