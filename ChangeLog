@@ -19,7 +19,9 @@ phpMyAdmin - ChangeLog
 + rfe #1479 Relations edit form for larger monitors
 + rfe #1475 Inline query box vertical resize
 
-4.1.5.0 (not yet released)
+4.1.6.0 (not yet released)
+
+4.1.5.0 (2014-01-17)
 - bug #3780 Allow aborting loading pages
 - bug #4223 Database list: Create database misses collation column
 - bug #4224 Empty table names when a table is "inuse"
