@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-15 09:08-0500\n"
-"PO-Revision-Date: 2014-01-16 11:40+0200\n"
+"PO-Revision-Date: 2014-01-17 11:09+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -1551,7 +1551,7 @@ msgstr "Laden…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Aanvraag afgebroken!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -4793,10 +4793,9 @@ msgid "Hide table structure actions"
 msgstr "Tabel structuur acties verbergen"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
-msgstr "Toon binaire-inhoud standaard als HEX"
+msgstr "Toon binaire inhoud standaard in HEX-formaat."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down"
@@ -4819,10 +4818,9 @@ msgid "Disable multi table maintenance"
 msgstr "Schakel onderhoud op meerdere tabellen uit"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "Bewerk SQL-queries in popup-venster"
+msgstr "Bewerk SQL-queries in popup-venster."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4833,7 +4831,6 @@ msgid "Display errors"
 msgstr "Toon foutmeldingen"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -4842,7 +4839,7 @@ msgid ""
 "limit)."
 msgstr ""
 "Stel hier het maximale aantal seconden in dat een script mag gebruiken om te "
-"worden uitgevoerd ([kbd]0[/kbd] voor geen limiet)"
+"worden uitgevoerd ([kbd]0[/kbd] voor geen limiet)."
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -5065,17 +5062,15 @@ msgid "Export time in UTC"
 msgstr "Exporteertijd in UTC"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "Een beveiligde verbinding afdwingen tijdens het gebruik van phpMyAdmin"
+msgstr "Een beveiligde verbinding afdwingen tijdens het gebruik van phpMyAdmin."
 
 #: libraries/config/messages.inc.php:196
 msgid "Force SSL connection"
 msgstr "SSL-verbinding afdwingen"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 #| "the referenced data, [kbd]id[/kbd] is the key value"
@@ -5083,18 +5078,18 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; [kbd]content"
-"[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde"
+"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; "
+"[kbd]content[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de "
+"sleutelwaarde."
 
 #: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
 msgstr "Vreemdesleutel-afrolmenu sortering"
 
 #: libraries/config/messages.inc.php:203
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Een afrolmenu wordt gebruikt indien er minder items beschikbaar zijn"
+msgstr "Een afrolmenu wordt gebruikt indien er minder items beschikbaar zijn."
 
 #: libraries/config/messages.inc.php:204
 msgid "Foreign key limit"
@@ -5105,18 +5100,16 @@ msgid "Browse mode"
 msgstr "Verkennen-mode"
 
 #: libraries/config/messages.inc.php:206
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "Aanpassen verkennen-mode"
+msgstr "Aanpassen verkennen-mode."
 
 #: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:210
 #: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "Aanpassen standaard opties"
+msgstr "Aanpassen standaard opties."
 
 #: libraries/config/messages.inc.php:209 libraries/config/setup.forms.php:247
 #: libraries/config/setup.forms.php:321
@@ -5130,30 +5123,27 @@ msgid "Developer"
 msgstr "Ontwikkelaar"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Instellingen voor phpMyAdmin-ontwikkelaars"
+msgstr "Instellingen voor phpMyAdmin-ontwikkelaars."
 
 #: libraries/config/messages.inc.php:213
 msgid "Edit mode"
 msgstr "Bewerkmodus"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Bewerkmodus aanpassen"
+msgstr "Bewerkmodus aanpassen."
 
 #: libraries/config/messages.inc.php:216
 msgid "Export defaults"
 msgstr "Export standaarden"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Aanpassen standaard exportopties"
+msgstr "Aanpassen standaard exportopties."
 
 #: libraries/config/messages.inc.php:218 libraries/config/messages.inc.php:279
 #: setup/frames/menu.inc.php:17
@@ -5165,50 +5155,45 @@ msgid "General"
 msgstr "Algemeen"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Enkele veel gebruikte opties"
+msgstr "Enkele veel gebruikte opties instellen."
 
 #: libraries/config/messages.inc.php:222
 msgid "Import defaults"
 msgstr "Importopties"
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "Aanpassen standaard importopties"
+msgstr "Aanpassen standaard importopties."
 
 #: libraries/config/messages.inc.php:224
 msgid "Import / export"
 msgstr "Importeren / exporteren"
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr "Aanpassen importeer- en exporteer-directories en compressie-opties"
+msgstr "Aanpassen importeer- en exporteer-directories en compressie-opties."
 
 #: libraries/config/messages.inc.php:227
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "Weergaveopties voor databanken"
+msgstr "Weergaveopties voor databanken."
 
 #: libraries/config/messages.inc.php:231 setup/frames/menu.inc.php:21
 msgid "Navigation panel"
 msgstr "Navigatiepaneel"
 
 #: libraries/config/messages.inc.php:232
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "Weergaveopties voor het navigatiepaneel"
+msgstr "Weergaveopties voor het navigatiepaneel."
 
 #: libraries/config/messages.inc.php:233 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
@@ -5216,16 +5201,14 @@ msgid "Servers"
 msgstr "Servers"
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "Weergaveopties voor servers"
+msgstr "Weergaveopties voor servers."
 
 #: libraries/config/messages.inc.php:236
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "Weergaveopties voor tabellen"
+msgstr "Weergaveopties voor tabellen."
 
 #: libraries/config/messages.inc.php:237 setup/frames/menu.inc.php:23
 msgid "Main panel"
@@ -5240,10 +5223,9 @@ msgid "Other core settings"
 msgstr "Overige instellingen"
 
 #: libraries/config/messages.inc.php:244
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "Instellingen die onder geen andere categorie pasten"
+msgstr "Instellingen die onder geen andere categorie passen."
 
 #: libraries/config/messages.inc.php:245
 msgid "Page titles"
@@ -5271,7 +5253,6 @@ msgid "Security"
 msgstr "Beveiliging"
 
 #: libraries/config/messages.inc.php:255
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
@@ -5280,7 +5261,7 @@ msgid ""
 "limit MySQL."
 msgstr ""
 "Bedenk dat phpMyAdmin enkel een gebruikersinterface is, en dat zijn "
-"functionaliteit MySQL niet beperkt"
+"functionaliteit MySQL niet beperkt."
 
 #: libraries/config/messages.inc.php:258
 msgid "Basic settings"
@@ -5291,17 +5272,15 @@ msgid "Authentication"
 msgstr "Authenticatie"
 
 #: libraries/config/messages.inc.php:260
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "Authenticatie-instellingen"
+msgstr "Authenticatie-instellingen."
 
 #: libraries/config/messages.inc.php:261
 msgid "Server configuration"
 msgstr "Serverconfiguratie"
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
@@ -5310,20 +5289,18 @@ msgid ""
 "what they are for."
 msgstr ""
 "Geavanceerde serverinstellingen, wijzig deze alleen wanneer u de werking "
-"begrijpt"
+"begrijpt."
 
 #: libraries/config/messages.inc.php:266
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "Geef de serververbindingsparameters op"
+msgstr "Geef de serververbindingsparameters op."
 
 #: libraries/config/messages.inc.php:267
 msgid "Configuration storage"
 msgstr "Configuratie-opslag"
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
 #| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
@@ -5334,8 +5311,8 @@ msgid ""
 "documentation."
 msgstr ""
 "Configureer de configuratie-opslag van phpMyAdmin om toegang te krijgen tot "
-"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-opslag"
-"[/doc] in de documentatie"
+"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-"
+"opslag[/doc] in de documentatie."
 
 #: libraries/config/messages.inc.php:273
 msgid "Changes tracking"
@@ -5375,16 +5352,14 @@ msgid "SQL Query box"
 msgstr "SQL-queryveld"
 
 #: libraries/config/messages.inc.php:286
-#, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "Aanpassen van links getoond in de SQL-query vensters"
+msgstr "Aanpassen van links getoond in de SQL-query vensters."
 
 #: libraries/config/messages.inc.php:289
-#, fuzzy
 #| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "SQL-query instellingen"
+msgstr "SQL-query instellingen."
 
 #: libraries/config/messages.inc.php:290
 msgid "SQL Validator"
@@ -5407,24 +5382,22 @@ msgid "Startup"
 msgstr "Beginpagina"
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "Aanpassen beginpagina"
+msgstr "Aanpassen beginpagina."
 
 #: libraries/config/messages.inc.php:300
 msgid "Database structure"
 msgstr "Databankstructuur"
 
 #: libraries/config/messages.inc.php:302
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Kies de details die getoond worden in de databank structuur (lijst met "
-"tabellen)"
+"tabellen)."
 
 #: libraries/config/messages.inc.php:303
 msgid "Table structure"
