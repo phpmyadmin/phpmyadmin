@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.5.0 (not yet released)
+4.1.6.0 (not yet released)
+
+4.1.5.0 (2014-01-17)
 - bug #3780 Allow aborting loading pages
 - bug #4223 Database list: Create database misses collation column
 - bug #4224 Empty table names when a table is "inuse"
