@@ -1422,7 +1422,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 
     $html_output .= '<input type="text" name="hostname" maxlength="'
         . $hostname_length . '" value="'
-        . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
+        // use default value of '%' to match with the default 'Any host'
+        . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
         . PMA_Util::showHint(

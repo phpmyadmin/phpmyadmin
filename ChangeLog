@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 + rfe #1475 Inline query box vertical resize
 
 4.1.6.0 (not yet released)
+- bug #4232 User not found after creating the user
 
 4.1.5.0 (2014-01-17)
 - bug #3780 Allow aborting loading pages
