@@ -83,6 +83,42 @@ class PMA_DatabaseInterface
         return $res;
     }
 
+
+    /**
+     * Caches table data so PMA_Table does not require to issue
+     * SHOW TABLE STATUS again 
+     *
+     * @param array       $tables information for tables of some databases
+     * @param string|bool $table  table name or false
+     *
+     * @return void 
+     */
+    private function _cacheTableData($tables, $table)
+    {
+        // Note: I don't see why we would need array_merge_recursive() here,
+        // as it creates double entries for the same table (for example a double
+        // entry for Comment when changing the storage engine in Operations)
+        // Note 2: Instead of array_merge(), simply use the + operator because
+        //  array_merge() renumbers numeric keys starting with 0, therefore
+        //  we would lose a db name thats consists only of numbers
+
+        foreach ($tables as $one_database => $its_tables) {
+            if (isset(PMA_Table::$cache[$one_database])) {
+                // the + operator does not do the intended effect
+                // when the cache for one table already exists
+                if ($table
+                    && isset(PMA_Table::$cache[$one_database][$table])
+                ) {
+                    unset(PMA_Table::$cache[$one_database][$table]);
+                }
+                PMA_Table::$cache[$one_database]
+                    = PMA_Table::$cache[$one_database] + $tables[$one_database];
+            } else {
+                PMA_Table::$cache[$one_database] = $tables[$one_database];
+            }
+        }
+    }
+
     /**
      * Stores query data into session data for debugging purposes
      *
@@ -434,7 +470,7 @@ class PMA_DatabaseInterface
      * </code>
      *
      * @param string          $database     database
-     * @param string|bool     $table        table or false
+     * @param string|bool     $table        table name or false
      * @param boolean         $tbl_is_group $table is a table group
      * @param mixed           $link         mysql link
      * @param integer         $limit_offset zero-based offset for the count
@@ -651,30 +687,7 @@ class PMA_DatabaseInterface
             }
         }
 
-        // cache table data
-        // so PMA_Table does not require to issue SHOW TABLE STATUS again
-        // Note: I don't see why we would need array_merge_recursive() here,
-        // as it creates double entries for the same table (for example a double
-        // entry for Comment when changing the storage engine in Operations)
-        // Note 2: Instead of array_merge(), simply use the + operator because
-        //  array_merge() renumbers numeric keys starting with 0, therefore
-        //  we would lose a db name thats consists only of numbers
-        foreach ($tables as $one_database => $its_tables) {
-            if (isset(PMA_Table::$cache[$one_database])) {
-                // the + operator does not do the intended effect
-                // when the cache for one table already exists
-                if ($table
-                    && isset(PMA_Table::$cache[$one_database][$table])
-                ) {
-                    unset(PMA_Table::$cache[$one_database][$table]);
-                }
-                PMA_Table::$cache[$one_database]
-                    = PMA_Table::$cache[$one_database] + $tables[$one_database];
-            } else {
-                PMA_Table::$cache[$one_database] = $tables[$one_database];
-            }
-        }
-        unset($one_database, $its_tables);
+        $this->_cacheTableData($tables, $table);
 
         if (! is_array($database)) {
             if (isset($tables[$database])) {
