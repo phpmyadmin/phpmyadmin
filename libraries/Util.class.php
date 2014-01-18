@@ -4346,8 +4346,8 @@ class PMA_Util
 
     /**
      * Add fractional seconds to time, datetime and timestamp strings.
-     * If the string contsins fractional seconds,
-     * pads it with 0s upto 6 decimal places.
+     * If the string contains fractional seconds,
+     * pads it with 0s up to 6 decimal places.
      *
      * @param string $value time, datetime or timestamp strings
      *
