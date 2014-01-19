@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-17 11:09+0200\n"
+"PO-Revision-Date: 2014-01-19 16:42+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -5322,20 +5322,18 @@ msgid "Table structure"
 msgstr "Tabelstructuur"
 
 #: libraries/config/messages.inc.php:305
-#, fuzzy
 #| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
-msgstr "Instellingen voor de tabelstructuur (lijst met kolommen)"
+msgstr "Instellingen voor de tabelstructuur (lijst met kolommen)."
 
 #: libraries/config/messages.inc.php:306
 msgid "Tabs"
 msgstr "Tabbladen"
 
 #: libraries/config/messages.inc.php:307
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "Aanpassen van tabblad functioneren"
+msgstr "Kies hoe de tabbladen moeten werken."
 
 #: libraries/config/messages.inc.php:308
 #: libraries/schema/User_Schema.class.php:422
@@ -5352,10 +5350,9 @@ msgid "Text fields"
 msgstr "Tekstvelden"
 
 #: libraries/config/messages.inc.php:313
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "Tekstvelden aanpassen"
+msgstr "Invoertekstvelden aanpassen."
 
 #: libraries/config/messages.inc.php:314
 msgid "Texy! text"
@@ -5370,13 +5367,11 @@ msgid "Warnings"
 msgstr "Waarschuwingen"
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "Schakel enkele waarschuwingen uit die getoond worden door phpMyAdmin"
+msgstr "Schakel enkele waarschuwingen uit die getoond worden door phpMyAdmin."
 
 #: libraries/config/messages.inc.php:320
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
@@ -5385,7 +5380,7 @@ msgid ""
 "and export operations."
 msgstr ""
 "Gebruik [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compressie voor "
-"import- en exportoperaties"
+"import- en exportbewerkingen."
 
 #: libraries/config/messages.inc.php:323
 msgid "GZip"
@@ -5396,7 +5391,6 @@ msgid "Extra parameters for iconv"
 msgstr "Extra parameters voor iconv"
 
 #: libraries/config/messages.inc.php:326
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
@@ -5404,8 +5398,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"Indien ingeschakeld gaat phpMyAdmin door met het uitvoeren van queries als "
-"een query uit een meervoudige opdracht een fout oplevert"
+"Indien ingeschakeld gaat phpMyAdmin door met het uitvoeren van queries zelfs "
+"als een query uit een meervoudige opdracht een fout oplevert."
 
 #: libraries/config/messages.inc.php:329
 msgid "Ignore multiple statement errors"
@@ -5437,7 +5431,6 @@ msgid "Replace table data with file"
 msgstr "Vervang tabelgegevens door het bestand"
 
 #: libraries/config/messages.inc.php:344
-#, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
 #| "table) and only SQL is always available"
@@ -5446,7 +5439,7 @@ msgid ""
 "table) and only SQL is always available."
 msgstr ""
 "Standaard formaat; deze lijst is afhankelijk van de locatie (databank, "
-"tabel), enkel SQL is altijd beschikbaar"
+"tabel), enkel SQL is altijd beschikbaar."
 
 #: libraries/config/messages.inc.php:347
 msgid "Format of imported file"
@@ -5476,10 +5469,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Percentages als decimalen importeren (12.00% naar .12)"
 
 #: libraries/config/messages.inc.php:360
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
-msgstr "Aantal queries die moeten worden overgeslagen vanaf het begin"
+msgstr "Aantal queries die moeten worden overgeslagen in het begin."
 
 #: libraries/config/messages.inc.php:361
 msgid "Partial import: skip queries"
@@ -5494,17 +5486,15 @@ msgid "Initial state for sliders"
 msgstr "Initiële toestand van schuif-indexen"
 
 #: libraries/config/messages.inc.php:368
-#, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "Hoeveel rijen gelijktijdig kunnen worden ingevoegd"
+msgstr "Hoeveel rijen gelijktijdig kunnen worden ingevoegd."
 
 #: libraries/config/messages.inc.php:369
 msgid "Number of inserted rows"
 msgstr "Aantal ingevoegde rijen"
 
 #: libraries/config/messages.inc.php:371
-#, fuzzy
 #| msgid ""
 #| "Maximum number of characters shown in any non-numeric column on browse "
 #| "view"
@@ -5512,7 +5502,7 @@ msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
 "Maximaal aantal karakters dat wordt getoond in een niet-numerieke kolom bij "
-"het bekijken van queryresultaten"
+"het bekijken van queryresultaten."
 
 #: libraries/config/messages.inc.php:373
 msgid "Limit column characters"
@@ -10879,7 +10869,6 @@ msgid "Use text field"
 msgstr "Tekstveld gebruiken"
 
 #: libraries/server_privileges.lib.php:1315
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10888,7 +10877,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Er bestaat al een account met dezelfde gebruikersnaam maar mogelijk met een "
-"andere hostnaam. Weet u zeker dat u wilt doorgaan?"
+"andere hostnaam. "
 
 #: libraries/server_privileges.lib.php:1451
 msgid "Do not change the password"
