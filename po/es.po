@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-16 15:38+0200\n"
+"PO-Revision-Date: 2014-01-19 15:51+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/4-1/es/>\n"
 "Language: es\n"
@@ -10385,7 +10385,6 @@ msgid "Use text field"
 msgstr "Use el campo de texto"
 
 #: libraries/server_privileges.lib.php:1310
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10394,7 +10393,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Ya existe una cuenta con el mismo nombre de usuario pero posiblemente un "
-"nombre de servidor diferente. ¿Seguro que desea proceder?"
+"nombre de servidor diferente. "
 
 #: libraries/server_privileges.lib.php:1446
 msgid "Do not change the password"
