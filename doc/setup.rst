@@ -477,7 +477,7 @@ since this link provides funding for phpMyAdmin.
 Securing your phpMyAdmin installation
 +++++++++++++++++++++++++++++++++++++
 
-The phpMyAdmin team tries hardly to make the application secure, however there
+The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
 * remove ``setup`` directory from phpMyAdmin, you will probably not 
