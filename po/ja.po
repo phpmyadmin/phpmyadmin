@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-15 09:08-0500\n"
+"POT-Creation-Date: 2014-01-19 08:20-0500\n"
 "PO-Revision-Date: 2014-01-06 12:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
 ">\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -56,8 +56,8 @@ msgstr "テーブルのコメント："
 #: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
-#: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:808
-#: libraries/tbl_tracking.lib.php:895
+#: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
+#: libraries/tbl_tracking.lib.php:896
 msgid "Column"
 msgstr "カラム"
 
@@ -81,8 +81,8 @@ msgstr "カラム"
 #: libraries/server_privileges.lib.php:1927 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1196
 #: libraries/tbl_columns_definition_form.lib.php:276
-#: libraries/tbl_printview.lib.php:473 libraries/tbl_tracking.lib.php:809
-#: libraries/tbl_tracking.lib.php:892
+#: libraries/tbl_printview.lib.php:473 libraries/tbl_tracking.lib.php:810
+#: libraries/tbl_tracking.lib.php:893
 msgid "Type"
 msgstr "データ型"
 
@@ -99,8 +99,8 @@ msgstr "データ型"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1404
 #: libraries/structure.lib.php:1199
 #: libraries/tbl_columns_definition_form.lib.php:297
-#: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:811
-#: libraries/tbl_tracking.lib.php:898
+#: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:812
+#: libraries/tbl_tracking.lib.php:899
 msgid "Null"
 msgstr "NULL"
 
@@ -115,7 +115,7 @@ msgstr "NULL"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1405
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1200
 #: libraries/tbl_columns_definition_form.lib.php:288
-#: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:812
+#: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
 msgid "Default"
 msgstr "デフォルト値"
 
@@ -159,8 +159,8 @@ msgstr "コメント"
 #: libraries/server_privileges.lib.php:2693
 #: libraries/server_privileges.lib.php:3036
 #: libraries/server_privileges.lib.php:3058 libraries/structure.lib.php:1284
-#: libraries/tbl_printview.lib.php:113 libraries/tbl_tracking.lib.php:853
-#: libraries/tbl_tracking.lib.php:930 libraries/tbl_tracking.lib.php:935
+#: libraries/tbl_printview.lib.php:113 libraries/tbl_tracking.lib.php:854
+#: libraries/tbl_tracking.lib.php:931 libraries/tbl_tracking.lib.php:936
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
 msgid "No"
 msgstr "いいえ"
@@ -188,8 +188,8 @@ msgstr "いいえ"
 #: libraries/server_privileges.lib.php:3033
 #: libraries/server_privileges.lib.php:3058 libraries/structure.lib.php:1284
 #: libraries/structure.lib.php:2631 libraries/tbl_printview.lib.php:114
-#: libraries/tbl_tracking.lib.php:853 libraries/tbl_tracking.lib.php:928
-#: libraries/tbl_tracking.lib.php:933 libraries/user_preferences.lib.php:294
+#: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
+#: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
 msgid "Yes"
 msgstr "はい"
@@ -381,12 +381,12 @@ msgid "Drop"
 msgstr "削除"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
-#: libraries/tbl_tracking.lib.php:311
+#: libraries/tbl_tracking.lib.php:312
 msgid "active"
 msgstr "アクティブ"
 
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:212
-#: libraries/tbl_tracking.lib.php:313
+#: libraries/tbl_tracking.lib.php:314
 msgid "not active"
 msgstr "非アクティブ"
 
@@ -395,12 +395,12 @@ msgid "Versions"
 msgstr "世代"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
-#: libraries/tbl_tracking.lib.php:352
+#: libraries/tbl_tracking.lib.php:353
 msgid "Tracking report"
 msgstr "追跡レポート"
 
-#: db_tracking.php:149 libraries/tbl_tracking.lib.php:241
-#: libraries/tbl_tracking.lib.php:757
+#: db_tracking.php:149 libraries/tbl_tracking.lib.php:242
+#: libraries/tbl_tracking.lib.php:758
 msgid "Structure snapshot"
 msgstr "構造のスナップショット"
 
@@ -578,7 +578,7 @@ msgstr "幾何データを追加する"
 #: libraries/sql_query_form.lib.php:509 libraries/structure.lib.php:1613
 #: libraries/tbl_chart.lib.php:244
 #: libraries/tbl_columns_definition_form.lib.php:174
-#: libraries/tbl_tracking.lib.php:428 libraries/tbl_tracking.lib.php:546
+#: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
 #: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:336
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
@@ -603,8 +603,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。この制限に関する対策に"
 "ついては %sドキュメント%s をご覧ください。"
@@ -1016,8 +1016,8 @@ msgstr "特権を再読み込み"
 msgid "Removing Selected Users"
 msgstr "選択したユーザを削除する"
 
-#: js/messages.php:66 js/messages.php:123 libraries/tbl_tracking.lib.php:353
-#: libraries/tbl_tracking.lib.php:758
+#: js/messages.php:66 js/messages.php:123 libraries/tbl_tracking.lib.php:354
+#: libraries/tbl_tracking.lib.php:759
 msgid "Close"
 msgstr "閉じる"
 
@@ -1211,7 +1211,7 @@ msgstr "少なくとも１つの系列を追加してください"
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:571
-#: libraries/plugins/export/ExportSql.class.php:1712
+#: libraries/plugins/export/ExportSql.class.php:1716
 #: libraries/server_privileges.lib.php:2661
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
@@ -2503,7 +2503,7 @@ msgstr "データベース <b>%s</b> のSQL:"
 msgid "Submit Query"
 msgstr "クエリを実行する"
 
-#: libraries/DatabaseInterface.class.php:2029
+#: libraries/DatabaseInterface.class.php:2042
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -2511,16 +2511,16 @@ msgstr ""
 "サーバが応答しません (あるいはローカルサーバのソケットが正しく設定されていま"
 "せん)。"
 
-#: libraries/DatabaseInterface.class.php:2034
+#: libraries/DatabaseInterface.class.php:2047
 msgid "The server is not responding."
 msgstr "サーバが応答しません。"
 
-#: libraries/DatabaseInterface.class.php:2039
+#: libraries/DatabaseInterface.class.php:2052
 msgid "Please check privileges of directory containing database."
 msgstr ""
 "データベースを含んでいるディレクトリのパーミッションを確認してください。"
 
-#: libraries/DatabaseInterface.class.php:2049
+#: libraries/DatabaseInterface.class.php:2062
 msgid "Details…"
 msgstr "詳細…"
 
@@ -2578,8 +2578,8 @@ msgstr "テーブル %s に対して条件に一致したものを削除しま�
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
 #: libraries/server_user_groups.lib.php:129
-#: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:372
-#: libraries/tbl_tracking.lib.php:579 libraries/tbl_tracking.lib.php:677
+#: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
+#: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
 #: pmd_general.php:505 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
@@ -2771,8 +2771,8 @@ msgstr "行/クエリ"
 #: libraries/DisplayResults.class.php:4965 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: libraries/DisplayResults.class.php:4978
@@ -2924,8 +2924,8 @@ msgstr ""
 msgid "Git information missing!"
 msgstr "バージョン情報"
 
-#: libraries/Footer.class.php:155 libraries/Footer.class.php:159
-#: libraries/Footer.class.php:162
+#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
+#: libraries/Footer.class.php:169
 msgid "Open new phpMyAdmin window"
 msgstr "別ウィンドウで開く"
 
@@ -2946,26 +2946,26 @@ msgstr "インデックスが定義されていません!"
 #: libraries/build_html_for_db.lib.php:42 libraries/index.lib.php:25
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Index_Container.class.php:27
-#: libraries/tbl_tracking.lib.php:887
+#: libraries/tbl_tracking.lib.php:888
 msgid "Indexes"
 msgstr "インデックス"
 
 #: libraries/Index.class.php:563 libraries/browse_foreigners.lib.php:68
-#: libraries/browse_foreigners.lib.php:72 libraries/tbl_tracking.lib.php:891
+#: libraries/browse_foreigners.lib.php:72 libraries/tbl_tracking.lib.php:892
 msgid "Keyname"
 msgstr "キー名"
 
 #: libraries/Index.class.php:565 libraries/structure.lib.php:1403
 #: libraries/structure.lib.php:2080 libraries/structure.lib.php:2090
-#: libraries/tbl_tracking.lib.php:893
+#: libraries/tbl_tracking.lib.php:894
 msgid "Unique"
 msgstr "ユニーク"
 
-#: libraries/Index.class.php:566 libraries/tbl_tracking.lib.php:894
+#: libraries/Index.class.php:566 libraries/tbl_tracking.lib.php:895
 msgid "Packed"
 msgstr "圧縮"
 
-#: libraries/Index.class.php:568 libraries/tbl_tracking.lib.php:896
+#: libraries/Index.class.php:568 libraries/tbl_tracking.lib.php:897
 msgid "Cardinality"
 msgstr "一意な値の数"
 
@@ -2975,13 +2975,13 @@ msgstr "一意な値の数"
 #: libraries/server_collations.lib.php:35 libraries/structure.lib.php:780
 #: libraries/structure.lib.php:1197 libraries/structure.lib.php:1732
 #: libraries/tbl_columns_definition_form.lib.php:295
-#: libraries/tbl_tracking.lib.php:810 libraries/tbl_tracking.lib.php:897
+#: libraries/tbl_tracking.lib.php:811 libraries/tbl_tracking.lib.php:898
 msgid "Collation"
 msgstr "照合順序"
 
 #: libraries/Index.class.php:572 libraries/rte/rte_events.lib.php:535
-#: libraries/rte/rte_routines.lib.php:1082 libraries/tbl_tracking.lib.php:814
-#: libraries/tbl_tracking.lib.php:899
+#: libraries/rte/rte_routines.lib.php:1082 libraries/tbl_tracking.lib.php:815
+#: libraries/tbl_tracking.lib.php:900
 msgid "Comment"
 msgstr "コメント"
 
@@ -3027,7 +3027,7 @@ msgstr "ビュー"
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
 #: libraries/tbl_columns_definition_form.lib.php:199
-#: libraries/tbl_tracking.lib.php:804 pmd_general.php:190
+#: libraries/tbl_tracking.lib.php:805 pmd_general.php:190
 msgid "Structure"
 msgstr "構造"
 
@@ -3083,7 +3083,7 @@ msgstr "SQL コマンドの追跡"
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
-#: libraries/plugins/export/ExportSql.class.php:1614
+#: libraries/plugins/export/ExportSql.class.php:1618
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
@@ -3596,20 +3596,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "単精度浮動小数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、"
 "1.175494351E-38 から 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から -"
-"2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
+"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から "
+"-2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
 "+308"
 
 #: libraries/Types.class.php:336
@@ -4503,10 +4503,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -7069,8 +7070,8 @@ msgstr ""
 "ユーザ名を所持している場合は、ここに記述します（デフォルトは [kbd]anonymous[/"
 "kbd]）。"
 
-#: libraries/config/messages.inc.php:750 libraries/tbl_tracking.lib.php:577
-#: libraries/tbl_tracking.lib.php:675
+#: libraries/config/messages.inc.php:750 libraries/tbl_tracking.lib.php:578
+#: libraries/tbl_tracking.lib.php:676
 msgid "Username"
 msgstr "ユーザ名"
 
@@ -7266,8 +7267,8 @@ msgid ""
 "for import and export operations."
 msgstr ""
 "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
-"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%"
-"9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
+"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC"
+"%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:784
 msgid "ZIP"
@@ -7571,8 +7572,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -8085,8 +8086,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -8747,17 +8748,17 @@ msgid "Drop the database (DROP)"
 msgstr "データベースを削除する (DROP)"
 
 #: libraries/operations.lib.php:145 libraries/operations.lib.php:1024
-#: libraries/tbl_tracking.lib.php:413
+#: libraries/tbl_tracking.lib.php:414
 msgid "Structure only"
 msgstr "構造のみ"
 
 #: libraries/operations.lib.php:146 libraries/operations.lib.php:1025
-#: libraries/tbl_tracking.lib.php:419
+#: libraries/tbl_tracking.lib.php:420
 msgid "Structure and data"
 msgstr "構造とデータ"
 
 #: libraries/operations.lib.php:147 libraries/operations.lib.php:1026
-#: libraries/tbl_tracking.lib.php:416
+#: libraries/tbl_tracking.lib.php:417
 msgid "Data only"
 msgstr "データのみ"
 
@@ -8920,11 +8921,11 @@ msgstr "%s へようこそ"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください。"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -9073,7 +9074,7 @@ msgstr "データのダンプオプション"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:1874
+#: libraries/plugins/export/ExportSql.class.php:1878
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "テーブルのデータのダンプ"
@@ -9096,21 +9097,21 @@ msgstr "定義"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:643
-#: libraries/plugins/export/ExportSql.class.php:1601
+#: libraries/plugins/export/ExportSql.class.php:1605
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "テーブルの構造"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:667
-#: libraries/plugins/export/ExportSql.class.php:1630
+#: libraries/plugins/export/ExportSql.class.php:1634
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr "ビュー用の構造"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
-#: libraries/plugins/export/ExportSql.class.php:1665
+#: libraries/plugins/export/ExportSql.class.php:1669
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr "ビュー用の代替構造"
@@ -9181,7 +9182,7 @@ msgstr "1 行目にカラム名を追加する"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:403 libraries/replication_gui.lib.php:674
-#: libraries/server_privileges.lib.php:1325 libraries/sql.lib.php:421
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:421
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -9214,7 +9215,7 @@ msgid "Database:"
 msgstr "データベース"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
-#: libraries/plugins/export/ExportSql.class.php:1712
+#: libraries/plugins/export/ExportSql.class.php:1716
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -9292,7 +9293,7 @@ msgid "Data creation options"
 msgstr "生成オプション"
 
 #: libraries/plugins/export/ExportSql.class.php:315
-#: libraries/plugins/export/ExportSql.class.php:1818
+#: libraries/plugins/export/ExportSql.class.php:1822
 msgid "Truncate table before insert"
 msgstr "挿入前にテーブルを空にする"
 
@@ -9374,45 +9375,45 @@ msgstr "ダンプしたテーブルの制約"
 msgid "Constraints for table"
 msgstr "テーブルの制約"
 
-#: libraries/plugins/export/ExportSql.class.php:1247
+#: libraries/plugins/export/ExportSql.class.php:1249
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "ダンプしたテーブルの制約"
 
-#: libraries/plugins/export/ExportSql.class.php:1257
+#: libraries/plugins/export/ExportSql.class.php:1259
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "検索するテーブル:"
 
-#: libraries/plugins/export/ExportSql.class.php:1283
+#: libraries/plugins/export/ExportSql.class.php:1285
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "値がゼロのものに対して AUTO_INCREMENT を使用しない"
 
-#: libraries/plugins/export/ExportSql.class.php:1293
+#: libraries/plugins/export/ExportSql.class.php:1295
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT 値を追加する"
 
-#: libraries/plugins/export/ExportSql.class.php:1495
+#: libraries/plugins/export/ExportSql.class.php:1499
 msgid "MIME TYPES FOR TABLE"
 msgstr "テーブルに含まれている MIME タイプ"
 
-#: libraries/plugins/export/ExportSql.class.php:1520
+#: libraries/plugins/export/ExportSql.class.php:1524
 msgid "RELATIONS FOR TABLE"
 msgstr "テーブルのリレーション"
 
-#: libraries/plugins/export/ExportSql.class.php:1647
+#: libraries/plugins/export/ExportSql.class.php:1651
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "ビュー用の構造"
 
-#: libraries/plugins/export/ExportSql.class.php:1735
+#: libraries/plugins/export/ExportSql.class.php:1739
 msgid "Error reading data:"
 msgstr "データ読み込みエラー:"
 
@@ -10038,7 +10039,7 @@ msgstr "サーバ ID"
 
 #: libraries/replication_gui.lib.php:591 libraries/replication_gui.lib.php:678
 #: libraries/replication_gui.lib.php:819
-#: libraries/server_privileges.lib.php:1330
+#: libraries/server_privileges.lib.php:1329
 #: libraries/server_privileges.lib.php:1426
 #: libraries/server_privileges.lib.php:1819
 #: libraries/server_privileges.lib.php:1926
@@ -10056,17 +10057,17 @@ msgstr ""
 "されます。"
 
 #: libraries/replication_gui.lib.php:721
-#: libraries/server_privileges.lib.php:1383
+#: libraries/server_privileges.lib.php:1382
 msgid "Any host"
 msgstr "すべてのホスト"
 
 #: libraries/replication_gui.lib.php:726
-#: libraries/server_privileges.lib.php:1391
+#: libraries/server_privileges.lib.php:1390
 msgid "Local"
 msgstr "ローカル"
 
 #: libraries/replication_gui.lib.php:733
-#: libraries/server_privileges.lib.php:1400
+#: libraries/server_privileges.lib.php:1399
 msgid "This Host"
 msgstr "このホスト"
 
@@ -10077,7 +10078,7 @@ msgstr "すべてのユーザ"
 
 #: libraries/replication_gui.lib.php:780 libraries/replication_gui.lib.php:813
 #: libraries/replication_gui.lib.php:846
-#: libraries/server_privileges.lib.php:1419
+#: libraries/server_privileges.lib.php:1418
 #: libraries/server_privileges.lib.php:2823
 #, fuzzy
 #| msgid "Use text field"
@@ -10085,7 +10086,7 @@ msgid "Use text field:"
 msgstr "テキスト入力項目の値を利用する"
 
 #: libraries/replication_gui.lib.php:807
-#: libraries/server_privileges.lib.php:1410
+#: libraries/server_privileges.lib.php:1409
 msgid "Use Host Table"
 msgstr "ホストテーブルを使う"
 
@@ -10635,7 +10636,7 @@ msgstr "属性"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/schema/Pdf_Relation_Schema.class.php:1406
-#: libraries/structure.lib.php:1201 libraries/tbl_tracking.lib.php:813
+#: libraries/structure.lib.php:1201 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "その他"
 
@@ -11103,7 +11104,7 @@ msgstr "テキスト入力項目の値を利用する"
 #: libraries/server_privileges.lib.php:1315
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. Are you sure you wish to proceed?"
+"hostname. "
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1451
@@ -11328,8 +11329,8 @@ msgstr "ユーザ概略"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -12746,7 +12747,7 @@ msgstr "オーバーヘッドのあるテーブルを確認する"
 msgid "Sort"
 msgstr "ソート"
 
-#: libraries/structure.lib.php:1295 libraries/tbl_tracking.lib.php:867
+#: libraries/structure.lib.php:1295 libraries/tbl_tracking.lib.php:868
 msgctxt "None for default"
 msgid "None"
 msgstr "なし"
@@ -12898,8 +12899,8 @@ msgstr "有効"
 msgid "Table %1$s has been altered successfully"
 msgstr "テーブル %1$s は正常に変更されました"
 
-#: libraries/structure.lib.php:2445 libraries/tbl_tracking.lib.php:997
-#: libraries/tbl_tracking.lib.php:1027
+#: libraries/structure.lib.php:2445 libraries/tbl_tracking.lib.php:998
+#: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "クエリエラー"
 
@@ -13244,75 +13245,75 @@ msgstr "%s への SQL コマンド追跡を非アクティブにする"
 msgid "Deactivate now"
 msgstr "すぐに非アクティブにする"
 
-#: libraries/tbl_tracking.lib.php:327
+#: libraries/tbl_tracking.lib.php:328
 msgid "Show versions"
 msgstr "世代を表示する"
 
-#: libraries/tbl_tracking.lib.php:356
+#: libraries/tbl_tracking.lib.php:357
 msgid "Tracking statements"
 msgstr "追跡しているコマンド"
 
-#: libraries/tbl_tracking.lib.php:368
+#: libraries/tbl_tracking.lib.php:369
 msgid "Delete tracking data row from report"
 msgstr "レポートからこの追跡データを削除する"
 
-#: libraries/tbl_tracking.lib.php:379
+#: libraries/tbl_tracking.lib.php:380
 msgid "No data"
 msgstr "データが存在しません"
 
-#: libraries/tbl_tracking.lib.php:466 libraries/tbl_tracking.lib.php:515
+#: libraries/tbl_tracking.lib.php:467 libraries/tbl_tracking.lib.php:516
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "種別：%1$s、期間：%2$s－%3$s、ユーザ：%4$sで絞り込む %5$s"
 
-#: libraries/tbl_tracking.lib.php:536
+#: libraries/tbl_tracking.lib.php:537
 msgid "SQL dump (file download)"
 msgstr "SQL 文のダンプ (ファイルでダウンロード)"
 
-#: libraries/tbl_tracking.lib.php:538
+#: libraries/tbl_tracking.lib.php:539
 msgid "SQL dump"
 msgstr "SQL 文のダンプ"
 
-#: libraries/tbl_tracking.lib.php:541
+#: libraries/tbl_tracking.lib.php:542
 msgid "This option will replace your table and contained data."
 msgstr ""
 "このオプションは、テーブルやそれに含まれるデータを置き換えるかもしれません。"
 
-#: libraries/tbl_tracking.lib.php:543
+#: libraries/tbl_tracking.lib.php:544
 msgid "SQL execution"
 msgstr "SQL 文を実行"
 
-#: libraries/tbl_tracking.lib.php:548
+#: libraries/tbl_tracking.lib.php:549
 #, php-format
 msgid "Export as %s"
 msgstr "上の結果をエクスポートする %s"
 
-#: libraries/tbl_tracking.lib.php:576 libraries/tbl_tracking.lib.php:674
+#: libraries/tbl_tracking.lib.php:577 libraries/tbl_tracking.lib.php:675
 msgid "Date"
 msgstr "日時"
 
-#: libraries/tbl_tracking.lib.php:578
+#: libraries/tbl_tracking.lib.php:579
 msgid "Data manipulation statement"
 msgstr "データ操作コマンド"
 
-#: libraries/tbl_tracking.lib.php:676
+#: libraries/tbl_tracking.lib.php:677
 msgid "Data definition statement"
 msgstr "データ定義コマンド"
 
-#: libraries/tbl_tracking.lib.php:775
+#: libraries/tbl_tracking.lib.php:776
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "世代 %s のスナップショット (SQL コード)"
 
-#: libraries/tbl_tracking.lib.php:994
+#: libraries/tbl_tracking.lib.php:995
 msgid "Tracking data definition successfully deleted"
 msgstr "追跡データ定義コマンドは正常に削除されました"
 
-#: libraries/tbl_tracking.lib.php:1024
+#: libraries/tbl_tracking.lib.php:1025
 msgid "Tracking data manipulation successfully deleted"
 msgstr "追跡データ操作コマンドは正常に削除されました"
 
-#: libraries/tbl_tracking.lib.php:1044
+#: libraries/tbl_tracking.lib.php:1045
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -13320,37 +13321,37 @@ msgstr ""
 "作成された一時的なデータベースを使用してダンプを実行することができます。これ"
 "を実行できる特権を持っていることを確認してください。"
 
-#: libraries/tbl_tracking.lib.php:1048
+#: libraries/tbl_tracking.lib.php:1049
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 "一時的なデータベースに対して実行しない場合は、この2行をコメントアウトします。"
 
-#: libraries/tbl_tracking.lib.php:1058
+#: libraries/tbl_tracking.lib.php:1059
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 "SQL 文をエクスポートしました。ダンプしたものをコピーするか実行するかしてくだ"
 "さい。"
 
-#: libraries/tbl_tracking.lib.php:1086
+#: libraries/tbl_tracking.lib.php:1087
 msgid "SQL statements executed."
 msgstr "SQL 文が実行されました。"
 
-#: libraries/tbl_tracking.lib.php:1104
+#: libraries/tbl_tracking.lib.php:1105
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "テーブル `%s` に対しての追跡レポート"
 
-#: libraries/tbl_tracking.lib.php:1132
+#: libraries/tbl_tracking.lib.php:1133
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "%1$s に対する SQL コマンド追跡機能は、世代 %2$s でアクティブです。"
 
-#: libraries/tbl_tracking.lib.php:1154
+#: libraries/tbl_tracking.lib.php:1155
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "%1$s に対する SQL コマンド追跡機能は、世代 %2$s で非アクティブです。"
 
-#: libraries/tbl_tracking.lib.php:1226
+#: libraries/tbl_tracking.lib.php:1227
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
@@ -14349,8 +14350,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
 "す。この値は、80%% 以上がいいと言われています。"
@@ -14507,8 +14508,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
 "言われています。"
@@ -15061,8 +15062,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections は max_connections の %s%% になっています。この値は、80%"
-"% 未満がいいと言われています。"
+"Max_used_connections は max_connections の %s%% になっています。この値は、"
+"80%% 未満がいいと言われています。"
 
 #: libraries/advisory_rules.txt:399
 msgid "Percentage of aborted connections"
@@ -15282,10 +15283,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが 60%"
-"% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを使"
-"用していない、もしくは同マシン上で他のサービスを稼動させていないのであれば、"
-"ご使用のシステムではこの設定で十分かもしれません。"
+"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが "
+"60%% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを"
+"使用していない、もしくは同マシン上で他のサービスを稼動させていないのであれ"
+"ば、ご使用のシステムではこの設定で十分かもしれません。"
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
