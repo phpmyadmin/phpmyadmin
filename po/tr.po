@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-15 18:10+0200\n"
+"PO-Revision-Date: 2014-01-19 14:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4647,7 +4647,6 @@ msgid "Check config file permissions"
 msgstr "Yapılandırma dosyası izinlerini kontrol et"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4656,9 +4655,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Daha fazla belleğe gerek kalmadan gzip/bzip2 dışa aktarmalarını anında "
-"sıkıştırır; eğer gzip/bzip2 dosyalarını oluşturmada sorunlarla "
-"karşılaşırsanız bu özelliği etkisizleştirin."
+"Daha fazla belleğe gerek kalmadan gzip dışa aktarmalarını anında sıkıştırır; "
+"eğer gzip dosyalarını oluşturmada sorunlarla karşılaşırsanız bu özelliği "
+"etkisizleştirin."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -10456,7 +10455,6 @@ msgid "Use text field"
 msgstr "Metin alanını kullan"
 
 #: libraries/server_privileges.lib.php:1315
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10465,7 +10463,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Hesap zaten aynı kullanıcı adıyla mevcut ancak farklı bir anamakine olması "
-"mümkün. Devam etmek istediğinizden emin misiniz?"
+"mümkün. "
 
 #: libraries/server_privileges.lib.php:1451
 msgid "Do not change the password"
