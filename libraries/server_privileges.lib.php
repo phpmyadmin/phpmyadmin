@@ -1314,7 +1314,6 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
             __(
                 'An account already exists with the same username '
                 . 'but possibly a different hostname. '
-                . 'Are you sure you wish to proceed?'
             )
         )->getDisplay()
         . '</div>';
