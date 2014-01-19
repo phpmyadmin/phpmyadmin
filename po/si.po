@@ -1,17 +1,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.5-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-15 08:42-0500\n"
+"POT-Creation-Date: 2014-01-19 08:19-0500\n"
 "PO-Revision-Date: 2013-07-12 14:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
 ">\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.6-dev\n"
 
@@ -605,8 +605,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "ඔබ උඩුගත කිරීමට උත්සාහ කල ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා කරුණාකර "
 "%sලියකියවිලි%s බලන්න."
@@ -2706,8 +2706,8 @@ msgstr "විමසුම තුල"
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "මෙම දසුනේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය කරන්න."
 
@@ -2854,8 +2854,8 @@ msgstr ""
 msgid "Git information missing!"
 msgstr "අනුවාදය පිළිබඳ තොරතුරු"
 
-#: libraries/Footer.class.php:155 libraries/Footer.class.php:159
-#: libraries/Footer.class.php:162
+#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
+#: libraries/Footer.class.php:169
 msgid "Open new phpMyAdmin window"
 msgstr "නව phpMyAdmin කවුළුවක් විවෘත කරන්න"
 
@@ -3523,21 +3523,21 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "කුඩා දශම සංඛ්‍යාවකි, ලබා දිය හැකි අගයන් වන්නේ -3.402823466E+38 සිට -1.175494351E-38, "
 "0, හා 1.175494351E-38 සිට 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"ද්වී-නියත දශම සංඛ්‍යාවකි, ලබා දිය හැකි අගයන් වන්නේ -1.7976931348623157E+308 විට -"
-"2.2250738585072014E-308, 0, හා 2.2250738585072014E-308 සිට 1.7976931348623157E"
-"+308"
+"ද්වී-නියත දශම සංඛ්‍යාවකි, ලබා දිය හැකි අගයන් වන්නේ -1.7976931348623157E+308 විට "
+"-2.2250738585072014E-308, 0, හා 2.2250738585072014E-308 සිට "
+"1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
 msgid ""
@@ -6794,12 +6794,12 @@ msgstr ", @TABLE@ වගුවේ නාමයෙන් ප්‍රතිස්
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 
 #: libraries/display_export.lib.php:510
 msgid "use this for future exports"
@@ -7254,8 +7254,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8036,8 +8036,8 @@ msgstr "%s වෙත ආයුබෝවන්"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "ඔබ වින්‍යාස ගොනුවක් නොසෑදුවා විය යුතුය. වින්‍යාස ගොනුවක් සෑදීමට %1$sපිහිටුවීමේ විධානාවලිය%2$s "
 "භාවිතා කිරීම අවශ්‍ය විය හැකිය."
@@ -8284,7 +8284,7 @@ msgstr "තීර නම් පළමු පේළියේ යොදන්න:"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:682
-#: libraries/server_privileges.lib.php:1320 libraries/sql.lib.php:426
+#: libraries/server_privileges.lib.php:1319 libraries/sql.lib.php:426
 msgid "Host:"
 msgstr "දායකයා:"
 
@@ -9059,7 +9059,7 @@ msgstr "සේවාදායකයේ හැඳුනුම් අංකය"
 
 #: libraries/replication_gui.lib.php:599 libraries/replication_gui.lib.php:686
 #: libraries/replication_gui.lib.php:827
-#: libraries/server_privileges.lib.php:1325
+#: libraries/server_privileges.lib.php:1324
 #: libraries/server_privileges.lib.php:1421
 #: libraries/server_privileges.lib.php:1814
 #: libraries/server_privileges.lib.php:1922
@@ -9076,17 +9076,17 @@ msgstr ""
 "--report-host=host_name විකල්පය සමඟ ඇරඹි අනුගාමි සේවාදායක පමණක් මෙම ලැයිස්තුවේ පෙන්වයි."
 
 #: libraries/replication_gui.lib.php:729
-#: libraries/server_privileges.lib.php:1378
+#: libraries/server_privileges.lib.php:1377
 msgid "Any host"
 msgstr "ඕනෑම දායකයෙක්"
 
 #: libraries/replication_gui.lib.php:734
-#: libraries/server_privileges.lib.php:1386
+#: libraries/server_privileges.lib.php:1385
 msgid "Local"
 msgstr "ස්වදේශී"
 
 #: libraries/replication_gui.lib.php:741
-#: libraries/server_privileges.lib.php:1395
+#: libraries/server_privileges.lib.php:1394
 msgid "This Host"
 msgstr "මෙම දායකයා"
 
@@ -9097,13 +9097,13 @@ msgstr "ඕනෑම භාවිතා කරන්නෙක්"
 
 #: libraries/replication_gui.lib.php:788 libraries/replication_gui.lib.php:821
 #: libraries/replication_gui.lib.php:854
-#: libraries/server_privileges.lib.php:1414
+#: libraries/server_privileges.lib.php:1413
 #: libraries/server_privileges.lib.php:2789
 msgid "Use text field:"
 msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න:"
 
 #: libraries/replication_gui.lib.php:815
-#: libraries/server_privileges.lib.php:1405
+#: libraries/server_privileges.lib.php:1404
 msgid "Use Host Table"
 msgstr "දායක වගුව භාවිතා කරන්න"
 
@@ -10092,7 +10092,7 @@ msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න"
 #: libraries/server_privileges.lib.php:1310
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. Are you sure you wish to proceed?"
+"hostname. "
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1446
@@ -10307,8 +10307,8 @@ msgstr "භාවිතා කරන්නන් පිළිබඳ දළ ව�
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "සටහන: phpMyAdmin භාවිත කරන්නන්ගේ වරප්‍රසාද ලබාගනුයේ MySQL හි වරප්‍රසාද වගුවෙනි. "
 "සේවාදායකයේ වරප්‍රසාද වෙනම ම වෙනස් කර ඇත්නම් ඉහත වගුවේ දත්ත සේවාදායකයේ වරප්‍රසාද වලට "
@@ -12176,8 +12176,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"මෙම සැසිය සඳහා පමණක් ඔබගේ තෝරාගැනීම් සුරැකේ. තෝරාගැනීම් ස්ථාවරව සුරැකීම සඳහා %"
-"sphpMyAdmin වින්‍යාස ගබඩාව%s අවශ්‍යය."
+"මෙම සැසිය සඳහා පමණක් ඔබගේ තෝරාගැනීම් සුරැකේ. තෝරාගැනීම් ස්ථාවරව සුරැකීම සඳහා "
+"%sphpMyAdmin වින්‍යාස ගබඩාව%s අවශ්‍යය."
 
 #: libraries/user_preferences.lib.php:129
 msgid "Could not save configuration"
@@ -13181,8 +13181,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13302,8 +13302,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

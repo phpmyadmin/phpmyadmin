@@ -5,13 +5,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.5-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-15 08:42-0500\n"
+"POT-Creation-Date: 2014-01-19 08:19-0500\n"
 "PO-Revision-Date: 2014-01-15 23:07+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
+"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/"
+">\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -617,8 +617,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Probabilemente tu es essayante incargar un file troppo grande. Pro favor tu "
 "refere al %sdocumentation%s pro eluder iste limite."
@@ -913,8 +913,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Sur le servitor es executante Suhosin. Controla le documentation: %"
-"sdocumentation%s pro possibile problema."
+"Sur le servitor es executante Suhosin. Controla le documentation: "
+"%sdocumentation%s pro possibile problema."
 
 #: js/messages.php:29 libraries/import.lib.php:118 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -2764,11 +2764,11 @@ msgstr "in le query"
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Iste vista ha al minus iste numero de rangos. Pro favor refere a %"
-"sdocumentation%s."
+"Iste vista ha al minus iste numero de rangos. Pro favor refere a "
+"%sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4926
 #, php-format
@@ -2913,8 +2913,8 @@ msgstr "Currentemente executante revision de Git %1$s ex le ramo %2$s."
 msgid "Git information missing!"
 msgstr "Information de git mancante!"
 
-#: libraries/Footer.class.php:155 libraries/Footer.class.php:159
-#: libraries/Footer.class.php:162
+#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
+#: libraries/Footer.class.php:169
 msgid "Open new phpMyAdmin window"
 msgstr "Aperi nove fenestra de phpMyAdmin"
 
@@ -3568,9 +3568,9 @@ msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
-"Le extension de un integer de 8 bytes signate es ex --"
-"9,223,372,036,854,775,808 a 9,223,372,036,854,775,807, si non signate es ex "
-"0 a 18,446,744,073,709,551,615"
+"Le extension de un integer de 8 bytes signate es ex "
+"--9,223,372,036,854,775,808 a 9,223,372,036,854,775,807, si non signate es "
+"ex 0 a 18,446,744,073,709,551,615"
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:714
 msgid ""
@@ -3583,16 +3583,17 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Pro un parve numero a virgula/puncto mobile, valores disponibile es ex -"
-"3.402823466E+38 a -1.175494351E-38, 0, e ex 1.175494351E-38 a 3.402823466E+38"
+"Pro un parve numero a virgula/puncto mobile, valores disponibile es ex "
+"-3.402823466E+38 a -1.175494351E-38, 0, e ex 1.175494351E-38 a 3.402823466E"
+"+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Pro un numero a virgula/puncto mobile de duple precision, valores "
@@ -3644,8 +3645,8 @@ msgid ""
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Un marca de tempore, extension es 1970-01-01 00:00:01 UTC to 2038-01-09 "
-"03:14:07 UTC, immagazinate como le numero de secundas ex le epocha (1970-01-"
-"01 00:00:00 UTC)"
+"03:14:07 UTC, immagazinate como le numero de secundas ex le epocha "
+"(1970-01-01 00:00:00 UTC)"
 
 #: libraries/Types.class.php:327 libraries/Types.class.php:730
 #, php-format
@@ -4494,9 +4495,6 @@ msgid "Highlight pointer"
 msgstr "Evidentia le punctator"
 
 #: libraries/config/messages.inc.php:28
-#| msgid ""
-#| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations"
@@ -4580,10 +4578,6 @@ msgid "Check config file permissions"
 msgstr "Verifica permissiones de file de configuration"
 
 #: libraries/config/messages.inc.php:43
-#| msgid ""
-#| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
-#| "if you encounter problems with created gzip/bzip2 files disable this "
-#| "feature"
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature"
@@ -6783,8 +6777,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7230,8 +7224,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7980,8 +7974,8 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -8223,7 +8217,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:682
-#: libraries/server_privileges.lib.php:1320 libraries/sql.lib.php:426
+#: libraries/server_privileges.lib.php:1319 libraries/sql.lib.php:426
 msgid "Host:"
 msgstr ""
 
@@ -8922,7 +8916,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:599 libraries/replication_gui.lib.php:686
 #: libraries/replication_gui.lib.php:827
-#: libraries/server_privileges.lib.php:1325
+#: libraries/server_privileges.lib.php:1324
 #: libraries/server_privileges.lib.php:1421
 #: libraries/server_privileges.lib.php:1814
 #: libraries/server_privileges.lib.php:1922
@@ -8938,17 +8932,17 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:729
-#: libraries/server_privileges.lib.php:1378
+#: libraries/server_privileges.lib.php:1377
 msgid "Any host"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:734
-#: libraries/server_privileges.lib.php:1386
+#: libraries/server_privileges.lib.php:1385
 msgid "Local"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:741
-#: libraries/server_privileges.lib.php:1395
+#: libraries/server_privileges.lib.php:1394
 msgid "This Host"
 msgstr ""
 
@@ -8959,13 +8953,13 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:788 libraries/replication_gui.lib.php:821
 #: libraries/replication_gui.lib.php:854
-#: libraries/server_privileges.lib.php:1414
+#: libraries/server_privileges.lib.php:1413
 #: libraries/server_privileges.lib.php:2789
 msgid "Use text field:"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:815
-#: libraries/server_privileges.lib.php:1405
+#: libraries/server_privileges.lib.php:1404
 msgid "Use Host Table"
 msgstr ""
 
@@ -9932,7 +9926,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1310
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. Are you sure you wish to proceed?"
+"hostname. "
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1446
@@ -10143,8 +10137,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3886
@@ -12910,8 +12904,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13029,8 +13023,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

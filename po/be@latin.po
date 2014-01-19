@@ -1,19 +1,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.5-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-15 08:42-0500\n"
+"POT-Creation-Date: 2014-01-19 08:19-0500\n"
 "PO-Revision-Date: 2013-08-23 11:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/be@latin/>\n"
+"Language: be@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be@latin\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -638,11 +638,11 @@ msgstr ""
 #: import.php:116
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Vy, musić, pasprabavali zahruzić vielmi vialiki fajł. Kali łaska, "
 "źviarniciesia da %sdakumentacyi%s dla vyśviatleńnia sposabaŭ abyjści hetaje "
@@ -668,8 +668,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca (%"
-"s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
+"Vy pasprabavali zahruzić fajł z metadam ścisku, jaki niepadtrymlivajecca "
+"(%s). Jahonaja padtrymka abo nie realizavanaja, abo adklučanaja ŭ vašaj "
 "kanfihuracyi."
 
 #: import.php:461
@@ -3032,11 +3032,11 @@ msgstr "pa zapytu"
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da %"
-"sdakumentacyi%s."
+"Hety prahlad maje tolki takuju kolkaść radkoŭ. Kali łaska, źviarniciesia da "
+"%sdakumentacyi%s."
 
 #: libraries/DisplayResults.class.php:4926
 #, fuzzy, php-format
@@ -3189,8 +3189,8 @@ msgstr ""
 msgid "Git information missing!"
 msgstr "Infarmacyja pra versiju"
 
-#: libraries/Footer.class.php:155 libraries/Footer.class.php:159
-#: libraries/Footer.class.php:162
+#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
+#: libraries/Footer.class.php:169
 msgid "Open new phpMyAdmin window"
 msgstr "Adkryć novaje akno phpMyAdmin"
 
@@ -3885,14 +3885,14 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -7204,12 +7204,12 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: %3"
-#| "$s. Other text will be kept as is."
+#| "matting strings. Additionally the following transformations will pen: "
+#| "%3$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Hetaje značeńnie interpretujecca z vykarystańniem %1$sstrftime%2$s, tamu "
 "možna vykarystoŭvać radki farmatavańnia času. Aproč hetaha, buduć "
@@ -7742,8 +7742,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8568,8 +8568,8 @@ msgstr "Zaprašajem u %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Imavierna, pryčyna hetaha ŭ tym, što nia stvorany kanfihuracyjny fajł. Kab "
 "jaho stvaryć, možna vykarystać %1$snaładačny skrypt%2$s."
@@ -8859,7 +8859,7 @@ msgstr "Paznačyć nazvy paloŭ u pieršym radku"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:682
-#: libraries/server_privileges.lib.php:1320 libraries/sql.lib.php:426
+#: libraries/server_privileges.lib.php:1319 libraries/sql.lib.php:426
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -9243,8 +9243,8 @@ msgstr ""
 "dadadzienyja da mietki času (pa zmoŭčańni — 0). Druhi parametar "
 "vykarystoŭvajcie, kab paznačyć inšy farmat daty/času. Treci parametar "
 "vyznačaje typ daty, jakaja budzie pakazanaja: vašaja lakalnaja data albo "
-"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). U "
-"zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
+"data UTC (vykarystoŭvajcie dla hetaha parametry «local» i «utc» adpaviedna). "
+"U zaležnaści ad hetaha farmat daty maje roznyja značeńni: dla atrymańnia "
 "parametraŭ lakalnaj daty hladzicie dakumentacyju dla funkcyi PHP strftime(), "
 "a dla hrynvickaha času (parametar «utc») — dakumentacyju funkcyi gmdate()."
 
@@ -9697,7 +9697,7 @@ msgstr "ID servera"
 
 #: libraries/replication_gui.lib.php:599 libraries/replication_gui.lib.php:686
 #: libraries/replication_gui.lib.php:827
-#: libraries/server_privileges.lib.php:1325
+#: libraries/server_privileges.lib.php:1324
 #: libraries/server_privileges.lib.php:1421
 #: libraries/server_privileges.lib.php:1814
 #: libraries/server_privileges.lib.php:1922
@@ -9713,17 +9713,17 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:729
-#: libraries/server_privileges.lib.php:1378
+#: libraries/server_privileges.lib.php:1377
 msgid "Any host"
 msgstr "Luby chost"
 
 #: libraries/replication_gui.lib.php:734
-#: libraries/server_privileges.lib.php:1386
+#: libraries/server_privileges.lib.php:1385
 msgid "Local"
 msgstr "Lakalny"
 
 #: libraries/replication_gui.lib.php:741
-#: libraries/server_privileges.lib.php:1395
+#: libraries/server_privileges.lib.php:1394
 msgid "This Host"
 msgstr "Hety chost"
 
@@ -9734,7 +9734,7 @@ msgstr "Luby karystalnik"
 
 #: libraries/replication_gui.lib.php:788 libraries/replication_gui.lib.php:821
 #: libraries/replication_gui.lib.php:854
-#: libraries/server_privileges.lib.php:1414
+#: libraries/server_privileges.lib.php:1413
 #: libraries/server_privileges.lib.php:2789
 #, fuzzy
 #| msgid "Use text field"
@@ -9742,7 +9742,7 @@ msgid "Use text field:"
 msgstr "Vykarystoŭvać tekstavaje pole"
 
 #: libraries/replication_gui.lib.php:815
-#: libraries/server_privileges.lib.php:1405
+#: libraries/server_privileges.lib.php:1404
 msgid "Use Host Table"
 msgstr "Vykarystoŭvać tablicu chostaŭ"
 
@@ -10834,7 +10834,7 @@ msgstr "Vykarystoŭvać tekstavaje pole"
 #: libraries/server_privileges.lib.php:1310
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. Are you sure you wish to proceed?"
+"hostname. "
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1446
@@ -11068,8 +11068,8 @@ msgstr "Karystalniki"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Zaŭvaha: phpMyAdmin atrymlivaje pryvilei karystalnikaŭ naŭprostava z tablic "
 "pryvilejaŭ MySQL. Źmieściva hetych tablic moža adroźnivacca ad pryvilejaŭ, "
@@ -12463,8 +12463,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Niemahčyma prainicyjalizavać pravierku SQL. Kali łaska, praviercie, ci "
-"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ %"
-"sdakumentacyi%s."
+"ŭstalavanyja ŭ vas nieabchodnyja pašyreńni PHP, jak heta apisana ŭ "
+"%sdakumentacyi%s."
 
 #: libraries/structure.lib.php:68 tbl_operations.php:340
 #, php-format
@@ -14257,8 +14257,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14393,8 +14393,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218

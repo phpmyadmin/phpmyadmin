@@ -1,17 +1,17 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.1.5-dev\n"
+"Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-15 08:42-0500\n"
+"POT-Creation-Date: 2014-01-19 08:19-0500\n"
 "PO-Revision-Date: 2013-08-23 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
 ">\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.7-dev\n"
 
@@ -607,11 +607,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista%"
-"s, kuinka tämän rajoituksen voi poistaa."
+"Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso %sohjeista"
+"%s, kuinka tämän rajoituksen voi poistaa."
 
 #: import.php:284 import.php:550
 msgid "Showing bookmark"
@@ -2322,8 +2322,8 @@ msgstr "Merkkijonon muotoilu epäonnistui '%s' säännöllä."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"Epäkelpo säännön määrittely rivillä %1$s, odotti edellisen säännön riviä %2"
-"$s."
+"Epäkelpo säännön määrittely rivillä %1$s, odotti edellisen säännön riviä "
+"%2$s."
 
 #: libraries/Advisor.class.php:417
 #, php-format
@@ -2727,11 +2727,11 @@ msgstr "lauseessa"
 #: libraries/DisplayResults.class.php:4913 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja %"
-"sohjeista%s."
+"Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
+"%sohjeista%s."
 
 #: libraries/DisplayResults.class.php:4926
 #, fuzzy, php-format
@@ -2879,8 +2879,8 @@ msgstr ""
 msgid "Git information missing!"
 msgstr "Versiotiedot"
 
-#: libraries/Footer.class.php:155 libraries/Footer.class.php:159
-#: libraries/Footer.class.php:162
+#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
+#: libraries/Footer.class.php:169
 msgid "Open new phpMyAdmin window"
 msgstr "Avaa uusi phpMyAdmin-ikkuna"
 
@@ -3545,20 +3545,20 @@ msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - -"
-"1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
+"Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - "
+"-1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Kaksoistarkkuuksinen liukuluku, mahdolliset arvot ovat välillä -"
-"1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
+"Kaksoistarkkuuksinen liukuluku, mahdolliset arvot ovat välillä "
+"-1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
 "2.2250738585072014E-308 - 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
@@ -6832,8 +6832,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tämä arvo on tukittu %1$sstrftime%2$s mukaan, joten voi käyttää "
 "ajanmuodostostusmerkkijonoja. Lisäksi tapahtuu seuraavat muutokset: %3$s. "
@@ -7337,8 +7337,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8146,11 +8146,11 @@ msgstr "Tervetuloa, toivottaa %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston %1"
-"$sasetusskriptillä%2$s."
+"Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
+"%1$sasetusskriptillä%2$s."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -8414,7 +8414,7 @@ msgstr "Aseta sarakkeiden nimet ensimmäiselle riville"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:682
-#: libraries/server_privileges.lib.php:1320 libraries/sql.lib.php:426
+#: libraries/server_privileges.lib.php:1319 libraries/sql.lib.php:426
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -9272,7 +9272,7 @@ msgstr "Palvelimen tunnus"
 
 #: libraries/replication_gui.lib.php:599 libraries/replication_gui.lib.php:686
 #: libraries/replication_gui.lib.php:827
-#: libraries/server_privileges.lib.php:1325
+#: libraries/server_privileges.lib.php:1324
 #: libraries/server_privileges.lib.php:1421
 #: libraries/server_privileges.lib.php:1814
 #: libraries/server_privileges.lib.php:1922
@@ -9290,17 +9290,17 @@ msgstr ""
 "host=host_name."
 
 #: libraries/replication_gui.lib.php:729
-#: libraries/server_privileges.lib.php:1378
+#: libraries/server_privileges.lib.php:1377
 msgid "Any host"
 msgstr "Mikä tahansa palvelin"
 
 #: libraries/replication_gui.lib.php:734
-#: libraries/server_privileges.lib.php:1386
+#: libraries/server_privileges.lib.php:1385
 msgid "Local"
 msgstr "Paikallinen"
 
 #: libraries/replication_gui.lib.php:741
-#: libraries/server_privileges.lib.php:1395
+#: libraries/server_privileges.lib.php:1394
 msgid "This Host"
 msgstr "Tämä isäntä"
 
@@ -9311,7 +9311,7 @@ msgstr "Kuka tahansa käyttäjä"
 
 #: libraries/replication_gui.lib.php:788 libraries/replication_gui.lib.php:821
 #: libraries/replication_gui.lib.php:854
-#: libraries/server_privileges.lib.php:1414
+#: libraries/server_privileges.lib.php:1413
 #: libraries/server_privileges.lib.php:2789
 #, fuzzy
 #| msgid "Use text field"
@@ -9319,7 +9319,7 @@ msgid "Use text field:"
 msgstr "Käytä tekstikenttää"
 
 #: libraries/replication_gui.lib.php:815
-#: libraries/server_privileges.lib.php:1405
+#: libraries/server_privileges.lib.php:1404
 msgid "Use Host Table"
 msgstr "Käytä isäntätaulua"
 
@@ -10421,7 +10421,7 @@ msgstr "Käytä tekstikenttää"
 #: libraries/server_privileges.lib.php:1310
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. Are you sure you wish to proceed?"
+"hostname. "
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1446
@@ -10657,8 +10657,8 @@ msgstr "Käyttäjien yleiskatsaus"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Huom: PhpMyAdmin hakee käyttäjien käyttöoikeudet suoraan MySQL-palvelimen "
 "käyttöoikeustauluista. Näiden taulujen sisältö saattaa poiketa palvelimen "
@@ -13976,8 +13976,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14112,8 +14112,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -15260,8 +15260,8 @@ msgstr "concurrent_insert on asetettu 0"
 #~ "No description is available for this transformation.<br />Please ask the "
 #~ "author what %s does."
 #~ msgstr ""
-#~ "Tälle muunnokselle ei ole saatavilla kuvausta.<br />Kysy tekijältä, mitä %"
-#~ "s tekee."
+#~ "Tälle muunnokselle ei ole saatavilla kuvausta.<br />Kysy tekijältä, mitä "
+#~ "%s tekee."
 
 #~ msgid ""
 #~ "MIME types printed in italics do not have a separate transformation "
@@ -15387,8 +15387,8 @@ msgstr "concurrent_insert on asetettu 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Haluatko varmasti poistaa käytöstä kaikki BLOB-viittaukset tietokannasta %"
-#~ "s?"
+#~ "Haluatko varmasti poistaa käytöstä kaikki BLOB-viittaukset tietokannasta "
+#~ "%s?"
 
 #, fuzzy
 #~ msgid "Unknown error while uploading."
