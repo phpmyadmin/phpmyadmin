@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-17 11:08+0200\n"
+"PO-Revision-Date: 2014-01-19 16:38+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/4-1/nl/>\n"
 "Language: nl\n"
@@ -4472,7 +4472,6 @@ msgid "Highlight pointer"
 msgstr "Muispijl markeren"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4481,7 +4480,7 @@ msgid ""
 "import operations"
 msgstr ""
 "[a@http://nl.wikipedia.org/wiki/Bzip2]bzip2[/a]-compressie inschakelen voor "
-"import- en exportbewerkingen"
+"importbewerkingen"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4559,7 +4558,6 @@ msgid "Check config file permissions"
 msgstr "Controleer de rechten op het configuratiebestand"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4568,9 +4566,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature"
 msgstr ""
-"Comprimeer gzip/bzip2-exports in een keer zonder dat er veel geheugen voor "
-"nodig is; indien u problemen ondervindt met de gemaakte gzip/bzip2-"
-"bestanden, schakel deze functie dan uit"
+"Comprimeer gzip-exports in een keer zonder dat er veel geheugen voor nodig "
+"is; indien u problemen ondervindt met de gemaakte gzip-bestanden, schakel "
+"deze functie dan uit"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
@@ -10339,7 +10337,6 @@ msgid "Use text field"
 msgstr "Tekstveld gebruiken"
 
 #: libraries/server_privileges.lib.php:1310
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10348,7 +10345,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Er bestaat al een account met dezelfde gebruikersnaam maar mogelijk met een "
-"andere hostnaam. Weet u zeker dat u wilt doorgaan?"
+"andere hostnaam. "
 
 #: libraries/server_privileges.lib.php:1446
 msgid "Do not change the password"
