@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-14 21:59+0200\n"
-"Last-Translator: Giorgio Zanetti <gz77it@gmail.com>\n"
+"PO-Revision-Date: 2014-01-20 11:22+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Italian <http://l10n.cihar.com/projects/phpmyadmin/4-1/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1577,7 +1577,7 @@ msgstr "Caricamento…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Richiesta interrotta!"
 
 #: js/messages.php:231
 msgid "Processing Request"
