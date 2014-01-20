@@ -228,7 +228,7 @@ msgstr "کوائفیہ s%2$ نام %1$s میں تبدیل ہو چکا ہے"
 #: db_operations.php:136
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "کوائفیہ %1$ نام %2$ میں نقل کیا جاچکا ہے"
+msgstr "کوائفیہ s%1$ نام s%2$ میں نقل کیا جاچکا ہے"
 
 #: db_operations.php:260
 #, php-format
