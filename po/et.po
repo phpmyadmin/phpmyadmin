@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-15 20:16+0200\n"
+"PO-Revision-Date: 2014-01-20 15:46+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/4-1/et/>\n"
 "Language: et\n"
@@ -10159,7 +10159,6 @@ msgid "Use text field"
 msgstr "Kasuta tekstivälja"
 
 #: libraries/server_privileges.lib.php:1310
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10168,7 +10167,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Sama nimega kasutaja konto on on juba olemas, kuid ilmselt teise hosti "
-"nimega. Kas oled jätkamises kindel?"
+"nimega. "
 
 #: libraries/server_privileges.lib.php:1446
 msgid "Do not change the password"
