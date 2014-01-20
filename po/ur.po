@@ -223,12 +223,12 @@ msgstr "کوائفیہ نام خالی ہے!"
 #: db_operations.php:130
 #, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "کوائفیہs%1$ نام%2$s میں تبدیل ہوچکا ہے"
+msgstr "کوائفیہ%1$s نام%2$s میں تبدیل ہوچکا ہے"
 
 #: db_operations.php:136
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "کوائفیہ s$1% نام s$2% میں نقل کیا جاچکا ہے"
+msgstr "کوائفیہ %1$s نام %2$s میں نقل کیا جاچکا ہے"
 
 #: db_operations.php:260
 #, php-format
