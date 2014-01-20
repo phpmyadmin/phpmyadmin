@@ -4204,6 +4204,7 @@ class PMA_Util
                             = 'Proxy-Authorization: Basic ' . $auth;
                     }
                 }
+                session_write_close();
                 $response = file_get_contents(
                     $file,
                     false,
@@ -4241,6 +4242,7 @@ class PMA_Util
                     CURLOPT_TIMEOUT,
                     $connection_timeout
                 );
+                session_write_close();
                 $response = curl_exec($curl_handle);
             }
         }
@@ -4251,6 +4253,7 @@ class PMA_Util
             && strlen($data->date)
             && $save
         ) {
+            session_start();
             $_SESSION['cache']['version_check'] = array(
                 'response' => $response,
                 'timestamp' => time()
