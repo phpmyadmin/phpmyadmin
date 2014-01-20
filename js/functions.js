@@ -129,7 +129,10 @@ function PMA_current_version(data)
     if (data && data.version && data.date) {
         var current = parseVersionString(pmaversion);
         var latest = parseVersionString(data.version);
-        var version_information_message = PMA_messages.strLatestAvailable + ' ' + escapeHtml(data.version);
+        var version_information_message = '<span>'
+            + PMA_messages.strLatestAvailable
+            + ' ' + escapeHtml(data.version)
+            + '</span>';
         if (latest > current) {
             var message = $.sprintf(
                 PMA_messages.strNewerVersion,
@@ -146,6 +149,7 @@ function PMA_current_version(data)
         if (latest === current) {
             version_information_message = ' (' + PMA_messages.strUpToDate + ')';
         }
+        $('#li_pma_version span').remove();
         $('#li_pma_version').append(version_information_message);
     }
 }
@@ -156,6 +160,7 @@ function PMA_current_version(data)
 function PMA_display_git_revision()
 {
     $('#is_git_revision').remove();
+    $('#li_pma_version_git').remove();
     $.get(
         "index.php",
         {
