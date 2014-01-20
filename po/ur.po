@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-20 11:18+0200\n"
-"Last-Translator: Mehbooob Khan <mehboobbugti@gmail.com>\n"
+"PO-Revision-Date: 2014-01-20 11:19+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
@@ -223,12 +223,12 @@ msgstr "کوائفیہ نام خالی ہے!"
 #: db_operations.php:130
 #, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "کوائفیہ%1$ نام%2$s میں تبدیل ہوچکا ہے"
+msgstr "کوائفیہs%1$ نام%2$s میں تبدیل ہوچکا ہے"
 
 #: db_operations.php:136
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "کوائفیہ s%1$ نام s%2$ میں نقل کیا جاچکا ہے"
+msgstr "کوائفیہ s$1% نام s$2% میں نقل کیا جاچکا ہے"
 
 #: db_operations.php:260
 #, php-format
