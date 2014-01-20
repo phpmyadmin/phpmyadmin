@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-14 16:51+0200\n"
+"PO-Revision-Date: 2014-01-20 11:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -4533,7 +4533,6 @@ msgid "Highlight pointer"
 msgstr "Zvýrazňovač řádků při ukázání"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations."
@@ -4542,7 +4541,7 @@ msgid ""
 "import operations."
 msgstr ""
 "Povolit [a@http://cs.wikipedia.org/wiki/Bzip2]bzip2[/a] kompresi pro "
-"importování a exportování."
+"importování."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -4617,7 +4616,6 @@ msgid "Check config file permissions"
 msgstr "Zkontrolovat přístupová práva konfiguračního souboru"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4626,9 +4624,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Komprimovat exporty pomocí gzip/bzip2 za letu bez velkých nároků na paměť; "
-"pokud narazíte na problémy s takto vytvořenými gzip/bzip2 archivy, zakažte "
-"tuto funkci."
+"Komprimovat exporty pomocí gzip za běhu bez velkých nároků na paměť; pokud "
+"narazíte na problémy s takto vytvořenými gzip archivy, zakažte tuto funkci."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -10373,7 +10370,6 @@ msgid "Use text field"
 msgstr "Použít textové pole"
 
 #: libraries/server_privileges.lib.php:1315
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10381,8 +10377,8 @@ msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. "
 msgstr ""
-"Přístupové údaje pro tohoto uživatele již existují (možná s jiným "
-"hostitelem). Jste si jisti, že chcete pokračovat?"
+"Přístupové údaje pro tohoto uživatele již existují (možná pro jiný počítač). "
+""
 
 #: libraries/server_privileges.lib.php:1451
 msgid "Do not change the password"
