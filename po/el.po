@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-15 22:23+0200\n"
+"PO-Revision-Date: 2014-01-20 15:14+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/4-1/el/>\n"
 "Language: el\n"
@@ -10343,7 +10343,6 @@ msgid "Use text field"
 msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
 
 #: libraries/server_privileges.lib.php:1310
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10352,7 +10351,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Ένας λογαριασμός με το ίδιο όνομα χρήστη υπάρχει ήδη αλλά πιθανά διαφορετικό "
-"φιλοξενητή. Θέλετε να συνεχίσετε;"
+"φιλοξενητή. "
 
 #: libraries/server_privileges.lib.php:1446
 msgid "Do not change the password"
