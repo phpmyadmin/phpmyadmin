@@ -753,7 +753,9 @@ class PMA_Config
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($ch, CURLOPT_USERAGENT, 'phpMyAdmin/' . PMA_VERSION);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        session_write_close();
         $data = @curl_exec($ch);
+        session_start();
         if ($data === false) {
             return null;
         }
