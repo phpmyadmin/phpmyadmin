@@ -70,11 +70,11 @@ class PMA_StringNativeType extends PMA_StringAbstractType
      */
     public function isUpper($c)
     {
-        $ord_zero = 65; //ord('A');
-        $ord_nine = 90; //ord('Z');
+        $ord_A = 65; //ord('A');
+        $ord_Z = 90; //ord('Z');
         $ord_c    = ord($c);
 
-        return $this->numberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
+        return $this->numberInRangeInclusive($ord_c, $ord_A, $ord_Z);
     } // end of the "isUpper()" function
 
     /**
@@ -86,11 +86,11 @@ class PMA_StringNativeType extends PMA_StringAbstractType
      */
     public function isLower($c)
     {
-        $ord_zero = 97;  //ord('a');
-        $ord_nine = 122; //ord('z');
+        $ord_a = 97;  //ord('a');
+        $ord_z = 122; //ord('z');
         $ord_c    = ord($c);
 
-        return $this->numberInRangeInclusive($ord_c, $ord_zero, $ord_nine);
+        return $this->numberInRangeInclusive($ord_c, $ord_a, $ord_z);
     } // end of the "isLower()" function
 
     /**
