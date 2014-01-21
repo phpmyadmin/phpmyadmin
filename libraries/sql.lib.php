@@ -834,7 +834,7 @@ function PMA_isAppendLimitClause($analyzed_sql_results)
     if (($_SESSION['tmpval']['max_rows'] != 'all')
         && ! ($analyzed_sql_results['is_export']
         || $analyzed_sql_results['is_analyse'])
-        && $select_from
+        && ($select_from || $analyzed_sql_results['is_subquery'])
         && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['offset'])
         && empty($analyzed_sql_results['analyzed_sql'][0]['limit_clause'])
     ) {
