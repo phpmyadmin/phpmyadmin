@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-08-23 11:36+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2014-01-21 11:53+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/4-1/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -901,7 +900,7 @@ msgstr "\"DROP DATABASE\"-satser är inaktiverade."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Bekräfta"
 
 #: js/messages.php:36
 #, php-format
@@ -933,26 +932,24 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Denna operation kan ta lång tid. Fortsätt ändå?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Vill du verkligen exekvera \"%s\"?"
+msgstr "Vill du verkligen ta bort användargruppen \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "Värde saknas i formuläret!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Inte ett giltigt portnummer"
+msgstr "Var vänlig ange ett giltigt nummer"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter correct captcha!"
 msgid "Please enter a valid length"
-msgstr "Ange korrekt captcha!"
+msgstr "Var vänlig ange en giltig längd"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -2007,22 +2004,21 @@ msgid "Create view"
 msgstr "Skapa vy"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Serverport"
+msgstr "Skicka felrapport"
 
 #: js/messages.php:410
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Skicka felrapport"
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "Ett fel uppstod vid inläsning av navigeringsträdet"
+msgstr ""
+"Ett allvarligt JavaScript-fel har uppstått. Vill du skicka en felrapport?"
 
 #: js/messages.php:414
 #, fuzzy
@@ -4168,11 +4164,11 @@ msgstr ""
 
 #: libraries/config.values.php:119
 msgid "Always send error reports"
-msgstr ""
+msgstr "Skicka alltid felrapporter"
 
 #: libraries/config.values.php:120
 msgid "Never send error reports"
-msgstr ""
+msgstr "Skicka aldrig felrapporter"
 
 #: libraries/config.values.php:149
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -4517,7 +4513,6 @@ msgid "Check config file permissions"
 msgstr "Kontrollera konfigurationsfilens behörigheter"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4526,8 +4521,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature"
 msgstr ""
-"Komprimera gzip/bzip2-exporter i farten utan att det behövs mycket minne; om "
-"du får problem med skapade gzip/bzip2-filer avaktivera funktionen"
+"Komprimera gzip-exporter i farten utan att det behövs mycket minne; om du "
+"får problem med skapade gzip-filer avaktivera funktionen"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
@@ -4813,10 +4808,9 @@ msgstr "Inaktivera kontroller av främmande nycklar"
 
 #: libraries/config/messages.inc.php:125
 #: libraries/plugins/export/ExportSql.class.php:155
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "Exportera rader från tabellen \"%s\""
+msgstr "Exportera vyer som tabeller"
 
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:127
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:135
@@ -6642,10 +6636,9 @@ msgid "Choose the default action when sending error reports"
 msgstr ""
 
 #: libraries/config/messages.inc.php:546
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Serverport"
+msgstr "Skicka felrapporter"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -7811,7 +7804,6 @@ msgid "unknown"
 msgstr "okänd"
 
 #: libraries/navigation/Navigation.class.php:59
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "Ett fel uppstod vid inläsning av navigeringsträdet"
@@ -7873,7 +7865,6 @@ msgstr "filtrera databaser efter namn"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1080
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "Rensa snabbfilter"
@@ -7919,7 +7910,6 @@ msgid "Show hidden items"
 msgstr "Visa tips"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
@@ -7957,10 +7947,9 @@ msgid "New"
 msgstr "Ny"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedurer"
+msgstr "Procedur"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
@@ -9347,10 +9336,9 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Fel"
+msgstr "Fel."
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
@@ -9409,7 +9397,6 @@ msgstr "Händelsen %1$s har skapats."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:378
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
@@ -10290,7 +10277,6 @@ msgid "Use text field"
 msgstr "Använd textfältet"
 
 #: libraries/server_privileges.lib.php:1310
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10299,7 +10285,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Ett konto existerar redan med samma användarnamn men möjligen ett annat "
-"värdnamn. Är du säker att du vill fortsätta?"
+"värdnamn. "
 
 #: libraries/server_privileges.lib.php:1446
 msgid "Do not change the password"
@@ -11596,10 +11582,9 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:65 libraries/server_users.lib.php:30
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "Användare"
+msgstr "Användargrupper"
 
 #: libraries/server_user_groups.lib.php:79
 #, fuzzy
@@ -11627,10 +11612,9 @@ msgstr "Vy"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:208
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "Lägg till en användare"
+msgstr "Lägg till användargrupp"
 
 #: libraries/server_user_groups.lib.php:211
 #, php-format
@@ -11644,10 +11628,9 @@ msgid "User group menu assignments"
 msgstr "Inga privilegier."
 
 #: libraries/server_user_groups.lib.php:234
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "Kolumnnamn: "
+msgstr "Gruppnamn:"
 
 #: libraries/server_user_groups.lib.php:268
 #, fuzzy
