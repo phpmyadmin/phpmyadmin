@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-16 14:46+0200\n"
-"Last-Translator: claudio MrBot <claudio.botelho@live.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/4-1/pt_BR/>\n"
+"PO-Revision-Date: 2014-01-21 17:40+0200\n"
+"Last-Translator: Douglas dreginatto <douglas@reginatto.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-1/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2067,7 +2067,7 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
 "A exportação está incompleta devido ao baixo limite de tempo de execução no "
-"PHP."
+"PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:439
@@ -4480,7 +4480,6 @@ msgid "Highlight pointer"
 msgstr "Destacar apontador"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4489,7 +4488,7 @@ msgid ""
 "import operations"
 msgstr ""
 "Habilitar compressão [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
-"operações de importar e exportar"
+"operações de importar"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4566,7 +4565,6 @@ msgid "Check config file permissions"
 msgstr "Verificar permissões do arquivo de configuração"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4575,9 +4573,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature"
 msgstr ""
-"Comprime exportações gzip/bzip2 imediatamente sem a necessidade de muita "
-"memória; se você encontrar problemas com arquivos gzip/bzip2 criados "
-"desabilite este recurso"
+"Comprime exportações gzip imediatamente sem a necessidade de muita memória; "
+"se você encontrar problemas com arquivos gzip criados desabilite este "
+"recurso"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
@@ -7077,6 +7075,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Pular este número de consultas (para SQL) ou linhas (para outros formatos), "
+"iniciando da primeira:"
 
 #: libraries/display_import.lib.php:342
 msgid "Format-Specific Options:"
@@ -9346,50 +9346,43 @@ msgid "Generate Password:"
 msgstr "Gerar senha:"
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Status de replicação"
+msgstr "Replicação iniciada com sucesso."
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Replicação de master"
+msgstr "Erro ao iniciar replicação."
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Os privilégios foram recarregados com sucesso."
+msgstr "Replicação encerrada com sucesso."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Replicação de master"
+msgstr "Erro ao parar replicação."
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Status de replicação"
+msgstr "Replicação reiniciada com sucesso."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Replicação de master"
+msgstr "Erro ao reiniciar replicação."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
-msgstr ""
+msgstr "Sucesso."
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Erro"
+msgstr "Erro."
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
@@ -10326,7 +10319,6 @@ msgid "Use text field"
 msgstr "Usar campo texto"
 
 #: libraries/server_privileges.lib.php:1310
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10335,7 +10327,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Uma conta já existe com o mesmo nome de usuário, mas possivelmente com um "
-"nome de host diferente. Você tem certeza que deseja continuar?"
+"nome de servidor diferente. "
 
 #: libraries/server_privileges.lib.php:1446
 msgid "Do not change the password"
