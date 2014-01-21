@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-19 16:42+0200\n"
+"PO-Revision-Date: 2014-01-21 17:32+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -5524,7 +5524,6 @@ msgid "Delete all cookies on logout"
 msgstr "Alle cookies verwijderen bij het afmelden"
 
 #: libraries/config/messages.inc.php:381
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
@@ -5533,7 +5532,7 @@ msgid ""
 "authentication mode."
 msgstr ""
 "Geeft aan of de laatst gebruikte gebruikersnaam moet worden herinnerd "
-"wanneer u geen gebruik maakt van de cookie-authenticatiemethode"
+"wanneer u geen gebruik maakt van de cookie-authenticatiemethode."
 
 #: libraries/config/messages.inc.php:384
 msgid "Recall user name"
@@ -5556,31 +5555,29 @@ msgid "Login cookie store"
 msgstr "Opslag voor aanmeldingscookie"
 
 #: libraries/config/messages.inc.php:393
-#, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "Definieer hoelang (in seconden) een aanmeldingscookie geldig blijft"
+msgstr "Definieer hoelang (in seconden) een aanmeldingscookie geldig blijft."
 
 #: libraries/config/messages.inc.php:394
 msgid "Login cookie validity"
 msgstr "Geldigheid aanmeldingscookie"
 
 #: libraries/config/messages.inc.php:396
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "Dubbele grootte van tekstveld voor LONGTEXT-kolommen"
+msgstr "Dubbele grootte van tekstveld voor LONGTEXT-kolommen."
 
 #: libraries/config/messages.inc.php:397
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Groter tekstveld voor LONGTEXT"
 
 #: libraries/config/messages.inc.php:399
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr ""
-"Maximaal aantal karakters dat wordt gebruikt bij het tonen van een SQL-query"
+"Maximaal aantal karakters dat wordt gebruikt bij het tonen van een SQL-"
+"query."
 
 #: libraries/config/messages.inc.php:400
 msgid "Maximum displayed SQL length"
@@ -5592,17 +5589,15 @@ msgid "Users cannot set a higher value"
 msgstr "Gebruiker kan geen hogere waarde instellen"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "Maximum aantal databanken dat getoond wordt in de databankenlijst"
+msgstr "Maximum aantal databanken dat getoond wordt in de databankenlijst."
 
 #: libraries/config/messages.inc.php:404
 msgid "Maximum databases"
 msgstr "Maximum aantal databanken"
 
 #: libraries/config/messages.inc.php:406
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
@@ -5610,7 +5605,8 @@ msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
-"Het aantal elementen dat getoond wordt op iedere pagina van de navigatieboom"
+"Het aantal elementen dat getoond wordt op iedere pagina van de "
+"navigatieboom."
 
 #: libraries/config/messages.inc.php:408
 msgid "Maximum items in branch"
@@ -5631,17 +5627,15 @@ msgid "Maximum number of rows to display"
 msgstr "Maximum aantal te tonen rijen"
 
 #: libraries/config/messages.inc.php:416
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "Het maximum aantal tabellen dat wordt getoond in de tabellenlijst"
+msgstr "Het maximum aantal tabellen dat wordt getoond in de tabellenlijst."
 
 #: libraries/config/messages.inc.php:417
 msgid "Maximum tables"
 msgstr "Maximum aantal tabellen"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5650,14 +5644,13 @@ msgid ""
 "cookie authentication."
 msgstr ""
 "Schakel de standaard waarschuwing uit als mcrypt ontbreekt voor cookie-"
-"authenticatie"
+"authenticatie."
 
 #: libraries/config/messages.inc.php:422
 msgid "mcrypt warning"
 msgstr "mcrypt-waarschuwing"
 
 #: libraries/config/messages.inc.php:424
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)"
@@ -5666,34 +5659,31 @@ msgid ""
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
 "Het aantal bytes aan geheugen dat een script maximaal mag gebruiken, "
-"bijvoorbeeld [kbd]32M[/kbd] ([kbd]0[/kbd] voor geen limiet)"
+"bijvoorbeeld [kbd]32M[/kbd] ([kbd]0[/kbd] voor geen limiet)."
 
 #: libraries/config/messages.inc.php:427
 msgid "Memory limit"
 msgstr "Geheugenlimiet"
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show logo in navigation panel."
-msgstr "Toon logo in navigatiepaneel"
+msgstr "Toon logo in navigatiepaneel."
 
 #: libraries/config/messages.inc.php:429
 msgid "Display logo"
 msgstr "Toon logo"
 
 #: libraries/config/messages.inc.php:431
-#, fuzzy
 #| msgid "URL where logo in the navigation panel will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "URL waar het logo in het navigatiepaneel naar doorverwijst"
+msgstr "URL waar het logo in het navigatiepaneel naar doorverwijst."
 
 #: libraries/config/messages.inc.php:432
 msgid "Logo link URL"
 msgstr "URL voor de link van het logo"
 
 #: libraries/config/messages.inc.php:434
-#, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 #| "([kbd]new[/kbd])"
@@ -5701,18 +5691,17 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"Open de pagina in het hoofdvenster ([kbd]main[/kbd]) of in een nieuwe ([kbd]"
-"new[/kbd])"
+"Open de pagina in het hoofdvenster ([kbd]main[/kbd]) of in een nieuw venster "
+"([kbd]new[/kbd])."
 
 #: libraries/config/messages.inc.php:437
 msgid "Logo link target"
 msgstr "Linkbestemming van logo"
 
 #: libraries/config/messages.inc.php:439
-#, fuzzy
 #| msgid "Display server choice at the top of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Toon serverkeuze bovenaan het navigatiepaneel"
+msgstr "Toon serverkeuze bovenaan het navigatiepaneel."
 
 #: libraries/config/messages.inc.php:440
 msgid "Display servers selection"
