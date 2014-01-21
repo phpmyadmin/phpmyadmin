@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-21 11:53+0200\n"
+"PO-Revision-Date: 2014-01-21 11:59+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/4-1/sv/>\n"
 "Language: sv\n"
@@ -6709,7 +6709,7 @@ msgstr "möjlig djupgående rekursiv attack"
 #: libraries/database_interface.inc.php:34
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Se %sdokumentationen%s för mer information."
 
 #: libraries/dbi/DBIDrizzle.class.php:146 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:224
@@ -7431,10 +7431,9 @@ msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
 #: libraries/error_report.lib.php:301
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Skapa versioner automatiskt"
+msgstr "Skicka rapport automatiskt nästa gång"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1642
@@ -8620,10 +8619,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONER FÖR TABELL"
 
 #: libraries/plugins/export/ExportSql.class.php:1513
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "Struktur för vy"
+msgstr "Struktur för vy %s exporterad som en tabell"
 
 #: libraries/plugins/export/ExportSql.class.php:1601
 msgid "Error reading data:"
@@ -10189,7 +10188,7 @@ msgstr "Inget"
 #: libraries/server_privileges.lib.php:2908
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
-msgstr ""
+msgstr "Användargrupp"
 
 #: libraries/server_privileges.lib.php:704
 msgid "Resource limits"
@@ -10369,10 +10368,9 @@ msgid "wildcard"
 msgstr "jokertecken"
 
 #: libraries/server_privileges.lib.php:2069
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "databasspecifik"
+msgstr "tabellspecifik"
 
 #: libraries/server_privileges.lib.php:2146
 #: libraries/server_privileges.lib.php:3351
@@ -10388,10 +10386,9 @@ msgid "Revoke"
 msgstr "Upphäv"
 
 #: libraries/server_privileges.lib.php:2248
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Konfigurera server"
+msgstr "Redigera användargrupp"
 
 #: libraries/server_privileges.lib.php:2423
 msgid "… keep the old one."
@@ -11575,11 +11572,11 @@ msgstr "Antalet trådar som inte är vilande."
 #: libraries/server_user_groups.lib.php:23
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Användare av användargruppen '%s'"
 
 #: libraries/server_user_groups.lib.php:34
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Inga användare tillhörde denna användargrupp."
 
 #: libraries/server_user_groups.lib.php:65 libraries/server_users.lib.php:30
 #| msgid "Users"
@@ -11605,10 +11602,9 @@ msgid "Table level tabs"
 msgstr "Tabellkommentarer"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Vy"
+msgstr "Visa användare"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:208
@@ -11619,7 +11615,7 @@ msgstr "Lägg till användargrupp"
 #: libraries/server_user_groups.lib.php:211
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Redigera användargrupp: '%s'"
 
 #: libraries/server_user_groups.lib.php:227
 #, fuzzy
@@ -13221,10 +13217,9 @@ msgid "Rename view to"
 msgstr "Ändra namn till"
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "Ta bort tabellen (DROP)"
+msgstr "Ta bort vyn (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
