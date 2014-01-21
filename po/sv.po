@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-21 11:56+0200\n"
+"PO-Revision-Date: 2014-01-21 12:10+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -2682,10 +2682,9 @@ msgid "Kill"
 msgstr "Döda"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Kan vara ungefärligt. Se [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -4501,14 +4500,13 @@ msgid "Incorrect IP address: %s"
 msgstr "Felaktig IP-adress: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Om aktiverat kan användare ange valfri MySQL-server i inloggningsformulär "
-"för cookie-autentisering"
+"för cookie-autentisering."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -4538,7 +4536,6 @@ msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr "Visa &quot;Ta bort databas&quot;-länk för normala användare"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -4546,8 +4543,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Hemlig lösenordsfras som används för kryptering av cookies i [kbd]cookie[/"
-"kbd]-autentisering"
+"Hemlig lösenordsfras som används för kryptering av cookies i "
+"[kbd]cookie[/kbd]-autentisering."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4562,17 +4559,15 @@ msgid "Row marker"
 msgstr "Radmarkör"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Markera raden som indikeras av muspekaren"
+msgstr "Markera raden som indikeras av muspekaren."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "Markera pekaren"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4580,8 +4575,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations."
 msgstr ""
-"Aktivera [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] komprimering av "
-"import- och exportoperationer"
+"Aktivera [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a]-komprimering av "
+"importoperationer."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -4607,7 +4602,6 @@ msgid "CHAR columns editing"
 msgstr "Redigera CHAR-kolumn"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4615,15 +4609,15 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Använd användarvänlig editor för att redigera SQL-frågor ([a@http://"
-"codemirror.net/]CodeMirror[/a]) med syntaxmarkering och radnummer"
+"Använd användarvänlig editor för att redigera SQL-frågor "
+"([a@http://codemirror.net/]CodeMirror[/a]) med syntaxmarkering och "
+"radnummer."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "Aktivera CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4632,14 +4626,13 @@ msgid ""
 "columns."
 msgstr ""
 "Definierar minsta storlek för inmatningsfält skapade för CHAR- och VARCHAR-"
-"kolumner"
+"kolumner."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Minsta storlek för inmatningsfält"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4648,27 +4641,25 @@ msgid ""
 "columns."
 msgstr ""
 "Anger den maximala storleken för inmatningsfält skapade för CHAR- och "
-"VARCHAR-kolumner"
+"VARCHAR-kolumner."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "Maximal storlek för inmatningsfält"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Antal kolumner för CHAR/VARCHAR textfält"
+msgstr "Antal kolumner för CHAR/VARCHAR textfält."
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "Kolumner för CHAR textfält"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Antal rader för CHAR/VARCHAR textfält"
+msgstr "Antal rader för CHAR/VARCHAR textfält."
 
 #: libraries/config/messages.inc.php:67
 msgid "CHAR textarea rows"
@@ -4679,7 +4670,6 @@ msgid "Check config file permissions"
 msgstr "Kontrollera konfigurationsfilens behörigheter"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4688,8 +4678,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Komprimera gzip/bzip2-exporter i farten utan att det behövs mycket minne; om "
-"du får problem med skapade gzip/bzip2-filer avaktivera funktionen"
+"Komprimera gzip-exporter i farten utan att det behövs mycket minne; om du "
+"får problem med skapade gzip-filer avaktivera funktionen."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4701,7 +4691,6 @@ msgid "Configuration file"
 msgstr "Konfigurationsfil"
 
 #: libraries/config/messages.inc.php:76
-#, fuzzy
 #| msgid ""
 #| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
 #| "when you're about to lose data"
@@ -4710,7 +4699,7 @@ msgid ""
 "when you're about to lose data."
 msgstr ""
 "Anger om en varning (&quot;Är du riktigt säker…&quot;) ska visas när du "
-"håller på att förlora data"
+"håller på att förlora data."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4725,50 +4714,45 @@ msgid "Default display direction"
 msgstr "Standard visningsriktning"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "Flik som visas när du anger en databas"
+msgstr "Flik som visas när du anger en databas."
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "Förvald databasflik"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Flik som visas när du går till en server"
+msgstr "Flik som visas när du går till en server."
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "Förvald serverflik"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Flik som visas när du går till en tabell"
+msgstr "Flik som visas när du går till en tabell."
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
 msgstr "Förvald tabellflik"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Om tabellstrukturåtgärderna ska döljas eller inte"
+msgstr "Om tabellstrukturåtgärderna ska döljas eller inte."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
 msgstr "Dölj åtgärder för tabellstruktur"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
-msgstr "Visa binärt innehåll som HEX som standard"
+msgstr "Visa binärt innehåll som HEX som standard."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down"
@@ -4791,10 +4775,9 @@ msgid "Disable multi table maintenance"
 msgstr "Inaktivera underhåll av multipla tabeller"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "Redigera SQL-frågor i popup-fönster"
+msgstr "Redigera SQL-frågor i popup-fönster."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4805,7 +4788,6 @@ msgid "Display errors"
 msgstr "Visa fel"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -4814,7 +4796,7 @@ msgid ""
 "limit)."
 msgstr ""
 "Ange antalet sekunder ett skript får köras ([kbd]0[/kbd] för ingen "
-"begränsning)"
+"begränsning)."
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -5037,10 +5019,9 @@ msgid "Export time in UTC"
 msgstr "Exportera tid i UTC"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "Tvinga säker anslutning när du använder phpMyAdmin"
+msgstr "Tvinga säker anslutning när du använder phpMyAdmin."
 
 #: libraries/config/messages.inc.php:196
 msgid "Force SSL connection"
@@ -5063,10 +5044,9 @@ msgid "Foreign key dropdown order"
 msgstr "Ordning i främmande nyckel-listruta"
 
 #: libraries/config/messages.inc.php:203
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "En listruta kommer användas om färre objekt finns"
+msgstr "En listruta kommer användas om färre objekt finns."
 
 #: libraries/config/messages.inc.php:204
 msgid "Foreign key limit"
@@ -5077,18 +5057,16 @@ msgid "Browse mode"
 msgstr "Utforskningsläge"
 
 #: libraries/config/messages.inc.php:206
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "Anpassa utforskningsläge"
+msgstr "Anpassa utforskningsläge."
 
 #: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:210
 #: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "Anpassa förvalda alternativ"
+msgstr "Anpassa förvalda alternativ."
 
 #: libraries/config/messages.inc.php:209 libraries/config/setup.forms.php:247
 #: libraries/config/setup.forms.php:321
@@ -5102,20 +5080,18 @@ msgid "Developer"
 msgstr "Utvecklare"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Inställningar för phpMyAdmin-utvecklare"
+msgstr "Inställningar för phpMyAdmin-utvecklare."
 
 #: libraries/config/messages.inc.php:213
 msgid "Edit mode"
 msgstr "Redigeringsläge"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Anpassa redigeringsläge"
+msgstr "Anpassa redigeringsläge."
 
 #: libraries/config/messages.inc.php:216
 msgid "Export defaults"
@@ -5137,10 +5113,9 @@ msgid "General"
 msgstr "Allmänt"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Välj några av de vanligaste alternativen"
+msgstr "Välj några av de vanligaste alternativen."
 
 #: libraries/config/messages.inc.php:222
 msgid "Import defaults"
@@ -10829,7 +10804,7 @@ msgstr "Inget"
 #: libraries/server_privileges.lib.php:2942
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
-msgstr ""
+msgstr "Användargrupp"
 
 #: libraries/server_privileges.lib.php:704
 msgid "Resource limits"
@@ -11021,10 +10996,9 @@ msgid "wildcard"
 msgstr "jokertecken"
 
 #: libraries/server_privileges.lib.php:2110
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "databasspecifik"
+msgstr "tabellspecifik"
 
 #: libraries/server_privileges.lib.php:2207
 msgid "Edit Privileges"
@@ -11035,10 +11009,9 @@ msgid "Revoke"
 msgstr "Upphäv"
 
 #: libraries/server_privileges.lib.php:2277
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "Konfigurera server"
+msgstr "Redigera användargrupp"
 
 #: libraries/server_privileges.lib.php:2452
 msgid "… keep the old one."
@@ -12222,11 +12195,11 @@ msgstr "Antalet trådar som inte är vilande."
 #: libraries/server_user_groups.lib.php:23
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "Användare av användargruppen '%s'"
 
 #: libraries/server_user_groups.lib.php:34
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "Inga användare tillhörde denna användargrupp."
 
 #: libraries/server_user_groups.lib.php:65 libraries/server_users.lib.php:30
 #| msgid "Users"
@@ -12252,10 +12225,9 @@ msgid "Table level tabs"
 msgstr "Tabellkommentarer"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "Vy"
+msgstr "Visa användare"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:208
@@ -12266,7 +12238,7 @@ msgstr "Lägg till användargrupp"
 #: libraries/server_user_groups.lib.php:211
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "Redigera användargrupp: '%s'"
 
 #: libraries/server_user_groups.lib.php:227
 #, fuzzy
@@ -13728,10 +13700,9 @@ msgid "Rename view to"
 msgstr "Ändra namn till"
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "Ta bort tabellen (DROP)"
+msgstr "Ta bort vyn (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
