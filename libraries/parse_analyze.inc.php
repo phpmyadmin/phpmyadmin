@@ -74,6 +74,9 @@ $is_count = isset($analyzed_sql[0]['queryflags']['is_count']);
 // check for a real SELECT ... FROM
 $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);
 
+// the query contains a subquery
+$is_subquery = isset($analyzed_sql[0]['queryflags']['is_subquery']);
+
 // check for CALL
 // Since multiple query execution is anyway handled,
 // ignore the WHERE clause of the first sql statement
@@ -105,7 +108,8 @@ $analyzed_sql_results = array(
     "is_func" => $is_func,
     "is_count" => $is_count,
     "is_select" => $is_select,
-    "is_procedure" => $is_procedure
+    "is_procedure" => $is_procedure,
+    "is_subquery" => $is_subquery
 );
 
 
