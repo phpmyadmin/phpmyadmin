@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-16 14:46+0200\n"
-"Last-Translator: claudio MrBot <claudio.botelho@live.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-01-21 19:15+0200\n"
+"Last-Translator: Douglas dreginatto <douglas@reginatto.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2045,7 +2045,7 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
 "A exportação está incompleta devido ao baixo limite de tempo de execução no "
-"PHP."
+"PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:439
@@ -2717,10 +2717,9 @@ msgid "Kill"
 msgstr "Finalizar"
 
 #: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Pode ser aproximado. Veja a [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "Pode ser aproximado. Veja a [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
@@ -4552,21 +4551,19 @@ msgid "Incorrect IP address: %s"
 msgstr "Endereço de IP incorreto: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Se o usuário ativado pode entrar em qualquer servidor MySQL em forma de "
-"login por autenticação de cookies"
+"Se habilitado, o usuário pode entrar em qualquer servidor MySQL em um "
+"formulário de login com autenticação de cookies."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
 msgstr "Permitir login para qualquer servidor MySQL"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4577,8 +4574,8 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Ativando essa opção permite uma página localizada em um domínio diferente "
-"para chamar phpMyAdmin dentro de um quadro, e é um potencial [strong] falha "
-"de segurança [/strong], que permite ataques de script cross-frame"
+"para chamar phpMyAdmin dentro de um frame, e é uma potencial [strong] falha "
+"de segurança [/strong], que permite ataques de script cross-frame (XSS)."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4589,7 +4586,6 @@ msgid "Show &quot;Drop database&quot; link to normal users"
 msgstr "Exibir link 'Apagar banco de dados' para usuários normais"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -4597,8 +4593,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Frase secreta utilizada para encriptar cookies na autenticação por [kbd]"
-"cookie[/kbd]"
+"Frase secreta utilizada para encriptar cookies na autenticação por "
+"[kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4613,17 +4609,15 @@ msgid "Row marker"
 msgstr "Marcador de linha"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Destacar linha apontada pelo cursor do mouse"
+msgstr "Destacar linha apontada pelo cursor do mouse."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "Destacar apontador"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4632,14 +4626,13 @@ msgid ""
 "import operations."
 msgstr ""
 "Habilitar compressão [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
-"operações de importar e exportar"
+"operações de importar."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
@@ -4650,15 +4643,14 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Define quais tipo de controles de edição devem ser utilizados pelas colunas "
-"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo [kbd]"
-"textarea[/kbd] - permite quebras de linha em colunas"
+"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo "
+"[kbd]textarea[/kbd] - permite quebras de linha em colunas."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "Edição de colunas CHAR"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4666,8 +4658,9 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Um editor amigável para editar consultas SQL ([a@http://codemirror.net/]"
-"CodeMirror[/a]) com destaque de sintaxe e número de linhas"
+"Um editor amigável para editar consultas SQL "
+"([a@http://codemirror.net/]CodeMirror[/a]) com destaque de sintaxe e número "
+"de linhas."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
@@ -7669,6 +7662,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Pular este número de consultas (para SQL) ou linhas (para outros formatos), "
+"iniciando da primeira:"
 
 #: libraries/display_import.lib.php:341
 msgid "Format-Specific Options:"
@@ -9999,50 +9994,43 @@ msgid "Generate Password:"
 msgstr "Gerar senha:"
 
 #: libraries/replication_gui.lib.php:900
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Status de replicação"
+msgstr "Replicação iniciada com sucesso."
 
 #: libraries/replication_gui.lib.php:901
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Replicação de master"
+msgstr "Erro ao iniciar replicação."
 
 #: libraries/replication_gui.lib.php:904
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Os privilégios foram recarregados com sucesso."
+msgstr "Replicação encerrada com sucesso."
 
 #: libraries/replication_gui.lib.php:905
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Replicação de master"
+msgstr "Erro ao parar replicação."
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Status de replicação"
+msgstr "Replicação reiniciada com sucesso."
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Replicação de master"
+msgstr "Erro ao reiniciar replicação."
 
 #: libraries/replication_gui.lib.php:912
 msgid "Success."
-msgstr ""
+msgstr "Sucesso."
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "Erro"
+msgstr "Erro."
 
 #: libraries/replication_gui.lib.php:955
 msgid "Unknown error"
@@ -10993,7 +10981,6 @@ msgid "Use text field"
 msgstr "Usar campo texto"
 
 #: libraries/server_privileges.lib.php:1315
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -11002,7 +10989,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Uma conta já existe com o mesmo nome de usuário, mas possivelmente com um "
-"nome de host diferente. Você tem certeza que deseja continuar?"
+"nome de servidor diferente. "
 
 #: libraries/server_privileges.lib.php:1451
 msgid "Do not change the password"
