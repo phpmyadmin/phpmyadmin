@@ -996,6 +996,7 @@ function PMA_SQP_analyze($arr)
      *                                     |MIN|MAX|BIT_OR|BIT_AND
      * ['queryflags']['is_count'] = 1;     for the presence of SELECT COUNT
      * ['queryflags']['is_procedure'] = 1; for the presence of CALL
+     * ['queryflags']['is_subquery'] = 1;  contains a subquery 
      *
      * query clauses
      * -------------
@@ -1213,6 +1214,7 @@ function PMA_SQP_analyze($arr)
                 if ($number_of_brackets > 0) {
                     $in_subquery = true;
                     $seen_subquery = true;
+                    $subresult['queryflags']['is_subquery'] = 1;
                     // this is a subquery so do not analyze inside it
                     continue;
                 }
