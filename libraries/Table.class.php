@@ -1056,8 +1056,8 @@ class PMA_Table
                             )
                             . ' (db_name, table_name, column_name, comment'
                             . ($GLOBALS['cfgRelation']['mimework']
-                            ? ', mimetype, transformation, transformation_options'
-                            : '')
+                                ? ', mimetype, transformation, transformation_options'
+                                : '')
                             . ') '
                             . ' VALUES('
                             . '\'' . PMA_Util::sqlAddSlashes($target_db)
@@ -1067,12 +1067,15 @@ class PMA_Table
                             . '\''
                             . PMA_Util::sqlAddSlashes(
                                 $comments_copy_row['column_name']
-                            ) . '\''
-                            . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
-                                            . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
-                                            . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
-                                            . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\'' : '')
-                                    . ')';
+                            )
+                            . '\''
+                            . ($GLOBALS['cfgRelation']['mimework']
+                                ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
+                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
+                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
+                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\''
+                                : '')
+                            . ')';
                         PMA_queryAsControlUser($new_comment_query);
                     } // end while
                     $GLOBALS['dbi']->freeResult($comments_copy_rs);
