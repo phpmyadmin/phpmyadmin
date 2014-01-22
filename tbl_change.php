@@ -82,6 +82,8 @@ if (! empty($disp_message)) {
     $response->addHTML(PMA_Util::getMessage($disp_message, null));
 }
 
+// used as a global by PMA_Util::getDefaultFunctionForField()
+$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
 
 $table_columns = PMA_getTableColumns($db, $table);
 
