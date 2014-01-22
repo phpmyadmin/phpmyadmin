@@ -6,9 +6,9 @@
  *
  * @package PhpMyAdmin-test
  */
-require_once 'libraries/gis/pma_gis_geometry.php';
-require_once 'libraries/gis/pma_gis_geometrycollection.php';
-require_once 'libraries/gis/pma_gis_factory.php';
+require_once 'libraries/gis/GIS_Geometry.class.php';
+require_once 'libraries/gis/GIS_Geometrycollection.class.php';
+require_once 'libraries/gis/GIS_Factory.class.php';
 require_once 'libraries/tcpdf/tcpdf.php';
 
 /**

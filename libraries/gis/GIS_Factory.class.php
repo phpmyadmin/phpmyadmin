@@ -30,13 +30,13 @@ class PMA_GIS_Factory
      */
     public static function factory($type)
     {
-        include_once './libraries/gis/pma_gis_geometry.php';
+        include_once './libraries/gis/GIS_Geometry.class.php';
 
         $type_lower = strtolower($type);
-        if (! file_exists('./libraries/gis/pma_gis_' . $type_lower . '.php')) {
+        if (! file_exists('./libraries/gis/GIS_' . ucfirst($type_lower) . '.class.php')) {
             return false;
         }
-        if (include_once './libraries/gis/pma_gis_' . $type_lower . '.php') {
+        if (include_once './libraries/gis/GIS_' . ucfirst($type_lower) . '.class.php') {
             switch(strtoupper($type)) {
             case 'MULTIPOLYGON' :
                 return PMA_GIS_Multipolygon::singleton();

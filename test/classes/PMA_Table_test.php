@@ -686,27 +686,6 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for sGetToolTip
-     *
-     * @return void
-     */
-    public function testSGetToolTip()
-    {
-        $table = 'PMA_BookMark';
-        $db = 'PMA';
-
-        PMA_Table::$cache[$db][$table] = array('Comment' => "Comment222");
-
-        PMA_Table::$cache[$db][$table]['ExactRows'] = 10;
-        $result = PMA_Table::sGetToolTip($db, $table);
-
-        $this->assertEquals(
-            'Comment222 (10 Rows)',
-            $result
-        );
-    }
-
-    /**
      * Test for generateAlter
      *
      * @return void
