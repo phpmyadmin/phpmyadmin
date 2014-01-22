@@ -249,6 +249,14 @@ AJAX.registerTeardown('tbl_change.js', function () {
  * Restart insertion with 'N' rows.
  */
 AJAX.registerOnload('tbl_change.js', function () {
+
+    //if browser is chrome change input type 'date' to 'text' which will make them fallback to datepicker 
+    if (window.chrome) {
+        $('.insertRowTable input[type="date"]').each( function() {  
+            $(this).prop('type', 'text');
+        });
+    }
+
     $.datepicker.initialized = false;
 
     $('span.open_gis_editor').live('click', function (event) {
