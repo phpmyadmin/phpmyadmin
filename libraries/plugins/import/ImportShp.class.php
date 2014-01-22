@@ -215,7 +215,7 @@ class ImportShp extends ImportPlugin
         }
 
         if (isset($gis_type)) {
-            include_once './libraries/gis/pma_gis_factory.php';
+            include_once './libraries/gis/GIS_Factory.class.php';
             $gis_obj =  PMA_GIS_Factory::factory($gis_type);
         } else {
             $gis_obj = null;
