@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-22 13:52+0200\n"
+"PO-Revision-Date: 2014-01-22 14:11+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -7847,16 +7847,14 @@ msgid "No change"
 msgstr "변화 없음"
 
 #: libraries/mult_submits.lib.php:331
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "테이블의 접두사를 교체"
+msgstr "테이블의 접두사를 교체:"
 
 #: libraries/mult_submits.lib.php:333
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "테이블에 접두사를 추가하여 복제"
+msgstr "복사할 테이블에 접두사 추가:"
 
 #: libraries/mult_submits.lib.php:338
 msgid "From"
@@ -7872,23 +7870,20 @@ msgid "Submit"
 msgstr "확인"
 
 #: libraries/mult_submits.lib.php:373
-#, fuzzy
 #| msgid "Add Index"
 msgid "Add table prefix:"
-msgstr "인덱스 추가"
+msgstr "테이블 접두사 추가:"
 
 #: libraries/mult_submits.lib.php:376
-#, fuzzy
 #| msgid "Add Index"
 msgid "Add prefix"
-msgstr "인덱스 추가"
+msgstr "접두사 추가"
 
 #: libraries/mult_submits.lib.php:410
 msgid "Do you really want to execute the following query?"
 msgstr "정말로 다음 쿼리를 실행하시겠습니까?"
 
 #: libraries/mysql_charsets.lib.php:47
-#, fuzzy
 #| msgid "Charsets"
 msgid "Charset"
 msgstr "문자셋"
@@ -7923,7 +7918,7 @@ msgstr "체코어"
 
 #: libraries/mysql_charsets.lib.php:185
 msgid "Danish"
-msgstr ""
+msgstr "덴마크어"
 
 #: libraries/mysql_charsets.lib.php:188
 msgid "English"
@@ -7935,23 +7930,21 @@ msgstr "에스페란토어"
 
 #: libraries/mysql_charsets.lib.php:194
 msgid "Estonian"
-msgstr ""
+msgstr "에스토니아어"
 
 #: libraries/mysql_charsets.lib.php:197 libraries/mysql_charsets.lib.php:200
 msgid "German"
 msgstr "독일어"
 
 #: libraries/mysql_charsets.lib.php:197
-#, fuzzy
 #| msgid "Action"
 msgid "dictionary"
-msgstr "실행"
+msgstr "사전"
 
 #: libraries/mysql_charsets.lib.php:200
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "phone book"
-msgstr "북마크 보이기"
+msgstr "전화번호부"
 
 #: libraries/mysql_charsets.lib.php:203
 msgid "Hungarian"
@@ -8003,11 +7996,11 @@ msgstr "슬로베니아어"
 
 #: libraries/mysql_charsets.lib.php:239
 msgid "Spanish"
-msgstr ""
+msgstr "스페인어"
 
 #: libraries/mysql_charsets.lib.php:242
 msgid "Traditional Spanish"
-msgstr ""
+msgstr "정통 스페인어"
 
 #: libraries/mysql_charsets.lib.php:245 libraries/mysql_charsets.lib.php:343
 msgid "Swedish"
@@ -8081,40 +8074,34 @@ msgid "unknown"
 msgstr "알수없음"
 
 #: libraries/navigation/Navigation.class.php:59
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "네비게이션 트리를 불러오는 도중 에러가 발생함"
 
 #: libraries/navigation/Navigation.class.php:170
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "이벤트"
+msgstr "이벤트:"
 
 #: libraries/navigation/Navigation.class.php:171
-#, fuzzy
 #| msgid "Function"
 msgid "Functions:"
-msgstr "함수"
+msgstr "함수:"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "프로시저"
+msgstr "프로시저:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "테이블"
+msgstr "테이블:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "뷰"
+msgstr "뷰:"
 
 #: libraries/navigation/NavigationHeader.class.php:193
 msgid "Home"
@@ -8129,26 +8116,24 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 설명서"
 
 #: libraries/navigation/NavigationHeader.class.php:253
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "네비게이션 프레임 새로고침"
+msgstr "내비게이션 패널 새로고침"
 
 #: libraries/navigation/NavigationTree.class.php:731
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
+msgstr[0] "%s 개의 결과가 발견됨"
 
 #: libraries/navigation/NavigationTree.class.php:840
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "펼치기/접기"
 
 #: libraries/navigation/NavigationTree.class.php:1056
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "이름으로 데이터베이스 필터링"
+msgstr "데이터베이스 이름 또는 정규식으로 필터링"
 
 #: libraries/navigation/NavigationTree.class.php:1058
 #: libraries/navigation/NavigationTree.class.php:1092
@@ -8158,21 +8143,20 @@ msgid "Clear fast filter"
 msgstr "파일로 저장"
 
 #: libraries/navigation/NavigationTree.class.php:1091
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "이름으로 필터링"
+msgstr "이름 또는 정규식으로 필터링"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "\"%1$s\"를 클래스 이름으로 사용할 수 없음, 기본 값 \"Node\"를 사용"
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "\"%1$s\" 클래스를 포함할 수 없음, \"%2$s\" 파일이 없음"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
@@ -8183,7 +8167,7 @@ msgstr "열(컬럼)"
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "새"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
 #, fuzzy
@@ -8900,35 +8884,31 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1205
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "덤프된 테이블의 제약사항"
 
 #: libraries/plugins/export/ExportSql.class.php:1215
 msgid "Constraints for table"
-msgstr ""
+msgstr "테이블의 제약사항"
 
 #: libraries/plugins/export/ExportSql.class.php:1249
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for dumped tables"
-msgstr "검색할 테이블:"
+msgstr "덤프된 테이블의 인덱스"
 
 #: libraries/plugins/export/ExportSql.class.php:1259
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "검색할 테이블:"
+msgstr "테이블의 인덱스"
 
 #: libraries/plugins/export/ExportSql.class.php:1285
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "값이 없는 경우(zero value) AUTO_INCREMENT 사용 금지"
+msgstr "덤프된 테이블의 AUTO_INCREMENT"
 
 #: libraries/plugins/export/ExportSql.class.php:1295
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "AUTO_INCREMENT 값 추가"
+msgstr "테이블의 AUTO_INCREMENT"
 
 #: libraries/plugins/export/ExportSql.class.php:1499
 msgid "MIME TYPES FOR TABLE"
