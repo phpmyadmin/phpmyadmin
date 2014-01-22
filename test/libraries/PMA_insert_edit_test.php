@@ -1257,7 +1257,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $result = PMA_getHTMLinput($column, 'a', 'b', 30, 'c', 23, 2, 0);
 
         $this->assertEquals(
-            '<input type="date" name="fieldsa" value="b" size="30" class='
+            '<input type="text" name="fieldsa" value="b" size="30" class='
             . '"textfield datefield" c tabindex="25" id="field_0_3" />',
             $result
         );
