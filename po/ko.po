@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-10 02:57+0200\n"
-"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2014-01-22 13:52+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7734,7 +7733,7 @@ msgstr "데이터베이스 이동: %s"
 #: libraries/import.lib.php:1242 libraries/import.lib.php:1283
 #, php-format
 msgid "Edit settings for %s"
-msgstr ""
+msgstr "%s 에 대한 설정 변경"
 
 #: libraries/import.lib.php:1268
 #, php-format
@@ -7777,12 +7776,12 @@ msgstr "바이너리 - 편집 금지"
 
 #: libraries/insert_edit.lib.php:1223 libraries/sql_query_form.lib.php:491
 msgid "web server upload directory:"
-msgstr ""
+msgstr "웹 서버 업로드 디렉터리:"
 
 #: libraries/insert_edit.lib.php:1440
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "%s 개의 행을 추가로 삽입"
 
 #: libraries/insert_edit.lib.php:1470
 msgid "and then"
@@ -7809,9 +7808,8 @@ msgid "Insert another new row"
 msgstr "새 행(레코드) 삽입하기"
 
 #: libraries/insert_edit.lib.php:1537
-#, fuzzy
 msgid "Go back to this page"
-msgstr "되돌아가기"
+msgstr "이 페이지로 되돌아가기"
 
 #: libraries/insert_edit.lib.php:1559
 msgid "Edit next row"
@@ -7829,7 +7827,7 @@ msgstr "SQL 쿼리 보기"
 #: libraries/insert_edit.lib.php:1992 libraries/sql.lib.php:1612
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "삽입된 행의 id: %1$d"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:147
@@ -7842,7 +7840,7 @@ msgstr "없음"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:158
 msgid "Convert to Kana"
-msgstr ""
+msgstr "전각 가나로 변환"
 
 #: libraries/mult_submits.inc.php:252 tbl_replace.php:251
 msgid "No change"
@@ -7961,7 +7959,7 @@ msgstr "헝가리어"
 
 #: libraries/mysql_charsets.lib.php:206
 msgid "Icelandic"
-msgstr ""
+msgstr "아이슬란드어"
 
 #: libraries/mysql_charsets.lib.php:209 libraries/mysql_charsets.lib.php:300
 msgid "Japanese"
@@ -7969,11 +7967,11 @@ msgstr "일본어"
 
 #: libraries/mysql_charsets.lib.php:212
 msgid "Latvian"
-msgstr ""
+msgstr "라트비아어"
 
 #: libraries/mysql_charsets.lib.php:215
 msgid "Lithuanian"
-msgstr ""
+msgstr "리투아니아어"
 
 #: libraries/mysql_charsets.lib.php:218 libraries/mysql_charsets.lib.php:322
 msgid "Korean"
@@ -7993,15 +7991,15 @@ msgstr "서유럽어"
 
 #: libraries/mysql_charsets.lib.php:230
 msgid "Romanian"
-msgstr ""
+msgstr "루마니어어"
 
 #: libraries/mysql_charsets.lib.php:233
 msgid "Slovak"
-msgstr ""
+msgstr "슬로바키아어"
 
 #: libraries/mysql_charsets.lib.php:236
 msgid "Slovenian"
-msgstr ""
+msgstr "슬로베니아어"
 
 #: libraries/mysql_charsets.lib.php:239
 msgid "Spanish"
