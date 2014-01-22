@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-10 02:55+0200\n"
-"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
+"PO-Revision-Date: 2014-01-22 14:11+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -7273,7 +7273,7 @@ msgstr "데이터베이스 이동: %s"
 #: libraries/import.lib.php:1212 libraries/import.lib.php:1253
 #, php-format
 msgid "Edit settings for %s"
-msgstr ""
+msgstr "%s 에 대한 설정 변경"
 
 #: libraries/import.lib.php:1238
 #, php-format
@@ -7316,12 +7316,12 @@ msgstr "바이너리 - 편집 금지"
 
 #: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:491
 msgid "web server upload directory:"
-msgstr ""
+msgstr "웹 서버 업로드 디렉터리:"
 
 #: libraries/insert_edit.lib.php:1455
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "%s 개의 행을 추가로 삽입"
 
 #: libraries/insert_edit.lib.php:1485
 msgid "and then"
@@ -7348,9 +7348,8 @@ msgid "Insert another new row"
 msgstr "새 행(레코드) 삽입하기"
 
 #: libraries/insert_edit.lib.php:1552
-#, fuzzy
 msgid "Go back to this page"
-msgstr "되돌아가기"
+msgstr "이 페이지로 되돌아가기"
 
 #: libraries/insert_edit.lib.php:1574
 msgid "Edit next row"
@@ -7368,7 +7367,7 @@ msgstr "SQL 쿼리 보기"
 #: libraries/insert_edit.lib.php:2007 libraries/sql.lib.php:1617
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "삽입된 행의 id: %1$d"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:147
@@ -7381,23 +7380,21 @@ msgstr "없음"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:158
 msgid "Convert to Kana"
-msgstr ""
+msgstr "전각 가나로 변환"
 
 #: libraries/mult_submits.inc.php:252 tbl_replace.php:251
 msgid "No change"
 msgstr "변화 없음"
 
 #: libraries/mult_submits.lib.php:329
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "테이블의 접두사를 교체"
+msgstr "테이블의 접두사를 교체:"
 
 #: libraries/mult_submits.lib.php:331
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "테이블에 접두사를 추가하여 복제"
+msgstr "복사할 테이블에 접두사 추가:"
 
 #: libraries/mult_submits.lib.php:336
 msgid "From"
@@ -7413,23 +7410,20 @@ msgid "Submit"
 msgstr "확인"
 
 #: libraries/mult_submits.lib.php:371
-#, fuzzy
 #| msgid "Add Index"
 msgid "Add table prefix:"
-msgstr "인덱스 추가"
+msgstr "테이블 접두사 추가:"
 
 #: libraries/mult_submits.lib.php:374
-#, fuzzy
 #| msgid "Add Index"
 msgid "Add prefix"
-msgstr "인덱스 추가"
+msgstr "접두사 추가"
 
 #: libraries/mult_submits.lib.php:408
 msgid "Do you really want to execute the following query?"
 msgstr "정말로 다음 쿼리를 실행하시겠습니까?"
 
 #: libraries/mysql_charsets.lib.php:33
-#, fuzzy
 #| msgid "Charsets"
 msgid "Charset"
 msgstr "문자셋"
@@ -7464,7 +7458,7 @@ msgstr "체코어"
 
 #: libraries/mysql_charsets.lib.php:171
 msgid "Danish"
-msgstr ""
+msgstr "덴마크어"
 
 #: libraries/mysql_charsets.lib.php:174
 msgid "English"
@@ -7476,23 +7470,21 @@ msgstr "에스페란토어"
 
 #: libraries/mysql_charsets.lib.php:180
 msgid "Estonian"
-msgstr ""
+msgstr "에스토니아어"
 
 #: libraries/mysql_charsets.lib.php:183 libraries/mysql_charsets.lib.php:186
 msgid "German"
 msgstr "독일어"
 
 #: libraries/mysql_charsets.lib.php:183
-#, fuzzy
 #| msgid "Action"
 msgid "dictionary"
-msgstr "실행"
+msgstr "사전"
 
 #: libraries/mysql_charsets.lib.php:186
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "phone book"
-msgstr "북마크 보이기"
+msgstr "전화번호부"
 
 #: libraries/mysql_charsets.lib.php:189
 msgid "Hungarian"
@@ -7500,7 +7492,7 @@ msgstr "헝가리어"
 
 #: libraries/mysql_charsets.lib.php:192
 msgid "Icelandic"
-msgstr ""
+msgstr "아이슬란드어"
 
 #: libraries/mysql_charsets.lib.php:195 libraries/mysql_charsets.lib.php:286
 msgid "Japanese"
@@ -7508,11 +7500,11 @@ msgstr "일본어"
 
 #: libraries/mysql_charsets.lib.php:198
 msgid "Latvian"
-msgstr ""
+msgstr "라트비아어"
 
 #: libraries/mysql_charsets.lib.php:201
 msgid "Lithuanian"
-msgstr ""
+msgstr "리투아니아어"
 
 #: libraries/mysql_charsets.lib.php:204 libraries/mysql_charsets.lib.php:308
 msgid "Korean"
@@ -7532,23 +7524,23 @@ msgstr "서유럽어"
 
 #: libraries/mysql_charsets.lib.php:216
 msgid "Romanian"
-msgstr ""
+msgstr "루마니어어"
 
 #: libraries/mysql_charsets.lib.php:219
 msgid "Slovak"
-msgstr ""
+msgstr "슬로바키아어"
 
 #: libraries/mysql_charsets.lib.php:222
 msgid "Slovenian"
-msgstr ""
+msgstr "슬로베니아어"
 
 #: libraries/mysql_charsets.lib.php:225
 msgid "Spanish"
-msgstr ""
+msgstr "스페인어"
 
 #: libraries/mysql_charsets.lib.php:228
 msgid "Traditional Spanish"
-msgstr ""
+msgstr "정통 스페인어"
 
 #: libraries/mysql_charsets.lib.php:231 libraries/mysql_charsets.lib.php:329
 msgid "Swedish"
@@ -7622,40 +7614,34 @@ msgid "unknown"
 msgstr "알수없음"
 
 #: libraries/navigation/Navigation.class.php:59
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "네비게이션 트리를 불러오는 도중 에러가 발생함"
 
 #: libraries/navigation/Navigation.class.php:170
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "이벤트"
+msgstr "이벤트:"
 
 #: libraries/navigation/Navigation.class.php:171
-#, fuzzy
 #| msgid "Function"
 msgid "Functions:"
-msgstr "함수"
+msgstr "함수:"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "프로시저"
+msgstr "프로시저:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "테이블"
+msgstr "테이블:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "뷰"
+msgstr "뷰:"
 
 #: libraries/navigation/NavigationHeader.class.php:190
 msgid "Home"
@@ -7670,26 +7656,24 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 설명서"
 
 #: libraries/navigation/NavigationHeader.class.php:250
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "네비게이션 프레임 새로고침"
+msgstr "내비게이션 패널 새로고침"
 
 #: libraries/navigation/NavigationTree.class.php:719
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
-msgstr[0] ""
+msgstr[0] "%s 개의 결과가 발견됨"
 
 #: libraries/navigation/NavigationTree.class.php:828
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "펼치기/접기"
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "이름으로 데이터베이스 필터링"
+msgstr "데이터베이스 이름 또는 정규식으로 필터링"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1080
@@ -7699,21 +7683,20 @@ msgid "Clear fast filter"
 msgstr "파일로 저장"
 
 #: libraries/navigation/NavigationTree.class.php:1079
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "이름으로 필터링"
+msgstr "이름 또는 정규식으로 필터링"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "\"%1$s\"를 클래스 이름으로 사용할 수 없음, 기본 값 \"Node\"를 사용"
 
 #: libraries/navigation/NodeFactory.class.php:65
 #, php-format
 msgid "Could not include class \"%1$s\", file \"%2$s\" not found"
-msgstr ""
+msgstr "\"%1$s\" 클래스를 포함할 수 없음, \"%2$s\" 파일이 없음"
 
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:27
@@ -7724,7 +7707,7 @@ msgstr "열(컬럼)"
 #: libraries/navigation/Nodes/Node_Column_Container.class.php:38
 msgctxt "Create new column"
 msgid "New"
-msgstr ""
+msgstr "새"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
 #, fuzzy
@@ -8441,11 +8424,11 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1209
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "덤프된 테이블의 제약사항"
 
 #: libraries/plugins/export/ExportSql.class.php:1220
 msgid "Constraints for table"
-msgstr ""
+msgstr "테이블의 제약사항"
 
 #: libraries/plugins/export/ExportSql.class.php:1361
 msgid "MIME TYPES FOR TABLE"
