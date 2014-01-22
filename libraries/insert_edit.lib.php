@@ -1166,16 +1166,15 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
     $input_type = 'text';
+    // do not use the 'date' or 'time' types here; they have no effect on some
+    // browsers and create side effects (see bug #4218)
     $the_class = 'textfield';
     if ($column['pma_type'] === 'date') {
         $the_class .= ' datefield';
-        $input_type = 'date';
     } elseif ($column['pma_type'] === 'datetime'
         || substr($column['pma_type'], 0, 9) === 'timestamp'
     ) {
         $the_class .= ' datetimefield';
-    } elseif ($column['pma_type'] === 'time') {
-        $input_type = 'time';
     }
     $input_min_max = false;
     if (in_array(
