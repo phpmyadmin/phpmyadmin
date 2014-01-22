@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - bug #4239 Missing LIMIT clause for some queries
 - rfe #1489 Do not show create icon when user has no privileges
 - bug #4218 Chrome behavior with date fields
+- bug #3579 NOW() function incorrectly selected (regression)
 
 4.1.5.0 (2014-01-17)
 - bug #3780 Allow aborting loading pages

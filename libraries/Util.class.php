@@ -3685,6 +3685,10 @@ class PMA_Util
      */
     public static function getDefaultFunctionForField($field, $insert_mode)
     {
+        /*
+         * @todo Except for $cfg, no longer use globals but pass as parameters
+         *       from higher levels
+         */
         global $cfg, $analyzed_sql, $data;
 
         $default_function   = '';
