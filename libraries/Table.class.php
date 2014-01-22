@@ -337,22 +337,6 @@ class PMA_Table
     }
 
     /**
-     * Returns tooltip for the table
-     * Format : <table_comment> (<number_of_rows>)
-     *
-     * @param string $db    database name
-     * @param string $table table name
-     *
-     * @return string tooltip fot the table
-     */
-    static public function sGetToolTip($db, $table)
-    {
-        return PMA_Table::sGetStatusInfo($db, $table, 'Comment')
-            . ' (' . PMA_Table::countRecords($db, $table)
-            . ' ' . __('Rows') . ')';
-    }
-
-    /**
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
