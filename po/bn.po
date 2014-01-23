@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-03 14:17+0200\n"
+"PO-Revision-Date: 2014-01-23 10:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-1/bn/>\n"
 "Language: bn\n"
@@ -200,7 +200,7 @@ msgstr "ডাটাবেজ(গঠন)স্তুপ দেখাও"
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:597 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "ডাটাবেইজে কোন টেবিল নাই"
+msgstr "ডাটাবেইজে কোন টেবিল নাই।"
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
