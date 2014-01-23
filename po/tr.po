@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-19 14:57+0200\n"
+"PO-Revision-Date: 2014-01-23 13:26+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1185,10 +1185,9 @@ msgid "Add chart to grid"
 msgstr "Çizelgeyi ızgaraya ekle"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Lütfen diziye en az bir değişken ekleyin"
+msgstr "Lütfen diziye en az bir değişken ekleyin!"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1277,10 +1276,10 @@ msgstr "%s etkisiz"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "long_query_time'ı %ds ayarla"
+msgstr "long_query_time'ı %d saniyeye ayarlayın."
 
 #: js/messages.php:147
 msgid ""
@@ -1498,10 +1497,9 @@ msgid "Import monitor configuration"
 msgstr "İzleme yapılandırmasını içe aktar"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Lütfen içe aktarmak istediğiniz dosyayı seçin"
+msgstr "Lütfen içe aktarmak istediğiniz dosyayı seçin."
 
 #: js/messages.php:210
 msgid "Analyse Query"
@@ -1853,10 +1851,9 @@ msgid "Select Foreign Key"
 msgstr "Dış Anahtarı seç"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Lütfen birincil anahtarı veya benzersiz anahtarı seçin"
+msgstr "Lütfen birincil anahtarı veya benzersiz anahtarı seçin!"
 
 #: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
@@ -2712,10 +2709,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Yaklaşık olabilir. [doc@faq3-11]SSS 3.11[/doc]'e bakın."
 
 #: libraries/DisplayResults.class.php:4591
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "SQL sorgunuz başarılı olarak çalıştırıldı"
+msgstr "SQL sorgunuz başarılı olarak çalıştırıldı."
 
 #: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
@@ -2733,7 +2729,7 @@ msgstr "Gösterilen satır %1s - %2s"
 #: libraries/DisplayResults.class.php:4986
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d toplam, %2$d sorguda"
 
 #: libraries/DisplayResults.class.php:4990
 #, php-format
@@ -2741,10 +2737,10 @@ msgid "%d total"
 msgstr "toplam %d"
 
 #: libraries/DisplayResults.class.php:5002
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "Sorgu %01.4f san. sürdü"
+msgstr "Sorgu %01.4f saniye sürdü."
 
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
@@ -9367,10 +9363,10 @@ msgid "Skip current error"
 msgstr "Şu anki hatayı atla"
 
 #: libraries/replication_gui.lib.php:292
-#, fuzzy, php-format
+#, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "Şu anki hatayı atla"
+msgstr "Sonraki %s hataya atla."
 
 #: libraries/replication_gui.lib.php:319
 #, php-format
