@@ -4924,12 +4924,6 @@ class PMA_DisplayResults
 
         $unlim_num_rows = $this->__get('unlim_num_rows'); // To use in isset()
 
-        if (isset($unlim_num_rows) && ($unlim_num_rows != $total)) {
-            $selectstring = ', ' . $unlim_num_rows . ' ' . __('in query');
-        } else {
-            $selectstring = '';
-        }
-
         if (! empty($limit_clause)) {
 
             $limit_data
@@ -4987,15 +4981,21 @@ class PMA_DisplayResults
         $message->addMessage('(');
 
         if (!$message_view_warning) {
-            $message_total = PMA_Message::notice($pre_count . __('%d total'));
-            $message_total->addParam($total);
+
+            if (isset($unlim_num_rows) && ($unlim_num_rows != $total)) {
+                $message_total = PMA_Message::notice($pre_count . __('%1$d total, %2$d in query'));
+                $message_total->addParam($total);
+                $message_total->addParam($unlim_num_rows);
+            } else {
+                $message_total = PMA_Message::notice($pre_count . __('%d total'));
+                $message_total->addParam($total);
+            }
 
             if (!empty($after_count)) {
                 $message_total->addMessage($after_count);
             }
             $message->addMessage($message_total, '');
 
-            $message->addMessage($selectstring, '');
             $message->addMessage(', ', '');
         }
 
