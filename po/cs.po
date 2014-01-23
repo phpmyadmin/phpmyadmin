@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-20 11:15+0200\n"
+"PO-Revision-Date: 2014-01-23 11:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -924,16 +924,14 @@ msgid "Missing value in the form!"
 msgstr "Chybějící hodnota ve formuláři!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Prosím zadejte platné číslo"
+msgstr "Prosím zadejte platné číslo!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Prosím zadejte platné délku"
+msgstr "Prosím zadejte platnou délku!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1176,10 +1174,9 @@ msgid "Add chart to grid"
 msgstr "Přidat graf do mřížky"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Prosím přidejte do série alespoň jednu hodnotu"
+msgstr "Prosím přidejte do série alespoň jednu hodnotu!"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1267,10 +1264,10 @@ msgstr "Vypnout %s"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Nastavit long_query_time na %ds"
+msgstr "Nastavit long_query_time na %d sekund."
 
 #: js/messages.php:147
 msgid ""
@@ -1490,10 +1487,9 @@ msgid "Import monitor configuration"
 msgstr "Nahrát nastavení monitoru"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Zvolte, prosím, soubor, který si přejete nahrát"
+msgstr "Prosím zvolte soubor, který chcete nahrát."
 
 #: js/messages.php:210
 msgid "Analyse Query"
@@ -1670,10 +1666,9 @@ msgid "Values for a new column"
 msgstr "Hodnoty pro nový sloupec"
 
 #: js/messages.php:274
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Zadejte každou hodnotu do samostatného pole"
+msgstr "Zadejte každou hodnotu do samostatného pole."
 
 #: js/messages.php:275
 #, php-format
@@ -1838,10 +1833,9 @@ msgid "Select Foreign Key"
 msgstr "Zvolte cizí klíč"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Zvolte, prosím, primární nebo unikátní klíč"
+msgstr "Prosím zvolte primární nebo unikátní klíč!"
 
 #: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
@@ -2680,10 +2674,9 @@ msgstr "Binární (WKB)"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "Řádek byl smazán"
+msgstr "Řádek byl smazán."
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5079 libraries/server_status.lib.php:518
@@ -2695,10 +2688,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Počet nemusí být přesný, viz [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "Váš SQL-dotaz byl úspěšně vykonán"
+msgstr "Váš SQL-dotaz byl úspěšně vykonán."
 
 #: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
@@ -2716,7 +2708,7 @@ msgstr "Zobrazeny záznamy %1s - %2s"
 #: libraries/DisplayResults.class.php:4986
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d celkem, %2$d v dotazu"
 
 #: libraries/DisplayResults.class.php:4990
 #, php-format
@@ -2724,10 +2716,10 @@ msgid "%d total"
 msgstr "%d celkem"
 
 #: libraries/DisplayResults.class.php:5002
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "Dotaz trval %01.4f sekund"
+msgstr "Dotaz trval %01.4f sekund."
 
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
@@ -2791,10 +2783,9 @@ msgid "Visualize GIS data"
 msgstr "Zobrazit data GIS"
 
 #: libraries/DisplayResults.class.php:5637
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Odkaz nenalezen"
+msgstr "Odkaz nebyl nalezen!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -9276,10 +9267,10 @@ msgid "Skip current error"
 msgstr "Přeskočit současnou chybu"
 
 #: libraries/replication_gui.lib.php:292
-#, fuzzy, php-format
+#, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "Přeskočit současnou chybu"
+msgstr "Přeskočit %s dalších chyb."
 
 #: libraries/replication_gui.lib.php:319
 #, php-format
