@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-23 13:26+0200\n"
+"PO-Revision-Date: 2014-01-23 13:28+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -9366,7 +9366,7 @@ msgstr "Şu anki hatayı atla"
 #, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "Sonraki %s hataya atla."
+msgstr "Sonraki %s hatayı atla."
 
 #: libraries/replication_gui.lib.php:319
 #, php-format
