@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-14 19:21+0200\n"
-"Last-Translator: Nuno Ferreira <numagf@gmail.com>\n"
-"Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"pt/>\n"
+"PO-Revision-Date: 2014-01-23 12:46+0200\n"
+"Last-Translator: Eduardo Abreu <eduardextreme@hotmail.com>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -429,8 +429,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Foi detectado um erro e foi gerado automaticamente um relatório de erro, "
-"mas, não foi possível enviá-lo."
+"Foi detectado um erro e gerado automaticamente um relatório de erro, mas não "
+"foi possível enviá-lo."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
@@ -6150,7 +6150,7 @@ msgstr "Repetir cabeçalhos"
 
 #: libraries/config/messages.inc.php:535
 msgid "Grid editing: trigger action"
-msgstr "Edição de grelha: executar ação."
+msgstr "Edição de grelha: executar ação"
 
 #: libraries/config/messages.inc.php:536
 msgid "Grid editing: save all edited cells at once"
@@ -6698,7 +6698,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:699
 msgid "User preferences storage table"
-msgstr ""
+msgstr "Tabela de armazenamento das preferências do utilizador"
 
 #: libraries/config/messages.inc.php:700
 #, fuzzy
@@ -6748,7 +6748,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:705
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabela dos itens de navegação oculta"
 
 #: libraries/config/messages.inc.php:707
 msgid "User for config auth"
@@ -6759,6 +6759,8 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
+"Uma descrição de fácil compreensão deste servidor. Deixe em branco para "
+"mostrar o nome do servidor (hostname)."
 
 #: libraries/config/messages.inc.php:709
 msgid "Verbose name of this server"
@@ -6782,21 +6784,20 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:713
 msgid "Show password change form"
-msgstr ""
+msgstr "Mostrar o formulário de mudança de password"
 
 #: libraries/config/messages.inc.php:714
 msgid "Show create database form"
-msgstr ""
+msgstr "Mostrar o formulário de criação de base de dados"
 
 #: libraries/config/messages.inc.php:715
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
 #: libraries/config/messages.inc.php:716
-#, fuzzy
 #| msgid "Show PHP information"
 msgid "Show Creation timestamp"
-msgstr "Mostra informação do PHP"
+msgstr "Mostrar data (timestamp) da criação"
 
 #: libraries/config/messages.inc.php:717
 msgid ""
@@ -6805,7 +6806,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:718
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Mostrar a data (timestamp) da última actualização"
 
 #: libraries/config/messages.inc.php:719
 msgid ""
@@ -6814,7 +6815,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:720
 msgid "Show Last check timestamp"
-msgstr ""
+msgstr "Mostrar a data (timestamp) da última verificação"
 
 #: libraries/config/messages.inc.php:721
 msgid ""
@@ -6823,9 +6824,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:722
-#, fuzzy
 msgid "Show display direction"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Mostrar direcção da visualização"
 
 #: libraries/config/messages.inc.php:723
 msgid ""
@@ -14750,10 +14750,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:420
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Rate of aborted clients"
-msgstr "Índice"
+msgstr "Taxa de clientes abortados"
 
 #: libraries/advisory_rules.txt:425
 #, php-format
@@ -14806,10 +14805,12 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"O tamanho do log InnoDB é de %s%% em relação ao tamanho do buffer InnoDB e "
+"não deve ser abaixo de 20%%"
 
 #: libraries/advisory_rules.txt:443
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "Tamanho máximo do log InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
@@ -14846,7 +14847,7 @@ msgstr "O tamanho absoluto do seu ficheiro de registo InooDB é %s MiB"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"
-msgstr ""
+msgstr "Tamanho do buffer InnoDB"
 
 #: libraries/advisory_rules.txt:453
 msgid "Your InnoDB buffer pool is fairly small."
