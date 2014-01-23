@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-15 23:07+0200\n"
+"PO-Revision-Date: 2014-01-23 14:16+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/"
-">\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5281,6 +5281,9 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"Permitte interruption de importation quando un script releva que il es vicin "
+"al limite de tempore. Isto poterea esser un bon modo pro importar files "
+"grande, totevia il pote interrumper transactiones."
 
 #: libraries/config/messages.inc.php:246
 msgid "Partial import: allow interrupt"
@@ -5361,7 +5364,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:276
 msgid "Limit column characters"
-msgstr ""
+msgstr "Limita characteres de columna"
 
 #: libraries/config/messages.inc.php:277
 msgid ""
@@ -5372,7 +5375,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:278
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "Dele omne cookies quando on exi (logout)"
 
 #: libraries/config/messages.inc.php:279
 msgid ""
@@ -5382,7 +5385,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:280
 msgid "Recall user name"
-msgstr ""
+msgstr "Recorda nomine de usator"
 
 #: libraries/config/messages.inc.php:281
 msgid ""
@@ -5394,7 +5397,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:282
 msgid "Login cookie store"
-msgstr ""
+msgstr "Memora cookie de authentication"
 
 #: libraries/config/messages.inc.php:283
 msgid "Define how long (in seconds) a login cookie is valid"
@@ -5402,7 +5405,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:284
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Validitate de cookie de authentication de accesso"
 
 #: libraries/config/messages.inc.php:285
 msgid "Double size of textarea for LONGTEXT columns"
@@ -5410,7 +5413,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:286
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Un area de texto plus grande pro LONGTEXT"
 
 #: libraries/config/messages.inc.php:287
 msgid "Maximum number of characters used when a SQL query is displayed"
@@ -5418,12 +5421,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:288
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Maxime longor monstrate de SQL"
 
 #: libraries/config/messages.inc.php:289 libraries/config/messages.inc.php:296
 #: libraries/config/messages.inc.php:352
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Usatores non pote fixar un valor major"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of databases displayed in database list"
@@ -5431,7 +5434,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:291
 msgid "Maximum databases"
-msgstr ""
+msgstr "Maxime numero de base de datos"
 
 #: libraries/config/messages.inc.php:292
 msgid ""
@@ -5440,7 +5443,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:293
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maxime elementos in un ramo"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -12420,6 +12423,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
+"%sValiditate de cookie de authentication%s major que %"
+"ssession.gc_maxlifetime%s pote causar mal validation casual de session "
+"(currentemente session.gc_maxlifetime es %d)."
 
 #: setup/lib/index.lib.php:257
 #, php-format
@@ -12427,6 +12433,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%sValiditate de cookie%s deberea esser fixate a 1800 secundas (30 minutas) "
+"al maximo. Valores major que 1800 crea un risco de securitate tal como "
+"impersonation."
 
 #: setup/lib/index.lib.php:263
 #, php-format
@@ -12445,6 +12454,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
+"Si tu crede que isto es necessari, usa preferentias additional de protection "
+"- preferentias de %sauthentication de ospite%s e %slista de proxy digne de "
+"fide%s. Totevia, le protection basate sur IP poterea non esser digne de "
+"fide, si tu IP pertine a un ISP ubi milles de usatores, includente te, es "
+"connectite."
 
 #: setup/lib/index.lib.php:278
 #, php-format
@@ -12455,6 +12469,12 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
+"Tu fixava le typo de authentication [kbd]config[/kbd] e includeva le nomine "
+"de usator e contrasigno pro le auto-login (accesso automatic de "
+"authentication), isto non es desirabile pro hospite de uso ab vivo (live). "
+"Ulle qui sape o conjectura  tu URL de phpMyAdmin pote acceder directemente a "
+"tu pannello de phpMyAdmin. Fixa %stypo de authentication%s a "
+"[kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:284
 #, php-format
