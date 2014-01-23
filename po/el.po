@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-23 10:51+0100\n"
+"POT-Creation-Date: 2014-01-23 10:59+0100\n"
 "PO-Revision-Date: 2014-01-20 15:14+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -549,8 +549,8 @@ msgstr "Προσθήκη γεωμετρίας"
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
 #: libraries/plugins/auth/AuthenticationCookie.class.php:284
-#: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:294
-#: libraries/replication_gui.lib.php:431 libraries/replication_gui.lib.php:874
+#: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
+#: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
 #: libraries/rte/rte_routines.lib.php:1095
 #: libraries/rte/rte_routines.lib.php:1694
@@ -937,11 +937,15 @@ msgid "Missing value in the form!"
 msgstr "Η τιμή δεν υπάρχει στη φόρμα!"
 
 #: js/messages.php:48
-msgid "Please enter a valid number"
+#, fuzzy
+#| msgid "Please enter a valid number"
+msgid "Please enter a valid number!"
 msgstr "Εισάγετε έναν έγκυρο αριθμό"
 
 #: js/messages.php:49
-msgid "Please enter a valid length"
+#, fuzzy
+#| msgid "Please enter a valid length"
+msgid "Please enter a valid length!"
 msgstr "Εισάγετε ένα έγκυρο μήκος"
 
 #: js/messages.php:50
@@ -1186,7 +1190,9 @@ msgid "Add chart to grid"
 msgstr "Προσθήκη διαγράμματος στο πλέγμα"
 
 #: js/messages.php:124
-msgid "Please add at least one variable to the series"
+#, fuzzy
+#| msgid "Please add at least one variable to the series"
+msgid "Please add at least one variable to the series!"
 msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στις σειρές"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
@@ -1277,8 +1283,9 @@ msgstr "Απενεργοποίηση %s"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, php-format
-msgid "Set long_query_time to %ds"
+#, fuzzy, php-format
+#| msgid "Set long_query_time to %ds"
+msgid "Set long_query_time to %d seconds."
 msgstr "Ορισμός του long_query_time σε %dδ"
 
 #: js/messages.php:147
@@ -1504,7 +1511,9 @@ msgid "Import monitor configuration"
 msgstr "Εισαγωγή ρύθμισης εποπτείας"
 
 #: js/messages.php:208
-msgid "Please select the file you want to import"
+#, fuzzy
+#| msgid "Please select the file you want to import"
+msgid "Please select the file you want to import."
 msgstr "Ελέγξτε το αρχείο που θέλετε να εισάγετε"
 
 #: js/messages.php:210
@@ -1683,7 +1692,9 @@ msgid "Values for a new column"
 msgstr "Τιμές για νέα στήλη"
 
 #: js/messages.php:274
-msgid "Enter each value in a separate field"
+#, fuzzy
+#| msgid "Enter each value in a separate field"
+msgid "Enter each value in a separate field."
 msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο"
 
 #: js/messages.php:275
@@ -1854,7 +1865,9 @@ msgid "Select Foreign Key"
 msgstr "Επιλέξτε Μη Διακριτό Κλειδί"
 
 #: js/messages.php:344
-msgid "Please select the primary key or a unique key"
+#, fuzzy
+#| msgid "Please select the primary key or a unique key"
+msgid "Please select the primary key or a unique key!"
 msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
 
 #: js/messages.php:345 pmd_general.php:101
@@ -1958,7 +1971,7 @@ msgstr "Προβολή γραμμής(ών) δεδομένων"
 msgid "Generate password"
 msgstr "Δημιουργία κωδικού πρόσβασης"
 
-#: js/messages.php:386 libraries/replication_gui.lib.php:866
+#: js/messages.php:386 libraries/replication_gui.lib.php:869
 msgid "Generate"
 msgstr "Παραγωγή"
 
@@ -3371,7 +3384,7 @@ msgid "Operator"
 msgstr "Τελεστής"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
-#: libraries/insert_edit.lib.php:1615 libraries/replication_gui.lib.php:512
+#: libraries/insert_edit.lib.php:1615 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:560
 #: pmd_general.php:620 pmd_general.php:749 pmd_general.php:868
@@ -6614,8 +6627,8 @@ msgstr "Παράβλεψη κλειδωμένων πινάκων"
 msgid "Requires SQL Validator to be enabled."
 msgstr "Απαιτεί την ενεργοποίηση του Εγκυροποιητή SQL."
 
-#: libraries/config/messages.inc.php:746 libraries/replication_gui.lib.php:397
-#: libraries/replication_gui.lib.php:834 libraries/replication_gui.lib.php:850
+#: libraries/config/messages.inc.php:746 libraries/replication_gui.lib.php:400
+#: libraries/replication_gui.lib.php:837 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1442
 #: libraries/server_privileges.lib.php:1466
 #: libraries/server_privileges.lib.php:2935
@@ -6936,20 +6949,20 @@ msgstr ""
 "Αδύνατος ο υπολογισμός εγγραφών σε ένα σύνολο αποτελεσμάτων εκτός μνήμης"
 
 #: libraries/display_change_password.lib.php:59
-#: libraries/replication_gui.lib.php:843
+#: libraries/replication_gui.lib.php:846
 #: libraries/server_privileges.lib.php:1458
 msgid "No Password"
 msgstr "Χωρίς Κωδικό Πρόσβασης"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
-#: libraries/replication_gui.lib.php:392 libraries/replication_gui.lib.php:830
+#: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:833
 #: libraries/server_privileges.lib.php:1438
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
 #: libraries/display_change_password.lib.php:73
-#: libraries/replication_gui.lib.php:854
+#: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1473
 msgid "Re-type:"
 msgstr "Επαναεισαγωγή:"
@@ -8661,7 +8674,7 @@ msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γρ�
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
-#: libraries/replication_gui.lib.php:403 libraries/replication_gui.lib.php:674
+#: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
 #: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:421
 msgid "Host:"
 msgstr "Φιλοξενητής:"
@@ -9282,7 +9295,7 @@ msgstr ""
 msgid "no description"
 msgstr "χωρίς περιγραφή"
 
-#: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:313
+#: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:390
 msgid "Master replication"
 msgstr "Πρωτεύουσα αναπαραγωγή"
@@ -9297,7 +9310,7 @@ msgstr ""
 msgid "Show connected slaves"
 msgstr "Προβολή συνδεδεμένων δευτερευόντων"
 
-#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:670
+#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:673
 msgid "Add slave replication user"
 msgstr "Προσθήκη δευτερέοντα χρήστη αναπαραγωγής"
 
@@ -9406,7 +9419,7 @@ msgstr "Εκκίνηση μόνο Νήματος IO"
 msgid "Stop IO Thread only"
 msgstr "Σταμάτημα μόνο Νήματος IO"
 
-#: libraries/replication_gui.lib.php:248 libraries/replication_gui.lib.php:371
+#: libraries/replication_gui.lib.php:248 libraries/replication_gui.lib.php:374
 msgid "Change or reconfigure master server"
 msgstr "Αλλαγή ή επαναρύθμιση του πρωτεύοντος διακομιστή"
 
@@ -9433,15 +9446,13 @@ msgstr ""
 msgid "Skip current error"
 msgstr "Παράβλεψη τρέχοντος σφάλματος"
 
-#: libraries/replication_gui.lib.php:288
-msgid "Skip next"
-msgstr "Παράβλεψη επόμενου"
-
 #: libraries/replication_gui.lib.php:292
-msgid "errors."
-msgstr "σφάλματα."
+#, fuzzy, php-format
+#| msgid "Skip current error"
+msgid "Skip next %s errors."
+msgstr "Παράβλεψη τρέχοντος σφάλματος"
 
-#: libraries/replication_gui.lib.php:316
+#: libraries/replication_gui.lib.php:319
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -9450,15 +9461,15 @@ msgstr ""
 "Αυτός ο διακομιστής δεν έχει ρυθμιστεί ως πρωτεύων σε μια διαδικασία "
 "αναπαραγωγής. Θέλετε να τον <a href=\"%s\">ρυθμίσετε</a>;"
 
-#: libraries/replication_gui.lib.php:348
+#: libraries/replication_gui.lib.php:351
 msgid "Uncheck All"
 msgstr "Απεπιλογή όλων"
 
-#: libraries/replication_gui.lib.php:370
+#: libraries/replication_gui.lib.php:373
 msgid "Slave configuration"
 msgstr "Ρύθμιση δευτερεύοντος"
 
-#: libraries/replication_gui.lib.php:373
+#: libraries/replication_gui.lib.php:376
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -9466,42 +9477,42 @@ msgstr ""
 "Σιγουρευτείτε ότι έχετε μοναδική ταυτότητα διακομιστή στο αρχείο ρυθμίσεων "
 "(my.cnf). Αν όχι, προσθέστε την παρακάτω γραμμή στον τομέα [mysqld]:"
 
-#: libraries/replication_gui.lib.php:380 libraries/replication_gui.lib.php:764
+#: libraries/replication_gui.lib.php:383 libraries/replication_gui.lib.php:767
 #: libraries/server_privileges.lib.php:1264
 msgid "User name:"
 msgstr "Όνομα χρήστη:"
 
-#: libraries/replication_gui.lib.php:386 libraries/replication_gui.lib.php:768
-#: libraries/replication_gui.lib.php:784
+#: libraries/replication_gui.lib.php:389 libraries/replication_gui.lib.php:771
+#: libraries/replication_gui.lib.php:787
 #: libraries/server_privileges.lib.php:1269
 #: libraries/server_privileges.lib.php:1300
 msgid "User name"
 msgstr "Όνομα χρήστη"
 
-#: libraries/replication_gui.lib.php:415
+#: libraries/replication_gui.lib.php:418
 msgid "Port:"
 msgstr "Θύρα:"
 
-#: libraries/replication_gui.lib.php:499
+#: libraries/replication_gui.lib.php:502
 msgid "Master status"
 msgstr "Κατάσταση πρωτεύοντος"
 
-#: libraries/replication_gui.lib.php:502
+#: libraries/replication_gui.lib.php:505
 msgid "Slave status"
 msgstr "Κατάσταση δευτερεύοντος"
 
-#: libraries/replication_gui.lib.php:511
+#: libraries/replication_gui.lib.php:514
 #: libraries/server_status_variables.lib.php:219
 #: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:416
 msgid "Variable"
 msgstr "Μεταβλητή"
 
-#: libraries/replication_gui.lib.php:590 libraries/server_bin_log.lib.php:131
+#: libraries/replication_gui.lib.php:593 libraries/server_bin_log.lib.php:131
 msgid "Server ID"
 msgstr "Ταυτότητα Διακομιστή"
 
-#: libraries/replication_gui.lib.php:591 libraries/replication_gui.lib.php:678
-#: libraries/replication_gui.lib.php:819
+#: libraries/replication_gui.lib.php:594 libraries/replication_gui.lib.php:681
+#: libraries/replication_gui.lib.php:822
 #: libraries/server_privileges.lib.php:1329
 #: libraries/server_privileges.lib.php:1426
 #: libraries/server_privileges.lib.php:1819
@@ -9511,7 +9522,7 @@ msgstr "Ταυτότητα Διακομιστή"
 msgid "Host"
 msgstr "Φιλοξενητής"
 
-#: libraries/replication_gui.lib.php:611
+#: libraries/replication_gui.lib.php:614
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -9519,39 +9530,39 @@ msgstr ""
 "Μόνο οι δευτερεύοντες που εκκινούν με την ρύθμιση --report-host=host_name "
 "είναι ορατές σε αυτή τη λίστα."
 
-#: libraries/replication_gui.lib.php:721
+#: libraries/replication_gui.lib.php:724
 #: libraries/server_privileges.lib.php:1382
 msgid "Any host"
 msgstr "Οποιοδήποτε σύστημα"
 
-#: libraries/replication_gui.lib.php:726
+#: libraries/replication_gui.lib.php:729
 #: libraries/server_privileges.lib.php:1390
 msgid "Local"
 msgstr "Τοπικό"
 
-#: libraries/replication_gui.lib.php:733
+#: libraries/replication_gui.lib.php:736
 #: libraries/server_privileges.lib.php:1399
 msgid "This Host"
 msgstr "Αυτός ο διακομιστής"
 
-#: libraries/replication_gui.lib.php:775
+#: libraries/replication_gui.lib.php:778
 #: libraries/server_privileges.lib.php:1284
 msgid "Any user"
 msgstr "Οποιοσδήποτε χρήστης"
 
-#: libraries/replication_gui.lib.php:780 libraries/replication_gui.lib.php:813
-#: libraries/replication_gui.lib.php:846
+#: libraries/replication_gui.lib.php:783 libraries/replication_gui.lib.php:816
+#: libraries/replication_gui.lib.php:849
 #: libraries/server_privileges.lib.php:1418
 #: libraries/server_privileges.lib.php:2823
 msgid "Use text field:"
 msgstr "Χρήση πεδίου κειμένου:"
 
-#: libraries/replication_gui.lib.php:807
+#: libraries/replication_gui.lib.php:810
 #: libraries/server_privileges.lib.php:1409
 msgid "Use Host Table"
 msgstr "Χρήση Οικείου Πίνακα"
 
-#: libraries/replication_gui.lib.php:823
+#: libraries/replication_gui.lib.php:826
 #: libraries/server_privileges.lib.php:1430
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
@@ -9560,68 +9571,68 @@ msgstr ""
 "Όταν χρησιμοποιείται ο Οικείος πίνακας, παραβλέπεται αυτό το πεδίο και "
 "χρησιμοποιούνται τιμές που είναι αποθηκευμένες στον Οικείο πίνακα."
 
-#: libraries/replication_gui.lib.php:858
+#: libraries/replication_gui.lib.php:861
 #: libraries/server_privileges.lib.php:1477
 msgid "Re-type"
 msgstr "Επαναεισαγωγή"
 
-#: libraries/replication_gui.lib.php:862
+#: libraries/replication_gui.lib.php:865
 msgid "Generate Password:"
 msgstr "Παραγωγή Κωδικού Πρόσβασης:"
 
-#: libraries/replication_gui.lib.php:900
+#: libraries/replication_gui.lib.php:903
 msgid "Replication started successfully."
 msgstr "Η αναπαραγωγή εκκινήθηκε επιτυχώς."
 
-#: libraries/replication_gui.lib.php:901
+#: libraries/replication_gui.lib.php:904
 msgid "Error starting replication."
 msgstr "Σφάλμα έναρξης αναπαραγωγής."
 
-#: libraries/replication_gui.lib.php:904
+#: libraries/replication_gui.lib.php:907
 msgid "Replication stopped successfully."
 msgstr "Η αναπαραγωγή σταμάτησε επιτυχώς."
 
-#: libraries/replication_gui.lib.php:905
+#: libraries/replication_gui.lib.php:908
 msgid "Error stopping replication."
 msgstr "Σφάλμα λήξης αναπαραγωγής."
 
-#: libraries/replication_gui.lib.php:908
+#: libraries/replication_gui.lib.php:911
 msgid "Replication resetting successfully."
 msgstr "Η αναπαραγωγή επαναφέρθηκε επιτυχώς."
 
-#: libraries/replication_gui.lib.php:909
+#: libraries/replication_gui.lib.php:912
 msgid "Error resetting replication."
 msgstr "Σφάλμα επαναφοράς αναπαραγωγής."
 
-#: libraries/replication_gui.lib.php:912
+#: libraries/replication_gui.lib.php:915
 msgid "Success."
 msgstr "Επιτυχία."
 
-#: libraries/replication_gui.lib.php:913
+#: libraries/replication_gui.lib.php:916
 msgid "Error."
 msgstr "Λάθος."
 
-#: libraries/replication_gui.lib.php:955
+#: libraries/replication_gui.lib.php:958
 msgid "Unknown error"
 msgstr "Άγνωστο σφάλμα"
 
-#: libraries/replication_gui.lib.php:965
+#: libraries/replication_gui.lib.php:968
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "Αδύνατη η σύνδεση στον πρωτεύοντα %s."
 
-#: libraries/replication_gui.lib.php:976
+#: libraries/replication_gui.lib.php:979
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 "Αδύνατη η ανάγνωση της θέσης πρωτεύουσας καταγραφής. Πιθανό πρόβλημα "
 "δικαιωμάτων."
 
-#: libraries/replication_gui.lib.php:994
+#: libraries/replication_gui.lib.php:997
 msgid "Unable to change master"
 msgstr "Αδύνατη η αλλαγή της πρωτεύουσας"
 
-#: libraries/replication_gui.lib.php:998
+#: libraries/replication_gui.lib.php:1001
 #, php-format
 msgid "Master server changed successfully to %s"
 msgstr "Ο πρωτεύων διακομιστής άλλαξε επιτυχώς σε %s"
@@ -14722,6 +14733,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid "Skip next"
+#~ msgstr "Παράβλεψη επόμενου"
+
+#~ msgid "errors."
+#~ msgstr "σφάλματα."
 
 #~ msgid "in query"
 #~ msgstr "στην εντολή"

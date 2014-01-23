@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-23 10:51+0100\n"
+"POT-Creation-Date: 2014-01-23 10:59+0100\n"
 "PO-Revision-Date: 2014-01-19 14:57+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
@@ -548,8 +548,8 @@ msgstr "Geometri ekle"
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
 #: libraries/plugins/auth/AuthenticationCookie.class.php:284
-#: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:294
-#: libraries/replication_gui.lib.php:431 libraries/replication_gui.lib.php:874
+#: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
+#: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
 #: libraries/rte/rte_routines.lib.php:1095
 #: libraries/rte/rte_routines.lib.php:1694
@@ -932,11 +932,15 @@ msgid "Missing value in the form!"
 msgstr "Formda eksik değer!"
 
 #: js/messages.php:48
-msgid "Please enter a valid number"
+#, fuzzy
+#| msgid "Please enter a valid number"
+msgid "Please enter a valid number!"
 msgstr "Lütfen geçerli bir numara girin"
 
 #: js/messages.php:49
-msgid "Please enter a valid length"
+#, fuzzy
+#| msgid "Please enter a valid length"
+msgid "Please enter a valid length!"
 msgstr "Lütfen geçerli bir uzunluk girin"
 
 #: js/messages.php:50
@@ -1181,7 +1185,9 @@ msgid "Add chart to grid"
 msgstr "Çizelgeyi ızgaraya ekle"
 
 #: js/messages.php:124
-msgid "Please add at least one variable to the series"
+#, fuzzy
+#| msgid "Please add at least one variable to the series"
+msgid "Please add at least one variable to the series!"
 msgstr "Lütfen diziye en az bir değişken ekleyin"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
@@ -1271,8 +1277,9 @@ msgstr "%s etkisiz"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, php-format
-msgid "Set long_query_time to %ds"
+#, fuzzy, php-format
+#| msgid "Set long_query_time to %ds"
+msgid "Set long_query_time to %d seconds."
 msgstr "long_query_time'ı %ds ayarla"
 
 #: js/messages.php:147
@@ -1491,7 +1498,9 @@ msgid "Import monitor configuration"
 msgstr "İzleme yapılandırmasını içe aktar"
 
 #: js/messages.php:208
-msgid "Please select the file you want to import"
+#, fuzzy
+#| msgid "Please select the file you want to import"
+msgid "Please select the file you want to import."
 msgstr "Lütfen içe aktarmak istediğiniz dosyayı seçin"
 
 #: js/messages.php:210
@@ -1669,7 +1678,9 @@ msgid "Values for a new column"
 msgstr "Yeni bir sütun için değerler"
 
 #: js/messages.php:274
-msgid "Enter each value in a separate field"
+#, fuzzy
+#| msgid "Enter each value in a separate field"
+msgid "Enter each value in a separate field."
 msgstr "Her bir değeri ayrı alana girin"
 
 #: js/messages.php:275
@@ -1842,7 +1853,9 @@ msgid "Select Foreign Key"
 msgstr "Dış Anahtarı seç"
 
 #: js/messages.php:344
-msgid "Please select the primary key or a unique key"
+#, fuzzy
+#| msgid "Please select the primary key or a unique key"
+msgid "Please select the primary key or a unique key!"
 msgstr "Lütfen birincil anahtarı veya benzersiz anahtarı seçin"
 
 #: js/messages.php:345 pmd_general.php:101
@@ -1947,7 +1960,7 @@ msgstr "Veri satır(larını)nı göster"
 msgid "Generate password"
 msgstr "Parola üret"
 
-#: js/messages.php:386 libraries/replication_gui.lib.php:866
+#: js/messages.php:386 libraries/replication_gui.lib.php:869
 msgid "Generate"
 msgstr "Üret"
 
@@ -3347,7 +3360,7 @@ msgid "Operator"
 msgstr "İşletici"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
-#: libraries/insert_edit.lib.php:1615 libraries/replication_gui.lib.php:512
+#: libraries/insert_edit.lib.php:1615 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:560
 #: pmd_general.php:620 pmd_general.php:749 pmd_general.php:868
@@ -6560,8 +6573,8 @@ msgstr "Kilitli tabloları atla"
 msgid "Requires SQL Validator to be enabled."
 msgstr "SQL Onaylayıcının etkinleştirilmesi gerekir."
 
-#: libraries/config/messages.inc.php:746 libraries/replication_gui.lib.php:397
-#: libraries/replication_gui.lib.php:834 libraries/replication_gui.lib.php:850
+#: libraries/config/messages.inc.php:746 libraries/replication_gui.lib.php:400
+#: libraries/replication_gui.lib.php:837 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1442
 #: libraries/server_privileges.lib.php:1466
 #: libraries/server_privileges.lib.php:2935
@@ -6874,20 +6887,20 @@ msgid "Can't count rows in an unbuffered result set"
 msgstr "Arabelleklenmemiş sonuç grubunda satırlar sayılamıyor"
 
 #: libraries/display_change_password.lib.php:59
-#: libraries/replication_gui.lib.php:843
+#: libraries/replication_gui.lib.php:846
 #: libraries/server_privileges.lib.php:1458
 msgid "No Password"
 msgstr "Parola yok"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
-#: libraries/replication_gui.lib.php:392 libraries/replication_gui.lib.php:830
+#: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:833
 #: libraries/server_privileges.lib.php:1438
 msgid "Password:"
 msgstr "Parola:"
 
 #: libraries/display_change_password.lib.php:73
-#: libraries/replication_gui.lib.php:854
+#: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1473
 msgid "Re-type:"
 msgstr "Parola tekrarı:"
@@ -8590,7 +8603,7 @@ msgstr "İlk satır içine sütun adlarını koy:"
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
-#: libraries/replication_gui.lib.php:403 libraries/replication_gui.lib.php:674
+#: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
 #: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:421
 msgid "Host:"
 msgstr "Anamakine:"
@@ -9205,7 +9218,7 @@ msgstr ""
 msgid "no description"
 msgstr "Açıklama yok"
 
-#: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:313
+#: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:316
 #: libraries/server_databases.lib.php:390
 msgid "Master replication"
 msgstr "Master kopya etme"
@@ -9219,7 +9232,7 @@ msgstr ""
 msgid "Show connected slaves"
 msgstr "Bağlı slave'leri göster"
 
-#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:670
+#: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:673
 msgid "Add slave replication user"
 msgstr "Slave kopya etme kullanıcısı ekle"
 
@@ -9328,7 +9341,7 @@ msgstr "Sadece G/Ç İşlemini başlat"
 msgid "Stop IO Thread only"
 msgstr "Sadece G/Ç İşlemini durdur"
 
-#: libraries/replication_gui.lib.php:248 libraries/replication_gui.lib.php:371
+#: libraries/replication_gui.lib.php:248 libraries/replication_gui.lib.php:374
 msgid "Change or reconfigure master server"
 msgstr "Master sunucuyu değiştir veya yeniden yapılandır"
 
@@ -9353,15 +9366,13 @@ msgstr "Hataları atlamak master ve slave'i eşitlenmemeye sürükleyebilir!"
 msgid "Skip current error"
 msgstr "Şu anki hatayı atla"
 
-#: libraries/replication_gui.lib.php:288
-msgid "Skip next"
-msgstr "İleri atla"
-
 #: libraries/replication_gui.lib.php:292
-msgid "errors."
-msgstr "hata."
+#, fuzzy, php-format
+#| msgid "Skip current error"
+msgid "Skip next %s errors."
+msgstr "Şu anki hatayı atla"
 
-#: libraries/replication_gui.lib.php:316
+#: libraries/replication_gui.lib.php:319
 #, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
@@ -9370,15 +9381,15 @@ msgstr ""
 "Bu sunucu, kopya etme işlemi sırasında master sunucu olarak yapılandırılmaz. "
 "Bunu <a href=\"%s\">yapılandırmak</a> istiyor musunuz?"
 
-#: libraries/replication_gui.lib.php:348
+#: libraries/replication_gui.lib.php:351
 msgid "Uncheck All"
 msgstr "Hiçbirini Seçme"
 
-#: libraries/replication_gui.lib.php:370
+#: libraries/replication_gui.lib.php:373
 msgid "Slave configuration"
 msgstr "Slave yapılandırması"
 
-#: libraries/replication_gui.lib.php:373
+#: libraries/replication_gui.lib.php:376
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
@@ -9386,42 +9397,42 @@ msgstr ""
 "Yapılandırma dosyanız (my.cnf) içinde benzersiz sunucu-id olduğundan emin "
 "olun. Eğer değilseniz lütfen aşağıdaki satırı [mysqld] bölümü içine ekleyin:"
 
-#: libraries/replication_gui.lib.php:380 libraries/replication_gui.lib.php:764
+#: libraries/replication_gui.lib.php:383 libraries/replication_gui.lib.php:767
 #: libraries/server_privileges.lib.php:1264
 msgid "User name:"
 msgstr "Kullanıcı adı:"
 
-#: libraries/replication_gui.lib.php:386 libraries/replication_gui.lib.php:768
-#: libraries/replication_gui.lib.php:784
+#: libraries/replication_gui.lib.php:389 libraries/replication_gui.lib.php:771
+#: libraries/replication_gui.lib.php:787
 #: libraries/server_privileges.lib.php:1269
 #: libraries/server_privileges.lib.php:1300
 msgid "User name"
 msgstr "Kullanıcı Adı"
 
-#: libraries/replication_gui.lib.php:415
+#: libraries/replication_gui.lib.php:418
 msgid "Port:"
 msgstr "B.Noktası:"
 
-#: libraries/replication_gui.lib.php:499
+#: libraries/replication_gui.lib.php:502
 msgid "Master status"
 msgstr "Master durumu"
 
-#: libraries/replication_gui.lib.php:502
+#: libraries/replication_gui.lib.php:505
 msgid "Slave status"
 msgstr "Slave durumu"
 
-#: libraries/replication_gui.lib.php:511
+#: libraries/replication_gui.lib.php:514
 #: libraries/server_status_variables.lib.php:219
 #: libraries/server_variables.lib.php:195 libraries/sql_query_form.lib.php:416
 msgid "Variable"
 msgstr "Değişken"
 
-#: libraries/replication_gui.lib.php:590 libraries/server_bin_log.lib.php:131
+#: libraries/replication_gui.lib.php:593 libraries/server_bin_log.lib.php:131
 msgid "Server ID"
 msgstr "Sunucu ID"
 
-#: libraries/replication_gui.lib.php:591 libraries/replication_gui.lib.php:678
-#: libraries/replication_gui.lib.php:819
+#: libraries/replication_gui.lib.php:594 libraries/replication_gui.lib.php:681
+#: libraries/replication_gui.lib.php:822
 #: libraries/server_privileges.lib.php:1329
 #: libraries/server_privileges.lib.php:1426
 #: libraries/server_privileges.lib.php:1819
@@ -9431,7 +9442,7 @@ msgstr "Sunucu ID"
 msgid "Host"
 msgstr "Anamakine"
 
-#: libraries/replication_gui.lib.php:611
+#: libraries/replication_gui.lib.php:614
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -9439,39 +9450,39 @@ msgstr ""
 "Sadece slave'ler, bu listede --report-host=host_name seçeneğiyle görünen bu "
 "şekilde başlar."
 
-#: libraries/replication_gui.lib.php:721
+#: libraries/replication_gui.lib.php:724
 #: libraries/server_privileges.lib.php:1382
 msgid "Any host"
 msgstr "Herhangi anamakine"
 
-#: libraries/replication_gui.lib.php:726
+#: libraries/replication_gui.lib.php:729
 #: libraries/server_privileges.lib.php:1390
 msgid "Local"
 msgstr "Yerel"
 
-#: libraries/replication_gui.lib.php:733
+#: libraries/replication_gui.lib.php:736
 #: libraries/server_privileges.lib.php:1399
 msgid "This Host"
 msgstr "Bu Anamakine"
 
-#: libraries/replication_gui.lib.php:775
+#: libraries/replication_gui.lib.php:778
 #: libraries/server_privileges.lib.php:1284
 msgid "Any user"
 msgstr "Herhangi kullanıcı"
 
-#: libraries/replication_gui.lib.php:780 libraries/replication_gui.lib.php:813
-#: libraries/replication_gui.lib.php:846
+#: libraries/replication_gui.lib.php:783 libraries/replication_gui.lib.php:816
+#: libraries/replication_gui.lib.php:849
 #: libraries/server_privileges.lib.php:1418
 #: libraries/server_privileges.lib.php:2823
 msgid "Use text field:"
 msgstr "Metin alanını kullan:"
 
-#: libraries/replication_gui.lib.php:807
+#: libraries/replication_gui.lib.php:810
 #: libraries/server_privileges.lib.php:1409
 msgid "Use Host Table"
 msgstr "Anamakine Tablosu kullan"
 
-#: libraries/replication_gui.lib.php:823
+#: libraries/replication_gui.lib.php:826
 #: libraries/server_privileges.lib.php:1430
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
@@ -9480,66 +9491,66 @@ msgstr ""
 "Anamakine tablosu kullanıldığında bu alan yoksayılır ve yerine Anamakine "
 "tablosunda saklanan değerler kullanılır."
 
-#: libraries/replication_gui.lib.php:858
+#: libraries/replication_gui.lib.php:861
 #: libraries/server_privileges.lib.php:1477
 msgid "Re-type"
 msgstr "Parola tekrarı"
 
-#: libraries/replication_gui.lib.php:862
+#: libraries/replication_gui.lib.php:865
 msgid "Generate Password:"
 msgstr "Parola Üret:"
 
-#: libraries/replication_gui.lib.php:900
+#: libraries/replication_gui.lib.php:903
 msgid "Replication started successfully."
 msgstr "Çoğaltma başarılı olarak başlatıldı."
 
-#: libraries/replication_gui.lib.php:901
+#: libraries/replication_gui.lib.php:904
 msgid "Error starting replication."
 msgstr "Çoğaltmayı başlatma hatası."
 
-#: libraries/replication_gui.lib.php:904
+#: libraries/replication_gui.lib.php:907
 msgid "Replication stopped successfully."
 msgstr "Çoğaltma başarılı olarak durduruldu."
 
-#: libraries/replication_gui.lib.php:905
+#: libraries/replication_gui.lib.php:908
 msgid "Error stopping replication."
 msgstr "Çoğaltmayı durdurma hatası."
 
-#: libraries/replication_gui.lib.php:908
+#: libraries/replication_gui.lib.php:911
 msgid "Replication resetting successfully."
 msgstr "Çoğaltma başarılı olarak sıfırlandı."
 
-#: libraries/replication_gui.lib.php:909
+#: libraries/replication_gui.lib.php:912
 msgid "Error resetting replication."
 msgstr "Çoğaltmayı sıfırlama hatası."
 
-#: libraries/replication_gui.lib.php:912
+#: libraries/replication_gui.lib.php:915
 msgid "Success."
 msgstr "Başarılı."
 
-#: libraries/replication_gui.lib.php:913
+#: libraries/replication_gui.lib.php:916
 msgid "Error."
 msgstr "Hata."
 
-#: libraries/replication_gui.lib.php:955
+#: libraries/replication_gui.lib.php:958
 msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 
-#: libraries/replication_gui.lib.php:965
+#: libraries/replication_gui.lib.php:968
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "Master %s sunucusuna bağlanılamıyor."
 
-#: libraries/replication_gui.lib.php:976
+#: libraries/replication_gui.lib.php:979
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr "Master günlük konumu okunamıyor. Master üzerinde mümkün yetki sorunu."
 
-#: libraries/replication_gui.lib.php:994
+#: libraries/replication_gui.lib.php:997
 msgid "Unable to change master"
 msgstr "Master değiştirilemiyor"
 
-#: libraries/replication_gui.lib.php:998
+#: libraries/replication_gui.lib.php:1001
 #, php-format
 msgid "Master server changed successfully to %s"
 msgstr "Master sunucu %s olarak başarılı bir şekilde değiştirildi"
@@ -14510,6 +14521,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 0'a ayarlı"
+
+#~ msgid "Skip next"
+#~ msgstr "İleri atla"
+
+#~ msgid "errors."
+#~ msgstr "hata."
 
 #~ msgid "in query"
 #~ msgstr "sorgu içerisinde"
