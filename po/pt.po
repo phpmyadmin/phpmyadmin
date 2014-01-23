@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
 "PO-Revision-Date: 2014-01-23 12:44+0200\n"
-"Last-Translator: Eduardo Abreu <eduardextreme@hotmail.com>\n"
+"Last-Translator: Beatriz Magalhães <mbeatrizmagalhaes@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/pt/>\n"
 "Language: pt\n"
@@ -6559,7 +6559,7 @@ msgstr "Título por defeito"
 
 #: libraries/config/messages.inc.php:516
 msgid "Title of browser window when a server is selected"
-msgstr ""
+msgstr "Título da janela do browser quando um servidor está selecionado"
 
 #: libraries/config/messages.inc.php:518
 msgid "Title of browser window when a table is selected"
