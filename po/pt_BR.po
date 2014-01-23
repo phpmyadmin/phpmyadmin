@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-21 19:15+0200\n"
-"Last-Translator: Douglas dreginatto <douglas@reginatto.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-01-23 12:40+0200\n"
+"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -941,10 +941,9 @@ msgid "Please enter a valid number!"
 msgstr "Por favor, digite um número válido"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Por favor, digite um tamanho correto"
+msgstr "Por favor, digite um tamanho correto!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1194,10 +1193,9 @@ msgid "Add chart to grid"
 msgstr "Adicionar gráfico à grade"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Por favor adicione no mínimo uma variável à série"
+msgstr "Por favor adicione no mínimo uma variável à série!"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1286,10 +1284,10 @@ msgstr "Desabilitar %s"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Definir \"long_query_time\" para %ds"
+msgstr "Definir \"long_query_time\" para %d segundos."
 
 #: js/messages.php:147
 msgid ""
@@ -1516,10 +1514,9 @@ msgid "Import monitor configuration"
 msgstr "Importar configuração do monitor"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Por favor, selecione o arquivo que deseja importar"
+msgstr "Por favor, selecione o arquivo que deseja importar."
 
 #: js/messages.php:210
 msgid "Analyse Query"
@@ -1869,10 +1866,9 @@ msgid "Select Foreign Key"
 msgstr "Selecionar chave estrangeira"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Por favor, selecione uma chave primária ou uma chave única"
+msgstr "Por favor, selecione uma chave primária ou uma chave única!"
 
 #: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
