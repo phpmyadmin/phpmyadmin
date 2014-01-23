@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-23 10:28+0200\n"
-"Last-Translator: Ivo Peev <igpeev@yahoo.com>\n"
+"PO-Revision-Date: 2014-01-23 10:39+0200\n"
+"Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
@@ -433,8 +433,8 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Установена е грешка, създадено е съобщение за грешката, което не е могло да "
-"бъде изпратено. "
+"Засечена е грешка; за нея беше създадено съобщение, но то не беше успешно "
+"изпратено."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
@@ -444,7 +444,7 @@ msgstr ""
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Благодарим Ви за доклада!"
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
@@ -485,10 +485,9 @@ msgid "Geometry %d:"
 msgstr "Геометрия %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Точка"
+msgstr "Точка:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
 #: gis_data_editor.php:365 js/messages.php:325
@@ -518,16 +517,15 @@ msgid "Linestring %d:"
 msgstr "Слуша %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Външен пръстен"
+msgstr "Външен контур:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Вътрешен пръстен"
+msgstr "Вътрешен контур %d:"
 
 #: gis_data_editor.php:306
 msgid "Add a linestring"
@@ -602,7 +600,7 @@ msgstr ""
 "копи-пейстнете текста долу в поле \"Стойност\""
 
 #: import.php:116
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -745,22 +743,19 @@ msgstr "Тип на сървъра:"
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Версия на сървъра"
+msgstr "Версия на сървъра:"
 
 #: index.php:264
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Версия на протокола"
+msgstr "Версия на протокола:"
 
 #: index.php:268
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Потребител"
+msgstr "Потребител:"
 
 #: index.php:273
 #| msgid "Server charset"
@@ -772,16 +767,14 @@ msgid "Web server"
 msgstr "Web сървър"
 
 #: index.php:304
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Версия на БД клиент"
+msgstr "Версия на БД клиент:"
 
 #: index.php:308
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP разшрение"
+msgstr "PHP разширение:"
 
 #: index.php:322
 msgid "Show PHP information"
