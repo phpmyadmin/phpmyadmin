@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-22 09:59+0200\n"
+"PO-Revision-Date: 2014-01-23 13:35+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -941,10 +941,9 @@ msgid "Please enter a valid number!"
 msgstr "Vul een geldig nummer in"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Vul een geldige lengte in"
+msgstr "Vul een geldige lengte in!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1189,10 +1188,9 @@ msgid "Add chart to grid"
 msgstr "Grafiek toevoegen aan raster"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Voeg tenminste één variabele toe aan de reeks"
+msgstr "Voeg tenminste één variabele toe aan de reeks!"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1281,10 +1279,10 @@ msgstr "%s uitschakelen"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "long_query_time instellen op %dsec"
+msgstr "long_query_time instellen op %d seconden."
 
 #: js/messages.php:147
 msgid ""
@@ -1505,10 +1503,9 @@ msgid "Import monitor configuration"
 msgstr "Importeer monitor configuratie"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Selecteer het bestand dat u wil importeren"
+msgstr "Selecteer het bestand dat u wil importeren."
 
 #: js/messages.php:210
 msgid "Analyse Query"
@@ -1862,10 +1859,9 @@ msgid "Select Foreign Key"
 msgstr "Selecteer vreemde sleutel"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Selecteer de primaire sleutel of een unieke sleutel"
+msgstr "Selecteer de primaire sleutel of een unieke sleutel!"
 
 #: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
@@ -2722,10 +2718,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "Uw SQL-query is succesvol uitgevoerd"
+msgstr "Uw SQL-query is succesvol uitgevoerd."
 
 #: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
@@ -2751,10 +2746,10 @@ msgid "%d total"
 msgstr "%d totaal"
 
 #: libraries/DisplayResults.class.php:5002
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "query duurde %01.4f sec"
+msgstr "Query duurde %01.4f seconden."
 
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
@@ -2818,10 +2813,9 @@ msgid "Visualize GIS data"
 msgstr "GIS-gegevens visualiseren"
 
 #: libraries/DisplayResults.class.php:5637
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Link niet gevonden"
+msgstr "Link niet gevonden!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -5815,7 +5809,6 @@ msgid "Persistent connections"
 msgstr "Persistente verbindingen"
 
 #: libraries/config/messages.inc.php:486
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5827,14 +5820,13 @@ msgid ""
 msgstr ""
 "De waarschuwing uitschakelen die getoond wordt op de pagina met "
 "databankdetails Structuur wanneer een benodigde tabel voor de configuratie-"
-"opslag van phpMyAdmin niet gevonden kan worden"
+"opslag van phpMyAdmin niet gevonden kan worden."
 
 #: libraries/config/messages.inc.php:491
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Tabellen voor de configuratie-opslag van phpMyAdmin ontbreken"
 
 #: libraries/config/messages.inc.php:493
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if a difference between the "
 #| "MySQL library and server is detected"
@@ -5843,14 +5835,13 @@ msgid ""
 "MySQL library and server is detected."
 msgstr ""
 "Schakel de standaard waarschuwing uit als een verschil in versie tussen de "
-"MySQL bibliotheek en die van de server gedetecteerd wordt"
+"MySQL bibliotheek en die van de server gedetecteerd wordt."
 
 #: libraries/config/messages.inc.php:497
 msgid "Server/library difference warning"
 msgstr "Waarschuwing verschil server/bibliotheek"
 
 #: libraries/config/messages.inc.php:499
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words"
@@ -5859,7 +5850,7 @@ msgid ""
 "column names in a table are reserved MySQL words."
 msgstr ""
 "De waarschuwing uitschakelen die getoond wordt op de Structuur pagina "
-"wanneer kolomnamen in een tabel gereserveerde MySQL woorden zijn"
+"wanneer kolomnamen in een tabel gereserveerde MySQL woorden zijn."
 
 #: libraries/config/messages.inc.php:502
 msgid "MySQL reserved word warning"
@@ -5874,10 +5865,9 @@ msgid "How to display various action links"
 msgstr "Hoe de verschillende acties te tonen"
 
 #: libraries/config/messages.inc.php:507
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY columns from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "Blokkeer het bewerken van 'BLOB'- en 'BINARY'-kolommen"
+msgstr "Blokkeer het bewerken van 'BLOB'- en 'BINARY'-kolommen."
 
 #: libraries/config/messages.inc.php:508
 msgid "Protect binary columns"
@@ -5899,75 +5889,68 @@ msgid "Permanent query history"
 msgstr "Permanente querygeschiedenis"
 
 #: libraries/config/messages.inc.php:516
-#, fuzzy
 #| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
-msgstr "Hoeveel queries er worden bewaard in de geschiedenis"
+msgstr "Hoeveel queries er worden bewaard in de geschiedenis."
 
 #: libraries/config/messages.inc.php:517
 msgid "Query history length"
 msgstr "Lengte querygeschiedenis"
 
 #: libraries/config/messages.inc.php:519
-#, fuzzy
 #| msgid "Tab displayed when opening a new query window"
 msgid "Tab displayed when opening a new query window."
-msgstr "Tabblad dat wordt getoond bij het openen van een nieuw queryvenster"
+msgstr "Tabblad dat wordt getoond bij het openen van een nieuw queryvenster."
 
 #: libraries/config/messages.inc.php:520
 msgid "Default query window tab"
 msgstr "Standaard query-venstertabblad"
 
 #: libraries/config/messages.inc.php:521
-#, fuzzy
 #| msgid "Query window height (in pixels)"
 msgid "Query window height (in pixels)."
-msgstr "Query-vensterhoogte (in pixels)"
+msgstr "Query-vensterhoogte (in pixels)."
 
 #: libraries/config/messages.inc.php:522
 msgid "Query window height"
 msgstr "Query-vensterhoogte"
 
 #: libraries/config/messages.inc.php:523
-#, fuzzy
 #| msgid "Query window width (in pixels)"
 msgid "Query window width (in pixels)."
-msgstr "Query-vensterbreedte (in pixels)"
+msgstr "Query-vensterbreedte (in pixels)."
 
 #: libraries/config/messages.inc.php:524
 msgid "Query window width"
 msgstr "Query-vensterbreedte"
 
 #: libraries/config/messages.inc.php:526
-#, fuzzy
 #| msgid "Select which functions will be used for character set conversion"
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Selecteer welke functies worden gebruikt om karaktersetconversies uit te "
-"voeren"
+"voeren."
 
 #: libraries/config/messages.inc.php:527
 msgid "Recoding engine"
 msgstr "Hercoderingsengine"
 
 #: libraries/config/messages.inc.php:529
-#, fuzzy
 #| msgid "When browsing tables, the sorting of each table is remembered"
 msgid "When browsing tables, the sorting of each table is remembered."
-msgstr "Bij het bekijken van tabellen, wordt de sorteervolgorde onthouden"
+msgstr "Bij het bekijken van tabellen, wordt de sorteervolgorde onthouden."
 
 #: libraries/config/messages.inc.php:530
 msgid "Remember table's sorting"
 msgstr "De tabelsortering onthouden"
 
 #: libraries/config/messages.inc.php:532
-#, fuzzy
 #| msgid ""
 #| "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
-"Herhaal de kopregel elke X cellen, [kbd]0[/kbd] schakelt deze functie uit"
+"Herhaal de kopregel elke X cellen, [kbd]0[/kbd] schakelt deze functie uit."
 
 #: libraries/config/messages.inc.php:533
 msgid "Repeat headers"
