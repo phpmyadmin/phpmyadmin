@@ -99,14 +99,14 @@ rule 'Slow query logging' [!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50600]
 # versions
 rule 'Release Series' [!PMA_DRIZZLE]
 	version
-	substr(value,0,1) <= 5 && substr(value,2,1) < 1
+	substr(value,0,2) <= '5.' && substr(value,2,1) < 1
 	The MySQL server version less than 5.1.
 	You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 even more so.
 	Current version: %s | value
 
 rule 'Minor Version' [! fired('Release Series')]
 	version
-	substr(value,0,1) <= 5 && substr(value,2,1) < 1 && substr(value,4,2) < 30
+	substr(value,0,2) <= '5.' && substr(value,2,1) <= 1 && substr(value,4,2) < 30
 	Version less than 5.1.30 (the first GA release of 5.1).
 	You should upgrade, as recent versions of MySQL 5.1 have improved performance and MySQL 5.5 even more so.
 	Current version: %s | value
