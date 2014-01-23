@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - rfe #1489 Do not show create icon when user has no privileges
 - bug #4218 Chrome behavior with date fields
 - bug #3579 NOW() function incorrectly selected (regression)
+- bug #4244 Advisor complaints about MariaDB 10.x is version less than 5.1
 
 4.1.5.0 (2014-01-17)
 - bug #3780 Allow aborting loading pages
