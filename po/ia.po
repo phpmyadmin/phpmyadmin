@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-15 12:34+0200\n"
+"PO-Revision-Date: 2014-01-23 14:16+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -947,10 +947,9 @@ msgid "Please enter a valid number!"
 msgstr "Pro favor inserta un numero valide"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Pro favor inserta un longor valide"
+msgstr "Pro favor inserta un longor valide!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1195,10 +1194,9 @@ msgid "Add chart to grid"
 msgstr "adde graphico a grillia"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Adde al minus un variabile al serie"
+msgstr "Pro favor tu adde al minus un variabile al series!"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1287,10 +1285,10 @@ msgstr "Dishabilita %s"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Imposta long_query_time a %ds"
+msgstr "Fixa long_query_time a %d secundas."
 
 #: js/messages.php:147
 msgid ""
@@ -1515,10 +1513,9 @@ msgid "Import monitor configuration"
 msgstr "Importa configuration de monitor"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Pro favor selige le file que tu vole importar"
+msgstr "Pro favor selige le file que tu vole importar."
 
 #: js/messages.php:210
 msgid "Analyse Query"
@@ -1697,10 +1694,9 @@ msgid "Values for a new column"
 msgstr "Valores pro un nove columna"
 
 #: js/messages.php:274
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Inserta cata valor in un campo separate"
+msgstr "Inserta cata valor in un campo separate."
 
 #: js/messages.php:275
 #, php-format
@@ -1872,10 +1868,9 @@ msgid "Select Foreign Key"
 msgstr "Selige clave estranie"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Pro favor selige le clave primari o un clave unic"
+msgstr "Pro favor selige le clave primari o un clave unic!"
 
 #: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
@@ -2743,10 +2738,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Il pote esser approximate. Vide[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "Le demanda SQL ha essite executate con successo"
+msgstr "Le demanda (query) SQL ha essite executate con successo."
 
 #: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
@@ -2765,7 +2759,7 @@ msgstr "Monstrante rangos %1s - %2s"
 #: libraries/DisplayResults.class.php:4986
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d total, %2$d in query"
 
 #: libraries/DisplayResults.class.php:4990
 #, php-format
@@ -2773,10 +2767,10 @@ msgid "%d total"
 msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:5002
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "Query prendeva %01.4f sec"
+msgstr "Query prendeva %01.4f secundas."
 
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
@@ -2840,10 +2834,9 @@ msgid "Visualize GIS data"
 msgstr "Monstra datos de GIS"
 
 #: libraries/DisplayResults.class.php:5637
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Ligamine non trovate"
+msgstr "Ligamine non trovate!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -4462,6 +4455,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
+"%sValiditate de cookie de authentication%s major que %"
+"ssession.gc_maxlifetime%s pote causar mal validation casual de session "
+"(currentemente session.gc_maxlifetime es %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4469,6 +4465,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%sValiditate de cookie%s deberea esser fixate a 1800 secundas (30 minutas) "
+"al maximo. Valores major que 1800 crea un risco de securitate tal como "
+"impersonation."
 
 #: libraries/config/ServerConfigChecks.class.php:416
 #, php-format
@@ -4487,6 +4486,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
+"Si tu crede que isto es necessari, usa preferentias additional de protection "
+"- preferentias de %sauthentication de ospite%s e %slista de proxy digne de "
+"fide%s. Totevia, le protection basate sur IP poterea non esser digne de "
+"fide, si tu IP pertine a un ISP ubi milles de usatores, includente te, es "
+"connectite."
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4497,6 +4501,12 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
+"Tu fixava le typo de authentication [kbd]config[/kbd] e includeva le nomine "
+"de usator e contrasigno pro le auto-login (accesso automatic de "
+"authentication), isto non es desirabile pro hospite de uso ab vivo (live). "
+"Ulle qui sape o conjectura  tu URL de phpMyAdmin pote acceder directemente a "
+"tu pannello de phpMyAdmin. Fixa %stypo de authentication%s a "
+"[kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4622,7 +4632,6 @@ msgid "Highlight pointer"
 msgstr "Evidentia le punctator"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations."
@@ -4631,7 +4640,7 @@ msgid ""
 "import operations."
 msgstr ""
 "Il habilita le compression [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] "
-"per operationes de importation e exportation."
+"per operationes de importation."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -4709,7 +4718,6 @@ msgid "Check config file permissions"
 msgstr "Verifica permissiones de file de configuration"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4718,9 +4726,9 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Comprime exportationes de gzip/bzip2 immediatemente sin le necessitate de "
-"usar multe memoria, si tu incontra problemas con le files create gzip/bzip2, "
-"tu dishabilita iste characteristica."
+"Comprime exportationes de gzip immediatemente sin le necessitate de usar "
+"multe memoria, si tu incontra problemas con le files create gzip, tu "
+"dishabilita iste characteristica."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -5431,6 +5439,9 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"Permitte interruption de importation quando un script releva que il es vicin "
+"al limite de tempore. Isto poterea esser un bon modo pro importar files "
+"grande, totevia il pote interrumper transactiones."
 
 #: libraries/config/messages.inc.php:335
 msgid "Partial import: allow interrupt"
@@ -5510,10 +5521,12 @@ msgstr "Numero de rangos insertate"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
+"Numero maxime de characteres monstrate in omne columna non numeric sur le "
+"vista de navigar."
 
 #: libraries/config/messages.inc.php:373
 msgid "Limit column characters"
-msgstr ""
+msgstr "Limita characteres de columna"
 
 #: libraries/config/messages.inc.php:375
 msgid ""
@@ -5524,17 +5537,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:379
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "Dele omne cookies quando on exi (logout)"
 
 #: libraries/config/messages.inc.php:381
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode."
 msgstr ""
+"Defini si le previe session de authentication deberea esser restaurate o non "
+"quando in modo de authentication de cookie."
 
 #: libraries/config/messages.inc.php:384
 msgid "Recall user name"
-msgstr ""
+msgstr "Recorda nomine de usator"
 
 #: libraries/config/messages.inc.php:386
 msgid ""
@@ -5546,54 +5561,58 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:391
 msgid "Login cookie store"
-msgstr ""
+msgstr "Memora cookie de authentication"
 
 #: libraries/config/messages.inc.php:393
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr ""
+"Defini quanto il debe esser longe (in secundas) le validitate de un cookie "
+"de authentication."
 
 #: libraries/config/messages.inc.php:394
 msgid "Login cookie validity"
-msgstr ""
+msgstr "Validitate de cookie de authentication de accesso"
 
 #: libraries/config/messages.inc.php:396
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr ""
+msgstr "Duple grandor de textarea (area de texto) pro columnas de LONGTEXT."
 
 #: libraries/config/messages.inc.php:397
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "Un area de texto plus grande pro LONGTEXT"
 
 #: libraries/config/messages.inc.php:399
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr ""
+msgstr "Maxime numero de characteres usate quando on monstra un query de SQL."
 
 #: libraries/config/messages.inc.php:400
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Maxime longor monstrate de SQL"
 
 #: libraries/config/messages.inc.php:401 libraries/config/messages.inc.php:415
 #: libraries/config/messages.inc.php:515
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Usatores non pote fixar un valor major"
 
 #: libraries/config/messages.inc.php:403
 msgid "Maximum number of databases displayed in database list."
-msgstr ""
+msgstr "Maxime numero de base de datos monstrate in le lista de base de datos."
 
 #: libraries/config/messages.inc.php:404
 msgid "Maximum databases"
-msgstr ""
+msgstr "Maxime numero de base de datos"
 
 #: libraries/config/messages.inc.php:406
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
+"Le numero de elementos que on pote monstrar sur cata pagina del arbore de "
+"navigation."
 
 #: libraries/config/messages.inc.php:408
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maxime elementos in un ramo"
 
 #: libraries/config/messages.inc.php:410
 msgid ""
