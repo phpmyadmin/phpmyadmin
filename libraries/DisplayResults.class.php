@@ -3402,7 +3402,7 @@ class PMA_DisplayResults
                 'db'        => $this->__get('db'),
                 'table'     => $this->__get('table'),
                 'sql_query' => $url_sql_query,
-                'message_to_show' => __('The row has been deleted'),
+                'message_to_show' => __('The row has been deleted.'),
                 'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
             );
 
@@ -3418,7 +3418,7 @@ class PMA_DisplayResults
                     'db'        => $this->__get('db'),
                     'table'     => $this->__get('table'),
                     'sql_query' => $del_query,
-                    'message_to_show' => __('The row has been deleted'),
+                    'message_to_show' => __('The row has been deleted.'),
                     'goto'      => $lnk_goto,
                 );
             $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
@@ -4588,7 +4588,7 @@ class PMA_DisplayResults
         } elseif (! isset($printview) || ($printview != '1')) {
 
             $table_html .= PMA_Util::getMessage(
-                __('Your SQL query has been executed successfully'),
+                __('Your SQL query has been executed successfully.'),
                 $this->__get('sql_query'), 'success'
             );
         }
@@ -4999,7 +4999,7 @@ class PMA_DisplayResults
             $message->addMessage(', ', '');
         }
 
-        $message_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');
+        $message_qt = PMA_Message::notice(__('Query took %01.4f seconds.') . ')');
         $message_qt->addParam($this->__get('querytime'));
 
         $message->addMessage($message_qt, '');
@@ -5634,7 +5634,7 @@ class PMA_DisplayResults
                 if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
                     list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);
                 } else {
-                    $dispval = __('Link not found');
+                    $dispval = __('Link not found!');
                 }
 
                 @$GLOBALS['dbi']->freeResult($dispresult);
