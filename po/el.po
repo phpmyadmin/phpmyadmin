@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-20 15:14+0200\n"
+"PO-Revision-Date: 2014-01-23 14:31+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -937,16 +937,14 @@ msgid "Missing value in the form!"
 msgstr "Η τιμή δεν υπάρχει στη φόρμα!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Εισάγετε έναν έγκυρο αριθμό"
+msgstr "Εισάγετε έναν έγκυρο αριθμό!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Εισάγετε ένα έγκυρο μήκος"
+msgstr "Εισάγετε ένα έγκυρο μήκος!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1190,10 +1188,9 @@ msgid "Add chart to grid"
 msgstr "Προσθήκη διαγράμματος στο πλέγμα"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στις σειρές"
+msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στις σειρές!"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1283,10 +1280,10 @@ msgstr "Απενεργοποίηση %s"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Ορισμός του long_query_time σε %dδ"
+msgstr "Ορισμός του long_query_time σε %d δευτερόλεπτα."
 
 #: js/messages.php:147
 msgid ""
@@ -1511,10 +1508,9 @@ msgid "Import monitor configuration"
 msgstr "Εισαγωγή ρύθμισης εποπτείας"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Ελέγξτε το αρχείο που θέλετε να εισάγετε"
+msgstr "Ελέγξτε το αρχείο που θέλετε να εισάγετε."
 
 #: js/messages.php:210
 msgid "Analyse Query"
@@ -1865,10 +1861,9 @@ msgid "Select Foreign Key"
 msgstr "Επιλέξτε Μη Διακριτό Κλειδί"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί"
+msgstr "Επιλέξτε το πρωτεύον κλειδί ή ένα μοναδικό κλειδί!"
 
 #: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
@@ -2711,10 +2706,9 @@ msgstr "Καλά Γνωστό Δυαδικό"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "Η εγγραφή έχει διαγραφεί"
+msgstr "Η εγγραφή έχει διαγραφεί."
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5079 libraries/server_status.lib.php:518
@@ -2726,10 +2720,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς"
+msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς."
 
 #: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
@@ -2748,7 +2741,7 @@ msgstr "Εμφάνιση εγγραφών %1s - %2s"
 #: libraries/DisplayResults.class.php:4986
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d σύνολο, %2$d στο ερώτημα"
 
 #: libraries/DisplayResults.class.php:4990
 #, php-format
@@ -2756,10 +2749,10 @@ msgid "%d total"
 msgstr "%d συνολικά"
 
 #: libraries/DisplayResults.class.php:5002
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα"
+msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα."
 
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
@@ -2823,10 +2816,9 @@ msgid "Visualize GIS data"
 msgstr "Οπτικοποίηση δεδομένων GIS"
 
 #: libraries/DisplayResults.class.php:5637
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Δεν βρέθηκε η σύνδεση"
+msgstr "Δεν βρέθηκε η σύνδεση!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -9447,10 +9439,10 @@ msgid "Skip current error"
 msgstr "Παράβλεψη τρέχοντος σφάλματος"
 
 #: libraries/replication_gui.lib.php:292
-#, fuzzy, php-format
+#, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "Παράβλεψη τρέχοντος σφάλματος"
+msgstr "Παράβλεψη επόμενων %s σφαλμάτων."
 
 #: libraries/replication_gui.lib.php:319
 #, php-format
