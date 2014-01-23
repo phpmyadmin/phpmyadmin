@@ -45,8 +45,8 @@ $js_messages['strDropUserGroupWarning'] = __('Do you really want to delete user 
 
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
-$js_messages['strEnterValidNumber'] = __('Please enter a valid number');
-$js_messages['strEnterValidLength'] = __('Please enter a valid length');
+$js_messages['strEnterValidNumber'] = __('Please enter a valid number!');
+$js_messages['strEnterValidLength'] = __('Please enter a valid length!');
 $js_messages['strAddIndex'] = __('Add Index');
 $js_messages['strEditIndex'] = __('Edit Index');
 $js_messages['strAddToIndex'] = __('Add %s column(s) to index');
@@ -121,7 +121,7 @@ $js_messages['strRemoveChart'] = __('Remove chart');
 $js_messages['strEditChart'] = __('Edit title and labels');
 $js_messages['strAddChart'] = __('Add chart to grid');
 $js_messages['strClose'] = __('Close');
-$js_messages['strAddOneSeriesWarning'] = __('Please add at least one variable to the series');
+$js_messages['strAddOneSeriesWarning'] = __('Please add at least one variable to the series!');
 $js_messages['strNone'] = __('None');
 $js_messages['strResumeMonitor'] = __('Resume monitor');
 $js_messages['strPauseMonitor'] = __('Pause monitor');
@@ -142,7 +142,7 @@ $js_messages['strEnableVar'] = __('Enable %s');
 /* l10n: Disable in this context means setting a status variable to OFF */
 $js_messages['strDisableVar'] = __('Disable %s');
 /* l10n: %d seconds */
-$js_messages['setSetLongQueryTime'] = __('Set long_query_time to %ds');
+$js_messages['setSetLongQueryTime'] = __('Set long_query_time to %d seconds.');
 $js_messages['strNoSuperUser'] = __(
     'You can\'t change these variables. Please log in as root or contact'
     . ' your database administrator.'
@@ -205,7 +205,7 @@ $js_messages['strFailedParsingConfig'] = __(
 $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with imported config. Resetting to default config…');
 $js_messages['strImport'] = __('Import');
 $js_messages['strImportDialogTitle'] = __('Import monitor configuration');
-$js_messages['strImportDialogMessage'] = __('Please select the file you want to import');
+$js_messages['strImportDialogMessage'] = __('Please select the file you want to import.');
 
 $js_messages['strAnalyzeQuery'] = __('Analyse Query');
 
@@ -271,7 +271,7 @@ $js_messages['MissingReturn'] = __('The definition of a stored function must con
 $js_messages['enum_editor'] = __('ENUM/SET editor');
 $js_messages['enum_columnVals'] =__('Values for column %s');
 $js_messages['enum_newColumnVals'] = __('Values for a new column');
-$js_messages['enum_hint'] =__('Enter each value in a separate field');
+$js_messages['enum_hint'] =__('Enter each value in a separate field.');
 $js_messages['enum_addValue'] =__('Add %d value(s)');
 
 /* For import.js */
@@ -341,7 +341,7 @@ $js_messages['strAddColumns'] = __('Add columns');
 /* Designer (js/pmd/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
-$js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key');
+$js_messages['strPleaseSelectPrimaryOrUniqueKey'] = __('Please select the primary key or a unique key!');
 $js_messages['strChangeDisplay'] = __('Choose column to display');
 $js_messages['strLeavingDesigner'] = __(
     'You haven\'t saved the changes in the layout. They will be lost if you'
@@ -548,8 +548,8 @@ PMA_printJsValue(
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
 
-/* l10n: Month-year order for calendar, use either "calendar-month-year" 
- * or "calendar-year-month". 
+/* l10n: Month-year order for calendar, use either "calendar-month-year"
+ * or "calendar-year-month".
  */
 PMA_printJsValue(
     "$.datepicker.regional['']['showMonthAfterYear']",
