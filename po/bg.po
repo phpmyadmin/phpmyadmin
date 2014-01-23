@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:20-0500\n"
-"PO-Revision-Date: 2014-01-23 01:40+0200\n"
-"Last-Translator: Ivo Peev <igpeev@yahoo.com>\n"
+"PO-Revision-Date: 2014-01-23 10:28+0200\n"
+"Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
@@ -36,10 +36,9 @@ msgstr "Коментар към БД: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Коментари към таблицата"
+msgstr "Коментари към таблицата:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1281
@@ -278,17 +277,15 @@ msgstr "Създаване:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Последно обновление"
+msgstr "Последно обновяване:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1081
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Последна проверка"
+msgstr "Последна проверка:"
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
@@ -791,7 +788,7 @@ msgstr "Информация за PHP"
 #: index.php:345
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Весия:"
+msgstr "Версия:"
 
 #: index.php:354 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
