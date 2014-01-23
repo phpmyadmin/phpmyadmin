@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-19 08:20-0500\n"
+"POT-Creation-Date: 2014-01-23 10:51+0100\n"
 "PO-Revision-Date: 2014-01-22 09:59+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
@@ -40,7 +40,7 @@ msgstr "Tabelopmerkingen:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1281
-#: libraries/insert_edit.lib.php:1606
+#: libraries/insert_edit.lib.php:1605
 #: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
@@ -86,7 +86,7 @@ msgid "Type"
 msgstr "Type"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1282 libraries/insert_edit.lib.php:1615
+#: libraries/TableSearch.class.php:1282 libraries/insert_edit.lib.php:1614
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
 #: libraries/plugins/export/ExportLatex.class.php:512
@@ -250,10 +250,10 @@ msgstr ""
 msgid "Table"
 msgstr "Tabel"
 
-#: db_printview.php:48 libraries/Table.class.php:352
-#: libraries/build_html_for_db.lib.php:32 libraries/import.lib.php:191
-#: libraries/structure.lib.php:768 libraries/structure.lib.php:1739
-#: libraries/structure.lib.php:1932 libraries/tbl_printview.lib.php:193
+#: db_printview.php:48 libraries/build_html_for_db.lib.php:32
+#: libraries/import.lib.php:191 libraries/structure.lib.php:768
+#: libraries/structure.lib.php:1739 libraries/structure.lib.php:1932
+#: libraries/tbl_printview.lib.php:193
 msgid "Rows"
 msgstr "Rijen"
 
@@ -339,7 +339,7 @@ msgid "Updated"
 msgstr "Bijgewerkt"
 
 #: db_tracking.php:85 js/messages.php:177 libraries/Menu.class.php:516
-#: libraries/Util.class.php:4111 libraries/rte/rte_events.lib.php:432
+#: libraries/Util.class.php:4115 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:361
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
@@ -358,7 +358,7 @@ msgid "Action"
 msgstr "Actie"
 
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:196
-#: libraries/tbl_tracking.lib.php:201 tbl_change.php:147
+#: libraries/tbl_tracking.lib.php:201 tbl_change.php:149
 msgid "Show"
 msgstr "Toon"
 
@@ -542,8 +542,8 @@ msgstr "Een geometrie toevoegen"
 #: libraries/core.lib.php:564 libraries/display_change_password.lib.php:100
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:370
-#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1587
-#: libraries/insert_edit.lib.php:1622 libraries/operations.lib.php:39
+#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1586
+#: libraries/insert_edit.lib.php:1621 libraries/operations.lib.php:39
 #: libraries/operations.lib.php:82 libraries/operations.lib.php:210
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
@@ -643,7 +643,7 @@ msgstr ""
 "De plugins voor het importeren konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: import.php:553 libraries/sql.lib.php:1021 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:1019 libraries/sql.lib.php:1800
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bladwijzer %s aangemaakt"
@@ -1168,7 +1168,7 @@ msgid "Traffic"
 msgstr "Verkeer"
 
 #: js/messages.php:119 libraries/Menu.class.php:549
-#: libraries/Util.class.php:4115 libraries/server_status_monitor.lib.php:299
+#: libraries/Util.class.php:4119 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -1485,8 +1485,8 @@ msgstr ""
 
 #: js/messages.php:206 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
-#: libraries/Util.class.php:4114 libraries/Util.class.php:4129
-#: libraries/Util.class.php:4145 libraries/config/messages.inc.php:221
+#: libraries/Util.class.php:4118 libraries/Util.class.php:4133
+#: libraries/Util.class.php:4149 libraries/config/messages.inc.php:221
 #: libraries/display_import.lib.php:108
 #: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
@@ -1730,7 +1730,7 @@ msgstr "Query-uitvoertijd"
 msgid "%d is not valid row number."
 msgstr "%d is geen geldig rijnummer."
 
-#: js/messages.php:290 libraries/insert_edit.lib.php:1500
+#: js/messages.php:290 libraries/insert_edit.lib.php:1499
 #: libraries/schema/User_Schema.class.php:390
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1803,7 +1803,7 @@ msgstr "Queryresultaten"
 msgid "Data point content"
 msgstr "Inhoud gegevenspunt"
 
-#: js/messages.php:323 js/messages.php:416 libraries/insert_edit.lib.php:2597
+#: js/messages.php:323 js/messages.php:416 libraries/insert_edit.lib.php:2596
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "Negeren"
@@ -2357,18 +2357,18 @@ msgstr "per uur"
 msgid "per day"
 msgstr "per dag"
 
-#: libraries/Config.class.php:1151
+#: libraries/Config.class.php:1161
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Het bestaande configuratiebestand (%s) is niet leesbaar."
 
-#: libraries/Config.class.php:1181
+#: libraries/Config.class.php:1191
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Verkeerde rechten ingesteld op het configuratiebestand, dit mag niet "
 "leesbaar zijn voor iedereen!"
 
-#: libraries/Config.class.php:1759
+#: libraries/Config.class.php:1769
 msgid "Font size"
 msgstr "Lettertypegrootte"
 
@@ -2515,7 +2515,7 @@ msgstr[1] "%1$s overeenkomsten in <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:350 libraries/Menu.class.php:295
 #: libraries/Util.class.php:3185 libraries/Util.class.php:3400
-#: libraries/Util.class.php:3401 libraries/Util.class.php:4139
+#: libraries/Util.class.php:3401 libraries/Util.class.php:4143
 #: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/structure.lib.php:1384
 msgid "Browse"
@@ -2694,7 +2694,9 @@ msgstr "Goed gekende binaire waarde"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-msgid "The row has been deleted"
+#, fuzzy
+#| msgid "The row has been deleted"
+msgid "The row has been deleted."
 msgstr "De regel werd verwijderd"
 
 #: libraries/DisplayResults.class.php:3457
@@ -2706,19 +2708,13 @@ msgstr "stop proces"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Bij benadering. Zie [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4591 libraries/Message.class.php:180
-#: libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
+#: libraries/DisplayResults.class.php:4591
+#, fuzzy
+#| msgid "Your SQL query has been executed successfully"
+msgid "Your SQL query has been executed successfully."
 msgstr "Uw SQL-query is succesvol uitgevoerd"
 
-#: libraries/DisplayResults.class.php:4928
-msgid "in query"
-msgstr "in de query"
-
-#: libraries/DisplayResults.class.php:4965 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2726,19 +2722,25 @@ msgid ""
 msgstr ""
 "Deze view heeft minimaal deze hoeveelheid aan rijen. Zie de %sdocumentatie%s."
 
-#: libraries/DisplayResults.class.php:4978
+#: libraries/DisplayResults.class.php:4972
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
+
+#: libraries/DisplayResults.class.php:4986
+#, php-format
+msgid "%1$d total, %2$d in query"
+msgstr ""
 
 #: libraries/DisplayResults.class.php:4990
 #, php-format
 msgid "%d total"
 msgstr "%d totaal"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
+#: libraries/DisplayResults.class.php:5002
+#, fuzzy, php-format
+#| msgid "Query took %01.4f sec"
+msgid "Query took %01.4f seconds."
 msgstr "query duurde %01.4f sec"
 
 #: libraries/DisplayResults.class.php:5086
@@ -2770,8 +2772,8 @@ msgstr "Selecteer alles"
 #: libraries/DisplayResults.class.php:5380 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3413 libraries/Util.class.php:3414
-#: libraries/Util.class.php:4113 libraries/Util.class.php:4128
-#: libraries/Util.class.php:4144 libraries/config/messages.inc.php:215
+#: libraries/Util.class.php:4117 libraries/Util.class.php:4132
+#: libraries/Util.class.php:4148 libraries/config/messages.inc.php:215
 #: libraries/display_export.lib.php:163
 #: libraries/server_privileges.lib.php:2260
 #: libraries/server_privileges.lib.php:2967
@@ -2803,7 +2805,9 @@ msgid "Visualize GIS data"
 msgstr "GIS-gegevens visualiseren"
 
 #: libraries/DisplayResults.class.php:5637
-msgid "Link not found"
+#, fuzzy
+#| msgid "Link not found"
+msgid "Link not found!"
 msgstr "Link niet gevonden"
 
 #: libraries/Error_Handler.class.php:71
@@ -2851,8 +2855,8 @@ msgstr "Onbekende fout bij het uploaden."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgstr ""
-"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ 1.11"
-"[/doc]"
+"Fout bij het verplaatsen van het geüploade bestand, zie [doc@faq1-11]FAQ "
+"1.11[/doc]"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2964,8 +2968,8 @@ msgstr "View"
 
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:401
 #: libraries/Util.class.php:3181 libraries/Util.class.php:3188
-#: libraries/Util.class.php:3406 libraries/Util.class.php:4124
-#: libraries/Util.class.php:4140 libraries/config/setup.forms.php:301
+#: libraries/Util.class.php:3406 libraries/Util.class.php:4128
+#: libraries/Util.class.php:4144 libraries/config/setup.forms.php:301
 #: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:364
 #: libraries/config/user_preferences.forms.php:200
 #: libraries/config/user_preferences.forms.php:237
@@ -2980,8 +2984,8 @@ msgstr "Structuur"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:405
 #: libraries/Menu.class.php:512 libraries/Util.class.php:3182
-#: libraries/Util.class.php:3189 libraries/Util.class.php:4110
-#: libraries/Util.class.php:4125 libraries/Util.class.php:4141
+#: libraries/Util.class.php:3189 libraries/Util.class.php:4114
+#: libraries/Util.class.php:4129 libraries/Util.class.php:4145
 #: libraries/config/messages.inc.php:284
 #: libraries/navigation/Nodes/Node_Table.class.php:45 querywindow.php:59
 msgid "SQL"
@@ -2990,21 +2994,21 @@ msgstr "SQL"
 #: libraries/Menu.class.php:308 libraries/Menu.class.php:408
 #: libraries/Util.class.php:3183 libraries/Util.class.php:3190
 #: libraries/Util.class.php:3402 libraries/Util.class.php:3403
-#: libraries/Util.class.php:4126 libraries/Util.class.php:4142
+#: libraries/Util.class.php:4130 libraries/Util.class.php:4146
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
 msgstr "Zoeken"
 
 #: libraries/Menu.class.php:318 libraries/Util.class.php:3184
 #: libraries/Util.class.php:3404 libraries/Util.class.php:3405
-#: libraries/Util.class.php:4143
+#: libraries/Util.class.php:4147
 #: libraries/navigation/Nodes/Node_Table.class.php:42
 #: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
 msgid "Insert"
 msgstr "Invoegen"
 
 #: libraries/Menu.class.php:340 libraries/Menu.class.php:443
-#: libraries/Util.class.php:4131 libraries/Util.class.php:4146
+#: libraries/Util.class.php:4135 libraries/Util.class.php:4150
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:1821
 #: libraries/server_privileges.lib.php:1928
 #: libraries/server_privileges.lib.php:2759
@@ -3014,19 +3018,19 @@ msgstr "Rechten"
 
 #: libraries/Menu.class.php:349 libraries/Menu.class.php:376
 #: libraries/Menu.class.php:435 libraries/Util.class.php:3191
-#: libraries/Util.class.php:4130 libraries/Util.class.php:4147
+#: libraries/Util.class.php:4134 libraries/Util.class.php:4151
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Handelingen"
 
 #: libraries/Menu.class.php:353 libraries/Menu.class.php:469
-#: libraries/Util.class.php:4135 libraries/Util.class.php:4148
+#: libraries/Util.class.php:4139 libraries/Util.class.php:4152
 #: libraries/relation.lib.php:240
 msgid "Tracking"
 msgstr "Traceren"
 
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:463
-#: libraries/Util.class.php:4134 libraries/Util.class.php:4149
+#: libraries/Util.class.php:4138 libraries/Util.class.php:4153
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
@@ -3042,70 +3046,77 @@ msgstr "Triggers"
 msgid "Database seems to be empty!"
 msgstr "Databank lijkt leeg te zijn!"
 
-#: libraries/Menu.class.php:415 libraries/Util.class.php:4127
+#: libraries/Menu.class.php:415 libraries/Util.class.php:4131
 msgid "Query"
 msgstr "Query opbouwen"
 
-#: libraries/Menu.class.php:448 libraries/Util.class.php:4132
+#: libraries/Menu.class.php:448 libraries/Util.class.php:4136
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Routines"
 
-#: libraries/Menu.class.php:456 libraries/Util.class.php:4133
+#: libraries/Menu.class.php:456 libraries/Util.class.php:4137
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
 #: libraries/plugins/export/ExportSql.class.php:845
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
 msgstr "Gebeurtenissen"
 
-#: libraries/Menu.class.php:475 libraries/Util.class.php:4136
+#: libraries/Menu.class.php:475 libraries/Util.class.php:4140
 #: libraries/relation.lib.php:207
 msgid "Designer"
 msgstr "Ontwerper"
 
-#: libraries/Menu.class.php:508 libraries/Util.class.php:4109
+#: libraries/Menu.class.php:508 libraries/Util.class.php:4113
 #: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3754
 msgid "Databases"
 msgstr "Databanken"
 
-#: libraries/Menu.class.php:531 libraries/Util.class.php:4112
+#: libraries/Menu.class.php:531 libraries/Util.class.php:4116
 msgid "Users"
 msgstr "Gebruikers"
 
 #: libraries/Menu.class.php:558 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4116 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4120 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Binaire log"
 
 #: libraries/Menu.class.php:564 libraries/ServerStatusData.class.php:199
-#: libraries/Util.class.php:4117 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4121 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 msgid "Replication"
 msgstr "Replicatie"
 
 #: libraries/Menu.class.php:569 libraries/ServerStatusData.class.php:261
-#: libraries/Util.class.php:4118 libraries/server_engines.lib.php:109
+#: libraries/Util.class.php:4122 libraries/server_engines.lib.php:109
 #: libraries/server_engines.lib.php:113
 msgid "Variables"
 msgstr "Variabelen"
 
-#: libraries/Menu.class.php:573 libraries/Util.class.php:4119
+#: libraries/Menu.class.php:573 libraries/Util.class.php:4123
 msgid "Charsets"
 msgstr "Karaktersets"
 
-#: libraries/Menu.class.php:578 libraries/Util.class.php:4120
+#: libraries/Menu.class.php:578 libraries/Util.class.php:4124
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr "Plug-ins"
 
-#: libraries/Menu.class.php:582 libraries/Util.class.php:4121
+#: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Engines"
 
+#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
+msgid "Your SQL query has been executed successfully"
+msgstr "Uw SQL-query is succesvol uitgevoerd"
+
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1218 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1217 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Fout"
@@ -3284,43 +3295,43 @@ msgstr "%s is uitgeschakeld op deze MySQL-server."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Deze MySQL-server ondersteund de %s opslag-engine niet."
 
-#: libraries/Table.class.php:401
+#: libraries/Table.class.php:385
 msgid "unknown table status: "
 msgstr "onbekende tabelstatus: "
 
-#: libraries/Table.class.php:806
+#: libraries/Table.class.php:790
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Brondatabank `%s` werd niet gevonden!"
 
-#: libraries/Table.class.php:814
+#: libraries/Table.class.php:798
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Doeldatabank `%s` niet gevonden!"
 
-#: libraries/Table.class.php:1272
+#: libraries/Table.class.php:1259
 msgid "Invalid database:"
 msgstr "Ongeldige databank:"
 
-#: libraries/Table.class.php:1286
+#: libraries/Table.class.php:1273
 msgid "Invalid table name:"
 msgstr "Ongeldige tabelnaam:"
 
-#: libraries/Table.class.php:1321
+#: libraries/Table.class.php:1308
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Fout bij hernoemen van tabel %1$s naar %2$s!"
 
-#: libraries/Table.class.php:1340
+#: libraries/Table.class.php:1327
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s is hernoemd naar %2$s."
 
-#: libraries/Table.class.php:1488
+#: libraries/Table.class.php:1475
 msgid "Could not save table UI preferences"
 msgstr "Tabelinterfacevoorkeuren konden niet worden opgeslagen"
 
-#: libraries/Table.class.php:1517
+#: libraries/Table.class.php:1504
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3329,7 +3340,7 @@ msgstr ""
 "Opkuisen van tabelinterfacevoorkeuren is mislukt (zie $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1668
+#: libraries/Table.class.php:1655
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3354,7 +3365,7 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
-#: libraries/insert_edit.lib.php:1616 libraries/replication_gui.lib.php:512
+#: libraries/insert_edit.lib.php:1615 libraries/replication_gui.lib.php:512
 #: libraries/rte/rte_routines.lib.php:1608
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:560
 #: pmd_general.php:620 pmd_general.php:749 pmd_general.php:868
@@ -3369,7 +3380,7 @@ msgstr "In de tabel zoeken"
 msgid "Find and Replace"
 msgstr "Zoeken en vervangen"
 
-#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1390
+#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1389
 msgid "Edit/Insert"
 msgstr "Aanpassen/Invoegen"
 
@@ -3377,7 +3388,7 @@ msgstr "Aanpassen/Invoegen"
 msgid "Select columns (at least one):"
 msgstr "Selecteer kolommen (minstens één):"
 
-#: libraries/TableSearch.class.php:820 libraries/insert_edit.lib.php:1222
+#: libraries/TableSearch.class.php:820 libraries/insert_edit.lib.php:1221
 #: libraries/server_privileges.lib.php:438
 msgid "Or"
 msgstr "Of"
@@ -3403,7 +3414,7 @@ msgid "Maximum rows to plot"
 msgstr "Maximum aantal af te drukken regels"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:371 tbl_change.php:142
+#: libraries/sql.lib.php:371 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "Bekijk vreemde waarden"
 
@@ -3945,7 +3956,7 @@ msgstr "Blader op uw eigen pc:"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selecteer uit de web-server upload directory <b>%s</b>:"
 
-#: libraries/Util.class.php:3373 libraries/insert_edit.lib.php:1219
+#: libraries/Util.class.php:3373 libraries/insert_edit.lib.php:1218
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
@@ -3964,21 +3975,21 @@ msgstr "Legen"
 msgid "Execute"
 msgstr "Uitvoeren"
 
-#: libraries/Util.class.php:3953
+#: libraries/Util.class.php:3957
 msgid "Print"
 msgstr "Afdrukken"
 
-#: libraries/Util.class.php:4054 libraries/structure.lib.php:798
+#: libraries/Util.class.php:4058 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1785 libraries/tbl_printview.lib.php:238
 msgid "Creation"
 msgstr "Gecreëerd"
 
-#: libraries/Util.class.php:4060 libraries/structure.lib.php:805
+#: libraries/Util.class.php:4064 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1793 libraries/tbl_printview.lib.php:249
 msgid "Last update"
 msgstr "Laatst bijgewerkt"
 
-#: libraries/Util.class.php:4066 libraries/structure.lib.php:812
+#: libraries/Util.class.php:4070 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1801 libraries/tbl_printview.lib.php:260
 msgid "Last check"
 msgstr "Laatst gecontroleerd"
@@ -4334,7 +4345,7 @@ msgstr "Gebruikers toestaan deze waarde aan te passen"
 msgid "Apply"
 msgstr "Toepassen"
 
-#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1589
+#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1588
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
 #: prefs_manage.php:349
 msgid "Reset"
@@ -4464,8 +4475,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "U gebruikt het [kbd]config[/kbd]-authenticatietype en heeft de te gebruiken "
 "gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
@@ -4557,9 +4568,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Door deze optie in te schakelen is het toegestaan om phpMyAdmin vanuit een "
-"pagina op een ander domein in een frame te openen. Een potentieel [strong]"
-"beveiligingslek[/strong] wat cross-frame scripting (XSS) aanvallen mogelijk "
-"kan maken."
+"pagina op een ander domein in een frame te openen. Een potentieel "
+"[strong]beveiligingslek[/strong] wat cross-frame scripting (XSS) aanvallen "
+"mogelijk kan maken."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4574,8 +4585,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Geheime sleutelzin gebruikt voor de versleuteling van cookies in [kbd]cookie"
-"[/kbd]-authenticatie."
+"Geheime sleutelzin gebruikt voor de versleuteling van cookies in "
+"[kbd]cookie[/kbd]-authenticatie."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4626,8 +4637,8 @@ msgstr "CHAR-kolommen bewerken"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Gebruik de gebruiksvriendelijk editor voor SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) met syntaxmarkering en lijnnummers."
@@ -5028,8 +5039,9 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; [kbd]content"
-"[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de sleutelwaarde."
+"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; "
+"[kbd]content[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de "
+"sleutelwaarde."
 
 #: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
@@ -5168,8 +5180,9 @@ msgstr "Paginatitels"
 
 #: libraries/config/messages.inc.php:247
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Browser titel balk tekst. Zie [doc@cfg_TitleTable]documentatie[/doc] voor "
 "bruikbare codes."
@@ -5234,8 +5247,8 @@ msgid ""
 "documentation."
 msgstr ""
 "Configureer de configuratie-opslag van phpMyAdmin om toegang te krijgen tot "
-"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-opslag"
-"[/doc] in de documentatie."
+"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-"
+"opslag[/doc] in de documentatie."
 
 #: libraries/config/messages.inc.php:273
 msgid "Changes tracking"
@@ -5322,7 +5335,6 @@ msgid "Table structure"
 msgstr "Tabelstructuur"
 
 #: libraries/config/messages.inc.php:305
-#| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
 msgstr "Instellingen voor de tabelstructuur (lijst met kolommen)."
 
@@ -5331,7 +5343,6 @@ msgid "Tabs"
 msgstr "Tabbladen"
 
 #: libraries/config/messages.inc.php:307
-#| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
 msgstr "Kies hoe de tabbladen moeten werken."
 
@@ -5350,7 +5361,6 @@ msgid "Text fields"
 msgstr "Tekstvelden"
 
 #: libraries/config/messages.inc.php:313
-#| msgid "Customize text input fields"
 msgid "Customize text input fields."
 msgstr "Invoertekstvelden aanpassen."
 
@@ -5367,14 +5377,10 @@ msgid "Warnings"
 msgstr "Waarschuwingen"
 
 #: libraries/config/messages.inc.php:318
-#| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Schakel enkele waarschuwingen uit die getoond worden door phpMyAdmin."
 
 #: libraries/config/messages.inc.php:320
-#| msgid ""
-#| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations."
@@ -5391,9 +5397,6 @@ msgid "Extra parameters for iconv"
 msgstr "Extra parameters voor iconv"
 
 #: libraries/config/messages.inc.php:326
-#| msgid ""
-#| "If enabled, phpMyAdmin continues computing multiple-statement queries "
-#| "even if one of the queries failed"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
@@ -5431,9 +5434,6 @@ msgid "Replace table data with file"
 msgstr "Vervang tabelgegevens door het bestand"
 
 #: libraries/config/messages.inc.php:344
-#| msgid ""
-#| "Default format; be aware that this list depends on location (database, "
-#| "table) and only SQL is always available"
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
@@ -5469,7 +5469,6 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Percentages als decimalen importeren (12.00% naar .12)"
 
 #: libraries/config/messages.inc.php:360
-#| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
 msgstr "Aantal queries die moeten worden overgeslagen in het begin."
 
@@ -5486,7 +5485,6 @@ msgid "Initial state for sliders"
 msgstr "Initiële toestand van schuif-indexen"
 
 #: libraries/config/messages.inc.php:368
-#| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
 msgstr "Hoeveel rijen gelijktijdig kunnen worden ingevoegd."
 
@@ -5495,9 +5493,6 @@ msgid "Number of inserted rows"
 msgstr "Aantal ingevoegde rijen"
 
 #: libraries/config/messages.inc.php:371
-#| msgid ""
-#| "Maximum number of characters shown in any non-numeric column on browse "
-#| "view"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
@@ -5524,9 +5519,6 @@ msgid "Delete all cookies on logout"
 msgstr "Alle cookies verwijderen bij het afmelden"
 
 #: libraries/config/messages.inc.php:381
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode"
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode."
@@ -5555,7 +5547,6 @@ msgid "Login cookie store"
 msgstr "Opslag voor aanmeldingscookie"
 
 #: libraries/config/messages.inc.php:393
-#| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Definieer hoelang (in seconden) een aanmeldingscookie geldig blijft."
 
@@ -5564,7 +5555,6 @@ msgid "Login cookie validity"
 msgstr "Geldigheid aanmeldingscookie"
 
 #: libraries/config/messages.inc.php:396
-#| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Dubbele grootte van tekstveld voor LONGTEXT-kolommen."
 
@@ -5573,11 +5563,9 @@ msgid "Bigger textarea for LONGTEXT"
 msgstr "Groter tekstveld voor LONGTEXT"
 
 #: libraries/config/messages.inc.php:399
-#| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr ""
-"Maximaal aantal karakters dat wordt gebruikt bij het tonen van een SQL-"
-"query."
+"Maximaal aantal karakters dat wordt gebruikt bij het tonen van een SQL-query."
 
 #: libraries/config/messages.inc.php:400
 msgid "Maximum displayed SQL length"
@@ -5589,7 +5577,6 @@ msgid "Users cannot set a higher value"
 msgstr "Gebruiker kan geen hogere waarde instellen"
 
 #: libraries/config/messages.inc.php:403
-#| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
 msgstr "Maximum aantal databanken dat getoond wordt in de databankenlijst."
 
@@ -5598,15 +5585,11 @@ msgid "Maximum databases"
 msgstr "Maximum aantal databanken"
 
 #: libraries/config/messages.inc.php:406
-#| msgid ""
-#| "The number of items that can be displayed on each page of the navigation "
-#| "tree"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
-"Het aantal elementen dat getoond wordt op iedere pagina van de "
-"navigatieboom."
+"Het aantal elementen dat getoond wordt op iedere pagina van de navigatieboom."
 
 #: libraries/config/messages.inc.php:408
 msgid "Maximum items in branch"
@@ -5627,7 +5610,6 @@ msgid "Maximum number of rows to display"
 msgstr "Maximum aantal te tonen rijen"
 
 #: libraries/config/messages.inc.php:416
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
 msgstr "Het maximum aantal tabellen dat wordt getoond in de tabellenlijst."
 
@@ -5636,9 +5618,6 @@ msgid "Maximum tables"
 msgstr "Maximum aantal tabellen"
 
 #: libraries/config/messages.inc.php:419
-#| msgid ""
-#| "Disable the default warning that is displayed if mcrypt is missing for "
-#| "cookie authentication"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication."
@@ -5651,9 +5630,6 @@ msgid "mcrypt warning"
 msgstr "mcrypt-waarschuwing"
 
 #: libraries/config/messages.inc.php:424
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
@@ -5666,7 +5642,6 @@ msgid "Memory limit"
 msgstr "Geheugenlimiet"
 
 #: libraries/config/messages.inc.php:428
-#| msgid "Show logo in navigation panel"
 msgid "Show logo in navigation panel."
 msgstr "Toon logo in navigatiepaneel."
 
@@ -5675,7 +5650,6 @@ msgid "Display logo"
 msgstr "Toon logo"
 
 #: libraries/config/messages.inc.php:431
-#| msgid "URL where logo in the navigation panel will point to"
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL waar het logo in het navigatiepaneel naar doorverwijst."
 
@@ -5684,9 +5658,6 @@ msgid "Logo link URL"
 msgstr "URL voor de link van het logo"
 
 #: libraries/config/messages.inc.php:434
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])"
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
@@ -5699,7 +5670,6 @@ msgid "Logo link target"
 msgstr "Linkbestemming van logo"
 
 #: libraries/config/messages.inc.php:439
-#| msgid "Display server choice at the top of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
 msgstr "Toon serverkeuze bovenaan het navigatiepaneel."
 
@@ -5728,9 +5698,6 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Minimale aantal databanken waarbij een filterveld wordt getoond"
 
 #: libraries/config/messages.inc.php:451
-#| msgid ""
-#| "Group items in the navigation tree (determined by the separator defined "
-#| "below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)."
@@ -5743,7 +5710,6 @@ msgid "Group items in the tree"
 msgstr "Groepeer elementen in de boomstructuur"
 
 #: libraries/config/messages.inc.php:455
-#| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
 msgstr "Tekenreeks die databanknamen opsplitst in verschillende niveaus."
 
@@ -5752,7 +5718,6 @@ msgid "Database tree separator"
 msgstr "Scheidingsteken databank boomstructuur"
 
 #: libraries/config/messages.inc.php:458
-#| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
 msgstr "Tekenreeks die tabelnamen opsplitst in verschillende niveaus."
 
@@ -5765,7 +5730,6 @@ msgid "Maximum table tree depth"
 msgstr "Maximum diepte tabelboomstructuur"
 
 #: libraries/config/messages.inc.php:462
-#| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
 msgstr "Server onder de muispijl markeren."
 
@@ -5774,7 +5738,6 @@ msgid "Enable highlighting"
 msgstr "Markeren inschakelen"
 
 #: libraries/config/messages.inc.php:465
-#| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Het maximum aantal recent gebruikte tabellen dat wordt getoond; vul 0 in om "
@@ -5785,7 +5748,6 @@ msgid "Recently used tables"
 msgstr "Recent gebruikte tabellen"
 
 #: libraries/config/messages.inc.php:467
-#| msgid "These are Edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links."
 msgstr "Dit zijn de links Bewerken, Kopiëren en Verwijderen."
 
@@ -5794,7 +5756,6 @@ msgid "Where to show the table row links"
 msgstr "Waar de tabelregellinks getoond worden"
 
 #: libraries/config/messages.inc.php:470
-#| msgid "Use natural order for sorting table and database names"
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 "Gebruik natuurlijke volgorde voor het sorteren van tabel- en databanknamen."
@@ -5805,7 +5766,6 @@ msgstr "Natuurlijke volgorde"
 
 #: libraries/config/messages.inc.php:472 libraries/config/messages.inc.php:503
 #: libraries/config/messages.inc.php:505
-#| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
 msgstr "Gebruik enkel iconen, enkel tekst of beide."
 
@@ -5814,7 +5774,6 @@ msgid "Table navigation bar"
 msgstr "Navigatiebalk voor tabellen"
 
 #: libraries/config/messages.inc.php:475
-#| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "GZip-uitvoerbuffering gebruiken voor het versnellen van HTTP-verkeer."
 
@@ -5823,9 +5782,6 @@ msgid "GZip output buffering"
 msgstr "GZip-uitvoerbuffering"
 
 #: libraries/config/messages.inc.php:478
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -5838,7 +5794,6 @@ msgid "Default sorting order"
 msgstr "Standaard sorteervolgorde"
 
 #: libraries/config/messages.inc.php:483
-#| msgid "Use persistent connections to MySQL databases"
 msgid "Use persistent connections to MySQL databases."
 msgstr "Gebruik persistente verbindingen voor MySQL-databanken."
 
@@ -6095,8 +6050,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]bladwijzers[/a] te gebruiken, suggestie: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:560
 msgid "Bookmark table"
@@ -6105,11 +6060,11 @@ msgstr "Bladwijzertabel"
 #: libraries/config/messages.inc.php:562
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Laat dit veld leeg om geen kolomopmerkingen en mimetypes te ondersteunen, "
 "suggestie: [kbd]pma__column_info[/kbd]"
@@ -6146,8 +6101,8 @@ msgstr "Controle gebruikerswachtwoord"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6197,14 +6152,14 @@ msgstr "Controlepoort"
 #: libraries/config/messages.inc.php:589
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#| "[/kbd]"
+#| "Leave blank for no Designer support, suggested: "
+#| "[kbd]pma__designer_coords[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Laat dit veld leeg om de Designer niet te gebruiken, suggestie: [kbd]"
-"pma__designer_coords[/kbd]"
+"Laat dit veld leeg om de Designer niet te gebruiken, suggestie: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:592
 msgid "Designer table"
@@ -6225,14 +6180,14 @@ msgstr "Verberg databanken"
 #: libraries/config/messages.inc.php:597
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma__history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: [kbd]"
-"pma__history[/kbd]"
+"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: "
+"[kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:600
 msgid "SQL query history table"
@@ -6331,8 +6286,8 @@ msgid ""
 msgstr ""
 "Databank die wordt gebruikt om relaties, bladwijzers en PDF-eigenschappen op "
 "te slaan. Zie [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
-"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: [kbd]"
-"phpmyadmin[/kbd]"
+"informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:629
 #: libraries/display_create_database.lib.php:31
@@ -6373,11 +6328,12 @@ msgstr "Recent gebruikte tabel"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/"
+"kbd]"
 
 #: libraries/config/messages.inc.php:643
 msgid "Relation table"
@@ -6389,8 +6345,8 @@ msgstr "Relatietabel"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Zie [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/"
 "a] voor een voorbeeld"
@@ -6434,8 +6390,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: [kbd]"
-"pma__table_coords[/kbd]"
+"Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:658
 msgid "PDF schema: table coordinates"
@@ -6523,11 +6479,11 @@ msgstr "Bij te houden opdrachten"
 #: libraries/config/messages.inc.php:688
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Laat dit veld leeg om het opvolgen van SQL queries niet te ondersteunen, "
 "suggestie: [kbd]pma__tracking[/kbd]"
@@ -6551,11 +6507,11 @@ msgstr "Automatisch versies aanmaken"
 #: libraries/config/messages.inc.php:698
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
 "suggestie: [kbd]pma__userconfig[/kbd]"
@@ -6567,11 +6523,11 @@ msgstr "Opslagtabel voor gebruikersvoorkeuren"
 #: libraries/config/messages.inc.php:700
 #, fuzzy
 #| msgid ""
-#| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#| "pma__users[/kbd]"
+#| "Leave blank to disable configurable menus feature, suggested: "
+#| "[kbd]pma__users[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
-"[/kbd]."
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__users[/kbd]."
 msgstr ""
 "Laat dit veld leeg om configureerbare menu's uit te schakelen, suggestie: "
 "[kbd]pma__users[/kbd]"
@@ -6583,11 +6539,11 @@ msgstr "Gebruikerstabel"
 #: libraries/config/messages.inc.php:702
 #, fuzzy
 #| msgid ""
-#| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#| "pma__usergroups[/kbd]"
+#| "Leave blank to disable configurable menus feature, suggested: "
+#| "[kbd]pma__usergroups[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: [kbd]"
-"pma__usergroups[/kbd]."
+"Leave blank to disable configurable menus feature, suggested: "
+"[kbd]pma__usergroups[/kbd]."
 msgstr ""
 "Laat dit veld leeg om configureerbare menu's uit te schakelen , suggestie: "
 "[kbd]pma__usergroups[/kbd]"
@@ -6766,8 +6722,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Toon link naar de uitvoer van [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Toon link naar de uitvoer van [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:730
 msgid "Show phpinfo() link"
@@ -6862,8 +6818,8 @@ msgstr "SQL-Validator activeren"
 #: libraries/config/messages.inc.php:749
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#| "[/kbd])"
+#| "If you have a custom username, specify it here (defaults to "
+#| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
@@ -7965,7 +7921,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump is bewaard als %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1635
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
@@ -8038,59 +7994,59 @@ msgstr ""
 msgid "Binary - do not edit"
 msgstr "Binair - niet aanpassen"
 
-#: libraries/insert_edit.lib.php:1223 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1222 libraries/sql_query_form.lib.php:491
 msgid "web server upload directory:"
 msgstr "uploadfolder op webserver:"
 
-#: libraries/insert_edit.lib.php:1440
+#: libraries/insert_edit.lib.php:1439
 #, php-format
 msgid "Continue insertion with %s rows"
 msgstr "Herstart invoegen met %s rijen"
 
-#: libraries/insert_edit.lib.php:1470
+#: libraries/insert_edit.lib.php:1469
 msgid "and then"
 msgstr "en dan"
 
-#: libraries/insert_edit.lib.php:1503
+#: libraries/insert_edit.lib.php:1502
 msgid "Insert as new row"
 msgstr "Toevoegen als nieuwe rij"
 
-#: libraries/insert_edit.lib.php:1506
+#: libraries/insert_edit.lib.php:1505
 msgid "Insert as new row and ignore errors"
 msgstr "Toevoegen als nieuwe rij en foutmeldingen negeren"
 
-#: libraries/insert_edit.lib.php:1509
+#: libraries/insert_edit.lib.php:1508
 msgid "Show insert query"
 msgstr "Toon insert-query"
 
-#: libraries/insert_edit.lib.php:1529
+#: libraries/insert_edit.lib.php:1528
 msgid "Go back to previous page"
 msgstr "Terug"
 
-#: libraries/insert_edit.lib.php:1532
+#: libraries/insert_edit.lib.php:1531
 msgid "Insert another new row"
 msgstr "Een nieuwe rij toevoegen"
 
-#: libraries/insert_edit.lib.php:1537
+#: libraries/insert_edit.lib.php:1536
 msgid "Go back to this page"
 msgstr "Ga terug naar deze pagina"
 
-#: libraries/insert_edit.lib.php:1559
+#: libraries/insert_edit.lib.php:1558
 msgid "Edit next row"
 msgstr "Volgende rij bewerken"
 
-#: libraries/insert_edit.lib.php:1581
+#: libraries/insert_edit.lib.php:1580
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Gebruik de TAB-toets om van waarde naar waarde te navigeren of CTRL+pijltjes "
 "om vrijuit te navigeren"
 
-#: libraries/insert_edit.lib.php:1967 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1630
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/insert_edit.lib.php:1992 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1610
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -10847,9 +10803,6 @@ msgid "Use text field"
 msgstr "Tekstveld gebruiken"
 
 #: libraries/server_privileges.lib.php:1315
-#| msgid ""
-#| "An account already exists with the same username but possibly a different "
-#| "hostname. Are you sure you wish to proceed?"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. "
@@ -12294,24 +12247,29 @@ msgstr "Label:"
 msgid "Let every user access this bookmark"
 msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 
-#: libraries/sql.lib.php:1025
+#: libraries/sql.lib.php:1023
 msgid "Bookmark not created"
 msgstr "Bladwijzer niet aangemaakt"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1179
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1627
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1632
 msgid "Validated SQL"
 msgstr "Gevalideerde SQL"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1640
+#, php-format
+msgid "Query took %01.4f sec"
+msgstr "query duurde %01.4f sec"
+
+#: libraries/sql.lib.php:1910
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -12320,7 +12278,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
 "beschikbaar."
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1947
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"
@@ -14978,6 +14936,9 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
 
+#~ msgid "in query"
+#~ msgstr "in de query"
+
 #~ msgid "bzipped"
 #~ msgstr "ge-bzipt"
 
@@ -15026,12 +14987,13 @@ msgstr "concurrent_insert is ingesteld op 0"
 #~ msgstr "JavaScript foutmeldingsverslagen inschakelen"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Zie voor meer informatie: [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA-bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL Bugs"
-#~ "[/a]"
+#~ "bugs/2606/]PMA-bugtracker[/a] en [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Geen gebruik maken van INFORMATION_SCHEMA"
@@ -15387,9 +15349,9 @@ msgstr "concurrent_insert is ingesteld op 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Indien ingesteld op [kbd]nested[/kbd] wordt de opmerking enkel op basis "
 #~ "van $cfg['LeftFrameTableSeparator'] gesplitst. Hierdoor krijgt enkel de "
