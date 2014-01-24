@@ -394,7 +394,7 @@ class DBI_PMA_Relation_Cleanup extends PMA_DatabaseInterface
     /**
      * runs a query
      *
-     * @param string $sql                 SQL query to execte
+     * @param string $sql                 SQL query to execute
      * @param mixed  $link                optional database link to use
      * @param int    $options             optional query options
      * @param bool   $cache_affected_rows whether to cache affected rows

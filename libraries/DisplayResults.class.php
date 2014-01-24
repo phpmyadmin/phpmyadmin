@@ -3131,7 +3131,7 @@ class PMA_DisplayResults
             $linking_url_params[$link_relations['link_param']] = $column_value;
         } else {
             // Consider only the case of creating link for column field
-            // sql query need to be pass as url param
+            // sql query that needs to be passed as url param
             $sql = 'SELECT `' . $column_value . '` FROM `'
                 . $row_info[$link_relations['link_param'][1]] . '`.`'
                 . $row_info[$link_relations['link_param'][2]] . '`';
@@ -4900,7 +4900,7 @@ class PMA_DisplayResults
 
 
     /**
-     * Set the content need to be show in message
+     * Set the content that needs to be shown in message
      *
      * @param string  $sorted_column_message the message for sorted column
      * @param string  $limit_clause          the limit clause of analyzed query

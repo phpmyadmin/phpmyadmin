@@ -68,7 +68,7 @@ class PMA_DatabaseInterface
     /**
      * runs a query
      *
-     * @param string $query               SQL query to execte
+     * @param string $query               SQL query to execute
      * @param mixed  $link                optional database link to use
      * @param int    $options             optional query options
      * @param bool   $cache_affected_rows whether to cache affected rows

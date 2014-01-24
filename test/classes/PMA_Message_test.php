@@ -511,7 +511,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * testing display method (output string and _is_displayed varible)
+     * testing display method (output string and _is_displayed variable)
      *
      * @return void
      */

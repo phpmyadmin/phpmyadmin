@@ -71,7 +71,7 @@ class ImportOds_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['import_type'] = 'ods';
         $GLOBALS['import_handle'] = @fopen($GLOBALS['import_file'], 'r');
 
-        //varible for Ods
+        //variable for Ods
         $_REQUEST['ods_recognize_percentages'] = true;
         $_REQUEST['ods_recognize_currency'] = true;
         $_REQUEST['ods_empty_rows'] = true;
