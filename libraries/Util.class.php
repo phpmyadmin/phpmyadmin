@@ -996,11 +996,11 @@ class PMA_Util
      * @access  public
      */
     public static function getMessage(
-        $message, $sql_query = null, $type = 'notice', $is_view = false
+        $full_sql_query, $message, $sql_query = null, $type = 'notice', $is_view = false
     ) {
         global $cfg;
         $retval = '';
-
+        $sql_query = $full_sql_query;
         if (null === $sql_query) {
             if (! empty($GLOBALS['display_query'])) {
                 $sql_query = $GLOBALS['display_query'];
@@ -1011,6 +1011,14 @@ class PMA_Util
             } else {
                 $sql_query = '';
             }
+        }
+        
+        $sql_query = substr($sql_query, 0, stripos($sql_query, "limit"));
+
+        //remove table name in sorting 
+        $sql_query_array = explode('`', $sql_query);
+        if ($sql_query_array[1] == $sql_query_array[3]){         
+            $sql_query = str_replace('`'.$sql_query_array[1].'`.', "", $sql_query);           
         }
 
         if (isset($GLOBALS['using_bookmark_message'])) {

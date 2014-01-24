@@ -4451,7 +4451,7 @@ class PMA_DisplayResults
      * @see     sql.php file
      */
     public function getTable(
-        &$dt_result, &$the_disp_mode, $analyzed_sql,
+        $full_sql_query, &$dt_result, &$the_disp_mode, $analyzed_sql,
         $is_limited_display = false
     ) {
 
@@ -4530,7 +4530,7 @@ class PMA_DisplayResults
             );
 
             $table_html .= PMA_Util::getMessage(
-                $message, $this->__get('sql_query'), 'success'
+                $full_sql_query, $message, $this->__get('sql_query'), 'success'
             );
 
         } elseif (! isset($printview) || ($printview != '1')) {
