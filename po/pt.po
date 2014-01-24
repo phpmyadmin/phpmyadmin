@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-25 00:42+0200\n"
-"Last-Translator: Pedro Ribeiro <p.m42.ribeiro@gmail.com>\n"
+"PO-Revision-Date: 2014-01-25 00:54+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -4528,8 +4528,8 @@ msgstr "Endereço IP incorrecto: %s"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Se activao, o utilizador pode entrar em qualquer servidor MySQL num "
-"formulário de login para cookie de autenticação"
+"Se for activado, o utilizador pode entrar em qualquer servidor MySQL através "
+"de um formulário de início de sessão para a autenticação com cookies."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -4577,7 +4577,7 @@ msgstr "Segredo Blowfish"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows"
-msgstr "Destacar linhas selecionadas"
+msgstr "Destacar as linhas seleccionadas"
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -14535,14 +14535,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:341
-#, fuzzy
 msgid "Rate of open files"
-msgstr "Configurar o Mapa de Caracteres do ficheiro:"
+msgstr "Taxa de abertura de ficheiros"
 
 #: libraries/advisory_rules.txt:344
-#, fuzzy
 msgid "The rate of opening files is high."
-msgstr "Configurar o Mapa de Caracteres do ficheiro:"
+msgstr "A taxa de abertura de ficheiros está alta."
 
 #: libraries/advisory_rules.txt:346
 #, php-format
@@ -14612,7 +14610,7 @@ msgstr "Detecção de Alterações está desactivada."
 
 #: libraries/advisory_rules.txt:373
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Aumente o {thread_cache_size}."
 
 #: libraries/advisory_rules.txt:374
 #, php-format
@@ -14644,7 +14642,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:383
 msgid "Slow launch time"
-msgstr ""
+msgstr "Tempo de inícios lentos"
 
 #: libraries/advisory_rules.txt:386
 msgid "Slow_launch_threads is above 2s"
@@ -14695,10 +14693,9 @@ msgid "Percentage of aborted connections"
 msgstr "Ligações"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Permite criar tabelas temporárias."
+msgstr "Demasiadas ligações interrompidas."
 
 #: libraries/advisory_rules.txt:403 libraries/advisory_rules.txt:410
 msgid ""
@@ -14714,10 +14711,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Connections"
 msgid "Rate of aborted connections"
-msgstr "Ligações"
+msgstr "Taxa de ligações interrompidas"
 
 #: libraries/advisory_rules.txt:411
 #, php-format
@@ -14732,10 +14728,9 @@ msgid "Percentage of aborted clients"
 msgstr "Índice"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Permite criar tabelas temporárias."
+msgstr "Demasiados clientes interrompidos."
 
 #: libraries/advisory_rules.txt:417 libraries/advisory_rules.txt:424
 msgid ""
@@ -14752,16 +14747,18 @@ msgstr ""
 #: libraries/advisory_rules.txt:420
 #| msgid "Table of contents"
 msgid "Rate of aborted clients"
-msgstr "Taxa de clientes abortados"
+msgstr "Taxa de clientes interrompidos"
 
 #: libraries/advisory_rules.txt:425
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"A taxa de clientes interrompidos é de %s. (este valor deve ser menor do que "
+"1 por hora)"
 
 #: libraries/advisory_rules.txt:429
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "O InnoDB está desactivado?"
 
 #: libraries/advisory_rules.txt:432
 msgid "You do not have InnoDB enabled."
@@ -14784,6 +14781,8 @@ msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
+"O tamanho do ficheiro dos registos do InnoDB não é apropriado em relação ao "
+"buffer reservado do InnoDB."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
