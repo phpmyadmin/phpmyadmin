@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-23 12:46+0200\n"
-"Last-Translator: Eduardo Abreu <eduardextreme@hotmail.com>\n"
+"PO-Revision-Date: 2014-01-25 00:41+0200\n"
+"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -941,10 +941,9 @@ msgid "Please enter a valid number!"
 msgstr "Introduza um número válido"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Introduza um comprimento válido"
+msgstr "Introduza um comprimento válido!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1188,10 +1187,9 @@ msgid "Add chart to grid"
 msgstr "Adicionar gráfico a grelha"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Por favor adicione pelo menos uma variável à serie"
+msgstr "Adicione pelo menos uma variável à serie!"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1280,10 +1278,10 @@ msgstr "Desactivar %s"
 
 #. l10n: %d seconds
 #: js/messages.php:145
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Definir \"long_query_time\" para %ds"
+msgstr "Definir \"long_query_time\" para %d segundos."
 
 #: js/messages.php:147
 msgid ""
@@ -1506,10 +1504,9 @@ msgid "Import monitor configuration"
 msgstr "Importar configuração do monitor"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Por favor, selecione o ficheiro que deseja importar"
+msgstr "Seleccione o ficheiro que pretende importar."
 
 #: js/messages.php:210
 msgid "Analyse Query"
@@ -1686,10 +1683,9 @@ msgid "Values for a new column"
 msgstr "Valores para a nova coluna"
 
 #: js/messages.php:274
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Introduza cada valor num campo separado"
+msgstr "Introduza cada valor num campo separado."
 
 #: js/messages.php:275
 #, php-format
@@ -1857,10 +1853,9 @@ msgid "Select Foreign Key"
 msgstr "Seleccione Foreign Key"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Por favor seleccione a chave primária ou a chave única"
+msgstr "Seleccione a chave primária ou uma chave única!"
 
 #: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
@@ -2720,10 +2715,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Pode ser aproximado. Veja o [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "O seu comando SQL foi executado com sucesso"
+msgstr "A sua consulta SQL foi executada com êxito."
 
 #: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
@@ -2742,7 +2736,7 @@ msgstr "A mostrar registos de %1s - %2s"
 #: libraries/DisplayResults.class.php:4986
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d no total, %2$d na consulta"
 
 #: libraries/DisplayResults.class.php:4990
 #, php-format
@@ -2750,10 +2744,10 @@ msgid "%d total"
 msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:5002
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "O Query demorou %01.4f sec"
+msgstr "A consulta demorou %01.4f segundos."
 
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
@@ -4405,17 +4399,22 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sA compressão e a descompressão Bzip2%s precisa de funções (%s) que não "
+"estão disponíveis neste sistema."
 
 #: libraries/config/ServerConfigChecks.class.php:385
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Verifique com atenção este valor de forma a garantir que este directório não "
+"esteja disponível publicamente ou que seja alterado por outros utilizadores "
+"no seu servidor."
 
 #: libraries/config/ServerConfigChecks.class.php:386
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
-msgstr ""
+msgstr "Esta %sopção%s deve ser activada se o seu servidor web a suportar."
 
 #: libraries/config/ServerConfigChecks.class.php:392
 #, php-format
@@ -4423,6 +4422,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sA compressão e a descompressão GZip%s precisa de funções (%s) que não "
+"estão disponíveis neste sistema."
 
 #: libraries/config/ServerConfigChecks.class.php:399
 #, php-format
