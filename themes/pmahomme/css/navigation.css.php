@@ -143,8 +143,11 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree li {
     white-space: nowrap;
+    padding-bottom: 3px;
     clear: both;
     min-height: 16px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
 }
 #pma_navigation_tree img {
     margin: 0;
@@ -160,7 +163,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation_tree div.block i,
 #pma_navigation_tree div.block b {
     width: 1.5em;
-    height: 1.5em;
+    height: 1.7em;
     min-width: 16px;
     min-height: 8px;
     position: absolute;
@@ -225,6 +228,11 @@ li.fast_filter {
     border-<?php echo $left; ?>: 1px solid #666;
 }
 li.fast_filter input {
+    margin: 3px 0 0 0;
+    font-size: 0.7em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-<?php echo $left; ?>: 4px;
     padding-<?php echo $right; ?>: 1.7em;
     width: 100%;
 }
