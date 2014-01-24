@@ -792,7 +792,7 @@ function PMA_getHtmlForBookmark($disp_mode, $cfgBookmark, $sql_query, $db, $tabl
 /**
  * Function to check whether to remember the sorting order or not
  *
- * @param array $analyzed_sql_results the analyzed query and other varibles set
+ * @param array $analyzed_sql_results the analyzed query and other variables set
  *                                    after analyzing the query
  *
  * @return boolean
@@ -821,7 +821,7 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
 /**
  * Function to check whether the LIMIT clause should be appended or not
  *
- * @param array $analyzed_sql_results the analyzed query and other varibles set
+ * @param array $analyzed_sql_results the analyzed query and other variables set
  *                                    after analyzing the query
  *
  * @return boolean
@@ -847,7 +847,7 @@ function PMA_isAppendLimitClause($analyzed_sql_results)
 /**
  * Function to check whether this query is for just browsing
  *
- * @param array   $analyzed_sql_results the analyzed query and other varibles set
+ * @param array   $analyzed_sql_results the analyzed query and other variables set
  *                                      after analyzing the query
  * @param boolean $find_real_end        whether the real end should be found
  *
@@ -879,7 +879,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
 /**
  * Function to check whether the reated transformation information shoul be deleted
  *
- * @param array $analyzed_sql_results the analyzed query and other varibles set
+ * @param array $analyzed_sql_results the analyzed query and other variables set
  *                                    after analyzing the query
  *
  * @return boolean
@@ -899,7 +899,7 @@ function PMA_isDeleteTransformationInfo($analyzed_sql_results)
 /**
  * Function to check whether the user has rights to drop the database
  *
- * @param array   $analyzed_sql_results  the analyzed query and other varibles set
+ * @param array   $analyzed_sql_results  the analyzed query and other variables set
  *                                       after analyzing the query
  * @param boolean $allowUserDropDatabase whether the user is allowed to drop db
  * @param boolean $is_superuser          whether this user is a superuser
@@ -1372,7 +1372,7 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
  * @param string $db                   the current database
  * @param string $table                the current table
  * @param array  $parsed_sql           parsed sql
- * @param array  $analyzed_sql_results the analyzed query and other varibles set
+ * @param array  $analyzed_sql_results the analyzed query and other variables set
  *                                     after analyzing the query
  *
  * @return int $unlim_num_rows unlimited number of rows
