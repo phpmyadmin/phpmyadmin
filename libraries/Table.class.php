@@ -337,22 +337,6 @@ class PMA_Table
     }
 
     /**
-     * Returns tooltip for the table
-     * Format : <table_comment> (<number_of_rows>)
-     *
-     * @param string $db    database name
-     * @param string $table table name
-     *
-     * @return string tooltip fot the table
-     */
-    static public function sGetToolTip($db, $table)
-    {
-        return PMA_Table::sGetStatusInfo($db, $table, 'Comment')
-            . ' (' . PMA_Table::countRecords($db, $table)
-            . ' ' . __('Rows') . ')';
-    }
-
-    /**
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
@@ -1072,8 +1056,8 @@ class PMA_Table
                             )
                             . ' (db_name, table_name, column_name, comment'
                             . ($GLOBALS['cfgRelation']['mimework']
-                            ? ', mimetype, transformation, transformation_options'
-                            : '')
+                                ? ', mimetype, transformation, transformation_options'
+                                : '')
                             . ') '
                             . ' VALUES('
                             . '\'' . PMA_Util::sqlAddSlashes($target_db)
@@ -1083,12 +1067,15 @@ class PMA_Table
                             . '\''
                             . PMA_Util::sqlAddSlashes(
                                 $comments_copy_row['column_name']
-                            ) . '\''
-                            . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
-                                            . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
-                                            . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
-                                            . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\'' : '')
-                                    . ')';
+                            )
+                            . '\''
+                            . ($GLOBALS['cfgRelation']['mimework']
+                                ? ',\'' . PMA_Util::sqlAddSlashes($comments_copy_row['comment']) . '\','
+                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['mimetype']) . '\','
+                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation']) . '\','
+                                    . '\'' . PMA_Util::sqlAddSlashes($comments_copy_row['transformation_options']) . '\''
+                                : '')
+                            . ')';
                         PMA_queryAsControlUser($new_comment_query);
                     } // end while
                     $GLOBALS['dbi']->freeResult($comments_copy_rs);

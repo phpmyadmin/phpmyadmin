@@ -285,11 +285,14 @@ function PMA_getHtmlForSlaveErrorManagement($slave_skip_error_link)
     $html .= '  <ul>';
     $html .= '   <li><a href="' . $slave_skip_error_link . '">';
     $html .= __('Skip current error') . '</a></li>';
-    $html .= '   <li>' . __('Skip next');
+    $html .= '   <li>';
     $html .= '    <form method="post" action="server_replication.php">';
     $html .= PMA_URL_getHiddenInputs('', '');
-    $html .= '      <input type="text" name="sr_skip_errors_count" value="1" ';
-    $html .= 'style="width: 30px" />' . __('errors.');
+    $html .= sprintf(
+        __('Skip next %s errors.'),
+        '<input type="text" name="sr_skip_errors_count" value="1" '
+        . 'style="width: 30px" />'
+    );
     $html .= '              <input type="submit" name="sr_slave_skip_error" ';
     $html .= 'value="' . __('Go') . '" />';
     $html .= '      <input type="hidden" name="sr_take_action" value="1" />';

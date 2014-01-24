@@ -20,8 +20,8 @@ function escape($variable)
 }
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/gis/pma_gis_factory.php';
-require_once 'libraries/gis/pma_gis_visualization.php';
+require_once 'libraries/gis/GIS_Factory.class.php';
+require_once 'libraries/gis/GIS_Visualization.class.php';
 require_once 'libraries/tbl_gis_visualization.lib.php';
 
 // Get data if any posted

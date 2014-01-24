@@ -3685,6 +3685,10 @@ class PMA_Util
      */
     public static function getDefaultFunctionForField($field, $insert_mode)
     {
+        /*
+         * @todo Except for $cfg, no longer use globals but pass as parameters
+         *       from higher levels
+         */
         global $cfg, $analyzed_sql, $data;
 
         $default_function   = '';
@@ -4237,7 +4241,9 @@ class PMA_Util
                     )
                 );
                 $context = PMA_Util::handleContext($context);
-                session_write_close();
+                if (! defined('TESTSUITE')) {
+                    session_write_close();
+                }
                 $response = file_get_contents(
                     $file,
                     false,
@@ -4261,7 +4267,9 @@ class PMA_Util
                     CURLOPT_TIMEOUT,
                     $connection_timeout
                 );
-                session_write_close();
+                if (! defined('TESTSUITE')) {
+                    session_write_close();
+                }
                 $response = curl_exec($curl_handle);
             }
         }
@@ -4272,13 +4280,18 @@ class PMA_Util
             && strlen($data->date)
             && $save
         ) {
-            session_start();
+            if (! isset($_SESSION) && ! defined('TESTSUITE')) {
+                ini_set('session.use_only_cookies', false);
+                ini_set('session.use_cookies', false);
+                ini_set('session.use_trans_sid', false);
+                ini_set('session.cache_limiter', null);
+                session_start();
+            }
             $_SESSION['cache']['version_check'] = array(
                 'response' => $response,
                 'timestamp' => time()
             );
         }
-
         return $data;
     }
 

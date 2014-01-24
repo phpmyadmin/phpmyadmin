@@ -7,8 +7,8 @@
  */
 
 require_once 'PMA_GIS_Geom_test.php';
-require_once 'libraries/gis/pma_gis_geometry.php';
-require_once 'libraries/gis/pma_gis_multipolygon.php';
+require_once 'libraries/gis/GIS_Geometry.class.php';
+require_once 'libraries/gis/GIS_Multipolygon.class.php';
 require_once 'libraries/tcpdf/tcpdf.php';
 require_once 'libraries/Util.class.php';
 
