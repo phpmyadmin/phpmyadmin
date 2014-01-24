@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-12 10:00+0200\n"
-"Last-Translator: Mychael Go <admin@mychaelgo.com>\n"
-"Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/4-1/id/"
-">\n"
+"PO-Revision-Date: 2014-01-24 10:21+0200\n"
+"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"Language-Team: Indonesian "
+"<http://l10n.cihar.com/projects/phpmyadmin/4-1/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1561,7 +1561,7 @@ msgstr "Memproses…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Permintaan Dibatalkan!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -5242,6 +5242,9 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"Izinkan interupsi impor ketika script mendeteksi batas waktu penutupan. Hal "
+"ini cara yang baik ketika mengimpor file yang besar, sehingga transaksi "
+"dapat dibatalkan."
 
 #: libraries/config/messages.inc.php:246
 msgid "Partial import: allow interrupt"
@@ -5424,6 +5427,9 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
+"Jumlah baris yang ditampilkan saat browsing hasil set. Jika hasil set berisi "
+"lebih dari satu baris, tautan &quot;Previous&quot; and &quot;Next&quot; "
+"akan ditampilkan."
 
 #: libraries/config/messages.inc.php:295
 msgid "Maximum number of rows to display"
@@ -5658,13 +5664,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:343
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Peringatan! kata telah digunakan MySQL"
 
 #: libraries/config/messages.inc.php:345
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "Izinkan tampilan semua baris"
+msgstr "Atur tampilan tab menu"
 
 #: libraries/config/messages.inc.php:347
 msgid "How to display various action links"
@@ -5684,6 +5689,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Aktifkan jika Anda ingin DB-berbasis riwayat query(membutuhkan penyimpanan "
+"konfigurasi phpMyAdmin). Jika dinonaktifkan, ini menggunakan JS-routines "
+"untuk menampilkan riwayat query(hilang ketika jendela ditutup)."
 
 #: libraries/config/messages.inc.php:351
 msgid "Permanent query history"
@@ -5747,13 +5755,12 @@ msgstr "Ulangi judul"
 
 #: libraries/config/messages.inc.php:368
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Pengeditan Grid: trigger action"
 
 #: libraries/config/messages.inc.php:369
-#, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
-msgstr "Simpan semua sel yang disunting sekaligus"
+msgstr "Pengeditan Grid: Simpan semua sel yang diedit sekaligus"
 
 #: libraries/config/messages.inc.php:370
 msgid "Directory where exports can be saved on server"
@@ -5819,6 +5826,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
+"Biarkan kosong untuk tanpa dukungan "
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a], "
+"disarankan:[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:385
 msgid "Bookmark table"
@@ -5888,10 +5898,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:398
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "Inang pengendali"
+msgstr "Port kontrol"
 
 #: libraries/config/messages.inc.php:399
 #, fuzzy
@@ -11767,8 +11776,9 @@ msgid "END RAW"
 msgstr "AKHIRI mentah (RAW)"
 
 #: libraries/sqlparser.lib.php:398
+#, fuzzy
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Secara otomatis ditambahkan backtick ke akhir query!"
 
 #: libraries/sqlparser.lib.php:402
 msgid "Unclosed quote"
@@ -12950,6 +12960,11 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"%soption%s ini harus di nonaktifkan karena memungkinkan penyerang untuk "
+"masuk secara membabibuta ke server MySQL. Jika Anda merasa hal ini "
+"diperlukan, gunakan %strusted proxies list%s. Namun, perlindungan berbasis "
+"IP mungkin tidak dapat diandalkan jika IP dari ISP anda digunakan ribuan "
+"pengguna, termasuk Anda, untuk terhubung."
 
 #: setup/lib/index.lib.php:225
 msgid ""
@@ -12957,6 +12972,9 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
+"Anda tidak menentukan blowfish secret dan mengaktifkan otentikasi cookie, "
+"sehingga kunci secara otomatis dihasilkan untuk Anda. Hal ini digunakan "
+"untuk mengenkripsi cookies; Anda tidak perlu mengingatnya."
 
 #: setup/lib/index.lib.php:226
 #, php-format
@@ -12964,17 +12982,23 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sBzip2 compression and decompression%s membutuhkan fungsi (%s) yang tidak "
+"tersedia pada sistem ini."
 
 #: setup/lib/index.lib.php:232
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Nilai ini harus diperiksa dua kali untuk memastikan bahwa direktori ini "
+"tidak terakses secara global atau dapat dibaca atau ditulis oleh pengguna "
+"lain pada server Anda."
 
 #: setup/lib/index.lib.php:233
 #, php-format
 msgid "This %soption%s should be enabled if your web server supports it."
 msgstr ""
+"%soption%s ini seharusnya diaktifkan apabila server web anda mendukungnya."
 
 #: setup/lib/index.lib.php:239
 #, php-format
@@ -12982,6 +13006,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sGZip compression and decompression%s membutuhkan fungsi (%s) yang tidak "
+"tersedia pada sistem ini."
 
 #: setup/lib/index.lib.php:246
 #, php-format
@@ -12989,6 +13015,9 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
+"%sLogin cookie validity%s sudah lebih dari %ssession.gc_maxlifetime%s dapat "
+"menyebabkan pembatalan session secara acak (saat ini session.gc_maxlifetime "
+"adalah %d)."
 
 #: setup/lib/index.lib.php:257
 #, php-format
@@ -12996,6 +13025,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%sLogin cookie validity%s harus di set ke 1800 detik (30 menit) maksimal. "
+"NIlai lebih besar dari 1800 dapat menimbulkan risiko keamanan seperti "
+"peniruan."
 
 #: setup/lib/index.lib.php:263
 #, php-format
@@ -13003,6 +13035,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"JIka menggunakan otentikasi cookie dan %sLogin cookie store%s bukan 0, %"
+"sLogin cookie validity%s harus diatur ke nilai kurang atau sama dengan itu."
 
 #: setup/lib/index.lib.php:270
 #, php-format
@@ -13012,6 +13046,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
+"Jika anda merasa ini perlu, gunakan pengaturan perlindungan tambahan - "
+"pengaturan %shost authentication%s dan %strusted proxies list%s. Namun, "
+"perlindungan berbasis IP tidak dapat diandalkan jika IP dari ISP anda "
+"digunakan ribuan pengguna, termasuk anda, untuk terhubung."
 
 #: setup/lib/index.lib.php:278
 #, php-format
@@ -13022,6 +13060,11 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
+"Anda mengatur [kbd]config[/kbd] tipe otentikasi dan termasuk username dan "
+"password untuk login otomatis, yang mana bukan pilihan yang tepat untuk host "
+"selalu aktif. Siapapun yang mengetahui atau menebak URL phpMyAdmin anda "
+"dapat langsung  mengakses panel phpMyAdmin anda. Set type%s %sauthentication "
+" ke [kbd]cookie[/kbd] atau [kbd]http[/kbd]."
 
 #: setup/lib/index.lib.php:284
 #, php-format
@@ -13029,6 +13072,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sZip compression%s membutuhkan fungsi (%s) yang tidak tersedia pada sistem "
+"ini."
 
 #: setup/lib/index.lib.php:291
 #, php-format
@@ -13036,13 +13081,15 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sZip decompression%s membutuhkan fungsi (%s) yang tidak tersedia pada "
+"sistem ini."
 
 #: setup/lib/index.lib.php:324
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
-"Anda sebaiknya menggunakan sambungan SSL jika server web Anda mendukung."
+"Anda sebaiknya menggunakan sambungan SSL apabila server database Anda "
+"mendukungnya."
 
 #: setup/lib/index.lib.php:339
 msgid "You should use mysqli for performance reasons."
@@ -13425,8 +13472,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:158
+#, fuzzy
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size diatur ke 0 atau query_cache_type diatur ke 'OFF'"
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
@@ -13439,19 +13487,27 @@ msgid "Suboptimal caching method."
 msgstr "Metode penyinggahan kueri"
 
 #: libraries/advisory_rules.txt:164
+#, fuzzy
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Anda menggunakan cache MySQL Query dengan database lalu lintas yang cukup "
+"tinggi. Mungkin layak mempertimbangkan untuk menggunakan <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> bukan cache MySQL Query, terutama jika Anda "
+"memiliki beberapa budak."
 
 #: libraries/advisory_rules.txt:165
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"The cache query diaktifkan dan server menerima %d query per detik. Aturan "
+"ini kebakaran jika ada lebih dari 100 permintaan per detik."
 
 #: libraries/advisory_rules.txt:167
 #, fuzzy, php-format
@@ -13460,12 +13516,14 @@ msgid "Query cache efficiency (%%)"
 msgstr "Efisiensi singgahan kueri"
 
 #: libraries/advisory_rules.txt:170
+#, fuzzy
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "Cache query tidak berjalan efisien, memiliki hit rate yang rendah."
 
 #: libraries/advisory_rules.txt:171
+#, fuzzy
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Pertimbangkan untuk meningkatkan {query_cache_limit}."
 
 #: libraries/advisory_rules.txt:172
 #, fuzzy, php-format
@@ -13478,22 +13536,27 @@ msgid "Query Cache usage"
 msgstr "Penggunaan singgahan kueri"
 
 #: libraries/advisory_rules.txt:177
-#, php-format
+#, fuzzy, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "Kurang dari 80%% dari cache query yang sedang digunakan."
 
 #: libraries/advisory_rules.txt:178
+#, fuzzy
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Hal ini mungkin disebabkan oleh {query_cache_limit} menjadi terlalu rendah. "
+"Flushing cache query mungkin membantu juga."
 
 #: libraries/advisory_rules.txt:179
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"Rasio lancar gratis permintaan memori cache untuk ukuran total cache query "
+"adalah %s%%. Ini harus di atas 80%%"
 
 #: libraries/advisory_rules.txt:181
 msgid "Query cache fragmentation"
@@ -13506,6 +13569,7 @@ msgid "The query cache is considerably fragmented."
 msgstr "Singgahan kueri tidak diaktifkan."
 
 #: libraries/advisory_rules.txt:185
+#, fuzzy
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -13516,14 +13580,26 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Fragmentasi parah kemungkinan akan (lebih) meningkatkan "
+"Qcache_lowmem_prunes. Hal ini mungkin disebabkan oleh banyak Query Cache "
+"plum memori rendah karena {query_cache_size} terlalu kecil. Untuk langsung "
+"tetapi pendek memperbaiki hidup Anda dapat flush cache query (mungkin "
+"mengunci cache query untuk waktu yang lama). Hati-hati menyesuaikan "
+"{query_cache_min_res_unit} ke nilai yang lebih rendah mungkin bisa membantu "
+"juga, misalnya Anda dapat mengaturnya dengan ukuran rata-rata pertanyaan "
+"Anda dalam cache menggunakan rumus ini: (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache"
 
 #: libraries/advisory_rules.txt:186
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Cache saat ini terfragmentasi oleh %s%%, dengan 100%% yang berarti bahwa "
+"fragmentasi cache query pola bolak blok bebas dan digunakan. Nilai ini harus "
+"berada di bawah 20%%."
 
 #: libraries/advisory_rules.txt:188
 #, fuzzy
@@ -13532,40 +13608,54 @@ msgid "Query cache low memory prunes"
 msgstr "Singgahan kueri terpakai"
 
 #: libraries/advisory_rules.txt:191
+#, fuzzy
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
+"Query cache dihapus karena permintaan rendah memori cache dari cache query."
 
 #: libraries/advisory_rules.txt:192
+#, fuzzy
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"Anda mungkin ingin meningkatkan {query_cache_size}, namun perlu diingat "
+"bahwa overhead menjaga cache cenderung meningkat dengan ukurannya, sehingga "
+"melakukan hal ini sedikit demi sedikit dan memantau hasilnya."
 
 #: libraries/advisory_rules.txt:193
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Rasio query dihapus untuk pertanyaan dimasukkan adalah  %s%%. Semakin rendah "
+"nilai ini, semakin baik (ini aturan menembak limit: 0.1%%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
 msgstr "Besar maks. singgahan kueri"
 
 #: libraries/advisory_rules.txt:198
+#, fuzzy
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"Ukuran cache query di atas 128 MiB. Permintaan cache besar dapat menyebabkan "
+"overhead yang signifikan yang diperlukan untuk menjaga cache."
 
 #: libraries/advisory_rules.txt:199
+#, fuzzy
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Tergantung pada lingkungan Anda, mungkin akan meningkatkan kinerja untuk "
+"mengurangi nilai ini."
 
 #: libraries/advisory_rules.txt:200
 #, fuzzy, php-format
@@ -13578,11 +13668,13 @@ msgid "Query cache min result size"
 msgstr "Besar min. singgahan kueri"
 
 #: libraries/advisory_rules.txt:205
+#, fuzzy
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
+msgstr "Ukuran maksimal dari hasil set di cache query default dari 1 MiB."
 
 #: libraries/advisory_rules.txt:206
+#, fuzzy
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -13593,10 +13685,19 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Mengubah {query_cache_limit} (biasanya dengan meningkatkan) dapat "
+"meningkatkan efisiensi. Variabel ini menentukan ukuran maksimum hasil query "
+"mungkin harus dimasukkan ke dalam cache query. Jika ada banyak hasil query "
+"di atas 1 MiB yang baik disimpan di cache (banyak membaca, menulis sedikit) "
+"kemudian meningkat  {query_cache_limit} akan meningkatkan efisiensi. "
+"Sedangkan dalam kasus banyak hasil query berada di atas 1 MiB yang tidak "
+"sangat baik disimpan di cache (sering batal karena update tabel) meningkat  "
+"{query_cache_limit} mungkin mengurangi efisiensi."
 
 #: libraries/advisory_rules.txt:207
+#, fuzzy
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit di set pada 1 MiB"
 
 #: libraries/advisory_rules.txt:211
 msgid "Percentage of sorts that cause temporary tables"
@@ -13607,10 +13708,13 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Terlalu banyak pengurutan yang menyebabkan tabel temporer."
 
 #: libraries/advisory_rules.txt:215 libraries/advisory_rules.txt:222
+#, fuzzy
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits"
 msgstr ""
+"Pertimbangkan untuk meningkatkan {sort_buffer_size} dan / atau "
+"{read_rnd_buffer_size}, tergantung pada batas memori sistem Anda"
 
 #: libraries/advisory_rules.txt:216
 #, fuzzy, php-format
@@ -13644,21 +13748,27 @@ msgid "Sort rows"
 msgstr "Urutkan baris"
 
 #: libraries/advisory_rules.txt:228
+#, fuzzy
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Ada banyak baris yang diurutkan."
 
 #: libraries/advisory_rules.txt:229
+#, fuzzy
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Sementara tidak ada yang salah dengan jumlah tinggi baris menyortir, Anda "
+"mungkin ingin memastikan bahwa pertanyaan yang memerlukan banyak menyortir "
+"penggunaan diindeks kolom dalam klausa ORDER BY, karena hal ini akan "
+"menghasilkan lebih cepat menyortir"
 
 #: libraries/advisory_rules.txt:230
-#, php-format
+#, fuzzy, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Pengurutan baris rata-rata: %s"
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of joins without indexes"
@@ -13669,10 +13779,14 @@ msgid "There are too many joins without indexes."
 msgstr "Terlalu banyak join tanpa indeks."
 
 #: libraries/advisory_rules.txt:237
+#, fuzzy
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Ini berarti bahwa bergabung melakukan scan meja penuh. Menambahkan indeks "
+"untuk kolom yang digunakan dalam kondisi bergabung akan sangat mempercepat "
+"meja bergabung"
 
 #: libraries/advisory_rules.txt:238
 #, fuzzy, php-format
@@ -13697,6 +13811,7 @@ msgid "The rate of reading the first index entry is high."
 msgstr "Tempat menampilkan tautan baris tabel"
 
 #: libraries/advisory_rules.txt:244
+#, fuzzy
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -13705,6 +13820,12 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Hal ini biasanya menunjukkan sering scan indeks penuh. Scan indeks penuh "
+"lebih cepat daripada scan tabel tetapi memerlukan banyak siklus CPU dalam "
+"tabel besar, jika orang-tabel yang memiliki atau telah volume tinggi UPDATE "
+"dan DELETE, menjalankan 'OPTIMIZE TABLE' mungkin mengurangi jumlah dan / "
+"atau mempercepat scan indeks penuh . Selain itu scan indeks penuh hanya "
+"dapat dikurangi dengan menulis ulang query."
 
 #: libraries/advisory_rules.txt:245
 #, fuzzy, php-format
@@ -13729,11 +13850,15 @@ msgid "The rate of reading data from a fixed position is high."
 msgstr "Tempat menampilkan tautan baris tabel"
 
 #: libraries/advisory_rules.txt:251
+#, fuzzy
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Hal ini menunjukkan bahwa banyak pertanyaan harus mengurutkan hasil dan / "
+"atau melakukan scan meja penuh, termasuk bergabung dengan query yang tidak "
+"menggunakan indeks. Menambahkan indeks mana yang berlaku."
 
 #: libraries/advisory_rules.txt:252
 #, fuzzy, php-format
@@ -13760,10 +13885,13 @@ msgid "The rate of reading the next table row is high."
 msgstr "Tempat menampilkan tautan baris tabel"
 
 #: libraries/advisory_rules.txt:258
+#, fuzzy
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Hal ini menunjukkan bahwa banyak pertanyaan yang melakukan scan meja penuh. "
+"Menambahkan indeks mana yang berlaku."
 
 #: libraries/advisory_rules.txt:259
 #, fuzzy, php-format
@@ -13777,25 +13905,31 @@ msgstr ""
 "per jam"
 
 #: libraries/advisory_rules.txt:262
+#, fuzzy
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size lawan max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} dan {max_heap_table_size} tidak sama."
 
 #: libraries/advisory_rules.txt:266
+#, fuzzy
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Jika Anda telah sengaja mengubah salah satu salah satu dari: Server "
+"menggunakan nilai yang lebih rendah baik untuk menentukan ukuran maksimum di "
+"memori tabel. Jadi jika Anda ingin meningkatkan batas tabel di memori Anda "
+"harus meningkatkan nilai lain juga."
 
 #: libraries/advisory_rules.txt:267
-#, php-format
+#, fuzzy, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Nilai sekarang tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:269
 #, fuzzy
@@ -13816,6 +13950,7 @@ msgstr ""
 "per jam"
 
 #: libraries/advisory_rules.txt:273
+#, fuzzy
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -13825,6 +13960,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Meningkatkan {max_heap_table_size} dan {tmp_table_size} mungkin bisa "
+"membantu. Namun beberapa tabel sementara selalu sedang ditulis ke disk, "
+"independen dari nilai variabel-variabel ini. Untuk menghilangkan ini Anda "
+"akan harus menulis ulang pertanyaan Anda untuk menghindari kondisi tersebut "
+"(dalam tabel sementara: Hadirnya BLOB atau TEXT kolom atau adanya kolom "
+"lebih besar dari 512 bytes) sebagaimana disebutkan dalam awal dari <a href=\""
+"http://www.facebook.com/note.php?note_id=10150111255065841&comments\">Article "
+"by the Pythian Group</a>"
 
 #: libraries/advisory_rules.txt:274
 #, fuzzy, php-format
@@ -13843,6 +13986,7 @@ msgid "Temp disk rate"
 msgstr "Tingkat diska temporer"
 
 #: libraries/advisory_rules.txt:280
+#, fuzzy
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -13852,6 +13996,14 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Meningkatkan {max_heap_table_size} dan {tmp_table_size} mungkin bisa "
+"membantu. Namun beberapa tabel sementara selalu sedang ditulis ke disk, "
+"independen dari nilai variabel-variabel ini. Untuk menghilangkan ini Anda "
+"akan harus menulis ulang pertanyaan Anda untuk menghindari kondisi tersebut "
+"(dalam tabel sementara: Hadirnya BLOB atau TEXT kolom atau adanya kolom "
+"lebih besar dari 512 bytes) sebagaimana disebutkan dalam <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">MySQL Documentation</a>"
 
 #: libraries/advisory_rules.txt:281
 #, php-format
@@ -13867,14 +14019,18 @@ msgid "MyISAM key buffer size"
 msgstr "Ukuran penyangga kunci MyISAM"
 
 #: libraries/advisory_rules.txt:299
+#, fuzzy
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Penyangga Key tidak diinisialisasi. Tidak ada indeks MyISAM akan di-cache."
 
 #: libraries/advisory_rules.txt:300
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Set {key_buffer_size} tergantung pada ukuran indeks MyISAM Anda. 64M adalah "
+"awal yang baik."
 
 #: libraries/advisory_rules.txt:301
 #, fuzzy
@@ -13893,11 +14049,15 @@ msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Penyangga kunci MyISAM (singgahan indeks) %% yang dipakai rendah."
 
 #: libraries/advisory_rules.txt:307 libraries/advisory_rules.txt:315
+#, fuzzy
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Anda mungkin perlu untuk mengurangi ukuran {key_buffer_size}, kembali "
+"memeriksa meja Anda untuk melihat apakah indeks telah dihapus, atau "
+"memeriksa pertanyaan dan harapan tentang apa indeks yang digunakan."
 
 #: libraries/advisory_rules.txt:308
 #, fuzzy, php-format
@@ -13923,13 +14083,14 @@ msgid "Percentage of index reads from memory"
 msgstr "Persentase kueri lambat"
 
 #: libraries/advisory_rules.txt:321
-#, php-format
+#, fuzzy, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "indeks %% yang menggunakan kunci penyangga MyISAM rendah."
 
 #: libraries/advisory_rules.txt:322
+#, fuzzy
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Anda mungkin perlu untuk meningkatkan {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:323
 #, fuzzy, php-format
@@ -13948,10 +14109,13 @@ msgid "The rate of opening tables is high."
 msgstr "Jumlah tulis tunda saat ini."
 
 #: libraries/advisory_rules.txt:331
+#, fuzzy
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Membuka tabel membutuhkan disk I/O yang mahal. Meningkatkan  "
+"{table_open_cache} mungkin menghindari hal ini."
 
 #: libraries/advisory_rules.txt:332
 #, fuzzy, php-format
@@ -13972,6 +14136,8 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Jumlah file yang terbuka mendekati jumlah maksimum file yang terbuka. Anda "
+"mungkin mendapatkan \"Terlalu banyak membuka file\" error."
 
 #: libraries/advisory_rules.txt:338 libraries/advisory_rules.txt:345
 msgid ""
