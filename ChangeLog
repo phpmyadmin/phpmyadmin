@@ -30,6 +30,8 @@ phpMyAdmin - ChangeLog
 - bug #3889 When login fails and error display is active, login data is
 displayed (regression)
 - bug #4247 open_basedir warnings on export page
+- bug #4013 AJAX request waiting until version info is retrieved
+- bug #4248 js error when changing number of columns in status monitor
 
 4.1.5.0 (2014-01-17)
 - bug #3780 Allow aborting loading pages
