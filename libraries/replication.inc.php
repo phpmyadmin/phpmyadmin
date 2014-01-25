@@ -124,7 +124,9 @@ foreach ($replication_types as $type) {
             ${"server_{$type}_Do_DB"} = explode(
                 ",", $server_slave_replication[0]["Replicate_Do_DB"]
             );
-            $replication_info[$type]['Do_DB'] = ${"server_{$type}_Do_DB"};
+            if (! empty(${"server_{$type}_Do_DB"})) {
+                $replication_info[$type]['Do_DB'] = ${"server_{$type}_Do_DB"};
+            }
 
             ${"server_{$type}_Ignore_DB"} = explode(
                 ",", $server_slave_replication[0]["Replicate_Ignore_DB"]
