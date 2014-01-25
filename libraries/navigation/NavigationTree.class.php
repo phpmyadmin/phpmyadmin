@@ -1043,7 +1043,7 @@ class PMA_NavigationTree
             $retval .= '<li class="fast_filter db_fast_filter">';
             $retval .= '<form class="ajax fast_filter">';
             $retval .= PMA_getHiddenFields($url_params);
-            $retval .= '<input class="searchClause" type="input" name="searchClause"';
+            $retval .= '<input class="searchClause" type="text" name="searchClause"';
             $retval .= ' accesskey="q"';
             // allow html5 placeholder attribute
             $placeholder_key = 'value';
