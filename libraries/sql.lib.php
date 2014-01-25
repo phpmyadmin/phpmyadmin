@@ -256,7 +256,8 @@ function PMA_getSqlQueryToDisplay($db, $table, $analyzed_sql_results, $sql_query
 function PMA_handleSortOrder($db, $table, &$analyzed_sql_results, &$full_sql_query)
 {
     $pmatable = new PMA_Table($table, $db);
-    if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause'])) {
+    if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause']) 
+            && isset($GLOBALS['default_query']) && $GLOBALS['default_query']) {
         $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
         if ($sorted_col) {
             //remove the tablename from retrieved preference
@@ -1199,6 +1200,7 @@ function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
  */
 function PMA_getDefaultSqlQueryForBrowse($db, $table)
 {
+    $GLOBALS['default_query'] = true;
     include_once 'libraries/bookmark.lib.php';
     $book_sql_query = PMA_Bookmark_get(
         $db,
