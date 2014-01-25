@@ -440,15 +440,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             row++;
         }
 
-        /* Apply new chart size to all charts */
-        $.each(runtime.charts, function (key, value) {
-            value.chart.setSize(
-                newSize.width,
-                newSize.height,
-                false
-            );
-        });
-
         if (monitorSettings.gridMaxPoints == 'auto') {
             runtime.gridMaxPoints = Math.round((newSize.width - 40) / 12);
         }
