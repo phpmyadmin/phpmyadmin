@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-25 02:57+0200\n"
+"PO-Revision-Date: 2014-01-25 18:09+0200\n"
 "Last-Translator: Eduardo Abreu <eduardextreme@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -7136,42 +7136,41 @@ msgstr "Enviar relatórios de erro"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
-msgstr ""
+msgstr "Autenticação da configuração"
 
 #: libraries/config/setup.forms.php:44
 msgid "Cookie authentication"
-msgstr ""
+msgstr "Autenticação das cookies"
 
 #: libraries/config/setup.forms.php:47
 msgid "HTTP authentication"
-msgstr ""
+msgstr "Autenticação HTTP"
 
 #: libraries/config/setup.forms.php:50
 msgid "Signon authentication"
-msgstr ""
+msgstr "Autenticação Signon"
 
 #: libraries/config/setup.forms.php:255
 #: libraries/config/user_preferences.forms.php:156
 msgid "CSV using LOAD DATA"
-msgstr ""
+msgstr "CSV usando o LOAD DATA"
 
 #: libraries/config/setup.forms.php:264 libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:164
 #: libraries/config/user_preferences.forms.php:257
-#, fuzzy
 #| msgid "Open Document"
 msgid "OpenDocument Spreadsheet"
-msgstr "Abrir Documento"
+msgstr "Folha de cálculo OpenDocument"
 
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:171
 msgid "Quick"
-msgstr ""
+msgstr "Rápido"
 
 #: libraries/config/setup.forms.php:275
 #: libraries/config/user_preferences.forms.php:175
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 #: libraries/config/setup.forms.php:297
 #: libraries/config/user_preferences.forms.php:196
@@ -7186,28 +7185,29 @@ msgstr "dados CSV para MS Excel"
 #: libraries/config/setup.forms.php:353
 #: libraries/config/user_preferences.forms.php:252
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:362
 #: libraries/config/user_preferences.forms.php:261
-#, fuzzy
 #| msgid "Open Document"
 msgid "OpenDocument Text"
-msgstr "Abrir Documento"
+msgstr "Texto OpenDocument"
 
 #: libraries/core.lib.php:287
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
+"A extensão %s não foi encontrada. Por favor verifique a sua configuração do "
+"PHP."
 
 #: libraries/core.lib.php:447
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "possível ataque de recursividade em profundidade (deep recursion)"
 
 #: libraries/database_interface.inc.php:32
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Veja a %snossa documentação%s para mais informação."
 
 #: libraries/database_interface.inc.php:48
 msgid ""
@@ -7239,7 +7239,7 @@ msgstr "Sem palavra-passe"
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:833
 #: libraries/server_privileges.lib.php:1438
 msgid "Password:"
-msgstr "Palavra-passe&nbsp;:"
+msgstr "Palavra-passe:"
 
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:857
@@ -7250,30 +7250,27 @@ msgid "Re-type:"
 msgstr "Confirma"
 
 #: libraries/display_change_password.lib.php:80
-#, fuzzy
 #| msgid "Password:"
 msgid "Password Hashing:"
-msgstr "Palavra-passe&nbsp;:"
+msgstr "Hash da palavra-passe:"
 
 #: libraries/display_change_password.lib.php:93
 msgid "MySQL 4.0 compatible"
-msgstr ""
+msgstr "Compatível com MySQL 4.0"
 
 #: libraries/display_create_database.lib.php:23
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "Criar nova base de dados"
+msgstr "Criar base de dados"
 
 #: libraries/display_create_database.lib.php:47
 msgid "Create"
 msgstr "Criar"
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database:"
-msgstr "Criar nova base de dados"
+msgstr "Criar base de dados:"
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3834 server_privileges.php:130
@@ -7282,9 +7279,8 @@ msgid "No Privileges"
 msgstr "Sem Privilégios"
 
 #: libraries/display_create_table.lib.php:55 pmd_general.php:91
-#, fuzzy
 msgid "Create table"
-msgstr "Criar uma Página nova"
+msgstr "Criar tabela"
 
 #: libraries/display_create_table.lib.php:60
 #: libraries/plugins/export/ExportHtmlword.class.php:485
@@ -7299,92 +7295,87 @@ msgid "Name"
 msgstr "Nome"
 
 #: libraries/display_create_table.lib.php:65
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of columns"
-msgstr "Número de registos por página"
+msgstr "Número de colunas"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
+"Não foi possível carregar os plugins de exportação, por favor verifique a "
+"sua instalação!"
 
 #: libraries/display_export.lib.php:165
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Exporting databases from the current server"
-msgstr "Não é possível fazer login no servidor MySQL"
+msgstr "Exportando as bases de dados do servidor actual"
 
 #: libraries/display_export.lib.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "Criar nova tabela na base de dados %s"
+msgstr "Exportando as tabelas da base de dados \"%s\""
 
 #: libraries/display_export.lib.php:173
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "Criar nova tabela na base de dados %s"
+msgstr "Exportando as linhas da tabela \"%s\""
 
 #: libraries/display_export.lib.php:198
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Tipo de Exportação"
+msgstr "Método de Exportação:"
 
 #: libraries/display_export.lib.php:208
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "Rápido - exibe o mínimo de opções"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
 msgid "Custom - display all possible options"
-msgstr "Opções de exportação da Base de Dados"
+msgstr "Personalizado - exibe todas as opções possíveis"
 
 #: libraries/display_export.lib.php:242
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Base de Dados"
+msgstr "Base(s) de Dados:"
 
 #: libraries/display_export.lib.php:244
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Tabelas"
+msgstr "Tabela(s):"
 
 #: libraries/display_export.lib.php:264 libraries/display_import.lib.php:335
 #: libraries/plugins/export/ExportCodegen.class.php:107
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Formato"
+msgstr "Formato:"
 
 #: libraries/display_export.lib.php:269
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Opções de tranformação"
+msgstr "Opções específicas do formato:"
 
 #: libraries/display_export.lib.php:272
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Desloque-se para baixo para preencher as opções do formato seleccionado e "
+"ignore as opções para outros formatos."
 
 #: libraries/display_export.lib.php:283 libraries/display_import.lib.php:352
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "Conversão de codificação:"
 
 #: libraries/display_export.lib.php:311 libraries/sql.lib.php:433
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Registos"
+msgstr "Linhas:"
 
 #: libraries/display_export.lib.php:319
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "Eliminar alguma(s) linha(s)"
 
 #: libraries/display_export.lib.php:334
 msgid "Row to begin at:"
@@ -7392,11 +7383,11 @@ msgstr ""
 
 #: libraries/display_export.lib.php:351
 msgid "Dump all rows"
-msgstr ""
+msgstr "Eliminar todas as linhas"
 
 #: libraries/display_export.lib.php:367 libraries/display_export.lib.php:626
 msgid "Output:"
-msgstr ""
+msgstr "Saída:"
 
 #: libraries/display_export.lib.php:376 libraries/display_export.lib.php:411
 #, fuzzy, php-format
@@ -7440,28 +7431,24 @@ msgid "Character set of the file:"
 msgstr "Configurar o Mapa de Caracteres do ficheiro:"
 
 #: libraries/display_export.lib.php:569
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Compressão"
+msgstr "Compressão:"
 
 #: libraries/display_export.lib.php:577
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"Compressão zip\""
+msgstr "zipado"
 
 #: libraries/display_export.lib.php:584
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"Compressão gzip\""
+msgstr "gzipado"
 
 #: libraries/display_export.lib.php:611
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "envia"
+msgstr "Ver resultado como texto"
 
 #: libraries/display_export.lib.php:636
 #, fuzzy
