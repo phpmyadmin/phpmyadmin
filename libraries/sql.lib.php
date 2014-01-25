@@ -1834,7 +1834,7 @@ function PMA_getBookmarkCreatedMessage()
 function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $db,
     $goto, $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
     $editable, $unlim_num_rows, $num_rows, $showtable, $result,
-    $analyzed_sql_results
+    $analyzed_sql_results, $full_sql_query
 ) {
     $printview = isset($_REQUEST['printview']) ? $_REQUEST['printview'] : null;
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1)
@@ -1863,7 +1863,7 @@ function PMA_getHtmlForSqlQueryResultsTable($sql_data, $displayResultsObject, $d
         );
 
         $table_html = $displayResultsObject->getTable(
-            $result, $disp_mode, $analyzed_sql_results['analyzed_sql']
+            $full_sql_query, $result, $disp_mode, $analyzed_sql_results['analyzed_sql']
         );
         $GLOBALS['dbi']->freeResult($result);
     }
@@ -2120,7 +2120,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
         isset($sql_data) ? $sql_data : null, $displayResultsObject, $db, $goto,
         $pmaThemeImage, $url_query, $disp_mode, $sql_limit_to_append,
         $editable, $unlim_num_rows, $num_rows, $showtable, $result,
-        $analyzed_sql_results
+        $analyzed_sql_results, $full_sql_query
     );
 
     $indexes_problems_html = PMA_getHtmlForIndexesProblems(
