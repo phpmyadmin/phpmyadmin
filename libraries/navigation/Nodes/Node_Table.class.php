@@ -52,10 +52,11 @@ class Node_Table extends Node_DatabaseChild
             'text' => $GLOBALS['cfg']['DefaultTabTable']
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
-                    . '&amp;pos=0&amp;token=' . $GLOBALS['token'],
+                    . '&amp;pos=0&amp;token=' . $GLOBALS['token']
+                    . '&amp;recall_order=1',
             'icon' => $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
                     . '?server=' . $GLOBALS['server']
-                    . '&amp;db=%2$s&amp;table=%1$s&amp;token=' . $GLOBALS['token']
+                    . '&amp;db=%2$s&amp;table=%1$s&amp;token=' . $GLOBALS['token'],
         );
         $this->classes = 'table';
     }
