@@ -227,7 +227,8 @@ function PMA_getTableHtmlForMultipleQueries(
 function PMA_handleSortOrder($db, $table, &$analyzed_sql_results, &$full_sql_query)
 {
     $pmatable = new PMA_Table($table, $db);
-    if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause'])) {
+    if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause'])
+            && isset($_REQUEST['recall_order'])) {
         $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
         if ($sorted_col) {
             //remove the tablename from retrieved preference
