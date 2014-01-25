@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-25 00:54+0200\n"
-"Last-Translator: João Rodrigues <diogo2pt@gmail.com>\n"
+"PO-Revision-Date: 2014-01-25 02:57+0200\n"
+"Last-Translator: Eduardo Abreu <eduardextreme@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -6729,10 +6729,9 @@ msgstr ""
 "kbd]"
 
 #: libraries/config/messages.inc.php:703
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Usar a tabela do anfitrião"
+msgstr "Tabela de grupos do utilizador"
 
 #: libraries/config/messages.inc.php:704
 #, fuzzy
@@ -6752,7 +6751,7 @@ msgstr "Tabela dos itens de navegação oculta"
 
 #: libraries/config/messages.inc.php:707
 msgid "User for config auth"
-msgstr ""
+msgstr "Utilizador para a configuração de autenticação"
 
 #: libraries/config/messages.inc.php:708
 msgid ""
@@ -6834,9 +6833,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:724
-#, fuzzy
 msgid "Show field types"
-msgstr "Mostra tabelas"
+msgstr "Mostrar os tipos dos campos"
 
 #: libraries/config/messages.inc.php:725
 msgid "Display the function fields in edit/insert mode."
@@ -6844,7 +6842,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:726
 msgid "Show function fields"
-msgstr ""
+msgstr "Mostrar os campos da função"
 
 #: libraries/config/messages.inc.php:727
 #, fuzzy
@@ -6882,9 +6880,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:733
-#, fuzzy
 msgid "Show SQL queries"
-msgstr "Mostrar queries completos"
+msgstr "Mostrar consultas de SQL (queries)"
 
 #: libraries/config/messages.inc.php:734
 msgid ""
@@ -6892,10 +6889,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:735 libraries/sql_query_form.lib.php:370
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Esconder Caixa do query"
+msgstr "Reter a caixa da consulta (query)"
 
 #: libraries/config/messages.inc.php:736
 #, fuzzy
@@ -6906,9 +6902,8 @@ msgstr ""
 "espaço)"
 
 #: libraries/config/messages.inc.php:737
-#, fuzzy
 msgid "Show statistics"
-msgstr "Estatísticas dos registos"
+msgstr "Mostrar estatísticas"
 
 #: libraries/config/messages.inc.php:738
 msgid ""
@@ -6941,7 +6936,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:748
 msgid "Enable SQL Validator"
-msgstr ""
+msgstr "Activar SQL Validator"
 
 #: libraries/config/messages.inc.php:749
 #, fuzzy
@@ -6968,7 +6963,7 @@ msgstr "É exibido um aviso na página principal se Suhosin for detetado"
 
 #: libraries/config/messages.inc.php:752
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Aviso do Suhosin"
 
 #: libraries/config/messages.inc.php:753
 msgid ""
@@ -6977,10 +6972,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:754
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "Adicionar/Remover Campos"
+msgstr "Colunas da textarea"
 
 #: libraries/config/messages.inc.php:755
 msgid ""
@@ -6990,7 +6984,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:756
 msgid "Textarea rows"
-msgstr ""
+msgstr "Linhas da textarea"
 
 #: libraries/config/messages.inc.php:757
 msgid "Title of browser window when a database is selected."
@@ -7022,7 +7016,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:766
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "Lista de proxies de confiança para permitir/proibir IPs"
 
 #: libraries/config/messages.inc.php:767
 msgid "Directory on server where you can upload files for import."
@@ -7030,7 +7024,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:768
 msgid "Upload directory"
-msgstr ""
+msgstr "Pasta de upload"
 
 #: libraries/config/messages.inc.php:769
 msgid "Allow for searching inside the entire database."
@@ -7038,7 +7032,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:770
 msgid "Use database search"
-msgstr ""
+msgstr "Utilizar a pesquisa da base de dados"
 
 #: libraries/config/messages.inc.php:771
 msgid ""
@@ -7048,11 +7042,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:772
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Activar o separador Desenvolvedor nas definições"
 
 #: libraries/config/messages.inc.php:773 setup/frames/index.inc.php:312
 msgid "Check for latest version"
-msgstr ""
+msgstr "Verificar se é a última versão"
 
 #: libraries/config/messages.inc.php:774
 msgid "Enables check for latest version on main phpMyAdmin page."
@@ -7063,7 +7057,7 @@ msgstr ""
 #: setup/lib/index.lib.php:156 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:171
 msgid "Version check"
-msgstr ""
+msgstr "Verificação da versão"
 
 #: libraries/config/messages.inc.php:776
 msgid ""
@@ -7075,7 +7069,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:777
 msgid "Proxy url"
-msgstr ""
+msgstr "URL da proxy"
 
 #: libraries/config/messages.inc.php:778
 msgid ""
@@ -7085,19 +7079,17 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:779
-#, fuzzy
 msgid "Proxy username"
-msgstr "Utilizador&nbsp;:"
+msgstr "Utilizador da proxy"
 
 #: libraries/config/messages.inc.php:780
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Palavra-passe"
+msgstr "Palavra-passe da proxy"
 
 #: libraries/config/messages.inc.php:783
 #, fuzzy
@@ -7113,7 +7105,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:784
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:785
 msgid "Enter your public key for your domain reCaptcha service."
@@ -7121,7 +7113,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:786
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Chave pública para o reCaptcha"
 
 #: libraries/config/messages.inc.php:787
 msgid "Enter your private key for your domain reCaptcha service."
@@ -7129,7 +7121,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:788
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Chave privada para o reCaptcha"
 
 #: libraries/config/messages.inc.php:790
 #, fuzzy
@@ -7138,10 +7130,9 @@ msgid "Choose the default action when sending error reports."
 msgstr "Perguntar antes de enviar relatórios de erro"
 
 #: libraries/config/messages.inc.php:791
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Porta do servidor"
+msgstr "Enviar relatórios de erro"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -14672,6 +14663,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
+"O número máximo de conexões utilizadas está a aproximar-se do valor do "
+"{max_connections}."
 
 #: libraries/advisory_rules.txt:396
 msgid ""
@@ -14679,18 +14672,23 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
+"Aumente o {max_connections}, ou diminua o {wait_timeout} para que as "
+"conexões que não fechem as ligações à base de dados adequadamente sejam "
+"interrompidas mais cedo. Garanta que o código fecha as ligações à base de "
+"dados adequadamente."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Número máximo de conexões utilizadas está a %s%% do máximo de conexões, "
+"devia estar abaixo de 80%%"
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "Connections"
 msgid "Percentage of aborted connections"
-msgstr "Ligações"
+msgstr "Percentagem de conexões interrompidas"
 
 #: libraries/advisory_rules.txt:402 libraries/advisory_rules.txt:409
 #| msgid "Allows creating temporary tables."
@@ -14704,11 +14702,17 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Habitualmente, as ligações são interrompidas quando não conseguem ser "
+"autorizadas. <a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-"
+"track-down-the-source-of-aborted_connects/\">Este artigo</a> pode ajudá-lo a "
+"encontrar a fonte do problema."
 
 #: libraries/advisory_rules.txt:404
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% de todas as ligações estão interrompidas. Este valor deve ser inferior "
+"a 1%%"
 
 #: libraries/advisory_rules.txt:406
 #| msgid "Connections"
@@ -14720,12 +14724,13 @@ msgstr "Taxa de ligações interrompidas"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"O número de ligações interrompidas é de %s, este valor devia ser inferior a "
+"1 por hora"
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Percentage of aborted clients"
-msgstr "Índice"
+msgstr "Percentagem de clientes interrompidos"
 
 #: libraries/advisory_rules.txt:416 libraries/advisory_rules.txt:423
 #| msgid "Allows creating temporary tables."
@@ -14738,11 +14743,17 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Os clientes são normalmente interrompidos por não terem fechado a sua "
+"conexão com o MySQL adequadamente. Isto pode ser devido a problemas de "
+"ligação ou devido ao código não estar a fechar a ligação à base de dados "
+"adequadamente. Verifique a sua ligação e o seu código."
 
 #: libraries/advisory_rules.txt:418
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% de todos os clientes estão interrompidos. Este valor devia ser inferior "
+"a 2%%"
 
 #: libraries/advisory_rules.txt:420
 #| msgid "Table of contents"
@@ -14797,6 +14808,17 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Você deve colocar {innodb_log_file_size} a 25%% de "
+"{innodb_buffer_pool_size}, especialmente num sistema com muitos pedidos de "
+"escrita para tabelas InnoDB. No entanto, quanto maior for este valor, maior "
+"o tempo de recuperação quando a base de dados falha (Crash), por isso não "
+"deve colocar esse valor muito acima de 256 MiB. No entanto, por favor note "
+"que não pode simplesmente alterar o valor desta variável. Necessita de "
+"desligar o servidor, remover os ficheiros do log do InnoDB, definir o novo "
+"valor no my.cnf, iniciar o servidor, e de seguida verificar os logs de erros "
+"para verificar se não ocorreu nenhum problema. Veja também <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">este tópico de um blog (Em Inglês)</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
