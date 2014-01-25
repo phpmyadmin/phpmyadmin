@@ -1013,6 +1013,7 @@ class PMA_Util
             }
         }
         
+        $db = $GLOBALS['db'];
         // Parse and analyze the query
         require 'libraries/parse_analyze.inc.php';
         
