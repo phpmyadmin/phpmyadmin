@@ -1012,6 +1012,19 @@ class PMA_Util
                 $sql_query = '';
             }
         }
+ 
+        $db = $GLOBALS['db'];
+        // Parse and analyze the query
+        require 'libraries/parse_analyze.inc.php';
+         
+        /**
+         * Synchronizing message(query) with table
+         */
+        if (PMA_isRememberSortingOrder($analyzed_sql_results) && 
+          !isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])) {
+            PMA_handleSortOrder($db, $table, $analyzed_sql_results, $sql_query);
+        }
+         
 
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();

@@ -1656,8 +1656,8 @@ class PMA_Table
         // save the value
         $this->uiprefs[$property] = $value;
         // check if pmadb is set
-        if (strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && strlen($GLOBALS['cfg']['Server']['table_uiprefs'])
+        if (strlen($GLOBALS['cfg']['server']['pmadb'])
+            && strlen($GLOBALS['cfg']['server']['table_uiprefs'])
         ) {
             return $this->saveUiprefsToDb();
         }
