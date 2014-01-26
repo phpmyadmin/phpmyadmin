@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-22 14:11+0200\n"
+"PO-Revision-Date: 2014-01-26 10:31+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
@@ -4224,7 +4224,7 @@ msgstr "사용불가"
 #: libraries/config/FormDisplay.class.php:772
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\"(은)는 확장기능 %s 이 필요합니다"
+msgstr "\"%s\"(은)는 %s 확장기능이 필요합니다"
 
 #: libraries/config/FormDisplay.class.php:791
 #, php-format
@@ -5990,13 +5990,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:440
 msgid "UI preferences table"
-msgstr ""
+msgstr "UI 설정 테이블"
 
 #: libraries/config/messages.inc.php:441
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
-msgstr ""
+msgstr "데이터베이스 생성 시 DROP DATABASE IF EXISTS 구문을 로그 첫 번째 줄에 추가할지 여부."
 
 #: libraries/config/messages.inc.php:442
 msgid "Add DROP DATABASE"
@@ -6006,7 +6006,7 @@ msgstr "DROP DATABASE 추가"
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
-msgstr ""
+msgstr "테이블 생성 시 DROP TABLE IF EXISTS 구문을 로그 첫 번째 줄에 추가할지 여부."
 
 #: libraries/config/messages.inc.php:444
 msgid "Add DROP TABLE"
@@ -8088,7 +8088,7 @@ msgstr "%s 파일은 어떤 key id도 포함하지 않습니다."
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
 msgid "Hardware authentication failed!"
-msgstr "하드웨어 인증 실패"
+msgstr "하드웨어 인증 실패!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
@@ -8352,24 +8352,24 @@ msgstr "명세"
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
-msgstr ""
+msgstr "테이블과 컬럼의 이름을 역따옴표로 감싸기 <i>(특수문자나 키워드가 포함된 컬럼이나 테이블의 이름을 보호함)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:311
 msgid "Data creation options"
-msgstr ""
+msgstr "데이터 생성 옵션"
 
 #: libraries/plugins/export/ExportSql.class.php:315
 #: libraries/plugins/export/ExportSql.class.php:1684
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "삽입 전에 테이블 비우기"
 
 #: libraries/plugins/export/ExportSql.class.php:321
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "<code>INSERT</code> 구문 대신 사용할 구문:"
 
 #: libraries/plugins/export/ExportSql.class.php:327
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "<code>INSERT DELAYED</code> 문"
 
 #: libraries/plugins/export/ExportSql.class.php:338
 #: libraries/plugins/export/ExportSql.class.php:368
@@ -11992,7 +11992,7 @@ msgstr "인덱스 이름:"
 #: libraries/tbl_indexes.lib.php:264
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\"는 기본 키만의 <b>유일한</b> 이름입니다!"
+msgstr "\"PRIMARY\"는 <b>반드시</b> 기본 키의 이름이어야 하며, 기본 키<b>만</b> 쓸 수 있는 이름입니다!"
 
 #: libraries/tbl_indexes.lib.php:283
 msgid "Comment:"
@@ -12935,10 +12935,9 @@ msgid "Rename view to"
 msgstr "뷰 이름 변경"
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "테이블 삭제(DROP)"
+msgstr "뷰 삭제(DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -13685,7 +13684,7 @@ msgstr "사용된 MyISAM 키 버퍼 비율"
 #: libraries/advisory_rules.txt:316
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "%%MyISAM 키 버퍼 사용: %s%%, 이 값은 95%% 이상이어야 합니다."
+msgstr "MyISAM 키 버퍼 사용 비율(%%): %s%%, 이 값은 95%% 이상이어야 합니다."
 
 #: libraries/advisory_rules.txt:318
 msgid "Percentage of index reads from memory"
@@ -14049,7 +14048,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "InnoDB 로그 절대크기는 %s MiB 입니다."
+msgstr "InnoDB 로그의 총 크기는 %s MiB 입니다"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"
