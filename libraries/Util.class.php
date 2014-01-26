@@ -1012,6 +1012,12 @@ class PMA_Util
                 $sql_query = '';
             }
         }
+        
+        // Parse and analyze the query
+        $analyzed_sql_results = PMA_SQP_getParserAnalyzeMap($sql_query, $GLOBALS['db']);
+        
+        // Synchronize message(query) with table
+        $sql_query = PMA_getSqlQueryToDisplay($GLOBALS['db'], $GLOBALS['table'], $analyzed_sql_results, $sql_query);
 
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();

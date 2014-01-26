@@ -215,6 +215,35 @@ function PMA_getTableHtmlForMultipleQueries(
 }
 
 /**
+ * Get full sql query (including sort order) to display
+ * @param string $db                    database name
+ * @param string $table                 table name
+ * @param array  $analyzed_sql_results the analyzed query results
+ * @param string $sql_query       SQL query
+ *
+ * @return string $sql_query      SQL query to display
+ */
+function PMA_getSqlQueryToDisplay($db, $table, $analyzed_sql_results, $sql_query) {
+    $pmatable = new PMA_Table($table, $db);
+    $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
+    if ($sorted_col && isset($GLOBALS['default_query']) && $GLOBALS['default_query'] ) {
+        //remove the tablename from retrieved preference
+        //to get just the column name and the sort order
+        $sorted_col = str_replace(
+                PMA_Util::backquote($table) . '.', '', $sorted_col
+        );
+        // retrieve the remembered sorting order for current table
+        $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
+        $sql_query = $analyzed_sql_results['analyzed_sql'][0]['section_before_limit']
+                . $sql_order_to_append
+                . $analyzed_sql_results['analyzed_sql'][0]['limit_clause']
+                . ' '
+                . $analyzed_sql_results['analyzed_sql'][0]['section_after_limit'];
+    } 
+        return $sql_query;
+}
+
+/**
  * Handle remembered sorting order, only for single table query
  *
  * @param string $db                    database name
@@ -227,7 +256,8 @@ function PMA_getTableHtmlForMultipleQueries(
 function PMA_handleSortOrder($db, $table, &$analyzed_sql_results, &$full_sql_query)
 {
     $pmatable = new PMA_Table($table, $db);
-    if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause'])) {
+    if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause']) 
+            && isset($GLOBALS['default_query']) && $GLOBALS['default_query']) {
         $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
         if ($sorted_col) {
             //remove the tablename from retrieved preference
@@ -1170,6 +1200,7 @@ function PMA_appendLimitClause($full_sql_query, $analyzed_sql, $display_query)
  */
 function PMA_getDefaultSqlQueryForBrowse($db, $table)
 {
+    $GLOBALS['default_query'] = true;
     include_once 'libraries/bookmark.lib.php';
     $book_sql_query = PMA_Bookmark_get(
         $db,
