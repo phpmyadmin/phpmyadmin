@@ -56,6 +56,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';
         $GLOBALS['cfg']['Server']['users'] = 'users';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['ActionLinksMode'] = "both";
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
         $GLOBALS['cfg']['QueryWindowHeight'] = 100;
