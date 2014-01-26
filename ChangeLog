@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.6.0 (not yet released)
+4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user
 - bug #4241 Confusing dialog when trying to create an already existing user
 - bug #4239 Missing LIMIT clause for some queries
