@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-26 10:28+0200\n"
-"Last-Translator: Gyeongsu Han <hansim@gmail.com>\n"
+"PO-Revision-Date: 2014-01-26 10:29+0200\n"
+"Last-Translator: Myung Han Yu <greatymh@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -14087,7 +14087,7 @@ msgstr "사용된 MyISAM 키 버퍼 비율"
 #: libraries/advisory_rules.txt:316
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "%%MyISAM 키 버퍼 사용: %s%%, 이 값은 95%% 이상이어야 합니다."
+msgstr "MyISAM 키 버퍼 사용 비율(%%): %s%%, 이 값은 95%% 이상이어야 합니다."
 
 #: libraries/advisory_rules.txt:318
 msgid "Percentage of index reads from memory"
