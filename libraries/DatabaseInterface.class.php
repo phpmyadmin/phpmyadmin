@@ -555,7 +555,7 @@ class PMA_DatabaseInterface
             foreach ($tables as $one_database_name => $one_database_tables) {
                 uasort(
                     $one_database_tables,
-                    function($a, $b) {
+                    function ($a, $b) {
                         $aLength = $a['Data_length'] + $a['Index_length'];
                         $bLength = $b['Data_length'] + $b['Index_length'];
                         return ($aLength == $bLength)
