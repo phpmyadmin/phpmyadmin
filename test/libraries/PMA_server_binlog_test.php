@@ -51,10 +51,13 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
-
+        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
+ 
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
-
+        
         //$_SESSION
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
@@ -134,7 +137,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
         $count = 3;
 
         //expects functions
-        $dbi->expects($this->once())->method('query')
+        $dbi->expects($this->exactly(2))->method('query')
             ->will($this->returnValue($result));
 
         $dbi->expects($this->once())->method('numRows')
