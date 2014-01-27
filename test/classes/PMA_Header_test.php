@@ -55,6 +55,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
+        $GLOBALS['default_query'] = true;
     }
 
     /**
