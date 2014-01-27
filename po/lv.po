@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-14 01:29+0200\n"
+"PO-Revision-Date: 2014-01-28 00:30+0200\n"
 "Last-Translator: Janis Reinsons <fixed2009@gmail.com>\n"
-"Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/master/lv/"
-">\n"
+"Language-Team: Latvian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -228,7 +228,7 @@ msgid "Database %1$s has been copied to %2$s"
 msgstr "Datubāze %1$s tika pārkopēta uz %2$s"
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -408,7 +408,6 @@ msgid "Untracked tables"
 msgstr ""
 
 #: db_tracking.php:222 libraries/structure.lib.php:1545
-#, fuzzy
 msgid "Track table"
 msgstr "Pārbaudīt tabulu"
 
@@ -528,19 +527,17 @@ msgid "Add an inner ring"
 msgstr "Pievienot iekšējo loku"
 
 #: gis_data_editor.php:328
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Polygon %d:"
-msgstr "Pievienot %s lauku(s)"
+msgstr "Poligons %d:"
 
 #: gis_data_editor.php:392 js/messages.php:336
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "Pievienot %s lauku(s)"
+msgstr "Pievienot poligonu"
 
 #: gis_data_editor.php:398
-#, fuzzy
 msgid "Add geometry"
 msgstr "Pievienot jaunu ģeometriju"
 
@@ -770,10 +767,9 @@ msgid "Official Homepage"
 msgstr "Oficiālā phpMyAdmin mājaslapa"
 
 #: index.php:377
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atribūti"
+msgstr "Piedalies"
 
 #: index.php:384
 msgid "Get support"
@@ -836,7 +832,7 @@ msgid ""
 msgstr ""
 
 #: index.php:505
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
@@ -928,10 +924,10 @@ msgid "Edit Index"
 msgstr "Labot indeksu"
 
 #: js/messages.php:52 libraries/tbl_indexes.lib.php:394
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %d column(s) to index"
 msgid "Add %s column(s) to index"
-msgstr "Pievienot %d lauku(s) indeksam"
+msgstr "Pievienot %s lauku(s) indeksam"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:56 libraries/tbl_chart.lib.php:216
@@ -1924,7 +1920,6 @@ msgid "Generate"
 msgstr "Uzģenerēja"
 
 #: js/messages.php:387
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Mainīt paroli"
