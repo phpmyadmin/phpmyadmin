@@ -3858,7 +3858,7 @@ class PMA_Util
              * Also, we need to double the inner % to please sprintf().
              */
             $query .= " AND '%s' REGEXP"
-                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*')";
+                . " REPLACE(REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*'), '\\\\', '\\\\\\\')";
             $schema_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
