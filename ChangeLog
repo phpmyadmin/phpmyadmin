@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.1.7.0 (not yet released)
+- bug #4245 initial Browse query does not match sorting order
 
 4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user
