@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-16 11:44+0200\n"
-"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2014-01-27 15:29+0200\n"
+"Last-Translator: Dziuba Rene <php.tux@web.de>\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -946,10 +945,9 @@ msgid "Please enter a valid number!"
 msgstr "Bitte geben Sie eine gültige Nummer ein"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Bitte geben Sie eine gültige Länge ein"
+msgstr "Bitte geben Sie eine gültige Länge ein!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1194,10 +1192,9 @@ msgid "Add chart to grid"
 msgstr "Skala dem Raster hinzufügen"
 
 #: js/messages.php:124
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Bitte fügen Sie mindestens eine Variable der Serie hinzu"
+msgstr "Bitte fügen Sie mindestens eine Variable der Serie hinzu!"
 
 #: js/messages.php:125 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1512,10 +1509,9 @@ msgid "Import monitor configuration"
 msgstr "Konfiguration des Importmonitors"
 
 #: js/messages.php:208
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Bitte wählen Sie die Datei, die Sie importieren möchten"
+msgstr "Bitte wählen Sie die Datei, die Sie importieren möchten."
 
 #: js/messages.php:210
 msgid "Analyse Query"
@@ -1873,10 +1869,9 @@ msgid "Select Foreign Key"
 msgstr "Wähle Fremdschlüssel"
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Bitte den PRIMARY KEY oder einen UNIQUE KEY wählen"
+msgstr "Bitte den PRIMARY KEY oder einen UNIQUE KEY wählen!"
 
 #: js/messages.php:345 pmd_general.php:101
 msgid "Choose column to display"
@@ -2744,10 +2739,9 @@ msgstr ""
 "[doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt"
+msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt."
 
 #: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
@@ -2766,7 +2760,7 @@ msgstr "Zeige Datensätze %1s - %2s"
 #: libraries/DisplayResults.class.php:4986
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d insgesamt, %2$d in Abfragen"
 
 #: libraries/DisplayResults.class.php:4990
 #, php-format
@@ -2776,10 +2770,10 @@ msgstr "%d insgesamt"
 # (s is the abbreviation of "Sekunde", sec is it not (according to
 # International System of Units), so we wrote the complete one.)
 #: libraries/DisplayResults.class.php:5002
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "Die Abfrage dauerte %01.4f Sekunden"
+msgstr "Die Abfrage dauerte %01.4f Sekunden."
 
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
@@ -2843,10 +2837,9 @@ msgid "Visualize GIS data"
 msgstr "Visualisiere GIS Daten"
 
 #: libraries/DisplayResults.class.php:5637
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Der Verweis wurde nicht gefunden"
+msgstr "Der Verweis wurde nicht gefunden!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -4799,10 +4792,9 @@ msgid "Hide table structure actions"
 msgstr "Tabellenstrukturaktionen verbergen"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
-msgstr "Binäre Inhalte standardmäßig hexadezimal anzeigen"
+msgstr "Binäre Inhalte standardmäßig hexadezimal anzeigen."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down"
@@ -4825,10 +4817,9 @@ msgid "Disable multi table maintenance"
 msgstr "Deaktivieren von Massen-Operationen zur Tabellen-Instandhaltung"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "SQL-Abfragen in einem Popup-Fenster bearbeiten"
+msgstr "SQL-Abfragen in einem Popup-Fenster bearbeiten."
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4839,7 +4830,6 @@ msgid "Display errors"
 msgstr "Fehler anzeigen"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
@@ -4848,7 +4838,7 @@ msgid ""
 "limit)."
 msgstr ""
 "Die Anzahl der Sekunden, welche ein Script zur Ausführung benötigen darf "
-"([kbd]0[/kbd] für unbegrenzt)"
+"([kbd]0[/kbd] für unbegrenzt)."
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -5070,17 +5060,15 @@ msgid "Export time in UTC"
 msgstr "Zeit des Exports in UTC"
 
 #: libraries/config/messages.inc.php:195
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "Sichere Verbindung während der Nutzung von phpMyAdmin erzwingen"
+msgstr "Sichere Verbindung während der Nutzung von phpMyAdmin erzwingen."
 
 #: libraries/config/messages.inc.php:196
 msgid "Force SSL connection"
 msgstr "SSL-Verbindung erzwingen"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 #| "the referenced data, [kbd]id[/kbd] is the key value"
@@ -5088,19 +5076,19 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Sortierreihenfolge für &quot;FOREIGN KEY&quot;-Dropdownfelder. [kbd]content[/"
-"kbd] ist der referenzierte Wert, [kbd]id[/kbd] ist der Schlüsselwert"
+"Sortierreihenfolge für &quot;FOREIGN KEY&quot;-Dropdownfelder. "
+"[kbd]content[/kbd] ist der referenzierte Wert, [kbd]id[/kbd] ist der "
+"Schlüsselwert."
 
 #: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
 msgstr "Sortierreihenfolge für &quot;FOREIGN KEY&quot;-Dropdownfelder"
 
 #: libraries/config/messages.inc.php:203
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
 msgstr ""
-"Es wird ein Auswahl-Feld verwendet, falls weniger Einträge vorhanden sind"
+"Es wird ein Auswahl-Feld verwendet, falls weniger Einträge vorhanden sind."
 
 #: libraries/config/messages.inc.php:204
 msgid "Foreign key limit"
@@ -5111,18 +5099,16 @@ msgid "Browse mode"
 msgstr "Anzeigemodus"
 
 #: libraries/config/messages.inc.php:206
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "Anzeigemodus anpassen"
+msgstr "Anzeigemodus anpassen."
 
 #: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:210
 #: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
 #: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:287
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "Standard-Einstellungen anpassen"
+msgstr "Standard-Einstellungen anpassen."
 
 #: libraries/config/messages.inc.php:209 libraries/config/setup.forms.php:247
 #: libraries/config/setup.forms.php:321
@@ -5136,30 +5122,27 @@ msgid "Developer"
 msgstr "Entwickler"
 
 #: libraries/config/messages.inc.php:212
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Einstellungen für phpMyAdmin Entwickler"
+msgstr "Einstellungen für phpMyAdmin Entwickler."
 
 #: libraries/config/messages.inc.php:213
 msgid "Edit mode"
 msgstr "Bearbeitungsmodus"
 
 #: libraries/config/messages.inc.php:214
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Bearbeitungsmodus anpassen"
+msgstr "Bearbeitungsmodus anpassen."
 
 #: libraries/config/messages.inc.php:216
 msgid "Export defaults"
 msgstr "Voreinstellung für Export"
 
 #: libraries/config/messages.inc.php:217
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Standard-Exporteinstellungen anpassen"
+msgstr "Standard-Exporteinstellungen anpassen."
 
 #: libraries/config/messages.inc.php:218 libraries/config/messages.inc.php:279
 #: setup/frames/menu.inc.php:17
@@ -5171,10 +5154,9 @@ msgid "General"
 msgstr "Allgemein"
 
 #: libraries/config/messages.inc.php:220
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Einige oft verwendete Optionen setzen"
+msgstr "Einige oft verwendete Optionen setzen."
 
 #: libraries/config/messages.inc.php:222
 msgid "Import defaults"
