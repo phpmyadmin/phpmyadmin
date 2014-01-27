@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-24 10:21+0200\n"
+"PO-Revision-Date: 2014-01-27 08:23+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
@@ -6211,7 +6211,6 @@ msgid "Control port"
 msgstr "Port kontrol"
 
 #: libraries/config/messages.inc.php:589
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma_userconfig[/kbd]"
@@ -6219,8 +6218,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"Biarkan kosong untuk tanpa dukungan Desainer, saran: "
+"[kbd]pma__designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:592
 msgid "Designer table"
@@ -6228,14 +6227,13 @@ msgstr "Tabel desainer"
 
 #: libraries/config/messages.inc.php:594
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr ""
+msgstr "Sembunyikan pencocokan ekspresi reguler database(PCRE)."
 
 #: libraries/config/messages.inc.php:595
 msgid "Hide databases"
 msgstr "Sembunyikan basis data"
 
 #: libraries/config/messages.inc.php:597
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma_userconfig[/kbd]"
@@ -6243,18 +6241,17 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"Biarkan kosong untuk tanpa dukungan riwayat kueri SQL, saran: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:600
 msgid "SQL query history table"
 msgstr "Tabel riwayat kueri SQL"
 
 #: libraries/config/messages.inc.php:601
-#, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
-msgstr "Nama inang yang menjalankan server MySQL"
+msgstr "Nama host yang menjalankan server MySQL."
 
 #: libraries/config/messages.inc.php:602
 msgid "Server hostname"
@@ -6269,29 +6266,33 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"Batas jumlah preferensi tabel yang disimpan dalam database, catatan terlama "
+"akan dihapus secara otomatis."
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Jumlah maksimum tabel yang ditampilkan di daftar tabel"
+msgstr "Jumlah maksimal preferensi tabel untuk menyimpan"
 
 #: libraries/config/messages.inc.php:610
-#, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
-msgstr "Coba koneksi tanpa sandi"
+msgstr "Coba koneksi tanpa sandi."
 
 #: libraries/config/messages.inc.php:611
 msgid "Connect without password"
 msgstr "Tersambung tanpa sandi"
 
 #: libraries/config/messages.inc.php:613
+#, fuzzy
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
+"Anda dapat menggunakan karakter wildcard MySQL  (% dan _), loloskan jika "
+"Anda ingin menggunakan contoh literal, yaitu gunakan [kbd]'my\\_db'[/kbd] dan "
+"bukan [kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:617
 msgid "Show only listed databases"
@@ -6299,22 +6300,21 @@ msgstr "Tampilkan hanya basis data terdaftar"
 
 #: libraries/config/messages.inc.php:618 libraries/config/messages.inc.php:706
 msgid "Leave empty if not using config auth."
-msgstr ""
+msgstr "Biarkan kosong jika tidak menggunakan config auth."
 
 #: libraries/config/messages.inc.php:619
 msgid "Password for config auth"
 msgstr "Sandi untuk autentikasi config"
 
 #: libraries/config/messages.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"Biarkan kosong agar tidak mendukung skema PDF, saran: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:623
 msgid "PDF schema: pages table"
@@ -6326,6 +6326,10 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
+"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat "
+"[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]  untuk informasi lengkap. "
+"Biarkan kosong agar tanpa dukungan tersebut. Disarankan: "
+"[kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:629
 #: libraries/display_create_database.lib.php:31
@@ -6836,44 +6840,45 @@ msgid "Default title"
 msgstr "Judul bawaan"
 
 #: libraries/config/messages.inc.php:761
-#, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
-msgstr "Judul jendela peramban sewaktu server dipilih"
+msgstr "Judul jendela peramban sewaktu server dipilih."
 
 #: libraries/config/messages.inc.php:763
-#, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
-msgstr "Judul jendela peramban sewaktu tabel dipilih"
+msgstr "Judul jendela peramban ketika tabel dipilih."
 
 #: libraries/config/messages.inc.php:765
+#, fuzzy
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
+"Proxy termasuk sebagai [kbd]IP: HTTP header terpercaya[/kbd]. Contoh berikut "
+"menetapkan bahwa phpMyAdmin harus berasal HTTP_X_FORWARDED_FOR (X"
+"-Forwarded-For) terpercaya, header datang dari proxy "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/config/messages.inc.php:766
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Daftar proksi tepercaya untuk allow/deny IP"
 
 #: libraries/config/messages.inc.php:767
-#, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
-msgstr "Direktori server tempat mengunggah berkas ekspor"
+msgstr "Direktori server tempat mengunggah berkas ekspor."
 
 #: libraries/config/messages.inc.php:768
 msgid "Upload directory"
 msgstr "Direktori unggahan"
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
-msgstr "Mengizinkan pencarian terhadap seluruh basis data"
+msgstr "Mengizinkan pencarian terhadap seluruh basis data."
 
 #: libraries/config/messages.inc.php:770
 msgid "Use database search"
@@ -6884,6 +6889,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
+"Ketika dinonaktifkan, pengguna tidak dapat mengatur pilihan apapun di bawah "
+"ini, lepas centang kotak di sebelah kanan."
 
 #: libraries/config/messages.inc.php:772
 msgid "Enable the Developer tab in settings"
@@ -6895,7 +6902,7 @@ msgstr "Periksa versi terbaru"
 
 #: libraries/config/messages.inc.php:774
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
+msgstr "Aktifkan pemeriksaan versi terbaru pada halaman utama phpMyAdmin."
 
 #: libraries/config/messages.inc.php:775 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
@@ -6911,10 +6918,14 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Url proxy untuk digunakan saat mengambil informasi mengenai versi terbaru "
+"dari phpMyAdmin atau ketika mengirimkan laporan kesalahan. Anda perlu ini "
+"jika server yang terinstal phpMyAdmin tidak memiliki akses langsung ke "
+"internet. Formatnya adalah: \"hostname:portnumber\"."
 
 #: libraries/config/messages.inc.php:777
 msgid "Proxy url"
-msgstr ""
+msgstr "Alamat proxy"
 
 #: libraries/config/messages.inc.php:778
 msgid ""
@@ -6922,25 +6933,25 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Nama pengguna untuk otentikasi dengan proxy. Secara default, tidak ada "
+"otentikasi yang dilakukan. Jika nama pengguna diberikan, otentikasi dasar "
+"akan dilakukan. Tidak ada jenis otentikasi lain yang didukung saat ini."
 
 #: libraries/config/messages.inc.php:779
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Nama Pengguna"
+msgstr "Nama Pengguna Proxy"
 
 #: libraries/config/messages.inc.php:780
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "Password untuk otentikasi proxy."
 
 #: libraries/config/messages.inc.php:781
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Kata Sandi"
+msgstr "Password proxy"
 
 #: libraries/config/messages.inc.php:783
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
@@ -6948,8 +6959,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Aktifkan kompresi [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] untuk "
-"operasi impor dan ekspor"
+"Aktifkan kompresi [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+"untuk operasi impor dan ekspor."
 
 #: libraries/config/messages.inc.php:784
 msgid "ZIP"
@@ -6957,35 +6968,33 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:785
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "Masukkan kunci publik Anda untuk layanan reCAPTCHA domain Anda."
 
 #: libraries/config/messages.inc.php:786
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Kunci publik untuk reCaptcha"
 
 #: libraries/config/messages.inc.php:787
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "Masukkan kunci privat Anda untuk layanan reCAPTCHA domain Anda."
 
 #: libraries/config/messages.inc.php:788
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Kunci privat untuk reCaptcha"
 
 #: libraries/config/messages.inc.php:790
-#, fuzzy
 #| msgid "Ask before sending error reports"
 msgid "Choose the default action when sending error reports."
-msgstr "Tanyakan sebelum mengirim laporan kesalahan"
+msgstr "Pilih aksi default saat mengirim laporan kesalahan."
 
 #: libraries/config/messages.inc.php:791
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Porta server"
+msgstr "Kirim laporan kesalahan"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
-msgstr "Autentikasi config"
+msgstr "Konfigurasi Autentikasi"
 
 #: libraries/config/setup.forms.php:44
 msgid "Cookie authentication"
@@ -7007,10 +7016,9 @@ msgstr "CSV menggunakan LOAD DATA"
 #: libraries/config/setup.forms.php:264 libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:164
 #: libraries/config/user_preferences.forms.php:257
-#, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
-msgstr "Open Document Spreadsheet"
+msgstr "Lembar sebar OpenDocument"
 
 #: libraries/config/setup.forms.php:271
 #: libraries/config/user_preferences.forms.php:171
@@ -7039,10 +7047,9 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/config/setup.forms.php:362
 #: libraries/config/user_preferences.forms.php:261
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
-msgstr "Open Document Text"
+msgstr "Teks OpenDocument"
 
 #: libraries/core.lib.php:287
 #, php-format
@@ -7051,18 +7058,20 @@ msgstr "Ekstensi %s tidak ditemukan. Harap periksa konfigurasi PHP Anda."
 
 #: libraries/core.lib.php:447
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "Memungkinkan serangan rekursi dalam"
 
 #: libraries/database_interface.inc.php:32
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "Lihat %sdokumentasi kami%s untuk informasi lebih lanjut."
 
 #: libraries/database_interface.inc.php:48
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Anda menggunakan ekstensi mysql yang sudah ditinggalkan di phpMyAdmin. "
+"Silakan pertimbangkan untuk menginstal ekstensi mysqli."
 
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
@@ -7072,17 +7081,17 @@ msgstr ""
 
 #: libraries/dbi/drizzle-wrappers.lib.php:385
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Tidak dapat mencari dalam hasil set unbuffered"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:406
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "Tidak bisa menghitung baris dalam hasil set unbuffered"
 
 #: libraries/display_change_password.lib.php:59
 #: libraries/replication_gui.lib.php:846
 #: libraries/server_privileges.lib.php:1458
 msgid "No Password"
-msgstr "Kata Sandi belum ditetapkan"
+msgstr "Kata Sandi tidak ditetapkan"
 
 #: libraries/display_change_password.lib.php:67
 #: libraries/plugins/auth/AuthenticationCookie.class.php:225
@@ -7094,10 +7103,9 @@ msgstr "Kata Sandi:"
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1473
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Ketik ulang"
+msgstr "Ketik ulang:"
 
 #: libraries/display_change_password.lib.php:80
 #, fuzzy
@@ -7118,10 +7126,9 @@ msgid "Create"
 msgstr "Buat"
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "Buat basis data"
+msgstr "Buat basis data:"
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3834 server_privileges.php:130
@@ -7201,6 +7208,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Gulir ke bawah untuk mengisi pilihan untuk format yang dipilih dan "
+"mengabaikan pilihan untuk format lain."
 
 #: libraries/display_export.lib.php:283 libraries/display_import.lib.php:352
 msgid "Encoding Conversion:"
@@ -7248,16 +7257,20 @@ msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ akan menjadi nama tabel"
 
 #: libraries/display_export.lib.php:453
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
+"Nilai ini ditafsir menggunakan %1$sstrftime%2$s, sehingga Anda dapat "
+"menggunakan  format string waktu. Tambahan ditransformasi  sehingga menjadi: "
+"%3$s. Teks lain akan disimpan seperti biasa. Lihat %4$sFAQ%5$s untuk "
+"rincian."
 
 #: libraries/display_export.lib.php:510
 msgid "use this for future exports"
-msgstr ""
+msgstr "gunakan ini untuk ekspor kedepannya"
 
 #: libraries/display_export.lib.php:525 libraries/display_import.lib.php:182
 #: libraries/display_import.lib.php:197 libraries/sql_query_form.lib.php:504
@@ -7287,33 +7300,35 @@ msgstr "Simpan hasil ke suatu berkas"
 #: libraries/display_git_revision.lib.php:56
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "cabang %1$s dari %2$s"
 
 #: libraries/display_git_revision.lib.php:58
 msgid "no branch"
-msgstr ""
+msgstr "Tidak bercabang"
 
 #: libraries/display_git_revision.lib.php:64
 msgid "Git revision:"
-msgstr ""
+msgstr "Revisi Git:"
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "committed on %1$s by %2$s"
-msgstr "Buat versi %s dari %s.%s"
+msgstr "committ pada %1$s oleh %2$s"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "authored on %1$s by %2$s"
-msgstr "Buat versi %s dari %s.%s"
+msgstr "Ditulis pada %1$s oleh %2$s"
 
 #: libraries/display_import.lib.php:74
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"Harap bersabar, file sedang diunggah. Rincian tentang pengunggahan tidak "
+"tersedia."
 
 #: libraries/display_import.lib.php:111
 msgid "Importing into the current server"
@@ -7359,6 +7374,8 @@ msgstr "Impor Parsial:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"Proses impor sebelumnya kehabisan waktu, setelah mengirimkan kembali akan "
+"dilanjutkan dari posisi %d."
 
 #: libraries/display_import.lib.php:292
 #, fuzzy
@@ -12198,10 +12215,12 @@ msgid "END CUT"
 msgstr "Akhiri potong (CUT)"
 
 #: libraries/sqlparser.lib.php:195
+#, fuzzy
 msgid "BEGIN RAW"
 msgstr "MULAI mentah (RAW)"
 
 #: libraries/sqlparser.lib.php:199
+#, fuzzy
 msgid "END RAW"
 msgstr "AKHIRI mentah (RAW)"
 
@@ -13377,14 +13396,18 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"Pembacaan versi gagal. Mungkin Anda sedang offline atau server upgrade tidak "
+"merespon."
 
 #: setup/lib/index.lib.php:132
+#, fuzzy
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "Mendapatkan string versi tidak valid dari server"
 
 #: setup/lib/index.lib.php:145
+#, fuzzy
 msgid "Unparsable version string"
-msgstr ""
+msgstr "Unparsable string versi"
 
 #: setup/lib/index.lib.php:165
 #, php-format
@@ -13392,10 +13415,12 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"Anda menggunakan versi Git, jalankan [kbd]git pull[/kbd] :-)[br] Versi "
+"stabil terbaru adalah %s, dirilis pada %s."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "Tidak ada versi stabil baru yang tersedia"
 
 #: setup/validate.php:22
 msgid "Wrong data"
@@ -13408,12 +13433,14 @@ msgid "No data to display"
 msgstr "Tidak ada data"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
+#, fuzzy
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "Tidak ada query SQL ditetapkan untuk mengambil data."
 
 #: tbl_chart.php:124
+#, fuzzy
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "Tidak ada kolom numerik yang muncul dalam tabel untuk perencanaan."
 
 #: tbl_create.php:30 tbl_get_field.php:25
 #, php-format
@@ -13504,22 +13531,26 @@ msgstr "Hapus tabel (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Uptime kurang dari satu hari"
 
 #: libraries/advisory_rules.txt:52
+#, fuzzy
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Uptime kurang dari 1 hari, tuning kinerja mungkin tidak akurat."
 
 #: libraries/advisory_rules.txt:53
+#, fuzzy
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Untuk memiliki rata-rata yang lebih akurat dianjurkan untuk membiarkan "
+"server berjalan selama lebih dari satu hari sebelum menjalankan analisa ini"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Uptime hanya %s"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
@@ -13534,10 +13565,13 @@ msgstr ""
 "mungkin tidak akurat."
 
 #: libraries/advisory_rules.txt:60
+#, fuzzy
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Biarkan server berjalan untuk waktu yang lama sampai telah dieksekusi "
+"sejumlah besar pertanyaan."
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -13549,29 +13583,37 @@ msgid "Percentage of slow queries"
 msgstr "Persentase kueri lambat"
 
 #: libraries/advisory_rules.txt:66
+#, fuzzy
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Ada banyak query yang lambat dibandingkan dengan jumlah keseluruhan Query."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
+#, fuzzy
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Anda mungkin ingin meningkatkan {long_query_time} atau mengoptimalkan query "
+"tercantum dalam log lambat permintaan"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Tingkat lambat permintaan harus di bawah 5%%, nilai Anda adalah %s%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
 msgstr "Laju kueri lambat"
 
 #: libraries/advisory_rules.txt:73
+#, fuzzy
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Ada persentase yang tinggi dari query lambat dibandingkan dengan server "
+"uptime."
 
 #: libraries/advisory_rules.txt:75
 #, fuzzy, php-format
@@ -13590,16 +13632,22 @@ msgid "Long query time"
 msgstr "Waktu kueri panjang"
 
 #: libraries/advisory_rules.txt:80
+#, fuzzy
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} diatur ke 10 detik atau lebih, sehingga hanya query lambat "
+"yang mengambil di atas 10 detik login."
 
 #: libraries/advisory_rules.txt:81
+#, fuzzy
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Disarankan untuk mengatur {long_query_time} ke nilai yang lebih rendah, "
+"tergantung pada lingkungan Anda. Biasanya nilai dari 1-5 detik disarankan."
 
 #: libraries/advisory_rules.txt:82
 #, fuzzy, php-format
@@ -13618,10 +13666,13 @@ msgid "The slow query log is disabled."
 msgstr "slow_query_log diaktifkan."
 
 #: libraries/advisory_rules.txt:88
+#, fuzzy
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Aktifkan logging query lambar dengan menetapkan {log_slow_queries} ke 'ON'. "
+"Ini akan membantu pemecahan masalah buruk melakukan query."
 
 #: libraries/advisory_rules.txt:89
 #, fuzzy
@@ -13630,10 +13681,13 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "long_query_time disetel menjadi %d detik."
 
 #: libraries/advisory_rules.txt:95
+#, fuzzy
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Aktifkan logging query  dengan menetapkan {slow_query_log} ke 'ON'. Ini akan "
+"membantu pemecahan masalah buruk melakukan query."
 
 #: libraries/advisory_rules.txt:96
 #, fuzzy
@@ -13647,13 +13701,16 @@ msgstr "Seri Rilis"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "Versi Server MySQL dibawah 5.1."
 
 #: libraries/advisory_rules.txt:104
+#, fuzzy
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Anda harus meng-upgrade, seperti MySQL 5.1 telah meningkatkan kinerja, dan "
+"MySQL 5.5 bahkan lebih."
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
@@ -13666,18 +13723,23 @@ msgid "Minor Version"
 msgstr "Versi Minor"
 
 #: libraries/advisory_rules.txt:110
+#, fuzzy
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Versi kurang dari 5.1.30 (GA rilis pertama dari 5.1)."
 
 #: libraries/advisory_rules.txt:111
+#, fuzzy
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Anda harus meng-upgrade, karena versi terbaru MySQL 5.1 telah meningkatkan "
+"kinerja dan MySQL 5.5 bahkan lebih."
 
 #: libraries/advisory_rules.txt:117
+#, fuzzy
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Versi kurang dari 5.5.8 (GA rilis pertama dari 5.5)."
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5"
@@ -13689,60 +13751,73 @@ msgid "Distribution"
 msgstr "Distribusi"
 
 #: libraries/advisory_rules.txt:124
+#, fuzzy
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Versi dikompilasi dari sumber, bukan biner resmi MySQL."
 
 #: libraries/advisory_rules.txt:125
+#, fuzzy
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Jika Anda tidak mengkompilasi dari source, Anda mungkin menggunakan paket "
+"dimodifikasi oleh distribusi. The MySQL manual saja cukup akurat untuk MySQL "
+"binari resmi, tidak ada distribusi paket (seperti RedHat, Debian / Ubuntu "
+"dll)."
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'source' ditemukan pada version_comment"
 
 #: libraries/advisory_rules.txt:131 libraries/advisory_rules.txt:138
+#, fuzzy
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "The MySQL manual saja cukup akurat untuk MySQL binari resmi."
 
 #: libraries/advisory_rules.txt:132
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "Dokumentasi Percona di http://www.percona.com/docs/wiki/"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' ditemukan pada version_comment"
 
 #: libraries/advisory_rules.txt:139
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Dokumentasi Drizzle di http://docs.drizzle.org/"
 
 #: libraries/advisory_rules.txt:140
-#, php-format
+#, fuzzy, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "String Version (%s) cocok Gerimis skema versi"
 
 #: libraries/advisory_rules.txt:142
 msgid "MySQL Architecture"
 msgstr "Arsitektur MySQL"
 
 #: libraries/advisory_rules.txt:145
+#, fuzzy
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL tidak dikompilasi sebagai paket 64-bit."
 
 #: libraries/advisory_rules.txt:146
+#, fuzzy
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Kapasitas memori Anda di atas 3 GiB (dengan asumsi Server adalah pada "
+"localhost), sehingga MySQL mungkin tidak dapat mengakses semua memori Anda. "
+"Anda mungkin ingin mempertimbangkan untuk menginstal versi 64-bit dari "
+"MySQL."
 
 #: libraries/advisory_rules.txt:147
-#, php-format
+#, fuzzy, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Tersedia memori pada host ini: %s"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query cache disabled"
@@ -13753,12 +13828,17 @@ msgid "The query cache is not enabled."
 msgstr "Singgahan kueri tidak diaktifkan."
 
 #: libraries/advisory_rules.txt:157
+#, fuzzy
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"The cache query dikenal untuk lebih meningkatkan kinerja jika dikonfigurasi "
+"dengan benar. Aktifkan dengan menetapkan {query_cache_size} ke 2 digit MiB "
+"nilai dan pengaturan {query_cache_type} ke 'ON'. <b> Catatan: </b> Jika Anda "
+"menggunakan memcached, mengabaikan rekomendasi ini."
 
 #: libraries/advisory_rules.txt:158
 #, fuzzy
