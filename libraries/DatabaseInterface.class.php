@@ -1927,11 +1927,10 @@ class PMA_DatabaseInterface
      * @param string   $db    db name
      * @param string   $which PROCEDURE | FUNCTION | EVENT | VIEW
      * @param string   $name  the procedure|function|event|view name
-     * @param resource $link  mysql link
      *
      * @return string the definition
      */
-    public function getDefinition($db, $which, $name, $link = null)
+    public function getDefinition($db, $which, $name)
     {
         $returned_field = array(
             'PROCEDURE' => 'Create Procedure',
