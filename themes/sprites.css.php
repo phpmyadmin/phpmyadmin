@@ -26,6 +26,7 @@ if (is_readable($_SESSION['PMA_Theme']->getPath() . '/sprites.lib.php')) {
     background-image: url('<?php echo $bg; ?>') !important;
     background-repeat: no-repeat !important;
     background-position: top left !important;
+    vertical-align: text-bottom;
 }
 <?php
 
