@@ -1012,7 +1012,17 @@ class PMA_Util
                 $sql_query = '';
             }
         }
-
+        
+        if (isset($GLOBALS['db']) && isset($GLOBALS['table'])){
+           // Parse and analyze the query
+           $analyzed_sql_results = PMA_SQP_getParserAnalyzeMap(
+                   $sql_query, $GLOBALS['db']);
+        
+           // Synchronize message(query) with table
+           PMA_handleSortOrder($GLOBALS['db'], $GLOBALS['table'], 
+                   $analyzed_sql_results, $sql_query);
+        }
+        
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
             unset($GLOBALS['using_bookmark_message']);
