@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-23 13:35+0200\n"
+"PO-Revision-Date: 2014-01-27 11:51+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -5965,30 +5965,27 @@ msgid "Grid editing: save all edited cells at once"
 msgstr "Roosterbewerkingen : Alle wijzigingen aan cellen tegelijk opslaan"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
-msgstr "Directory op de server waar exports kunnen worden opgeslagen"
+msgstr "Folder op de server waar exports kunnen worden opgeslagen."
 
 #: libraries/config/messages.inc.php:538
 msgid "Save directory"
 msgstr "Opslagdirectory"
 
 #: libraries/config/messages.inc.php:539
-#, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
-msgstr "Laat dit veld leeg indien u het niet wenst te gebruiken"
+msgstr "Laat dit veld leeg indien u het niet wenst te gebruiken."
 
 #: libraries/config/messages.inc.php:540
 msgid "Host authorization order"
 msgstr "Volgorde machine-autorisatie"
 
 #: libraries/config/messages.inc.php:541
-#, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
-msgstr "Laat dit veld leeg om de standaardwaarde te gebruiken"
+msgstr "Laat dit veld leeg om de standaardwaarde te gebruiken."
 
 #: libraries/config/messages.inc.php:542
 msgid "Host authorization rules"
@@ -6003,17 +6000,15 @@ msgid "Allow root login"
 msgstr "Aanmelden als root toestaan"
 
 #: libraries/config/messages.inc.php:546
-#, fuzzy
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
-msgstr "HTTP Basic Auth Realm naam om weer te geven tijdens HTTP Auth"
+msgstr "HTTP Basic Auth Realm naam om weer te geven tijdens HTTP Auth."
 
 #: libraries/config/messages.inc.php:547
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
 #| "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6025,17 +6020,16 @@ msgid ""
 msgstr ""
 "Het pad naar het configuratiebestand voor [a@http://swekey.com]SweKey-"
 "hardware-authenticatie[/a] (niet binnen de document root directory van uw "
-"webserver; suggestie: /etc/swekey.conf)"
+"webserver; suggestie: /etc/swekey.conf)."
 
 #: libraries/config/messages.inc.php:553
 msgid "SweKey config file"
 msgstr "SweKey-configuratiebestand"
 
 #: libraries/config/messages.inc.php:554
-#, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
-msgstr "De te gebruiken authenticatiemethode"
+msgstr "Authenticatiemethode."
 
 #: libraries/config/messages.inc.php:555 setup/frames/index.inc.php:162
 msgid "Authentication type"
@@ -6054,7 +6048,6 @@ msgid "Bookmark table"
 msgstr "Bladwijzertabel"
 
 #: libraries/config/messages.inc.php:562
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]"
@@ -6063,27 +6056,25 @@ msgid ""
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Laat dit veld leeg om geen kolomopmerkingen en mimetypes te ondersteunen, "
-"suggestie: [kbd]pma__column_info[/kbd]"
+"suggestie: [kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:565
 msgid "Column information table"
 msgstr "Tabel voor kolominformatie"
 
 #: libraries/config/messages.inc.php:566
-#, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "Comprimeer verbinding naar de MySQL-server"
+msgstr "Comprimeer verbinding naar de MySQL-server."
 
 #: libraries/config/messages.inc.php:567
 msgid "Compress connection"
 msgstr "Comprimeer verbinding"
 
 #: libraries/config/messages.inc.php:569
-#, fuzzy
 #| msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
-msgstr "Hoe te verbinden met de server, gebruik bij twijfel [kbd]tcp[/kbd]"
+msgstr "Hoe te verbinden met de server, gebruik [kbd]tcp[/kbd] bij twijfel."
 
 #: libraries/config/messages.inc.php:570
 msgid "Connection type"
@@ -6094,7 +6085,6 @@ msgid "Control user password"
 msgstr "Controle gebruikerswachtwoord"
 
 #: libraries/config/messages.inc.php:573
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -6103,15 +6093,14 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
-"Een speciale MySQL-gebruiker met beperkte rechten, zie de [a@http://wiki."
-"phpmyadmin.net/pma/controluser]wiki[/a] voor meer informatie"
+"Een speciale MySQL-gebruiker met beperkte rechten, zie de "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a] voor meer informatie."
 
 #: libraries/config/messages.inc.php:576
 msgid "Control user"
 msgstr "Controle gebruiker"
 
 #: libraries/config/messages.inc.php:578
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -6120,14 +6109,13 @@ msgid ""
 "already defined host."
 msgstr ""
 "Een alternatieve machine voor de configuratieopslag; laat leeg om de reeds "
-"gedefinieerde machine te gebruiken"
+"gedefinieerde machine te gebruiken."
 
 #: libraries/config/messages.inc.php:581
 msgid "Control host"
 msgstr "Controle machine"
 
 #: libraries/config/messages.inc.php:583
-#, fuzzy
 #| msgid ""
 #| "An alternate port to connect to the host that holds the configuration "
 #| "storage; leave blank to use the default port, or the already defined "
@@ -6137,16 +6125,15 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"Een alternatieve poort om te verbinden met de machine voor de "
-"configuratieopslag; laat leeg om de standaardpoort te gebruiken, of de reeds "
-"gedefinieerde poort als controlhost gelijk is aan host"
+"Een alternatieve poort om te verbinden met de machine voor "
+"configuratieopslag; laat leeg om de standaardpoort te gebruiken, of om de "
+"reeds gedefinieerde poort te gebruiken als controlhost gelijk is aan host."
 
 #: libraries/config/messages.inc.php:587
 msgid "Control port"
 msgstr "Controlepoort"
 
 #: libraries/config/messages.inc.php:589
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: "
 #| "[kbd]pma__designer_coords[/kbd]"
@@ -6155,19 +6142,18 @@ msgid ""
 "kbd]."
 msgstr ""
 "Laat dit veld leeg om de Designer niet te gebruiken, suggestie: "
-"[kbd]pma__designer_coords[/kbd]"
+"[kbd]pma__designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:592
 msgid "Designer table"
 msgstr "Designer tabel"
 
 #: libraries/config/messages.inc.php:594
-#, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 "Verberg databanken die aan de hier opgegeven reguliere expressie (PCRE) "
-"voldoen"
+"voldoen."
 
 #: libraries/config/messages.inc.php:595
 msgid "Hide databases"
