@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/check_user_privileges.lib.php';
+
 /**
  * Represents a container for database nodes in the navigation tree
  *
