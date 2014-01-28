@@ -396,10 +396,9 @@ class PMA_StorageEngine_Innodb extends PMA_StorageEngine
      */
     public function supportsFilePerTable()
     {
-        $innodb_file_per_table = $GLOBALS['dbi']->fetchValue(
+        if ($GLOBALS['dbi']->fetchValue(
             "SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 0, 1
-        );
-        if ($innodb_file_per_table == 'ON') {
+        ) == 'ON') {
             return true;
         } else {
             return false;
