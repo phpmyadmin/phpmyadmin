@@ -19,7 +19,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /*rules for the plot target div.  These will be cascaded down to all plot elements according to css rules*/
 .jqplot-target {
     position: relative;
-    color: #222222;
+    color: #222;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-size: 1em;
 /*    height: 300px;
@@ -135,12 +135,12 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 .jqplot-meterGauge-tick {
     font-size: 0.75em;
-    color: #999999;
+    color: #999;
 }
 
 .jqplot-meterGauge-label {
     font-size: 1em;
-    color: #999999;
+    color: #999;
 }
 
 table.jqplot-table-legend {
