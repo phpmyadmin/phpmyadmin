@@ -158,7 +158,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree li {
     white-space: nowrap;
-    padding-bottom: 4px;
+    padding-bottom: 2px;
     clear: both;
     min-height: 16px;
 }
@@ -176,7 +176,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation_tree div.block i,
 #pma_navigation_tree div.block b {
     width: 1.5em;
-    height: 1.7em;
+    height: 1.55em;
     min-width: 16px;
     min-height: 8px;
     position: absolute;
@@ -227,6 +227,13 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree .last > .list_container {
     border-<?php echo $left; ?>: 0 solid #666;
+}
+
+/*Plus and minus icon position fix*/
+.ic_b_plus,
+.ic_b_minus {
+    top: -0.7em!important;
+    vertical-align: middle!important;
 }
 
 /* Fast filter */

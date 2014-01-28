@@ -173,6 +173,13 @@ form {
     display: inline;
 }
 
+
+input,
+select {
+    /* Fix outline in Chrome: */
+    outline: none;
+}
+
 input[type=text],
 input[type=password],
 input[type=number],
@@ -181,16 +188,58 @@ input[type=date] {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
 
-    box-shadow: 0 1px 2px #ddd;
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
 
-    background: white;
-    border: 1px solid #aaa;
+    background: #fcfcfc;
+    border: 1px solid #bbb;
     color: #555;
     padding: 4px;
     margin: 6px;
+}
 
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+select {
+    transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+}
+
+input[type=text][disabled],
+input[type=text][disabled]:hover,
+input[type=password][disabled],
+input[type=password][disabled]:hover,
+input[type=number][disabled],
+input[type=number][disabled]:hover,
+input[type=date][disabled],
+input[type=date][disabled]:hover,
+select[disabled],
+select[disabled]:hover {
+    background: #e8e8e8;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=password]:hover,
+input[type=password]:focus,
+input[type=number]:hover,
+input[type=number]:focus,
+input[type=date]:hover,
+input[type=date]:focus,
+select:hover {
+
+    border: 1px solid #999;
+
+    box-shadow: 0 1px 3px #aaa;
+    -webkit-box-shadow: 0 1px 3px #aaa;
+    -moz-box-shadow: 0 1px 3px #aaa;
+
+    background: #fff;
 }
 
 input[type=submit],
@@ -266,7 +315,7 @@ fieldset fieldset {
     margin: .8em;
     background: #fff;
     border: 1px solid #aaa;
-    background: #E8E8E8;
+    background: #e8e8e8;
 
 }
 
@@ -331,14 +380,11 @@ select {
     -webkit-border-radius: 2px;
     border-radius: 2px;
 
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
-    box-shadow: 0 1px 2px #ddd;
-
-    border: 1px solid #aaa;
+    border: 1px solid #bbb;
     color: #333;
     padding: 3px;
-    background: white;
+    background: #fcfcfc;
+
 }
 
 select[multiple] {
@@ -480,7 +526,7 @@ table tr.odd th,
 /* (tested on CRTs and ACLs) */
 table tr.even th,
 .even {
-    background: #DFDFDF;
+    background: #dfdfdf;
     <?php echo $_SESSION['PMA_Theme']->getCssIEClearFilter(); ?>
 }
 
@@ -599,7 +645,7 @@ img.lightbulb {
 }
 
 .pdflayout_table {
-    background: #D3DCE3;
+    background: #d3dce3;
     color: #000;
     overflow: hidden;
     clip: inherit;
@@ -682,7 +728,7 @@ div.success {
     border-color: #a2d246;
 }
 .success h1 {
-    border-color: #00FF00;
+    border-color: #0f0;
 }
 
 .notice {
@@ -711,7 +757,7 @@ div.error {
 }
 
 div.error h1 {
-    border-color: #ff0000;
+    border-color: #f00;
 }
 
 .confirmation {
@@ -755,18 +801,18 @@ div.tools a:active,
 .tblFooters a:link,
 .tblFooters a:active,
 .tblFooters a:visited {
-    color: #0000FF;
+    color: #00f;
 }
 
 .tblHeaders a:hover,
 div.tools a:hover,
 .tblFooters a:hover {
-    color: #FF0000;
+    color: #f00;
 }
 
 /* forbidden, no privileges */
 .noPrivileges {
-    color: #FF0000;
+    color: #f00;
     font-weight: bold;
 }
 
@@ -862,12 +908,6 @@ ul#topmenu2 li {
     vertical-align: middle;
 }
 
-#topmenu img,
-#topmenu2 img {
-    margin-right: .5em;
-    vertical-align: -3px;
-}
-
 .menucontainer {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'dcdcdc'); ?>
     border-top: 1px solid #aaa;
@@ -893,11 +933,11 @@ ul#topmenu2 a {
 }
 
 fieldset.caution a {
-    color: #FF0000;
+    color: #f00;
 }
 fieldset.caution a:hover {
     color: #fff;
-    background-color: #FF0000;
+    background-color: #f00;
 }
 
 #topmenu {
@@ -991,15 +1031,15 @@ table.calendar td a {
 }
 
 table.calendar td a:hover {
-    background-color: #CCFFCC;
+    background-color: #cfc;
 }
 
 table.calendar th {
-    background-color: #D3DCE3;
+    background-color: #d3dce3;
 }
 
 table.calendar td.selected {
-    background-color: #FFCC99;
+    background-color: #fc9;
 }
 
 img.calendar {
@@ -1255,12 +1295,12 @@ div.liveChart {
 
 div#chartVariableSettings {
     border: 1px solid #ddd;
-    background-color: #E6E6E6;
+    background-color: #e6e6e6;
     margin-left: 10px;
 }
 
 table#chartGrid div.monitorChart {
-    background: #EBEBEB;
+    background: #ebebeb;
 }
 
 div#serverstatus div.tabLinks {
@@ -1271,7 +1311,7 @@ div#serverstatus div.tabLinks {
 .popupContent {
     display: none;
     position: absolute;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     margin: 0;
     padding: 3px;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
@@ -1423,7 +1463,7 @@ body#bodyquerywindow {
     margin: 0;
     padding: 0;
     background-image: none;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
 }
 
 div#querywindowcontainer {
@@ -1852,7 +1892,7 @@ input[type=password].invalid_value,
 input[type=number].invalid_value,
 input[type=date].invalid_value,
 .invalid_value {
-    background: #FFCCCC;
+    background: #fcc;
 }
 
 /**
@@ -2211,8 +2251,8 @@ table#index_columns select {
 .config-form fieldset .errors { /* form error list */
     margin: 0 -2px 1em;
     padding: .5em 1.5em;
-    background: #FBEAD9;
-    border: 0 #C83838 solid;
+    background: #fbead9;
+    border: 0 #c83838 solid;
     border-width: 1px 0;
     list-style: none;
     font-family: sans-serif;
@@ -2224,7 +2264,7 @@ table#index_columns select {
     margin-<?php echo $left; ?>: 0;
     padding: 0;
     list-style: none;
-    color: #9A0000;
+    color: #9a0000;
     font-size: small;
 }
 
@@ -2246,7 +2286,7 @@ table#index_columns select {
 .config-form fieldset .disabled-notice {
     font-size: 80%;
     text-transform: uppercase;
-    color: #E00;
+    color: #e00;
     cursor: help;
 }
 
@@ -2321,17 +2361,17 @@ fieldset .disabled-field td {
 }
 
 .config-form .custom { /* customized field */
-    background: #FFC;
+    background: #ffc;
 }
 
 .config-form span.checkbox.custom {
     padding: 1px;
-    border: 1px #EDEC90 solid;
-    background: #FFC;
+    border: 1px #edec90 solid;
+    background: #ffc;
 }
 
 .config-form .field-error {
-    border-color: #A11 !important;
+    border-color: #a11 !important;
 }
 
 .config-form input[type="text"],
@@ -2339,7 +2379,7 @@ fieldset .disabled-field td {
 .config-form input[type="number"],
 .config-form select,
 .config-form textarea {
-    border: 1px #A7A6AA solid;
+    border: 1px #a7a6aa solid;
     height: auto;
 }
 
@@ -2348,8 +2388,8 @@ fieldset .disabled-field td {
 .config-form input[type="number"]:focus,
 .config-form select:focus,
 .config-form textarea:focus {
-    border: 1px #6676FF solid;
-    background: #F7FBFF;
+    border: 1px #6676ff solid;
+    background: #f7fbff;
 }
 
 .config-form .field-comment-mark {
@@ -2362,7 +2402,7 @@ fieldset .disabled-field td {
 }
 
 .config-form .field-comment-warning {
-    color: #A00;
+    color: #a00;
 }
 
 /* error list */
@@ -2552,7 +2592,7 @@ fieldset .disabled-field td {
 
 .cCpy {
     background: #333;
-    color: #FFF;
+    color: #fff;
     font-weight: bold;
     margin: .1em;
     padding: .3em;
@@ -2591,7 +2631,7 @@ fieldset .disabled-field td {
 
 .tooltip * {
     background: none !important;
-    color: #FFF !important;
+    color: #fff !important;
 }
 
 .cDrop {
@@ -2616,7 +2656,7 @@ fieldset .disabled-field td {
 }
 
 .cList {
-    background: #EEE;
+    background: #eee;
     border: solid 1px #999;
     position: absolute;
     -moz-box-shadow: 0 .2em .5em #333;
@@ -2630,7 +2670,7 @@ fieldset .disabled-field td {
 }
 
 .cList .lDiv div:hover {
-    background: #DDD;
+    background: #ddd;
     cursor: pointer;
 }
 
@@ -2649,7 +2689,7 @@ fieldset .disabled-field td {
 }
 
 .showAllColBtn:hover {
-    background: #DDD;
+    background: #ddd;
 }
 
 .turnOffSelect {
@@ -2687,7 +2727,7 @@ fieldset .disabled-field td {
     text-align: center;
     height: 1.4em;
     width: 1.2em;
-    text-shadow: 1px 0 #FFF;
+    text-shadow: 1px 0 #fff
 }
 
 .navigation input[type=submit] {
@@ -2722,14 +2762,14 @@ fieldset .disabled-field td {
 }
 
 .cEdit input[type=text] {
-    background: #FFF;
+    background: #fff;
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
 .cEdit .edit_area {
-    background: #FFF;
+    background: #fff;
     border: 1px solid #999;
     min-width: 10em;
     padding: .3em .5em;
@@ -2752,12 +2792,12 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box_posting {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
+    background: #fff url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
     padding-<?php echo $right; ?>: 1.5em;
 }
 
 .cEdit .edit_area_loading {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
+    background: #fff url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
 }
 
@@ -2767,7 +2807,7 @@ fieldset .disabled-field td {
 }
 
 .cEdit .goto_link {
-    background: #EEE;
+    background: #eee;
     color: #555;
     padding: .2em .3em;
 }
@@ -2795,7 +2835,7 @@ fieldset .disabled-field td {
 
 input.btn {
     color: #333;
-    background-color: #D0DCE0;
+    background-color: #d0dce0;
 }
 
 body .ui-widget {
@@ -2803,7 +2843,7 @@ body .ui-widget {
 }
 
 .ui-dialog fieldset legend a {
-    color: #235A81;
+    color: #235a81;
 }
 
 /* over-riding jqplot-yaxis class */

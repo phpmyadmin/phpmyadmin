@@ -15,7 +15,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /* Designer */
 .input_tab {
-    background-color: #A6C7E1;
+    background-color: #a6c7e1;
     color: #000;
 }
 
@@ -77,14 +77,14 @@ canvas.pmd * {
 }
 
 .tab_field_2 {
-    background-color: #CCFFCC;
+    background-color: #cfc
     color: #000;
     background-repeat: repeat-x;
     cursor: default;
 }
 
 .tab_field_3 {
-    background-color: #FFE6E6; /*#DDEEFF*/
+    background-color: #ffe6e6; /*#ddeeff*/
     color: #000;
     cursor: default;
 }
@@ -92,12 +92,12 @@ canvas.pmd * {
 #pmd_hint {
     white-space: nowrap;
     position: absolute;
-    background-color: #99FF99;
+    background-color: #99ff99;
     color: #000;
     <?php echo $left; ?>: 200px;
     top: 50px;
     z-index: 3;
-    border: #00CC66 solid 1px;
+    border: #00cc66 solid 1px;
     display: none;
 }
 
@@ -123,13 +123,13 @@ canvas.pmd * {
 
 .pmd_Tabs2 {
     cursor: default;
-    color: #0055bb;
-    background: #FFEE99;
+    color: #05b;
+    background: #fe9
     text-indent: 3px;
     font-weight: bold;
     white-space: nowrap;
     text-decoration: none;
-    border: #9999FF solid 1px;
+    border: #99f solid 1px;
     text-align: <?php echo $left; ?>;
 }
 
@@ -172,7 +172,7 @@ canvas.pmd * {
 .small_tab2 {
     vertical-align: top;
     color: #fff;
-    background-color: #FF9966;
+    background-color: #f96;
     cursor: default;
     padding-left: 2px;
     padding-right: 2px;
@@ -192,7 +192,7 @@ canvas.pmd * {
 .small_tab_pref2 {
     vertical-align: top;
     color: #fff;
-    background-color: #FF9966;
+    background-color: #f96;
     cursor: default;
     text-align: center;
     font-weight: bold;
@@ -219,8 +219,8 @@ canvas.pmd * {
 
 .L_butt2_2 {
     padding: 0;
-    border: #0099CC solid 1px;
-    background: #FFEE99;
+    border: #0099cc solid 1px;
+    background: #fe9;
     color: #000;
     text-decoration: none;
     vertical-align: middle;
@@ -268,11 +268,11 @@ canvas.pmd * {
 #osn_tab {
     background-color: #fff;
     color: #000;
-    border: #A9A9A9 solid 1px;
+    border: #a9a9a9 solid 1px;
 }
 
 .pmd_header {
-    background-color: #EAEEF0;
+    background-color: #eaeef0;
     color: #000;
     text-align: center;
     font-weight: bold;
@@ -315,16 +315,16 @@ canvas.pmd * {
 
 a.M_butt_Selected_down_IE,
 a.M_butt_Selected_down {
-    border: 1px solid #C0C0BB;
-    background-color: #99FF99;
+    border: 1px solid #c0c0bb;
+    background-color: #9f9;
     color: #000;
 }
 
 a.M_butt_Selected_down_IE:hover,
 a.M_butt_Selected_down:hover,
 a.M_butt:hover {
-    border: 1px solid #0099CC;
-    background-color: #FFEE99;
+    border: 1px solid #0099cc;
+    background-color: #fe9;
     color: #000;
 }
 
@@ -332,7 +332,7 @@ a.M_butt:hover {
     z-index: 100;
     position: absolute;
     <?php echo $left; ?>: 0;
-    background-color: #EAEEF0;
+    background-color: #eaeef0;
     border: #999 solid 1px;
 }
 
@@ -371,13 +371,13 @@ a.M_butt:hover {
     top: 60px;
     <?php echo $right; ?>: 0;
     display: none;
-    background: #FFF;
+    background: #fff;
     border: 1px solid gray;
     width: 350 px;
     height: auto;
     padding: 30px 170px 30px;
     padding-<?php echo $left; ?>: 30px;
-    color: #FFF;
+    color: #fff;
     z-index: 102;
 }
 
@@ -445,7 +445,7 @@ h2.active {
     margin: 0 0 5px;
     padding: 0;
     border-top: 1px solid #d6d6d6;
-    background: #FFF;
+    background: #fff;
     width: 250px;
     overflow: hidden;
     font-size: 1.2em;
@@ -453,7 +453,7 @@ h2.active {
 }
 
 .toggle_container .block {
-    background-color: #DBE4E8;
+    background-color: #dbe4e8;
     padding: 40px 15px 40px 15px; /*--Padding of Container--*/
     border:1px solid #999;
     color: #000;
@@ -461,12 +461,12 @@ h2.active {
 
 .history_table {
     text-align: center;
-    background-color: #9999CC;
+    background-color: #9999cc;
 }
 
 .history_table2 {
     text-align: center;
-    background-color: #DBE4E8;
+    background-color: #dbe4e8;
 }
 
 #filter {
@@ -476,7 +476,7 @@ h2.active {
     left: 0%;
     width: 100%;
     height: 100%;
-    background-color: #CCA;
+    background-color: #cca;
     z-index: 10;
     opacity: .5;
     filter: alpha(opacity=50);
@@ -507,8 +507,8 @@ h2.active {
     padding: 0;
     padding-top: 4px;
     margin: 0;
-    border-bottom: 4px solid #3CF;
-    background-color: #D0DCE0;
+    border-bottom: 4px solid #3cf;
+    background-color: #d0dce0;
     color: black;
     font-weight: bold;
     padding-<?php echo $left; ?>: 2px;
@@ -516,7 +516,7 @@ h2.active {
 }
 
 #tblfooter {
-    background-color: #D3DCE3;
+    background-color: #d3dce3;
     float: <?php echo $right; ?>;
     padding-top: 10px;
     color: black;
