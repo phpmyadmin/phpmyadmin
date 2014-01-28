@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-23 10:59+0100\n"
-"PO-Revision-Date: 2014-01-15 06:17+0200\n"
-"Last-Translator: Ebrahim Asadi <asadi.email@gmail.com>\n"
-"Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
-">\n"
+"PO-Revision-Date: 2014-01-28 15:00+0200\n"
+"Last-Translator: paya tada <paya.tada@gmail.com>\n"
+"Language-Team: Persian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -441,7 +441,7 @@ msgstr "از این که این گزارش را ارسال کردید متشکر
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr "متاسفانه ارسال با شکست مواجه شد."
+msgstr "متاسفانه ارسال با مشکل مواجه شد."
 
 #: export.php:172
 msgid "Bad type!"
