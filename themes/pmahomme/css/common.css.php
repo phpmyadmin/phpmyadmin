@@ -173,6 +173,13 @@ form {
     display: inline;
 }
 
+
+input,
+select {
+    /* Fix outline in Chrome: */
+    outline: none;
+}
+
 input[type=text],
 input[type=password],
 input[type=number],
@@ -181,17 +188,69 @@ input[type=date] {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
 
-    box-shadow: 0 1px 2px #ddd;
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
 
-    background: white;
-    border: 1px solid #aaa;
+    background: #fcfcfc;
+    border: 1px solid #bbb;
     color: #555;
     padding: 4px;
     margin: 6px;
 
+
 }
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+select {
+    transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+}
+
+input[type=text][disabled],
+input[type=text][disabled]:hover,
+input[type=text][disabled]:focus,
+input[type=password][disabled],
+input[type=password][disabled]:hover,
+input[type=password][disabled]:focus,
+input[type=number][disabled],
+input[type=number][disabled]:hover,
+input[type=number][disabled]:focus,
+input[type=date][disabled],
+input[type=date][disabled]:hover,
+input[type=date][disabled]:focus,
+select[disabled],
+select[disabled]:hover,
+select[disabled]:focus {
+    background: #e8e8e8;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=password]:hover,
+input[type=password]:focus,
+input[type=number]:hover,
+input[type=number]:focus,
+input[type=date]:hover,
+input[type=date]:focus,
+select:hover {
+
+    border: 1px solid #999;
+
+    box-shadow: 0 1px 3px #aaa;
+    -webkit-box-shadow: 0 1px 3px #aaa;
+    -moz-box-shadow: 0 1px 3px #aaa;
+
+    background: #fff;
+}
+
+
 
 input[type=submit],
 button[type=submit]:not(.mult_submit) {
@@ -331,14 +390,11 @@ select {
     -webkit-border-radius: 2px;
     border-radius: 2px;
 
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
-    box-shadow: 0 1px 2px #ddd;
-
-    border: 1px solid #aaa;
+    border: 1px solid #bbb;
     color: #333;
     padding: 3px;
-    background: white;
+    background: #fcfcfc;
+
 }
 
 select[multiple] {
@@ -864,8 +920,7 @@ ul#topmenu2 li {
 
 #topmenu img,
 #topmenu2 img {
-    margin-right: .5em;
-    vertical-align: -3px;
+    vertical-align: text-bottom;
 }
 
 .menucontainer {
@@ -1852,7 +1907,7 @@ input[type=password].invalid_value,
 input[type=number].invalid_value,
 input[type=date].invalid_value,
 .invalid_value {
-    background: #FFCCCC;
+    background: #fcc;
 }
 
 /**
