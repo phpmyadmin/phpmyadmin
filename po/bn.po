@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 14:04+0100\n"
-"PO-Revision-Date: 2014-01-23 10:38+0200\n"
+"PO-Revision-Date: 2014-01-29 15:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
-">\n"
+"Language-Team: Bengali "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4388,8 +4388,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"প্রয়োজন মনে করলে, অতিরিক্ত নিরাপত্তা ব্যবস্থা - %shost authentication%s সেটিংস "
-"এবং %strusted proxies list%s ব্যবহার করেন"
+"প্রয়োজন মনে করলে, অতিরিক্ত নিরাপত্তা ব্যবস্থা - %shost authentication%s "
+"সেটিংস এবং %strusted proxies list%s ব্যবহার করেন।"
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -10612,12 +10612,12 @@ msgstr "তথ্য পরিবর্তনের অনুমোদন।"
 #: libraries/server_privileges.lib.php:264
 #: libraries/server_privileges.lib.php:1045 server_privileges.php:68
 msgid "Allows deleting data."
-msgstr "তথ্য মুছার অনুমোদন"
+msgstr "তথ্য মুছার অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:269
 #: libraries/server_privileges.lib.php:1071 server_privileges.php:62
 msgid "Allows creating new databases and tables."
-msgstr "নতুন ডাটাবেজ এবং টেবল তৈরীর অনুমোদন"
+msgstr "নতুন ডাটাবেজ এবং টেবল তৈরীর অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:274
 #: libraries/server_privileges.lib.php:1083 server_privileges.php:69
