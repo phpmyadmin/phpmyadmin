@@ -140,7 +140,7 @@ function PMA_getTableHtmlForMultipleQueries(
                 && isset($analyzed_sql[0]['queryflags']['select_from'])
                 && count($analyzed_sql[0]['table_ref']) == 1
             ) {
-                PMA_handleSortOrder(
+                PMA_Util::handleSortOrder(
                     $db,
                     $table,
                     $analyzed_sql,
@@ -212,52 +212,6 @@ function PMA_getTableHtmlForMultipleQueries(
     } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
 
     return $table_html;
-}
-
-/**
- * Handle remembered sorting order, only for single table query
- *
- * @param string $db                    database name
- * @param string $table                 table name
- * @param array  &$analyzed_sql_results the analyzed query results
- * @param string &$full_sql_query       SQL query
- *
- * @return void
- */
-function PMA_handleSortOrder($db, $table, &$analyzed_sql_results, &$full_sql_query)
-{
-    $pmatable = new PMA_Table($table, $db);
-    if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause'])
-            && isset($GLOBALS['default_query']) && $GLOBALS['default_query']) {
-        $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
-        if ($sorted_col) {
-            //remove the tablename from retrieved preference
-            //to get just the column name and the sort order
-            $sorted_col = str_replace(
-                PMA_Util::backquote($table) . '.', '', $sorted_col
-            );
-            // retrieve the remembered sorting order for current table
-            $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
-            $full_sql_query
-                = $analyzed_sql_results['analyzed_sql'][0]['section_before_limit']
-                . $sql_order_to_append
-                . $analyzed_sql_results['analyzed_sql'][0]['limit_clause']
-                . ' '
-                . $analyzed_sql_results['analyzed_sql'][0]['section_after_limit'];
-
-            // update the $analyzed_sql
-            $analyzed_sql_results['analyzed_sql'][0]['section_before_limit']
-                .= $sql_order_to_append;
-            $analyzed_sql_results['analyzed_sql'][0]['order_by_clause']
-                = $sorted_col;
-        }
-    } else {
-        // store the remembered table into session
-        $pmatable->setUiProp(
-            PMA_Table::PROP_SORTED_COLUMN,
-            $analyzed_sql_results['analyzed_sql'][0]['order_by_clause']
-        );
-    }
 }
 
 /**
@@ -2282,7 +2236,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     if (PMA_isRememberSortingOrder($analyzed_sql_results)
         && ! isset($analyzed_sql_results['analyzed_sql'][0]['queryflags']['union'])
     ) {
-        PMA_handleSortOrder($db, $table, $analyzed_sql_results, $full_sql_query);
+        PMA_Util::handleSortOrder($db, $table, $analyzed_sql_results, $full_sql_query);
     }
 
     // Do append a "LIMIT" clause?
