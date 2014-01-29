@@ -235,7 +235,7 @@ class PMA_Validator
             while (1) {
                 $drizzle = @drizzle_create();
                 if (! $drizzle) {
-                    $error = __('Could not initialize Drizzle connection library');
+                    $error = __('Could not initialize Drizzle connection library!');
                     break;
                 }
                 $conn = $socket
@@ -244,7 +244,7 @@ class PMA_Validator
                         $drizzle, $host, $port, $user, $pass, null, 0
                     );
                 if (! $conn) {
-                    $error = __('Could not connect to Drizzle server');
+                    $error = __('Could not connect to the database server!');
                     drizzle_free($drizzle);
                     break;
                 }
@@ -252,7 +252,7 @@ class PMA_Validator
                 // to actually connect
                 $res = @drizzle_query($conn, 'SELECT 1');
                 if (! $res) {
-                    $error = __('Could not connect to Drizzle server');
+                    $error = __('Could not connect to the database server!');
                 } else {
                     drizzle_result_free($res);
                 }
@@ -263,14 +263,14 @@ class PMA_Validator
         } else if ($extension == 'mysql') {
             $conn = @mysql_connect($host . $socket . $port, $user, $pass);
             if (! $conn) {
-                $error = __('Could not connect to MySQL server');
+                $error = __('Could not connect to the database server!');
             } else {
                 mysql_close($conn);
             }
         } else {
             $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
             if (! $conn) {
-                $error = __('Could not connect to MySQL server');
+                $error = __('Could not connect to the database server!');
             } else {
                 mysqli_close($conn);
             }
@@ -303,7 +303,7 @@ class PMA_Validator
             && empty($values['Servers/1/user'])
         ) {
             $result['Servers/1/user']
-                = __('Empty username while using config authentication method');
+                = __('Empty username while using config authentication method!');
             $error = true;
         }
         if ($values['Servers/1/auth_type'] == 'signon'
@@ -311,7 +311,7 @@ class PMA_Validator
         ) {
             $result['Servers/1/SignonSession'] = __(
                 'Empty signon session name '
-                . 'while using signon authentication method'
+                . 'while using signon authentication method!'
             );
             $error = true;
         }
@@ -319,7 +319,7 @@ class PMA_Validator
             && empty($values['Servers/1/SignonURL'])
         ) {
             $result['Servers/1/SignonURL']
-                = __('Empty signon URL while using signon authentication method');
+                = __('Empty signon URL while using signon authentication method!');
             $error = true;
         }
 
