@@ -116,7 +116,7 @@ $drop_view_url_params = array_merge(
         'reload' => '1',
         'purge' => '1',
         'message_to_show' => sprintf(
-            __('View %s has been dropped'),
+            __('View %s has been dropped.'),
             htmlspecialchars($GLOBALS['table'])
         ),
         'table' => $GLOBALS['table']

@@ -127,8 +127,8 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
         );
     $drop_message = sprintf(
         (($table_is_view || $current_table['ENGINE'] == null)
-            ? __('View %s has been dropped')
-            : __('Table %s has been dropped')),
+            ? __('View %s has been dropped.')
+            : __('Table %s has been dropped.')),
         str_replace(
             ' ',
             '&nbsp;',
