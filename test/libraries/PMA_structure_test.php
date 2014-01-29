@@ -197,7 +197,7 @@ class PMA_Structure_Test extends PHPUnit_Framework_TestCase
         );
 
         //$drop_message
-        $ret = "Table name1 has been dropped";
+        $ret = "Table name1 has been dropped.";
         $this->assertEquals(
             $ret,
             $drop_message
