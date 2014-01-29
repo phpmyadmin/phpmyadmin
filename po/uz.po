@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-11-25 15:37+0200\n"
+"PO-Revision-Date: 2014-01-29 13:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/4-1/uz/>\n"
 "Language: uz\n"
@@ -8976,7 +8976,7 @@ msgstr "\"%s\" файлида калит идентификатори мавжу
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
 msgid "Hardware authentication failed!"
-msgstr "Ускунавий аутентификация муваффақиятсиз якунланди"
+msgstr "Ускунавий аутентификация муваффақиятсиз якунланди!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
@@ -10957,34 +10957,34 @@ msgstr "GRANT дан ташқари барча привилегияларни ў
 #: libraries/server_privileges.lib.php:861
 #: libraries/server_privileges.lib.php:1037 server_privileges.php:102
 msgid "Allows reading data."
-msgstr "Маълумотларни чақиришга рухсат беради"
+msgstr "Маълумотларни чақиришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:254
 #: libraries/server_privileges.lib.php:866
 #: libraries/server_privileges.lib.php:1038 server_privileges.php:78
 msgid "Allows inserting and replacing data."
-msgstr "Маълумот қўйиш ва ўзгартиришга рухсат беради"
+msgstr "Маълумот қўйиш ва ўзгартиришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:259
 #: libraries/server_privileges.lib.php:871
 #: libraries/server_privileges.lib.php:1039 server_privileges.php:112
 msgid "Allows changing data."
-msgstr "Маълумотларни ўзгартиришга рухсат беради"
+msgstr "Маълумотларни ўзгартиришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:264
 #: libraries/server_privileges.lib.php:1040 server_privileges.php:68
 msgid "Allows deleting data."
-msgstr "Маълумотларни ўчиришга рухсат беради"
+msgstr "Маълумотларни ўчиришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:269
 #: libraries/server_privileges.lib.php:1066 server_privileges.php:62
 msgid "Allows creating new databases and tables."
-msgstr "Янги маълумотлар базалари ва жадваллар тузишга рухсат беради"
+msgstr "Янги маълумотлар базалари ва жадваллар тузишга рухсат беради."
 
 #: libraries/server_privileges.lib.php:274
 #: libraries/server_privileges.lib.php:1078 server_privileges.php:69
 msgid "Allows dropping databases and tables."
-msgstr "Маълумотлар базаларини ва жадвалларни ўчиришга рухсат беради"
+msgstr "Маълумотлар базаларини ва жадвалларни ўчиришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:279
 #: libraries/server_privileges.lib.php:1162 server_privileges.php:96
@@ -11012,7 +11012,7 @@ msgstr "Маълумотларни файлдан импорт ва файлга
 #: libraries/server_privileges.lib.php:876
 #: libraries/server_privileges.lib.php:1179 server_privileges.php:94
 msgid "Has no effect in this MySQL version."
-msgstr "MySQL-сервернинг ушбу версияда бундай хусусият мавжуд эмас!"
+msgstr "MySQL-сервернинг ушбу версияда бундай хусусият мавжуд эмас."
 
 #: libraries/server_privileges.lib.php:304
 #: libraries/server_privileges.lib.php:1074 server_privileges.php:77
