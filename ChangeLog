@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 - bug #4245 initial Browse query does not match sorting order
 - bug #4250 Notice on export page
 - bug #4253 "New" text in navigation frame acts like a database
+- bug #4262 Cannot define a column with fractional seconds
 
 4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user
