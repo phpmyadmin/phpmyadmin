@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 14:04+0100\n"
-"PO-Revision-Date: 2014-01-23 11:04+0200\n"
+"PO-Revision-Date: 2014-01-29 15:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -602,10 +602,9 @@ msgstr "Položka byla smazána z oblíbených."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Soubor nelze přečíst"
+msgstr "Soubor nelze přečíst!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -11855,16 +11854,16 @@ msgstr "Sledování není zapnuté."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "Pohled %s byl odstraněn"
+msgstr "Pohled %s byl odstraněn."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "Tabulka %s byla odstraněna"
+msgstr "Tabulka %s byla odstraněna."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
