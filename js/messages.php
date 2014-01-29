@@ -60,8 +60,6 @@ $js_messages['strHostEmpty'] = __('The host name is empty!');
 $js_messages['strUserEmpty'] = __('The user name is empty!');
 $js_messages['strPasswordEmpty'] = __('The password is empty!');
 $js_messages['strPasswordNotSame'] = __('The passwords aren\'t the same!');
-$js_messages['strAddUser'] = __('Add user');
-$js_messages['strReloadingPrivileges'] = __('Reloading Privileges');
 $js_messages['strRemovingSelectedUsers'] = __('Removing Selected Users');
 $js_messages['strClose'] = __('Close');
 
@@ -117,8 +115,6 @@ $js_messages['strTables'] = __('%d table(s)');
 $js_messages['strQuestions'] = __('Questions');
 $js_messages['strTraffic'] = __('Traffic');
 $js_messages['strSettings'] = __('Settings');
-$js_messages['strRemoveChart'] = __('Remove chart');
-$js_messages['strEditChart'] = __('Edit title and labels');
 $js_messages['strAddChart'] = __('Add chart to grid');
 $js_messages['strClose'] = __('Close');
 $js_messages['strAddOneSeriesWarning'] = __('Please add at least one variable to the series!');
@@ -180,8 +176,6 @@ $js_messages['strTotalTime'] = __('Total time:');
 $js_messages['strProfilingResults'] = __('Profiling results');
 $js_messages['strTable'] = _pgettext('Display format', 'Table');
 $js_messages['strChart'] = __('Chart');
-$js_messages['strChartEdit'] = __('Edit chart');
-$js_messages['strSeries'] = __('Series');
 
 /* l10n: A collection of available filters */
 $js_messages['strFiltersForLogTable'] = __('Log table filter options');
@@ -240,19 +234,11 @@ $js_messages['strDismiss'] = __('Click to dismiss this notification');
 
 /* For db_operations.js */
 $js_messages['strRenamingDatabases'] = __('Renaming Databases');
-$js_messages['strReloadDatabase'] = __('Reload Database');
 $js_messages['strCopyingDatabase'] = __('Copying Database');
 $js_messages['strChangingCharset'] = __('Changing Charset');
-$js_messages['strTableMustHaveAtleastOneColumn'] = __(
-    'Table must have at least one column'
-);
-$js_messages['strYes'] = __('Yes');
 $js_messages['strNo'] = __('No');
 
 /* For db_stucture.js */
-$js_messages['strInsertTable'] = __('Insert Table');
-$js_messages['strHideIndexes'] = __('Hide indexes');
-$js_messages['strShowIndexes'] = __('Show indexes');
 $js_messages['strForeignKeyCheck'] = __('Foreign key check:');
 $js_messages['strForeignKeyCheckEnabled'] = __('(Enabled)');
 $js_messages['strForeignKeyCheckDisabled'] = __('(Disabled)');
@@ -281,9 +267,6 @@ $js_messages['strImportCSV'] = __('Note: If the file contains multiple tables, t
 $js_messages['strHideQueryBox'] = __('Hide query box');
 $js_messages['strShowQueryBox'] = __('Show query box');
 $js_messages['strEdit'] = __('Edit');
-$js_messages['strNoRowSelected'] = __('No rows selected');
-$js_messages['strChangeTbl'] = __('Change');
-$js_messages['strQueryExecutionTime'] = __('Query execution time');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 
 /* For server_variables.js */
@@ -298,7 +281,6 @@ $js_messages['strHideFindNReplaceCriteria'] = __('Hide find and replace criteria
 $js_messages['strShowFindNReplaceCriteria'] = __('Show find and replace criteria');
 
 /* For tbl_zoom_plot_jqplot.js */
-$js_messages['strZoomSearch'] = __('Zoom Search');
 $js_messages['strDisplayHelp'] = '<ul><li>'
     . __('Each point represents a data row.')
     . '</li><li>'
@@ -316,7 +298,6 @@ $js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong
 $js_messages['strSameInputs'] = '<strong>'
     . __('Select two different columns')
     . '</strong>';
-$js_messages['strQueryResults'] = __('Query results');
 $js_messages['strDataPointContent'] = __('Data point content');
 
 /* For tbl_change.js */
@@ -333,10 +314,6 @@ $js_messages['strInnerRing'] = __('Inner Ring');
 $js_messages['strOuterRing'] = __('Outer Ring');
 $js_messages['strAddPoint'] = __('Add a point');
 $js_messages['strAddInnerRing'] = __('Add an inner ring');
-$js_messages['strAddPolygon'] = __('Add a polygon');
-
-/* For tbl_structure.js */
-$js_messages['strAddColumns'] = __('Add columns');
 
 /* Designer (js/pmd/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
