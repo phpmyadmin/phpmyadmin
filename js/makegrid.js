@@ -622,6 +622,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         var new_html = data.isNeedToRecheck
                             ? data.truncatableFieldValue
                             : $this_field.data('value');
+                        //remove decimal places if column type not supported
+                            
+                        if (!(($this_field.data('length') > 19) || (($this_field.data('length') > 10) && ($this_field.data('type') == "date")))){
+                            new_html = new_html.substring(0, new_html.indexOf('.'));                            
+                        }  
                         if ($this_field.is('.truncated')) {
                             if (new_html.length > g.maxTruncatedLen) {
                                 new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
@@ -967,7 +972,21 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     if ($td.is('.datefield')) {
                         showTimeOption = false;
                     }
+
+                    var showMillisec = false;
+                    var showMicrosec = false;
+                    var timeFormat = 'HH:mm:ss';
+                    // check for decimal places of seconds
+                    if (($td.data('length') > 19) || (($td.data('length') > 10) && ($td.data('type') == "date"))){
+                        showMillisec = true;
+                        showMicrosec = true;
+                        timeFormat = 'HH:mm:ss.lc';
+                    }
+
                     PMA_addDatepicker($editArea, {
+                        showMillisec: showMillisec,
+                        showMicrosec: showMicrosec,
+                        timeFormat: timeFormat,
                         altField: $input_field,
                         showTimepicker: showTimeOption,
                         onSelect: function (dateText, inst) {

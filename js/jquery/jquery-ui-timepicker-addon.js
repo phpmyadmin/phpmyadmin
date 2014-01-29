@@ -369,11 +369,15 @@
 			// Prevent displaying twice
 			if ($dp.find("div.ui-timepicker-div").length === 0 && o.showTimepicker) {
 				var noDisplay = ' style="display:none;"',
-					html = '<div class="ui-timepicker-div'+ (o.isRTL? ' ui-timepicker-rtl' : '') +'"><dl>' + '<dt class="ui_tpicker_time_label"' + ((o.showTime) ? '' : noDisplay) + '>' + o.timeText + '</dt>' + 
-								'<dd class="ui_tpicker_time"' + ((o.showTime) ? '' : noDisplay) + '></dd>';
-
+				html = '<div class="ui-timepicker-div'+ (o.isRTL? ' ui-timepicker-rtl' : '') +'"><dl>';
+				var units_length = this.units.length;
+				//check for decimal places of seconds
+				if(units_length > 3){
+					html += '<dt class="ui_tpicker_time_label"' + ((o.showTime) ? '' : noDisplay) + '>' + o.timeText + '</dt>' + 
+							'<dd class="ui_tpicker_time"' + ((o.showTime) ? '' : noDisplay) + '></dd>';
+				}					
 				// Create the markup
-				for(i=0,l=this.units.length; i<l; i++){
+				for(i = 0, l = units_length; i < l; i++){
 					litem = this.units[i];
 					uitem = litem.substr(0,1).toUpperCase() + litem.substr(1);
 					show = o['show'+uitem] !== null? o['show'+uitem] : this.support[litem];
