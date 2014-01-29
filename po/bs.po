@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2013-08-23 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian <http://l10n.cihar.com/projects/phpmyadmin/master/bs/"
@@ -648,7 +648,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr ""
@@ -1391,7 +1391,7 @@ msgstr "Objasni SQL"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "Vrijeme"
 
@@ -2832,7 +2832,7 @@ msgstr ""
 msgid "%d total"
 msgstr "ukupno"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2951,7 +2951,7 @@ msgid "Unknown error in file upload."
 msgstr ""
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 
 #: libraries/File.class.php:494
@@ -2985,7 +2985,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
-msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "Kolačići (Cookies) moraju u ovom slučaju biti aktivirani."
 
 #: libraries/Index.class.php:535
@@ -3534,7 +3534,7 @@ msgid "Maximum rows to plot"
 msgstr ""
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "Pregledaj strane vrijednosti"
 
@@ -3919,7 +3919,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr ""
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3971,7 +3971,7 @@ msgstr "Preskoči provjeru SQL-a"
 msgid "Validate SQL"
 msgstr "Provjeri SQL"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr ""
 
@@ -4556,29 +4556,26 @@ msgid ""
 msgstr ""
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr ""
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
+msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:369
@@ -7035,7 +7032,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr ""
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 #, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
@@ -7608,7 +7605,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Sadržaj baze je sačuvan u fajl %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vratio prazan rezultat (nula redova)."
@@ -7733,11 +7730,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -8668,7 +8665,7 @@ msgstr "Stavi imena polja u prvi red"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8676,7 +8673,7 @@ msgstr "Host"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8694,7 +8691,7 @@ msgstr "verzija PHP-a"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -11887,96 +11884,96 @@ msgstr "Vrijednost sesije"
 msgid "Global value"
 msgstr "Globalna vrednost"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "SQL rezultat"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Generirao"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 #, fuzzy
 msgid "Detailed profile"
 msgstr "Samo podaci"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 msgid "Order"
 msgstr ""
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 #, fuzzy
 msgid "State"
 msgstr "Status"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 #, fuzzy
 #| msgid "Total"
 msgid "Total Time"
 msgstr "Ukupno"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "Vrijeme"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 msgid "Calls"
 msgstr ""
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "Vrijeme"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "Obilježi SQL-upit"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "Naziv"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 msgid "Bookmark not created"
 msgstr ""
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Provjeri SQL"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""

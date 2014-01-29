@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2014-01-06 12:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -656,7 +656,7 @@ msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
 "ください！"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "ブックマーク %s を作成しました"
@@ -1394,7 +1394,7 @@ msgstr "EXPLAIN の結果"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "時間"
 
@@ -2727,7 +2727,7 @@ msgstr ""
 msgid "%d total"
 msgstr "合計"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2848,7 +2848,9 @@ msgid "Unknown error in file upload."
 msgstr "ファイルのアップロード中に予期しないエラーが発生しました。"
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "アップロードされたファイルの移動に失敗しました。[doc@faq1-11]FAQ 1.11[/doc] "
 "をご覧ください。"
@@ -2883,7 +2885,9 @@ msgstr ""
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "Javascript を有効にしてください"
 
 #: libraries/Index.class.php:535
@@ -3414,7 +3418,7 @@ msgid "Maximum rows to plot"
 msgstr "プロットする結果の最大数"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "参照されている値を表示する"
 
@@ -3841,7 +3845,7 @@ msgstr "列挙型、定義しておいた列挙リストより値を取ること
 msgid "Max: %s%s"
 msgstr "最長: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3893,7 +3897,7 @@ msgstr "SQL の検証をスキップ"
 msgid "Validate SQL"
 msgstr "SQL の検証"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "プロファイリング"
 
@@ -4498,29 +4502,36 @@ msgid ""
 msgstr "%sZip 解凍%sには関数 (%s) が必要ですが、このシステムで使用できません。"
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+#, fuzzy
+#| msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr "Drizzle 接続ライブラリが初期化できません"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "Drizzle サーバに接続できませんでした"
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "MySQL サーバに接続できませんでした"
+#, fuzzy
+#| msgid "Could not connect to the target"
+msgid "Could not connect to the database server!"
+msgstr "対象先のデータベースに接続できませんでした"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+#, fuzzy
+#| msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr "config 認証方法を使いましたが、ユーザ名が空欄です。"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr "signon 認証方法を使いましたが、サインオンセッション名が空欄です。"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr "signon 認証方法を使いましたが、サインオン URL が空欄です。"
 
 #: libraries/config/Validator.class.php:369
@@ -7487,7 +7498,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "エンコーディングへの変換:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "行:"
 
@@ -8106,7 +8117,7 @@ msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました。"
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
@@ -8230,11 +8241,11 @@ msgstr ""
 "次の値に移動するときは TAB キーを使ってください。CTRL＋カーソルキーを使うと自"
 "由に移動できます"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -9142,7 +9153,7 @@ msgstr "1 行目にカラム名を追加する"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -9150,7 +9161,7 @@ msgstr "ホスト"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -9168,7 +9179,7 @@ msgstr "PHP のバージョン"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -12445,97 +12456,97 @@ msgstr "セッション値"
 msgid "Global value"
 msgstr "グローバル値"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "SQL の結果"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "生成環境"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 #, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
 msgstr "データファイルの増分"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "その他"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 #, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
 msgstr "開始"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 #, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
 msgstr "合計時間:"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "時間"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "閉じる"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "時間"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "この SQL をブックマークする"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "ラベル"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "すべてのユーザがこのブックマークを利用できるようにする"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "ブックマーク %s を作成しました"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 msgid "Validated SQL"
 msgstr "検証した SQL 文"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12548,7 +12559,7 @@ msgstr ""
 "ボックス、編集、コピー、削除のリンクに関連する機能は、保存後に動作しない場合"
 "があります。"
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "テーブル `%s` のインデックスに問題があります"
@@ -15279,6 +15290,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
 
+#~ msgid "Could not connect to Drizzle server"
+#~ msgstr "Drizzle サーバに接続できませんでした"
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "MySQL サーバに接続できませんでした"
+
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "クエリの実行時間 %01.4f 秒"
 
@@ -15591,9 +15608,6 @@ msgstr "concurrent_insert は 0 に設定されています。"
 
 #~ msgid "Could not connect to the source"
 #~ msgstr "元のデータベースに接続できませんでした"
-
-#~ msgid "Could not connect to the target"
-#~ msgstr "対象先のデータベースに接続できませんでした"
 
 #~ msgid "Structure Synchronization"
 #~ msgstr "構造の同期"

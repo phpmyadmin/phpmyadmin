@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2013-08-23 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -635,7 +635,7 @@ msgstr "Tiedoston merkistöä ei voida muuttaa ilman merkistökirjastoa"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Kirjanmerkki %s luotu"
@@ -1360,7 +1360,7 @@ msgstr "Selitä SQL-kysely"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "Aika"
 
@@ -2664,7 +2664,7 @@ msgstr ""
 msgid "%d total"
 msgstr "%d tulos"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2785,7 +2785,9 @@ msgid "Unknown error in file upload."
 msgstr "Tuntematon virhe tiedostoa lähetettäessä."
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Virhe lähetettäessä tiedostoa, katso [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:494
@@ -2818,7 +2820,9 @@ msgstr "Palkin klikkaus vierittää sivun ylös"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "Javaskripti on oltava päällä tämän jälkeen"
 
 #: libraries/Index.class.php:535
@@ -3350,7 +3354,7 @@ msgid "Maximum rows to plot"
 msgstr "Tulostettavien rivien enimmäismäärä"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "Selaa viitearvoja"
 
@@ -3772,7 +3776,7 @@ msgstr "Luettelointi, valittu määritetyt arvot luettelosta"
 msgid "Max: %s%s"
 msgstr "Enimmäiskoko: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 msgid "SQL query:"
 msgstr "SQL-kysely:"
 
@@ -3822,7 +3826,7 @@ msgstr "Älä tarkista SQL-kyselyä"
 msgid "Validate SQL"
 msgstr "Tarkista SQL-lause"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "Profilointi"
 
@@ -4463,29 +4467,36 @@ msgstr ""
 "järjestelmässä."
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+#, fuzzy
+#| msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr "Ei voinut alustaa Drizzle tietoyhteyskirjastoa"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "Ei voi yhdistää Drizzle palvelimeen"
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "MySQL-palvelimeen ei voitu yhdistää"
+#, fuzzy
+#| msgid "Could not connect to the target"
+msgid "Could not connect to the database server!"
+msgstr "Kohteeseen ei voida muodostaa yhteyttä"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+#, fuzzy
+#| msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr "Tyhjennä käyttäjänimi käytettäessä config-todennustapaa"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr "Tyhjennä kirjautumisistunnon nimi käytettäessä signon-todennustapaa"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr "Tyhjennä kirjautumisen verkko-osoite käytettäessä signon-todennustapaa"
 
 #: libraries/config/Validator.class.php:369
@@ -7295,7 +7306,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "Merkistön uudelleenkoodaus:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "Rivit:"
 
@@ -7903,7 +7914,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Vedos tallennettiin tiedostoon %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
@@ -8028,11 +8039,11 @@ msgstr ""
 "Sarkaimella voi siirtyä arvosta seuraavaan, Ctrl- ja nuolinäppäimillä pystyy "
 "siirtymään minne suuntaan tahansa."
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisätyn rivin tunnus: %1$d"
@@ -8946,7 +8957,7 @@ msgstr "Aseta sarakkeiden nimet ensimmäiselle riville"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8954,7 +8965,7 @@ msgstr "Palvelin"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8972,7 +8983,7 @@ msgstr "PHP:n versio"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -12431,98 +12442,98 @@ msgstr "Tämän istunnon arvo"
 msgid "Global value"
 msgstr "Globaali arvo"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "SQL-kyselyn tulos"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Luontiympäristö"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 #, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
 msgstr "Tiedoston koonkasvatusmäärä"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "Toinen"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 #, fuzzy
 #| msgid "Startup"
 msgid "State"
 msgstr "Käynnistys"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 #, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
 msgstr "Kokonaisaika:"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "Aika"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "Sulje"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "Aika"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "Tallenna SQL-kysely"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "Tunniste"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Anna kaikkien käyttäjien käyttää tätä kirjanmerkkiä"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Kirjanmerkki %s luotu"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "Näytetään PHP-koodina"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 #, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Tarkista SQL-lause"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12535,7 +12546,7 @@ msgstr ""
 "valintaneliöihin, Muokkaa-, Kopioi- ja Poista-linkkeihin liittyvät "
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Taulun \"%s\" indeksien kanssa on ongelmia"
@@ -15236,6 +15247,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert on asetettu 0"
 
+#~ msgid "Could not connect to Drizzle server"
+#~ msgstr "Ei voi yhdistää Drizzle palvelimeen"
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "MySQL-palvelimeen ei voitu yhdistää"
+
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Kysely kesti %01.4f s."
 
@@ -15550,9 +15567,6 @@ msgstr "concurrent_insert on asetettu 0"
 
 #~ msgid "Could not connect to the source"
 #~ msgstr "Lähteeseen ei voida muodostaa yhteyttä"
-
-#~ msgid "Could not connect to the target"
-#~ msgstr "Kohteeseen ei voida muodostaa yhteyttä"
 
 #~ msgid "Structure Synchronization"
 #~ msgstr "Rakenteen yhtenäistäminen"

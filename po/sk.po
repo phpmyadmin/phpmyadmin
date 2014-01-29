@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2014-01-05 13:27+0200\n"
 "Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -641,7 +641,7 @@ msgstr ""
 "Nebolo možné načítať importovacie pluginy, skontrolujte prosím vašu "
 "inštaláciu!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Príkaz %s bol zaradený medzi obľúbené"
@@ -1372,7 +1372,7 @@ msgstr "Vysvetliť výstup"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "Čas"
 
@@ -2663,7 +2663,7 @@ msgstr ""
 msgid "%d total"
 msgstr "celkom %d"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2784,7 +2784,9 @@ msgid "Unknown error in file upload."
 msgstr "Neznáma chyba pri nahrávaní súboru."
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "Chyba pri presune nahrávaného súboru, viď [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:494
@@ -2815,7 +2817,9 @@ msgstr "Kliknutím v pruhu prejdete na začiatok stránky"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "Pokiaľ chcete pokračovať, Javascript musí byť povolený"
 
 #: libraries/Index.class.php:535
@@ -3349,7 +3353,7 @@ msgid "Maximum rows to plot"
 msgstr "Maximálny počet zobrazených riadkov"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "Prejsť hodnoty cudzích kľúčov"
 
@@ -3773,7 +3777,7 @@ msgstr "Vymenovanie hodnôt vybratých zo zoznamu definovaných hodnôt"
 msgid "Max: %s%s"
 msgstr "Maximálna veľkosť: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 msgid "SQL query:"
 msgstr "SQL dotaz:"
 
@@ -3823,7 +3827,7 @@ msgstr "Bez kontroly SQL"
 msgid "Validate SQL"
 msgstr "Skontrolovať SQL"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "Profilovanie"
 
@@ -4381,30 +4385,37 @@ msgid ""
 msgstr ""
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+#, fuzzy
+#| msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr "Nepodarilo sa inicializovať knižnicu na pripojenie k serveru Drizzle"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "Nepodarilo sa pripojiť k Drizzle serveru"
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "Nepodarilo sa pripojiť k MySQL serveru"
+#, fuzzy
+#| msgid "Could not connect to the target"
+msgid "Could not connect to the database server!"
+msgstr "Nepodarilo sa pripojiť k cieľu"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+#, fuzzy
+#| msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr ""
 "Pri použití nastavenej autorizačnej metódy nebolo vyplnené užívateľské meno"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr "Prázdny názov relácie signon pri využití autentifikačnej metódy signon"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr "Prázdna signon URL pri využití autentifikačnej metódy signon"
 
 #: libraries/config/Validator.class.php:369
@@ -7346,7 +7357,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "Prevod znakovej sady:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "Riadky:"
 
@@ -7937,7 +7948,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis bol uložený do súboru %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
@@ -8059,11 +8070,11 @@ msgstr ""
 "Pre pohyb medzi hodnotami použite klávesu TAB alebo pre pohyb všetkými "
 "smermi klávesy CTRL+šípky"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -8953,7 +8964,7 @@ msgstr "Pridať názvy polí na prvý riadok"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8961,7 +8972,7 @@ msgstr "Hostiteľ"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8979,7 +8990,7 @@ msgstr "Verzia PHP"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -12176,95 +12187,95 @@ msgstr "Hodnota sedenia"
 msgid "Global value"
 msgstr "Globálna hodnota"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "Výsledok SQL dopytu"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Vygenerované"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 #, fuzzy
 #| msgid "Data files"
 msgid "Detailed profile"
 msgstr "Súbory s dátami"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "Ostatné"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 #, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
 msgstr "Začiatok"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 #, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
 msgstr "Celkový čas:"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "Čas"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "Zavrieť"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "Čas"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "Pridať tento SQL dopyt do obľúbených"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "Názov"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Dovoliť používať túto položku všetkým používateľom"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 msgid "Bookmark not created"
 msgstr "Záložka nebola vytvorená"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 msgid "Validated SQL"
 msgstr "Skontrolované SQL"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12277,7 +12288,7 @@ msgstr ""
 "zaškrtávanie, úprava, kopírovanie a mazanie liniek nemusí fungovať po "
 "uložení."
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s indexami v tabuľke `%s`"
@@ -14697,6 +14708,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
 
+#~ msgid "Could not connect to Drizzle server"
+#~ msgstr "Nepodarilo sa pripojiť k Drizzle serveru"
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "Nepodarilo sa pripojiť k MySQL serveru"
+
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Dopyt zabral %01.4f s"
 
@@ -14971,9 +14988,6 @@ msgstr "concurrent_insert je nastavené na 0"
 
 #~ msgid "Could not connect to the source"
 #~ msgstr "Nepodarilo sa pripojiť k zdroju"
-
-#~ msgid "Could not connect to the target"
-#~ msgstr "Nepodarilo sa pripojiť k cieľu"
 
 #~ msgid "Add column(s)"
 #~ msgstr "Pridať stĺpce"

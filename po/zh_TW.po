@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2014-01-16 09:05+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
@@ -626,7 +626,7 @@ msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入插件，請檢查您的安裝！"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "已建立書籤 %s"
@@ -1335,7 +1335,7 @@ msgstr "輸出說明"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "時間"
 
@@ -2604,7 +2604,7 @@ msgstr ""
 msgid "%d total"
 msgstr "總計 %d 筆"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2721,7 +2721,9 @@ msgid "Unknown error in file upload."
 msgstr "上傳檔案時發生未知錯誤。"
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "移動上傳檔案時發生錯誤，請參考 [doc@faq1-11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:494
@@ -2752,7 +2754,9 @@ msgstr "點選此列以回到頁面頂端"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "必須啟用 Javascript 才能登入"
 
 #: libraries/Index.class.php:535
@@ -3276,7 +3280,7 @@ msgid "Maximum rows to plot"
 msgstr "圖表最多顯示列數"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "瀏覽關聯的值"
 
@@ -3675,7 +3679,7 @@ msgstr "列舉型態，可從已定義的清單中選擇一個值"
 msgid "Max: %s%s"
 msgstr "上限: %s %s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 msgid "SQL query:"
 msgstr "SQL 查詢："
 
@@ -3725,7 +3729,7 @@ msgstr "略過檢驗 SQL"
 msgid "Validate SQL"
 msgstr "檢驗 SQL"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "效能分析"
 
@@ -4294,29 +4298,36 @@ msgid ""
 msgstr "此系統目前不支援 %sZip 解壓縮%s所必須的 (%s) 函數。"
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+#, fuzzy
+#| msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr "無法初始化 MySQL 連結函式庫"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "無法連線到 MySQL 伺服器"
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "無法連線到 MySQL 伺服器"
+#, fuzzy
+#| msgid "Could not connect to the target"
+msgid "Could not connect to the database server!"
+msgstr "無法連線到目標資料庫"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+#, fuzzy
+#| msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr "使用 config 認證方式時 config 認證方式的帳號不能爲空"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr "選擇使用 Signon 認證方式時 Signon 連線階段名稱必須填寫"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr "使用 singon 認證方式時登入網址不能爲空"
 
 #: libraries/config/Validator.class.php:369
@@ -6676,7 +6687,7 @@ msgstr "請下拉至所選格式並設定選項，其它格式請忽略。"
 msgid "Encoding Conversion:"
 msgstr "轉換編碼:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "資料列數:"
 
@@ -7255,7 +7266,7 @@ msgid "Dump has been saved to file %s."
 msgstr "匯出資料已儲存至檔案 %s。"
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 回傳空的查詢結果 (即零資料列)。"
@@ -7373,11 +7384,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "按 TAB 鍵跳到下一個數值，或 CTRL+方向鍵 作隨意移動"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 id: %1$d"
@@ -8219,13 +8230,13 @@ msgstr "首行儲存欄位名稱："
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 msgid "Host:"
 msgstr "主機:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 msgid "Generation Time:"
 msgstr "產生時間："
 
@@ -8239,7 +8250,7 @@ msgstr "PHP 版本："
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 msgid "Database:"
 msgstr "資料庫："
 
@@ -11311,76 +11322,76 @@ msgstr "連線階段值"
 msgid "Global value"
 msgstr "全域值"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "SQL 查詢結果"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 msgid "Generated by:"
 msgstr "產生者："
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 msgid "Detailed profile"
 msgstr "效能分析明細"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 msgid "Order"
 msgstr "項次"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 msgid "State"
 msgstr "狀態"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr "狀態摘要"
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 msgid "Total Time"
 msgstr "總時間"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 msgid "% Time"
 msgstr "% 時間"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 msgid "Calls"
 msgstr "呼叫數"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 msgid "ø Time"
 msgstr "ø 時間"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "將此 SQL 查詢加爲書籤"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 msgid "Label:"
 msgstr "標籤："
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "讓所有使用者均可存取此書籤"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 msgid "Bookmark not created"
 msgstr "書籤並未建立"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用書籤 \"%s\" 作爲預設的查詢。"
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "顯示的內容爲 PHP 程式碼"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 msgid "Validated SQL"
 msgstr "已校驗的 SQL"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -11388,7 +11399,7 @@ msgstr ""
 "目前選擇的項目不含唯一(Unique)的資料欄位，將無法執行修改、複製、刪除等相關的"
 "功能。"
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "資料表 `%s` 的索引存在問題"
@@ -13856,6 +13867,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
 
+#~ msgid "Could not connect to Drizzle server"
+#~ msgstr "無法連線到 MySQL 伺服器"
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "無法連線到 MySQL 伺服器"
+
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "查詢花費 %01.4f 秒"
 
@@ -14178,9 +14195,6 @@ msgstr "concurrent_insert 目前設定為 0"
 
 #~ msgid "Could not connect to the source"
 #~ msgstr "無法連線到來源資料庫"
-
-#~ msgid "Could not connect to the target"
-#~ msgstr "無法連線到目標資料庫"
 
 #~ msgid "Structure Synchronization"
 #~ msgstr "結構同步"

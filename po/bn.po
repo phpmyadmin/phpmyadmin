@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2014-01-29 15:21+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
+"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
+">\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -650,7 +650,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
@@ -1373,7 +1373,7 @@ msgstr "আউটপুটের ব্যাখা"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "সময়"
 
@@ -2682,7 +2682,7 @@ msgstr ""
 msgid "%d total"
 msgstr "%d মোট"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2799,7 +2799,9 @@ msgid "Unknown error in file upload."
 msgstr "ফাইল আপলোডের সময় অজ্ঞাত ভুল।"
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "আপলোডকৃত ফাইলটি সরাতে সমস্যা হয়েছে, [doc@faq1-11]FAQ 1.11[/doc] দেখুন।"
 
 #: libraries/File.class.php:494
@@ -2832,7 +2834,9 @@ msgstr "পাতার উপরে যাওয়ার জন্য বার�
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "এখান থেকে অবশ্যই জাভা স্ক্রীপট কার্যকর থাকতে হবে।"
 
 #: libraries/Index.class.php:535
@@ -3363,7 +3367,7 @@ msgid "Maximum rows to plot"
 msgstr "অংশের জন্য সর্বোচ্চ রো"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "ফরেন মান দেখা"
 
@@ -3779,7 +3783,7 @@ msgstr "একটি গণক, নিধারির্ত মানের ত�
 msgid "Max: %s%s"
 msgstr "সবোর্চ্চ: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3831,7 +3835,7 @@ msgstr "SQL বৈধকরন এড়ান"
 msgid "Validate SQL"
 msgstr "SQL বৈধকরন"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "প্রোফাইলিং"
 
@@ -4388,8 +4392,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"প্রয়োজন মনে করলে, অতিরিক্ত নিরাপত্তা ব্যবস্থা - %shost authentication%s "
-"সেটিংস এবং %strusted proxies list%s ব্যবহার করেন।"
+"প্রয়োজন মনে করলে, অতিরিক্ত নিরাপত্তা ব্যবস্থা - %shost authentication%s সেটিংস "
+"এবং %strusted proxies list%s ব্যবহার করেন।"
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4421,29 +4425,36 @@ msgid ""
 msgstr "%sZip decompression%s এর জন্য ফাংশন (%s) এর প্রয়োজন যা এখানে নাই।"
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+#, fuzzy
+#| msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr "Drizzle সংযোগ লাইব্রেরী আরম্ভ করা যায়নি।"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "Drizzle সার্ভারে সংযোগ করা যায়নি"
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "MySQL সার্ভারে সংযোগ করা যায়নি"
+#, fuzzy
+#| msgid "Could not connect to Drizzle server"
+msgid "Could not connect to the database server!"
+msgstr "Drizzle সার্ভারে সংযোগ করা যায়নি"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+#, fuzzy
+#| msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr "কনফিগ প্রমাণীকরণের ক্ষেত্রে ব্যবহারকারীর নাম খালি পাওয়াগেছে"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr "সাইনঅন প্রমাণীকরণের ক্ষেত্রে সাইনঅন সেশনের নাম খালি পাওয়াগেছে"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr "শুন্য signon URL যখন signon প্রমাণীকরণ ব্যবহার করছেন।"
 
 #: libraries/config/Validator.class.php:369
@@ -7327,7 +7338,7 @@ msgstr "এই গঠনের অপশনগুলো পূর্ণ কর�
 msgid "Encoding Conversion:"
 msgstr "এনকোডিং কনভারশন:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "সারি:"
 
@@ -7926,7 +7937,7 @@ msgid "Dump has been saved to file %s."
 msgstr "স্তুপকৃত তথ্য %s ফাইলে সংরক্ষন করা হয়েছে।"
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)"
@@ -8048,11 +8059,11 @@ msgstr ""
 "ট্যাব কি দিয়ে মান থেকে মানে যাওয়া যাবে বা CTRL+arrows দিয়ে যে কোন জায়গায় "
 "যাওয়া যাবে।"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছে"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "প্রবেশকৃত রো আইডি: %1$d"
@@ -8945,7 +8956,7 @@ msgstr "Put fields names in the first row"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -8953,7 +8964,7 @@ msgstr "হোষ্ট"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -8971,7 +8982,7 @@ msgstr "PHP Version"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -12191,93 +12202,93 @@ msgstr "সেশনের মান"
 msgid "Global value"
 msgstr "সার্বিক মান"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "SQL ফলাফল"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 #, fuzzy
 #| msgid "Generate"
 msgid "Generated by:"
 msgstr "তৈরী কর"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 #, fuzzy
 #| msgid "Data files"
 msgid "Detailed profile"
 msgstr "ডাটা ফাইলসমূহ"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "স্থিতি উপাত্ত"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 #, fuzzy
 msgid "State"
 msgstr "অবস্থা"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 #, fuzzy
 #| msgid "Total"
 msgid "Total Time"
 msgstr "মোট"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "সময়"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "বন্ধ"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "সময়"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "এই এসকিউএল অনুসন্ধানটি বুকর্মাক কর"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "লেবেল"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "পূর্ববর্তী সব ব্যবহারকারী এই বুকমার্কটি ব্যবহার করেছে।"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 msgid "Bookmark not created"
 msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "বুকমার্ক \"%s\" দেখার জন্য স্বাভাবিক অনুসন্ধান হিসাবে ব্যবহৃত হচ্ছে।"
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "পিএইছপি কোড দেখাচ্ছে"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 msgid "Validated SQL"
 msgstr "এসকিউএল যাচাই"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12289,7 +12300,7 @@ msgstr ""
 "এই টেবিলে কোন অনন্য স্তম্ভ নাই। সংরক্ষনের পরে সম্পাদনা, চেকবক্স, প্রতিলিপি এবং মুছার "
 "জন্য সংযোগগুলো কাজ করবে না।"
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "টেবল `%s` এর ইনডেক্সে সমস্যা আছে"
@@ -14828,6 +14839,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "MySQL সার্ভারে সংযোগ করা যায়নি"
 
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ"

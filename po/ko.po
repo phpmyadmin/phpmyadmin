@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2014-01-26 10:31+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -635,7 +635,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "북마크 %s가 생성되었습니다."
@@ -1353,7 +1353,7 @@ msgstr "SQL 해석"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "시간"
 
@@ -2632,7 +2632,7 @@ msgstr ""
 msgid "%d total"
 msgstr "합계 %d"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2751,7 +2751,9 @@ msgid "Unknown error in file upload."
 msgstr "파일 업로드 중에 알 수 없는 오류가 발생했습니다."
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1-11]FAQ 1.11[/doc] 참조"
 
@@ -2783,7 +2785,9 @@ msgstr "클릭하여 페이지 상단으로 이동"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "이 페이지를 넘기려면 Javascript 사용을 허용해야 합니다"
 
 #: libraries/Index.class.php:535
@@ -3309,7 +3313,7 @@ msgid "Maximum rows to plot"
 msgstr "표시할 최대 열(row) 수"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "외래값 탐색"
 
@@ -3723,7 +3727,7 @@ msgstr "열거형, 정의된 값들의 목록 중에서 선택됨"
 msgid "Max: %s%s"
 msgstr "최대: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 msgid "SQL query:"
 msgstr "SQL 질의:"
 
@@ -3773,7 +3777,7 @@ msgstr "SQL 검사 생략"
 msgid "Validate SQL"
 msgstr "SQL 검사"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "프로파일링"
 
@@ -4329,30 +4333,33 @@ msgid ""
 msgstr ""
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+#, fuzzy
+#| msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr "Drizzle 연결 라이브러리를 초기화할 수 없습니다"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "Drizzle 서버에 접속할 수 없습니다."
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "MySQL 서버에 접속할 수 없습니다."
+#, fuzzy
+#| msgid "Could not connect to Drizzle server"
+msgid "Could not connect to the database server!"
+msgstr "Drizzle 서버에 접속할 수 없습니다."
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
-msgstr ""
+#, fuzzy
+#| msgid "Can not find signon authentication script:"
+msgid "Empty signon URL while using signon authentication method!"
+msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 
 #: libraries/config/Validator.class.php:369
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -7095,7 +7102,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "인코딩 변환:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "행 :"
 
@@ -7668,7 +7675,7 @@ msgid "Dump has been saved to file %s."
 msgstr "덤프 파일이 %s에 저장되었습니다."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
@@ -7786,11 +7793,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"
@@ -8663,13 +8670,13 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 msgid "Host:"
 msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 #, fuzzy
 #| msgid "Generate"
 msgid "Generation Time:"
@@ -8687,7 +8694,7 @@ msgstr "PHP 확장:"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -11799,92 +11806,92 @@ msgstr "세션 값"
 msgid "Global value"
 msgstr ""
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "SQL 결과"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 #, fuzzy
 #| msgid "Generate"
 msgid "Generated by:"
 msgstr "생성"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 #, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
 msgstr "데이터 파일 증가량"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "기타"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 msgid "State"
 msgstr "상태"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 #, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
 msgstr "전체 시간:"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "시간"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "닫기"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "시간"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "이 SQL 질의를 북마크함"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 msgid "Label:"
 msgstr ""
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "북마크 %s가 생성되었습니다."
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "PHP 코드 보기"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 msgid "Validated SQL"
 msgstr "SQL 검사"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -11896,7 +11903,7 @@ msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, "
 "복사, 삭제 기능을 사용할 수 없습니다."
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -14455,6 +14462,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다."
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "MySQL 서버에 접속할 수 없습니다."
 
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "질의 실행시간 %01.4f 초"

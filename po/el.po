@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2014-01-23 14:31+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -643,7 +643,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Αδύνατη η φόρτωση προσθέτων εισαγωγής, για αυτό ελέξτε την εγκατάστασή σας!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Ο σελιδοδείκτης %s δημιουργήθηκε"
@@ -1376,7 +1376,7 @@ msgstr "Επεξήγηση προϊόντος"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "Χρόνος"
 
@@ -2668,7 +2668,7 @@ msgstr "%1$d σύνολο, %2$d στο ερώτημα"
 msgid "%d total"
 msgstr "%d συνολικά"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα."
@@ -2786,7 +2786,9 @@ msgid "Unknown error in file upload."
 msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1-11]ΣΑΕ 1.11[/"
 "doc]"
@@ -2819,7 +2821,9 @@ msgstr "Πατήστε στη γραμμή για να μεταβείτε στη
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένη την Javascript"
 
 #: libraries/Index.class.php:535
@@ -3352,7 +3356,7 @@ msgid "Maximum rows to plot"
 msgstr "Μέγιστος αριθμός γραμμών για εκτύπωση"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "Αναζήτηση μη διακριτών τιμών"
 
@@ -3784,7 +3788,7 @@ msgstr "Μια απαρίθμηση, η οποία έχει επιλεγεί α�
 msgid "Max: %s%s"
 msgstr "Μέγιστο μέγεθος: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 msgid "SQL query:"
 msgstr "Εντολή SQL:"
 
@@ -3834,7 +3838,7 @@ msgstr "Παράβλεψη επικύρωσης SQL"
 msgid "Validate SQL"
 msgstr "Επικύρωση SQL"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "Δημιουργία προφίλ"
 
@@ -4444,32 +4448,39 @@ msgstr ""
 "αυτό το σύστημα."
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+#, fuzzy
+#| msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr "Δεν ήταν δυνατή η εκκίνηση βιβλιοθήκης σύνδεσης Drizzle"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "Αδύνατη η σύνδεση στο διακομιστή Drizzle"
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "Αδύνατη η σύνδεση στο διακομιστή MySQL"
+#, fuzzy
+#| msgid "Could not connect to the target"
+msgid "Could not connect to the database server!"
+msgstr "Αδύνατη η σύνδεση με τον προορισμό"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+#, fuzzy
+#| msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr ""
 "Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε ρυθμισμένη μέθοδο επικύρωσης"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr ""
 "Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
 "σύνδεσης"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr ""
 "Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης σύνδεσης"
 
@@ -6992,7 +7003,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "Μετατροπή κωδικοποίησης:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "Εγγραφές:"
 
@@ -7616,7 +7627,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
@@ -7738,11 +7749,11 @@ msgstr ""
 "Χρήση του πλήκτρου TAB για μετακίνηση από τιμή σε τιμή ή CTRL+βέλη για "
 "μετακίνηση παντού"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
@@ -8594,13 +8605,13 @@ msgstr "Εμφάνιση ονομάτων στηλών στην πρώτη γρ�
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 msgid "Host:"
 msgstr "Φιλοξενητής:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 msgid "Generation Time:"
 msgstr "Χρόνος δημιουργίας:"
 
@@ -8614,7 +8625,7 @@ msgstr "Έκδοση PHP:"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 msgid "Database:"
 msgstr "Βάση δεδομένων:"
 
@@ -11905,76 +11916,76 @@ msgstr "Τιμή συνεδρίας"
 msgid "Global value"
 msgstr "Προεπιλεγμένη τιμή"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "αποτέλεσμα SQL"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 msgid "Generated by:"
 msgstr "Δημιουργήθηκε από:"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 msgid "Detailed profile"
 msgstr "Λεπτομερές προφίλ"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 msgid "Order"
 msgstr "Ταξινόμηση"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 msgid "State"
 msgstr "Κατάσταση"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr "Περίληψη ανά κατάσταση"
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 msgid "Total Time"
 msgstr "Συνολικός Χρόνος"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 msgid "% Time"
 msgstr "% Χρόνος"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 msgid "Calls"
 msgstr "Κλήσεις"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 msgid "ø Time"
 msgstr "ø Χρόνος"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "Αποθήκευση αυτού του ερωτήματος SQL"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 msgid "Label:"
 msgstr "Ετικέτα:"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Δικαίωμα πρόσβασης στο σελίδοδείκτη σε κάθε χρήστη"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 msgid "Bookmark not created"
 msgstr "Ο σελιδοδείκτης δεν δημιουργήθηκε"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 msgid "Validated SQL"
 msgstr "Επικυρωμένη SQL"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -11983,7 +11994,7 @@ msgstr ""
 "Επεξεργασίας Καννάβου, επικογής, Επεξεργασίας, Αντιγραφής και Διαγραφής δεν "
 "είναι διαθέσιμα."
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Προβλήματα με τα ευρετήρια στον πίνακα «%s»"
@@ -14657,6 +14668,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
+#~ msgid "Could not connect to Drizzle server"
+#~ msgstr "Αδύνατη η σύνδεση στο διακομιστή Drizzle"
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "Αδύνατη η σύνδεση στο διακομιστή MySQL"
+
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα"
 
@@ -15009,9 +15026,6 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
 #~ msgid "Could not connect to the source"
 #~ msgstr "Αδύνατη η σύνδεση με την προέλευση"
-
-#~ msgid "Could not connect to the target"
-#~ msgstr "Αδύνατη η σύνδεση με τον προορισμό"
 
 #~ msgid "Structure Synchronization"
 #~ msgstr "Συγχρονισμός δομής"

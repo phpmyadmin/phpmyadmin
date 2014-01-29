@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2013-08-23 11:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/master/gl/"
@@ -636,7 +636,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Non foi posíbel importar os engadidos - Comprobe a instalación!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Creouse o marcador %s"
@@ -1373,7 +1373,7 @@ msgstr "Explicar a saída"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "Tempo"
 
@@ -2682,7 +2682,7 @@ msgstr ""
 msgid "%d total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2803,7 +2803,9 @@ msgid "Unknown error in file upload."
 msgstr "Produciuse un erro descoñecido ao enviar o ficheiro."
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Produciuse un erro ao mover o ficheiro enviado. Consulte a "
 "[doc@faq1-11]Pregunta frecuente 1.11[/doc]"
@@ -2838,7 +2840,9 @@ msgstr "Prema a barra para desprazarse até a parte superior da páxina"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "Javascript debe estar activo a partir de aquí"
 
 #: libraries/Index.class.php:535
@@ -3371,7 +3375,7 @@ msgid "Maximum rows to plot"
 msgstr "Máximo de filas que aparecen na gráfica"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "Visualizar valores alleos"
 
@@ -3807,7 +3811,7 @@ msgstr "Unha enumeración escollida da lista de valores definidos"
 msgid "Max: %s%s"
 msgstr "Tamaño máximo: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 msgid "SQL query:"
 msgstr "Consulta de SQL:"
 
@@ -3857,7 +3861,7 @@ msgstr "Omitir a válidacion de"
 msgid "Validate SQL"
 msgstr "Validar o SQL"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "Análise do desempeño"
 
@@ -4461,33 +4465,40 @@ msgstr ""
 "neste sistema."
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+#, fuzzy
+#| msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr "Non foi posíbel iniciar a biblioteca de conexión Drizzle"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "Non foi posíbel conectar co servidor de Drizzle"
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "Non foi posíbel conectar co servidor de MySQL"
+#, fuzzy
+#| msgid "Could not connect to the target"
+msgid "Could not connect to the database server!"
+msgstr "Non foi posíbel conectar co destino"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+#, fuzzy
+#| msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr ""
 "Atopouse un nome de usuario baleiro ao empregar o método de autenticación da "
 "configuración"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr ""
 "Atopouse un nome de rexistro da sesión baleiro ao empregar o método de "
 "autenticación mediante rexistro de entrada"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr ""
 "Atopouse un URL de rexistro baleiro ao empregar o método de autenticación "
 "mediante rexistro de entrada"
@@ -7490,7 +7501,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "Conversión de codificación:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "Fila(s):"
 
@@ -8111,7 +8122,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Gardouse o  envorcado no ficheiro %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou un conxunto baleiro (isto é, cero fileiras)."
@@ -8232,11 +8243,11 @@ msgstr ""
 "Use a tecla do tabulador para moverse de valor en valor ou a tecla CONTROL "
 "combinada cunha frecha para moverse a calquera sitio"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "Mostrar a consulta de SQL"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identificador da fileira inserida: %1$d"
@@ -9117,13 +9128,13 @@ msgstr "Pór os nomes das columnas na primeira fila:"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 msgid "Host:"
 msgstr "Servidor:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 msgid "Generation Time:"
 msgstr "Xerado en:"
 
@@ -9137,7 +9148,7 @@ msgstr "Versión do PHP:"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 msgid "Database:"
 msgstr "Base de datos:"
 
@@ -12448,76 +12459,76 @@ msgstr "Valor da sesión"
 msgid "Global value"
 msgstr "Valor global"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "Resultado de SQL"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 msgid "Generated by:"
 msgstr "Xerado por:"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 msgid "Detailed profile"
 msgstr "Perfil detallado"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 msgid "Order"
 msgstr "Orde"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 msgid "State"
 msgstr "Estado"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr "Resumo por estado"
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 msgid "Total Time"
 msgstr "Tempo total"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 msgid "% Time"
 msgstr "% Tempo"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 msgid "Calls"
 msgstr "Chamadas"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 msgid "ø Time"
 msgstr "ø Tempo"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "Marcar esta consulta de SQL"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 msgid "Label:"
 msgstr "Etiqueta:"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Permitir que calquera usuario poida acceder a este marcador"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 msgid "Bookmark not created"
 msgstr "Non se creou o marcador"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "A empregar o marcador «%s» como consulta de navegación por omisión."
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 msgid "Validated SQL"
 msgstr "SQL validado"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 #, fuzzy
 #| msgid ""
 #| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -12530,7 +12541,7 @@ msgstr ""
 "relacionadas coa edición da grella, caixa de selección, editar, copiar e "
 "eliminar non están dispoñíbeis."
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemas cos índices da táboa «%s»"
@@ -15177,6 +15188,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está definido como 0"
 
+#~ msgid "Could not connect to Drizzle server"
+#~ msgstr "Non foi posíbel conectar co servidor de Drizzle"
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "Non foi posíbel conectar co servidor de MySQL"
+
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "a consulta levou %01.4f segundos"
 
@@ -15491,9 +15508,6 @@ msgstr "concurrent_insert está definido como 0"
 
 #~ msgid "Could not connect to the source"
 #~ msgstr "Non foi posíbel conectar coa orixe"
-
-#~ msgid "Could not connect to the target"
-#~ msgstr "Non foi posíbel conectar co destino"
 
 #~ msgid "Structure Synchronization"
 #~ msgstr "Sincronización da estrutura"

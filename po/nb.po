@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 14:04+0100\n"
+"POT-Creation-Date: 2014-01-29 15:37+0100\n"
 "PO-Revision-Date: 2013-10-03 08:49+0200\n"
 "Last-Translator: Yngve Nybakk <yngve.nybakk@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -653,7 +653,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Kan ikke starte importeringsprogramtilleggene, kontroller din installasjon!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1802
+#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Bokmerke %s opprettet"
@@ -1402,7 +1402,7 @@ msgstr "Forklar utdata"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:472
+#: libraries/sql.lib.php:426
 msgid "Time"
 msgstr "Tid"
 
@@ -2719,7 +2719,7 @@ msgstr ""
 msgid "%d total"
 msgstr "totalt"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2840,7 +2840,9 @@ msgid "Unknown error in file upload."
 msgstr "Ukjent feil oppstod under filopplastingen."
 
 #: libraries/File.class.php:476
-msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Feil oppstod under forsøk på flytting av den opplastede fila, se "
 "[doc@faq1-11]FAQ 1.11[/doc]"
@@ -2875,7 +2877,9 @@ msgstr ""
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-msgid "Javascript must be enabled past this point"
+#, fuzzy
+#| msgid "Javascript must be enabled past this point"
+msgid "Javascript must be enabled past this point!"
 msgstr "JavaScript må være slått på forbi dette punktet"
 
 #: libraries/Index.class.php:535
@@ -3414,7 +3418,7 @@ msgid "Maximum rows to plot"
 msgstr "Maks antall rader som kan framvises"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:372 tbl_change.php:144
+#: libraries/sql.lib.php:326 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "Se de eksterne verdiene"
 
@@ -3797,7 +3801,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Maksimum størrelse: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:430
+#: libraries/Util.class.php:640 libraries/sql.lib.php:384
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3849,7 +3853,7 @@ msgstr "Ikke teste SQL"
 msgid "Validate SQL"
 msgstr "Test SQL"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:461
+#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
 msgid "Profiling"
 msgstr "Profilering"
 
@@ -4495,29 +4499,34 @@ msgstr ""
 "a]trenger funksjoner (%s) som ikke er tilgjengelig på dette systemet."
 
 #: libraries/config/Validator.class.php:238
-msgid "Could not initialize Drizzle connection library"
+msgid "Could not initialize Drizzle connection library!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
-msgid "Could not connect to Drizzle server"
-msgstr "Kunne ikke koble til Drizzle tjener"
-
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-msgid "Could not connect to MySQL server"
-msgstr "Kunne ikke koble til MySQL tjener"
+#, fuzzy
+#| msgid "Could not connect to the target"
+msgid "Could not connect to the database server!"
+msgstr "Kunne ikke koble til målet"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method"
+#, fuzzy
+#| msgid "Empty username while using config authentication method"
+msgid "Empty username while using config authentication method!"
 msgstr "Blankt brukernavn for bruk av config autentiseringsmetoden"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method"
+msgid "Empty signon session name while using signon authentication method!"
 msgstr "Tom signon sessjonsnavn ved bruk av signon autentiseringsmetode"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method"
+msgid "Empty signon URL while using signon authentication method!"
 msgstr "Tom signon URL ved bruk av signon autentiseringsmetode"
 
 #: libraries/config/Validator.class.php:369
@@ -7429,7 +7438,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "Kodingskonvertering:"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
 msgid "Rows:"
 msgstr "Rader:"
 
@@ -8050,7 +8059,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump har blitt lagret til fila %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerte ett tomt resultat (m.a.o. ingen rader)."
@@ -8187,11 +8196,11 @@ msgstr ""
 "Bruk TAB tasten for å flytte fra verdi til verdi, eller CTRL+piltastene for "
 "å bevege deg hvor som helst"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
 msgid "Showing SQL query"
 msgstr "Viser SQL spørring"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Insatt rad id: %1$d"
@@ -9109,7 +9118,7 @@ msgstr "Sett inn kolonnenavn i første rad"
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
@@ -9117,7 +9126,7 @@ msgstr "Vert"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -9135,7 +9144,7 @@ msgstr "PHP-Versjon"
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:424
+#: libraries/sql.lib.php:378
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -12545,102 +12554,102 @@ msgstr "Økts verdi"
 msgid "Global value"
 msgstr "Global verdi"
 
-#: libraries/sql.lib.php:420
+#: libraries/sql.lib.php:374
 msgid "SQL result"
 msgstr "SQL-resultat"
 
-#: libraries/sql.lib.php:428
+#: libraries/sql.lib.php:382
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Generert av"
 
-#: libraries/sql.lib.php:464
+#: libraries/sql.lib.php:418
 #, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
 msgstr "Datafil vekststørrelse"
 
-#: libraries/sql.lib.php:467
+#: libraries/sql.lib.php:421
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
 msgstr "Annet"
 
-#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
+#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
 #, fuzzy
 #| msgid "Startup"
 msgid "State"
 msgstr "Oppstart"
 
-#: libraries/sql.lib.php:482
+#: libraries/sql.lib.php:436
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:488
+#: libraries/sql.lib.php:442
 #, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
 msgstr "Total tid:"
 
-#: libraries/sql.lib.php:490
+#: libraries/sql.lib.php:444
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "Tid"
 
-#: libraries/sql.lib.php:492
+#: libraries/sql.lib.php:446
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "Lukk"
 
-#: libraries/sql.lib.php:494
+#: libraries/sql.lib.php:448
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "Tid"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
 msgid "Bookmark this SQL query"
 msgstr "Lagre denne SQL-spørringen"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:720
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "Navn"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "La alle brukere ha adgang til dette bokmerket"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:978
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created"
 msgstr "Bokmerke %s opprettet"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1135
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1583
 msgid "Showing as PHP code"
 msgstr "Viser som PHP kode"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1588
 msgid "Validated SQL"
 msgstr "Validert SQL"
 
-#: libraries/sql.lib.php:1912
+#: libraries/sql.lib.php:1866
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
 
-#: libraries/sql.lib.php:1949
+#: libraries/sql.lib.php:1903
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemer med indeksene i tabellen `%s`"
@@ -15341,6 +15350,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "maks. samtidige tilkoblinger"
 
+#~ msgid "Could not connect to Drizzle server"
+#~ msgstr "Kunne ikke koble til Drizzle tjener"
+
+#~ msgid "Could not connect to MySQL server"
+#~ msgstr "Kunne ikke koble til MySQL tjener"
+
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Spørring tok %01.4f sek"
 
@@ -15656,9 +15671,6 @@ msgstr "maks. samtidige tilkoblinger"
 
 #~ msgid "Could not connect to the source"
 #~ msgstr "Kunne ikke koble til kilden"
-
-#~ msgid "Could not connect to the target"
-#~ msgstr "Kunne ikke koble til målet"
 
 #~ msgid "Structure Synchronization"
 #~ msgstr "Struktursynkronisering"
