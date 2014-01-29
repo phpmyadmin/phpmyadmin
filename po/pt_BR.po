@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 14:04+0100\n"
-"PO-Revision-Date: 2014-01-29 14:21+0200\n"
+"PO-Revision-Date: 2014-01-29 14:50+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -4588,7 +4588,6 @@ msgid "Enable CodeMirror"
 msgstr "Habilitar CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4597,14 +4596,13 @@ msgid ""
 "columns."
 msgstr ""
 "Define o tamanho mínimo para campos de entrada geradas por colunas CHAR e "
-"VARCHAR"
+"VARCHAR."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Tamanho mínimo para campo de entrada"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4613,7 +4611,7 @@ msgid ""
 "columns."
 msgstr ""
 "Define o tamanho máximo para campos de entrada geradas por colunas CHAR e "
-"VARCHAR"
+"VARCHAR."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
