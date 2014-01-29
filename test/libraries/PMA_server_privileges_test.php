@@ -65,8 +65,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = "db_structure.php";
         $GLOBALS['cfg']['Confirm'] = "Confirm";
         $GLOBALS['cfg']['ShowHint'] = true;
-        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
-        $GLOBALS['cfg']['Server']['user'] = 'user';
 
         $GLOBALS['cfgRelation'] = array();
         $GLOBALS['cfgRelation']['menuswork'] = false;
@@ -78,8 +76,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['username'] = "username";
         $GLOBALS['collation_connection'] = "collation_connection";
         $GLOBALS['text_dir'] = "text_dir";
-        $GLOBALS['default_query'] = true;
-
         //$_POST
         $_POST['pred_password'] = 'none';
         //$_SESSION

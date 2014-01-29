@@ -51,9 +51,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
-        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
-        $GLOBALS['cfg']['Server']['user'] = 'user';
     }
 
     /**
