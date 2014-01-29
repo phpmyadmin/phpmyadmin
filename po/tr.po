@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 14:04+0100\n"
-"PO-Revision-Date: 2014-01-29 14:06+0200\n"
+"PO-Revision-Date: 2014-01-29 15:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -11971,16 +11971,16 @@ msgstr "İzleme aktif değil."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "%s görünümü kaldırıldı"
+msgstr "%s görünümü kaldırıldı."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "%s tablosu kaldırıldı"
+msgstr "%s tablosu kaldırıldı."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
