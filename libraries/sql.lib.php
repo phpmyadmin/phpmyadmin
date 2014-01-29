@@ -1638,7 +1638,9 @@ function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results
     }
 
     if (isset($GLOBALS['querytime'])) {
-        $_querytime = PMA_Message::notice('(' . __('Query took %01.4f seconds.') . ')');
+        $_querytime = PMA_Message::notice(
+            '(' . __('Query took %01.4f seconds.') . ')'
+        );
         $_querytime->addParam($GLOBALS['querytime']);
         $message->addMessage($_querytime);
     }
