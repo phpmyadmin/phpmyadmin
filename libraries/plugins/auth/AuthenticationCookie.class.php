@@ -175,7 +175,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         echo "<noscript>\n";
         PMA_message::error(
-            __("Javascript must be enabled past this point")
+            __("Javascript must be enabled past this point!")
         )->display();
         echo "</noscript>\n";
 

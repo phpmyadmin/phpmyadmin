@@ -658,7 +658,7 @@ class PMA_Header
         if ($this->_warningsEnabled) {
             $retval .= "<noscript>";
             $retval .= PMA_message::error(
-                __("Javascript must be enabled past this point")
+                __("Javascript must be enabled past this point!")
             )->getDisplay();
             $retval .= "</noscript>";
         }
