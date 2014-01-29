@@ -430,7 +430,7 @@ class PMA_File
             PMA_Util::userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
         );
         if (! $this->isReadable()) {
-            $this->_error_message = __('File could not be read');
+            $this->_error_message = __('File could not be read!');
             $this->setName(null);
             return false;
         }
@@ -523,7 +523,7 @@ class PMA_File
         ob_end_clean();
 
         if (! $file) {
-            $this->_error_message = __('File could not be read');
+            $this->_error_message = __('File could not be read!');
             return false;
         }
 
@@ -539,7 +539,7 @@ class PMA_File
         }
          */
 
-        $this->_compression = PMA_Util::getCompressionMimeType($file); 
+        $this->_compression = PMA_Util::getCompressionMimeType($file);
         return $this->_compression;
     }
 

@@ -391,7 +391,7 @@ if ($import_file != 'none' && ! $error) {
      */
     $compression = PMA_detectCompression($import_file);
     if ($compression === false) {
-        $message = PMA_Message::error(__('File could not be read'));
+        $message = PMA_Message::error(__('File could not be read!'));
         $error = true;
     } else {
         switch ($compression) {
@@ -452,7 +452,7 @@ if ($import_file != 'none' && ! $error) {
     }
     // use isset() because zip compression type does not use a handle
     if (! $error && isset($import_handle) && $import_handle === false) {
-        $message = PMA_Message::error(__('File could not be read'));
+        $message = PMA_Message::error(__('File could not be read!'));
         $error = true;
     }
 } elseif (! $error) {
