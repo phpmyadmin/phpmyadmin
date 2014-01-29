@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2014-01-23 14:31+0200\n"
+"PO-Revision-Date: 2014-01-29 16:03+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -605,10 +605,9 @@ msgstr "Η ετικέτα διεγράφη."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου"
+msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -1637,10 +1636,9 @@ msgid "Values for a new column"
 msgstr "Τιμές για νέα στήλη"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο"
+msgstr "Εισαγωγή κάθε τιμής σε διαφορετικό πεδίο."
 
 #: js/messages.php:261
 #, php-format
@@ -2786,12 +2784,11 @@ msgid "Unknown error in file upload."
 msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 
 #: libraries/File.class.php:476
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1-11]ΣΑΕ 1.11[/"
-"doc]"
+"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1-11]ΣΑΕ "
+"1.11[/doc]."
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2821,10 +2818,9 @@ msgstr "Πατήστε στη γραμμή για να μεταβείτε στη
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένη την Javascript"
+msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένη την Javascript!"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -4448,41 +4444,37 @@ msgstr ""
 "αυτό το σύστημα."
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "Δεν ήταν δυνατή η εκκίνηση βιβλιοθήκης σύνδεσης Drizzle"
+msgstr "Δεν ήταν δυνατή η εκκίνηση βιβλιοθήκης σύνδεσης Drizzle!"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Αδύνατη η σύνδεση με τον προορισμό"
+msgstr "Αδύνατη η σύνδεση με τον διακομιστή βάσης δεδομένων!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
 msgstr ""
-"Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε ρυθμισμένη μέθοδο επικύρωσης"
+"Άδειασμα ονόματος χρήστη ενώ χρησιμοποιείτε ρυθμισμένη μέθοδο επικύρωσης!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid "Empty signon session name while using signon authentication method!"
 msgstr ""
 "Άδειασμα ονομασίας συνεδρίας σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
-"σύνδεσης"
+"σύνδεσης!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using signon authentication method!"
 msgstr ""
-"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης σύνδεσης"
+"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
+"σύνδεσης!"
 
 #: libraries/config/Validator.class.php:369
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -12124,16 +12116,16 @@ msgstr "Η παρακολούθηση δεν είναι ενεργοποιημέ
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "Η προβολή %s διαγράφτηκε"
+msgstr "Η προβολή %s διαγράφτηκε."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "Ο πίνακας %s διεγράφη"
+msgstr "Ο πίνακας %s έχει διαγραφεί."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
