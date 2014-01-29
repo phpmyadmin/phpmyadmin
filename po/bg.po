@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-29 13:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-01-29 18:12+0200\n"
+"Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/4-1/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -447,7 +447,7 @@ msgstr "За съжаление изпращането е неуспешно."
 
 #: export.php:171
 msgid "Bad type!"
-msgstr "Неправилен тип!"
+msgstr "Типът е неправилен!"
 
 #: export.php:221
 msgid "Selected export type has to be saved in file!"
