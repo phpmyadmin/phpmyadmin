@@ -50,9 +50,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
-        $GLOBALS['cfg']['Server']['table_uiprefs'] = 'table_uiprefs';
-        $GLOBALS['cfg']['Server']['user'] = 'user';
     }
 
     /**

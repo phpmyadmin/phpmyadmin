@@ -1012,17 +1012,7 @@ class PMA_Util
                 $sql_query = '';
             }
         }
-        
-        if (isset($GLOBALS['db']) && isset($GLOBALS['table'])){
-           // Parse and analyze the query
-           $analyzed_sql_results = PMA_SQP_getParserAnalyzeMap(
-                   $sql_query, $GLOBALS['db']);
-        
-           // Synchronize message(query) with table
-           self::handleSortOrder($GLOBALS['db'], $GLOBALS['table'], 
-                   $analyzed_sql_results, $sql_query);
-        }
-        
+
         if (isset($GLOBALS['using_bookmark_message'])) {
             $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
             unset($GLOBALS['using_bookmark_message']);
@@ -4371,54 +4361,6 @@ class PMA_Util
             return $value . '.000000';
         }
     }
-
-    /**
-     * Handle remembered sorting order, only for single table query
-     *
-     * @param string $db                    database name
-     * @param string $table                 table name
-     * @param array  &$analyzed_sql_results the analyzed query results
-     * @param string &$full_sql_query       SQL query
-     *
-     * @return void
-     */
-    public static function handleSortOrder(
-        $db, $table, &$analyzed_sql_results, &$full_sql_query
-    ) {
-        $pmatable = new PMA_Table($table, $db);
-        if (empty($analyzed_sql_results['analyzed_sql'][0]['order_by_clause'])
-            && isset($GLOBALS['default_query']) && $GLOBALS['default_query']) {
-            $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
-            if ($sorted_col) {
-                //remove the tablename from retrieved preference
-                //to get just the column name and the sort order
-                $sorted_col = str_replace(
-                    PMA_Util::backquote($table) . '.', '', $sorted_col
-                );
-                // retrieve the remembered sorting order for current table
-                $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
-                $full_sql_query
-                    = $analyzed_sql_results['analyzed_sql'][0]['section_before_limit']
-                    . $sql_order_to_append
-                    . $analyzed_sql_results['analyzed_sql'][0]['limit_clause']
-                    . ' '
-                    . $analyzed_sql_results['analyzed_sql'][0]['section_after_limit'];
-
-                // update the $analyzed_sql
-                $analyzed_sql_results['analyzed_sql'][0]['section_before_limit']
-                    .= $sql_order_to_append;
-                $analyzed_sql_results['analyzed_sql'][0]['order_by_clause']
-                    = $sorted_col;
-            }
-        } else {
-            // store the remembered table into session
-            $pmatable->setUiProp(
-                PMA_Table::PROP_SORTED_COLUMN,
-                $analyzed_sql_results['analyzed_sql'][0]['order_by_clause']
-            );
-        }
-    }
-
 }
 
 ?>
