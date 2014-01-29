@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-23 14:16+0200\n"
+"PO-Revision-Date: 2014-01-29 21:51+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -5454,7 +5454,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Le maxime numero de rangos de monstrar"
 
 #: libraries/config/messages.inc.php:297
 msgid "Maximum number of tables displayed in table list"
@@ -5462,7 +5462,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:298
 msgid "Maximum tables"
-msgstr ""
+msgstr "Maxime numero de tabellas"
 
 #: libraries/config/messages.inc.php:299
 msgid ""
@@ -5472,7 +5472,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:300
 msgid "mcrypt warning"
-msgstr ""
+msgstr "aviso de mcrypt"
 
 #: libraries/config/messages.inc.php:301
 msgid ""
@@ -5482,7 +5482,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 msgid "Memory limit"
-msgstr ""
+msgstr "Limite de memoria"
 
 #: libraries/config/messages.inc.php:303
 msgid "Show logo in navigation panel"
@@ -5490,7 +5490,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 msgid "Display logo"
-msgstr ""
+msgstr "Monstra logo"
 
 #: libraries/config/messages.inc.php:305
 msgid "URL where logo in the navigation panel will point to"
@@ -5516,7 +5516,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:310
 msgid "Display servers selection"
-msgstr ""
+msgstr "Monstra selection d servitores"
 
 #: libraries/config/messages.inc.php:311
 msgid "Target for quick access icon"
