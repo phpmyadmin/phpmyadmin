@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2014-01-23 14:16+0200\n"
+"PO-Revision-Date: 2014-01-29 21:51+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -943,10 +943,9 @@ msgid "Missing value in the form!"
 msgstr "Valore mancante in le formulario!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Pro favor inserta un numero valide"
+msgstr "Pro favor inserta un numero valide!"
 
 #: js/messages.php:49
 msgid "Please enter a valid length!"
@@ -2838,10 +2837,9 @@ msgstr "Pulsa sur le barra pro rolar al culmine del pagina"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "Javascript debe esser habilitate passate iste puncto"
+msgstr "Javascript debe esser habilitate passate iste puncto!"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -4459,19 +4457,17 @@ msgstr ""
 "tu systema."
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "Il non pote initialisar bibliotheca de connexion Drizzle"
+msgstr "Il non pote initialisar bibliotheca de connexion Drizzle!"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to Drizzle server"
 msgid "Could not connect to the database server!"
-msgstr "Il non pote connecter a servitor Drizzle"
+msgstr "Il non pote connecter a servitor de base de datos!"
 
 #: libraries/config/Validator.class.php:306
 #, fuzzy
@@ -5555,15 +5551,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Le maxime numero de rangos de monstrar"
 
 #: libraries/config/messages.inc.php:416
 msgid "Maximum number of tables displayed in table list."
-msgstr ""
+msgstr "Maxime numero de tabellas monstrate in le lista de tabella."
 
 #: libraries/config/messages.inc.php:417
 msgid "Maximum tables"
-msgstr ""
+msgstr "Maxime numero de tabellas"
 
 #: libraries/config/messages.inc.php:419
 msgid ""
@@ -5573,7 +5569,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:422
 msgid "mcrypt warning"
-msgstr ""
+msgstr "aviso de mcrypt"
 
 #: libraries/config/messages.inc.php:424
 msgid ""
@@ -5585,7 +5581,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:427
 msgid "Memory limit"
-msgstr ""
+msgstr "Limite de memoria"
 
 #: libraries/config/messages.inc.php:428
 msgid "Show logo in navigation panel."
@@ -5593,7 +5589,7 @@ msgstr "Monstra logo in le pannello de navigation."
 
 #: libraries/config/messages.inc.php:429
 msgid "Display logo"
-msgstr ""
+msgstr "Monstra logo"
 
 #: libraries/config/messages.inc.php:431
 msgid "URL where logo in the navigation panel will point to."
@@ -5620,7 +5616,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:440
 msgid "Display servers selection"
-msgstr ""
+msgstr "Monstra selection d servitores"
 
 #: libraries/config/messages.inc.php:441
 msgid "Target for quick access icon"
@@ -11497,16 +11493,16 @@ msgstr ""
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "Index %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "Indice %s ha essite delite."
+msgstr "Vista %s ha essite delite."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Index %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "Indice %s ha essite delite."
+msgstr "Tabella %s ha essite delite."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
