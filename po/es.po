@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2014-01-23 12:26+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
@@ -2684,7 +2684,7 @@ msgstr "%1$d en total, %2$d en la consulta"
 msgid "%d total"
 msgstr "total de %d"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "La consulta tardó %01.4f segundos."
@@ -12014,11 +12014,6 @@ msgstr "Mostrar como código PHP"
 msgid "Validated SQL"
 msgstr "SQL validado"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "La consulta tardó %01.4f seg"
-
 #: libraries/sql.lib.php:1912
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12159,13 +12154,15 @@ msgstr "El seguimiento no está activo."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "Se descartó el modo de visualización %s"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "Se ha eliminado la tabla %s"
 
 #: libraries/structure.lib.php:185
@@ -14688,6 +14685,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "La consulta tardó %01.4f seg"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Recargando Privilegios"

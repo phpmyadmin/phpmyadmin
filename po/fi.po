@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2013-08-23 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -2664,7 +2664,7 @@ msgstr ""
 msgid "%d total"
 msgstr "%d tulos"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -12522,11 +12522,6 @@ msgstr "Näytetään PHP-koodina"
 msgid "Validated SQL"
 msgstr "Tarkista SQL-lause"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Kysely kesti %01.4f s."
-
 #: libraries/sql.lib.php:1912
 #, fuzzy
 #| msgid ""
@@ -12670,13 +12665,15 @@ msgstr "Seuranta ei ole käytössä."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "Näkymä %s on poistettu"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "Taulu %s on poistettu"
 
 #: libraries/structure.lib.php:185
@@ -15238,6 +15235,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert on asetettu 0"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "Kysely kesti %01.4f s."
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Käyttöoikeusten uudelleenlataus"

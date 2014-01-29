@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2014-01-05 13:27+0200\n"
 "Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -2663,7 +2663,7 @@ msgstr ""
 msgid "%d total"
 msgstr "celkom %d"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -12264,11 +12264,6 @@ msgstr "Zobrazujem ako PHP kód"
 msgid "Validated SQL"
 msgstr "Skontrolované SQL"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Dopyt zabral %01.4f s"
-
 #: libraries/sql.lib.php:1912
 #, fuzzy
 #| msgid ""
@@ -12414,13 +12409,15 @@ msgstr "Sledovanie nie je aktívne."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "Pohľad %s bol odstránený"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "Tabuľka %s bola odstránená"
 
 #: libraries/structure.lib.php:185
@@ -14699,6 +14696,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "Dopyt zabral %01.4f s"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Načítavam oprávnenia"

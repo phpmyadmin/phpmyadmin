@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2013-03-30 12:19+0200\n"
 "Last-Translator: Hamlet Muradyan <contact@hamletmuradyan.com>\n"
 "Language-Team: Armenian <http://l10n.cihar.com/projects/phpmyadmin/master/hy/"
@@ -2569,7 +2569,7 @@ msgstr ""
 msgid "%d total"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
@@ -11098,11 +11098,6 @@ msgstr ""
 msgid "Validated SQL"
 msgstr ""
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr ""
-
 #: libraries/sql.lib.php:1912
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -11225,13 +11220,15 @@ msgstr ""
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "%s ներկայացումն հեռացված է"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "%s աղյուսակն հեռացված է"
 
 #: libraries/structure.lib.php:185

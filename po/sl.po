@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2014-01-24 03:33+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2655,7 +2655,7 @@ msgstr "skupno %1$d, %2$d v poizvedbi"
 msgid "%d total"
 msgstr "skupaj %d"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Poizvedba je potrebovala %01.4f sekunde."
@@ -11826,11 +11826,6 @@ msgstr "Prikazovanje kot koda PHP"
 msgid "Validated SQL"
 msgstr "Preverjen SQL"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Poizvedba je potrebovala %01.4f s"
-
 #: libraries/sql.lib.php:1912
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -11968,13 +11963,15 @@ msgstr "Sledenje ni aktivno."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "Pogled %s je zavržen"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "Tabela %s je zavržena"
 
 #: libraries/structure.lib.php:185
@@ -14445,6 +14442,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "Poizvedba je potrebovala %01.4f s"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Ponovno nalaganje privilegijev"

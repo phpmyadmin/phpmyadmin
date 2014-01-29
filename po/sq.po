@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2013-08-23 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/master/sq/"
@@ -2646,7 +2646,7 @@ msgstr ""
 msgid "%d total"
 msgstr "Gjithsej"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -11805,11 +11805,6 @@ msgstr ""
 msgid "Validated SQL"
 msgstr "Vleftëso SQL"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Query ka zgjatur %01.4f sec"
-
 #: libraries/sql.lib.php:1912
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -11951,13 +11946,15 @@ msgstr "Gjurmimi nuk është aktiv."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "Paraqitja %s u eleminua"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "Tabela %s u eleminua"
 
 #: libraries/structure.lib.php:185
@@ -14391,6 +14388,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "Query ka zgjatur %01.4f sec"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Duke ringarkuar të drejtat"

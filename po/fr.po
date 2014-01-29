@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2014-01-23 12:28+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
@@ -2668,7 +2668,7 @@ msgstr "%1$d au total, %2$d dans la requête"
 msgid "%d total"
 msgstr "total de %d"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Traitement en %01.4f secondes."
@@ -11925,11 +11925,6 @@ msgstr "Affichage du code PHP"
 msgid "Validated SQL"
 msgstr "SQL validé"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Traitement en %01.4f sec"
-
 #: libraries/sql.lib.php:1912
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12069,13 +12064,15 @@ msgstr "Le suivi n'est pas activé."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "La vue %s a été supprimée"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "La table %s a été effacée"
 
 #: libraries/structure.lib.php:185
@@ -14573,6 +14570,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "Traitement en %01.4f sec"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Chargement des privilèges en cours"

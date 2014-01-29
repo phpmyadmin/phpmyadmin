@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2014-01-06 12:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -2662,7 +2662,7 @@ msgstr ""
 msgid "%d total"
 msgstr "%d i alt"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -12292,11 +12292,6 @@ msgstr "Viser som PHP-kode"
 msgid "Validated SQL"
 msgstr "Valideret SQL"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "forepørgsel tog %01.4f sek"
-
 #: libraries/sql.lib.php:1912
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12436,13 +12431,15 @@ msgstr "Sporing er ikke aktiv."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "Visning %s er blevet slettet"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "Tabel %s blev slettet"
 
 #: libraries/structure.lib.php:185
@@ -14907,6 +14904,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "forepørgsel tog %01.4f sek"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Genindlæser privillegier"

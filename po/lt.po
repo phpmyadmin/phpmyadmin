@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2013-08-23 11:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2745,7 +2745,7 @@ msgstr ""
 msgid "%d total"
 msgstr "iš viso"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -12315,11 +12315,6 @@ msgstr "Rodomas PHP kodas"
 msgid "Validated SQL"
 msgstr "Patikrintas SQL"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "Užklausa užtruko %01.4f sek."
-
 #: libraries/sql.lib.php:1912
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12457,13 +12452,15 @@ msgstr "Sekimas yra neaktyvus."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "Rodinys %s buvo panaikintas"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "Lentelė %s panaikinta"
 
 #: libraries/structure.lib.php:185
@@ -14934,6 +14931,9 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "MyISAM concurrent įterpimai"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "Užklausa užtruko %01.4f sek."
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Perkraunamos privilegijos"

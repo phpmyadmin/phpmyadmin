@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2014-01-01 09:31+0200\n"
 "Last-Translator: zz zz <tczzjin@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -2608,7 +2608,7 @@ msgstr ""
 msgid "%d total"
 msgstr "共 %d 行"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -12006,11 +12006,6 @@ msgstr "显示为 PHP 代码"
 msgid "Validated SQL"
 msgstr "已校验的 SQL"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "查询花费 %01.4f 秒"
-
 #: libraries/sql.lib.php:1912
 #, fuzzy
 #| msgid ""
@@ -12148,13 +12143,15 @@ msgstr "追踪已禁用。"
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "已删除视图 %s"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "已删除表 %s"
 
 #: libraries/structure.lib.php:185
@@ -14486,6 +14483,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "查询花费 %01.4f 秒"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "正在重新载入权限"

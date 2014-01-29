@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 13:25+0100\n"
+"POT-Creation-Date: 2014-01-29 14:04+0100\n"
 "PO-Revision-Date: 2014-01-06 12:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
@@ -2781,7 +2781,7 @@ msgstr ""
 msgid "%d total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:5002
+#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -12722,11 +12722,6 @@ msgstr "Afișare ca cod PHP"
 msgid "Validated SQL"
 msgstr "SQL validat"
 
-#: libraries/sql.lib.php:1642
-#, php-format
-msgid "Query took %01.4f sec"
-msgstr "comanda a durat %01.4f sec"
-
 #: libraries/sql.lib.php:1912
 #, fuzzy
 #| msgid ""
@@ -12871,13 +12866,15 @@ msgstr "Monitorizarea nu este activată."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, php-format
-msgid "View %s has been dropped"
+#, fuzzy, php-format
+#| msgid "View %s has been dropped"
+msgid "View %s has been dropped."
 msgstr "Vizualizarea %s a fost eliminată"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, php-format
-msgid "Table %s has been dropped"
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped"
+msgid "Table %s has been dropped."
 msgstr "Tabelul %s a fost aruncat"
 
 #: libraries/structure.lib.php:185
@@ -15418,6 +15415,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert este setat cu 0"
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "comanda a durat %01.4f sec"
 
 #~ msgid "Reloading Privileges"
 #~ msgstr "Se reîncarcă privilegiile"
