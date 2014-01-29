@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 13:25+0100\n"
-"PO-Revision-Date: 2014-01-29 14:05+0200\n"
+"PO-Revision-Date: 2014-01-29 14:06+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -938,10 +938,9 @@ msgid "Please enter a valid number!"
 msgstr "Lütfen geçerli bir numara girin!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "Lütfen geçerli bir uzunluk girin"
+msgstr "Lütfen geçerli bir uzunluk girin!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1625,10 +1624,9 @@ msgid "Values for a new column"
 msgstr "Yeni bir sütun için değerler"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Her bir değeri ayrı alana girin"
+msgstr "Her bir değeri ayrı alana girin."
 
 #: js/messages.php:261
 #, php-format
@@ -2616,10 +2614,9 @@ msgstr "Çok İyi Bilinen Binari"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "Satır silindi"
+msgstr "Satır silindi."
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5079 libraries/server_status.lib.php:518
@@ -2729,10 +2726,9 @@ msgid "Visualize GIS data"
 msgstr "GIS verisini görselleştir"
 
 #: libraries/DisplayResults.class.php:5637
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Bağlantı bulunamadı"
+msgstr "Bağlantı bulunamadı!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
