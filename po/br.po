@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-19 20:23+0200\n"
-"Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
+"PO-Revision-Date: 2014-01-29 13:12+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/4-1/br/>\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
@@ -4684,7 +4684,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:63
 msgid "Disable multi table maintenance"
-msgstr "Diweredekaat trezalc'h an taolennoù lies."
+msgstr "Diweredekaat trezalc'h an taolennoù lies"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
