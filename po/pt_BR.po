@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 14:04+0100\n"
-"PO-Revision-Date: 2014-01-23 12:40+0200\n"
+"PO-Revision-Date: 2014-01-29 14:21+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -606,10 +606,9 @@ msgstr "O marcador foi removido."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "O arquivo não pôde ser lido"
+msgstr "O arquivo não pôde ser lido!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -937,10 +936,9 @@ msgid "Missing value in the form!"
 msgstr "Está faltando valores no formulário!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Por favor, digite um número válido"
+msgstr "Por favor, digite um número válido!"
 
 #: js/messages.php:49
 msgid "Please enter a valid length!"
@@ -1641,10 +1639,9 @@ msgid "Values for a new column"
 msgstr "Valores para uma nova coluna"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Insira cada valor em um campo separado"
+msgstr "Insira cada valor em um campo separado."
 
 #: js/messages.php:261
 #, php-format
@@ -2637,10 +2634,9 @@ msgstr "Binário bem conhecido"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "Registro eliminado"
+msgstr "Registro eliminado."
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5079 libraries/server_status.lib.php:518
@@ -2652,10 +2648,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Pode ser aproximado. Veja a [doc@faq3-11]FAQ 3.11[/doc]."
 
 #: libraries/DisplayResults.class.php:4591
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "Seu comando SQL foi executado com sucesso"
+msgstr "Seu comando SQL foi executado com sucesso."
 
 #: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
 #, php-format
@@ -2674,7 +2669,7 @@ msgstr "Mostrando registros %1s - %2s"
 #: libraries/DisplayResults.class.php:4986
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d no total, %2$d na consulta"
 
 #: libraries/DisplayResults.class.php:4990
 #, php-format
@@ -2682,10 +2677,10 @@ msgid "%d total"
 msgstr "%d no total"
 
 #: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1642
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "Consulta levou %01.4f segundos"
+msgstr "Consulta levou %01.4f segundos."
 
 #: libraries/DisplayResults.class.php:5086
 #: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
@@ -2754,10 +2749,9 @@ msgid "Visualize GIS data"
 msgstr "Visualisar dados GIS"
 
 #: libraries/DisplayResults.class.php:5637
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "Link não encontrado"
+msgstr "Link não encontrado!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
