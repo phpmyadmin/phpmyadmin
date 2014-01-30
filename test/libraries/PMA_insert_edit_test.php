@@ -1344,7 +1344,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['is_char'] = false;
         $column['Extra'] = 'auto_increment';
         $column['pma_type'] = 'timestamp';
-        $column['True_Type'] = 'bit';
+        $column['True_Type'] = 'timestamp';
         $result = PMA_getValueColumnForOtherDatatypes(
             $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
             "foo\nbar", $extracted_columnspec
@@ -1355,8 +1355,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             . '<input type="text" name="fieldsb" value="&lt;" size="20" class="text'
             . 'field datetimefield" c tabindex="34" id="field_1_3" /><input type='
             . '"hidden" name="auto_incrementb" value="1" /><input type="hidden" name'
-            . '="fields_typeb" value="timestamp" /><input type="hidden" name="fields'
-            . '_typeb" value="bit" />',
+            . '="fields_typeb" value="timestamp" />',
             $result
         );
 
