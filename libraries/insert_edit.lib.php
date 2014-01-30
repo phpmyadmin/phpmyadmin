@@ -1169,10 +1169,11 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     // do not use the 'date' or 'time' types here; they have no effect on some
     // browsers and create side effects (see bug #4218)
     $the_class = 'textfield';
-    if ($column['pma_type'] === 'date') {
+    // verify True_Type which does not contain the parentheses and length
+    if ($column['True_Type'] === 'date') {
         $the_class .= ' datefield';
-    } elseif ($column['pma_type'] === 'datetime'
-        || substr($column['pma_type'], 0, 9) === 'timestamp'
+    } elseif ($column['True_Type'] === 'datetime'
+        || $column['True_Type'] === 'timestamp'
     ) {
         $the_class .= ' datetimefield';
     }
