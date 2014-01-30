@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-30 07:12+0200\n"
-"Last-Translator: Dong-bum Kim <dongbum@me.com>\n"
+"PO-Revision-Date: 2014-01-30 09:46+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2274,17 +2274,17 @@ msgstr "PHP에서 다음과 같은 오류가 발생했습니다: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "규칙 '%s'에 대한 precondition 계산 실패"
+msgstr "규칙 '%s'에 대한 precondition 계산 실패."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "규칙 '%s'에 대한 값 계산 실패"
+msgstr "규칙 '%s'에 대한 값 계산 실패."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "규칙 '%s'에 대한 테스트를 실행 못 함"
+msgstr "규칙 '%s'에 대한 테스트를 실행 못 함."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2295,12 +2295,12 @@ msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr "이전 규칙의 %2$s 줄이 예상되었으나 규칙 %1$s이 잘못되었습니다"
+msgstr "%1$s 행의 규칙이 잘못됨, 이전 규칙의 %2$s 행일 수 있음."
 
 #: libraries/Advisor.class.php:417
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "%s 행에 잘못된 규칙 선언"
+msgstr "%s 행에 잘못된 규칙 선언."
 
 #: libraries/Advisor.class.php:425
 #, php-format
@@ -2310,9 +2310,7 @@ msgstr "%s 라인에 알 수 없는 문자가 있습니다."
 #: libraries/Advisor.class.php:439
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
-"%1$s 행에 알 수 없는 문자가 있습니다. 탭 문자가 있어야하지만, \"%2$s\"가 있습"
-"니다"
+msgstr "%1$s 행에 알 수 없는 문자가 있습니다. 탭 문자가 있어야 하지만, \"%2$s\"가 있습니다."
 
 #: libraries/Advisor.class.php:472
 msgid "per second"
@@ -2910,7 +2908,7 @@ msgstr "기본 키를 제거했습니다"
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "인덱스 %s 를 제거했습니다"
+msgstr "인덱스 %s 를 제거했습니다."
 
 #: libraries/Index.class.php:738
 #, php-format
@@ -3480,8 +3478,8 @@ msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
-"4바이트 정수형의 범위는 부호가 있는 경우 -2,147,483,648 에서 2,147,483,647, "
-"부호가 없는 경우 0 에서 4,294,967,295 입니다."
+"4바이트 정수형의 범위는 부호가 있는 경우 -2,147,483,648 에서 2,147,483,647 이며, 부호가 없는 경우 0 에서 "
+"4,294,967,295 입니다"
 
 #: libraries/Types.class.php:305
 msgid ""
@@ -3889,7 +3887,7 @@ msgstr "웹 서버 업로드 디렉토리중 <b>%s</b>에서 선택:"
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1234
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "업로드 디렉토리에 접근할 수 없습니다"
+msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
 #: libraries/Util.class.php:3387
 msgid "There are no files to upload"
@@ -4251,7 +4249,7 @@ msgstr "최대 %s"
 
 #: libraries/config/FormDisplay.tpl.php:216
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "이 설정은 비활성화되어 있어, 당신의 환경설정에는 적용되지 않습니다"
+msgstr "이 설정은 비활성화되어 있어, 설정에 적용되지 않습니다."
 
 #: libraries/config/FormDisplay.tpl.php:308
 #, php-format
@@ -4454,7 +4452,7 @@ msgstr "CHAR 텍스트입력 행"
 
 #: libraries/config/messages.inc.php:42
 msgid "Check config file permissions"
-msgstr "설정 파일에 대한 권한을 확인해주세요."
+msgstr "설정 파일에 대한 권한을 확인"
 
 #: libraries/config/messages.inc.php:43
 #, fuzzy
@@ -6094,10 +6092,9 @@ msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Tables"
 msgid "User groups table"
-msgstr "사용할 테이블"
+msgstr "사용자 그룹 테이블"
 
 #: libraries/config/messages.inc.php:459
 #, fuzzy
@@ -6113,7 +6110,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "숨겨진 네비게이션 아이템 테이블"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
@@ -6123,7 +6120,7 @@ msgstr ""
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr ""
+msgstr "이 서버에 대한 알기 쉬운 설명. 호스트 이름을 표시하려면 공백으로 두세요."
 
 #: libraries/config/messages.inc.php:464
 msgid "Verbose name of this server"
@@ -7978,7 +7975,7 @@ msgstr "referential 무결성 검사:"
 
 #: libraries/plugin_interface.lib.php:502
 msgid "This format has no options"
-msgstr "이 형식은 옵션이 없습니다."
+msgstr "이 형식은 옵션이 없음"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:73
 msgid "Cannot connect: invalid settings."
@@ -8083,7 +8080,7 @@ msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:140
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr "%s 파일은 어떤 key id도 포함하지 않습니다."
+msgstr "%s 파일은 어떤 key id도 포함하지 않습니다"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
@@ -8092,7 +8089,7 @@ msgstr "하드웨어 인증 실패!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
-msgstr "유효하지 않은 인증키가 입력되었습니다."
+msgstr "유효한 인증키가 연결되어 있지 않음"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
 msgid "Authenticating…"
@@ -8519,20 +8516,20 @@ msgstr "이 플러그인은 압축파일의 가져오기를 지원하지 않습�
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "MediaWiki 테이블"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:303
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr ""
+msgstr "잘못된 mediawiki 입력 행:<br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr ""
+msgstr "퍼센테이지를 소수로 변경<i>(예: 12.00% 를 .12 로)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:95
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "통화 단위 제거 <i>(예: $5.00 를 5.00 로)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:173
 #: libraries/plugins/import/ImportXml.class.php:132
@@ -8540,13 +8537,12 @@ msgstr ""
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
-msgstr ""
+msgstr "해당 XML 파일의 포멧이 잘못되었거나 미완성 상태입니다. 문제점을 수정한 후 재시도 하세요."
 
 #: libraries/plugins/import/ImportOds.class.php:183
-#, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Open Document 스프레드시트 형식"
+msgstr "Open Document 스프레드시트 형식을 해석할 수 없습니다!"
 
 #: libraries/plugins/import/ImportShp.class.php:54
 msgid "ESRI Shape File"
@@ -8555,7 +8551,7 @@ msgstr "ESRI Shapefile"
 #: libraries/plugins/import/ImportShp.class.php:148
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "ESRI 형태의 파일을 가져오는 도중 에러가 발생했습니다: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:204
 msgid ""
@@ -8733,7 +8729,7 @@ msgstr "버전 정보"
 #: libraries/relation.lib.php:175
 msgid ""
 "Please see the documentation on how to update your column_comments table."
-msgstr "도큐먼트에서 column_comments 테이블을 업데이트하는 방법을 참고하세요"
+msgstr "도큐먼트에서 column_comments 테이블을 업데이트하는 방법을 참고하세요."
 
 #: libraries/relation.lib.php:185 libraries/sql_query_form.lib.php:404
 msgid "Bookmarked SQL query"
@@ -8854,8 +8850,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"MySQL 서버를 재시작했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 "
-"<b>설정되었다</b>는 안내 메시지를 볼 수 있을겁니다"
+"MySQL 서버를 재시작 했으면 실행(Go) 버튼을 클릭하세요. 그 후, 서버가 마스터로 <b>설정되었다</b>는 안내 메시지를 볼 수 "
+"있을겁니다."
 
 #: libraries/replication_gui.lib.php:140
 #: libraries/server_databases.lib.php:396
@@ -10047,7 +10043,7 @@ msgstr "테이블에 관한 권한"
 #: libraries/server_privileges.lib.php:1009
 #: libraries/server_privileges.lib.php:2904
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "주의: MySQL 권한 이름은 영어로 표기되어야 합니다."
+msgstr "주의: MySQL 권한 이름은 영어로 표시됩니다"
 
 #: libraries/server_privileges.lib.php:977
 msgid "Administration"
@@ -10123,7 +10119,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1706
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "데이터베이스 &quot;%s&quot;에 대한 모든 권한을 부여"
+msgstr "데이터베이스 &quot;%s&quot;에 대한 모든 권한을 부여."
 
 #: libraries/server_privileges.lib.php:1802
 #: libraries/server_privileges.lib.php:1906
@@ -10689,11 +10685,11 @@ msgstr "추천 링크:"
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
-msgstr "연결을 닫지 않고 클라이언트가 종료되어서 실패한 연결의 숫자"
+msgstr "연결을 닫지 않고 클라이언트가 죽어서 중지된 연결의 수"
 
 #: libraries/server_status_variables.lib.php:333
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "MySQL 서버에 연결 실패한 횟수"
+msgstr "MySQL 서버에 연결 실패한 횟수."
 
 #: libraries/server_status_variables.lib.php:336
 msgid ""
@@ -10709,7 +10705,7 @@ msgstr ""
 #: libraries/server_status_variables.lib.php:344
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr "MySQL 서버에 연결 시도한 횟수"
+msgstr "MySQL 서버에 연결 시도(성공 및 실패)한 횟수."
 
 #: libraries/server_status_variables.lib.php:348
 msgid ""
@@ -14084,7 +14080,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
-msgstr ""
+msgstr "MyISAM으로 동시 입력"
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
