@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2014-01-24 06:51+0200\n"
+"PO-Revision-Date: 2014-01-30 10:29+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -604,10 +604,9 @@ msgstr "Järjehoidja on kustutatud."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Faili ei saanud lugeda"
+msgstr "Faili ei saanud lugeda!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -1617,10 +1616,9 @@ msgid "Values for a new column"
 msgstr "Uue veeru väärtused"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Sisesta iga väärtus eraldi väljale"
+msgstr "Sisesta iga väärtus eraldi väljale."
 
 #: js/messages.php:261
 #, php-format
@@ -1760,10 +1758,9 @@ msgid "Select Foreign Key"
 msgstr "Vali võõrvõti"
 
 #: js/messages.php:321
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Palun vali primaarvõti või unikaalne nimi"
+msgstr "Palun vali primaarvõti või unikaalne nimi!"
 
 #: js/messages.php:322 pmd_general.php:101
 msgid "Choose column to display"
@@ -2598,10 +2595,9 @@ msgstr "Harilik binaar"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "Rida on kustutatud"
+msgstr "Rida on kustutatud."
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5079 libraries/server_status.lib.php:518
@@ -2754,11 +2750,11 @@ msgid "Unknown error in file upload."
 msgstr "Faili üleslaadimises on tundmatu viga."
 
 #: libraries/File.class.php:476
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Üleslaetud faili liigutamisel esines viga, vaata [doc@faq1-11]KKK 1.11[/doc]"
+"Üleslaetud faili liigutamisel esines viga, vaata [doc@faq1-11]KKK "
+"1.11[/doc]."
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2788,10 +2784,9 @@ msgstr "Kliki ribal, et lehe alguessse kerida"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "Javascript peab olema lubatud"
+msgstr "Javascript peab olema lubatud!"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
