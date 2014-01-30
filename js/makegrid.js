@@ -1020,11 +1020,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 parseInt(current_datetime_value.substring(5, 7)) - 1,
                                 parseInt(current_datetime_value.substring(8, 10))
                         );
-                        if (current_datetime_value.match("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{"+ no_decimals +"}$")) {                            
-                            var hour = current_datetime_value.substring(11, 13);
-                            var min = current_datetime_value.substring(14, 16);
-                            var sec = current_datetime_value.substring(17, 19);
+                        var no_decimals = $td.data('decimals');
 
+                        var hour = current_datetime_value.substring(11, 13);
+                        var min = current_datetime_value.substring(14, 16);
+                        var sec = current_datetime_value.substring(17, 19);
+                        if (current_datetime_value.match("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{"+ no_decimals +"}$")) {                                                                    
                             if (no_decimals > 3){
                                 var milli = current_datetime_value.substring(20, 23);
                                 var micro = current_datetime_value.substring(23);
@@ -1042,6 +1043,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                                         
                             date.setHours(hour, min, sec, milli);
                             date.setMicroseconds(micro);
+                        }
+                        if (current_datetime_value.match("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}")) {
+                            console.log("G");
+                            date.setHours(hour, min, sec);
                         } 
                         $editArea.datetimepicker('setDate', date);
                     }
