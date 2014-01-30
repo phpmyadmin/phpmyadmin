@@ -1183,11 +1183,18 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $input_type = 'text';
     // do not use the 'date' or 'time' types here; they have no effect on some
     // browsers and create side effects (see bug #4218)
+    $no_decimals=0;
+    $type = current(explode("(", $column['pma_type']));
+    if(preg_match('/\(([^()]+)\)/', $column['pma_type'], $match)){
+        $match[0] = trim($match[0], '()');
+        $no_decimals=$match[0];
+    }
+
     $the_class = 'textfield';
     if ($column['pma_type'] === 'date') {
         $the_class .= ' datefield';
-    } elseif ($column['pma_type'] === 'datetime'
-        || substr($column['pma_type'], 0, 9) === 'timestamp'
+    } elseif ( strpos($column['pma_type'], 'datetime') !== false
+        || strpos($column['pma_type'], 'timestamp') !== false
     ) {
         $the_class .= ' datetimefield';
     }
@@ -1210,6 +1217,8 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
         . ($input_min_max !== false ? ' ' . $input_min_max : '')
         . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
+        . ' data-decimals="' .$no_decimals .'"'
+        . ' data-type="' .$type .'"'
         . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
         . ' id="field_' . ($idindex) . '_3" />';
 }
@@ -1755,7 +1764,7 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     $column, $real_null_value
 ) {
     if (! isset($column['Default'])) {
-        $column['Default'] 	  = '';
+        $column['Default']    = '';
         $real_null_value          = true;
         $data                     = '';
     } else {

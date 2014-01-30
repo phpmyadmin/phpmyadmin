@@ -208,12 +208,12 @@ function PMA_addDatepicker($this_element, options)
         stepMinutes: 1,
         stepHours: 1,
         showSecond: true,
-        showMillisec: false,
-        showMicrosec: false,
+        showMillisec: true,
+        showMicrosec: true,
         showTimepicker: showTimeOption,
         showButtonPanel: false,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
-        timeFormat: 'HH:mm:ss',
+        timeFormat: 'HH:mm:ss.lc',
         constrainInput: false,
         altFieldTimeOnly: false,
         showAnim: '',
@@ -858,8 +858,25 @@ function insertValueQuery()
 function addDateTimePicker() {
     if ($.timepicker !== undefined) {
         $('input.datefield, input.datetimefield').each(function () {
-            PMA_addDatepicker($(this));
-        });
+
+            no_decimals = $(this).data('decimals');
+            var showMillisec = false;
+            var showMicrosec = false;
+            var timeFormat = 'HH:mm:ss';
+            // check for decimal places of seconds
+            if (($(this).data('decimals') > 0) && ($(this).data('type').indexOf('time') != -1)){
+                showMillisec = true;                       
+                timeFormat = 'HH:mm:ss.lc';
+                if ($(this).data('decimals') > 3) {
+                    showMicrosec = true;
+                }
+            }
+            PMA_addDatepicker($(this), {
+                showMillisec: showMillisec,
+                showMicrosec: showMicrosec,
+                timeFormat: timeFormat                        
+            });               
+         })
     }
 }
 
