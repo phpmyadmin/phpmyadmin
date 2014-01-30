@@ -515,8 +515,10 @@ class PMA_Config
                     // File missing. May be we can look in the .git/object/pack
                     // directory for all the .pack files and use that list of
                     // files instead
-                    $it = new DirectoryIterator($git_folder . '/objects/pack');
-                    foreach ($it as $file_info) {
+                    $dirIterator = new DirectoryIterator(
+                        $git_folder . '/objects/pack'
+                    );
+                    foreach ($dirIterator as $file_info) {
                         $file_name = $file_info->getFilename();
                         // if this is a .pack file
                         if ($file_info->isFile()
