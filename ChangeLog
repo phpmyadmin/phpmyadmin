@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #4253 "New" text in navigation frame acts like a database
 - bug #4262 Cannot define a column with fractional seconds
 - bug #4265 Missing datepicker icon for DATETIME(length)
+- bug #4257 Hide fractional seconds when applicable
 
 4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user
