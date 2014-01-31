@@ -841,7 +841,17 @@ var ResizeHandler = function () {
             $nav_header = $("#pma_navigation_header"),
             $nav_tree_content = $("#pma_navigation_tree_content");
         $nav_tree.height($nav.height() - $nav_header.height());
-        $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
+        if ($nav_tree_content.length > 0) {
+            $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
+            $nav_tree.css({
+                'overflow': 'hidden'
+            });
+        } else {
+            $nav_tree.css({
+                'overflow': 'hidden',
+                'overflow-y': 'auto'
+            });
+        }
     };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {
