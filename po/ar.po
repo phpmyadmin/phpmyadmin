@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-03-20 22:10+0200\n"
-"Last-Translator: mohamed amin boubaker <mohamed.amin.02@gmail.com>\n"
-"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/"
-">\n"
+"PO-Revision-Date: 2014-01-31 20:13+0200\n"
+"Last-Translator: ahmed saad <egbrave@hotmail.com>\n"
+"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/4-1/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 1.5-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -87,7 +86,7 @@ msgstr "عمود"
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:732
 #: libraries/tbl_tracking.lib.php:815
 msgid "Type"
-msgstr "نوع"
+msgstr "النوع"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
 #: libraries/TableSearch.class.php:1283 libraries/insert_edit.lib.php:1630
@@ -144,7 +143,7 @@ msgstr "مرتبط بـ"
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
-msgstr "تعليقات"
+msgstr "التعليقات"
 
 #: db_datadict.php:240 js/messages.php:250 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:883
@@ -199,22 +198,22 @@ msgstr "نعم"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "عرض بنية قاعدة البيانات"
+msgstr "عرض مخطط تصدير قاعدة البيانات"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:597 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr "لم يعثر على جداول في قادة البيانات."
+msgstr "لم يعثر على جداول في قاعدة البيانات."
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
 msgid "Select All"
-msgstr "إختر الكل"
+msgstr "تحديد الكل"
 
 #: db_export.php:47 libraries/DbSearch.class.php:448
 #: libraries/display_export.lib.php:48
 msgid "Unselect All"
-msgstr "إلغاء خيار الكل"
+msgstr "عدم تحديد الكل"
 
 #: db_operations.php:45 tbl_create.php:21
 msgid "The database name is empty!"
@@ -1693,7 +1692,8 @@ msgstr "﻿إضافة قيمة/قيم %d"
 #: js/messages.php:278
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "ملاحظة: إذا كان الملف يحتوي على جداول متعددة , فإنها سوف تتجمع في واحد"
+msgstr ""
+"ملاحظة: إذا كان الملف يحتوي على جداول متعددة , سيتم تجميعها فى جدول واحد"
 
 #: js/messages.php:281
 msgid "Hide query box"
@@ -2321,7 +2321,7 @@ msgstr "فشلت في تشغيل الإختبار للقاعدة '%s'"
 #: libraries/Advisor.class.php:225
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "فشلت في تهيئة السلسلة للقاعدة '%s'."
+msgstr "فشل تنسيق النص لـ '%s'."
 
 #: libraries/Advisor.class.php:400
 #, php-format
