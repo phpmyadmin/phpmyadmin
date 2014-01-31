@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2014-01-23 12:26+0200\n"
+"PO-Revision-Date: 2014-01-31 01:24+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -608,10 +608,9 @@ msgstr "El favorito ha sido borrado."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "No fue posible leer el archivo"
+msgstr "¡No fue posible leer el archivo!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -943,10 +942,9 @@ msgid "Missing value in the form!"
 msgstr "¡Falta un valor en el formulario!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Ingrese un número válido"
+msgstr "¡Introduzca un número válido!"
 
 #: js/messages.php:49
 msgid "Please enter a valid length!"
@@ -1643,10 +1641,9 @@ msgid "Values for a new column"
 msgstr "Valores para una nueva columna"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Ingresar cada valor en un campo separado"
+msgstr "Introducir cada valor en un campo separado."
 
 #: js/messages.php:261
 #, php-format
@@ -2642,10 +2639,9 @@ msgstr "Binario muy conocido"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "La fila se ha borrado"
+msgstr "La fila se ha borrado."
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5079 libraries/server_status.lib.php:518
@@ -2802,12 +2798,11 @@ msgid "Unknown error in file upload."
 msgstr "Error desconocido al subir el archivo."
 
 #: libraries/File.class.php:476
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Se detectó un error al mover el archivo subido, ver [doc@faq1-11]FAQ 1.11[/"
-"doc]"
+"Se detectó un error al mover el archivo subido, ver [doc@faq1-11]FAQ "
+"1.11[/doc]."
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2837,10 +2832,9 @@ msgstr "Pulse en la barra para deslizarse al tope de la página"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "Pasado este punto, debe tener Javascript activado"
+msgstr "¡Pasado este punto, debe tener Javascript activado!"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -4483,34 +4477,30 @@ msgstr "No se pudo inicializar la biblioteca de conexión Drizzle"
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to Drizzle server"
 msgid "Could not connect to the database server!"
-msgstr "No se pudo conectar con un servidor Drizzle"
+msgstr "¡No se pudo conectar con el servidor de base de datos!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
 msgstr ""
-"El nombre de usuario está vacío e intentó usar el método de autenticación "
-"config"
+"¡El nombre de usuario está vacío e intentó usar el método de autenticación "
+"config!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid "Empty signon session name while using signon authentication method!"
 msgstr ""
-"El nombre de sesión al signon está vacío mientras usó el método de "
-"autenticación signon"
+"¡El nombre de sesión al signon está vacío mientras usó el método de "
+"autenticación signon!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using signon authentication method!"
 msgstr ""
-"El URL de sesión al signon está vacío mientras usó el método de "
-"autenticación signon"
+"¡El URL de sesión al signon está vacío mientras usó el método de "
+"autenticación signon!"
 
 #: libraries/config/Validator.class.php:369
 msgid "Empty phpMyAdmin control user while using pmadb"
@@ -12165,16 +12155,16 @@ msgstr "El seguimiento no está activo."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "Se descartó el modo de visualización %s"
+msgstr "Se descartó la vista %s."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "Se ha eliminado la tabla %s"
+msgstr "Se ha eliminado la tabla %s."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
