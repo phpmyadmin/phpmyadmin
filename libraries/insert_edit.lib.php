@@ -1672,9 +1672,10 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $special_chars = PMA_Util::printableBitValue(
             $current_row[$column['Field']], $extracted_columnspec['spec_in_brackets']
         );
-    } elseif (substr($column['True_Type'], 0, 9) == 'timestamp'
+    } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
-        || $column['True_Type'] == 'time'
+        || $column['True_Type'] == 'time')
+        && (strpos ($current_row[$column['Field']],"." ) === TRUE)
     ) {
         $current_row[$column['Field']] = PMA_Util::addMicroseconds(
             $current_row[$column['Field']]
