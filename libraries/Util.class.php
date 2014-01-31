@@ -4358,7 +4358,7 @@ class PMA_Util
             $value .= '000000';
             return substr($value, 0, strpos($value, '.') + 7);
         } else {
-            return $value;
+            return $value . '.000000';
         }
     }
 }
