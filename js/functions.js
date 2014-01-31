@@ -1671,7 +1671,7 @@ function PMA_ajaxShowMessage(message, timeout)
         $retval
         .delay(timeout)
         .fadeOut('medium', function () {
-            if ($(this).is('.dismissable')) {
+            if ($(this).is(':data(tooltip)')) {
                 $(this).tooltip('destroy');
             }
             // Remove the notification
@@ -1710,10 +1710,8 @@ function PMA_ajaxRemoveMessage($this_msgbox)
         $this_msgbox
         .stop(true, true)
         .fadeOut('medium');
-        if ($this_msgbox.is('.dismissable')) {
-            if ($.isFunction($this_msgbox.tooltip)) {
-                $this_msgbox.tooltip('destroy');
-            }
+        if ($this_msgbox.is(':data(tooltip)')) {
+            $this_msgbox.tooltip('destroy');
         } else {
             $this_msgbox.remove();
         }
