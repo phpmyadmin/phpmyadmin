@@ -1661,7 +1661,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time')
-        && (strpos ($current_row[$column['Field']], "." ) === TRUE)
+        && (strpos($current_row[$column['Field']], ".") === true)
     ) {
         $current_row[$column['Field']] = PMA_Util::addMicroseconds(
             $current_row[$column['Field']]
@@ -2815,11 +2815,12 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
     //add data attributes "no of decimals" and "data type"
     $no_decimals=0;
     $type = current(explode("(", $column['pma_type']));
-    if(preg_match('/\(([^()]+)\)/', $column['pma_type'], $match)){
+    if (preg_match('/\(([^()]+)\)/', $column['pma_type'], $match)) {
         $match[0] = trim($match[0], '()');
         $no_decimals=$match[0];
     }
-    $html_output .= '<td' . ' data-type="' . $type . '"' . ' data-decimals="' . $no_decimals . '">' . "\n";
+    $html_output .= '<td' . ' data-type="' . $type . '"' . ' data-decimals="'
+        . $no_decimals . '">' . "\n";
     // Will be used by js/tbl_change.js to set the default value
     // for the "Continue insertion" feature
     $html_output .= '<span class="default_value hide">'
