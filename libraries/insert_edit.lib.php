@@ -1168,7 +1168,7 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $input_type = 'text';
     // do not use the 'date' or 'time' types here; they have no effect on some
     // browsers and create side effects (see bug #4218)
-    
+
     $the_class = 'textfield';
     // verify True_Type which does not contain the parentheses and length
     if ($column['True_Type'] === 'date') {
@@ -1661,7 +1661,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
     } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
         || $column['True_Type'] == 'time')
-        && (strpos ($current_row[$column['Field']],"." ) === TRUE)
+        && (strpos ($current_row[$column['Field']], "." ) === TRUE)
     ) {
         $current_row[$column['Field']] = PMA_Util::addMicroseconds(
             $current_row[$column['Field']]
@@ -2806,11 +2806,11 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
         $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,
         $foreignData
     );
-  
+
     // The value column (depends on type)
     // ----------------
     // See bug #1667887 for the reason why we don't use the maxlength
-    // HTML attribute    
+    // HTML attribute
 
     //add data attributes "no of decimals" and "data type"
     $no_decimals=0;
