@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2014-01-27 11:51+0200\n"
+"PO-Revision-Date: 2014-01-31 10:03+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -1633,10 +1633,9 @@ msgid "Values for a new column"
 msgstr "Waarden voor een nieuwe kolom"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Plaats elke waarde in een afzonderlijk veld"
+msgstr "Plaats elke waarde in een afzonderlijk veld."
 
 #: js/messages.php:261
 #, php-format
@@ -2626,10 +2625,9 @@ msgstr "Goed gekende binaire waarde"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "De regel werd verwijderd"
+msgstr "De regel werd verwijderd."
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5079 libraries/server_status.lib.php:518
@@ -6052,7 +6050,6 @@ msgid "Hide databases"
 msgstr "Verberg databanken"
 
 #: libraries/config/messages.inc.php:597
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
 #| "[kbd]pma__history[/kbd]"
@@ -6060,18 +6057,17 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Laat dit veld leeg om geen SQL-geschiedenis te ondersteunen, suggestie: "
-"[kbd]pma__history[/kbd]"
+"Laat dit veld leeg om SQL-geschiedenis niet te ondersteunen, suggestie: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:600
 msgid "SQL query history table"
 msgstr "Tabel voor SQL-querygeschiedenis"
 
 #: libraries/config/messages.inc.php:601
-#, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
-msgstr "Machinenaam waar de MySQL-server bereikbaar is"
+msgstr "Machinenaam waar de MySQL-server bereikbaar is."
 
 #: libraries/config/messages.inc.php:602
 msgid "Server hostname"
@@ -6082,7 +6078,6 @@ msgid "Logout URL"
 msgstr "URL voor afmelden"
 
 #: libraries/config/messages.inc.php:605
-#, fuzzy
 #| msgid ""
 #| "Limits number of table preferences which are stored in database, the "
 #| "oldest records are automatically removed"
@@ -6091,17 +6086,16 @@ msgid ""
 "records are automatically removed."
 msgstr ""
 "Beperkt het aantal tabelvoorkeuren die opgeslagen zijn in de databank, de "
-"oudste worden automatisch verwijderd"
+"oudste worden automatisch verwijderd."
 
 #: libraries/config/messages.inc.php:609
 msgid "Maximal number of table preferences to store"
 msgstr "Het maximum aantal tabelvoorkeuren die opgeslagen worden"
 
 #: libraries/config/messages.inc.php:610
-#, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
-msgstr "Probeer te verbinden zonder wachtwoord"
+msgstr "Probeer te verbinden zonder wachtwoord."
 
 #: libraries/config/messages.inc.php:611
 msgid "Connect without password"
@@ -6122,18 +6116,16 @@ msgid "Show only listed databases"
 msgstr "Toon enkel de opgesomde databanken"
 
 #: libraries/config/messages.inc.php:618 libraries/config/messages.inc.php:706
-#, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
 msgstr ""
-"Laat dit veld leeg indien u geen gebruik maakt van 'config'-authenticatie"
+"Laat dit veld leeg indien u geen gebruik maakt van 'config'-authenticatie."
 
 #: libraries/config/messages.inc.php:619
 msgid "Password for config auth"
 msgstr "Wachtwoord voor 'config'-authenticatie"
 
 #: libraries/config/messages.inc.php:621
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
@@ -6141,14 +6133,13 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Laat dit veld leeg om PDF-schemaondersteuning uit te schakelen, suggestie: "
-"[kbd]pma__pdf_pages[/kbd]"
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:623
 msgid "PDF schema: pages table"
 msgstr "PDF-schema: pagina's tabel"
 
 #: libraries/config/messages.inc.php:625
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -6161,7 +6152,7 @@ msgstr ""
 "Databank die wordt gebruikt om relaties, bladwijzers en PDF-eigenschappen op "
 "te slaan. Zie [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] voor meer "
 "informatie. Laat dit veld leeg om dit uit te schakelen, suggestie: "
-"[kbd]phpmyadmin[/kbd]"
+"[kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:629
 #: libraries/display_create_database.lib.php:31
@@ -6169,19 +6160,17 @@ msgid "Database name"
 msgstr "Databanknaam"
 
 #: libraries/config/messages.inc.php:631
-#, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Het TCP-poortnummer waarop MySQL luistert, laat dit veld leeg om de "
-"standaard waarde te gebruiken"
+"standaardwaarde te gebruiken."
 
 #: libraries/config/messages.inc.php:632
 msgid "Server port"
 msgstr "Serverpoort"
 
 #: libraries/config/messages.inc.php:634
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
@@ -6190,14 +6179,13 @@ msgid ""
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
 "Laat dit veld leeg om geen recent gebruikte tabellen op te slaan over "
-"sessies heen, voorstel: [kbd]pma__recent[/kbd]"
+"sessies heen, voorstel: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:637
 msgid "Recently used table"
 msgstr "Recent gebruikte tabel"
 
 #: libraries/config/messages.inc.php:639
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
@@ -6205,16 +6193,14 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/"
-"kbd]"
+"Laat dit veld leeg om geen [a@http://wiki.phpmyadmin.net/pma/relation"
+"]relation-links[/a] te ondersteunen, suggestie: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:643
 msgid "Relation table"
 msgstr "Relatietabel"
 
 #: libraries/config/messages.inc.php:645
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
@@ -6222,8 +6208,9 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"Zie [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/"
-"a] voor een voorbeeld"
+"Zie "
+"[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authenticatietypes[/a] "
+"voor een voorbeeld."
 
 #: libraries/config/messages.inc.php:648
 msgid "Signon session name"
@@ -6234,22 +6221,20 @@ msgid "Signon URL"
 msgstr "Signon-URL"
 
 #: libraries/config/messages.inc.php:651
-#, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
-"Het socket waarop de MySQL-server luistert, laat dit leeg voor de standaard "
-"waarde"
+"Het socket waarop de MySQL-server luistert, laat dit leeg om de standaard "
+"waarde te gebruiken."
 
 #: libraries/config/messages.inc.php:652
 msgid "Server socket"
 msgstr "Serversocket"
 
 #: libraries/config/messages.inc.php:653
-#, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
-msgstr "SSL toepassen voor de verbinding naar de MySQL-server"
+msgstr "SSL inschakelen voor de verbinding naar de MySQL-server."
 
 #: libraries/config/messages.inc.php:654
 msgid "Use SSL"
