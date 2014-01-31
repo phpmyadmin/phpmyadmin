@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-19 15:51+0200\n"
+"PO-Revision-Date: 2014-01-31 18:07+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/4-1/es/>\n"
 "Language: es\n"
@@ -963,11 +963,11 @@ msgstr "¡Falta un valor en el formulario!"
 
 #: js/messages.php:48
 msgid "Please enter a valid number"
-msgstr "Ingrese un número válido"
+msgstr "Introduzca un número válido"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr "Ingrese una longitud válida"
+msgstr "Introduzca una longitud válida"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1491,7 +1491,7 @@ msgid ""
 msgstr ""
 "Al pedir un nuevo gráfico el servidor devolvió una respuesta inválida. Esto "
 "es probablemente porque expiró la sesión. Cargar la página nuevamente y "
-"volver a ingresar sus credenciales debería ayudar."
+"volver a introducir sus credenciales debería ayudar."
 
 #: js/messages.php:198
 msgid "Reload page"
@@ -1709,7 +1709,7 @@ msgstr "Valores para una nueva columna"
 
 #: js/messages.php:274
 msgid "Enter each value in a separate field"
-msgstr "Ingresar cada valor en un campo separado"
+msgstr "Introduzca cada valor en un campo separado"
 
 #: js/messages.php:275
 #, php-format
@@ -4620,7 +4620,7 @@ msgstr "Dirección por defecto de la visualización"
 
 #: libraries/config/messages.inc.php:50
 msgid "Tab that is displayed when entering a database"
-msgstr "Ceja que se muestra cuando ingresa una base de datos"
+msgstr "Pestaña que se muestra cuando accede a una base de datos"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default database tab"
@@ -4628,7 +4628,7 @@ msgstr "Ceja predeterminada de la base de datos"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a server"
-msgstr "Ceja que se muestra cuando ingresa un servidor"
+msgstr "Pestaña que se muestra cuando accede a un servidor"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default server tab"
@@ -4636,7 +4636,7 @@ msgstr "Ceja predeterminada para el servidor"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a table"
-msgstr "Ceja que se muestra cuando ingresa una tabla"
+msgstr "Pestaña que se muestra cuando accede a una tabla"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default table tab"
@@ -6596,10 +6596,10 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]"
 msgstr ""
-"Ingresar proxies como [kbd]IP: cabecera HTTP confiable[/kbd]. El siguiente "
+"Introduzca proxies como [kbd]IP: cabecera HTTP confiable[/kbd]. El siguiente "
 "ejemplo especifica que phpMyAdmin debe confiar una cabecera "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente del proxy 1.2.3.4:[br]"
-"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente del proxy "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:521
 msgid "List of trusted proxies for IP allow/deny"
@@ -6704,7 +6704,7 @@ msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:540
 msgid "Enter your public key for your domain reCaptcha service"
-msgstr "Ingrese su llave pública para el servicio reCaptcha de su dominio"
+msgstr "Introduzca su llave pública para el servicio reCaptcha de su dominio"
 
 #: libraries/config/messages.inc.php:541
 msgid "Public key for reCaptcha"
@@ -6712,7 +6712,7 @@ msgstr "Llave púlica para reCaptcha"
 
 #: libraries/config/messages.inc.php:542
 msgid "Enter your private key for your domain reCaptcha service"
-msgstr "Ingrese su llave privada para el servicio reCaptcha de su dominio"
+msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio"
 
 #: libraries/config/messages.inc.php:543
 msgid "Private key for reCaptcha"
@@ -8321,11 +8321,11 @@ msgstr "Elección del servidor:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:398
 msgid "Entered captcha is wrong, try again!"
-msgstr "El captcha ingresado es incorrecto, ¡intente nuevamente!"
+msgstr "El captcha introducido es incorrecto, ¡intente nuevamente!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:407
 msgid "Please enter correct captcha!"
-msgstr "¡Ingrese el captcha correcto!"
+msgstr "¡Introduzca el captcha correcto!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:679
 #: libraries/plugins/auth/AuthenticationSignon.class.php:264
@@ -8347,7 +8347,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationSignon.class.php:280
 msgid "Cannot log in to the MySQL server"
-msgstr "El servidor MySQL no autorizó su ingreso"
+msgstr "El servidor MySQL no autorizó su acceso"
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:79
 msgid "Wrong username/password. Access denied."
@@ -10884,7 +10884,7 @@ msgstr "Monitorizaciones comunes"
 
 #: libraries/server_status_monitor.lib.php:245
 msgid "or type variable name:"
-msgstr "o ingrese el nombre de variable:"
+msgstr "o introduzca el nombre de variable:"
 
 #: libraries/server_status_monitor.lib.php:252
 msgid "Display as differential value"
