@@ -1183,6 +1183,7 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     $input_type = 'text';
     // do not use the 'date' or 'time' types here; they have no effect on some
     // browsers and create side effects (see bug #4218)
+    
     $the_class = 'textfield';
     // verify True_Type which does not contain the parentheses and length
     if ($column['True_Type'] === 'date') {
@@ -1210,7 +1211,7 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
         . ($input_min_max !== false ? ' ' . $input_min_max : '')
         . ($input_type === 'time' ? ' step="1"' : '')
-        . ' class="' . $the_class . '" ' . $unnullify_trigger
+        . ' class="' . $the_class . '" ' . $unnullify_trigger        
         . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
         . ' id="field_' . ($idindex) . '_3" />';
 }
@@ -1672,9 +1673,10 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $special_chars = PMA_Util::printableBitValue(
             $current_row[$column['Field']], $extracted_columnspec['spec_in_brackets']
         );
-    } elseif (substr($column['True_Type'], 0, 9) == 'timestamp'
+    } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
-        || $column['True_Type'] == 'time'
+        || $column['True_Type'] == 'time')
+        && (strpos ($current_row[$column['Field']],"." ) === TRUE)
     ) {
         $current_row[$column['Field']] = PMA_Util::addMicroseconds(
             $current_row[$column['Field']]
@@ -1756,7 +1758,7 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     $column, $real_null_value
 ) {
     if (! isset($column['Default'])) {
-        $column['Default'] 	  = '';
+        $column['Default']    = '';
         $real_null_value          = true;
         $data                     = '';
     } else {
@@ -2818,12 +2820,20 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $i, $column,
         $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,
         $foreignData
     );
-
+  
     // The value column (depends on type)
     // ----------------
     // See bug #1667887 for the reason why we don't use the maxlength
-    // HTML attribute
-    $html_output .= '        <td>' . "\n";
+    // HTML attribute    
+
+    //add data attributes "no of decimals" and "data type"
+    $no_decimals=0;
+    $type = current(explode("(", $column['pma_type']));
+    if(preg_match('/\(([^()]+)\)/', $column['pma_type'], $match)){
+        $match[0] = trim($match[0], '()');
+        $no_decimals=$match[0];
+    }
+    $html_output .= '<td' . ' data-type="' . $type . '"' . ' data-decimals="' . $no_decimals . '">' . "\n";
     // Will be used by js/tbl_change.js to set the default value
     // for the "Continue insertion" feature
     $html_output .= '<span class="default_value hide">'

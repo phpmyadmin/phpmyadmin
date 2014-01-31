@@ -622,6 +622,15 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         var new_html = data.isNeedToRecheck
                             ? data.truncatableFieldValue
                             : $this_field.data('value');
+
+                        //remove decimal places if column type not supported                            
+                        if (($this_field.data('decimals') == 0) && ( $this_field.data('type').indexOf('time') != -1)){                          
+                            new_html = new_html.substring(0, new_html.indexOf('.'));                            
+                        }
+                        //remove addtional decimal places 
+                        if (($this_field.data('decimals') > 0) && ( $this_field.data('type').indexOf('time') != -1)){
+                            new_html = new_html.substring(0, new_html.length - (6 - $this_field.data('decimals')));  
+                        }                              
                         if ($this_field.is('.truncated')) {
                             if (new_html.length > g.maxTruncatedLen) {
                                 new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
@@ -967,7 +976,24 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     if ($td.is('.datefield')) {
                         showTimeOption = false;
                     }
+
+                    var showMillisec = false;
+                    var showMicrosec = false;
+                    var timeFormat = 'HH:mm:ss';
+                    // check for decimal places of seconds
+                    if (($td.data('decimals') > 0) && ($td.data('type').indexOf('time') != -1)){
+                        showMillisec = true;                       
+                        timeFormat = 'HH:mm:ss.lc';
+                        if ($td.data('decimals') > 3) {
+                            showMicrosec = true;
+                        }
+
+                    }
+
                     PMA_addDatepicker($editArea, {
+                        showMillisec: showMillisec,
+                        showMicrosec: showMicrosec,
+                        timeFormat: timeFormat,
                         altField: $input_field,
                         showTimepicker: showTimeOption,
                         onSelect: function (dateText, inst) {
@@ -994,15 +1020,34 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 parseInt(current_datetime_value.substring(5, 7)) - 1,
                                 parseInt(current_datetime_value.substring(8, 10))
                         );
-                        if (current_datetime_value.match(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{6}$/)) {
-                            var hour = current_datetime_value.substring(11, 13);
-                            var min = current_datetime_value.substring(14, 16);
-                            var sec = current_datetime_value.substring(17, 19);
-                            var milli = current_datetime_value.substring(20, 23);
-                            var micro = current_datetime_value.substring(23);
+                        var no_decimals = $td.data('decimals');
+
+                        var hour = current_datetime_value.substring(11, 13);
+                        var min = current_datetime_value.substring(14, 16);
+                        var sec = current_datetime_value.substring(17, 19);
+                        if (current_datetime_value.match("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{"+ no_decimals +"}$")) {                                                                    
+                            if (no_decimals > 3){
+                                var milli = current_datetime_value.substring(20, 23);
+                                var micro = current_datetime_value.substring(23);
+                                for (var i = 0; i < 6-no_decimals ; i++) {
+                                    micro += "0";
+                                }
+                            }
+                            if (no_decimals <= 3){
+                                var milli = current_datetime_value.substring(20);
+                                for (var i = 0; i < 3-no_decimals ; i++) {
+                                    milli += "0";
+                                }                            
+                                var micro = "000";                            
+                            }
+                                                        
                             date.setHours(hour, min, sec, milli);
                             date.setMicroseconds(micro);
                         }
+                        if (current_datetime_value.match("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}")) {
+                            console.log("G");
+                            date.setHours(hour, min, sec);
+                        } 
                         $editArea.datetimepicker('setDate', date);
                     }
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');

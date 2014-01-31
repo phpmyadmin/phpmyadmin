@@ -858,8 +858,25 @@ function insertValueQuery()
 function addDateTimePicker() {
     if ($.timepicker !== undefined) {
         $('input.datefield, input.datetimefield').each(function () {
-            PMA_addDatepicker($(this));
-        });
+
+            no_decimals = $(this).parent().data('decimals');
+            var showMillisec = false;
+            var showMicrosec = false;
+            var timeFormat = 'HH:mm:ss';
+            // check for decimal places of seconds
+            if (($(this).parent().data('decimals') > 0) && ($(this).parent().data('type').indexOf('time') != -1)){
+                showMillisec = true;                       
+                timeFormat = 'HH:mm:ss.lc';
+                if ($(this).parent().data('decimals') > 3) {
+                    showMicrosec = true;
+                }
+            }
+            PMA_addDatepicker($(this), {
+                showMillisec: showMillisec,
+                showMicrosec: showMicrosec,
+                timeFormat: timeFormat,                        
+            });               
+         })
     }
 }
 
