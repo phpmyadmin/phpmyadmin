@@ -388,7 +388,8 @@ AJAX.registerOnload('tbl_change.js', function () {
                     var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
                     $this_element.attr('name', new_name);
 
-                    if ($this_element.is('.textfield')) {
+                    // handle input text fields and textareas
+                    if ($this_element.is('.textfield') || $this_element.is('.char')) {
                         // do not remove the 'value' attribute for ENUM columns
                         if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
                             $this_element.val($this_element.closest('tr').find('span.default_value').html());
