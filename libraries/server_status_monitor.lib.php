@@ -491,14 +491,16 @@ function PMA_getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues)
 }
 
 /**
- * @param array $ret             Real-time charting data
- * @param array $statusVarValues Status variable values
- * @param array $serverVarValues Server variable values
- * @param $sysinfo
- * @param $cpuload
- * @param $memory
- * @return array
+ * Get called to get JSON for charting data
  *
+ * @param array $ret        Real-time charting data
+ * @param array $serverVars Server variable values
+ * @param array $statusVars Status variable values
+ * @param mixed $sysinfo    System info
+ * @param mixed $cpuload    CPU load
+ * @param mixed $memory     Memory
+ *
+ * @return array
  */
 function PMA_getJsonForChartingDataGet(
     $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
@@ -522,14 +524,16 @@ function PMA_getJsonForChartingDataGet(
 }
 
 /**
- * @param $type
- * @param $pName
- * @param array $statusVarValues Status variable values
- * @param array $serverVarValues Server variable values
- * @param array $ret             Real-time charting data
- * @param $sysinfo
- * @param $cpuload
- * @param $memory
+ * Switch called to get JSON for charting data
+ *
+ * @param string $type       Type
+ * @param string $pName      Name
+ * @param array  $serverVars Server variable values
+ * @param array  $statusVars Status variable values
+ * @param array  $ret        Real-time charting data
+ * @param mixed  $sysinfo    System info
+ * @param mixed  $cpuload    CPU load
+ * @param mixed  $memory     Memory
  *
  * @return array
  */
