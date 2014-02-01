@@ -86,12 +86,12 @@ class PMA_DatabaseInterface
 
     /**
      * Caches table data so PMA_Table does not require to issue
-     * SHOW TABLE STATUS again 
+     * SHOW TABLE STATUS again
      *
      * @param array       $tables information for tables of some databases
      * @param string|bool $table  table name or false
      *
-     * @return void 
+     * @return void
      */
     private function _cacheTableData($tables, $table)
     {
@@ -325,7 +325,7 @@ class PMA_DatabaseInterface
      * @param boolean     $tbl_is_group $table is a table group
      * @param string      $tble_type    whether table or view
      *
-     * @return string a segment of the WHERE clause 
+     * @return string a segment of the WHERE clause
      */
     private function _getTableCondition($table, $tbl_is_group, $tble_type)
     {
@@ -364,15 +364,15 @@ class PMA_DatabaseInterface
     }
 
     /**
-     * returns the beginning of the SQL statement to fetch the list of tables 
+     * returns the beginning of the SQL statement to fetch the list of tables
      *
      * @param string $this_databases  databases to list
-     * @param string $sql_where_table additional condition 
+     * @param string $sql_where_table additional condition
      *
-     * @return string the SQL statement 
+     * @return string the SQL statement
      */
     private function _getSqlForTablesFull($this_databases, $sql_where_table)
-    { 
+    {
         if (PMA_DRIZZLE) {
             $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
             $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
@@ -1924,9 +1924,9 @@ class PMA_DatabaseInterface
     /**
      * returns the definition of a specific PROCEDURE, FUNCTION, EVENT or VIEW
      *
-     * @param string   $db    db name
-     * @param string   $which PROCEDURE | FUNCTION | EVENT | VIEW
-     * @param string   $name  the procedure|function|event|view name
+     * @param string $db    db name
+     * @param string $which PROCEDURE | FUNCTION | EVENT | VIEW
+     * @param string $name  the procedure|function|event|view name
      *
      * @return string the definition
      */
