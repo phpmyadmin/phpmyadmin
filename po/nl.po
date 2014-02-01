@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2014-01-31 10:03+0200\n"
+"PO-Revision-Date: 2014-02-01 11:04+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -6241,7 +6241,6 @@ msgid "Use SSL"
 msgstr "SSL gebruiken"
 
 #: libraries/config/messages.inc.php:656
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]"
@@ -6250,14 +6249,13 @@ msgid ""
 "kbd]."
 msgstr ""
 "Laat dit veld leeg om geen PDF-schema te ondersteunen, suggestie: "
-"[kbd]pma__table_coords[/kbd]"
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:658
 msgid "PDF schema: table coordinates"
 msgstr "PDF-schema: tabelcoördinaten"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma__table_info[/kbd]"
@@ -6266,14 +6264,13 @@ msgid ""
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
 "De tabel om kolomomschrijvingen te definiëren, laat dit veld leeg om dit "
-"niet te gebruiken; suggestie: [kbd]pma__table_info[/kbd]"
+"niet te gebruiken; suggestie: [kbd]pma__table_info[/kbd]."
 
 #: libraries/config/messages.inc.php:663
 msgid "Display columns table"
 msgstr "Tabel met kolomomschrijvingen"
 
 #: libraries/config/messages.inc.php:665
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 #| "suggested: [kbd]pma__table_uiprefs[/kbd]"
@@ -6282,7 +6279,7 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Laat dit veld leeg om interfacevoorkeuren niet \"persistent\" op te slaan, "
-"voorstel: [kbd]pma__table_uiprefs[/kbd]"
+"suggestie: [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:668
 msgid "UI preferences table"
@@ -6336,7 +6333,6 @@ msgid "Statements to track"
 msgstr "Bij te houden opdrachten"
 
 #: libraries/config/messages.inc.php:688
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: "
 #| "[kbd]pma__tracking[/kbd]"
@@ -6345,7 +6341,7 @@ msgid ""
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Laat dit veld leeg om het opvolgen van SQL queries niet te ondersteunen, "
-"suggestie: [kbd]pma__tracking[/kbd]"
+"suggestie: [kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:691
 msgid "SQL query tracking table"
@@ -6364,7 +6360,6 @@ msgid "Automatically create versions"
 msgstr "Automatisch versies aanmaken"
 
 #: libraries/config/messages.inc.php:698
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6373,7 +6368,7 @@ msgid ""
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Laat dit veld leeg om geen gebruikersvoorkeuren op te slaan in de databank, "
-"suggestie: [kbd]pma__userconfig[/kbd]"
+"suggestie: [kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:699
 msgid "User preferences storage table"
