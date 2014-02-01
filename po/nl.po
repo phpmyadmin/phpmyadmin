@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2014-02-01 11:04+0200\n"
+"PO-Revision-Date: 2014-02-01 13:23+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -6375,7 +6375,6 @@ msgid "User preferences storage table"
 msgstr "Opslagtabel voor gebruikersvoorkeuren"
 
 #: libraries/config/messages.inc.php:700
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__users[/kbd]"
@@ -6384,14 +6383,13 @@ msgid ""
 "[kbd]pma__users[/kbd]."
 msgstr ""
 "Laat dit veld leeg om configureerbare menu's uit te schakelen, suggestie: "
-"[kbd]pma__users[/kbd]"
+"[kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:701
 msgid "Users table"
 msgstr "Gebruikerstabel"
 
 #: libraries/config/messages.inc.php:702
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable configurable menus feature, suggested: "
 #| "[kbd]pma__usergroups[/kbd]"
@@ -6399,15 +6397,14 @@ msgid ""
 "Leave blank to disable configurable menus feature, suggested: "
 "[kbd]pma__usergroups[/kbd]."
 msgstr ""
-"Laat dit veld leeg om configureerbare menu's uit te schakelen , suggestie: "
-"[kbd]pma__usergroups[/kbd]"
+"Laat dit veld leeg om configureerbare menu's uit te schakelen, suggestie: "
+"[kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:703
 msgid "User groups table"
 msgstr "Gebruikersgroepentabel"
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
 #| msgid ""
 #| "Leave blank to disable the feature to hide and show navigation items, "
 #| "suggested: [kbd]pma__navigationhiding[/kbd]"
@@ -6415,8 +6412,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Laat dit veld leeg om de optie, die navigatieonderdelen kan verbergen of te "
-"tonen, uit te schakelen, suggestie: [kbd]pma__navigationhiding[/kbd]"
+"Laat dit veld leeg om de optie, die navigatieonderdelen kan verbergen of "
+"tonen, uit te schakelen, suggestie: [kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:705
 msgid "Hidden navigation items table"
