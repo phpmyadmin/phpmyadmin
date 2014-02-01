@@ -94,6 +94,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                     )
                 );
             } else {
+                // Dhananjay: To me this seems to be very naive solution. Please guide me if I am making any mistakes here..:)
+                $login_link = $login_link . '<script type=\"text/javascript\">window.location=\''.$GLOBALS['cfg']['PmaAbsoluteUri'].'\'</script>';
                 $response->addJSON(
                     'message',
                     PMA_Message::error(
