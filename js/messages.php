@@ -73,7 +73,7 @@ $js_messages['strDecimalSeparator'] = __('.');
 $js_messages['strChartConnectionsTitle'] = __('Connections / Processes');
 
 /* server status monitor */
-$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration incompatible');
+$js_messages['strIncompatibleMonitorConfig'] = __('Local monitor configuration incompatible!');
 $js_messages['strIncompatibleMonitorConfigDescription'] = __('The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the <i>Settings</i> menu.');
 
 $js_messages['strQueryCacheEfficiency'] = __('Query cache efficiency');
