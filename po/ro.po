@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2014-01-06 12:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
@@ -2750,7 +2750,11 @@ msgstr "Oprește"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Poate fi aproximativ. Vezi [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
@@ -3160,13 +3164,6 @@ msgstr ""
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Motoare"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "Comanda dumneavoastră SQL a fost executată cu succes"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4573,11 +4570,15 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "URL signon gol la folosirea autentificării de tip signon"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr "Control user phpMyAdmin gol la folosirea pmadb"
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr "Parolă control user phpMyAdmin goală la folosirea pmadb"
 
 #: libraries/config/Validator.class.php:458
@@ -8241,16 +8242,16 @@ msgid ""
 msgstr ""
 
 #: libraries/import.lib.php:1228
-msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
 #: libraries/import.lib.php:1229
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
 #: libraries/import.lib.php:1230
-msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
 #: libraries/import.lib.php:1236
@@ -8300,7 +8301,7 @@ msgstr "Binar"
 #: libraries/insert_edit.lib.php:658
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
-msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
 "Datorită lungimii sale, <br /> acest câmp s-ar putea să nu fie editabil"
 
@@ -9657,7 +9658,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:204
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:210
@@ -9668,7 +9669,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:258
 #, fuzzy
 #| msgid "File %s does not contain any key id"
-msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "File %s does not contain any key id"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -10316,12 +10317,15 @@ msgstr ""
 "pe master."
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+#, fuzzy
+#| msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr "Nu s-a putut schimba master-ul"
 
 #: libraries/replication_gui.lib.php:1001
-#, php-format
-msgid "Master server changed successfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "Server master schimbat cu succes în %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -10430,13 +10434,17 @@ msgstr "Definitor"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+#, fuzzy
+#| msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 "Datele introduse aici trebuie sa fie în format-ul \"nume-de-"
 "utilizator@numele-gazdei\" (username@hostname)"
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
+#, fuzzy
+#| msgid "You must provide an event name"
+msgid "You must provide an event name!"
 msgstr "Trebuie să introduceți un nume de eveniment"
 
 #: libraries/rte/rte_events.lib.php:595
@@ -10578,7 +10586,9 @@ msgid "SQL data access"
 msgstr "Acces date SQL"
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
+#, fuzzy
+#| msgid "You must provide a routine name"
+msgid "You must provide a routine name!"
 msgstr "Trebuie să introduceți un nume de rutină"
 
 #: libraries/rte/rte_routines.lib.php:1174
@@ -10667,21 +10677,27 @@ msgid "Time"
 msgstr "Timp"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
-msgstr ""
+#, fuzzy
+#| msgid "You must provide a routine name"
+msgid "You must provide a trigger name!"
+msgstr "Trebuie să introduceți un nume de rutină"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
-msgstr ""
+#, fuzzy
+#| msgid "You must provide a valid type for the event."
+msgid "You must provide a valid timing for the trigger!"
+msgstr "Trebuie să introduceți un tip valid pentru eveniment."
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
-msgstr ""
+#, fuzzy
+#| msgid "You must provide a valid return type for the routine."
+msgid "You must provide a valid event for the trigger!"
+msgstr "Rutina trebuie să întoarcă un tip valid."
 
 #: libraries/rte/rte_triggers.lib.php:480
 #, fuzzy
 #| msgid "Invalid table name"
-msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "Denumire de tabel nevalidă"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -11186,12 +11202,16 @@ msgstr "Permite crearea noilor viziuni."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
+#, fuzzy
+#| msgid "Allows to set up events for the event scheduler"
+msgid "Allows to set up events for the event scheduler."
 msgstr "Permite configurarea evenimentelor pentru planificatorul de evenimente"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "Permite crearea și eliminarea declanșatorilor"
 
 #: libraries/server_privileges.lib.php:369
@@ -11284,7 +11304,9 @@ msgstr "Drepturi specifice de tabele"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Important: numele drepturilor de acces MySQL apar în engleză"
 
 #: libraries/server_privileges.lib.php:977
@@ -13257,22 +13279,18 @@ msgstr ""
 msgid "after %s"
 msgstr "După %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr ""
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 #, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Nici unul(a)"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "Conform definiției:"
 
@@ -13730,19 +13748,19 @@ msgstr "Pagină"
 #: pmd_pdf.php:128
 #, fuzzy
 #| msgid "Import files"
-msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "Import fișiere"
 
 #: pmd_pdf.php:129
 #, fuzzy
 #| msgid "Export/Import to scale"
-msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "Exportă/Importă la scală"
 
 #: pmd_pdf.php:131
 #, fuzzy
 #| msgid "Create a new index"
-msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "Creează un nou index"
 
 #: pmd_pdf.php:143
@@ -13790,7 +13808,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "Eroare la salvarea coordonatelor pentru Designer."
 
 #: prefs_forms.php:86
-msgid "Cannot save settings, submitted form contains errors"
+#, fuzzy
+#| msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Nu se pot salva setările, formularul trimis conține erori"
 
 #: prefs_manage.php:82
@@ -13902,7 +13922,7 @@ msgstr ""
 "deja oprit."
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
 
 #: setup/frames/index.inc.php:53
@@ -15423,6 +15443,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert este setat cu 0"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "Comanda dumneavoastră SQL a fost executată cu succes"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Conexiunea la server-ul Drizzle a eșuat"

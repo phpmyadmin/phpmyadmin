@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2013-10-03 08:49+0200\n"
 "Last-Translator: Yngve Nybakk <yngve.nybakk@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -2689,7 +2689,11 @@ msgstr "Avslutt"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan være unøyaktig. Se [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
@@ -3099,13 +3103,6 @@ msgstr "Programtillegg"
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Motorer"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "Kommandoen/spørringen er utført"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4530,11 +4527,15 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "Tom signon URL ved bruk av signon autentiseringsmetode"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr "Blankt phpMyAdmin kontrollbruker for bruk av pmadb"
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr "Blankt phpMyAdmin kontrollbrukerpassord for bruk av pmadb"
 
 #: libraries/config/Validator.class.php:458
@@ -8070,12 +8071,15 @@ msgstr ""
 #: libraries/import.lib.php:1228
 #, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
-msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr "Vis en strukturs innhold ved å klikke på dens navn"
 
 #: libraries/import.lib.php:1229
+#, fuzzy
+#| msgid ""
+#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Endre noen av dens innstillinger ved å klikke på den tilhørende "
 "\"Innstillinger\" link"
@@ -8083,7 +8087,7 @@ msgstr ""
 #: libraries/import.lib.php:1230
 #, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
-msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr "Endre dens struktur ved å følge \"Struktur\" linken"
 
 #: libraries/import.lib.php:1236
@@ -8133,7 +8137,9 @@ msgid "Binary"
 msgstr "Binær"
 
 #: libraries/insert_edit.lib.php:658
-msgid "Because of its length,<br /> this column might not be editable"
+#, fuzzy
+#| msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
 "På grunn av sin lengde,<br /> så vil muligens denne kolonnen ikke være "
 "redigerbar"
@@ -9462,7 +9468,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:204
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:210
@@ -9473,7 +9479,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:258
 #, fuzzy
 #| msgid "File %s does not contain any key id"
-msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "Fila %s inneholder ingen nøkkel id"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -10115,13 +10121,15 @@ msgstr ""
 "Kan ikke lese masterloggposisjon. Muligens privilegieproblem på master."
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+#, fuzzy
+#| msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr "Kan ikke endre master"
 
 #: libraries/replication_gui.lib.php:1001
 #, fuzzy, php-format
 #| msgid "Master server changed succesfully to %s"
-msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "Mastertjener endret til %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -10237,12 +10245,14 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
-msgstr ""
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "You must provide an event name!"
+msgstr "Ugylding tabellnavn"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
@@ -10383,8 +10393,10 @@ msgid "SQL data access"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
-msgstr ""
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "You must provide a routine name!"
+msgstr "Ugylding tabellnavn"
 
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
@@ -10471,21 +10483,27 @@ msgid "Time"
 msgstr "Tid"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
-msgstr ""
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "You must provide a trigger name!"
+msgstr "Ugylding tabellnavn"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
-msgstr ""
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "You must provide a valid timing for the trigger!"
+msgstr "Ugylding tabellnavn"
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
-msgstr ""
+#, fuzzy
+#| msgid "Invalid table name"
+msgid "You must provide a valid event for the trigger!"
+msgstr "Ugylding tabellnavn"
 
 #: libraries/rte/rte_triggers.lib.php:480
 #, fuzzy
 #| msgid "Invalid table name"
-msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "Ugylding tabellnavn"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -10994,12 +11012,16 @@ msgstr "Tillater oppretting av nye visninger."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
+#, fuzzy
+#| msgid "Allows to set up events for the event scheduler"
+msgid "Allows to set up events for the event scheduler."
 msgstr "Tillater å sette opp hendelser for hendelseskalenderen"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "Tillater opprettelse og sletting av triggere"
 
 #: libraries/server_privileges.lib.php:369
@@ -11083,7 +11105,9 @@ msgstr "Tabell-spesifikke privilegier"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "OBS: MySQL privilegiumnavn er på engelsk"
 
 #: libraries/server_privileges.lib.php:977
@@ -13169,20 +13193,16 @@ msgstr ""
 msgid "after %s"
 msgstr "Etter %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr ""
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
 msgid "None"
 msgstr "Ingen"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "Som definert:"
 
@@ -13676,19 +13696,19 @@ msgstr "sider"
 #: pmd_pdf.php:128
 #, fuzzy
 #| msgid "Import files"
-msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "Importer filer"
 
 #: pmd_pdf.php:129
 #, fuzzy
 #| msgid "Export/Import to scale"
-msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "Eksporter/Importer til skala"
 
 #: pmd_pdf.php:131
 #, fuzzy
 #| msgid "Create a new index"
-msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "Lag en ny indeks"
 
 #: pmd_pdf.php:143
@@ -13740,7 +13760,7 @@ msgstr "Feil oppstod under lagring av Designerkoordinater."
 #: prefs_forms.php:86
 #, fuzzy
 #| msgid "Submitted form contains errors"
-msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Innsendt skjema inneholder feil"
 
 #: prefs_manage.php:82
@@ -13858,7 +13878,7 @@ msgstr ""
 "phpMyAdmin kunne ikke avslutte tråd %s. Den er sansynligvis alt avsluttet."
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
 
 #: setup/frames/index.inc.php:53
@@ -15349,6 +15369,9 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "maks. samtidige tilkoblinger"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "Kommandoen/spørringen er utført"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Kunne ikke koble til Drizzle tjener"

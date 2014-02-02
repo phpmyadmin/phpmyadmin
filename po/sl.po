@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2014-01-29 17:46+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2627,7 +2627,11 @@ msgstr "Prekini proces"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Morda je približno. Glej [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Poizvedbo SQL sem uspešno izvedel."
 
@@ -3021,13 +3025,6 @@ msgstr "Vtičniki"
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Pogoni"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "Poizvedba SQL je bila uspešno izvedena"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4442,11 +4439,15 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "Počisti URL signon pri uporabi overitvenega načina signon"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr "Počisti krmilnega uporabnika phpMyAdmin pri uporabi pmadb"
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr "Počisti geslo krmilnega uporabnika phpMyAdmin pri uporabi pmadb"
 
 #: libraries/config/Validator.class.php:458
@@ -7553,18 +7554,25 @@ msgstr ""
 "Naslednje strukture so bile ali ustvarjene ali spremenjene: Tukaj lahko:"
 
 #: libraries/import.lib.php:1228
-msgid "View a structure's contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr "Oglejte si vsebine strukture s klikom na njeno ime"
 
 #: libraries/import.lib.php:1229
+#, fuzzy
+#| msgid ""
+#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Spremenite katero koli njeno nastavitev s klikom na pripadajočo povezavo "
 "\"Možnosti\""
 
 #: libraries/import.lib.php:1230
-msgid "Edit structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr "Uredite strukturo s sledenjem povezavi \"Struktura\""
 
 #: libraries/import.lib.php:1236
@@ -7609,7 +7617,9 @@ msgid "Binary"
 msgstr "Dvojiško"
 
 #: libraries/insert_edit.lib.php:658
-msgid "Because of its length,<br /> this column might not be editable"
+#, fuzzy
+#| msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr "Zaradi njegove dolžine<br />stolpca morda ne bo mogoče urejati"
 
 #: libraries/insert_edit.lib.php:1103
@@ -8847,9 +8857,13 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Med uvažanjem datoteke oblik ESRI je prišlo do napake: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:204
+#, fuzzy
+#| msgid ""
+#| "You tried to import an invalid file or the imported file contains invalid "
+#| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr ""
 "Poskušali ste uvoziti neveljavno datoteko ali pa uvožena datoteka vsebuje "
 "neveljavne podatke"
@@ -8860,7 +8874,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Prostorska razširitev MySQL ne podpira ESRI vrste \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-msgid "The imported file does not contain any data"
+#, fuzzy
+#| msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "Uvožena datoteka ne vsebuje nobenih podatkov"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -9455,12 +9471,15 @@ msgstr ""
 "privilegiji na glavnem strežniku."
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+#, fuzzy
+#| msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr "Ne morem spremeniti glavnega strežnika"
 
 #: libraries/replication_gui.lib.php:1001
-#, php-format
-msgid "Master server changed successfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "Glavni strežnik je uspešno spremenjen v %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -9558,11 +9577,15 @@ msgstr "Opredeljevalec"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+#, fuzzy
+#| msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Opredeljevalec mora biti oblike \"uporabniškoime@imegostitelja\""
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
+#, fuzzy
+#| msgid "You must provide an event name"
+msgid "You must provide an event name!"
 msgstr "Navesti morate ime dogodka"
 
 #: libraries/rte/rte_events.lib.php:595
@@ -9687,7 +9710,9 @@ msgid "SQL data access"
 msgstr "Dostop do podatkov SQL"
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
+#, fuzzy
+#| msgid "You must provide a routine name"
+msgid "You must provide a routine name!"
 msgstr "Navesti morate ime rutine"
 
 #: libraries/rte/rte_routines.lib.php:1174
@@ -9768,19 +9793,27 @@ msgid "Time"
 msgstr "Čas"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
+#, fuzzy
+#| msgid "You must provide a trigger name"
+msgid "You must provide a trigger name!"
 msgstr "Navesti morate ime sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid timing for the trigger"
+msgid "You must provide a valid timing for the trigger!"
 msgstr "Navesti morate veljavni časovni izbor sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid event for the trigger"
+msgid "You must provide a valid event for the trigger!"
 msgstr "Navesti morate veljavni dogodek sprožilca"
 
 #: libraries/rte/rte_triggers.lib.php:480
-msgid "You must provide a valid table name"
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "Navesti morate veljavno ime tabele"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -10251,12 +10284,16 @@ msgstr "Omogoča ustvarjanje novih pogledov."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
+#, fuzzy
+#| msgid "Allows to set up events for the event scheduler"
+msgid "Allows to set up events for the event scheduler."
 msgstr "Omogoča določanje dogodkov za načrtovalnik dogodkov"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "Omogoča ustvarjanje in brisanje sprožilcev"
 
 #: libraries/server_privileges.lib.php:369
@@ -10342,7 +10379,9 @@ msgstr "Privilegiji tipični za tabelo"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Opomba: Imena privilegijev MySQL so zapisana v angleščini"
 
 #: libraries/server_privileges.lib.php:977
@@ -12310,20 +12349,16 @@ msgstr "prvi"
 msgid "after %s"
 msgstr "po %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
-msgstr "Podatki ENUM ali SET predolgi?"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
+msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr "Pridobi več prostora za urejanje"
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
 msgid "None"
 msgstr "Brez"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "Kot določeno:"
 
@@ -12751,15 +12786,21 @@ msgid "Page:"
 msgstr "Stran:"
 
 #: pmd_pdf.php:128
-msgid "Import from selected page"
+#, fuzzy
+#| msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "Uvozi z izbrane strani"
 
 #: pmd_pdf.php:129
-msgid "Export to selected page"
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "Izvozi na izbrano stran"
 
 #: pmd_pdf.php:131
-msgid "Create a page and export to it"
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "Ustvari stran in izvozi nanjo"
 
 #: pmd_pdf.php:143
@@ -12803,7 +12844,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "Napaka pri shranjevanju koordinat Oblikovalnika."
 
 #: prefs_forms.php:86
-msgid "Cannot save settings, submitted form contains errors"
+#, fuzzy
+#| msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Ne morem shraniti nastavitev, poslan obrazec vsebuje napake"
 
 #: prefs_manage.php:82
@@ -12914,7 +12957,10 @@ msgid ""
 msgstr "phpMyAdmin ni uspel prekiniti niti %s. Verjetno je že prekinjena."
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+#, fuzzy
+#| msgid ""
+#| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
 "Neveljaven formset; preverite polje $formsets v setup/frames/form.inc.php"
 
@@ -14449,6 +14495,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "Poizvedba SQL je bila uspešno izvedena"
+
+#~ msgid "ENUM or SET data too long?"
+#~ msgstr "Podatki ENUM ali SET predolgi?"
+
+#~ msgid "Get more editing space"
+#~ msgstr "Pridobi več prostora za urejanje"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Ne morem se povezati s strežnikom Drizzle"

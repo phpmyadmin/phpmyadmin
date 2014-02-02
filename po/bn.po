@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2014-02-02 11:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
+"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
+">\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2653,7 +2653,11 @@ msgstr "হত্যা"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "সম্ভবত আনুমানিক। [doc@faq3-11]FAQ 3.11[/doc] দেখুন।"
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
@@ -3054,13 +3058,6 @@ msgstr "প্লাগইন"
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "ব্যবস্থাসমূহ"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4458,11 +4455,15 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "শুন্য signon URL যখন signon প্রমাণীকরণ ব্যবহার করছেন।"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr "যখন pmadb ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক ব্যবহারকারী শুন্য"
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr "যখন pmadb ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক ব্যবহারকারী পাসওর্য়াড শুন্য"
 
 #: libraries/config/Validator.class.php:458
@@ -7946,16 +7947,23 @@ msgid ""
 msgstr "এই আকৃতিটি তৈরী করা বা পরিবর্তন করা হয়েছে। এখানে আপনি:"
 
 #: libraries/import.lib.php:1228
-msgid "View a structure's contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr "একটি আকৃতির বিশদ দেখুন তার নামে ক্লিক করে"
 
 #: libraries/import.lib.php:1229
+#, fuzzy
+#| msgid ""
+#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "\"Options\" এ ক্লীক করে যে কোন সেটিংস পরিবর্তন করুন"
 
 #: libraries/import.lib.php:1230
-msgid "Edit structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr "আকৃতি সম্পাদনা কর এই \"Structure\" সংযোগের দ্বারা"
 
 #: libraries/import.lib.php:1236
@@ -8000,7 +8008,9 @@ msgid "Binary"
 msgstr "বাইনারী"
 
 #: libraries/insert_edit.lib.php:658
-msgid "Because of its length,<br /> this column might not be editable"
+#, fuzzy
+#| msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr "দৈর্ঘ্যের জন্য এই স্বম্ভ সম্পাদন করা যাবে না"
 
 #: libraries/insert_edit.lib.php:1103
@@ -9298,9 +9308,13 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI ফাইল আমদানিতে ভুল:\"%s\"।"
 
 #: libraries/plugins/import/ImportShp.class.php:204
+#, fuzzy
+#| msgid ""
+#| "You tried to import an invalid file or the imported file contains invalid "
+#| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr "আপনি একটি অযোগ্য ফাইল আমদানির চেষ্টা করছেন বা ফাইলটিতে অযোগ্য তথ্য আছে"
 
 #: libraries/plugins/import/ImportShp.class.php:210
@@ -9309,7 +9323,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial সংযোজক ESRI type \"%s\" সমর্থন করে না।"
 
 #: libraries/plugins/import/ImportShp.class.php:258
-msgid "The imported file does not contain any data"
+#, fuzzy
+#| msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "আমদানিকৃত ফাইলটিতে কোন তথ্য নাই"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -9921,12 +9937,15 @@ msgid ""
 msgstr "প্রধান লগ পড়া যায়নি। প্রধান লগে অধিকার সমস্যা."
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+#, fuzzy
+#| msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr "প্রধানটি পরিবর্তন করা যায়নি"
 
 #: libraries/replication_gui.lib.php:1001
-#, php-format
-msgid "Master server changed successfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "প্রধান সার্ভারটি সফলভাবে %s তে পরিবর্তন করা হয়েছে"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -10029,11 +10048,15 @@ msgstr "সংজ্ঞা দানকারী"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+#, fuzzy
+#| msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "সংজ্ঞা দানকারী অবশ্যই \"username@hostname\" গঠনে হবে"
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
+#, fuzzy
+#| msgid "You must provide an event name"
+msgid "You must provide an event name!"
 msgstr "আপনাকে অবশ্যই একটি ইভেন্টের নাম দিতে হবে"
 
 #: libraries/rte/rte_events.lib.php:595
@@ -10160,7 +10183,9 @@ msgid "SQL data access"
 msgstr "SQL তথ্যে প্রবেশ"
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
+#, fuzzy
+#| msgid "You must provide a routine name"
+msgid "You must provide a routine name!"
 msgstr "আপনাকে অবশ্যই একটি রুটিনের নাম দিতে হবে"
 
 #: libraries/rte/rte_routines.lib.php:1174
@@ -10239,19 +10264,27 @@ msgid "Time"
 msgstr "সময়"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
+#, fuzzy
+#| msgid "You must provide a trigger name"
+msgid "You must provide a trigger name!"
 msgstr "অবশ্যই একটি ট্রিগারের নাম দিতে হবে"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid timing for the trigger"
+msgid "You must provide a valid timing for the trigger!"
 msgstr "ট্রিগারের জন্য অবশ্যই একটি বৈধ সময় দিতে হবে"
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid event for the trigger"
+msgid "You must provide a valid event for the trigger!"
 msgstr "ট্রিগারটির জন্য অবশ্যই একটি বৈধ ইভেন্ট দিতে হবে"
 
 #: libraries/rte/rte_triggers.lib.php:480
-msgid "You must provide a valid table name"
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "অবশ্যই একটি বৈধ টেবল নাম দিতে হবে"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -10716,12 +10749,16 @@ msgstr "নতুন ভিউ তৈরীর অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
+#, fuzzy
+#| msgid "Allows to set up events for the event scheduler"
+msgid "Allows to set up events for the event scheduler."
 msgstr "ইভেন্ট সিডিউলারের জন্য ইভেন্ট নিধার্রন করার অনুমোদন"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "ট্রিগার তৈরী এবং মুছার অনুমোদন"
 
 #: libraries/server_privileges.lib.php:369
@@ -10806,7 +10843,9 @@ msgstr "টেবিলের নির্দিষ্ট অধিকার"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "টিকা: মাইএসকিউএলের অধিকার গুলো ইংরেজীতে দেওয়া আছে"
 
 #: libraries/server_privileges.lib.php:977
@@ -12774,20 +12813,16 @@ msgstr "প্রথম"
 msgid "after %s"
 msgstr "%s এর পরে"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
-msgstr "ENUM বা SET তথ্য অনেক বড়?"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
+msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr "সম্পাদনার জন্য আরও জায়গা নিন"
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
 msgid "None"
 msgstr "কিছু না"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "যেমন বলা হয়েছে:"
 
@@ -13222,15 +13257,21 @@ msgid "Page:"
 msgstr "পাতাসমুহ"
 
 #: pmd_pdf.php:128
-msgid "Import from selected page"
+#, fuzzy
+#| msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "নির্বাচিত পাতা থেকে আমদানি কর"
 
 #: pmd_pdf.php:129
-msgid "Export to selected page"
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "নির্বাচিত পাতায় রফতানি কর"
 
 #: pmd_pdf.php:131
-msgid "Create a page and export to it"
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "একটি পাতা তৈরী কর এবং উহাতে রফতানী কর"
 
 #: pmd_pdf.php:143
@@ -13276,7 +13317,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "নকশাকারীর জন্য কোওর্ডিন্য্যট সংরক্ষনে সমস্যা।"
 
 #: prefs_forms.php:86
-msgid "Cannot save settings, submitted form contains errors"
+#, fuzzy
+#| msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "সেটিংস সংরক্ষন করা যায়নি, দেওয়া তথ্যে ভূল আছে"
 
 #: prefs_manage.php:82
@@ -13390,7 +13433,10 @@ msgstr ""
 "phpMyAdmin %s প্রক্রিয়াটি ধ্বংস করতে পারে নাই। সম্ভবত ইহা পূর্বেই বন্ধ করা হয়েছে।"
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+#, fuzzy
+#| msgid ""
+#| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr "ফর্মসেট ঠিক নাই, setup/frames/form.inc.php এ  $formsets পরীক্ষা করুন"
 
 #: setup/frames/index.inc.php:53
@@ -14840,6 +14886,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে"
+
+#~ msgid "ENUM or SET data too long?"
+#~ msgstr "ENUM বা SET তথ্য অনেক বড়?"
+
+#~ msgid "Get more editing space"
+#~ msgstr "সম্পাদনার জন্য আরও জায়গা নিন"
 
 #~ msgid "Could not connect to MySQL server"
 #~ msgstr "MySQL সার্ভারে সংযোগ করা যায়নি"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2014-01-05 13:27+0200\n"
 "Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -2634,7 +2634,11 @@ msgstr "Zabiť"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Môže byť nepresné. Viď [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
@@ -3039,13 +3043,6 @@ msgstr "Rozšírenia"
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Systémy"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "SQL dopyt bol úspešne vykonaný"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4419,12 +4416,16 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "Prázdna signon URL pri využití autentifikačnej metódy signon"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr ""
 "Prázdne užívateľské meno pre phpMyAdmin control užívateľa pri využití pmadb"
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr "Prázdne heslo pre phpMyAdmin control užívateľa pri využití pmadb"
 
 #: libraries/config/Validator.class.php:458
@@ -7955,16 +7956,23 @@ msgid ""
 msgstr "Nasledujúce tabuľky boli vytvorené alebo zmenené. Teraz možete:"
 
 #: libraries/import.lib.php:1228
-msgid "View a structure's contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr "Zobraziť štruktúru obsahu kliknutím na jeho názov"
 
 #: libraries/import.lib.php:1229
+#, fuzzy
+#| msgid ""
+#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Zmeniť ľubovolné nastavenia kliknutím na odkaz \"Nastavenia\""
 
 #: libraries/import.lib.php:1230
-msgid "Edit structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr "Upraviť štruktúru kliknutím na odkaz \"Štruktúra\""
 
 #: libraries/import.lib.php:1236
@@ -8009,7 +8017,9 @@ msgid "Binary"
 msgstr "Binárny"
 
 #: libraries/insert_edit.lib.php:658
-msgid "Because of its length,<br /> this column might not be editable"
+#, fuzzy
+#| msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr "Kvôli dĺžke poľa,<br /> toto pole sa nemusí dať upraviť"
 
 #: libraries/insert_edit.lib.php:1103
@@ -9287,7 +9297,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:204
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:210
@@ -9296,7 +9306,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:258
-msgid "The imported file does not contain any data"
+#, fuzzy
+#| msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "Nahraný súbor neobsahuje žiadne dáta"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -9878,12 +9890,13 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:1001
-#, php-format
-msgid "Master server changed successfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "Master server zmenený úspešne na %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -9986,12 +9999,14 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
-msgstr ""
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide an event name!"
+msgstr "Musíte zadať platný názov tabuľky"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
@@ -10118,8 +10133,10 @@ msgid "SQL data access"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
-msgstr ""
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a routine name!"
+msgstr "Musíte zadať platný názov tabuľky"
 
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
@@ -10196,19 +10213,27 @@ msgid "Time"
 msgstr "Čas"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
-msgstr ""
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a trigger name!"
+msgstr "Musíte zadať platný názov tabuľky"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
-msgstr ""
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid timing for the trigger!"
+msgstr "Musíte zadať platný názov tabuľky"
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
-msgstr ""
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid event for the trigger!"
+msgstr "Musíte zadať platný názov tabuľky"
 
 #: libraries/rte/rte_triggers.lib.php:480
-msgid "You must provide a valid table name"
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "Musíte zadať platný názov tabuľky"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -10676,12 +10701,16 @@ msgstr "Umožňuje vytvárať nové pohľady."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
-msgstr ""
+#, fuzzy
+#| msgid "Allows locking tables for the current thread."
+msgid "Allows to set up events for the event scheduler."
+msgstr "Povolí zmaknutie tabuliek pre aktuálne vlákno."
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "Povolí vytváranie a mazanie spúšťačov"
 
 #: libraries/server_privileges.lib.php:369
@@ -10767,7 +10796,9 @@ msgstr "Oprávnenia pre jednotlivé tabuľky"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Poznámka: názvy MySQL oprávnení sú uvádzané po anglicky"
 
 #: libraries/server_privileges.lib.php:977
@@ -12765,20 +12796,16 @@ msgstr ""
 msgid "after %s"
 msgstr "po %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr "Získať viac miesta pre úpravy"
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
 msgid "None"
 msgstr "Žiadny"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "Podľa zadania:"
 
@@ -13211,15 +13238,21 @@ msgid "Page:"
 msgstr "Stránka"
 
 #: pmd_pdf.php:128
-msgid "Import from selected page"
+#, fuzzy
+#| msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "Importovať zo zvolenej stránky"
 
 #: pmd_pdf.php:129
-msgid "Export to selected page"
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "Exportovať na zvolenú stránku"
 
 #: pmd_pdf.php:131
-msgid "Create a page and export to it"
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "Vytvoriť novú stránku a exportovať do nej"
 
 #: pmd_pdf.php:143
@@ -13265,7 +13298,9 @@ msgid "Error saving coordinates for Designer."
 msgstr ""
 
 #: prefs_forms.php:86
-msgid "Cannot save settings, submitted form contains errors"
+#, fuzzy
+#| msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Nepodarilo sa uložiť nastavenia, odoslaný formulár obsahuje chyby"
 
 #: prefs_manage.php:82
@@ -13378,7 +13413,7 @@ msgstr ""
 "Neporadilo za ukončiť vlákno %s. Jeho beh bol pravdepodobne už ukončený."
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
 
 #: setup/frames/index.inc.php:53
@@ -14704,6 +14739,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "SQL dopyt bol úspešne vykonaný"
+
+#~ msgid "Get more editing space"
+#~ msgstr "Získať viac miesta pre úpravy"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Nepodarilo sa pripojiť k Drizzle serveru"

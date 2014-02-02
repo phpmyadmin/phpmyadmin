@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2014-01-01 09:31+0200\n"
 "Last-Translator: zz zz <tczzjin@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -2580,7 +2580,11 @@ msgstr "杀死"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "近似值。参见[doc@faq3-11]常见问题 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
@@ -2978,13 +2982,6 @@ msgstr "插件"
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "引擎"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "您的 SQL 语句已成功运行"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4340,12 +4337,12 @@ msgstr "使用 singon 认证方式时 singon 地址不能为空"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr "使用 PMA 数据库时控制用户不能为空"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr "使用 PMA 数据时控制用户的密码不能为空"
 
 #: libraries/config/Validator.class.php:458
@@ -7737,16 +7734,23 @@ msgid ""
 msgstr "下列结构被创建或修改。你可以:"
 
 #: libraries/import.lib.php:1228
-msgid "View a structure's contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr "请通过点击结构的名称来查看它的内容"
 
 #: libraries/import.lib.php:1229
+#, fuzzy
+#| msgid ""
+#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "点击相应的“选项”链接修改它的设置"
 
 #: libraries/import.lib.php:1230
-msgid "Edit structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr "请通过点击 \"结构\" 链接来编辑结构"
 
 #: libraries/import.lib.php:1236
@@ -7791,7 +7795,9 @@ msgid "Binary"
 msgstr "二进制"
 
 #: libraries/insert_edit.lib.php:658
-msgid "Because of its length,<br /> this column might not be editable"
+#, fuzzy
+#| msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr "因长度问题，<br /> 该字段可能无法编辑"
 
 #: libraries/insert_edit.lib.php:1103
@@ -9078,9 +9084,13 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "导入 ESRI 图形文件时出错: \"%s\"。"
 
 #: libraries/plugins/import/ImportShp.class.php:204
+#, fuzzy
+#| msgid ""
+#| "You tried to import an invalid file or the imported file contains invalid "
+#| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr "您要导入的文件无效或文件中含有无效数据"
 
 #: libraries/plugins/import/ImportShp.class.php:210
@@ -9089,7 +9099,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial 扩展不支持 ESRI 类型 \"%s\"。"
 
 #: libraries/plugins/import/ImportShp.class.php:258
-msgid "The imported file does not contain any data"
+#, fuzzy
+#| msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "导入的文件没有任何数据"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -9684,12 +9696,15 @@ msgid ""
 msgstr "无法读取主服务器日志。主服务器的权限设置可能有问题。"
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+#, fuzzy
+#| msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr "无法修改主服务器"
 
 #: libraries/replication_gui.lib.php:1001
-#, php-format
-msgid "Master server changed successfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "已成功修改主服务器到 %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -9792,11 +9807,15 @@ msgstr "用户"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+#, fuzzy
+#| msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "用户必须是 \"用户名@主机名\" 格式"
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
+#, fuzzy
+#| msgid "You must provide an event name"
+msgid "You must provide an event name!"
 msgstr "请输入事件名称"
 
 #: libraries/rte/rte_events.lib.php:595
@@ -9922,7 +9941,9 @@ msgid "SQL data access"
 msgstr "SQL 数据访问"
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
+#, fuzzy
+#| msgid "You must provide a routine name"
+msgid "You must provide a routine name!"
 msgstr "请输入程序名称"
 
 #: libraries/rte/rte_routines.lib.php:1174
@@ -9998,19 +10019,27 @@ msgid "Time"
 msgstr "时机"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
+#, fuzzy
+#| msgid "You must provide a trigger name"
+msgid "You must provide a trigger name!"
 msgstr "请输入触发器名称"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid timing for the trigger"
+msgid "You must provide a valid timing for the trigger!"
 msgstr "请选择一个有效的触发时机"
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid event for the trigger"
+msgid "You must provide a valid event for the trigger!"
 msgstr "请选择一个有效的触发事件"
 
 #: libraries/rte/rte_triggers.lib.php:480
-msgid "You must provide a valid table name"
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "请选择一个有效的表"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -10472,12 +10501,16 @@ msgstr "允许创建视图。"
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
+#, fuzzy
+#| msgid "Allows to set up events for the event scheduler"
+msgid "Allows to set up events for the event scheduler."
 msgstr "允许为事件触发器设置事件"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "允许创建和删除触发器"
 
 #: libraries/server_privileges.lib.php:369
@@ -10559,7 +10592,9 @@ msgstr "按表指定权限"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "注意：MySQL 权限名称会以英文显示"
 
 #: libraries/server_privileges.lib.php:977
@@ -12502,20 +12537,16 @@ msgstr "第一"
 msgid "after %s"
 msgstr "于 %s 之后"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
-msgstr "ENUM 或 SET 数据过长？"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
+msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr "获取更多编辑空间"
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
 msgid "None"
 msgstr "无"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "定义："
 
@@ -12947,15 +12978,21 @@ msgid "Page:"
 msgstr "页面"
 
 #: pmd_pdf.php:128
-msgid "Import from selected page"
+#, fuzzy
+#| msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "从所选页导入"
 
 #: pmd_pdf.php:129
-msgid "Export to selected page"
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "导出至所选页"
 
 #: pmd_pdf.php:131
-msgid "Create a page and export to it"
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "导出至新页"
 
 #: pmd_pdf.php:143
@@ -13001,7 +13038,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "保存设计器坐标时出错。"
 
 #: prefs_forms.php:86
-msgid "Cannot save settings, submitted form contains errors"
+#, fuzzy
+#| msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "无法保存设置，提交的表单中有错误"
 
 #: prefs_manage.php:82
@@ -13111,7 +13150,10 @@ msgid ""
 msgstr "phpMyAdmin 无法杀死线程 %s。该线程可能已经关闭。"
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+#, fuzzy
+#| msgid ""
+#| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr "不正确的表单集，请检查 setup/frames/form.inc.php 中的 $formsets 数组"
 
 #: setup/frames/index.inc.php:53
@@ -14495,6 +14537,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 被设为 0"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "您的 SQL 语句已成功运行"
+
+#~ msgid "ENUM or SET data too long?"
+#~ msgstr "ENUM 或 SET 数据过长？"
+
+#~ msgid "Get more editing space"
+#~ msgstr "获取更多编辑空间"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "无法连接到 Drizzle 服务器"

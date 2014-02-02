@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2014-01-10 19:11+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
@@ -2623,7 +2623,11 @@ msgstr "Kill"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
@@ -3028,13 +3032,6 @@ msgstr "Plug-ins"
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Engines"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "Your SQL query has been executed successfully"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4437,11 +4434,15 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "Empty signon URL while using signon authentication method"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr "Empty phpMyAdmin control user while using pmadb"
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr "Empty phpMyAdmin control user password while using pmadb"
 
 #: libraries/config/Validator.class.php:458
@@ -7981,17 +7982,24 @@ msgstr ""
 "The following structures have either been created or altered. Here you can:"
 
 #: libraries/import.lib.php:1228
-msgid "View a structure's contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr "View a structure's contents by clicking on its name"
 
 #: libraries/import.lib.php:1229
+#, fuzzy
+#| msgid ""
+#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 
 #: libraries/import.lib.php:1230
-msgid "Edit structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr "Edit structure by following the \"Structure\" link"
 
 #: libraries/import.lib.php:1236
@@ -8036,7 +8044,9 @@ msgid "Binary"
 msgstr "Binary"
 
 #: libraries/insert_edit.lib.php:658
-msgid "Because of its length,<br /> this column might not be editable"
+#, fuzzy
+#| msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr "Because of its length,<br /> this column might not be editable"
 
 #: libraries/insert_edit.lib.php:1103
@@ -9292,9 +9302,13 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "There was an error importing the ESRI shape file: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:204
+#, fuzzy
+#| msgid ""
+#| "You tried to import an invalid file or the imported file contains invalid "
+#| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
@@ -9305,7 +9319,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Extension does not support ESRI type \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-msgid "The imported file does not contain any data"
+#, fuzzy
+#| msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "The imported file does not contain any data"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -9914,12 +9930,15 @@ msgstr ""
 "Unable to read master log position. Possible privilege problem on master."
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+#, fuzzy
+#| msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr "Unable to change master"
 
 #: libraries/replication_gui.lib.php:1001
-#, php-format
-msgid "Master server changed successfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "Master server changed successfully to %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -10020,11 +10039,15 @@ msgstr "Definer"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+#, fuzzy
+#| msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "The definer must be in the \"username@hostname\" format"
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
+#, fuzzy
+#| msgid "You must provide an event name"
+msgid "You must provide an event name!"
 msgstr "You must provide an event name"
 
 #: libraries/rte/rte_events.lib.php:595
@@ -10152,7 +10175,9 @@ msgid "SQL data access"
 msgstr "SQL data access"
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
+#, fuzzy
+#| msgid "You must provide a routine name"
+msgid "You must provide a routine name!"
 msgstr "You must provide a routine name"
 
 #: libraries/rte/rte_routines.lib.php:1174
@@ -10231,19 +10256,27 @@ msgid "Time"
 msgstr "Time"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
+#, fuzzy
+#| msgid "You must provide a trigger name"
+msgid "You must provide a trigger name!"
 msgstr "You must provide a trigger name"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid timing for the trigger"
+msgid "You must provide a valid timing for the trigger!"
 msgstr "You must provide a valid timing for the trigger"
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid event for the trigger"
+msgid "You must provide a valid event for the trigger!"
 msgstr "You must provide a valid event for the trigger"
 
 #: libraries/rte/rte_triggers.lib.php:480
-msgid "You must provide a valid table name"
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "You must provide a valid table name"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -10708,12 +10741,16 @@ msgstr "Allows creating new views."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
+#, fuzzy
+#| msgid "Allows to set up events for the event scheduler"
+msgid "Allows to set up events for the event scheduler."
 msgstr "Allows to set up events for the event scheduler"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "Allows creating and dropping triggers"
 
 #: libraries/server_privileges.lib.php:369
@@ -10797,7 +10834,9 @@ msgstr "Table-specific privileges"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Note: MySQL privilege names are expressed in English"
 
 #: libraries/server_privileges.lib.php:977
@@ -12760,20 +12799,16 @@ msgstr "first"
 msgid "after %s"
 msgstr "after %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
-msgstr "ENUM or SET data too long?"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
+msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr "Get more editing space"
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
 msgid "None"
 msgstr "None"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "As defined:"
 
@@ -13201,15 +13236,21 @@ msgid "Page:"
 msgstr "Page:"
 
 #: pmd_pdf.php:128
-msgid "Import from selected page"
+#, fuzzy
+#| msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "Import from selected page"
 
 #: pmd_pdf.php:129
-msgid "Export to selected page"
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "Export to selected page"
 
 #: pmd_pdf.php:131
-msgid "Create a page and export to it"
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "Create a page and export to it"
 
 #: pmd_pdf.php:143
@@ -13253,7 +13294,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "Error saving coordinates for Designer."
 
 #: prefs_forms.php:86
-msgid "Cannot save settings, submitted form contains errors"
+#, fuzzy
+#| msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Cannot save settings, submitted form contains errors"
 
 #: prefs_manage.php:82
@@ -13363,7 +13406,10 @@ msgstr ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+#, fuzzy
+#| msgid ""
+#| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:53
@@ -14870,6 +14916,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is set to 0"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "Your SQL query has been executed successfully"
+
+#~ msgid "ENUM or SET data too long?"
+#~ msgstr "ENUM or SET data too long?"
+
+#~ msgid "Get more editing space"
+#~ msgstr "Get more editing space"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Could not connect to Drizzle server"

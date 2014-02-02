@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2013-08-23 11:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
@@ -2706,7 +2706,11 @@ msgstr "Finalitzar"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Pot ser aproximat. Veieu [doc@faq3-11]PCF -FAQ- 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
@@ -3115,13 +3119,6 @@ msgstr "Complements"
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Motors"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "La vostra comanda SQL ha estat executada amb èxit"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4574,11 +4571,15 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "URL signon buida al usar el métode d'autenticació signon"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr "Control d'usuari de phpMyAdmin buit al usar pmadb"
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr "Control de contrasenya de phpMyAdmin buida al usar pmadb"
 
 #: libraries/config/Validator.class.php:458
@@ -8186,18 +8187,25 @@ msgid ""
 msgstr "Les següents estructures han estat creades o bé alterades. Aquí pots:"
 
 #: libraries/import.lib.php:1228
-msgid "View a structure's contents by clicking on its name"
+#, fuzzy
+#| msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr "Veure el contingut d'una estructura prement sobre el seu nom"
 
 #: libraries/import.lib.php:1229
+#, fuzzy
+#| msgid ""
+#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Canviar qualsevol dels seus ajustaments fent clic al corresponents enllaç "
 "\"Opcions\""
 
 #: libraries/import.lib.php:1230
-msgid "Edit structure by following the \"Structure\" link"
+#, fuzzy
+#| msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr "Editar estructura seguint l'enllaç \"Estructura\""
 
 #: libraries/import.lib.php:1236
@@ -8242,7 +8250,9 @@ msgid "Binary"
 msgstr "Binari"
 
 #: libraries/insert_edit.lib.php:658
-msgid "Because of its length,<br /> this column might not be editable"
+#, fuzzy
+#| msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr "A causa de la seva longitud,<br /> aquesta columna no pot ser editable"
 
 #: libraries/insert_edit.lib.php:1103
@@ -9556,9 +9566,13 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Hi va haver un error en importar el fitxer de tipus ESRI: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:204
+#, fuzzy
+#| msgid ""
+#| "You tried to import an invalid file or the imported file contains invalid "
+#| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr "Has intentat importar un arxiu no vàlid o conté dades no vàlides"
 
 #: libraries/plugins/import/ImportShp.class.php:210
@@ -9567,7 +9581,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "La extensió espacial MySQL no és compatible amb el tipus ESRI \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-msgid "The imported file does not contain any data"
+#, fuzzy
+#| msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "L'arxiu importat no té dades"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -10194,12 +10210,15 @@ msgstr ""
 "permissos en el mestre."
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+#, fuzzy
+#| msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr "No es pot canviar el mestre"
 
 #: libraries/replication_gui.lib.php:1001
-#, php-format
-msgid "Master server changed successfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "S'ha canviat correctament el servidor mestre a %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -10302,11 +10321,15 @@ msgstr "Definidor"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+#, fuzzy
+#| msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "El definidor ha d'estar en el format \"usuari@servidor\""
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
+#, fuzzy
+#| msgid "You must provide an event name"
+msgid "You must provide an event name!"
 msgstr "Has de proporcionar un nom d'esdeveniment"
 
 #: libraries/rte/rte_events.lib.php:595
@@ -10434,7 +10457,9 @@ msgid "SQL data access"
 msgstr "Accés de dades SQL"
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
+#, fuzzy
+#| msgid "You must provide a routine name"
+msgid "You must provide a routine name!"
 msgstr "Has de proporcionar un nom de rutina"
 
 #: libraries/rte/rte_routines.lib.php:1174
@@ -10514,19 +10539,27 @@ msgid "Time"
 msgstr "Temps"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
+#, fuzzy
+#| msgid "You must provide a trigger name"
+msgid "You must provide a trigger name!"
 msgstr "Has de proveïr un nom de disparador"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid timing for the trigger"
+msgid "You must provide a valid timing for the trigger!"
 msgstr "Has de proveïr una sincronització vàlida pel disparador"
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid event for the trigger"
+msgid "You must provide a valid event for the trigger!"
 msgstr "Has de proveïr un event vàlid pel disparador"
 
 #: libraries/rte/rte_triggers.lib.php:480
-msgid "You must provide a valid table name"
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "Has de donar un nom de taula vàlid"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -10996,12 +11029,16 @@ msgstr "Permet crear noves vistes."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
+#, fuzzy
+#| msgid "Allows to set up events for the event scheduler"
+msgid "Allows to set up events for the event scheduler."
 msgstr "Permet establir events per al planificador d'events"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "Permet crear i eliminar disparadors -triggers-"
 
 #: libraries/server_privileges.lib.php:369
@@ -11086,7 +11123,9 @@ msgstr "Permisos especifics de taula"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Nota: Els noms dels privilegis del MySQL són en idioma anglès"
 
 #: libraries/server_privileges.lib.php:977
@@ -13148,20 +13187,16 @@ msgstr "primer"
 msgid "after %s"
 msgstr "Després de %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
-msgstr "Dades ENUM o SET massa llargues?"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
+msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr "Obté més espai d'edició"
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
 msgid "None"
 msgstr "Cap"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "Com definit:"
 
@@ -13604,15 +13639,21 @@ msgid "Page:"
 msgstr "pàgina"
 
 #: pmd_pdf.php:128
-msgid "Import from selected page"
+#, fuzzy
+#| msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "Importar des de la pàgina seleccionada"
 
 #: pmd_pdf.php:129
-msgid "Export to selected page"
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "Exporta a la pàgina seleccionada"
 
 #: pmd_pdf.php:131
-msgid "Create a page and export to it"
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "Crea una pàgina i exporta en ella"
 
 #: pmd_pdf.php:143
@@ -13660,7 +13701,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "Error desant coordenades per al Dissenyador."
 
 #: prefs_forms.php:86
-msgid "Cannot save settings, submitted form contains errors"
+#, fuzzy
+#| msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "No es poden desar els paràmetres, el formulari enviat conté errors"
 
 #: prefs_manage.php:82
@@ -13772,7 +13815,10 @@ msgid ""
 msgstr "phpMyAdmin no pot cancel.lar el fil %s. Probablement, ja és tancat."
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+#, fuzzy
+#| msgid ""
+#| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
 "Conjunt de formularis incorrecte, comprova l'array $formsets a l'arxiu setup/"
 "frames/form.inc.php"
@@ -15353,6 +15399,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "{concurrent_insert} està establert a 0"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "La vostra comanda SQL ha estat executada amb èxit"
+
+#~ msgid "ENUM or SET data too long?"
+#~ msgstr "Dades ENUM o SET massa llargues?"
+
+#~ msgid "Get more editing space"
+#~ msgstr "Obté més espai d'edició"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "No es pot connectar al servidor Drizzle"

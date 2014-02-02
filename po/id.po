@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 10:23+0100\n"
+"POT-Creation-Date: 2014-02-02 11:20+0100\n"
 "PO-Revision-Date: 2014-01-27 08:23+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2621,7 +2621,11 @@ msgstr "Tutup"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kemungkinan hanya perkiraan saja. Lihat [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.class.php:4593
+#: libraries/DisplayResults.class.php:4593 libraries/Message.class.php:180
+#: libraries/rte/rte_routines.lib.php:1467
+#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
+#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
+#: view_operations.php:62
 msgid "Your SQL query has been executed successfully."
 msgstr "Kueri SQL Anda berhasil dieksekusi."
 
@@ -3020,13 +3024,6 @@ msgstr "Plugin"
 #: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Mesin"
-
-#: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1467
-#: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
-#: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
-#: view_operations.php:62
-msgid "Your SQL query has been executed successfully"
-msgstr "Kueri SQL Anda berhasil dieksekusi"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
@@ -4450,11 +4447,15 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "Kosongkan URL signon sewaktu menggunakan metode autentikasi signon"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user while using pmadb"
+msgid "Empty phpMyAdmin control user while using pmadb!"
 msgstr "Kosongkan pengguna pengendali phpMyAdmin sewaktu menggunakan pmadb"
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb"
+#, fuzzy
+#| msgid "Empty phpMyAdmin control user password while using pmadb"
+msgid "Empty phpMyAdmin control user password while using pmadb!"
 msgstr ""
 "Kosongkan sandi pengguna pengendali phpMyAdmin sewaktu menggunakan pmadb"
 
@@ -7564,16 +7565,16 @@ msgid ""
 msgstr ""
 
 #: libraries/import.lib.php:1228
-msgid "View a structure's contents by clicking on its name"
+msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
 #: libraries/import.lib.php:1229
 msgid ""
-"Change any of its settings by clicking the corresponding \"Options\" link"
+"Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
 #: libraries/import.lib.php:1230
-msgid "Edit structure by following the \"Structure\" link"
+msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
 #: libraries/import.lib.php:1236
@@ -7621,7 +7622,9 @@ msgid "Binary"
 msgstr "Biner"
 
 #: libraries/insert_edit.lib.php:658
-msgid "Because of its length,<br /> this column might not be editable"
+#, fuzzy
+#| msgid "Because of its length,<br /> this column might not be editable"
+msgid "Because of its length,<br /> this column might not be editable."
 msgstr "Karena panjangnya,<br /> isian ini mungkin tidak dapat diedit"
 
 #: libraries/insert_edit.lib.php:1103
@@ -8927,7 +8930,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:204
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
-"data"
+"data!"
 msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:210
@@ -8936,7 +8939,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:258
-msgid "The imported file does not contain any data"
+#, fuzzy
+#| msgid "The imported file does not contain any data"
+msgid "The imported file does not contain any data!"
 msgstr "Berkas yang diimpor tidak mengandung data"
 
 #: libraries/plugins/import/ImportSql.class.php:71
@@ -9541,12 +9546,15 @@ msgstr ""
 "master."
 
 #: libraries/replication_gui.lib.php:997
-msgid "Unable to change master"
+#, fuzzy
+#| msgid "Unable to change master"
+msgid "Unable to change master!"
 msgstr "Tidak dapat mengubah master"
 
 #: libraries/replication_gui.lib.php:1001
-#, php-format
-msgid "Master server changed successfully to %s"
+#, fuzzy, php-format
+#| msgid "Master server changed successfully to %s"
+msgid "Master server changed successfully to %s."
 msgstr "Server master berhasil diubah menjadi %s"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
@@ -9646,11 +9654,13 @@ msgstr ""
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:580
-msgid "You must provide an event name"
+#, fuzzy
+#| msgid "You must provide an event name"
+msgid "You must provide an event name!"
 msgstr "Anda harus memasukkan nama event"
 
 #: libraries/rte/rte_events.lib.php:595
@@ -9771,7 +9781,9 @@ msgid "SQL data access"
 msgstr "Akses data SQL"
 
 #: libraries/rte/rte_routines.lib.php:1139
-msgid "You must provide a routine name"
+#, fuzzy
+#| msgid "You must provide a routine name"
+msgid "You must provide a routine name!"
 msgstr "Anda harus memasukkan nama routine"
 
 #: libraries/rte/rte_routines.lib.php:1174
@@ -9851,19 +9863,27 @@ msgid "Time"
 msgstr "Waktu"
 
 #: libraries/rte/rte_triggers.lib.php:458
-msgid "You must provide a trigger name"
+#, fuzzy
+#| msgid "You must provide a trigger name"
+msgid "You must provide a trigger name!"
 msgstr "Anda harus memasukkan nama trigger"
 
 #: libraries/rte/rte_triggers.lib.php:465
-msgid "You must provide a valid timing for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid timing for the trigger"
+msgid "You must provide a valid timing for the trigger!"
 msgstr "Anda harus memasukkan waktu yang valid untuk trigger"
 
 #: libraries/rte/rte_triggers.lib.php:472
-msgid "You must provide a valid event for the trigger"
+#, fuzzy
+#| msgid "You must provide a valid event for the trigger"
+msgid "You must provide a valid event for the trigger!"
 msgstr "Anda harus memasukkan event yang valid untuk trigger"
 
 #: libraries/rte/rte_triggers.lib.php:480
-msgid "You must provide a valid table name"
+#, fuzzy
+#| msgid "You must provide a valid table name"
+msgid "You must provide a valid table name!"
 msgstr "Anda harus memberikan nama tabel yang valid"
 
 #: libraries/rte/rte_triggers.lib.php:486
@@ -10335,12 +10355,16 @@ msgstr "Mengizinkan untuk membuat view baru."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-msgid "Allows to set up events for the event scheduler"
+#, fuzzy
+#| msgid "Allows to set up events for the event scheduler"
+msgid "Allows to set up events for the event scheduler."
 msgstr "Mengizinkan penyiapan event untuk penjadwal event"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-msgid "Allows creating and dropping triggers"
+#, fuzzy
+#| msgid "Allows creating and dropping triggers"
+msgid "Allows creating and dropping triggers."
 msgstr "Mengizinkan untuk membuat dan menghapus trigger"
 
 #: libraries/server_privileges.lib.php:369
@@ -10430,7 +10454,9 @@ msgstr "Hak akses khusus tabel"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-msgid "Note: MySQL privilege names are expressed in English"
+#, fuzzy
+#| msgid "Note: MySQL privilege names are expressed in English"
+msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Catatan: Nama hak akses MySQL dalam bahasa Inggris"
 
 #: libraries/server_privileges.lib.php:977
@@ -12387,20 +12413,16 @@ msgstr ""
 msgid "after %s"
 msgstr "Setelah %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1042
-msgid "ENUM or SET data too long?"
-msgstr "Data ENUM atau SET terlalu panjang?"
+#: libraries/tbl_columns_definition_form.lib.php:1043
+msgid "Edit ENUM/SET values"
+msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1044
-msgid "Get more editing space"
-msgstr "Dapatkan ruang pengeditan lebih luas"
-
-#: libraries/tbl_columns_definition_form.lib.php:1069
+#: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
 msgid "None"
 msgstr "Tidak ada"
 
-#: libraries/tbl_columns_definition_form.lib.php:1070
+#: libraries/tbl_columns_definition_form.lib.php:1069
 msgid "As defined:"
 msgstr "Seperti yang didefinisikan:"
 
@@ -12850,15 +12872,21 @@ msgid "Page:"
 msgstr "Halaman"
 
 #: pmd_pdf.php:128
-msgid "Import from selected page"
+#, fuzzy
+#| msgid "Import from selected page"
+msgid "Import from selected page."
 msgstr "Impor dari halaman terpilih"
 
 #: pmd_pdf.php:129
-msgid "Export to selected page"
+#, fuzzy
+#| msgid "Export to selected page"
+msgid "Export to selected page."
 msgstr "Ekspor ke halaman terpilih"
 
 #: pmd_pdf.php:131
-msgid "Create a page and export to it"
+#, fuzzy
+#| msgid "Create a page and export to it"
+msgid "Create a page and export to it."
 msgstr "Buat halaman dan ekspor ke dalamnya"
 
 #: pmd_pdf.php:143
@@ -12904,7 +12932,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "Galat sewaktu menyimpan koordinat untuk Desainer."
 
 #: prefs_forms.php:86
-msgid "Cannot save settings, submitted form contains errors"
+#, fuzzy
+#| msgid "Cannot save settings, submitted form contains errors"
+msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Pengaturan tidak dapat disimpan, formulir kiriman mengandung galat"
 
 #: prefs_manage.php:82
@@ -13018,7 +13048,7 @@ msgstr ""
 "ditutup terlebih dahulu."
 
 #: setup/frames/form.inc.php:25
-msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
+msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
 
 #: setup/frames/index.inc.php:53
@@ -14675,6 +14705,15 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert diatur ke 0"
+
+#~ msgid "Your SQL query has been executed successfully"
+#~ msgstr "Kueri SQL Anda berhasil dieksekusi"
+
+#~ msgid "ENUM or SET data too long?"
+#~ msgstr "Data ENUM atau SET terlalu panjang?"
+
+#~ msgid "Get more editing space"
+#~ msgstr "Dapatkan ruang pengeditan lebih luas"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Tidak dapat terhubung ke server Drizzle"
