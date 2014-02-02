@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 11:45+0100\n"
-"PO-Revision-Date: 2014-02-02 11:14+0200\n"
+"PO-Revision-Date: 2014-02-02 13:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
-">\n"
+"Language-Team: Japanese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11009,7 +11009,7 @@ msgstr "レプリケーションスレーブでは有効にする必要があり
 #: libraries/server_privileges.lib.php:343
 #: libraries/server_privileges.lib.php:1189 server_privileges.php:99
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "スレーブ/マスタの照会を許可する"
+msgstr "スレーブ/マスタの照会を許可する。"
 
 #: libraries/server_privileges.lib.php:348
 #: libraries/server_privileges.lib.php:364
