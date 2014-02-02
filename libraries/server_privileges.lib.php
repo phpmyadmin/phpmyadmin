@@ -350,12 +350,12 @@ function PMA_getGrantsArray()
         array(
             'Event_priv',
             'EVENT',
-            __('Allows to set up events for the event scheduler')
+            __('Allows to set up events for the event scheduler.')
         ),
         array(
             'Trigger_priv',
             'TRIGGER',
-            __('Allows creating and dropping triggers')
+            __('Allows creating and dropping triggers.')
         ),
         // for table privs:
         array(
@@ -1120,11 +1120,11 @@ function PMA_getStructurePrivilegeTable($table, $row)
         // MySQL 5.1.6
         $structure_privTable[] = array('Event',
             'EVENT',
-            __('Allows to set up events for the event scheduler')
+            __('Allows to set up events for the event scheduler.')
         );
         $structure_privTable[] = array('Trigger',
             'TRIGGER',
-            __('Allows creating and dropping triggers')
+            __('Allows creating and dropping triggers.')
         );
     }
     return $structure_privTable;

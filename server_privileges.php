@@ -68,7 +68,7 @@ $strPrivDescCreateView = __('Allows creating new views.');
 $strPrivDescDelete = __('Allows deleting data.');
 $strPrivDescDropDb = __('Allows dropping databases and tables.');
 $strPrivDescDropTbl = __('Allows dropping tables.');
-$strPrivDescEvent = __('Allows to set up events for the event scheduler');
+$strPrivDescEvent = __('Allows to set up events for the event scheduler.');
 $strPrivDescExecute = __('Allows executing stored routines.');
 $strPrivDescFile = __('Allows importing data from and exporting data into files.');
 $strPrivDescGrant = __(
@@ -108,7 +108,7 @@ $strPrivDescSuper = __(
     . 'required for most administrative operations like setting global variables '
     . 'or killing threads of other users.'
 );
-$strPrivDescTrigger = __('Allows creating and dropping triggers');
+$strPrivDescTrigger = __('Allows creating and dropping triggers.');
 $strPrivDescUpdate = __('Allows changing data.');
 $strPrivDescUsage = __('No privileges.');
 
