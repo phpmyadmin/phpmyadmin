@@ -202,7 +202,7 @@ class ImportShp extends ImportPlugin
                 $message = PMA_Message::error(
                     __(
                         'You tried to import an invalid file or the imported file'
-                        . ' contains invalid data'
+                        . ' contains invalid data!'
                     )
                 );
             } else {
@@ -255,7 +255,7 @@ class ImportShp extends ImportPlugin
         if (count($rows) == 0) {
             $error = true;
             $message = PMA_Message::error(
-                __('The imported file does not contain any data')
+                __('The imported file does not contain any data!')
             );
             return;
         }
