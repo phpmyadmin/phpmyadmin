@@ -1039,9 +1039,8 @@ function PMA_getHtmlForColumnLength($columnNumber, $ci, $ci_offset,
         . '<p class="enum_notice" id="enum_notice_' . $columnNumber . '_'
         . ($ci - $ci_offset)
         . '">';
-    $html .= __('ENUM or SET data too long?')
-        . '<a href="#" class="open_enum_editor"> '
-        . __('Get more editing space') . '</a>'
+    $html .= '<a href="#" class="open_enum_editor"> '
+        . __('Edit ENUM/SET values') . '</a>'
         . '</p>';
 
     return $html;
