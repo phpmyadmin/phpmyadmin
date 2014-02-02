@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 11:45+0100\n"
-"PO-Revision-Date: 2014-02-01 13:23+0200\n"
+"PO-Revision-Date: 2014-02-02 14:15+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -217,16 +217,16 @@ msgid "The database name is empty!"
 msgstr "De databanknaam is leeg!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Databank %1$s werd hernoemd naar %2$s"
+msgstr "Databank %1$s werd hernoemd naar %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Databank %1$s werd gekopieerd naar %2$s"
+msgstr "Databank %1$s werd gekopieerd naar %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -292,10 +292,9 @@ msgstr[0] "%s tabel"
 msgstr[1] "%s tabellen"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen"
+msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen!"
 
 #: db_qbe.php:70
 #, php-format
@@ -308,7 +307,7 @@ msgstr "Overschakelen op %svisuele builder%s"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "Toegang geweigerd"
+msgstr "Toegang geweigerd!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -583,7 +582,6 @@ msgid "Output"
 msgstr "Uitvoer"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -591,8 +589,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Kies \"GeomFormText\" uit de kolom \"Functie\" en kopieer onderstaande "
-"string in het veld \"Waarde\""
+"Kies \"GeomFormText\" uit de kolom \"Functie\" en kopieer onderstaande string in "
+"het veld \"Waarde\"."
 
 #: import.php:116
 #, php-format
@@ -613,10 +611,9 @@ msgstr "De bladwijzer werd verwijderd."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Bestand kon niet worden gelezen"
+msgstr "Bestand kon niet worden gelezen!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -641,15 +638,14 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
-"Kan de karakterset van het bestand niet omzetten zonder de 'character set "
-"conversion' bibliotheek"
+"De karakterset van het bestand kan niet omgezet worden zonder de 'character "
+"set conversion' bibliotheek!"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -658,10 +654,10 @@ msgstr ""
 "installatie!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Bladwijzer %s aangemaakt"
+msgstr "Bladwijzer %s werd aangemaakt."
 
 #: import.php:563 import.php:576
 #, php-format
@@ -950,10 +946,9 @@ msgid "Missing value in the form!"
 msgstr "Er ontbreekt een waarde in het formulier!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Vul een geldig nummer in"
+msgstr "Vul een geldig nummer in!"
 
 #: js/messages.php:49
 msgid "Please enter a valid length!"
@@ -1818,16 +1813,15 @@ msgid "Add an option for column \"%s\"."
 msgstr "Een optie voor kolom toevoegen "
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d object(en) aangemaakt"
+msgstr "%d object(en) aangemaakt."
 
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Druk op ESC om het bewerken te annuleren"
+msgstr "Druk op ESC om het bewerken te annuleren."
 
 #: js/messages.php:334
 msgid ""
@@ -1838,34 +1832,29 @@ msgstr ""
 "dat u deze pagina wil verlaten alvorens de wijzigingen op te slaan?"
 
 #: js/messages.php:335
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Sleep om te herschikken"
+msgstr "Sleep om te herschikken."
 
 #: js/messages.php:336
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Klik om te sorteren"
+msgstr "Klik om te sorteren."
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Klik om te markeren/demarkeren"
+msgstr "Klik om te markeren/demarkeren."
 
 #: js/messages.php:338
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Dubbelklik om kolomnaam te kopiëren"
+msgstr "Dubbelklik om kolomnaam te kopiëren."
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "Klik op het pijltje<br />om de zichtbaarheid van de kolom te wijzigen"
+msgstr "Klik op het pijltje<br />om de zichtbaarheid van de kolom te wijzigen."
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
@@ -1892,10 +1881,9 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "U kan de meeste waarden bewerken<br />door erop te klikken."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "Ga naar de link"
+msgstr "Ga naar de link."
 
 #: js/messages.php:357
 #, fuzzy
@@ -1910,10 +1898,9 @@ msgstr ""
 "kopiëren."
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Regel(s) met gegevens tonen"
+msgstr "Regel(s) met gegevens tonen."
 
 #: js/messages.php:362
 msgid "Generate password"
