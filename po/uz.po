@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 11:45+0100\n"
-"PO-Revision-Date: 2014-02-02 10:34+0200\n"
+"PO-Revision-Date: 2014-02-02 13:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
 "Language: uz\n"
@@ -307,7 +307,7 @@ msgstr "%sсўровларнинг визуал таркибига%s ўтиш"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "Рухсат берилмади"
+msgstr "Рухсат берилмади!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -11688,7 +11688,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1711
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
-msgstr "\"%s\"&quot маълумотлар базасига барча привилегияларни бериш;"
+msgstr "\"%s\" маълумотлар базасига барча привилегияларни бериш."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
