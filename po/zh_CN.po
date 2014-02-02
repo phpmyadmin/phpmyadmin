@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-01 09:31+0200\n"
 "Last-Translator: zz zz <tczzjin@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -216,13 +216,15 @@ msgid "The database name is empty!"
 msgstr "数据库名不能为空！"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "已将数据库 %1$s 改名为 %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "已将数据库 %1$s 复制为 %2$s"
 
 #: db_operations.php:260
@@ -286,7 +288,9 @@ msgid_plural "%s tables"
 msgstr[0] "%s 张表"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "您最少要选择显示一列"
 
 #: db_qbe.php:70
@@ -569,9 +573,13 @@ msgid "Output"
 msgstr "输出"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“值”中"
 
 #: import.php:116
@@ -616,8 +624,12 @@ msgstr ""
 "参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "没有字符集转换库，无法转换文件字符集"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -625,8 +637,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查您的安装！"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s"
 
 #: import.php:563 import.php:576
@@ -979,7 +992,9 @@ msgid "Connections / Processes"
 msgstr "连接 / 进程"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "本地监控设置不兼容"
 
 #: js/messages.php:77
@@ -1746,16 +1761,21 @@ msgid ""
 msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是否继续？"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "给字段添加选项 "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "已创建 %d 个对象"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "按 Esc 键取消编辑"
 
 #: js/messages.php:334
@@ -1765,24 +1785,32 @@ msgid ""
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "拖拽以调整顺序"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "点击以排序"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "点击以标记/取消标记"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "双击以复制字段名"
 
 #: js/messages.php:340
 #, fuzzy
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "点击下箭头以设置显示的字段"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1809,11 +1837,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "您可以直接点击大部分<br />单元格以修改其值。"
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "打开链接"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "复制字段名"
 
 #: js/messages.php:358
@@ -1822,7 +1854,7 @@ msgstr "在字段名上右键以复制到剪贴板。"
 
 #: js/messages.php:359
 #, fuzzy
-msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "显示数据行"
 
 #: js/messages.php:362
@@ -1850,7 +1882,9 @@ msgid "Hide Panel"
 msgstr "隐藏导航面板"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
+#, fuzzy
+#| msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "显示隐藏的导航树节点"
 
 #: js/messages.php:375
@@ -1910,7 +1944,8 @@ msgstr "显示打开的表"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3022,7 +3057,9 @@ msgid "Error while creating PDF:"
 msgstr "创建 PDF 时发生错误："
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "无法保存最近使用的表"
 
 #: libraries/RecentTable.class.php:161
@@ -3030,7 +3067,9 @@ msgid "Recent tables"
 msgstr "最近使用的表"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "没有最近使用的表"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3193,7 +3232,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "已将表 %1$s 改名为 %2$s。"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "无法保存表界面设置"
 
 #: libraries/Table.class.php:1506
@@ -3788,7 +3829,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "无法访问用于上传的文件夹。"
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "没有可上传的文件"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3894,7 +3937,9 @@ msgid "Check Privileges"
 msgstr "检查权限"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "读取配置文件失败"
 
 #: libraries/common.inc.php:583
@@ -4075,29 +4120,38 @@ msgstr "以上均不"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "请输入正数"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "请输入非负数"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "请输入有效的端口号"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "值错误"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "值应小于等于 %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12037,7 +12091,9 @@ msgid "Let every user access this bookmark"
 msgstr "让所有用户均可访问此书签"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "未创建书签"
 
 #: libraries/sql.lib.php:1180

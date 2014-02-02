@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-02-02 09:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
@@ -217,13 +217,15 @@ msgid "The database name is empty!"
 msgstr "डेटाबेस का नाम खाली है!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "डेटाबेस  %1$s का नाम बदल कर %2$s रखा गया है"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "डेटाबेस %1$s से %2$s में नकल किया गया है"
 
 #: db_operations.php:260
@@ -292,7 +294,9 @@ msgstr[0] "%s टेबलें"
 msgstr[1] "%s टेबल"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "आपको कम से कम एक स्तंभ प्रदर्शित करने के लिए चयन करना है"
 
 #: db_qbe.php:70
@@ -575,9 +579,13 @@ msgid "Output"
 msgstr "उत्पादन"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "\"Function\" स्तंभ से \"GeomFromText\" चुनें और \"Value\" क्षेत्र में नीचे स्ट्रिंग पेस्ट करे"
 
@@ -626,8 +634,12 @@ msgstr ""
 "[doc@faq1-16] अकसर किये गए सवाल 1.16 [/doc] देखें."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "अक्षर सेट रूपांतरण पुस्तकालय के बिना फ़ाइल के अक्षर सेट को परिवर्तित नहीं कर सकते"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -635,8 +647,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "आयात प्लगइन्स नहीं लोड किये जा सके। कृपया अपनी संस्थापना जाँचें!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "बुकमार्क %s बनाया"
 
 #: import.php:563 import.php:576
@@ -1000,7 +1013,9 @@ msgid "Connections / Processes"
 msgstr "कनेक्शन / प्रक्रियाएँ"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "स्थानीय जाँच व्यवस्था असंगत"
 
 #: js/messages.php:77
@@ -1800,16 +1815,20 @@ msgstr ""
 "किया। क्या आप ज़ारी रखना चाहेंगे?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "कॉलम के लिए एक विकल्प जोड़ें "
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "सम्पादन को रद्द करने के लिए एस्केप दबाएँ"
 
 #: js/messages.php:334
@@ -1821,23 +1840,33 @@ msgstr ""
 "किये आगे बढ़ना चाहेंगे?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "पुनः व्यवस्थित करने के लिए घसीटें"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "क्रमानुसार करने के लिए क्लिक करें"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "चिन्हित / अचिन्हित करने के लिए क्लिक करें"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
-msgstr ""
+#, fuzzy
+#| msgid "Column names"
+msgid "Double-click to copy column name."
+msgstr "कोलम के नाम"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "कॉलम को दिखने / छुपाने के लिए <br /> ड्रॉप-डाउन तीर पर क्लिक करें"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1864,13 +1893,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "लिंक पर जाएँ"
 
 #: js/messages.php:357
 #, fuzzy
 #| msgid "Column names"
-msgid "Copy column name"
+msgid "Copy column name."
 msgstr "कोलम के नाम"
 
 #: js/messages.php:358
@@ -1880,7 +1911,7 @@ msgstr ""
 #: js/messages.php:359
 #, fuzzy
 #| msgid "Update row(s)"
-msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "अद्यतन रोयाँ"
 
 #: js/messages.php:362
@@ -1914,7 +1945,7 @@ msgstr "अनुक्रमणिका जोड़"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in left frame"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "बाईं फ्रेम में लोगो देखियें"
 
 #: js/messages.php:375
@@ -1973,7 +2004,8 @@ msgstr "खुला टेबल शो"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3139,7 +3171,7 @@ msgstr "डाटा पढने की अनुमति देता है"
 #: libraries/RecentTable.class.php:122
 #, fuzzy
 #| msgid "Could not save configuration"
-msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "विन्यास सहेज नहीं सकते"
 
 #: libraries/RecentTable.class.php:161
@@ -3151,7 +3183,7 @@ msgstr "टेबल गणना"
 #: libraries/RecentTable.class.php:173
 #, fuzzy
 #| msgid "There are no configured servers"
-msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "कोई कॉन्फ़िगर सर्वर मौजूद नहीं है"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3323,8 +3355,10 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "टेबल %s का नाम बदल कर %s रखा गया है."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
-msgstr ""
+#, fuzzy
+#| msgid "Could not save configuration"
+msgid "Could not save table UI preferences!"
+msgstr "विन्यास सहेज नहीं सकते"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -3920,7 +3954,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "आपकी अपलोड दिरेक्टोरी तक पहुंचा नहीं जा सकता"
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "अपलोड करने के लिए फाइल उपलब्ध नहीं"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -4028,7 +4064,7 @@ msgstr "प्रिविलेज  चेक करें"
 #: libraries/common.inc.php:581
 #, fuzzy
 #| msgid "Could not save configuration"
-msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "विन्यास सहेज नहीं सकते"
 
 #: libraries/common.inc.php:583
@@ -4221,29 +4257,38 @@ msgstr "उपरोक्त में से कोई भी नहीं"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "एक सकारात्मक संख्या नहीं"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "गैर-नकारात्मक संख्या नहीं"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "वैध पोर्ट नहीं एक"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "गलत मान"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "मान %s के बराबर या कम"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12122,7 +12167,7 @@ msgstr "हर उपयोकर्ता को अनुमति दें �
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "बुकमार्क %s बनाया"
 
 #: libraries/sql.lib.php:1180

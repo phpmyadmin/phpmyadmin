@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2013-11-25 15:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
@@ -217,13 +217,15 @@ msgid "The database name is empty!"
 msgstr "ไม่มีชื่อฐานข้อมูล"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "ฐานข้อมูล %1$s ได้ถูกเปลี่ยนชื่อเป็น %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "คัดลอกฐานข้อมูล %1$s ไปเก็บในชื่อ %2$s เรียบร้อยแล้ว"
 
 #: db_operations.php:260
@@ -293,7 +295,9 @@ msgid_plural "%s tables"
 msgstr[0] "%s ตาราง"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "ต้องเลือกให้แสดงอย่างน้อยหนึ่งคอลัมน์"
 
 #: db_qbe.php:70
@@ -586,9 +590,13 @@ msgid "Output"
 msgstr "ส่งออก"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชัน และวางลงในข้อความช่อง \"ค่า\""
 
 #: import.php:116
@@ -635,8 +643,12 @@ msgstr ""
 "กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "ไม่สามารถแปลงไฟล์ข้อมูลชุดอักขระได้ในไลค์บารี"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -644,8 +656,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
 
 #: import.php:563 import.php:576
@@ -1009,7 +1022,9 @@ msgid "Connections / Processes"
 msgstr "การเชื่อมต่อ"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "การตั้งค่าติดตามภายในเครื่องไม่เข้ากัน"
 
 #: js/messages.php:77
@@ -1784,16 +1799,21 @@ msgid ""
 msgstr "คุณยังไม่ได้บันทึกเลย์เอาท์ที่คุณเลือก ที่ทำไว้จะหายไป ต้องการบันทึกหรือไม่?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "เพิ่มตัวเลือกสำหรับคอลัมน์ "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "สร้างวัตถุจำนวน %d เรียบร้อยแล้ว"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "กด escape เพื่อยกเลิกการแก้ไข"
 
 #: js/messages.php:334
@@ -1803,23 +1823,33 @@ msgid ""
 msgstr "คุณได้ทำการแก้ไขข้อมูลบางอย่าง แต่ยังไม่ได้บันทึก คุณแน่ใจว่าจะออกจากหน้านี้โดยยังไม่บันทึก?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "ลากเพื่อเปลี่ยนลำดับ"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "กดเพื่อเรียงลำดับ"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "กดเพื่อมาร์ก หรือยกเลิกการมาร์ก"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "ดับเบิลคลิกเพื่อคัดลอกชื่อคอลัมน์"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "กดเพื่อเลือก <br />เพื่อดูสดมภ์"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1851,11 +1881,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "คุณสามารถแก้ไขสดมภ์<br />โดยเลือกไปที่ข้อมูลนั้นๆ"
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "ไปที่หน้า"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "คัดลอกชื่อคอลัมน์"
 
 #: js/messages.php:358
@@ -1864,7 +1898,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "คลิกขวาที่ชื่อคอลัมน์เพื่อคัดลอกข้อมูล"
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "แสดงแถวข้อมูล"
 
 #: js/messages.php:362
@@ -1892,8 +1928,10 @@ msgid "Hide Panel"
 msgstr "ซ่อนแผง"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
-msgstr ""
+#, fuzzy
+#| msgid "Reload navigation frame"
+msgid "Show hidden navigation tree items."
+msgstr "โหลดกรอบนำทางใหม่"
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
@@ -1949,7 +1987,8 @@ msgstr "แสดงตาราง"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3101,7 +3140,9 @@ msgid "Error while creating PDF:"
 msgstr "เกิดข้อผิดพลาดขณะสร้าง PDF:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "ไม่สามารถบันทึกตารางล่าสุด"
 
 #: libraries/RecentTable.class.php:161
@@ -3109,7 +3150,9 @@ msgid "Recent tables"
 msgstr "ตารางล่าสุด"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "ไม่มีตารางล่าสุด"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3281,7 +3324,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "ตาราง %s ได้ถูกเปลี่ยนชื่อเป็น %s"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "ไม่สามารถบันทึกการกำหนดลักษณะตาราง UI"
 
 #: libraries/Table.class.php:1506
@@ -3888,7 +3933,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "ไม่มีไฟล์ที่จะอัพโหลด"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3996,7 +4043,9 @@ msgid "Check Privileges"
 msgstr "ตรวจสอบสิทธิ"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "ไม่สามารถอ่านแฟ้มการตั้งค่าได้"
 
 #: libraries/common.inc.php:583
@@ -4196,29 +4245,38 @@ msgstr "ไม่ใช้ดังกล่าวข้างต้น"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "ไม่ใช่จำนวนเต็มบวก"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
-msgstr ""
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a non-negative number!"
+msgstr "ไม่ใช่จำนวนเต็มบวก"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
-msgstr ""
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a valid port number!"
+msgstr "ไม่ใช่จำนวนเต็มบวก"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "ค่าไม่ถูกต้อง"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "ค่าควรจะเท่ากับหรือน้อยกว่า %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11783,7 +11841,7 @@ msgstr ""
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
 
 #: libraries/sql.lib.php:1180

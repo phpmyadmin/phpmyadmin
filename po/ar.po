@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-02-02 11:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/"
@@ -221,13 +221,15 @@ msgid "The database name is empty!"
 msgstr "إسم قاعدة البيانات خالي!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى  %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "تم نسخ قاعدة البيانات من %1$s إلى %2$s"
 
 #: db_operations.php:260
@@ -304,7 +306,9 @@ msgstr[4] "%s  جدول (جداول)"
 msgstr[5] "%s  جدول (جداول)"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "عليك اختيار عمود واحد على الأقل للعرض"
 
 #: db_qbe.php:70
@@ -597,9 +601,13 @@ msgid "Output"
 msgstr "المخرجات"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "اختر \"جيومفرومتيكست\" من العمود \"دالة\" ولصق السلسلة أدناه في الحقل "
 "\"القيمة\""
@@ -644,8 +652,12 @@ msgid ""
 msgstr ""
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "لاتستطيع تغيير ترميز الملفات بدون مكتبة الدوال الخاصة بذلك"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -653,8 +665,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "تم إنشاء العلامة المرجعية %s"
 
 #: import.php:563 import.php:576
@@ -1021,7 +1034,9 @@ msgid "Connections / Processes"
 msgstr "اتصالات / عمليات"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "فشل قراءة ملف الإعدادات"
 
 #: js/messages.php:77
@@ -1787,16 +1802,20 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "إضافة خيار للعمود "
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "إضغط escape  لإلغاء التعديل"
 
 #: js/messages.php:334
@@ -1808,23 +1827,31 @@ msgstr ""
 "حفظ البيانات الجديدة؟"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "إسحب لإعادة الترتيب"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "إضغط للترتيب"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "إضغط لوضع علامة / إزالة علامة"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "أنقر مرتين لنسخ اسم العمود"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1855,11 +1882,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "تستطيع تعديل أغلب الأعمدة <br /> بالضغط مباشرة على المحتوى."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "ذهاب للرابط"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "أنسخ اسم العمود"
 
 #: js/messages.php:358
@@ -1867,7 +1898,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "شاهد سطر/أسطر البيانات"
 
 #: js/messages.php:362
@@ -1901,7 +1934,7 @@ msgstr "إخفاء الفهارس"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in left frame"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "عرض الشعار في الإطار الأيسر"
 
 #: js/messages.php:375
@@ -1961,7 +1994,8 @@ msgstr "استورد الملفات"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3121,7 +3155,9 @@ msgid "Error while creating PDF:"
 msgstr "خطأ عند إنشاء ملف PDF :"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "لايستطيع حفظ الجدول الأخير"
 
 #: libraries/RecentTable.class.php:161
@@ -3129,7 +3165,9 @@ msgid "Recent tables"
 msgstr "الجداول الأخيرة"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "لا يوجد جداول أخيرة"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3296,7 +3334,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "تمّت تسمية الجدول %1$s إلى %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "لا يمكن حفظ تفضيلات جدول UI"
 
 #: libraries/Table.class.php:1506
@@ -3871,7 +3911,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل"
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "لايوجد أي ملفات لرفعها"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3979,7 +4021,9 @@ msgid "Check Privileges"
 msgstr "تحقق من الصلاحيات"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "فشل قراءة ملف الإعدادات"
 
 #: libraries/common.inc.php:583
@@ -4165,29 +4209,38 @@ msgstr "لاشيء منهم"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "ليس عدد موجب"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "ليس عدد غير سالب"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "رقم منفذ غير صحيح"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "قيمة غير صحيحة"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "القيمة يجب أن تساوي أو أقل من %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11883,7 +11936,7 @@ msgstr "اسمح لكل المستخدمين الوصول إلى هذه العل
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "تم إنشاء العلامة المرجعية %s"
 
 #: libraries/sql.lib.php:1180

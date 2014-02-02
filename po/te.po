@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-03 14:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/master/te/"
@@ -224,14 +224,15 @@ msgstr "డేటాబేస్ పేరు ఖాళీగా ఉన్నద
 
 # మొదటి అనువాదము
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s డేటాబేసును %2$s గా పేరుమార్చడమైంది"
 
 #: db_operations.php:136
 #, fuzzy, php-format
 #| msgid "Database %s has been copied to %s"
-msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "%s డేటాబేస్ %s డేటాబేస్ కు కాపీ అయింది"
 
 #: db_operations.php:260
@@ -302,9 +303,12 @@ msgid_plural "%s tables"
 msgstr[0] "%s పట్టిక"
 msgstr[1] "%s పట్టికలు"
 
+# మొదటి అనువాదము
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
-msgstr ""
+#, fuzzy
+#| msgid "You have added a new user."
+msgid "You have to choose at least one column to display!"
+msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
 
 #: db_qbe.php:70
 #, fuzzy, php-format
@@ -603,7 +607,7 @@ msgstr ""
 #: gis_data_editor.php:410
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 
 #: import.php:116
@@ -643,17 +647,19 @@ msgstr ""
 
 #: import.php:481
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
+# మొదటి అనువాదము
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Page has been created"
+msgid "Bookmark %s has been created."
+msgstr "పుటను సృష్టించడమైనది"
 
 #: import.php:563 import.php:576
 #, php-format
@@ -1012,7 +1018,7 @@ msgstr "అనుసంధానాలు"
 #: js/messages.php:76
 #, fuzzy
 #| msgid "Server configuration"
-msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "సేవకి స్వరూపణం"
 
 #: js/messages.php:77
@@ -1840,16 +1846,18 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:329
-msgid "Add an option for column "
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Values for column %s"
+msgid "Add an option for column \"%s\"."
+msgstr "%s నిలువు వరుసకు విలువలు"
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr ""
 
 #: js/messages.php:334
@@ -1859,23 +1867,25 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr ""
 
 #: js/messages.php:336
-msgid "Click to sort"
+msgid "Click to sort."
 msgstr ""
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr ""
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
-msgstr ""
+#, fuzzy
+#| msgid "Comments"
+msgid "Double-click to copy column name."
+msgstr "వ్యాఖ్యలు"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1900,13 +1910,13 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:356
-msgid "Go to link"
+msgid "Go to link."
 msgstr ""
 
 #: js/messages.php:357
 #, fuzzy
 #| msgid "Comments"
-msgid "Copy column name"
+msgid "Copy column name."
 msgstr "వ్యాఖ్యలు"
 
 #: js/messages.php:358
@@ -1916,7 +1926,7 @@ msgstr ""
 #: js/messages.php:359
 #, fuzzy
 #| msgid "Start"
-msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "మొదలుపెట్టు"
 
 #: js/messages.php:362
@@ -1948,9 +1958,12 @@ msgstr "అన్నీ చూపించు"
 msgid "Hide Panel"
 msgstr "అన్నింటిని చూపుము/దాచుము"
 
+# మొదటి అనువాదము
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
-msgstr ""
+#, fuzzy
+#| msgid "Show"
+msgid "Show hidden navigation tree items."
+msgstr "చూపించు"
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
@@ -2008,7 +2021,8 @@ msgstr "మరిన్ని చర్యలను చూపించు"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3175,7 +3189,7 @@ msgstr ""
 #: libraries/RecentTable.class.php:122
 #, fuzzy
 #| msgid "Server configuration"
-msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "సేవకి స్వరూపణం"
 
 # మొదటి అనువాదము
@@ -3187,8 +3201,10 @@ msgid "Recent tables"
 msgstr "పట్టికను సృష్టించు"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
-msgstr ""
+#, fuzzy
+#| msgid "Table of contents"
+msgid "There are no recent tables."
+msgstr "విషయ సూచిక"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3358,8 +3374,10 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "పుటను సృష్టించడమైనది"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
-msgstr ""
+#, fuzzy
+#| msgid "Server configuration"
+msgid "Could not save table UI preferences!"
+msgstr "సేవకి స్వరూపణం"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -3943,7 +3961,7 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr ""
 
 # మొదటి అనువాదము
@@ -4053,7 +4071,7 @@ msgstr ""
 #: libraries/common.inc.php:581
 #, fuzzy
 #| msgid "Server configuration"
-msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "సేవకి స్వరూపణం"
 
 #: libraries/common.inc.php:583
@@ -4243,29 +4261,32 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "తప్పుడు విలువ"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "విలువ తప్పనిసరిగా %s కి సమానంగా లేదా తక్కువగా ఉండాలి"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11604,7 +11625,7 @@ msgid "Let every user access this bookmark"
 msgstr ""
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr ""
 
 #: libraries/sql.lib.php:1180

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-30 10:29+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
@@ -220,13 +220,15 @@ msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s andmebaasi uueks nimeks on %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s andmebaas on kopeeritud kohta %2$s"
 
 #: db_operations.php:260
@@ -293,7 +295,9 @@ msgstr[0] "%s tabel"
 msgstr[1] "%s tabelit"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Pead valima vähemalt ühe veeru, mida näidata"
 
 #: db_qbe.php:70
@@ -578,9 +582,13 @@ msgid "Output"
 msgstr "Väljund"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Vali veerust \"Function\" \"GeomFromText\" ja kleebi allolev sõne väljale "
 "\"Value\""
@@ -628,8 +636,12 @@ msgstr ""
 "[doc@faq1-16]KKK 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "Faili märgitabelit ei saa teisendada ilma märgitabeli teisendusteegita"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -638,8 +650,9 @@ msgstr ""
 "Ei saanud importimise pluginaid laadida, palun kontrolli oma paigaldust!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "%s järjehoidja on loodud"
 
 #: import.php:563 import.php:576
@@ -1001,7 +1014,9 @@ msgid "Connections / Processes"
 msgstr "Ühendused / Protsessid"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Kohaliku jälgimise seadistus on ühildumatu"
 
 #: js/messages.php:77
@@ -1772,16 +1787,21 @@ msgstr ""
 "kaotsi. Kas soovid jätkata?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Vali veerule valik "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d objekt(i) loodud"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Muutmisest loobumiseks vajuta ESC"
 
 #: js/messages.php:334
@@ -1793,23 +1813,33 @@ msgstr ""
 "soovid enne andmete salvestamist sellelt lehelt lahkuda?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Järjekorra muutmiseks lohista"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Sorteerimiseks kliki"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Valimiseks/mittevalimiseks kliki"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Veeru nime kopeerimiseks topeltklõpsa sellel"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Veeru nähtavuse muutmiseks<br />vajuta alla suunatud noolele"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1838,11 +1868,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Sa saad ka muuta enamikke väärtuseid,<br />kui klikid nende peal."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Mine lingile"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Kopeeri veeru nimi"
 
 #: js/messages.php:358
@@ -1850,7 +1884,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Veeru nime kopeerimiseks lõikelauale paremklõpsa sellel."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Näita andmete rida/ridu"
 
 #: js/messages.php:362
@@ -1878,7 +1914,9 @@ msgid "Hide Panel"
 msgstr "Peida paneel"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
+#, fuzzy
+#| msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Kuva peidetud navigeerimispaneeli elemendid"
 
 #: js/messages.php:375
@@ -1931,8 +1969,13 @@ msgid "Show Report Details"
 msgstr "Näita raporteerimise detaile"
 
 #: js/messages.php:395
+#, fuzzy
+#| msgid ""
+#| "Your export is incomplete, due to a low execution time limit at the PHP "
+#| "level"
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 "Su eksport ei ole täielik, sest PHP skripti käivitamiseks lubatud aeg on "
 "liiga väike"
@@ -3045,7 +3088,9 @@ msgid "Error while creating PDF:"
 msgstr "PDF loomisel esines viga:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Ei saa hiljutist tabelit salvestada"
 
 #: libraries/RecentTable.class.php:161
@@ -3053,7 +3098,9 @@ msgid "Recent tables"
 msgstr "Hiljutised tabelid"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Hiljutisi tabeleid pole"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3215,7 +3262,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Tabeli UI eelistusi ei saanud salvestada"
 
 #: libraries/Table.class.php:1506
@@ -3837,7 +3886,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Valitud üleslaadimise kataloogile ei pääse ligi."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Seal pole faile, mida üles laadida"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3943,7 +3994,9 @@ msgid "Check Privileges"
 msgstr "Kontrolli õigusi"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Seadistuse faili lugemine ebaõnnestus"
 
 #: libraries/common.inc.php:583
@@ -4128,29 +4181,38 @@ msgstr "mitte kumbki ülal nimetatuist"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Pole positiivne number"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Pole mitte-negatiivne number"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Pole õige pordi number"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Vale väärtus"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Väärtus peab olema võrdne või madalam kui %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11747,7 +11809,9 @@ msgid "Let every user access this bookmark"
 msgstr "Anna kõikidele kasutajatele juurdepääs sellele järjehoidjale"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Järjehoidjat ei loodud"
 
 #: libraries/sql.lib.php:1180

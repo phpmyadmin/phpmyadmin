@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2013-08-23 11:32+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -223,13 +223,13 @@ msgstr "Імя базы дадзеных не пазначанае!"
 #: db_operations.php:130
 #, fuzzy, php-format
 #| msgid "Database %s has been renamed to %s"
-msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "База дадзеных %s была перайменаваная ў %s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
 #| msgid "Database %s has been copied to %s"
-msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "База дадзеных %s была скапіяваная ў %s"
 
 #: db_operations.php:260
@@ -306,7 +306,9 @@ msgstr[0] "%s табліц(ы)"
 msgstr[1] "%s табліц(ы)"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Вам неабходна выбраць прынамсі адну калёнку для адлюстраваньня"
 
 #: db_qbe.php:70
@@ -615,7 +617,7 @@ msgstr ""
 #: gis_data_editor.php:410
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 
 #: import.php:116
@@ -669,7 +671,7 @@ msgstr ""
 
 #: import.php:481
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -678,8 +680,9 @@ msgstr ""
 "Немагчыма загрузіць плагіны імпартаваньня, калі ласка, праверце ўсталёўку!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Закладка %s створаная"
 
 #: import.php:563 import.php:576
@@ -1081,7 +1084,7 @@ msgstr "Падлучэньні"
 #: js/messages.php:76
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
 #: js/messages.php:77
@@ -1936,16 +1939,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:329
-msgid "Add an option for column "
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Number of fields"
+msgid "Add an option for column \"%s\"."
+msgstr "Колькасьць палёў"
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "%1$d row(s) affected."
+msgid "%d object(s) created."
+msgstr "Зьменена радкоў: %1$d."
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr ""
 
 #: js/messages.php:334
@@ -1955,23 +1961,25 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr ""
 
 #: js/messages.php:336
-msgid "Click to sort"
+msgid "Click to sort."
 msgstr ""
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr ""
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
-msgstr ""
+#, fuzzy
+#| msgid "Column names"
+msgid "Double-click to copy column name."
+msgstr "Назвы калёнак"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1997,13 +2005,13 @@ msgstr ""
 
 #: js/messages.php:356
 #, fuzzy
-msgid "Go to link"
+msgid "Go to link."
 msgstr "Базы дадзеных адсутнічаюць"
 
 #: js/messages.php:357
 #, fuzzy
 #| msgid "Column names"
-msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Назвы калёнак"
 
 #: js/messages.php:358
@@ -2013,7 +2021,7 @@ msgstr ""
 #: js/messages.php:359
 #, fuzzy
 #| msgid "Showing rows"
-msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Паказаныя запісы"
 
 #: js/messages.php:362
@@ -2051,8 +2059,10 @@ msgid "Hide Panel"
 msgstr "Дадаць новае поле"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
-msgstr ""
+#, fuzzy
+#| msgid "Show grid"
+msgid "Show hidden navigation tree items."
+msgstr "Паказаць сетку"
 
 #: js/messages.php:375
 #, fuzzy
@@ -2113,7 +2123,8 @@ msgstr "Паказаць адкрытыя табліцы"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3363,7 +3374,7 @@ msgstr "Дазваляе чытаць дадзеныя."
 #: libraries/RecentTable.class.php:122
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
 #: libraries/RecentTable.class.php:161
@@ -3373,7 +3384,7 @@ msgstr "Няма табліц"
 
 #: libraries/RecentTable.class.php:173
 #, fuzzy
-msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Праверыць табліцу"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3549,8 +3560,10 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табліца %s была перайменаваная ў %s"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
-msgstr ""
+#, fuzzy
+#| msgid "Could not load default configuration from: \"%1$s\""
+msgid "Could not save table UI preferences!"
+msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -4149,8 +4162,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Немагчыма адкрыць пазначаную вамі тэчку для загрузкі файлаў."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
-msgstr ""
+#, fuzzy
+msgid "There are no files to upload!"
+msgstr "Праверыць табліцу"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
 #: libraries/structure.lib.php:305
@@ -4263,7 +4277,7 @@ msgstr "Праверыць прывілеі"
 #: libraries/common.inc.php:581
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
-msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Немагчыма загрузіць канфігурацыю па змоўчаньні з: \"%1$s\""
 
 #: libraries/common.inc.php:583
@@ -4467,29 +4481,31 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
-msgstr ""
+#, fuzzy
+#| msgid "%d is not valid row number."
+msgid "Not a valid port number!"
+msgstr "%d не зьяўляецца карэктным нумарам радка."
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
 #, php-format
-msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12449,7 +12465,7 @@ msgstr "Даць кожнаму карыстальніку доступ да г�
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Закладка %s створаная"
 
 #: libraries/sql.lib.php:1180
@@ -16064,9 +16080,6 @@ msgstr "максымум адначасовых злучэньняў"
 #~ msgctxt "Create DELETE query"
 #~ msgid "Delete"
 #~ msgstr "Выдаліць"
-
-#~ msgid "%1$d row(s) affected."
-#~ msgstr "Зьменена радкоў: %1$d."
 
 #~ msgid "utf-8"
 #~ msgstr "utf-8"

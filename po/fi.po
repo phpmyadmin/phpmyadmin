@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2013-08-23 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -218,13 +218,15 @@ msgid "The database name is empty!"
 msgstr "Tietokannan nimi on tyhjä!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "Tietokannan %1$s nimi on nyt %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "Tietokanta %1$s on kopioitu tietokantaan %2$s"
 
 #: db_operations.php:260
@@ -291,7 +293,9 @@ msgstr[0] "%s taulu"
 msgstr[1] "%s taulua"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Valitse vähintään yksi sarake"
 
 #: db_qbe.php:70
@@ -574,9 +578,13 @@ msgid "Output"
 msgstr "Tulos"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Valitse \"Toiminto\"-sarakkeesta \"GeomFromText\" ja liitä alla oleva "
 "merkkijono \"Arvo\"-kenttään"
@@ -627,8 +635,12 @@ msgstr ""
 "doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "Tiedoston merkistöä ei voida muuttaa ilman merkistökirjastoa"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -636,8 +648,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Kirjanmerkki %s luotu"
 
 #: import.php:563 import.php:576
@@ -1001,7 +1014,9 @@ msgid "Connections / Processes"
 msgstr "Yhteyttä / Prosessi"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Paikallisen seurannan asetukset yhteensopimattomat"
 
 #: js/messages.php:77
@@ -1782,16 +1797,21 @@ msgstr ""
 "Haluatko silti jatkaa?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Lisää valinta sarakkeelle "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d objekti(a) luotu"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Peruuta muokkaaminen painamalla Esc-näppäintä"
 
 #: js/messages.php:334
@@ -1803,23 +1823,33 @@ msgstr ""
 "varmasti poistua tältä sivulta ennen tietojen tallentamista?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Muunna järjestystä raahaamalla"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Lajittele painamalla"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Valitse tai poista valinta painamalla"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Kopoio kentän nimi kaksoisnäpäyksellä"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Muuta sarakkeen näkymistä<br />painamalla pudotusvalikon nuolta"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1850,11 +1880,15 @@ msgstr ""
 "Useimpia sarakkeita voi myös muokata<br/>painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Siirry linkkiin"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Kopioi kenttän nimi"
 
 #: js/messages.php:358
@@ -1864,7 +1898,9 @@ msgstr ""
 "leikepöydälle."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Näytä rivi(t)"
 
 #: js/messages.php:362
@@ -1892,7 +1928,9 @@ msgid "Hide Panel"
 msgstr "Piilota paneeli"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
+#, fuzzy
+#| msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Näytä piilotetun navigointipuun kohteet"
 
 #: js/messages.php:375
@@ -1952,7 +1990,8 @@ msgstr "Näytä avoimet taulut"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3089,7 +3128,9 @@ msgid "Error while creating PDF:"
 msgstr "Virhe luotaessa PDF-tiedostoa:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Äskeistä taulua ei voitu tallentaa"
 
 #: libraries/RecentTable.class.php:161
@@ -3097,7 +3138,9 @@ msgid "Recent tables"
 msgstr "Äskeiset taulut"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Äskeisiä tauluja ei ole"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3261,7 +3304,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Taulu %1$s on nimeltään %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Taulun käyttöliittymäasetuksia ei voitu tallentaa"
 
 #: libraries/Table.class.php:1506
@@ -3883,7 +3928,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Lähetettäviä tiedostoja ei ole"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3990,7 +4037,9 @@ msgid "Check Privileges"
 msgstr "Hallitse käyttöoikeuksia"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Asetustiedostoa ei voi lukea"
 
 #: libraries/common.inc.php:583
@@ -4174,29 +4223,38 @@ msgstr "ei kumpikaan yltä"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Ei ole positiivinen luku"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Ei ole epänegatiivinen luku"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Virheellinen porttinumero"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Virheellinen arvo"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Arvon on oltava yhtä suuri tai pienempi kuin %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12544,7 +12602,7 @@ msgstr "Anna kaikkien käyttäjien käyttää tätä kirjanmerkkiä"
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Kirjanmerkki %s luotu"
 
 #: libraries/sql.lib.php:1180

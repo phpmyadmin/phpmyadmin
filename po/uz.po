@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-02-02 10:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
@@ -217,13 +217,15 @@ msgid "The database name is empty!"
 msgstr "Маълумотлар базаси номи бўш!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "\"%1$s\" маълумотлар базасининг номи \"%2$s\" деб ўзгартирилди"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "\"%1$s\" маълумотлар базасидан \"%2$s\" га нусха кўчирилди"
 
 #: db_operations.php:260
@@ -289,7 +291,9 @@ msgid_plural "%s tables"
 msgstr[0] "%s та жадвал"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Сўровни бажариш учун, майдон/майдонлар танланган бўлиши керак"
 
 #: db_qbe.php:70
@@ -590,7 +594,7 @@ msgstr ""
 #: gis_data_editor.php:410
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 
 #: import.php:116
@@ -643,7 +647,7 @@ msgstr ""
 
 #: import.php:481
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -654,8 +658,9 @@ msgstr ""
 "export каталогини текширинг."
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "\"%s\" хатчўпи тузилди"
 
 #: import.php:563 import.php:576
@@ -1090,7 +1095,7 @@ msgstr "Уланишлар"
 #: js/messages.php:76
 #, fuzzy
 #| msgid "Cannot load or save configuration"
-msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
 
 #: js/messages.php:77
@@ -1962,16 +1967,18 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:329
-msgid "Add an option for column "
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Values for column %s"
+msgid "Add an option for column \"%s\"."
+msgstr "%s устуни учун қийматлар"
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr ""
 
 #: js/messages.php:334
@@ -1981,25 +1988,27 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr ""
 
 #: js/messages.php:336
 #, fuzzy
 #| msgid "Click to select"
-msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Танлаш учун сичқонча тугмасини босинг"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr ""
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
-msgstr ""
+#, fuzzy
+#| msgid "Column names"
+msgid "Double-click to copy column name."
+msgstr "Майдон номлари"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -2026,13 +2035,13 @@ msgstr ""
 #: js/messages.php:356
 #, fuzzy
 #| msgid "Go to view"
-msgid "Go to link"
+msgid "Go to link."
 msgstr "Ушбу кўринишга ўтиш"
 
 #: js/messages.php:357
 #, fuzzy
 #| msgid "Column names"
-msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Майдон номлари"
 
 #: js/messages.php:358
@@ -2042,7 +2051,7 @@ msgstr ""
 #: js/messages.php:359
 #, fuzzy
 #| msgid "Update row(s)"
-msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Қатор(лар)ни янгилаш"
 
 #: js/messages.php:362
@@ -2082,7 +2091,7 @@ msgstr "Индекс(лар)ни сақлаш"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in left frame"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Чап рамкада логотипни кўрсатиш"
 
 #: js/messages.php:375
@@ -2151,7 +2160,8 @@ msgstr "Очиқ жадваллар рўйхати"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3389,7 +3399,7 @@ msgstr "Маълумотларни чақиришга рухсат беради"
 #: libraries/RecentTable.class.php:122
 #, fuzzy
 #| msgid "Cannot load or save configuration"
-msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
 
 #: libraries/RecentTable.class.php:161
@@ -3401,7 +3411,7 @@ msgstr "Жадвалларни санаш"
 #: libraries/RecentTable.class.php:173
 #, fuzzy
 #| msgid "There are no configured servers"
-msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3577,8 +3587,10 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "`\"%s\"` жадвалининг номи `\"%s\"` деб ўзгартирилди."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
-msgstr ""
+#, fuzzy
+#| msgid "Cannot load or save configuration"
+msgid "Could not save table UI preferences!"
+msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -4187,8 +4199,10 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Кўрсатилган каталокка юклаб бўлмади."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
-msgstr ""
+#, fuzzy
+#| msgid "There are no configured servers"
+msgid "There are no files to upload!"
+msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
 #: libraries/structure.lib.php:305
@@ -4303,7 +4317,7 @@ msgstr "Привилегияларни текшириш"
 #: libraries/common.inc.php:581
 #, fuzzy
 #| msgid "Cannot load or save configuration"
-msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Конфигурацияни юклаб ёки сақлаб бўлмади"
 
 #: libraries/common.inc.php:583
@@ -4508,29 +4522,37 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Мусбат сон эмас"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Номанфий сон эмас"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Нотўғри порт номери"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Нотўғри қиймат"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
 #, php-format
-msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:570
@@ -13131,7 +13153,7 @@ msgstr "Барча фойдаланувчиларга рухсат бериш"
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "\"%s\" хатчўпи тузилди"
 
 #: libraries/sql.lib.php:1180

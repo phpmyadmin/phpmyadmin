@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-06 12:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -217,13 +217,15 @@ msgid "The database name is empty!"
 msgstr "Databasenavnet er tomt!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "Database %1$s er blevet omdøbt til %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s er blevet kopieret til %2$s"
 
 #: db_operations.php:260
@@ -289,7 +291,9 @@ msgstr[0] "%s tabel"
 msgstr[1] "%s tabeller"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Du skal vælge mindst en kolonne der skal vises"
 
 #: db_qbe.php:70
@@ -576,9 +580,13 @@ msgid "Output"
 msgstr "Output"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Vælg \"GeomFromText\" fra kolonnen \"Function\" og indsæt strengen nedenfor "
 "i feltet \"Value\""
@@ -629,8 +637,12 @@ msgstr ""
 "tilladt af din PHP-konfiguration. Se  [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Kan ikke konvertere filens tegnsæt uden konverteringsbibliotek for tegnsæt"
 
@@ -639,8 +651,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Kunne ikke indlæse importplugins, tjek venligst din installation!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Bogmærke %s oprettet"
 
 #: import.php:563 import.php:576
@@ -1005,7 +1018,9 @@ msgid "Connections / Processes"
 msgstr "Forbindelser / Opgaver"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Konfigurationen for den lokale skærm er inkompatibel"
 
 #: js/messages.php:77
@@ -1793,16 +1808,21 @@ msgstr ""
 "gemmer dem. Vil du fortsætte?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Tilføj mulighed for kolonne "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d objekt(er) oprettet"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Tryk på ESC for at annullere redigeringen"
 
 #: js/messages.php:334
@@ -1814,23 +1834,33 @@ msgstr ""
 "du vil forlade siden uden at gemme data ?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Træk for at ændre orden"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Klik for at sortere"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Klik for at markere/afmarkere"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Dobbeltklik for at kopiere kolonnenavn"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Klik på pilen for valgboks<br />for at skifte kolonnens synlighed"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1861,11 +1891,15 @@ msgstr ""
 "Du kan også redigere de fleste værdier<br />ved at klikke direkte på dem."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Gå til link"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Kopiér kolonnenavn"
 
 #: js/messages.php:358
@@ -1873,7 +1907,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Højreklik kolonnenavnet for at kopiere det til din udklipsholder."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Vis datarække(r)"
 
 #: js/messages.php:362
@@ -1901,7 +1937,9 @@ msgid "Hide Panel"
 msgstr "Skjul panel"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
+#, fuzzy
+#| msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Vis skjulte elementer i navigationstræet"
 
 #: js/messages.php:375
@@ -1957,7 +1995,8 @@ msgstr "Vis detaljer for rapport"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3083,7 +3122,9 @@ msgid "Error while creating PDF:"
 msgstr "Fejl ved oprettelse af PDF:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Kunne ikke gemme seneste tabel"
 
 #: libraries/RecentTable.class.php:161
@@ -3091,7 +3132,9 @@ msgid "Recent tables"
 msgstr "Seneste tabeller"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Der er ingen nye tabeller"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3256,7 +3299,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabellen %1$s er nu omdøbt til %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Kunne ikke gemme brugerindstillinger for tabel"
 
 #: libraries/Table.class.php:1506
@@ -3883,7 +3928,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Mappen du har sat til upload-arbejde kan ikke findes."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Der er ikke nogen filer at uploade"
 
 # By "Empty", if this is an action, it should translate to "Tøm" but if it's a
@@ -3992,7 +4039,9 @@ msgid "Check Privileges"
 msgstr "Tjek privilegier"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Kunne ikke indlæse konfigurationsfilen"
 
 #: libraries/common.inc.php:583
@@ -4180,29 +4229,38 @@ msgstr "ingen af de ovenfor anførte"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Ikke et positivt tal"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Ikke et ikke-negativt tal"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Ikke et gyldigt portnummer"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Ukorrekt værdi"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Værdien skal være mindre end eller lig med %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12326,7 +12384,9 @@ msgid "Let every user access this bookmark"
 msgstr "Lad alle brugere bruge dette bogmærke"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Bogmærke blev ikke oprettet"
 
 #: libraries/sql.lib.php:1180

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-29 21:51+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -222,13 +222,15 @@ msgid "The database name is empty!"
 msgstr "Le nomine del base de datos es vacue!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "Le base de datos %1$s ha essite renominate como %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "Le base de datos %1$s ha essite copiate como %2$s"
 
 #: db_operations.php:260
@@ -295,7 +297,9 @@ msgstr[0] "%s tabula"
 msgstr[1] "%s tabulas"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Tu debe seliger al minus un columna de monstrar"
 
 #: db_qbe.php:70
@@ -584,9 +588,13 @@ msgid "Output"
 msgstr "Exito"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Selige \"GeomFromText\" (GeomExText) ex le columna \"Function\" e colla le "
 "catena a basso in le campo \"Value\" (Valor)"
@@ -637,8 +645,12 @@ msgstr ""
 "PHP pro incargar un file. Tu vide  [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Il non es possibile converter le insimul de characteres del file sin un "
 "biblioteca de conversion de insimul de characteres"
@@ -650,8 +662,9 @@ msgstr ""
 "installation!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Marcator de libro %s create"
 
 #: import.php:563 import.php:576
@@ -1016,7 +1029,9 @@ msgid "Connections / Processes"
 msgstr "Connexiones/Processos"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Configuration local del monitor incompatibile"
 
 #: js/messages.php:77
@@ -1805,16 +1820,21 @@ msgstr ""
 "essera perdite si tu non salveguarda los. Tu vole continuar?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Adde un option pro le columna "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d objecto(s) create"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Pressa le clave de escape pro cancellar le modification"
 
 #: js/messages.php:334
@@ -1826,23 +1846,33 @@ msgstr ""
 "secur que tu vole abandonar iste pagina ante salveguardar le datos?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Trahe pro reordinar"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Pulsa pro ordinar"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Pulsa pro seliger/deseliger"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Duple pulsa pro copiar le nomine de columna"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Pulsa sur le flecha de disrolar<br /> pro commutar le visibilitate del "
 "columna"
@@ -1876,11 +1906,15 @@ msgstr ""
 "illos."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Vade al ligamine"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Copia nomine de columna"
 
 #: js/messages.php:358
@@ -1890,7 +1924,9 @@ msgstr ""
 "systema."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Monstra rangos(s) de datos"
 
 #: js/messages.php:362
@@ -1918,7 +1954,9 @@ msgid "Hide Panel"
 msgstr "Cela pannello"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
+#, fuzzy
+#| msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "MOnstra elementos de arbore de navigation celate"
 
 #: js/messages.php:375
@@ -1975,8 +2013,13 @@ msgid "Show Report Details"
 msgstr "Monstra detalios de reporto"
 
 #: js/messages.php:395
+#, fuzzy
+#| msgid ""
+#| "Your export is incomplete, due to a low execution time limit at the PHP "
+#| "level"
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 "Tu exportation es incomplete, debite a un basse limite de tempore de "
 "execution al nivello de PHP"
@@ -3103,7 +3146,9 @@ msgid "Error while creating PDF:"
 msgstr "Error durante que on creava le PDF:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Il non pote salveguardar le tabella recente"
 
 #: libraries/RecentTable.class.php:161
@@ -3111,7 +3156,9 @@ msgid "Recent tables"
 msgstr "Tabellas recente"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Il non ha tabellas recente"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3275,7 +3322,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabella %1$s ha essite renominate a %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Il non pote salveguarda preferentias UI de tabella"
 
 #: libraries/Table.class.php:1506
@@ -3913,7 +3962,9 @@ msgstr ""
 "attingite."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Il non ha alcun file  de incargar"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -4020,7 +4071,9 @@ msgid "Check Privileges"
 msgstr "Verifica le privilegios"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Il falleva leger le file de configuration"
 
 #: libraries/common.inc.php:583
@@ -4208,29 +4261,38 @@ msgstr "necun del precedentes"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Non es un numero positive"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Non es un numero non-negative"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Non es un valide numero de porto"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Valor incorrecte"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Le valor debe esser equal o minor que %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11350,8 +11412,10 @@ msgid "Let every user access this bookmark"
 msgstr ""
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
-msgstr ""
+#, fuzzy
+#| msgid "Bookmark %s created"
+msgid "Bookmark not created!"
+msgstr "Marcator de libro %s create"
 
 #: libraries/sql.lib.php:1180
 #, php-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-02-02 11:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -218,13 +218,15 @@ msgid "The database name is empty!"
 msgstr "ডাটাবেইজের নাম দেওয়া হয় নাই!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "ডাটাবেইজ %1$s এর  নতুন নামকরণ %2$s হয়েছে"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "ডাটাবেইজ %1$s টি  %2$s এ অনুলিপি হয়েছে"
 
 #: db_operations.php:260
@@ -297,7 +299,9 @@ msgstr[0] "%s টি টেবল"
 msgstr[1] "%s টি টেবল"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "দেখানোর জন্য সর্বনীন্ম একটি স্তম্ভ প্রয়োজন"
 
 #: db_qbe.php:70
@@ -590,9 +594,13 @@ msgid "Output"
 msgstr "আউটপুট"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "\"Function\" স্তম্ভ থেকে \"GeomFromText\" পছন্দ করুন এবং নিচের লেখাটি \"Value\" "
 "স্থানে পেষ্ট করুন"
@@ -641,8 +649,12 @@ msgstr ""
 "আকারের ফাইল যা পিএইছপি সমর্থন করছে না। [doc@faq1-16]FAQ 1.16[/doc] দেখুন।"
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "ফাইলের বর্ণ গঠন পরিবর্তন করা যাচ্ছে না। বর্ণ লাইব্রেরী ছাড়া পরিবর্তন সম্ভব নয়"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -651,8 +663,9 @@ msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
 
 #: import.php:563 import.php:576
@@ -1015,7 +1028,9 @@ msgid "Connections / Processes"
 msgstr "সংযোগসমূহ/প্রক্রিয়াসমূহ"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "স্থানীয় পর্যবেক্ষক কনফিগারেশন উপযুক্ত নয়"
 
 #: js/messages.php:77
@@ -1798,16 +1813,21 @@ msgstr ""
 "কি এগুতে চান?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "স্তম্ভের জন্য একটি অপশন যোগ কর "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d অবজেক্ট তৈরী করা হয়েছে"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "সম্পাদনা বাতিল করতে এস্কেপ কী চাপুন"
 
 #: js/messages.php:334
@@ -1819,23 +1839,33 @@ msgstr ""
 "পূর্বে আপনি পাতাটি ত্যাগ করতে চান?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "পুনবিন্যাসের জন্য টানুন"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "গুছানোর জন্য ক্লিক করুন"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "চিহ্নিত/অচিহ্নিত করার জন্য ক্লীক করুন"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "স্তম্ভের নাম প্রতিলিপ করার জন্য দুইবার ক্লীক করুন"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "স্তম্ভ খোলা বন্ধ করতে চাইলে তীর চিহ্নটি ক্লীক করুন"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1862,11 +1892,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "আপনি প্রায় তথ্য সরাসরি ক্লীক করে সম্পাদনা করতে পারবেন।"
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "সংযোগে যাও"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "স্তম্ভের নাম প্রতিলিপি"
 
 #: js/messages.php:358
@@ -1874,7 +1908,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "স্তম্ভের নামটির উপর ডান ক্লীক করুন ওটা ক্লীপর্বোডে প্রতিলিপি করার জন্য।"
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "তথ্যের রো দেখাও"
 
 #: js/messages.php:362
@@ -1904,7 +1940,7 @@ msgstr "ইনডেক্স প্যানেল"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in navigation panel"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
 
 #: js/messages.php:375
@@ -1966,7 +2002,8 @@ msgstr "খোলা টেবলগুলো দেখাও"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3101,7 +3138,9 @@ msgid "Error while creating PDF:"
 msgstr "PDF তৈরীর সময় ভুল:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "সাম্প্রতিক টেবিল সংরক্ষন করা হয় নাই"
 
 #: libraries/RecentTable.class.php:161
@@ -3109,7 +3148,9 @@ msgid "Recent tables"
 msgstr "সাম্প্রতিক টেবিলসমূহ"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "সাম্প্রতিক কোন টেবিল নাই"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3275,7 +3316,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "টেবিল %1$s থেকে %2$s এ নামকরন করা হয়েছে।"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "টেবলের UI পছন্দ সংরক্ষন করা যায়নি"
 
 #: libraries/Table.class.php:1506
@@ -3892,7 +3935,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "আপলোড করার জন্য নির্ধারিত ডিরেক্টরীটি পাওয়া যাচ্ছে না।"
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "আপলোড করার জন্য কোন ফাইল নাই"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -4000,7 +4045,9 @@ msgid "Check Privileges"
 msgstr "অধিকারসমূহ পরীক্ষা"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
 #: libraries/common.inc.php:583
@@ -4187,29 +4234,38 @@ msgstr "উপরের কোনটি নয়"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "নাম্বারটি পজেটিভ নয়"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "নেগেটিভ নয় এমন নাম্বার না"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "কার্যকর পোর্ট নাম্বার নয়"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "মানটি সঠিক নয়"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "মানটি অবশ্যই %s এর সমান বা ছোট হতে হবে"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12312,7 +12368,9 @@ msgid "Let every user access this bookmark"
 msgstr "পূর্ববর্তী সব ব্যবহারকারী এই বুকমার্কটি ব্যবহার করেছে।"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
 
 #: libraries/sql.lib.php:1180

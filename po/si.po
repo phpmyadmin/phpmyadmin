@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-02-02 09:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -216,13 +216,15 @@ msgid "The database name is empty!"
 msgstr "දත්තගබඩා නම හිස්ව පවතී!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s දත්තගබඩාව %2$s බවට නම වෙනස් කරන ලදි"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s දත්තගබඩාව %2$s වෙතට පිටපත් කරන ලදි"
 
 #: db_operations.php:260
@@ -289,7 +291,9 @@ msgstr[0] "%s වගු"
 msgstr[1] "%s වගු"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "පෙන්වීම සඳහා අවම වශයෙන් එක් තීරයක්වත් තෝරාගත යුතුයි"
 
 #: db_qbe.php:70
@@ -573,9 +577,13 @@ msgid "Output"
 msgstr "ප්‍රතිදානය"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "\"ශ්‍රිතය\" තීරුවෙන් \"GeomFromText\" තෝරා පහත ඇති දේ \"අගය\" ක්ෂේත්‍රයට පිටපත් කරන්න"
 
@@ -622,8 +630,12 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc] බලන්න."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "අක්ෂර කට්ටල හැරවීම් පුස්තකාලය නොමැතිව ගොනුවේ අක්ෂර කට්ටලය හැරවීම කල නොහැක"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -631,8 +643,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "ආනයනය පේනු පූරණය අසමත් විය. ඔබගේ ස්ථාපිතය පරීක්ෂා කරන්න!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "%s පොත් සලකුණ සාදන ලදි"
 
 #: import.php:563 import.php:576
@@ -997,7 +1010,9 @@ msgid "Connections / Processes"
 msgstr "සම්බන්ධතා / ක්‍රියාවලි"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "අධීක්ෂකයේ වින්‍යාස නොගැලපේ"
 
 #: js/messages.php:77
@@ -1777,16 +1792,21 @@ msgstr ""
 
 # අභිරුචිය = option. Source: Glossary of Information Technology Terms - ICTA
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "ක්ෂේත්‍රයට අභිරුචියක් එක් කරන්න "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "වස්තූන් %d ක් නිමැවිණි"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "සංස්කරණය අවලංගු කිරීමට escape ඔබන්න"
 
 #: js/messages.php:334
@@ -1796,23 +1816,33 @@ msgid ""
 msgstr "ඔබ සංස්කරණය කල දත්ත සුරැකී නැත. දත්ත සුරැකීමෙන් තොරව මෙම පිටුවෙන් ඉවත් වීමට අවශ්‍යද?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "අනුපිලිවෙල නැවත සකස් කිරීමට අදින්න"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "අනුපිළිවෙල අනුව සැකසීමට ක්ලික් කරන්න"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "සලකුණු කිරීමට/ ඉවත් කිරීමට ක්ලික් කරන්න"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "තීර නාමය පිටපත් කිරීම සඳහා ද්වි ක්ලික් කරන්න"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "තීර පෙන්වීමට/සැඟවීමට<br />ඊතලය ක්ලික් කරන්න"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1839,11 +1869,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "අන්තර්ගත දත්ත මත ක්ලික් කිරීමෙන් ඔබට<br />බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල හැක."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "සබැඳීම වෙත යන්න"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "තීර නම් පිටපත් කරන්න"
 
 #: js/messages.php:358
@@ -1851,7 +1885,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "පසුරු පුවරුව වෙත පිටපත් කිරීම සඳහා තීර නාමය දකුණු ක්ලික් කරන්න."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "දත්ත පේළි(ය) පෙන්වන්න"
 
 #: js/messages.php:362
@@ -1881,7 +1917,7 @@ msgstr "පැනලය සඟවන්න"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in navigation panel"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
 #: js/messages.php:375
@@ -1941,7 +1977,8 @@ msgstr "විවෘත වගු පෙන්වන්න"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3062,7 +3099,9 @@ msgid "Error while creating PDF:"
 msgstr "PDF සැදීමේදී දෝෂ:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "මෑතදී භාවිතා කල වගු සුරැකීම අසමත් විය"
 
 #: libraries/RecentTable.class.php:161
@@ -3070,7 +3109,9 @@ msgid "Recent tables"
 msgstr "මෑතදී භාවිතා කල වගු"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "මෑතදී භාවිතා කල වගු කිසිවක් නොමැත"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3234,7 +3275,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s වගුව %2$s ලෙසට නම වෙනස් කරන ලදි."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "වගු පරිශීලක අතුරුමුහුණත් සඳහා අභිමතයන් සුරැකීම අසමත් විය"
 
 #: libraries/Table.class.php:1506
@@ -3854,7 +3897,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "අප්ලෝඩ් කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක"
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3960,7 +4005,9 @@ msgid "Check Privileges"
 msgstr "වරප්‍රසාද පරීක්ෂා කරන්න"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "වින්‍යාස ගොනුව කියවීමට අසමත් විය"
 
 #: libraries/common.inc.php:583
@@ -4143,29 +4190,38 @@ msgstr "ඉහත එක් වර්ගයක්වත් නොව"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "ධන සංඛ්‍යාවක් නොවේ"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "ඍණ නොවන සංඛ්‍යාවක් නොවේ"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "වැරදි අගයකි"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "අගය %s ට සමාන හෝ අඩු විය යුතුය"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11989,7 +12045,9 @@ msgid "Let every user access this bookmark"
 msgstr "සියලු භාවිතා කරන්නනට මෙම පොත් සලකුණට පිවිසීමට ඉඩ දෙන්න"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "පොත් සලකුණ නොසාදන ලදි"
 
 #: libraries/sql.lib.php:1180

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-29 18:12+0200\n"
 "Last-Translator: Pl P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -218,13 +218,15 @@ msgid "The database name is empty!"
 msgstr "Името на БД е празно!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "БД %1$s беше преименувана на %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "БД %1$s беше копирана като %2$s"
 
 #: db_operations.php:260
@@ -291,7 +293,9 @@ msgstr[0] "%s таблица"
 msgstr[1] "%s таблици"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Изберете поне една колона за показване"
 
 #: db_qbe.php:70
@@ -582,9 +586,13 @@ msgid "Output"
 msgstr "Изход"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Изберете \"GeomFromText\" (ГеомОтТекст) от колона \"Function\" (Функция) и "
 "копи-пейстнете текста долу в поле \"Стойност\""
@@ -634,8 +642,12 @@ msgstr ""
 "1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Не може да бъде преобразуван знаковият набор на файла без библиотека за "
 "преобразуване на знакови набори"
@@ -647,8 +659,9 @@ msgstr ""
 "инсталацията!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Белязка %s беше създадена"
 
 #: import.php:563 import.php:576
@@ -1002,7 +1015,9 @@ msgid "Connections / Processes"
 msgstr "Връзки / Процеси"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Локалната настройка на наблюдателя е несъвместима"
 
 #: js/messages.php:77
@@ -1788,16 +1803,20 @@ msgstr ""
 "запазите. Искате ли да продължите?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Добавяне опция към колона "
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Натиснете Esc за отмяна на редакцията"
 
 #: js/messages.php:334
@@ -1809,23 +1828,33 @@ msgstr ""
 "страницата преди запазването им?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Завличане за промяна на подредбата"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Щракване за сортиране"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Щракване за маркиране/отмаркиране"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Щракнете двукратно за копиране името на колона"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Щракнете стрелката,<br />за да изберете колони"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1863,11 +1892,15 @@ msgstr ""
 "тяхното съдържание."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Към връзка"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Копиране името на колоната"
 
 #: js/messages.php:358
@@ -1876,8 +1909,10 @@ msgstr ""
 "С десния бутон върху името на колоната, за да го копирате в системния буфер."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
-msgstr ""
+#, fuzzy
+#| msgid "Update row(s)"
+msgid "Show data row(s)."
+msgstr "Обновяване ред(ове)"
 
 #: js/messages.php:362
 msgid "Generate password"
@@ -1910,7 +1945,7 @@ msgstr "Скриване на индексите"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in left frame"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Показване логото в лявата рамка"
 
 #: js/messages.php:375
@@ -1972,7 +2007,8 @@ msgstr "Показване отворените таблици"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3117,7 +3153,9 @@ msgid "Error while creating PDF:"
 msgstr "Грешка при създаване на PDF:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Наскоро отваряната таблице не можа да бъде записана"
 
 #: libraries/RecentTable.class.php:161
@@ -3125,7 +3163,9 @@ msgid "Recent tables"
 msgstr "Отваряни таблици"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Няма наскоро отваряни таблици"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3292,7 +3332,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s беше преименувана на %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Таблицата с визуалните настройки не може да бъде запазена"
 
 #: libraries/Table.class.php:1506
@@ -3871,7 +3913,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Папката, която сте указали за качване е недостъпна."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Няма файлве за качване"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3980,7 +4024,9 @@ msgid "Check Privileges"
 msgstr "Проверка на правата"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Неуспешно прочитане на конфигурацията"
 
 #: libraries/common.inc.php:583
@@ -4170,29 +4216,38 @@ msgstr "никое от горните"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Не е положително число"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Не е неотрицателно число"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Невалиден номер на порт"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Невалидна стойност"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Стойността трябва да е по-малка или равна на %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11954,7 +12009,7 @@ msgstr "Всеки потребител да има достъп до тази �
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Белязка %s беше създадена"
 
 #: libraries/sql.lib.php:1180
@@ -14816,9 +14871,6 @@ msgstr "concurrent_insert e 0"
 
 #~ msgid "Apply index(s)"
 #~ msgstr "Добавяне индекс(и)"
-
-#~ msgid "Update row(s)"
-#~ msgstr "Обновяване ред(ове)"
 
 #~ msgid "Insert row(s)"
 #~ msgstr "Вмъкване ред(ове)"

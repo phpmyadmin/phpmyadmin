@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-27 08:23+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -219,13 +219,15 @@ msgid "The database name is empty!"
 msgstr "Nama basis data kosong!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "Nama basis data %1$s telah diubah menjadi %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "Basis data %1$s telah disalin ke %2$s"
 
 #: db_operations.php:260
@@ -291,7 +293,9 @@ msgid_plural "%s tables"
 msgstr[0] "%s tabel"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Anda harus memiliih paling tidak satu kolom untuk ditampilkan"
 
 #: db_qbe.php:70
@@ -579,9 +583,13 @@ msgid "Output"
 msgstr "Keluaran"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string di bawahnya "
 "ke dalam isian \"Value\""
@@ -631,8 +639,12 @@ msgstr ""
 "konfigurasi PHP Anda. Lihat [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Tidak dapat mengubah set karakter berkas tanpa pustaka konversi set karakter"
 
@@ -641,8 +653,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Tidak dapat memuat plugin import, harap periksa instalasi Anda!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Markah %s dibuat"
 
 #: import.php:563 import.php:576
@@ -1006,7 +1019,9 @@ msgid "Connections / Processes"
 msgstr "Koneksi / Proses"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Konfigurasi monitor lokal tidak kompatibel"
 
 #: js/messages.php:77
@@ -1781,16 +1796,21 @@ msgstr ""
 "tidak menyimpannya. Apakah Anda ingin melanjutkan?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Tambahkan pilihan untuk kolom "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "objek %d telah dibuat"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Tekan escape untuk membatalkan pengeditan"
 
 #: js/messages.php:334
@@ -1802,23 +1822,33 @@ msgstr ""
 "akan meninggalkan halaman ini sebelum menyimpan data?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Seret untuk mengubah urutan"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Klik untuk mengurutkan"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Klik untuk memberi/menghapus tanda"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Klik-ganda untuk menyalin nama kolom"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Klik tanda panah ke bawah<br /> untuk beralih visibilitas kolom"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1850,11 +1880,15 @@ msgstr ""
 "konten."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Tuju ke tautan"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Salin Nama kolom"
 
 #: js/messages.php:358
@@ -1862,7 +1896,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Klik-kanan nama kolom untuk menyalinnya ke clipboard."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Tampilkan baris data"
 
 #: js/messages.php:362
@@ -1890,7 +1926,9 @@ msgid "Hide Panel"
 msgstr "Sembunyikan Panel"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
+#, fuzzy
+#| msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Tampilkan navigasi pohon item tersembunyi"
 
 #: js/messages.php:375
@@ -1946,8 +1984,13 @@ msgid "Show Report Details"
 msgstr "Tampilkan Detail Laporan"
 
 #: js/messages.php:395
+#, fuzzy
+#| msgid ""
+#| "Your export is incomplete, due to a low execution time limit at the PHP "
+#| "level"
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr "Export belum selesai karena limit eksekusi dari PHP"
 
 #. l10n: Display text for calendar close link
@@ -3070,7 +3113,9 @@ msgid "Error while creating PDF:"
 msgstr "Terjadi galat sewaktu membuat PDF:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Tidak dapat menyimpan tabel terakhir: \"%1$s\""
 
 #: libraries/RecentTable.class.php:161
@@ -3078,7 +3123,9 @@ msgid "Recent tables"
 msgstr "Tabel terakhir"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Tidak ada tabel terakhir"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3240,7 +3287,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s telah berubah nama menjadi %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Tidak dapat menyimpan preferensi UI tabel"
 
 #: libraries/Table.class.php:1506
@@ -3871,7 +3920,9 @@ msgstr ""
 "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Tidak ada arsip untuk diunggah"
 
 # Imperative menu
@@ -3979,7 +4030,9 @@ msgid "Check Privileges"
 msgstr "Periksa Hak Akses"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Gagal membaca berkas konfigurasi"
 
 #: libraries/common.inc.php:583
@@ -4165,29 +4218,38 @@ msgstr "tidak keduanya dari yang di atas"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Bukan angka positif"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Bukan angka non-negatif"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Bukan angka port yang sah"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Nilai yang salah"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Nilai harus sama dengan atau lebih kecil dari %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11879,7 +11941,7 @@ msgstr "Izinkan semua pengguna untuk mengakses markah ini"
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Markah %s dibuat"
 
 #: libraries/sql.lib.php:1180

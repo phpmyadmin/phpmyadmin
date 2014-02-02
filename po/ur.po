@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-20 11:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
@@ -221,13 +221,15 @@ msgid "The database name is empty!"
 msgstr "کوائفیہ نام خالی ہے!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "کوائفیہ%1$s نام%2$s میں تبدیل ہوچکا ہے"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "کوائفیہ %1$s نام %2$s میں نقل کیا جاچکا ہے"
 
 #: db_operations.php:260
@@ -297,7 +299,9 @@ msgstr[0] "%s جدول"
 msgstr[1] "%s جداول"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "آپ کو دکھانے کے لیے کم از کم ایک کالم منتخب کرنا ہو گا"
 
 #: db_qbe.php:70
@@ -584,9 +588,13 @@ msgid "Output"
 msgstr "ماحصل"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "\"Function\" کالم سے  \"GeomFromText\" منتخب کرکے متن کو کالم کے \"Value\" "
 "میں نقل کریں"
@@ -639,8 +647,12 @@ msgstr ""
 "دیکھیں[doc@faq1-16]عمومی سوالات 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "حروف متبادل لائبریری کے بغیر مسل کے حروف کو نہیں بدل سکتا"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -648,8 +660,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "درآمد پلگ ان لوڈ نہیں ہو سکے، اپنی تنصیب کی پڑتال کریں!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "نشانی %s بنا دی گئی"
 
 #: import.php:563 import.php:576
@@ -1000,7 +1013,9 @@ msgid "Connections / Processes"
 msgstr "تعلقات / عوامل"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "مقامی تنصیبات مطابقت نہیں رکھتیں"
 
 #: js/messages.php:77
@@ -1832,16 +1847,18 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "کالم کے لیے ایک اختیار اضافہ کریں "
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr ""
 
 #: js/messages.php:334
@@ -1851,25 +1868,27 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr ""
 
 #: js/messages.php:336
 #, fuzzy
 #| msgid "Click to select"
-msgid "Click to sort"
+msgid "Click to sort."
 msgstr "انتخاب کے لیے کلک کریں"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr ""
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
-msgstr ""
+#, fuzzy
+#| msgid "Comments"
+msgid "Double-click to copy column name."
+msgstr "آراء-رائے"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1896,13 +1915,13 @@ msgstr ""
 #: js/messages.php:356
 #, fuzzy
 #| msgid "Logo link URL"
-msgid "Go to link"
+msgid "Go to link."
 msgstr "علامت ربط URL"
 
 #: js/messages.php:357
 #, fuzzy
 #| msgid "Comments"
-msgid "Copy column name"
+msgid "Copy column name."
 msgstr "آراء-رائے"
 
 #: js/messages.php:358
@@ -1912,7 +1931,7 @@ msgstr ""
 #: js/messages.php:359
 #, fuzzy
 #| msgid "Startup"
-msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "ابتدائیہ"
 
 #: js/messages.php:362
@@ -1946,7 +1965,7 @@ msgstr "اشاریے"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in left frame"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "بائیں جھروکہ میں علامت دکھائیں"
 
 #: js/messages.php:375
@@ -2006,7 +2025,8 @@ msgstr ""
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3175,7 +3195,7 @@ msgstr ""
 #: libraries/RecentTable.class.php:122
 #, fuzzy
 #| msgid "Could not open file: %s"
-msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "مسل نہیں کھول سکتا: %s"
 
 #: libraries/RecentTable.class.php:161
@@ -3187,7 +3207,7 @@ msgstr "حداول کی گنتی کریں"
 #: libraries/RecentTable.class.php:173
 #, fuzzy
 #| msgid "There are no files to upload"
-msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "اپ لوڈ کرنے کے لیے کوئی مسل نہیں ہے"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3356,8 +3376,10 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "جدول%s نام %s میں تبدیل ہوچکا ہے"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
-msgstr ""
+#, fuzzy
+#| msgid "Could not open file: %s"
+msgid "Could not save table UI preferences!"
+msgstr "مسل نہیں کھول سکتا: %s"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -3953,7 +3975,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "اپ لوڈ کام کے لیے سیٹ کیا گیا پوشہ قابل رسائی نہیں ہے۔"
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "اپ لوڈ کرنے کے لیے کوئی مسل نہیں ہے"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -4061,7 +4085,7 @@ msgstr "استحقاق پڑتال کریں"
 #: libraries/common.inc.php:581
 #, fuzzy
 #| msgid "Configuration file"
-msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "تشکیلی مسل"
 
 #: libraries/common.inc.php:583
@@ -4253,29 +4277,38 @@ msgstr "بالا میں سے کوئی بھی نہیں"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "ایک مثبت ہندسہ نہیں ہے"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "ایک غیر منفی ہندسہ نہیں ہے"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "ایک درست دہانہ ہندسہ نہیں ہے"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "نادرست قدر"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "قدر مساوی یا کم ہو اس سے %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12071,7 +12104,7 @@ msgstr ""
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "نشانی %s بنایا گیا"
 
 #: libraries/sql.lib.php:1180

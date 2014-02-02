@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-29 18:01+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
@@ -218,13 +218,15 @@ msgid "The database name is empty!"
 msgstr "Veritabanı adı boş!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s veritabanı %2$s olarak yeniden adlandırıldı"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s veritabanı %2$s veritabanına kopyalandı"
 
 #: db_operations.php:260
@@ -290,7 +292,9 @@ msgid_plural "%s tables"
 msgstr[0] "%s tablo"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Görüntülemek için en az bir sütun seçmelisiniz"
 
 #: db_qbe.php:70
@@ -578,9 +582,13 @@ msgid "Output"
 msgstr "Çıktı"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "\"Function\" sütunundan \"GeomFromText\"i seçin ve \"Value\" alanı içinde "
 "alta dizgiyi yapıştırın"
@@ -628,8 +636,12 @@ msgstr ""
 "[doc@faq1-16]SSS 1.16[/doc]'ya bakın."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Karakter grubu dönüştürme kütüphanesi olmadan dosyanın karakter grubu "
 "dönüştürülemez"
@@ -639,8 +651,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Yer imi %s oluşturuldu"
 
 #: import.php:563 import.php:576
@@ -1005,7 +1018,9 @@ msgid "Connections / Processes"
 msgstr "Bağlantılar / İşlemler"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Yerel izleme yapılandırması uyumsuz"
 
 #: js/messages.php:77
@@ -1784,16 +1799,21 @@ msgstr ""
 "kaybolacaklardır. Devam etmek istiyor musunuz?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Sütun için bir seçenek ekle "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d nesne oluşturuldu"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Düzenlemeyi iptal etmek için Esc tuşuna basın"
 
 #: js/messages.php:334
@@ -1805,23 +1825,33 @@ msgstr ""
 "sayfadan ayrılmak istediğinize emin misiniz?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Yen.düzenleme için sürükle"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Sıralamak için tıklayın"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "İşaretlemek/işareti kaldırmak için tıklayın"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Sütun adını kopyalamak için çift tıklayın"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Sütunların görünürlüğünü değiştirmek<br />için aşağı açılır okuna tıklayın"
 
@@ -1854,11 +1884,15 @@ msgstr ""
 "düzenleyebilirsiniz."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Bağlantıya git"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Sütun adını kopyala"
 
 #: js/messages.php:358
@@ -1866,7 +1900,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Sütun adını panonuza kopyalamak için sağ tuşa tıklayın."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Veri satır(larını)nı göster"
 
 #: js/messages.php:362
@@ -1894,7 +1930,9 @@ msgid "Hide Panel"
 msgstr "Paneli Gizle"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
+#, fuzzy
+#| msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Gizli rehber ağacı öğelerini göster"
 
 #: js/messages.php:375
@@ -1949,8 +1987,13 @@ msgid "Show Report Details"
 msgstr "Rapor Ayrıntılarını Göster"
 
 #: js/messages.php:395
+#, fuzzy
+#| msgid ""
+#| "Your export is incomplete, due to a low execution time limit at the PHP "
+#| "level"
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 "Dışa aktarmanız PHP seviyesindeki düşük çalıştırma süresinden dolayı "
 "tamamlanmadı"
@@ -3061,7 +3104,9 @@ msgid "Error while creating PDF:"
 msgstr "PDF oluşturulurken hata:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Son tablo kaydedilemedi"
 
 #: libraries/RecentTable.class.php:161
@@ -3069,7 +3114,9 @@ msgid "Recent tables"
 msgstr "Son tablolar"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Son tablolar yok"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3231,7 +3278,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tablosu %2$s olarak yeniden adlandırıldı."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Tablo KA tercihleri kaydedilemedi"
 
 #: libraries/Table.class.php:1506
@@ -3859,7 +3908,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Göndermek için hiç dosya yok"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3966,7 +4017,9 @@ msgid "Check Privileges"
 msgstr "Yetkileri kontrol et"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Yapılandırma dosyasını okuma başarısız"
 
 #: libraries/common.inc.php:583
@@ -4153,29 +4206,38 @@ msgstr "yukarıdakinin hiçbiri"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Pozitif sayı değil"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Negatif olmayan sayı değil"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Geçerli bağlantı noktası numarası değil"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Yanlış değer"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Değer, %s değerinden az ya da eşit olmalıdır"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11847,7 +11909,9 @@ msgid "Let every user access this bookmark"
 msgstr "Her kullanıcının bu yer imine erişmesine izin ver"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Yer imi oluşturulmadı"
 
 #: libraries/sql.lib.php:1180

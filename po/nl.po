@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-02-01 13:23+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
@@ -217,13 +217,15 @@ msgid "The database name is empty!"
 msgstr "De databanknaam is leeg!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databank %1$s werd hernoemd naar %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "Databank %1$s werd gekopieerd naar %2$s"
 
 #: db_operations.php:260
@@ -290,7 +292,9 @@ msgstr[0] "%s tabel"
 msgstr[1] "%s tabellen"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Er moet ten minste 1 weer te geven kolom worden gekozen"
 
 #: db_qbe.php:70
@@ -579,9 +583,13 @@ msgid "Output"
 msgstr "Uitvoer"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Kies \"GeomFormText\" uit de kolom \"Functie\" en kopieer onderstaande "
 "string in het veld \"Waarde\""
@@ -633,8 +641,12 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Kan de karakterset van het bestand niet omzetten zonder de 'character set "
 "conversion' bibliotheek"
@@ -646,8 +658,9 @@ msgstr ""
 "installatie!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s aangemaakt"
 
 #: import.php:563 import.php:576
@@ -1012,7 +1025,9 @@ msgid "Connections / Processes"
 msgstr "Verbindingen / Processen"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Configuratie van lokale monitoring is niet geldig"
 
 #: js/messages.php:77
@@ -1797,16 +1812,21 @@ msgstr ""
 "deze niet opslaat. Wilt u doorgaan?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Een optie voor kolom toevoegen "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d object(en) aangemaakt"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Druk op ESC om het bewerken te annuleren"
 
 #: js/messages.php:334
@@ -1818,23 +1838,33 @@ msgstr ""
 "dat u deze pagina wil verlaten alvorens de wijzigingen op te slaan?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Sleep om te herschikken"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Klik om te sorteren"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Klik om te markeren/demarkeren"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Dubbelklik om kolomnaam te kopiëren"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Klik op het pijltje<br />om de zichtbaarheid van de kolom te wijzigen"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1862,11 +1892,15 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "U kan de meeste waarden bewerken<br />door erop te klikken."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Ga naar de link"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Kolomnaam kopiëren"
 
 #: js/messages.php:358
@@ -1876,7 +1910,9 @@ msgstr ""
 "kopiëren."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Regel(s) met gegevens tonen"
 
 #: js/messages.php:362
@@ -1904,7 +1940,9 @@ msgid "Hide Panel"
 msgstr "Paneel verbergen"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
+#, fuzzy
+#| msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Verborgen navigatieboom items weergeven"
 
 #: js/messages.php:375
@@ -1961,8 +1999,13 @@ msgid "Show Report Details"
 msgstr "Toon verslag details"
 
 #: js/messages.php:395
+#, fuzzy
+#| msgid ""
+#| "Your export is incomplete, due to a low execution time limit at the PHP "
+#| "level"
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 "Uw uitvoer is onvolledig, als gevolg van een lage uitvoeringstijdbeperking "
 "op PHP niveau"
@@ -3085,7 +3128,9 @@ msgid "Error while creating PDF:"
 msgstr "Fout bij het aanmaken van de PDF:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Recente tabel kon niet opgeslagen worden"
 
 #: libraries/RecentTable.class.php:161
@@ -3093,7 +3138,9 @@ msgid "Recent tables"
 msgstr "Recente tabellen"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Er zijn geen recente tabellen"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3257,7 +3304,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s is hernoemd naar %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Tabelinterfacevoorkeuren konden niet worden opgeslagen"
 
 #: libraries/Table.class.php:1506
@@ -3896,7 +3945,9 @@ msgstr ""
 "De folder die u heeft ingesteld om te uploaden kan niet worden bereikt."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Er zijn geen bestanden om te uploaden"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -4002,7 +4053,9 @@ msgid "Check Privileges"
 msgstr "Controleer rechten"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Lezen van het configuratiebestand is niet gelukt"
 
 #: libraries/common.inc.php:583
@@ -4188,29 +4241,38 @@ msgstr "geen van bovenstaande opties"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Geen positief getal"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Geen niet-negatief getal"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Geen geldig poortnummer"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Foutieve waarde"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Waarde moet lager of gelijk zijn aan %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12091,7 +12153,9 @@ msgid "Let every user access this bookmark"
 msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Bladwijzer niet aangemaakt"
 
 #: libraries/sql.lib.php:1180

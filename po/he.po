@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-06 12:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hebrew <http://l10n.cihar.com/projects/phpmyadmin/master/he/"
@@ -217,13 +217,15 @@ msgid "The database name is empty!"
 msgstr "שם מסד הנתונים ריק!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "שם מסד הנתונים %1$s הוחלף בשם %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "מסד הנתונים %1$s הועתק אל %2$s"
 
 #: db_operations.php:260
@@ -288,7 +290,9 @@ msgstr[0] "טבלה אחת (%s)"
 msgstr[1] "%s טבלאות"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "עליך לבחור לפחות עמודה אחת לתצוגה"
 
 #: db_qbe.php:70
@@ -571,9 +575,13 @@ msgid "Output"
 msgstr "פלט"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "בוחר \"GeomFromText\" מהעמודה \"פונקציה\" ולהדביק את המחרוזת מלמטה לשדה \"ערך"
 "\""
@@ -622,8 +630,12 @@ msgstr ""
 "המרבי המותר בתצורת ה־PHP שלך. ניתן לעיין ב[doc@faq1-16]שו״ת 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "לא ניתן להמיר את קידוד התווים של הקובץ ללא ספרייה להמרת קידודי תווים"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -631,8 +643,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "לא ניתן לטעון את תוספי הייבוא, נא לבדוק האם ההתקנה שלך תקינה!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "הסימנייה %s נוצרה"
 
 #: import.php:563 import.php:576
@@ -990,7 +1003,9 @@ msgid "Connections / Processes"
 msgstr "חיבורים / תהליכים"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "תצורת מעקב מקומית אינה נתמכת"
 
 #: js/messages.php:77
@@ -1826,16 +1841,18 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:329
-msgid "Add an option for column "
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Value for the column \"%s\""
+msgid "Add an option for column \"%s\"."
+msgstr "ערך עבור העמודה „%s“"
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr ""
 
 #: js/messages.php:334
@@ -1845,23 +1862,25 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr ""
 
 #: js/messages.php:336
-msgid "Click to sort"
+msgid "Click to sort."
 msgstr ""
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr ""
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
-msgstr ""
+#, fuzzy
+#| msgid "Column names"
+msgid "Double-click to copy column name."
+msgstr "שמות עמודה"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1886,13 +1905,13 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:356
-msgid "Go to link"
+msgid "Go to link."
 msgstr ""
 
 #: js/messages.php:357
 #, fuzzy
 #| msgid "Column names"
-msgid "Copy column name"
+msgid "Copy column name."
 msgstr "שמות עמודה"
 
 #: js/messages.php:358
@@ -1902,7 +1921,7 @@ msgstr ""
 #: js/messages.php:359
 #, fuzzy
 #| msgid "Showing rows"
-msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "מראה שורות"
 
 #: js/messages.php:362
@@ -1940,8 +1959,10 @@ msgid "Hide Panel"
 msgstr "הוספת שדה חדש"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
-msgstr ""
+#, fuzzy
+#| msgid "Show grid"
+msgid "Show hidden navigation tree items."
+msgstr "הראה רשת"
 
 #: js/messages.php:375
 #, fuzzy
@@ -2000,7 +2021,8 @@ msgstr "ראיית טבלאות"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3221,8 +3243,10 @@ msgid "Error while creating PDF:"
 msgstr "מאפשר מחיקת מידע."
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
-msgstr ""
+#, fuzzy
+#| msgid "Documentation"
+msgid "Could not save recent table!"
+msgstr "תיעוד"
 
 #: libraries/RecentTable.class.php:161
 #, fuzzy
@@ -3230,8 +3254,10 @@ msgid "Recent tables"
 msgstr "אין טבלאות"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
-msgstr ""
+#, fuzzy
+#| msgid "The server is not responding"
+msgid "There are no recent tables."
+msgstr "השרת אינו מגיב"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3400,7 +3426,7 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "טבלה %s שונתה אל %s"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr ""
 
 #: libraries/Table.class.php:1506
@@ -3997,7 +4023,7 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr ""
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -4105,8 +4131,10 @@ msgid "Check Privileges"
 msgstr "בדיקת הרשאות"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
-msgstr ""
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Failed to read configuration file!"
+msgstr "תצורת מעקב מקומית אינה נתמכת"
 
 #: libraries/common.inc.php:583
 msgid ""
@@ -4298,29 +4326,31 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
-msgstr ""
+#, fuzzy
+#| msgid "%d is not valid row number."
+msgid "Not a valid port number!"
+msgstr "%d הוא לא מספר שורה תקין."
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
 #, php-format
-msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11859,7 +11889,7 @@ msgstr "אפשר לכל משתמש לגשת לכתובת מועדפת זאת"
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "הסימנייה %s נוצרה"
 
 #: libraries/sql.lib.php:1180

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-02-02 11:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Breton <http://l10n.cihar.com/projects/phpmyadmin/master/br/"
@@ -222,13 +222,15 @@ msgid "The database name is empty!"
 msgstr "Goullo eo anv an diaz roadennoù !"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "Deuet eo anv an diaz roadennoù %1$s da vezañ %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "Eilet eo bet an diaz roadennoù %1$s war %2$s"
 
 #: db_operations.php:260
@@ -295,7 +297,9 @@ msgstr[0] "%s daolenn"
 msgstr[1] "%s taolenn"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Ret eo deoc'h dibab da nebeutañ ur bann da vezañ diskwelet"
 
 #: db_qbe.php:70
@@ -594,7 +598,7 @@ msgstr "Disoc'h"
 #| "string into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Dibab \"GeomFromText\" er bann \"Arc'hwel\" ha pegañ an neudennad er "
 "vaezienn \"Talvoud\" a-is"
@@ -648,8 +652,12 @@ msgstr ""
 "ho kefluniadur PHP. Gwelet [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr "Dibosupl amdreiñ an arouezennoù hep levraoueg amdreiñ"
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -657,8 +665,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Dibosupl enporzhiañ an adveziantoù. Gwiriit ho staliadur !"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Krouet eo bet ar sined %s"
 
 #: import.php:563 import.php:576
@@ -1016,7 +1025,9 @@ msgid "Connections / Processes"
 msgstr "Kevreadennoù/Argerzhioù"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "N'eo ket kenglotus kefluniadur lec'hel an evezhiañ"
 
 #: js/messages.php:77
@@ -1826,16 +1837,18 @@ msgstr ""
 "ma n'o enrollit ket. Kenderc'hel memes tra ?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Ouzhpennañ un dibarzh evit ar bann "
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr ""
 
 #: js/messages.php:334
@@ -1845,23 +1858,25 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr ""
 
 #: js/messages.php:336
-msgid "Click to sort"
-msgstr ""
+#, fuzzy
+#| msgid "Click to select"
+msgid "Click to sort."
+msgstr "Klikañ evit diuzañ"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr ""
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr ""
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1886,12 +1901,14 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:356
-msgid "Go to link"
+msgid "Go to link."
 msgstr ""
 
 #: js/messages.php:357
-msgid "Copy column name"
-msgstr ""
+#, fuzzy
+#| msgid "No rows selected"
+msgid "Copy column name."
+msgstr "N'eus bet diuzet linenn ebet"
 
 #: js/messages.php:358
 msgid "Right-click the column name to copy it to your clipboard."
@@ -1900,7 +1917,7 @@ msgstr ""
 #: js/messages.php:359
 #, fuzzy
 #| msgid "Sort"
-msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Urzhiañ"
 
 #: js/messages.php:362
@@ -1934,7 +1951,7 @@ msgstr "Kuzhat menegerioù"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in left frame"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Diskouez al logo er banell verdeiñ gleiz"
 
 #: js/messages.php:375
@@ -1990,7 +2007,8 @@ msgstr ""
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3151,7 +3169,9 @@ msgid "Error while creating PDF:"
 msgstr ""
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "N'eus ket bet gallet enrollañ an daolenn envez"
 
 #: libraries/RecentTable.class.php:161
@@ -3159,7 +3179,9 @@ msgid "Recent tables"
 msgstr "Taolennoù nevez"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "N'eus taolenn nevez ebet"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3328,7 +3350,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Anv an daolenn %s zo %s bremañ"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "N'eus ket bet gallet enrollañ dibaboù etrefas an taolennoù"
 
 #: libraries/Table.class.php:1506
@@ -3919,7 +3943,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Ar c'havlec'h treuzkas n'hall ket bezañ diraezet."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "N'eus restr ebet da enporzhiañ"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -4028,7 +4054,9 @@ msgid "Check Privileges"
 msgstr "Gwiriañ ar gwirioù"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Dibosupl lenn ar restr keluniañ"
 
 #: libraries/common.inc.php:583
@@ -4222,29 +4250,38 @@ msgstr "Dibab ebet a-zouez ar re zo a-us"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "N'eo ket un niver pozitivel"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "N'eo ket un niver annegativel"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Niverenn borzh direizh"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Talvoud direizh"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Rankout a ra an talvoud bezañ par da pe bihanoc'h eget %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11734,7 +11771,7 @@ msgstr ""
 #: libraries/sql.lib.php:1024
 #, fuzzy
 #| msgid "Bookmark %s created"
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Krouet eo bet ar sined %s"
 
 #: libraries/sql.lib.php:1180
@@ -14405,9 +14442,6 @@ msgstr ""
 #~| msgid "Refresh"
 #~ msgid "Refresh rate: "
 #~ msgstr "Freskaat"
-
-#~ msgid "Click to select"
-#~ msgstr "Klikañ evit diuzañ"
 
 #, fuzzy
 #~| msgid "Issued queries"

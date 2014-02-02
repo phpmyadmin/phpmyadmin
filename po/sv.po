@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-22 22:45+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
@@ -218,13 +218,15 @@ msgid "The database name is empty!"
 msgstr "Databasens namn är tomt!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databasen %1$s har bytt namn till %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasen %1$s har kopierats till %2$s"
 
 #: db_operations.php:260
@@ -290,7 +292,9 @@ msgstr[0] "%s tabell"
 msgstr[1] "%s tabeller"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Du måste välja minst en kolumn som ska visas"
 
 #: db_qbe.php:70
@@ -573,9 +577,13 @@ msgid "Output"
 msgstr "Utdata"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Välj \"GeomFromText\" i \"Funktions\" kolumnen och klistra in strängen i "
 "\"Value\" fältet"
@@ -625,8 +633,12 @@ msgstr ""
 "konfiguration. Se [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Kan inte konvertera filens teckenuppsättning utan teckenuppsättningens "
 "omvandlingsbibliotek"
@@ -636,8 +648,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Kunde inte läsa in tillägg för import, kontrollera din installation!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats"
 
 #: import.php:563 import.php:576
@@ -999,7 +1012,9 @@ msgid "Connections / Processes"
 msgstr "Anslutningar / Processer"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Lokal övervakningskonfiguration ej kompatibel"
 
 #: js/messages.php:77
@@ -1780,16 +1795,21 @@ msgstr ""
 "sparar dem. Vill du fortsätta?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Lägg till ett alternativ för kolumn "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d objekt skapade"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Tryck Escape för att avbryta redigeringen"
 
 #: js/messages.php:334
@@ -1801,23 +1821,33 @@ msgstr ""
 "vill lämna denna sida innan du sparar uppgifterna?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Dra för att ändra ordning"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Klicka för att sortera"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Klicka för att markera/avmarkera"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Dubbelklicka för att kopiera kolumnnamn"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Klicka på pilen<br />för att växla kolumnens synlighet"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1848,11 +1878,15 @@ msgstr ""
 "Du kan även redigera de flesta värden<br />genom att klicka direkt på dessa."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Gå till länk"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Kopiera kolumnnamn"
 
 #: js/messages.php:358
@@ -1860,7 +1894,9 @@ msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Högerklicka på kolumnnamnet för att kopiera det till urklipp."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Visa datarad(er)"
 
 #: js/messages.php:362
@@ -1890,7 +1926,7 @@ msgstr "Dölj Panel"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in navigation panel"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Visa logotypen i navigeringspanelen"
 
 #: js/messages.php:375
@@ -1949,7 +1985,8 @@ msgstr "Visa öppna tabeller"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3075,7 +3112,9 @@ msgid "Error while creating PDF:"
 msgstr "Fel vid skapande av PDF:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Kunde inte spara den senaste tabellen"
 
 #: libraries/RecentTable.class.php:161
@@ -3083,7 +3122,9 @@ msgid "Recent tables"
 msgstr "De senaste tabellerna"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Det finns inga nya tabeller"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3247,7 +3288,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabell %1$s har döpts om till %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Kunde inte spara UI inställningarna för tabellen"
 
 #: libraries/Table.class.php:1506
@@ -3872,7 +3915,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Katalogen du ställt in för uppladdning kan inte nås."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Det finns inga filer att ladda upp"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3979,7 +4024,9 @@ msgid "Check Privileges"
 msgstr "Kontrollera privilegier"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Kunde inte läsa konfigurationsfilen"
 
 #: libraries/common.inc.php:583
@@ -4164,29 +4211,38 @@ msgstr "ingen av ovanstående"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Inte ett positivt tal"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Inte ett icke-negativt tal"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Inte ett giltigt portnummer"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Felaktigt värde"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Värdet måste vara lika med eller mindre än %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11918,7 +11974,9 @@ msgid "Let every user access this bookmark"
 msgstr "Låt alla användare få tillgång till detta bokmärke"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Bokmärke ej skapat"
 
 #: libraries/sql.lib.php:1180

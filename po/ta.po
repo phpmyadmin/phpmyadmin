@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-08 09:55+0200\n"
 "Last-Translator: Lakshmanan M <send2lakshman@gmail.com>\n"
 "Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/master/ta/>\n"
@@ -218,13 +218,15 @@ msgid "The database name is empty!"
 msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s தரவுத்தளமானது %2$s ஆக பெயர் மாற்றப்பட்டது"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s தரவுத்தளமானது %2$s இற்கு பிரதி செய்யப்பட்டது"
 
 #: db_operations.php:260
@@ -291,7 +293,9 @@ msgstr[0] "%s அட்டவணை"
 msgstr[1] "%s அட்டவணைகள்"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "காட்சிப்படுத்த நீங்கள் குறைந்தபட்சம் ஒரு நிரலை தேர்ந்தெடுக்க வேண்டும்"
 
 #: db_qbe.php:70
@@ -581,7 +585,7 @@ msgstr "வெளியீடு"
 #: gis_data_editor.php:410
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 
 #: import.php:116
@@ -621,7 +625,7 @@ msgstr ""
 
 #: import.php:481
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 
 #: import.php:519 libraries/display_import.inc.php:32
@@ -629,9 +633,10 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Table %1$s has been created."
+msgid "Bookmark %s has been created."
+msgstr "அட்டவணை %1$s உருவாக்கபட்டது."
 
 #: import.php:563 import.php:576
 #, php-format
@@ -979,7 +984,7 @@ msgid "Connections / Processes"
 msgstr "இணைப்புக்கள்/ செயலாக்கங்கள்"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr ""
 
 #: js/messages.php:77
@@ -1762,16 +1767,18 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:329
-msgid "Add an option for column "
-msgstr ""
+#, fuzzy, php-format
+#| msgid "Add/Delete columns"
+msgid "Add an option for column \"%s\"."
+msgstr "நெடுவரிசைகள்  சேர்க்க/ நீக்க"
 
 #: js/messages.php:330
 #, php-format
-msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr ""
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr ""
 
 #: js/messages.php:334
@@ -1781,23 +1788,25 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr ""
 
 #: js/messages.php:336
-msgid "Click to sort"
-msgstr ""
+#, fuzzy
+#| msgid "Click to select"
+msgid "Click to sort."
+msgstr "சொடுக்கி தெரிவுசெய்"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr ""
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr ""
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1822,20 +1831,26 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "இணைப்புக்கு செல்"
 
 #: js/messages.php:357
-msgid "Copy column name"
-msgstr ""
+#, fuzzy
+#| msgid "No column selected."
+msgid "Copy column name."
+msgstr "தெரிவுசெய்யப்பட தூண் இல்லை."
 
 #: js/messages.php:358
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:359
-msgid "Show data row(s)"
-msgstr ""
+#, fuzzy
+#| msgid "Sort"
+msgid "Show data row(s)."
+msgstr "வரிசைப்படுத்து"
 
 #: js/messages.php:362
 msgid "Generate password"
@@ -1866,8 +1881,10 @@ msgid "Hide Panel"
 msgstr "சுட்டுகளை மறை"
 
 #: js/messages.php:372
-msgid "Show hidden navigation tree items"
-msgstr ""
+#, fuzzy
+#| msgid "Show indexes"
+msgid "Show hidden navigation tree items."
+msgstr "சுட்டுகளை காட்டு"
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
@@ -1922,7 +1939,8 @@ msgstr ""
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3074,7 +3092,7 @@ msgid "Error while creating PDF:"
 msgstr ""
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr ""
 
 #: libraries/RecentTable.class.php:161
@@ -3082,8 +3100,10 @@ msgid "Recent tables"
 msgstr "சமீபத்திய அட்டவணைகள்"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
-msgstr ""
+#, fuzzy
+#| msgid "Query cache used"
+msgid "There are no recent tables."
+msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3250,7 +3270,7 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "%s தரவுத்தளமானது %s ஆக பெயர் மாற்றப்பட்டது"
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr ""
 
 #: libraries/Table.class.php:1506
@@ -3831,7 +3851,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "நீங்கள் தேர்வு செய்த வலை சேவையகம் பதிவேற்றை அடைய இயலவில்லை."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -3940,7 +3962,7 @@ msgid "Check Privileges"
 msgstr ""
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr ""
 
 #: libraries/common.inc.php:583
@@ -4126,29 +4148,29 @@ msgstr ""
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
 #, php-format
-msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:570
@@ -11355,7 +11377,7 @@ msgid "Let every user access this bookmark"
 msgstr ""
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr ""
 
 #: libraries/sql.lib.php:1180
@@ -13885,9 +13907,6 @@ msgstr ""
 #~ msgid "Edit index"
 #~ msgstr "தொகுப்பு பார்வை"
 
-#~ msgid "Table %1$s has been created."
-#~ msgstr "அட்டவணை %1$s உருவாக்கபட்டது."
-
 #~ msgid "This is not a number!"
 #~ msgstr "இது ஒரு இலக்கம் அல்ல!"
 
@@ -13933,9 +13952,6 @@ msgstr ""
 
 #~ msgid "Total count"
 #~ msgstr "மொத்தம் எண்ணல்"
-
-#~ msgid "Click to select"
-#~ msgstr "சொடுக்கி தெரிவுசெய்"
 
 #~ msgid "Executed queries"
 #~ msgstr "வினவல்கள் நிறைவடைந்தது"

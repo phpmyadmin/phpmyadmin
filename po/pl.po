@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:20+0100\n"
+"POT-Creation-Date: 2014-02-02 11:45+0100\n"
 "PO-Revision-Date: 2014-01-10 19:12+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/"
@@ -219,13 +219,15 @@ msgid "The database name is empty!"
 msgstr "Nazwa bazy danych jest pusta!"
 
 #: db_operations.php:130
-#, php-format
-msgid "Database %1$s has been renamed to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been renamed to %2$s"
+msgid "Database %1$s has been renamed to %2$s."
 msgstr "Nazwę bazy danych %1$s zmieniono na %2$s"
 
 #: db_operations.php:136
-#, php-format
-msgid "Database %1$s has been copied to %2$s"
+#, fuzzy, php-format
+#| msgid "Database %1$s has been copied to %2$s"
+msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza danych %1$s została przekopiowana do %2$s"
 
 #: db_operations.php:260
@@ -293,7 +295,9 @@ msgstr[1] "%s tabel"
 msgstr[2] "%s tabel"
 
 #: db_qbe.php:50
-msgid "You have to choose at least one column to display"
+#, fuzzy
+#| msgid "You have to choose at least one column to display"
+msgid "You have to choose at least one column to display!"
 msgstr "Musisz wybrać co najmniej jedną kolumnę do wyświetlenia"
 
 #: db_qbe.php:70
@@ -582,9 +586,13 @@ msgid "Output"
 msgstr "Wyjście"
 
 #: gis_data_editor.php:410
+#, fuzzy
+#| msgid ""
+#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 msgstr ""
 "Wybierz \"GeomFromText\" z kolumny \"Funkcja\" i wklej poniższy ciąg znaków "
 "do pola \"Wartość\""
@@ -634,8 +642,12 @@ msgstr ""
 "konfigurację PHP. Zobacz [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
+#, fuzzy
+#| msgid ""
+#| "Cannot convert file's character set without character set conversion "
+#| "library"
 msgid ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Nie można przekonwertować zestawu znaków pliku bez biblioteki konwersji"
 
@@ -644,8 +656,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Nie udało się wczytać wtyczek importu. Proszę sprawdzić instalację!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, php-format
-msgid "Bookmark %s created"
+#, fuzzy, php-format
+#| msgid "Bookmark %s created"
+msgid "Bookmark %s has been created."
 msgstr "Zakładka %s utworzona"
 
 #: import.php:563 import.php:576
@@ -1023,7 +1036,9 @@ msgid "Connections / Processes"
 msgstr "Połączenia / Procesy"
 
 #: js/messages.php:76
-msgid "Local monitor configuration incompatible"
+#, fuzzy
+#| msgid "Local monitor configuration incompatible"
+msgid "Local monitor configuration incompatible!"
 msgstr "Konfiguracja monitora lokalnego jest niezgodna"
 
 #: js/messages.php:77
@@ -1814,16 +1829,21 @@ msgstr ""
 "Czy chcesz kontynuować?"
 
 #: js/messages.php:329
-msgid "Add an option for column "
+#, fuzzy, php-format
+#| msgid "Add an option for column "
+msgid "Add an option for column \"%s\"."
 msgstr "Dodaj opcję do kolumny "
 
 #: js/messages.php:330
-#, php-format
-msgid "%d object(s) created"
+#, fuzzy, php-format
+#| msgid "%d object(s) created"
+msgid "%d object(s) created."
 msgstr "%d obiekt(y) utworzony"
 
 #: js/messages.php:333
-msgid "Press escape to cancel editing"
+#, fuzzy
+#| msgid "Press escape to cancel editing"
+msgid "Press escape to cancel editing."
 msgstr "Naciśnij ESCAPE, aby anulować edycję"
 
 #: js/messages.php:334
@@ -1835,23 +1855,33 @@ msgstr ""
 "chcesz opuścić tę stronę przed zapisaniem danych?"
 
 #: js/messages.php:335
-msgid "Drag to reorder"
+#, fuzzy
+#| msgid "Drag to reorder"
+msgid "Drag to reorder."
 msgstr "Przeciągnij, aby uporządkować"
 
 #: js/messages.php:336
-msgid "Click to sort"
+#, fuzzy
+#| msgid "Click to sort"
+msgid "Click to sort."
 msgstr "Kliknij, aby posortować"
 
 #: js/messages.php:337
-msgid "Click to mark/unmark"
+#, fuzzy
+#| msgid "Click to mark/unmark"
+msgid "Click to mark/unmark."
 msgstr "Kliknij, aby zaznaczyć/odznaczyć"
 
 #: js/messages.php:338
-msgid "Double-click to copy column name"
+#, fuzzy
+#| msgid "Double-click to copy column name"
+msgid "Double-click to copy column name."
 msgstr "Kliknij dwukrotnie, aby skopiować nazwę kolumny"
 
 #: js/messages.php:340
-msgid "Click the drop-down arrow<br />to toggle column's visibility"
+#, fuzzy
+#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
+msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Kliknij rozwijane strzałki, <br/> aby przełączyć widoczność kolumn"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
@@ -1883,11 +1913,15 @@ msgstr ""
 "nich."
 
 #: js/messages.php:356
-msgid "Go to link"
+#, fuzzy
+#| msgid "Go to link"
+msgid "Go to link."
 msgstr "Kliknij link"
 
 #: js/messages.php:357
-msgid "Copy column name"
+#, fuzzy
+#| msgid "Copy column name"
+msgid "Copy column name."
 msgstr "Skopiuj nazwę kolumny"
 
 #: js/messages.php:358
@@ -1896,7 +1930,9 @@ msgstr ""
 "Kliknij prawym przyciskiem myszy nazwę kolumny aby skopiować go do schowka."
 
 #: js/messages.php:359
-msgid "Show data row(s)"
+#, fuzzy
+#| msgid "Show data row(s)"
+msgid "Show data row(s)."
 msgstr "Pokaż dane wiersza(y)"
 
 #: js/messages.php:362
@@ -1926,7 +1962,7 @@ msgstr "Ukryj Panel"
 #: js/messages.php:372
 #, fuzzy
 #| msgid "Show logo in navigation panel"
-msgid "Show hidden navigation tree items"
+msgid "Show hidden navigation tree items."
 msgstr "Pokaż logo w panelu nawigacyjnym"
 
 #: js/messages.php:375
@@ -1988,7 +2024,8 @@ msgstr "Pokaż otwarte tabele"
 
 #: js/messages.php:395
 msgid ""
-"Your export is incomplete, due to a low execution time limit at the PHP level"
+"Your export is incomplete, due to a low execution time limit at the PHP "
+"level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
@@ -3143,7 +3180,9 @@ msgid "Error while creating PDF:"
 msgstr "Błąd podczas tworzenia PDF:"
 
 #: libraries/RecentTable.class.php:122
-msgid "Could not save recent table"
+#, fuzzy
+#| msgid "Could not save recent table"
+msgid "Could not save recent table!"
 msgstr "Nie można zapisać ostatnich tabeli"
 
 #: libraries/RecentTable.class.php:161
@@ -3151,7 +3190,9 @@ msgid "Recent tables"
 msgstr "Ostatnie tabele"
 
 #: libraries/RecentTable.class.php:173
-msgid "There are no recent tables"
+#, fuzzy
+#| msgid "There are no recent tables"
+msgid "There are no recent tables."
 msgstr "Brak ostatnich tabel"
 
 #: libraries/ServerStatusData.class.php:188
@@ -3318,7 +3359,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabela %1$s ma nazwę zmienioną na %2$s."
 
 #: libraries/Table.class.php:1477
-msgid "Could not save table UI preferences"
+#, fuzzy
+#| msgid "Could not save table UI preferences"
+msgid "Could not save table UI preferences!"
 msgstr "Nie można zapisać preferencji UI tabeli"
 
 #: libraries/Table.class.php:1506
@@ -3958,7 +4001,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Nie można znaleźć katalogu do zapisu przesyłanych plików."
 
 #: libraries/Util.class.php:3384
-msgid "There are no files to upload"
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are no files to upload!"
 msgstr "Brak plików do wysłania"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -4067,7 +4112,9 @@ msgid "Check Privileges"
 msgstr "Sprawdź uprawnienia"
 
 #: libraries/common.inc.php:581
-msgid "Failed to read configuration file"
+#, fuzzy
+#| msgid "Failed to read configuration file"
+msgid "Failed to read configuration file!"
 msgstr "Nie można odczytać pliku konfiguracyjnego"
 
 #: libraries/common.inc.php:583
@@ -4254,29 +4301,38 @@ msgstr "żadne z powyższych"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-msgid "Not a positive number"
+#, fuzzy
+#| msgid "Not a positive number"
+msgid "Not a positive number!"
 msgstr "Liczba nie jest dodatnia"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-msgid "Not a non-negative number"
+#, fuzzy
+#| msgid "Not a non-negative number"
+msgid "Not a non-negative number!"
 msgstr "Liczba nie jest nieujemna"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-msgid "Not a valid port number"
+#, fuzzy
+#| msgid "Not a valid port number"
+msgid "Not a valid port number!"
 msgstr "Nieprawidłowy numer portu"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-msgid "Incorrect value"
+#, fuzzy
+#| msgid "Incorrect value"
+msgid "Incorrect value!"
 msgstr "Nieprawidłowa wartość"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, php-format
-msgid "Value must be equal or lower than %s"
+#, fuzzy, php-format
+#| msgid "Value must be equal or lower than %s"
+msgid "Value must be equal or lower than %s!"
 msgstr "Wartość musi być mniejsza bądź równa %s"
 
 #: libraries/config/FormDisplay.class.php:570
@@ -12624,7 +12680,9 @@ msgid "Let every user access this bookmark"
 msgstr "Niech każdy użytkownik ma dostęp do tej zakładki"
 
 #: libraries/sql.lib.php:1024
-msgid "Bookmark not created"
+#, fuzzy
+#| msgid "Bookmark not created"
+msgid "Bookmark not created!"
 msgstr "Zakładka nie utworzona"
 
 #: libraries/sql.lib.php:1180
