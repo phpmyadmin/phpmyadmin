@@ -1474,7 +1474,7 @@ class PMA_Table
 
         if (!$success) {
             $message = PMA_Message::error(
-                __('Could not save table UI preferences')
+                __('Could not save table UI preferences!')
             );
             $message->addMessage('<br /><br />');
             $message->addMessage(

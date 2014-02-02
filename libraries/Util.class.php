@@ -3381,7 +3381,7 @@ class PMA_Util
                 . $files
                 . '    </select>' . "\n";
         } elseif (empty ($files)) {
-            $block_html .= '<i>' . __('There are no files to upload') . '</i>';
+            $block_html .= '<i>' . __('There are no files to upload!') . '</i>';
         }
 
         return $block_html;

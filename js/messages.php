@@ -327,17 +327,17 @@ $js_messages['strLeavingDesigner'] = __(
 
 /* Visual query builder (js/pmd/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column "%s".');
-$js_messages['strObjectsCreated'] = __('%d object(s) created');
+$js_messages['strObjectsCreated'] = __('%d object(s) created.');
 
 /* For makegrid.js (column reordering, show/hide column, grid editing) */
 $js_messages['strCellEditHint'] = __('Press escape to cancel editing.');
 $js_messages['strSaveCellWarning'] = __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?');
-$js_messages['strColOrderHint'] = __('Drag to reorder');
-$js_messages['strSortHint'] = __('Click to sort');
-$js_messages['strColMarkHint'] = __('Click to mark/unmark');
-$js_messages['strColNameCopyHint'] = __('Double-click to copy column name');
+$js_messages['strColOrderHint'] = __('Drag to reorder.');
+$js_messages['strSortHint'] = __('Click to sort.');
+$js_messages['strColMarkHint'] = __('Click to mark/unmark.');
+$js_messages['strColNameCopyHint'] = __('Double-click to copy column name.');
 $js_messages['strColVisibHint'] = __(
-    'Click the drop-down arrow<br />to toggle column\'s visibility'
+    'Click the drop-down arrow<br />to toggle column\'s visibility.'
 );
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __('This table does not contain a unique column. Features related to the grid edit, checkbox, Edit, Copy and Delete links may not work after saving.');
@@ -353,10 +353,10 @@ case 'click':
 default:
     break;
 }
-$js_messages['strGoToLink'] = __('Go to link');
-$js_messages['strColNameCopyTitle'] = __('Copy column name');
+$js_messages['strGoToLink'] = __('Go to link.');
+$js_messages['strColNameCopyTitle'] = __('Copy column name.');
 $js_messages['strColNameCopyText'] = __('Right-click the column name to copy it to your clipboard.');
-$js_messages['strShowDataRowLink'] = __('Show data row(s)');
+$js_messages['strShowDataRowLink'] = __('Show data row(s).');
 
 /* password generation */
 $js_messages['strGeneratePassword'] = __('Generate password');
@@ -369,7 +369,7 @@ $js_messages['strMore'] = __('More');
 /* navigation panel */
 $js_messages['strShowPanel'] = __('Show Panel');
 $js_messages['strHidePanel'] = __('Hide Panel');
-$js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items');
+$js_messages['strUnhideNavItem'] = __('Show hidden navigation tree items.');
 
 /* microhistory */
 $js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');
@@ -392,7 +392,7 @@ $js_messages['strChangeReportSettings'] = __("Change Report Settings");
 $js_messages['strShowReportDetails'] = __("Show Report Details");
 $js_messages['strIgnore'] = __("Ignore");
 $js_messages['strTimeOutError'] = __(
-    "Your export is incomplete, due to a low execution time limit at the PHP level"
+    "Your export is incomplete, due to a low execution time limit at the PHP level!"
 );
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {

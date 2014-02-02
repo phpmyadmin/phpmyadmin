@@ -578,7 +578,7 @@ if ($GLOBALS['text_dir'] == 'ltr') {
 $GLOBALS['PMA_Config']->checkPermissions();
 
 if ($GLOBALS['PMA_Config']->error_config_file) {
-    $error = '[strong]' . __('Failed to read configuration file') . '[/strong]'
+    $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
         . '[br][br]'
         . __('This usually means there is a syntax error in it, please check any errors shown below.')
         . '[br][br]'

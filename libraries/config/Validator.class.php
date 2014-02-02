@@ -525,7 +525,7 @@ class PMA_Validator
                 false,
                 false,
                 65535,
-                __('Not a valid port number')
+                __('Not a valid port number!')
             )
         );
     }

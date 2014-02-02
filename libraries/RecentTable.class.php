@@ -119,7 +119,7 @@ class PMA_RecentTable
         $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (! $success) {
-            $message = PMA_Message::error(__('Could not save recent table'));
+            $message = PMA_Message::error(__('Could not save recent table!'));
             $message->addMessage('<br /><br />');
             $message->addMessage(
                 PMA_Message::rawError(
@@ -170,7 +170,7 @@ class PMA_RecentTable
             }
         } else {
             $html .= '<option value="">'
-                . __('There are no recent tables')
+                . __('There are no recent tables.')
                 . '</option>';
         }
         return $html;

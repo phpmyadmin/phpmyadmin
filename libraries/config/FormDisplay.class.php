@@ -93,11 +93,11 @@ class FormDisplay
     public function __construct(ConfigFile $cf)
     {
         $this->_jsLangStrings = array(
-            'error_nan_p' => __('Not a positive number'),
-            'error_nan_nneg' => __('Not a non-negative number'),
-            'error_incorrect_port' => __('Not a valid port number'),
-            'error_invalid_value' => __('Incorrect value'),
-            'error_value_lte' => __('Value must be equal or lower than %s'));
+            'error_nan_p' => __('Not a positive number!'),
+            'error_nan_nneg' => __('Not a non-negative number!'),
+            'error_incorrect_port' => __('Not a valid port number!'),
+            'error_invalid_value' => __('Incorrect value!'),
+            'error_value_lte' => __('Value must be equal or lower than %s!'));
         $this->_configFile = $cf;
         // initialize validators
         PMA_Validator::getValidators($this->_configFile);
