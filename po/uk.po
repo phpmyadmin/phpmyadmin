@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-11-30 13:35+0200\n"
-"Last-Translator: Andriy Bandura <andriykopanytsia@gmail.com>\n"
-"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/4-1/uk/"
-">\n"
+"PO-Revision-Date: 2014-02-02 10:55+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/4-1/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -10615,9 +10614,9 @@ msgid ""
 "chart using the cog icon on each respective chart."
 msgstr ""
 "Ваш браузер буде оновлювати всі відображувані графіки через певні проміжки "
-"часу. В розділі&quot;Налаштування&quot; можна додавати графіки і змінювати "
-"частоту їх оновлення, або видаляти графіки використовуючи відповідну іконку "
-"на кожному з них."
+"часу. В розділі\"Налаштування\" можна додавати графіки і змінювати частоту їх "
+"оновлення, або видаляти графіки використовуючи відповідну іконку на кожному "
+"з них."
 
 #: libraries/server_status_monitor.lib.php:178
 msgid ""
@@ -13241,7 +13240,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "Змінна log_slow_queries встановлена у &quot;OFF&quot;"
+msgstr "Змінна log_slow_queries встановлена у \"OFF\""
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -13386,14 +13385,14 @@ msgid ""
 msgstr ""
 "Кеш запитів, як відомо, при правильному налаштуванні значно підвищити "
 "продуктивність. Увімкніть його встановивши {query_cache_size} на 2-х значне "
-"значення у MiB і змінишви {query_cache_type} на &quot;ON&quot;. <b>Примітка:"
-"</b> Якщо використовується memcached, цю рекомендацію ігноруйте."
+"значення у MiB і змінишви {query_cache_type} на \"ON\". <b>Примітка:</b> Якщо "
+"використовується memcached, цю рекомендацію ігноруйте."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "Змінна query_cache_size встановлена в 0, або змінна query_cache_type "
-"встановлена у &quot;OFF&quot;"
+"встановлена у \"OFF\""
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"
