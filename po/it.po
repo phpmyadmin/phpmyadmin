@@ -304,7 +304,7 @@ msgstr "Passa a %svisual builder%s"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:683
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
-msgid "Access denied"
+msgid "Access denied!"
 msgstr "Accesso negato"
 
 #: db_tracking.php:75

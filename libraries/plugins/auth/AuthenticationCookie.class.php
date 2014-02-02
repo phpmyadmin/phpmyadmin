@@ -680,7 +680,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 . ' (see AllowNoPassword)'
             );
         } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-            $conn_error = __('Access denied');
+            $conn_error = __('Access denied!');
         } elseif (! empty($GLOBALS['no_activity'])) {
             $conn_error = sprintf(
                 __('No activity within %s seconds; please log in again.'),

@@ -299,7 +299,7 @@ msgstr "切換至 %sVisual Builder%s"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:683
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
-msgid "Access denied"
+msgid "Access denied!"
 msgstr "拒絕存取"
 
 #: db_tracking.php:75

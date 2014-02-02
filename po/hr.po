@@ -313,7 +313,7 @@ msgstr "Prebaci se na %svizualnu izradu%s"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:683
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
-msgid "Access denied"
+msgid "Access denied!"
 msgstr "Pristup odbijen"
 
 #: db_tracking.php:75

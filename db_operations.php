@@ -127,13 +127,13 @@ if (strlen($db)
             $GLOBALS['dbi']->query($local_query);
 
             $message = PMA_Message::success(
-                __('Database %1$s has been renamed to %2$s')
+                __('Database %1$s has been renamed to %2$s.')
             );
             $message->addParam($db);
             $message->addParam($_REQUEST['newname']);
         } elseif (! $_error) {
             $message = PMA_Message::success(
-                __('Database %1$s has been copied to %2$s')
+                __('Database %1$s has been copied to %2$s.')
             );
             $message->addParam($db);
             $message->addParam($_REQUEST['newname']);

@@ -47,7 +47,7 @@ $url_params['goto'] = 'db_qbe.php';
 require 'libraries/db_info.inc.php';
 
 if ($message_to_display) {
-    PMA_Message::error(__('You have to choose at least one column to display'))->display();
+    PMA_Message::error(__('You have to choose at least one column to display!'))->display();
 }
 unset($message_to_display);
 

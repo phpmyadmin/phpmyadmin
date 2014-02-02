@@ -27,7 +27,7 @@ require 'libraries/db_common.inc.php';
 // If config variable $GLOBALS['cfg']['Usedbsearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
     PMA_Util::mysqlDie(
-        __('Access denied'), '', false, $err_url
+        __('Access denied!'), '', false, $err_url
     );
 } // end if
 $url_query .= '&amp;goto=db_search.php';

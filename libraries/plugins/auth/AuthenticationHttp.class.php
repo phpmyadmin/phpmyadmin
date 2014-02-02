@@ -66,7 +66,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
-        $header->setTitle(__('Access denied'));
+        $header->setTitle(__('Access denied!'));
         $header->disableMenu();
         $header->setBodyId('loginform');
 

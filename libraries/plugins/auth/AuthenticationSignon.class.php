@@ -267,7 +267,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                     . '(see AllowNoPassword)'
                 );
             } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-                $_SESSION['PMA_single_signon_error_message'] = __('Access denied');
+                $_SESSION['PMA_single_signon_error_message'] = __('Access denied!');
             } elseif (! empty($GLOBALS['no_activity'])) {
                 $_SESSION['PMA_single_signon_error_message'] = sprintf(
                     __('No activity within %s seconds; please log in again.'),

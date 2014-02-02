@@ -301,7 +301,7 @@ msgstr "מעבר ל%sבונה החזותי%s"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:683
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
-msgid "Access denied"
+msgid "Access denied!"
 msgstr "הגישה נדחתה"
 
 #: db_tracking.php:75

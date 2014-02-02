@@ -306,8 +306,8 @@ msgstr "Switch to %svisual builder%s"
 #: libraries/plugins/auth/AuthenticationCookie.class.php:683
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
-msgid "Access denied"
-msgstr "Access denied"
+msgid "Access denied!"
+msgstr "Access denied!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
