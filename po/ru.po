@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-08-23 11:35+0200\n"
+"PO-Revision-Date: 2014-02-02 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
-">\n"
+"Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/4-1/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -664,7 +663,7 @@ msgstr ""
 #: import.php:553 libraries/sql.lib.php:1026 libraries/sql.lib.php:1807
 #, php-format
 msgid "Bookmark %s created"
-msgstr "Закладка &quot;%s&quot; создана"
+msgstr "Закладка \"%s\" создана"
 
 #: import.php:563 import.php:576
 #, php-format
@@ -838,9 +837,9 @@ msgid ""
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 "При работе с многобайтными кодировками без установленного расширения PHP "
-"&quot;mbstring&quot;, phpMyAdmin не в состоянии производить корректное "
-"разбиение строк, что может привести к непредсказуемым результатам. "
-"Установите расширение PHP &quot;mbstring&quot;."
+"\"mbstring\", phpMyAdmin не в состоянии производить корректное разбиение "
+"строк, что может привести к непредсказуемым результатам. Установите "
+"расширение PHP \"mbstring\"."
 
 #: index.php:459
 msgid ""
@@ -3953,8 +3952,7 @@ msgstr "Перейти к базе данных &quot;%s&quot;."
 #: libraries/Util.class.php:2617
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
-"Работа параметра &quot;%s&quot; подвержена ошибке, описание смотрите на %s"
+msgstr "Работа параметра \"%s\" подвержена ошибке, описание смотрите на %s"
 
 #: libraries/Util.class.php:2798
 msgid "Click to toggle"
@@ -11193,13 +11191,11 @@ msgstr "Количество запросов на вставку строк в 
 
 #: libraries/server_status_variables.lib.php:432
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
-"Количество страниц содержащих данные (&quot;грязные&quot; или &quot;"
-"чистые&quot;)."
+msgstr "Количество страниц содержащих данные (\"грязные\" или \"чистые\")."
 
 #: libraries/server_status_variables.lib.php:435
 msgid "The number of pages currently dirty."
-msgstr "Текущее количество &quot;грязных&quot; страниц."
+msgstr "Текущее количество \"грязных\" страниц."
 
 #: libraries/server_status_variables.lib.php:438
 msgid "The number of buffer pool pages that have been requested to be flushed."
@@ -11544,7 +11540,7 @@ msgstr "Объем свободной памяти для кеша запрос�
 #: libraries/server_status_variables.lib.php:655
 msgid "The number of cache hits."
 msgstr ""
-"Количество &quot;попаданий&quot; в кеш запросов, т.е. сколько запросов было "
+"Количество \"попаданий\" в кеш запросов, т.е. сколько запросов было "
 "удовлетворено запросами, находящимися в кеше."
 
 #: libraries/server_status_variables.lib.php:658
