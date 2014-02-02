@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-01-29 15:37+0100\n"
+"POT-Creation-Date: 2014-02-02 10:23+0100\n"
 "PO-Revision-Date: 2014-01-06 12:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <http://l10n.cihar.com/projects/phpmyadmin/master/ro/"
@@ -42,7 +42,7 @@ msgstr "Comentarii tabel:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1281
-#: libraries/insert_edit.lib.php:1605
+#: libraries/insert_edit.lib.php:1607
 #: libraries/navigation/Nodes/Node_Column.class.php:32
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
@@ -88,7 +88,7 @@ msgid "Type"
 msgstr "Tip"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
-#: libraries/TableSearch.class.php:1282 libraries/insert_edit.lib.php:1614
+#: libraries/TableSearch.class.php:1282 libraries/insert_edit.lib.php:1616
 #: libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
 #: libraries/plugins/export/ExportLatex.class.php:512
@@ -132,7 +132,7 @@ msgstr "Leagă către"
 
 #: db_datadict.php:175 db_printview.php:53
 #: libraries/config/messages.inc.php:134 libraries/config/messages.inc.php:150
-#: libraries/config/messages.inc.php:177
+#: libraries/config/messages.inc.php:179
 #: libraries/plugins/export/ExportHtmlword.class.php:411
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
@@ -200,7 +200,7 @@ msgid "View dump (schema) of database"
 msgstr "Vizualizarea schemei bazei de date"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:329 libraries/DBQbe.class.php:268
+#: export.php:330 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Nu s-a găsit niciun tabel în baza de date."
 
@@ -238,7 +238,7 @@ msgstr ""
 "dezactivate. Pentru a afla de ce, click  %saici%s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
-#: libraries/Menu.class.php:235 libraries/config/messages.inc.php:764
+#: libraries/Menu.class.php:235 libraries/config/messages.inc.php:766
 #: libraries/plugins/export/ExportXml.class.php:467
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:361
 #: libraries/schema/User_Schema.class.php:305
@@ -264,22 +264,22 @@ msgstr "Rânduri"
 msgid "Size"
 msgstr "Dimensiune"
 
-#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1129
+#: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1140
 #: libraries/structure.lib.php:731
 msgid "in use"
 msgstr "în uz"
 
-#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1055
+#: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1066
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 msgid "Creation:"
 msgstr "Creare:"
 
-#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1068
+#: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1079
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 msgid "Last update:"
 msgstr "Ultima actualizare:"
 
-#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1081
+#: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1092
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 msgid "Last check:"
 msgstr "Ultima verificare:"
@@ -314,7 +314,7 @@ msgid "Tracked tables"
 msgstr "Tabele monitorizate"
 
 #: db_tracking.php:80 libraries/Menu.class.php:212
-#: libraries/config/messages.inc.php:758
+#: libraries/config/messages.inc.php:760
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
@@ -342,7 +342,7 @@ msgid "Updated"
 msgstr "Actualizat"
 
 #: db_tracking.php:85 js/messages.php:173 libraries/Menu.class.php:516
-#: libraries/Util.class.php:4125 libraries/rte/rte_events.lib.php:432
+#: libraries/Util.class.php:4115 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:361
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
@@ -370,7 +370,7 @@ msgid "Delete tracking data for this table"
 msgstr "Șterge datele de urmărire pentru acest tabel"
 
 #: db_tracking.php:103 libraries/Index.class.php:627
-#: libraries/Util.class.php:3417 libraries/Util.class.php:3418
+#: libraries/Util.class.php:3407 libraries/Util.class.php:3408
 #: libraries/server_databases.lib.php:150 libraries/structure.lib.php:307
 #: libraries/structure.lib.php:1394 libraries/structure.lib.php:2072
 #: libraries/structure.lib.php:2074
@@ -446,11 +446,11 @@ msgstr "Mulțumim că ai trimis acest raport."
 msgid "Unfortunately the submission failed."
 msgstr "Din păcate trimiterea a eşuat."
 
-#: export.php:172
+#: export.php:173
 msgid "Bad type!"
 msgstr "Tipul este greșit!"
 
-#: export.php:233
+#: export.php:234
 msgid "Bad parameters!"
 msgstr "Parametri greșiți!"
 
@@ -547,8 +547,8 @@ msgstr "Adaugă geometrie"
 #: libraries/core.lib.php:564 libraries/display_change_password.lib.php:100
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:370
-#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1586
-#: libraries/insert_edit.lib.php:1621 libraries/operations.lib.php:39
+#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1588
+#: libraries/insert_edit.lib.php:1623 libraries/operations.lib.php:39
 #: libraries/operations.lib.php:82 libraries/operations.lib.php:210
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
@@ -650,7 +650,7 @@ msgstr ""
 "Nu au putut fi încărcate extensii suplimentare de import, verificați "
 "instalarea!"
 
-#: import.php:553 libraries/sql.lib.php:974 libraries/sql.lib.php:1756
+#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
 #, php-format
 msgid "Bookmark %s created"
 msgstr "Semnul de carte %s a fost creat"
@@ -734,7 +734,7 @@ msgid "Server type:"
 msgstr "Port-ul server-ului:"
 
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
-#: libraries/plugins/export/ExportSql.class.php:631
+#: libraries/plugins/export/ExportSql.class.php:642
 #: libraries/plugins/export/ExportXml.class.php:198
 #, fuzzy
 #| msgid "Server version"
@@ -1011,12 +1011,12 @@ msgid "Other"
 msgstr "Altele"
 
 #. l10n: Thousands separator
-#: js/messages.php:69 libraries/Util.class.php:1446
+#: js/messages.php:69 libraries/Util.class.php:1436
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:71 libraries/Util.class.php:1448
+#: js/messages.php:71 libraries/Util.class.php:1438
 msgid "."
 msgstr "."
 
@@ -1119,39 +1119,39 @@ msgid "Processes"
 msgstr "Procese"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:105 libraries/Util.class.php:1392
+#: js/messages.php:105 libraries/Util.class.php:1382
 msgid "B"
 msgstr "O"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:106 libraries/Util.class.php:1394
+#: js/messages.php:106 libraries/Util.class.php:1384
 #: libraries/server_status_monitor.lib.php:259
 msgid "KiB"
 msgstr "KiO"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:107 libraries/Util.class.php:1396
+#: js/messages.php:107 libraries/Util.class.php:1386
 #: libraries/server_status_monitor.lib.php:260
 msgid "MiB"
 msgstr "MiO"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:108 libraries/Util.class.php:1398
+#: js/messages.php:108 libraries/Util.class.php:1388
 msgid "GiB"
 msgstr "GiO"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:109 libraries/Util.class.php:1400
+#: js/messages.php:109 libraries/Util.class.php:1390
 msgid "TiB"
 msgstr "TiO"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:110 libraries/Util.class.php:1402
+#: js/messages.php:110 libraries/Util.class.php:1392
 msgid "PiB"
 msgstr "PiO"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:111 libraries/Util.class.php:1404
+#: js/messages.php:111 libraries/Util.class.php:1394
 msgid "EiB"
 msgstr "EiO"
 
@@ -1170,7 +1170,7 @@ msgid "Traffic"
 msgstr "Trafic"
 
 #: js/messages.php:117 libraries/Menu.class.php:549
-#: libraries/Util.class.php:4129 libraries/server_status_monitor.lib.php:299
+#: libraries/Util.class.php:4119 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
 msgstr "Configurări"
 
@@ -1187,7 +1187,7 @@ msgstr "Adăugați cel puțin o variabilă la serie"
 #: js/messages.php:121 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:571
-#: libraries/plugins/export/ExportSql.class.php:1716
+#: libraries/plugins/export/ExportSql.class.php:1729
 #: libraries/server_privileges.lib.php:2661
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
@@ -1389,7 +1389,7 @@ msgstr "Explică rezultatul"
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
 #: libraries/rte/rte_list.lib.php:68 libraries/server_status.lib.php:357
-#: libraries/sql.lib.php:426
+#: libraries/sql.lib.php:472
 msgid "Time"
 msgstr "Timp"
 
@@ -1476,8 +1476,8 @@ msgstr ""
 
 #: js/messages.php:200 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
-#: libraries/Util.class.php:4128 libraries/Util.class.php:4143
-#: libraries/Util.class.php:4159 libraries/config/messages.inc.php:221
+#: libraries/Util.class.php:4118 libraries/Util.class.php:4133
+#: libraries/Util.class.php:4149 libraries/config/messages.inc.php:223
 #: libraries/display_import.lib.php:108
 #: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
@@ -1678,8 +1678,8 @@ msgstr "Arată caseta de interogare"
 
 #: js/messages.php:269 libraries/DisplayResults.class.php:3360
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
-#: libraries/Util.class.php:1218 libraries/Util.class.php:3421
-#: libraries/Util.class.php:3422 libraries/config/messages.inc.php:740
+#: libraries/Util.class.php:1208 libraries/Util.class.php:3411
+#: libraries/Util.class.php:3412 libraries/config/messages.inc.php:742
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:178
@@ -1692,7 +1692,7 @@ msgstr "Modifică"
 msgid "%d is not valid row number."
 msgstr "%d nu este un număr valid de rânduri."
 
-#: js/messages.php:273 libraries/insert_edit.lib.php:1499
+#: js/messages.php:273 libraries/insert_edit.lib.php:1501
 #: libraries/schema/User_Schema.class.php:390
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1763,7 +1763,7 @@ msgstr "Alege două coloane diferite"
 msgid "Data point content"
 msgstr "Mărime pointer date"
 
-#: js/messages.php:304 js/messages.php:393 libraries/insert_edit.lib.php:2596
+#: js/messages.php:304 js/messages.php:393 libraries/insert_edit.lib.php:2600
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "Ignoră"
@@ -1982,7 +1982,7 @@ msgstr ", ultima versiune stabilă:"
 msgid "up to date"
 msgstr "la ultima versiune"
 
-#: js/messages.php:383 libraries/DisplayResults.class.php:5212
+#: js/messages.php:383 libraries/DisplayResults.class.php:5214
 #: view_create.php:178
 #, fuzzy
 msgid "Create view"
@@ -2096,27 +2096,27 @@ msgid "December"
 msgstr "Decembrie"
 
 #. l10n: Short month name
-#: js/messages.php:450 libraries/Util.class.php:1603
+#: js/messages.php:450 libraries/Util.class.php:1593
 msgid "Jan"
 msgstr "Ian"
 
 #. l10n: Short month name
-#: js/messages.php:452 libraries/Util.class.php:1605
+#: js/messages.php:452 libraries/Util.class.php:1595
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:454 libraries/Util.class.php:1607
+#: js/messages.php:454 libraries/Util.class.php:1597
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:456 libraries/Util.class.php:1609
+#: js/messages.php:456 libraries/Util.class.php:1599
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:458 libraries/Util.class.php:1611
+#: js/messages.php:458 libraries/Util.class.php:1601
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2124,37 +2124,37 @@ msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:460 libraries/Util.class.php:1613
+#: js/messages.php:460 libraries/Util.class.php:1603
 msgid "Jun"
 msgstr "Iun"
 
 #. l10n: Short month name
-#: js/messages.php:462 libraries/Util.class.php:1615
+#: js/messages.php:462 libraries/Util.class.php:1605
 msgid "Jul"
 msgstr "Iul"
 
 #. l10n: Short month name
-#: js/messages.php:464 libraries/Util.class.php:1617
+#: js/messages.php:464 libraries/Util.class.php:1607
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:466 libraries/Util.class.php:1619
+#: js/messages.php:466 libraries/Util.class.php:1609
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:468 libraries/Util.class.php:1621
+#: js/messages.php:468 libraries/Util.class.php:1611
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:470 libraries/Util.class.php:1623
+#: js/messages.php:470 libraries/Util.class.php:1613
 msgid "Nov"
 msgstr "Noi"
 
 #. l10n: Short month name
-#: js/messages.php:472 libraries/Util.class.php:1625
+#: js/messages.php:472 libraries/Util.class.php:1615
 msgid "Dec"
 msgstr "Dec"
 
@@ -2195,32 +2195,32 @@ msgid "Sun"
 msgstr "Dum"
 
 #. l10n: Short week day name
-#: js/messages.php:493 libraries/Util.class.php:1630
+#: js/messages.php:493 libraries/Util.class.php:1620
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:495 libraries/Util.class.php:1632
+#: js/messages.php:495 libraries/Util.class.php:1622
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:497 libraries/Util.class.php:1634
+#: js/messages.php:497 libraries/Util.class.php:1624
 msgid "Wed"
 msgstr "Mie"
 
 #. l10n: Short week day name
-#: js/messages.php:499 libraries/Util.class.php:1636
+#: js/messages.php:499 libraries/Util.class.php:1626
 msgid "Thu"
 msgstr "Joi"
 
 #. l10n: Short week day name
-#: js/messages.php:501 libraries/Util.class.php:1638
+#: js/messages.php:501 libraries/Util.class.php:1628
 msgid "Fri"
 msgstr "Vin"
 
 #. l10n: Short week day name
-#: js/messages.php:503 libraries/Util.class.php:1640
+#: js/messages.php:503 libraries/Util.class.php:1630
 msgid "Sat"
 msgstr "Sâm"
 
@@ -2357,18 +2357,18 @@ msgstr "pe oră"
 msgid "per day"
 msgstr "pe zi"
 
-#: libraries/Config.class.php:1161
+#: libraries/Config.class.php:1163
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Fișierul de configurare existent (%s) nu poate fi citit."
 
-#: libraries/Config.class.php:1191
+#: libraries/Config.class.php:1193
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permisiuni greșite asupra fișierului de configurare, acesta nu ar trebui să "
 "aibă permisiuni de scriere pentru oricine!"
 
-#: libraries/Config.class.php:1769
+#: libraries/Config.class.php:1771
 msgid "Font size"
 msgstr "Dimensiune font"
 
@@ -2467,7 +2467,7 @@ msgstr ""
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Comandă SQL pe baza de date <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1394 libraries/Util.class.php:1247
+#: libraries/DBQbe.class.php:1394 libraries/Util.class.php:1237
 msgid "Submit Query"
 msgstr "Trimite comanda"
 
@@ -2534,8 +2534,8 @@ msgstr[1] "%s rezultat(e) în interiorul tabelului <i>%s</i>"
 msgstr[2] "%s rezultat(e) în interiorul tabelului <i>%s</i>"
 
 #: libraries/DbSearch.class.php:350 libraries/Menu.class.php:295
-#: libraries/Util.class.php:3195 libraries/Util.class.php:3410
-#: libraries/Util.class.php:3411 libraries/Util.class.php:4153
+#: libraries/Util.class.php:3185 libraries/Util.class.php:3400
+#: libraries/Util.class.php:3401 libraries/Util.class.php:4143
 #: libraries/navigation/Nodes/Node_Table.class.php:48
 #: libraries/structure.lib.php:1384
 msgid "Browse"
@@ -2547,7 +2547,7 @@ msgid "Delete the matches for the %s table?"
 msgstr "Ștergeți potrivirile pentru tabelul %s?"
 
 #: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3431
-#: libraries/DisplayResults.class.php:5079
+#: libraries/DisplayResults.class.php:5081
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2594,16 +2594,16 @@ msgstr "Directorul de bază pentru date"
 msgid "Restore column order"
 msgstr "Adaugă/șterge coloane"
 
-#: libraries/DisplayResults.class.php:818 libraries/Util.class.php:2490
-#: libraries/Util.class.php:2494
+#: libraries/DisplayResults.class.php:818 libraries/Util.class.php:2480
+#: libraries/Util.class.php:2484
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Începe"
 
-#: libraries/DisplayResults.class.php:821 libraries/Util.class.php:2492
-#: libraries/Util.class.php:2495 libraries/server_bin_log.lib.php:170
+#: libraries/DisplayResults.class.php:821 libraries/Util.class.php:2482
+#: libraries/Util.class.php:2485 libraries/server_bin_log.lib.php:170
 #: libraries/server_bin_log.lib.php:172
 #, fuzzy
 #| msgid "Previous"
@@ -2611,8 +2611,8 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
 
-#: libraries/DisplayResults.class.php:878 libraries/Util.class.php:2527
-#: libraries/Util.class.php:2530 libraries/server_bin_log.lib.php:204
+#: libraries/DisplayResults.class.php:878 libraries/Util.class.php:2517
+#: libraries/Util.class.php:2520 libraries/server_bin_log.lib.php:204
 #: libraries/server_bin_log.lib.php:206
 #, fuzzy
 #| msgid "Next"
@@ -2620,8 +2620,8 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Următorul"
 
-#: libraries/DisplayResults.class.php:907 libraries/Util.class.php:2528
-#: libraries/Util.class.php:2531
+#: libraries/DisplayResults.class.php:907 libraries/Util.class.php:2518
+#: libraries/Util.class.php:2521
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
@@ -2740,23 +2740,23 @@ msgid "The row has been deleted."
 msgstr "Linia a fost ștearsă"
 
 #: libraries/DisplayResults.class.php:3457
-#: libraries/DisplayResults.class.php:5079 libraries/server_status.lib.php:518
+#: libraries/DisplayResults.class.php:5081 libraries/server_status.lib.php:518
 msgid "Kill"
 msgstr "Oprește"
 
-#: libraries/DisplayResults.class.php:4537 libraries/structure.lib.php:771
+#: libraries/DisplayResults.class.php:4539 libraries/structure.lib.php:771
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Poate fi aproximativ. Vezi [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4591
+#: libraries/DisplayResults.class.php:4593
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
 msgstr "Comanda dumneavoastră SQL a fost executată cu succes"
 
-#: libraries/DisplayResults.class.php:4959 libraries/structure.lib.php:653
+#: libraries/DisplayResults.class.php:4961 libraries/structure.lib.php:653
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -2764,31 +2764,31 @@ msgid ""
 msgstr ""
 "Această vedere are minim acest număr de rânduri. Vedeți %sdocumentation%s."
 
-#: libraries/DisplayResults.class.php:4972
+#: libraries/DisplayResults.class.php:4974
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Afișează înregistrări"
 
-#: libraries/DisplayResults.class.php:4986
+#: libraries/DisplayResults.class.php:4988
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4990
+#: libraries/DisplayResults.class.php:4992
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "total"
 
-#: libraries/DisplayResults.class.php:5002 libraries/sql.lib.php:1596
+#: libraries/DisplayResults.class.php:5004 libraries/sql.lib.php:1642
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "comanda a durat %01.4f sec"
 
-#: libraries/DisplayResults.class.php:5086
-#: libraries/DisplayResults.class.php:5092 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5088
+#: libraries/DisplayResults.class.php:5094 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2959
@@ -2798,8 +2798,8 @@ msgstr "comanda a durat %01.4f sec"
 msgid "With selected:"
 msgstr "Cele bifate:"
 
-#: libraries/DisplayResults.class.php:5090
-#: libraries/DisplayResults.class.php:5091
+#: libraries/DisplayResults.class.php:5092
+#: libraries/DisplayResults.class.php:5093
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1010
@@ -2812,17 +2812,17 @@ msgstr "Cele bifate:"
 msgid "Check All"
 msgstr "Marchează toate"
 
-#: libraries/DisplayResults.class.php:5096 libraries/structure.lib.php:1390
+#: libraries/DisplayResults.class.php:5098 libraries/structure.lib.php:1390
 #: libraries/structure.lib.php:2070 querywindow.php:85
 msgid "Change"
 msgstr "Schimbă"
 
-#: libraries/DisplayResults.class.php:5109
-#: libraries/DisplayResults.class.php:5380 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5111
+#: libraries/DisplayResults.class.php:5382 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
-#: libraries/Util.class.php:3423 libraries/Util.class.php:3424
-#: libraries/Util.class.php:4127 libraries/Util.class.php:4142
-#: libraries/Util.class.php:4158 libraries/config/messages.inc.php:215
+#: libraries/Util.class.php:3413 libraries/Util.class.php:3414
+#: libraries/Util.class.php:4117 libraries/Util.class.php:4132
+#: libraries/Util.class.php:4148 libraries/config/messages.inc.php:217
 #: libraries/display_export.lib.php:163
 #: libraries/server_privileges.lib.php:2260
 #: libraries/server_privileges.lib.php:2967
@@ -2831,31 +2831,31 @@ msgstr "Schimbă"
 msgid "Export"
 msgstr "Exportă"
 
-#: libraries/DisplayResults.class.php:5268
+#: libraries/DisplayResults.class.php:5270
 msgid "Query results operations"
 msgstr "Operațiuni asupra rezultatelor interogării"
 
-#: libraries/DisplayResults.class.php:5304 libraries/Header.class.php:343
+#: libraries/DisplayResults.class.php:5306 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1513
 msgid "Print view"
 msgstr "Vizualizare imprimare"
 
-#: libraries/DisplayResults.class.php:5322
+#: libraries/DisplayResults.class.php:5324
 msgid "Print view (with full texts)"
 msgstr "Vizualizare listare (împreună cu text)"
 
-#: libraries/DisplayResults.class.php:5393 libraries/tbl_chart.lib.php:294
+#: libraries/DisplayResults.class.php:5395 libraries/tbl_chart.lib.php:294
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Arată schema PDF"
 
-#: libraries/DisplayResults.class.php:5418
+#: libraries/DisplayResults.class.php:5420
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5637
+#: libraries/DisplayResults.class.php:5640
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -3008,7 +3008,7 @@ msgid ""
 msgstr "Indecșii %1$s și %2$s par a fi egali și unul din ei poate fi șters."
 
 #: libraries/Menu.class.php:195 libraries/ServerStatusData.class.php:366
-#: libraries/config/messages.inc.php:762
+#: libraries/config/messages.inc.php:764
 msgid "Server"
 msgstr "Server"
 
@@ -3020,13 +3020,13 @@ msgid "View"
 msgstr "Vizualizare"
 
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:401
-#: libraries/Util.class.php:3191 libraries/Util.class.php:3198
-#: libraries/Util.class.php:3416 libraries/Util.class.php:4138
-#: libraries/Util.class.php:4154 libraries/config/setup.forms.php:301
-#: libraries/config/setup.forms.php:338 libraries/config/setup.forms.php:364
+#: libraries/Util.class.php:3181 libraries/Util.class.php:3188
+#: libraries/Util.class.php:3406 libraries/Util.class.php:4128
+#: libraries/Util.class.php:4144 libraries/config/setup.forms.php:301
+#: libraries/config/setup.forms.php:339 libraries/config/setup.forms.php:365
 #: libraries/config/user_preferences.forms.php:200
-#: libraries/config/user_preferences.forms.php:237
-#: libraries/config/user_preferences.forms.php:263
+#: libraries/config/user_preferences.forms.php:238
+#: libraries/config/user_preferences.forms.php:264
 #: libraries/import.lib.php:1265
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
@@ -3036,32 +3036,32 @@ msgid "Structure"
 msgstr "Structură"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:405
-#: libraries/Menu.class.php:512 libraries/Util.class.php:3192
-#: libraries/Util.class.php:3199 libraries/Util.class.php:4124
-#: libraries/Util.class.php:4139 libraries/Util.class.php:4155
-#: libraries/config/messages.inc.php:284
+#: libraries/Menu.class.php:512 libraries/Util.class.php:3182
+#: libraries/Util.class.php:3189 libraries/Util.class.php:4114
+#: libraries/Util.class.php:4129 libraries/Util.class.php:4145
+#: libraries/config/messages.inc.php:286
 #: libraries/navigation/Nodes/Node_Table.class.php:45 querywindow.php:59
 msgid "SQL"
 msgstr "SQL"
 
 #: libraries/Menu.class.php:308 libraries/Menu.class.php:408
-#: libraries/Util.class.php:3193 libraries/Util.class.php:3200
-#: libraries/Util.class.php:3412 libraries/Util.class.php:3413
-#: libraries/Util.class.php:4140 libraries/Util.class.php:4156
+#: libraries/Util.class.php:3183 libraries/Util.class.php:3190
+#: libraries/Util.class.php:3402 libraries/Util.class.php:3403
+#: libraries/Util.class.php:4130 libraries/Util.class.php:4146
 #: libraries/navigation/Nodes/Node_Table.class.php:39
 msgid "Search"
 msgstr "Caută"
 
-#: libraries/Menu.class.php:318 libraries/Util.class.php:3194
-#: libraries/Util.class.php:3414 libraries/Util.class.php:3415
-#: libraries/Util.class.php:4157
+#: libraries/Menu.class.php:318 libraries/Util.class.php:3184
+#: libraries/Util.class.php:3404 libraries/Util.class.php:3405
+#: libraries/Util.class.php:4147
 #: libraries/navigation/Nodes/Node_Table.class.php:42
 #: libraries/sql_query_form.lib.php:301 libraries/sql_query_form.lib.php:304
 msgid "Insert"
 msgstr "Inserare"
 
 #: libraries/Menu.class.php:340 libraries/Menu.class.php:443
-#: libraries/Util.class.php:4145 libraries/Util.class.php:4160
+#: libraries/Util.class.php:4135 libraries/Util.class.php:4150
 #: libraries/server_common.lib.php:51 libraries/server_privileges.lib.php:1821
 #: libraries/server_privileges.lib.php:1928
 #: libraries/server_privileges.lib.php:2759
@@ -3070,25 +3070,25 @@ msgid "Privileges"
 msgstr "Drepturi de acces"
 
 #: libraries/Menu.class.php:349 libraries/Menu.class.php:376
-#: libraries/Menu.class.php:435 libraries/Util.class.php:3201
-#: libraries/Util.class.php:4144 libraries/Util.class.php:4161
+#: libraries/Menu.class.php:435 libraries/Util.class.php:3191
+#: libraries/Util.class.php:4134 libraries/Util.class.php:4151
 #: view_operations.php:92
 msgid "Operations"
 msgstr "Operații"
 
 #: libraries/Menu.class.php:353 libraries/Menu.class.php:469
-#: libraries/Util.class.php:4149 libraries/Util.class.php:4162
+#: libraries/Util.class.php:4139 libraries/Util.class.php:4152
 #: libraries/relation.lib.php:240
 #, fuzzy
 msgid "Tracking"
 msgstr "Urmărire"
 
 #: libraries/Menu.class.php:366 libraries/Menu.class.php:463
-#: libraries/Util.class.php:4148 libraries/Util.class.php:4163
+#: libraries/Util.class.php:4138 libraries/Util.class.php:4153
 #: libraries/navigation/Nodes/Node_Trigger_Container.class.php:26
 #: libraries/plugins/export/ExportHtmlword.class.php:565
 #: libraries/plugins/export/ExportOdt.class.php:657
-#: libraries/plugins/export/ExportSql.class.php:1618
+#: libraries/plugins/export/ExportSql.class.php:1629
 #: libraries/plugins/export/ExportTexytext.class.php:508
 #: libraries/plugins/export/ExportXml.class.php:121
 #: libraries/rte/rte_words.lib.php:50
@@ -3100,64 +3100,64 @@ msgstr "Declanșatori"
 msgid "Database seems to be empty!"
 msgstr "Baza de date pare a fi goală!"
 
-#: libraries/Menu.class.php:415 libraries/Util.class.php:4141
+#: libraries/Menu.class.php:415 libraries/Util.class.php:4131
 msgid "Query"
 msgstr "Interogare prin exemplu"
 
-#: libraries/Menu.class.php:448 libraries/Util.class.php:4146
+#: libraries/Menu.class.php:448 libraries/Util.class.php:4136
 #: libraries/rte/rte_words.lib.php:36
 msgid "Routines"
 msgstr "Rutine"
 
-#: libraries/Menu.class.php:456 libraries/Util.class.php:4147
+#: libraries/Menu.class.php:456 libraries/Util.class.php:4137
 #: libraries/navigation/Nodes/Node_Event_Container.class.php:26
-#: libraries/plugins/export/ExportSql.class.php:845
+#: libraries/plugins/export/ExportSql.class.php:856
 #: libraries/rte/rte_words.lib.php:64
 msgid "Events"
 msgstr "Evenimente"
 
-#: libraries/Menu.class.php:475 libraries/Util.class.php:4150
+#: libraries/Menu.class.php:475 libraries/Util.class.php:4140
 #: libraries/relation.lib.php:207
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/Menu.class.php:508 libraries/Util.class.php:4123
-#: libraries/config/messages.inc.php:229 libraries/server_common.lib.php:48
+#: libraries/Menu.class.php:508 libraries/Util.class.php:4113
+#: libraries/config/messages.inc.php:231 libraries/server_common.lib.php:48
 #: libraries/server_privileges.lib.php:3754
 msgid "Databases"
 msgstr "Baze de date"
 
-#: libraries/Menu.class.php:531 libraries/Util.class.php:4126
+#: libraries/Menu.class.php:531 libraries/Util.class.php:4116
 msgid "Users"
 msgstr "Utilizatori"
 
 #: libraries/Menu.class.php:558 libraries/ServerStatusData.class.php:194
-#: libraries/Util.class.php:4130 libraries/server_common.lib.php:36
+#: libraries/Util.class.php:4120 libraries/server_common.lib.php:36
 msgid "Binary log"
 msgstr "Jurnal binar"
 
 #: libraries/Menu.class.php:564 libraries/ServerStatusData.class.php:199
-#: libraries/Util.class.php:4131 libraries/server_common.lib.php:42
+#: libraries/Util.class.php:4121 libraries/server_common.lib.php:42
 #: libraries/structure.lib.php:182 libraries/structure.lib.php:761
 msgid "Replication"
 msgstr "Replicare"
 
 #: libraries/Menu.class.php:569 libraries/ServerStatusData.class.php:261
-#: libraries/Util.class.php:4132 libraries/server_engines.lib.php:109
+#: libraries/Util.class.php:4122 libraries/server_engines.lib.php:109
 #: libraries/server_engines.lib.php:113
 msgid "Variables"
 msgstr "Variabile"
 
-#: libraries/Menu.class.php:573 libraries/Util.class.php:4133
+#: libraries/Menu.class.php:573 libraries/Util.class.php:4123
 msgid "Charsets"
 msgstr "Seturi de caractere"
 
-#: libraries/Menu.class.php:578 libraries/Util.class.php:4134
+#: libraries/Menu.class.php:578 libraries/Util.class.php:4124
 #: libraries/server_common.lib.php:33 libraries/server_plugins.lib.php:31
 msgid "Plugins"
 msgstr ""
 
-#: libraries/Menu.class.php:582 libraries/Util.class.php:4135
+#: libraries/Menu.class.php:582 libraries/Util.class.php:4125
 msgid "Engines"
 msgstr "Motoare"
 
@@ -3170,7 +3170,7 @@ msgstr "Comanda dumneavoastră SQL a fost executată cu succes"
 
 #: libraries/Message.class.php:199 libraries/Util.class.php:627
 #: libraries/core.lib.php:229 libraries/import.lib.php:181
-#: libraries/insert_edit.lib.php:1217 tbl_chart.php:24 tbl_operations.php:187
+#: libraries/insert_edit.lib.php:1219 tbl_chart.php:24 tbl_operations.php:187
 #: view_operations.php:63
 msgid "Error"
 msgstr "Eroare"
@@ -3199,7 +3199,7 @@ msgstr[0] "%1$d rânduri inserate."
 msgstr[1] "%1$d rând inserat."
 msgstr[2] "%1$d rânduri inserate."
 
-#: libraries/PDF.class.php:70 libraries/Util.class.php:2482
+#: libraries/PDF.class.php:70 libraries/Util.class.php:2472
 #: libraries/browse_foreigners.lib.php:408
 #: libraries/schema/Pdf_Relation_Schema.class.php:1203
 #: libraries/schema/Pdf_Relation_Schema.class.php:1227
@@ -3263,7 +3263,7 @@ msgstr "Sortare"
 
 #: libraries/ServerStatusData.class.php:201
 #: libraries/build_html_for_db.lib.php:27
-#: libraries/config/messages.inc.php:235
+#: libraries/config/messages.inc.php:237
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Table_Container.class.php:27
 #: libraries/plugins/export/ExportXml.class.php:116
@@ -3358,54 +3358,54 @@ msgstr "Acest server MySQL nu susține motorul de stocare %s."
 msgid "unknown table status: "
 msgstr "status tabel necunoscut: "
 
-#: libraries/Table.class.php:790
+#: libraries/Table.class.php:792
 #, fuzzy, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
 msgstr "Baza de date sursă"
 
-#: libraries/Table.class.php:798
+#: libraries/Table.class.php:800
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
 msgstr "Tema %s nu a fost găsită!"
 
-#: libraries/Table.class.php:1259
+#: libraries/Table.class.php:1261
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Bază de date nevalidă"
 
-#: libraries/Table.class.php:1273
+#: libraries/Table.class.php:1275
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Denumire de tabel invalidă"
 
-#: libraries/Table.class.php:1308
+#: libraries/Table.class.php:1310
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Eroare la redenumirea tabelului din %1$s în %2$s"
 
-#: libraries/Table.class.php:1327
+#: libraries/Table.class.php:1329
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabelului %s a fost redenumit în %s"
 
-#: libraries/Table.class.php:1475
+#: libraries/Table.class.php:1477
 msgid "Could not save table UI preferences"
 msgstr "Nu am putut salva tabela cu preferinţele UI"
 
-#: libraries/Table.class.php:1504
+#: libraries/Table.class.php:1506
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1655
+#: libraries/Table.class.php:1657
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3427,7 +3427,7 @@ msgid "Operator"
 msgstr "Operand"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
-#: libraries/insert_edit.lib.php:1615 libraries/replication_gui.lib.php:515
+#: libraries/insert_edit.lib.php:1617 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
 #: libraries/server_status_variables.lib.php:220 pmd_general.php:560
 #: pmd_general.php:620 pmd_general.php:749 pmd_general.php:868
@@ -3450,7 +3450,7 @@ msgstr "Caută"
 msgid "Find and Replace"
 msgstr "Caută şi Înlocuieşte"
 
-#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1389
+#: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1391
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
@@ -3462,7 +3462,7 @@ msgstr "Editează/Inserare"
 msgid "Select columns (at least one):"
 msgstr "Selectează câmpurile (cel puțin unul):"
 
-#: libraries/TableSearch.class.php:820 libraries/insert_edit.lib.php:1221
+#: libraries/TableSearch.class.php:820 libraries/insert_edit.lib.php:1223
 #: libraries/server_privileges.lib.php:438
 msgid "Or"
 msgstr "Sau"
@@ -3488,7 +3488,7 @@ msgid "Maximum rows to plot"
 msgstr "Numărul maxim de afişat"
 
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
-#: libraries/sql.lib.php:326 tbl_change.php:144
+#: libraries/sql.lib.php:372 tbl_change.php:144
 msgid "Browse foreign values"
 msgstr "Caută printre valori necunoscute"
 
@@ -3893,7 +3893,7 @@ msgstr ""
 msgid "Max: %s%s"
 msgstr "Mărime maximă: %s%s"
 
-#: libraries/Util.class.php:640 libraries/sql.lib.php:384
+#: libraries/Util.class.php:640 libraries/sql.lib.php:430
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -3912,45 +3912,45 @@ msgstr "Comanda SQL"
 msgid "MySQL said: "
 msgstr "MySQL zice: "
 
-#: libraries/Util.class.php:1145
+#: libraries/Util.class.php:1135
 #, fuzzy
 msgid "Failed to connect to SQL validator!"
 msgstr "Comprimă conexiunea la serverul MySQL"
 
-#: libraries/Util.class.php:1187 libraries/config/messages.inc.php:741
+#: libraries/Util.class.php:1177 libraries/config/messages.inc.php:743
 msgid "Explain SQL"
 msgstr "Explică SQL"
 
-#: libraries/Util.class.php:1192
+#: libraries/Util.class.php:1182
 msgid "Skip Explain SQL"
 msgstr "Sari peste explicarea SQL"
 
-#: libraries/Util.class.php:1232
+#: libraries/Util.class.php:1222
 msgid "Without PHP Code"
 msgstr "fără cod PHP"
 
-#: libraries/Util.class.php:1235 libraries/config/messages.inc.php:743
+#: libraries/Util.class.php:1225 libraries/config/messages.inc.php:745
 msgid "Create PHP Code"
 msgstr "Creează cod PHP"
 
-#: libraries/Util.class.php:1261 libraries/config/messages.inc.php:742
+#: libraries/Util.class.php:1251 libraries/config/messages.inc.php:744
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Reîncarcă"
 
-#: libraries/Util.class.php:1271
+#: libraries/Util.class.php:1261
 msgid "Skip Validate SQL"
 msgstr "Sari peste validarea SQL"
 
-#: libraries/Util.class.php:1274 libraries/config/messages.inc.php:745
+#: libraries/Util.class.php:1264 libraries/config/messages.inc.php:747
 msgid "Validate SQL"
 msgstr "Validează SQL"
 
-#: libraries/Util.class.php:1315 libraries/sql.lib.php:415
+#: libraries/Util.class.php:1305 libraries/sql.lib.php:461
 msgid "Profiling"
 msgstr "Creare profil"
 
-#: libraries/Util.class.php:1327
+#: libraries/Util.class.php:1317
 #, fuzzy
 #| msgid "Engines"
 msgctxt "Inline edit query"
@@ -3958,88 +3958,88 @@ msgid "Inline"
 msgstr "Motoare"
 
 #. l10n: Short week day name
-#: libraries/Util.class.php:1628
+#: libraries/Util.class.php:1618
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Dum"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/Util.class.php:1644
+#: libraries/Util.class.php:1634
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y la %H:%M"
 
-#: libraries/Util.class.php:1991
+#: libraries/Util.class.php:1981
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s zile, %s ore, %s minute și %s secunde"
 
-#: libraries/Util.class.php:2080
+#: libraries/Util.class.php:2070
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
 msgstr "Rutine"
 
-#: libraries/Util.class.php:2600
+#: libraries/Util.class.php:2590
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "Sari la baza de date \"%s\"."
 
-#: libraries/Util.class.php:2624
+#: libraries/Util.class.php:2614
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funcționalitatea %s este afectată de o eroare cunoscută, vedeți %s"
 
-#: libraries/Util.class.php:2805
+#: libraries/Util.class.php:2795
 #, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
 msgstr "Click pentru a selecta"
 
-#: libraries/Util.class.php:3329 libraries/sql_query_form.lib.php:477
+#: libraries/Util.class.php:3319 libraries/sql_query_form.lib.php:477
 #: prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr "Caută în calculatorul tău:"
 
-#: libraries/Util.class.php:3354
+#: libraries/Util.class.php:3344
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "director de încărcare al serverului Web"
 
-#: libraries/Util.class.php:3383 libraries/insert_edit.lib.php:1218
+#: libraries/Util.class.php:3373 libraries/insert_edit.lib.php:1220
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Directorul stabilit pentru încărcare nu poate fi găsit."
 
-#: libraries/Util.class.php:3394
+#: libraries/Util.class.php:3384
 msgid "There are no files to upload"
 msgstr "Nu sunt fișiere pentru încărcare"
 
-#: libraries/Util.class.php:3419 libraries/Util.class.php:3420
+#: libraries/Util.class.php:3409 libraries/Util.class.php:3410
 #: libraries/structure.lib.php:305
 msgid "Empty"
 msgstr "Golește"
 
-#: libraries/Util.class.php:3425 libraries/Util.class.php:3426
+#: libraries/Util.class.php:3415 libraries/Util.class.php:3416
 msgid "Execute"
 msgstr "Execută"
 
-#: libraries/Util.class.php:3967
+#: libraries/Util.class.php:3957
 msgid "Print"
 msgstr "Listare"
 
-#: libraries/Util.class.php:4068 libraries/structure.lib.php:798
+#: libraries/Util.class.php:4058 libraries/structure.lib.php:798
 #: libraries/structure.lib.php:1785 libraries/tbl_printview.lib.php:238
 msgid "Creation"
 msgstr "Creare"
 
-#: libraries/Util.class.php:4074 libraries/structure.lib.php:805
+#: libraries/Util.class.php:4064 libraries/structure.lib.php:805
 #: libraries/structure.lib.php:1793 libraries/tbl_printview.lib.php:249
 msgid "Last update"
 msgstr "Ultima actualizare"
 
-#: libraries/Util.class.php:4080 libraries/structure.lib.php:812
+#: libraries/Util.class.php:4070 libraries/structure.lib.php:812
 #: libraries/structure.lib.php:1801 libraries/tbl_printview.lib.php:260
 msgid "Last check"
 msgstr "Ultima verficare"
@@ -4076,13 +4076,13 @@ msgstr ""
 "părinte sau setările de securitate ale sistemului sunt configurate să "
 "blocheze actualizările dintre ferestre."
 
-#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:310
-#: libraries/config/setup.forms.php:346 libraries/config/setup.forms.php:369
-#: libraries/config/setup.forms.php:374
-#: libraries/config/user_preferences.forms.php:209
-#: libraries/config/user_preferences.forms.php:245
-#: libraries/config/user_preferences.forms.php:268
-#: libraries/config/user_preferences.forms.php:273
+#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:311
+#: libraries/config/setup.forms.php:347 libraries/config/setup.forms.php:370
+#: libraries/config/setup.forms.php:375
+#: libraries/config/user_preferences.forms.php:210
+#: libraries/config/user_preferences.forms.php:246
+#: libraries/config/user_preferences.forms.php:269
+#: libraries/config/user_preferences.forms.php:274
 #: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2192
 #: libraries/tbl_printview.lib.php:303
 msgid "Data"
@@ -4411,7 +4411,7 @@ msgid "Set value: %s"
 msgstr "Seteaza valoarea: %s"
 
 #: libraries/config/FormDisplay.tpl.php:313
-#: libraries/config/messages.inc.php:534
+#: libraries/config/messages.inc.php:536
 msgid "Restore default value"
 msgstr "Restaurează valoarea implicită"
 
@@ -4423,7 +4423,7 @@ msgstr "Permite utilizatorilor să personalizeze această valoare"
 msgid "Apply"
 msgstr ""
 
-#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1588
+#: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1590
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
 #: prefs_manage.php:349
 msgid "Reset"
@@ -4776,14 +4776,14 @@ msgstr "Fișier de configurare"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (\"Are your really sure…\") should be displayed "
-#| "when you're about to lose data"
+#| "Whether a warning (\"Are your really sure…\") should be displayed when "
+#| "you're about to lose data"
 msgid ""
-"Whether a warning (\"Are your really sure…\") should be displayed "
-"when you're about to lose data."
+"Whether a warning (\"Are your really sure…\") should be displayed when "
+"you're about to lose data."
 msgstr ""
-"Dacă un avertisment (\" Sunteți sigur…\") ar trebui afișat când "
-"sunteți pe cale sa pierdeți datele"
+"Dacă un avertisment (\" Sunteți sigur…\") ar trebui afișat când sunteți pe "
+"cale sa pierdeți datele"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -4900,7 +4900,7 @@ msgstr "Timpul maxim de execuție"
 msgid "Save as file"
 msgstr "Salvează ca fișier"
 
-#: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:336
+#: libraries/config/messages.inc.php:111 libraries/config/messages.inc.php:338
 msgid "Character set of the file"
 msgstr "Setul de caractere al fișierului"
 
@@ -4918,8 +4918,8 @@ msgstr "Compresie"
 #: libraries/config/messages.inc.php:114 libraries/config/messages.inc.php:121
 #: libraries/config/messages.inc.php:129 libraries/config/messages.inc.php:133
 #: libraries/config/messages.inc.php:147 libraries/config/messages.inc.php:149
-#: libraries/config/messages.inc.php:188 libraries/config/messages.inc.php:191
-#: libraries/config/messages.inc.php:193
+#: libraries/config/messages.inc.php:190 libraries/config/messages.inc.php:193
+#: libraries/config/messages.inc.php:195
 #: libraries/plugins/export/ExportCsv.class.php:91
 #: libraries/plugins/export/ExportExcel.class.php:68
 #: libraries/plugins/export/ExportHtmlword.class.php:90
@@ -4929,16 +4929,16 @@ msgstr "Compresie"
 msgid "Put columns names in the first row"
 msgstr "Pune numele coloanelor în primul rând"
 
-#: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:338
-#: libraries/config/messages.inc.php:348
+#: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:340
+#: libraries/config/messages.inc.php:350
 #: libraries/plugins/import/ImportCsv.class.php:150
 #, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
 msgstr "câmpuri încadrate de"
 
-#: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:339
-#: libraries/config/messages.inc.php:349
+#: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:341
+#: libraries/config/messages.inc.php:351
 #: libraries/plugins/import/ImportCsv.class.php:157
 #, fuzzy
 #| msgid "Fields escaped by"
@@ -4948,8 +4948,8 @@ msgstr "câmpuri realizate de"
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:123
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:139
 #: libraries/config/messages.inc.php:148 libraries/config/messages.inc.php:152
-#: libraries/config/messages.inc.php:189 libraries/config/messages.inc.php:192
-#: libraries/config/messages.inc.php:194
+#: libraries/config/messages.inc.php:191 libraries/config/messages.inc.php:194
+#: libraries/config/messages.inc.php:196
 #, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with"
@@ -4959,15 +4959,15 @@ msgstr "Înlocuire NULL cu"
 msgid "Remove CRLF characters within columns"
 msgstr "Șterge caracterele terminatoare de linie CRLF din cadrul coloanelor"
 
-#: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:342
-#: libraries/config/messages.inc.php:353
+#: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:355
 #: libraries/plugins/import/ImportCsv.class.php:135
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "Coloane terminate de"
 
-#: libraries/config/messages.inc.php:120 libraries/config/messages.inc.php:337
+#: libraries/config/messages.inc.php:120 libraries/config/messages.inc.php:339
 #: libraries/plugins/import/ImportCsv.class.php:164
 #, fuzzy
 #| msgid "Lines terminated by"
@@ -4993,8 +4993,8 @@ msgid "Table name template"
 msgstr "Șablon nume tabel"
 
 #: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:145
-#: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:184
-#: libraries/config/messages.inc.php:190
+#: libraries/config/messages.inc.php:154 libraries/config/messages.inc.php:186
+#: libraries/config/messages.inc.php:192
 #: libraries/plugins/export/ExportHtmlword.class.php:63
 #: libraries/plugins/export/ExportLatex.class.php:97
 #: libraries/plugins/export/ExportMediawiki.class.php:63
@@ -5023,14 +5023,14 @@ msgid "Label key"
 msgstr "Tasta label"
 
 #: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:151
-#: libraries/config/messages.inc.php:180
+#: libraries/config/messages.inc.php:182
 #: libraries/plugins/export/ExportOdt.class.php:482
 #: libraries/tbl_columns_definition_form.lib.php:314
 msgid "MIME type"
 msgstr "Tip MIME"
 
 #: libraries/config/messages.inc.php:140 libraries/config/messages.inc.php:153
-#: libraries/config/messages.inc.php:183 libraries/tbl_relation.lib.php:214
+#: libraries/config/messages.inc.php:185 libraries/tbl_relation.lib.php:214
 msgid "Relations"
 msgstr "Legături"
 
@@ -5062,13 +5062,13 @@ msgstr "Adaugă valoare pentru AUTO_INCREMENT"
 msgid "Enclose table and column names with backquotes"
 msgstr "Utilizați apostroful pentru numele tabelelor și a coloanelor"
 
-#: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:362
+#: libraries/config/messages.inc.php:164 libraries/config/messages.inc.php:364
 #: libraries/display_export.lib.php:291
 msgid "SQL compatibility mode"
 msgstr "Regim de compatibilitate SQL"
 
 #: libraries/config/messages.inc.php:166
-#: libraries/plugins/export/ExportSql.class.php:278
+#: libraries/plugins/export/ExportSql.class.php:289
 msgid "<code>CREATE TABLE</code> options:"
 msgstr "opțiuni <code>CREARE TABLE</code>:"
 
@@ -5093,55 +5093,56 @@ msgid "Export views as tables"
 msgstr "Se exportă rândurile din tabela \"%s\""
 
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:173
-#: libraries/config/messages.inc.php:175 libraries/config/messages.inc.php:182
-#: libraries/operations.lib.php:190 libraries/operations.lib.php:1035
+#: libraries/config/messages.inc.php:175 libraries/config/messages.inc.php:177
+#: libraries/config/messages.inc.php:184 libraries/operations.lib.php:190
+#: libraries/operations.lib.php:1035
 #, php-format
 msgid "Add %s"
 msgstr "Adăugare %s"
 
-#: libraries/config/messages.inc.php:174
+#: libraries/config/messages.inc.php:176
 msgid "Use hexadecimal for BLOB"
 msgstr "Folosește hexazecimale pentru BLOB"
 
-#: libraries/config/messages.inc.php:176
+#: libraries/config/messages.inc.php:178
 msgid "Use ignore inserts"
 msgstr "Utilizați ignorare inserări"
 
-#: libraries/config/messages.inc.php:178
+#: libraries/config/messages.inc.php:180
 msgid "Syntax to use when inserting data"
 msgstr "Sintaxa ce va fi folosită la inserarea datelor"
 
-#: libraries/config/messages.inc.php:179
-#: libraries/plugins/export/ExportSql.class.php:398
+#: libraries/config/messages.inc.php:181
+#: libraries/plugins/export/ExportSql.class.php:409
 msgid "Maximal length of created query"
 msgstr "Lungimea maximă a interogării create"
 
-#: libraries/config/messages.inc.php:185
+#: libraries/config/messages.inc.php:187
 #, fuzzy
 msgid "Export type"
 msgstr "Modul de export"
 
-#: libraries/config/messages.inc.php:186
+#: libraries/config/messages.inc.php:188
 #: libraries/plugins/export/ExportSql.class.php:129
 msgid "Enclose export in a transaction"
 msgstr "Cuprinde exportarea într-o tranzacție"
 
-#: libraries/config/messages.inc.php:187
+#: libraries/config/messages.inc.php:189
 #, fuzzy
 msgid "Export time in UTC"
 msgstr "Modul de export"
 
-#: libraries/config/messages.inc.php:195
+#: libraries/config/messages.inc.php:197
 #, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
 msgstr "Forțează conexiune securizată în timpul folosirii phpMyAdmin"
 
-#: libraries/config/messages.inc.php:196
+#: libraries/config/messages.inc.php:198
 msgid "Force SSL connection"
 msgstr "Forțează conexiunea SSL"
 
-#: libraries/config/messages.inc.php:198
+#: libraries/config/messages.inc.php:200
 #, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
@@ -5153,176 +5154,176 @@ msgstr ""
 "Ordinea de sortare pentru elementele dintr-un dropdown pentru chei străine; "
 "[kbd]conținut[/kbd] sunt datele referite, [kbd]id[/kbd] este valoarea cheii"
 
-#: libraries/config/messages.inc.php:201
+#: libraries/config/messages.inc.php:203
 msgid "Foreign key dropdown order"
 msgstr "Ordinea din dropdown-ul pentru chei străine"
 
-#: libraries/config/messages.inc.php:203
+#: libraries/config/messages.inc.php:205
 #, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
 msgstr "Un dropdown va fi folosit dacă sunt prezente mai puține elemente"
 
-#: libraries/config/messages.inc.php:204
+#: libraries/config/messages.inc.php:206
 msgid "Foreign key limit"
 msgstr "Limită de chei străine"
 
-#: libraries/config/messages.inc.php:205
+#: libraries/config/messages.inc.php:207
 msgid "Browse mode"
 msgstr "Regim de navigare"
 
-#: libraries/config/messages.inc.php:206
+#: libraries/config/messages.inc.php:208
 #, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
 msgstr "Personalizează regimul de navigare"
 
-#: libraries/config/messages.inc.php:208 libraries/config/messages.inc.php:210
-#: libraries/config/messages.inc.php:228 libraries/config/messages.inc.php:239
-#: libraries/config/messages.inc.php:241 libraries/config/messages.inc.php:287
+#: libraries/config/messages.inc.php:210 libraries/config/messages.inc.php:212
+#: libraries/config/messages.inc.php:230 libraries/config/messages.inc.php:241
+#: libraries/config/messages.inc.php:243 libraries/config/messages.inc.php:289
 #, fuzzy
 msgid "Customize default options."
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/messages.inc.php:209 libraries/config/setup.forms.php:247
-#: libraries/config/setup.forms.php:321
+#: libraries/config/messages.inc.php:211 libraries/config/setup.forms.php:247
+#: libraries/config/setup.forms.php:322
 #: libraries/config/user_preferences.forms.php:148
-#: libraries/config/user_preferences.forms.php:220
+#: libraries/config/user_preferences.forms.php:221
 msgid "CSV"
 msgstr "CSV"
 
-#: libraries/config/messages.inc.php:211
+#: libraries/config/messages.inc.php:213
 #, fuzzy
 msgid "Developer"
 msgstr "Dezvoltator"
 
-#: libraries/config/messages.inc.php:212
+#: libraries/config/messages.inc.php:214
 #, fuzzy
 msgid "Settings for phpMyAdmin developers."
 msgstr "Setările pentru dezvoltatorii phpMyAdmin"
 
-#: libraries/config/messages.inc.php:213
+#: libraries/config/messages.inc.php:215
 msgid "Edit mode"
 msgstr "Regim de redactare"
 
-#: libraries/config/messages.inc.php:214
+#: libraries/config/messages.inc.php:216
 #, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
 msgstr "Personalizează regimul de redactare"
 
-#: libraries/config/messages.inc.php:216
+#: libraries/config/messages.inc.php:218
 #, fuzzy
 msgid "Export defaults"
 msgstr "Import fișiere"
 
-#: libraries/config/messages.inc.php:217
+#: libraries/config/messages.inc.php:219
 #, fuzzy
 msgid "Customize default export options."
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/messages.inc.php:218 libraries/config/messages.inc.php:279
+#: libraries/config/messages.inc.php:220 libraries/config/messages.inc.php:281
 #: setup/frames/menu.inc.php:17
 msgid "Features"
 msgstr "Funcționalități"
 
-#: libraries/config/messages.inc.php:219
+#: libraries/config/messages.inc.php:221
 #, fuzzy
 #| msgid "Generate"
 msgid "General"
 msgstr "Generează"
 
-#: libraries/config/messages.inc.php:220
+#: libraries/config/messages.inc.php:222
 #, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
 msgstr "Setați unele opțiuni utilizate în mod obișnuit"
 
-#: libraries/config/messages.inc.php:222
+#: libraries/config/messages.inc.php:224
 msgid "Import defaults"
 msgstr "Importă valorile implicite"
 
-#: libraries/config/messages.inc.php:223
+#: libraries/config/messages.inc.php:225
 #, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
 msgstr "Particularizează opțiunile obișnuite implicite de importare"
 
-#: libraries/config/messages.inc.php:224
+#: libraries/config/messages.inc.php:226
 msgid "Import / export"
 msgstr "Importă / exportă"
 
-#: libraries/config/messages.inc.php:226
+#: libraries/config/messages.inc.php:228
 #, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
 msgstr ""
 "Setează directoarele de importare și exportare și opțiunile de compresie"
 
-#: libraries/config/messages.inc.php:227
+#: libraries/config/messages.inc.php:229
 msgid "LaTeX"
 msgstr "LaTeX"
 
-#: libraries/config/messages.inc.php:230
+#: libraries/config/messages.inc.php:232
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
 msgstr "Opțiuni de afișare a bazelor de date"
 
-#: libraries/config/messages.inc.php:231 setup/frames/menu.inc.php:21
+#: libraries/config/messages.inc.php:233 setup/frames/menu.inc.php:21
 #, fuzzy
 #| msgid "Navigation frame"
 msgid "Navigation panel"
 msgstr "Cadru de navigare"
 
-#: libraries/config/messages.inc.php:232
+#: libraries/config/messages.inc.php:234
 #, fuzzy
 #| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel."
 msgstr "Personalizează aspectul cadrului de navigare"
 
-#: libraries/config/messages.inc.php:233 libraries/select_server.lib.php:44
+#: libraries/config/messages.inc.php:235 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
 msgid "Servers"
 msgstr "Servere"
 
-#: libraries/config/messages.inc.php:234
+#: libraries/config/messages.inc.php:236
 #, fuzzy
 msgid "Servers display options."
 msgstr "Opțiuni de afișare a tabelelor"
 
-#: libraries/config/messages.inc.php:236
+#: libraries/config/messages.inc.php:238
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
 msgstr "Opțiuni de afișare a tabelelor"
 
-#: libraries/config/messages.inc.php:237 setup/frames/menu.inc.php:23
+#: libraries/config/messages.inc.php:239 setup/frames/menu.inc.php:23
 #, fuzzy
 #| msgid "Main frame"
 msgid "Main panel"
 msgstr "Cadrul principal"
 
-#: libraries/config/messages.inc.php:238
+#: libraries/config/messages.inc.php:240
 #, fuzzy
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: libraries/config/messages.inc.php:242
+#: libraries/config/messages.inc.php:244
 msgid "Other core settings"
 msgstr "Alte setări de bază"
 
-#: libraries/config/messages.inc.php:244
+#: libraries/config/messages.inc.php:246
 #, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
 msgstr "Setări care nu s-au potrivit altundeva"
 
-#: libraries/config/messages.inc.php:245
+#: libraries/config/messages.inc.php:247
 msgid "Page titles"
 msgstr "Titluri de pagini"
 
-#: libraries/config/messages.inc.php:247
+#: libraries/config/messages.inc.php:249
 msgid ""
 "Specify browser's title bar text. Refer to "
 "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
@@ -5332,21 +5333,21 @@ msgstr ""
 "[doc@cfg_TitleTable] documentația [/doc] pentru siruri de caractere magice "
 "care pot fi utilizate pentru a obține valori speciale."
 
-#: libraries/config/messages.inc.php:251
+#: libraries/config/messages.inc.php:253
 #: libraries/navigation/NavigationHeader.class.php:219
 msgid "Query window"
 msgstr "Fereastra de comandă"
 
-#: libraries/config/messages.inc.php:252
+#: libraries/config/messages.inc.php:254
 #, fuzzy
 msgid "Customize query window options"
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/messages.inc.php:253
+#: libraries/config/messages.inc.php:255
 msgid "Security"
 msgstr "Securitate"
 
-#: libraries/config/messages.inc.php:255
+#: libraries/config/messages.inc.php:257
 #, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
@@ -5358,27 +5359,27 @@ msgstr ""
 "Vă rugăm să rețineți faptul că phpMyAdmin este doar o interfață de "
 "utilizator și caracteristicile sale nu limitează MySQL"
 
-#: libraries/config/messages.inc.php:258
+#: libraries/config/messages.inc.php:260
 msgid "Basic settings"
 msgstr "Setări de bază"
 
-#: libraries/config/messages.inc.php:259
+#: libraries/config/messages.inc.php:261
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication"
 msgstr "Tipul autentificării"
 
-#: libraries/config/messages.inc.php:260
+#: libraries/config/messages.inc.php:262
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Authentication settings."
 msgstr "Tipul autentificării"
 
-#: libraries/config/messages.inc.php:261
+#: libraries/config/messages.inc.php:263
 msgid "Server configuration"
 msgstr "Configurarea serverului"
 
-#: libraries/config/messages.inc.php:263
+#: libraries/config/messages.inc.php:265
 #, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
@@ -5390,18 +5391,18 @@ msgstr ""
 "Configurarea avansată a serverului, nu schimbați aceste opțiuni decât dacă "
 "știți pentru ce sunt acestea"
 
-#: libraries/config/messages.inc.php:266
+#: libraries/config/messages.inc.php:268
 #, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
 msgstr "Introduceți parametrii de conexiune la server"
 
-#: libraries/config/messages.inc.php:267
+#: libraries/config/messages.inc.php:269
 #, fuzzy
 msgid "Configuration storage"
 msgstr "Depozitarea configurației"
 
-#: libraries/config/messages.inc.php:269
+#: libraries/config/messages.inc.php:271
 #, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
@@ -5416,12 +5417,12 @@ msgstr ""
 "caracteristici suplimentare, a se vedea [doc@linked-tables]depozitarea "
 "configurației phpMyAdmin[/doc] în documentație"
 
-#: libraries/config/messages.inc.php:273
+#: libraries/config/messages.inc.php:275
 #, fuzzy
 msgid "Changes tracking"
 msgstr "Modifică urmărirea"
 
-#: libraries/config/messages.inc.php:275
+#: libraries/config/messages.inc.php:277
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
@@ -5429,53 +5430,53 @@ msgstr ""
 "Urmărirea modificărilor făcute în baza de date. Necesită depozitarea "
 "configurației phpMyAdmin."
 
-#: libraries/config/messages.inc.php:278
+#: libraries/config/messages.inc.php:280
 #, fuzzy
 msgid "Customize export options"
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/messages.inc.php:280
+#: libraries/config/messages.inc.php:282
 msgid "Customize import defaults"
 msgstr "Personalizează valorile implicite pentru importare"
 
-#: libraries/config/messages.inc.php:281
+#: libraries/config/messages.inc.php:283
 #, fuzzy
 #| msgid "Customize navigation frame"
 msgid "Customize navigation panel"
 msgstr "Personalizează cadrul de navigare"
 
-#: libraries/config/messages.inc.php:282
+#: libraries/config/messages.inc.php:284
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Customize main panel"
 msgstr "Personalizează cadrul principal"
 
-#: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:288
+#: libraries/config/messages.inc.php:285 libraries/config/messages.inc.php:290
 #: setup/frames/menu.inc.php:19
 msgid "SQL queries"
 msgstr "Interogări SQL"
 
-#: libraries/config/messages.inc.php:285
+#: libraries/config/messages.inc.php:287
 #, fuzzy
 msgid "SQL Query box"
 msgstr "Cutie interogare SQL"
 
-#: libraries/config/messages.inc.php:286
+#: libraries/config/messages.inc.php:288
 #, fuzzy
 msgid "Customize links shown in SQL Query boxes."
 msgstr "Personalizează link-urile afișate în cutiile de interogare SQL"
 
-#: libraries/config/messages.inc.php:289
+#: libraries/config/messages.inc.php:291
 #, fuzzy
 #| msgid "SQL queries settings"
 msgid "SQL queries settings."
 msgstr "Setări pentru interogările SQL"
 
-#: libraries/config/messages.inc.php:290
+#: libraries/config/messages.inc.php:292
 msgid "SQL Validator"
 msgstr "Validator SQL"
 
-#: libraries/config/messages.inc.php:292
+#: libraries/config/messages.inc.php:294
 msgid ""
 "If you wish to use the SQL Validator service, you should be aware that "
 "[strong]all SQL statements are stored anonymously for statistical purposes[/"
@@ -5488,91 +5489,91 @@ msgstr ""
 "com/] Mimer SQL Validator [/a], Copyright 2002 Upright Database Technology. "
 "Toate drepturile rezervate.[/em]"
 
-#: libraries/config/messages.inc.php:298
+#: libraries/config/messages.inc.php:300
 #, fuzzy
 msgid "Startup"
 msgstr "Pornire"
 
-#: libraries/config/messages.inc.php:299
+#: libraries/config/messages.inc.php:301
 #, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
 msgstr "Personalizează pagina de pornire"
 
-#: libraries/config/messages.inc.php:300
+#: libraries/config/messages.inc.php:302
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database structure"
 msgstr "Bază de date pentru utilizatorul"
 
-#: libraries/config/messages.inc.php:302
+#: libraries/config/messages.inc.php:304
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:303
+#: libraries/config/messages.inc.php:305
 #, fuzzy
 #| msgid "Database for user"
 msgid "Table structure"
 msgstr "Bază de date pentru utilizatorul"
 
-#: libraries/config/messages.inc.php:305
+#: libraries/config/messages.inc.php:307
 msgid "Settings for the table structure (list of columns)."
 msgstr ""
 
-#: libraries/config/messages.inc.php:306
+#: libraries/config/messages.inc.php:308
 msgid "Tabs"
 msgstr "Tab-uri"
 
-#: libraries/config/messages.inc.php:307
+#: libraries/config/messages.inc.php:309
 #, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
 msgstr "Alegeți cum doriți să funcționeze tab-urile"
 
-#: libraries/config/messages.inc.php:308
+#: libraries/config/messages.inc.php:310
 #: libraries/schema/User_Schema.class.php:422
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Schema relațională"
 
-#: libraries/config/messages.inc.php:310
+#: libraries/config/messages.inc.php:312
 #: libraries/schema/User_Schema.class.php:492
 msgid "Paper size"
 msgstr "Mărime hîrtie"
 
-#: libraries/config/messages.inc.php:312
+#: libraries/config/messages.inc.php:314
 #, fuzzy
 #| msgid "Use text field"
 msgid "Text fields"
 msgstr "Utilizare câmp text"
 
-#: libraries/config/messages.inc.php:313
+#: libraries/config/messages.inc.php:315
 #, fuzzy
 msgid "Customize text input fields."
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/messages.inc.php:314
+#: libraries/config/messages.inc.php:316
 msgid "Texy! text"
 msgstr "Texy! text"
 
-#: libraries/config/messages.inc.php:315
+#: libraries/config/messages.inc.php:317
 #, fuzzy
 msgid "Customize default options"
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/messages.inc.php:316
+#: libraries/config/messages.inc.php:318
 msgid "Warnings"
 msgstr "Avertismente"
 
-#: libraries/config/messages.inc.php:318
+#: libraries/config/messages.inc.php:320
 #, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Dezactivează unele dintre avertismentele afișate de phpMyAdmin"
 
-#: libraries/config/messages.inc.php:320
+#: libraries/config/messages.inc.php:322
 #, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
@@ -5584,15 +5585,15 @@ msgstr ""
 "Permite compresia [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] pentru "
 "operațiile de import și export"
 
-#: libraries/config/messages.inc.php:323
+#: libraries/config/messages.inc.php:325
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/config/messages.inc.php:324
+#: libraries/config/messages.inc.php:326
 msgid "Extra parameters for iconv"
 msgstr "Parametrii suplimentari pentru iconv"
 
-#: libraries/config/messages.inc.php:326
+#: libraries/config/messages.inc.php:328
 #, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
@@ -5604,11 +5605,11 @@ msgstr ""
 "Dacă opțiunea este activată, phpMyAdmin continuă calcularea interogărilor cu "
 "mai multe declarații, chiar dacă una dintre interogări nu a reușit"
 
-#: libraries/config/messages.inc.php:329
+#: libraries/config/messages.inc.php:331
 msgid "Ignore multiple statement errors"
 msgstr "Ignoră erorile pentru declarațiile multiple"
 
-#: libraries/config/messages.inc.php:331
+#: libraries/config/messages.inc.php:333
 #, fuzzy
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
@@ -5619,22 +5620,22 @@ msgstr ""
 "apropie de limita de timp. Aceasta poate fi o metodă bună de a importa "
 "fișiere mari, deși poate strica tranzacții."
 
-#: libraries/config/messages.inc.php:335
+#: libraries/config/messages.inc.php:337
 msgid "Partial import: allow interrupt"
 msgstr "Import parțial: permite întreruperi"
 
-#: libraries/config/messages.inc.php:340 libraries/config/messages.inc.php:350
+#: libraries/config/messages.inc.php:342 libraries/config/messages.inc.php:352
 #: libraries/plugins/import/ImportCsv.class.php:89
 #: libraries/plugins/import/ImportLdi.class.php:73
 msgid "Do not abort on INSERT error"
 msgstr "Nu abandona la întâmpinarea unei erori INSERT"
 
-#: libraries/config/messages.inc.php:341 libraries/config/messages.inc.php:352
+#: libraries/config/messages.inc.php:343 libraries/config/messages.inc.php:354
 #: libraries/plugins/import/AbstractImportCsv.class.php:55
 msgid "Replace table data with file"
 msgstr "Înlocuiește datele tabelului cu fișier"
 
-#: libraries/config/messages.inc.php:344
+#: libraries/config/messages.inc.php:346
 #, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
@@ -5646,64 +5647,64 @@ msgstr ""
 "Formatul implicit; fiți conștienți de faptul că această listă depinde de "
 "locație (bază de date, tabel) și numai SQL este întotdeauna disponibil"
 
-#: libraries/config/messages.inc.php:347
+#: libraries/config/messages.inc.php:349
 msgid "Format of imported file"
 msgstr "Formatul fișierului importat"
 
-#: libraries/config/messages.inc.php:351
+#: libraries/config/messages.inc.php:353
 #: libraries/plugins/import/ImportLdi.class.php:78
 msgid "Use LOCAL keyword"
 msgstr "Folosește cuvîntul-cheie LOCAL"
 
-#: libraries/config/messages.inc.php:354 libraries/config/messages.inc.php:365
-#: libraries/config/messages.inc.php:366
+#: libraries/config/messages.inc.php:356 libraries/config/messages.inc.php:367
+#: libraries/config/messages.inc.php:368
 msgid "Column names in first row"
 msgstr "Pune numele coloanelor în primul rând"
 
-#: libraries/config/messages.inc.php:355
+#: libraries/config/messages.inc.php:357
 #: libraries/plugins/import/ImportOds.class.php:83
 msgid "Do not import empty rows"
 msgstr "Nu importa rânduri goale"
 
-#: libraries/config/messages.inc.php:357
+#: libraries/config/messages.inc.php:359
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr ""
 
-#: libraries/config/messages.inc.php:359
+#: libraries/config/messages.inc.php:361
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importă procentele ca zecimale (12.00% ca .12)"
 
-#: libraries/config/messages.inc.php:360
+#: libraries/config/messages.inc.php:362
 #, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
 msgstr "Numărul de interogări peste care să sari de la început"
 
-#: libraries/config/messages.inc.php:361
+#: libraries/config/messages.inc.php:363
 msgid "Partial import: skip queries"
 msgstr "Import parțial: sari peste interogări"
 
-#: libraries/config/messages.inc.php:364
+#: libraries/config/messages.inc.php:366
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Nu folosi AUTO_INCREMENT pentru valorile de zero"
 
-#: libraries/config/messages.inc.php:367
+#: libraries/config/messages.inc.php:369
 #, fuzzy
 msgid "Initial state for sliders"
 msgstr "Starea inițială pentru slidere"
 
-#: libraries/config/messages.inc.php:368
+#: libraries/config/messages.inc.php:370
 #, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
 msgstr "Câte rânduri pot fi inserate deodată"
 
-#: libraries/config/messages.inc.php:369
+#: libraries/config/messages.inc.php:371
 msgid "Number of inserted rows"
 msgstr "Numărul de rânduri inserate"
 
 # Numărul maxim de caractere afișate în orice coloană non-numerică în vederea de cautare
-#: libraries/config/messages.inc.php:371
+#: libraries/config/messages.inc.php:373
 #, fuzzy
 #| msgid ""
 #| "Maximum number of characters shown in any non-numeric column on browse "
@@ -5714,11 +5715,11 @@ msgstr ""
 "Numărul maxim de caractere afișate în orice coloană non-numerică în view-ul "
 "de browse"
 
-#: libraries/config/messages.inc.php:373
+#: libraries/config/messages.inc.php:375
 msgid "Limit column characters"
 msgstr "Limitează caracterele de pe coloană"
 
-#: libraries/config/messages.inc.php:375
+#: libraries/config/messages.inc.php:377
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -5729,11 +5730,11 @@ msgstr ""
 "la FALSE facilitează uitarea delogării de pe alte servere când ești conectat "
 "la mai multe servere."
 
-#: libraries/config/messages.inc.php:379
+#: libraries/config/messages.inc.php:381
 msgid "Delete all cookies on logout"
 msgstr "Șterge toate cookie-urile la delogare"
 
-#: libraries/config/messages.inc.php:381
+#: libraries/config/messages.inc.php:383
 #, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
@@ -5745,11 +5746,11 @@ msgstr ""
 "Definiți dacă logarea anterioară ar trebui să fie amintită sau nu în modul "
 "de autentificare prin cookie-uri"
 
-#: libraries/config/messages.inc.php:384
+#: libraries/config/messages.inc.php:386
 msgid "Recall user name"
 msgstr "Amintește nume de utilizator"
 
-#: libraries/config/messages.inc.php:386
+#: libraries/config/messages.inc.php:388
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -5761,91 +5762,90 @@ msgstr ""
 "curentă și va fi șters îndată ce se închide fereastra browser-ului. Acest "
 "lucru este recomandat pentru mediile nesigure."
 
-#: libraries/config/messages.inc.php:391
+#: libraries/config/messages.inc.php:393
 #, fuzzy
 msgid "Login cookie store"
 msgstr "Locul de depozitarea al cookie-ului de login"
 
-#: libraries/config/messages.inc.php:393
+#: libraries/config/messages.inc.php:395
 #, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr "Definește cât timp (în secunde) un cookie de login este valid"
 
-#: libraries/config/messages.inc.php:394
+#: libraries/config/messages.inc.php:396
 msgid "Login cookie validity"
 msgstr "Validitatea cookie-ului de login"
 
-#: libraries/config/messages.inc.php:396
+#: libraries/config/messages.inc.php:398
 #, fuzzy
 #| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
 msgstr "Mărime dublă a textarea-ului pentru coloanele LONGTEXT"
 
-#: libraries/config/messages.inc.php:397
+#: libraries/config/messages.inc.php:399
 msgid "Bigger textarea for LONGTEXT"
 msgstr "Textarea-uri mai mari pentru LONGTEXT"
 
-#: libraries/config/messages.inc.php:399
+#: libraries/config/messages.inc.php:401
 #, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "Numărul maxim de caractere folosite când se afișează o interogare SQL"
 
-#: libraries/config/messages.inc.php:400
+#: libraries/config/messages.inc.php:402
 msgid "Maximum displayed SQL length"
 msgstr "Lungimea maximă de afișare SQL"
 
-#: libraries/config/messages.inc.php:401 libraries/config/messages.inc.php:415
-#: libraries/config/messages.inc.php:515
+#: libraries/config/messages.inc.php:403 libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:517
 msgid "Users cannot set a higher value"
 msgstr "Utilizatorii nu pot seta o valoare mai mare"
 
-#: libraries/config/messages.inc.php:403
+#: libraries/config/messages.inc.php:405
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of databases displayed in database list."
 msgstr "Numărul maxim de tabele afișate în lista de tabele"
 
-#: libraries/config/messages.inc.php:404
+#: libraries/config/messages.inc.php:406
 msgid "Maximum databases"
 msgstr "Numărul maxim de baze de date"
 
-#: libraries/config/messages.inc.php:406
+#: libraries/config/messages.inc.php:408
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
 
-#: libraries/config/messages.inc.php:408
+#: libraries/config/messages.inc.php:410
 msgid "Maximum items in branch"
 msgstr ""
 
-#: libraries/config/messages.inc.php:410
+#: libraries/config/messages.inc.php:412
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, \"Previous\" and \"Next\" links will be "
-"shown."
+"contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
 "Numărul de rânduri afișate la vizualizarea unui set de rezultate. Dacă setul "
-"de rezultate conține mai multe rânduri, link-urile de \"Anterior\" "
-"și \"Următor\" vor fi afișate."
+"de rezultate conține mai multe rânduri, link-urile de \"Anterior\" și "
+"\"Următor\" vor fi afișate."
 
-#: libraries/config/messages.inc.php:414
+#: libraries/config/messages.inc.php:416
 msgid "Maximum number of rows to display"
 msgstr "Numărul maxim de rânduri afișate"
 
-#: libraries/config/messages.inc.php:416
+#: libraries/config/messages.inc.php:418
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
 msgstr "Numărul maxim de tabele afișate în lista de tabele"
 
-#: libraries/config/messages.inc.php:417
+#: libraries/config/messages.inc.php:419
 msgid "Maximum tables"
 msgstr "Numărul maxim de tabele"
 
-#: libraries/config/messages.inc.php:419
+#: libraries/config/messages.inc.php:421
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
@@ -5857,11 +5857,11 @@ msgstr ""
 "Dezactivează avertismentul implicit care este afișat dacă mcrypt lipsește "
 "pentru autentificarea prin cookie-uri"
 
-#: libraries/config/messages.inc.php:422
+#: libraries/config/messages.inc.php:424
 msgid "mcrypt warning"
 msgstr "avertisment mcrypt"
 
-#: libraries/config/messages.inc.php:424
+#: libraries/config/messages.inc.php:426
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -5873,31 +5873,31 @@ msgstr ""
 "Numărul de bytes pe care un script are voie sa îl aloce, ex: [kbd]32M[/kbd] "
 "([kbd]0[/kbd] pentru nicio limită)"
 
-#: libraries/config/messages.inc.php:427
+#: libraries/config/messages.inc.php:429
 msgid "Memory limit"
 msgstr "Limita de memorie"
 
-#: libraries/config/messages.inc.php:428
+#: libraries/config/messages.inc.php:430
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel."
 msgstr "Afișează logo în cadrul din stânga"
 
-#: libraries/config/messages.inc.php:429
+#: libraries/config/messages.inc.php:431
 msgid "Display logo"
 msgstr "Afișează logo"
 
-#: libraries/config/messages.inc.php:431
+#: libraries/config/messages.inc.php:433
 #, fuzzy
 #| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to."
 msgstr "URL-ul către care va indica logo-ul din cadrul de navigare"
 
-#: libraries/config/messages.inc.php:432
+#: libraries/config/messages.inc.php:434
 msgid "Logo link URL"
 msgstr "URL-ul către care indică link-ul logo-ului"
 
-#: libraries/config/messages.inc.php:434
+#: libraries/config/messages.inc.php:436
 #, fuzzy
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
@@ -5906,11 +5906,11 @@ msgstr ""
 "Deschide pagina link-ată în fereastra principală ([kbd]main[/kbd]) sau într-"
 "o fereastră nouă ([kbd]new[/kbd])"
 
-#: libraries/config/messages.inc.php:437
+#: libraries/config/messages.inc.php:439
 msgid "Logo link target"
 msgstr "Ținta link-ului din logo"
 
-#: libraries/config/messages.inc.php:439
+#: libraries/config/messages.inc.php:441
 #, fuzzy
 #| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel."
@@ -5918,15 +5918,15 @@ msgstr ""
 "Afișează meniul de alegere a server-ului în partea de sus a cadrului din "
 "stânga"
 
-#: libraries/config/messages.inc.php:440
+#: libraries/config/messages.inc.php:442
 msgid "Display servers selection"
 msgstr "Afișează colecția de servere"
 
-#: libraries/config/messages.inc.php:441
+#: libraries/config/messages.inc.php:443
 msgid "Target for quick access icon"
 msgstr "Ținta iconiței de acces rapid"
 
-#: libraries/config/messages.inc.php:443
+#: libraries/config/messages.inc.php:445
 #, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid ""
@@ -5934,19 +5934,19 @@ msgid ""
 "display a filter box."
 msgstr "Numărul minim de tabele pentru a afişa caseta cu filtrul de tabele"
 
-#: libraries/config/messages.inc.php:447
+#: libraries/config/messages.inc.php:449
 #, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of items to display the filter box"
 msgstr "Numărul minim de tabele pentru a afişa caseta cu filtrul de tabele"
 
-#: libraries/config/messages.inc.php:449
+#: libraries/config/messages.inc.php:451
 #, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
 msgstr "Numărul minim de tabele pentru a afişa caseta cu filtrul de tabele"
 
-#: libraries/config/messages.inc.php:451
+#: libraries/config/messages.inc.php:453
 #, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
@@ -5958,69 +5958,69 @@ msgstr ""
 "Doar versiunea light; afișează bazele de date într-un arbore (determinat de "
 "separatorul definit mai jos)"
 
-#: libraries/config/messages.inc.php:453
+#: libraries/config/messages.inc.php:455
 msgid "Group items in the tree"
 msgstr ""
 
-#: libraries/config/messages.inc.php:455
+#: libraries/config/messages.inc.php:457
 #, fuzzy
 msgid "String that separates databases into different tree levels."
 msgstr ""
 "Șir de caractere care separă bazele de date în diferite niveluri ale "
 "arborelui"
 
-#: libraries/config/messages.inc.php:456
+#: libraries/config/messages.inc.php:458
 msgid "Database tree separator"
 msgstr "Separator arbore baze de date"
 
-#: libraries/config/messages.inc.php:458
+#: libraries/config/messages.inc.php:460
 #, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
 msgstr ""
 "Șir de caractere care separă tabelele în diferite niveluri ale arborelui"
 
-#: libraries/config/messages.inc.php:459
+#: libraries/config/messages.inc.php:461
 msgid "Table tree separator"
 msgstr "Separator arbore tabele"
 
-#: libraries/config/messages.inc.php:460
+#: libraries/config/messages.inc.php:462
 msgid "Maximum table tree depth"
 msgstr "Adâncimea maximă a arborelui de tabele"
 
-#: libraries/config/messages.inc.php:462
+#: libraries/config/messages.inc.php:464
 #, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
 msgstr "Evidențiați server-ul deasupra căruia se află cursorul mouse-ului"
 
 # Activați evidențierea
-#: libraries/config/messages.inc.php:463
+#: libraries/config/messages.inc.php:465
 msgid "Enable highlighting"
 msgstr "Activați highlighting-ul"
 
-#: libraries/config/messages.inc.php:465
+#: libraries/config/messages.inc.php:467
 #, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Numărul maxim de tabele recent folosite; setați 0 pentru dezactivare"
 
-#: libraries/config/messages.inc.php:466
+#: libraries/config/messages.inc.php:468
 msgid "Recently used tables"
 msgstr "Tabele recent folosite"
 
-#: libraries/config/messages.inc.php:467
+#: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "These are Edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links."
 msgstr "Acestea sunt link-urile de Editare, Copiere și Ștergere"
 
-#: libraries/config/messages.inc.php:468
+#: libraries/config/messages.inc.php:470
 #, fuzzy
 msgid "Where to show the table row links"
 msgstr "Unde să fie afișate link-urile din rândurile tabelelor"
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:472
 #, fuzzy
 #| msgid "Use natural order for sorting table and database names"
 msgid "Use natural order for sorting table and database names."
@@ -6028,35 +6028,35 @@ msgstr ""
 "Folosește ordinea naturală pentru sortarea numelor tabelelor și bazelor de "
 "date"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:473
 msgid "Natural order"
 msgstr "Ordine naturală"
 
-#: libraries/config/messages.inc.php:472 libraries/config/messages.inc.php:503
-#: libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:474 libraries/config/messages.inc.php:505
+#: libraries/config/messages.inc.php:507
 #, fuzzy
 #| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
 msgstr "Folosește doar iconițe. doar text sau ambele"
 
-#: libraries/config/messages.inc.php:473
+#: libraries/config/messages.inc.php:475
 #, fuzzy
 msgid "Table navigation bar"
 msgstr "bară de navigare cu iconițe"
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:477
 #, fuzzy
 #| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
 "folosește GZip output buffering pentru viteză mărită în transferurile HTTP"
 
-#: libraries/config/messages.inc.php:476
+#: libraries/config/messages.inc.php:478
 #, fuzzy
 msgid "GZip output buffering"
 msgstr "GZip output buffering"
 
-#: libraries/config/messages.inc.php:478
+#: libraries/config/messages.inc.php:480
 #, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
@@ -6068,21 +6068,21 @@ msgstr ""
 "[kbd]SMART[/kbd] - adică ordine descrescătoare pentru coloane de tipul TIME, "
 "DATE, DATETIME și TIMESTAMP, sau crescătoare altfel"
 
-#: libraries/config/messages.inc.php:481
+#: libraries/config/messages.inc.php:483
 msgid "Default sorting order"
 msgstr "Ordine de sortare implicită"
 
-#: libraries/config/messages.inc.php:483
+#: libraries/config/messages.inc.php:485
 #, fuzzy
 #| msgid "Use persistent connections to MySQL databases"
 msgid "Use persistent connections to MySQL databases."
 msgstr "Folosește conexiuni persistente la baze de date MySQL"
 
-#: libraries/config/messages.inc.php:484
+#: libraries/config/messages.inc.php:486
 msgid "Persistent connections"
 msgstr "Conexiuni persistente"
 
-#: libraries/config/messages.inc.php:486
+#: libraries/config/messages.inc.php:488
 #, fuzzy
 msgid ""
 "Disable the default warning that is displayed on the database details "
@@ -6093,11 +6093,11 @@ msgstr ""
 "structură ale bazei de date, dacă oricare dintre tabelele necesare pentru "
 "stocarea configurării phpMyAdmin nu a putut fi găsită"
 
-#: libraries/config/messages.inc.php:491
+#: libraries/config/messages.inc.php:493
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Tabele de stocare a configurării phpMyAdmin absente"
 
-#: libraries/config/messages.inc.php:493
+#: libraries/config/messages.inc.php:495
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
@@ -6109,11 +6109,11 @@ msgstr ""
 "Dezactivează avertismentul implicit care este afișat dacă mcrypt lipsește "
 "pentru autentificarea prin cookie-uri"
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:499
 msgid "Server/library difference warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:499
+#: libraries/config/messages.inc.php:501
 #, fuzzy
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
@@ -6123,31 +6123,31 @@ msgstr ""
 "structură ale bazei de date, dacă oricare dintre tabelele necesare pentru "
 "stocarea configurării phpMyAdmin nu a putut fi găsită"
 
-#: libraries/config/messages.inc.php:502
+#: libraries/config/messages.inc.php:504
 msgid "MySQL reserved word warning"
 msgstr ""
 
-#: libraries/config/messages.inc.php:504
+#: libraries/config/messages.inc.php:506
 #, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
 msgstr "Permite afișarea tuturor rândurilor"
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:508
 msgid "How to display various action links"
 msgstr ""
 
-#: libraries/config/messages.inc.php:507
+#: libraries/config/messages.inc.php:509
 #, fuzzy
 #| msgid "Disallow BLOB and BINARY columns from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Nu permite editarea coloanelor BLOB și BINARY"
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:510
 msgid "Protect binary columns"
 msgstr "Protejează coloanele binare"
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:512
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -6158,53 +6158,53 @@ msgstr ""
 "folosesc funcții JS pentru afișarea istoriei interogprilor ( pierdute la "
 "închiderea ferestrei )."
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:516
 msgid "Permanent query history"
 msgstr "Istoric interogări permanent"
 
-#: libraries/config/messages.inc.php:516
+#: libraries/config/messages.inc.php:518
 #, fuzzy
 #| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
 msgstr "Câte interogări sunt ținute în istorie"
 
-#: libraries/config/messages.inc.php:517
+#: libraries/config/messages.inc.php:519
 msgid "Query history length"
 msgstr "Lungimea istoriei de interogări"
 
 # Fila afișată la deschiderea unei noi ferestre de interogare
-#: libraries/config/messages.inc.php:519
+#: libraries/config/messages.inc.php:521
 #, fuzzy
 #| msgid "Tab displayed when opening a new query window"
 msgid "Tab displayed when opening a new query window."
 msgstr "Tab-ul afișat la deschiderea unei noi ferestre de interogare"
 
-#: libraries/config/messages.inc.php:520
+#: libraries/config/messages.inc.php:522
 #, fuzzy
 msgid "Default query window tab"
 msgstr "Tab-ul implicit al interogării în fereastră"
 
-#: libraries/config/messages.inc.php:521
+#: libraries/config/messages.inc.php:523
 #, fuzzy
 #| msgid "Query window height (in pixels)"
 msgid "Query window height (in pixels)."
 msgstr "Înălțimea (în pixeli) a ferestrei de interogări"
 
-#: libraries/config/messages.inc.php:522
+#: libraries/config/messages.inc.php:524
 msgid "Query window height"
 msgstr "Înălțimea ferestrei de interogări"
 
-#: libraries/config/messages.inc.php:523
+#: libraries/config/messages.inc.php:525
 #, fuzzy
 #| msgid "Query window width (in pixels)"
 msgid "Query window width (in pixels)."
 msgstr "Lățimea (în pixeli) a ferestrei de interogări"
 
-#: libraries/config/messages.inc.php:524
+#: libraries/config/messages.inc.php:526
 msgid "Query window width"
 msgstr "Lățimea ferestrei de interogări"
 
-#: libraries/config/messages.inc.php:526
+#: libraries/config/messages.inc.php:528
 #, fuzzy
 #| msgid "Select which functions will be used for character set conversion"
 msgid "Select which functions will be used for character set conversion."
@@ -6212,11 +6212,11 @@ msgstr ""
 "Selectați care funcții vor fi folosite pentru conversia seturilor de "
 "caractere"
 
-#: libraries/config/messages.inc.php:527
+#: libraries/config/messages.inc.php:529
 msgid "Recoding engine"
 msgstr "Motor de înregistrare"
 
-#: libraries/config/messages.inc.php:529
+#: libraries/config/messages.inc.php:531
 #, fuzzy
 #| msgid "When browsing tables, the sorting of each table is remembered"
 msgid "When browsing tables, the sorting of each table is remembered."
@@ -6224,11 +6224,11 @@ msgstr ""
 "Când se vizualizează tabele, ordinea de sortare a fiecărui tabel este "
 "reținută"
 
-#: libraries/config/messages.inc.php:530
+#: libraries/config/messages.inc.php:532
 msgid "Remember table's sorting"
 msgstr "Reține sortarea tabelei"
 
-#: libraries/config/messages.inc.php:532
+#: libraries/config/messages.inc.php:534
 #, fuzzy
 #| msgid ""
 #| "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -6238,73 +6238,73 @@ msgstr ""
 "Repetă header-ul la fiecare X celule, [kbd]0[/kbd] dezactivează această "
 "opțiune"
 
-#: libraries/config/messages.inc.php:533
+#: libraries/config/messages.inc.php:535
 msgid "Repeat headers"
 msgstr "Repetă header-ul"
 
-#: libraries/config/messages.inc.php:535
+#: libraries/config/messages.inc.php:537
 msgid "Grid editing: trigger action"
 msgstr ""
 
-#: libraries/config/messages.inc.php:536
+#: libraries/config/messages.inc.php:538
 #, fuzzy
 #| msgid "Save all edited cells at once"
 msgid "Grid editing: save all edited cells at once"
 msgstr "Salvează toate câmpurile editate simultan"
 
-#: libraries/config/messages.inc.php:537
+#: libraries/config/messages.inc.php:539
 #, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
 msgstr "Directoarele unde export-urile pot fi salvate pe server"
 
-#: libraries/config/messages.inc.php:538
+#: libraries/config/messages.inc.php:540
 msgid "Save directory"
 msgstr "Directorul de salvări"
 
-#: libraries/config/messages.inc.php:539
+#: libraries/config/messages.inc.php:541
 #, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
 msgstr "Lăsați gol dacă nu este folosit"
 
 # Ordinea de autorizare a gazdelor
-#: libraries/config/messages.inc.php:540
+#: libraries/config/messages.inc.php:542
 msgid "Host authorization order"
 msgstr "Ordinea de autorizare a host-urilor"
 
-#: libraries/config/messages.inc.php:541
+#: libraries/config/messages.inc.php:543
 #, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
 msgstr "Lăsați gol pentru valorile implicite"
 
 # Reguli de autorizare a gazdelor
-#: libraries/config/messages.inc.php:542
+#: libraries/config/messages.inc.php:544
 msgid "Host authorization rules"
 msgstr "Reguli de autorizare a host-urilor"
 
-#: libraries/config/messages.inc.php:543
+#: libraries/config/messages.inc.php:545
 msgid "Allow logins without a password"
 msgstr "Permite logările fără parolă"
 
-#: libraries/config/messages.inc.php:544
+#: libraries/config/messages.inc.php:546
 msgid "Allow root login"
 msgstr "Permite autentificarea ca „root”"
 
-#: libraries/config/messages.inc.php:546
+#: libraries/config/messages.inc.php:548
 #, fuzzy
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 "Numele HTTP Basic Auth Realm ce va fi afișat când se face autentificarea HTTP"
 
-#: libraries/config/messages.inc.php:547
+#: libraries/config/messages.inc.php:549
 #, fuzzy
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: libraries/config/messages.inc.php:549
+#: libraries/config/messages.inc.php:551
 #, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
@@ -6319,21 +6319,21 @@ msgstr ""
 "com]autentificarea hardware SweKey [/a] (ce nu se află în rădăcină; "
 "sugestie: /etc/swekey.conf)"
 
-#: libraries/config/messages.inc.php:553
+#: libraries/config/messages.inc.php:555
 msgid "SweKey config file"
 msgstr "Fișierul de configurare SweKey"
 
-#: libraries/config/messages.inc.php:554
+#: libraries/config/messages.inc.php:556
 #, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
 msgstr "Metoda de autentificare de utilizat"
 
-#: libraries/config/messages.inc.php:555 setup/frames/index.inc.php:162
+#: libraries/config/messages.inc.php:557 setup/frames/index.inc.php:162
 msgid "Authentication type"
 msgstr "Tipul autentificării"
 
-#: libraries/config/messages.inc.php:557
+#: libraries/config/messages.inc.php:559
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
@@ -6345,11 +6345,11 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți suport pentru [a@http://wiki.phpmyadmin."
 "net/pma/bookmark]bookmark-uri[/a], sugestie: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:560
+#: libraries/config/messages.inc.php:562
 msgid "Bookmark table"
 msgstr "Tabelul de bookmark-uri"
 
-#: libraries/config/messages.inc.php:562
+#: libraries/config/messages.inc.php:564
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -6361,21 +6361,21 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți comentarii pentru coloane/mime types, "
 "sugestie: [kbd]pma_column_info[/kbd]"
 
-#: libraries/config/messages.inc.php:565
+#: libraries/config/messages.inc.php:567
 msgid "Column information table"
 msgstr "Tabelul cu informații despre coloane"
 
-#: libraries/config/messages.inc.php:566
+#: libraries/config/messages.inc.php:568
 #, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
 msgstr "Comprimă conexiunea la serverul MySQL"
 
-#: libraries/config/messages.inc.php:567
+#: libraries/config/messages.inc.php:569
 msgid "Compress connection"
 msgstr "Comprimă conexiunea"
 
-#: libraries/config/messages.inc.php:569
+#: libraries/config/messages.inc.php:571
 #, fuzzy
 #| msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
@@ -6383,16 +6383,16 @@ msgstr ""
 "Cum se realizează conexiunea la server, lăsați [kbd]tcp[/kbd] dacă nu "
 "sunteți sigur"
 
-#: libraries/config/messages.inc.php:570
+#: libraries/config/messages.inc.php:572
 msgid "Connection type"
 msgstr "Tipul conexiunii"
 
 # Parola pentru utilizatorul de control
-#: libraries/config/messages.inc.php:571
+#: libraries/config/messages.inc.php:573
 msgid "Control user password"
 msgstr "Parola pentru control user"
 
-#: libraries/config/messages.inc.php:573
+#: libraries/config/messages.inc.php:575
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -6406,13 +6406,13 @@ msgstr ""
 "informații găsiți pe [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
 
 # Utilizator de control
-#: libraries/config/messages.inc.php:576
+#: libraries/config/messages.inc.php:578
 #, fuzzy
 msgid "Control user"
 msgstr "Control user"
 
 # O altă gazdă care să deţină stocarea configurației; lăsați necompletat pentru a utiliza gazda deja definită
-#: libraries/config/messages.inc.php:578
+#: libraries/config/messages.inc.php:580
 #, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
@@ -6425,12 +6425,12 @@ msgstr ""
 "a utiliza host-ul deja definit"
 
 # Gazdă de control
-#: libraries/config/messages.inc.php:581
+#: libraries/config/messages.inc.php:583
 msgid "Control host"
 msgstr "Gazdă de control"
 
 # O altă gazdă care să deţină stocarea configurației; lăsați necompletat pentru a utiliza gazda deja definită
-#: libraries/config/messages.inc.php:583
+#: libraries/config/messages.inc.php:585
 #, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
@@ -6444,13 +6444,13 @@ msgstr ""
 "a utiliza host-ul deja definit"
 
 # Gazdă de control
-#: libraries/config/messages.inc.php:587
+#: libraries/config/messages.inc.php:589
 #, fuzzy
 #| msgid "Control host"
 msgid "Control port"
 msgstr "Gazdă de control"
 
-#: libraries/config/messages.inc.php:589
+#: libraries/config/messages.inc.php:591
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
@@ -6462,21 +6462,21 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți suport pentru Designeri, sugestie: "
 "[kbd]pma_designer_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:592
+#: libraries/config/messages.inc.php:594
 msgid "Designer table"
 msgstr "Tabelul designeri"
 
-#: libraries/config/messages.inc.php:594
+#: libraries/config/messages.inc.php:596
 #, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Ascunde bazele de date care respectă expresia regulată (PCRE)"
 
-#: libraries/config/messages.inc.php:595
+#: libraries/config/messages.inc.php:597
 msgid "Hide databases"
 msgstr "Ascunde baze de date"
 
-#: libraries/config/messages.inc.php:597
+#: libraries/config/messages.inc.php:599
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
@@ -6488,26 +6488,26 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți suport pentru istoricul interogărilor, "
 "sugestie: [kbd]pma_history[/kbd]"
 
-#: libraries/config/messages.inc.php:600
+#: libraries/config/messages.inc.php:602
 msgid "SQL query history table"
 msgstr "Tabelă istoric interogări SQL"
 
 # Numele gazdei pe care rulează serverul MySQL
-#: libraries/config/messages.inc.php:601
+#: libraries/config/messages.inc.php:603
 #, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
 msgstr "Numele host-ului pe care rulează serverul MySQL"
 
-#: libraries/config/messages.inc.php:602
+#: libraries/config/messages.inc.php:604
 msgid "Server hostname"
 msgstr "Numele de gazdă al serverului"
 
-#: libraries/config/messages.inc.php:603
+#: libraries/config/messages.inc.php:605
 msgid "Logout URL"
 msgstr "URL-ul pentru delogare"
 
-#: libraries/config/messages.inc.php:605
+#: libraries/config/messages.inc.php:607
 #, fuzzy
 #| msgid ""
 #| "Limits number of table preferences which are stored in database, the "
@@ -6519,21 +6519,21 @@ msgstr ""
 "Limitează numărul de preferințe ale tabelelor ce sunt stocate în baza de "
 "date, cele mai vechi fiind automat înlăturate"
 
-#: libraries/config/messages.inc.php:609
+#: libraries/config/messages.inc.php:611
 msgid "Maximal number of table preferences to store"
 msgstr "Numărul maxim de preferințe ale tabelelor de stocat"
 
-#: libraries/config/messages.inc.php:610
+#: libraries/config/messages.inc.php:612
 #, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
 msgstr "Încearcă conectarea fără parolă"
 
-#: libraries/config/messages.inc.php:611
+#: libraries/config/messages.inc.php:613
 msgid "Connect without password"
 msgstr "Conectează fără parolă"
 
-#: libraries/config/messages.inc.php:613
+#: libraries/config/messages.inc.php:615
 #, fuzzy
 #| msgid ""
 #| "You can use MySQL wildcard characters (% and _), escape them if you want "
@@ -6552,21 +6552,21 @@ msgstr ""
 "de date, doar introduceți numele lor în ordine și folosiți [kbd]*[/kbd] la "
 "sfârșit pentru a afișa restul în ordine alfabetică."
 
-#: libraries/config/messages.inc.php:617
+#: libraries/config/messages.inc.php:619
 msgid "Show only listed databases"
 msgstr "Afișează doar bazele de date listate"
 
-#: libraries/config/messages.inc.php:618 libraries/config/messages.inc.php:706
+#: libraries/config/messages.inc.php:620 libraries/config/messages.inc.php:708
 #, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
 msgstr "Lăsați gol dacă nu utilizați „config auth”"
 
-#: libraries/config/messages.inc.php:619
+#: libraries/config/messages.inc.php:621
 msgid "Password for config auth"
 msgstr "Parola pentru „config auth”"
 
-#: libraries/config/messages.inc.php:621
+#: libraries/config/messages.inc.php:623
 #, fuzzy
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
@@ -6574,12 +6574,12 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți suport PDF schema, sugesti: "
 "[kbd]pma_pdf_pages[/kbd]"
 
-#: libraries/config/messages.inc.php:623
+#: libraries/config/messages.inc.php:625
 #, fuzzy
 msgid "PDF schema: pages table"
 msgstr "PDF schema: tabela de pagini"
 
-#: libraries/config/messages.inc.php:625
+#: libraries/config/messages.inc.php:627
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
@@ -6595,24 +6595,24 @@ msgstr ""
 "complete. Lăsați necompletat dacă nu doriți suport. Sugestie: "
 "[kbd]phpmyadmin[/kbd]"
 
-#: libraries/config/messages.inc.php:629
+#: libraries/config/messages.inc.php:631
 #: libraries/display_create_database.lib.php:31
 #, fuzzy
 #| msgid "database name"
 msgid "Database name"
 msgstr "nume bază de date"
 
-#: libraries/config/messages.inc.php:631
+#: libraries/config/messages.inc.php:633
 #, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr "Portul la care ascultă serverul MySQL, lăsați gol pentru implicit"
 
-#: libraries/config/messages.inc.php:632
+#: libraries/config/messages.inc.php:634
 msgid "Server port"
 msgstr "Portul serverului"
 
-#: libraries/config/messages.inc.php:634
+#: libraries/config/messages.inc.php:636
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
@@ -6624,11 +6624,11 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți tabele - în mod \"persistent\" - recent "
 "folosite peste sesiuni, sugestie: [kbd]pma_recent[/kbd]"
 
-#: libraries/config/messages.inc.php:637
+#: libraries/config/messages.inc.php:639
 msgid "Recently used table"
 msgstr "Tabel folosit recent"
 
-#: libraries/config/messages.inc.php:639
+#: libraries/config/messages.inc.php:641
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -6640,12 +6640,12 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți suport [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a], sugestie: [kbd]pma_relation[/kbd]"
 
-#: libraries/config/messages.inc.php:643
+#: libraries/config/messages.inc.php:645
 #, fuzzy
 msgid "Relation table"
 msgstr "Tabel relațional"
 
-#: libraries/config/messages.inc.php:645
+#: libraries/config/messages.inc.php:647
 #, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -6657,35 +6657,35 @@ msgstr ""
 "Vezi [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] pentru un exemplu"
 
-#: libraries/config/messages.inc.php:648
+#: libraries/config/messages.inc.php:650
 #, fuzzy
 msgid "Signon session name"
 msgstr "Numele sesiunii signon"
 
-#: libraries/config/messages.inc.php:649
+#: libraries/config/messages.inc.php:651
 #, fuzzy
 msgid "Signon URL"
 msgstr "ULR-ul signon"
 
-#: libraries/config/messages.inc.php:651
+#: libraries/config/messages.inc.php:653
 #, fuzzy
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "Portul la care ascultă serverul MySQL, lăsați gol pentru implicit"
 
-#: libraries/config/messages.inc.php:652
+#: libraries/config/messages.inc.php:654
 msgid "Server socket"
 msgstr "Soclul serverului"
 
-#: libraries/config/messages.inc.php:653
+#: libraries/config/messages.inc.php:655
 #, fuzzy
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Comprimă conexiunea la serverul MySQL"
 
-#: libraries/config/messages.inc.php:654
+#: libraries/config/messages.inc.php:656
 msgid "Use SSL"
 msgstr "Utilizează SSL"
 
-#: libraries/config/messages.inc.php:656
+#: libraries/config/messages.inc.php:658
 #, fuzzy
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -6694,11 +6694,11 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți suport PDF schema, sugestie: "
 "[kbd]pma_table_coords[/kbd]"
 
-#: libraries/config/messages.inc.php:658
+#: libraries/config/messages.inc.php:660
 msgid "PDF schema: table coordinates"
 msgstr "PDF schema: coordonatele tabelului"
 
-#: libraries/config/messages.inc.php:660
+#: libraries/config/messages.inc.php:662
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
@@ -6710,13 +6710,13 @@ msgstr ""
 "Tabelul care descrie coloanele de afișare, lăsați necompletat dacă nu doriți "
 "suport; sugestie: [kbd]pma_table_info[/kbd]"
 
-#: libraries/config/messages.inc.php:663
+#: libraries/config/messages.inc.php:665
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
 msgstr "Afișează tabelul de coloane"
 
-#: libraries/config/messages.inc.php:665
+#: libraries/config/messages.inc.php:667
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
@@ -6729,11 +6729,11 @@ msgstr ""
 "Interfeței cu Utilizatorul ale tabelului peste sesiuni, sugestie: "
 "[kbd]pma_table_uiprefs[/kbd]"
 
-#: libraries/config/messages.inc.php:668
+#: libraries/config/messages.inc.php:670
 msgid "UI preferences table"
 msgstr "Preferințele Interfeței cu Utilizatorul ale tabelului"
 
-#: libraries/config/messages.inc.php:670
+#: libraries/config/messages.inc.php:672
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -6741,11 +6741,11 @@ msgstr ""
 "Dacă o declarație DROP DATABASE IF EXISTS va fi adăugată ca prima linie la "
 "jurnal când se creează o bază de date."
 
-#: libraries/config/messages.inc.php:673
+#: libraries/config/messages.inc.php:675
 msgid "Add DROP DATABASE"
 msgstr "Adaugă DROP DATABASE"
 
-#: libraries/config/messages.inc.php:675
+#: libraries/config/messages.inc.php:677
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -6753,11 +6753,11 @@ msgstr ""
 "Dacă o declarație DROP DATABASE IF EXISTS va fi adăugată ca prima linie la "
 "jurnal când se creează un tabel."
 
-#: libraries/config/messages.inc.php:678
+#: libraries/config/messages.inc.php:680
 msgid "Add DROP TABLE"
 msgstr "Adaugă DROP TABLE"
 
-#: libraries/config/messages.inc.php:680
+#: libraries/config/messages.inc.php:682
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -6765,21 +6765,21 @@ msgstr ""
 "Dacă o declarație DROP VIEW IF EXISTS va fi adăugată ca prima linie la "
 "jurnal când se creează un view."
 
-#: libraries/config/messages.inc.php:683
+#: libraries/config/messages.inc.php:685
 msgid "Add DROP VIEW"
 msgstr "Adaugă DROP VIEW"
 
-#: libraries/config/messages.inc.php:685
+#: libraries/config/messages.inc.php:687
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Definește lista de declarații pe care auto-crearea le folosește la "
 "versiunile noi."
 
-#: libraries/config/messages.inc.php:686
+#: libraries/config/messages.inc.php:688
 msgid "Statements to track"
 msgstr "Declarații de urmărit"
 
-#: libraries/config/messages.inc.php:688
+#: libraries/config/messages.inc.php:690
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: "
@@ -6792,11 +6792,11 @@ msgstr ""
 "sugestie: [kbd]pma_tracking[/kbd]"
 
 # Tabelul de urmărire interogări SQL
-#: libraries/config/messages.inc.php:691
+#: libraries/config/messages.inc.php:693
 msgid "SQL query tracking table"
 msgstr "Tabelul de tracking interogări SQL"
 
-#: libraries/config/messages.inc.php:693
+#: libraries/config/messages.inc.php:695
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -6804,13 +6804,13 @@ msgstr ""
 "Dacă mecanismul de urmărire creează versiuni pentru tabele și vizualizări în "
 "mod automat."
 
-#: libraries/config/messages.inc.php:697
+#: libraries/config/messages.inc.php:699
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Regim de recuperare automată"
 
-#: libraries/config/messages.inc.php:698
+#: libraries/config/messages.inc.php:700
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -6822,11 +6822,11 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți stocarea preferințelor utilizatorilor în "
 "baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:699
+#: libraries/config/messages.inc.php:701
 msgid "User preferences storage table"
 msgstr "Tabelul de stocare a preferințelor utilizatorului"
 
-#: libraries/config/messages.inc.php:700
+#: libraries/config/messages.inc.php:702
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -6838,13 +6838,13 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți stocarea preferințelor utilizatorilor în "
 "baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:701
+#: libraries/config/messages.inc.php:703
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "Utilizare tabele"
 
-#: libraries/config/messages.inc.php:702
+#: libraries/config/messages.inc.php:704
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -6856,13 +6856,13 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți stocarea preferințelor utilizatorilor în "
 "baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:703
+#: libraries/config/messages.inc.php:705
 #, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
 msgstr "Utilizare tabel gazde"
 
-#: libraries/config/messages.inc.php:704
+#: libraries/config/messages.inc.php:706
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
@@ -6874,15 +6874,15 @@ msgstr ""
 "Lăsați necompletat dacă nu doriți stocarea preferințelor utilizatorilor în "
 "baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
 
-#: libraries/config/messages.inc.php:705
+#: libraries/config/messages.inc.php:707
 msgid "Hidden navigation items table"
 msgstr ""
 
-#: libraries/config/messages.inc.php:707
+#: libraries/config/messages.inc.php:709
 msgid "User for config auth"
 msgstr "Utilizator pentru „config auth”"
 
-#: libraries/config/messages.inc.php:708
+#: libraries/config/messages.inc.php:710
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -6891,25 +6891,22 @@ msgstr ""
 "afișa numele de gazdă în loc."
 
 # Numele "pe larg" al acestui server
-#: libraries/config/messages.inc.php:709
+#: libraries/config/messages.inc.php:711
 msgid "Verbose name of this server"
 msgstr "Numele \"verbose\" al acestui server"
 
-#: libraries/config/messages.inc.php:710
+#: libraries/config/messages.inc.php:712
 #, fuzzy
-#| msgid ""
-#| "Whether a user should be displayed a \"show all (rows)\" button"
-msgid ""
-"Whether a user should be displayed a \"show all (rows)\" button."
+#| msgid "Whether a user should be displayed a \"show all (rows)\" button"
+msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Dacă unui utilizator să i se afișeze un buton \"arata-le pe "
-"toate(randurile\""
+"Dacă unui utilizator să i se afișeze un buton \"arata-le pe toate(randurile\""
 
-#: libraries/config/messages.inc.php:711
+#: libraries/config/messages.inc.php:713
 msgid "Allow to display all the rows"
 msgstr "Permite afișarea tuturor rândurilor"
 
-#: libraries/config/messages.inc.php:712
+#: libraries/config/messages.inc.php:714
 #, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
@@ -6926,44 +6923,44 @@ msgstr ""
 "de configurare; nu se limitează capacitatea de a executa aceeași comandă "
 "direct"
 
-#: libraries/config/messages.inc.php:713
+#: libraries/config/messages.inc.php:715
 msgid "Show password change form"
 msgstr "Arată formularul de schimbare a parolei"
 
-#: libraries/config/messages.inc.php:714
+#: libraries/config/messages.inc.php:716
 msgid "Show create database form"
 msgstr "Arată formularul de creare bază de date"
 
-#: libraries/config/messages.inc.php:715
+#: libraries/config/messages.inc.php:717
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
-#: libraries/config/messages.inc.php:716
+#: libraries/config/messages.inc.php:718
 #, fuzzy
 #| msgid "Show PHP information"
 msgid "Show Creation timestamp"
 msgstr "Arată informația PHP"
 
-#: libraries/config/messages.inc.php:717
+#: libraries/config/messages.inc.php:719
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 
-#: libraries/config/messages.inc.php:718
+#: libraries/config/messages.inc.php:720
 msgid "Show Last update timestamp"
 msgstr ""
 
-#: libraries/config/messages.inc.php:719
+#: libraries/config/messages.inc.php:721
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 
-#: libraries/config/messages.inc.php:720
+#: libraries/config/messages.inc.php:722
 #, fuzzy
 msgid "Show Last check timestamp"
 msgstr "Afișează stare sclav"
 
-#: libraries/config/messages.inc.php:721
+#: libraries/config/messages.inc.php:723
 #, fuzzy
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
@@ -6972,13 +6969,13 @@ msgstr ""
 "Stabilește dacă opțiunea de afișare a direcției este afișată sau nu la "
 "vizualizarea unui tabel"
 
-#: libraries/config/messages.inc.php:722
+#: libraries/config/messages.inc.php:724
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Show display direction"
 msgstr "Opțiuni de afișare a bazelor de date"
 
-#: libraries/config/messages.inc.php:723
+#: libraries/config/messages.inc.php:725
 #, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
@@ -6990,33 +6987,33 @@ msgstr ""
 "Stabilește dacă să se afișeze inițial sau nu câmpurile de tip, în modul de "
 "editare/inserare"
 
-#: libraries/config/messages.inc.php:724
+#: libraries/config/messages.inc.php:726
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Afișează tipurile câmpurilor"
 
-#: libraries/config/messages.inc.php:725
+#: libraries/config/messages.inc.php:727
 #, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
 msgstr "Afișează câmpurile de funcții în modul de editare/inserare"
 
-#: libraries/config/messages.inc.php:726
+#: libraries/config/messages.inc.php:728
 msgid "Show function fields"
 msgstr "Afișează câmpurile de funcții"
 
-#: libraries/config/messages.inc.php:727
+#: libraries/config/messages.inc.php:729
 #, fuzzy
 #| msgid "Whether to show hint or not"
 msgid "Whether to show hint or not."
 msgstr "Dacă să se afișeze indiciul sau nu"
 
-#: libraries/config/messages.inc.php:728
+#: libraries/config/messages.inc.php:730
 msgid "Show hint"
 msgstr "Arată indiciul"
 
-#: libraries/config/messages.inc.php:729
+#: libraries/config/messages.inc.php:731
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
@@ -7028,15 +7025,15 @@ msgstr ""
 "Afișează link-ul către output-ul [a@http://php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]"
 
-#: libraries/config/messages.inc.php:730
+#: libraries/config/messages.inc.php:732
 msgid "Show phpinfo() link"
 msgstr "Afișează link-ul phpinfo()"
 
-#: libraries/config/messages.inc.php:731
+#: libraries/config/messages.inc.php:733
 msgid "Show detailed MySQL server information"
 msgstr "Afișează informații detaliate despre serverul MySQL"
 
-#: libraries/config/messages.inc.php:732
+#: libraries/config/messages.inc.php:734
 #, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -7046,11 +7043,11 @@ msgstr ""
 "Definește dacă interogările SQL generate de phpMyAdmin ar trebui să fie "
 "afișate"
 
-#: libraries/config/messages.inc.php:733
+#: libraries/config/messages.inc.php:735
 msgid "Show SQL queries"
 msgstr "Afișează interogările SQL"
 
-#: libraries/config/messages.inc.php:734
+#: libraries/config/messages.inc.php:736
 #, fuzzy
 #| msgid ""
 #| "Defines whether the query box should stay on-screen after its submission"
@@ -7059,11 +7056,11 @@ msgid ""
 msgstr ""
 "Definește dacă după submit, casuța de interogare ar trebui să rămână pe ecran"
 
-#: libraries/config/messages.inc.php:735 libraries/sql_query_form.lib.php:370
+#: libraries/config/messages.inc.php:737 libraries/sql_query_form.lib.php:370
 msgid "Retain query box"
 msgstr "Reține căsuța de interogare"
 
-#: libraries/config/messages.inc.php:736
+#: libraries/config/messages.inc.php:738
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
@@ -7071,11 +7068,11 @@ msgstr ""
 "Permite afișarea statisticilor pentru baze de date și tabeluri (utilizarea "
 "spațiului de exemplu)"
 
-#: libraries/config/messages.inc.php:737
+#: libraries/config/messages.inc.php:739
 msgid "Show statistics"
 msgstr "Afișează statistici"
 
-#: libraries/config/messages.inc.php:738
+#: libraries/config/messages.inc.php:740
 #, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
@@ -7085,17 +7082,17 @@ msgstr ""
 "Marchează tabelele folosite și fă posibilă afișarea bazelor de date cu "
 "tabele zăvorâte"
 
-#: libraries/config/messages.inc.php:739
+#: libraries/config/messages.inc.php:741
 msgid "Skip locked tables"
 msgstr "Sari peste tabelele zăvorâte"
 
-#: libraries/config/messages.inc.php:744
+#: libraries/config/messages.inc.php:746
 #, fuzzy
 #| msgid "Requires SQL Validator to be enabled"
 msgid "Requires SQL Validator to be enabled."
 msgstr "Are nevoie de SQL Validator pentru a fi activată"
 
-#: libraries/config/messages.inc.php:746 libraries/replication_gui.lib.php:400
+#: libraries/config/messages.inc.php:748 libraries/replication_gui.lib.php:400
 #: libraries/replication_gui.lib.php:837 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1442
 #: libraries/server_privileges.lib.php:1466
@@ -7103,7 +7100,7 @@ msgstr "Are nevoie de SQL Validator pentru a fi activată"
 msgid "Password"
 msgstr "Parola"
 
-#: libraries/config/messages.inc.php:747
+#: libraries/config/messages.inc.php:749
 #, fuzzy
 #| msgid ""
 #| "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
@@ -7115,11 +7112,11 @@ msgstr ""
 "[strong]Atentie:[/strong] este necesara extensia PHP SOAP, sau PEAR SOAP "
 "instalat"
 
-#: libraries/config/messages.inc.php:748
+#: libraries/config/messages.inc.php:750
 msgid "Enable SQL Validator"
 msgstr "Activati Validatorul SQL"
 
-#: libraries/config/messages.inc.php:749
+#: libraries/config/messages.inc.php:751
 #, fuzzy
 #| msgid ""
 #| "If you have a custom username, specify it here (defaults to "
@@ -7131,24 +7128,24 @@ msgstr ""
 "Dacă aveți un nume de utilizator, specificați-l aici ( default este "
 "[kbd]anonymous[/kbd] )"
 
-#: libraries/config/messages.inc.php:750 libraries/tbl_tracking.lib.php:578
+#: libraries/config/messages.inc.php:752 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
 #, fuzzy
 msgid "Username"
 msgstr "Nume utilizator:"
 
-#: libraries/config/messages.inc.php:751
+#: libraries/config/messages.inc.php:753
 #, fuzzy
 msgid "A warning is displayed on the main page if Suhosin is detected."
 msgstr ""
 "Un avertisment este afișat pe prima pagina dacă Suhosin este descoperit"
 
-#: libraries/config/messages.inc.php:752
+#: libraries/config/messages.inc.php:754
 #, fuzzy
 msgid "Suhosin warning"
 msgstr "Avertizare Suhosin"
 
-#: libraries/config/messages.inc.php:753
+#: libraries/config/messages.inc.php:755
 #, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
@@ -7161,11 +7158,11 @@ msgstr ""
 "fi marită pentru textarea-urile de interogări SQL (*2) și pentru ferestrele "
 "de interogări (*1.25)"
 
-#: libraries/config/messages.inc.php:754
+#: libraries/config/messages.inc.php:756
 msgid "Textarea columns"
 msgstr "Coloane textarea"
 
-#: libraries/config/messages.inc.php:755
+#: libraries/config/messages.inc.php:757
 #, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
@@ -7178,39 +7175,39 @@ msgstr ""
 "fi marită pentru textarea-urile de interogări SQL (*2) și pentru ferestrele "
 "de interogări (*1.25)"
 
-#: libraries/config/messages.inc.php:756
+#: libraries/config/messages.inc.php:758
 msgid "Textarea rows"
 msgstr "Rânduri textarea"
 
-#: libraries/config/messages.inc.php:757
+#: libraries/config/messages.inc.php:759
 #, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
 msgstr "Titlul ferestrei browser-ului când este selectată o bază de date"
 
-#: libraries/config/messages.inc.php:759
+#: libraries/config/messages.inc.php:761
 #, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
 msgstr "TItlul ferestrei browser-ului când nu este selectat nimic"
 
-#: libraries/config/messages.inc.php:760
+#: libraries/config/messages.inc.php:762
 msgid "Default title"
 msgstr "Titlu implicit"
 
-#: libraries/config/messages.inc.php:761
+#: libraries/config/messages.inc.php:763
 #, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
 msgstr "Titlul ferestrei browser-ului când este selectat un server"
 
-#: libraries/config/messages.inc.php:763
+#: libraries/config/messages.inc.php:765
 #, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
 msgstr "Titlul ferestrei browser-ului când este selectat un tabel"
 
-#: libraries/config/messages.inc.php:765
+#: libraries/config/messages.inc.php:767
 #, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
@@ -7228,32 +7225,32 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) provenind de la proxy 1.2.3.4: [br]"
 "[kbd] 1.2.3.4: HTTP_X_FORWARDED_FOR [/kbd]"
 
-#: libraries/config/messages.inc.php:766
+#: libraries/config/messages.inc.php:768
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Lista proxy-urilor de încredere pentru IP allow/deny"
 
-#: libraries/config/messages.inc.php:767
+#: libraries/config/messages.inc.php:769
 #, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr "Directorul de pe server unde puteți uploada fișiere pentru importare"
 
-#: libraries/config/messages.inc.php:768
+#: libraries/config/messages.inc.php:770
 #, fuzzy
 msgid "Upload directory"
 msgstr "Directorul de bază pentru date"
 
-#: libraries/config/messages.inc.php:769
+#: libraries/config/messages.inc.php:771
 #, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
 msgstr "Permiteți căutarea în întreaga bază de date"
 
-#: libraries/config/messages.inc.php:770
+#: libraries/config/messages.inc.php:772
 msgid "Use database search"
 msgstr "Folosiți căutarea în baza de date"
 
-#: libraries/config/messages.inc.php:771
+#: libraries/config/messages.inc.php:773
 #, fuzzy
 #| msgid ""
 #| "When disabled, users cannot set any of the options below, regardless of "
@@ -7265,29 +7262,29 @@ msgstr ""
 "Când este dezactivat, userii nu pot seta niciuna din opțiunile de mai jos, "
 "indiferent de checkbox-ul din dreapta"
 
-#: libraries/config/messages.inc.php:772
+#: libraries/config/messages.inc.php:774
 msgid "Enable the Developer tab in settings"
 msgstr "Activați tab-ul Developer în setări"
 
-#: libraries/config/messages.inc.php:773 setup/frames/index.inc.php:312
+#: libraries/config/messages.inc.php:775 setup/frames/index.inc.php:312
 msgid "Check for latest version"
 msgstr "Verificați pentru ultima versiune"
 
-#: libraries/config/messages.inc.php:774
+#: libraries/config/messages.inc.php:776
 #, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Activați verificarea pentru ultima versiune pe pagina principală phpMyAdmin"
 
-#: libraries/config/messages.inc.php:775 setup/lib/index.lib.php:117
+#: libraries/config/messages.inc.php:777 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
 #: setup/lib/index.lib.php:156 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:171
 msgid "Version check"
 msgstr "Verificarea versiunii"
 
-#: libraries/config/messages.inc.php:776
+#: libraries/config/messages.inc.php:778
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -7295,33 +7292,33 @@ msgid ""
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 
-#: libraries/config/messages.inc.php:777
+#: libraries/config/messages.inc.php:779
 msgid "Proxy url"
 msgstr ""
 
-#: libraries/config/messages.inc.php:778
+#: libraries/config/messages.inc.php:780
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
 
-#: libraries/config/messages.inc.php:779
+#: libraries/config/messages.inc.php:781
 #, fuzzy
 msgid "Proxy username"
 msgstr "Nume utilizator:"
 
-#: libraries/config/messages.inc.php:780
+#: libraries/config/messages.inc.php:782
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
-#: libraries/config/messages.inc.php:781
+#: libraries/config/messages.inc.php:783
 #, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "Parola"
 
-#: libraries/config/messages.inc.php:783
+#: libraries/config/messages.inc.php:785
 #, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
@@ -7333,33 +7330,33 @@ msgstr ""
 "Activați compresia în format [a@http://en.wikipedia.org/wiki/"
 "ZIP_(file_format)]ZIP[/a] pentru operațiile de import și export"
 
-#: libraries/config/messages.inc.php:784
+#: libraries/config/messages.inc.php:786
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:785
+#: libraries/config/messages.inc.php:787
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr ""
 
-#: libraries/config/messages.inc.php:786
+#: libraries/config/messages.inc.php:788
 msgid "Public key for reCaptcha"
 msgstr ""
 
-#: libraries/config/messages.inc.php:787
+#: libraries/config/messages.inc.php:789
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr ""
 
-#: libraries/config/messages.inc.php:788
+#: libraries/config/messages.inc.php:790
 msgid "Private key for reCaptcha"
 msgstr ""
 
-#: libraries/config/messages.inc.php:790
+#: libraries/config/messages.inc.php:792
 #, fuzzy
 #| msgid "Ask before sending error reports"
 msgid "Choose the default action when sending error reports."
 msgstr "Întreabă înainte de a trimite rapoarte de eroare"
 
-#: libraries/config/messages.inc.php:791
+#: libraries/config/messages.inc.php:793
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
@@ -7386,9 +7383,9 @@ msgstr "Autentificare Signon"
 msgid "CSV using LOAD DATA"
 msgstr "CSV folosind LOAD DATA"
 
-#: libraries/config/setup.forms.php:264 libraries/config/setup.forms.php:358
+#: libraries/config/setup.forms.php:264 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:164
-#: libraries/config/user_preferences.forms.php:257
+#: libraries/config/user_preferences.forms.php:258
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
@@ -7411,18 +7408,18 @@ msgstr "Culoare personalizată"
 msgid "Database export options"
 msgstr "Opțiuni de exportare a bazei de date"
 
-#: libraries/config/setup.forms.php:330
-#: libraries/config/user_preferences.forms.php:229
+#: libraries/config/setup.forms.php:331
+#: libraries/config/user_preferences.forms.php:230
 msgid "CSV for MS Excel"
 msgstr "Date CSV pentru MS Excel"
 
-#: libraries/config/setup.forms.php:353
-#: libraries/config/user_preferences.forms.php:252
+#: libraries/config/setup.forms.php:354
+#: libraries/config/user_preferences.forms.php:253
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:362
-#: libraries/config/user_preferences.forms.php:261
+#: libraries/config/setup.forms.php:363
+#: libraries/config/user_preferences.forms.php:262
 #, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
@@ -7604,7 +7601,7 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "Versiunea clientului MySQL"
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:388
+#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
 msgid "Rows:"
 msgstr "Rânduri:"
 
@@ -8233,7 +8230,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Copia a fost salvată în fișierul %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1591
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1636
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a dat un set de rezultate gol (zero linii)."
@@ -8311,63 +8308,63 @@ msgstr ""
 msgid "Binary - do not edit"
 msgstr "Binar - a nu se edita"
 
-#: libraries/insert_edit.lib.php:1222 libraries/sql_query_form.lib.php:491
+#: libraries/insert_edit.lib.php:1224 libraries/sql_query_form.lib.php:491
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "director de încărcare al serverului Web"
 
-#: libraries/insert_edit.lib.php:1439
+#: libraries/insert_edit.lib.php:1441
 #, fuzzy, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
 msgstr "Repornește inserția cu %s rânduri"
 
-#: libraries/insert_edit.lib.php:1469
+#: libraries/insert_edit.lib.php:1471
 msgid "and then"
 msgstr "și apoi"
 
-#: libraries/insert_edit.lib.php:1502
+#: libraries/insert_edit.lib.php:1504
 msgid "Insert as new row"
 msgstr "Inserează ca o nouă linie"
 
-#: libraries/insert_edit.lib.php:1505
+#: libraries/insert_edit.lib.php:1507
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1508
+#: libraries/insert_edit.lib.php:1510
 #, fuzzy
 msgid "Show insert query"
 msgstr "Afișare interogare SQL"
 
-#: libraries/insert_edit.lib.php:1528
+#: libraries/insert_edit.lib.php:1530
 msgid "Go back to previous page"
 msgstr "Revenire"
 
-#: libraries/insert_edit.lib.php:1531
+#: libraries/insert_edit.lib.php:1533
 msgid "Insert another new row"
 msgstr "Adaugă o nouă înregistrare"
 
-#: libraries/insert_edit.lib.php:1536
+#: libraries/insert_edit.lib.php:1538
 msgid "Go back to this page"
 msgstr "Înapoi la această pagină"
 
-#: libraries/insert_edit.lib.php:1558
+#: libraries/insert_edit.lib.php:1560
 msgid "Edit next row"
 msgstr "Editează rândul următor"
 
-#: libraries/insert_edit.lib.php:1580
+#: libraries/insert_edit.lib.php:1582
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 "Folosiți tasta TAB pentru a trece de la o valoare la alta sau CTRL+săgeți "
 "pentru a merge în oricare direcție"
 
-#: libraries/insert_edit.lib.php:1966 libraries/sql.lib.php:1586
+#: libraries/insert_edit.lib.php:1970 libraries/sql.lib.php:1631
 msgid "Showing SQL query"
 msgstr "Afișare interogare SQL"
 
-#: libraries/insert_edit.lib.php:1991 libraries/sql.lib.php:1566
+#: libraries/insert_edit.lib.php:1995 libraries/sql.lib.php:1611
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"
@@ -8755,7 +8752,7 @@ msgstr "Nou"
 
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:24
 #: libraries/navigation/Nodes/Node_Function_Container.class.php:25
-#: libraries/plugins/export/ExportSql.class.php:493
+#: libraries/plugins/export/ExportSql.class.php:504
 #: libraries/plugins/export/ExportXml.class.php:107
 msgid "Functions"
 msgstr "Funcții"
@@ -8790,7 +8787,7 @@ msgstr "Proceduri"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
-#: libraries/plugins/export/ExportSql.class.php:475
+#: libraries/plugins/export/ExportSql.class.php:486
 #: libraries/plugins/export/ExportXml.class.php:111
 msgid "Procedures"
 msgstr "Proceduri"
@@ -9200,7 +9197,7 @@ msgstr "Opțiuni de afișare a bazelor de date"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
-#: libraries/plugins/export/ExportSql.class.php:1878
+#: libraries/plugins/export/ExportSql.class.php:1891
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
 msgstr "Salvarea datelor din tabel"
@@ -9223,21 +9220,21 @@ msgstr "Definiție"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:553
 #: libraries/plugins/export/ExportOdt.class.php:643
-#: libraries/plugins/export/ExportSql.class.php:1605
+#: libraries/plugins/export/ExportSql.class.php:1616
 #: libraries/plugins/export/ExportTexytext.class.php:498
 msgid "Table structure for table"
 msgstr "Structura de tabel pentru tabelul"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:572
 #: libraries/plugins/export/ExportOdt.class.php:667
-#: libraries/plugins/export/ExportSql.class.php:1634
+#: libraries/plugins/export/ExportSql.class.php:1647
 #: libraries/plugins/export/ExportTexytext.class.php:513
 msgid "Structure for view"
 msgstr "Structură pentru vizualizare"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:581
 #: libraries/plugins/export/ExportOdt.class.php:679
-#: libraries/plugins/export/ExportSql.class.php:1669
+#: libraries/plugins/export/ExportSql.class.php:1682
 #: libraries/plugins/export/ExportTexytext.class.php:520
 msgid "Stand-in structure for view"
 msgstr ""
@@ -9313,25 +9310,25 @@ msgid "Put columns names in the first row:"
 msgstr "Pune numele coloanelor în primul rând"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
-#: libraries/plugins/export/ExportSql.class.php:620
+#: libraries/plugins/export/ExportSql.class.php:631
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
-#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:376
+#: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
 msgstr "Gazda"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
-#: libraries/plugins/export/ExportSql.class.php:627
-#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:380
+#: libraries/plugins/export/ExportSql.class.php:638
+#: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
 msgstr "Timp de generare"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
-#: libraries/plugins/export/ExportSql.class.php:633
+#: libraries/plugins/export/ExportSql.class.php:644
 #: libraries/plugins/export/ExportXml.class.php:199
 #, fuzzy
 #| msgid "PHP Version"
@@ -9339,17 +9336,17 @@ msgid "PHP Version:"
 msgstr "Versiune PHP"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
-#: libraries/plugins/export/ExportSql.class.php:783
+#: libraries/plugins/export/ExportSql.class.php:794
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
-#: libraries/sql.lib.php:378
+#: libraries/sql.lib.php:424
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
 msgstr "Bază de date"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
-#: libraries/plugins/export/ExportSql.class.php:1716
+#: libraries/plugins/export/ExportSql.class.php:1729
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -9407,8 +9404,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:191
 #: libraries/plugins/export/ExportSql.class.php:234
-#: libraries/plugins/export/ExportSql.class.php:257
-#: libraries/plugins/export/ExportSql.class.php:265
+#: libraries/plugins/export/ExportSql.class.php:260
+#: libraries/plugins/export/ExportSql.class.php:268
+#: libraries/plugins/export/ExportSql.class.php:281
 #, fuzzy, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
@@ -9420,129 +9418,129 @@ msgstr "Comenzi"
 msgid "Add statements:"
 msgstr "Comenzi"
 
-#: libraries/plugins/export/ExportSql.class.php:295
+#: libraries/plugins/export/ExportSql.class.php:306
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:311
+#: libraries/plugins/export/ExportSql.class.php:322
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Data creation options"
 msgstr "Opțiuni de transformare"
 
-#: libraries/plugins/export/ExportSql.class.php:315
-#: libraries/plugins/export/ExportSql.class.php:1822
+#: libraries/plugins/export/ExportSql.class.php:326
+#: libraries/plugins/export/ExportSql.class.php:1835
 msgid "Truncate table before insert"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:321
+#: libraries/plugins/export/ExportSql.class.php:332
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:327
+#: libraries/plugins/export/ExportSql.class.php:338
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:338
-#: libraries/plugins/export/ExportSql.class.php:368
+#: libraries/plugins/export/ExportSql.class.php:349
+#: libraries/plugins/export/ExportSql.class.php:379
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:351
+#: libraries/plugins/export/ExportSql.class.php:362
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:364
+#: libraries/plugins/export/ExportSql.class.php:375
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:372
+#: libraries/plugins/export/ExportSql.class.php:383
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:377
+#: libraries/plugins/export/ExportSql.class.php:388
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:382
+#: libraries/plugins/export/ExportSql.class.php:393
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:387
+#: libraries/plugins/export/ExportSql.class.php:398
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:406
+#: libraries/plugins/export/ExportSql.class.php:417
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:419
+#: libraries/plugins/export/ExportSql.class.php:430
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: libraries/plugins/export/ExportSql.class.php:1205
+#: libraries/plugins/export/ExportSql.class.php:1216
 msgid "Constraints for dumped tables"
 msgstr "Restrictii pentru tabele sterse"
 
-#: libraries/plugins/export/ExportSql.class.php:1215
+#: libraries/plugins/export/ExportSql.class.php:1226
 msgid "Constraints for table"
 msgstr "Restrictii pentru tabele"
 
-#: libraries/plugins/export/ExportSql.class.php:1249
+#: libraries/plugins/export/ExportSql.class.php:1260
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Restrictii pentru tabele sterse"
 
-#: libraries/plugins/export/ExportSql.class.php:1259
+#: libraries/plugins/export/ExportSql.class.php:1270
 #, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "În interiorul tabelelor:"
 
-#: libraries/plugins/export/ExportSql.class.php:1285
+#: libraries/plugins/export/ExportSql.class.php:1296
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Nu folosi AUTO_INCREMENT pentru valorile de zero"
 
-#: libraries/plugins/export/ExportSql.class.php:1295
+#: libraries/plugins/export/ExportSql.class.php:1306
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Adaugă valoare pentru AUTO_INCREMENT"
 
-#: libraries/plugins/export/ExportSql.class.php:1499
+#: libraries/plugins/export/ExportSql.class.php:1510
 msgid "MIME TYPES FOR TABLE"
 msgstr "TIPURI MIME PENTRU TABEL"
 
-#: libraries/plugins/export/ExportSql.class.php:1524
+#: libraries/plugins/export/ExportSql.class.php:1535
 msgid "RELATIONS FOR TABLE"
 msgstr "RELAȚII PENTRU TABEL"
 
-#: libraries/plugins/export/ExportSql.class.php:1651
+#: libraries/plugins/export/ExportSql.class.php:1664
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Structură pentru vizualizare"
 
-#: libraries/plugins/export/ExportSql.class.php:1739
+#: libraries/plugins/export/ExportSql.class.php:1752
 #, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
@@ -11116,7 +11114,9 @@ msgstr "Permite oprirea serverului."
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:93
-msgid "Allows viewing processes of all users"
+#, fuzzy
+#| msgid "Allows viewing processes of all users"
+msgid "Allows viewing processes of all users."
 msgstr "Permite vizualizarea proceselor tuturor utilizatorilor"
 
 #: libraries/server_privileges.lib.php:294
@@ -12644,93 +12644,93 @@ msgstr "Valoare sesiune"
 msgid "Global value"
 msgstr "Valoare globală"
 
-#: libraries/sql.lib.php:374
+#: libraries/sql.lib.php:420
 msgid "SQL result"
 msgstr "Rezultat SQL"
 
-#: libraries/sql.lib.php:382
+#: libraries/sql.lib.php:428
 #, fuzzy
 #| msgid "Generated by"
 msgid "Generated by:"
 msgstr "Generat de"
 
-#: libraries/sql.lib.php:418
+#: libraries/sql.lib.php:464
 #, fuzzy
 #| msgid "Data files"
 msgid "Detailed profile"
 msgstr "Fișiere cu date"
 
-#: libraries/sql.lib.php:421
+#: libraries/sql.lib.php:467
 msgid "Order"
 msgstr ""
 
-#: libraries/sql.lib.php:423 libraries/sql.lib.php:439
+#: libraries/sql.lib.php:469 libraries/sql.lib.php:485
 #, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
 msgstr "Începutul"
 
-#: libraries/sql.lib.php:436
+#: libraries/sql.lib.php:482
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/sql.lib.php:442
+#: libraries/sql.lib.php:488
 #, fuzzy
 #| msgid "Total"
 msgid "Total Time"
 msgstr "Total"
 
-#: libraries/sql.lib.php:444
+#: libraries/sql.lib.php:490
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "Timp"
 
-#: libraries/sql.lib.php:446
+#: libraries/sql.lib.php:492
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "Închide"
 
-#: libraries/sql.lib.php:448
+#: libraries/sql.lib.php:494
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "Timp"
 
-#: libraries/sql.lib.php:716 libraries/sql.lib.php:736
+#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
 msgid "Bookmark this SQL query"
 msgstr "Pune semn de carte la această comandă SQL"
 
-#: libraries/sql.lib.php:720
+#: libraries/sql.lib.php:766
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "Etichetă"
 
-#: libraries/sql.lib.php:728 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Permite tuturor utilizatorilor să acceseze acest semn de carte"
 
-#: libraries/sql.lib.php:978
+#: libraries/sql.lib.php:1024
 msgid "Bookmark not created"
 msgstr "Semnul de carte nu a fost creat"
 
-#: libraries/sql.lib.php:1135
+#: libraries/sql.lib.php:1180
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Se folosește semnul de carte „%s” ca interogare de răsfoire implicită."
 
-#: libraries/sql.lib.php:1583
+#: libraries/sql.lib.php:1628
 msgid "Showing as PHP code"
 msgstr "Afișare ca cod PHP"
 
-#: libraries/sql.lib.php:1588
+#: libraries/sql.lib.php:1633
 msgid "Validated SQL"
 msgstr "SQL validat"
 
-#: libraries/sql.lib.php:1866
+#: libraries/sql.lib.php:1913
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12743,7 +12743,7 @@ msgstr ""
 "checkbox, sau link-urile de Editare, Copiere si Ștergere pot să nu "
 "funcționeze după salvare."
 
-#: libraries/sql.lib.php:1903
+#: libraries/sql.lib.php:1950
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Probleme cu indexul tabelului „%s”"
@@ -15918,8 +15918,8 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Numai date"
 
 #~ msgid ""
-#~ "Suggest a database name on the \"Create Database\" form (if "
-#~ "possible) or keep the text field empty"
+#~ "Suggest a database name on the \"Create Database\" form (if possible) or "
+#~ "keep the text field empty"
 #~ msgstr ""
 #~ "Sugerați un nume pentru baza de date în formularul \"Creează Bază de Date"
 #~ "\" (dacă este posibil) sau lăsați câmpul necompletat"
