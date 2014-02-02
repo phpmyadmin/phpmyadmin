@@ -46,7 +46,7 @@ if (isset($_POST['replace'])) {
         $connectionCharSet
     );
     $htmlOutput .= PMA_Util::getMessage(
-        __('Your SQL query has been executed successfully'),
+        __('Your SQL query has been executed successfully.'),
         null, 'success'
     );
 }

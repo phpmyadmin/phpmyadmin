@@ -177,7 +177,7 @@ class PMA_Message
     static public function success($string = '')
     {
         if (empty($string)) {
-            $string = __('Your SQL query has been executed successfully');
+            $string = __('Your SQL query has been executed successfully.');
         }
 
         return new PMA_Message($string, PMA_Message::SUCCESS);

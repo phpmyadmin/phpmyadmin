@@ -1464,7 +1464,7 @@ function PMA_RTN_handleExecute()
 
             $output .= "</fieldset>";
 
-            $message = __('Your SQL query has been executed successfully');
+            $message = __('Your SQL query has been executed successfully.');
             if ($routine['item_type'] == 'PROCEDURE') {
                 $message .= '<br />';
 
