@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 10:23+0100\n"
-"PO-Revision-Date: 2014-01-29 15:21+0200\n"
+"PO-Revision-Date: 2014-02-02 10:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
-">\n"
+"Language-Team: Bengali "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10712,7 +10712,7 @@ msgstr "সহায়তাকারী এবং প্রধানদের স
 #: libraries/server_privileges.lib.php:1109
 #: libraries/server_privileges.lib.php:1116 server_privileges.php:67
 msgid "Allows creating new views."
-msgstr "নতুন ভিউ তৈরীর অনুমোদন"
+msgstr "নতুন ভিউ তৈরীর অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
