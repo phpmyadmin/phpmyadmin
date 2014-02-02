@@ -4464,15 +4464,15 @@ msgstr "Tühi sisselogimise URL sisselogimisega autentimise meetodi jaoks"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "Tühi phpMyAdmini kontrollkasutaja pmadb jaoks"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "Tühi phpMyAdmini kontrollkasutaja phpMyAdmin configuration storage jaoks"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
-msgstr "Tühi phpMyAdmini kontrollkasutaja parool pmadb jaoks"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgstr "Tühi phpMyAdmini kontrollkasutaja parool phpMyAdmin configuration storage jaoks"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

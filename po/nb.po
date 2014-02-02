@@ -4584,15 +4584,15 @@ msgstr "Tom signon URL ved bruk av signon autentiseringsmetode"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "Blankt phpMyAdmin kontrollbruker for bruk av pmadb"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "Blankt phpMyAdmin kontrollbruker for bruk av phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
-msgstr "Blankt phpMyAdmin kontrollbrukerpassord for bruk av pmadb"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgstr "Blankt phpMyAdmin kontrollbrukerpassord for bruk av phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:458
 #, fuzzy
@@ -6150,7 +6150,7 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Slå på hvis du ønsker DB-basert spørringshistorie (trenger pmadb). Hvis "
+"Slå på hvis du ønsker DB-basert spørringshistorie (trenger phpMyAdmin configuration storage). Hvis "
 "avslått, vil JS-rutiner vise spørringshistorien (tapt ved lukking av vindu)."
 
 #: libraries/config/messages.inc.php:516

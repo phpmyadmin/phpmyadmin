@@ -4547,14 +4547,14 @@ msgstr "Vacua URL de signon quando on usa methodo de authentication de signon"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "Vacua le usator de controlo de phpMyAdmin quando on usa pmadb"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "Vacua le usator de controlo de phpMyAdmin quando on usa phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
 "Vacua contrasigno de usator de controlo de phpMyAdmin durante que on usa "
 "pmadb"

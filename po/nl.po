@@ -4535,16 +4535,16 @@ msgstr ""
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "De controlegebruikersnaam is leeg terwijl u wel de pmadb gebruikt"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "De controlegebruikersnaam is leeg terwijl u wel de phpMyAdmin configuration storage gebruikt"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
-"Het wachtwoord voor de controlegebruiker is leeg terwijl u wel de pmadb "
+"Het wachtwoord voor de controlegebruiker is leeg terwijl u wel de phpMyAdmin configuration storage "
 "gebruikt"
 
 #: libraries/config/Validator.class.php:458

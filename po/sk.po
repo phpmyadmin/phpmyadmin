@@ -4479,16 +4479,16 @@ msgstr "Prázdna signon URL pri využití autentifikačnej metódy signon"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Prázdne užívateľské meno pre phpMyAdmin control užívateľa pri využití pmadb"
+"Prázdne užívateľské meno pre phpMyAdmin control užívateľa pri využití phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
-msgstr "Prázdne heslo pre phpMyAdmin control užívateľa pri využití pmadb"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgstr "Prázdne heslo pre phpMyAdmin control užívateľa pri využití phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

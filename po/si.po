@@ -4443,14 +4443,14 @@ msgstr "singon සත්‍යාපන ක්‍රමය භාවිතා �
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "pmadb භාවිතා කිරීමේදී phpMyAdmin පරිපාලක භාවිතා කරන්නා සඳහා හිස් අගයක්"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr "pmadb භාවිතා කිරීමේදී phpMyAdmin පරිපාලක භාවිතා කරන්නාගේ මුරපදය සඳහා හිස් අගයක්"
 
 #: libraries/config/Validator.class.php:458

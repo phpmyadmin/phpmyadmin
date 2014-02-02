@@ -4506,15 +4506,15 @@ msgstr "URL signon vazia ao usar método de autenticação signon"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "Utilizador de controle phpMyAdmin vazio ao usar pmadb"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "Utilizador de controle phpMyAdmin vazio ao usar phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
-msgstr "Senha do utilizador de controle phpMyAdmin vazia ao usar pmadb"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgstr "Senha do utilizador de controle phpMyAdmin vazia ao usar phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

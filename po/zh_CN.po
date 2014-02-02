@@ -4391,12 +4391,12 @@ msgstr "使用 singon 认证方式时 singon 地址不能为空"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-msgid "Empty phpMyAdmin control user while using pmadb!"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "使用 PMA 数据库时控制用户不能为空"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr "使用 PMA 数据时控制用户的密码不能为空"
 
 #: libraries/config/Validator.class.php:458

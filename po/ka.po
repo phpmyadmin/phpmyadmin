@@ -4758,11 +4758,11 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "Enter login options for signon authentication"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb!"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:458
@@ -6156,14 +6156,14 @@ msgstr "Protect binary fields"
 #: libraries/config/messages.inc.php:512
 #, fuzzy
 #| msgid ""
-#| "ble if you want DB-based query history (requires pmadb). If disabled, s "
+#| "ble if you want DB-based query history (requires phpMyAdmin configuration storage). If disabled, s "
 #| "utilizes JS-routines to display query history (lost by window close)."
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Enable if you want DB-based query history (requires pmadb). If disabled, "
+"Enable if you want DB-based query history (requires phpMyAdmin configuration storage). If disabled, "
 "this utilizes JS-routines to display query history (lost by window close)."
 
 #: libraries/config/messages.inc.php:516

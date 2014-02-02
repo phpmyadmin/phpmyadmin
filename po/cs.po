@@ -4455,15 +4455,15 @@ msgstr "Prázdné přihlašovací URL při použití přihlašování signon!"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "Prázdný kontrolní uživatel phpMyAdmina při použití pmadb"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "Prázdný kontrolní uživatel phpMyAdmina při použití phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
-msgstr "Prázdné heslo kontrolního uživatele phpMyAdmina při použití pmadb"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgstr "Prázdné heslo kontrolního uživatele phpMyAdmina při použití phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

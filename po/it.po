@@ -4517,18 +4517,18 @@ msgstr ""
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Rimuovi l'utente di controllo di phpMyAdmin durante l'utilizzo di pmadb"
+"Rimuovi l'utente di controllo di phpMyAdmin durante l'utilizzo di phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
 "Rimuovi la parola chiave dell'utente di controllo di phpMyAdmin durante "
-"l'utilizzo di pmadb"
+"l'utilizzo di phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

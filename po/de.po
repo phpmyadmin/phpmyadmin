@@ -4547,16 +4547,16 @@ msgstr "Leere signon-URL, obwohl signon-Authentisierung verwendet wird!"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "Kein phpMyAdmin Control-user angegeben, obwohl pmadb verwendet wird"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "Kein phpMyAdmin Control-user angegeben, obwohl phpMyAdmin configuration storage verwendet wird"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
-"Passwort des phpMyAdmin Control-users ist leer, obwohl pmadb verwendet wird"
+"Passwort des phpMyAdmin Control-users ist leer, obwohl phpMyAdmin configuration storage verwendet wird"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
