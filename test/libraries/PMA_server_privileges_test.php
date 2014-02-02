@@ -1800,7 +1800,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //PMA_Util::showHint
         $this->assertContains(
             PMA_Util::showHint(
-                __('Note: MySQL privilege names are expressed in English')
+                __('Note: MySQL privilege names are expressed in English.')
             ),
             $html
         );

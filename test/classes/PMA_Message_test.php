@@ -75,7 +75,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
         $this->object = new PMA_Message('test<&>', PMA_Message::SUCCESS);
         $this->assertEquals($this->object, PMA_Message::success('test<&>'));
         $this->assertEquals(
-            'Your SQL query has been executed successfully',
+            'Your SQL query has been executed successfully.',
             PMA_Message::success()->getString()
         );
     }
