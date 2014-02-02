@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 10:23+0100\n"
-"PO-Revision-Date: 2014-02-02 10:36+0200\n"
+"PO-Revision-Date: 2014-02-02 11:14+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Japanese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
@@ -2296,19 +2296,18 @@ msgstr ""
 #: libraries/Advisor.class.php:420
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "無効な事象定義がありました (行: %s)"
+msgstr "無効な事象定義がありました (行: %s)。"
 
 #: libraries/Advisor.class.php:428
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "予期しない文字 (行: %s)"
+msgstr "予期しない文字 (行: %s)。"
 
 #: libraries/Advisor.class.php:443
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
-"予期しない文字 (行: %1$s)。タブ文字があるべきところに \"%2$s\" がありました。"
+msgstr "予期しない文字 (行: %1$s)。タブ文字があるべきところに \"%2$s\" がありました。"
 
 #: libraries/Advisor.class.php:478
 msgid "per second"
@@ -2944,7 +2943,7 @@ msgstr "主キーを削除しました"
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "インデックス %s を削除しました"
+msgstr "インデックス %s を削除しました。"
 
 #: libraries/Index.class.php:739
 #, php-format
@@ -3954,7 +3953,7 @@ msgstr "ウェブサーバ上のアップロードディレクトリ <b>%s</b> �
 #: libraries/Util.class.php:3373 libraries/insert_edit.lib.php:1220
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "指定したアップロードディレクトリが利用できません"
+msgstr "指定したアップロードディレクトリが利用できません。"
 
 #: libraries/Util.class.php:3384
 msgid "There are no files to upload"
@@ -8984,7 +8983,7 @@ msgstr "ファイル %s にキー ID が含まれていません"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:194
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:215
 msgid "Hardware authentication failed!"
-msgstr "ハードウェア認証に失敗しました"
+msgstr "ハードウェア認証に失敗しました！"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:202
 msgid "No valid authentication key plugged"
@@ -9638,9 +9637,7 @@ msgstr ""
 msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
-msgstr ""
-"(IPv4) インターネットアドレスをインターネット標準ドット表記 (例:xxx.xxx.xxx."
-"xxx) に変換する"
+msgstr "(IPv4) インターネットアドレスをインターネット標準ドット表記 (例:xxx.xxx.xxx.xxx) に変換する。"
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
 msgid ""
@@ -9724,7 +9721,7 @@ msgstr "ブラウザ変換機能"
 #: libraries/relation.lib.php:175
 msgid ""
 "Please see the documentation on how to update your column_comments table."
-msgstr "column_comments テーブルの更新方法についてはドキュメントをご覧ください"
+msgstr "column_comments テーブルの更新方法についてはドキュメントをご覧ください。"
 
 #: libraries/relation.lib.php:185 libraries/sql_query_form.lib.php:404
 msgid "Bookmarked SQL query"
@@ -10909,12 +10906,12 @@ msgstr ""
 #: libraries/server_privileges.lib.php:328
 #: libraries/server_privileges.lib.php:1089 server_privileges.php:65
 msgid "Allows creating temporary tables."
-msgstr "一時テーブルの作成を許可する"
+msgstr "一時テーブルの作成を許可する。"
 
 #: libraries/server_privileges.lib.php:333
 #: libraries/server_privileges.lib.php:1180 server_privileges.php:79
 msgid "Allows locking tables for the current thread."
-msgstr "現在のスレッドのテーブルロックを許可する"
+msgstr "現在のスレッドのテーブルロックを許可する。"
 
 #: libraries/server_privileges.lib.php:338
 #: libraries/server_privileges.lib.php:1193 server_privileges.php:101
@@ -10993,25 +10990,24 @@ msgstr "注意: オプションを 0 (ゼロ)に設定すると制限を解除�
 #: libraries/server_privileges.lib.php:713
 #: libraries/server_privileges.lib.php:723 server_privileges.php:84
 msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "単位時間内にサーバに送信可能なクエリ数を制限する"
+msgstr "単位時間内にサーバに送信可能なクエリ数を制限する。"
 
 #: libraries/server_privileges.lib.php:732
 #: libraries/server_privileges.lib.php:741 server_privileges.php:87
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
-msgstr ""
-"単位時間内に実行可能なテーブルないしデータベースの編集コマンド数を制限する"
+msgstr "単位時間内に実行可能なテーブルないしデータベースの編集コマンド数を制限する。"
 
 #: libraries/server_privileges.lib.php:751
 #: libraries/server_privileges.lib.php:758 server_privileges.php:81
 msgid "Limits the number of new connections the user may open per hour."
-msgstr "単位時間内に可能な新規接続回数を制限する"
+msgstr "単位時間内に可能な新規接続回数を制限する。"
 
 #: libraries/server_privileges.lib.php:766
 #: libraries/server_privileges.lib.php:774 server_privileges.php:91
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "ユーザの同時接続数を制限する"
+msgstr "ユーザの同時接続数を制限する。"
 
 #: libraries/server_privileges.lib.php:827
 #: libraries/server_privileges.lib.php:1004
@@ -11048,16 +11044,16 @@ msgstr "データベースに固有の特権"
 
 #: libraries/server_privileges.lib.php:1072 server_privileges.php:64
 msgid "Allows creating new tables."
-msgstr "新しいテーブルの作成を許可する"
+msgstr "新しいテーブルの作成を許可する。"
 
 #: libraries/server_privileges.lib.php:1084 server_privileges.php:70
 msgid "Allows dropping tables."
-msgstr "テーブルの削除を許可する"
+msgstr "テーブルの削除を許可する。"
 
 #: libraries/server_privileges.lib.php:1146 server_privileges.php:75
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
-msgstr "特権テーブルの再読み込みなしでユーザ・特権の追加を許可する"
+msgstr "特権テーブルの再読み込みなしでユーザ・特権の追加を許可する。"
 
 #: libraries/server_privileges.lib.php:1261
 #: libraries/server_privileges.lib.php:2472
@@ -11088,7 +11084,7 @@ msgstr "%s のパスワードは正しく変更されました。"
 #: libraries/server_privileges.lib.php:1634
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "%s の特権を取り消しました"
+msgstr "%s の特権を取り消しました。"
 
 #: libraries/server_privileges.lib.php:1684
 #: libraries/server_privileges.lib.php:1887
@@ -11104,16 +11100,16 @@ msgstr "ユーザ専用データベース"
 
 #: libraries/server_privileges.lib.php:1696
 msgid "Create database with same name and grant all privileges."
-msgstr "同名のデータベースを作成してすべての特権を与える"
+msgstr "同名のデータベースを作成してすべての特権を与える。"
 
 #: libraries/server_privileges.lib.php:1702
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える"
+msgstr "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える。"
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
-msgstr "データベース \"%s&quot への全ての特権を与える"
+msgstr "データベース \"%s\" への全ての特権を与える。"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
@@ -11194,22 +11190,22 @@ msgstr "サーバの編集"
 
 #: libraries/server_privileges.lib.php:2452
 msgid "… keep the old one."
-msgstr "元のユーザも残す"
+msgstr "元のユーザも残す。"
 
 #: libraries/server_privileges.lib.php:2453
 msgid "… delete the old one from the user tables."
-msgstr "ユーザテーブルから元のユーザを削除する"
+msgstr "ユーザテーブルから元のユーザを削除する。"
 
 #: libraries/server_privileges.lib.php:2455
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr "元のユーザの特権をすべて無効にしてから削除する"
+msgstr "元のユーザの特権をすべて無効にしてから削除する。"
 
 #: libraries/server_privileges.lib.php:2459
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr "ユーザテーブルから元のユーザを削除し、特権の再読み込みをする"
+msgstr "ユーザテーブルから元のユーザを削除し、特権の再読み込みをする。"
 
 #: libraries/server_privileges.lib.php:2473
 msgid "Change Login Information / Copy User"
@@ -11247,13 +11243,13 @@ msgstr "選択したユーザを削除する"
 
 #: libraries/server_privileges.lib.php:3114
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "特権をすべて取り消してユーザを削除する"
+msgstr "特権をすべて取り消してユーザを削除する。"
 
 #: libraries/server_privileges.lib.php:3122
 #: libraries/server_privileges.lib.php:3128
 #: libraries/server_privileges.lib.php:3131
 msgid "Drop the databases that have the same names as the users."
-msgstr "ユーザと同名のデータベースを削除する"
+msgstr "ユーザと同名のデータベースを削除する。"
 
 #: libraries/server_privileges.lib.php:3268
 msgid "No users selected for deleting!"
@@ -12609,9 +12605,7 @@ msgstr "表示のみ"
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
-msgstr ""
-"SQL にエラーがあるようです。下に MySQL サーバのエラー出力が出ているようなら問"
-"題の解析に役立つかもしれません"
+msgstr "SQL にエラーがあるようです。下に MySQL サーバのエラー出力が出ているようなら問題の解析に役立つかもしれません。"
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
@@ -13045,7 +13039,7 @@ msgstr "%s の後へ"
 
 #: libraries/tbl_columns_definition_form.lib.php:1042
 msgid "ENUM or SET data too long?"
-msgstr "ENUM もしくは SET データが長いので、"
+msgstr "ENUM もしくは SET データが長いので、？"
 
 #: libraries/tbl_columns_definition_form.lib.php:1044
 msgid "Get more editing space"
