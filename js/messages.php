@@ -326,11 +326,11 @@ $js_messages['strLeavingDesigner'] = __(
 );
 
 /* Visual query builder (js/pmd/move.js) */
-$js_messages['strAddOption'] = __('Add an option for column ');
+$js_messages['strAddOption'] = __('Add an option for column "%s".');
 $js_messages['strObjectsCreated'] = __('%d object(s) created');
 
 /* For makegrid.js (column reordering, show/hide column, grid editing) */
-$js_messages['strCellEditHint'] = __('Press escape to cancel editing');
+$js_messages['strCellEditHint'] = __('Press escape to cancel editing.');
 $js_messages['strSaveCellWarning'] = __('You have edited some data and they have not been saved. Are you sure you want to leave this page before saving the data?');
 $js_messages['strColOrderHint'] = __('Drag to reorder');
 $js_messages['strSortHint'] = __('Click to sort');
