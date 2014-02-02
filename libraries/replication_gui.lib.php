@@ -994,11 +994,11 @@ function PMA_handleRequestForSlaveChangeMaster()
             ) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
                 $_SESSION['replication']['sr_action_info']
-                    = __('Unable to change master');
+                    = __('Unable to change master!');
             } else {
                 $_SESSION['replication']['sr_action_status'] = 'success';
                 $_SESSION['replication']['sr_action_info'] = sprintf(
-                    __('Master server changed successfully to %s'),
+                    __('Master server changed successfully to %s.'),
                     htmlspecialchars($sr['hostname'])
                 );
             }
