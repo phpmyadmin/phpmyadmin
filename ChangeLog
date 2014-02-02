@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #4257 Hide fractional seconds when applicable
 - bug #4264 Uncheck "Ignore" while inserting, upon leaving a textarea
 - bug #4260 reCaptcha is ignoring language settings
+- bug #4259 reCaptcha sound session expired problem
 
 4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user
