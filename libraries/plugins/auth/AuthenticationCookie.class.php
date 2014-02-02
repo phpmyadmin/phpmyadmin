@@ -282,6 +282,10 @@ class AuthenticationCookie extends AuthenticationPlugin
                     $("#recaptcha_reload_btn").addClass("disableAjax");
                     $("#recaptcha_switch_audio_btn").addClass("disableAjax");
                     $("#recaptcha_switch_img_btn").addClass("disableAjax");
+                    $("#recaptcha_whatsthis_btn").addClass("disableAjax");
+                    $("#recaptcha_audio_play_again").live("mouseover", function() {
+                        $(this).addClass("disableAjax");
+                    });
                  </script>';
         }
 
