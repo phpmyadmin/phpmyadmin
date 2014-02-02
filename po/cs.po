@@ -3810,7 +3810,7 @@ msgstr "Chybějící parametr:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
 msgstr "Přejít na databázi „%s“."
 
 #: libraries/Util.class.php:2624
@@ -3937,7 +3937,7 @@ msgstr "Replikováno"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "Zkontrolovat oprávnění pro databázi „%s“."
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4444,7 +4444,7 @@ msgid "Allow third party framing"
 msgstr "Povolit začlenění do cizího rámu"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr "Zobrazit příkaz „Zrušit databázi“ běžným uživatelům"
 
 #: libraries/config/messages.inc.php:29
@@ -4574,7 +4574,7 @@ msgstr "Konfigurační soubor"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "Zda zobrazovat varování („Jste si opravdu jistý…“), pokud hrozí ztráta dat."
@@ -5455,7 +5455,7 @@ msgstr "Nejvyšší počet položek ve větvi"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Počet řádků, které se zobrazí při procházení množiny výsledků. Pokud je "
@@ -6277,7 +6277,7 @@ msgstr "Dlouhé jméno tohoto serveru"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Jestli bude uživateli zobrazeno tlačítko „Zobrazit vše“."
 
 #: libraries/config/messages.inc.php:711
@@ -10346,13 +10346,13 @@ msgstr "Přidělit všechna oprávnění na jméno odpovídající masce (uživa
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr "Přidělit všechna oprávnění na databázi „%s“."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "Uživatelé mající přístup k „%s“"
 
 #: libraries/server_privileges.lib.php:1818
@@ -14868,7 +14868,7 @@ msgstr "concurrent_insert je nastaveno na 0"
 #~ msgstr "Podrobné víceprvkové dotazy"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "Navrhne jméno nové databáze ve formuláři pro vytváření databáze (pokud je "

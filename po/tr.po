@@ -3836,8 +3836,8 @@ msgstr "Eksik parametreler:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; veritabanına git."
+msgid "Jump to database \"%s\"."
+msgstr "\"%s\" veritabanına git."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3963,8 +3963,8 @@ msgstr "Kopya edildi"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "&quot;%s&quot; veritabanı için yetkileri kontrol et."
+msgid "Check privileges for database \"%s\"."
+msgstr "\"%s\" veritabanı için yetkileri kontrol et."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4474,9 +4474,9 @@ msgid "Allow third party framing"
 msgstr "Üçüncü parti çerçevelemeye izin ver"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
-"&quot;Veritabanını kaldır&quot; bağlantısını normal kullanıcılara göster"
+"\"Veritabanını kaldır\" bağlantısını normal kullanıcılara göster"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -4609,11 +4609,11 @@ msgstr "Yapılandırma dosyası"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Veri kaybı yaşamamanız için bir uyarı (&quot;… yapmak istediğiniz için emin "
-"misiniz?&quot;) görüntülenip görüntülenmemesidir."
+"Veri kaybı yaşamamanız için bir uyarı (\"… yapmak istediğiniz için emin "
+"misiniz?\") görüntülenip görüntülenmemesidir."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5495,11 +5495,11 @@ msgstr "Daldaki en fazla öğe"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Sonuç grubuna göz atarken görüntülenen satır sayısıdır. Eğer sonuç grubu "
-"daha fazla satır içeriyorsa, &quot;Önceki&quot; ve &quot;Sonraki&quot; "
+"daha fazla satır içeriyorsa, \"Önceki\" ve \"Sonraki\" "
 "bağlantıları gösterilecektir."
 
 #: libraries/config/messages.inc.php:414
@@ -6332,9 +6332,9 @@ msgstr "Bu sunucunun ayrıntılı adı"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Kullanıcıya &quot;tümünü (satırları) göster&quot; düğmesinin görüntülenip "
+"Kullanıcıya \"tümünü (satırları) göster\" düğmesinin görüntülenip "
 "görüntülenmemesidir."
 
 #: libraries/config/messages.inc.php:711
@@ -10435,14 +10435,14 @@ msgstr "Joker isimlere tüm yetkileri ver (kullanıcıadı\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "&quot;%s&quot; veritabanı üzerindeki tüm yetkileri ver."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "\"%s\" veritabanı üzerindeki tüm yetkileri ver."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "&quot;%s&quot; veritabanına erişimi olan kullanıcılar"
+msgid "Users having access to \"%s\""
+msgstr "\"%s\" veritabanına erişimi olan kullanıcılar"
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925

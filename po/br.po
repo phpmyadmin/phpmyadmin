@@ -3894,8 +3894,8 @@ msgstr ""
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Mont d'an diaz roadennoù &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Mont d'an diaz roadennoù \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4023,8 +4023,8 @@ msgstr "Eilet"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4513,9 +4513,9 @@ msgid "Allow third party framing"
 msgstr "Aotren ar frammoù a-berzh tud all"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
-"Diskouez al liamm evit &quot;Skarzhañ un diaz roadennoù&quot; d'an "
+"Diskouez al liamm evit \"Skarzhañ un diaz roadennoù\" d'an "
 "implijerien voutin"
 
 #: libraries/config/messages.inc.php:29
@@ -4671,13 +4671,13 @@ msgstr "Restr gefluniañ"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Ur gemennadenn (&quot;Ha sur oc'h…&quot;) a zlefe dont war wel pa vezer war-"
+"Ur gemennadenn (\"Ha sur oc'h…\") a zlefe dont war wel pa vezer war-"
 "nes koll roadennoù."
 
 #: libraries/config/messages.inc.php:79
@@ -5665,7 +5665,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 
@@ -6429,7 +6429,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
@@ -10450,13 +10450,13 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1818

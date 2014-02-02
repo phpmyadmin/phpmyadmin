@@ -3850,8 +3850,8 @@ msgstr "Manjkajoč parameter:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Preskoči na zbirko podatkov &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Preskoči na zbirko podatkov \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3976,8 +3976,8 @@ msgstr "Podvojeno"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Preveri privilegije za zbirko podatkov &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Preveri privilegije za zbirko podatkov \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4488,7 +4488,7 @@ msgid "Allow third party framing"
 msgstr "Dovoli uokvirjanje tretjim osebam"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 "Pokaži povezavo &raquo;Zavrzi zbirko podatkov&laquo; normalnim uporabnikom"
 
@@ -4621,10 +4621,10 @@ msgstr "Konfiguracijska datoteka"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Ali se naj prikaže opozorilo (&quot;Ali res želite ...&quot;), ko boste "
+"Ali se naj prikaže opozorilo (\"Ali res želite ...\"), ko boste "
 "izgubili podatke."
 
 #: libraries/config/messages.inc.php:79
@@ -5506,7 +5506,7 @@ msgstr "Največ predmetov v veji"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Število prikazanih vrstic med brskanjem po množici rezultatov. Če množica "
@@ -6338,8 +6338,8 @@ msgstr "Razširjeno ime tega strežnika"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "Ali se naj uporabniku prikaže gumb &quot;prikaži vse (vrstice)&quot;."
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "Ali se naj uporabniku prikaže gumb \"prikaži vse (vrstice)\"."
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10434,14 +10434,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Dodeli vse privilegije za podatkovno zbirko &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Dodeli vse privilegije za podatkovno zbirko \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Uporabniški dostop do &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Uporabniški dostop do \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15035,11 +15035,11 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ msgstr "Samo podatki"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Predlagaj ime zbirke podatkov v obrazcu &quot;Ustvari zbirko "
-#~ "podatkov&quot; (če je le mogoče) ali pusti besedilno polje prazno"
+#~ "Predlagaj ime zbirke podatkov v obrazcu \"Ustvari zbirko "
+#~ "podatkov\" (če je le mogoče) ali pusti besedilno polje prazno"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "Predlagaj novo ime zbirke podatkov"

@@ -4064,8 +4064,8 @@ msgstr "Шинэ талбар нэмэх"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; өгөгдлийн сан руу үсрэх."
+msgid "Jump to database \"%s\"."
+msgstr "\"%s\" өгөгдлийн сан руу үсрэх."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4198,8 +4198,8 @@ msgstr "Олшруулалт"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "&quot;%s&quot; өгөгдлийн сангийн онцгой эрх шалгах."
+msgid "Check privileges for database \"%s\"."
+msgstr "\"%s\" өгөгдлийн сангийн онцгой эрх шалгах."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4679,7 +4679,7 @@ msgid "Allow third party framing"
 msgstr ""
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 
 #: libraries/config/messages.inc.php:29
@@ -4800,7 +4800,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 
@@ -5730,7 +5730,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 
@@ -6516,7 +6516,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
@@ -10796,14 +10796,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Хэрэглэгчдийн хандсан нь &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Хэрэглэгчдийн хандсан нь \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15529,10 +15529,10 @@ msgstr "ХИ. давхацсан холболтууд"
 #~ msgstr "өөрчлөгдсөн байна."
 
 #~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
+#~ "The \"deleted\" users will still be able to access the server as "
 #~ "usual until the privileges are reloaded."
 #~ msgstr ""
-#~ "&quot;Устгагдсан&quot; хэрэглэгчид үргэлжлүүлэн сервэр лүү хандахын тулд "
+#~ "\"Устгагдсан\" хэрэглэгчид үргэлжлүүлэн сервэр лүү хандахын тулд "
 #~ "онцгой эрхийг дахин дуудах хүртэл хүлээнэ."
 
 #~ msgid "Just delete the users from the privilege tables."

@@ -3982,8 +3982,8 @@ msgstr "Rutine"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Sari la baza de date &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Sari la baza de date \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4116,8 +4116,8 @@ msgstr "Replicare"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Verifică privilegiile pentru baza de date &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Verifică privilegiile pentru baza de date \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4618,7 +4618,7 @@ msgid "Allow third party framing"
 msgstr "Permite încadrarea unei părţi terţe"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 
 #: libraries/config/messages.inc.php:29
@@ -4776,13 +4776,13 @@ msgstr "Fișier de configurare"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Dacă un avertisment (&quot; Sunteți sigur…&quot;) ar trebui afișat când "
+"Dacă un avertisment (\" Sunteți sigur…\") ar trebui afișat când "
 "sunteți pe cale sa pierdeți datele"
 
 #: libraries/config/messages.inc.php:79
@@ -5824,12 +5824,12 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Numărul de rânduri afișate la vizualizarea unui set de rezultate. Dacă setul "
-"de rezultate conține mai multe rânduri, link-urile de &quot;Anterior&quot; "
-"și &quot;Următor&quot; vor fi afișate."
+"de rezultate conține mai multe rânduri, link-urile de \"Anterior\" "
+"și \"Următor\" vor fi afișate."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6898,12 +6898,12 @@ msgstr "Numele \"verbose\" al acestui server"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Dacă unui utilizator să i se afișeze un buton &quot;arata-le pe "
-"toate(randurile&quot;"
+"Dacă unui utilizator să i se afișeze un buton \"arata-le pe "
+"toate(randurile\""
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -11375,14 +11375,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, fuzzy, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Verifică privilegiile pentru baza de date &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Verifică privilegiile pentru baza de date \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Utilizatorul are acces la &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Utilizatorul are acces la \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15918,7 +15918,7 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr "Numai date"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "Sugerați un nume pentru baza de date în formularul \"Creează Bază de Date"

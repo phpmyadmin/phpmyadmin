@@ -24,7 +24,7 @@ $strConfigAllowThirdPartyFraming_desc = __(
 );
 $strConfigAllowThirdPartyFraming_name = __('Allow third party framing');
 $strConfigAllowUserDropDatabase_name
-    = __('Show &quot;Drop database&quot; link to normal users');
+    = __('Show "Drop database" link to normal users');
 $strConfigblowfish_secret_desc = __(
     'Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] '
     . 'authentication.'
@@ -73,7 +73,7 @@ $strConfigCompressOnFly_desc = __(
 $strConfigCompressOnFly_name = __('Compress on the fly');
 $strConfigConfigurationFile = __('Configuration file');
 $strConfigConfirm_desc = __(
-    'Whether a warning (&quot;Are your really sure…&quot;) should be displayed '
+    'Whether a warning ("Are your really sure…") should be displayed '
     . 'when you\'re about to lose data.'
 );
 $strConfigConfirm_name = __('Confirm DROP queries');
@@ -410,7 +410,7 @@ $strConfigMaxNavigationItems_desc = __(
 $strConfigMaxNavigationItems_name = __('Maximum items in branch');
 $strConfigMaxRows_desc = __(
     'Number of rows displayed when browsing a result set. If the result set '
-    . 'contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be '
+    . 'contains more rows, "Previous" and "Next" links will be '
     . 'shown.'
 );
 $strConfigMaxRows_name = __('Maximum number of rows to display');
@@ -709,7 +709,7 @@ $strConfigServers_user_desc = __('Leave empty if not using config auth.');
 $strConfigServers_user_name = __('User for config auth');
 $strConfigServers_verbose_desc = __('A user-friendly description of this server. Leave blank to display the hostname instead.');
 $strConfigServers_verbose_name = __('Verbose name of this server');
-$strConfigShowAll_desc = __('Whether a user should be displayed a &quot;show all (rows)&quot; button.');
+$strConfigShowAll_desc = __('Whether a user should be displayed a "show all (rows)" button.');
 $strConfigShowAll_name = __('Allow to display all the rows');
 $strConfigShowChgPassword_desc = __('Please note that enabling this has no effect with [kbd]config[/kbd] authentication mode because the password is hard coded in the configuration file; this does not limit the ability to execute the same command directly.');
 $strConfigShowChgPassword_name = __('Show password change form');

@@ -3921,7 +3921,7 @@ msgstr "Trūkstamas parametras:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
 msgstr "Pereiti į „%s“ duomenų bazę."
 
 #: libraries/Util.class.php:2624
@@ -4049,7 +4049,7 @@ msgstr "Padaugintas"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "Patikrinti duomenų bazės „%s“ privilegijas."
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4580,7 +4580,7 @@ msgid "Allow third party framing"
 msgstr "Leisti trečių šalių rėmelius"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr "Rodyti „Pašalinti duomenų bazę“ nuorodą paprastiems naudotojams"
 
 #: libraries/config/messages.inc.php:29
@@ -4731,10 +4731,10 @@ msgstr "Nustatymų failas"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "Ar perspėjimas („Ar tikrai norite…“) turi būti rodomas kai kalbama apie "
@@ -5733,7 +5733,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Eilučių (įrašų) skaičius ekrane naršant rezultatų rinkinį. Jeigu rezultatų "
@@ -6743,7 +6743,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
@@ -10998,13 +10998,13 @@ msgstr "Suteikti visas privilegijas pakaitos vardui (username\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr "Suteikti visas privilegijas duomenų bazei „%s“."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "Vartotojai turintys priėjimą prie „%s“"
 
 #: libraries/server_privileges.lib.php:1818
@@ -15423,7 +15423,7 @@ msgstr "MyISAM concurrent įterpimai"
 #~ msgstr "Tik duomenys"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "Pasiūlo duombazės pavadinimą kai būnama „Sukurti duombazę“ punkte (jeigu "

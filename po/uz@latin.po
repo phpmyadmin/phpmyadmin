@@ -4197,7 +4197,7 @@ msgstr "Muolajalar"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
 msgstr "\"%s\" ma`lumotlar bazasiga o‘tish."
 
 #: libraries/Util.class.php:2624
@@ -4337,7 +4337,7 @@ msgstr "Replikatsiya (zaxira nusxa ko‘chirish)"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "\"%s\" ma`lumotlar bazasining privilegiyalarni tekshirish."
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4937,7 +4937,7 @@ msgid "Allow third party framing"
 msgstr ""
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 "\"Ma`lumotlar bazasini o‘chirish\" bog‘ini foydalanuvchilarga ko‘rsatish"
 
@@ -5097,10 +5097,10 @@ msgstr "Konfiguratsion fayl"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "Ma`lumot yo‘qolishi mumkin bo‘lgan vaziyatlarda ogohlantirish (\"Siz "
@@ -6150,7 +6150,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Natijalarda ko‘rsatiladigan qatorlar soni. Agar natijalar qatori "
@@ -7167,9 +7167,9 @@ msgstr "Ushbu serverning kengaytirilgan nomi"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "ther a user should be displayed a &quot;show all (records)&quot; button"
+#| "ther a user should be displayed a \"show all (records)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Foydalanuvchiga \"barcha (yozuvlar)ni ko‘rsatish\" tugmasi ko‘rsatilsinmi?"
 
@@ -11722,13 +11722,13 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr "\"%s\" ma`lumotlar bazasiga barcha privilegiyalarni berish."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "\"%s\"ga ruxsati bo‘lgan foydalanuvchilar"
 
 #: libraries/server_privileges.lib.php:1818
@@ -16526,7 +16526,7 @@ msgstr "Maksimal ulanishlar soni "
 #~ msgstr "Faqat ma`lumotlar"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "\"Baza tuzish\" formasida ma`lumotlar bazasi nomini taklif eting yoki "

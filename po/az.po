@@ -4018,8 +4018,8 @@ msgstr "Yeni sahe elave et"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; me'lumat bazasına keç."
+msgid "Jump to database \"%s\"."
+msgstr "\"%s\" me'lumat bazasına keç."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4147,8 +4147,8 @@ msgstr "Relations"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "&quot;%s&quot; bazası üçün selahiyyetleri gözden keçir."
+msgid "Check privileges for database \"%s\"."
+msgstr "\"%s\" bazası üçün selahiyyetleri gözden keçir."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4627,7 +4627,7 @@ msgid "Allow third party framing"
 msgstr ""
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 
 #: libraries/config/messages.inc.php:29
@@ -4747,7 +4747,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 
@@ -5674,7 +5674,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 
@@ -6459,7 +6459,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
@@ -10663,13 +10663,13 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, fuzzy, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "&quot;%s&quot; bazası üçün selahiyyetleri gözden keçir."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "\"%s\" bazası üçün selahiyyetleri gözden keçir."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1818
@@ -15203,7 +15203,7 @@ msgstr ""
 #~ msgstr "Heç biri"
 
 #~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "&quot;%s&quot; bazası üçün selahiyyetleri gözden keçir."
+#~ msgstr "\"%s\" bazası üçün selahiyyetleri gözden keçir."
 
 #~ msgid "The %s table doesn"
 #~ msgstr "\"%s\" cedveli mövcud deyil!"
@@ -15254,10 +15254,10 @@ msgstr ""
 #~ msgstr "deyişdirildi."
 
 #~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
+#~ "The \"deleted\" users will still be able to access the server as "
 #~ "usual until the privileges are reloaded."
 #~ msgstr ""
-#~ "&quot;Silinmiş&quot; istifadeçiler selahiyyetler yeniden yüklenene qeder "
+#~ "\"Silinmiş\" istifadeçiler selahiyyetler yeniden yüklenene qeder "
 #~ "server-e gire bilecekler."
 
 #~ msgid "Just delete the users from the privilege tables."

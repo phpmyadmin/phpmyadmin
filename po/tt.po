@@ -4063,8 +4063,8 @@ msgstr ""
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; biremlegenä küç."
+msgid "Jump to database \"%s\"."
+msgstr "\"%s\" biremlegenä küç."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4195,7 +4195,7 @@ msgstr "Bäyläneşlär"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "\"%s\" biremlege öçen xoquqlar tikşerü."
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4672,7 +4672,7 @@ msgid "Allow third party framing"
 msgstr ""
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 
 #: libraries/config/messages.inc.php:29
@@ -4792,7 +4792,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 
@@ -5727,7 +5727,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 
@@ -6527,7 +6527,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
@@ -10777,13 +10777,13 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, fuzzy, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr "\"%s\" biremlege öçen xoquqlar tikşerü."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "\"%s\" belän eşläw xoquqı bulğan qullanuçılar"
 
 #: libraries/server_privileges.lib.php:1818

@@ -3858,8 +3858,8 @@ msgstr "Puuttuva parametri:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Siirry tietokantaan &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Siirry tietokantaan \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3985,8 +3985,8 @@ msgstr "Kahdennettu"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Hallitse tietokannan &quot;%s&quot; käyttöoikeuksia."
+msgid "Check privileges for database \"%s\"."
+msgstr "Hallitse tietokannan \"%s\" käyttöoikeuksia."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4551,8 +4551,8 @@ msgid "Allow third party framing"
 msgstr "Anna kolmannen osapuolen käyttää kehystä"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Näytä tavallisille käyttäjille &quot;Tuhoa tietokanta&quot;"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Näytä tavallisille käyttäjille \"Tuhoa tietokanta\""
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4719,10 +4719,10 @@ msgstr "Asetustiedosto"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "Pitääkö näyttää varoitus (\"Haluatko varmasti…\"), kun tietoja aiotaan "
@@ -5725,11 +5725,11 @@ msgstr "Kohteiden enimmäismäärä haarassa"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Näytettävien rivien määrä selattaessa tulostaulua. Jos tulostaulussa on "
-"enemmän rivejä, näytetään &quot;Edellinen&quot;- ja &quot;Seuraava&quot;-"
+"enemmän rivejä, näytetään \"Edellinen\"- ja \"Seuraava\"-"
 "linkit."
 
 #: libraries/config/messages.inc.php:414
@@ -6700,10 +6700,10 @@ msgstr "Tämän palvelimen yksityiskohtainen nimi"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "Näyttääkö käyttäjälle &quot;Näytä kaikki (rivit)&quot;-painike"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "Näyttääkö käyttäjälle \"Näytä kaikki (rivit)\"-painike"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -11043,14 +11043,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Anna tietokannalle &quot;%s&quot; kaikki oikeudet."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Anna tietokannalle \"%s\" kaikki oikeudet."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Käyttäjät, joilla on oikeus käyttää kohdetta &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Käyttäjät, joilla on oikeus käyttää kohdetta \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15794,10 +15794,10 @@ msgstr "concurrent_insert on asetettu 0"
 #~ msgstr "Vain tiedot"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Ehdota tietokannan nimeä &quot;Luo tietokanta&quot; -lomakkeessa "
+#~ "Ehdota tietokannan nimeä \"Luo tietokanta\" -lomakkeessa "
 #~ "(mahdollisuuksien mukaan) tai pidä tekstikenttä tyhjänä"
 
 #~ msgid "Suggest new database name"

@@ -3895,8 +3895,8 @@ msgstr "Pievienot jaunu lauku"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "pāriet pie datubāzes &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "pāriet pie datubāzes \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4027,8 +4027,8 @@ msgstr "Relācijas"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Pārbaudīt privilēģijas uz datubāzi &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Pārbaudīt privilēģijas uz datubāzi \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4507,7 +4507,7 @@ msgid "Allow third party framing"
 msgstr ""
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 
 #: libraries/config/messages.inc.php:29
@@ -4626,7 +4626,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 
@@ -5547,7 +5547,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 
@@ -6337,7 +6337,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
@@ -10571,14 +10571,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, fuzzy, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Pārbaudīt privilēģijas uz datubāzi &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Pārbaudīt privilēģijas uz datubāzi \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Lietotāji, kam ir pieja datubāzei &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Lietotāji, kam ir pieja datubāzei \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15141,7 +15141,7 @@ msgstr ""
 #~ msgstr "Nav"
 
 #~ msgid "Grant all privileges on wildcard name (username_%)"
-#~ msgstr "Pārbaudīt privilēģijas uz datubāzi &quot;%s&quot;."
+#~ msgstr "Pārbaudīt privilēģijas uz datubāzi \"%s\"."
 
 #~ msgid "The %s table doesn"
 #~ msgstr "Tabula \"%s\" neeksistē!"
@@ -15191,10 +15191,10 @@ msgstr ""
 #~ msgstr "tika modificēta."
 
 #~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
+#~ "The \"deleted\" users will still be able to access the server as "
 #~ "usual until the privileges are reloaded."
 #~ msgstr ""
-#~ "&quot;Dzēstie&quot; lietotāji saglabā spēju piekļūt serverim kā parasti, "
+#~ "\"Dzēstie\" lietotāji saglabā spēju piekļūt serverim kā parasti, "
 #~ "līdz privilēģijas tiek pārlādētas."
 
 #~ msgid "Just delete the users from the privilege tables."

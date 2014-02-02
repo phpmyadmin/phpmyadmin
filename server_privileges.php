@@ -90,7 +90,7 @@ $strPrivDescMaxUpdates = __(
 $strPrivDescMaxUserConnections = __(
     'Limits the number of simultaneous connections the user may have.'
 );
-$strPrivDescProcess = __('Allows viewing processes of all users');
+$strPrivDescProcess = __('Allows viewing processes of all users.');
 $strPrivDescReferences = __('Has no effect in this MySQL version.');
 $strPrivDescReload = __(
     'Allows reloading server settings and flushing the server\'s caches.'

@@ -3894,8 +3894,8 @@ msgstr "नियमित कार्य"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; डेटाबेस पर जायें;."
+msgid "Jump to database \"%s\"."
+msgstr "\"%s\" डेटाबेस पर जायें;."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4022,8 +4022,8 @@ msgstr "दोहराया"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "डाटाबेस के  प्रिविलेज  चेक करें &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "डाटाबेस के  प्रिविलेज  चेक करें \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4517,8 +4517,8 @@ msgid "Allow third party framing"
 msgstr "तीसरे पक्ष की अनुमति फ्रेमन की अनुमति"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "सामान्य यूसरओं को &quot;ड्रॉप डेटाबेस&quot; लिंक शो करें"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "सामान्य यूसरओं को \"ड्रॉप डेटाबेस\" लिंक शो करें"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4663,10 +4663,10 @@ msgstr "विन्यास फाइल"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "जब आप डेटा खो रहे हो तब एक चेतावनी (\"आपको वास्तव में यकीन हैं ...\") प्रदर्शित किय़ा "
@@ -5668,11 +5668,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
-"परिणाम सेट में से प्रदर्शित रों की संख्या, अगर सेट में ज्यादा रो हैं तो &quot;पिछले&quot; और "
-"&quot;अगला&quot; लिंक दिखाएँ  जायेंगे"
+"परिणाम सेट में से प्रदर्शित रों की संख्या, अगर सेट में ज्यादा रो हैं तो \"पिछले\" और "
+"\"अगला\" लिंक दिखाएँ  जायेंगे"
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6609,10 +6609,10 @@ msgstr "इस सर्वर का वाचाल नाम"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "क्या एक उसेर को &quot;show all (rows)&quot; बटन दिखाना है"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "क्या एक उसेर को \"show all (rows)\" बटन दिखाना है"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10781,13 +10781,13 @@ msgstr "वाइल्डकार्ड नाम (यूसरनाम\\_%) 
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "&quot;%s&quot; डेटाबेस पर सभी विशेषाधिकारों का अनुदान करें"
+msgid "Grant all privileges on database \"%s\"."
+msgstr "\"%s\" डेटाबेस पर सभी विशेषाधिकारों का अनुदान करें"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1818

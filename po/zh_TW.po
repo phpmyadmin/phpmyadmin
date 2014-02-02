@@ -3761,7 +3761,7 @@ msgstr "未填寫必要的參數:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
 msgstr "切換到資料庫「%s」。"
 
 #: libraries/Util.class.php:2624
@@ -3885,7 +3885,7 @@ msgstr "已備援"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "檢查資料庫 「%s」 之權限."
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4371,8 +4371,8 @@ msgid "Allow third party framing"
 msgstr "允許第三方框架頁使用"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "顯示 &quot;刪除資料庫&quot; 連結給普通使用者"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "顯示 \"刪除資料庫\" 連結給普通使用者"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -4499,9 +4499,9 @@ msgstr "設定檔案"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
-msgstr "是否顯示確認訊息，當查詢可能造成資料遺失時 (&quot;您真的要…&quot;)。"
+msgstr "是否顯示確認訊息，當查詢可能造成資料遺失時 (\"您真的要…\")。"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5356,7 +5356,7 @@ msgstr "導覽樹分支項目數量限制"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "瀏覽查詢結果時一次最多顯示的列數。如果結果超過此列數，則會顯示「上一頁」和"
@@ -6123,8 +6123,8 @@ msgstr "伺服器名稱"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "是否顯示 &quot;顯示全部資料列&quot; 的按鈕。"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "是否顯示 \"顯示全部資料列\" 的按鈕。"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10083,14 +10083,14 @@ msgstr "給以 帳號_ 開頭的資料庫 (username\\_%) 授予所有權限。"
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr "授予資料庫“%s”的所有權限。"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "可以存取 &quot;%s&quot; 的使用者"
+msgid "Users having access to \"%s\""
+msgstr "可以存取 \"%s\" 的使用者"
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -14405,9 +14405,9 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ msgstr "僅資料"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
-#~ msgstr "如果可能，在 &quot;建立資料庫&quot; 表單中建議一個名字，或留空"
+#~ msgstr "如果可能，在 \"建立資料庫\" 表單中建議一個名字，或留空"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "建議新資料庫名"

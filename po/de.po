@@ -3889,8 +3889,8 @@ msgstr "Fehlende(r) Parameter:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Zur Datenbank &quot;%s&quot; springen."
+msgid "Jump to database \"%s\"."
+msgstr "Zur Datenbank \"%s\" springen."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4017,8 +4017,8 @@ msgstr "Repliziert"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Überprüft die Rechte für die Datenbank &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Überprüft die Rechte für die Datenbank \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4539,8 +4539,8 @@ msgid "Allow third party framing"
 msgstr "Erlaube Frame-Einbettung durch Dritte"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "&quot;Drop Database&quot;-Link normalen Benutzern anzeigen"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "\"Drop Database\"-Link normalen Benutzern anzeigen"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -4673,10 +4673,10 @@ msgstr "Konfigurationsdatei"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Warnung (&quot;Sind Sie wirklich sicher…&quot;) anzeigen, wenn Dateien "
+"Warnung (\"Sind Sie wirklich sicher…\") anzeigen, wenn Dateien "
 "verloren gehen könnten."
 
 #: libraries/config/messages.inc.php:79
@@ -4999,12 +4999,12 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Sortierreihenfolge für &quot;FOREIGN KEY&quot;-Dropdownfelder. [kbd]content[/"
+"Sortierreihenfolge für \"FOREIGN KEY\"-Dropdownfelder. [kbd]content[/"
 "kbd] ist der referenzierte Wert, [kbd]id[/kbd] ist der Schlüsselwert."
 
 #: libraries/config/messages.inc.php:201
 msgid "Foreign key dropdown order"
-msgstr "Sortierreihenfolge für &quot;FOREIGN KEY&quot;-Dropdownfelder"
+msgstr "Sortierreihenfolge für \"FOREIGN KEY\"-Dropdownfelder"
 
 #: libraries/config/messages.inc.php:203
 msgid "A dropdown will be used if fewer items are present."
@@ -5638,11 +5638,11 @@ msgstr "Maximale Elemente in Zweig"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Anzahl der angezeigten Datensätze in einem Abfrage-Ergebnis. Wenn mehr "
-"Datensätze vorhanden sind, werden &quot;Previous&quot; and &quot;Next&quot; "
+"Datensätze vorhanden sind, werden \"Previous\" and \"Next\" "
 "Links angezeigt."
 
 #: libraries/config/messages.inc.php:414
@@ -6664,9 +6664,9 @@ msgstr "Serverbezeichnung"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Ob dem Benutzer eine Schaltfläche &bdquo;Alle (Datensätze) anzeigen&rdquo; "
 "angezeigt werden soll"
@@ -7037,7 +7037,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:772
 msgid "Enable the Developer tab in settings"
-msgstr "Aktiviere den Reiter &quot;Entwickler&quot; in den Einstellungen"
+msgstr "Aktiviere den Reiter \"Entwickler\" in den Einstellungen"
 
 #: libraries/config/messages.inc.php:773 setup/frames/index.inc.php:312
 msgid "Check for latest version"
@@ -10929,14 +10929,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Gewähre alle Rechte auf die Datenbank &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Gewähre alle Rechte auf die Datenbank \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Benutzer mit Zugriff auf &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Benutzer mit Zugriff auf \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -11605,7 +11605,7 @@ msgid ""
 msgstr ""
 "Anzahl der gesuchten und gefundenen (discovered) Tabellen. Der MySQL-Server "
 "kann die NDB-Cluster-Storage-Engine fragen, ob sie eine bestimmte Tabelle "
-"kennt. Dieser Vorgang wird &quot;discovery&quot; genannt."
+"kennt. Dieser Vorgang wird \"discovery\" genannt."
 
 #: libraries/server_status_variables.lib.php:389
 msgid ""
@@ -11688,11 +11688,11 @@ msgstr "Anzahl der Anfragen, eine Zeile in eine Tabelle einzufügen."
 #: libraries/server_status_variables.lib.php:432
 msgid "The number of pages containing data (dirty or clean)."
 msgstr ""
-"Anzahl der Seiten, die Daten enthalten (ob &quot;dirty&quot; oder nicht)."
+"Anzahl der Seiten, die Daten enthalten (ob \"dirty\" oder nicht)."
 
 #: libraries/server_status_variables.lib.php:435
 msgid "The number of pages currently dirty."
-msgstr "Anzahl der als &quot;dirty&quot; markierten Seiten."
+msgstr "Anzahl der als \"dirty\" markierten Seiten."
 
 #: libraries/server_status_variables.lib.php:438
 msgid "The number of buffer pool pages that have been requested to be flushed."
@@ -15609,11 +15609,11 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ msgstr "Nur Daten"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Schlage (wenn möglich) einen Datenbank-Namen im &quot;Create "
-#~ "Database&quot; Formular vor oder lasse das Textfeld leer"
+#~ "Schlage (wenn möglich) einen Datenbank-Namen im \"Create "
+#~ "Database\" Formular vor oder lasse das Textfeld leer"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "Schlage einen neuen Datenbank-Namen vor"

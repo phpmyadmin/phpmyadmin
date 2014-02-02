@@ -3863,8 +3863,8 @@ msgstr "Hiányzó paraméter:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Ugrás a(z) &quot;%s&quot; adatbázishoz."
+msgid "Jump to database \"%s\"."
+msgstr "Ugrás a(z) \"%s\" adatbázishoz."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3990,8 +3990,8 @@ msgstr "Többszörözzött"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "A(z) &quot;%s&quot; adatbázis jogainak ellenőrzése."
+msgid "Check privileges for database \"%s\"."
+msgstr "A(z) \"%s\" adatbázis jogainak ellenőrzése."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4523,9 +4523,9 @@ msgid "Allow third party framing"
 msgstr "Harmadik fél keret-használatának engedélyezése"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
-"Az &quot;Adatbázis eldobása&quot; hivatkozás megjelenítése a normál "
+"Az \"Adatbázis eldobása\" hivatkozás megjelenítése a normál "
 "felhasználók számára"
 
 #: libraries/config/messages.inc.php:29
@@ -4696,14 +4696,14 @@ msgstr "Konfigurációs fájl"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Meg kell-e adatvesztés előtt jeleníteni figyelmeztetést (&quot;Biztosan…"
-"&quot;)"
+"Meg kell-e adatvesztés előtt jeleníteni figyelmeztetést (\"Biztosan…"
+"\")"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5708,12 +5708,12 @@ msgstr "Ág maximális elemeinek száma"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Egy eredményhalmaz tallózásakor megjelenített sorok száma. Ha az "
-"eredményhalmaz több sort tartalmaz, akkor az &quot;Előző&quot; és a &quot;"
-"Következő&quot; hivatkozás lesz látható."
+"eredményhalmaz több sort tartalmaz, akkor az \"Előző\" és a \""
+"Következő\" hivatkozás lesz látható."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6734,12 +6734,12 @@ msgstr "A szerver részletes neve"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Meg kell-e jeleníteni egy felhasználó számára az &quot;az összes (sor) "
-"megjelenítése&quot; gombot"
+"Meg kell-e jeleníteni egy felhasználó számára az \"az összes (sor) "
+"megjelenítése\" gombot"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -11010,14 +11010,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Az összes jog engedélyezése a(z) &quot;%s&quot; adatbázison."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Az összes jog engedélyezése a(z) \"%s\" adatbázison."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "A(z) &quot;%s&quot; adatbázishoz hozzáférhető felhasználók"
+msgid "Users having access to \"%s\""
+msgstr "A(z) \"%s\" adatbázishoz hozzáférhető felhasználók"
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15595,10 +15595,10 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ msgstr "Csak az adatok"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Javaslat adatbázisnévre az &quot;Adatbázis létrehozása&quot; űrlapon (ha "
+#~ "Javaslat adatbázisnévre az \"Adatbázis létrehozása\" űrlapon (ha "
 #~ "lehet), vagy maradjon üres a szövegmező"
 
 #~ msgid "Suggest new database name"

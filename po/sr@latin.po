@@ -3898,8 +3898,8 @@ msgstr "Nedostaje parametar:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Pređi na bazu &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Pređi na bazu \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4028,8 +4028,8 @@ msgstr "Replikovano"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Proveri privilegije za bazu &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Proveri privilegije za bazu \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4517,8 +4517,8 @@ msgid "Allow third party framing"
 msgstr "Dozvoli okvire treće strane"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Prikaži &quot;Drop database&quot; link običnim korisnicima"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Prikaži \"Drop database\" link običnim korisnicima"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4681,13 +4681,13 @@ msgstr "Konfiguraciona datoteka"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Da li upozorenje (&quot;Da li ste sigurni…&quot;) treba da bude prikazano "
+"Da li upozorenje (\"Da li ste sigurni…\") treba da bude prikazano "
 "kada ste na putu da izgubite podatke"
 
 #: libraries/config/messages.inc.php:79
@@ -5677,7 +5677,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 
@@ -6530,7 +6530,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
@@ -10607,14 +10607,14 @@ msgstr "Daj sve privilegije na imenu sa džokerima (korisničko_ime\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Dodeli sva prava pristupa za bazu &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Dodeli sva prava pristupa za bazu \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Korisnici koji imaju pristup &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Korisnici koji imaju pristup \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925

@@ -3859,8 +3859,8 @@ msgstr "Chýbajúci parameter:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Prejsť na databázu &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Prejsť na databázu \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3986,8 +3986,8 @@ msgstr "Replikované"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Skontrolovať oprávnenia pre databázu &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Skontrolovať oprávnenia pre databázu \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4470,8 +4470,8 @@ msgid "Allow third party framing"
 msgstr "Povoliť vkladanie do cudzieho rámu"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Zobraziť príkaz &quot;Zrušiť databázu&quot; bežným užívateľom"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Zobraziť príkaz \"Zrušiť databázu\" bežným užívateľom"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4640,13 +4640,13 @@ msgstr "Konfiguračný súbor"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Či sa má zobrazovať varovanie (&quot;Ste si naozaj istí…&quot;) pokiaľ hrozí "
+"Či sa má zobrazovať varovanie (\"Ste si naozaj istí…\") pokiaľ hrozí "
 "strata dát"
 
 #: libraries/config/messages.inc.php:79
@@ -5645,12 +5645,12 @@ msgstr "Maximálny počet položiek vo vetve"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Počet zobrazených riadkov pri prechádzaní sady výsledkov. Ak sada výsledkov "
-"obsahuje viac riadkov, zobrazia sa odkazy &quot;Predchádzajúci&quot; a &quot;"
-"Ďalší&quot;."
+"obsahuje viac riadkov, zobrazia sa odkazy \"Predchádzajúci\" a \""
+"Ďalší\"."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6669,12 +6669,12 @@ msgstr "Dlhé meno tohto servera"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Či sa bude užívateľovi zobrazovať tlačidlo &quot;zobraziť všetky "
-"(riadky)&quot;"
+"Či sa bude užívateľovi zobrazovať tlačidlo \"zobraziť všetky "
+"(riadky)\""
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10859,14 +10859,14 @@ msgstr "Prideliť všetky oprávnenia pomocou masky (používateľ\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Prideliť všetky oprávnenia na databázu &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Prideliť všetky oprávnenia na databázu \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Používatelia majúci prístup k &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Používatelia majúci prístup k \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15152,7 +15152,7 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ msgstr "Iba dáta"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "Navrhnúť mano novej databázy vo formulári pre vytváranie databázy (pokiaľ "

@@ -4157,7 +4157,7 @@ msgstr "Муолажалар"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
 msgstr "\"%s\" маълумотлар базасига ўтиш."
 
 #: libraries/Util.class.php:2624
@@ -4296,7 +4296,7 @@ msgstr "Репликация (захира нусха кўчириш)"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "\"%s\" маълумотлар базасининг привилегияларни текшириш."
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4892,7 +4892,7 @@ msgid "Allow third party framing"
 msgstr ""
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr "\"Маълумотлар базасини ўчириш\" боғини фойдаланувчиларга кўрсатиш"
 
 #: libraries/config/messages.inc.php:29
@@ -5051,10 +5051,10 @@ msgstr "Конфигурацион файл"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "Маълумот йўқолиши мумкин бўлган вазиятларда огоҳлантириш (\"Сиз ҳақиқатдан "
@@ -6101,7 +6101,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Натижаларда кўрсатиладиган қаторлар сони. Агар натижалар қатори кўрсатилган "
@@ -7116,9 +7116,9 @@ msgstr "Ушбу сервернинг кенгайтирилган номи"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "ther a user should be displayed a &quot;show all (records)&quot; button"
+#| "ther a user should be displayed a \"show all (records)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Фойдаланувчига \"барча (ёзувлар)ни кўрсатиш\" тугмаси кўрсатилсинми?"
 
 #: libraries/config/messages.inc.php:711
@@ -11642,13 +11642,13 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr "\"%s\"&quot маълумотлар базасига барча привилегияларни бериш;"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "\"%s\"га рухсати бўлган фойдаланувчилар"
 
 #: libraries/server_privileges.lib.php:1818
@@ -16416,7 +16416,7 @@ msgstr "Максимал уланишлар сони "
 #~ msgstr "Фақат маълумотлар"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "\"База тузиш\" формасида маълумотлар базаси номини таклиф этинг ёки матн "

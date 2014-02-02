@@ -3885,8 +3885,8 @@ msgstr "Mangler parametere:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Hopp til databasen &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Hopp til databasen \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4013,8 +4013,8 @@ msgstr "Replikert"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Kontroller privilegier for databasen &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Kontroller privilegier for databasen \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4582,8 +4582,8 @@ msgid "Allow third party framing"
 msgstr "Tillat tredjeparts innramming"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Vis &quot;Drop database&quot; link for normale brukere"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Vis \"Drop database\" link for normale brukere"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4745,13 +4745,13 @@ msgstr "Konfigurasjonsfil"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Om en advarsel (&quot;Er du helt sikker…&quot;) skal vises når du er i ferd "
+"Om en advarsel (\"Er du helt sikker…\") skal vises når du er i ferd "
 "med å miste data"
 
 #: libraries/config/messages.inc.php:79
@@ -5765,11 +5765,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Antall rader som viser ved framvisning av et resultat. Hvis resultatet "
-"inneholder flere rader vil &quot;Forrige&quot; og &quot;Neste&quot; linker "
+"inneholder flere rader vil \"Forrige\" og \"Neste\" linker "
 "bli vist."
 
 #: libraries/config/messages.inc.php:414
@@ -6793,10 +6793,10 @@ msgstr "Fult navn for denne tjeneren"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "Avgjør om en bruker får en &quot;vis alle (rader)&quot; knapp"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "Avgjør om en bruker får en \"vis alle (rader)\" knapp"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -11174,14 +11174,14 @@ msgstr "Gi alle rettigheter på jokertegnavn (username\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Gi alle privilegier for databasen &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Gi alle privilegier for databasen \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Brukere som har adgang til &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Brukere som har adgang til \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -13129,7 +13129,7 @@ msgid ""
 "escaping or quotes, using this format: a"
 msgstr ""
 "Sett inn en enkelt verdi for standard verdier uten skråstrek, anførselstegn "
-"eller annen &quot;escaping&quot; med dette formatet: a"
+"eller annen \"escaping\" med dette formatet: a"
 
 #: libraries/tbl_columns_definition_form.lib.php:310
 #, fuzzy
@@ -15884,10 +15884,10 @@ msgstr "maks. samtidige tilkoblinger"
 #~ msgstr "Bare data"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Foreslå et databasenavn i &quot;Opprett Database&quot; skjemaet (hvis "
+#~ "Foreslå et databasenavn i \"Opprett Database\" skjemaet (hvis "
 #~ "mulig) eller behold tekstfeltet tomt"
 
 #~ msgid "Suggest new database name"

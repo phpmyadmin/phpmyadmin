@@ -3871,8 +3871,8 @@ msgstr "Paramètre manquant : "
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Aller à la base de données &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Aller à la base de données \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4000,8 +4000,8 @@ msgstr "Répliqué"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Vérifier les privilèges pour la base de données &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Vérifier les privilèges pour la base de données \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4513,7 +4513,7 @@ msgid "Allow third party framing"
 msgstr "Permettre les cadres tierce partie"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
 "Montrer le lien pour détruire une base de données aux utilisateurs ordinaires"
 
@@ -4646,7 +4646,7 @@ msgstr "Fichier de configuration"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "Un message (Êtes-vous certain…) devrait-il s'afficher quand vous êtes sur le "
@@ -5532,7 +5532,7 @@ msgstr "Nombre maximum d'éléments dans la branche"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Nombre de colonnes affich&eacute;es lors de la navigation sur un ensemble de "
@@ -6371,7 +6371,7 @@ msgstr "Nom à afficher pour ce serveur"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Si on devrait montrer un bouton «Tout afficher»."
 
 #: libraries/config/messages.inc.php:711
@@ -10517,14 +10517,14 @@ msgstr "Donner les privilèges passepartout (utilisateur\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Donner tous les privilèges sur la base de données &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Donner tous les privilèges sur la base de données \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Utilisateurs ayant accès à &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Utilisateurs ayant accès à \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -11182,7 +11182,7 @@ msgid ""
 "indicates the number of time tables have been discovered."
 msgstr ""
 "Le serveur MySQL peut demander au moteur de données NDB Cluster s'il connaît "
-"une table portant un certain nom. Ceci est appelé &quot;découverte&quot;. Ce "
+"une table portant un certain nom. Ceci est appelé \"découverte\". Ce "
 "paramètre indique le nombre de fois que des tables ont été découvertes."
 
 #: libraries/server_status_variables.lib.php:389
@@ -15215,7 +15215,7 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ msgstr "Liste statique de chaînes."
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "…dans le dialogue de création de base, si possible, sinon laisser le "
