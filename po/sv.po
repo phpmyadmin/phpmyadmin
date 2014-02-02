@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-22 22:43+0200\n"
+"PO-Revision-Date: 2014-02-02 12:14+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/4-1/sv/>\n"
 "Language: sv\n"
@@ -4427,7 +4427,6 @@ msgid "Highlight pointer"
 msgstr "Markera pekaren"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4435,8 +4434,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations"
 msgstr ""
-"Aktivera [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] komprimering av "
-"import- och exportoperationer"
+"Aktivera [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] komprimering för "
+"importoperationer"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 11:15+0200\n"
+"PO-Revision-Date: 2014-02-02 13:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-1/bn/>\n"
 "Language: bn\n"
@@ -7044,7 +7044,7 @@ msgstr "তথ্যের হোম ডিরেক্টরী"
 
 #: libraries/engines/innodb.lib.php:29
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr "সব InnoDB data ফাইলের ডিরক্টরির সাধরন অংশ"
+msgstr "সব InnoDB data ফাইলের ডিরক্টরির সাধরন অংশ।"
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Data files"
@@ -7058,7 +7058,7 @@ msgstr "স্বয়ংক্রীয় বর্দ্ধনের মান"
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr "একটি স্বয়ংক্রীয় বর্দ্ধনের টেবলস্থান পূর্ণ হয়ে গেলে তার বাড়ার আকার"
+msgstr "একটি স্বয়ংক্রীয় বর্দ্ধনের টেবলস্থান পূর্ণ হয়ে গেলে তার বাড়ার আকার।"
 
 #: libraries/engines/innodb.lib.php:40
 msgid "Buffer pool size"
@@ -7169,8 +7169,8 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
-"সাময়িক ফাইলের অনুমোদিত সর্বোচ্চ আকার যা MySQL MyISAM ইনডেক্স পুনতৈরীর সময় ব্যবহার "
-"করবে  (REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE এ)"
+"সাময়িক ফাইলের অনুমোদিত সর্বোচ্চ আকার যা MySQL MyISAM ইনডেক্স পুনতৈরীর সময় "
+"ব্যবহার করবে  (REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE এ)।"
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
@@ -7194,8 +7194,8 @@ msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
-"এই মানটি যদি ১ এর চাইতে বড় হয়, MyISAM টেবলের ইনডেক্স সর্ট ব্যবস্থা মেরামতের সংগে "
-"সমান্তরালভাবে তৈর হবে। (প্রতিটি ইনডেক্স তার নিজস্ব থ্রেডে)"
+"এই মানটি যদি ১ এর চাইতে বড় হয়, MyISAM টেবলের ইনডেক্স সর্ট ব্যবস্থা মেরামতের "
+"সংগে সমান্তরালভাবে তৈর হবে। (প্রতিটি ইনডেক্স তার নিজস্ব থ্রেডে)।"
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
@@ -7394,7 +7394,7 @@ msgstr "স্বয়ংক্রীয়ভাবে সংস্করন তৈ�
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1642
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)"
+msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)।"
 
 #: libraries/import.lib.php:1197
 msgid ""
@@ -7968,7 +7968,7 @@ msgstr "ডাটাবেজ পুনঃনামকরন"
 #: libraries/operations.lib.php:107
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "%s ডাটাবেইজটি মুছা হয়েছে"
+msgstr "%s ডাটাবেইজটি মুছা হয়েছে।"
 
 #: libraries/operations.lib.php:119
 msgid "Remove database"
@@ -8670,14 +8670,14 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
-"অযোগ্য স্তম্ভের নাম (%s) দেয়া হয়েছে! স্তম্ভের নামটি সঠিক ভাবে বানান করা হয়েছে "
-"কিনা, কমা দ্বারা আলাদ করা এবং কোঔট দ্বারা সীমিত নয় তা নিশ্চিন্ত করুন"
+"অযোগ্য স্তম্ভের নাম (%s) দেয়া হয়েছে! স্তম্ভের নামটি সঠিক ভাবে বানান করা "
+"হয়েছে কিনা, কমা দ্বারা আলাদ করা এবং কোঔট দ্বারা সীমিত নয় তা নিশ্চিন্ত করুন।"
 
 #: libraries/plugins/import/ImportCsv.class.php:298
 #: libraries/plugins/import/ImportCsv.class.php:576
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr "CSV ফাইলের গঠন অযোগ্য %d লাইনে"
+msgstr "CSV ফাইলের গঠন অযোগ্য %d লাইনে।"
 
 #: libraries/plugins/import/ImportCsv.class.php:455
 #, php-format
@@ -8937,7 +8937,7 @@ msgstr "ব্রাউজারের রুপান্তর"
 #: libraries/relation.lib.php:175
 msgid ""
 "Please see the documentation on how to update your column_comments table."
-msgstr "কিভাবে column_comments টেবল আপডেট করতে হবে তার জন্য সহায়িকা দেখুন"
+msgstr "কিভাবে column_comments টেবল আপডেট করতে হবে তার জন্য সহায়িকা দেখুন।"
 
 #: libraries/relation.lib.php:185 libraries/sql_query_form.lib.php:404
 msgid "Bookmarked SQL query"
@@ -10084,7 +10084,7 @@ msgstr "ইনডেক্স তৈরী এবং মুছার অনু�
 #: libraries/server_privileges.lib.php:309
 #: libraries/server_privileges.lib.php:1072 server_privileges.php:60
 msgid "Allows altering the structure of existing tables."
-msgstr "তৈরীকৃত টেবিলের গঠন পরিবর্তনের অনুমোদন"
+msgstr "তৈরীকৃত টেবিলের গঠন পরিবর্তনের অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:314
 #: libraries/server_privileges.lib.php:1170 server_privileges.php:103
@@ -10104,7 +10104,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:328
 #: libraries/server_privileges.lib.php:1084 server_privileges.php:65
 msgid "Allows creating temporary tables."
-msgstr "অস্থায়ী টেবিল তৈরীর অনুমোদন"
+msgstr "অস্থায়ী টেবিল তৈরীর অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:333
 #: libraries/server_privileges.lib.php:1175 server_privileges.php:79
@@ -10147,17 +10147,17 @@ msgstr "SHOW CREATE VIEW কোয়ারীজ তৈরীর অনুমো�
 #: libraries/server_privileges.lib.php:380
 #: libraries/server_privileges.lib.php:1092 server_privileges.php:63
 msgid "Allows creating stored routines."
-msgstr "মজুদ করার জন্য রুটিন তৈরীর অনুমোদন"
+msgstr "মজুদ করার জন্য রুটিন তৈরীর অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:385
 #: libraries/server_privileges.lib.php:1096 server_privileges.php:61
 msgid "Allows altering and dropping stored routines."
-msgstr "মজুদকৃত রুটিনসমূহ পরিবর্তন এবং মুছার অনুমোদন"
+msgstr "মজুদকৃত রুটিনসমূহ পরিবর্তন এবং মুছার অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1192 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "ব্যবহারকারীর একাউন্ট তৈরী, মুছা এবং নাম পরিবর্তনের অনুমোদন"
+msgstr "ব্যবহারকারীর একাউন্ট তৈরী, মুছা এবং নাম পরিবর্তনের অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:395
 #: libraries/server_privileges.lib.php:1098 server_privileges.php:72
@@ -10239,11 +10239,11 @@ msgstr "ডাটাবেইজ নির্ধারিত অধিকার�
 
 #: libraries/server_privileges.lib.php:1067 server_privileges.php:64
 msgid "Allows creating new tables."
-msgstr "নতুন টেবল তৈরীর অনুমোদন"
+msgstr "নতুন টেবল তৈরীর অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:1079 server_privileges.php:70
 msgid "Allows dropping tables."
-msgstr "টেবিল মুছার অনুমোদন"
+msgstr "টেবিল মুছার অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:1141 server_privileges.php:75
 msgid ""
@@ -10278,7 +10278,7 @@ msgstr "%s এর পাসওর্য়াডটি সফলভাবে পর
 #: libraries/server_privileges.lib.php:1629
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "%s অধিকার সমূহ বাতিল করা হয়েছে"
+msgstr "%s অধিকার সমূহ বাতিল করা হয়েছে।"
 
 #: libraries/server_privileges.lib.php:1687
 msgid "Database for user"
@@ -10286,11 +10286,11 @@ msgstr "ব্যবহারকারীর ডাটাবেইজ"
 
 #: libraries/server_privileges.lib.php:1691
 msgid "Create database with same name and grant all privileges."
-msgstr "একই নামে ডাটাবেইজ তৈরী কর এবং সব অধীকার দাও"
+msgstr "একই নামে ডাটাবেইজ তৈরী কর এবং সব অধীকার দাও।"
 
 #: libraries/server_privileges.lib.php:1697
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "সমস্ত অধিকার সব ব্যবহারকারীকে দাও (username\\_%)"
+msgstr "সমস্ত অধিকার সব ব্যবহারকারীকে দাও (username\\_%)।"
 
 #: libraries/server_privileges.lib.php:1706
 #, php-format
@@ -10374,11 +10374,11 @@ msgstr "সার্ভার সম্পাদনা"
 
 #: libraries/server_privileges.lib.php:2423
 msgid "… keep the old one."
-msgstr "… পুরাতনটি রাখ"
+msgstr "… পুরাতনটি রাখ।"
 
 #: libraries/server_privileges.lib.php:2424
 msgid "… delete the old one from the user tables."
-msgstr "… ব্যবহারকারী টেবল থেকে পুরাতনটি মুছে ফেল"
+msgstr "… ব্যবহারকারী টেবল থেকে পুরাতনটি মুছে ফেল।"
 
 #: libraries/server_privileges.lib.php:2426
 msgid ""
@@ -10425,7 +10425,7 @@ msgstr "নির্বাচিত ব্যবহারকারীদের �
 
 #: libraries/server_privileges.lib.php:3080
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "এই ব্যবহারকারীদের অধিকার বাতিল কর এবং মুছে ফেল"
+msgstr "এই ব্যবহারকারীদের অধিকার বাতিল কর এবং মুছে ফেল।"
 
 #: libraries/server_privileges.lib.php:3088
 #: libraries/server_privileges.lib.php:3094
@@ -10603,7 +10603,7 @@ msgid ""
 msgstr ""
 "সঠিক সমন্বয়টি পাওয়ার সবচেয়ে ভাল উপায় হলো একবারে একটি সেটিং পরিবর্তন করে দেখা "
 "বা ডাটাবেইজের বেঞ্চমার্ক করা, যদি লক্ষনীয় কোন পরিবর্তন দেখা না যায় তাহলে তা "
-"বাতিল করে পূর্বাবস্থায় রাখা"
+"বাতিল করে পূর্বাবস্থায় রাখা।"
 
 #: libraries/server_status_monitor.lib.php:77
 #, php-format
@@ -10879,7 +10879,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:341
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "লেনদেনে সাময়িক বাইনারি লগ ক্যাশ ব্যবহার করেছে তার সংখ্যা"
+msgstr "লেনদেনে সাময়িক বাইনারি লগ ক্যাশ ব্যবহার করেছে তার সংখ্যা।"
 
 #: libraries/server_status_variables.lib.php:344
 msgid ""
@@ -10912,8 +10912,8 @@ msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
-"INSERT DELAYED এর মাধ্যমে লেখা রো গুলোর জন্য কিছু ভুল হয়ে থাকতে পারে (probably "
-"duplicate key)"
+"INSERT DELAYED এর মাধ্যমে লেখা রো গুলোর জন্য কিছু ভুল হয়ে থাকতে পারে "
+"(probably duplicate key)।"
 
 #: libraries/server_status_variables.lib.php:366
 msgid ""
@@ -11370,8 +11370,8 @@ msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
-"ক্যাশ করা হয়নি এমন অনুসন্ধানের সংখ্যা (ক্যাশ যোগ্য নয় বা query_cache_type setting "
-"এর জন্য)"
+"ক্যাশ করা হয়নি এমন অনুসন্ধানের সংখ্যা (ক্যাশ যোগ্য নয় বা query_cache_type "
+"setting এর জন্য)।"
 
 #: libraries/server_status_variables.lib.php:672
 msgid "The number of queries registered in the cache."
@@ -11750,8 +11750,8 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
-"আপনার SQL অনুসন্ধানে কোন ভুল আছে মনে হয়। নীচে সার্ভারের ভুল প্রতিবেদনটি দেওয়া হল, "
-"যদি কিছু থাকে তা আপনাকে সমস্যাটি নির্ণয়ে সাহায্য করবে"
+"আপনার SQL অনুসন্ধানে কোন ভুল আছে মনে হয়। নীচে সার্ভারের ভুল প্রতিবেদনটি "
+"দেওয়া হল, যদি কিছু থাকে তা আপনাকে সমস্যাটি নির্ণয়ে সাহায্য করবে।"
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
@@ -11821,11 +11821,11 @@ msgstr "টেবিল %s খালি করা হয়েছে"
 
 #: libraries/structure.lib.php:91
 msgid "Tracking is active."
-msgstr "অনুসরণ কার্যকর রয়েছে"
+msgstr "অনুসরণ কার্যকর রয়েছে।"
 
 #: libraries/structure.lib.php:98
 msgid "Tracking is not active."
-msgstr "অনুসরণ অকার্যকর রয়েছে"
+msgstr "অনুসরণ অকার্যকর রয়েছে।"
 
 #: libraries/structure.lib.php:129 tbl_operations.php:358
 #: view_operations.php:119
@@ -11893,7 +11893,7 @@ msgstr "স্বম্ভ সরাও"
 
 #: libraries/structure.lib.php:1438
 msgid "Move the columns by dragging them up and down."
-msgstr "উপর নীচে টান দিয়ে স্তম্ভটি সরান"
+msgstr "উপর নীচে টান দিয়ে স্তম্ভটি সরান।"
 
 #: libraries/structure.lib.php:1487 view_create.php:178
 msgid "Edit view"
