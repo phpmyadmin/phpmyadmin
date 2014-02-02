@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2014-01-06 12:02+0200\n"
+"PO-Revision-Date: 2014-02-02 09:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
-">\n"
+"Language-Team: Japanese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10818,60 +10818,60 @@ msgstr "特権はありません。"
 
 #: libraries/server_privileges.lib.php:176 server_privileges.php:59
 msgid "Includes all privileges except GRANT."
-msgstr "GRANT 以外のすべての特権を付与する"
+msgstr "GRANT 以外のすべての特権を付与する。"
 
 #: libraries/server_privileges.lib.php:249
 #: libraries/server_privileges.lib.php:861
 #: libraries/server_privileges.lib.php:1042 server_privileges.php:102
 msgid "Allows reading data."
-msgstr "データの読み込みを許可する"
+msgstr "データの読み込みを許可する。"
 
 #: libraries/server_privileges.lib.php:254
 #: libraries/server_privileges.lib.php:866
 #: libraries/server_privileges.lib.php:1043 server_privileges.php:78
 msgid "Allows inserting and replacing data."
-msgstr "データの挿入、置換を許可する"
+msgstr "データの挿入、置換を許可する。"
 
 #: libraries/server_privileges.lib.php:259
 #: libraries/server_privileges.lib.php:871
 #: libraries/server_privileges.lib.php:1044 server_privileges.php:112
 msgid "Allows changing data."
-msgstr "データの修正を許可する"
+msgstr "データの修正を許可する。"
 
 #: libraries/server_privileges.lib.php:264
 #: libraries/server_privileges.lib.php:1045 server_privileges.php:68
 msgid "Allows deleting data."
-msgstr "データの削除を許可する"
+msgstr "データの削除を許可する。"
 
 #: libraries/server_privileges.lib.php:269
 #: libraries/server_privileges.lib.php:1071 server_privileges.php:62
 msgid "Allows creating new databases and tables."
-msgstr "新しいデータベースやテーブルの作成を許可する"
+msgstr "新しいデータベースやテーブルの作成を許可する。"
 
 #: libraries/server_privileges.lib.php:274
 #: libraries/server_privileges.lib.php:1083 server_privileges.php:69
 msgid "Allows dropping databases and tables."
-msgstr "データベースとテーブルの削除を許可する"
+msgstr "データベースとテーブルの削除を許可する。"
 
 #: libraries/server_privileges.lib.php:279
 #: libraries/server_privileges.lib.php:1167 server_privileges.php:96
 msgid "Allows reloading server settings and flushing the server's caches."
-msgstr "サーバ設定の再読み込み、サーバキャッシュのフラッシュを許可する"
+msgstr "サーバ設定の再読み込み、サーバキャッシュのフラッシュを許可する。"
 
 #: libraries/server_privileges.lib.php:284
 #: libraries/server_privileges.lib.php:1171 server_privileges.php:105
 msgid "Allows shutting down the server."
-msgstr "サーバのシャットダウンを許可する"
+msgstr "サーバのシャットダウンを許可する。"
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:93
 msgid "Allows viewing processes of all users"
-msgstr "全ユーザのプロセスを閲覧できるようにする"
+msgstr "全ユーザのプロセスを閲覧できるようにする。"
 
 #: libraries/server_privileges.lib.php:294
 #: libraries/server_privileges.lib.php:1051 server_privileges.php:73
 msgid "Allows importing data from and exporting data into files."
-msgstr "データのインポート、エクスポートを許可する"
+msgstr "データのインポート、エクスポートを許可する。"
 
 #: libraries/server_privileges.lib.php:299
 #: libraries/server_privileges.lib.php:876
@@ -10882,17 +10882,17 @@ msgstr "このバージョンの MySQL では無効です。"
 #: libraries/server_privileges.lib.php:304
 #: libraries/server_privileges.lib.php:1079 server_privileges.php:77
 msgid "Allows creating and dropping indexes."
-msgstr "インデックスの作成、削除を許可する"
+msgstr "インデックスの作成、削除を許可する。"
 
 #: libraries/server_privileges.lib.php:309
 #: libraries/server_privileges.lib.php:1077 server_privileges.php:60
 msgid "Allows altering the structure of existing tables."
-msgstr "既存のテーブル構造の変更を許可する"
+msgstr "既存のテーブル構造の変更を許可する。"
 
 #: libraries/server_privileges.lib.php:314
 #: libraries/server_privileges.lib.php:1175 server_privileges.php:103
 msgid "Gives access to the complete list of databases."
-msgstr "データベース総一覧へのアクセスを許可する"
+msgstr "データベース総一覧へのアクセスを許可する。"
 
 #: libraries/server_privileges.lib.php:320
 #: libraries/server_privileges.lib.php:1155 server_privileges.php:107
