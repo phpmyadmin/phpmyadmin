@@ -547,7 +547,7 @@ class PMA_Validator
                 false,
                 false,
                 PHP_INT_MAX,
-                __('Not a positive number')
+                __('Not a positive number!')
             )
         );
     }
@@ -569,7 +569,7 @@ class PMA_Validator
                 false,
                 true,
                 PHP_INT_MAX,
-                __('Not a non-negative number')
+                __('Not a non-negative number!')
             )
         );
     }
@@ -587,7 +587,7 @@ class PMA_Validator
     public static function validateByRegex($path, $values, $regex)
     {
         $result = preg_match($regex, $values[$path]);
-        return array($path => ($result ? '' : __('Incorrect value')));
+        return array($path => ($result ? '' : __('Incorrect value!')));
     }
 
     /**
@@ -603,7 +603,7 @@ class PMA_Validator
     {
         $result = $values[$path] <= $max_value;
         return array($path => ($result ? ''
-            : sprintf(__('Value must be equal or lower than %s'), $max_value)));
+            : sprintf(__('Value must be equal or lower than %s!'), $max_value)));
     }
 }
 ?>

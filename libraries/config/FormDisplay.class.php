@@ -605,7 +605,7 @@ class FormDisplay
                         $form->getOptionValueList($system_path)
                     );
                     if (! $successfully_validated) {
-                        $this->_errors[$work_path][] = __('Incorrect value');
+                        $this->_errors[$work_path][] = __('Incorrect value!');
                         $result = false;
                         continue;
                     }
