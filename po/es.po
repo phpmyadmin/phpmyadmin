@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 11:45+0100\n"
-"PO-Revision-Date: 2014-01-31 18:06+0200\n"
+"PO-Revision-Date: 2014-02-02 17:40+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -218,16 +218,16 @@ msgid "The database name is empty!"
 msgstr "¡El nombre de la base de datos está vacío!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "La base de datos %1$s ha sido renombrada a %2$s"
+msgstr "Se renombró la base de datos %1$s a %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "La base de datos %1$s ha sido copiada a %2$s"
+msgstr "Se copió la base de datos %1$s a %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -295,10 +295,9 @@ msgstr[0] "%s tabla"
 msgstr[1] "%s tablas"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Debe elegir al menos una columna para mostrar"
+msgstr "¡Debe elegir al menos una columna para mostrar!"
 
 #: db_qbe.php:70
 #, php-format
@@ -586,7 +585,6 @@ msgid "Output"
 msgstr "Salida"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -594,8 +592,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena "
-"ubicada debajo en el campo \"Valor\""
+"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena ubicada "
+"debajo en el campo \"Valor\"."
 
 #: import.php:116
 #, php-format
@@ -641,15 +639,14 @@ msgstr ""
 "Ver [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
-"No se pudo convertir el conjunto de caracteres del archivo sin la biblioteca "
-"correspondiente"
+"¡No se pudo convertir el conjunto de caracteres del archivo sin la "
+"biblioteca correspondiente!"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -657,10 +654,10 @@ msgstr ""
 "No se pudieron cargar los plugins de importación. ¡Revise su instalación!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "El favorito %s fue creado"
+msgstr "Se creó el favorito %s."
 
 #: import.php:563 import.php:576
 #, php-format
@@ -1819,16 +1816,15 @@ msgid "Add an option for column \"%s\"."
 msgstr "Añadir una opción para la columna "
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d objeto(s) creado(s)"
+msgstr "%d objeto(s) creado(s)."
 
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Presion la tecla de escape para cancelar la edición"
+msgstr "Presione la tecla de escape para cancelar la edición."
 
 #: js/messages.php:334
 msgid ""
@@ -1839,36 +1835,31 @@ msgstr ""
 "página sin guardar los datos?"
 
 #: js/messages.php:335
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Arrastrar para reordenar"
+msgstr "Arrastrar para reordenar."
 
 #: js/messages.php:336
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Pulsar para ordenar"
+msgstr "Pulsar para ordenar."
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Pulsar para marcar/desmarcar"
+msgstr "Pulsar para marcar/desmarcar."
 
 #: js/messages.php:338
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Haga doble click para copiar el nombre de la columna"
+msgstr "Haga doble click para copiar el nombre de la columna."
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Pulsa la flecha de la lista desplegable <br />para conmutar la visibilidad "
-"de la columna"
+"de la columna."
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
@@ -1899,16 +1890,14 @@ msgstr ""
 "contenido."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "Ir al enlace"
+msgstr "Ir al enlace."
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "Copie el nombre de la columna"
+msgstr "Copie el nombre de la columna."
 
 #: js/messages.php:358
 msgid "Right-click the column name to copy it to your clipboard."
@@ -1917,10 +1906,9 @@ msgstr ""
 "portapapeles."
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Mastrar fila(s) de datos"
+msgstr "Mastrar fila(s) de datos."
 
 #: js/messages.php:362
 msgid "Generate password"
@@ -1947,10 +1935,9 @@ msgid "Hide Panel"
 msgstr "Esconder panel"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
-msgstr "Mostrar los elementos escondidos del árbol de navegación"
+msgstr "Mostrar los elementos escondidos del árbol de navegación."
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
@@ -2004,7 +1991,6 @@ msgid "Show Report Details"
 msgstr "Mostrar detalles del reporte"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid ""
 #| "Your export is incomplete, due to a low execution time limit at the PHP "
 #| "level"
@@ -2012,8 +1998,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
-"La exportación está incompleta debido a un límite en el tiempo de ejecución "
-"demasiado bajo a nivel de PHP"
+"¡La exportación está incompleta debido a un límite en el tiempo de ejecución "
+"demasiado bajo a nivel de PHP!"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:416
@@ -3137,20 +3123,18 @@ msgid "Error while creating PDF:"
 msgstr "Error al crear PDF:"
 
 #: libraries/RecentTable.class.php:122
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "No se pudo guardar la tabla reciente"
+msgstr "¡No se pudo guardar la tabla reciente!"
 
 #: libraries/RecentTable.class.php:161
 msgid "Recent tables"
 msgstr "Tablas recientes"
 
 #: libraries/RecentTable.class.php:173
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "No existen tablas recientes"
+msgstr "No existen tablas recientes."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3315,10 +3299,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "La tabla %1$s ahora se llama %2$s."
 
 #: libraries/Table.class.php:1477
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "No se pudieron guardar las preferencias de interfaz"
+msgstr "¡No se pudieron guardar las preferencias de interfaz!"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -3959,10 +3942,9 @@ msgstr ""
 "No se puede acceder al directorio que seleccionó para subir los archivos."
 
 #: libraries/Util.class.php:3384
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "No hay archivos para subir"
+msgstr "¡No hay archivos para subir!"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
 #: libraries/structure.lib.php:305
@@ -4068,10 +4050,9 @@ msgid "Check Privileges"
 msgstr "Comprobar los privilegios"
 
 #: libraries/common.inc.php:581
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "No se pudo leer el archivo de configuración"
+msgstr "¡No se pudo leer el archivo de configuración!"
 
 #: libraries/common.inc.php:583
 msgid ""
@@ -4262,39 +4243,35 @@ msgstr "ninguno de los anteriores"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "No es un número positivo"
+msgstr "¡No es un número positivo!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "No es un número no-negativo"
+msgstr "¡No es un número no-negativo!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "No es un número de puerto válido"
+msgstr "¡No es un número de puerto válido!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Valor incorrecto"
+msgstr "¡Valor incorrecto!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "El valor debe ser igual o menor que %s"
+msgstr "¡El valor debe ser igual o menor que %s!"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
@@ -4521,10 +4498,9 @@ msgstr ""
 "este sistema."
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "No se pudo inicializar la biblioteca de conexión Drizzle"
+msgstr "¡No se pudo inicializar la biblioteca de conexión Drizzle!"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
@@ -4552,17 +4528,18 @@ msgstr ""
 "autenticación signon!"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "El usuario control phpMyAdmin está vacío mientras usó phpMyAdmin configuration storage"
+msgstr ""
+"¡El usuario control phpMyAdmin está vacío mientras usó phpMyAdmin "
+"configuration storage!"
 
 #: libraries/config/Validator.class.php:374
-#, fuzzy
 #| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
 msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
-"La contraseña para usuario control phpMyAdmin está vacía mientras usó phpMyAdmin configuration storage"
+"¡La contraseña para usuario control phpMyAdmin está vacía mientras usó "
+"phpMyAdmin configuration storage!"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -7719,26 +7696,23 @@ msgid ""
 msgstr "Las siguientes estructureas fueron creadas o alteradas. Puedes:"
 
 #: libraries/import.lib.php:1228
-#, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
-msgstr "Puede ver los contenidos de una estructura pulsando en su nombre"
+msgstr "Puede ver los contenidos de una estructura pulsando en su nombre."
 
 #: libraries/import.lib.php:1229
-#, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Cambie cualquiera de sus opciones pulsando el enlace \"Opciones\" "
-"correspondiente"
+"correspondiente."
 
 #: libraries/import.lib.php:1230
-#, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Edite la estructura siguiendo el enlace \"Estructura\""
+msgstr "Edite la estructura siguiendo el enlace \"Estructura\"."
 
 #: libraries/import.lib.php:1236
 #, php-format
@@ -7782,10 +7756,9 @@ msgid "Binary"
 msgstr "Binario"
 
 #: libraries/insert_edit.lib.php:658
-#, fuzzy
 #| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "Debido a su longitud,<br /> esta columna podría no ser editable"
+msgstr "Debido a su longitud,<br /> esta columna podría no ser editable."
 
 #: libraries/insert_edit.lib.php:1103
 msgid "Binary - do not edit"
@@ -9033,7 +9006,6 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Hubo un error importando el archivo de forma ESRI: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:204
-#, fuzzy
 #| msgid ""
 #| "You tried to import an invalid file or the imported file contains invalid "
 #| "data"
@@ -9041,8 +9013,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
-"Intentó importar un archivo no válido o el archivo importado contiene datos "
-"inválidos"
+"¡Intentó importar un archivo no válido o el archivo importado contiene datos "
+"inválidos!"
 
 #: libraries/plugins/import/ImportShp.class.php:210
 #, php-format
@@ -9050,10 +9022,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "La extensión espacial MySQL no soporta el tipo ESRI \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-#, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "El archivo importado no contiene datos"
+msgstr "¡El archivo importado no contiene datos!"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
@@ -9662,10 +9633,9 @@ msgstr ""
 "privilegios en el maestro."
 
 #: libraries/replication_gui.lib.php:997
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "No se pudo cambiar maestro"
+msgstr "¡No se pudo cambiar maestro!"
 
 #: libraries/replication_gui.lib.php:1001
 #, fuzzy, php-format
@@ -9768,16 +9738,14 @@ msgstr "Definidor"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "El definidor tiene que ser en el formato \"usuario@sistema\""
+msgstr "¡El definidor tiene que ser en el formato \"usuario@sistema\"!"
 
 #: libraries/rte/rte_events.lib.php:580
-#, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "Debe proveer un nombre de evento"
+msgstr "¡Debe proveer un nombre de evento!"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
@@ -9901,10 +9869,9 @@ msgid "SQL data access"
 msgstr "Acceso de datos SQL"
 
 #: libraries/rte/rte_routines.lib.php:1139
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "Debe proveer un nombre de rutina"
+msgstr "¡Debe proveer un nombre de rutina!"
 
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
@@ -9983,28 +9950,24 @@ msgid "Time"
 msgstr "Tiempo"
 
 #: libraries/rte/rte_triggers.lib.php:458
-#, fuzzy
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "Debe proveer un nombre de disparador"
+msgstr "¡Debe proveer un nombre de disparador!"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Debe proveer una sincronización válida para el disparador"
+msgstr "¡Debe proveer una sincronización válida para el disparador!"
 
 #: libraries/rte/rte_triggers.lib.php:472
-#, fuzzy
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Debe proveer un evento válido para el disparador"
+msgstr "¡Debe proveer un evento válido para el disparador!"
 
 #: libraries/rte/rte_triggers.lib.php:480
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "Debe proveer un nombre de tabla válido"
+msgstr "¡Debe proveer un nombre de tabla válido!"
 
 #: libraries/rte/rte_triggers.lib.php:486
 msgid "You must provide a trigger definition."
@@ -10400,10 +10363,9 @@ msgstr "Permite desconectar el servidor."
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:93
-#, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Permite ver los procesos de todos los usuarios"
+msgstr "Permite ver los procesos de todos los usuarios."
 
 #: libraries/server_privileges.lib.php:294
 #: libraries/server_privileges.lib.php:1051 server_privileges.php:73
@@ -10473,17 +10435,15 @@ msgstr "Permite crear nuevas vistas."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-#, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Permite organizar los eventos para el gestor de eventos"
+msgstr "Permite organizar los eventos para el gestor de eventos."
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Permite crear y eliminar un disparador"
+msgstr "Permite crear y eliminar un disparador."
 
 #: libraries/server_privileges.lib.php:369
 #: libraries/server_privileges.lib.php:375
@@ -10571,11 +10531,10 @@ msgstr "Privilegios específicos para la tabla"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr ""
-"Nota: Los nombres de los privilegios de MySQL están expresados en inglés"
+"Nota: Los nombres de los privilegios de MySQL están expresados en inglés."
 
 #: libraries/server_privileges.lib.php:977
 msgid "Administration"
@@ -12089,10 +12048,9 @@ msgid "Let every user access this bookmark"
 msgstr "Permitir que todo usuario pueda acceder a este favorito"
 
 #: libraries/sql.lib.php:1024
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "No se creó el favorito"
+msgstr "¡No se creó el favorito!"
 
 #: libraries/sql.lib.php:1180
 #, php-format
@@ -12588,7 +12546,7 @@ msgstr "después de %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1043
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Editar valores ENUM/SET"
 
 # Corresponds to NONE option for default value of a TIMESTAMP field
 #: libraries/tbl_columns_definition_form.lib.php:1068
@@ -13028,22 +12986,19 @@ msgid "Page:"
 msgstr "Página:"
 
 #: pmd_pdf.php:128
-#, fuzzy
 #| msgid "Import from selected page"
 msgid "Import from selected page."
-msgstr "Importar de la página seleccionada"
+msgstr "Importar de la página seleccionada."
 
 #: pmd_pdf.php:129
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Export to selected page."
-msgstr "Exportar a la página seleccionada"
+msgstr "Exportar a la página seleccionada."
 
 #: pmd_pdf.php:131
-#, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and export to it."
-msgstr "Crear una página y exportar a ella"
+msgstr "Crear una página y exportar a ella."
 
 #: pmd_pdf.php:143
 msgid "New page name: "
@@ -13086,11 +13041,11 @@ msgid "Error saving coordinates for Designer."
 msgstr "Error guardando las coordenadas para el Diseñador."
 
 #: prefs_forms.php:86
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
-"No se pudo guardar la configuración, el formulario enviado contiene errores"
+"No se pudo guardar la configuración, ¡el formulario enviado contiene "
+"errores!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -13205,13 +13160,12 @@ msgstr ""
 "cerrado."
 
 #: setup/frames/form.inc.php:25
-#, fuzzy
 #| msgid ""
 #| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
-"Conjunto de formularios inválidos, revise el array $formests en el archivo "
-"setup/frames/form.inc.php"
+"Conjunto de formularios inválidos, ¡revise el array $formests en el archivo "
+"setup/frames/form.inc.php!"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
