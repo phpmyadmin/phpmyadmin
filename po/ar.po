@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-31 20:13+0200\n"
-"Last-Translator: ahmed saad <egbrave@hotmail.com>\n"
+"PO-Revision-Date: 2014-02-02 11:01+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/4-1/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -1579,7 +1579,7 @@ msgstr ""
 #: js/messages.php:235 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:462
 msgid "No databases selected."
-msgstr ".لا قواعد بيانات محددة"
+msgstr "لا قواعد بيانات محددة."
 
 #: js/messages.php:236
 msgid "Dropping Column"
@@ -1693,7 +1693,7 @@ msgstr "﻿إضافة قيمة/قيم %d"
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
-"ملاحظة: إذا كان الملف يحتوي على جداول متعددة , سيتم تجميعها فى جدول واحد"
+"ملاحظة: إذا كان الملف يحتوي على جداول متعددة , سيتم تجميعها فى جدول واحد."
 
 #: js/messages.php:281
 msgid "Hide query box"
@@ -2333,12 +2333,12 @@ msgstr ""
 #: libraries/Advisor.class.php:417
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr "إعلان قاعدة غير صحيح على السطر %s"
+msgstr "إعلان قاعدة غير صحيح على السطر %s."
 
 #: libraries/Advisor.class.php:425
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr "أحرف غير متوقعة على السطر %s"
+msgstr "أحرف غير متوقعة على السطر %s."
 
 #: libraries/Advisor.class.php:439
 #, fuzzy, php-format
