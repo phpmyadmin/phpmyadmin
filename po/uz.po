@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 10:23+0100\n"
-"PO-Revision-Date: 2014-01-29 13:16+0200\n"
+"PO-Revision-Date: 2014-02-02 10:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
 "Language: uz\n"
@@ -11444,45 +11444,45 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1109
 #: libraries/server_privileges.lib.php:1116 server_privileges.php:67
 msgid "Allows creating new views."
-msgstr "Янги намойишлар тузиш(CREATE VIEW)га рухсат беради"
+msgstr "Янги намойишлар тузиш(CREATE VIEW)га рухсат беради."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
 msgid "Allows to set up events for the event scheduler"
-msgstr "Кечиктирилган ҳодисаларни созлашга рухсат беради"
+msgstr "Кечиктирилган ҳодисаларни созлашга рухсат беради."
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
 msgid "Allows creating and dropping triggers"
 msgstr ""
 "Триггерлар (маълум шартлар бажарилганда автоматик ишга тушадиган жараёнлар) "
-"тузиш ва уларни ўчиришга рухсат беради"
+"тузиш ва уларни ўчиришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:369
 #: libraries/server_privileges.lib.php:375
 #: libraries/server_privileges.lib.php:1093 server_privileges.php:104
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Намойиш тузадиган сўров(SHOW CREATE VIEW)ни бажаришга рухсат беради"
+msgstr "Намойиш тузадиган сўров(SHOW CREATE VIEW)ни бажаришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:380
 #: libraries/server_privileges.lib.php:1097 server_privileges.php:63
 msgid "Allows creating stored routines."
-msgstr "Сақланадиган муолажалар тузишга рухсат беради"
+msgstr "Сақланадиган муолажалар тузишга рухсат беради."
 
 #: libraries/server_privileges.lib.php:385
 #: libraries/server_privileges.lib.php:1101 server_privileges.php:61
 msgid "Allows altering and dropping stored routines."
-msgstr "Сақланадиган муолажаларни ўзгартириш ва ўчиришга рухсат беради"
+msgstr "Сақланадиган муолажаларни ўзгартириш ва ўчиришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1197 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "Фойдаланувчилар ҳисобини қўшиш, ўчириш ва ўзгартиришга рухсат беради"
+msgstr "Фойдаланувчилар ҳисобини қўшиш, ўчириш ва ўзгартиришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:395
 #: libraries/server_privileges.lib.php:1103 server_privileges.php:72
 msgid "Allows executing stored routines."
-msgstr "Сақланадиган муолажаларни бажаришга рухсат беради"
+msgstr "Сақланадиган муолажаларни бажаришга рухсат беради."
 
 #: libraries/server_privileges.lib.php:443
 #: libraries/server_privileges.lib.php:444
