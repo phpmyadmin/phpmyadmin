@@ -259,7 +259,12 @@ class AuthenticationCookie extends AuthenticationPlugin
             && !$skip
         ) {
             // If enabled show captcha to the user on the login screen.
-            echo '<script type="text/javascript"
+            echo '<script type="text/javascript">
+                    var RecaptchaOptions = {
+                        theme : "white"
+                    };
+                 </script>
+                 <script type="text/javascript"
                     src="https://www.google.com/recaptcha/api/challenge?'
                     . 'k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '&'
                     . 'hl=' . $GLOBALS['lang'] . '">
