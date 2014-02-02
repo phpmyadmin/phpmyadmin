@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 10:23+0100\n"
-"PO-Revision-Date: 2014-02-01 10:49+0200\n"
+"PO-Revision-Date: 2014-02-02 10:30+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -10090,10 +10090,9 @@ msgstr "Umožňuje vypnout server."
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:93
-#, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Umožňuje prohlížet procesy všech uživatelů"
+msgstr "Umožňuje prohlížet procesy všech uživatelů."
 
 #: libraries/server_privileges.lib.php:294
 #: libraries/server_privileges.lib.php:1051 server_privileges.php:73
