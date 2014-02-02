@@ -3847,8 +3847,8 @@ msgstr "Saknade parametrar:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Hoppa till databas &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Hoppa till databas \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3974,8 +3974,8 @@ msgstr "Replikerad"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Kontrollera privilegier för databas &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Kontrollera privilegier för databas \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4491,8 +4491,8 @@ msgid "Allow third party framing"
 msgstr "Tillåt tredjeparts infogning"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Visa &quot;Ta bort databas&quot;-länk för normala användare"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Visa \"Ta bort databas\"-länk för normala användare"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -4623,10 +4623,10 @@ msgstr "Konfigurationsfil"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Anger om en varning (&quot;Är du riktigt säker…&quot;) ska visas när du "
+"Anger om en varning (\"Är du riktigt säker…\") ska visas när du "
 "håller på att förlora data."
 
 #: libraries/config/messages.inc.php:79
@@ -5507,11 +5507,11 @@ msgstr "Maximalt antal poster i gren"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Antal rader som visas vid visning av resultat. Om resultatet innehåller fler "
-"rader, visas länkar för &quot;Föregående&quot; och &quot;Nästa&quot;."
+"rader, visas länkar för \"Föregående\" och \"Nästa\"."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6364,8 +6364,8 @@ msgstr "Beskrivande namn för denna server"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "Ifall en användare ska få se en &quot;visa alla (rader)&quot;-knapp."
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "Ifall en användare ska få se en \"visa alla (rader)\"-knapp."
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10485,14 +10485,14 @@ msgstr "Bevilja alla privilegier till namn med jokertecken (username\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Bevilja alla privilegier för databas &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Bevilja alla privilegier för databas \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Användare som har tillgång till &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Användare som har tillgång till \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15041,10 +15041,10 @@ msgstr "concurrent_insert är satt till 0"
 #~ msgstr "Enbart data"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Föreslå ett daabasnamn i &quot;Skapa databas&quot;-formuläret (om "
+#~ "Föreslå ett daabasnamn i \"Skapa databas\"-formuläret (om "
 #~ "möjligt) eller behåll textfältet tomt"
 
 #~ msgid "Suggest new database name"

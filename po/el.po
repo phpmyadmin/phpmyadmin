@@ -3866,7 +3866,7 @@ msgstr "Απολεσθείσα παράμετρος:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
 msgstr "Μεταπήδηση στην βάση «%s»."
 
 #: libraries/Util.class.php:2624
@@ -3995,7 +3995,7 @@ msgstr "Αναπαραγμένο"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "Έλεγχος δικαιωμάτων για τη βάση «%s»."
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4520,7 +4520,7 @@ msgid "Allow third party framing"
 msgstr "Επιτρέπονται frames τρίτων"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr "Προβολή συνδέσμου «Διαγραφής βάσης δεδομένων» σε κανονικούς χρήστες"
 
 #: libraries/config/messages.inc.php:29
@@ -4652,7 +4652,7 @@ msgstr "Αρχείο ρυθμίσεων"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "Όταν μια προειδοποίηση («Είστε σίγουρος/η…») πρέπει να προβάλετε αν "
@@ -5542,7 +5542,7 @@ msgstr "Μέγιστος αριθμός αντικειμένων στον κλά
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Αριθμός γραμμών που θα προβάλονται όταν γίνεται περιήγηση σε κάποιο "
@@ -6388,7 +6388,7 @@ msgstr "Φιλοχρηστικό όνομα διακομιστή"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «εμφάνιση όλων (των εγγραφών)»."
 
@@ -10533,13 +10533,13 @@ msgstr "Πλήρη δικαιώματα σε όνομα μπαλαντέρ (user
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr "Πλήρη δικαιώματα στη βάση δεδομένων «%s»."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "Χρήστες με πρόσβαση στη βάση «%s»"
 
 #: libraries/server_privileges.lib.php:1818
@@ -15256,7 +15256,7 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Μόνο τα δεδομένα"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "Προτείνεται ένα όνομα βάσης δεδομένων στη φόρμα «Δημιουργία Βάσης "

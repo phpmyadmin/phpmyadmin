@@ -3929,7 +3929,7 @@ msgstr "パラメータがありません："
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
 msgstr "データベース「%s」に移動します。"
 
 #: libraries/Util.class.php:2624
@@ -4056,7 +4056,7 @@ msgstr "レプリケーションしている"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "データベース「%s」の特権を確認します。"
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4587,7 +4587,7 @@ msgid "Allow third party framing"
 msgstr "サードパーティフレームの許可"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr "一般ユーザに「データベースを削除する」リンクを表示する"
 
 #: libraries/config/messages.inc.php:29
@@ -4752,10 +4752,10 @@ msgstr "設定ファイル"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "データを失う作業をしようとしたとき、「本当に実行しますか?…」という警告を出す"
@@ -5767,7 +5767,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "結果セットの表示行数。結果セットの行数の方が多い場合は「前へ／次へ」のリンク"
@@ -6811,9 +6811,9 @@ msgstr "このサーバの詳細な名前"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "「(行を) すべて表示」ボタンを表示するかどうか。"
 
 #: libraries/config/messages.inc.php:711
@@ -11111,14 +11111,14 @@ msgstr "ワイルドカード(ユーザ名_%)に該当するデータベース�
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "データベース &quot;%s&quot への全ての特権を与える"
+msgid "Grant all privileges on database \"%s\"."
+msgstr "データベース \"%s&quot への全ての特権を与える"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "&quot;%s&quot; にアクセスできるユーザ"
+msgid "Users having access to \"%s\""
+msgstr "\"%s\" にアクセスできるユーザ"
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15836,7 +15836,7 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgstr "データのみ"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "「データベースの作成」フォームで (可能であれば) データベース名を提案しま"
@@ -16603,7 +16603,7 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgstr "Internet Explorer ではこの機能は利用できません"
 
 #~ msgid ""
-#~ "The &quot;deleted&quot; users will still be able to access the server as "
+#~ "The \"deleted\" users will still be able to access the server as "
 #~ "usual until the privileges are reloaded."
 #~ msgstr ""
 #~ "特権がリロードされるまでは「削除」されたユーザもふつうにサーバにアクセスで"

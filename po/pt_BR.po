@@ -3874,7 +3874,7 @@ msgstr "Parâmetro ausente:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
 msgstr "Ir para o banco de dados '%s'."
 
 #: libraries/Util.class.php:2624
@@ -4002,7 +4002,7 @@ msgstr "Replicado"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
 msgstr "Verificar privilégios para o banco de dados '%s'."
 
 #: libraries/build_html_for_db.lib.php:177
@@ -4522,7 +4522,7 @@ msgid "Allow third party framing"
 msgstr "Permitir elaboração de terceiros"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr "Exibir link 'Apagar banco de dados' para usuários normais"
 
 #: libraries/config/messages.inc.php:29
@@ -4665,10 +4665,10 @@ msgstr "Arquivo de configuração"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
 "Exibir aviso ('Você tem certeza…') quando estiver prestes a perder dados"
@@ -5677,7 +5677,7 @@ msgstr "Máximo de itens no ramo"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Número de linhas exibidas na visualização do resultado encontrado. Se o "
@@ -6703,9 +6703,9 @@ msgstr "Nome completo deste servidor"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Se exibe ao usuário o botão 'exibir tudo(linhas)';"
 
 #: libraries/config/messages.inc.php:711
@@ -10933,13 +10933,13 @@ msgstr "Conceder todos os privilégios no nome coringa (nome_do_usuário_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
 msgstr "Conceder todos os privilégios no banco de dados '%s'."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "Usuários que têm acesso à '%s'"
 
 #: libraries/server_privileges.lib.php:1818
@@ -15574,10 +15574,10 @@ msgstr "concurrent_insert está com valor 0"
 #~ msgstr "Dados apenas"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Sugerir um nome do banco de dados no formulário &quot;Criar Banco de Dados"
+#~ "Sugerir um nome do banco de dados no formulário \"Criar Banco de Dados"
 #~ "%quot; (se possível) ou manter o campo texto vazio"
 
 #~ msgid "Suggest new database name"

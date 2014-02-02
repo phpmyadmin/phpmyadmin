@@ -3858,8 +3858,8 @@ msgstr "Manglende parameter:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Hop til database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Hop til database \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3987,8 +3987,8 @@ msgstr "Replikeret"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Tjek privilegier for databasen &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Tjek privilegier for databasen \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4513,8 +4513,8 @@ msgid "Allow third party framing"
 msgstr "Tillad rammeværk fra tredjepart"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Vis linket &quot;Drop database&quot; til almindelige brugere"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Vis linket \"Drop database\" til almindelige brugere"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4684,13 +4684,13 @@ msgstr "Konfigurationsfil"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Hvorvidt der skal vises en advarsel (&quot;Er du helt sikker…&quot;) , når "
+"Hvorvidt der skal vises en advarsel (\"Er du helt sikker…\") , når "
 "du er ved at miste data"
 
 #: libraries/config/messages.inc.php:79
@@ -5690,11 +5690,11 @@ msgstr "Maksimum for elementer i gren"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Antal rækker vist, når man kigger på et sæt resultater. Hvis resultatet "
-"indeholder flere rækker, links til &quot;Forrige&quot; og &quot;Næstet&quot; "
+"indeholder flere rækker, links til \"Forrige\" og \"Næstet\" "
 "vil blive vist."
 
 #: libraries/config/messages.inc.php:414
@@ -6703,10 +6703,10 @@ msgstr "Udvidet navn for denne server"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "Om en &quot;vis alle (rækker)&quot;  knap, skal vises for brugeren"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "Om en \"vis alle (rækker)\"  knap, skal vises for brugeren"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10899,14 +10899,14 @@ msgstr "Tildel alle privilegier til jokertegn-navn (brugernavn_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Tildel alle privilegier på database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Tildel alle privilegier på database \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Brugere med adgang til &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Brugere med adgang til \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15481,10 +15481,10 @@ msgstr "concurrent_insert er sat til 0"
 #~ msgstr "Kun data"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Foreslå et databasenavn på formularen for &quot;Opret database&quot; "
+#~ "Foreslå et databasenavn på formularen for \"Opret database\" "
 #~ "(hvis muligt) eller lad feltet være tomt "
 
 #~ msgid "Suggest new database name"

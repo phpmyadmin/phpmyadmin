@@ -3763,8 +3763,8 @@ msgstr "缺少参数："
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "转到数据库 &quot;%s&quot;。"
+msgid "Jump to database \"%s\"."
+msgstr "转到数据库 \"%s\"。"
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3889,8 +3889,8 @@ msgstr "已复制"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "检查数据库 &quot;%s&quot; 的权限。"
+msgid "Check privileges for database \"%s\"."
+msgstr "检查数据库 \"%s\" 的权限。"
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4388,8 +4388,8 @@ msgid "Allow third party framing"
 msgstr "允许第三方框架"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "显示 &quot;删除数据库&quot; 链接给普通用户"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "显示 \"删除数据库\" 链接给普通用户"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4549,12 +4549,12 @@ msgstr "配置文件"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
-msgstr "当查询可能丢失数据时是否显示警告（&quot;您真的要…&quot;）"
+msgstr "当查询可能丢失数据时是否显示警告（\"您真的要…\"）"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5528,11 +5528,11 @@ msgstr "节点中最大项数"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
-"浏览结果集时显示的行数。若结果集总行数超过该值，将会显示 &quot;上一页&quot; "
-"和 &quot;下一页&quot; 的链接。"
+"浏览结果集时显示的行数。若结果集总行数超过该值，将会显示 \"上一页\" "
+"和 \"下一页\" 的链接。"
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6486,10 +6486,10 @@ msgstr "服务器名称"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "设置是否给用户显示一个 &quot;显示所有 (记录)&quot; 的按钮"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "设置是否给用户显示一个 \"显示所有 (记录)\" 的按钮"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10647,13 +10647,13 @@ msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "授予数据库 &quot;%s&quot; 的所有权限"
+msgid "Grant all privileges on database \"%s\"."
+msgstr "授予数据库 \"%s\" 的所有权限"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "用户可以访问“%s”"
 
 #: libraries/server_privileges.lib.php:1818
@@ -15030,9 +15030,9 @@ msgstr "concurrent_insert 被设为 0"
 #~ msgstr "仅数据"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
-#~ msgstr "如果可能，在 &quot;新建数据库&quot; 表单中建议一个名字，或留空"
+#~ msgstr "如果可能，在 \"新建数据库\" 表单中建议一个名字，或留空"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "建议新数据库名"

@@ -3960,8 +3960,8 @@ msgstr "Falta paràmetre:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Vés a la base de dades &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Vés a la base de dades \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4090,8 +4090,8 @@ msgstr "Replicat"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Comprova els permisos per la base de dades &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Comprova els permisos per la base de dades \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4626,8 +4626,8 @@ msgid "Allow third party framing"
 msgstr "Permetre marcs de terceres parts"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Mostra l'enllaç &quot;Drop database&quot; als usuaris normals"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Mostra l'enllaç \"Drop database\" als usuaris normals"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4795,13 +4795,13 @@ msgstr "Arxiu de configuració"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Quan s'ha de mostrar un avís (&quot;Estàs segur…&quot;) al estar a punt de "
+"Quan s'ha de mostrar un avís (\"Estàs segur…\") al estar a punt de "
 "perdre dades"
 
 #: libraries/config/messages.inc.php:79
@@ -5819,12 +5819,12 @@ msgstr "Màxim nombre d'elements en una branca"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Nombre de files mostrades quan es navega mper un resultat. Si el resultat "
-"conté més files, es mostraran els enllaços &quot;Anterior&quot; i &quot;"
-"Següent&quot;."
+"conté més files, es mostraran els enllaços \"Anterior\" i \""
+"Següent\"."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6856,12 +6856,12 @@ msgstr "Nom explicatiu d'aquest servidor"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Si a un usuari se l'hauria de mostrar el botó &quot;mostrar totes (les "
-"files)&quot;"
+"Si a un usuari se l'hauria de mostrar el botó \"mostrar totes (les "
+"files)\""
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -11178,14 +11178,14 @@ msgstr "Atorga tots els permisos en un nom comodí (nomusuari\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Atorga tots els permisos a la base de dades &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Atorga tots els permisos a la base de dades \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Usuaris amb accés a &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Usuaris amb accés a \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15908,11 +15908,11 @@ msgstr "{concurrent_insert} està establert a 0"
 #~ msgstr "Només dades"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Proposa un nom de base de dades al formulari &quot;Crear Base de "
-#~ "Dades&quot; (si es posible) o bé deixa buit el camp de text"
+#~ "Proposa un nom de base de dades al formulari \"Crear Base de "
+#~ "Dades\" (si es posible) o bé deixa buit el camp de text"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "Proposa un nou nom de base de dades"

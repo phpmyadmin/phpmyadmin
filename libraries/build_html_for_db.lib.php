@@ -169,7 +169,7 @@ function PMA_buildHtmlForDb(
                . '&amp;checkprivsdb=' . urlencode($current['SCHEMA_NAME'])
                . '" title="'
                . sprintf(
-                   __('Check privileges for database &quot;%s&quot;.'),
+                   __('Check privileges for database "%s".'),
                    htmlspecialchars($current['SCHEMA_NAME'])
                )
                . '">'

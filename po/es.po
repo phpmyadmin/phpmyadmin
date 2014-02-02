@@ -3889,8 +3889,8 @@ msgstr "Parámetro faltante:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Saltar a la base de datos &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Saltar a la base de datos \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4018,8 +4018,8 @@ msgstr "Replicado/a"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Comprobar los privilegios para la base de datos &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Comprobar los privilegios para la base de datos \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4546,9 +4546,9 @@ msgid "Allow third party framing"
 msgstr "Permitir framing de terceros"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
 msgstr ""
-"Mostrar el enlace &quot;Eliminar base de datos&quot; a usuarios normales"
+"Mostrar el enlace \"Eliminar base de datos\" a usuarios normales"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -4680,11 +4680,11 @@ msgstr "Archivo de configuración"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Si se debe mostrar o no una advertencia (&quot;Está absolutamente seguro…"
-"&quot;) cuando está a punto de perder datos."
+"Si se debe mostrar o no una advertencia (\"Está absolutamente seguro…"
+"\") cuando está a punto de perder datos."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5577,12 +5577,12 @@ msgstr "Cantidad máxima de elementos en una rama"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Número de filas mostradas cuando se visualiza un juego de resultados. Si el "
-"juego de resultados contiene más filas, aparecerán enlaces &quot;"
-"Anterior&quot; y &quot;Siguiente&quot;."
+"juego de resultados contiene más filas, aparecerán enlaces \""
+"Anterior\" y \"Siguiente\"."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6424,9 +6424,9 @@ msgstr "Nombre del servidor, forma extendida"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Si el usuario puede ver un botón &quot;mostrar todos (los registros)&quot; o "
+"Si el usuario puede ver un botón \"mostrar todos (los registros)\" o "
 "no."
 
 #: libraries/config/messages.inc.php:711
@@ -10577,14 +10577,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Otorgar todos los privilegios para la base de datos &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Otorgar todos los privilegios para la base de datos \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Usuarios con acceso a &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Usuarios con acceso a \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925

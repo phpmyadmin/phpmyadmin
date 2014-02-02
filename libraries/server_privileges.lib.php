@@ -1708,7 +1708,7 @@ function PMA_getHtmlForAddUser($dbname)
         $html_output .= PMA_Util::getCheckbox(
             'createdb-3',
             sprintf(
-                __('Grant all privileges on database &quot;%s&quot;.'),
+                __('Grant all privileges on database "%s".'),
                 htmlspecialchars($dbname)
             ),
             true,
@@ -1804,7 +1804,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         . PMA_Util::getIcon('b_usrcheck.png')
         . '    '
         . sprintf(
-            __('Users having access to &quot;%s&quot;'),
+            __('Users having access to "%s"'),
             '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
             . PMA_URL_getCommon($db) . '">'
             .  htmlspecialchars($db)
@@ -1907,7 +1907,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
     $html_output .= '<legend>'
         . PMA_Util::getIcon('b_usrcheck.png')
         . sprintf(
-            __('Users having access to &quot;%s&quot;'),
+            __('Users having access to "%s"'),
             '<a href="' . $GLOBALS['cfg']['DefaultTabTable']
             . PMA_URL_getCommon(
                 array(

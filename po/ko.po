@@ -3806,8 +3806,8 @@ msgstr "매개 변수 누락:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "데이터베이스 &quot;%s&quot; 로 이동."
+msgid "Jump to database \"%s\"."
+msgstr "데이터베이스 \"%s\" 로 이동."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3932,8 +3932,8 @@ msgstr "복제"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "데이터베이스 &quot;%s&quot; 에 대한 사용권한 검사."
+msgid "Check privileges for database \"%s\"."
+msgstr "데이터베이스 \"%s\" 에 대한 사용권한 검사."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4409,8 +4409,8 @@ msgid "Allow third party framing"
 msgstr "서드파티 프레이밍 허용"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "일반 사용자에게 &quot;데이터베이스 삭제(drop)&quot; 링크를 제공"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "일반 사용자에게 \"데이터베이스 삭제(drop)\" 링크를 제공"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4571,13 +4571,13 @@ msgstr "설정 파일"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"데이터가 사라지기 전에 경고 메시지(&quot;정말 확실합니까&quot;) 출력 여부"
+"데이터가 사라지기 전에 경고 메시지(\"정말 확실합니까\") 출력 여부"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5551,7 +5551,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 
@@ -6474,7 +6474,7 @@ msgstr "이 서버 이름 보기"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 
 #: libraries/config/messages.inc.php:711
@@ -10571,14 +10571,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "데이터베이스 &quot;%s&quot;에 대한 모든 권한을 부여."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "데이터베이스 \"%s\"에 대한 모든 권한을 부여."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "&quot;%s&quot; 에 접근할 수 있는 사용자들"
+msgid "Users having access to \"%s\""
+msgstr "\"%s\" 에 접근할 수 있는 사용자들"
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925

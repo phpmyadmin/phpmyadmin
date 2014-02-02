@@ -3845,8 +3845,8 @@ msgstr "Missing parameter:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Jump to database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Jump to database \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3972,8 +3972,8 @@ msgstr "Replicated"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Check privileges for database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Check privileges for database \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4486,8 +4486,8 @@ msgid "Allow third party framing"
 msgstr "Allow third party framing"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Show &quot;Drop database&quot; link to normal users"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Show \"Drop database\" link to normal users"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4655,13 +4655,13 @@ msgstr "Configuration file"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data"
 
 #: libraries/config/messages.inc.php:79
@@ -5659,11 +5659,11 @@ msgstr "Maximum items in branch"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 
 #: libraries/config/messages.inc.php:414
@@ -6672,11 +6672,11 @@ msgstr "Verbose name of this server"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button"
+"Whether a user should be displayed a \"show all (rows)\" button"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10894,14 +10894,14 @@ msgstr "Grant all privileges on wildcard name (username\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Grant all privileges on database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Grant all privileges on database \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Users having access to \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15424,10 +15424,10 @@ msgstr "concurrent_insert is set to 0"
 #~ msgstr "Data only"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 
 #~ msgid "Suggest new database name"

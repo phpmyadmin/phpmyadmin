@@ -3819,8 +3819,8 @@ msgstr "Puudulik parameeter:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Mine &quot;%s&quot; andmebaasi."
+msgid "Jump to database \"%s\"."
+msgstr "Mine \"%s\" andmebaasi."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3945,8 +3945,8 @@ msgstr "Paljundatud"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Kontrolli &quot;%s&quot; andmebaasi õigusi."
+msgid "Check privileges for database \"%s\"."
+msgstr "Kontrolli \"%s\" andmebaasi õigusi."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4453,8 +4453,8 @@ msgid "Allow third party framing"
 msgstr "Luba kolmanda osapoole raamimine"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Näita tavakasutajatele &quot;Kustuta andmebaas&quot; linki"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Näita tavakasutajatele \"Kustuta andmebaas\" linki"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -4585,10 +4585,10 @@ msgstr "Seadistusfail"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Kas hoiatusi (&quot;Kindel, et soovid…&quot;) peaks näitama, kuid oled "
+"Kas hoiatusi (\"Kindel, et soovid…\") peaks näitama, kuid oled "
 "andmeid kaotamas."
 
 #: libraries/config/messages.inc.php:79
@@ -5467,11 +5467,11 @@ msgstr "Maksimaalne elementide arv harus"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Näidatavate ridade hulk tulemuses. Kui tulemus sisaldab rohkem ridu, siis "
-"näidatakse &quot;Eelmine&quot; ja &quot;Järgmine&quot; linke."
+"näidatakse \"Eelmine\" ja \"Järgmine\" linke."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6295,8 +6295,8 @@ msgstr "Selle serveri sõnaline nimi"
 
 #: libraries/config/messages.inc.php:710
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "Kas kasutajale peaks näitama &quot;näita kõiki (ridu)&quot; nuppu."
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "Kas kasutajale peaks näitama \"näita kõiki (ridu)\" nuppu."
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10346,14 +10346,14 @@ msgstr "Anna kõik õigused metamärgiga nimele (kasutajanimi\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Anna kõik õigused &quot;%s&quot; andmebaasis."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Anna kõik õigused \"%s\" andmebaasis."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Kasutajad, kellel on ligipääs &quot;%s&quot; andmebaasile"
+msgid "Users having access to \"%s\""
+msgstr "Kasutajad, kellel on ligipääs \"%s\" andmebaasile"
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -14926,10 +14926,10 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Ainult andmed"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Soovita andmebaasi nime &quot;Loo andmebaas&quot; vormis (kui võimalik) "
+#~ "Soovita andmebaasi nime \"Loo andmebaas\" vormis (kui võimalik) "
 #~ "või hoia tekstiväli tühjana"
 
 #~ msgid "Suggest new database name"

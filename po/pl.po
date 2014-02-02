@@ -3933,8 +3933,8 @@ msgstr "Brakuje parametru:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Przejście do bazy danych &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Przejście do bazy danych \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -4062,8 +4062,8 @@ msgstr "Replikowane"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Sprawdź uprawnienia bazy danych &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Sprawdź uprawnienia bazy danych \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4597,8 +4597,8 @@ msgid "Allow third party framing"
 msgstr "Upoważniać kadrowanie strony"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Pokaż odnośnik &quot;Usuń bazę danych&quot; zwykłym użytkownikom"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Pokaż odnośnik \"Usuń bazę danych\" zwykłym użytkownikom"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4767,14 +4767,14 @@ msgstr "Plik konfiguracyjny"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Czy w wypadku ryzyka utraty danych ma być pokazywane ostrzeżenie (&quot;Czy "
-"na pewno wykonać…&quot;)"
+"Czy w wypadku ryzyka utraty danych ma być pokazywane ostrzeżenie (\"Czy "
+"na pewno wykonać…\")"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5786,7 +5786,7 @@ msgstr "Maksymalnie pozycji w branży"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Liczba wierszy wyświetlanych podczas przeglądania zestawu wyników. Jeśli "
@@ -6817,9 +6817,9 @@ msgstr "Szczegółowa nazwa serwera"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Czy użytkownik powinien mieć wyświetlony przycisk \"pokaż wszystkie "
 "(wiersze)\";"
@@ -11133,13 +11133,13 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Przyznanie wszystkich uprawnień do bazy danych &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Przyznanie wszystkich uprawnień do bazy danych \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
+msgid "Users having access to \"%s\""
 msgstr "Użytkownicy mają dostęp do \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
@@ -15849,11 +15849,11 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ msgstr "Tylko dane"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Sugeruje nazwę bazy danych podczas operacji &quot;Utwórz bazę "
-#~ "danych&quot; (jeśli możliwe) lub zostawia puste pole"
+#~ "Sugeruje nazwę bazy danych podczas operacji \"Utwórz bazę "
+#~ "danych\" (jeśli możliwe) lub zostawia puste pole"
 
 #~ msgid "Suggest new database name"
 #~ msgstr "Zasugeruj nazwę nowej bazy danych"

@@ -3811,8 +3811,8 @@ msgstr "Пропущено параметр:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Перейти до бази даних &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Перейти до бази даних \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3938,8 +3938,8 @@ msgstr "Репліковані"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Перевірити права для бази даних &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Перевірити права для бази даних \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4472,8 +4472,8 @@ msgid "Allow third party framing"
 msgstr "Дозволити фреймінг для третіх сторін"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Показувати &quot;Знищити БД&quot; звичайним користувачам"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Показувати \"Знищити БД\" звичайним користувачам"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4635,13 +4635,13 @@ msgstr "Конфігураційний файл"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Чи попередження (&quot;Ви дійсно впевнені…&quot;) повинно бути бути "
+"Чи попередження (\"Ви дійсно впевнені…\") повинно бути бути "
 "відображене коли ви можете втратити дані"
 
 #: libraries/config/messages.inc.php:79
@@ -5636,11 +5636,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Кількість рядків, відображуваних при перегляді результатів. Якщо результат "
-"містить більше рядків, &quot;Previous&quot; та &quot;Next&quot; посилання "
+"містить більше рядків, \"Previous\" та \"Next\" посилання "
 "будуть показані."
 
 #: libraries/config/messages.inc.php:414
@@ -6650,9 +6650,9 @@ msgstr "Повна назва цього сервера"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Чи користувачеві має відображатися кнопка на \"показати всі (рядки)\""
 
 #: libraries/config/messages.inc.php:711
@@ -10838,14 +10838,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Виставити повні привілеї на базу даних &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Виставити повні привілеї на базу даних \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Користувачі, котрі мають доступ до &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Користувачі, котрі мають доступ до \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -11232,7 +11232,7 @@ msgid ""
 "chart using the cog icon on each respective chart."
 msgstr ""
 "Ваш браузер буде оновлювати всі відображувані графіки через певні проміжки "
-"часу. В розділі&quot;Налаштування&quot; можна додавати графіки і змінювати "
+"часу. В розділі\"Налаштування\" можна додавати графіки і змінювати "
 "частоту їх оновлення, або видаляти графіки використовуючи відповідну іконку "
 "на кожному з них."
 
@@ -13717,7 +13717,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:89
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "Змінна log_slow_queries встановлена у &quot;OFF&quot;"
+msgstr "Змінна log_slow_queries встановлена у \"OFF\""
 
 #: libraries/advisory_rules.txt:95
 msgid ""
@@ -13862,14 +13862,14 @@ msgid ""
 msgstr ""
 "Кеш запитів, як відомо, при правильному налаштуванні значно підвищити "
 "продуктивність. Увімкніть його встановивши {query_cache_size} на 2-х значне "
-"значення у MiB і змінишви {query_cache_type} на &quot;ON&quot;. <b>Примітка:"
+"значення у MiB і змінишви {query_cache_type} на \"ON\". <b>Примітка:"
 "</b> Якщо використовується memcached, цю рекомендацію ігноруйте."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "Змінна query_cache_size встановлена в 0, або змінна query_cache_type "
-"встановлена у &quot;OFF&quot;"
+"встановлена у \"OFF\""
 
 #: libraries/advisory_rules.txt:160
 msgid "Query caching method"

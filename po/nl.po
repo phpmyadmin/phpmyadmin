@@ -3872,8 +3872,8 @@ msgstr "Ontbrekende parameter:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Ga naar databank &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Ga naar databank \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3999,8 +3999,8 @@ msgstr "Gerepliceerd"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Controleer rechten op databank &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Controleer rechten op databank \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4522,8 +4522,8 @@ msgid "Allow third party framing"
 msgstr "Framing van derden toestaan"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Toon link &quot;Verwijder databank&quot; aan normale gebruikers"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Toon link \"Verwijder databank\" aan normale gebruikers"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -4656,10 +4656,10 @@ msgstr "Configuratiebestand"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Of er een waarschuwing(&quot;Weet u zeker…&quot;) moet worden getoond op het "
+"Of er een waarschuwing(\"Weet u zeker…\") moet worden getoond op het "
 "moment dat u gegevens gaat verwijderen."
 
 #: libraries/config/messages.inc.php:79
@@ -5543,12 +5543,12 @@ msgstr "Maximum elementen in tak"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Het maximum aantal te tonen rijen tijdens het verkennen van een "
 "resultatenset. Indien de resultatenset meer rijen bevat worden de links "
-"&quot;Volgende&quot; en &quot;Vorige&quot; getoond."
+"\"Volgende\" en \"Vorige\" getoond."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6438,10 +6438,10 @@ msgstr "Uitgebreide naam voor deze server"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "Of er een knop &quot;Toon alle (rijen)&quot; moet worden getoond"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "Of er een knop \"Toon alle (rijen)\" moet worden getoond"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10695,14 +10695,14 @@ msgstr "Alle rechten geven op de wildcardnaam (gebruikersnaam\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Alle rechten geven op databank &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Alle rechten geven op databank \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Gebruikers die toegang hebben tot &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Gebruikers die toegang hebben tot \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15373,11 +15373,11 @@ msgstr "concurrent_insert is ingesteld op 0"
 #~ msgstr "Alleen gegevens"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "Doe (indien mogelijk) een suggestie voor de naam van de aan te maken "
-#~ "databank in het formulier &quote;Nieuwe databank aanmaken&quot;, of laat "
+#~ "databank in het formulier &quote;Nieuwe databank aanmaken\", of laat "
 #~ "het veld leeg"
 
 #~ msgid "Suggest new database name"

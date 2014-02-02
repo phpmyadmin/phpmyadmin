@@ -3829,8 +3829,8 @@ msgstr "නොමැති පරාමිතිය:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "&quot;%s&quot; දත්තගබඩාව වෙත යන්න."
+msgid "Jump to database \"%s\"."
+msgstr "\"%s\" දත්තගබඩාව වෙත යන්න."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3955,8 +3955,8 @@ msgstr "අනුරූ කරන ලද"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "&quot;%s&quot; දත්තගබඩාව සඳහා වරප්‍රසාද පරීක්ෂා කරන්න."
+msgid "Check privileges for database \"%s\"."
+msgstr "\"%s\" දත්තගබඩාව සඳහා වරප්‍රසාද පරීක්ෂා කරන්න."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4431,8 +4431,8 @@ msgid "Allow third party framing"
 msgstr "තෙවන පාර්ශවීය ෆ්රේමින්ග් සඳහා ඉඩ ලබා දෙන්න"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "&quot;Drop database&quot; සබැඳිය සාමාන්‍ය භවිතා කරන්නන්ට පෙන්වන්න"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "\"Drop database\" සබැඳිය සාමාන්‍ය භවිතා කරන්නන්ට පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4595,13 +4595,13 @@ msgstr "වින්‍යාස ගොනුව"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"දත්ත අහිමිවීමකට පෙර අනතුරු ඇඟවීමක් (&quot;ඔබට ඇත්තටම විශ්වාසද…&quot; ආදී ලෙස) කල යුතුද යන "
+"දත්ත අහිමිවීමකට පෙර අනතුරු ඇඟවීමක් (\"ඔබට ඇත්තටම විශ්වාසද…\" ආදී ලෙස) කල යුතුද යන "
 "වග"
 
 #: libraries/config/messages.inc.php:79
@@ -5578,11 +5578,11 @@ msgstr "අත්තක උපරිම අයිතම ගණන"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
-"ප්‍රථිඵල පිරික්සීමේදී එකවර පෙන්විය යුතු පේළි ගණන. ප්‍රතිඵලයේ ඊට වඩා පේළි ඇත්නම් &quot;පෙර&quot; "
-"සහ &quot;මීළඟ&quot; සබැඳි පෙන්වයි."
+"ප්‍රථිඵල පිරික්සීමේදී එකවර පෙන්විය යුතු පේළි ගණන. ප්‍රතිඵලයේ ඊට වඩා පේළි ඇත්නම් \"පෙර\" "
+"සහ \"මීළඟ\" සබැඳි පෙන්වයි."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6569,10 +6569,10 @@ msgstr ""
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "&quot;සියලුම පේළි පෙන්වන්න&quot; සබැඳිය භාවිතා කරන්නාට පෙන්වන්නේද යන වග"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "\"සියලුම පේළි පෙන්වන්න\" සබැඳිය භාවිතා කරන්නාට පෙන්වන්නේද යන වග"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10660,14 +10660,14 @@ msgstr "අභිමත ආදේශක නාමයන් සඳහා සි�
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "&quot;%s&quot; දත්තගබඩාව සඳහා සියලු වරප්‍රසාද ප්‍රදානය කරන්න"
+msgid "Grant all privileges on database \"%s\"."
+msgstr "\"%s\" දත්තගබඩාව සඳහා සියලු වරප්‍රසාද ප්‍රදානය කරන්න"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "&quot;%s&quot; වෙත ප්‍රවේශ වරප්‍රසාද ඇති භාවිතා කරන්නන්"
+msgid "Users having access to \"%s\""
+msgstr "\"%s\" වෙත ප්‍රවේශ වරප්‍රසාද ඇති භාවිතා කරන්නන්"
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -14963,10 +14963,10 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ msgstr "දත්ත පමණයි"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "හැකිනම් &quot;නව දත්තගබඩාවක් සාදන්න&quot; පෝරමයේ දත්තගබඩාව සඳහා නමක් යෝජනා කරන්න. "
+#~ "හැකිනම් \"නව දත්තගබඩාවක් සාදන්න\" පෝරමයේ දත්තගබඩාව සඳහා නමක් යෝජනා කරන්න. "
 #~ "එසේත් නැතිනම් පෙළ ක්ෂේත්‍රය හිස්ව තබන්න"
 
 #~ msgid "Suggest new database name"

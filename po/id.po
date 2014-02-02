@@ -3845,8 +3845,8 @@ msgstr "Parameter yang hilang:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Langsung ke basis data &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Langsung ke basis data \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3974,8 +3974,8 @@ msgstr "Direplikasi"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Periksa hak akses untuk basis data &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Periksa hak akses untuk basis data \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4494,8 +4494,8 @@ msgid "Allow third party framing"
 msgstr "Izinkan pembingkaian pihak ketiga"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Tampilkan tautan &quot;Hapus basis data&quot; kepada pengguna biasa"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Tampilkan tautan \"Hapus basis data\" kepada pengguna biasa"
 
 #: libraries/config/messages.inc.php:29
 msgid ""
@@ -4622,10 +4622,10 @@ msgstr "Berkas konfigurasi"
 
 #: libraries/config/messages.inc.php:76
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Sebuah peringatan (&quot;Apakah Anda benar-benar yakin …&quot;) akan "
+"Sebuah peringatan (\"Apakah Anda benar-benar yakin …\") akan "
 "ditampilkan ketika Anda akan kehilangan data."
 
 #: libraries/config/messages.inc.php:79
@@ -5505,11 +5505,11 @@ msgstr "Item maksimal di cabang"
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Jumlah baris yang ditampilkan saat browsing hasil set. Jika hasil set berisi "
-"lebih dari satu baris, tautan &quot;Previous&quot; and &quot;Next&quot; akan "
+"lebih dari satu baris, tautan \"Previous\" and \"Next\" akan "
 "ditampilkan."
 
 #: libraries/config/messages.inc.php:414
@@ -6373,10 +6373,10 @@ msgstr "Nama deskriptif server"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "Tampilkan tombol &quot;tampilkan semua (baris)&quot; kepada pengguna"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "Tampilkan tombol \"tampilkan semua (baris)\" kepada pengguna"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10521,14 +10521,14 @@ msgstr "Berikan semua hak untuk nama wildcard (pengguna\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Berikan semua hak untuk basis data &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Berikan semua hak untuk basis data \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Pengguna memiliki akses ke &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Pengguna memiliki akses ke \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15179,10 +15179,10 @@ msgstr "concurrent_insert diatur ke 0"
 #~ msgstr "Data saja"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
-#~ "Sarankan suatu nama basis data pada formulir &quot;Buat Basis Data&quot; "
+#~ "Sarankan suatu nama basis data pada formulir \"Buat Basis Data\" "
 #~ "(jika mungkin) atau biarkan isian teks kosong"
 
 #~ msgid "Suggest new database name"

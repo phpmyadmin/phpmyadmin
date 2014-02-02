@@ -3846,8 +3846,8 @@ msgstr "Липсващ параметър:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Показване БД &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Показване БД \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3975,8 +3975,8 @@ msgstr "Реплицирана"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Проверка на правата над БД &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Проверка на правата над БД \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4470,8 +4470,8 @@ msgid "Allow third party framing"
 msgstr "Позволяване на вграждане в трети сайтове"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Показване връзката &quot;Изтриване БД&quot; на обикновени потребители"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Показване връзката \"Изтриване БД\" на обикновени потребители"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4641,13 +4641,13 @@ msgstr "Конфигурационен файл"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Дали да бъде показано предупреждение (&quot;На истина ли искате…&quot;), "
+"Дали да бъде показано предупреждение (\"На истина ли искате…\"), "
 "когато сте на път да загубите данни"
 
 #: libraries/config/messages.inc.php:79
@@ -5609,7 +5609,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 
@@ -6483,11 +6483,11 @@ msgstr "Описателно име на този сървър"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Дали на потребителя да бъде показван бутон &quot;показване всички&quot;"
+"Дали на потребителя да бъде показван бутон \"показване всички\""
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10634,14 +10634,14 @@ msgstr "Даване на всички привилегии на име с ма�
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Даване на пълни права над БД &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Даване на пълни права над БД \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Потребители с достъп до &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Потребители с достъп до \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925

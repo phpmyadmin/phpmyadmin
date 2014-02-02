@@ -3867,8 +3867,8 @@ msgstr "parameter নাই:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "ডাটাবেইজ &quot;%s&quot; যাও।"
+msgid "Jump to database \"%s\"."
+msgstr "ডাটাবেইজ \"%s\" যাও।"
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3995,8 +3995,8 @@ msgstr "প্রতিলিপি করা হয়েছে"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "ডাটাবেইজের অধিকার পরীক্ষা &quot;%s&quot;।"
+msgid "Check privileges for database \"%s\"."
+msgstr "ডাটাবেইজের অধিকার পরীক্ষা \"%s\"।"
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4500,8 +4500,8 @@ msgid "Allow third party framing"
 msgstr ""
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "সাধারন ব্যবহারকারীকে &quot;Drop database&quot; সংযোগ দেখাও"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "সাধারন ব্যবহারকারীকে \"Drop database\" সংযোগ দেখাও"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4664,14 +4664,14 @@ msgstr "কনফিগারেশন ফাইল"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"আপনি যখন তথ্য নষ্ট করতে বা হারাতে যাচ্ছেন তখন একটি সর্তক বার্তা (&quot;আপনি কি "
-"সম্পূর্ন নিশ্চিত…&quot;)দেখাবে"
+"আপনি যখন তথ্য নষ্ট করতে বা হারাতে যাচ্ছেন তখন একটি সর্তক বার্তা (\"আপনি কি "
+"সম্পূর্ন নিশ্চিত…\")দেখাবে"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5668,11 +5668,11 @@ msgstr "শাখায় জিনিসের সর্বোচ্চ সংখ
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
-"ব্রাউজিংয়ের সময় প্রর্দশিত ফলাফলে রো'র সংখ্যা। এতে যদি অনেক বেশী রো থাকে &quot;"
-"পূর্ববর্তী &quot; এবং &quot;পরবর্তী&quot; দেখাবে।"
+"ব্রাউজিংয়ের সময় প্রর্দশিত ফলাফলে রো'র সংখ্যা। এতে যদি অনেক বেশী রো থাকে \""
+"পূর্ববর্তী \" এবং \"পরবর্তী\" দেখাবে।"
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6676,10 +6676,10 @@ msgstr "সার্ভারের কথ্য নাম"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
-msgstr "ব্যবহারকারীকে &quot;সব দেখাও রো)&quot; বাটন দেখাবে"
+"Whether a user should be displayed a \"show all (rows)\" button."
+msgstr "ব্যবহারকারীকে \"সব দেখাও রো)\" বাটন দেখাবে"
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -10894,14 +10894,14 @@ msgstr "সমস্ত অধিকার সব ব্যবহারকার
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "&quot;%s&quot; ডাটাবেইজে সমস্ত অধিকার দাও"
+msgid "Grant all privileges on database \"%s\"."
+msgstr "\"%s\" ডাটাবেইজে সমস্ত অধিকার দাও"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "ব্যবহারকারীরা &quot;%s&quot; প্রবেশাধীকার পাবে"
+msgid "Users having access to \"%s\""
+msgstr "ব্যবহারকারীরা \"%s\" প্রবেশাধীকার পাবে"
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925

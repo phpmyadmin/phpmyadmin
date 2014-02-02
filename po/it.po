@@ -3846,8 +3846,8 @@ msgstr "Parametro mancante:"
 
 #: libraries/Util.class.php:2600
 #, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "Passa al database &quot;%s&quot;."
+msgid "Jump to database \"%s\"."
+msgstr "Passa al database \"%s\"."
 
 #: libraries/Util.class.php:2624
 #, php-format
@@ -3974,8 +3974,8 @@ msgstr "Replicato"
 
 #: libraries/build_html_for_db.lib.php:172
 #, php-format
-msgid "Check privileges for database &quot;%s&quot;."
-msgstr "Controlla i privilegi per il database &quot;%s&quot;."
+msgid "Check privileges for database \"%s\"."
+msgstr "Controlla i privilegi per il database \"%s\"."
 
 #: libraries/build_html_for_db.lib.php:177
 msgid "Check Privileges"
@@ -4515,8 +4515,8 @@ msgid "Allow third party framing"
 msgstr "Consenti inquadratura da terze parti"
 
 #: libraries/config/messages.inc.php:27
-msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr "Mostra il link &quot;Drop database&quot; agli utenti normali"
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Mostra il link \"Drop database\" agli utenti normali"
 
 #: libraries/config/messages.inc.php:29
 #, fuzzy
@@ -4680,14 +4680,14 @@ msgstr "File di configurazione"
 #: libraries/config/messages.inc.php:76
 #, fuzzy
 #| msgid ""
-#| "Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+#| "Whether a warning (\"Are your really sure…\") should be displayed "
 #| "when you're about to lose data"
 msgid ""
-"Whether a warning (&quot;Are your really sure…&quot;) should be displayed "
+"Whether a warning (\"Are your really sure…\") should be displayed "
 "when you're about to lose data."
 msgstr ""
-"Se visualizzazare di un messaggio di conferma (&quot;Sei veramente sicuro…"
-"&quot;) in caso di lancio di comandi che eliminano dati"
+"Se visualizzazare di un messaggio di conferma (\"Sei veramente sicuro…"
+"\") in caso di lancio di comandi che eliminano dati"
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5689,12 +5689,12 @@ msgstr ""
 #: libraries/config/messages.inc.php:410
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
+"contains more rows, \"Previous\" and \"Next\" links will be "
 "shown."
 msgstr ""
 "Il numero di righe visualizzato durante la navigazione dei risulati. Se i "
-"risultati contengono ulteriori righe i collegamenti &quot;Precedente&quot; e "
-"&quot;Seguente&quot; saranno mostrati."
+"risultati contengono ulteriori righe i collegamenti \"Precedente\" e "
+"\"Seguente\" saranno mostrati."
 
 #: libraries/config/messages.inc.php:414
 msgid "Maximum number of rows to display"
@@ -6748,11 +6748,11 @@ msgstr "Nome completo di questo server"
 #: libraries/config/messages.inc.php:710
 #, fuzzy
 #| msgid ""
-#| "Whether a user should be displayed a &quot;show all (rows)&quot; button"
+#| "Whether a user should be displayed a \"show all (rows)\" button"
 msgid ""
-"Whether a user should be displayed a &quot;show all (rows)&quot; button."
+"Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
-"Se visualizzare all'utente un pulsante &quot;mostra tutte le (righe)&quot;"
+"Se visualizzare all'utente un pulsante \"mostra tutte le (righe)\""
 
 #: libraries/config/messages.inc.php:711
 msgid "Allow to display all the rows"
@@ -11105,14 +11105,14 @@ msgstr "Concedi tutti i privilegi al nome con caratteri jolly (username\\_%)."
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
-msgid "Grant all privileges on database &quot;%s&quot;."
-msgstr "Garantisci tutti i privilegi per il database &quot;%s&quot;."
+msgid "Grant all privileges on database \"%s\"."
+msgstr "Garantisci tutti i privilegi per il database \"%s\"."
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
 #, php-format
-msgid "Users having access to &quot;%s&quot;"
-msgstr "Utenti che hanno accesso a &quot;%s&quot;"
+msgid "Users having access to \"%s\""
+msgstr "Utenti che hanno accesso a \"%s\""
 
 #: libraries/server_privileges.lib.php:1818
 #: libraries/server_privileges.lib.php:1925
@@ -15937,7 +15937,7 @@ msgstr "concurrent_insert è impostato a 0"
 #~ msgstr "Solo dati"
 
 #~ msgid ""
-#~ "Suggest a database name on the &quot;Create Database&quot; form (if "
+#~ "Suggest a database name on the \"Create Database\" form (if "
 #~ "possible) or keep the text field empty"
 #~ msgstr ""
 #~ "Suggerisci un nome di database nel modulo \"Crea database\" (se "
