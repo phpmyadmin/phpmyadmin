@@ -276,7 +276,7 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         $this->object->authFails();
 
         $this->assertEquals(
-            'Access denied',
+            'Access denied!',
             $_SESSION['PMA_single_signon_error_message']
         );
 

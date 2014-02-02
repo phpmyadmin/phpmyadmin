@@ -972,7 +972,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
-            'Access denied'
+            'Access denied!'
         );
 
         // case 3

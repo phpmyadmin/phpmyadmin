@@ -104,7 +104,7 @@ class PMA_AuthenticationHttp_Test extends PHPUnit_Framework_TestCase
 
         $mockHeader->expects($this->once())
             ->method('setTitle')
-            ->with('Access denied');
+            ->with('Access denied!');
 
         $mockHeader->expects($this->once())
             ->method('disableMenu')
