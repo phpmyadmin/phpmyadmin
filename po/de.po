@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-29 13:12+0200\n"
+"PO-Revision-Date: 2014-02-02 10:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/4-1/de/>\n"
 "Language: de\n"
@@ -4922,7 +4922,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:151
 msgid "Foreign key dropdown order"
-msgstr "Sortierreihenfolge für &quot;FOREIGN KEY&quot;-Dropdownfelder"
+msgstr "Sortierreihenfolge für \"FOREIGN KEY\"-Dropdownfelder"
 
 #: libraries/config/messages.inc.php:152
 msgid "A dropdown will be used if fewer items are present"
@@ -6598,7 +6598,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:527
 msgid "Enable the Developer tab in settings"
-msgstr "Aktiviere den Reiter &quot;Entwickler&quot; in den Einstellungen"
+msgstr "Aktiviere den Reiter \"Entwickler\" in den Einstellungen"
 
 #: libraries/config/messages.inc.php:528 setup/frames/index.inc.php:310
 msgid "Check for latest version"
@@ -11079,7 +11079,7 @@ msgid ""
 msgstr ""
 "Anzahl der gesuchten und gefundenen (discovered) Tabellen. Der MySQL-Server "
 "kann die NDB-Cluster-Storage-Engine fragen, ob sie eine bestimmte Tabelle "
-"kennt. Dieser Vorgang wird &quot;discovery&quot; genannt."
+"kennt. Dieser Vorgang wird \"discovery\" genannt."
 
 #: libraries/server_status_variables.lib.php:389
 msgid ""
@@ -11161,12 +11161,11 @@ msgstr "Anzahl der Anfragen, eine Zeile in eine Tabelle einzufügen."
 
 #: libraries/server_status_variables.lib.php:432
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
-"Anzahl der Seiten, die Daten enthalten (ob &quot;dirty&quot; oder nicht)."
+msgstr "Anzahl der Seiten, die Daten enthalten (ob \"dirty\" oder nicht)."
 
 #: libraries/server_status_variables.lib.php:435
 msgid "The number of pages currently dirty."
-msgstr "Anzahl der als &quot;dirty&quot; markierten Seiten."
+msgstr "Anzahl der als \"dirty\" markierten Seiten."
 
 #: libraries/server_status_variables.lib.php:438
 msgid "The number of buffer pool pages that have been requested to be flushed."
