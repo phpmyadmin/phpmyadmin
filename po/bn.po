@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-29 15:21+0200\n"
+"PO-Revision-Date: 2014-02-02 11:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-1/bn/>\n"
 "Language: bn\n"
@@ -10126,7 +10126,7 @@ msgstr "সহায়তাকারী এবং প্রধানদের স
 #: libraries/server_privileges.lib.php:1104
 #: libraries/server_privileges.lib.php:1111 server_privileges.php:67
 msgid "Allows creating new views."
-msgstr "নতুন ভিউ তৈরীর অনুমোদন"
+msgstr "নতুন ভিউ তৈরীর অনুমোদন।"
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1118 server_privileges.php:71
@@ -12463,7 +12463,7 @@ msgid ""
 "import it for current session?"
 msgstr ""
 "আপনার ব্রাউজারে এই ডোমেইনের phpMyAdmin এর কনফিগারেশন আছে। আপনি কি এই সেশনের "
-"জন্য তা আমদানি করতে চান।"
+"জন্য তা আমদানি করতে চান?"
 
 #: libraries/zip_extension.lib.php:29
 msgid "No files found inside ZIP archive!"
@@ -12675,7 +12675,7 @@ msgstr "কিছু ক্ষেত্রে কনফিগারেশনে 
 
 #: prefs_manage.php:133
 msgid "Do you want to import remaining settings?"
-msgstr "আপনি কি অন্যান্য সেটিংস আমদানি করতে চান"
+msgstr "আপনি কি অন্যান্য সেটিংস আমদানি করতে চান?"
 
 #: prefs_manage.php:232 prefs_manage.php:258
 msgid "Saved on: @DATE@"
