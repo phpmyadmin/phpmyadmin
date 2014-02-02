@@ -4584,14 +4584,14 @@ msgstr "signon 認証方法を使いましたが、サインオン URL が空欄
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "pmadb を使いましたが、phpMyAdmin ユーザが空欄です。"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr "pmadb を使いましたが、phpMyAdmin ユーザのパスワードが空欄です。"
 
 #: libraries/config/Validator.class.php:458

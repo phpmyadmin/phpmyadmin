@@ -4512,15 +4512,15 @@ msgstr "শুন্য signon URL যখন signon প্রমাণীকর�
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "যখন pmadb ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক ব্যবহারকারী শুন্য"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক ব্যবহারকারী শুন্য"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
-msgstr "যখন pmadb ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক ব্যবহারকারী পাসওর্য়াড শুন্য"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgstr "যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক ব্যবহারকারী পাসওর্য়াড শুন্য"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

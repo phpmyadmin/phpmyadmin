@@ -4528,16 +4528,16 @@ msgstr ""
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "A phpMyAdmin vezérlő felhasználó kiürítése a pmadb használatakor"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "A phpMyAdmin vezérlő felhasználó kiürítése a phpMyAdmin configuration storage használatakor"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
-"A phpMyAdmin vezérlő felhasználói jelszó kiürítése a pmadb használatakor"
+"A phpMyAdmin vezérlő felhasználói jelszó kiürítése a phpMyAdmin configuration storage használatakor"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

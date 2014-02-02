@@ -4556,16 +4556,16 @@ msgstr "Tyhjennä kirjautumisen verkko-osoite käytettäessä signon-todennustap
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "Tyhjennä phpMyAdminin hallintakäyttäjä käytettäessä pmadb-kantaa"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "Tyhjennä phpMyAdminin hallintakäyttäjä käytettäessä phpMyAdmin configuration storage-kantaa"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
-"Tyhjennä phpMyAdminin hallintakäyttäjän salasana käytettäessä pmadb-kantaa"
+"Tyhjennä phpMyAdminin hallintakäyttäjän salasana käytettäessä phpMyAdmin configuration storage-kantaa"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

@@ -4510,16 +4510,16 @@ msgstr "Kosongkan URL signon sewaktu menggunakan metode autentikasi signon"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using pmadb"
-msgid "Empty phpMyAdmin control user while using pmadb!"
-msgstr "Kosongkan pengguna pengendali phpMyAdmin sewaktu menggunakan pmadb"
+#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr "Kosongkan pengguna pengendali phpMyAdmin sewaktu menggunakan phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using pmadb"
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
-"Kosongkan sandi pengguna pengendali phpMyAdmin sewaktu menggunakan pmadb"
+"Kosongkan sandi pengguna pengendali phpMyAdmin sewaktu menggunakan phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"

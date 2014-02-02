@@ -4646,11 +4646,11 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using pmadb!"
+msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using pmadb!"
+msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:458
