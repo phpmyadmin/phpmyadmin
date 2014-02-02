@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 10:55+0200\n"
+"PO-Revision-Date: 2014-02-02 13:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/nb/>\n"
@@ -5761,13 +5761,15 @@ msgid "Protect binary columns"
 msgstr "Beskytt binære kolonner"
 
 #: libraries/config/messages.inc.php:350
+#, fuzzy
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Slå på hvis du ønsker DB-basert spørringshistorie (trenger pmadb). Hvis "
-"avslått, vil JS-rutiner vise spørringshistorien (tapt ved lukking av vindu)."
+"Slå på hvis du ønsker DB-basert spørringshistorie (trenger phpMyAdmin "
+"configuration storage). Hvis avslått, vil JS-rutiner vise spørringshistorien "
+"(tapt ved lukking av vindu)."
 
 #: libraries/config/messages.inc.php:351
 msgid "Permanent query history"
