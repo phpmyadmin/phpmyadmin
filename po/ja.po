@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 10:23+0100\n"
-"PO-Revision-Date: 2014-02-02 09:59+0200\n"
+"PO-Revision-Date: 2014-02-02 10:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
-">\n"
+"Language-Team: Japanese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10931,43 +10931,43 @@ msgstr "スレーブ/マスタの照会を許可する"
 #: libraries/server_privileges.lib.php:1109
 #: libraries/server_privileges.lib.php:1116 server_privileges.php:67
 msgid "Allows creating new views."
-msgstr "新しいビューの作成を許可する"
+msgstr "新しいビューの作成を許可する。"
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
 msgid "Allows to set up events for the event scheduler"
-msgstr "イベントスケジューラにイベントを設定できるようにする"
+msgstr "イベントスケジューラにイベントを設定できるようにする。"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
 msgid "Allows creating and dropping triggers"
-msgstr "トリガの作成・削除を許可する"
+msgstr "トリガの作成・削除を許可する。"
 
 #: libraries/server_privileges.lib.php:369
 #: libraries/server_privileges.lib.php:375
 #: libraries/server_privileges.lib.php:1093 server_privileges.php:104
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "SHOW CREATE VIEW クエリの実行を許可する"
+msgstr "SHOW CREATE VIEW クエリの実行を許可する。"
 
 #: libraries/server_privileges.lib.php:380
 #: libraries/server_privileges.lib.php:1097 server_privileges.php:63
 msgid "Allows creating stored routines."
-msgstr "ストアドルーチンの作成を許可する"
+msgstr "ストアドルーチンの作成を許可する。"
 
 #: libraries/server_privileges.lib.php:385
 #: libraries/server_privileges.lib.php:1101 server_privileges.php:61
 msgid "Allows altering and dropping stored routines."
-msgstr "ストアドルーチンの修正と削除を許可する"
+msgstr "ストアドルーチンの修正と削除を許可する。"
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1197 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "ユーザアカウントの作成・削除・名前の変更を許可する"
+msgstr "ユーザアカウントの作成・削除・名前の変更を許可する。"
 
 #: libraries/server_privileges.lib.php:395
 #: libraries/server_privileges.lib.php:1103 server_privileges.php:72
 msgid "Allows executing stored routines."
-msgstr "ストアドルーチンの実行を許可する"
+msgstr "ストアドルーチンの実行を許可する。"
 
 #: libraries/server_privileges.lib.php:443
 #: libraries/server_privileges.lib.php:444
