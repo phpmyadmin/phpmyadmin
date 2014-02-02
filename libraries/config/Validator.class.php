@@ -366,12 +366,12 @@ class PMA_Validator
         $result = array();
         if ($values['Servers/1/controluser'] == '') {
             $result['Servers/1/controluser']
-                = __('Empty phpMyAdmin control user while using pmadb');
+                = __('Empty phpMyAdmin control user while using pmadb!');
             $error = true;
         }
         if ($values['Servers/1/controlpass'] == '') {
             $result['Servers/1/controlpass']
-                = __('Empty phpMyAdmin control user password while using pmadb');
+                = __('Empty phpMyAdmin control user password while using pmadb!');
             $error = true;
         }
         if (! $error) {

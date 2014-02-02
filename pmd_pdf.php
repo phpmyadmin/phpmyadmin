@@ -125,10 +125,10 @@ if ($GLOBALS['dbi']->numRows($table_info_result) > 0) {
     }
     echo '</select>';
     echo '</p>';
-    $choices['import'] = __('Import from selected page');
-    $choices['export'] = __('Export to selected page');
+    $choices['import'] = __('Import from selected page.');
+    $choices['export'] = __('Export to selected page.');
 }
-$choices['create_export'] = __('Create a page and export to it');
+$choices['create_export'] = __('Create a page and export to it.');
 
 if (1 == count($choices)) {
     echo $choices['create_export'];

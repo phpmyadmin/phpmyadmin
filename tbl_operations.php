@@ -182,7 +182,7 @@ if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {
         $_message = $result
             ? PMA_Message::success(
-                __('Your SQL query has been executed successfully')
+                __('Your SQL query has been executed successfully.')
             )
             : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message

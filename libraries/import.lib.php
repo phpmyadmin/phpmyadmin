@@ -1225,9 +1225,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
     $message = '<br /><br />';
     $message .= '<strong>' . __('The following structures have either been created or altered. Here you can:') . '</strong><br />';
-    $message .= '<ul><li>' . __("View a structure's contents by clicking on its name") . '</li>';
-    $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link') . '</li>';
-    $message .= '<li>' . __('Edit structure by following the "Structure" link') . '</li>';
+    $message .= '<ul><li>' . __("View a structure's contents by clicking on its name.") . '</li>';
+    $message .= '<li>' . __('Change any of its settings by clicking the corresponding "Options" link.') . '</li>';
+    $message .= '<li>' . __('Edit structure by following the "Structure" link.') . '</li>';
     $message .= sprintf(
         '<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'
         . __('Options') . '</a>)</li>',

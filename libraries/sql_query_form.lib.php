@@ -108,7 +108,7 @@ function PMA_getHtmlForSqlQueryForm(
         . '<input type="hidden" name="goto" value="'
         . htmlspecialchars($goto) . '" />' . "\n"
         . '<input type="hidden" name="message_to_show" value="'
-        . __('Your SQL query has been executed successfully') . '" />'
+        . __('Your SQL query has been executed successfully.') . '" />'
         . "\n" . '<input type="hidden" name="prev_sql_query" value="'
         . htmlspecialchars($query) . '" />' . "\n";
 

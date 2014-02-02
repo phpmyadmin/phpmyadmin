@@ -108,7 +108,7 @@ if (!empty($submit_mult)) {
         if ((! empty($submit_mult) || isset($_REQUEST['mult_btn']))
             && ! empty($sql_query)
         ) {
-            $disp_message = __('Your SQL query has been executed successfully');
+            $disp_message = __('Your SQL query has been executed successfully.');
             $disp_query = $sql_query;
         }
 

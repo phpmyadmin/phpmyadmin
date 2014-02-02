@@ -570,14 +570,14 @@ function PMA_EVN_getQueryFromRequest()
             $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);
             $query .= '@' . PMA_Util::backquote($arr[1]) . ' ';
         } else {
-            $errors[] = __('The definer must be in the "username@hostname" format');
+            $errors[] = __('The definer must be in the "username@hostname" format!');
         }
     }
     $query .= 'EVENT ';
     if (! empty($_REQUEST['item_name'])) {
         $query .= PMA_Util::backquote($_REQUEST['item_name']) . ' ';
     } else {
-        $errors[] = __('You must provide an event name');
+        $errors[] = __('You must provide an event name!');
     }
     $query .= 'ON SCHEDULE ';
     if (! empty($_REQUEST['item_type'])

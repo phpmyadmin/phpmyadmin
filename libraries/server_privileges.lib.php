@@ -826,7 +826,7 @@ function PMA_getHtmlForTableSpecificPrivileges(
         . '<fieldset id="fieldset_user_priv">' . "\n"
         . '<legend data-submenu-label="Table">' . __('Table-specific privileges')
         . PMA_Util::showHint(
-            __('Note: MySQL privilege names are expressed in English')
+            __('Note: MySQL privilege names are expressed in English.')
         )
         . '</legend>' . "\n";
 
@@ -1011,7 +1011,7 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
         . '<label for="addUsersForm_checkall">' . __('Check All') . '</label> '
         . '</legend>'
         . '<p><small><i>'
-        . __('Note: MySQL privilege names are expressed in English')
+        . __('Note: MySQL privilege names are expressed in English.')
         . '</i></small></p>';
 
     // Output the Global privilege tables with checkboxes
@@ -2935,7 +2935,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         . '<th>' . __('Password') . '</th>' . "\n"
         . '<th>' . __('Global privileges') . ' '
         . PMA_Util::showHint(
-            __('Note: MySQL privilege names are expressed in English')
+            __('Note: MySQL privilege names are expressed in English.')
         )
         . '</th>' . "\n";
     if ($GLOBALS['cfgRelation']['menuswork']) {

@@ -59,7 +59,7 @@ if (isset($result)) {
     $_type = 'success';
     if (empty($_message)) {
         $_message = $result
-            ? __('Your SQL query has been executed successfully')
+            ? __('Your SQL query has been executed successfully.')
             : __('Error');
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';

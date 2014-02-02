@@ -1120,7 +1120,7 @@ function PMA_RTN_getQueryFromRequest()
             $query .= 'DEFINER=' . PMA_Util::backquote($arr[0]);
             $query .= '@' . PMA_Util::backquote($arr[1]) . ' ';
         } else {
-            $errors[] = __('The definer must be in the "username@hostname" format');
+            $errors[] = __('The definer must be in the "username@hostname" format!');
         }
     }
     if ($_REQUEST['item_type'] == 'FUNCTION'
@@ -1136,7 +1136,7 @@ function PMA_RTN_getQueryFromRequest()
     if (! empty($_REQUEST['item_name'])) {
         $query .= PMA_Util::backquote($_REQUEST['item_name']);
     } else {
-        $errors[] = __('You must provide a routine name');
+        $errors[] = __('You must provide a routine name!');
     }
     $params = '';
     $warned_about_dir    = false;
@@ -1464,7 +1464,7 @@ function PMA_RTN_handleExecute()
 
             $output .= "</fieldset>";
 
-            $message = __('Your SQL query has been executed successfully');
+            $message = __('Your SQL query has been executed successfully.');
             if ($routine['item_type'] == 'PROCEDURE') {
                 $message .= '<br />';
 
