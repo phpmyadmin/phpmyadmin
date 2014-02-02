@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 11:45+0100\n"
-"PO-Revision-Date: 2014-02-02 12:14+0200\n"
+"PO-Revision-Date: 2014-02-02 12:20+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -4430,16 +4430,18 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "Prázdné přihlašovací URL při použití přihlašování signon!"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "Prázdný kontrolní uživatel phpMyAdmina při použití phpMyAdmin configuration storage"
+msgstr ""
+"Nevyplněný kontrolní uživatel phpMyAdmina při použití úložiště nastavení "
+"phpMyAdmina!"
 
 #: libraries/config/Validator.class.php:374
-#, fuzzy
 #| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
 msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
-msgstr "Prázdné heslo kontrolního uživatele phpMyAdmina při použití phpMyAdmin configuration storage"
+msgstr ""
+"Nevyplněné heslo kontrolního uživatele phpMyAdmina při použití úložiště "
+"nastavení phpMyAdmina!"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -7522,18 +7524,16 @@ msgid "View a structure's contents by clicking on its name."
 msgstr "Obsah struktury se zobrazí po kliknutí na její jméno."
 
 #: libraries/import.lib.php:1229
-#, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr "Změnit jakákoliv její nastavení kliknutím na odkaz „Nastavení“"
+msgstr "Změnit jakákoliv její nastavení kliknutím na odkaz „Nastavení“."
 
 #: libraries/import.lib.php:1230
-#, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Strukturu upravíte kliknutím na odkaz „Struktura“"
+msgstr "Strukturu upravíte kliknutím na odkaz „Struktura“."
 
 #: libraries/import.lib.php:1236
 #, php-format
@@ -7577,10 +7577,9 @@ msgid "Binary"
 msgstr "Binární"
 
 #: libraries/insert_edit.lib.php:658
-#, fuzzy
 #| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "Toto pole možná nepůjde <br />kvůli délce upravit"
+msgstr "Toto pole možná nepůjde <br />kvůli délce upravit."
 
 #: libraries/insert_edit.lib.php:1103
 msgid "Binary - do not edit"
@@ -8814,14 +8813,13 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Při nahrávání souboru ESRI došlo k chybě: „%s“."
 
 #: libraries/plugins/import/ImportShp.class.php:204
-#, fuzzy
 #| msgid ""
 #| "You tried to import an invalid file or the imported file contains invalid "
 #| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
-msgstr "Nahraný soubor je chybný nebo obsahuje chybná data"
+msgstr "Nahraný soubor je chybný nebo obsahuje chybná data!"
 
 #: libraries/plugins/import/ImportShp.class.php:210
 #, php-format
@@ -8829,10 +8827,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Prostorové rozšíření MySQL nepodporuje ESRI typ „%s“."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-#, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "Nahraný soubor neobsahuje žádná data"
+msgstr "Nahraný soubor neobsahuje žádná data!"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
@@ -9422,16 +9419,15 @@ msgstr ""
 "na něm problém s přístupovými právy."
 
 #: libraries/replication_gui.lib.php:997
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Nepodařilo se změnit nadřízeného"
+msgstr "Nepodařilo se změnit nadřízeného!"
 
 #: libraries/replication_gui.lib.php:1001
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "Nadřízený server bych úspěšně změněn na %s"
+msgstr "Nadřízený server bych úspěšně změněn na %s."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
@@ -9528,16 +9524,14 @@ msgstr "Zadavatel"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "Zadavatel musí být ve tvaru \"uživatel@počítač\""
+msgstr "Zadavatel musí být ve tvaru \"uživatel@počítač\"!"
 
 #: libraries/rte/rte_events.lib.php:580
-#, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "Musíte zadat jméno události"
+msgstr "Musíte zadat jméno události!"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
@@ -9661,10 +9655,9 @@ msgid "SQL data access"
 msgstr "Přístup k SQL datům"
 
 #: libraries/rte/rte_routines.lib.php:1139
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "Musíte zadat jméno rutiny"
+msgstr "Musíte zadat jméno rutiny!"
 
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
@@ -9743,28 +9736,24 @@ msgid "Time"
 msgstr "Spouštění"
 
 #: libraries/rte/rte_triggers.lib.php:458
-#, fuzzy
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "Musíte zadat jméno spouště"
+msgstr "Musíte zadat jméno spouště!"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Musíte zadat platné časování spouště"
+msgstr "Musíte zadat platné časování spouště!"
 
 #: libraries/rte/rte_triggers.lib.php:472
-#, fuzzy
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Musíte zadat platnou událost pro spoušť"
+msgstr "Musíte zadat platnou událost pro spoušť!"
 
 #: libraries/rte/rte_triggers.lib.php:480
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "Musíte zadat platné jméno tabulky"
+msgstr "Musíte zadat platné jméno tabulky!"
 
 #: libraries/rte/rte_triggers.lib.php:486
 msgid "You must provide a trigger definition."
@@ -10229,17 +10218,15 @@ msgstr "Umožňuje vytvářet nové pohledy."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-#, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Umožňuje plánovat úlohy pomocí plánovače"
+msgstr "Umožňuje plánovat úlohy pomocí plánovače."
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Umožňuje vytváření a mazání spouští"
+msgstr "Umožňuje vytváření a mazání spouští."
 
 #: libraries/server_privileges.lib.php:369
 #: libraries/server_privileges.lib.php:375
@@ -10323,10 +10310,9 @@ msgstr "Oprávnění pro jednotlivé tabulky"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Poznámka: názvy oprávnění MySQL jsou uváděny anglicky"
+msgstr "Poznámka: Názvy oprávnění MySQL jsou uváděny anglicky."
 
 #: libraries/server_privileges.lib.php:977
 msgid "Administration"
@@ -11773,10 +11759,9 @@ msgid "Let every user access this bookmark"
 msgstr "Umožnit všem uživatelům používat tuto oblíbenou položku"
 
 #: libraries/sql.lib.php:1024
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "Nebyl vytvořen oblíbený dotaz"
+msgstr "Nepodařilo se uložit oblíbený dotaz!"
 
 #: libraries/sql.lib.php:1180
 #, php-format
@@ -12268,7 +12253,7 @@ msgstr "po %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1043
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Upravit hodnoty ENUM/SET"
 
 #: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
@@ -12702,22 +12687,19 @@ msgid "Page:"
 msgstr "Stránka:"
 
 #: pmd_pdf.php:128
-#, fuzzy
 #| msgid "Import from selected page"
 msgid "Import from selected page."
-msgstr "Importovat ze zvolené stránky"
+msgstr "Importovat ze zvolené stránky."
 
 #: pmd_pdf.php:129
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Export to selected page."
-msgstr "Exportovat na zvolenou stránku"
+msgstr "Exportovat do zvolené stránku."
 
 #: pmd_pdf.php:131
-#, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and export to it."
-msgstr "Vytvořit novou stránku a exportovat na ní"
+msgstr "Vytvořit novou stránku a exportovat do ní."
 
 #: pmd_pdf.php:143
 msgid "New page name: "
@@ -12760,10 +12742,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "Chyba při ukládání souřadnic pro Návrháře."
 
 #: prefs_forms.php:86
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "Nepodařilo se uložit nastavení, odeslaný formulář obsahuje chyby"
+msgstr "Nepodařilo se uložit nastavení, odeslaný formulář obsahuje chyby!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -12873,13 +12854,12 @@ msgstr ""
 "skončil."
 
 #: setup/frames/form.inc.php:25
-#, fuzzy
 #| msgid ""
 #| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
-"Chybný formset, zkontrolujte pole $formsets v souboru setup/frames/form.inc."
-"php"
+"Chybný formset, zkontrolujte pole $formsets v souboru "
+"setup/frames/form.inc.php!"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
