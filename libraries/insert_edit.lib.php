@@ -655,7 +655,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         if (strlen($special_chars) > 32000) {
             $html_output .= "</td>\n";
             $html_output .= '<td>' . __(
-                'Because of its length,<br /> this column might not be editable'
+                'Because of its length,<br /> this column might not be editable.'
             );
         }
 
