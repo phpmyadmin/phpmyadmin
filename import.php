@@ -478,7 +478,7 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
         // so we can't fallback to SET NAMES - throw an error
         $error = true;
         $message = PMA_Message::error(
-            __('Cannot convert file\'s character set without character set conversion library')
+            __('Cannot convert file\'s character set without character set conversion library!')
         );
     } else {
         $GLOBALS['dbi']->query('SET NAMES \'' . $charset_of_file . '\'');
@@ -550,7 +550,7 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
     $message = PMA_Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]'  . sprintf(
-        __('Bookmark %s created'),
+        __('Bookmark %s has been created.'),
         htmlspecialchars($bkm_label)
     );
 } elseif ($finished && ! $error) {

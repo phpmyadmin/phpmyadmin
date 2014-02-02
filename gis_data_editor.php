@@ -408,7 +408,7 @@ echo '<h3>' . __('Output') . '</h3>';
 echo '<p>';
 echo __(
     'Choose "GeomFromText" from the "Function" column and paste the'
-    . ' string below into the "Value" field'
+    . ' string below into the "Value" field.'
 );
 echo '</p>';
 echo '<textarea id="gis_data_textarea" cols="95" rows="5">';

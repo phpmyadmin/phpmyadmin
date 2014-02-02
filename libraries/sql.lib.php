@@ -1017,11 +1017,11 @@ function PMA_addBookmark($pmaAbsoluteUri, $goto)
     $response = PMA_Response::getInstance();
     if ($response->isAjax()) {
         if ($result) {
-            $msg = PMA_message::success(__('Bookmark %s created'));
+            $msg = PMA_message::success(__('Bookmark %s has been created.'));
             $msg->addParam($_POST['bkm_fields']['bkm_label']);
             $response->addJSON('message', $msg);
         } else {
-            $msg = PMA_message::error(__('Bookmark not created'));
+            $msg = PMA_message::error(__('Bookmark not created!'));
             $response->isSuccess(false);
             $response->addJSON('message', $msg);
         }
@@ -1800,7 +1800,7 @@ function PMA_getHtmlForSqlQueryResults($previous_update_query_html,
 function PMA_getBookmarkCreatedMessage()
 {
     if (isset($_GET['label'])) {
-        $bookmark_created_msg = PMA_message::success(__('Bookmark %s created'));
+        $bookmark_created_msg = PMA_message::success(__('Bookmark %s has been created.'));
         $bookmark_created_msg->addParam($_GET['label']);
     } else {
         $bookmark_created_msg = null;
