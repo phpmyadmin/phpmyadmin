@@ -286,7 +286,7 @@ function PMA_getGrantsArray()
         array(
             'Process_priv',
             'PROCESS',
-            __('Allows viewing processes of all users')
+            __('Allows viewing processes of all users.')
         ),
         array(
             'File_priv',
@@ -1160,7 +1160,7 @@ function PMA_getAdministrationPrivilegeTable($db)
         );
         $adminPrivTable[] = array('Process',
             'PROCESS',
-            __('Allows viewing processes of all users')
+            __('Allows viewing processes of all users.')
         );
         $adminPrivTable[] = array('Reload',
             'RELOAD',
