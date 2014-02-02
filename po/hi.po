@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-29 15:37+0100\n"
-"PO-Revision-Date: 2013-09-19 23:07+0200\n"
+"PO-Revision-Date: 2014-02-02 09:54+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1647,7 +1647,8 @@ msgstr "%d मान जोड़ें"
 #: js/messages.php:264
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
-msgstr "सूचना: यदि फ़ाईल में एक से अधिक टेबलें हैं तो वे एक में ही संगठित की जाएँगी"
+msgstr ""
+"सूचना: यदि फ़ाईल में एक से अधिक टेबलें हैं तो वे एक में ही संगठित की जाएँगी।"
 
 #: js/messages.php:267
 msgid "Hide query box"
