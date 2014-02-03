@@ -1173,7 +1173,11 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     // verify True_Type which does not contain the parentheses and length
     if ($column['True_Type'] === 'date') {
         $the_class .= ' datefield';
-    } elseif ($column['True_Type'] === 'datetime'
+    }            
+    else if ($column['True_Type'] === 'time') {
+        $the_class .= ' timefield';
+    }
+    else if ($column['True_Type'] === 'datetime'
         || $column['True_Type'] === 'timestamp'
     ) {
         $the_class .= ' datetimefield';
@@ -1752,10 +1756,9 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
 
     if ($column['True_Type'] == 'bit') {
         $special_chars = PMA_Util::convertBitDefaultValue($column['Default']);
-    } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
+    } elseif (substr($column['True_Type'], 0, 9) == 'timestamp'
         || $column['True_Type'] == 'datetime'
-        || $column['True_Type'] == 'time')
-        && strpos($column['Default'], '.') === true
+        || $column['True_Type'] == 'time'
     ) {
         $special_chars = PMA_Util::addMicroseconds($column['Default']);
     } else {

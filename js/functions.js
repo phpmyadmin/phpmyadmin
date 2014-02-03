@@ -194,12 +194,12 @@ function displayPasswordGenerateButton()
  *
  * @param object  $this_element   a jQuery object pointing to the element
  */
-function PMA_addDatepicker($this_element, options)
-{
-    var showTimeOption = false;
-    if ($this_element.is('.datetimefield')) {
-        showTimeOption = true;
-    }
+function PMA_addDatepicker($this_element, type, options)
+{   
+    var showTimepicker = true;
+    if (type=="date") {
+        showTimepicker = false;
+    }    
 
     var defaultOptions = {
         showOn: 'button',
@@ -210,7 +210,7 @@ function PMA_addDatepicker($this_element, options)
         showSecond: true,
         showMillisec: true,
         showMicrosec: true,
-        showTimepicker: showTimeOption,
+        showTimepicker: showTimepicker,
         showButtonPanel: false,
         dateFormat: 'yy-mm-dd', // yy means year with four digits
         timeFormat: 'HH:mm:ss.lc',
@@ -232,10 +232,14 @@ function PMA_addDatepicker($this_element, options)
             $this_element.data('comes_from', '');
         }
     };
-    if (showTimeOption || (typeof(options) != 'undefined'  && options.showTimepicker)) {
+    if (type == "datetime") {
         $this_element.datetimepicker($.extend(defaultOptions, options));
-    } else {
-        $this_element.datepicker($.extend(defaultOptions, options));
+    }
+    else if (type == "date") {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
+    }
+    else if (type == "time") {
+        $this_element.timepicker($.extend(defaultOptions, options));
     }
 }
 
@@ -857,21 +861,21 @@ function insertValueQuery()
  */
 function addDateTimePicker() {
     if ($.timepicker !== undefined) {
-        $('input.datefield, input.datetimefield').each(function () {
+        $('input.timefield, input.datefield, input.datetimefield').each(function () {
 
-            no_decimals = $(this).parent().data('decimals');
+            no_decimals = $(this).parent().attr('data-decimals');
             var showMillisec = false;
             var showMicrosec = false;
             var timeFormat = 'HH:mm:ss';
             // check for decimal places of seconds
-            if (($(this).parent().data('decimals') > 0) && ($(this).parent().data('type').indexOf('time') != -1)){
+            if (($(this).parent().attr('data-decimals') > 0) && ($(this).parent().attr('data-type').indexOf('time') != -1)){
                 showMillisec = true;                       
                 timeFormat = 'HH:mm:ss.lc';
-                if ($(this).parent().data('decimals') > 3) {
+                if ($(this).parent().attr('data-decimals') > 3) {
                     showMicrosec = true;
                 }
             }
-            PMA_addDatepicker($(this), {
+            PMA_addDatepicker($(this), $(this).parent().attr('data-type'), {
                 showMillisec: showMillisec,
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat,                        
