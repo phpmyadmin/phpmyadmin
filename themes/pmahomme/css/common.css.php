@@ -871,6 +871,7 @@ ul#topmenu2 li {
 .menucontainer {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'dcdcdc'); ?>
     border-top: 1px solid #aaa;
+    border-bottom: 1px solid #ccc;
 }
 
 /* default tab styles */
