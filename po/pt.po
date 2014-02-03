@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:45+0100\n"
+"POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-01-25 18:09+0200\n"
 "Last-Translator: Eduardo Abreu <eduardextreme@hotmail.com>\n"
 "Language-Team: Portuguese <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -199,7 +199,7 @@ msgid "View dump (schema) of database"
 msgstr "Ver o esquema da base de dados"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:332 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Nenhuma tabela encontrada na base de dados."
 
@@ -305,7 +305,7 @@ msgstr "Mudar para %sConstrutor Gráfico%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -450,11 +450,11 @@ msgstr "Obrigado por enviar este relatório."
 msgid "Unfortunately the submission failed."
 msgstr "Infelizmente a submissão falhou."
 
-#: export.php:173
+#: export.php:175
 msgid "Bad type!"
 msgstr "Mau tipo!"
 
-#: export.php:234
+#: export.php:236
 msgid "Bad parameters!"
 msgstr "Parâmetros inválidos!"
 
@@ -553,7 +553,7 @@ msgstr "Adicionar geometria"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:284
+#: libraries/plugins/auth/AuthenticationCookie.class.php:294
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -3315,8 +3315,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Falha ao limpar as preferências de interface da tabela (consulte "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Falha ao limpar as preferências de interface da tabela (consulte $cfg"
+"['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1657
 #, php-format
@@ -4453,8 +4453,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4506,15 +4506,25 @@ msgstr "URL signon vazia ao usar método de autenticação signon"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "Utilizador de controle phpMyAdmin vazio ao usar phpMyAdmin configuration storage"
+#| msgid ""
+#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid ""
+"Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr ""
+"Utilizador de controle phpMyAdmin vazio ao usar phpMyAdmin configuration "
+"storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
-msgstr "Senha do utilizador de controle phpMyAdmin vazia ao usar phpMyAdmin configuration storage"
+#| msgid ""
+#| "Empty phpMyAdmin control user password while using phpMyAdmin "
+#| "configuration storage"
+msgid ""
+"Empty phpMyAdmin control user password while using phpMyAdmin configuration "
+"storage!"
+msgstr ""
+"Senha do utilizador de controle phpMyAdmin vazia ao usar phpMyAdmin "
+"configuration storage"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -4568,8 +4578,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Frase secreta utilizada para encriptar cookies na autenticação por "
-"[kbd]cookie[/kbd]"
+"Frase secreta utilizada para encriptar cookies na autenticação por [kbd]"
+"cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4613,16 +4623,16 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
+#| "textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
 "Define que tipo de controles de edição devem ser utilizados pelas colunas "
-"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo, "
-"[kbd]textarea[/kbd] - permite quebra de linhas em colunas"
+"CHAR e VARCHAR; [kbd]input[/kbd] - permite limitar o tamanho do campo, [kbd]"
+"textarea[/kbd] - permite quebra de linhas em colunas"
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4634,11 +4644,11 @@ msgstr "Edição de colunas CHAR"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Use o nosso editor amigável para editar queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) com realce de sintaxe e número de linhas"
+"Use o nosso editor amigável para editar queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) com realce de sintaxe e número de linhas"
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
@@ -5248,9 +5258,8 @@ msgstr "Títulos das páginas"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Especifica o texto da barra de títulos do browser. Consulte "
 "[doc@cfg_TitleTable]documentation[/doc] para strings mágicas que podem ser "
@@ -6236,8 +6245,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/"
-"bookmark]bookmark[/a] suporte, sugerido: [kbd]pma__bookmark[/kbd]"
+"Deixe em branco quando não há [a@http://wiki.phpmyadmin.net/pma/bookmark]"
+"bookmark[/a] suporte, sugerido: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:562
 msgid "Bookmark table"
@@ -6246,11 +6255,11 @@ msgstr "Tabela de favoritos"
 #: libraries/config/messages.inc.php:564
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
 "Deixe em branco quando não houver colunas de comentário/tipo mime, "
 "sugeridas: [kbd]pma__column_info[/kbd]"
@@ -6287,15 +6296,15 @@ msgstr "Plavara-passe de utlizador de controlo"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
+#| "wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Um utilizador especial MySQL será configurado com permissões limitadas, mais "
-"informações disponíveis em [a@http://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]"
+"informações disponíveis em [a@http://wiki.phpmyadmin.net/pma/controluser]wiki"
+"[/a]"
 
 #: libraries/config/messages.inc.php:578
 msgid "Control user"
@@ -6339,14 +6348,14 @@ msgstr "Controlar porta"
 #: libraries/config/messages.inc.php:591
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: "
-#| "[kbd]pma__designer_coords[/kbd]"
+#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Deixe em branco se não houver/quiser suporte de Designer, sugerido: "
-"[kbd]pma__designer_coords[/kbd]"
+"Deixe em branco se não houver/quiser suporte de Designer, sugerido: [kbd]"
+"pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:594
 msgid "Designer table"
@@ -6365,8 +6374,8 @@ msgstr "Ocultar bases de dados"
 #: libraries/config/messages.inc.php:599
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma__history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6450,8 +6459,8 @@ msgstr "Palavra-passe para config-auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: [kbd]"
+"pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:625
 msgid "PDF schema: pages table"
@@ -6492,8 +6501,8 @@ msgstr "Porta do servidor"
 #: libraries/config/messages.inc.php:636
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma_column_info[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -6511,8 +6520,8 @@ msgstr "Tabela utilizada recentemente"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Deixe em branco quando não houver/quiser suporte a [a@http://wiki.phpmyadmin."
 "net/pma/bookmark]ligações de relações[/a], sugerido: [kbd]pma__bookmark[/kbd]"
@@ -6527,8 +6536,8 @@ msgstr "Tabela de relações"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 "Consulte [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipos de "
 "autenticação[/a] para obter um exemplo"
@@ -6571,8 +6580,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: "
-"[kbd]pma__table_coords[/kbd]"
+"Deixe em branco se não houver/quiser suporte de esquema PDF, sugerido: [kbd]"
+"pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:660
 msgid "PDF schema: table coordinates"
@@ -6602,8 +6611,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"Deixe em branco se não há suporte de esquema PDF, sugerido: "
-"[kbd]pma_pdf_pages[/kbd]"
+"Deixe em branco se não há suporte de esquema PDF, sugerido: [kbd]"
+"pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:670
 msgid "UI preferences table"
@@ -6657,11 +6666,11 @@ msgstr "Instruções para rastrear"
 #: libraries/config/messages.inc.php:690
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma_history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 "Deixe em branco se não há suporte a histórico de consulta SQL, sugerido: "
 "[kbd]pma_history[/kbd]"
@@ -6688,8 +6697,8 @@ msgstr "Criar versões automaticamente"
 #| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
 #| "kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 "Deixe em branco sem suporte de Designer, sugerido: [kbd]pma_designer_coords[/"
 "kbd]"
@@ -6699,32 +6708,22 @@ msgid "User preferences storage table"
 msgstr "Tabela de armazenamento das preferências do utilizador"
 
 #: libraries/config/messages.inc.php:702
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
-#| "kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]."
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Deixe em branco sem suporte de Designer, sugerido: [kbd]pma_designer_coords[/"
-"kbd]"
 
 #: libraries/config/messages.inc.php:703
 msgid "Users table"
 msgstr "Tabela de utilizadores"
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords[/"
-#| "kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]."
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
-"Deixe em branco sem suporte de Designer, sugerido: [kbd]pma_designer_coords[/"
-"kbd]"
 
 #: libraries/config/messages.inc.php:705
 msgid "User groups table"
@@ -6935,14 +6934,14 @@ msgstr "Activar SQL Validator"
 #: libraries/config/messages.inc.php:751
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to "
-#| "[kbd]anonymous[/kbd])"
+#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
+#| "[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Se possui um nome de utilizador, espefique-o aqui (valor por defeito "
-"[kbd]anonymous[/kbd])"
+"Se possui um nome de utilizador, espefique-o aqui (valor por defeito [kbd]"
+"anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:752 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -8742,15 +8741,15 @@ msgstr "Utilizador&nbsp;:"
 msgid "Server Choice:"
 msgstr "Escolha do Servidor"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:398
+#: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:407
+#: libraries/plugins/auth/AuthenticationCookie.class.php:417
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:679
+#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -8758,15 +8757,15 @@ msgstr ""
 "A autenticação sem uma palavra-passe é proibida pela configuração (consulte "
 "'AllowNoPassword')"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:686
+#: libraries/plugins/auth/AuthenticationCookie.class.php:696
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Sem actividade há %s segundos ou mais; Por favor, faça o login novamente."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
-#: libraries/plugins/auth/AuthenticationCookie.class.php:693
+#: libraries/plugins/auth/AuthenticationCookie.class.php:701
+#: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "Não é possível fazer login no servidor MySQL"
@@ -9390,8 +9389,8 @@ msgstr ""
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 #, fuzzy
 #| msgid ""
-#| "ys the contents of the field as-is, without running it through "
-#| "ecialchars(). That is, the field is assumed to contain valid HTML."
+#| "ys the contents of the field as-is, without running it through ecialchars"
+#| "(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -14904,6 +14903,28 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert é definido como 0"
 
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
+#~| "[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
+#~ msgstr ""
+#~ "Deixe em branco sem suporte de Designer, sugerido: [kbd]"
+#~ "pma_designer_coords[/kbd]"
+
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no Designer support, suggested: [kbd]pma_designer_coords"
+#~| "[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
+#~ msgstr ""
+#~ "Deixe em branco sem suporte de Designer, sugerido: [kbd]"
+#~ "pma_designer_coords[/kbd]"
+
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "O seu comando SQL foi executado com sucesso"
 
@@ -14983,13 +15004,11 @@ msgstr "concurrent_insert é definido como 0"
 #~ "transformações MIME-type , clique em %stransformation descriptions%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
-#~ "Mais informações em [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA rastreador de bug [/a] e [a@http://bugs.mysql."
-#~ "com/19588]Bugs MySQL[/a]"
+#~ "Mais informações em [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA rastreador de bug [/a] e [a@http://bugs.mysql.com/19588]Bugs MySQL[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Desativar o uso do INFORMATION_SCHEMA"

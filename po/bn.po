@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:45+0100\n"
+"POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-02-02 13:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
+"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/master/bn/"
+">\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,7 +199,7 @@ msgid "View dump (schema) of database"
 msgstr "ডাটাবেজ(গঠন)স্তুপ দেখাও"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:332 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "ডাটাবেইজে কোন টেবিল নাই।"
 
@@ -311,7 +311,7 @@ msgstr "দেখে তৈরীর %svisual builder%s যাও"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -450,11 +450,11 @@ msgstr ""
 msgid "Unfortunately the submission failed."
 msgstr ""
 
-#: export.php:173
+#: export.php:175
 msgid "Bad type!"
 msgstr "ধরন মিলে নাই!"
 
-#: export.php:234
+#: export.php:236
 msgid "Bad parameters!"
 msgstr "প্যারামিটারগুলো খারপ!"
 
@@ -563,7 +563,7 @@ msgstr "জ্যামিতি যোগ কর"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:284
+#: libraries/plugins/auth/AuthenticationCookie.class.php:294
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -4454,8 +4454,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "আপনি প্রমাণী করনের ধরন [kbd]config[/kbd] নির্ধারণ করেছেন এবং ব্যহবারকারীর নাম ও "
 "পাসওর্য়াড দিয়েছেন স্বয়ংক্রীয় লগইনের জন্য, যা একটি কার্যকর হোস্টের জন্য গ্রহনযোগ্য নয়। "
@@ -4512,15 +4512,25 @@ msgstr "শুন্য signon URL যখন signon প্রমাণীকর�
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক ব্যবহারকারী শুন্য"
+#| msgid ""
+#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid ""
+"Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr ""
+"যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক "
+"ব্যবহারকারী শুন্য"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
-msgstr "যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক ব্যবহারকারী পাসওর্য়াড শুন্য"
+#| msgid ""
+#| "Empty phpMyAdmin control user password while using phpMyAdmin "
+#| "configuration storage"
+msgid ""
+"Empty phpMyAdmin control user password while using phpMyAdmin configuration "
+"storage!"
+msgstr ""
+"যখন phpMyAdmin configuration storage ব্যবহৃত হচ্ছে তখন phpMyAdmin নিয়ন্ত্রক "
+"ব্যবহারকারী পাসওর্য়াড শুন্য"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -4613,8 +4623,8 @@ msgstr "বিজিপ্ড২"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
+#| "textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4634,8 +4644,8 @@ msgstr "CHAR স্তম্ভ সম্পাদনা"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "SQL অনুসন্ধান সম্পাদনার জন্য ব্যবহারকারীর জন্য সহজ সফটওয়ার ব্যবহার করুন ([a@http://"
 "codemirror.net/]CodeMirror[/a]), লাইন চিহ্নিতকরন এবং লাইন নাম্বার সহ"
@@ -5083,8 +5093,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"ফরেন কী ড্রপডাউনের বিষয়গুলো গুছানোর পদ্ধতি [kbd]content[/kbd] হলো তথ্য এবং "
-"[kbd]id[/kbd] কী মান"
+"ফরেন কী ড্রপডাউনের বিষয়গুলো গুছানোর পদ্ধতি [kbd]content[/kbd] হলো তথ্য এবং [kbd]id"
+"[/kbd] কী মান"
 
 #: libraries/config/messages.inc.php:203
 msgid "Foreign key dropdown order"
@@ -5251,9 +5261,8 @@ msgstr "পাতার শিরোনাম"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "ব্রাউজারের শিরোনামের লেখাটি দিন। বিশেষ মান নেওয়ার জন্য কি ব্যবহার করতে হবে "
 "জানার জন্য [doc@cfg_TitleTable]documentation[/doc] দেখুন।"
@@ -5394,10 +5403,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"আপনি যদি SQL বৈধকরণ ব্যবহার করতে চান, তবে আপনার সচেতন থাকা উচিত যে "
-"[strong]পরিসংখ্যানে ব্যবহারের জন্য সমস্ত SQL statements অপরিচিত ভাবে জমা রাখা হয়।"
-"[/strong]। [br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-"a], Copyright 2002 Upright Database Technology. সমস্ত স্বত্ব সংরক্ষন করে।[/em]"
+"আপনি যদি SQL বৈধকরণ ব্যবহার করতে চান, তবে আপনার সচেতন থাকা উচিত যে [strong]"
+"পরিসংখ্যানে ব্যবহারের জন্য সমস্ত SQL statements অপরিচিত ভাবে জমা রাখা হয়।[/"
+"strong]। [br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
+"Copyright 2002 Upright Database Technology. সমস্ত স্বত্ব সংরক্ষন করে।[/em]"
 
 #: libraries/config/messages.inc.php:300
 msgid "Startup"
@@ -5770,8 +5779,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"একটি স্ক্রীপটের জন্য নির্ধারিত বাইটের সংখ্যা যেমন [kbd]৩২মে[/kbd] ([kbd]০[/"
-"kbd]কোন সীমা নির্দষ্ট না করার জন্য"
+"একটি স্ক্রীপটের জন্য নির্ধারিত বাইটের সংখ্যা যেমন [kbd]৩২মে[/kbd] ([kbd]০[/kbd]"
+"কোন সীমা নির্দষ্ট না করার জন্য"
 
 #: libraries/config/messages.inc.php:429
 msgid "Memory limit"
@@ -5806,8 +5815,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"সংযুক্ত পাতাটি একটি নতুন উইন্ডোতে ([kbd]new[/kbd]) খোল বা প্রধান উইন্ডোটিতে "
-"([kbd]main[/kbd]) খোল"
+"সংযুক্ত পাতাটি একটি নতুন উইন্ডোতে ([kbd]new[/kbd]) খোল বা প্রধান উইন্ডোটিতে ([kbd]"
+"main[/kbd]) খোল"
 
 #: libraries/config/messages.inc.php:439
 msgid "Logo link target"
@@ -6217,11 +6226,11 @@ msgstr "বুকর্মাক টেবল"
 #: libraries/config/messages.inc.php:564
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
 "স্তম্ভের মন্তব্য/মাইমের ধরন না দেখানোর জন্য খালি রাখুন, দেখুন:[kbd]pma_column_info[/"
 "kbd]"
@@ -6258,8 +6267,8 @@ msgstr "নিয়ন্ত্রক ব্যবহারকারীর পা�
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
+#| "wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6309,8 +6318,8 @@ msgstr "যেকোন হোষ্ট"
 #: libraries/config/messages.inc.php:591
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: "
-#| "[kbd]pma__designer_coords[/kbd]"
+#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
@@ -6334,8 +6343,8 @@ msgstr "ডাটাবেইজ লুকাও"
 #: libraries/config/messages.inc.php:599
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma__history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6438,8 +6447,8 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "সর্ম্পক, বুকর্মাক এবং পিডিএফের জন্য ব্যবহৃত ডাটাবেইজসমূহ। পুর্ণ তথ্যে জন্য[a@http://wiki."
-"phpmyadmin.net/pma/pmadb]pmadb[/a] দেখুন। সমর্থন না করলে খালি রাখুন। দেখুন: "
-"[kbd]phpmyadmin[/kbd]"
+"phpmyadmin.net/pma/pmadb]pmadb[/a] দেখুন। সমর্থন না করলে খালি রাখুন। দেখুন: [kbd]"
+"phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:631
 #: libraries/display_create_database.lib.php:31
@@ -6478,8 +6487,8 @@ msgstr "সাময়িককালে ব্যবহৃত টেবল"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "না করার জন্য খালি রাখুন [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a]সাহায্যের জন্য, দেখুন:[kbd]pma__relation[/kbd]"
@@ -6494,11 +6503,11 @@ msgstr "আন্তসর্ম্পক টেবল"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
-"উদাহরণের জন্য [a@http://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]authentication types [/a] দেখুন"
+"উদাহরণের জন্য [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
+"authentication types [/a] দেখুন"
 
 #: libraries/config/messages.inc.php:650
 msgid "Signon session name"
@@ -6623,11 +6632,11 @@ msgstr "ট্রেকের জন্য Statements"
 #: libraries/config/messages.inc.php:690
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: "
-#| "[kbd]pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
+#| "pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 "SQL অনুসন্ধান ট্রেকিং সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন: [kbd]pma_tracking[/"
 "kbd]"
@@ -6649,11 +6658,11 @@ msgstr "স্বয়ংক্রীয়ভাবে সংস্করন তৈ�
 #: libraries/config/messages.inc.php:700
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
 "দেখুন:[kbd]pma_userconfig[/kbd]"
@@ -6663,16 +6672,11 @@ msgid "User preferences storage table"
 msgstr "ব্যবহারকারীর নির্ধারন (preferences) মজুদ করার টেবল"
 
 #: libraries/config/messages.inc.php:702
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]."
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
-"দেখুন:[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:703
 #, fuzzy
@@ -6681,16 +6685,11 @@ msgid "Users table"
 msgstr "টেবল ব্যবহার"
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]."
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
-"ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
-"দেখুন:[kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:705
 #, fuzzy
@@ -6701,8 +6700,8 @@ msgstr "হোষ্ট টেবল ব্যবহার কর"
 #: libraries/config/messages.inc.php:706
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -6942,8 +6941,8 @@ msgstr "SQL বৈধকরণ কার্যকর"
 #: libraries/config/messages.inc.php:751
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to "
-#| "[kbd]anonymous[/kbd])"
+#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
+#| "[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
@@ -7555,9 +7554,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"পিএইছপি নির্ধারিত শেষ হওয়ার সময়ের কাছাকাছি এলে আমদানি বন্ধ করার অনুমোদন। "
-"<i>(এটা অনেক বড় ফাইল আমদানীর একটি ভাল উপায়, যদিও এটা কাজ বন্ধ করে দিতে "
-"পারে।)</i>"
+"পিএইছপি নির্ধারিত শেষ হওয়ার সময়ের কাছাকাছি এলে আমদানি বন্ধ করার অনুমোদন। <i>"
+"(এটা অনেক বড় ফাইল আমদানীর একটি ভাল উপায়, যদিও এটা কাজ বন্ধ করে দিতে পারে।)</i>"
 
 #: libraries/display_import.lib.php:302
 msgid ""
@@ -7746,8 +7744,8 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
-"সাময়িক ফাইলের অনুমোদিত সর্বোচ্চ আকার যা MySQL MyISAM ইনডেক্স পুনতৈরীর সময় "
-"ব্যবহার করবে  (REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE এ)।"
+"সাময়িক ফাইলের অনুমোদিত সর্বোচ্চ আকার যা MySQL MyISAM ইনডেক্স পুনতৈরীর সময় ব্যবহার "
+"করবে  (REPAIR TABLE, ALTER TABLE, or LOAD DATA INFILE এ)।"
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
@@ -7771,8 +7769,8 @@ msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
-"এই মানটি যদি ১ এর চাইতে বড় হয়, MyISAM টেবলের ইনডেক্স সর্ট ব্যবস্থা মেরামতের "
-"সংগে সমান্তরালভাবে তৈর হবে। (প্রতিটি ইনডেক্স তার নিজস্ব থ্রেডে)।"
+"এই মানটি যদি ১ এর চাইতে বড় হয়, MyISAM টেবলের ইনডেক্স সর্ট ব্যবস্থা মেরামতের সংগে "
+"সমান্তরালভাবে তৈর হবে। (প্রতিটি ইনডেক্স তার নিজস্ব থ্রেডে)।"
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
@@ -8810,28 +8808,28 @@ msgstr "নাম:"
 msgid "Server Choice:"
 msgstr "Server Choice"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:398
+#: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:407
+#: libraries/plugins/auth/AuthenticationCookie.class.php:417
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:679
+#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "পাসওয়ার্ড বিহীন লগইন কনফিগারেশন দ্বারা নিষিদ্ধ (see AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:686
+#: libraries/plugins/auth/AuthenticationCookie.class.php:696
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "%s সেকেন্ডের মধ্য কার্যক্রম নাই; অনুগ্রহ করে আবার লগইন করুন।"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
-#: libraries/plugins/auth/AuthenticationCookie.class.php:693
+#: libraries/plugins/auth/AuthenticationCookie.class.php:701
+#: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "মাইএসকিউএল সার্ভারে লগইন করা যাচ্ছে না"
@@ -9161,8 +9159,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "প্রতিটি <code>INSERT</code> এর সাথে স্তম্ভের নাম সংযুক্ত কর <br /> &nbsp;&nbsp; "
-"&nbsp; উদাহরণ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
-"(1,2,3)</code>"
+"&nbsp; উদাহরণ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)"
+"</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:388
 msgid ""
@@ -9305,8 +9303,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
-"অযোগ্য স্তম্ভের নাম (%s) দেয়া হয়েছে! স্তম্ভের নামটি সঠিক ভাবে বানান করা "
-"হয়েছে কিনা, কমা দ্বারা আলাদ করা এবং কোঔট দ্বারা সীমিত নয় তা নিশ্চিন্ত করুন।"
+"অযোগ্য স্তম্ভের নাম (%s) দেয়া হয়েছে! স্তম্ভের নামটি সঠিক ভাবে বানান করা হয়েছে "
+"কিনা, কমা দ্বারা আলাদ করা এবং কোঔট দ্বারা সীমিত নয় তা নিশ্চিন্ত করুন।"
 
 #: libraries/plugins/import/ImportCsv.class.php:298
 #: libraries/plugins/import/ImportCsv.class.php:576
@@ -11608,8 +11606,8 @@ msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
 msgstr ""
-"INSERT DELAYED এর মাধ্যমে লেখা রো গুলোর জন্য কিছু ভুল হয়ে থাকতে পারে "
-"(probably duplicate key)।"
+"INSERT DELAYED এর মাধ্যমে লেখা রো গুলোর জন্য কিছু ভুল হয়ে থাকতে পারে (probably "
+"duplicate key)।"
 
 #: libraries/server_status_variables.lib.php:366
 msgid ""
@@ -12066,8 +12064,8 @@ msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
-"ক্যাশ করা হয়নি এমন অনুসন্ধানের সংখ্যা (ক্যাশ যোগ্য নয় বা query_cache_type "
-"setting এর জন্য)।"
+"ক্যাশ করা হয়নি এমন অনুসন্ধানের সংখ্যা (ক্যাশ যোগ্য নয় বা query_cache_type setting "
+"এর জন্য)।"
 
 #: libraries/server_status_variables.lib.php:672
 msgid "The number of queries registered in the cache."
@@ -12448,8 +12446,8 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
 msgstr ""
-"আপনার SQL অনুসন্ধানে কোন ভুল আছে মনে হয়। নীচে সার্ভারের ভুল প্রতিবেদনটি "
-"দেওয়া হল, যদি কিছু থাকে তা আপনাকে সমস্যাটি নির্ণয়ে সাহায্য করবে।"
+"আপনার SQL অনুসন্ধানে কোন ভুল আছে মনে হয়। নীচে সার্ভারের ভুল প্রতিবেদনটি দেওয়া হল, "
+"যদি কিছু থাকে তা আপনাকে সমস্যাটি নির্ণয়ে সাহায্য করবে।"
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
@@ -13515,8 +13513,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
-"আপনি নিরাপদ সংযোগ ব্যবহার করছেন না; সমস্ত তথ্য (গুরুত্বপূর্ণ তথ্য, যেমন "
-"পাসওয়ার্ড)আনএনক্রিপটেড স্থানান্তর করা হবে।"
+"আপনি নিরাপদ সংযোগ ব্যবহার করছেন না; সমস্ত তথ্য (গুরুত্বপূর্ণ তথ্য, যেমন পাসওয়ার্ড)"
+"আনএনক্রিপটেড স্থানান্তর করা হবে।"
 
 #: setup/frames/index.inc.php:82
 #, php-format
@@ -13524,8 +13522,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"আপনার সার্ভার যদি HTTPS সংযোগের জন্য কনফিগারড হয় তবে নিরাপদ সংযোগের  জন্য [a@"
-"%s]this link[/a] ব্যবহার করেন।"
+"আপনার সার্ভার যদি HTTPS সংযোগের জন্য কনফিগারড হয় তবে নিরাপদ সংযোগের  জন্য [a@%s]"
+"this link[/a] ব্যবহার করেন।"
 
 #: setup/frames/index.inc.php:89
 msgid "Insecure connection"
@@ -14945,6 +14943,28 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
 
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma__userconfig[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
+#~ msgstr ""
+#~ "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
+#~ "দেখুন:[kbd]pma_userconfig[/kbd]"
+
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma__userconfig[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
+#~ msgstr ""
+#~ "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
+#~ "দেখুন:[kbd]pma_userconfig[/kbd]"
+
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে"
 
@@ -15047,9 +15067,8 @@ msgstr "concurrent_insert এর জন্য ০ নির্ধারন ক�
 #~ "descriptions%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
 #~ "আরো তথ্যের জন্য [a@http://sf.net/support/tracker.php?aid=1849494]PMA bug "
 #~ "tracker[/a] এবং [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"

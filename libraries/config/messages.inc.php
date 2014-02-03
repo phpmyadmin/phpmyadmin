@@ -699,9 +699,9 @@ $strConfigServers_tracking_version_auto_create_name
     = __('Automatically create versions');
 $strConfigServers_userconfig_desc = __('Leave blank for no user preferences storage in database, suggested: [kbd]pma__userconfig[/kbd].');
 $strConfigServers_userconfig_name = __('User preferences storage table');
-$strConfigServers_users_desc = __('Leave blank to disable configurable menus feature, suggested: [kbd]pma__users[/kbd].');
+$strConfigServers_users_desc = __('Both this table and the user groups table are required to enable the configurable menus feature; leaving either one of them blank will disable this feature, suggested: [kbd]pma__users[/kbd].');
 $strConfigServers_users_name = __('Users table');
-$strConfigServers_usergroups_desc = __('Leave blank to disable configurable menus feature, suggested: [kbd]pma__usergroups[/kbd].');
+$strConfigServers_usergroups_desc = __('Both this table and the users table are required to enable the configurable menus feature; leaving either one of them blank will disable this feature, suggested: [kbd]pma__usergroups[/kbd].');
 $strConfigServers_usergroups_name = __('User groups table');
 $strConfigServers_navigationhiding_desc = __('Leave blank to disable the feature to hide and show navigation items, suggested: [kbd]pma__navigationhiding[/kbd].');
 $strConfigServers_navigationhiding_name = __('Hidden navigation items table');
