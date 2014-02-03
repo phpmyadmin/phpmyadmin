@@ -447,7 +447,7 @@ fieldset .formelement {
         clear: none;
     }
     #relationalTable td:first-child + td {
-        width: 25%;  
+        width: 25%;
     }
     #relationalTable td:first-child + td select {
         width: 32%;
@@ -455,8 +455,8 @@ fieldset .formelement {
     }
     #relationalTable {
         width: 100%;
-    }  
-    
+    }
+
 }
 
 /* revert for Gecko */
