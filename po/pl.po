@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-01-10 19:12+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/"
-">\n"
+"PO-Revision-Date: 2014-02-03 14:36+0200\n"
+"Last-Translator: Mariusz Tulikowski <m.tulikowski@gmail.com>\n"
+"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -219,16 +218,16 @@ msgid "The database name is empty!"
 msgstr "Nazwa bazy danych jest pusta!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Nazwę bazy danych %1$s zmieniono na %2$s"
+msgstr "Nazwę bazy danych %1$s zmieniono na %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Baza danych %1$s została przekopiowana do %2$s"
+msgstr "Baza danych %1$s została przekopiowana do %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -295,10 +294,9 @@ msgstr[1] "%s tabel"
 msgstr[2] "%s tabel"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Musisz wybrać co najmniej jedną kolumnę do wyświetlenia"
+msgstr "Musisz wybrać co najmniej jedną kolumnę do wyświetlenia!"
 
 #: db_qbe.php:70
 #, php-format
@@ -586,7 +584,6 @@ msgid "Output"
 msgstr "Wyjście"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -594,8 +591,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Wybierz \"GeomFromText\" z kolumny \"Funkcja\" i wklej poniższy ciąg znaków "
-"do pola \"Wartość\""
+"Wybierz \"GeomFromText\" z kolumny \"Funkcja\" i wklej poniższy ciąg znaków do "
+"pola \"Wartość\"."
 
 #: import.php:116
 #, php-format
@@ -616,10 +613,9 @@ msgstr "Zakładka została usunięta."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Nie można odczytać pliku"
+msgstr "Nie można odczytać pliku!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
