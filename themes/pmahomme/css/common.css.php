@@ -447,7 +447,7 @@ fieldset .formelement {
         clear: none;
     }
     #relationalTable td:first-child + td {
-        width: 25%;  
+        width: 25%;
     }
     #relationalTable td:first-child + td select {
         width: 32%;
@@ -455,8 +455,8 @@ fieldset .formelement {
     }
     #relationalTable {
         width: 100%;
-    }  
-    
+    }
+
 }
 
 /* revert for Gecko */
@@ -871,6 +871,7 @@ ul#topmenu2 li {
 .menucontainer {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'dcdcdc'); ?>
     border-top: 1px solid #aaa;
+    border-bottom: 1px solid #ccc;
 }
 
 /* default tab styles */
