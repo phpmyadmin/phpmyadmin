@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-03 14:44+0200\n"
+"PO-Revision-Date: 2014-02-03 14:53+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -3295,10 +3295,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "A tabela foi renomeada de %1$s para %2$s."
 
 #: libraries/Table.class.php:1477
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "Não foi possível salvar as preferências visuais da tabela"
+msgstr "Não foi possível salvar as preferências visuais da tabela!"
 
 #: libraries/Table.class.php:1506
 #, php-format
