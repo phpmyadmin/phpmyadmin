@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - bug #4260 reCaptcha is ignoring language settings
 - bug #4259 reCaptcha sound session expired problem
 - bug #4263 Japanese character encoding not working properly when exporting
+- bug #4269 Notice on table relation page
 
 4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user
