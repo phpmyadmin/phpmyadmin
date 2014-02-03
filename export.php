@@ -20,7 +20,7 @@ if (!defined('TESTSUITE')) {
     include_once 'libraries/common.inc.php';
     include_once 'libraries/zip.lib.php';
     include_once 'libraries/plugin_interface.lib.php';
-    
+
     //check if it's the GET request to check export time out
     if (isset($_GET['check_time_out'])) {
         if (isset($_SESSION['pma_export_error'])) {
@@ -57,6 +57,8 @@ if (!defined('TESTSUITE')) {
             'charset_of_file',
             'compression',
             'what',
+            'knjenc',
+            'xkana',
             'htmlword_structure_or_data',
             'htmlword_null',
             'htmlword_columns',
@@ -267,9 +269,9 @@ if (!defined('TESTSUITE')) {
 }
 
 /**
- * Sets a session variable upon a possible fatal error during export 
+ * Sets a session variable upon a possible fatal error during export
  *
- * @return void 
+ * @return void
  */
 function PMA_shutdown()
 {
