@@ -21,7 +21,7 @@ if (!defined('TESTSUITE')) {
     include_once 'libraries/zip.lib.php';
     include_once 'libraries/plugin_interface.lib.php';
     include_once 'libraries/export.lib.php';
-    
+
     //check if it's the GET request to check export time out
     if (isset($_GET['check_time_out'])) {
         if (isset($_SESSION['pma_export_error'])) {
@@ -58,6 +58,8 @@ if (!defined('TESTSUITE')) {
             'charset_of_file',
             'compression',
             'what',
+            'knjenc',
+            'xkana',
             'htmlword_structure_or_data',
             'htmlword_null',
             'htmlword_columns',
