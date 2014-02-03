@@ -1348,7 +1348,9 @@ class PMA_DbQbe
      */
     public function getSelectionForm($cfgRelation)
     {
-        $html_output = '<form action="db_qbe.php" method="post">';
+        $html_output = $this->_getSavedSearchesForm();
+
+        $html_output .= '<form action="db_qbe.php" method="post">';
         $html_output .= '<fieldset>';
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
@@ -1394,6 +1396,39 @@ class PMA_DbQbe
         $html_output .= '<input type="submit" value="' . __('Submit Query') . '" />';
         $html_output .= '</fieldset>';
         $html_output .= '</div>';
+        $html_output .= '</form>';
+        return $html_output;
+    }
+
+    /**
+     * Get form to display
+     *
+     * @return string
+     */
+    private function _getSavedSearchesForm()
+    {
+        $html_output = '<form id="savedSearches" action="db_qbe.php" method="post">';
+        $html_output .= '<fieldset>';
+        $html_output .= __('Saved searches : ');
+        $html_output .= '<select name="existingSavedSearches"
+            id="existingSavedSearches" onchange="">';
+        $searches = array(
+            1 => 'test'
+        );
+        $html_output .= '<option value="">New search</option>';
+        foreach ($searches as $name => $search) {
+            $html_output .= '<option value="' . htmlspecialchars($name) . '">'
+                . htmlspecialchars($search)
+                . '</option>';
+        }
+        $html_output .= '</select>';
+        $html_output .= '<input type="text" name="searchName" id="searchName"
+            value="" />';
+        $html_output .= '</fieldset>';
+        $html_output .= '<fieldset class="tblFooters">';
+        $html_output .= '<input type="hidden" name="save_search" value="1" />';
+        $html_output .= '<input type="submit" value="' . __('Save search') . '" />';
+        $html_output .= '</fieldset>';
         $html_output .= '</form>';
         return $html_output;
     }
