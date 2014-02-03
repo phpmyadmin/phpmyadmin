@@ -2261,7 +2261,7 @@ fieldset .disabled-field td {
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: left; }
 .ui-timepicker-div dl dt { height: 25px; }
-.ui-timepicker-div dl dd { margin: -25px 0 10px 65px; }
+.ui-timepicker-div dl dd { margin: -25px 0 10px 85px; }
 .ui-timepicker-div td { font-size: 90%; }
 
 input.btn {
