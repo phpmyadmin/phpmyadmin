@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-02 21:50+0200\n"
+"PO-Revision-Date: 2014-02-03 13:45+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -1796,10 +1796,10 @@ msgstr ""
 "Θέλετε να συνεχίσετε;"
 
 #: js/messages.php:329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Προσθήκη επιλογής για τη στήλη "
+msgstr "Προσθήκη επιλογής για τη στήλη «%s»."
 
 #: js/messages.php:330
 #, php-format
@@ -9544,10 +9544,9 @@ msgstr ""
 "δικαιωμάτων."
 
 #: libraries/replication_gui.lib.php:997
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Αδύνατη η αλλαγή της πρωτεύουσας"
+msgstr "Αδύνατη η αλλαγή της πρωτεύουσας!"
 
 #: libraries/replication_gui.lib.php:1001
 #, php-format
