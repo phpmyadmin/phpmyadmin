@@ -8,10 +8,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-01-03 21:27+0200\n"
-"Last-Translator: sand wedge <sandibek_aktau@mail.ru>\n"
-"Language-Team: Kazakh <http://l10n.cihar.com/projects/phpmyadmin/master/kk/"
-">\n"
+"PO-Revision-Date: 2014-02-03 16:59+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Kazakh <http://l10n.cihar.com/projects/phpmyadmin/master/kk/>\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -313,7 +312,7 @@ msgstr "%sСұраныстарды көз мөлшерiмен құрастыру
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "Рұқсат жоқ"
+msgstr "Рұқсат жоқ!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
