@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-02 11:45+0100\n"
-"PO-Revision-Date: 2014-01-30 10:29+0200\n"
+"PO-Revision-Date: 2014-02-03 10:04+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -220,16 +220,16 @@ msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "%1$s andmebaasi uueks nimeks on %2$s"
+msgstr "%1$s andmebaasi uueks nimeks on %2$sˇ."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "%1$s andmebaas on kopeeritud kohta %2$s"
+msgstr "%1$s andmebaas on kopeeritud kohta %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -295,10 +295,9 @@ msgstr[0] "%s tabel"
 msgstr[1] "%s tabelit"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Pead valima vähemalt ühe veeru, mida näidata"
+msgstr "Näitamiseks pead valima vähemalt ühe veeru!"
 
 #: db_qbe.php:70
 #, php-format
@@ -582,7 +581,6 @@ msgid "Output"
 msgstr "Väljund"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -590,8 +588,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Vali veerust \"Function\" \"GeomFromText\" ja kleebi allolev sõne väljale "
-"\"Value\""
+"Vali väärtus \"GeomFromText\" veerust \"Function\" ja kleebi allolev sõne "
+"väljale \"Value\"."
 
 #: import.php:116
 #, php-format
@@ -636,13 +634,12 @@ msgstr ""
 "[doc@faq1-16]KKK 1.16[/doc]."
 
 #: import.php:481
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "Faili märgitabelit ei saa teisendada ilma märgitabeli teisendusteegita"
+msgstr "Faili märgitabelit ei saa teisendada ilma märgitabeli teisendusteegita!"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -650,10 +647,10 @@ msgstr ""
 "Ei saanud importimise pluginaid laadida, palun kontrolli oma paigaldust!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "%s järjehoidja on loodud"
+msgstr "Loodi järjehoidja %s."
 
 #: import.php:563 import.php:576
 #, php-format
@@ -939,10 +936,9 @@ msgid "Missing value in the form!"
 msgstr "Puuduv väärtus vormis!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Palun sisesta korrektne number"
+msgstr "Palun sisesta korrektne number!"
 
 #: js/messages.php:49
 msgid "Please enter a valid length!"
@@ -1014,10 +1010,9 @@ msgid "Connections / Processes"
 msgstr "Ühendused / Protsessid"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Kohaliku jälgimise seadistus on ühildumatu"
+msgstr "Kohaliku jälgimise seadistus ei ühildu!"
 
 #: js/messages.php:77
 msgid ""
@@ -1793,16 +1788,15 @@ msgid "Add an option for column \"%s\"."
 msgstr "Vali veerule valik "
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d objekt(i) loodud"
+msgstr "Loodi %d objekt(i)."
 
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Muutmisest loobumiseks vajuta ESC"
+msgstr "Muutmisest loobumiseks vajuta ESC."
 
 #: js/messages.php:334
 msgid ""
@@ -1813,34 +1807,29 @@ msgstr ""
 "soovid enne andmete salvestamist sellelt lehelt lahkuda?"
 
 #: js/messages.php:335
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Järjekorra muutmiseks lohista"
+msgstr "Järjekorra muutmiseks lohista."
 
 #: js/messages.php:336
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Sorteerimiseks kliki"
+msgstr "Kliki sorteerimiseks."
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Valimiseks/mittevalimiseks kliki"
+msgstr "Klõpsa valimiseks/mittevalimiseks."
 
 #: js/messages.php:338
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Veeru nime kopeerimiseks topeltklõpsa sellel"
+msgstr "Veeru nime kopeerimiseks tee sellel topeltklõps."
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "Veeru nähtavuse muutmiseks<br />vajuta alla suunatud noolele"
+msgstr "Veeru nähtavuse muutmiseks<br />vajuta alla suunatud noolele."
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
@@ -1868,26 +1857,23 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Sa saad ka muuta enamikke väärtuseid,<br />kui klikid nende peal."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "Mine lingile"
+msgstr "Mine lingile."
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "Kopeeri veeru nimi"
+msgstr "Kopeeri veeru nimi."
 
 #: js/messages.php:358
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Veeru nime kopeerimiseks lõikelauale paremklõpsa sellel."
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Näita andmete rida/ridu"
+msgstr "Näita andmete rida/ridu."
 
 #: js/messages.php:362
 msgid "Generate password"
@@ -1914,10 +1900,9 @@ msgid "Hide Panel"
 msgstr "Peida paneel"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
-msgstr "Kuva peidetud navigeerimispaneeli elemendid"
+msgstr "Kuva peidetud navigeerimispaneeli elemendid."
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
@@ -3088,20 +3073,18 @@ msgid "Error while creating PDF:"
 msgstr "PDF loomisel esines viga:"
 
 #: libraries/RecentTable.class.php:122
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "Ei saa hiljutist tabelit salvestada"
+msgstr "Hiljutise tabelit ei suudetud salvestada!"
 
 #: libraries/RecentTable.class.php:161
 msgid "Recent tables"
 msgstr "Hiljutised tabelid"
 
 #: libraries/RecentTable.class.php:173
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "Hiljutisi tabeleid pole"
+msgstr "Hiljutisi tabeleid ei ole."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3262,10 +3245,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
 #: libraries/Table.class.php:1477
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "Tabeli UI eelistusi ei saanud salvestada"
+msgstr "Tabeli kasutajaliidese eelistusi ei saanud salvestada!"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -3886,10 +3868,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Valitud üleslaadimise kataloogile ei pääse ligi."
 
 #: libraries/Util.class.php:3384
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Seal pole faile, mida üles laadida"
+msgstr "Puuduvad failid, mida üles laadida!"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
 #: libraries/structure.lib.php:305
@@ -3994,10 +3975,9 @@ msgid "Check Privileges"
 msgstr "Kontrolli õigusi"
 
 #: libraries/common.inc.php:581
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "Seadistuse faili lugemine ebaõnnestus"
+msgstr "Seadistuse faili lugemine ebaõnnestus!"
 
 #: libraries/common.inc.php:583
 msgid ""
@@ -4181,39 +4161,35 @@ msgstr "mitte kumbki ülal nimetatuist"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "Pole positiivne number"
+msgstr "Ei ole positiivne number!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "Pole mitte-negatiivne number"
+msgstr "Ei ole mitte-negatiivne number!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "Pole õige pordi number"
+msgstr "Vigane pordi number!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Vale väärtus"
+msgstr "Vale väärtus!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "Väärtus peab olema võrdne või madalam kui %s"
+msgstr "Väärtus peab olema väiksem või võrdne kui %s!"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
@@ -4430,49 +4406,46 @@ msgid ""
 msgstr "%sZip hõrendamine%s vajab funktsioone (%s), mida siin süsteemis pole."
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "Ei saanud luua Drizzle ühenduse teeki"
+msgstr "Ühenduste teegi Drizzle initsialiseerimine ei õnnestunud!"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Ei saanud sihtkohaga ühendada"
+msgstr "Ei saa ühenduda andmebaasi serveriga!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
-msgstr "Tühi kasutajanimi config-ga autentimise meetodi jaoks"
+msgstr "Tühi kasutajanimi kasutades autentimise meetodit \"config\"!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid "Empty signon session name while using signon authentication method!"
-msgstr "Tühi sisselogimise nimi sisselogimisega autentimise meetodi jaoks"
+msgstr "Tühi sisselogimise nimi kasutades autentimise meetodit \"signon\"!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using signon authentication method!"
-msgstr "Tühi sisselogimise URL sisselogimisega autentimise meetodi jaoks"
+msgstr "Tühi sisselogimise URL kasutades autentimise meetodit \"signon\"!"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "Tühi phpMyAdmini kontrollkasutaja phpMyAdmin configuration storage jaoks"
+msgstr ""
+"Tühi phpMyAdmini kontrollkasutaja kasutades phpMyAdmin'i seadistuste "
+"salvestamist!"
 
 #: libraries/config/Validator.class.php:374
-#, fuzzy
 #| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
 msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
-msgstr "Tühi phpMyAdmini kontrollkasutaja parool phpMyAdmin configuration storage jaoks"
+msgstr ""
+"Tühi phpMyAdmini kontrollkasutaja parool kasutades phpMyAdmin'i seadistuste "
+"salvestamist!"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -7547,24 +7520,21 @@ msgid ""
 msgstr "Järgnevaid struktuure on kas loodud või muudetud. Siin saad:"
 
 #: libraries/import.lib.php:1228
-#, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
-msgstr "Vaata struktuuri sisu, klikkides selle nimele"
+msgstr "Vaata struktuuri sisu, klõpsates selle nimel."
 
 #: libraries/import.lib.php:1229
-#, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr "Muuda mistahes selle sätet, klikkides vastavat \"Valikud\" linki"
+msgstr "Muuda selle mistahes sätet, klõpsates vastaval \"Valikud\" lingil."
 
 #: libraries/import.lib.php:1230
-#, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Muuda struktuuri, klikkides \"Struktuur\" lingile"
+msgstr "Struktuuri muutmiseks klõpsa lingil \"Struktuur\"."
 
 #: libraries/import.lib.php:1236
 #, php-format
@@ -7608,10 +7578,9 @@ msgid "Binary"
 msgstr "Binaarne"
 
 #: libraries/insert_edit.lib.php:658
-#, fuzzy
 #| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "Oma pikkuse tõttu<br /> ei pruugi see veerg olla muudetav"
+msgstr "Oma pikkuse tõttu ei pruugi<br />see veerg olla muudetav."
 
 #: libraries/insert_edit.lib.php:1103
 msgid "Binary - do not edit"
@@ -8844,7 +8813,6 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI shape faili importimisel esines viga: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:204
-#, fuzzy
 #| msgid ""
 #| "You tried to import an invalid file or the imported file contains invalid "
 #| "data"
@@ -8852,7 +8820,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
-"Üritasid importida valet faili või imporditud fail sisaldab valesid andmeid"
+"Üritasid importida vigast faili või imporditud fail sisaldab vigaseid "
+"andmeid!"
 
 #: libraries/plugins/import/ImportShp.class.php:210
 #, php-format
@@ -8860,10 +8829,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Extension ei toeta ESRI tüüpi \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-#, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "Imporditud fail ei sisalda mitte mingeid andmeid"
+msgstr "Imporditud failis ei ole mitte mingeid andmeid!"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
@@ -9450,16 +9418,15 @@ msgstr ""
 "Ei saa lugeda ülema logi asukohta. Võimalikud on probleemid ülema õigustega."
 
 #: libraries/replication_gui.lib.php:997
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Ei saa ülemat muuta"
+msgstr "Ulemat ei saa muuta!"
 
 #: libraries/replication_gui.lib.php:1001
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "Ülema serveriks muudeti edukalt %s"
+msgstr "Ülemserveriks vahetati edukalt %s."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
@@ -9556,16 +9523,14 @@ msgstr "Määraja"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "Määraja peab olema formaadis \"kasutajanimi@hostinimi\""
+msgstr "Määraja peab olema formaadis \"kasutajanimi@hostinimi\"!"
 
 #: libraries/rte/rte_events.lib.php:580
-#, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "Sa pead andma sündmuse nime"
+msgstr "Sa pead andma sündmuse nime!"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
@@ -9689,10 +9654,9 @@ msgid "SQL data access"
 msgstr "SQL andmete juurdepääs"
 
 #: libraries/rte/rte_routines.lib.php:1139
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "Sa pead andma funktsiooni nime"
+msgstr "Sa pead andma funktsiooni nime!"
 
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
@@ -9770,28 +9734,24 @@ msgid "Time"
 msgstr "Aeg"
 
 #: libraries/rte/rte_triggers.lib.php:458
-#, fuzzy
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "Sa pead andma päästiku nime"
+msgstr "Sa pead andma päästiku nime!"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Sa pead andma päästikule õige ajastuse"
+msgstr "Sa pead andma päästikule õige ajastuse!"
 
 #: libraries/rte/rte_triggers.lib.php:472
-#, fuzzy
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Sa pead andma päästikule õige sündmuse"
+msgstr "Sa pead andma päästikule õige sündmuse!"
 
 #: libraries/rte/rte_triggers.lib.php:480
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "Sa pead sisestama õige tabeli nime"
+msgstr "Sa pead sisestama õige tabeli nime!"
 
 #: libraries/rte/rte_triggers.lib.php:486
 msgid "You must provide a trigger definition."
@@ -10184,10 +10144,9 @@ msgstr "Lubab serveri välja lülitada."
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:93
-#, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Lubab vaadata kõikide kasutajate protsesse"
+msgstr "Lubab kõikide kasutajate protsesside vaatamist."
 
 #: libraries/server_privileges.lib.php:294
 #: libraries/server_privileges.lib.php:1051 server_privileges.php:73
@@ -10255,17 +10214,15 @@ msgstr "Lubab luua uusi vaateid."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-#, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Lubab luua sündmusi sündmuse ajastaja jaoks"
+msgstr "Võimaldab luua sündmuste ajastajale sündmuseid."
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Lubab luua ja kustutada päästikuid"
+msgstr "Lubab luua ja kustutada päästikuid."
 
 #: libraries/server_privileges.lib.php:369
 #: libraries/server_privileges.lib.php:375
@@ -10351,10 +10308,9 @@ msgstr "Tabelipõhised õigused"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Märkus: MySQL õigused on inglisekeelsed"
+msgstr "Märkus: MySQL õigused on inglise keeles."
 
 #: libraries/server_privileges.lib.php:977
 msgid "Administration"
@@ -11809,10 +11765,9 @@ msgid "Let every user access this bookmark"
 msgstr "Anna kõikidele kasutajatele juurdepääs sellele järjehoidjale"
 
 #: libraries/sql.lib.php:1024
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "Järjehoidjat ei loodud"
+msgstr "Järjehoidjat ei loodud!"
 
 #: libraries/sql.lib.php:1180
 #, php-format
@@ -11964,16 +11919,16 @@ msgstr "Jälgimist pole aktiveeritud."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "%s vaade on kustutatud"
+msgstr "Vaade %s kustutati."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "%s tabel on kustutatud"
+msgstr "Tabel %s kustutati."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
@@ -12306,7 +12261,7 @@ msgstr "peale %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1043
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Muuda loendi või hulga väärtuseid"
 
 #: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
@@ -12740,22 +12695,19 @@ msgid "Page:"
 msgstr "Leht:"
 
 #: pmd_pdf.php:128
-#, fuzzy
 #| msgid "Import from selected page"
 msgid "Import from selected page."
-msgstr "Impordi valitud lehelt"
+msgstr "Impordi valitud lehelt."
 
 #: pmd_pdf.php:129
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Export to selected page."
-msgstr "Ekspordi valitud lehele"
+msgstr "Ekspordi valitud lehele."
 
 #: pmd_pdf.php:131
-#, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and export to it."
-msgstr "Loo leht ja ekspordi sellele"
+msgstr "Loo leht ja ekspordi sellele."
 
 #: pmd_pdf.php:143
 msgid "New page name: "
@@ -12798,10 +12750,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "Kujundaja jaoks koordinaatide salvestamisel esines viga."
 
 #: prefs_forms.php:86
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "Ei saanud sätteid salvestada, saadetud vorm sisaldab vigu"
+msgstr "Sätteid ei salvestatud; saadetud vorm sisaldab vigu!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -12910,12 +12861,12 @@ msgstr ""
 "phpMyAdmin ei suutnud katkestada %s lõimu. Tõenäoliselt on see juba suletud."
 
 #: setup/frames/form.inc.php:25
-#, fuzzy
 #| msgid ""
 #| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
-"Vale vorm, kontrolli setup/frames/form.inc.php failis $formsets massiivi"
+"Vale vormistik, kontrolli failis setup/frames/form.inc.php masiivi "
+"$formsets!"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
