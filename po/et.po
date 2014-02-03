@@ -310,7 +310,7 @@ msgstr "Mine %sgraafilisele loojale%s"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "Ligipääs keelatud"
+msgstr "Ligipääs keelatud!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
