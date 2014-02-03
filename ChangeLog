@@ -15,10 +15,11 @@ phpMyAdmin - ChangeLog
 + rfe #1478 Make Column Headings Sticky
 + rfe #1480 Enhance privileges initials table
 + rfe #1472 [interface] Break "Edit privileges" with sub-menus
-+ rfe #1466 Minor refactoring required 
++ rfe #1466 Minor refactoring required
 + rfe #1004 Create indexes at the end in SQL export
 + rfe #1479 Relations edit form for larger monitors
 + rfe #1475 Inline query box vertical resize
++ rfe #1500 [interface] Add bottom border to top menu container
 
 4.1.7.0 (not yet released)
 - bug #4245 initial Browse query does not match sorting order
