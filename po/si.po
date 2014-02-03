@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-02 19:19+0200\n"
+"PO-Revision-Date: 2014-02-03 14:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/master/si/"
-">\n"
+"Language-Team: Sinhala "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8856,7 +8856,6 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "\"%s\" ESRI shape ගොනුව ආනයනය කිරීමේදී දෝෂයක් ඇති විය."
 
 #: libraries/plugins/import/ImportShp.class.php:204
-#, fuzzy
 #| msgid ""
 #| "You tried to import an invalid file or the imported file contains invalid "
 #| "data"
@@ -8864,7 +8863,8 @@ msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
 msgstr ""
-"ඔබ ආනයනය කිරීමට උත්සාහ කල ගොනුව වලංගු නොවන එකක් හෝ එහි වලංගු දත්ත අඩංගු නොවන එකක් හෝ වේ"
+"ඔබ ආනයනය කිරීමට උත්සාහ කල ගොනුව වලංගු නොවන එකක් හෝ එහි වලංගු දත්ත අඩංගු නොවන "
+"එකක් හෝ වේ!"
 
 #: libraries/plugins/import/ImportShp.class.php:210
 #, php-format
@@ -8872,10 +8872,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL ජ්‍යාමිතික දිගුව ESRI \"%s\" වර්ගය සඳහා සහාය නොදක්වයි."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-#, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "ආනයන කල ගොනුවේ දත්ත කිසිවක් අඩංගු නොවේ"
+msgstr "ආනයන කල ගොනුවේ දත්ත කිසිවක් අඩංගු නොවේ!"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
@@ -9439,10 +9438,9 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:916
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "දෝෂය"
+msgstr "දෝෂය."
 
 #: libraries/replication_gui.lib.php:958
 msgid "Unknown error"
@@ -9459,16 +9457,15 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:997
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "ප්‍රධාන සේවාදායකය වෙනස් කල නොහැක"
+msgstr "ප්‍රධාන සේවාදායකය වෙනස් කල නොහැක!"
 
 #: libraries/replication_gui.lib.php:1001
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "ප්‍රධාන සේවාදායකය %s වෙත සාර්ථකව වෙනස් කරන ලදි"
+msgstr "ප්‍රධාන සේවාදායකය %s වෙත සාර්ථකව වෙනස් කරන ලදි."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
@@ -9501,11 +9498,10 @@ msgid "Event %1$s has been created."
 msgstr "%1$s සිද්ධිය සාදන ලදි."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>ඔබගේ ඉල්ලීම පිරිසකසන අතරතුර දෝෂ එකක් හෝ වැඩි ගණනක් ඇති විය:</b>"
+msgstr "ඔබගේ ඉල්ලීම පිරිසකසන අතරතුර දෝෂ එකක් හෝ වැඩි ගණනක් ඇති විය:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -9568,16 +9564,14 @@ msgstr "අර්ථ දක්වන්නා"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "අර්ථ දක්වන්නා \"භාවිත නාමය@සේවාදායක නාමය\" ආකෘතියේ විය යුතුය"
+msgstr "අර්ථ දක්වන්නා \"භාවිත නාමය@සේවාදායක නාමය\" ආකෘතියේ විය යුතුය!"
 
 #: libraries/rte/rte_events.lib.php:580
-#, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "ඔබ සිද්ධිය සඳහා නමක් ලබාදිය යුතුයි"
+msgstr "ඔබ සිද්ධිය සඳහා නමක් ලබාදිය යුතුයි!"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
@@ -9640,7 +9634,6 @@ msgid "Routine %1$s has been created."
 msgstr "%1$s නෛත්‍යකය සාදන ලදි."
 
 #: libraries/rte/rte_routines.lib.php:378
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
@@ -9700,10 +9693,9 @@ msgid "SQL data access"
 msgstr "SQL දත්ත පරිශීලනය"
 
 #: libraries/rte/rte_routines.lib.php:1139
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "ඔබ නෛත්යකය සඳහා නමක් ලබාදිය යුතුයි"
+msgstr "ඔබ නෛත්යකය සඳහා නමක් ලබාදිය යුතුයි!"
 
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
@@ -9781,28 +9773,24 @@ msgid "Time"
 msgstr "වේලාව"
 
 #: libraries/rte/rte_triggers.lib.php:458
-#, fuzzy
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "ඔබ ප්‍රේරකය සඳහා නමක් ලබාදිය යුතුයි"
+msgstr "ඔබ ප්‍රේරකය සඳහා නමක් ලබාදිය යුතුයි!"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "ඔබ ප්‍රේරකය සඳහා වලංගු වේලාවක් ලබාදිය යුතුයි"
+msgstr "ඔබ ප්‍රේරකය සඳහා වලංගු වේලාවක් ලබාදිය යුතුයි!"
 
 #: libraries/rte/rte_triggers.lib.php:472
-#, fuzzy
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "ඔබ ප්‍රේරකය සඳහා වලංගු සිද්ධියක් ලබාදිය යුතුයි"
+msgstr "ඔබ ප්‍රේරකය සඳහා වලංගු සිද්ධියක් ලබාදිය යුතුයි!"
 
 #: libraries/rte/rte_triggers.lib.php:480
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "ඔබ වලංගු වගු නාමයක් ලබාදිය යුතුයි"
+msgstr "ඔබ වලංගු වගු නාමයක් ලබාදිය යුතුයි!"
 
 #: libraries/rte/rte_triggers.lib.php:486
 msgid "You must provide a trigger definition."
@@ -10264,10 +10252,9 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "ප්‍රේරක සැදීමට හා ඉවත් කිරීමට අවසර ලබා දෙයි"
+msgstr "ප්‍රේරක සැදීමට හා ඉවත් කිරීමට අවසර ලබා දෙයි."
 
 #: libraries/server_privileges.lib.php:369
 #: libraries/server_privileges.lib.php:375
@@ -10348,10 +10335,9 @@ msgstr "වගු-විශේෂී වරප්‍රසාද"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "සටහන: MySQL වරප්‍රසාද නම් සඳහන් වනුයේ ඉංග්‍රීසියෙනි"
+msgstr "සටහන: MySQL වරප්‍රසාද නම් සඳහන් වනුයේ ඉංග්‍රීසියෙනි."
 
 #: libraries/server_privileges.lib.php:977
 msgid "Administration"
@@ -10363,7 +10349,6 @@ msgid "Global privileges"
 msgstr "ගෝලීය වරප්‍රසාද"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
 msgstr "ගෝලීය"
@@ -10498,10 +10483,9 @@ msgid "wildcard"
 msgstr "අව්‍යවස්ථිත කාඩ්පත"
 
 #: libraries/server_privileges.lib.php:2110
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "දත්තගබඩා විශේෂිත"
+msgstr "වගු විශේෂිත"
 
 #: libraries/server_privileges.lib.php:2207
 msgid "Edit Privileges"
@@ -11734,10 +11718,9 @@ msgid "Let every user access this bookmark"
 msgstr "සියලු භාවිතා කරන්නනට මෙම පොත් සලකුණට පිවිසීමට ඉඩ දෙන්න"
 
 #: libraries/sql.lib.php:1024
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "පොත් සලකුණ නොසාදන ලදි"
+msgstr "පොත් සලකුණ නොසාදන ලදි!"
 
 #: libraries/sql.lib.php:1180
 #, php-format
@@ -11880,16 +11863,16 @@ msgstr "අවධානය අක්‍රීයයි."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "%s දසුන හලන ලදි"
+msgstr "%s දසුන හලන ලදි."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "%s වගුව හලන ලදි"
+msgstr "%s වගුව හලන ලදි."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
@@ -12655,22 +12638,19 @@ msgid "Page:"
 msgstr "පිටුව:"
 
 #: pmd_pdf.php:128
-#, fuzzy
 #| msgid "Import from selected page"
 msgid "Import from selected page."
-msgstr "තෝරාගත් පිටු ආනයනය කරන්න"
+msgstr "තෝරාගත් පිටු ආනයනය කරන්න."
 
 #: pmd_pdf.php:129
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Export to selected page."
-msgstr "තෝරාගත් පිටු අපනයනය කරන්න"
+msgstr "තෝරාගත් පිටු අපනයනය කරන්න."
 
 #: pmd_pdf.php:131
-#, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and export to it."
-msgstr "පිටුවක් සාදා අපනයනය කරන්න"
+msgstr "පිටුවක් සාදා අපනයනය කරන්න."
 
 #: pmd_pdf.php:143
 msgid "New page name: "
@@ -14223,10 +14203,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "උපරිම සමගාමී සම්බන්ධතා"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "concurret_insert 1ට සිටුවා සක්‍රීය කරන්න"
+msgstr "{concurret_insert} 1ට සිටුවා සක්‍රීය කරන්න"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
