@@ -261,8 +261,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             // If enabled show captcha to the user on the login screen.
             echo '<script type="text/javascript"
                     src="https://www.google.com/recaptcha/api/challenge?'
-                    . 'k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey']
-                    . PMA_URL_getArgSeparator('html')
+                    . 'k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '&amp;'
                     . 'hl=' . $GLOBALS['lang'] . '">
                  </script>
                  <noscript>
