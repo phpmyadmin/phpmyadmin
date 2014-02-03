@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-01-29 14:50+0200\n"
+"PO-Revision-Date: 2014-02-03 14:19+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -218,16 +218,16 @@ msgid "The database name is empty!"
 msgstr "O nome do banco de dados está em branco!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "O banco de dados %1$s foi renomeado para %2$s"
+msgstr "O banco de dados %1$s foi renomeado para %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "O banco de dados %1$s foi copiado para %2$s"
+msgstr "O banco de dados %1$s foi copiado para %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -293,10 +293,9 @@ msgstr[0] "%s tabela"
 msgstr[1] "%s tabelas"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Você deve escolher pelo menos uma coluna para exibir"
+msgstr "Você deve escolher pelo menos uma coluna para exibir!"
 
 #: db_qbe.php:70
 #, php-format
@@ -309,7 +308,7 @@ msgstr "Alterar para %sconstrutor visual%s"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "Acesso negado"
+msgstr "Acesso negado!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -639,7 +638,6 @@ msgstr ""
 "configuração do PHP. Verifique a [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
@@ -647,7 +645,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Impossível converter conjunto de caracteres deste arquivo sem a biblioteca "
-"de conversão"
+"de conversão!"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -7324,6 +7322,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Você está utilizando uma extensão do mysql que está fora de uso no "
+"phpMyadmin. Favor considerar instalar a extensão mysqli."
 
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
