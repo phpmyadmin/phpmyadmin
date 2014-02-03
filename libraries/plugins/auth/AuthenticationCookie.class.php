@@ -266,7 +266,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                  </script>
                  <script type="text/javascript"
                     src="https://www.google.com/recaptcha/api/challenge?'
-                    . 'k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '&amp;'
+                    . 'k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey']
+                    . PMA_URL_getArgSeparator('html')
                     . 'hl=' . $GLOBALS['lang'] . '">
                  </script>
                  <noscript>
