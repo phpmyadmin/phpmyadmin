@@ -630,12 +630,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             : $this_field.data('value');
 
                         //remove decimal places if column type not supported                            
-                        if (($this_field.data('decimals') == 0) && ( $this_field.data('type').indexOf('time') != -1)){                          
+                        if (($this_field.attr('data-decimals') == 0) && ( $this_field.attr('data-type').indexOf('time') != -1)){                          
                             new_html = new_html.substring(0, new_html.indexOf('.'));                            
                         }
                         //remove addtional decimal places 
-                        if (($this_field.data('decimals') > 0) && ( $this_field.data('type').indexOf('time') != -1)){
-                            new_html = new_html.substring(0, new_html.length - (6 - $this_field.data('decimals')));  
+                        if (($this_field.attr('data-decimals') > 0) && ( $this_field.attr('data-type').indexOf('time') != -1)){
+                            new_html = new_html.substring(0, new_html.length - (6 - $this_field.attr('data-decimals')));  
                         }                              
                         if ($this_field.is('.truncated')) {
                             if (new_html.length > g.maxTruncatedLen) {
@@ -971,99 +971,47 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.show();
                     }
                     g.isEditCellTextEditable = true;
-                } else if ($td.is('.datefield, .datetimefield, .timestampfield')) {
+                } else if ($td.is('.timefield, .datefield, .datetimefield, .timestampfield')) {
                     var $input_field = $(g.cEdit).find('.edit_box');
 
                     // remember current datetime value in $input_field, if it is not null
                     var is_null = $td.is('.null');
-                    var current_datetime_value = !is_null ? $input_field.val() : '';
-
-                    var showTimeOption = true;
-                    if ($td.is('.datefield')) {
-                        showTimeOption = false;
-                    }
+                    var current_datetime_value = !is_null ? $input_field.val() : '';                                   
 
                     var showMillisec = false;
                     var showMicrosec = false;
                     var timeFormat = 'HH:mm:ss';
                     // check for decimal places of seconds
-                    if (($td.data('decimals') > 0) && ($td.data('type').indexOf('time') != -1)){
+                    if (($td.attr('data-decimals') > 0) && ($td.attr('data-type').indexOf('time') != -1)){
                         showMillisec = true;                       
                         timeFormat = 'HH:mm:ss.lc';
-                        if ($td.data('decimals') > 3) {
+                        if ($td.attr('data-decimals') > 3) {
                             showMicrosec = true;
                         }
 
                     }
 
-                    PMA_addDatepicker($editArea, {
+                    // add datetime picker
+                    PMA_addDatepicker($input_field, $td.attr('data-type'), {
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
-                        timeFormat: timeFormat,
-                        altField: $input_field,
-                        showTimepicker: showTimeOption,
-                        onSelect: function (dateText, inst) {
-                            // remove null checkbox if it exists
-                            $(g.cEdit).find('.null_div input[type=checkbox]').prop('checked', false);
-                        }
+                        timeFormat: timeFormat                       
                     });
 
+                    $input_field.datepicker("show");
+
+                    var edit_area_top = $('#ui-datepicker-div').height()+32;
+                    $('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
+
+                    if(is_null){
+                        $('.edit_area').hide();
+                    }
+                  
                     // cancel any click on the datepicker element
                     $editArea.find('> *').click(function (e) {
                         e.stopPropagation();
                     });
 
-                    // force to restore modified $input_field value after adding datepicker
-                    // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
-                    if (is_null
-                        || current_datetime_value == '0000-00-00'
-                        || current_datetime_value == '0000-00-00 00:00:00.000000'
-                    ) {
-                        $input_field.val(current_datetime_value);
-                    } else {
-                        var date = new Date(
-                                current_datetime_value.substring(0, 4),
-                                parseInt(current_datetime_value.substring(5, 7)) - 1,
-                                parseInt(current_datetime_value.substring(8, 10))
-                        );
-                        var no_decimals = $td.data('decimals');
-
-                        var hour = current_datetime_value.substring(11, 13);
-                        var min = current_datetime_value.substring(14, 16);
-                        var sec = current_datetime_value.substring(17, 19);
-                        if (current_datetime_value.match("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{"+ no_decimals +"}$")) {                                                                    
-                            if (no_decimals > 3){
-                                var milli = current_datetime_value.substring(20, 23);
-                                var micro = current_datetime_value.substring(23);
-                                for (var i = 0; i < 6-no_decimals ; i++) {
-                                    micro += "0";
-                                }
-                            }
-                            if (no_decimals <= 3){
-                                var milli = current_datetime_value.substring(20);
-                                for (var i = 0; i < 3-no_decimals ; i++) {
-                                    milli += "0";
-                                }                            
-                                var micro = "000";                            
-                            }
-                                                        
-                            date.setHours(hour, min, sec, milli);
-                            date.setMicroseconds(micro);
-                        }
-                        if (current_datetime_value.match("^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}")) {
-                            console.log("G");
-                            date.setHours(hour, min, sec);
-                        } 
-                        $editArea.datetimepicker('setDate', date);
-                    }
-                    $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-
-                    // remove {cursor: 'pointer'} added inside
-                    // jquery-ui-timepicker-addon.js
-                    $input_field.css('cursor', '');
-                    // make the cell editable, so one can can bypass the timepicker
-                    // and enter date/time value manually
-                    g.isEditCellTextEditable = true;
                 } else {
                     g.isEditCellTextEditable = true;
                     // only append edit area hint if there is a null checkbox
@@ -1074,7 +1022,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
                     $editArea.addClass('edit_area_right');
                 }
-                if ($editArea.children().length > 0) {
+                if ($editArea.children().length > 0 && !is_null) {
                     $editArea.show();
                 }
             }
@@ -1087,8 +1035,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if (g.isSaving) {
                 return;
             }
-            g.isSaving = true;
-
+            g.isSaving = true;           
             /**
              * @var relation_fields Array containing the name/value pairs of relational fields
              */
@@ -1678,7 +1625,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             // adjust g.cEdit
             g.cEdit.className = 'cEdit';
-            $(g.cEdit).html('<textarea class="edit_box" rows="1" ></textarea><div class="edit_area" />');
+            $(g.cEdit).html('<input class="edit_box" rows="1" ></input><div class="edit_area" />');
             $(g.cEdit).hide();
 
             // assign cell editing hint
@@ -1761,8 +1708,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
             });
             $('html').click(function (e) {
-                // hide edit cell if the click is not from g.cEdit
-                if ($(e.target).parents().index(g.cEdit) == -1) {
+                // hide edit cell if the click is not from the datepicker
+                if ($(e.target).parents().index($('#ui-datepicker-div')) == -1) {
                     g.hideEditCell();
                 }
             }).keydown(function (e) {
