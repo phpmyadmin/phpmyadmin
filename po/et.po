@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-03 10:04+0200\n"
+"PO-Revision-Date: 2014-02-03 13:51+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <http://l10n.cihar.com/projects/phpmyadmin/master/et/"
-">\n"
+"Language-Team: Estonian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1771,10 +1771,10 @@ msgstr ""
 "kaotsi. Kas soovid jätkata?"
 
 #: js/messages.php:329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Vali veerule valik "
+msgstr "Lisa säte veerule \"%s\"."
 
 #: js/messages.php:330
 #, php-format
@@ -1932,7 +1932,6 @@ msgid "Show Report Details"
 msgstr "Näita raporteerimise detaile"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid ""
 #| "Your export is incomplete, due to a low execution time limit at the PHP "
 #| "level"
@@ -1940,8 +1939,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
-"Su eksport ei ole täielik, sest PHP skripti käivitamiseks lubatud aeg on "
-"liiga väike"
+"Su eksport on mittetäielik, sest PHP skripti töötamiseks lubatud aeg on "
+"liiga väike!"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:416
@@ -6239,6 +6238,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Kohandatavate menüüde omaduse lubamiseks on vajalikud nii see tabel kui ka "
+"kasutajate gruppide tabel. Jättes neist ühe tühjaks, keelad menüüde "
+"kohandamise; soovitatav: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:703
 msgid "Users table"
@@ -6250,6 +6252,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Kohandatavate menüüde võimaluse kasutamiseks on vajalikud nii see tabel kui "
+"ka kasutajate tabel. Jättes ühe neist tühjaks, keelad menüüde kohandamise; "
+"soovitatav: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:705
 msgid "User groups table"
