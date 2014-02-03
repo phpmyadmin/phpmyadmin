@@ -2689,7 +2689,7 @@ fieldset .disabled-field td {
     padding: 0;
 }
 
-.cEdit .edit_area {
+.cEdit .edit_area {   
     background: #FFF;
     border: 1px solid #999;
     min-width: 10em;
@@ -2747,7 +2747,7 @@ fieldset .disabled-field td {
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: <?php echo $left; ?>; }
 .ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
-.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 85px; }
 .ui-timepicker-div td { font-size: 90%; }
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 .ui-timepicker-rtl { direction: rtl; }

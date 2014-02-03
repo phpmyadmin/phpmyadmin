@@ -2371,7 +2371,7 @@ class PMA_DisplayResults
     private function _buildNullDisplay($class, $condition_field, $meta, $align = '')
     {
         // the null class is needed for grid editing
-        return '<td ' . $align . ' class="'
+        return '<td ' . $align . ' data-decimals="'.$meta->decimals.'" data-type="'.$meta->type.'"  class="'
             . $this->_addClass(
                 $class, $condition_field, $meta, ''
             )
@@ -3566,9 +3566,14 @@ class PMA_DisplayResults
             || ($type == self::DATETIME_FIELD)
         ) {
             $field_type_class = 'datetimefield';
-        } else if ($type == self::DATE_FIELD) {
+        }
+        else if ($type == self::DATE_FIELD) {
             $field_type_class = 'datefield';
-        } else {
+        }
+        else if ($type == self::TIME_FIELD) {
+            $field_type_class = 'timefield';
+        }
+        else {
             $field_type_class = '';
         }
         return $field_type_class;
