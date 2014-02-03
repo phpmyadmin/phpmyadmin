@@ -15,6 +15,9 @@ require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 
 $response = PMA_Response::getInstance();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('db_qbe.js');
 
 // Gets the relation settings
 $cfgRelation = PMA_getRelationsParam();
