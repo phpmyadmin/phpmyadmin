@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-03 16:51+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-02-04 00:13+0200\n"
+"Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
@@ -307,11 +307,11 @@ msgstr "Cambiar al %sconstructor visual%s"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "Acceso denegado!"
+msgstr "¡Acceso denegado!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
-msgstr "¡Tablas con seguimiento!"
+msgstr "Tablas con seguimiento"
 
 #: db_tracking.php:80 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:760
@@ -1014,10 +1014,9 @@ msgid "Connections / Processes"
 msgstr "Conexiones / Procesos"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Configuración local de monitorización incompatible"
+msgstr "¡Configuración local de monitorización incompatible!"
 
 #: js/messages.php:77
 msgid ""
@@ -1800,10 +1799,10 @@ msgstr ""
 "guardas. ¿Deseas continuar?"
 
 #: js/messages.php:329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Añadir una opción para la columna "
+msgstr "Añadir una opción para la columna «%s»."
 
 #: js/messages.php:330
 #, php-format
@@ -6372,6 +6371,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Son necesarias tanto esta tabla como la de los grupos de usuario para "
+"activar los menúes personalizables; dejar cualquiera de ellas en blanco "
+"desactivará esta funcionalidad; valor sugerido: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:703
 msgid "Users table"
@@ -6383,6 +6385,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Son necesarias tanto esta tabla como la de usuarios para activar los menúes "
+"personalizables; dejar cualquiera de ellas en blanco desactivará esta "
+"funcionalidad; valor sugerido: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:705
 msgid "User groups table"
@@ -9590,10 +9595,10 @@ msgid "Unable to change master!"
 msgstr "¡No se pudo cambiar maestro!"
 
 #: libraries/replication_gui.lib.php:1001
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "El servidor maestro fue cambiado exitosamente a %s"
+msgstr "El servidor maestro fue cambiado exitosamente a %s."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
