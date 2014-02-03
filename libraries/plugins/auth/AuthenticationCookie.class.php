@@ -688,6 +688,11 @@ class AuthenticationCookie extends AuthenticationPlugin
                 __('No activity within %s seconds; please log in again.'),
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
+            $conn_error .= '<script type=\'text/javascript\'>
+                                if(document.URL != \''.$GLOBALS['cfg']['PmaAbsoluteUri'].'\'){
+                                    window.location = \''.$GLOBALS['cfg']['PmaAbsoluteUri'].'\';
+                                }
+                            </script>';
         } elseif ($GLOBALS['dbi']->getError()) {
             $conn_error = '#' . $GLOBALS['errno'] . ' '
                 . __('Cannot log in to the MySQL server');
