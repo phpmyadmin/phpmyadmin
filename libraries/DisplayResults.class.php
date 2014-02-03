@@ -5987,7 +5987,7 @@ class PMA_DisplayResults
     }
 
     /**
-     * Display binary columns as hex string if requested 
+     * Display binary columns as hex string if requested
      * otherwise escape the contents using the best possible way
      *
      * @param string $content        String to parse
@@ -6034,4 +6034,3 @@ class PMA_DisplayResults
 }
 
 ?>
-da
