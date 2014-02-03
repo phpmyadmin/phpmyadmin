@@ -390,7 +390,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            'src="https://www.google.com/recaptcha/api/challenge?k=testpubkey">',
+            'src="https://www.google.com/recaptcha/api/challenge?k=testpubkey&amp;hl=en">',
             $result
         );
 
