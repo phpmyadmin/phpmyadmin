@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-03 14:19+0200\n"
+"PO-Revision-Date: 2014-02-03 14:44+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -652,10 +652,10 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Não foi possível carregar os plugins, verifique sua instalação!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Marcador %s criado"
+msgstr "Marcador %s criado."
 
 #: import.php:563 import.php:576
 #, php-format
@@ -1019,10 +1019,9 @@ msgid "Connections / Processes"
 msgstr "Conexões / processos"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Configuração do monitor local incompatível"
+msgstr "Configuração do monitor local incompatível!"
 
 #: js/messages.php:77
 msgid ""
@@ -1810,22 +1809,21 @@ msgstr ""
 "las. Deseja continuar mesmo assim?"
 
 #: js/messages.php:329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Adicionar uma opção para a coluna "
+msgstr "Adicionar uma opção para a coluna \"%s\"."
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d objeto(s) criado(s)"
+msgstr "%d objeto(s) criado(s)."
 
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Pressione Esc para cancelar a edição"
+msgstr "Pressione ESC para cancelar a edição."
 
 #: js/messages.php:334
 msgid ""
@@ -1836,34 +1834,29 @@ msgstr ""
 "sair desta página antes de salvar os dados?"
 
 #: js/messages.php:335
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Arraste para reordenar"
+msgstr "Arraste para reordenar."
 
 #: js/messages.php:336
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Clique para organizar"
+msgstr "Clique para organizar."
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Clique para marcar/desmarcar"
+msgstr "Clique para marcar/desmarcar."
 
 #: js/messages.php:338
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Clique duas vezes para copiar o nome da coluna"
+msgstr "Clique duas vezes para copiar o nome da coluna."
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "Clique na seta<br />para alternar a visibilidade da coluna"
+msgstr "Clique na seta<br />para alternar a visibilidade da coluna."
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
@@ -1894,16 +1887,14 @@ msgstr ""
 "eles."
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "Ir para o link"
+msgstr "Ir para o link."
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "Copiar o nome da coluna"
+msgstr "Copiar nome da coluna."
 
 #: js/messages.php:358
 msgid "Right-click the column name to copy it to your clipboard."
@@ -2834,10 +2825,9 @@ msgid "Unknown error in file upload."
 msgstr "Erro desconhecido no carregamento do arquivo."
 
 #: libraries/File.class.php:476
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "Erro ao mover o arquivo carregado, veja [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr "Erro ao mover o arquivo carregado, veja [doc@faq1-11]FAQ 1.11[/doc]."
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2867,10 +2857,9 @@ msgstr "Clique na barra para rolar até o topo da página"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "O JavaScript deve estar ativo após este ponto"
+msgstr "O JavaScript deve estar ativo após este ponto!"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -3132,20 +3121,18 @@ msgid "Error while creating PDF:"
 msgstr "Erro ao criar o PDF:"
 
 #: libraries/RecentTable.class.php:122
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "Não foi possível salvar a tabela recente"
+msgstr "Não foi possível salvar a tabela recente!"
 
 #: libraries/RecentTable.class.php:161
 msgid "Recent tables"
 msgstr "Tabelas recentes"
 
 #: libraries/RecentTable.class.php:173
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "Não existem tabelas recentes"
+msgstr "Não existem tabelas recentes."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
