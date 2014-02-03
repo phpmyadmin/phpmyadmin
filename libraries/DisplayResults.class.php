@@ -6091,4 +6091,3 @@ class PMA_DisplayResults
 }
 
 ?>
-da
