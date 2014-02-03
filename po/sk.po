@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:45+0100\n"
+"POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-01-05 13:27+0200\n"
 "Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -199,7 +199,7 @@ msgid "View dump (schema) of database"
 msgstr "Zobraziť dump (schému) databázy"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:332 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Neboli nájdené žiadne tabuľky v tejto databáze."
 
@@ -306,7 +306,7 @@ msgstr "Prepnúť do %svizuálneho návrhára%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -449,11 +449,11 @@ msgstr "Ďakujeme za odoslanie hlásenia."
 msgid "Unfortunately the submission failed."
 msgstr "Odosielanie zlyhalo."
 
-#: export.php:173
+#: export.php:175
 msgid "Bad type!"
 msgstr "Nesprávny typ!"
 
-#: export.php:234
+#: export.php:236
 msgid "Bad parameters!"
 msgstr "Chybné parametre!"
 
@@ -552,7 +552,7 @@ msgstr "Pridať geometriu"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:284
+#: libraries/plugins/auth/AuthenticationCookie.class.php:294
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -841,9 +841,9 @@ msgid ""
 msgstr ""
 "Nastavenie v php.ini [a@http://php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] má nižšiu "
-"hodnotu ako nastavenie životnosti cookie v phpMyAdmin "
-"($cfg['LoginCookieValidity']). Kvôli tomu vaše prihlásenie vyprší skôr ako "
-"je nastavené v konfigurácii phpMyAdmin."
+"hodnotu ako nastavenie životnosti cookie v phpMyAdmin ($cfg"
+"['LoginCookieValidity']). Kvôli tomu vaše prihlásenie vyprší skôr ako je "
+"nastavené v konfigurácii phpMyAdmin."
 
 #: index.php:472
 msgid ""
@@ -4425,8 +4425,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4479,16 +4479,25 @@ msgstr "Prázdna signon URL pri využití autentifikačnej metódy signon"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+#| msgid ""
+#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid ""
+"Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Prázdne užívateľské meno pre phpMyAdmin control užívateľa pri využití phpMyAdmin configuration storage"
+"Prázdne užívateľské meno pre phpMyAdmin control užívateľa pri využití "
+"phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
-msgstr "Prázdne heslo pre phpMyAdmin control užívateľa pri využití phpMyAdmin configuration storage"
+#| msgid ""
+#| "Empty phpMyAdmin control user password while using phpMyAdmin "
+#| "configuration storage"
+msgid ""
+"Empty phpMyAdmin control user password while using phpMyAdmin configuration "
+"storage!"
+msgstr ""
+"Prázdne heslo pre phpMyAdmin control užívateľa pri využití phpMyAdmin "
+"configuration storage"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -4545,8 +4554,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Tajné heslo používané pre šifrovanie cookies pri prihlasovaní pomocou "
-"[kbd]cookie[/kbd]"
+"Tajné heslo používané pre šifrovanie cookies pri prihlasovaní pomocou [kbd]"
+"cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4590,16 +4599,16 @@ msgstr "BZip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
+#| "textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
 "Nastavte, ktorý typ ovládacích prvkov sa má použiť pri editácii polí typu "
-"CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje obmedziť dĺžku vstupu, "
-"[kbd]textová oblasť[/kbd] - umožňuje použitie nových riadkov v poli"
+"CHAR a VARCHAR; [kbd]vstup[/kbd] - umožňuje obmedziť dĺžku vstupu, [kbd]"
+"textová oblasť[/kbd] - umožňuje použitie nových riadkov v poli"
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4611,8 +4620,8 @@ msgstr "Úprava polí typu CHAR"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Použiť užívateľsky príjemný editor na úpravu SQL dozatazov ([a@http://"
 "codemirror.net/]CodeMirror[/a]) s číslovaním riadkov a zvýrazňovaním syntaxe"
@@ -5223,13 +5232,12 @@ msgstr "Mená stránok"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
-"Zadajte titulku, ktorú bude zobrazovať prehliadač. V "
-"[doc@cfg_TitleTable]documentácii[/doc] nájdete špeciálne reťazce, ktoré "
-"môžete použiť na získanie špeciálnych hodnôt."
+"Zadajte titulku, ktorú bude zobrazovať prehliadač. V [doc@cfg_TitleTable]"
+"documentácii[/doc] nájdete špeciálne reťazce, ktoré môžete použiť na "
+"získanie špeciálnych hodnôt."
 
 #: libraries/config/messages.inc.php:253
 #: libraries/navigation/NavigationHeader.class.php:219
@@ -5371,10 +5379,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Ak chcete používať službu SQL validátoru, mali by ste vedieť, že "
-"[strong]všetky SQL príkazy sú anonymne ukladané pre štatistické účely[/"
-"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
-"Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+"Ak chcete používať službu SQL validátoru, mali by ste vedieť, že [strong]"
+"všetky SQL príkazy sú anonymne ukladané pre štatistické účely[/strong].[br]"
+"[em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
+"2002 Upright Database Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:300
 msgid "Startup"
@@ -5789,8 +5797,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"Otvoriť nové okno v hlavnej okne ([kbd]hlavná[/kbd]) alebo v novom "
-"([kbd]nové[/kbd])"
+"Otvoriť nové okno v hlavnej okne ([kbd]hlavná[/kbd]) alebo v novom ([kbd]nové"
+"[/kbd])"
 
 #: libraries/config/messages.inc.php:439
 msgid "Logo link target"
@@ -6209,14 +6217,14 @@ msgstr "Tabuľka záložiek"
 #: libraries/config/messages.inc.php:564
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
-"Nechajte prázdne pre žiadne komentáre ci mime typy polí, navrhované: "
-"[kbd]pma__column_info[/kbd]"
+"Nechajte prázdne pre žiadne komentáre ci mime typy polí, navrhované: [kbd]"
+"pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:567
 msgid "Column information table"
@@ -6250,8 +6258,8 @@ msgstr "Heslo kontrolného užívateľa"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
+#| "wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6301,14 +6309,14 @@ msgstr "Kontrolný užívateľ"
 #: libraries/config/messages.inc.php:591
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: "
-#| "[kbd]pma__designer_coords[/kbd]"
+#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Nechajte prázdne pre vypnutie návrhára, východzie nastavenie: "
-"[kbd]pma__designer_coords[/kbd]"
+"Nechajte prázdne pre vypnutie návrhára, východzie nastavenie: [kbd]"
+"pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:594
 msgid "Designer table"
@@ -6327,14 +6335,14 @@ msgstr "Skryť databázy"
 #: libraries/config/messages.inc.php:599
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma__history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Nechať prázdne pre vypnutie histórie SQL dopytov, navrhované: "
-"[kbd]pma__history[/kbd]"
+"Nechať prázdne pre vypnutie histórie SQL dopytov, navrhované: [kbd]"
+"pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:602
 msgid "SQL query history table"
@@ -6412,8 +6420,8 @@ msgstr "Heslo pre prihlásenie podľa konfigurácie"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Nechajte prázdne pre vypnutie podpory pre PDF schémy, navrhované: "
-"[kbd]pma__pdf_pages[/kbd]"
+"Nechajte prázdne pre vypnutie podpory pre PDF schémy, navrhované: [kbd]"
+"pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:625
 msgid "PDF schema: pages table"
@@ -6472,8 +6480,8 @@ msgstr "Naposledy použitá tabuľka"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Nechajte prázdne pre vypnutie podpory [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a]. Odporúčaná hodnota: [kbd]pma__relation[/kbd]"
@@ -6488,8 +6496,8 @@ msgstr "Relačná tabuľka"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 "Priklad, viď [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]typy "
 "overovania[/a]"
@@ -6620,11 +6628,11 @@ msgstr "Sledované príkazy"
 #: libraries/config/messages.inc.php:690
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: "
-#| "[kbd]pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
+#| "pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 "Nechajte prázdne pre vypnutie podpory pre sledovanie SQL dopytov. Odporúčaná "
 "hodnota: [kbd]pma__tracking[/kbd]"
@@ -6647,11 +6655,11 @@ msgstr "Automaticky vytvárať verzie"
 #: libraries/config/messages.inc.php:700
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 "Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
 "databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
@@ -6661,16 +6669,11 @@ msgid "User preferences storage table"
 msgstr "Tabuľka pre užívateľské nastavenia"
 
 #: libraries/config/messages.inc.php:702
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]."
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
-"databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:703
 #, fuzzy
@@ -6679,16 +6682,11 @@ msgid "Users table"
 msgstr "Použiť tabuľky"
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]."
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
-"Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
-"databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:705
 #, fuzzy
@@ -6699,8 +6697,8 @@ msgstr "Použiť tabuľku s hostiteľmi"
 #: libraries/config/messages.inc.php:706
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -6864,8 +6862,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Zobraziť odkaz na výstup [a@http://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a] funkcie"
+"Zobraziť odkaz na výstup [a@http://php.net/manual/function.phpinfo.php]"
+"phpinfo()[/a] funkcie"
 
 #: libraries/config/messages.inc.php:732
 msgid "Show phpinfo() link"
@@ -6957,14 +6955,14 @@ msgstr "Povoliť kontrolovanie SQL"
 #: libraries/config/messages.inc.php:751
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to "
-#| "[kbd]anonymous[/kbd])"
+#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
+#| "[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Pokiaľ máte vlastné užívateľské meno, zadajte ho tu (východzie "
-"[kbd]anonymous[/kbd])"
+"Pokiaľ máte vlastné užívateľské meno, zadajte ho tu (východzie [kbd]anonymous"
+"[/kbd])"
 
 #: libraries/config/messages.inc.php:752 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -8822,29 +8820,29 @@ msgstr "Používateľ:"
 msgid "Server Choice:"
 msgstr "Voľba serveru"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:398
+#: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:407
+#: libraries/plugins/auth/AuthenticationCookie.class.php:417
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:679
+#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Prihlásenie bez hesla je zakázané v konfigurácií (pozri AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:686
+#: libraries/plugins/auth/AuthenticationCookie.class.php:696
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Boli ste neaktívni viac ako %s sekúnd, prihláste sa prosím znovu."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
-#: libraries/plugins/auth/AuthenticationCookie.class.php:693
+#: libraries/plugins/auth/AuthenticationCookie.class.php:701
+#: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "Nedá sa prihlásiť k MySQL serveru"
@@ -14804,6 +14802,28 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
 
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma__userconfig[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
+#~ msgstr ""
+#~ "Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení "
+#~ "v databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
+
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma__userconfig[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
+#~ msgstr ""
+#~ "Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení "
+#~ "v databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
+
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "SQL dopyt bol úspešne vykonaný"
 
@@ -14890,9 +14910,8 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ "transformácií%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
 #~ "Viac informácii na [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 #~ "bug tracker[/a] a [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"

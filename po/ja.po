@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:45+0100\n"
+"POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-02-02 13:04+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Japanese "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/ja/>\n"
+"Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,7 +199,7 @@ msgid "View dump (schema) of database"
 msgstr "データベースのダンプ (スキーマ) 表示"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:332 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません。"
 
@@ -310,7 +310,7 @@ msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -449,11 +449,11 @@ msgstr ""
 msgid "Unfortunately the submission failed."
 msgstr ""
 
-#: export.php:173
+#: export.php:175
 msgid "Bad type!"
 msgstr "エクスポート形式が正しくありません！"
 
-#: export.php:234
+#: export.php:236
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
@@ -562,7 +562,7 @@ msgstr "幾何データを追加する"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:284
+#: libraries/plugins/auth/AuthenticationCookie.class.php:294
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -645,8 +645,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "インポートするデータを受信できませんでした。ファイル名が送信されていないか、"
-"ファイルサイズが PHP の設定で許可された最大値を超えています。"
-"[doc@faq1-16]FAQ 1.16[/doc] をご覧ください。"
+"ファイルサイズが PHP の設定で許可された最大値を超えています。[doc@faq1-16]"
+"FAQ 1.16[/doc] をご覧ください。"
 
 #: import.php:481
 #, fuzzy
@@ -4526,8 +4526,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "[kbd]config[/kbd] 認証タイプを設定し、自動ログインのためにユーザ名とパスワー"
 "ドを含めています。このことは、実働しているホストにとって望ましい方法とはいえ"
@@ -4584,14 +4584,20 @@ msgstr "signon 認証方法を使いましたが、サインオン URL が空欄
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+#| msgid ""
+#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid ""
+"Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "pmadb を使いましたが、phpMyAdmin ユーザが空欄です。"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+#| msgid ""
+#| "Empty phpMyAdmin control user password while using phpMyAdmin "
+#| "configuration storage"
+msgid ""
+"Empty phpMyAdmin control user password while using phpMyAdmin configuration "
+"storage!"
 msgstr "pmadb を使いましたが、phpMyAdmin ユーザのパスワードが空欄です。"
 
 #: libraries/config/Validator.class.php:458
@@ -4695,8 +4701,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
+#| "textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4716,8 +4722,8 @@ msgstr "CHAR 系カラムの編集"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "構文の色分けや行番号の付加といった分かりやすいエディタ ([a@http://codemirror."
 "net/]CodeMirror[/a]) を、SQL クエリの編集の際に使用します。"
@@ -5341,9 +5347,8 @@ msgstr "ページタイトル"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "ブラウザのタイトルバーのテキストの指定を行います。使用可能な特別な埋め込み変"
 "数は[doc@cfg_TitleTable]ドキュメント[/doc]を参照してください。"
@@ -6330,14 +6335,14 @@ msgstr "ブックマークテーブル"
 #: libraries/config/messages.inc.php:564
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
-"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。"
-"[kbd]pma_column_info[/kbd] としておくのがいいでしょう。"
+"カラムのコメントと MIME タイプ機能を使わない場合は空欄にします。[kbd]"
+"pma_column_info[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:567
 msgid "Column information table"
@@ -6372,8 +6377,8 @@ msgstr "phpMyAdmin ユーザのパスワード"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
+#| "wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6449,8 +6454,8 @@ msgstr "非表示にするデータベース"
 #: libraries/config/messages.inc.php:599
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma_history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6604,8 +6609,8 @@ msgstr "最近使用したテーブル"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/relation]リレーションリンク[/a]機能を使わな"
 "い場合は空欄にします。[kbd]pma_relation[/kbd] としておくのがいいでしょう。"
@@ -6620,8 +6625,8 @@ msgstr "リレーションテーブル"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 "設定例は[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認証モード[/a]を"
 "参照してください。"
@@ -6681,8 +6686,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"表示するカラムを記述するためのテーブル。使用しない場合は空欄にします。"
-"[kbd]pma_table_info[/kbd] としておくのがいいでしょう。"
+"表示するカラムを記述するためのテーブル。使用しない場合は空欄にします。[kbd]"
+"pma_table_info[/kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:665
 msgid "Display columns table"
@@ -6751,11 +6756,11 @@ msgstr "追跡するコマンド"
 #: libraries/config/messages.inc.php:690
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: "
-#| "[kbd]pma_tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
+#| "pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 "SQL コマンドの追跡機能を使わない場合は空欄にします。[kbd]pma_tracking[/kbd] "
 "としておくのがいいでしょう。"
@@ -6779,11 +6784,11 @@ msgstr "世代の自動作成"
 #: libraries/config/messages.inc.php:700
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_userconfig[/"
 "kbd] としておくのがいいでしょう。"
@@ -6793,16 +6798,11 @@ msgid "User preferences storage table"
 msgstr "ユーザ環境保管テーブル"
 
 #: libraries/config/messages.inc.php:702
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]."
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_userconfig[/"
-"kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:703
 #, fuzzy
@@ -6811,16 +6811,11 @@ msgid "Users table"
 msgstr "利用するテーブル"
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]."
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
-"データベースにユーザ設定の保存しない場合は空欄にします。[kbd]pma_userconfig[/"
-"kbd] としておくのがいいでしょう。"
 
 #: libraries/config/messages.inc.php:705
 #, fuzzy
@@ -6831,8 +6826,8 @@ msgstr "ホストテーブルを使う"
 #: libraries/config/messages.inc.php:706
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -7082,8 +7077,8 @@ msgstr "SQL 検証を有効にする"
 #: libraries/config/messages.inc.php:751
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to "
-#| "[kbd]anonymous[/kbd])"
+#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
+#| "[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
@@ -9001,29 +8996,29 @@ msgstr "ユーザ名:"
 msgid "Server Choice:"
 msgstr "サーバの選択"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:398
+#: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:407
+#: libraries/plugins/auth/AuthenticationCookie.class.php:417
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:679
+#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "パスワードなしログインは設定 (AllowNoPassword 参照) によって禁止されています"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:686
+#: libraries/plugins/auth/AuthenticationCookie.class.php:696
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "%s 秒以上操作をしませんでした。ログインし直してください。"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
-#: libraries/plugins/auth/AuthenticationCookie.class.php:693
+#: libraries/plugins/auth/AuthenticationCookie.class.php:701
+#: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL サーバにログインできません"
@@ -15390,6 +15385,28 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
 
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma_userconfig[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
+#~ msgstr ""
+#~ "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]"
+#~ "pma_userconfig[/kbd] としておくのがいいでしょう。"
+
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma_userconfig[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
+#~ msgstr ""
+#~ "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]"
+#~ "pma_userconfig[/kbd] としておくのがいいでしょう。"
+
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "SQL は正常に実行されました"
 
@@ -15489,12 +15506,11 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ "説明%s をご覧ください"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
-#~ "詳細は [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug "
-#~ "tracker[/a] と [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]。"
+#~ "詳細は [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug tracker"
+#~ "[/a] と [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]。"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "INFORMATION_SCHEMA の使用を無効にする"
@@ -15828,14 +15844,14 @@ msgstr "concurrent_insert は 0 に設定されています。"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアス"
-#~ "は、$cfg['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子す"
-#~ "るために使用されます。そのフォルダはエイリアスのように呼び出されるだけで、"
-#~ "テーブル名自体はそのまま変わることありません。"
+#~ "[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアスは、$cfg"
+#~ "['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子するために"
+#~ "使用されます。そのフォルダはエイリアスのように呼び出されるだけで、テーブル"
+#~ "名自体はそのまま変わることありません。"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "テーブルの名前の代わりにコメントを表示する"
@@ -16382,8 +16398,8 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ "The result of this query can't be used for a chart. See [doc@faq6-29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "このクエリの結果は、グラフに使用することができませんでした。"
-#~ "[doc@faq6-29]FAQ 6.29[/doc] を参照してください。"
+#~ "このクエリの結果は、グラフに使用することができませんでした。[doc@faq6-29]"
+#~ "FAQ 6.29[/doc] を参照してください。"
 
 #~ msgid "Title"
 #~ msgstr "タイトル"

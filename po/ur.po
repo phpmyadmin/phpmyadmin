@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:45+0100\n"
+"POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-01-20 11:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
@@ -202,7 +202,7 @@ msgid "View dump (schema) of database"
 msgstr "کوائفیہ کی ڈمپ (شجرہ) منظر کریں"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:332 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "کوائفیہ میں جدول موجود نہیں۔"
 
@@ -312,7 +312,7 @@ msgstr "بصری تعمیر کنندہ"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -453,11 +453,11 @@ msgstr "رپورٹ پیش کرنے کا بہت شکریہ۔"
 msgid "Unfortunately the submission failed."
 msgstr "بدقسمتی سے جمع کرانے میں ناکام رہے."
 
-#: export.php:173
+#: export.php:175
 msgid "Bad type!"
 msgstr "بری قسم!"
 
-#: export.php:234
+#: export.php:236
 msgid "Bad parameters!"
 msgstr "خراب کوائف!"
 
@@ -557,7 +557,7 @@ msgstr "جیومیٹری شامل کریں"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:284
+#: libraries/plugins/auth/AuthenticationCookie.class.php:294
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -643,8 +643,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "درآمد کے لیے کوئی کوائف نہیں ملا۔ ممکن ہے کہ مسل نام بھیجا نہ گیا ہو یا مسل "
-"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ "
-"دیکھیں[doc@faq1-16]عمومی سوالات 1.16[/doc]."
+"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ دیکھیں"
+"[doc@faq1-16]عمومی سوالات 1.16[/doc]."
 
 #: import.php:481
 #, fuzzy
@@ -4475,8 +4475,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4519,11 +4519,14 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgid ""
+"Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgid ""
+"Empty phpMyAdmin control user password while using phpMyAdmin configuration "
+"storage!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:458
@@ -4627,8 +4630,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
+#| "textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4644,8 +4647,8 @@ msgstr "CHAR کالم تدوین"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5260,9 +5263,8 @@ msgstr "صفحہ عنوانات"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "براؤزر عنوان بار متن  لکھیں۔ حوالہ کے لیے[doc@cfg_TitleTable]documentation[/"
 "doc] خاص قدریں حاصل کرنے کے لیے میجک سٹرنگ۔"
@@ -5343,8 +5345,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"اضافی خواص تک رسائی کے لیے phpMyAdmin تشکیلات ذخیرہ کو تشکیل کریں، "
-"دیکھیں[doc@linked-tables]phpMyAdmin تشکیل ذخیرہ[/doc] دستاویزات میں"
+"اضافی خواص تک رسائی کے لیے phpMyAdmin تشکیلات ذخیرہ کو تشکیل کریں، دیکھیں"
+"[doc@linked-tables]phpMyAdmin تشکیل ذخیرہ[/doc] دستاویزات میں"
 
 #: libraries/config/messages.inc.php:275
 msgid "Changes tracking"
@@ -6251,11 +6253,11 @@ msgstr "جدول نشان کریں"
 #: libraries/config/messages.inc.php:564
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: [kbd]"
+#| "pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
 "کالم تبصرہ/mime اقسام کے لیے خالی چھوڑیں, مجوزہ: [kbd]pma_column_info[/kbd]"
 
@@ -6291,8 +6293,8 @@ msgstr "صارف پاس ورڈ کنٹرول"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
+#| "wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6338,8 +6340,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:594
 msgid "Designer table"
@@ -6358,8 +6360,8 @@ msgstr "کوائفیے چھپائیں"
 #: libraries/config/messages.inc.php:599
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma_history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6433,8 +6435,8 @@ msgstr ""
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:625
 msgid "PDF schema: pages table"
@@ -6485,8 +6487,8 @@ msgstr "صارف نام یاد کریں"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "نہیں کے لیے خالی چھوڑیں[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 "a] معاونت، مجوزہ[kbd]pma_bookmark[/kbd]"
@@ -6497,8 +6499,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:647
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:650
@@ -6536,8 +6538,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:660
 msgid "PDF schema: table coordinates"
@@ -6552,8 +6554,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:665
 msgid "Display columns table"
@@ -6567,8 +6569,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:670
 msgid "UI preferences table"
@@ -6615,11 +6617,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:690
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma_history[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
+#| "[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 "SQL طلب لاگ معاونت نہ کرنے کے لیے خالی چھوڑیں , مجوزہ: [kbd]pma_history[/kbd]"
 
@@ -6642,26 +6644,22 @@ msgstr ""
 #| msgid ""
 #| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:701
 msgid "User preferences storage table"
 msgstr ""
 
 #: libraries/config/messages.inc.php:702
-#, fuzzy
-#| msgid ""
-#| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]."
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:703
 #, fuzzy
@@ -6670,15 +6668,11 @@ msgid "Users table"
 msgstr "جداول استعمال کریں"
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
-#| msgid ""
-#| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]."
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:705
 msgid "User groups table"
@@ -6692,8 +6686,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
-"[kbd]pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+"pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:707
 msgid "Hidden navigation items table"
@@ -8680,28 +8674,28 @@ msgstr "صارف نام:"
 msgid "Server Choice:"
 msgstr "سرور انتخاب"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:398
+#: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:407
+#: libraries/plugins/auth/AuthenticationCookie.class.php:417
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:679
+#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "پاس ورڈ کے بغیر لاگ ان تشکیل میں ممنوع ہے (دیکھیں AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:686
+#: libraries/plugins/auth/AuthenticationCookie.class.php:696
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "%s  سیکنڈ میں کوئی سرگرمی نہیں ہوئی، دوبارہ لاگ ان کریں۔"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
-#: libraries/plugins/auth/AuthenticationCookie.class.php:693
+#: libraries/plugins/auth/AuthenticationCookie.class.php:701
+#: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "MySQL سرور میں لاگ ان نہیں کرسکتا"
@@ -14686,6 +14680,26 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr ""
 
+#, fuzzy
+#~| msgid ""
+#~| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
+#~ msgstr ""
+#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+#~ "pma_designer_coords[/kbd]"
+
+#, fuzzy
+#~| msgid ""
+#~| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
+#~ msgstr ""
+#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
+#~ "pma_designer_coords[/kbd]"
+
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "آپ کی SQL طلب کامیابی سے چلائی جاچکی ہے۔"
 
@@ -14761,9 +14775,8 @@ msgstr ""
 #~ msgstr "PHP کی قسم جو اسعتمال کی جائے"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
 #~ "مزید معلومات یہاں موجود ہے [a@https://sourceforge.net/p/phpmyadmin/"
 #~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "

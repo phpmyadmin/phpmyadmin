@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:45+0100\n"
+"POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-01-27 08:23+0200\n"
 "Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian <http://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -200,7 +200,7 @@ msgid "View dump (schema) of database"
 msgstr "Tampilkan dump (skema) basis data"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:332 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Tidak ada tabel dalam basis data."
 
@@ -305,7 +305,7 @@ msgstr "Alihkan ke %spembangun visual%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -449,11 +449,11 @@ msgstr "Terimakasih telah mengirimkan laporan ini."
 msgid "Unfortunately the submission failed."
 msgstr "Sayangnya pengajuan gagal."
 
-#: export.php:173
+#: export.php:175
 msgid "Bad type!"
 msgstr "Penulisan yang buruk!"
 
-#: export.php:234
+#: export.php:236
 msgid "Bad parameters!"
 msgstr "Pembatasan yang buruk!"
 
@@ -552,7 +552,7 @@ msgstr "Tambahkan geometri"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:284
+#: libraries/plugins/auth/AuthenticationCookie.class.php:294
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -4447,8 +4447,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "Anda mengatur [kbd]config[/kbd] tipe otentikasi dan termasuk username dan "
 "password untuk login otomatis, yang mana bukan pilihan yang tepat untuk host "
@@ -4510,16 +4510,25 @@ msgstr "Kosongkan URL signon sewaktu menggunakan metode autentikasi signon"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "Kosongkan pengguna pengendali phpMyAdmin sewaktu menggunakan phpMyAdmin configuration storage"
+#| msgid ""
+#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid ""
+"Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgstr ""
+"Kosongkan pengguna pengendali phpMyAdmin sewaktu menggunakan phpMyAdmin "
+"configuration storage"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
-#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+#| msgid ""
+#| "Empty phpMyAdmin control user password while using phpMyAdmin "
+#| "configuration storage"
+msgid ""
+"Empty phpMyAdmin control user password while using phpMyAdmin configuration "
+"storage!"
 msgstr ""
-"Kosongkan sandi pengguna pengendali phpMyAdmin sewaktu menggunakan phpMyAdmin configuration storage"
+"Kosongkan sandi pengguna pengendali phpMyAdmin sewaktu menggunakan "
+"phpMyAdmin configuration storage"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -4548,9 +4557,8 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Mengaktifkan ini memungkinkan halaman yang terletak pada domain yang berbeda "
-"untuk memanggil phpMyAdmin di dalam frame, dan merupakan potensi "
-"[strong]lubang keamanan[/strong] yang memungkinkan serangan scripting lintas-"
-"frame."
+"untuk memanggil phpMyAdmin di dalam frame, dan merupakan potensi [strong]"
+"lubang keamanan[/strong] yang memungkinkan serangan scripting lintas-frame."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4616,8 +4624,8 @@ msgstr "Pengeditan kolom CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Gunakan editor user-friendly ([a@http://codemirror.net/]CodeMirror[/a]) "
 "untuk mengedit kueri SQL dilengkapi dengan penyorotan sintak dan nomor baris."
@@ -5153,9 +5161,8 @@ msgstr "Judul halaman"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Tentukan judul teks bar browser. Lihat [doc@cfg_TitleTable]dokumentasi[/doc] "
 "untuk magic strings yang dapat digunakan untuk mendapatkan nilai-nilai "
@@ -5221,8 +5228,8 @@ msgid ""
 "documentation."
 msgstr ""
 "Konfigurasi phpMyAdmin dengan mengkonfigurasi penyimpanan untuk mendapatkan "
-"akses ke berbagai fitur tambahan, lihat dokumentasi [doc@linked-"
-"tables]konfigurasi penyimpanan phpMyAdmin[/doc]."
+"akses ke berbagai fitur tambahan, lihat dokumentasi [doc@linked-tables]"
+"konfigurasi penyimpanan phpMyAdmin[/doc]."
 
 #: libraries/config/messages.inc.php:275
 msgid "Changes tracking"
@@ -5603,8 +5610,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"Jumlah bytes script yang diperbolehkan untuk mengalokasikan, misalnya. "
-"[kbd]32M[/kbd] ([kbd]0[/kbd] untuk tak terbatas)."
+"Jumlah bytes script yang diperbolehkan untuk mengalokasikan, misalnya. [kbd]"
+"32M[/kbd] ([kbd]0[/kbd] untuk tak terbatas)."
 
 #: libraries/config/messages.inc.php:429
 msgid "Memory limit"
@@ -5981,11 +5988,11 @@ msgstr "Tabel markah"
 
 #: libraries/config/messages.inc.php:564
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
-"Biarkan kosong untuk tanpa kolom komentar/mime type, saran: "
-"[kbd]pma__column_info[/kbd]."
+"Biarkan kosong untuk tanpa kolom komentar/mime type, saran: [kbd]"
+"pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:567
 msgid "Column information table"
@@ -6056,8 +6063,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Biarkan kosong untuk tanpa dukungan Desainer, saran: "
-"[kbd]pma__designer_coords[/kbd]."
+"Biarkan kosong untuk tanpa dukungan Desainer, saran: [kbd]"
+"pma__designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:594
 msgid "Designer table"
@@ -6076,8 +6083,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Biarkan kosong untuk tanpa dukungan riwayat kueri SQL, saran: "
-"[kbd]pma__history[/kbd]."
+"Biarkan kosong untuk tanpa dukungan riwayat kueri SQL, saran: [kbd]"
+"pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:602
 msgid "SQL query history table"
@@ -6175,8 +6182,8 @@ msgstr "Porta server"
 #: libraries/config/messages.inc.php:636
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -6191,11 +6198,11 @@ msgstr "Tabel yang baru digunakan"
 #: libraries/config/messages.inc.php:641
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -6206,8 +6213,8 @@ msgstr "Tabel relasi"
 
 #: libraries/config/messages.inc.php:647
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:650
@@ -6239,8 +6246,8 @@ msgstr "Gunakan SSL"
 #: libraries/config/messages.inc.php:658
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -6255,8 +6262,8 @@ msgstr "Skema PDF: koordinat tabel"
 #: libraries/config/messages.inc.php:662
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -6271,8 +6278,8 @@ msgstr "Tabel kolom tampilan"
 #: libraries/config/messages.inc.php:667
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -6325,11 +6332,11 @@ msgstr "Statement untuk dilacak"
 #: libraries/config/messages.inc.php:690
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -6351,11 +6358,11 @@ msgstr "Buat versi secara otomatis"
 #: libraries/config/messages.inc.php:700
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
 "saran: [kbd]pma_userconfig[/kbd]"
@@ -6365,16 +6372,11 @@ msgid "User preferences storage table"
 msgstr "Tabel penyimpanan preferensi pengguna"
 
 #: libraries/config/messages.inc.php:702
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]."
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:703
 #, fuzzy
@@ -6383,16 +6385,11 @@ msgid "Users table"
 msgstr "Gunakan Tabel"
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]."
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
-"Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:705
 #, fuzzy
@@ -6403,8 +6400,8 @@ msgstr "Gunakan Host Table"
 #: libraries/config/messages.inc.php:706
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#| "pma_userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -8447,15 +8444,15 @@ msgstr "Nama Pengguna:"
 msgid "Server Choice:"
 msgstr "Pilihan Server"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:398
+#: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:407
+#: libraries/plugins/auth/AuthenticationCookie.class.php:417
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:679
+#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -8463,14 +8460,14 @@ msgstr ""
 "Masuk tanpa kata sandi tidak diperbolehkan dalam konfigurasi (lihat "
 "AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:686
+#: libraries/plugins/auth/AuthenticationCookie.class.php:696
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Tidak ada aktivitas selama %s detik atau lebih. Harap masuk kembali."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
-#: libraries/plugins/auth/AuthenticationCookie.class.php:693
+#: libraries/plugins/auth/AuthenticationCookie.class.php:701
+#: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "Gagal masuk ke MySQL server"
@@ -14767,6 +14764,28 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert diatur ke 0"
+
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma_userconfig[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
+#~ msgstr ""
+#~ "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis "
+#~ "data, saran: [kbd]pma_userconfig[/kbd]"
+
+#, fuzzy
+#~| msgid ""
+#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
+#~| "pma_userconfig[/kbd]"
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
+#~ msgstr ""
+#~ "Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis "
+#~ "data, saran: [kbd]pma_userconfig[/kbd]"
 
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "Kueri SQL Anda berhasil dieksekusi"

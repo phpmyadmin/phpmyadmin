@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:45+0100\n"
+"POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-02-02 09:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
@@ -199,7 +199,7 @@ msgid "View dump (schema) of database"
 msgstr "نمايش الگوي پايگاه داده"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:332 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "در اين پايگاه داده هيچ جدولي وجود ندارد ."
 
@@ -305,7 +305,7 @@ msgstr "به %svisual builder%s بروید"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -447,11 +447,11 @@ msgstr "از این که این گزارش را ارسال کردید متشکر
 msgid "Unfortunately the submission failed."
 msgstr "متاسفانه ارسال با مشکل مواجه شد."
 
-#: export.php:173
+#: export.php:175
 msgid "Bad type!"
 msgstr "نوع اشتباه!"
 
-#: export.php:234
+#: export.php:236
 msgid "Bad parameters!"
 msgstr "ورودی های اشتباه!"
 
@@ -551,7 +551,7 @@ msgstr "اضافه کردن هندسه"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:284
+#: libraries/plugins/auth/AuthenticationCookie.class.php:294
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -4423,8 +4423,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4467,11 +4467,14 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "کد ورود یافت نشد :"
 
 #: libraries/config/Validator.class.php:369
-msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgid ""
+"Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:374
-msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgid ""
+"Empty phpMyAdmin control user password while using phpMyAdmin configuration "
+"storage!"
 msgstr ""
 
 #: libraries/config/Validator.class.php:458
@@ -4564,8 +4567,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5118,9 +5121,8 @@ msgstr "عنوان صفحه"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:253
@@ -5931,8 +5933,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:564
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:567
@@ -6114,8 +6116,8 @@ msgstr "جدول هایی که به تازگی استفاده شده"
 
 #: libraries/config/messages.inc.php:641
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:645
@@ -6124,8 +6126,8 @@ msgstr "ارتباط جدول"
 
 #: libraries/config/messages.inc.php:647
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:650
@@ -6222,8 +6224,8 @@ msgstr "جملاتی که باید ردگیری شوند"
 
 #: libraries/config/messages.inc.php:690
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:693
@@ -6242,8 +6244,8 @@ msgstr "به صورت خودکار نسخه ایجاد شود"
 
 #: libraries/config/messages.inc.php:700
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:701
@@ -6252,8 +6254,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:702
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]."
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:703
@@ -6264,8 +6267,9 @@ msgstr "بكارگيري جدولها"
 
 #: libraries/config/messages.inc.php:704
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]."
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:705
@@ -8283,29 +8287,29 @@ msgstr "نام كاربر:"
 msgid "Server Choice:"
 msgstr "انتخاب سرور"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:398
+#: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:407
+#: libraries/plugins/auth/AuthenticationCookie.class.php:417
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:679
+#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "ورود بدون رمز عبور ممنوع می باشد(به قسمت AllowNoPassword مراجعه نمایید )"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:686
+#: libraries/plugins/auth/AuthenticationCookie.class.php:696
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "در %s گذشته هیچ فعالیتی نداشته اید؛ لطفا دوباره وارد شوید"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
-#: libraries/plugins/auth/AuthenticationCookie.class.php:693
+#: libraries/plugins/auth/AuthenticationCookie.class.php:701
+#: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "ورود به MySQL server ناموفق بود"
@@ -12177,10 +12181,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
-"استفاده نماييد : 'a','b','c'…<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
-"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
-"يا 'a\\'b')"
+"استفاده نماييد : 'a','b','c'…<br /> اگر احتياج داشتيد كه از علامت مميز برعكس"
+"(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد ، "
+"قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a\\'b')"
 
 #: libraries/tbl_columns_definition_form.lib.php:291
 msgid ""
@@ -12211,10 +12214,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
-"استفاده نماييد : 'a','b','c'…<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
-"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
-"يا 'a\\'b')"
+"استفاده نماييد : 'a','b','c'…<br /> اگر احتياج داشتيد كه از علامت مميز برعكس"
+"(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد ، "
+"قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a\\'b')"
 
 #: libraries/tbl_columns_definition_form.lib.php:745
 msgid "first"

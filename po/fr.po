@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-02 11:45+0100\n"
+"POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-02-02 13:54+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,7 +199,7 @@ msgid "View dump (schema) of database"
 msgstr "Voir une exportation (schéma) de la base de données"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
-#: export.php:330 libraries/DBQbe.class.php:268
+#: export.php:332 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
 msgstr "Aucune table n'a été trouvée dans cette base."
 
@@ -218,13 +219,11 @@ msgstr "Le nom de la base de données est vide !"
 
 #: db_operations.php:130
 #, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "La base de données %1$s a été renommée en %2$s."
 
 #: db_operations.php:136
 #, php-format
-#| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
 msgstr "La base de données %1$s a été copiée sur %2$s."
 
@@ -292,7 +291,6 @@ msgstr[0] "%s table"
 msgstr[1] "%s tables"
 
 #: db_qbe.php:50
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
 msgstr "Vous devez choisir au moins une colonne à afficher !"
 
@@ -303,7 +301,7 @@ msgstr "Passer au %smode visuel%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:693
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -448,11 +446,11 @@ msgstr "Merci d'avoir soumis ce rapport."
 msgid "Unfortunately the submission failed."
 msgstr "Malheureusement, l'envoi a échoué."
 
-#: export.php:173
+#: export.php:175
 msgid "Bad type!"
 msgstr "Type incorrect !"
 
-#: export.php:234
+#: export.php:236
 msgid "Bad parameters!"
 msgstr "Paramètres incorrects !"
 
@@ -551,7 +549,7 @@ msgstr "Ajouter géométrie"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:284
+#: libraries/plugins/auth/AuthenticationCookie.class.php:294
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -582,9 +580,6 @@ msgid "Output"
 msgstr "Résultat"
 
 #: gis_data_editor.php:410
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
@@ -636,9 +631,6 @@ msgstr ""
 "par votre configuration de PHP. Voir [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
-#| msgid ""
-#| "Cannot convert file's character set without character set conversion "
-#| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "Conversion de caractères impossible sans bibliothèque de conversion !"
@@ -651,7 +643,6 @@ msgstr ""
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
 #, php-format
-#| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "Signet %s créé."
 
@@ -945,7 +936,6 @@ msgid "Missing value in the form!"
 msgstr "Formulaire incomplet !"
 
 #: js/messages.php:48
-#| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
 msgstr "Veuillez entrer un nombre valide !"
 
@@ -1019,7 +1009,6 @@ msgid "Connections / Processes"
 msgstr "Connexions / Processus"
 
 #: js/messages.php:76
-#| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
 msgstr "La configuration locale de la surveillance est incompatible !"
 
@@ -1800,18 +1789,15 @@ msgstr ""
 
 #: js/messages.php:329
 #, php-format
-#| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
 msgstr "Ajouter une option pour la colonne «%s»."
 
 #: js/messages.php:330
 #, php-format
-#| msgid "%d object(s) created"
 msgid "%d object(s) created."
 msgstr "%d objet(s) créé(s)."
 
 #: js/messages.php:333
-#| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
 msgstr "Appuyez sur la touche d'échappement pour annuler l'édition."
 
@@ -1824,27 +1810,22 @@ msgstr ""
 "vouloir quitter cette page avant de sauvegarder ?"
 
 #: js/messages.php:335
-#| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "Faire glisser pour réordonner."
 
 #: js/messages.php:336
-#| msgid "Click to sort"
 msgid "Click to sort."
 msgstr "Cliquer pour trier."
 
 #: js/messages.php:337
-#| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "Cliquer pour marquer/enlever les marques."
 
 #: js/messages.php:338
-#| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
 msgstr "Double-cliquez pour copier le nom de la colonne."
 
 #: js/messages.php:340
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Cliquer sur la flèche<br />pour gérer l'affichage des colonnes."
 
@@ -1877,12 +1858,10 @@ msgstr ""
 "directement sur celles-ci."
 
 #: js/messages.php:356
-#| msgid "Go to link"
 msgid "Go to link."
 msgstr "Suivre le lien."
 
 #: js/messages.php:357
-#| msgid "Copy column name"
 msgid "Copy column name."
 msgstr "Copier le nom de la colonne."
 
@@ -1893,7 +1872,6 @@ msgstr ""
 "papier."
 
 #: js/messages.php:359
-#| msgid "Show data row(s)"
 msgid "Show data row(s)."
 msgstr "Afficher les lignes correspondantes."
 
@@ -1922,7 +1900,6 @@ msgid "Hide Panel"
 msgstr "Cacher le panneau"
 
 #: js/messages.php:372
-#| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
 msgstr "Montrer les éléments de navigation cachés."
 
@@ -1979,9 +1956,6 @@ msgid "Show Report Details"
 msgstr "Montrer les détails du rapport"
 
 #: js/messages.php:395
-#| msgid ""
-#| "Your export is incomplete, due to a low execution time limit at the PHP "
-#| "level"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -2815,8 +2789,8 @@ msgstr "Erreur inconnue durant le téléchargement."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1-11]FAQ "
-"1.11[/doc]."
+"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1-11]FAQ 1.11"
+"[/doc]."
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -3109,7 +3083,6 @@ msgid "Error while creating PDF:"
 msgstr "Erreur pendant la création du PDF : "
 
 #: libraries/RecentTable.class.php:122
-#| msgid "Could not save recent table"
 msgid "Could not save recent table!"
 msgstr "Impossible de sauvegarder l'historique des tables récentes !"
 
@@ -3118,7 +3091,6 @@ msgid "Recent tables"
 msgstr "Tables récentes"
 
 #: libraries/RecentTable.class.php:173
-#| msgid "There are no recent tables"
 msgid "There are no recent tables."
 msgstr "Il n'y a pas de tables récentes."
 
@@ -3283,7 +3255,6 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "La table %1$s se nomme maintenant %2$s."
 
 #: libraries/Table.class.php:1477
-#| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "Impossible de sauvegarder les préférences d'interface de tables !"
 
@@ -3293,8 +3264,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Echec lors de la tentative de vidage de la table UI Préférences (voir "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Echec lors de la tentative de vidage de la table UI Préférences (voir $cfg"
+"['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1657
 #, php-format
@@ -3923,7 +3894,6 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Le répertoire de transfert est inaccessible."
 
 #: libraries/Util.class.php:3384
-#| msgid "There are no files to upload"
 msgid "There are no files to upload!"
 msgstr "Aucun fichier n'est disponible pour le transfert !"
 
@@ -4032,7 +4002,6 @@ msgid "Check Privileges"
 msgstr "Vérifier les privilèges"
 
 #: libraries/common.inc.php:581
-#| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "Impossible de lire le fichier de configuration !"
 
@@ -4222,33 +4191,28 @@ msgstr "aucun des choix ci-haut"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-#| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "Nombre non positif !"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-#| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "Ce n'est pas un nombre non négatif !"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-#| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "Numéro de port invalide !"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-#| msgid "Incorrect value"
 msgid "Incorrect value!"
 msgstr "Valeur incorrecte !"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
 #, php-format
-#| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
 msgstr "La valeur doit être égale ou plus petite que %s !"
 
@@ -4444,8 +4408,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
@@ -4496,13 +4460,14 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "L'URL de signon est vide !"
 
 #: libraries/config/Validator.class.php:369
-#| msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
+msgid ""
+"Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr "Le controluser est vide !"
 
 #: libraries/config/Validator.class.php:374
-#| msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage"
-msgid "Empty phpMyAdmin control user password while using phpMyAdmin configuration storage!"
+msgid ""
+"Empty phpMyAdmin control user password while using phpMyAdmin configuration "
+"storage!"
 msgstr "Le controlpass est vide !"
 
 #: libraries/config/Validator.class.php:458
@@ -4590,9 +4555,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; "
-"[kbd]input[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet "
-"la saisie de sauts de lignes."
+"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; [kbd]input"
+"[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet la saisie "
+"de sauts de lignes."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4600,8 +4565,8 @@ msgstr "Édition des colonnes CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Utiliser un éditeur convivial pour les requêtes SQL ([a@http://codemirror."
 "net/]CodeMirror[/a]) avec coloration syntaxique et numérotation des lignes."
@@ -5144,9 +5109,8 @@ msgstr "Titres de page"
 
 #: libraries/config/messages.inc.php:249
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Spécifier le texte de la barre de titre du navigateur. Se référer à la "
 "[doc@cfg_TitleTable]documentation[/doc] pour les chaînes magiques pouvant "
@@ -5946,9 +5910,9 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)."
 msgstr ""
-"Le chemin du fichier de configuration pour [a@http://swekey."
-"com]l'authentification matérielle Swekey[/a] (ne pas placer sous la racine "
-"des documents; suggestion : /etc/swekey.conf)."
+"Le chemin du fichier de configuration pour [a@http://swekey.com]"
+"l'authentification matérielle Swekey[/a] (ne pas placer sous la racine des "
+"documents; suggestion : /etc/swekey.conf)."
 
 #: libraries/config/messages.inc.php:555
 msgid "SweKey config file"
@@ -5976,8 +5940,8 @@ msgstr "Table pour signets"
 
 #: libraries/config/messages.inc.php:564
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
 "Laisser vider pour désactiver les commentaires sur les colonnes et les types "
 "MIME; suggestion : [kbd]pma__column_info[/kbd]."
@@ -6182,8 +6146,8 @@ msgstr "Table récemment utilisée"
 
 #: libraries/config/messages.inc.php:641
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Laisser vider pour désactiver le support [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relationnel[/a], suggestion : [kbd]pma__relation[/kbd]."
@@ -6194,11 +6158,11 @@ msgstr "Table relationnelle"
 
 #: libraries/config/messages.inc.php:647
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
-"Voir [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] pour un exemple."
+"Voir [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] pour un exemple."
 
 #: libraries/config/messages.inc.php:650
 msgid "Signon session name"
@@ -6309,11 +6273,11 @@ msgstr "Énoncés à suivre"
 
 #: libraries/config/messages.inc.php:690
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
-"Laisser vide pour désactiver le suivi des changements SQL; suggestion : "
-"[kbd]pma__tracking[/kbd]."
+"Laisser vide pour désactiver le suivi des changements SQL; suggestion : [kbd]"
+"pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:693
 msgid "SQL query tracking table"
@@ -6333,11 +6297,11 @@ msgstr "Création automatique de versions"
 
 #: libraries/config/messages.inc.php:700
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
-"Laisser vide pour désactiver les préférences utilisateur; suggestion : "
-"[kbd]pma__config[/kbd]."
+"Laisser vide pour désactiver les préférences utilisateur; suggestion : [kbd]"
+"pma__config[/kbd]."
 
 #: libraries/config/messages.inc.php:701
 msgid "User preferences storage table"
@@ -6345,11 +6309,10 @@ msgstr "Table de stockage des préférences utilisateur"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__users[/kbd]."
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Laisser vide pour désactiver les menus configurables; suggestion : "
-"[kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:703
 msgid "Users table"
@@ -6357,11 +6320,10 @@ msgstr "Table des utilisateurs"
 
 #: libraries/config/messages.inc.php:704
 msgid ""
-"Leave blank to disable configurable menus feature, suggested: "
-"[kbd]pma__usergroups[/kbd]."
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
-"Laisser vide pour désactiver les menus configurables; suggestion : "
-"[kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:705
 msgid "User groups table"
@@ -6373,8 +6335,8 @@ msgid ""
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
 "Laisser vide pour désactiver la fonctionnalité qui permet de cacher et "
-"d'afficher les éléments de navigation; suggestion : "
-"[kbd]pma__navigationhiding[/kbd]."
+"d'afficher les éléments de navigation; suggestion : [kbd]"
+"pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:707
 msgid "Hidden navigation items table"
@@ -7165,8 +7127,8 @@ msgid ""
 msgstr ""
 "Permettre l'interruption de l'importation si la limite de temps configurée "
 "dans PHP est sur le point d'être atteinte. <i>(Ceci pourrait aider à "
-"importer des fichiers volumineux, au détriment du respect des "
-"transactions.)</i>"
+"importer des fichiers volumineux, au détriment du respect des transactions.)"
+"</i>"
 
 #: libraries/display_import.lib.php:302
 msgid ""
@@ -7636,20 +7598,16 @@ msgstr ""
 "Les structures suivantes ont été créées ou modifiées. Ici vous pouvez :"
 
 #: libraries/import.lib.php:1228
-#| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "Consulter le contenu d'une structure en cliquant sur son nom."
 
 #: libraries/import.lib.php:1229
-#| msgid ""
-#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Modifiez l'un des paramètres en cliquant le lien «Options» correspondant."
 
 #: libraries/import.lib.php:1230
-#| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Modifier sa structure via le lien «Structure»."
 
@@ -7695,7 +7653,6 @@ msgid "Binary"
 msgstr "Binaire"
 
 #: libraries/insert_edit.lib.php:658
-#| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
 "Il est possible que cette colonne<br />ne soit pas éditable<br />en raison "
@@ -8404,15 +8361,15 @@ msgstr "Utilisateur : "
 msgid "Server Choice:"
 msgstr "Choix du serveur : "
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:398
+#: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
 msgstr "Erreur, essayez à nouveau !"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:407
+#: libraries/plugins/auth/AuthenticationCookie.class.php:417
 msgid "Please enter correct captcha!"
 msgstr "Veuillez saisir le captcha correct !"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:679
+#: libraries/plugins/auth/AuthenticationCookie.class.php:689
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -8420,14 +8377,14 @@ msgstr ""
 "La configuration interdit une connexion sans mot de passe (voir "
 "AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:686
+#: libraries/plugins/auth/AuthenticationCookie.class.php:696
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Aucune activité depuis %s secondes ou plus; veuillez vous reconnecter."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
-#: libraries/plugins/auth/AuthenticationCookie.class.php:693
+#: libraries/plugins/auth/AuthenticationCookie.class.php:701
+#: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "Connexion au serveur MySQL non permise"
@@ -8701,8 +8658,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Entourer les noms des tables et des colonnes par des guillemets obliques "
-"<i>(Protège les noms de tables et de colonnes comportant des caractères "
+"Entourer les noms des tables et des colonnes par des guillemets obliques <i>"
+"(Protège les noms de tables et de colonnes comportant des caractères "
 "spéciaux ou des mots réservés)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:322
@@ -8942,9 +8899,6 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Erreur lors de l'importation du fichier de formes ESRI :«%s»."
 
 #: libraries/plugins/import/ImportShp.class.php:204
-#| msgid ""
-#| "You tried to import an invalid file or the imported file contains invalid "
-#| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
@@ -8958,7 +8912,6 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Les données spatiales MySQL ne supportent pas le type ESRI «%s»."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
 msgstr "Le fichier importé ne contient aucune donnée !"
 
@@ -9565,13 +9518,11 @@ msgstr ""
 "de privilège sur le maître."
 
 #: libraries/replication_gui.lib.php:997
-#| msgid "Unable to change master"
 msgid "Unable to change master!"
 msgstr "Impossible de changer le maître !"
 
 #: libraries/replication_gui.lib.php:1001
 #, php-format
-#| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
 msgstr "Le serveur maître est maintenant %s."
 
@@ -9670,12 +9621,10 @@ msgstr "Créateur"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-#| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Le définisseur doit suivre le format «utilisateur@machine» !"
 
 #: libraries/rte/rte_events.lib.php:580
-#| msgid "You must provide an event name"
 msgid "You must provide an event name!"
 msgstr "Vous devez fournir un nom pour l'événement !"
 
@@ -9802,7 +9751,6 @@ msgid "SQL data access"
 msgstr "Accès aux données SQL"
 
 #: libraries/rte/rte_routines.lib.php:1139
-#| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
 msgstr "Vous devez fournir un nom pour la procédure !"
 
@@ -9882,22 +9830,18 @@ msgid "Time"
 msgstr "Moment"
 
 #: libraries/rte/rte_triggers.lib.php:458
-#| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
 msgstr "Vous devez fournir un nom valable pour le déclencheur !"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
 msgstr "Vous devez fournir une temporisation valable pour le déclencheur !"
 
 #: libraries/rte/rte_triggers.lib.php:472
-#| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
 msgstr "Vous devez fournir un événement valable pour le déclencheur !"
 
 #: libraries/rte/rte_triggers.lib.php:480
-#| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
 msgstr "Vous devez fournir un nom de table valable !"
 
@@ -10297,7 +10241,6 @@ msgstr "Permission d'arrêter le serveur."
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:93
-#| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
 msgstr "Permission de voir les processus de tous les utilisateurs."
 
@@ -10374,7 +10317,6 @@ msgstr "Permission de créer des vues."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-#| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
 msgstr ""
 "Permission de mettre en place des événements pour le programmateur "
@@ -10382,7 +10324,6 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-#| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
 msgstr "Permission de créer et de supprimer des déclencheurs."
 
@@ -10472,7 +10413,6 @@ msgstr "Privilèges spécifiques à une table"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Veuillez noter que les noms de privilèges sont exprimés en anglais."
 
@@ -11959,7 +11899,6 @@ msgid "Let every user access this bookmark"
 msgstr "Signet visible pour les autres utilisateurs"
 
 #: libraries/sql.lib.php:1024
-#| msgid "Bookmark not created"
 msgid "Bookmark not created!"
 msgstr "Signet non créé !"
 
@@ -12116,13 +12055,11 @@ msgstr "Le suivi n'est pas activé."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, php-format
-#| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
 msgstr "La vue %s a été supprimée."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
 msgstr "La table %s a été effacée."
 
@@ -12895,17 +12832,14 @@ msgid "Page:"
 msgstr "Page : "
 
 #: pmd_pdf.php:128
-#| msgid "Import from selected page"
 msgid "Import from selected page."
 msgstr "Importer depuis la page sélectionnée."
 
 #: pmd_pdf.php:129
-#| msgid "Export to selected page"
 msgid "Export to selected page."
 msgstr "Exporter vers la page sélectionnée."
 
 #: pmd_pdf.php:131
-#| msgid "Create a page and export to it"
 msgid "Create a page and export to it."
 msgstr "Créer une page et y exporter."
 
@@ -12950,7 +12884,6 @@ msgid "Error saving coordinates for Designer."
 msgstr "Erreur lors de la sauvegarde des coordonnées Concepteur."
 
 #: prefs_forms.php:86
-#| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
 "Le formulaire soumis contient des erreurs, impossible de sauvegarder les "
@@ -13067,12 +13000,10 @@ msgstr ""
 "phpMyAdmin n'a pu éliminer le processus %s. Il était probablement déjà fermé."
 
 #: setup/frames/form.inc.php:25
-#| msgid ""
-#| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
-"Jeu de formulaires incorrect, vérifiez le tableau $formsets dans "
-"setup/frames/form.inc.php !"
+"Jeu de formulaires incorrect, vérifiez le tableau $formsets dans setup/"
+"frames/form.inc.php !"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
@@ -14624,6 +14555,20 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
 
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__users[/kbd]."
+#~ msgstr ""
+#~ "Laisser vide pour désactiver les menus configurables; suggestion : [kbd]"
+#~ "pma__users[/kbd]."
+
+#~ msgid ""
+#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
+#~ "pma__usergroups[/kbd]."
+#~ msgstr ""
+#~ "Laisser vide pour désactiver les menus configurables; suggestion : [kbd]"
+#~ "pma__usergroups[/kbd]."
+
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "Votre requête SQL a été exécutée avec succès"
 
@@ -14740,9 +14685,8 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ msgstr "Activer les rapports d'erreurs JavaScript"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
-#~ "Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
 #~ "Voir [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]ce bogue "
 #~ "phpMyAdmin[/a] et [a@http://bugs.mysql.com/19588]ce bogue MySQL[/a]"
@@ -15107,9 +15051,9 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the "
-#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
-#~ "like the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the $cfg"
+#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
+#~ "the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Si défini à [kbd]nested[/kbd], l'alias du nom de table ne sert qu'à "
 #~ "subdiviser les tables selon $cfg['LeftFrameTableSeparator']"
