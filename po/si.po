@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 19:06+0200\n"
+"PO-Revision-Date: 2014-02-03 14:06+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/4-1/si/>\n"
 "Language: si\n"
@@ -9162,10 +9162,9 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "දෝෂය"
+msgstr "දෝෂය."
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
@@ -9222,7 +9221,6 @@ msgstr "%1$s සිද්ධිය සාදන ලදි."
 
 #: libraries/rte/rte_events.lib.php:175 libraries/rte/rte_routines.lib.php:378
 #: libraries/rte/rte_triggers.lib.php:147
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
@@ -10174,10 +10172,9 @@ msgid "wildcard"
 msgstr "අව්‍යවස්ථිත කාඩ්පත"
 
 #: libraries/server_privileges.lib.php:2069
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "දත්තගබඩා විශේෂිත"
+msgstr "වගු විශේෂිත"
 
 #: libraries/server_privileges.lib.php:2146
 #: libraries/server_privileges.lib.php:3351
@@ -14002,10 +13999,9 @@ msgid "MyISAM concurrent inserts"
 msgstr "උපරිම සමගාමී සම්බන්ධතා"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 #| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "concurret_insert 1ට සිටුවා සක්‍රීය කරන්න"
+msgstr "{concurret_insert} 1ට සිටුවා සක්‍රීය කරන්න"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
