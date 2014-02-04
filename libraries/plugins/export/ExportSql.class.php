@@ -1332,7 +1332,7 @@ class ExportSql extends ExportPlugin
 
                 for ($k = 0; $k < $sql_count; $k++) {                    
                     if (preg_match(
-                        '@[\s]+(AUTO_INCREMENT,)@',
+                        '@[\s]+(AUTO_INCREMENT )@',
                         $sql_lines[$k]
                     )) {
                         //removes extra space at the beginning, if there is
