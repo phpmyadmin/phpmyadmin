@@ -1064,9 +1064,12 @@ div#tablestatistics table {
 }
 
 #span_table_comment {
-    font-weight: normal;
+    font-weight: bold;
     font-style: italic;
     white-space: nowrap;
+    margin-left: 10px;  
+    color: #D6D6D6;
+    text-shadow: none;
 }
 
 #serverinfo img {
