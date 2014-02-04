@@ -94,8 +94,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     )
                 );
             } else {
-                // Dhananjay: To me this seems to be very naive solution. Please guide me if I am making any mistakes here..:)
-                $login_link = $login_link . '<script type=\"text/javascript\">window.location=\''.$GLOBALS['cfg']['PmaAbsoluteUri'].'\'</script>';
+                $login_link = $login_link . '<script type="text/javascript">window.location=\''.$GLOBALS['cfg']['PmaAbsoluteUri'].'\'</script>';
                 $response->addJSON(
                     'message',
                     PMA_Message::error(
@@ -688,9 +687,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                 __('No activity within %s seconds; please log in again.'),
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
-            $conn_error .= '<script type=\'text/javascript\'>
-                                if(document.URL != \''.$GLOBALS['cfg']['PmaAbsoluteUri'].'\'){
-                                    window.location = \''.$GLOBALS['cfg']['PmaAbsoluteUri'].'\';
+            $conn_error .= '<script type="text/javascript">
+                                if(document.URL != "'.$GLOBALS['cfg']['PmaAbsoluteUri'].'"){
+                                    window.location = "'.$GLOBALS['cfg']['PmaAbsoluteUri'].'";
                                 }
                             </script>';
         } elseif ($GLOBALS['dbi']->getError()) {
