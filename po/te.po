@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-03 14:17+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-02-04 06:38+0200\n"
+"Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
 "Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/4-1/te/>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -36,10 +36,9 @@ msgstr "డేటాబేస్ వ్యాఖ్య: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "పట్టిక వ్యాఖ్యలు"
+msgstr "పట్టిక వ్యాఖ్యలు:"
 
 # మొదటి అనువాదము
 #: db_datadict.php:168 libraries/Index.class.php:567
