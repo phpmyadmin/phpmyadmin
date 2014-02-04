@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-29 21:51+0200\n"
+"PO-Revision-Date: 2014-02-04 12:11+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -12048,19 +12048,19 @@ msgstr ""
 
 #: pmd_general.php:845
 msgid "Active options"
-msgstr ""
+msgstr "Optiones active"
 
 #: pmd_pdf.php:53
 msgid "Page has been created"
-msgstr ""
+msgstr "Pagina ha essite create"
 
 #: pmd_pdf.php:56
 msgid "Page creation failed"
-msgstr ""
+msgstr "Il falleva crear pagina"
 
 #: pmd_pdf.php:118
 msgid "Page:"
-msgstr ""
+msgstr "Pagina:"
 
 #: pmd_pdf.php:128
 msgid "Import from selected page"
@@ -12076,43 +12076,43 @@ msgstr ""
 
 #: pmd_pdf.php:143
 msgid "New page name: "
-msgstr ""
+msgstr "Nomine de nove pagina: "
 
 #: pmd_pdf.php:146
 msgid "Export/Import to scale:"
-msgstr ""
+msgstr "Exporta/Importa pro scalar:"
 
 #: pmd_pdf.php:152
 msgid "recommended"
-msgstr ""
+msgstr "recommendate"
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "Error: le relation ja existe."
 
 #: pmd_relation_new.php:79 pmd_relation_new.php:102
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "Error: relation non addite."
 
 #: pmd_relation_new.php:80
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "Relation de FOREIGN KEY addite"
 
 #: pmd_relation_new.php:84
 msgid "Error: Relational features are disabled!"
-msgstr ""
+msgstr "Error: characteristicas relational es dishabilitate!"
 
 #: pmd_relation_new.php:100
 msgid "Internal relation added"
-msgstr ""
+msgstr "Relation interne addite"
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
-msgstr ""
+msgstr "Relation delite"
 
 #: pmd_save_pos.php:75
 msgid "Error saving coordinates for Designer."
-msgstr ""
+msgstr "Error quando on salveguardava coordinates pro Designer."
 
 #: prefs_forms.php:86
 msgid "Cannot save settings, submitted form contains errors"
@@ -12120,23 +12120,23 @@ msgstr ""
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
-msgstr ""
+msgstr "Il non pote importar configuration"
 
 #: prefs_manage.php:114
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Le configuration contine datos incorrecte pro alcun campos."
 
 #: prefs_manage.php:133
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Tu vole importar preferentias remanente?"
 
 #: prefs_manage.php:232 prefs_manage.php:258
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Salveguardate le: @DATE@"
 
 #: prefs_manage.php:246
 msgid "Import from file"
-msgstr ""
+msgstr "Importa ex file"
 
 #: prefs_manage.php:252
 msgid "Import from browser's storage"
@@ -12148,7 +12148,7 @@ msgstr ""
 
 #: prefs_manage.php:261
 msgid "You have no saved settings!"
-msgstr ""
+msgstr "Tu non ha salveguardate le preferentias!"
 
 #: prefs_manage.php:265 prefs_manage.php:318
 msgid "This feature is not supported by your web browser"
@@ -12175,7 +12175,7 @@ msgstr ""
 
 #: prefs_manage.php:314
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "Preferentias existente essera superscribite!"
 
 #: prefs_manage.php:331
 msgid "You can reset all your settings and restore them to default values."
@@ -12183,15 +12183,15 @@ msgstr ""
 
 #: querywindow.php:64
 msgid "Import files"
-msgstr ""
+msgstr "Importa files"
 
 #: querywindow.php:77
 msgid "All"
-msgstr ""
+msgstr "Omnes"
 
 #: querywindow.php:154
 msgid "SQL history:"
-msgstr ""
+msgstr "Historia de SQL:"
 
 #: schema_edit.php:37 schema_edit.php:43 schema_edit.php:49 schema_edit.php:54
 #, php-format
@@ -12200,7 +12200,7 @@ msgstr ""
 
 #: server_databases.php:112
 msgid "No databases"
-msgstr ""
+msgstr "Necun base de datos"
 
 #: server_export.php:21
 msgid "View dump (schema) of databases"
@@ -12223,7 +12223,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
-msgstr ""
+msgstr "Il non pote cargar o salveguardar le configuration"
 
 #: setup/frames/index.inc.php:54
 msgid ""
@@ -12251,7 +12251,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:116
 msgid "Configuration saved."
-msgstr ""
+msgstr "Configuration salveguardate."
 
 #: setup/frames/index.inc.php:119
 msgid ""
@@ -12273,51 +12273,51 @@ msgstr ""
 
 #: setup/frames/index.inc.php:199
 msgid "New server"
-msgstr ""
+msgstr "Nove servitor"
 
 #: setup/frames/index.inc.php:229
 msgid "Default language"
-msgstr ""
+msgstr "Linguage predefinite"
 
 #: setup/frames/index.inc.php:239
 msgid "let the user choose"
-msgstr ""
+msgstr "permitte que le usator selige"
 
 #: setup/frames/index.inc.php:250
 msgid "- none -"
-msgstr ""
+msgstr "- necun -"
 
 #: setup/frames/index.inc.php:254
 msgid "Default server"
-msgstr ""
+msgstr "Servitor predefinite"
 
 #: setup/frames/index.inc.php:266
 msgid "End of line"
-msgstr ""
+msgstr "Fin del linea"
 
 #: setup/frames/index.inc.php:272
 msgid "Display"
-msgstr ""
+msgstr "Monstra"
 
 #: setup/frames/index.inc.php:282
 msgid "Load"
-msgstr ""
+msgstr "Carga"
 
 #: setup/frames/index.inc.php:305
 msgid "phpMyAdmin homepage"
-msgstr ""
+msgstr "Pagina domo o principal de phpMyAdmin"
 
 #: setup/frames/index.inc.php:307
 msgid "Donate"
-msgstr ""
+msgstr "Dona"
 
 #: setup/frames/servers.inc.php:29
 msgid "Edit server"
-msgstr ""
+msgstr "Modifica servitor"
 
 #: setup/frames/servers.inc.php:39
 msgid "Add a new server"
-msgstr ""
+msgstr "Adde un nove servitor"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
@@ -12325,11 +12325,11 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:48
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #: setup/lib/form_processing.lib.php:49
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "Le forma submittite contine errores"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Try to revert erroneous fields to their default values"
@@ -12337,11 +12337,11 @@ msgstr ""
 
 #: setup/lib/form_processing.lib.php:53
 msgid "Ignore errors"
-msgstr ""
+msgstr "Ignora errores"
 
 #: setup/lib/form_processing.lib.php:55
 msgid "Show form"
-msgstr ""
+msgstr "Monstra forma"
 
 #: setup/lib/index.lib.php:118
 msgid ""
