@@ -265,6 +265,12 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             '<code> / EVENT</code><code> / TRIGGER</code> statement',
             $leaf->getText()
         );
+ 
+        $leaf = array_shift($leaves);
+        $this->assertInstanceOf(
+            'BoolPropertyItem',
+            $leaf
+        );
         
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
@@ -405,7 +411,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $properties = $properties[0]->getProperties();
 
         $this->assertCount(
-            4,
+            5,
             $properties
         );
 
@@ -747,6 +753,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_drop_database'] = true;
         $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_create_database'] = true;
+        $GLOBALS['sql_create_table'] = true;
         $GLOBALS['crlf'] = "\n";
 
         $dbi = $this->getMockBuilder('PMA_DatabaseInterface')

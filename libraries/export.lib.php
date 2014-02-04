@@ -532,13 +532,29 @@ function PMA_exportDatabase(
         ) {
             // for a view, export a stand-in definition of the table
             // to resolve view dependencies
-            if (! $export_plugin->exportStructure(
-                $db, $table, $crlf, $err_url,
-                $is_view ? 'stand_in' : 'create_table', $export_type,
-                $do_relation, $do_comments, $do_mime, $do_dates
-            )) {
-                break 1;
+            
+            if ($is_view) {
+                
+                if (! $export_plugin->exportStructure(
+                    $db, $table, $crlf, $err_url,
+                    'stand_in', $export_type,
+                    $do_relation, $do_comments, $do_mime, $do_dates
+                )) {
+                    break 1;
+                }
+                
+            } else if (isset($GLOBALS['sql_create_table'])) {
+                
+                if (! $export_plugin->exportStructure(
+                    $db, $table, $crlf, $err_url,
+                    'create_table', $export_type,
+                    $do_relation, $do_comments, $do_mime, $do_dates
+                )) {
+                    break 1;
+                }
+                
             }
+            
         }
         // if this is a view or a merge table, don't export data
         if (($whatStrucOrData == 'data'
@@ -632,13 +648,29 @@ function PMA_exportTable(
     if ($whatStrucOrData == 'structure'
         || $whatStrucOrData == 'structure_and_data'
     ) {
-        if (! $export_plugin->exportStructure(
-            $db, $table, $crlf, $err_url,
-            $is_view ? 'create_view' : 'create_table', $export_type,
-            $do_relation, $do_comments, $do_mime, $do_dates
-        )) {
-            return;
+        
+        if ($is_view) {
+            
+            if (! $export_plugin->exportStructure(
+                $db, $table, $crlf, $err_url,
+                'create_view', $export_type,
+                $do_relation, $do_comments, $do_mime, $do_dates
+            )) {
+                return;
+            }
+            
+        } else if (isset($GLOBALS['sql_create_table'])) {
+            
+            if (! $export_plugin->exportStructure(
+                $db, $table, $crlf, $err_url,
+                'create_table', $export_type,
+                $do_relation, $do_comments, $do_mime, $do_dates
+            )) {
+                return;
+            }
+            
         }
+        
     }
     // If this is an export of a single view, we have to export data;
     // for example, a PDF report
