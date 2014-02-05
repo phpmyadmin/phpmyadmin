@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 10:55+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-02-06 00:22+0200\n"
+"Last-Translator: Oleksandr <chesterroy@gmail.com>\n"
 "Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/4-1/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -433,7 +433,7 @@ msgstr ""
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Спасибі за звіт."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
@@ -907,7 +907,7 @@ msgstr "Оператори \"DROP DATABASE\" заборонені."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Підтвердити"
 
 #: js/messages.php:36
 #, php-format
@@ -2017,7 +2017,7 @@ msgstr "Надіслати звіт про помилку"
 
 #: js/messages.php:410
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Надіслати звіт про помилку"
 
 #: js/messages.php:412
 msgid ""
@@ -2430,7 +2430,7 @@ msgstr "Або:"
 
 #: libraries/DBQbe.class.php:659 libraries/DBQbe.class.php:748
 msgid "And:"
-msgstr ""
+msgstr "Та:"
 
 #: libraries/DBQbe.class.php:663
 msgid "Ins"
@@ -2450,7 +2450,7 @@ msgstr ""
 
 #: libraries/DBQbe.class.php:758
 msgid "Del:"
-msgstr ""
+msgstr "Видалити:"
 
 #: libraries/DBQbe.class.php:1353
 #, php-format
@@ -2479,7 +2479,7 @@ msgstr "Будь ласка, перевірте привілеї каталог�
 
 #: libraries/DatabaseInterface.class.php:2013
 msgid "Details…"
-msgstr ""
+msgstr "Деталі…"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:402
 msgid "at least one of the words"
@@ -3371,7 +3371,7 @@ msgstr "Пошук в таблиці"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1217
 msgid "Find and Replace"
-msgstr ""
+msgstr "Знайти і замінити"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1405
 msgid "Edit/Insert"
@@ -3443,7 +3443,7 @@ msgstr "Замінити на:"
 
 #: libraries/TableSearch.class.php:1403
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Знайти і замінити - попередній перегляд"
 
 #: libraries/TableSearch.class.php:1407
 msgid "Count"
@@ -3702,7 +3702,7 @@ msgstr "Багатокутник"
 
 #: libraries/Types.class.php:367
 msgid "A collection of points"
-msgstr ""
+msgstr "Колекція точок"
 
 #: libraries/Types.class.php:369
 msgid "A collection of curves with linear interpolation between points"
@@ -3710,7 +3710,7 @@ msgstr ""
 
 #: libraries/Types.class.php:371
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Колекція полігонів"
 
 #: libraries/Types.class.php:373
 msgid "A collection of geometry objects of any type"
@@ -4095,11 +4095,11 @@ msgstr "Правий"
 
 #: libraries/config.values.php:82
 msgid "Click"
-msgstr ""
+msgstr "Клацання"
 
 #: libraries/config.values.php:83
 msgid "Double click"
-msgstr ""
+msgstr "Подвійне клацання"
 
 #: libraries/config.values.php:84 libraries/config.values.php:115
 #: libraries/config/FormDisplay.tpl.php:218 libraries/relation.lib.php:100
@@ -4121,11 +4121,11 @@ msgstr ""
 
 #: libraries/config.values.php:119
 msgid "Always send error reports"
-msgstr ""
+msgstr "Завжди надсилати звіти про помилки"
 
 #: libraries/config.values.php:120
 msgid "Never send error reports"
-msgstr ""
+msgstr "Ніколи не надсилати звіти про помилки"
 
 #: libraries/config.values.php:149
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -4274,7 +4274,7 @@ msgstr "Дозволити користувачам налаштовувати �
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1604
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:327
@@ -4390,7 +4390,6 @@ msgid "Highlight pointer"
 msgstr "Покажчик виділення"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4398,8 +4397,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations"
 msgstr ""
-"Вімкнути [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] компресію для "
-"операцій імпорту та експорту"
+"Увімкнути [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] компресію для "
+"операцій з імпорту"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4474,7 +4473,6 @@ msgid "Check config file permissions"
 msgstr "Перевірте права доступу конфігураційного файлу"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4483,8 +4481,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature"
 msgstr ""
-"Стиснути gzip/bzip2 експорт на льоту, що не потребує багато пам'яті; якщо "
-"виникли проблеми при створенні gzip/bzip2 файлів відключіть цю властивість"
+"Стиснути gzip експорт на льоту, що не потребує багато пам'яті; якщо виникли "
+"проблеми при створенні gzip файлів відключіть цю властивість"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
