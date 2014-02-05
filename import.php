@@ -557,30 +557,20 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
     if ($import_type == 'query') {
         $message = PMA_Message::success();
     } else {
-        if ($import_notice) {
-            $message = PMA_Message::success(
-                '<em>'
-                . __('Import has been successfully finished, %d queries executed.')
-                . '</em>'
-            );
-            $message->addParam($executed_queries);
+        $message = PMA_Message::success(
+            '<em>'
+            . __('Import has been successfully finished, %d queries executed.')
+            . '</em>'
+        );
+        $message->addParam($executed_queries);
 
+        if ($import_notice) {
             $message->addString($import_notice);
-            if (isset($local_import_file)) {
-                $message->addString('(' . $local_import_file . ')');
-            } else {
-                $message->addString('(' . $_FILES['import_file']['name'] . ')');
-            }
+        }
+        if (isset($local_import_file)) {
+            $message->addString('(' . htmlspecialchars($local_import_file) . ')');
         } else {
-            $message = PMA_Message::success(
-                __('Import has been successfully finished, %d queries executed.')
-            );
-            $message->addParam($executed_queries);
-            if (isset($local_import_file)) {
-                $message->addString('(' . $local_import_file . ')');
-            } else {
-                $message->addString('(' . $_FILES['import_file']['name'] . ')');
-            }
+            $message->addString('(' . htmlspecialchars($_FILES['import_file']['name']) . ')');
         }
     }
 }
