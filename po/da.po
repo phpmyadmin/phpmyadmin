@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-12-16 19:53+0200\n"
+"PO-Revision-Date: 2014-02-05 11:06+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/4-1/da/>\n"
 "Language: da\n"
@@ -428,6 +428,7 @@ msgstr ""
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Hvis du stødte på problemer, så indsend venligst en fejlrapport manuelt."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
@@ -435,7 +436,7 @@ msgstr "Tak for indsendelsen af denne rapport."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Desværre mislykkedes afsendelsen."
 
 #: export.php:171
 msgid "Bad type!"
@@ -1560,7 +1561,7 @@ msgstr "Indlæser…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Forespørgsel afbrudt!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -4436,7 +4437,6 @@ msgid "Highlight pointer"
 msgstr "Fremhæv pointer"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4445,7 +4445,7 @@ msgid ""
 "import operations"
 msgstr ""
 "Aktivér komprimering af [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] ved "
-"import -og eksport arbejdsgange"
+"importhandlinger"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4523,7 +4523,6 @@ msgid "Check config file permissions"
 msgstr "Tjek tilladelser på konfigurationsfil"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4533,8 +4532,8 @@ msgid ""
 "encounter problems with created gzip files disable this feature"
 msgstr ""
 "Pak gzip/bzip2-eksporter under eksporten uden behov for ret meget "
-"hukommelse. Hvis du får problemer med de dannede gzip/bzip2-filer, så "
-"deaktiver denne funktion"
+"hukommelse. Hvis du får problemer med de dannede gzip-filer, så deaktiver "
+"denne funktion"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
@@ -10225,7 +10224,6 @@ msgid "Use text field"
 msgstr "Brug tekstfelt"
 
 #: libraries/server_privileges.lib.php:1310
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
@@ -10234,7 +10232,7 @@ msgid ""
 "hostname. "
 msgstr ""
 "Der findes allerede en konto med samme brugernavn, men muligvis med et andet "
-"værtsnavn. Er du sikker på at du vil fortsætte?"
+"værtsnavn. "
 
 #: libraries/server_privileges.lib.php:1446
 msgid "Do not change the password"
