@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
 "PO-Revision-Date: 2014-02-05 15:22+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"Last-Translator: Gyu-sun Youm <omniavinco@gmail.com>\n"
 "Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -11189,10 +11189,9 @@ msgid "Containing the word:"
 msgstr "포함하고 있는 단어:"
 
 #: libraries/server_status_variables.lib.php:52
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show only alert values"
-msgstr "열려있는 테이블 보기"
+msgstr "경고 값만 보기"
 
 #: libraries/server_status_variables.lib.php:57
 msgid "Filter by category…"
