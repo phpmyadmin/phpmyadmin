@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-03 17:00+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-02-06 00:21+0200\n"
+"Last-Translator: Oleksandr <chesterroy@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -442,7 +442,7 @@ msgstr ""
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Спасибі за звіт."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
@@ -901,7 +901,7 @@ msgstr "Оператори \"DROP DATABASE\" заборонені."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Підтвердити"
 
 #: js/messages.php:36
 #, php-format
@@ -1975,7 +1975,7 @@ msgstr "Надіслати звіт про помилку"
 
 #: js/messages.php:387
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Надіслати звіт про помилку"
 
 #: js/messages.php:389
 msgid ""
@@ -2389,7 +2389,7 @@ msgstr "Або:"
 
 #: libraries/DBQbe.class.php:676 libraries/DBQbe.class.php:765
 msgid "And:"
-msgstr ""
+msgstr "Та:"
 
 #: libraries/DBQbe.class.php:680
 msgid "Ins"
@@ -2409,7 +2409,7 @@ msgstr ""
 
 #: libraries/DBQbe.class.php:775
 msgid "Del:"
-msgstr ""
+msgstr "Видалити:"
 
 #: libraries/DBQbe.class.php:1380
 #, php-format
@@ -2438,7 +2438,7 @@ msgstr "Будь ласка, перевірте привілеї каталог�
 
 #: libraries/DatabaseInterface.class.php:2061
 msgid "Details…"
-msgstr ""
+msgstr "Деталі…"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:402
 msgid "at least one of the words"
@@ -3359,7 +3359,7 @@ msgstr "Збільшити Пошук"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1216
 msgid "Find and Replace"
-msgstr ""
+msgstr "Знайти і замінити"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1391
 msgid "Edit/Insert"
@@ -3431,7 +3431,7 @@ msgstr "Замінити на:"
 
 #: libraries/TableSearch.class.php:1402
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "Знайти і замінити - попередній перегляд"
 
 #: libraries/TableSearch.class.php:1406
 msgid "Count"
@@ -3690,7 +3690,7 @@ msgstr "Багатокутник"
 
 #: libraries/Types.class.php:390
 msgid "A collection of points"
-msgstr ""
+msgstr "Колекція точок"
 
 #: libraries/Types.class.php:392
 msgid "A collection of curves with linear interpolation between points"
@@ -3698,7 +3698,7 @@ msgstr ""
 
 #: libraries/Types.class.php:394
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Колекція полігонів"
 
 #: libraries/Types.class.php:396
 msgid "A collection of geometry objects of any type"
@@ -4086,11 +4086,11 @@ msgstr "Правий"
 
 #: libraries/config.values.php:81
 msgid "Click"
-msgstr ""
+msgstr "Клацання"
 
 #: libraries/config.values.php:82
 msgid "Double click"
-msgstr ""
+msgstr "Подвійне клацання"
 
 #: libraries/config.values.php:83 libraries/config.values.php:114
 #: libraries/config/FormDisplay.tpl.php:218 libraries/relation.lib.php:100
@@ -4112,11 +4112,11 @@ msgstr ""
 
 #: libraries/config.values.php:118
 msgid "Always send error reports"
-msgstr ""
+msgstr "Завжди надсилати звіти про помилки"
 
 #: libraries/config.values.php:119
 msgid "Never send error reports"
-msgstr ""
+msgstr "Ніколи не надсилати звіти про помилки"
 
 #: libraries/config.values.php:148
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -4274,7 +4274,7 @@ msgstr "Дозволити користувачам налаштовувати �
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1590
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
