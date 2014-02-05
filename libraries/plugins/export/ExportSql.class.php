@@ -1332,17 +1332,27 @@ class ExportSql extends ExportPlugin
 
                 for ($k = 0; $k < $sql_count; $k++) {                    
                     if (preg_match(
-                        '@[\s]+(AUTO_INCREMENT )@',
+                        '( AUTO_INCREMENT | AUTO_INCREMENT,| AUTO_INCREMENT$)',
                         $sql_lines[$k]
                     )) {
                         //removes extra space at the beginning, if there is
                         $sql_lines[$k] = ltrim($sql_lines[$k], ' '); 
-                        //backup auto increment code before remove
+                        //creates auto increment code 
                         $sql_auto_increments .= "MODIFY " . $sql_lines[$k];
-                        //removes auto increments from table creation
+                        //removes auto increment code from table definition
                         $sql_lines[$k] = str_replace(
                             " AUTO_INCREMENT", "", $sql_lines[$k]
                         );
+                    }
+                    if (preg_match(
+                        '@[\s]+(AUTO_INCREMENT=)@',
+                        $sql_lines[$k]
+                    )) {
+                        //adds auto increment value                         
+                        $increment_value = substr($sql_lines[$k], strpos($sql_lines[$k],"AUTO_INCREMENT")); 
+                        $increment_value_array = explode( ' ', $increment_value);
+                        $sql_auto_increments .= $increment_value_array[0].";";
+
                     }
                 }
 
