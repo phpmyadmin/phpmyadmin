@@ -568,9 +568,9 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
             $message->addString($import_notice);
         }
         if (isset($local_import_file)) {
-            $message->addString('(' . $local_import_file . ')');
+            $message->addString('(' . htmlspecialchars($local_import_file) . ')');
         } else {
-            $message->addString('(' . $_FILES['import_file']['name'] . ')');
+            $message->addString('(' . htmlspecialchars($_FILES['import_file']['name']) . ')');
         }
     }
 }
