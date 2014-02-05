@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-05 14:18+0200\n"
+"PO-Revision-Date: 2014-02-05 14:26+0200\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
@@ -4342,12 +4342,17 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sBzip2 kompresia a dekompresia %s vyžaduje funkcie (%s), ktoré nie sú k "
+"dispozícii v tomto systéme."
 
 #: libraries/config/ServerConfigChecks.class.php:385
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Táto hodnota by mala byť dvakrát skontrolovaná, aby sa zabezpečilo, že tento "
+"adresár nie je z vonku prístupný ani čitateľný alebo zapisovateľný pre "
+"ostatných užívateľov na serveri."
 
 #: libraries/config/ServerConfigChecks.class.php:386
 #, php-format
