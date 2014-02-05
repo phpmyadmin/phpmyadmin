@@ -802,7 +802,15 @@ function PMA_linkURL($url)
     }
     $params = array();
     $params['url'] = $url;
-    return './url.php' . PMA_URL_getCommon($params);
+
+    $url=PMA_URL_getCommon($params);
+    //strp off token and such sensitive information. Just keep url.
+    $arr=parse_url($url);
+    parse_str($arr["query"],$vars);
+    $query = http_build_query(array("url"=>$vars["url"]));
+    $url='./url.php?' . $query;
+    
+    return $url;
 }
 
 /**
