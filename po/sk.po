@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-05 13:28+0200\n"
-"Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
+"PO-Revision-Date: 2014-02-05 14:26+0200\n"
+"Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/4-1/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -1566,7 +1566,7 @@ msgstr "Načítanie…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Požiadavka bola zrušená!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -12967,12 +12967,17 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sBzip2 kompresia a dekompresia %s vyžaduje funkcie (%s), ktoré nie sú k "
+"dispozícii v tomto systéme."
 
 #: setup/lib/index.lib.php:232
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Táto hodnota by mala byť dvakrát skontrolovaná, aby sa zabezpečilo, že tento "
+"adresár nie je z vonku prístupný ani čitateľný alebo zapisovateľný pre "
+"ostatných užívateľov na serveri."
 
 #: setup/lib/index.lib.php:233
 #, php-format
@@ -13043,6 +13048,7 @@ msgstr ""
 #: setup/lib/index.lib.php:324
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
+"Mali by ste použiť SSL pripojenie ak to Váš databázový server podporuje."
 
 #: setup/lib/index.lib.php:339
 msgid "You should use mysqli for performance reasons."
@@ -13054,11 +13060,11 @@ msgstr ""
 
 #: setup/lib/index.lib.php:400
 msgid "Key is too short, it should have at least 8 characters."
-msgstr ""
+msgstr "Kľúč je príliš krátky, mal by mať aspoň 8 znakov."
 
 #: setup/lib/index.lib.php:407
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "Kľúč by mal obsahovať písmená, čísla [em] a [/em] špeciálne znaky."
 
 #: setup/validate.php:22
 msgid "Wrong data"
