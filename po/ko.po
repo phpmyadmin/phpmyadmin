@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-01-30 09:46+0200\n"
+"PO-Revision-Date: 2014-02-05 15:22+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -218,13 +217,13 @@ msgid "The database name is empty!"
 msgstr "데이터베이스명이 없습니다!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "데이터베이스 %1$s 의 이름을 %2$s 로 변경하였습니다."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
 msgstr "데이터베이스 %1$s 을(를) %2$s 로 복사하였습니다."
@@ -292,10 +291,9 @@ msgid_plural "%s tables"
 msgstr[0] "%s개 테이블"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "출력하려면 적어도 1개 이상의 열을 선택해야 합니다."
+msgstr "출력하려면 적어도 1개 이상의 열을 선택해야 합니다!"
 
 #: db_qbe.php:70
 #, php-format
@@ -308,7 +306,7 @@ msgstr "%s비주얼 쿼리 빌더%s로 전환"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "접근이 거부되었습니다."
+msgstr "접근이 거부되었습니다!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -11122,26 +11120,23 @@ msgid "Done dragging (rearranging) charts"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:326
-#, fuzzy
 #| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "﻿강조 표시 사용"
+msgstr "﻿그래프 드래그 사용"
 
 #: libraries/server_status_monitor.lib.php:330
-#, fuzzy
 #| msgid "Generate"
 msgid "Refresh rate"
-msgstr "생성"
+msgstr "새로고침 간격"
 
 #: libraries/server_status_monitor.lib.php:339
-#, fuzzy
 #| msgid "Add columns"
 msgid "Chart columns"
-msgstr "세로열 추가하기"
+msgstr "그래프 상의 컬럼 갯수"
 
 #: libraries/server_status_monitor.lib.php:355
 msgid "Chart arrangement"
-msgstr ""
+msgstr "그래프 정렬"
 
 #: libraries/server_status_monitor.lib.php:358
 msgid ""
@@ -11159,22 +11154,19 @@ msgid "Questions since startup: %s"
 msgstr "시작 이후 질의: %s"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "시간당"
+msgstr "시간당:"
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "분당"
+msgstr "분당:"
 
 #: libraries/server_status_queries.lib.php:54
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "초당"
+msgstr "초당:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -11187,10 +11179,9 @@ msgstr "#"
 
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
-#, fuzzy
 #| msgid "Filter"
 msgid "Filters"
-msgstr "필터"
+msgstr "검색어"
 
 #: libraries/server_status_variables.lib.php:44
 #: libraries/server_variables.lib.php:187
@@ -12935,53 +12926,48 @@ msgstr "페이지 생성 실패"
 
 #: pmd_pdf.php:118
 msgid "Page:"
-msgstr ""
+msgstr "페이지:"
 
 #: pmd_pdf.php:128
-#, fuzzy
 #| msgid "Import from selected page"
 msgid "Import from selected page."
-msgstr "선택된 페이지에서 가져오기"
+msgstr "선택된 페이지에서 가져오기."
 
 #: pmd_pdf.php:129
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Export to selected page."
-msgstr "선택된 페이지로 내보내기"
+msgstr "선택된 페이지로 내보내기."
 
 #: pmd_pdf.php:131
-#, fuzzy
 #| msgid "Create a new index"
 msgid "Create a page and export to it."
-msgstr "새 인덱스 만들기"
+msgstr "새 페이지를 만들고 내보내기."
 
 #: pmd_pdf.php:143
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "사용자명"
+msgstr "새 페이지 이름: "
 
 #: pmd_pdf.php:146
 msgid "Export/Import to scale:"
-msgstr ""
+msgstr "내보내기/가져오기 비율:"
 
 #: pmd_pdf.php:152
-#, fuzzy
 #| msgid "Recommendation"
 msgid "recommended"
 msgstr "추천"
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
-msgstr ""
+msgstr "오류: 릴레이션이 이미 존재함."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
 msgid "Error: Relation not added."
-msgstr ""
+msgstr "오류: 릴레이션이 추가되지 않음."
 
 #: pmd_relation_new.php:81
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "FOREIGN KEY 릴레이션이 추가됨"
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
