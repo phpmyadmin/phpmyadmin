@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-03 14:53+0200\n"
+"PO-Revision-Date: 2014-02-05 17:26+0200\n"
 "Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -583,7 +583,6 @@ msgid "Output"
 msgstr "Saída"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -591,8 +590,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Selecione \"GeomFromText\" da coluna \"Function\" e cole a string abaixo no "
-"campo \"Value\""
+"Selecione \"GeomFromText\" da coluna \"Function\" e cole o texto abaixo no campo "
+"\"Value\"."
 
 #: import.php:116
 #, php-format
@@ -1903,10 +1902,9 @@ msgstr ""
 "área de transferência."
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Mostrar linha(s)"
+msgstr "Mostrar linha(s) de dado(s)."
 
 #: js/messages.php:362
 msgid "Generate password"
@@ -1933,10 +1931,9 @@ msgid "Hide Panel"
 msgstr "Ocultar painel"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
-msgstr "Mostrar os itens de árvores de navegação ocultas"
+msgstr "Mostrar itens ocultos da árvore de navegação."
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
@@ -1991,7 +1988,6 @@ msgid "Show Report Details"
 msgstr "Exibir Detalhes de Relatório"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid ""
 #| "Your export is incomplete, due to a low execution time limit at the PHP "
 #| "level"
@@ -1999,8 +1995,8 @@ msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
-"A exportação está incompleta devido ao baixo limite de tempo de execução no "
-"PHP"
+"A exportação está incompleta devido ao baixo limite de tempo de execução nas "
+"configurações do PHP!"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:416
@@ -3933,10 +3929,9 @@ msgstr ""
 "O diretório que você especificou para subir arquivos não foi encontrado."
 
 #: libraries/Util.class.php:3384
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Não existem arquivos para fazer upload"
+msgstr "Não existem arquivos para envio!"
 
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
 #: libraries/structure.lib.php:305
@@ -4042,10 +4037,9 @@ msgid "Check Privileges"
 msgstr "Verificar privilégios"
 
 #: libraries/common.inc.php:581
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "Falhou ao ler o arquivo de configuração"
+msgstr "Falhou ao ler o arquivo de configuração!"
 
 #: libraries/common.inc.php:583
 msgid ""
@@ -4230,39 +4224,35 @@ msgstr "nenhuma das acima"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "Não é um número positivo"
+msgstr "Não é um número positivo!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "Não é um número negativo"
+msgstr "Não é um número negativo!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "Número de porta inválido"
+msgstr "Não é um número de porta válido!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Valor incorreto"
+msgstr "Valor incorreto!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "O valor precisa ser igual ou menor que %s"
+msgstr "O valor precisa ser igual ou menor que %s!"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
@@ -4488,26 +4478,23 @@ msgstr ""
 "sistema."
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "Não pôde iniciar a conexão com a biblioteca Drizzle"
+msgstr "Não foi possível iniciar a conexão com a biblioteca Drizzle!"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Não foi possível conectar ao alvo"
+msgstr "Não foi possível conectar ao servidor de banco de dados!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
 msgstr ""
-"Nome de usuário vazio quando usa o método de autenticação por configuração"
+"Nome de usuário vazio quando usa o método de autenticação por configuração!"
 
 #: libraries/config/Validator.class.php:313
 #, fuzzy
