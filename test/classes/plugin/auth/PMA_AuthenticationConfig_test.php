@@ -118,8 +118,8 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
 
         $this->assertContains(
             '<strong>MySQL said: </strong><a href="./url.php?url=http%3A%2F%2F' .
-            'dev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Ferror-messages-server.html' .
-            '&amp;server=0&amp;lang=en&amp;token=token" target="mysql_doc">' .
+            'dev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Ferror-messages-server.html"' .
+            ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
             'class="icon ic_b_help" /></a>',
             $html

@@ -334,8 +334,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             "./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F" .
-            "config.html%23cfg_Servers_3_test_2_&amp;server=0&amp;lang=en&amp" .
-            ";token=token",
+            "config.html%23cfg_Servers_3_test_2_",
             $this->object->getDocLink("Servers/3/test/2/")
         );
 
