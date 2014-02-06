@@ -1350,7 +1350,7 @@ class PMA_DbQbe
     {
         $html_output = $this->_getSavedSearchesForm();
 
-        $html_output .= '<form action="db_qbe.php" method="post">';
+        $html_output .= '<form action="db_qbe.php" method="post" id="formQBE">';
         $html_output .= '<fieldset>';
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
@@ -1407,7 +1407,7 @@ class PMA_DbQbe
      */
     private function _getSavedSearchesForm()
     {
-        $html_output = '<form id="savedSearches" action="db_qbe.php" method="post">';
+        $html_output = '<form id="formSavedSearches" action="db_qbe.php" method="post">';
         $html_output .= '<fieldset>';
         $html_output .= __('Saved searches : ');
         $html_output .= '<select name="existingSavedSearches"
@@ -1426,8 +1426,7 @@ class PMA_DbQbe
             value="" />';
         $html_output .= '</fieldset>';
         $html_output .= '<fieldset class="tblFooters">';
-        $html_output .= '<input type="hidden" name="save_search" value="1" />';
-        $html_output .= '<input type="submit" value="' . __('Save search') . '" />';
+        $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" value="' . __('Save search') . '" />';
         $html_output .= '</fieldset>';
         $html_output .= '</form>';
         return $html_output;
