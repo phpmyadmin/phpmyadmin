@@ -172,6 +172,7 @@ $strConfigExport_sql_drop_database_name = sprintf(__('Add %s'), 'DROP DATABASE')
 $strConfigExport_sql_drop_table_name
     = sprintf(__('Add %s'), 'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER');
 $strConfigExport_sql_create_table_name = sprintf(__('Add %s'), 'CREATE TABLE');
+$strConfigExport_sql_create_view_name = sprintf(__('Add %s'), 'CREATE VIEW');
 $strConfigExport_sql_create_trigger_name
     = sprintf(__('Add %s'), 'CREATE TRIGGER');
 $strConfigExport_sql_hex_for_blob_name = __('Use hexadecimal for BLOB');

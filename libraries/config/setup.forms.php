@@ -302,6 +302,7 @@ $forms['Export']['Sql'] = array('Export' => array(
         'sql_drop_table',
         'sql_procedure_function',
         'sql_create_table',
+        'sql_create_view',
         'sql_create_trigger',
         'sql_create_table_statements' => ':group',
             'sql_if_not_exists',

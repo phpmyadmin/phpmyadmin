@@ -268,6 +268,14 @@ class ExportSql extends ExportPlugin
                 );
                 $subgroup->addProperty($leaf);
                 
+                // Add view option
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('create_view');
+                $leaf->setText(
+                    sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
+                );
+                $subgroup->addProperty($leaf);
+                
                 // Drizzle doesn't support procedures and functions
                 if (! PMA_DRIZZLE) {
                     $leaf = new BoolPropertyItem();

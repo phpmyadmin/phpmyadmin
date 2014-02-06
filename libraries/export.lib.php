@@ -535,12 +535,14 @@ function PMA_exportDatabase(
             
             if ($is_view) {
                 
-                if (! $export_plugin->exportStructure(
-                    $db, $table, $crlf, $err_url,
-                    'stand_in', $export_type,
-                    $do_relation, $do_comments, $do_mime, $do_dates
-                )) {
-                    break 1;
+                if (isset($GLOBALS['sql_create_view'])) {
+                    if (! $export_plugin->exportStructure(
+                        $db, $table, $crlf, $err_url,
+                        'stand_in', $export_type,
+                        $do_relation, $do_comments, $do_mime, $do_dates
+                    )) {
+                        break 1;
+                    }
                 }
                 
             } else if (isset($GLOBALS['sql_create_table'])) {
@@ -583,19 +585,24 @@ function PMA_exportDatabase(
             }
         }
     }
-    foreach ($views as $view) {
-        // no data export for a view
-        if ($whatStrucOrData == 'structure'
-            || $whatStrucOrData == 'structure_and_data'
-        ) {
-            if (! $export_plugin->exportStructure(
-                $db, $view, $crlf, $err_url,
-                'create_view', $export_type,
-                $do_relation, $do_comments, $do_mime, $do_dates
-            )) {
-                break 1;
+    
+    if (isset($GLOBALS['sql_create_view'])) {
+        
+        foreach ($views as $view) {
+            // no data export for a view
+            if ($whatStrucOrData == 'structure'
+                || $whatStrucOrData == 'structure_and_data'
+            ) {
+                if (! $export_plugin->exportStructure(
+                    $db, $view, $crlf, $err_url,
+                    'create_view', $export_type,
+                    $do_relation, $do_comments, $do_mime, $do_dates
+                )) {
+                    break 1;
+                }
             }
         }
+        
     }
 
     if (! $export_plugin->exportDBFooter($db)) {
@@ -651,12 +658,14 @@ function PMA_exportTable(
         
         if ($is_view) {
             
-            if (! $export_plugin->exportStructure(
-                $db, $table, $crlf, $err_url,
-                'create_view', $export_type,
-                $do_relation, $do_comments, $do_mime, $do_dates
-            )) {
-                return;
+            if (isset($GLOBALS['sql_create_view'])) {
+                if (! $export_plugin->exportStructure(
+                    $db, $table, $crlf, $err_url,
+                    'create_view', $export_type,
+                    $do_relation, $do_comments, $do_mime, $do_dates
+                )) {
+                    return;
+                }
             }
             
         } else if (isset($GLOBALS['sql_create_table'])) {

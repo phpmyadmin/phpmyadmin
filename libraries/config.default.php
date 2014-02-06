@@ -1830,6 +1830,13 @@ $cfg['Export']['sql_create_table'] = true;
 /**
  *
  *
+ * @global boolean $cfg['Export']['sql_create_view']
+ */
+$cfg['Export']['sql_create_view'] = true;
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['sql_create_trigger']
  */
 $cfg['Export']['sql_create_trigger'] = true;
