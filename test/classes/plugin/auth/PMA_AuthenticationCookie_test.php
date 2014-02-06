@@ -115,7 +115,10 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
                 PMA_Message::error(
                     'Your session has expired. Please log in again.' .
                     '<br /><br />[ <a href="https://phpmyadmin.net/" ' .
-                    'class="ajax login-link">Log in</a> ]'
+                    'class="ajax login-link">Log in</a> ]'.
+                    '<script type="text/javascript">
+                        window.location="https://phpmyadmin.net/"
+                    </script>'
                 )
             );
 
