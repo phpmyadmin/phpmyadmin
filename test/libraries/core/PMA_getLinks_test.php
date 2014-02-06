@@ -27,7 +27,7 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             PMA_getPHPDocLink('function'),
             './url.php?url=http%3A%2F%2Fphp.net%2Fmanual%2F'
-            . $lang . '%2Ffunction&amp;server=99&amp;lang=en&amp;token=token'
+            . $lang . '%2Ffunction'
         );
     }
 
@@ -35,11 +35,9 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array('http://wiki.phpmyadmin.net',
-             './url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net&amp;server=99'
-            . '&amp;lang=en&amp;token=token'),
+             './url.php?url=http%3A%2F%2Fwiki.phpmyadmin.net'),
             array('https://wiki.phpmyadmin.net',
-             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net&amp;server=99'
-            . '&amp;lang=en&amp;token=token'),
+             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'),
             array('wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'),
             array('index.php?db=phpmyadmin', 'index.php?db=phpmyadmin')
         );

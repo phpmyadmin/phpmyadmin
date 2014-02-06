@@ -354,8 +354,8 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
             ),
             array(
                 '[a@http://foo.bar/@Documentation]link[/a]',
-                '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F&amp;lang=en&amp;'
-                . 'token=token" target="Documentation">link</a>'
+                '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F"'
+                . ' target="Documentation">link</a>'
             ),
             array(
                 '[a@./non-existing@Documentation]link[/a]',
@@ -364,7 +364,7 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
             array(
                 '[doc@foo]link[/doc]',
                 '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
-                . 'latest%2Fsetup.html%23foo&amp;lang=en&amp;token=token" '
+                . 'latest%2Fsetup.html%23foo" '
                 . 'target="documentation">link</a>'
             ),
         );
@@ -490,8 +490,8 @@ class PMA_Message_Test extends PHPUnit_Framework_TestCase
         $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         $this->assertEquals(
             '<kbd>test</kbd> <a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.'
-            . 'net%2Fen%2Flatest%2Fcfg.html%23cfg_Example&amp;lang=en&amp;token='
-            . 'token" target="documentation">test</a>',
+            . 'net%2Fen%2Flatest%2Fcfg.html%23cfg_Example"'
+            . ' target="documentation">test</a>',
             $this->object->getMessage()
         );
     }

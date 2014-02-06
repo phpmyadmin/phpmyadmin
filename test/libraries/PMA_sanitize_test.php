@@ -49,7 +49,7 @@ class PMA_Sanitize_Test extends PHPUnit_Framework_TestCase
         unset($GLOBALS['lang']);
         unset($GLOBALS['collation_connection']);
         $this->assertEquals(
-            '<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F&amp;token=token" target="target">link</a>',
+            '<a href="./url.php?url=http%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             PMA_sanitize('[a@http://www.phpmyadmin.net/@target]link[/a]')
         );
     }
@@ -62,7 +62,7 @@ class PMA_Sanitize_Test extends PHPUnit_Framework_TestCase
     public function testDoc()
     {
         $this->assertEquals(
-            '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23foo&amp;token=token" target="documentation">doclink</a>',
+            '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23foo" target="documentation">doclink</a>',
             PMA_sanitize('[doc@foo]doclink[/doc]')
         );
     }
@@ -101,7 +101,7 @@ class PMA_Sanitize_Test extends PHPUnit_Framework_TestCase
     public function testLinkAndXssInHref()
     {
         $this->assertEquals(
-            '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2F&amp;token=token">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
+            '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>[a@javascript:alert(\'XSS\');@target]link</a>',
             PMA_sanitize('[a@http://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]')
         );
     }
