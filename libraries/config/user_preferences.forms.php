@@ -200,6 +200,8 @@ $forms['Export']['Sql'] = array(
     ':group:' . __('Structure'),
         'Export/sql_drop_table',
         'Export/sql_procedure_function',
+        'Export/sql_create_table',
+        'Export/sql_create_view',
         'Export/sql_create_trigger',
         'Export/sql_create_table_statements' => ':group',
             'Export/sql_if_not_exists',
