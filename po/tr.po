@@ -13168,7 +13168,7 @@ msgstr "Açıklama"
 #: url.php:34
 #| msgid "Tracking report"
 msgid "Taking you to "
-msgstr "Sizi aldığım yer "
+msgstr "Sizi götürdüğüm yer "
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
