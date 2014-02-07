@@ -17,7 +17,22 @@ if (! PMA_isValid($_GET['url'])
 ) {
     header('Location: ' . $cfg['PmaAbsoluteUri']);
 } else {
-    header('Location: ' . $_GET['url']);
+    // header('Location: ' . $_GET['url']);
+    
+    // domain whitelist check
+    if (PMA_isAllowedDomain($_GET['url'])) {
+    	// JavaScript redirection is necessary. Because if header() is used then web browser sometimes does not change the HTTP_REFERER field and so with old URL as Referer, token also goes to external site.
+	    echo "<script type='text/javascript'>
+		    	window.onload=function(){
+		    		window.location='".$_GET['url']."';
+	    	}
+	    	</script>";
+        echo 'Taking you to '.($_GET['url']); // Display redirecting msg on screen.
+    }
+    else
+    {
+    	header('Location: ' . $cfg['PmaAbsoluteUri']);
+    }
 }
 die();
 ?>
