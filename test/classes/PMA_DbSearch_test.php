@@ -210,7 +210,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
             . 'SearchType_4" value="4" />' . "\n"
             . '<label for="criteriaSearchType_4">as regular expression <a href='
             . '"./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen'
-            . '%2Fregexp.html&amp;server=0&amp;lang=en&amp;token=token" target='
+            . '%2Fregexp.html" target='
             . '"mysql_doc"><img src="themes/dot.gifb_help.png" title="Documentation"'
             . ' alt="Documentation" /></a></label><br />' . "\n"
             . '</td></tr><tr><td class="right vtop">Inside tables:</td>'
