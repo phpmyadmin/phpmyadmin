@@ -109,6 +109,8 @@ if (!defined('TESTSUITE')) {
             'sql_drop_table',
             'sql_procedure_function',
             'sql_create_table_statements',
+            'sql_create_table',
+            'sql_create_view',
             'sql_create_trigger',
             'sql_if_not_exists',
             'sql_auto_increment',
