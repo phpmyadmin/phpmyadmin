@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 + rfe #1475 Inline query box vertical resize
 + rfe #1500 [interface] Add bottom border to top menu container
 + rfe #1498 Add datepicker for 'TIME' type
+- bug #4237 HTTP Referer disclosure in SQL links
 
 4.1.7.0 (not yet released)
 - bug #4245 initial Browse query does not match sorting order
