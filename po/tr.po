@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-07 12:50-0500\n"
-"PO-Revision-Date: 2014-02-03 16:44+0200\n"
+"PO-Revision-Date: 2014-02-07 18:59+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -13166,10 +13166,9 @@ msgid "Description"
 msgstr "Açıklama"
 
 #: url.php:34
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to "
-msgstr "İzleme raporu"
+msgstr "Sizi aldığım yer "
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
