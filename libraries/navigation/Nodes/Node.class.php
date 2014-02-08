@@ -359,29 +359,13 @@ class Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
-        if ($type == 'databases' 
-            && ! empty($GLOBALS['cfg']['Server']['only_db'])
-        ) {
-            $db_list = $GLOBALS['cfg']['Server']['only_db'];
-            $query = "SELECT * FROM ( SELECT '";
-
-            if (is_string($db_list)) {
-                $db_list = array($db_list);
-            }
-
-            if (count($db_list)) {
-                $query .= implode("' UNION ALL SELECT '", $db_list);
-                $query .= "' ";
-            }
-            return $GLOBALS['dbi']->fetchResult($query . ") as alias");
-        } else {
-            $query  = "SELECT `SCHEMA_NAME` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-            $query .= $this->_getWhereClause($searchClause);
-            $query .= "ORDER BY `SCHEMA_NAME` ASC ";
-            $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
-            return $GLOBALS['dbi']->fetchResult($query);
-        }
+        $query  = "SELECT `SCHEMA_NAME` ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $query .= $this->_getWhereClause($searchClause);
+        $query .= "ORDER BY `SCHEMA_NAME` ASC ";
+        $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
+        return $GLOBALS['dbi']->fetchResult($query);
+        
     }
 
     /**
