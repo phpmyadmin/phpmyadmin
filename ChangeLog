@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug #4263 Japanese character encoding not working properly when exporting
 - bug #4269 Notice on table relation page
 - bug #4270 Bad text-color for table comments
+- bug #4278 reCaptcha re-login requires double effort
 
 4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user

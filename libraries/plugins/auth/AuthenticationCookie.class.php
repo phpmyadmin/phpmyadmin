@@ -429,6 +429,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             if (! defined('TESTSUITE')) {
                 session_destroy();
+                // $_SESSION array is not immediately emptied
+                $_SESSION['last_valid_captcha'] = false;
             }
             // -> delete password cookie(s)
             if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
