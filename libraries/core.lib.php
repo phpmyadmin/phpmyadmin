@@ -809,12 +809,12 @@ function PMA_linkURL($url)
     parse_str($arr["query"], $vars);
     $query = http_build_query(array("url" => $vars["url"]));
     $url = './url.php?' . $query;
-    
+
     return $url;
 }
 
 /**
- * Checks whether domain of URL is whitelisted domain or not. 
+ * Checks whether domain of URL is whitelisted domain or not.
  * Use only for URLs of external sites.
  *
  * @param string $url URL of external site.
@@ -827,8 +827,8 @@ function PMA_isAllowedDomain($url)
     $domain = $arr["host"];
     $domainWhiteList = array(
         /* Include current domain */
-        $_SERVER['SERVER_NAME'],  
-        /* phpMyAdmin domains */  
+        $_SERVER['SERVER_NAME'],
+        /* phpMyAdmin domains */
         'wiki.phpmyadmin.net', 'www.phpMyAdmin.net', 'phpmyadmin.net',
         'docs.phpmyadmin.net',
         /* mysql.com domains */
@@ -843,7 +843,7 @@ function PMA_isAllowedDomain($url)
     if (in_array($domain, $domainWhiteList)) {
         return true;
     }
-    
+
     return false;
 }
 
