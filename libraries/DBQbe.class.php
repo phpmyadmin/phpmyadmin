@@ -838,8 +838,8 @@ class PMA_DbQbe
                 . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
                 . ' style="width: ' . $this->_realwidth . '" size="20" />';
             $html_output .= '</td>';
-            if (! empty(${$or}) && isset(${$or}[$column_index])) {
-                $GLOBALS[${'cur' . $or}][$new_column_count] = ${$or}[$column_index];
+            if (! empty($_POST[$or]) && isset($_POST[$or][$column_index])) {
+                $GLOBALS[${'cur' . $or}][$new_column_count] = $_POST[$or][$column_index];
             }
             $new_column_count++;
         } // end for
@@ -994,18 +994,18 @@ class PMA_DbQbe
             $column_index++
             ) {
                 if (! empty($this->_curField[$column_index])
-                    && ! empty(${'curOr' . $row_index}[$column_index])
+                    && ! empty($GLOBALS[${'curOr' . $row_index}][$column_index])
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
                         . strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
                 }
                 if (! empty($this->_curField[$column_index])
-                    && ! empty(${'curOr' . $row_index}[$column_index])
+                    && ! empty($GLOBALS[${'curOr' . $row_index}][$column_index])
                 ) {
                     $qry_orwhere .= '(' . $this->_curField[$column_index]
                         .  ' '
-                        .  ${'curOr' . $row_index}[$column_index]
+                        .  $GLOBALS[${'curOr' . $row_index}][$column_index]
                         .  ')';
                     $last_orwhere = $column_index;
                     $criteria_cnt++;
