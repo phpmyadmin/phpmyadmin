@@ -479,7 +479,7 @@ AJAX.registerOnload('tbl_change.js', function () {
             // IMO it's not really important to handle the tabindex for
             // function and Null
             var tabindex = 0;
-            $('.textfield, .char')
+            $('.textfield, .char, textarea')
             .each(function () {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
