@@ -811,12 +811,14 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
     $textareaCols = $GLOBALS['cfg']['TextareaCols'];
 
+    $the_class = 'char';
+    
     if ($column['is_char']) {
         /**
          * @todo clarify the meaning of the "textfield" class and explain
          *       why character columns have the "char" class instead
          */
-        $the_class = 'char';
+        
         $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
         $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
