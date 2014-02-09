@@ -305,10 +305,14 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             );
 
             $php_ext_string = __('PHP extension:') . ' '
-                . $GLOBALS['cfg']['Server']['extension'] . ' '
-                . PMA_Util::showPHPDocu(
-                    'book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'
-                );
+                . $GLOBALS['cfg']['Server']['extension'] . ' ';
+            if (!empty($GLOBALS['cfg']['Server']['extension'])) {
+                $php_ext_string  .= PMA_Util::showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php' );
+            }
+            else {
+                $php_ext_string  .= __('None');
+            }
+            
             PMA_printListItem(
                 $php_ext_string,
                 'li_used_php_extension'
