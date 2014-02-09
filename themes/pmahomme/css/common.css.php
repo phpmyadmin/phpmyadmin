@@ -231,15 +231,23 @@ input[type=number]:hover,
 input[type=number]:focus,
 input[type=date]:hover,
 input[type=date]:focus,
+select:focus,
 select:hover {
 
-    border: 1px solid #999;
+    border: 1px solid #7c7c7c;
 
+
+    background: #fff;
+}
+
+input[type=text]:hover,
+input[type=password]:hover,
+input[type=number]:hover,
+input[type=date]:hover,
+select:hover {
     box-shadow: 0 1px 3px #aaa;
     -webkit-box-shadow: 0 1px 3px #aaa;
     -moz-box-shadow: 0 1px 3px #aaa;
-
-    background: #fff;
 }
 
 input[type=submit],
