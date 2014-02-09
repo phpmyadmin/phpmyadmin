@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-07 12:50-0500\n"
-"PO-Revision-Date: 2014-02-02 09:55+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/ckb/>\n"
+"PO-Revision-Date: 2014-02-09 14:46+0200\n"
+"Last-Translator: renwar kurd <renwarkurd@yahoo.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ckb\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -40,10 +40,9 @@ msgstr ":تێبینی بنکەی دراوە "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "تێبینیەکانی خشتە"
+msgstr "تێبینیەکانی خشتە:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1281
@@ -224,16 +223,16 @@ msgid "The database name is empty!"
 msgstr "ناوی بنکەی دراوە بەتاڵە!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "ناوی بنکەی دراوەی %1$s گۆڕدرا بۆ %2$s"
+msgstr "ناوی بنکەی دراوەی %1$s گۆڕدرا بۆ %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "بنکەی دراوەی %1$s ڕوونووس کرا بۆ بنکەی دراوەی %2$s"
+msgstr "بنکەی دراوەی %1$s ڕوونووس کرا بۆ بنکەی دراوەی %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -277,24 +276,21 @@ msgstr "بەکار دەبرێت"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "درووستکردن"
+msgstr "درووستکردن:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "دواترین نوێکردنەوە"
+msgstr "دواترین نوێکردنەوە:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1109
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "دواترین پشکنین"
+msgstr "دواین پشکنین:"
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
@@ -304,10 +300,9 @@ msgstr[0] "%s خشتە"
 msgstr[1] "%s خشتەکان"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "دەبێت لانیکەم ١ خانە هەڵبژێریت بۆ پیشاندان"
+msgstr "دەبێت لانیکەم ١ خانە هەڵبژێریت بۆ پیشاندان!"
 
 #: db_qbe.php:70
 #, php-format
@@ -435,7 +430,7 @@ msgstr ""
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "لەوانەیە پێویست بکات پەڕەکە نوێ بکەیتەوە."
 
 #: error_report.php:45
 msgid ""
@@ -449,11 +444,11 @@ msgstr ""
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "سوپاس بۆ ناردنی ئەم ڕاپۆرتە."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "بەداخەوە، پرۆسەی ناردنەکە شکستی هێنا."
 
 #: export.php:177
 msgid "Bad type!"
@@ -478,22 +473,20 @@ msgstr "بەکارهێنانی بە ڕێگایەکی کراوەی نەخشەی �
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "ئەندازەزانی"
+msgstr "ئەندازەگەری %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "خاڵ"
+msgstr "خاڵ:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
 #: gis_data_editor.php:365 js/messages.php:306
