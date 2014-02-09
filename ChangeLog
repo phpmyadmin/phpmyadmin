@@ -15,8 +15,9 @@ phpMyAdmin - ChangeLog
 - bug #4269 Notice on table relation page
 - bug #4270 Bad text-color for table comments
 - bug #4278 reCaptcha re-login requires double effort
-- bug #4272 Incorrect tabindex 
-- bug #4271 Query by example and the second criteria line 
+- bug #4272 Incorrect tabindex
+- bug #4271 Query by example and the second criteria line
+- bug #4242 Wildcard-containing only_db failure in sidebar
 
 4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user
