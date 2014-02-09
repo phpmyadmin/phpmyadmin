@@ -259,7 +259,7 @@ function expandTreeNode($expandElem, callback) {
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-            $children.show('fast');
+            $children.slideDown('fast');
         }
         if (callback && typeof callback == 'function') {
             callback.call();
@@ -279,7 +279,7 @@ function expandTreeNode($expandElem, callback) {
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                 $destination
                     .children('div.list_container')
-                    .show('fast');
+                    .slideDown('fast');
                 if ($destination.find('ul > li').length == 1) {
                     $destination.find('ul > li')
                         .find('a.expander.container')
@@ -334,7 +334,7 @@ function collapseTreeNode($expandElem) {
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_minus')) {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-            $children.hide('fast');
+            $children.slideUp('fast');
         }
     }
     $expandElem.blur();
