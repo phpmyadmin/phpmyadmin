@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.7.0 (not yet released)
+4.1.8.0 (not yet released)
+
+4.1.7.0 (2013-02-09)
 - bug #4245 initial Browse query does not match sorting order
 - bug #4250 Notice on export page
 - bug #4253 "New" text in navigation frame acts like a database
