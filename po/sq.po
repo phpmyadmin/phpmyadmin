@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-07 12:50-0500\n"
-"PO-Revision-Date: 2014-02-09 13:25+0200\n"
+"PO-Revision-Date: 2014-02-09 13:33+0200\n"
 "Last-Translator: Porta Shqipe <info@portashqipe.com>\n"
 "Language-Team: Albanian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sq/>\n"
@@ -438,15 +438,15 @@ msgstr ""
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Nëse hasni në vështirësi ju lutem zbatoni një raport të bug-ut vet."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Ju faleminderit për zbatimin e këtij raporti."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Fatkeqësisht zbatimi dështoi."
 
 #: export.php:177
 msgid "Bad type!"
