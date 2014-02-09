@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 09:55+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-02-09 14:46+0200\n"
+"Last-Translator: renwar kurd <renwarkurd@yahoo.com>\n"
 "Language-Team: Kurdish Sorani "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/ckb/>\n"
 "Language: ckb\n"
@@ -40,10 +40,9 @@ msgstr ":تێبینی بنکەی دراوە "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "تێبینیەکانی خشتە"
+msgstr "تێبینیەکانی خشتە:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -273,24 +272,21 @@ msgstr "بەکار دەبرێت"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "درووستکردن"
+msgstr "درووستکردن:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "دواترین نوێکردنەوە"
+msgstr "دواترین نوێکردنەوە:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "دواترین پشکنین"
+msgstr "دواین پشکنین:"
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
@@ -427,7 +423,7 @@ msgstr ""
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "لەوانەیە پێویست بکات پەڕەکە نوێ بکەیتەوە."
 
 #: error_report.php:45
 msgid ""
@@ -441,11 +437,11 @@ msgstr ""
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "سوپاس بۆ ناردنی ئەم ڕاپۆرتە."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "بەداخەوە، پرۆسەی ناردنەکە شکستی هێنا."
 
 #: export.php:171
 msgid "Bad type!"
@@ -497,22 +493,20 @@ msgstr "بەکارهێنانی بە ڕێگایەکی کراوەی نەخشەی �
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "ئەندازەزانی"
+msgstr "ئەندازەگەری %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "خاڵ"
+msgstr "خاڵ:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:325
