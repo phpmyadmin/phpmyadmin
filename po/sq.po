@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-08-23 11:35+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/master/sq/"
-">\n"
+"PO-Revision-Date: 2014-02-09 13:25+0200\n"
+"Last-Translator: Porta Shqipe <info@portashqipe.com>\n"
+"Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -412,17 +411,21 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Është zbuluar një gabim dhe është zbatuar vetvetiu një raport duke u bazuar "
+"në parametrat tuaja."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Ju mund ta freskoni faqen."
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Një gabim është zbuluar dhe një raport është prodhuar por dërgimi ka "
+"dështuar."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
