@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-05 14:26+0200\n"
+"PO-Revision-Date: 2014-02-09 20:01+0200\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/4-1/sk/>\n"
 "Language: sk\n"
@@ -4431,7 +4431,6 @@ msgid "Highlight pointer"
 msgstr "Zvýrazňovač"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4440,7 +4439,7 @@ msgid ""
 "import operations"
 msgstr ""
 "Povoliť [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] kompresiu pre "
-"importovanie a exportovanie"
+"importovanie operácií"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4697,10 +4696,9 @@ msgstr "Odstrániť konce riadkov (CRLF) z polí"
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:253
 #: libraries/config/messages.inc.php:261
 #: libraries/plugins/import/ImportCsv.class.php:135
-#, fuzzy
 #| msgid "Columns terminated by"
 msgid "Columns terminated with"
-msgstr "Riadky ukončené"
+msgstr "Stĺpce ukončené"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:248
 #: libraries/plugins/import/ImportCsv.class.php:164
@@ -5891,10 +5889,9 @@ msgstr ""
 "definovaný port, ak sa kontrolný hostiteľ a server zhodujú"
 
 #: libraries/config/messages.inc.php:398
-#, fuzzy
 #| msgid "Control user"
 msgid "Control port"
-msgstr "Kontrolný užívateľ"
+msgstr "Kontrolný port"
 
 #: libraries/config/messages.inc.php:399
 msgid ""
@@ -6219,7 +6216,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Použiť tabuľky"
+msgstr "Tabuľka používateľov"
 
 #: libraries/config/messages.inc.php:457
 #, fuzzy
@@ -6234,13 +6231,11 @@ msgstr ""
 "databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Použiť tabuľku s hostiteľmi"
+msgstr "Tabuľka užívateľských skupín"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6248,8 +6243,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
-"databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
+"Nechajte prázdne, ak chcete vypnúť funkciu pre skrytie a zobrazenie "
+"navigačných položiek, navrhované: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
@@ -6593,20 +6588,18 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "Užívateľ"
+msgstr "Proxy užívateľské meno"
 
 #: libraries/config/messages.inc.php:535
 msgid "The password for authenticating with the proxy"
 msgstr ""
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "Heslo"
+msgstr "Proxy heslo"
 
 #: libraries/config/messages.inc.php:538
 msgid ""
@@ -6641,10 +6634,9 @@ msgid "Choose the default action when sending error reports"
 msgstr ""
 
 #: libraries/config/messages.inc.php:546
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "Port servera"
+msgstr "Poslať chybové hlásenia"
 
 #: libraries/config/setup.forms.php:41
 msgid "Config authentication"
@@ -6746,16 +6738,14 @@ msgstr "Heslo:"
 #: libraries/display_change_password.lib.php:67
 #: libraries/replication_gui.lib.php:862
 #: libraries/server_privileges.lib.php:1468
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Potvrdiť"
+msgstr "Potvrdiť:"
 
 #: libraries/display_change_password.lib.php:74
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Hashovanie hesla"
+msgstr "Hashovanie hesla:"
 
 #: libraries/display_change_password.lib.php:87
 msgid "MySQL 4.0 compatible"
@@ -6770,10 +6760,9 @@ msgid "Create"
 msgstr "Vytvoriť"
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "Vytvoriť databázu"
+msgstr "Vytvoriť databázu:"
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3789 server_privileges.php:130
@@ -7422,10 +7411,9 @@ msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
 #: libraries/error_report.lib.php:301
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "Automaticky vytvárať verzie"
+msgstr "Nabudúce automaticky odosielať hlásenia"
 
 #: libraries/import.lib.php:190 libraries/insert_edit.lib.php:122
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1642
@@ -7501,10 +7489,9 @@ msgid "Binary - do not edit"
 msgstr "Binárny - neupravujte"
 
 #: libraries/insert_edit.lib.php:1238 libraries/sql_query_form.lib.php:491
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "upload adresár web serveru"
+msgstr "upload adresár web serveru:"
 
 #: libraries/insert_edit.lib.php:1455
 #, php-format
@@ -7575,16 +7562,14 @@ msgid "No change"
 msgstr "Žiadna zmena"
 
 #: libraries/mult_submits.lib.php:329
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "Nahradiť predponu tabuľky"
+msgstr "Nahradiť predponu tabuľky:"
 
 #: libraries/mult_submits.lib.php:331
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "Skopírovať tabuľku s predponou"
+msgstr "Skopírovať tabuľku s predponou:"
 
 #: libraries/mult_submits.lib.php:336
 msgid "From"
@@ -7600,10 +7585,9 @@ msgid "Submit"
 msgstr "Odošli"
 
 #: libraries/mult_submits.lib.php:371
-#, fuzzy
 #| msgid "Add prefix"
 msgid "Add table prefix:"
-msgstr "Pridať prefix"
+msgstr "Pridať prefix tabuľky:"
 
 #: libraries/mult_submits.lib.php:374
 msgid "Add prefix"
@@ -7805,34 +7789,29 @@ msgid "An error has occurred while loading the navigation tree"
 msgstr ""
 
 #: libraries/navigation/Navigation.class.php:170
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "Udalosti"
+msgstr "Udalosti:"
 
 #: libraries/navigation/Navigation.class.php:171
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "Funkcie"
+msgstr "Funkcie:"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Procedúry"
+msgstr "Procedúry:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabuľky"
+msgstr "Tabuľky:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "Pohľady"
+msgstr "Náhľady:"
 
 #: libraries/navigation/NavigationHeader.class.php:190
 msgid "Home"
@@ -7847,10 +7826,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin Dokumentácia"
 
 #: libraries/navigation/NavigationHeader.class.php:250
-#, fuzzy
 #| msgid "Navigation panel"
 msgid "Reload navigation panel"
-msgstr "Navigačný panel"
+msgstr "Obnoviť navigačný panel"
 
 #: libraries/navigation/NavigationTree.class.php:719
 #, php-format
@@ -7865,23 +7843,20 @@ msgid "Expand/Collapse"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1044
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "filtrovať databázy podľa mena"
+msgstr "Filtrovať databázy podľa mena alebo regulárneho výrazu"
 
 #: libraries/navigation/NavigationTree.class.php:1046
 #: libraries/navigation/NavigationTree.class.php:1080
-#, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
-msgstr "Uložiť ako súbor"
+msgstr "Vyčistiť rýchly filter"
 
 #: libraries/navigation/NavigationTree.class.php:1079
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "filtrovať položky podľa mena"
+msgstr "Filtrovať podľa mena alebo regulárneho výrazu"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -7909,13 +7884,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "Nastavenia exportu databáz"
+msgstr "Databázové operácie"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Zobraziť nápovedu"
+msgstr "Zobraziť skryté položky"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 msgctxt "Create new database"
@@ -7953,10 +7927,9 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "Procedúry"
+msgstr "Procedúra"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
@@ -7993,10 +7966,9 @@ msgid "New"
 msgstr ""
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "Premenovať databázu na"
+msgstr "Premenovať databázu na:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -8027,10 +7999,9 @@ msgid "Data only"
 msgstr "Iba dáta"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "Skopírovať databázu do"
+msgstr "Skopírovať databázu do:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -8229,10 +8200,9 @@ msgid "Username:"
 msgstr "Používateľ:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:231
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Voľba serveru"
+msgstr "Voľba servera:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:398
 msgid "Entered captcha is wrong, try again!"
@@ -8398,24 +8368,21 @@ msgstr "Možnosti vytvárania objektov"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Nadpis tabuľky"
+msgstr "Nadpis tabuľky:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Nadpis tabuľky (pokračovanie)"
+msgstr "Nadpis tabuľky (pokračovanie):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Návestie"
+msgstr "Návestie:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8435,59 +8402,52 @@ msgid "Display MIME types"
 msgstr "Zobraziť MIME typy"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Pridať názvy polí na prvý riadok"
+msgstr "Pridať názvy polí na prvý riadok:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:620
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:411 libraries/replication_gui.lib.php:682
 #: libraries/server_privileges.lib.php:1319 libraries/sql.lib.php:426
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Hostiteľ"
+msgstr "Hostiteľ:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:627
 #: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:430
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Vygenerované"
+msgstr "Čas generovania:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:633
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "Verzia PHP"
+msgstr "Verzia PHP:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:783
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:115
 #: libraries/sql.lib.php:428
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "Databáza"
+msgstr "Databáza:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
 #: libraries/plugins/export/ExportSql.class.php:1578
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "Dáta"
+msgstr "Dáta:"
 
 #: libraries/plugins/export/ExportLatex.class.php:487
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Štruktúra"
+msgstr "Štruktúra:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
