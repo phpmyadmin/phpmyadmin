@@ -1399,7 +1399,9 @@ class PMA_Util
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            if (isset($byteUnits[$d]) && ($value >= $li * self::pow(10, $ex))) {
+            // cast to float to avoid overflow
+            $unitSize = (float) $li * self::pow(10, $ex);
+            if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
                 $value = round($value / (self::pow(1024, $d) / $dh)) /$dh;
                 $unit = $byteUnits[$d];
