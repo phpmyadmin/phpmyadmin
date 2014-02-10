@@ -457,13 +457,22 @@ $cfg['Servers'][$i]['users'] = '';
 $cfg['Servers'][$i]['usergroups'] = '';
 
 /**
- * table to store information about item hidden from navigation triee
+ * table to store information about item hidden from navigation tree
  *   - leave blank to disable hide/show navigation items feature
  *     SUGGESTED: 'pma__navigationhiding'
  *
  * @global string $cfg['Servers'][$i]['navigationhiding']
  */
 $cfg['Servers'][$i]['navigationhiding'] = '';
+
+/**
+ * table to store information about saved searches from query-by-example on a db
+ *   - leave blank to disable saved searches feature
+ *     SUGGESTED: 'pma__savedsearches'
+ *
+ * @global string $cfg['Servers'][$i]['savedsearches']
+ */
+$cfg['Servers'][$i]['savedsearches'] = '';
 
 /**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
