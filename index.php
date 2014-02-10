@@ -33,10 +33,20 @@ foreach ($drops as $each_drop) {
 }
 unset($drops, $each_drop);
 
+/* 
+ * Black list of all scripts to which front-end must submit data.
+ * Such scripts must not be loaded on home page.
+ *
+ */
+ $target_blacklist = array (
+    'import.php', 'export.php'
+    );
+
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
+    && ! in_array($_REQUEST['target'], $target_blacklist )      // Check if target is not in blacklist.
     && in_array($_REQUEST['target'], $goto_whitelist)
 ) {
     include $_REQUEST['target'];
