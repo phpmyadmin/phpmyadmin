@@ -49,6 +49,12 @@ $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
 require 'libraries/db_info.inc.php';
 
+if (isset($_REQUEST['criterias'])) {
+    //PMA_saveCriterias();
+    $response->addHTML(print_r($_REQUEST['criterias'], true));
+    die();
+}
+
 if ($message_to_display) {
     PMA_Message::error(__('You have to choose at least one column to display!'))->display();
 }

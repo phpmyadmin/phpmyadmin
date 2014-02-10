@@ -60,6 +60,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 // $cfg['Servers'][$i]['users'] = 'pma__users';
 // $cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
 // $cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+// $cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
 /* Contrib / Swekey authentication */
 // $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey-pma.conf';
 
@@ -145,7 +146,7 @@ $cfg['SaveDir'] = '';
 /**
  * Should error reporting be enabled for JavaScript errors
  *
- * default = 'ask' 
+ * default = 'ask'
  */
 //$cfg['SendErrorReports'] = 'ask';
 

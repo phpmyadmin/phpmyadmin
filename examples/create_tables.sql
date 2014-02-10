@@ -1,40 +1,40 @@
 -- --------------------------------------------------------
 -- SQL Commands to set up the pmadb as described in the documentation.
--- 
+--
 -- This file is meant for use with MySQL 5 and above!
--- 
+--
 -- This script expects the user pma to already be existing. If we would put a
 -- line here to create him too many users might just use this script and end
 -- up with having the same password for the controluser.
---                                                     
--- This user "pma" must be defined in config.inc.php (controluser/controlpass)                         
---                                                  
--- Please don't forget to set up the tablenames in config.inc.php                                 
--- 
+--
+-- This user "pma" must be defined in config.inc.php (controluser/controlpass)
+--
+-- Please don't forget to set up the tablenames in config.inc.php
+--
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Database : `phpmyadmin`
--- 
+--
 CREATE DATABASE IF NOT EXISTS `phpmyadmin`
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 USE phpmyadmin;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Privileges
--- 
+--
 -- (activate this statement if necessary)
 -- GRANT SELECT, INSERT, DELETE, UPDATE ON `phpmyadmin`.* TO
 --    'pma'@localhost;
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__bookmark`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__bookmark` (
   `id` int(11) NOT NULL auto_increment,
@@ -49,9 +49,9 @@ CREATE TABLE IF NOT EXISTS `pma__bookmark` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__column_info`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__column_info` (
   `id` int(5) unsigned NOT NULL auto_increment,
@@ -70,9 +70,9 @@ CREATE TABLE IF NOT EXISTS `pma__column_info` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__history`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__history` (
   `id` bigint(20) unsigned NOT NULL auto_increment,
@@ -89,9 +89,9 @@ CREATE TABLE IF NOT EXISTS `pma__history` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__pdf_pages`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__pdf_pages` (
   `db_name` varchar(64) NOT NULL default '',
@@ -136,9 +136,9 @@ CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__relation`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__relation` (
   `master_db` varchar(64) NOT NULL default '',
@@ -155,9 +155,9 @@ CREATE TABLE IF NOT EXISTS `pma__relation` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__table_coords`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__table_coords` (
   `db_name` varchar(64) NOT NULL default '',
@@ -172,9 +172,9 @@ CREATE TABLE IF NOT EXISTS `pma__table_coords` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__table_info`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__table_info` (
   `db_name` varchar(64) NOT NULL default '',
@@ -187,9 +187,9 @@ CREATE TABLE IF NOT EXISTS `pma__table_info` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__designer_coords`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__designer_coords` (
   `db_name` varchar(64) NOT NULL default '',
@@ -205,9 +205,9 @@ CREATE TABLE IF NOT EXISTS `pma__designer_coords` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table structure for table `pma__tracking`
--- 
+--
 
 CREATE TABLE IF NOT EXISTS `pma__tracking` (
   `db_name` varchar(64) NOT NULL,
@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `pma__users` (
   `username` varchar(64) NOT NULL,
   `usergroup` varchar(64) NOT NULL,
   PRIMARY KEY (`username`,`usergroup`)
-) 
+)
   COMMENT='Users and their assignments to user groups'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
@@ -265,10 +265,10 @@ CREATE TABLE IF NOT EXISTS `pma__usergroups` (
   `tab` varchar(64) NOT NULL,
   `allowed` enum('Y','N') NOT NULL DEFAULT 'N',
   PRIMARY KEY (`usergroup`,`tab`,`allowed`)
-) 
+)
   COMMENT='User groups with configured menu items'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-  
+
 -- --------------------------------------------------------
 
 --
@@ -282,6 +282,23 @@ CREATE TABLE IF NOT EXISTS `pma__navigationhiding` (
   `db_name` varchar(64) NOT NULL,
   `table_name` varchar(64) NOT NULL,
   PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`)
-) 
+)
   COMMENT='Hidden items of navigation tree'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__savedsearches`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__savedsearches` (
+  `id` int(5) unsigned NOT NULL auto_increment,
+  `username` varchar(64) NOT NULL default '',
+  `db_name` varchar(64) NOT NULL default '',
+  `search_data` text NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`)
+)
+  COMMENT='Saved searches'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;

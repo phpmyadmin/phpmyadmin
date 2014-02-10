@@ -24,6 +24,23 @@ AJAX.registerTeardown('db_qbe.js', function () {
     $("#saveSearch").die('click');
 });
 
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
 AJAX.registerOnload('db_qbe.js', function () {
 
     /**
@@ -32,28 +49,35 @@ AJAX.registerOnload('db_qbe.js', function () {
     $("#existingSavedSearches").live('change', function (event) {
         event.preventDefault();
 
-        var selectedElement = $('#' + this.id + ' option:selected');
+        //$('#formQBE').submit();
+
+        /*var selectedElement = $('#' + this.id + ' option:selected');
         var nameElement = $('#searchName');
 
         if (selectedElement.val() == '') {
             nameElement.val('');
             return;
         }
-        nameElement.val(selectedElement.text());
+        nameElement.val(selectedElement.text());*/
 
-        /* Code to add columns.
+        /*// Code to add columns.
         $('select[name=criteriaColumnAdd]').val(3);
         $('input[name=modify]').click();
         */
 
-        //Then : load the data.
-    }); // end Select saved search
+        /*// Code to add rows.
+        $('select[name=criteriaRowAdd]').val(1);
+        $('input[name=modify]').click();
+        */
+    });
 
     /**
      * Ajax event handlers for 'Save search'
      */
     $("#saveSearch").live('click', function (event) {
         event.preventDefault();
+
+        //Next section will generate the JSON to save.
 
         //List of select and text.
         var criteriaList = new Array(
@@ -119,7 +143,22 @@ AJAX.registerOnload('db_qbe.js', function () {
         jsonForm['nbColumns'] = nbColumns;
         jsonForm['nbCriterias'] = nbCriterias;
 
-        console.debug(JSON.stringify(jsonForm));
+        //console.debug(JSON.stringify(jsonForm));
+
+        //JSON is ready. Send it to the DB.
+
+        var formQBE = $('#formQBE');
+
+        var dataQBE = formQBE.serializeObject();
+        dataQBE['criterias'] = jsonForm;
+
+        console.debug(dataQBE);
+
+        $.post(formQBE.attr('action'), dataQBE);
+
+        //return false;
+
+        //$('#saveSearch').click();
 
         //Then : load the data.
     }); // end Select saved search
