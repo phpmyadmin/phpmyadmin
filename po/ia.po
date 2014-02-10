@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-04 12:11+0200\n"
+"PO-Revision-Date: 2014-02-10 14:21+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<http://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -5498,7 +5498,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:306
 msgid "Logo link URL"
-msgstr ""
+msgstr "URL del ligamine de logo"
 
 #: libraries/config/messages.inc.php:307
 msgid ""
@@ -5508,7 +5508,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:308
 msgid "Logo link target"
-msgstr ""
+msgstr "Objectivo de ligamine de logo"
 
 #: libraries/config/messages.inc.php:309
 msgid "Display server choice at the top of the navigation panel"
@@ -5520,17 +5520,19 @@ msgstr "Monstra selection d servitores"
 
 #: libraries/config/messages.inc.php:311
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Objectivo pro icone de accesso rapide"
 
 #: libraries/config/messages.inc.php:312
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
+"Define le minime numero de elementos (tabellas, vistas, routines e eventos) "
+"de monstrar in le quadro de filtro."
 
 #: libraries/config/messages.inc.php:313
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "Minime numero de elementos de monstrar in le quadro de filtro"
 
 #: libraries/config/messages.inc.php:314
 msgid "Minimum number of databases to display the database filter box"
