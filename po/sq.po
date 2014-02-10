@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-10 19:08+0200\n"
+"PO-Revision-Date: 2014-02-10 19:23+0200\n"
 "Last-Translator: Porta Shqipe <info@portashqipe.com>\n"
 "Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/sq/>\n"
 "Language: sq\n"
@@ -1479,7 +1479,7 @@ msgstr "Duke ngarkuar log-et"
 
 #: js/messages.php:196
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Rifreskimi i monitorit dështoi"
 
 #: js/messages.php:197
 msgid ""
@@ -1487,6 +1487,10 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Gjatë kërkimit të skicës së re të të dhënave serveri e ktheu një përgjigje "
+"të pavlefshme. Kjo me gjasë ka ndodhur sepse ka mbaruar afati i sesionit "
+"tënd. Ri-ngarkimi i faqes dhe ri-futja e të dhënave të qasjes duhet të "
+"ndihmoj."
 
 #: js/messages.php:198
 msgid "Reload page"
@@ -1494,11 +1498,13 @@ msgstr "Ri-ngarko faqen"
 
 #: js/messages.php:200
 msgid "Affected rows:"
-msgstr ""
+msgstr "Rreshtat e prekur:"
 
 #: js/messages.php:203
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"Dështoi analiza e skedarit me parametra. Nuk duket se është kod i vlefshëm "
+"JSON."
 
 #: js/messages.php:205
 msgid ""
