@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-07 12:50-0500\n"
-"PO-Revision-Date: 2014-02-04 12:11+0200\n"
+"PO-Revision-Date: 2014-02-10 14:21+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"ia/>\n"
+"Language-Team: Interlingua "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -5553,6 +5553,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication."
 msgstr ""
+"Dishabilita le aviso predefinite que es monstrate si mcrypt es mancante pro "
+"le authentication de cookie."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -5580,21 +5582,23 @@ msgstr "Monstra logo"
 
 #: libraries/config/messages.inc.php:435
 msgid "URL where logo in the navigation panel will point to."
-msgstr ""
+msgstr "URL ubi le logo in le pannello de navigation punctara."
 
 #: libraries/config/messages.inc.php:436
 msgid "Logo link URL"
-msgstr ""
+msgstr "URL del ligamine de logo"
 
 #: libraries/config/messages.inc.php:438
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
+"Aperi le pagina de ligamine in le fenestra principal ([kbd]main[/kbd])  o in "
+"un nove  ([kbd]new[/kbd])."
 
 #: libraries/config/messages.inc.php:441
 msgid "Logo link target"
-msgstr ""
+msgstr "Objectivo de ligamine de logo"
 
 #: libraries/config/messages.inc.php:443
 msgid "Display server choice at the top of the navigation panel."
@@ -5607,17 +5611,19 @@ msgstr "Monstra selection d servitores"
 
 #: libraries/config/messages.inc.php:445
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "Objectivo pro icone de accesso rapide"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
+"Define le minime numero de elementos (tabellas, vistas, routines e eventos) "
+"de monstrar in le quadro de filtro."
 
 #: libraries/config/messages.inc.php:451
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "Minime numero de elementos de monstrar in le quadro de filtro"
 
 #: libraries/config/messages.inc.php:453
 msgid "Minimum number of databases to display the database filter box"
@@ -12628,10 +12634,9 @@ msgid "Description"
 msgstr ""
 
 #: url.php:34
-#, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to "
-msgstr "Reporto de tracia"
+msgstr "Ducente te a "
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
