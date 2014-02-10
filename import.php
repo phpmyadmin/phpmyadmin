@@ -153,16 +153,6 @@ $post_patterns = array(
     '/^force_file_/',
     '/^' . $format . '_/'
 );
-foreach (array_keys($_POST) as $post_key) {
-    foreach ($post_patterns as $one_post_pattern) {
-        if (preg_match($one_post_pattern, $post_key)) {
-            $GLOBALS[$post_key] = $_POST[$post_key];
-        }
-    }
-}
-
-// Check needed parameters
-PMA_Util::checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
 $format = PMA_securePath($format);
