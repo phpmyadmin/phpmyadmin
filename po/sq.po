@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-10 19:01+0200\n"
+"PO-Revision-Date: 2014-02-10 19:08+0200\n"
 "Last-Translator: Porta Shqipe <info@portashqipe.com>\n"
 "Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/sq/>\n"
 "Language: sq\n"
@@ -1462,6 +1462,8 @@ msgstr "Filtro pyetësorët sipas fjalës/regexp:"
 #: js/messages.php:191
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
+"Grupo pyetësorët, duke shpërfillur të dhënat e ndryshoreve në klauzolat "
+"WHERE"
 
 #: js/messages.php:192
 msgid "Sum of grouped rows:"
