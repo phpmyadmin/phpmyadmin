@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-09 13:25+0200\n"
+"PO-Revision-Date: 2014-02-10 19:01+0200\n"
 "Last-Translator: Porta Shqipe <info@portashqipe.com>\n"
 "Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/4-1/sq/>\n"
 "Language: sq\n"
@@ -429,15 +429,15 @@ msgstr ""
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Nëse hasni në vështirësi ju lutem zbatoni një raport të bug-ut vet."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Ju faleminderit për zbatimin e këtij raporti."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Fatkeqësisht zbatimi dështoi."
 
 #: export.php:171
 msgid "Bad type!"
@@ -698,9 +698,8 @@ msgid "Back"
 msgstr "Mbrapa"
 
 #: index.php:115 libraries/Footer.class.php:70
-#, fuzzy
 msgid "phpMyAdmin Demo Server"
-msgstr "Dokumente të phpMyAdmin"
+msgstr "phpMyAdmin Server Demonstrues"
 
 #: index.php:119
 #, php-format
@@ -709,6 +708,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Ju jeni duke e përdorur serverin demonstrues. Mund të bëni gjithçka këtu, "
+"por ju lutem mos e ndryshoni root, debian-sys-maint dhe përdoruesit. Më "
+"shumë informatë është në dispozicion tek %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -915,7 +917,7 @@ msgstr "Komandat \"DROP DATABASE\" nuk janë aktive."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Konfirmo"
 
 #: js/messages.php:36
 #, php-format
@@ -948,10 +950,10 @@ msgstr ""
 "Ky operacion mund të kërkojë një kohë shumë të gjatë. Sidoqoftë, të vazhdoj?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Jeni i sigurt që dëshironi të ekzekutoni \"%s\"?"
+msgstr "A dëshiron me të vërtetë të heqësh grupin e përdoruesve \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
@@ -959,11 +961,11 @@ msgstr "Mungon një vlerë në formular!"
 
 #: js/messages.php:48
 msgid "Please enter a valid number"
-msgstr ""
+msgstr "Të lutem fut një numër vlefshëm"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Të lutem fut një gjatësi të vlefshme"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1261,17 +1263,22 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log është mundësuar, por serveri i regjistron vetëm pyetësorët të "
+"cilët zgjasin më shumë se %d sekonda. Këshillohet përcaktimi i "
+"long_query_time 0-2 sekonda, varësisht nga sistemi yt."
 
 #: js/messages.php:136
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time është përcaktuar në %d sekond(a)."
 
 #: js/messages.php:137
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Parametrat që vijojnë do të zbatohen globalisht dhe do të rivendosen si "
+"parazgjedhje gjatë rinisjes së serverit:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:139
@@ -1295,13 +1302,15 @@ msgstr "Ç'aktivizo %s"
 #: js/messages.php:145
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Përcakto long_query_time në %da"
 
 #: js/messages.php:147
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Nuk mund t'i ndërrosh këto të ndryshueshme. Të lutem merr lidhjen si root "
+"ose kontakto administratorin."
 
 #: js/messages.php:150
 msgid "Change settings"
@@ -1318,28 +1327,30 @@ msgstr "Titulli i grafikut"
 #. l10n: As in differential values
 #: js/messages.php:155
 msgid "Differential"
-msgstr ""
+msgstr "Diferencial"
 
 #: js/messages.php:156
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "E ndarë në %s"
 
 #: js/messages.php:157
 msgid "Unit"
-msgstr ""
+msgstr "Njësi"
 
 #: js/messages.php:159
 msgid "From slow log"
-msgstr ""
+msgstr "Nga log-u i ngadalshëm"
 
 #: js/messages.php:160
 msgid "From general log"
-msgstr ""
+msgstr "Nga log-u i përgjitshëm"
 
 #: js/messages.php:162
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"Emri i bazës së të dhënave nuk është i njohur për këtë pyetësor në log-ët e "
+"serverit."
 
 #: js/messages.php:164
 msgid "Analysing logs"
@@ -1347,11 +1358,11 @@ msgstr "Analizimi i log"
 
 #: js/messages.php:165
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Në analizim dhe ngarkim të sipër të log-ëve. Kjo mund të zgjas pakëz."
 
 #: js/messages.php:166
 msgid "Cancel request"
-msgstr ""
+msgstr "Anulo kërkesën"
 
 #: js/messages.php:167
 msgid ""
@@ -1359,6 +1370,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Kjo kolonë tregon një numër identik të pyetësorëve të grupuar së bashku. "
+"Megjithatë vetëm vet pyetësori SQL është përdorur si kriter i grupimit, "
+"prandaj vetitë tjera të pyetësorëve, sikur koha e nisjes, mund të dalloj."
 
 #: js/messages.php:168
 msgid ""
@@ -1366,10 +1380,15 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Pasi që grupimi i pyetësorëve INSERT është zgjedhur, pyetësorët INSERT në të "
+"njëjtën tabelë grupohen gjithashtu së bashku, duke e shpërfillur futjen e "
+"të dhënave."
 
 #: js/messages.php:169
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Të dhënat nga log-u janë ngarkuar. Pyetësorët janë ekzekutuar në këtë "
+"interval kohe:"
 
 #: js/messages.php:171
 msgid "Jump to Log table"
@@ -1382,10 +1401,11 @@ msgstr "Nuk u gjet asnjë e dhënë"
 #: js/messages.php:173
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
+"Log-u është analizuar, por nuk janë gjetur të dhëna në këtë interval kohor."
 
 #: js/messages.php:175
 msgid "Analyzing…"
-msgstr ""
+msgstr "Në analizim e sipër…"
 
 #: js/messages.php:176
 msgid "Explain output"
@@ -1433,11 +1453,11 @@ msgstr "Mundësi filtrimi për log-un e tabelave"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:189
 msgid "Filter"
-msgstr ""
+msgstr "Filtrim"
 
 #: js/messages.php:190
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtro pyetësorët sipas fjalës/regexp:"
 
 #: js/messages.php:191
 msgid "Group queries, ignoring variable data in WHERE clauses"
