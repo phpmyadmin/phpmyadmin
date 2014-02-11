@@ -49,10 +49,13 @@ $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
 require 'libraries/db_info.inc.php';
 
-if (isset($_REQUEST['criterias'])) {
-    //PMA_saveCriterias();
-    $response->addHTML(print_r($_REQUEST['criterias'], true));
-    die();
+if (!empty($_REQUEST['criterias'])) {
+    require 'libraries\SavedSearches.php';
+    $savedSearch = new PMA_SavedSearches($GLOBALS);
+    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user']);
+    $savedSearch->setDbname($_REQUEST['db']);
+    $savedSearch->setCriterias($_REQUEST['criterias']);
+    $savedSearch->saveSearch();
 }
 
 if ($message_to_display) {

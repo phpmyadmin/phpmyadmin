@@ -75,7 +75,7 @@ AJAX.registerOnload('db_qbe.js', function () {
      * Ajax event handlers for 'Save search'
      */
     $("#saveSearch").live('click', function (event) {
-        event.preventDefault();
+        //event.preventDefault();
 
         //Next section will generate the JSON to save.
 
@@ -143,23 +143,6 @@ AJAX.registerOnload('db_qbe.js', function () {
         jsonForm['nbColumns'] = nbColumns;
         jsonForm['nbCriterias'] = nbCriterias;
 
-        //console.debug(JSON.stringify(jsonForm));
-
-        //JSON is ready. Send it to the DB.
-
-        var formQBE = $('#formQBE');
-
-        var dataQBE = formQBE.serializeObject();
-        dataQBE['criterias'] = jsonForm;
-
-        console.debug(dataQBE);
-
-        $.post(formQBE.attr('action'), dataQBE);
-
-        //return false;
-
-        //$('#saveSearch').click();
-
-        //Then : load the data.
+        $('#criterias').val(JSON.stringify(jsonForm));
     }); // end Select saved search
 });
