@@ -1418,6 +1418,8 @@ class PMA_DbQbe
         $html_output .= '</select>';
         $html_output .= '<input type="text" name="searchName" id="searchName"
             value="" />';
+        $html_output .= '<input type="hidden" name="criterias" id="criterias"
+            value="" />';
         $html_output .= '<input type="submit" name="saveSearch" id="saveSearch"
             value="' . __('Save search') . '" />';
         return $html_output;

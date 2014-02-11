@@ -296,9 +296,10 @@ CREATE TABLE IF NOT EXISTS `pma__savedsearches` (
   `id` int(5) unsigned NOT NULL auto_increment,
   `username` varchar(64) NOT NULL default '',
   `db_name` varchar(64) NOT NULL default '',
+  `search_name` varchar(64) NOT NULL default '',
   `search_data` text NOT NULL,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`)
+  UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`)
 )
   COMMENT='Saved searches'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
