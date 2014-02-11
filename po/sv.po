@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-10 12:11+0200\n"
+"PO-Revision-Date: 2014-02-11 10:20+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/4-1/sv/>\n"
 "Language: sv\n"
@@ -691,10 +691,9 @@ msgid "Back"
 msgstr "Föregående"
 
 #: index.php:115 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin:s hemsida"
+msgstr "Demoserver för phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -703,6 +702,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Du använder demoservern. Du kan göra vad som helst här, men undvik att ändra "
+"användarna root, debian-sys-maint och pma. Mer information finns "
+"tillgänglig på %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -1334,7 +1336,7 @@ msgstr "Från allmän logg"
 
 #: js/messages.php:162
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "Databasnamnet är inte känt för denna fråga i serverns loggar."
 
 #: js/messages.php:164
 msgid "Analysing logs"
@@ -2037,6 +2039,7 @@ msgstr "Visa rapportdetaljer"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Din export är inkomplett på grund av en låg exekveringstidsgräns på PHP-nivå"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:439
@@ -6627,7 +6630,7 @@ msgstr "Privat nyckel för reCaptcha"
 
 #: libraries/config/messages.inc.php:545
 msgid "Choose the default action when sending error reports"
-msgstr ""
+msgstr "Välj standardhandling vid sändande av felrapporter"
 
 #: libraries/config/messages.inc.php:546
 #| msgid "Server port"
@@ -7416,6 +7419,9 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"phpMyAdmin har stött på ett fel. Vi har samlat data om detta fel liksom "
+"information om relevanta inställningar för sändning till phpMyAdmin-teamet "
+"för att hjälpa oss felsöka problemet."
 
 #: libraries/error_report.lib.php:286
 msgid "You may examine the data in the error report:"
@@ -9322,7 +9328,7 @@ msgstr "Master-replikering"
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
-msgstr ""
+msgstr "Lyckades."
 
 #: libraries/replication_gui.lib.php:924
 #| msgid "Error"
