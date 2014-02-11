@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-03 13:47+0200\n"
+"PO-Revision-Date: 2014-02-11 09:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -13050,10 +13050,10 @@ msgid "Description"
 msgstr "Popis"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Informace o sledování"
+msgstr "Přesměrovávám na %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
