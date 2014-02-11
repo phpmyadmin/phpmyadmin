@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-11 08:36+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2014-02-11 10:21+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -674,10 +674,9 @@ msgid "Back"
 msgstr "Föregående"
 
 #: index.php:125 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin:s hemsida"
+msgstr "Demoserver för phpMyAdmin"
 
 #: index.php:129
 #, php-format
@@ -686,6 +685,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Du använder demoservern. Du kan göra vad som helst här, men undvik att ändra "
+"användarna root, debian-sys-maint och pma. Mer information finns "
+"tillgänglig på %s."
 
 #: index.php:139
 msgid "General Settings"
@@ -1294,7 +1296,7 @@ msgstr "Från allmän logg"
 
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "Databasnamnet är inte känt för denna fråga i serverns loggar."
 
 #: js/messages.php:160
 msgid "Analysing logs"
@@ -2635,7 +2637,7 @@ msgstr "Visar raderna %1s - %2s"
 #: libraries/DisplayResults.class.php:4993
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d totalt, %2$d i fråga"
 
 #: libraries/DisplayResults.class.php:4997
 #, php-format
@@ -6696,7 +6698,7 @@ msgstr "Privat nyckel för reCaptcha"
 
 #: libraries/config/messages.inc.php:794
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Välj standardhandling vid sändande av felrapporter."
 
 #: libraries/config/messages.inc.php:795
 msgid "Send error reports"
@@ -7489,6 +7491,9 @@ msgid ""
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
 msgstr ""
+"phpMyAdmin har stött på ett fel. Vi har samlat data om detta fel liksom "
+"information om relevanta inställningar för sändning till phpMyAdmin-teamet "
+"för att hjälpa oss felsöka problemet."
 
 #: libraries/error_report.lib.php:278
 msgid "You may examine the data in the error report:"
@@ -8700,10 +8705,9 @@ msgid "Indexes for table"
 msgstr "Index för tabell"
 
 #: libraries/plugins/export/ExportSql.class.php:1313
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Använd inte AUTO_INCREMENT för nollvärden"
+msgstr "AUTO_INCREMENT för dumpade tabeller"
 
 #: libraries/plugins/export/ExportSql.class.php:1323
 msgid "AUTO_INCREMENT for table"
@@ -9436,7 +9440,7 @@ msgstr "Master-replikering"
 
 #: libraries/replication_gui.lib.php:915
 msgid "Success."
-msgstr ""
+msgstr "Lyckades."
 
 #: libraries/replication_gui.lib.php:916
 msgid "Error."
@@ -13165,10 +13169,10 @@ msgid "Description"
 msgstr "Beskrivning"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Taking you to "
 msgid "Taking you to %s."
-msgstr "Tar dig till "
+msgstr "Tar dig till %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
