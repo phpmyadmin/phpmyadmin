@@ -46,7 +46,7 @@ unset($drops, $each_drop);
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
-    && ! in_array($_REQUEST['target'], $target_blacklist )      // Check if target is not in blacklist.
+    && ! in_array($_REQUEST['target'], $target_blacklist)
     && in_array($_REQUEST['target'], $goto_whitelist)
 ) {
     include $_REQUEST['target'];
@@ -318,9 +318,10 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             $php_ext_string = __('PHP extension:') . ' '
                 . $GLOBALS['cfg']['Server']['extension'] . ' ';
             if (!empty($GLOBALS['cfg']['Server']['extension'])) {
-                $php_ext_string  .= PMA_Util::showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php' );
-            }
-            else {
+                $php_ext_string  .= PMA_Util::showPHPDocu(
+                    'book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'
+                );
+            } else {
                 $php_ext_string  .= __('None');
             }
             
