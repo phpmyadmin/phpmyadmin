@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-07 22:15+0200\n"
+"PO-Revision-Date: 2014-02-11 20:44+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -13316,10 +13316,10 @@ msgid "Description"
 msgstr "Περιγραφή"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Taking you to "
 msgid "Taking you to %s."
-msgstr "Μεταφέροντάς σας στο "
+msgstr "Μεταφέροντάς σας στο %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
