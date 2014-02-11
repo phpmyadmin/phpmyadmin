@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-11 08:39+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-02-11 19:24+0200\n"
+"Last-Translator: Douglas dreginatto <douglas@reginatto.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4469,14 +4469,13 @@ msgid "Empty signon URL while using signon authentication method!"
 msgstr "URL de signon vazia ao usar o método de autenticação signon"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Controle de usuário phpMyAdmin vazio ao usar o phpMyAdmin configuration "
-"storage"
+"storage!"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
