@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-07 12:50-0500\n"
-"PO-Revision-Date: 2014-02-03 16:49+0200\n"
+"PO-Revision-Date: 2014-02-11 08:38+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Galician <http://l10n.cihar.com/projects/phpmyadmin/master/gl/"
-">\n"
+"Language-Team: Galician "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/gl/>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -4711,7 +4711,6 @@ msgid "Enable CodeMirror"
 msgstr "Activar CodeMirror"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4720,14 +4719,13 @@ msgid ""
 "columns."
 msgstr ""
 "Indica o tamaño mínimo dos campos de entrada xerados para as columnas CHAR e "
-"VARCHAR"
+"VARCHAR."
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "Tamaño mínimo do campo de entrada"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
@@ -4736,7 +4734,7 @@ msgid ""
 "columns."
 msgstr ""
 "Indica o tamaño máximo dos campos de entrada xerados para as columnas CHAR e "
-"VARCHAR"
+"VARCHAR."
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
@@ -5714,7 +5712,6 @@ msgid "Delete all cookies on logout"
 msgstr "Eliminar todas as cookies ao saír"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
@@ -5723,7 +5720,7 @@ msgid ""
 "authentication mode."
 msgstr ""
 "Definir se se debe lembrar ou non o rexistro previo no modo de autenticación "
-"mediante cookies"
+"mediante cookies."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5792,7 +5789,6 @@ msgid "Maximum databases"
 msgstr "Bases de datos máximas"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
@@ -5801,7 +5797,7 @@ msgid ""
 "tree."
 msgstr ""
 "O número de elementos que desexa mostrar en cada páxina da árbore de "
-"navegación"
+"navegación."
 
 #: libraries/config/messages.inc.php:412
 msgid "Maximum items in branch"
@@ -5831,7 +5827,6 @@ msgid "Maximum tables"
 msgstr "Táboas máximas"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5839,8 +5834,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication."
 msgstr ""
-"Desactivar o aviso por omisión que aparece se falta mcrypt para a "
-"autenticación con cookies"
+"Desactive o aviso por omisión que aparece se falta mcrypt para a "
+"autenticación mediante cookies."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -6915,7 +6910,6 @@ msgid "Show Last check timestamp"
 msgstr "Mostrar a última revisión da marca temporal"
 
 #: libraries/config/messages.inc.php:725
-#, fuzzy
 #| msgid ""
 #| "Defines whether or not type display direction option is shown when "
 #| "browsing a table"
@@ -6924,7 +6918,7 @@ msgid ""
 "a table."
 msgstr ""
 "Define se se mostra a opción da dirección da escrita cando se navega por "
-"unha táboa"
+"unha táboa."
 
 #: libraries/config/messages.inc.php:726
 msgid "Show display direction"
@@ -7086,10 +7080,10 @@ msgid "Username"
 msgstr "Nome de usuario"
 
 #: libraries/config/messages.inc.php:755
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr "Unha advertencia aparece na pantalla principal se Suhosin e detectado"
+msgstr ""
+"Na pantalla principal aparece unha advertencia se o Suhosin for detectado."
 
 #: libraries/config/messages.inc.php:756
 msgid "Suhosin warning"
@@ -7274,10 +7268,9 @@ msgid "Proxy username"
 msgstr "Nome de usuario"
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "The password for authenticating with the proxy"
 msgid "The password for authenticating with the proxy."
-msgstr "O contrasinal para identificarse diante do proxy"
+msgstr "O contrasinal para identificarse diante do proxy."
 
 #: libraries/config/messages.inc.php:785
 #, fuzzy
