@@ -870,6 +870,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && (empty($analyzed_sql_results['analyzed_sql'][0]['where_clause'])
         || $analyzed_sql_results['analyzed_sql'][0]['where_clause'] == '1 ')
         && ! isset($find_real_end)
+        && !$analyzed_sql_results['is_subquery']
     ) {
         return true;
     } else {
@@ -1387,7 +1388,7 @@ function PMA_countQueryResults(
         // "Showing rows..." message
         // $_SESSION['tmpval']['max_rows'] = 'all';
         $unlim_num_rows         = $num_rows;
-    } elseif ($is_select) {
+    } elseif ($is_select || $analyzed_sql_results['is_subquery']) {
         //    c o u n t    q u e r y
 
         // If we are "just browsing", there is only one table,
