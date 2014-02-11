@@ -25,11 +25,11 @@ if (! PMA_isValid($_GET['url'])
         //  external site.
         echo "<script type='text/javascript'>
                 window.onload=function(){
-                    window.location='" . $_GET['url'] . "';
+                    window.location='" . htmlspecialchars($_GET['url']) . "';
                 }
             </script>";
         // Display redirecting msg on screen.
-        echo __('Taking you to ') . ($_GET['url']);
+        printf(__('Taking you to %s.'), htmlspecialchars($_GET['url']));
     } else {
         header('Location: ' . $cfg['PmaAbsoluteUri']);
     }
