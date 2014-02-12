@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-11 10:20+0200\n"
+"PO-Revision-Date: 2014-02-12 10:14+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/4-1/sv/>\n"
 "Language: sv\n"
@@ -1559,7 +1559,7 @@ msgstr "Laddar…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Förfrågan avbruten!!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -1976,14 +1976,13 @@ msgid "Hide Panel"
 msgstr "Dölj Panel"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Visa logotypen i navigeringspanelen"
+msgstr "Visa dolda navigationsträdsobjekt"
 
 #: js/messages.php:398
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Den begärda sidan hittades inte i historien, kan det ha upphört."
+msgstr "Den begärda sidan hittades inte i historien, den kan ha upphört."
 
 #: js/messages.php:401 setup/lib/index.lib.php:157
 #, php-format
@@ -2865,7 +2864,7 @@ msgstr "Kan inte läsa (flyttad) uppladdad fil."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Kör nu Git version %1$s fron grenen %2$s."
 
 #: libraries/Footer.class.php:81
 #| msgid "Version information"
@@ -6205,10 +6204,9 @@ msgstr ""
 "[kbd]pma__users[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Använd tabeller"
+msgstr "Användartabell"
 
 #: libraries/config/messages.inc.php:457
 #| msgid ""
@@ -6222,13 +6220,11 @@ msgstr ""
 "[kbd]pma__usergroups[/kbd]"
 
 #: libraries/config/messages.inc.php:458
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Använd värdtabell"
+msgstr "Användargruppstabell"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: [kbd]"
 #| "pma__userconfig[/kbd]"
@@ -6236,12 +6232,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
-"förslag: [kbd]pma__userconfig[/kbd]"
+"Lämna tomt för att stänga av funktionen att dölja och visa "
+"navigationsobjekt, förslag: [kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabell för dolda navigationsobjekt"
 
 #: libraries/config/messages.inc.php:462
 msgid "User for config auth"
@@ -7854,7 +7850,7 @@ msgstr[1] "%s andra resultat hittade"
 
 #: libraries/navigation/NavigationTree.class.php:828
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Expandera/Vik ihop"
 
 #: libraries/navigation/NavigationTree.class.php:1044
 #| msgid "filter databases by name"
@@ -7900,10 +7896,9 @@ msgid "Database operations"
 msgstr "Databasoperationer"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Visa tips"
+msgstr "Visa dolda objekt"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:31
 #| msgctxt "Create new column"
@@ -8973,10 +8968,9 @@ msgid "Configurable menus"
 msgstr "Anpassningsbara menyer"
 
 #: libraries/relation.lib.php:279
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Ladda om navigeringsram"
+msgstr "Visa/dölj navigationsobjekt"
 
 #: libraries/relation.lib.php:285
 msgid "Quick steps to setup advanced features:"
@@ -9291,40 +9285,34 @@ msgid "Generate Password:"
 msgstr "Generera lösenord:"
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Replikeringsstatus"
+msgstr "Replikering startade framgångsrikt."
 
 #: libraries/replication_gui.lib.php:909
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Master-replikering"
+msgstr "Fel vid start av replikering."
 
 #: libraries/replication_gui.lib.php:913
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Diagram skapadesframgångsrikt."
+msgstr "Replikering stoppades framgångsrikt."
 
 #: libraries/replication_gui.lib.php:914
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Master-replikering"
+msgstr "Fel vid stoppande av replikering."
 
 #: libraries/replication_gui.lib.php:918
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Replikeringsstatus"
+msgstr "Replikering återställdes framgångsrikt."
 
 #: libraries/replication_gui.lib.php:919
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Master-replikering"
+msgstr "Fel vid återställning av replikering."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
@@ -11580,22 +11568,19 @@ msgid "User groups"
 msgstr "Användargrupper"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Serverversion"
+msgstr "Flikar på servernivå"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Databas-server"
+msgstr "Flikar på databasnivå"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Tabellkommentarer"
+msgstr "Flikar på tabellnivå"
 
 #: libraries/server_user_groups.lib.php:110
 #| msgid "Views"
@@ -11625,22 +11610,19 @@ msgid "Group name:"
 msgstr "Gruppnamn:"
 
 #: libraries/server_user_groups.lib.php:268
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Serverversion"
+msgstr "Flikar på servernivå"
 
 #: libraries/server_user_groups.lib.php:271
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Databas-server"
+msgstr "Flikar på databasnivå"
 
 #: libraries/server_user_groups.lib.php:274
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Tabellkommentarer"
+msgstr "Flikar på tabellnivå"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
