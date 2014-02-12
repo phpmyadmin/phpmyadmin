@@ -251,6 +251,7 @@ ul.tabs li.active a {
 
 .tabs_contents {
     margin-top: 1em;
+    float: left;
 }
 
 .tabs_contents fieldset {
