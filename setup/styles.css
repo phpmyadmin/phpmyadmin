@@ -1,6 +1,7 @@
 /* global styles */
 
 body {
+    margin-right: auto;
     padding-bottom: 1em;
     color: #444;
     font: .8em sans-serif;
@@ -78,6 +79,7 @@ h1 {
 /* page contents and footer layout */
 
 #page {
+    margin-right: 25px;
     margin-left: 220px;
 }
 
