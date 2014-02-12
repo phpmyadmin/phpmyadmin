@@ -711,6 +711,30 @@ RTE.ROUTINE = {
                     $ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
                         PMA_addDatepicker($(this).css('width', '95%'));
                     });
+                    /*
+                    * Define the function if the user presses enter
+                    */
+                    $('form.rte_form').live('submit', function (event) {
+                        event.preventDefault();
+                        /**
+                         * @var data Form data to be sent in the AJAX request
+                         */
+                        var data = $(this).serialize();
+                        $msg = PMA_ajaxShowMessage(
+                            PMA_messages.strProcessingRequest
+                        );
+                        var url = $(this).attr('action');
+                        $.post(url, data, function (data) {
+                            if (data.success === true) {
+                                // Routine executed successfully
+                                PMA_ajaxRemoveMessage($msg);
+                                PMA_slidingMessage(data.message);
+                                $ajaxDialog.remove();
+                            } else {
+                                PMA_ajaxShowMessage(data.error, false);
+                            }
+                        });
+                    });
                 } else {
                     // Routine executed successfully
                     PMA_slidingMessage(data.message);
