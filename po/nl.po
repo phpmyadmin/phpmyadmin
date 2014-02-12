@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-05 13:05+0200\n"
-"Last-Translator: Dieter <ruleant@users.sourceforge.net>\n"
+"PO-Revision-Date: 2014-02-12 11:57+0200\n"
+"Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/4-1/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -4437,7 +4437,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow third party framing"
-msgstr "Framing van derden toestaan"
+msgstr "Frames van derden toestaan"
 
 #: libraries/config/messages.inc.php:21
 msgid "Show &quot;Drop database&quot; link to normal users"
