@@ -248,7 +248,6 @@ $(function () {
         /** mouseleave */
         $(this).addClass('hide');
     });
-    PMA_showFullName($('#pma_navigation_tree_content'));
 
     PMA_showCurrentNavigation();
 });
@@ -415,6 +414,7 @@ function PMA_showCurrentNavigation() {
             }
         }
     }
+    PMA_showFullName($('#pma_navigation_tree_content'));
 
     function handleTableOrDb(table, $dbItem) {
         if (table) {
