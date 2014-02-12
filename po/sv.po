@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-11 10:21+0200\n"
+"PO-Revision-Date: 2014-02-12 10:14+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -576,7 +576,6 @@ msgid "Output"
 msgstr "Utdata"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -584,8 +583,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Välj \"GeomFromText\" i \"Funktions\" kolumnen och klistra in strängen i "
-"\"Value\" fältet"
+"Välj \"GeomFromText\" i kolumnen \"Funktion\" och klistra in strängen i fältet "
+"\"Värde\"."
 
 #: import.php:116
 #, php-format
@@ -1511,7 +1510,7 @@ msgstr "Laddar…"
 
 #: js/messages.php:224
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Förfrågan avbruten!!"
 
 #: js/messages.php:225
 msgid "Processing Request"
@@ -1883,14 +1882,13 @@ msgid "Hide Panel"
 msgstr "Dölj Panel"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items."
-msgstr "Visa logotypen i navigeringspanelen"
+msgstr "Visa dolda navigationsträdsobjekt."
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "Den begärda sidan hittades inte i historien, kan det ha upphört."
+msgstr "Den begärda sidan hittades inte i historien, den kan ha upphört."
 
 #: js/messages.php:378 setup/lib/index.lib.php:157
 #, php-format
@@ -2775,7 +2773,7 @@ msgstr "Kan inte läsa (flyttad) uppladdad fil."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Kör nu Git version %1$s fron grenen %2$s."
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
@@ -4399,32 +4397,28 @@ msgid "Could not connect to the database server!"
 msgstr "Kunde inte ansluta till databasservern!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
-msgstr "Tomt användarnamn vid användning av config-autentisering"
+msgstr "Tomt användarnamn vid användning av config-autentisering!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid "Empty signon session name while using signon authentication method!"
-msgstr "Tomt sessionsnamn för signon vid användning av signon-autentisering"
+msgstr "Tomt sessionsnamn för signon vid användning av signon-autentisering!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using signon authentication method!"
-msgstr "Tom URL för signon vid användning av signon-autentisering"
+msgstr "Tom URL för signon vid användning av signon-autentisering!"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Tom phpMyAdmin kontrollanvändare vid användning av phpMyAdmin configuration "
-"storage"
+"Tom phpMyAdmin-kontrollanvändare vid användning av phpMyAdmin configuration "
+"storage!"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
@@ -4459,7 +4453,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Tillåt inloggning till valfri MySQL-server"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4469,9 +4462,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
-"Vid aktivering tillåts att en sida som ligger på en annan domän att anropa "
-"phpMyAdmin i en ram, vilket är en potentiell [strong] säkerhetshål[/strong] "
-"och tillåter mellan ramar scripting-angrepp"
+"Om detta aktiveras tillåts att en sida som ligger på en annan domän anropar "
+"phpMyAdmin i en ram, vilket är ett potentiellt [strong]säkerhetshål[/strong] "
+"som tillåter XSS-angrepp (cross-frame scripting)."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -5537,7 +5530,7 @@ msgstr "Minnesgräns"
 
 #: libraries/config/messages.inc.php:432
 msgid "Show logo in navigation panel."
-msgstr "Visa logotypen i navigeringspanelen."
+msgstr "Visa logotyp i navigationspanelens."
 
 #: libraries/config/messages.inc.php:433
 msgid "Display logo"
@@ -5866,10 +5859,9 @@ msgid "Allow root login"
 msgstr "Tillåt root-inloggning"
 
 #: libraries/config/messages.inc.php:550
-#, fuzzy
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
-msgstr "HTTP Basic Auth Realm namn att visa när man gör HTTP Auth"
+msgstr "Namn på HTTP Basic Auth Realm att visa när man gör HTTP Auth."
 
 #: libraries/config/messages.inc.php:551
 msgid "HTTP Realm"
@@ -6281,12 +6273,14 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Både denna tabell och användargruppstabellen behövs för att aktivera "
+"funktionen anpassningsbara menyer; om en av dem lämnas tom inaktiveras "
+"funktionen, förslag: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:705
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "Använd tabeller"
+msgstr "Användartabell"
 
 #: libraries/config/messages.inc.php:706
 msgid ""
@@ -6294,15 +6288,16 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Både denna tabell och användartabellen behövs för att aktivera funktionen "
+"anpassningsbara menyer; om en av dem lämnas tom inaktiveras funktionen, "
+"förslag: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:707
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Använd värdtabell"
+msgstr "Användargruppstabell"
 
 #: libraries/config/messages.inc.php:708
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6310,12 +6305,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
-"förslag: [kbd]pma__userconfig[/kbd]"
+"Lämna tomt för att stänga av funktionen att dölja och visa "
+"navigationsobjekt, förslag: [kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:709
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Tabell för dolda navigationsobjekt"
 
 #: libraries/config/messages.inc.php:711
 msgid "User for config auth"
@@ -6780,6 +6775,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Du använder tillägget mysql vilket avråds från i phpMyAdmin. Överväg att "
+"installera tillägget mysqli."
 
 #: libraries/dbi/DBIDrizzle.class.php:150 libraries/dbi/DBIMysql.class.php:170
 #: libraries/dbi/DBIMysqli.class.php:229
@@ -7947,7 +7944,7 @@ msgstr[1] "%s andra resultat hittade"
 
 #: libraries/navigation/NavigationTree.class.php:840
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Expandera/Vik ihop"
 
 #: libraries/navigation/NavigationTree.class.php:1056
 msgid "Filter databases by name or regex"
@@ -7989,10 +7986,9 @@ msgid "Database operations"
 msgstr "Databasoperationer"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Visa tips"
+msgstr "Visa dolda objekt"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:33
 msgctxt "Create new database"
@@ -8972,7 +8968,6 @@ msgstr ""
 "format)."
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Appends text to a string. The only option is the text to be appended "
 #| "(enclosed in single quotes, default empty string)."
@@ -8981,8 +8976,9 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
-"Lägger till text till en sträng. Det enda alternativet är den text som ska "
-"läggas till (inom enkla citattecken, default är tom sträng)."
+"Lägger till text före eller efter en sträng. Det första valet är text att "
+"läggas till före strängen, andra valet läggs till efter (inom enkla "
+"citattecken, standardvärde är tom sträng)."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -9088,10 +9084,9 @@ msgid "Configurable menus"
 msgstr "Anpassningsbara menyer"
 
 #: libraries/relation.lib.php:279
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "Ladda om navigeringsram"
+msgstr "Visa/dölj navigationsobjekt"
 
 #: libraries/relation.lib.php:285
 msgid "Quick steps to setup advanced features:"
@@ -9403,40 +9398,34 @@ msgid "Generate Password:"
 msgstr "Generera lösenord:"
 
 #: libraries/replication_gui.lib.php:903
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Replikeringsstatus"
+msgstr "Replikering startade framgångsrikt."
 
 #: libraries/replication_gui.lib.php:904
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Master-replikering"
+msgstr "Fel vid start av replikering."
 
 #: libraries/replication_gui.lib.php:907
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Diagram skapadesframgångsrikt."
+msgstr "Replikering stoppades framgångsrikt."
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Master-replikering"
+msgstr "Fel vid stoppande av replikering."
 
 #: libraries/replication_gui.lib.php:911
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Replikeringsstatus"
+msgstr "Replikering återställdes framgångsrikt."
 
 #: libraries/replication_gui.lib.php:912
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Master-replikering"
+msgstr "Fel vid återställning av replikering."
 
 #: libraries/replication_gui.lib.php:915
 msgid "Success."
@@ -11701,22 +11690,19 @@ msgid "User groups"
 msgstr "Användargrupper"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Serverversion"
+msgstr "Flikar på servernivå"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Databas-server"
+msgstr "Flikar på databasnivå"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Tabellkommentarer"
+msgstr "Flikar på tabellnivå"
 
 #: libraries/server_user_groups.lib.php:110
 msgid "View users"
@@ -11743,22 +11729,19 @@ msgid "Group name:"
 msgstr "Gruppnamn:"
 
 #: libraries/server_user_groups.lib.php:268
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Serverversion"
+msgstr "Flikar på servernivå"
 
 #: libraries/server_user_groups.lib.php:271
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Databas-server"
+msgstr "Flikar på databasnivå"
 
 #: libraries/server_user_groups.lib.php:274
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Tabellkommentarer"
+msgstr "Flikar på tabellnivå"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
