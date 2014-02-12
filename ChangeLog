@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - bug #4276 Login loop on session expiry
 - bug #4249 Incorrect number of result rows for SQL with subqueries
 - bug #4275 Broken Link to php extension manual
+- bug #4053 List of procedures is not displayed after executing with Enter
 
 4.1.7.0 (2014-02-09)
 - bug #4245 initial Browse query does not match sorting order
