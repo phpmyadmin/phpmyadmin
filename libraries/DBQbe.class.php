@@ -1343,8 +1343,7 @@ class PMA_DbQbe
      */
     public function getSelectionForm($cfgRelation)
     {
-        $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';
-        $html_output .= '<fieldset>';
+        $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';        $html_output .= '<fieldset>';
 
         $html_output .= $this->_getSavedSearchesField();
 
@@ -1395,8 +1394,7 @@ class PMA_DbQbe
         $html_output .= '</form>';
         return $html_output;
     }
-
-    /**
+/**
      * Get fields to display
      *
      * @return string
@@ -1415,6 +1413,7 @@ class PMA_DbQbe
                 . htmlspecialchars($search)
                 . '</option>';
         }
+
         $html_output .= '</select>';
         $html_output .= '<input type="text" name="searchName" id="searchName"
             value="" />';
@@ -1422,6 +1421,7 @@ class PMA_DbQbe
             value="" />';
         $html_output .= '<input type="submit" name="saveSearch" id="saveSearch"
             value="' . __('Save search') . '" />';
+
         return $html_output;
     }
 
@@ -1456,4 +1456,4 @@ class PMA_DbQbe
         return $criteriaColumnCount;
     }
 }
-?>
+
