@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-06 14:27+0200\n"
+"PO-Revision-Date: 2014-02-12 12:01+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -4503,7 +4503,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
-msgstr "Framing van derden toestaan"
+msgstr "Frames van derden toestaan"
 
 #: libraries/config/messages.inc.php:27
 msgid "Show \"Drop database\" link to normal users"
@@ -6518,24 +6518,22 @@ msgid "Show statistics"
 msgstr "Toon statistieken"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
-"Markeer in gebruik zijnde tabellen, waardoor het mogelijk om een databanken "
-"die deze tabellen bevat te tonen"
+"Markeer tabellen die in gebruik zijn en maak het mogelijk om databanken met "
+"geblokkeerde tabellen te tonen."
 
 #: libraries/config/messages.inc.php:743
 msgid "Skip locked tables"
 msgstr "Herken vergrendelde tabellen"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid "Requires SQL Validator to be enabled"
 msgid "Requires SQL Validator to be enabled."
-msgstr "Vereist dat SQL-Validator geactiveerd is"
+msgstr "Vereist dat SQL-Validator geactiveerd is."
 
 #: libraries/config/messages.inc.php:750 libraries/replication_gui.lib.php:400
 #: libraries/replication_gui.lib.php:837 libraries/replication_gui.lib.php:853
@@ -6546,7 +6544,6 @@ msgid "Password"
 msgstr "Wachtwoord"
 
 #: libraries/config/messages.inc.php:751
-#, fuzzy
 #| msgid ""
 #| "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 #| "installed"
@@ -6554,15 +6551,14 @@ msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed."
 msgstr ""
-"[strong]Waarschuwing:[/strong] Vereist dat de extensie PHP SOAP of PEAR SOAP "
-"geïnstalleerd is"
+"[strong]Waarschuwing:[/strong] vereist dat de extensie PHP SOAP of PEAR SOAP "
+"geïnstalleerd is."
 
 #: libraries/config/messages.inc.php:752
 msgid "Enable SQL Validator"
 msgstr "SQL-Validator activeren"
 
 #: libraries/config/messages.inc.php:753
-#, fuzzy
 #| msgid ""
 #| "If you have a custom username, specify it here (defaults to "
 #| "[kbd]anonymous[/kbd])"
@@ -6570,7 +6566,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Geef eventueel aangepaste gebruikersnaam op (standaard [kbd]anonymous[/kbd])"
+"Geef eventueel aangepaste gebruikersnaam op (standaard "
+"[kbd]anonymous[/kbd])."
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -6578,19 +6575,17 @@ msgid "Username"
 msgstr "Gebruikersnaam"
 
 #: libraries/config/messages.inc.php:755
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
 msgstr ""
 "Een waarschuwing wordt getoond op de hoofdpagina als Suhosin gedetecteerd "
-"wordt"
+"wordt."
 
 #: libraries/config/messages.inc.php:756
 msgid "Suhosin warning"
 msgstr "Suhosin-waarschuwing"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)"
@@ -6599,14 +6594,13 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
 "Tekstveldgrootte (kolommen) in bewerkmodus, deze waarde wordt benadrukt "
-"weergegeven voor SQL-querytekstvelden (*2) en voor het queryscherm (*1.25)"
+"weergegeven voor SQL-querytekstvelden (*2) en voor het queryscherm (*1.25)."
 
 #: libraries/config/messages.inc.php:758
 msgid "Textarea columns"
 msgstr "Tekstveldkolommen"
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)"
@@ -6615,42 +6609,37 @@ msgid ""
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
 "Tekstveldgrootte (rijen) in bewerkmodus, deze waarde wordt benadrukt "
-"weergegeven voor SQL-querytekstvelden (*2) en voor het queryscherm (*1.25)"
+"weergegeven voor SQL-querytekstvelden (*2) en voor het queryscherm (*1.25)."
 
 #: libraries/config/messages.inc.php:760
 msgid "Textarea rows"
 msgstr "Tekstveldregels"
 
 #: libraries/config/messages.inc.php:761
-#, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
-msgstr "Titel van het browserscherm wanneer een databank is geselecteerd"
+msgstr "Titel van het browserscherm wanneer een databank geselecteerd is."
 
 #: libraries/config/messages.inc.php:763
-#, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
-msgstr "Titel van het browserscherm wanneer niets geselecteerd is"
+msgstr "Titel van het browserscherm wanneer niets geselecteerd is."
 
 #: libraries/config/messages.inc.php:764
 msgid "Default title"
 msgstr "Standaard titel"
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
-msgstr "Titel van het browserscherm wanneer een server is geselecteerd"
+msgstr "Titel van het browserscherm wanneer een server geselecteerd is."
 
 #: libraries/config/messages.inc.php:767
-#, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
-msgstr "Titel van het browserscherm wanneer een tabel is geselecteerd"
+msgstr "Titel van het browserscherm wanneer een tabel geselecteerd is."
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
 #| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
@@ -6662,38 +6651,35 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"Voer proxies in als [kbd]IP: trusted HTTP header[/kbd]. Het volgende "
+"Voer proxy's in als [kbd]IP: trusted HTTP header[/kbd]. Het volgende "
 "voorbeeld geeft aan dat phpMyAdmin een HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header moet vertrouwen wanneer deze afkomstig is van het IP 1.2.3.4:[br]"
-"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"For) header moet vertrouwen wanneer deze afkomstig is van het IP "
+"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/config/messages.inc.php:770
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Lijst van vertrouwde proxyservers"
 
 #: libraries/config/messages.inc.php:771
-#, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr ""
-"Directory op de server waar te importeren bestanden kunnen worden geüpload"
+"Directory op de server waar te importeren bestanden kunnen worden ge-upload."
 
 #: libraries/config/messages.inc.php:772
 msgid "Upload directory"
 msgstr "Uploadfolder"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
-msgstr "Maak het mogelijk om te zoeken binnen de gehele databank"
+msgstr "Toestaan om te zoeken binnen de volledige databank."
 
 #: libraries/config/messages.inc.php:774
 msgid "Use database search"
 msgstr "Databankzoekfunctie gebruiken"
 
 #: libraries/config/messages.inc.php:775
-#, fuzzy
 #| msgid ""
 #| "When disabled, users cannot set any of the options below, regardless of "
 #| "the checkbox on the right"
@@ -6702,7 +6688,7 @@ msgid ""
 "checkbox on the right."
 msgstr ""
 "Wanneer uitgeschakeld, kunnen gebruikers geen van de opties onderaan "
-"wijzigen, onafhankelijk van het aanvinkveld aan de rechterkant"
+"wijzigen, onafhankelijk van het aanvinkveld aan de rechterkant."
 
 #: libraries/config/messages.inc.php:776
 msgid "Enable the Developer tab in settings"
@@ -6713,11 +6699,11 @@ msgid "Check for latest version"
 msgstr "Controleren op de meest recente versie"
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
-"Schakel de controle op de nieuwste versie in op de hoofdpagina van phpMyAdmin"
+"Schakel de controle op de nieuwste versie in op de hoofdpagina van "
+"phpMyAdmin."
 
 #: libraries/config/messages.inc.php:779 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
@@ -6727,7 +6713,6 @@ msgid "Version check"
 msgstr "Versiecontrole"
 
 #: libraries/config/messages.inc.php:780
-#, fuzzy
 #| msgid ""
 #| "The url of the proxy to be used when retrieving the information about the "
 #| "latest version of phpMyAdmin or when submitting error reports. You need "
@@ -6743,7 +6728,7 @@ msgstr ""
 "informatie over de meest recente versie van phpMyAdmin of bij het verzenden "
 "van foutmeldingsverslagen. U heeft dit nodig als de server waarop phpMyAdmin "
 "geïnstalleerd is geen directe toegang tot het internet heeft. Het formaat "
-"is: \"servernaam:poortnummer\""
+"is: \"servernaam:poortnummer\"."
 
 #: libraries/config/messages.inc.php:781
 msgid "Proxy url"
@@ -6765,17 +6750,15 @@ msgid "Proxy username"
 msgstr "Proxy gebruikersnaam"
 
 #: libraries/config/messages.inc.php:784
-#, fuzzy
 #| msgid "The password for authenticating with the proxy"
 msgid "The password for authenticating with the proxy."
-msgstr "Het wachtwoord voor de authenticatie met de proxy"
+msgstr "Het wachtwoord voor de authenticatie met de proxy."
 
 #: libraries/config/messages.inc.php:785
 msgid "Proxy password"
 msgstr "Proxy wachtwoord"
 
 #: libraries/config/messages.inc.php:787
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
 #| "compression for import and export operations"
@@ -6783,38 +6766,36 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Gebruik [a@http://nl.wikipedia.org/wiki/ZIP_(bestandstype)]ZIP[/a]-"
-"compressie voor import- en exportoperaties"
+"Gebruik "
+"[a@http://nl.wikipedia.org/wiki/ZIP_(bestandstype)]ZIP[/a]-compressie voor "
+"import- en exportoperaties."
 
 #: libraries/config/messages.inc.php:788
 msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:789
-#, fuzzy
 #| msgid "Enter your public key for your domain reCaptcha service"
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr "Voer uw openbare sleutel in voor uw domein reCaptcha service"
+msgstr "Voer uw openbare sleutel in voor de reCaptcha service op uw domein."
 
 #: libraries/config/messages.inc.php:790
 msgid "Public key for reCaptcha"
 msgstr "Openbare sleutel voor reCaptcha"
 
 #: libraries/config/messages.inc.php:791
-#, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service"
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr "Voer uw private sleutel in voor uw domein reCaptcha service"
+msgstr "Voer uw private sleutel in voor de reCaptcha service op uw domein."
 
 #: libraries/config/messages.inc.php:792
 msgid "Private key for reCaptcha"
 msgstr "Private sleutel voor reCaptcha"
 
 #: libraries/config/messages.inc.php:794
-#, fuzzy
 #| msgid "Choose the default action when sending error reports"
 msgid "Choose the default action when sending error reports."
-msgstr "Kies de standaard actie bij het verzenden van foutmeldingsverslagen"
+msgstr "Kies de standaard actie bij het verzenden van foutmeldingsverslagen."
 
 #: libraries/config/messages.inc.php:795
 msgid "Send error reports"
