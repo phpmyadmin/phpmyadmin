@@ -21,7 +21,6 @@
  */
 AJAX.registerTeardown('db_qbe.js', function () {
     $("#existingSavedSearches").die('change');
-<<<<<<< HEAD
     $("#saveSearch").die('click');
 });
 
@@ -42,10 +41,6 @@ $.fn.serializeObject = function()
     return o;
 };
 
-=======
-});
-
->>>>>>> 1ef99b285bb5e70ea7c9975075f4598cd087aacf
 AJAX.registerOnload('db_qbe.js', function () {
 
     /**
@@ -54,20 +49,16 @@ AJAX.registerOnload('db_qbe.js', function () {
     $("#existingSavedSearches").live('change', function (event) {
         event.preventDefault();
 
-<<<<<<< HEAD
         //$('#formQBE').submit();
 
         /*var selectedElement = $('#' + this.id + ' option:selected');
-=======
-        var selectedElement = $('#' + this.id + ' option:selected');
->>>>>>> 1ef99b285bb5e70ea7c9975075f4598cd087aacf
         var nameElement = $('#searchName');
 
         if (selectedElement.val() == '') {
             nameElement.val('');
             return;
         }
-<<<<<<< HEAD
+
         nameElement.val(selectedElement.text());*/
 
         /*// Code to add columns.
@@ -154,10 +145,5 @@ AJAX.registerOnload('db_qbe.js', function () {
         jsonForm['nbCriterias'] = nbCriterias;
 
         $('#criterias').val(JSON.stringify(jsonForm));
-=======
-        nameElement.val(selectedElement.text());
-
-        //Then : load the data.
->>>>>>> 1ef99b285bb5e70ea7c9975075f4598cd087aacf
     }); // end Select saved search
 });

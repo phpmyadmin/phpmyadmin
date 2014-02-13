@@ -15,9 +15,12 @@ require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 
 $response = PMA_Response::getInstance();
-$header = $response->getHeader();
-$scripts = $header->getScripts();
-$scripts->addFile('db_qbe.js');
+
+if ($GLOBALS['savedsearcheswork']) {
+    $header = $response->getHeader();
+    $scripts = $header->getScripts();
+    $scripts->addFile('db_qbe.js');
+}
 
 // Gets the relation settings
 $cfgRelation = PMA_getRelationsParam();
@@ -50,12 +53,18 @@ $url_params['goto'] = 'db_qbe.php';
 require 'libraries/db_info.inc.php';
 
 if (!empty($_REQUEST['criterias'])) {
-    require 'libraries\SavedSearches.php';
+    include 'libraries/SavedSearches.php';
+    //var_dump($GLOBALS);
     $savedSearch = new PMA_SavedSearches($GLOBALS);
-    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user']);
-    $savedSearch->setDbname($_REQUEST['db']);
-    $savedSearch->setCriterias($_REQUEST['criterias']);
-    $savedSearch->saveSearch();
+    $saveResult = $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+        ->setDbname($_REQUEST['db'])
+        ->setSearchName($_REQUEST['searchName'])
+        ->setCriterias($_REQUEST['criterias'])
+        ->saveSearch();
+    if (!$saveResult) {
+        $response->addHTML('raté');
+        exit();
+    }
 }
 
 if ($message_to_display) {
