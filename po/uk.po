@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-06 00:21+0200\n"
+"PO-Revision-Date: 2014-02-13 14:49+0200\n"
 "Last-Translator: Oleksandr <chesterroy@gmail.com>\n"
-"Language-Team: Ukrainian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"uk/>\n"
+"Language-Team: Ukrainian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -219,16 +219,16 @@ msgid "The database name is empty!"
 msgstr "Ім'я бази даних порожнє!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Базу даних %1$s було перейменовано в %2$s"
+msgstr "Базу даних %1$s було перейменовано в %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Базу даних %1$s було скопійовано до %2$s"
+msgstr "Базу даних %1$s було скопійовано до %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -295,10 +295,9 @@ msgstr[1] "%s таблиці"
 msgstr[2] "%s таблиць"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Необхідно вибрати принаймі один Стовпчик для показу"
+msgstr "Необхідно обрати принаймні один стовпчик для показу!"
 
 #: db_qbe.php:70
 #, php-format
@@ -583,7 +582,6 @@ msgid "Output"
 msgstr "Вивід"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -591,8 +589,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Оберіть \"GeomFromText\" зі стовпчика \"Функції\" стовпчика та вставте нижче "
-"у поле \"Значення\""
+"Оберіть \"GeomFromText\" зі стовпчика \"Функції\" стовпчика та вставте нижче у "
+"поле \"Значення\"."
 
 #: import.php:116
 #, php-format
@@ -614,10 +612,9 @@ msgstr "Закладку було видалено."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Неможливо прочитати файл"
+msgstr "Неможливо прочитати файл!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -640,13 +637,12 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:481
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "Неможливо конвертувати кодування файлів без бібліотеки кодування"
+msgstr "Неможливо конвертувати кодування файлів без бібліотеки кодування!"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -655,10 +651,10 @@ msgstr ""
 "інсталювання!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Закладка %s створена"
+msgstr "Закладка %s створена."
 
 #: import.php:562
 #, php-format
@@ -942,16 +938,14 @@ msgid "Missing value in the form!"
 msgstr "Не задано значення для форми!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Введіть вірний номер"
+msgstr "Введіть вірний номер!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid length!"
-msgstr "Введіть вірний номер"
+msgstr "Введіть вірну довжину!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1019,10 +1013,9 @@ msgid "Connections / Processes"
 msgstr "З'єднань / Процесів"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Несумісна конфігурація локального монітору"
+msgstr "Несумісна конфігурація локального монітору!"
 
 #: js/messages.php:77
 msgid ""
@@ -1177,10 +1170,9 @@ msgid "Add chart to grid"
 msgstr "Додати графік до сітки"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "Будь ласка додайте щонайменше одну змінну до ряду"
+msgstr "Будь ласка додайте щонайменше одну змінну до ряду!"
 
 #: js/messages.php:121 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1269,10 +1261,10 @@ msgstr "Вимкнено %s"
 
 #. l10n: %d seconds
 #: js/messages.php:141
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Встановити long_query_time у %d секунд"
+msgstr "Встановити long_query_time у %d секунд."
 
 #: js/messages.php:143
 msgid ""
@@ -1480,10 +1472,9 @@ msgid "Import monitor configuration"
 msgstr "Імпорт налаштувань монітору"
 
 #: js/messages.php:202
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "Будь ласка, оберіть файл, який ви бажаєте імпортувати"
+msgstr "Будь ласка, оберіть файл, який ви бажаєте імпортувати."
 
 #: js/messages.php:204
 msgid "Analyse Query"
@@ -1535,7 +1526,7 @@ msgstr "Завантаження…"
 
 #: js/messages.php:224
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Запит скасовано!"
 
 #: js/messages.php:225
 msgid "Processing Request"
@@ -1640,10 +1631,9 @@ msgid "Values for a new column"
 msgstr "Значення для нового стовпчика"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "Введіть кожне значення в окреме поле"
+msgstr "Введіть кожне значення в окреме поле."
 
 #: js/messages.php:261
 #, php-format
@@ -1785,10 +1775,9 @@ msgid "Select Foreign Key"
 msgstr "Обрати зовнішній ключ"
 
 #: js/messages.php:321
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "Будь ласка, оберіть первинний ключ або унікальний ключ"
+msgstr "Будь ласка, оберіть первинний ключ або унікальний ключ!"
 
 #: js/messages.php:322 pmd_general.php:101
 msgid "Choose column to display"
@@ -1803,22 +1792,21 @@ msgstr ""
 "Бажаєте продовжити?"
 
 #: js/messages.php:329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Додати опцію для колонки "
+msgstr "Додати опцію для колонки \"%s\"."
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "Створено %d об'єкт(ів)"
+msgstr "Створено %d об'єкт(ів)."
 
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Натисніть Escape для відміни редагування"
+msgstr "Натисніть Escape для відміни редагування."
 
 #: js/messages.php:334
 msgid ""
@@ -1829,10 +1817,9 @@ msgstr ""
 "залишити цю сторінку перед збереженням даних?"
 
 #: js/messages.php:335
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Перетягніть для зміни порядку"
+msgstr "Перетягніть для зміни порядку."
 
 #: js/messages.php:336
 #, fuzzy
