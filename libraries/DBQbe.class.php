@@ -1346,7 +1346,9 @@ class PMA_DbQbe
         $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';
         $html_output .= '<fieldset>';
 
-        $html_output .= $this->_getSavedSearchesField();
+        if ($GLOBALS['savedsearcheswork']) {
+            $html_output .= $this->_getSavedSearchesField();
+        }
 
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements

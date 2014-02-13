@@ -58,6 +58,7 @@ AJAX.registerOnload('db_qbe.js', function () {
             nameElement.val('');
             return;
         }
+
         nameElement.val(selectedElement.text());*/
 
         /*// Code to add columns.
