@@ -119,12 +119,12 @@ Manually creating the file
 
 To manually create the file, simply use your text editor to create the
 file :file:`config.inc.php` (you can copy :file:`config.sample.inc.php` to get
-minimal configuration file) in the main (top-level) phpMyAdmin
+a minimal configuration file) in the main (top-level) phpMyAdmin
 directory (the one that contains :file:`index.php`). phpMyAdmin first
 loads :file:`libraries/config.default.php` and then overrides those values
 with anything found in :file:`config.inc.php`. If the default value is
 okay for a particular setting, there is no need to include it in
-:file:`config.inc.php`. You'll need a few directives to get going, a
+:file:`config.inc.php`. You'll probably need only a few directives to get going; a
 simple configuration may look like this:
 
 .. code-block:: xml+php
@@ -188,7 +188,7 @@ this.
 
 Next, open ``setup/`` in your browser. If you have an existing configuration,
 use the ``Load`` button to bring its content inside the setup panel.
-Note that **changes are not saved to disk until explicitly choose ``Save``**
+Note that **changes are not saved to disk until you explicitly choose ``Save``**
 from the *Configuration* area of the screen. Normally the script saves the new
 :file:`config.inc.php` to the ``config/`` directory, but if the webserver does
 not have the proper permissions you may see the error "Cannot load or
@@ -229,7 +229,7 @@ options which the setup script does not provide.
    configure this yourself. Such configuration prevents from possible
    path exposure and cross side scripting vulnerabilities that might
    happen to be found in that code.
-#. It is generally good idea to protect public phpMyAdmin installation
+#. It is generally a good idea to protect a public phpMyAdmin installation
    against access by robots as they usually can not do anything good
    there. You can do this using ``robots.txt`` file in root of your
    webserver or limit access by web server configuration, see
@@ -245,7 +245,7 @@ options which the setup script does not provide.
 phpMyAdmin configuration storage
 ++++++++++++++++++++++++++++++++
 
-For a whole set of new features (bookmarks, comments, :term:`SQL`-history,
+For a whole set of additional features (bookmarks, comments, :term:`SQL`-history,
 tracking mechanism, :term:`PDF`-generation, column contents transformation,
 etc.) you need to create a set of special tables.  Those tables can be located
 in your own database, or in a central database for a multi-user installation
@@ -397,9 +397,11 @@ Cookie authentication mode
   (for example, if you're running :term:`IIS`).
 * Obviously, the user must enable cookies in the browser, but this is
   now a requirement for all authentication modes.
-* With this mode, the user can truly log out of phpMyAdmin and log in
-  back with the same username.
-* If you want to log in to arbitrary server see :config:option:`$cfg['AllowArbitraryServer']` directive.
+* With this mode, the user can truly log out of phpMyAdmin and log
+  back in with the same username.
+* If you want to allow users to enter any hostname to connect (rather than only
+  servers that are configured in :file:`config.inc.php`),
+  see the :config:option:`$cfg['AllowArbitraryServer']` directive.
 * As mentioned in the :ref:`require` section, having the ``mcrypt`` extension will
   speed up access considerably, but is not required.
 
@@ -425,12 +427,11 @@ Signon authentication mode
 Config authentication mode
 --------------------------
 
-* This mode is the less secure one because it requires you to fill the
+* This mode is sometimes the less secure one because it requires you to fill the
   :config:option:`$cfg['Servers'][$i]['user']` and
   :config:option:`$cfg['Servers'][$i]['password']`
   fields (and as a result, anyone who can read your :file:`config.inc.php`
-  can discover your username and password).  But you don't need to setup
-  a "controluser" here: using the :config:option:`$cfg['Servers'][$i]['only_db']` might be enough.
+  can discover your username and password).
 * In the :ref:`faqmultiuser` section, there is an entry explaining how
   to protect your configuration file.
 * For additional security in this mode, you may wish to consider the
@@ -477,7 +478,7 @@ since this link provides funding for phpMyAdmin.
 Securing your phpMyAdmin installation
 +++++++++++++++++++++++++++++++++++++
 
-The phpMyAdmin team tries hardly to make the application secure, however there
+The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
 * remove ``setup`` directory from phpMyAdmin, you will probably not 
