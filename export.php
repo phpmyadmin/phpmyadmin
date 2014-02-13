@@ -391,6 +391,12 @@ if (!defined('TESTSUITE')) {
             if (! isset($allrows)) {
                 $allrows = '';
             }
+            if (! isset($limit_to)) {
+                $limit_to = 0;
+            }
+            if (! isset($limit_from)) {
+                $limit_from = 0;
+            }
             PMA_exportTable(
                 $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,

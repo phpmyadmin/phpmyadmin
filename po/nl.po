@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-03 13:33+0100\n"
-"PO-Revision-Date: 2014-02-04 15:31+0200\n"
+"PO-Revision-Date: 2014-02-05 13:11+0200\n"
 "Last-Translator: Dieter <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -4462,38 +4462,33 @@ msgid "Could not connect to the database server!"
 msgstr "Kan geen verbinding maken met de databank server!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
-msgstr "Lege gebruikersnaam bij gebruik van het authenticatietype config"
+msgstr "Lege gebruikersnaam bij gebruik van het authenticatietype config!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid "Empty signon session name while using signon authentication method!"
 msgstr ""
 "Lege signon-sessienaam wanneer u gebruik maakt van het authenticatietype "
-"signon"
+"signon!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using signon authentication method!"
 msgstr ""
-"Lege signon-URL wanneer u gebruik maakt van het authenticatietype signon"
+"Lege signon-URL wanneer u gebruik maakt van het authenticatietype signon!"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"De controlegebruikersnaam is leeg terwijl u wel de phpMyAdmin configuration "
-"storage gebruikt"
+"De controlegebruikersnaam is leeg terwijl u wel de configuratie-opslag van "
+"phpMyAdmin gebruikt!"
 
 #: libraries/config/Validator.class.php:374
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
 #| "configuration storage"
@@ -4501,8 +4496,8 @@ msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
-"Het wachtwoord voor de controlegebruiker is leeg terwijl u wel de phpMyAdmin "
-"configuration storage gebruikt"
+"Het wachtwoord voor de controlegebruiker is leeg terwijl u wel de "
+"configuratie-opslag van phpMyAdmin gebruikt!"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -5221,8 +5216,8 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Bijhouden van wijzigingen in de databank. Dit vereist een geconfigureerde "
-"configuratie-opslag van phpMyAdmin."
+"Bijhouden van wijzigingen in de databank. Dit vereist de configuratie-opslag "
+"van phpMyAdmin."
 
 #: libraries/config/messages.inc.php:280
 msgid "Customize export options"
@@ -5823,9 +5818,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Schakel dit in wanneer u wil dat SQL-querygeschiedenis wordt bijgehouden in "
-"een databank (vereist configuratie-opslag). Indien uitgeschakeld worden JS-"
-"routines gebruikt om querygeschiedenis te tonen (deze gaat verloren bij het "
-"sluiten van het venster)."
+"een databank (configuratie-opslag van phpMyAdmin is vereist). Indien "
+"uitgeschakeld, worden JS-routines gebruikt om querygeschiedenis te tonen "
+"(deze gaat verloren bij het sluiten van het venster)."
 
 #: libraries/config/messages.inc.php:516
 msgid "Permanent query history"
@@ -6022,7 +6017,7 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
-"Een alternatieve machine voor de configuratieopslag; laat leeg om de reeds "
+"Een alternatieve machine voor de configuratie-opslag; laat leeg om de reeds "
 "gedefinieerde machine te gebruiken."
 
 #: libraries/config/messages.inc.php:583
@@ -6035,9 +6030,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"Een alternatieve poort om te verbinden met de machine voor "
-"configuratieopslag; laat leeg om de standaardpoort te gebruiken, of om de "
-"reeds gedefinieerde poort te gebruiken als controlhost gelijk is aan host."
+"Een alternatieve poort om te verbinden met de machine voor configuratie-"
+"opslag; laat leeg om de standaardpoort te gebruiken, of om de reeds "
+"gedefinieerde poort te gebruiken als controlhost gelijk is aan host."
 
 #: libraries/config/messages.inc.php:589
 msgid "Control port"
@@ -6397,10 +6392,10 @@ msgid "Verbose name of this server"
 msgstr "Uitgebreide naam voor deze server"
 
 #: libraries/config/messages.inc.php:712
-#, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "Of er een knop \"Toon alle (rijen)\" moet worden getoond"
+msgstr ""
+"Of er een knop \"Toon alle (rijen)\" moet worden getoond aan de gebruiker."
 
 #: libraries/config/messages.inc.php:713
 msgid "Allow to display all the rows"
