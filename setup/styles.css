@@ -1,6 +1,8 @@
 /* global styles */
 
 body {
+    margin-right: auto;
+    min-width: 960px;
     padding-bottom: 1em;
     color: #444;
     font: .8em sans-serif;
@@ -78,6 +80,7 @@ h1 {
 /* page contents and footer layout */
 
 #page {
+    margin-right: 25px;
     margin-left: 220px;
 }
 
@@ -250,8 +253,10 @@ ul.tabs li.active a {
 }
 
 .tabs_contents {
-    margin-top: 1em;
-    float: left;
+    position: absolute;
+    margin-top: 12px;
+    margin-right: 25px;
+    z-index: -1;
 }
 
 .tabs_contents fieldset {
