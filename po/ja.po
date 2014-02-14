@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-14 01:53+0200\n"
-"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"PO-Revision-Date: 2014-02-14 04:30+0200\n"
+"Last-Translator: Yuki Shira <shirayuking@gmail.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/4-1/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -492,16 +492,15 @@ msgid "SRID:"
 msgstr "空間参照識別子："
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "幾何データ"
+msgstr "幾何データ %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "座標"
+msgstr "座標:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:325
@@ -525,22 +524,21 @@ msgid "Add a point"
 msgstr "座標を追加する"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "線分"
+msgstr "線分 %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "外輪"
+msgstr "外輪:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "内輪"
+msgstr "内枠 %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
