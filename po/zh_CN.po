@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-11 08:38+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/zh_CN/>\n"
+"PO-Revision-Date: 2014-02-14 05:49+0200\n"
+"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -216,16 +216,16 @@ msgid "The database name is empty!"
 msgstr "数据库名不能为空！"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "已将数据库 %1$s 改名为 %2$s"
+msgstr "已将数据库 %1$s 改名为 %2$s。"
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "已将数据库 %1$s 复制为 %2$s"
+msgstr "已将数据库 %1$s 复制至 %2$s。"
 
 #: db_operations.php:260
 #, php-format
@@ -288,10 +288,9 @@ msgid_plural "%s tables"
 msgstr[0] "%s 张表"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "您最少要选择显示一列"
+msgstr "您最少要选择显示一列！"
 
 #: db_qbe.php:70
 #, php-format
@@ -304,7 +303,7 @@ msgstr "切换到%s可视化查询生成器%s"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "访问被拒绝"
+msgstr "访问被拒绝！"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -414,7 +413,7 @@ msgstr "数据库日志"
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr ""
+msgstr "检测到了一个错误，根据您的设置已自动提交了错误报告。"
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
@@ -425,19 +424,19 @@ msgstr "您需要刷新当前页面。"
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "检测到了一个错误，错误报告已生成但发送失败。"
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "如果您遇到问题，请手动提交漏洞报告。"
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "感谢您发送此报告。"
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "提交失败。"
 
 #: export.php:177
 msgid "Bad type!"
@@ -573,14 +572,13 @@ msgid "Output"
 msgstr "输出"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“值”中"
+msgstr "从“函数”列中选择“GeomFromText”并粘贴下列内容到“值”中。"
 
 #: import.php:116
 #, php-format
@@ -599,10 +597,9 @@ msgstr "已删除书签。"
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "无法读取文件"
+msgstr "无法读取文件！"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -624,23 +621,22 @@ msgstr ""
 "参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
 #: import.php:481
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "没有字符集转换库，无法转换文件字符集"
+msgstr "没有字符集转换库，无法转换文件字符集。"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "无法加载导入插件，请检查您的安装！"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "已创建书签 %s"
+msgstr "已创建书签 %s。"
 
 #: import.php:562
 #, php-format
@@ -915,16 +911,14 @@ msgid "Missing value in the form!"
 msgstr "表单内缺少值！"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "请输入一个有效的数字"
+msgstr "请输入一个有效的数字！"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "请输入一个有效的长度"
+msgstr "请输入一个有效的长度！"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -992,10 +986,9 @@ msgid "Connections / Processes"
 msgstr "连接 / 进程"
 
 #: js/messages.php:76
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "本地监控设置不兼容"
+msgstr "本地监控设置不兼容！"
 
 #: js/messages.php:77
 msgid ""
@@ -1148,10 +1141,9 @@ msgid "Add chart to grid"
 msgstr "添加图表"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "请至少添加一个数据"
+msgstr "请至少添加一个数据！"
 
 #: js/messages.php:121 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1237,10 +1229,10 @@ msgstr "禁用 %s"
 
 #. l10n: %d seconds
 #: js/messages.php:141
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "设置 long_query_time 为 %d 秒"
+msgstr "设置 long_query_time 为 %d 秒。"
 
 #: js/messages.php:143
 msgid ""
@@ -1284,7 +1276,7 @@ msgstr "从常规日志"
 
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
-msgstr "本次查询使用的数据库名称在服务器日志中未知"
+msgstr "本次查询使用的数据库名称在服务器日志中未知。"
 
 #: js/messages.php:160
 msgid "Analysing logs"
@@ -1441,15 +1433,13 @@ msgid "Import monitor configuration"
 msgstr "导入监控设置"
 
 #: js/messages.php:202
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "请选择您要导入的文件"
+msgstr "请选择您要导入的文件。"
 
 #: js/messages.php:204
-#, fuzzy
 msgid "Analyse Query"
-msgstr "查询分析"
+msgstr "分析查询"
 
 #: js/messages.php:208
 msgid "Advisor system"
@@ -1497,7 +1487,7 @@ msgstr "正在加载…"
 
 #: js/messages.php:224
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "请求已放弃！！"
 
 #: js/messages.php:225
 msgid "Processing Request"
@@ -1602,10 +1592,9 @@ msgid "Values for a new column"
 msgstr "新字段的值"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "每个输入框一个值"
+msgstr "每个输入框一个值。"
 
 #: js/messages.php:261
 #, php-format
@@ -1736,7 +1725,6 @@ msgid "Outer Ring"
 msgstr "外环"
 
 #: js/messages.php:319
-#, fuzzy
 msgid "Select referenced key"
 msgstr "选择外键"
 
@@ -1745,10 +1733,9 @@ msgid "Select Foreign Key"
 msgstr "选择外键"
 
 #: js/messages.php:321
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "请选择主键或唯一键"
+msgstr "请选择主键或唯一键！"
 
 #: js/messages.php:322 pmd_general.php:101
 msgid "Choose column to display"
@@ -1761,22 +1748,21 @@ msgid ""
 msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是否继续？"
 
 #: js/messages.php:329
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "给字段添加选项 "
+msgstr "给字段“%s”添加选项。"
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "已创建 %d 个对象"
+msgstr "已创建 %d 个对象。"
 
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "按 Esc 键取消编辑"
+msgstr "按 Esc 键取消编辑。"
 
 #: js/messages.php:334
 msgid ""
@@ -1785,33 +1771,28 @@ msgid ""
 msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并离开吗？"
 
 #: js/messages.php:335
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "拖拽以调整顺序"
+msgstr "拖拽以调整顺序。"
 
 #: js/messages.php:336
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "点击以排序"
+msgstr "点击以排序。"
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "点击以标记/取消标记"
+msgstr "点击以标记/取消标记。"
 
 #: js/messages.php:338
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "双击以复制字段名"
+msgstr "双击以复制字段名。"
 
 #: js/messages.php:340
-#, fuzzy
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "点击下箭头以设置显示的字段"
+msgstr "点击下箭头<br />以设置显示的字段。"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
@@ -1837,25 +1818,22 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "您可以直接点击大部分<br />单元格以修改其值。"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "打开链接"
+msgstr "打开链接。"
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "复制字段名"
+msgstr "复制字段名。"
 
 #: js/messages.php:358
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "在字段名上右键以复制到剪贴板。"
 
 #: js/messages.php:359
-#, fuzzy
 msgid "Show data row(s)."
-msgstr "显示数据行"
+msgstr "显示数据行。"
 
 #: js/messages.php:362
 msgid "Generate password"
@@ -1882,10 +1860,9 @@ msgid "Hide Panel"
 msgstr "隐藏导航面板"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
-msgstr "显示隐藏的导航树节点"
+msgstr "显示隐藏的导航树节点。"
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
@@ -1913,40 +1890,36 @@ msgid "Create view"
 msgstr "新建视图"
 
 #: js/messages.php:386
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "服务器端口"
+msgstr "发送错误报告"
 
 #: js/messages.php:387
 msgid "Submit Error Report"
-msgstr ""
+msgstr "提交错误报告"
 
 #: js/messages.php:389
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "载入导航树是出现错误"
+msgstr "发生致命JavaScript错误。是否发送错误报告？"
 
 #: js/messages.php:391
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "修改设置"
+msgstr "更改报告设置"
 
 #: js/messages.php:392
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "显示打开的表"
+msgstr "显示报告详细信息"
 
 #: js/messages.php:395
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr ""
+msgstr "由于PHP设置的执行限制时间过低，您的导入未能完成！"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:416
@@ -2314,7 +2287,6 @@ msgid "Criteria:"
 msgstr "条件："
 
 #: libraries/DBQbe.class.php:595
-#, fuzzy
 msgid "Add/Delete criteria rows"
 msgstr "添加/删除标准行"
 
@@ -2599,10 +2571,9 @@ msgstr "WKB 二进制表达"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "已删除该行"
+msgstr "已删除该行。"
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5086 libraries/server_status.lib.php:518
@@ -2610,27 +2581,25 @@ msgid "Kill"
 msgstr "杀死"
 
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "近似值。参见[doc@faq3-11]常见问题 3.11[/doc]"
+msgstr "可能是近似值。参见[doc@faq3-11]常见问题 3.11[/doc]。"
 
 #: libraries/DisplayResults.class.php:4598 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "您的 SQL 语句已成功运行"
+msgstr "您的 SQL 语句已成功运行。"
 
 #: libraries/DisplayResults.class.php:4966 libraries/structure.lib.php:653
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr "该视图最少包含的行数，参见%s文档%s。"
+msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
 #: libraries/DisplayResults.class.php:4979
 #, php-format
@@ -2648,10 +2617,10 @@ msgid "%d total"
 msgstr "共 %d 行"
 
 #: libraries/DisplayResults.class.php:5009 libraries/sql.lib.php:1642
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "查询花费 %01.4f 秒"
+msgstr "查询花费 %01.4f 秒。"
 
 #: libraries/DisplayResults.class.php:5093
 #: libraries/DisplayResults.class.php:5099 libraries/mult_submits.inc.php:46
@@ -2720,10 +2689,9 @@ msgid "Visualize GIS data"
 msgstr "可视化 GIS 数据"
 
 #: libraries/DisplayResults.class.php:5645
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "找不到链接"
+msgstr "找不到链接！"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -2764,10 +2732,9 @@ msgid "Unknown error in file upload."
 msgstr "上传文件时发生未知错误。"
 
 #: libraries/File.class.php:476
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "移动已上传的文件时发生错误，参见[doc@faq1-11]常见问题 1.11[/doc]"
+msgstr "移动已上传的文件时发生错误，参见[doc@faq1-11]常见问题 1.11[/doc]。"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2797,10 +2764,9 @@ msgstr "点击以滚动到页面顶部"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "该处必须启用 Javascript"
+msgstr "该处必须启用 Javascript！"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -2856,7 +2822,7 @@ msgstr "已删除主键"
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "已删除索引 %s"
+msgstr "已删除索引 %s。"
 
 #: libraries/Index.class.php:739
 #, php-format
@@ -3057,20 +3023,18 @@ msgid "Error while creating PDF:"
 msgstr "创建 PDF 时发生错误："
 
 #: libraries/RecentTable.class.php:122
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "无法保存最近使用的表"
+msgstr "无法保存最近使用的表！"
 
 #: libraries/RecentTable.class.php:161
 msgid "Recent tables"
 msgstr "最近使用的表"
 
 #: libraries/RecentTable.class.php:173
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "没有最近使用的表"
+msgstr "没有最近使用的表。"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3221,10 +3185,10 @@ msgid "Invalid table name:"
 msgstr "无效的数据表名："
 
 #: libraries/Table.class.php:1310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "将表 %1$s 改名为 %2$s 时发生错误"
+msgstr "将表 %1$s 改名为 %2$s 失败！"
 
 #: libraries/Table.class.php:1329
 #, php-format
@@ -3232,10 +3196,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "已将表 %1$s 改名为 %2$s。"
 
 #: libraries/Table.class.php:1477
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "无法保存表界面设置"
+msgstr "无法保存表界面设置！"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -3829,10 +3792,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "无法访问用于上传的文件夹。"
 
 #: libraries/Util.class.php:3386
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "没有可上传的文件"
+msgstr "没有可上传的文件！"
 
 #: libraries/Util.class.php:3411 libraries/Util.class.php:3412
 #: libraries/structure.lib.php:305
@@ -3937,10 +3899,9 @@ msgid "Check Privileges"
 msgstr "检查权限"
 
 #: libraries/common.inc.php:583
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "读取配置文件失败"
+msgstr "读取配置文件失败！"
 
 #: libraries/common.inc.php:585
 msgid ""
@@ -4050,15 +4011,15 @@ msgstr "关闭"
 
 #: libraries/config.values.php:117
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "发送错误报告前询问"
 
 #: libraries/config.values.php:118
 msgid "Always send error reports"
-msgstr ""
+msgstr "总是发送错误报告"
 
 #: libraries/config.values.php:119
 msgid "Never send error reports"
-msgstr ""
+msgstr "从不发送错误报告"
 
 #: libraries/config.values.php:148
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -4120,39 +4081,35 @@ msgstr "以上均不"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "请输入正数"
+msgstr "请输入正数！"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "请输入非负数"
+msgstr "请输入非负数！"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "请输入有效的端口号"
+msgstr "请输入有效的端口号！"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "值错误"
+msgstr "值错误！"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "值应小于等于 %s"
+msgstr "值应小于或等于 %s！"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
@@ -4287,7 +4244,7 @@ msgid ""
 msgstr "此系统目前不支持 %sGZip 压缩和解压缩%s所必须的 (%s) 函数。"
 
 #: libraries/config/ServerConfigChecks.class.php:399
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -4296,8 +4253,7 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"如果%s登录 cookie 有效期%s超过 1440 秒且超过 %ssession.gc_maxlifetime%s 的值 "
-"(当前 %d) 则可能导致会话随机失效。"
+"如果%s登录 cookie 有效期%s超过 %ssession.gc_maxlifetime%s 的值 (当前 %d) 则可能导致会话随机失效。"
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4357,50 +4313,43 @@ msgid ""
 msgstr "此系统目前不支持 %sZip 解压缩%s所必须的 (%s) 函数。"
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "无法初始化 Drizzle 连接库"
+msgstr "无法初始化 Drizzle 连接库！"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "无法连接到目标数据库"
+msgstr "无法连接到数据库！"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
-msgstr "使用 config 认证方式时用户名不能为空"
+msgstr "使用 config 认证方式时用户名不能为空！"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid "Empty signon session name while using signon authentication method!"
-msgstr "使用 singon 认证方式时 signon 会话名不能为空"
+msgstr "使用 singon 认证方式时 signon 会话名不能为空！"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using signon authentication method!"
-msgstr "使用 singon 认证方式时 singon 地址不能为空"
+msgstr "使用 singon 认证方式时 singon 地址不能为空！"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "使用 PMA 数据库时控制用户不能为空"
+msgstr "使用 PMA 数据库时控制用户不能为空！"
 
 #: libraries/config/Validator.class.php:374
-#, fuzzy
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
-msgstr "使用 PMA 数据时控制用户的密码不能为空"
+msgstr "使用 PMA 数据时控制用户的密码不能为空！"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -4412,19 +4361,17 @@ msgid "Incorrect IP address: %s"
 msgstr "IP 地址错误：%s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
-msgstr "如果启用，用户可以在 cookie 认证时的登录表单中输入任意 MySQL 服务器"
+msgstr "如果启用，用户可以在 cookie 认证时的登录表单中输入任意 MySQL 服务器。"
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
 msgstr "允许登录到任意 MySQL 服务器"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4433,9 +4380,7 @@ msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
-msgstr ""
-"启用该功能将允许其它域的页面通过框架调用 phpMyAdmin，将可能成为潜在的跨框架脚"
-"本攻击的[strong]安全漏洞[/strong]"
+msgstr "启用该功能将允许其它域的页面通过框架调用 phpMyAdmin，将可能成为潜在的跨框架脚本攻击的[strong]安全漏洞[/strong]。"
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4446,14 +4391,13 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "显示 \"删除数据库\" 链接给普通用户"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
-msgstr "在 [kbd]cookie[/kbd] 认证方式下用于加密 cookies 的短语密码"
+msgstr "在 [kbd]cookie[/kbd] 认证方式下用于加密 cookies 的短语密码。"
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4468,25 +4412,22 @@ msgid "Row marker"
 msgstr "行标记"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "高亮鼠标指针所在的行"
+msgstr "高亮鼠标指针所在的行。"
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "高亮指针"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations."
-msgstr ""
-"允许在导入和导出时使用 [a@http://zh.wikipedia.org/wiki/Bzip2]bzip2[/a] 压缩"
+msgstr "允许在导入和导出时使用 [a@http://zh.wikipedia.org/wiki/Bzip2]bzip2[/a] 压缩。"
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -5855,14 +5796,13 @@ msgid "MySQL reserved word warning"
 msgstr "MySQL 保留字警告"
 
 #: libraries/config/messages.inc.php:508
-#, fuzzy
 #| msgid "Allow to display all the rows"
 msgid "How to display the menu tabs"
-msgstr "允许显示所有行"
+msgstr "显示菜单标签的方式"
 
 #: libraries/config/messages.inc.php:510
 msgid "How to display various action links"
-msgstr ""
+msgstr "显示动作链接的方式"
 
 #: libraries/config/messages.inc.php:511
 #, fuzzy
@@ -6136,10 +6076,9 @@ msgid ""
 msgstr "一个会变的主机被设置在了设置文件中，你可以留空以使用已经定义了的主机"
 
 #: libraries/config/messages.inc.php:591
-#, fuzzy
 #| msgid "Control host"
 msgid "Control port"
-msgstr "控制主机"
+msgstr "控制端口"
 
 #: libraries/config/messages.inc.php:593
 #, fuzzy
@@ -6478,10 +6417,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:705
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "使用表"
+msgstr "用户表"
 
 #: libraries/config/messages.inc.php:706
 msgid ""
@@ -6491,10 +6429,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:707
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "使用主机表"
+msgstr "用户组表"
 
 #: libraries/config/messages.inc.php:708
 #, fuzzy
@@ -6839,34 +6776,31 @@ msgid "List of trusted proxies for IP allow/deny"
 msgstr "可信代理IP列表"
 
 #: libraries/config/messages.inc.php:771
-#, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
-msgstr "服务器上用来存放导入文件的文件夹"
+msgstr "服务器上用来存放导入文件的文件夹。"
 
 #: libraries/config/messages.inc.php:772
 msgid "Upload directory"
 msgstr "上传文件夹"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
-msgstr "允许搜索整个数据库"
+msgstr "允许搜索整个数据库。"
 
 #: libraries/config/messages.inc.php:774
 msgid "Use database search"
 msgstr "使用数据库搜索"
 
 #: libraries/config/messages.inc.php:775
-#, fuzzy
 #| msgid ""
 #| "When disabled, users cannot set any of the options below, regardless of "
 #| "the checkbox on the right"
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
-msgstr "禁用时，用户不能设置下列选项，右侧的复选框被忽略"
+msgstr "禁用时，用户不能设置下列选项，右侧的复选框被忽略。"
 
 #: libraries/config/messages.inc.php:776
 msgid "Enable the Developer tab in settings"
@@ -6877,10 +6811,9 @@ msgid "Check for latest version"
 msgstr "检查更新"
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "允许在 phpMyAdmin 主页面中检查最新版本"
+msgstr "允许在 phpMyAdmin 主页面中检查最新版本。"
 
 #: libraries/config/messages.inc.php:779 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
@@ -6899,30 +6832,28 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:781
 msgid "Proxy url"
-msgstr ""
+msgstr "代理URL"
 
 #: libraries/config/messages.inc.php:782
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
-msgstr ""
+msgstr "连接代理服务器时使用的用户名。如果提供用户名，将使用基本认证方式连接。目前还不支持其他认证方式。"
 
 #: libraries/config/messages.inc.php:783
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
-msgstr "用户名"
+msgstr "代理用户名"
 
 #: libraries/config/messages.inc.php:784
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:785
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
-msgstr "密码"
+msgstr "代理密码"
 
 #: libraries/config/messages.inc.php:787
 #, fuzzy
@@ -6946,7 +6877,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:790
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "reCaptcha的公共密匙"
 
 #: libraries/config/messages.inc.php:791
 msgid "Enter your private key for your domain reCaptcha service."
@@ -6954,17 +6885,16 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:792
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "reCaptcha私有密匙"
 
 #: libraries/config/messages.inc.php:794
 msgid "Choose the default action when sending error reports."
 msgstr ""
 
 #: libraries/config/messages.inc.php:795
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "服务器端口"
+msgstr "发送错误报告"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7022,7 +6952,6 @@ msgstr "微软 Word 2000"
 
 #: libraries/config/setup.forms.php:365
 #: libraries/config/user_preferences.forms.php:264
-#, fuzzy
 #| msgid "Open Document Text"
 msgid "OpenDocument Text"
 msgstr "OpenOffice 文档"
@@ -7039,7 +6968,7 @@ msgstr "可能的深度递归攻击"
 #: libraries/database_interface.inc.php:32
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "详情请查看%s我们的文档%s。"
 
 #: libraries/database_interface.inc.php:48
 msgid ""
@@ -7076,16 +7005,14 @@ msgstr "密码："
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1473
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "重新输入"
+msgstr "重新输入："
 
 #: libraries/display_change_password.lib.php:80
-#, fuzzy
 #| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "密码加密方式"
+msgstr "密码加密方式："
 
 #: libraries/display_change_password.lib.php:93
 msgid "MySQL 4.0 compatible"
@@ -7100,10 +7027,9 @@ msgid "Create"
 msgstr "创建"
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Create database"
 msgid "Create database:"
-msgstr "新建数据库"
+msgstr "新建数据库："
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3834 server_privileges.php:130
@@ -7278,10 +7204,9 @@ msgid "no branch"
 msgstr "没有分支"
 
 #: libraries/display_git_revision.lib.php:64
-#, fuzzy
 #| msgid "Git revision"
 msgid "Git revision:"
-msgstr "GIT 修改版本"
+msgstr "Git 修订版本："
 
 #: libraries/display_git_revision.lib.php:67
 #, php-format
@@ -7355,7 +7280,7 @@ msgstr ""
 msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
-msgstr ""
+msgstr "从第一个开始跳过的查询数（SQL用）或行数（其他用）："
 
 #: libraries/display_import.lib.php:341
 msgid "Format-Specific Options:"
@@ -7376,10 +7301,9 @@ msgid "%s of %s"
 msgstr "%s 之 %s"
 
 #: libraries/display_import.lib.php:456
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
-msgstr "正在上传要导入的文件…"
+msgstr "正在上传您的导入文件…"
 
 #: libraries/display_import.lib.php:457
 #, php-format
@@ -7726,21 +7650,20 @@ msgid ""
 "phpMyAdmin has encountered an error. We have collected data about this error "
 "as well as information about relevant configuration settings to send to the "
 "phpMyAdmin team to help us in debugging the problem."
-msgstr ""
+msgstr "phpMyAdmin遇到了错误。我们已经收集了关于这个错误的数据和有关设置信息以便发送至phpMyAdmin开发团队来帮助我们处理这个问题。"
 
 #: libraries/error_report.lib.php:278
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "您可以检查错误报告中的数据："
 
 #: libraries/error_report.lib.php:285
 msgid "Please explain the steps that lead to the error:"
-msgstr ""
+msgstr "请描述一下导致错误的步骤："
 
 #: libraries/error_report.lib.php:293
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "自动创建版本"
+msgstr "下次自动发送错误报告"
 
 #: libraries/export.lib.php:113 libraries/export.lib.php:144
 #: libraries/export.lib.php:364
@@ -7847,10 +7770,9 @@ msgid "Binary - do not edit"
 msgstr "二进制 - 无法编辑"
 
 #: libraries/insert_edit.lib.php:1228 libraries/sql_query_form.lib.php:491
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "网站服务器上传文件夹"
+msgstr "网站服务器上传文件夹："
 
 #: libraries/insert_edit.lib.php:1445
 #, php-format
@@ -7919,16 +7841,14 @@ msgid "No change"
 msgstr "无更改"
 
 #: libraries/mult_submits.lib.php:331
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "修改表前缀"
+msgstr "修改表前缀："
 
 #: libraries/mult_submits.lib.php:333
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "复制表为新前缀"
+msgstr "复制表为新前缀："
 
 #: libraries/mult_submits.lib.php:338
 msgid "From"
@@ -7944,10 +7864,9 @@ msgid "Submit"
 msgstr "提交"
 
 #: libraries/mult_submits.lib.php:373
-#, fuzzy
 #| msgid "Add table prefix"
 msgid "Add table prefix:"
-msgstr "添加表前缀"
+msgstr "添加表前缀："
 
 #: libraries/mult_submits.lib.php:376
 msgid "Add prefix"
@@ -8597,7 +8516,7 @@ msgstr "空密码登录被禁止 (参见 允许空密码)"
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "登录超时 (%s 秒未活动)，请重新登录"
+msgstr "登录超时 (%s 秒未活动)，请重新登录。"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:703
 #: libraries/plugins/auth/AuthenticationCookie.class.php:705
@@ -8621,7 +8540,7 @@ msgstr "文件 %s 未包含任何密钥"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:194
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:215
 msgid "Hardware authentication failed!"
-msgstr "硬件认证失败"
+msgstr "硬件认证失败！"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:202
 msgid "No valid authentication key plugged"
@@ -9340,7 +9259,7 @@ msgstr "浏览器转换"
 #: libraries/relation.lib.php:175
 msgid ""
 "Please see the documentation on how to update your column_comments table."
-msgstr "请参见文档中关于如何更新您的 column_comments 表"
+msgstr "请参见文档中关于如何更新您的 column_comments 表。"
 
 #: libraries/relation.lib.php:185 libraries/sql_query_form.lib.php:404
 msgid "Bookmarked SQL query"
@@ -9458,9 +9377,7 @@ msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
-msgstr ""
-"当 MySQL 服务器重新启动后，请点击 执行 按钮。你应该看见一条提示信息说此服务器"
-"<b>已经</b>被配置为主服务器"
+msgstr "当 MySQL 服务器重新启动后，请点击执行按钮。你应该看见一条提示信息说此服务器<b>已经</b>被配置为主服务器。"
 
 #: libraries/replication_gui.lib.php:141
 #: libraries/server_databases.lib.php:392
@@ -10703,7 +10620,7 @@ msgstr "%s 的密码已修改。"
 #: libraries/server_privileges.lib.php:1634
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "您已撤销 %s 的权限"
+msgstr "您已撤销 %s 的权限。"
 
 #: libraries/server_privileges.lib.php:1684
 #: libraries/server_privileges.lib.php:1887
@@ -10719,16 +10636,16 @@ msgstr "用户数据库"
 
 #: libraries/server_privileges.lib.php:1696
 msgid "Create database with same name and grant all privileges."
-msgstr "创建与用户同名的数据库并授予所有权限"
+msgstr "创建与用户同名的数据库并授予所有权限。"
 
 #: libraries/server_privileges.lib.php:1702
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
+msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限。"
 
 #: libraries/server_privileges.lib.php:1711
 #, php-format
 msgid "Grant all privileges on database \"%s\"."
-msgstr "授予数据库 \"%s\" 的所有权限"
+msgstr "授予数据库“%s”的所有权限。"
 
 #: libraries/server_privileges.lib.php:1807
 #: libraries/server_privileges.lib.php:1910
@@ -10844,7 +10761,7 @@ msgstr "在下列数据库添加权限"
 
 #: libraries/server_privileges.lib.php:2846
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr "要使用通配符 _ 和 % 本身，应使用用 \\ 转义"
+msgstr "要使用通配符 _ 和 % 本身，应使用 \\ 转义。"
 
 #: libraries/server_privileges.lib.php:2864
 #, fuzzy
@@ -11085,9 +11002,8 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"phpMyAdmin 监控可以帮助你优化服务期配置并追踪特定查询。要实现追踪查询功能，你"
-"需要将 log_output 设置为 'TABLE' 并启用 slow_query_log 或 general_log 功能。"
-"请注意，general_log 会产生很多数据并可能增加服务器负载多达 15%"
+"phpMyAdmin 监控可以帮助你优化服务期配置并追踪特定查询。要实现追踪查询功能，你需要将 log_output 设置为 'TABLE' 并启用 "
+"slow_query_log 或 general_log 功能。请注意，general_log 会产生很多数据并可能增加服务器负载多达 15%。"
 
 #: libraries/server_status_monitor.lib.php:154
 msgid ""
@@ -12158,9 +12074,7 @@ msgstr "仅查看"
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem."
-msgstr ""
-"您的 SQL 查询可能有错。如果可能的话，以下会列出 MySQL 服务器的错误输出，这可"
-"能对您解决问题有一定的帮助"
+msgstr "您的 SQL 查询可能有错。如果可能的话，以下会列出 MySQL 服务器的错误输出，这可能对您解决问题有一定的帮助。"
 
 #: libraries/sqlparser.lib.php:178
 msgid ""
@@ -13437,10 +13351,10 @@ msgid "Description"
 msgstr "说明"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "追踪报告"
+msgstr "正在前往%s。"
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
@@ -13459,10 +13373,9 @@ msgid "Rename view to"
 msgstr "将视图改名为"
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "删除数据表 (DROP)"
+msgstr "删除视图（DROP）"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
