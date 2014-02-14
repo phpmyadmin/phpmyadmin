@@ -880,4 +880,17 @@ function PMA_addJSVar($key, $value, $escape = true)
     PMA_addJSCode(PMA_getJsValue($key, $value, $escape));
 }
 
+/**
+ * Strips all slashes from a string.
+ *
+ * @param string $str String to strip
+ *
+ * @return string New string with all slashes removed
+ */
+function PMA_stripAllSlashes($str) {
+    while (strchr($str, "\\")) {
+        $str = stripslashes($str);
+    }
+    return $str;
+}
 ?>

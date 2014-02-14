@@ -253,10 +253,10 @@ if (isset($_POST['usesubform'])) {
 if (version_compare(phpversion(), '5.4', 'lt')) {
     // remove quotes added by PHP
     if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
-        PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
-        PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
-        PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
-        PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
+        PMA_arrayWalkRecursive($_GET, 'PMA_stripAllSlashes', true);
+        PMA_arrayWalkRecursive($_POST, 'PMA_stripAllSlashes', true);
+        PMA_arrayWalkRecursive($_COOKIE, 'PMA_stripAllSlashes', true);
+        PMA_arrayWalkRecursive($_REQUEST, 'PMA_stripAllSlashes', true);
     }
 }
 

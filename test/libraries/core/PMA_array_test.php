@@ -374,7 +374,7 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
             'key3'=>'val3'
         );
 
-        PMA_arrayWalkRecursive($arr, 'stripslashes', true);
+        PMA_arrayWalkRecursive($arr, 'PMA_stripAllSlashes', true);
         $this->assertEquals($arr, $target);
     }
 
@@ -421,5 +421,15 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
             array(false, 'k1/k3', array('k1' => array('k2' => array()))),
             array(false, 'k2', array('k1' => array('k2' => array()))),
         );
+    }
+
+    /**
+     * Test for PMA_stripAllSlashes
+     *
+     * @return void
+     */
+    function testStripAllSlashes() {
+        $this->assertEquals("gone", PMA_stripAllSlashes("\\\\g\\o\\\\\\\\ne"));
+        $this->assertEquals("gone", PMA_stripAllSlashes("gone"));
     }
 }
