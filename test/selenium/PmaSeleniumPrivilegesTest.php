@@ -71,6 +71,8 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->assertNotEquals("", $this->byId("generated_pw")->value());
 
         if (TESTSUITE_PASSWORD != "") {
+            $this->byId("text_pma_pw")->clear();
+            $this->byId("text_pma_pw2")->clear();
             $this->byId("text_pma_pw")->value(TESTSUITE_PASSWORD);
             $this->byId("text_pma_pw2")->value(TESTSUITE_PASSWORD);
         } else {
