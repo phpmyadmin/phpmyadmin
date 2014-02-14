@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 11:14+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-02-14 01:53+0200\n"
+"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/4-1/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -267,24 +267,21 @@ msgstr "使用中"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "作成日時"
+msgstr "作成日時："
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "最終更新"
+msgstr "最終更新："
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "最終検査"
+msgstr "最終検査："
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
@@ -420,7 +417,7 @@ msgstr ""
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "このページを再ロードすることがほしいみたい。"
 
 #: error_report.php:45
 msgid ""
@@ -490,10 +487,9 @@ msgstr "ベースレイヤーに OpenStreetMap を使用する"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "空間参照識別子"
+msgstr "空間参照識別子："
 
 #: gis_data_editor.php:186
 #, fuzzy, php-format
