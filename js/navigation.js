@@ -124,12 +124,13 @@ $(function () {
         dialog.editorDialog(1, $(this));
     });
 
-    /** Edit Routines, Triggers and Events */
+    /** Execute Routines */
     $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.editorDialog(0, $(this));
+        dialog.executeDialog($(this));
     });
+    /** Edit Triggers and Events */
     $('li.trigger > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
@@ -141,10 +142,15 @@ $(function () {
         dialog.editorDialog(0, $(this));
     });
 
-    /** Export Routines, Triggers and Events */
-    $('li.procedure div:eq(1) a.ajax img,' +
-        ' li.function div:eq(1) a.ajax img,' +
-        ' li.trigger div:eq(1) a.ajax img,' +
+    /** Edit Routines */
+    $('li.procedure div a.ajax img,' +
+        ' li.function div a.ajax img').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('routine');
+        dialog.editorDialog(0, $(this).parent());
+    });
+    /** Export Triggers and Events */
+    $('li.trigger div:eq(1) a.ajax img,' +
         ' li.event div:eq(1) a.ajax img'
         ).live('click', function (event) {
         event.preventDefault();
