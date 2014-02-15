@@ -566,6 +566,10 @@ span.checkbox {
     color: #080 !important;
 }
 
+table {
+    width: 100%;
+}
+
 table.datatable {
     margin: 0.5em 0 1em;
 }
