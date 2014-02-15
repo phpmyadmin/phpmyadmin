@@ -1848,7 +1848,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
                 ($action=='Unique' ? 'class="ajax add_unique_anchor"' : ' ')
                )
               )
-            . 'href="sql.php?' . $url_query . '&amp;sql_query='
+            . ' href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
