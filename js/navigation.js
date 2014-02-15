@@ -374,6 +374,8 @@ function loadChildNodes($expandElem, callback) {
             if (callback && typeof callback == 'function') {
                 callback(data);
             }
+        } else {
+            PMA_ajaxShowMessage(data.error, false);
         }
     });
 }
