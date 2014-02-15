@@ -30,6 +30,7 @@ phpMyAdmin - ChangeLog
 - bug #4275 Broken Link to php extension manual
 - bug #4053 List of procedures is not displayed after executing with Enter
 - bug #4081 Setup page content shifted to the right edge of its tabs
+- bug #4284 Reordering a column erases comments for other columns
 
 4.1.7.0 (2014-02-09)
 - bug #4245 initial Browse query does not match sorting order
