@@ -2509,8 +2509,8 @@ function PMA_moveColumns($db, $table)
             $default_type,
             $current_timestamp ? '' : $data['Default'],
             isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
-            isset($data['Comments']) && $data['Comments'] !== ''
-            ? $data['Comments'] : false,
+            isset($data['COLUMN_COMMENT']) && $data['COLUMN_COMMENT'] !== ''
+            ? $data['COLUMN_COMMENT'] : false,
             $we_dont_change_keys,
             $i,
             $i === 0 ? '-first' : $column_names[$i - 1]
