@@ -19,6 +19,15 @@ define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
 
+$bs_uname = getenv('BS_UNAME');
+$bs_key = getenv('BS_KEY');
+
+if ($bs_uname && $bs_key) {
+    define('PHPUNIT_HOST', $bs_uname . ":" . $bs_key . "@hub.browserstack.com");
+} else {
+    define('PHPUNIT_HOST', "127.0.0.1");
+}
+
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 $CFG = new PMA_Config();

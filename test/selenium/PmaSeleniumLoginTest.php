@@ -31,6 +31,7 @@ class PmaSeleniumLoginTest extends PHPUnit_Extensions_Selenium2TestCase
     public function setUp()
     {
         $this->_helper = new Helper($this);
+        $this->setHost(PHPUNIT_HOST);
         $this->setBrowser($this->_helper->getBrowserString());
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
     }
