@@ -1172,10 +1172,12 @@ class PMA_DisplayResults
         } // end for
 
         // Display column at rightside - checkboxes or empty column
-        $table_headers_html .= $this->_getColumnAtRightSide(
-            $is_display, $directionCondition, $full_or_partial_text_link,
-            $colspan, $rowspan
-        );
+        if (! $printview) {
+            $table_headers_html .= $this->_getColumnAtRightSide(
+                $is_display, $directionCondition, $full_or_partial_text_link,
+                $colspan, $rowspan
+            );
+        }
 
         if ($directionCondition) {
             $table_headers_html .= '</tr>'

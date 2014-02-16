@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - bug #4081 Setup page content shifted to the right edge of its tabs
 - bug #4284 Reordering a column erases comments for other columns
 - bug #4286 Open "Browse" in a new tab
+- bug #4287 Printview - Always one column too much
 
 4.1.7.0 (2014-02-09)
 - bug #4245 initial Browse query does not match sorting order
