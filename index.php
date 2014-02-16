@@ -33,10 +33,20 @@ foreach ($drops as $each_drop) {
 }
 unset($drops, $each_drop);
 
+/* 
+ * Black list of all scripts to which front-end must submit data.
+ * Such scripts must not be loaded on home page.
+ *
+ */
+ $target_blacklist = array (
+    'import.php', 'export.php'
+    );
+
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
+    && ! in_array($_REQUEST['target'], $target_blacklist)
     && in_array($_REQUEST['target'], $goto_whitelist)
 ) {
     include $_REQUEST['target'];
@@ -306,10 +316,15 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             );
 
             $php_ext_string = __('PHP extension:') . ' '
-                . $GLOBALS['cfg']['Server']['extension'] . ' '
-                . PMA_Util::showPHPDocu(
+                . $GLOBALS['cfg']['Server']['extension'] . ' ';
+            if (!empty($GLOBALS['cfg']['Server']['extension'])) {
+                $php_ext_string  .= PMA_Util::showPHPDocu(
                     'book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'
                 );
+            } else {
+                $php_ext_string  .= __('None');
+            }
+            
             PMA_printListItem(
                 $php_ext_string,
                 'li_used_php_extension'

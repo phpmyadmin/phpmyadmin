@@ -173,6 +173,13 @@ form {
     display: inline;
 }
 
+
+input,
+select {
+    /* Fix outline in Chrome: */
+    outline: none;
+}
+
 input[type=text],
 input[type=password],
 input[type=number],
@@ -181,16 +188,66 @@ input[type=date] {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
 
-    box-shadow: 0 1px 2px #ddd;
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
 
     background: white;
     border: 1px solid #aaa;
     color: #555;
     padding: 4px;
     margin: 6px;
+}
 
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+select {
+    transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+}
+
+input[type=text][disabled],
+input[type=text][disabled]:hover,
+input[type=password][disabled],
+input[type=password][disabled]:hover,
+input[type=number][disabled],
+input[type=number][disabled]:hover,
+input[type=date][disabled],
+input[type=date][disabled]:hover,
+select[disabled],
+select[disabled]:hover {
+    background: #e8e8e8;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=password]:hover,
+input[type=password]:focus,
+input[type=number]:hover,
+input[type=number]:focus,
+input[type=date]:hover,
+input[type=date]:focus,
+select:focus,
+select:hover {
+
+    border: 1px solid #7c7c7c;
+
+
+    background: #fff;
+}
+
+input[type=text]:hover,
+input[type=password]:hover,
+input[type=number]:hover,
+input[type=date]:hover,
+select:hover {
+    box-shadow: 0 1px 3px #aaa;
+    -webkit-box-shadow: 0 1px 3px #aaa;
+    -moz-box-shadow: 0 1px 3px #aaa;
 }
 
 input[type=submit],
@@ -331,11 +388,7 @@ select {
     -webkit-border-radius: 2px;
     border-radius: 2px;
 
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
-    box-shadow: 0 1px 2px #ddd;
-
-    border: 1px solid #aaa;
+    border: 1px solid #bbb;
     color: #333;
     padding: 3px;
     background: white;

@@ -109,6 +109,8 @@ if (!defined('TESTSUITE')) {
             'sql_drop_table',
             'sql_procedure_function',
             'sql_create_table_statements',
+            'sql_create_table',
+            'sql_create_view',
             'sql_create_trigger',
             'sql_if_not_exists',
             'sql_auto_increment',
@@ -390,6 +392,12 @@ if (!defined('TESTSUITE')) {
             // $allrows comes from the form when "Dump all rows" has been selected
             if (! isset($allrows)) {
                 $allrows = '';
+            }
+            if (! isset($limit_to)) {
+                $limit_to = 0;
+            }
+            if (! isset($limit_from)) {
+                $limit_from = 0;
             }
             PMA_exportTable(
                 $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,

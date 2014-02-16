@@ -2,6 +2,7 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.2.0.0 (not yet released)
++ rfe #1403 Export only triggers
 + rfe #1483 Export Server/Database/Table without triggers
 + rfe #1662 Add table comment tool tip in database structure page
 + rfe #1447 Single table for display Character Sets and Collations
@@ -21,8 +22,18 @@ phpMyAdmin - ChangeLog
 + rfe #1475 Inline query box vertical resize
 + rfe #1500 [interface] Add bottom border to top menu container
 + rfe #1498 Add datepicker for 'TIME' type
+- bug #4237 HTTP Referer disclosure in SQL links
 
-4.1.7.0 (not yet released)
+4.1.8.0 (not yet released)
+- bug #4276 Login loop on session expiry
+- bug #4249 Incorrect number of result rows for SQL with subqueries
+- bug #4275 Broken Link to php extension manual
+- bug #4053 List of procedures is not displayed after executing with Enter
+- bug #4081 Setup page content shifted to the right edge of its tabs
+- bug #4284 Reordering a column erases comments for other columns
+- bug #4286 Open "Browse" in a new tab
+
+4.1.7.0 (2014-02-09)
 - bug #4245 initial Browse query does not match sorting order
 - bug #4250 Notice on export page
 - bug #4253 "New" text in navigation frame acts like a database
@@ -35,6 +46,10 @@ phpMyAdmin - ChangeLog
 - bug #4263 Japanese character encoding not working properly when exporting
 - bug #4269 Notice on table relation page
 - bug #4270 Bad text-color for table comments
+- bug #4278 reCaptcha re-login requires double effort
+- bug #4272 Incorrect tabindex
+- bug #4271 Query by example and the second criteria line
+- bug #4242 Wildcard-containing only_db failure in sidebar
 
 4.1.6.0 (2014-01-26)
 - bug #4232 User not found after creating the user

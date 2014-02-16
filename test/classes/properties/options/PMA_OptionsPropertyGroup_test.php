@@ -71,15 +71,6 @@ class PMA_OptionsPropertyGroup_Test extends PHPUnit_Framework_TestCase
         $properties = new \ReflectionProperty('OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
 
-        $properties->setValue($this->stub, array(1, 2, 3, 'test'));
-
-        $this->stub->removeProperty('test');
-
-        $this->assertEquals(
-            array(1, 2, 3, 'test'),
-            $properties->getValue($this->stub)
-        );
-
         $properties->setValue($this->stub, array(1, 2, 'test', 3));
         $this->stub->removeProperty('test');
 
