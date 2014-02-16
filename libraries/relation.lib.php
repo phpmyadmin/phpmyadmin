@@ -399,9 +399,6 @@ function PMA_checkRelationsParam()
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
-    echo 'post : ';
-    var_dump($cfgRelation['savedsearcheswork']);
-
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
         || ! $GLOBALS['dbi']->selectDb(
@@ -412,9 +409,6 @@ function PMA_checkRelationsParam()
         // we return the array with the falses in it,
         // to avoid some 'Unitialized string offset' errors later
         $GLOBALS['cfg']['Server']['pmadb'] = false;
-
-        echo 'first : ';
-        var_dump($cfgRelation['savedsearcheswork']);
         return $cfgRelation;
     }
 
@@ -438,9 +432,6 @@ function PMA_checkRelationsParam()
     if (! $tab_rs) {
         // query failed ... ?
         //$GLOBALS['cfg']['Server']['pmadb'] = false;
-
-        echo 'second : ';
-        var_dump($cfgRelation['savedsearcheswork']);
         return $cfgRelation;
     }
 
@@ -480,9 +471,6 @@ function PMA_checkRelationsParam()
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
-
-    echo 'middle : ';
-    var_dump($cfgRelation['savedsearcheswork']);
 
     if (isset($cfgRelation['relation'])) {
         $cfgRelation['relwork']         = true;
@@ -553,9 +541,6 @@ function PMA_checkRelationsParam()
     ) {
         $cfgRelation['allworks'] = true;
     }
-
-    echo 'end : ';
-    var_dump($cfgRelation['savedsearcheswork']);
 
     return $cfgRelation;
 } // end of the 'PMA_getRelationsParam()' function
