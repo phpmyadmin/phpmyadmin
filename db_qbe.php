@@ -16,14 +16,35 @@ require_once 'libraries/sql.lib.php';
 
 $response = PMA_Response::getInstance();
 
-if ($GLOBALS['savedsearcheswork']) {
+// Gets the relation settings
+$cfgRelation = PMA_getRelationsParam();
+
+$savedSearchList = array();
+if ($cfgRelation['savedsearcheswork']) {
+    include 'libraries/SavedSearches.php';
     $header = $response->getHeader();
     $scripts = $header->getScripts();
     $scripts->addFile('db_qbe.js');
-}
 
-// Gets the relation settings
-$cfgRelation = PMA_getRelationsParam();
+    //Get saved search list.
+    $savedSearch = new PMA_SavedSearches($GLOBALS);
+    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+        ->setDbname($_REQUEST['db']);
+
+    //Criterias field is filled only when clicking on "Save search".
+    if (!empty($_REQUEST['criterias'])) {
+        //var_dump($GLOBALS);
+        $saveResult = $savedSearch->setSearchName($_REQUEST['searchName'])
+            ->setCriterias($_REQUEST['criterias'])
+            ->saveSearch();
+        /*if (!$saveResult) {
+            $response->addHTML('raté');
+            exit();
+        }*/
+    }
+
+    $savedSearchList = $savedSearch->getList();
+}
 
 /**
  * A query has been submitted -> (maybe) execute it
@@ -52,28 +73,13 @@ $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
 require 'libraries/db_info.inc.php';
 
-if (!empty($_REQUEST['criterias'])) {
-    include 'libraries/SavedSearches.php';
-    //var_dump($GLOBALS);
-    $savedSearch = new PMA_SavedSearches($GLOBALS);
-    $saveResult = $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-        ->setDbname($_REQUEST['db'])
-        ->setSearchName($_REQUEST['searchName'])
-        ->setCriterias($_REQUEST['criterias'])
-        ->saveSearch();
-    if (!$saveResult) {
-        $response->addHTML('raté');
-        exit();
-    }
-}
-
 if ($message_to_display) {
     PMA_Message::error(__('You have to choose at least one column to display!'))->display();
 }
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA_DBQbe($GLOBALS['db']);
+$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList);
 
 /**
  * Displays the Query by example form
