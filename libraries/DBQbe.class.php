@@ -177,15 +177,31 @@ class PMA_DbQbe
      * @var integer
      */
     private $_new_row_count;
+    /**
+     * Saved search name
+     *
+     * @access private
+     * @var string|null
+     */
+    private $_savedSearchName = null;
+    /**
+     * List of saved searches
+     *
+     * @access private
+     * @var array
+     */
+    private $_savedSearchList = null;
 
     /**
      * Public Constructor
      *
-     * @param string $db Database name
+     * @param string $dbname          Database name
+     * @param array  $savedSearchList List of saved searches
      */
-    public function __construct($db)
+    public function __construct($dbname, $savedSearchList = array())
     {
-        $this->_db = $db;
+        $this->_db = $dbname;
+        $this->_savedSearchList = $savedSearchList;
         // Sets criteria parameters
         $this->_setSearchParams();
         $this->_setCriteriaTablesAndColumns();
@@ -200,6 +216,9 @@ class PMA_DbQbe
     {
         $criteriaColumnCount = $this->_initializeCriteriasCount();
 
+        $this->_savedSearchName = isset($_REQUEST['searchName'])
+            ? $_REQUEST['searchName']
+            : null;
         $this->_criteriaColumnInsert = PMA_ifSetOr(
             $_REQUEST['criteriaColumnInsert'],
             null,
@@ -1346,7 +1365,7 @@ class PMA_DbQbe
         $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';
         $html_output .= '<fieldset>';
 
-        if ($GLOBALS['savedsearcheswork']) {
+        if ($GLOBALS['cfgRelation']['savedsearcheswork']) {
             $html_output .= $this->_getSavedSearchesField();
         }
 
@@ -1408,18 +1427,21 @@ class PMA_DbQbe
         $html_output = __('Saved searches : ');
         $html_output .= '<select name="existingSavedSearches"
             id="existingSavedSearches">';
-        $searches = array(
-            1 => 'test'
-        );
         $html_output .= '<option value="">New search</option>';
-        foreach ($searches as $name => $search) {
-            $html_output .= '<option value="' . htmlspecialchars($name) . '">'
+        foreach ($this->_savedSearchList as $name => $search) {
+            $html_output .= '<option value="' . htmlspecialchars($name)
+                . (
+                    $search == $this->_savedSearchName
+                    ? ' selected="selected"'
+                    : ''
+                )
+                . '">'
                 . htmlspecialchars($search)
                 . '</option>';
         }
         $html_output .= '</select>';
         $html_output .= '<input type="text" name="searchName" id="searchName"
-            value="" />';
+            value="' . $this->_savedSearchName . '" />';
         $html_output .= '<input type="hidden" name="criterias" id="criterias"
             value="" />';
         $html_output .= '<input type="submit" name="saveSearch" id="saveSearch"

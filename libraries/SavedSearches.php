@@ -24,6 +24,12 @@ class PMA_SavedSearches
     private $_config = null;
 
     /**
+     * Id
+     * @var int|null
+     */
+    private $_id = null;
+
+    /**
      * Username
      * @var string
      */
@@ -40,6 +46,29 @@ class PMA_SavedSearches
      * @var string
      */
     private $_searchName = null;
+
+    /**
+     * Setter of id
+     *
+     * @param int|null $searchId Id of search
+     *
+     * @return static
+     */
+    public function setId($searchId)
+    {
+        $this->_id = $searchId;
+        return $this;
+    }
+
+    /**
+     * Getter of id
+     *
+     * @return int|null
+     */
+    public function getId()
+    {
+        return $this->_id;
+    }
 
     /**
      * Setter of searchName
@@ -140,9 +169,9 @@ class PMA_SavedSearches
     }
 
     /**
-     * Setter for DB name
+     * Setter for DB name
      *
-     * @param string $dbname DB name
+     * @param string $dbname DB name
      *
      * @return static
      */
@@ -153,7 +182,7 @@ class PMA_SavedSearches
     }
 
     /**
-     * Getter for DB name
+     * Getter for DB name
      *
      * @return string
      */
@@ -185,20 +214,91 @@ class PMA_SavedSearches
             || null == $this->getCriterias()
         ) {
             //@todo Send an error.
-            PMA_Util::mysqlDie(__('Missing information.'));
+            PMA_Util::mysqlDie(__('Missing information to save the search.'));
+        }
+
+        $savedSearchesTbl
+            = PMA_Util::backquote($this->_config['cfgRelation']['db']) . "."
+            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+
+        //If it's an insert.
+        if (null === $this->getId()) {
+            $wheres = array(
+                "search_name = '" . PMA_Util::sqlAddSlashes($this->getSearchName())
+                    . "'"
+            );
+            $existingSearches = $this->getList($wheres);
+
+            if (!empty($existingSearches)) {
+                PMA_Util::mysqlDie(__('An entry with this name already exists.'));
+            }
+
+            $sqlQuery = "INSERT INTO " . $savedSearchesTbl
+                . "(`username`, `db_name`, `search_name`, `search_data`)"
+                . " VALUES ("
+                . "'" . PMA_Util::sqlAddSlashes($this->getUsername()) . "',"
+                . "'" . PMA_Util::sqlAddSlashes($this->getDbname()) . "',"
+                . "'" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "',"
+                . "'" . PMA_Util::sqlAddSlashes($this->getCriterias())
+                . "')";
+            return (bool)PMA_queryAsControlUser($sqlQuery);
+        }
+
+        //Else, it's an update.
+        $wheres = array(
+            "id != " . $this->getId(),
+            "search_name = '" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "'"
+        );
+        $existingSearches = $this->getList($wheres);
+
+        if (!empty($existingSearches)) {
+            PMA_Util::mysqlDie(__('An entry with this name already exists.'));
+        }
+
+        $sqlQuery = "UPDATE " . $savedSearchesTbl
+            . "SET `search_name` = '"
+            . PMA_Util::sqlAddSlashes($this->getUsername()) . "', "
+            . "`search_data` = '"
+            . PMA_Util::sqlAddSlashes($this->getCriterias()) . "' "
+            . "WHERE id = " . $this->getId();
+        return (bool)PMA_queryAsControlUser($sqlQuery);
+    }
+
+    /**
+     * Get the list of saved search of a user on a DB
+     *
+     * @param array $wheres List of filters
+     *
+     * @return array|bool List of saved search or false on failure
+     */
+    public function getList(array $wheres = array())
+    {
+        if (null == $this->getUsername()
+            || null == $this->getDbname()
+        ) {
+            return false;
         }
 
         $savedSearchesTbl = PMA_Util::backquote($this->_config['cfgRelation']['db'])
             . "."
             . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
-        $sqlQuery = "INSERT INTO " . $savedSearchesTbl
-            . "(`username`, `db_name`, `search_name`, `search_data`)"
-            . " VALUES ("
-            . "'" . PMA_Util::sqlAddSlashes($this->getUsername()) . "',"
-            . "'" . PMA_Util::sqlAddSlashes($this->getDbname()) . "',"
-            . "'" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "',"
-            . "'" . PMA_Util::sqlAddSlashes($this->getCriterias())
-            . "')";
-        return (bool)PMA_queryAsControlUser($sqlQuery);
+        $sqlQuery = "SELECT id, search_name "
+            . "FROM " . $savedSearchesTbl . " "
+            . "WHERE "
+            . "username = '" . PMA_Util::sqlAddSlashes($this->getUsername()) . "' "
+            . "AND db_name = '" . PMA_Util::sqlAddSlashes($this->getDbname()) . "' ";
+
+        foreach ($wheres as $where) {
+            $sqlQuery .= "AND " . $where . " ";
+        }
+
+        $resList = PMA_queryAsControlUser($sqlQuery);
+
+        $list = array();
+        while ($one_result = $GLOBALS['dbi']->fetchArray($resList)) {
+            $list[$one_result['id']] = $one_result['search_name'];
+        }
+
+        return $list;
     }
 }
