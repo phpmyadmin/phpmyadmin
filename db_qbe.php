@@ -34,7 +34,8 @@ if ($cfgRelation['savedsearcheswork']) {
     //Criterias field is filled only when clicking on "Save search".
     if (!empty($_REQUEST['criterias'])) {
         //var_dump($GLOBALS);
-        $saveResult = $savedSearch->setSearchName($_REQUEST['searchName'])
+        $saveResult = $savedSearch->setId($_REQUEST['searchId'])
+            ->setSearchName($_REQUEST['searchName'])
             ->setCriterias($_REQUEST['criterias'])
             ->saveSearch();
         /*if (!$saveResult) {
