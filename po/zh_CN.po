@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-14 05:49+0200\n"
+"PO-Revision-Date: 2014-02-16 01:03+0200\n"
 "Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
@@ -4434,7 +4434,6 @@ msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
@@ -4445,14 +4444,13 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "当编辑 CHAR 和 VARCHAR 类型字段时所使用的控件；[kbd]输入框（input）[/kbd] - "
-"可以限制输入长度，[kbd]文本框（textarea）[/kbd] - 可以输入多行数据"
+"可以限制输入长度，[kbd]文本框（textarea）[/kbd] - 可以输入多行数据。"
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "编辑 CHAR 类型字段"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4460,8 +4458,7 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"使用带有语法高亮及行号显示的人性化编辑器来编辑 SQL 语句（[a@http://"
-"codemirror.net/]CodeMirror[/a]）"
+"使用带有语法高亮及行号显示的人性化编辑器来编辑 SQL 语句（[a@http://codemirror.net/]CodeMirror[/a]）。"
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
