@@ -53,7 +53,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         $result = array();
         $result[] = array(
-            'browserName' => 'firefox',
+            'browserName' => 'chrome',
             'host' => 'hub.browserstack.com',
             'port' => 80,
             'timeout' => 30000,
@@ -66,7 +66,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         );
         if (getenv('TESTSUITE_FULL')) {
             $result[] = array(
-                'browserName' => 'chrome',
+                'browserName' => 'firefox',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
