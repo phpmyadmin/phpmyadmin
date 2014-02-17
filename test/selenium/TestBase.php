@@ -59,7 +59,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var base_url
      */
-    private static $base_url = SELENIUM_URL;
+    public static $base_url = SELENIUM_URL;
 
     /**
      * mysqli object
