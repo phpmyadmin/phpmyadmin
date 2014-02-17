@@ -58,6 +58,8 @@ class PmaSeleniumDbOperationsTest extends PMA_SeleniumBase
      * Test for adding database comment
      *
      * @return void
+     *
+     * @group large
      */
     public function testDbComment()
     {
@@ -76,6 +78,8 @@ class PmaSeleniumDbOperationsTest extends PMA_SeleniumBase
      * Test for renaming database
      *
      * @return void
+     *
+     * @group large
      */
     public function testRenameDB()
     {
@@ -110,6 +114,8 @@ class PmaSeleniumDbOperationsTest extends PMA_SeleniumBase
      * Test for copying database
      *
      * @return void
+     *
+     * @group large
      */
     public function testCopyDb()
     {
