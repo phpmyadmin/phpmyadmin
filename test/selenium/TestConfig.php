@@ -38,7 +38,6 @@ class TestConfig
      */
     public function __construct()
     {
-        $xml = simplexml_load_file("phpunit.xml.dist");
         $xmlDoc = new DOMDocument();
         $xmlDoc->load('phpunit.xml.dist');
         $searchNode = $xmlDoc->getElementsByTagName("browser");
