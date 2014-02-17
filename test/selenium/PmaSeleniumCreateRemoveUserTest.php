@@ -6,7 +6,8 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'Helper.php';
+
+require_once 'TestBase.php';
 
 /**
  * PmaSeleniumCreateRemoveUserTest class
@@ -14,7 +15,7 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
 {
     /**
      * Username for the user
@@ -33,22 +34,13 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
     private $_txtPassword;
 
     /**
-     * Helper Object
-     *
-     * @var Helper
-     */
-    private $_helper;
-
-    /**
      * Setup the browser environment to run the selenium test case
      *
      * @return void
      */
     public function setUp()
     {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->_helper->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
+        parent::setUp();
         $this->_txtUsername = 'pma_user';
         $this->_txtPassword = 'abc_123';
     }
@@ -57,16 +49,18 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
      * Creates and removes a user
      *
      * @return void
+     *
+     * @group large
      */
     public function testCreateRemoveUser()
     {
-        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->byLinkText("Users")->click();
 
-        $link = $this->_helper->waitForElement("byLinkText", "Add user");
+        $link = $this->waitForElement("byLinkText", "Add user");
         $link->click();
 
-        $userField = $this->_helper->waitForElement("byName", "username");
+        $userField = $this->waitForElement("byName", "username");
         $userField->value($this->_txtUsername);
 
         $select = $this->select($this->byId("select_pred_hostname"));
@@ -84,10 +78,10 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->byId("addUsersForm_checkall")->click();
         $this->byName("adduser_submit")->click();
 
-        $success = $this->_helper->waitForElement("byCssSelector", "div.success");
+        $success = $this->waitForElement("byCssSelector", "div.success");
         $this->assertContains('You have added a new user', $success->text());
 
-        $el = $this->_helper->waitForElement("byId", "usersForm");
+        $el = $this->waitForElement("byId", "usersForm");
         $temp = $this->_txtUsername . "&amp;#27;localhost";
 
         $this->byXPath(
@@ -98,7 +92,7 @@ class PmaSeleniumCreateRemoveUserTest extends PHPUnit_Extensions_Selenium2TestCa
         $this->acceptAlert();
         $this->byId("buttonGo")->click();
 
-        $success = $this->_helper->waitForElement("byCssSelector", "div.success");
+        $success = $this->waitForElement("byCssSelector", "div.success");
         $this->assertContains(
             'The selected users have been deleted',
             $success->text()

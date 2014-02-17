@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+
 require_once 'TestBase.php';
 
 /**
@@ -14,14 +15,8 @@ require_once 'TestBase.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumLoginTest extends PMA_SeleniumBase
+class PMA_SeleniumLoginTest extends PMA_SeleniumBase
 {
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->setBrowserUrl(SELENIUM_URL);
-    }
-
     /**
      * Test for successful login
      *
@@ -47,7 +42,6 @@ class PmaSeleniumLoginTest extends PMA_SeleniumBase
     {
         $this->login("Admin", "Admin");
         $this->assertTrue($this->isUnsuccessLogin());
-        $this->logOutIfLoggedIn();
     }
 }
 ?>

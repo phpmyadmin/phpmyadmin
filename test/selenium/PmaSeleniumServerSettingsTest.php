@@ -6,7 +6,8 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'Helper.php';
+
+require_once 'TestBase.php';
 
 /**
  * PmaSeleniumServerSettingsTest class
@@ -14,38 +15,8 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumSettingsTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
 {
-    /**
-     * Name of database for the test
-     *
-     * @var string
-     */
-    private $_dbname;
-
-    /**
-     * Helper Object
-     *
-     * @var Helper
-     */
-    private $_helper;
-
-    /**
-     * Setup the browser environment to run the selenium test case
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->_helper->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->_helper->dbConnect();
-        $this->_dbname = 'pma_db_' . time();
-        $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
-        $this->_helper->dbQuery('USE ' . $this->_dbname);
-    }
-
     /**
      * setUp function that can use the selenium session (called before each test)
      *
@@ -53,11 +24,11 @@ class PmaSeleniumSettingsTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function setUpPage()
     {
-        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $more = $this->byLinkText("More");
         $this->moveto($more);
-        $this->_helper->waitForElement("byLinkText", "Settings")->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement("byLinkText", "Settings")->click();
+        $this->waitForElement(
             "byXPath", "//a[@class='tabactive' and contains(., 'Settings')]"
         );
     }
@@ -66,30 +37,32 @@ class PmaSeleniumSettingsTest extends PHPUnit_Extensions_Selenium2TestCase
      * Tests whether hiding a database works or not
      *
      * @return void
+     *
+     * @group large
      */
     public function testHideDatabase()
     {
         $this->byLinkText("Features")->click();
 
-        $this->_helper->waitForElement("byId", "Servers-1-hide_db")
-            ->value($this->_dbname);
+        $this->waitForElement("byId", "Servers-1-hide_db")
+            ->value($this->database_name);
         $this->byName("submit_save")->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Configuration has been saved')]"
         );
         $this->assertFalse(
-            $this->_helper->isElementPresent("byLinkText", $this->_dbname)
+            $this->isElementPresent("byLinkText", $this->database_name)
         );
 
         $this->byCssSelector("a[href='#Servers-1-hide_db']")->click();
         $this->byName("submit_save")->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Configuration has been saved')]"
         );
         $this->assertTrue(
-            $this->_helper->isElementPresent("byLinkText", $this->_dbname)
+            $this->isElementPresent("byLinkText", $this->database_name)
         );
     }
 
@@ -97,11 +70,13 @@ class PmaSeleniumSettingsTest extends PHPUnit_Extensions_Selenium2TestCase
      * Tests whether the various settings tabs are displayed when clicked
      *
      * @return void
+     *
+     * @group large
      */
     public function testSettingsTabsAreDisplayed()
     {
         $this->byLinkText("SQL queries")->click();
-        $this->_helper->waitForElement('byClassName', 'tabs');
+        $this->waitForElement('byClassName', 'tabs');
 
         $this->byLinkText("SQL Query box")->click();
         $this->assertTrue(
@@ -124,41 +99,33 @@ class PmaSeleniumSettingsTest extends PHPUnit_Extensions_Selenium2TestCase
      * Tests if hiding the logo works or not
      *
      * @return void
+     *
+     * @group large
      */
     public function testHideLogo()
     {
         $this->byLinkText("Navigation panel")->click();
 
-        $this->_helper->waitForElement("byName", "NavigationDisplayLogo")
+        $this->waitForElement("byName", "NavigationDisplayLogo")
             ->click();
         $this->byName("submit_save")->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Configuration has been saved')]"
         );
         $this->assertFalse(
-            $this->_helper->isElementPresent("byId", "imgpmalogo")
+            $this->isElementPresent("byId", "imgpmalogo")
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
         $this->byName("submit_save")->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Configuration has been saved')]"
         );
         $this->assertTrue(
-            $this->_helper->isElementPresent("byId", "imgpmalogo")
+            $this->isElementPresent("byId", "imgpmalogo")
         );
-    }
-
-    /**
-     * Tear Down function for test cases
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        $this->_helper->dbQuery('DROP DATABASE IF EXISTS ' . $this->_dbname);
     }
 
 }

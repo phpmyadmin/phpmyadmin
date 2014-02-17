@@ -6,7 +6,8 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'Helper.php';
+
+require_once 'TestBase.php';
 
 /**
  * PmaSeleniumDbTriggersTest class
@@ -14,22 +15,8 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
 {
-    /**
-     * Name of database for the test
-     *
-     * @var string
-     */
-    private $_dbname;
-
-    /**
-     * Helper Object
-     *
-     * @var Helper
-     */
-    private $_helper;
-
     /**
      * Setup the browser environment to run the selenium test case
      *
@@ -37,14 +24,8 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function setUp()
     {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->_helper->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->_helper->dbConnect();
-        $this->_dbname = 'pma_db_test';
-        $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
-        $this->_helper->dbQuery('USE ' . $this->_dbname);
-        $this->_helper->dbQuery(
+        parent::setUp();
+        $this->dbQuery(
             "CREATE TABLE `test_table` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
             . " `val` int(11) NOT NULL,"
@@ -52,17 +33,16 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
             . ")"
         );
 
-        $this->_helper->dbQuery(
+        $this->dbQuery(
             "CREATE TABLE `test_table2` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
             . " `val` int(11) NOT NULL,"
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-        $this->_helper->dbQuery(
+        $this->dbQuery(
             "INSERT INTO `test_table2` (val) VALUES (2);"
         );
-
     }
 
     /**
@@ -72,8 +52,8 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function setUpPage()
     {
-        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->byLinkText($this->_dbname)->click();
+        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->byLinkText($this->database_name)->click();
     }
 
     /**
@@ -83,9 +63,9 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     private function _triggerSQL()
     {
-        $this->_helper->dbQuery(
+        $this->dbQuery(
             "CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW"
-            . " UPDATE `" . $this->_dbname . "`.`test_table2` SET val = val + 1"
+            . " UPDATE `" . $this->database_name . "`.`test_table2` SET val = val + 1"
         );
     }
 
@@ -93,18 +73,20 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
      * Create a Trigger
      *
      * @return void
+     *
+     * @group large
      */
     public function testAddTrigger()
     {
-        $more = $this->_helper->waitForElement("byLinkText", "More");
+        $more = $this->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Triggers");
+        $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 
-        $ele = $this->_helper->waitForElement("byLinkText", "Add trigger");
+        $ele = $this->waitForElement("byLinkText", "Add trigger");
         $ele->click();
 
-        $this->_helper->waitForElement("byClassName", "rte_form");
+        $this->waitForElement("byClassName", "rte_form");
 
         $this->byName("item_name")->value("test_trigger");
 
@@ -117,32 +99,32 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->select($this->byName("item_event"))
             ->selectOptionByLabel("INSERT");
 
-        $proc = "UPDATE " . $this->_dbname . ".`test_table2` SET val=val+1";
-        $this->_helper->typeInTextArea($proc);
+        $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+1";
+        $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->_helper->waitForElement(
+        $ele = $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., "
             . "'Trigger `test_trigger` has been created')]"
         );
 
         $this->assertTrue(
-            $this->_helper->isElementPresent(
+            $this->isElementPresent(
                 'byXPath',
                 "//td[contains(., 'test_trigger')]"
             )
         );
 
-        $result = $this->_helper->dbQuery(
-            "SHOW TRIGGERS FROM `" . $this->_dbname . "`;"
+        $result = $this->dbQuery(
+            "SHOW TRIGGERS FROM `" . $this->database_name . "`;"
         );
         $this->assertEquals(1, $result->num_rows);
 
         // test trigger
-        $this->_helper->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");
-        $result = $this->_helper->dbQuery("SELECT val FROM `test_table2`;");
+        $this->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");
+        $result = $this->dbQuery("SELECT val FROM `test_table2`;");
         $row = $result->fetch_assoc();
         $this->assertEquals(3, $row['val']);
     }
@@ -151,36 +133,38 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
      * Test for editing Triggers
      *
      * @return void
+     *
+     * @group large
      */
     public function testEditTriggers()
     {
         $this->_triggerSQL();
-        $more = $this->_helper->waitForElement("byLinkText", "More");
+        $more = $this->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Triggers");
+        $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
             "//legend[contains(., 'Triggers')]"
         );
 
         $this->byLinkText("Edit")->click();
 
-        $this->_helper->waitForElement("byClassName", "rte_form");
-        $this->_helper->typeInTextArea("0");
+        $this->waitForElement("byClassName", "rte_form");
+        $this->typeInTextArea("0");
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->_helper->waitForElement(
+        $ele = $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., "
             . "'Trigger `test_trigger` has been modified')]"
         );
 
         // test trigger
-        $this->_helper->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");
-        $result = $this->_helper->dbQuery("SELECT val FROM `test_table2`;");
+        $this->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");
+        $result = $this->dbQuery("SELECT val FROM `test_table2`;");
         $row = $result->fetch_assoc();
         $this->assertEquals(12, $row['val']);
     }
@@ -189,40 +173,32 @@ class PmaSeleniumDbTriggersTest extends PHPUnit_Extensions_Selenium2TestCase
      * Test for dropping Trigger
      *
      * @return void
+     *
+     * @group large
      */
     public function testDropTrigger()
     {
         $this->_triggerSQL();
-        $more = $this->_helper->waitForElement("byLinkText", "More");
+        $more = $this->waitForElement("byLinkText", "More");
         $this->moveto($more);
-        $ele = $this->_helper->waitForElement("byPartialLinkText", "Triggers");
+        $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
             "//legend[contains(., 'Triggers')]"
         );
 
         $this->byLinkText("Drop")->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath", "//button[contains(., 'OK')]"
         )->click();
 
-        $this->_helper->waitForElement("byId", "nothing2display");
+        $this->waitForElement("byId", "nothing2display");
 
-        $result = $this->_helper->dbQuery(
-            "SHOW TRIGGERS FROM `" . $this->_dbname . "`;"
+        $result = $this->dbQuery(
+            "SHOW TRIGGERS FROM `" . $this->database_name . "`;"
         );
         $this->assertEquals(0, $result->num_rows);
-    }
-
-    /**
-     * Tear Down function for test cases
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        $this->_helper->dbQuery('DROP DATABASE ' . $this->_dbname);
     }
 }

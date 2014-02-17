@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-17 18:10+0200\n"
+"PO-Revision-Date: 2014-02-17 19:26+0200\n"
 "Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -10565,7 +10565,7 @@ msgstr "Variáveis e configurações do servidor"
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
-msgstr "Motores de armazenamento"
+msgstr "Mecanismos de Armazenamento"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"

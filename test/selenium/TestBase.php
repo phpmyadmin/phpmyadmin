@@ -11,6 +11,14 @@ define('BS_UNAME', getenv('BS_UNAME'));
 define('BS_KEY', getenv('BS_KEY'));
 define('SELENIUM_URL', TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
 
+if (getenv('BUILD_NUMBER')) {
+    define('BS_BUILD_ID', 'Jenkins ' . getenv('BUILD_NUMBER'));
+} elseif (getenv('TRAVIS_JOB_NUMBER')) {
+    define('BS_BUILD_ID', 'Travis ' . getenv('TRAVIS_JOB_NUMBER'));
+} else {
+    define('BS_BUILD_ID', 'Manual');
+}
+
 
 /**
  * Base class for Selenium tests.
@@ -35,6 +43,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
                 )
             ),
             array(
@@ -45,6 +55,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
                 )
             ),
             array(
@@ -55,6 +67,10 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
+                    'os' => 'windows',
+                    'os_version' => '7',
                 )
             )
         );
@@ -67,6 +83,38 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     private $_mysqli;
 
+    /**
+     * Name of database for the test
+     *
+     * @access public
+     * @var string
+     */
+    public $database_name;
+
+    /**
+     * Configures the selenium and database link.
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+        $this->setBrowserUrl(SELENIUM_URL);
+        $this->dbConnect();
+        $this->database_name = TESTSUITE_DATABASE . '_' . substr(md5(rand()), 0, 7);
+        $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->database_name);
+        $this->dbQuery('USE ' . $this->database_name);
+    }
+
+    /**
+     * Tear Down function for test cases
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->database_name);
+    }
 
     /**
      * perform a login
