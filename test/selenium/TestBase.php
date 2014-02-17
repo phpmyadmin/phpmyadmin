@@ -11,10 +11,10 @@ define('BS_UNAME', getenv('BS_UNAME'));
 define('BS_KEY', getenv('BS_KEY'));
 define('SELENIUM_URL', TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
 
-if (getenv('BUILD_NUMBER')) {
-    define('BS_BUILD_ID', 'Jenkins ' . getenv('BUILD_NUMBER'));
+if (getenv('BUILD_TAG')) {
+    define('BS_BUILD_ID', getenv('BUILD_TAG'));
 } elseif (getenv('TRAVIS_JOB_NUMBER')) {
-    define('BS_BUILD_ID', 'Travis ' . getenv('TRAVIS_JOB_NUMBER'));
+    define('BS_BUILD_ID', 'travis-' . getenv('TRAVIS_JOB_NUMBER'));
 } else {
     define('BS_BUILD_ID', 'Manual');
 }
