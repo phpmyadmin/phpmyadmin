@@ -191,17 +191,37 @@ class PMA_DbQbe
      * @var array
      */
     private $_savedSearchList = null;
+    /**
+     * Current search id
+     *
+     * @access private
+     * @var array
+     */
+    private $_currentSearchId = null;
+
+    /**
+     * Gðetter for current search id
+     *
+     * @return array
+     */
+    private function _getCurrentSearchId()
+    {
+        return $this->_currentSearchId;
+    }
 
     /**
      * Public Constructor
      *
      * @param string $dbname          Database name
      * @param array  $savedSearchList List of saved searches
+     * @param int    $currentSearchId Current search id
      */
-    public function __construct($dbname, $savedSearchList = array())
-    {
+    public function __construct(
+        $dbname, $savedSearchList = array(), $currentSearchId = null
+    ) {
         $this->_db = $dbname;
         $this->_savedSearchList = $savedSearchList;
+        $this->_currentSearchId = $currentSearchId;
         // Sets criteria parameters
         $this->_setSearchParams();
         $this->_setCriteriaTablesAndColumns();
@@ -1420,15 +1440,16 @@ class PMA_DbQbe
         $html_output = __('Saved searches : ');
         $html_output .= '<select name="searchId" id="searchId">';
         $html_output .= '<option value="">New search</option>';
-        foreach ($this->_savedSearchList as $name => $search) {
-            $html_output .= '<option value="' . htmlspecialchars($name)
-                . (
-                    $search == $this->_savedSearchName
+        $currentSearchId = $this->_getCurrentSearchId();
+        foreach ($this->_savedSearchList as $id => $name) {
+            $html_output .= '<option value="' . htmlspecialchars($id)
+                . '" ' . (
+                    $id == $currentSearchId
                     ? ' selected="selected"'
-                    : ''
+                    : '' . $id .'-' . $currentSearchId
                 )
-                . '">'
-                . htmlspecialchars($search)
+                . '>'
+                . htmlspecialchars($name)
                 . '</option>';
         }
 
@@ -1437,8 +1458,10 @@ class PMA_DbQbe
             . 'value="' . $this->_savedSearchName . '" />';
         $html_output .= '<input type="hidden" name="criterias" id="criterias" '
             . 'value="" />';
-        $html_output .= '<input type="submit" name="saveSearch" id="saveSearch"
-            value="' . __('Save search') . '" />';
+        $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" '
+            . 'value="' . __('Save search') . '" />';
+        $html_output .= '<input type="submit" name="deleteSearch" id="deleteSearch" '
+            . 'value="' . __('Delete search') . '" />';
 
         return $html_output;
     }
