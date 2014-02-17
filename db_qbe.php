@@ -20,6 +20,7 @@ $response = PMA_Response::getInstance();
 $cfgRelation = PMA_getRelationsParam();
 
 $savedSearchList = array();
+$currentSearchId = null;
 if ($cfgRelation['savedsearcheswork']) {
     include 'libraries/SavedSearches.php';
     $header = $response->getHeader();
@@ -42,9 +43,13 @@ if ($cfgRelation['savedsearcheswork']) {
             $response->addHTML('raté');
             exit();
         }*/
+    /*} elseif (!empty($_REQUEST)) { //else, this is a delete.
+        $saveResult = $savedSearch->setId($_REQUEST['searchId'])
+            ->deleteSearch();*/
     }
 
     $savedSearchList = $savedSearch->getList();
+    $currentSearchId = $savedSearch->getId();
 }
 
 /**
@@ -80,7 +85,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList);
+$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $currentSearchId);
 
 /**
  * Displays the Query by example form

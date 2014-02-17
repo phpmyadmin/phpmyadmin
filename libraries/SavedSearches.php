@@ -56,6 +56,11 @@ class PMA_SavedSearches
      */
     public function setId($searchId)
     {
+        $searchId = (int)$searchId;
+        if (empty($searchId)) {
+            $searchId = null;
+        }
+
         $this->_id = $searchId;
         return $this;
     }
@@ -213,7 +218,6 @@ class PMA_SavedSearches
             || null == $this->getSearchName()
             || null == $this->getCriterias()
         ) {
-            //@todo Send an error.
             PMA_Util::mysqlDie(__('Missing information to save the search.'));
         }
 
@@ -241,7 +245,15 @@ class PMA_SavedSearches
                 . "'" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "',"
                 . "'" . PMA_Util::sqlAddSlashes($this->getCriterias())
                 . "')";
-            return (bool)PMA_queryAsControlUser($sqlQuery);
+
+            $result = (bool)PMA_queryAsControlUser($sqlQuery);
+            if (!$result) {
+                return false;
+            }
+
+            $this->setId($GLOBALS['dbi']->insertId());
+
+            return true;
         }
 
         //Else, it's an update.
@@ -257,10 +269,31 @@ class PMA_SavedSearches
 
         $sqlQuery = "UPDATE " . $savedSearchesTbl
             . "SET `search_name` = '"
-            . PMA_Util::sqlAddSlashes($this->getUsername()) . "', "
+            . PMA_Util::sqlAddSlashes($this->getSearchName()) . "', "
             . "`search_data` = '"
             . PMA_Util::sqlAddSlashes($this->getCriterias()) . "' "
             . "WHERE id = " . $this->getId();
+        return (bool)PMA_queryAsControlUser($sqlQuery);
+    }
+
+    /**
+     * Delete the search
+     *
+     * @return boolean
+     */
+    public function deleteSearch()
+    {
+        if (null == $this->getId()) {
+            PMA_Util::mysqlDie(__('Missing information to delete the search.'));
+        }
+
+        $savedSearchesTbl
+            = PMA_Util::backquote($this->_config['cfgRelation']['db']) . "."
+            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+
+        $sqlQuery = "DELETE FROM " . $savedSearchesTbl
+            . "WHERE id = '" . PMA_Util::sqlAddSlashes($this->getId()) . "'";
+
         return (bool)PMA_queryAsControlUser($sqlQuery);
     }
 
