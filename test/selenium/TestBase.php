@@ -31,6 +31,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
+                'timeout' => 30000,
                 'desiredCapabilities' => array(
                     'version' => '30',
                     'browserstack.user' => BS_UNAME,
@@ -43,6 +44,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
+                'timeout' => 30000,
                 'desiredCapabilities' => array(
                     'version' => '30',
                     'browserstack.user' => BS_UNAME,
