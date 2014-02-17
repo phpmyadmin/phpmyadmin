@@ -100,7 +100,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         parent::setUp();
         $this->setBrowserUrl(SELENIUM_URL);
         $this->dbConnect();
-        $this->_dbname = TESTSUITE_DATABASE;
+        $this->_dbname = TESTSUITE_DATABASE . '_' . substr(md5(rand()), 0, 7);
         $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->_dbname);
         $this->dbQuery('USE ' . $this->_dbname);
     }
