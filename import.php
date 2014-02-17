@@ -548,7 +548,7 @@ if (! $error) {
     }
 }
 
-if (! $error && false !== $import_handle && null !== $import_handle) {
+if (false !== $import_handle && null !== $import_handle) {
     fclose($import_handle);
 }
 
