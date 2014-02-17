@@ -288,6 +288,7 @@ function expandTreeNode($expandElem, callback) {
                 if (callback && typeof callback == 'function') {
                     callback.call();
                 }
+                PMA_showFullName($destination);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -406,6 +407,7 @@ function PMA_showCurrentNavigation() {
             }
         }
     }
+    PMA_showFullName($('#pma_navigation_tree_content'));
 
     function handleTableOrDb(table, $dbItem) {
         if (table) {
@@ -1195,3 +1197,39 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
     this.$this.find('div.pageselector').show();
     this.$this.find('div.throbber').remove();
 };
+
+/**
+ * Show full name when cursor hover and name not shown completely
+ *
+ * @param object $containerELem Container element
+ *
+ * @return void
+ */
+function PMA_showFullName($containerELem) {
+
+    $containerELem.find('.hover_show_full').mouseenter(function() {
+        /** mouseenter */
+        var $this = $(this);
+        var thisOffset = $this.offset();
+        if($this.text() == '')
+            return;
+        var $parent = $this.parent();
+        if(  ($parent.offset().left + $parent.outerWidth())
+           < (thisOffset.left + $this.outerWidth()))
+        {
+            var $fullNameLayer = $('#full_name_layer');
+            if($fullNameLayer.length == 0)
+            {
+                $('body').append('<div id="full_name_layer" class="hide"></div>');
+                $('#full_name_layer').mouseleave(function() {
+                    /** mouseleave */
+                    $(this).addClass('hide');
+                });
+                $fullNameLayer = $('#full_name_layer');
+            }
+            $fullNameLayer.removeClass('hide');
+            $fullNameLayer.css({left: thisOffset.left, top: thisOffset.top});
+            $fullNameLayer.html($this.clone());
+        }
+    });
+}
