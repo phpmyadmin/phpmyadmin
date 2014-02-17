@@ -28,12 +28,11 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
 	public static $browsers = array(
             array(
-                'browserName' => 'Firefox',
+                'browserName' => 'firefox',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 100000,
                 'desiredCapabilities' => array(
-                    'version' => '30',
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
                 )
@@ -44,18 +43,16 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'port' => 80,
                 'timeout' => 100000,
                 'desiredCapabilities' => array(
-                    'version' => '30',
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
                 )
             ),
             array(
-                'browserName' => 'Internet Explorer',
+                'browserName' => 'internet_explorer',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 100000,
                 'desiredCapabilities' => array(
-                    'version' => '30',
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
                 )
