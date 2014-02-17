@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 + rfe #1500 [interface] Add bottom border to top menu container
 + rfe #1498 Add datepicker for 'TIME' type
 - bug #4237 HTTP Referer disclosure in SQL links
++ rfe       Show full names on navigation hover
 
 4.1.8.0 (not yet released)
 - bug #4276 Login loop on session expiry

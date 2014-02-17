@@ -19,31 +19,50 @@ define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
 
+// BrowserStack integration
 $bs_uname = getenv('BS_UNAME');
 $bs_key = getenv('BS_KEY');
 
 if ($bs_uname && $bs_key) {
-    define('PHPUNIT_HOST', $bs_uname . ":" . $bs_key . "@hub.browserstack.com");
+    define('PHPUNIT_HOST', $bs_uname . ":" . $bs_key . "@hub.browserstack.com:80");
 } else {
     define('PHPUNIT_HOST', "127.0.0.1");
 }
 
+// Selenium tests setup
+$test_defaults = array(
+    'TESTSUITE_SERVER' => 'localhost',
+    'TESTSUITE_USER' => 'root',
+    'TESTSUITE_PASSWORD' => '',
+    'TESTSUITE_DATABASE' => 'test',
+    'TESTSUITE_PHPMYADMIN_HOST' => 'http://localhost',
+    'TESTSUITE_PHPMYADMIN_URL' => '/phpmyadmin',
+);
+foreach ($test_defaults as $varname => $defvalue) {
+    $envvar = getenv($varname);
+    if ($envvar) {
+        define($varname, $envvar);
+    } else {
+        define($varname, $defvalue);
+    }
+}
+
+// Initialize PMA_VERSION variable
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 $CFG = new PMA_Config();
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
 
+// Ensure we have session started
 session_start();
-
-// You can put some additional code that should run before tests here
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['is_ajax_request'] = false;
 
-
+// Check whether we have runkit extension
 define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));
 $GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');
 
