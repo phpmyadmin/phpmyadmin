@@ -15,7 +15,7 @@ require_once 'TestBase.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PMA_SeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
 {
     /**
      * Name of database for the test
