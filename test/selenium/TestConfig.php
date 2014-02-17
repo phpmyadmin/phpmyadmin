@@ -39,7 +39,7 @@ class TestConfig
     public function __construct()
     {
         $xmlDoc = new DOMDocument();
-        $xmlDoc->load('phpunit.xml.dist');
+        $xmlDoc->load('../phpunit.xml.dist');
         $searchNode = $xmlDoc->getElementsByTagName("browser");
         foreach ($searchNode as $searchNode) {
             $this->setCurrentBrowser($searchNode->getAttribute('browser'));
