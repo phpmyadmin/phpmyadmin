@@ -67,12 +67,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     private $_mysqli;
 
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->setBrowserUrl(SELENIUM_URL);
-    }
-
 
     /**
      * perform a login
