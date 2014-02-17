@@ -26,7 +26,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access public
      * @var browsers
      */
-	private static $browsers = array(
+	public static $browsers = array(
             array(
                 'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
