@@ -49,6 +49,8 @@ function selenium_browsers() {
     }
 }
 
+define('SELENIUM_BROWSERS', selenium_browsers());
+
 
 /**
  * Base class for Selenium tests.
@@ -64,7 +66,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access public
      * @var browsers
      */
-	public static $browsers = selenium_browsers();
+	private static $browsers = SELENIUM_BROWSERS;
 
     /**
      * base URL for tests
