@@ -195,11 +195,11 @@ function displayPasswordGenerateButton()
  * @param object  $this_element   a jQuery object pointing to the element
  */
 function PMA_addDatepicker($this_element, type, options)
-{   
+{
     var showTimepicker = true;
     if (type=="date") {
         showTimepicker = false;
-    }    
+    }
 
     var defaultOptions = {
         showOn: 'button',
@@ -869,7 +869,7 @@ function addDateTimePicker() {
             var timeFormat = 'HH:mm:ss';
             // check for decimal places of seconds
             if (($(this).parent().attr('data-decimals') > 0) && ($(this).parent().attr('data-type').indexOf('time') != -1)){
-                showMillisec = true;                       
+                showMillisec = true;
                 timeFormat = 'HH:mm:ss.lc';
                 if ($(this).parent().attr('data-decimals') > 3) {
                     showMicrosec = true;
@@ -878,9 +878,9 @@ function addDateTimePicker() {
             PMA_addDatepicker($(this), $(this).parent().attr('data-type'), {
                 showMillisec: showMillisec,
                 showMicrosec: showMicrosec,
-                timeFormat: timeFormat,                        
-            });               
-         })
+                timeFormat: timeFormat,
+            });
+         });
     }
 }
 
