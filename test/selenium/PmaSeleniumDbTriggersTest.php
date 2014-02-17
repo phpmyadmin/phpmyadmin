@@ -53,7 +53,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->byLinkText($this->_dbname)->click();
+        $this->byLinkText($this->database_name)->click();
     }
 
     /**
@@ -65,7 +65,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
     {
         $this->dbQuery(
             "CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW"
-            . " UPDATE `" . $this->_dbname . "`.`test_table2` SET val = val + 1"
+            . " UPDATE `" . $this->database_name . "`.`test_table2` SET val = val + 1"
         );
     }
 
@@ -99,7 +99,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
         $this->select($this->byName("item_event"))
             ->selectOptionByLabel("INSERT");
 
-        $proc = "UPDATE " . $this->_dbname . ".`test_table2` SET val=val+1";
+        $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+1";
         $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
@@ -118,7 +118,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
         );
 
         $result = $this->dbQuery(
-            "SHOW TRIGGERS FROM `" . $this->_dbname . "`;"
+            "SHOW TRIGGERS FROM `" . $this->database_name . "`;"
         );
         $this->assertEquals(1, $result->num_rows);
 
@@ -197,7 +197,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
         $this->waitForElement("byId", "nothing2display");
 
         $result = $this->dbQuery(
-            "SHOW TRIGGERS FROM `" . $this->_dbname . "`;"
+            "SHOW TRIGGERS FROM `" . $this->database_name . "`;"
         );
         $this->assertEquals(0, $result->num_rows);
     }

@@ -86,9 +86,10 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     /**
      * Name of database for the test
      *
+     * @access public
      * @var string
      */
-    private $_dbname;
+    public $database_name;
 
     /**
      * Configures the selenium and database link.
@@ -100,9 +101,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         parent::setUp();
         $this->setBrowserUrl(SELENIUM_URL);
         $this->dbConnect();
-        $this->_dbname = TESTSUITE_DATABASE . '_' . substr(md5(rand()), 0, 7);
-        $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->_dbname);
-        $this->dbQuery('USE ' . $this->_dbname);
+        $this->database_name = TESTSUITE_DATABASE . '_' . substr(md5(rand()), 0, 7);
+        $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->database_name);
+        $this->dbQuery('USE ' . $this->database_name);
     }
 
     /**
@@ -112,7 +113,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function tearDown()
     {
-        $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->_dbname);
+        $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->database_name);
     }
 
     /**

@@ -44,7 +44,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->byLinkText($this->_dbname)->click();
+        $this->byLinkText($this->database_name)->click();
     }
 
     /**
@@ -112,7 +112,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
         );
 
         $result = $this->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->_dbname . "'"
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
         );
 
         $this->assertEquals(1, $result->num_rows);
@@ -184,7 +184,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
 
         usleep(1000000);
         $result = $this->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->_dbname . "'"
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
         );
         $this->assertEquals(0, $result->num_rows);
     }

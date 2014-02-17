@@ -31,7 +31,7 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
         $this->byLinkText("Databases")->click();
 
         $element = $this->waitForElement('byId', 'text_create_db');
-        $element->value($this->_dbname);
+        $element->value($this->database_name);
 
         $this->byId("buttonGo")->click();
 
@@ -55,14 +55,14 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
         $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
 
         $this->byCssSelector(
-            "input[name='selected_dbs[]'][value='" . $this->_dbname . "']"
+            "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
         )->click();
 
         $this->byCssSelector("button.mult_submit")->click();
         $this->byCssSelector("span.ui-button-text:nth-child(1)")->click();
 
         $this->waitForElementNotPresent(
-            "byCssSelector", "input[name='selected_dbs[]'][value='" . $this->_dbname . "']"
+            "byCssSelector", "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
         );
 
         $this->waitForElement(

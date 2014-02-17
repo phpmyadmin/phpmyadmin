@@ -54,17 +54,17 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
      */
     public function testDbImport()
     {
-        $this->dbQuery("CREATE DATABASE " . $this->_dbname);
+        $this->dbQuery("CREATE DATABASE " . $this->database_name);
         $this->byLinkText("Databases")->click();
-        $this->waitForElement("byLinkText", $this->_dbname)->click();
+        $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: " . $this->_dbname . "')]"
+            "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
         );
 
         $this->_doImport("db");
 
-        $this->dbQuery("USE " . $this->_dbname);
+        $this->dbQuery("USE " . $this->database_name);
         $result = $this->dbQuery("SHOW TABLES");
         $this->assertEquals(1, $result->num_rows);
     }
@@ -79,18 +79,18 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
     public function testTableImport()
     {
         // setup the db
-        $this->dbQuery("CREATE DATABASE " . $this->_dbname);
-        $this->dbQuery("USE " . $this->_dbname);
+        $this->dbQuery("CREATE DATABASE " . $this->database_name);
+        $this->dbQuery("USE " . $this->database_name);
         $this->dbQuery(
             "CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL)"
         );
 
         // go to database page
         $this->byLinkText("Databases")->click();
-        $this->waitForElement("byLinkText", $this->_dbname)->click();
+        $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: " . $this->_dbname . "')]"
+            "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
         );
 
         // got to table page

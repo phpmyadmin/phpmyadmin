@@ -26,7 +26,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->byLinkText($this->_dbname)->click();
+        $this->byLinkText($this->database_name)->click();
         $this->waitForElement("byLinkText", "Operations")->click();
         $this->waitForElement(
             "byXPath", "//legend[contains(., 'Rename database to:')]"
@@ -82,11 +82,11 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
         $this->assertEquals(1, $result->num_rows);
 
         $result = $this->dbQuery(
-            "SHOW DATABASES LIKE '" . $this->_dbname . "';"
+            "SHOW DATABASES LIKE '" . $this->database_name . "';"
         );
         $this->assertEquals(0, $result->num_rows);
 
-        $this->_dbname = "pma_test_db_renamed";
+        $this->database_name = "pma_test_db_renamed";
     }
 
     /**
@@ -105,7 +105,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
 
         $this->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Database " . $this->_dbname
+            "//div[@class='success' and contains(., 'Database " . $this->database_name
             . " has been copied to pma_test_db_copy')]"
         );
 

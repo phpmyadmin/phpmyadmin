@@ -45,7 +45,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->byLinkText($this->_dbname)->click();
+        $this->byLinkText($this->database_name)->click();
 
         $this->waitForElement(
             "byXPath",
@@ -105,15 +105,15 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and "
-            . "contains(., 'Table `" . $this->_dbname . "`.`test_table` has been "
-            . "moved to `" . $this->_dbname . "`.`test_table2`.')]"
+            . "contains(., 'Table `" . $this->database_name . "`.`test_table` has been "
+            . "moved to `" . $this->database_name . "`.`test_table2`.')]"
         );
 
         $result = $this->dbQuery("SHOW TABLES");
         $row = $result->fetch_assoc();
         $this->assertEquals(
             "test_table2",
-            $row["Tables_in_" . $this->_dbname]
+            $row["Tables_in_" . $this->database_name]
         );
     }
 
@@ -148,7 +148,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $row = $result->fetch_assoc();
         $this->assertEquals(
             "test_table2",
-            $row["Tables_in_" . $this->_dbname]
+            $row["Tables_in_" . $this->database_name]
         );
     }
 
@@ -166,8 +166,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and "
-            . "contains(., 'Table `" . $this->_dbname . "`.`test_table` has been "
-            . "copied to `" . $this->_dbname . "`.`test_table2`.')]"
+            . "contains(., 'Table `" . $this->database_name . "`.`test_table` has been "
+            . "copied to `" . $this->database_name . "`.`test_table2`.')]"
         );
 
         $result = $this->dbQuery("SELECT COUNT(*) as c FROM test_table2");

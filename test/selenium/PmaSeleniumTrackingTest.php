@@ -52,10 +52,10 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->byLinkText($this->_dbname)->click();
+        $this->byLinkText($this->database_name)->click();
         $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: " . $this->_dbname . "')]"
+            "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
         );
         $ele = $this->byLinkText("More");
         $this->moveto($ele);
@@ -170,7 +170,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testDropTracking()
     {
-        $this->byLinkText("Database: " . $this->_dbname)->click();
+        $this->byLinkText("Database: " . $this->database_name)->click();
         $this->waitForElement("byCssSelector", "table.data");
         usleep(1000000);
         $ele = $this->byLinkText("More");

@@ -45,14 +45,14 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
         $this->byLinkText("Features")->click();
 
         $this->waitForElement("byId", "Servers-1-hide_db")
-            ->value($this->_dbname);
+            ->value($this->database_name);
         $this->byName("submit_save")->click();
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Configuration has been saved')]"
         );
         $this->assertFalse(
-            $this->isElementPresent("byLinkText", $this->_dbname)
+            $this->isElementPresent("byLinkText", $this->database_name)
         );
 
         $this->byCssSelector("a[href='#Servers-1-hide_db']")->click();
@@ -62,7 +62,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
             "//div[@class='success' and contains(., 'Configuration has been saved')]"
         );
         $this->assertTrue(
-            $this->isElementPresent("byLinkText", $this->_dbname)
+            $this->isElementPresent("byLinkText", $this->database_name)
         );
     }
 

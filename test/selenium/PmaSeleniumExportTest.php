@@ -81,10 +81,10 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      */
     public function testDbExport($plugin, $expected)
     {
-        $this->waitForElement("byLinkText", $this->_dbname)->click();
+        $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: " . $this->_dbname . "')]"
+            "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
         );
 
         $text = $this->_doExport('db', $plugin);
@@ -110,7 +110,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->dbQuery("INSERT INTO `test_table` (val) VALUES (3);");
 
         // go to database page
-        $this->waitForElement("byLinkText", $this->_dbname)->click();
+        $this->waitForElement("byLinkText", $this->database_name)->click();
 
         // got to table page
         $this->waitForElement("byLinkText", "test_table")->click();
@@ -170,7 +170,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         if ($type == 'server') {
             $this->byLinkText('Unselect All')->click();
-            $this->byCssSelector("option[value=" . $this->_dbname . "]")->click();
+            $this->byCssSelector("option[value=" . $this->database_name . "]")->click();
         }
 
         if ($type == 'table') {
