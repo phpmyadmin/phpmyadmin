@@ -21,8 +21,8 @@ function selenium_browsers() {
                 'port' => 80,
                 'desiredCapabilities' => array(
                     'version' => '30',
-                    'browserstack.user' => BROWSERSTACK_USER,
-                    'browserstack.key' => 'XQWDewaJsUzqYJRv8zhr',
+                    'browserstack.user' => $bs_uname,
+                    'browserstack.key' => $bs_key,
                     'os' => 'OS X',
                     'os_version' => 'Mountain Lion'
                 )
@@ -33,8 +33,8 @@ function selenium_browsers() {
                 'port' => 80,
                 'desiredCapabilities' => array(
                     'version' => '30',
-                    'browserstack.user' => BROWSERSTACK_USER,
-                    'browserstack.key' => BROWSERSTACK_KEY,
+                    'browserstack.user' => $bs_uname,
+                    'browserstack.key' => $bs_key,
                     'os' => 'Windows',
                     'os_version' => '8.1'
                 )
