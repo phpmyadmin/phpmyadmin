@@ -47,22 +47,22 @@ foreach ($test_defaults as $varname => $defvalue) {
     }
 }
 
+// Initialize PMA_VERSION variable
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 $CFG = new PMA_Config();
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
 
+// Ensure we have session started
 session_start();
-
-// You can put some additional code that should run before tests here
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['is_ajax_request'] = false;
 
-
+// Check whether we have runkit extension
 define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));
 $GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');
 
