@@ -29,7 +29,7 @@ class PmaSeleniumDbOperationsTest extends PMA_SeleniumBase
         $this->byLinkText($this->_dbname)->click();
         $this->waitForElement("byLinkText", "Operations")->click();
         $this->waitForElement(
-            "byXPath", "//legend[contains(., 'Database comment:')]"
+            "byXPath", "//legend[contains(., 'Rename database to:')]"
         );
     }
 
