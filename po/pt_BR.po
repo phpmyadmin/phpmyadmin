@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-21 17:40+0200\n"
-"Last-Translator: Douglas dreginatto <douglas@reginatto.com>\n"
+"PO-Revision-Date: 2014-02-17 19:26+0200\n"
+"Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) "
-"<http://l10n.cihar.com/projects/phpmyadmin/4-1/pt_BR/>\n"
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5114,7 +5114,7 @@ msgstr "Digite os parâmetros de conexão do servidor"
 
 #: libraries/config/messages.inc.php:204
 msgid "Configuration storage"
-msgstr "Armazenamento de configurações"
+msgstr "Configuração de armazenamento"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
@@ -9996,7 +9996,7 @@ msgstr "Variáveis e configurações do servidor"
 
 #: libraries/server_common.lib.php:30
 msgid "Storage Engines"
-msgstr "Motores de armazenamento"
+msgstr "Mecanismos de Armazenamento"
 
 #: libraries/server_common.lib.php:39
 msgid "Character Sets and Collations"
