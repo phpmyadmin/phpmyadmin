@@ -99,6 +99,21 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                         'os_version' => '7',
                     )
                 );
+            self::$browsers[] =
+                array(
+                    'browserName' => 'Safari',
+                    'host' => 'hub.browserstack.com',
+                    'port' => 80,
+                    'timeout' => 30000,
+                    'desiredCapabilities' => array(
+                        'browserstack.user' => BS_UNAME,
+                        'browserstack.key' => BS_KEY,
+                        'project' => 'phpMyAdmin',
+                        'build' => BS_BUILD_ID,
+                        'os' => 'OS X',
+                        'os_version' => 'Mavericks',
+                    )
+                );
         }
     }
 
