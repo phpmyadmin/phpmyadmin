@@ -18,7 +18,7 @@ define('SELENIUM_URL', TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
+abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Selenium browsers setup
