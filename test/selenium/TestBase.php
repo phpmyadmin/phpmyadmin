@@ -7,19 +7,6 @@
  * @subpackage Selenium
  */
 
-define('BS_UNAME', getenv('BS_UNAME'));
-define('BS_KEY', getenv('BS_KEY'));
-define('SELENIUM_URL', TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-
-if (getenv('BUILD_TAG')) {
-    define('BS_BUILD_ID', getenv('BUILD_TAG'));
-} elseif (getenv('TRAVIS_JOB_NUMBER')) {
-    define('BS_BUILD_ID', 'travis-' . getenv('TRAVIS_JOB_NUMBER'));
-} else {
-    define('BS_BUILD_ID', 'Manual');
-}
-
-
 /**
  * Base class for Selenium tests.
  *
@@ -51,6 +38,19 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public static function browsers()
     {
+        $username = getenv('BS_UNAME');
+        $key = getenv('BS_KEY');
+        if (! $username || ! $key) {
+            return array();
+        }
+
+        $build_id = 'Manual';
+        if (getenv('BUILD_TAG')) {
+            $build_id = getenv('BUILD_TAG');
+        } elseif (getenv('TRAVIS_JOB_NUMBER')) {
+            $build_id = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
+        }
+
         $result = array();
         $result[] = array(
             'browserName' => 'chrome',
@@ -61,7 +61,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'browserstack.user' => BS_UNAME,
                 'browserstack.key' => BS_KEY,
                 'project' => 'phpMyAdmin',
-                'build' => BS_BUILD_ID,
+                'build' => $build_id,
             )
         );
         if (getenv('TESTSUITE_FULL')) {
@@ -74,7 +74,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
                     'project' => 'phpMyAdmin',
-                    'build' => BS_BUILD_ID,
+                    'build' => $build_id,
                 )
             );
             $result[] = array(
@@ -86,7 +86,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
                     'project' => 'phpMyAdmin',
-                    'build' => BS_BUILD_ID,
+                    'build' => $build_id,
                     'os' => 'windows',
                     'os_version' => '7',
                 )
@@ -100,7 +100,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
                     'project' => 'phpMyAdmin',
-                    'build' => BS_BUILD_ID,
+                    'build' => $build_id,
                     'os' => 'OS X',
                     'os_version' => 'Mavericks',
                 )
@@ -117,7 +117,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->setBrowserUrl(SELENIUM_URL);
+        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
         $this->_mysqli = new mysqli(
             "localhost",
             TESTSUITE_USER,
