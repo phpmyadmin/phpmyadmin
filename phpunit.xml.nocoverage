@@ -31,6 +31,7 @@
         </testsuite>
         <testsuite name="Selenium">
             <file>test/selenium/PmaSeleniumLoginTest.php</file>
+            <file>test/selenium/PmaSeleniumXssTest.php</file>
             <!--<directory suffix="Test.php">test/selenium</directory>-->
         </testsuite>
     </testsuites>
