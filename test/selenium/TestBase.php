@@ -34,46 +34,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access public
      * @var browsers
      */
-	public static $browsers = array(
-            array(
-                'browserName' => 'firefox',
-                'host' => 'hub.browserstack.com',
-                'port' => 80,
-                'timeout' => 30000,
-                'desiredCapabilities' => array(
-                    'browserstack.user' => BS_UNAME,
-                    'browserstack.key' => BS_KEY,
-                    'project' => 'phpMyAdmin',
-                    'build' => BS_BUILD_ID,
-                )
-            ),
-            array(
-                'browserName' => 'chrome',
-                'host' => 'hub.browserstack.com',
-                'port' => 80,
-                'timeout' => 30000,
-                'desiredCapabilities' => array(
-                    'browserstack.user' => BS_UNAME,
-                    'browserstack.key' => BS_KEY,
-                    'project' => 'phpMyAdmin',
-                    'build' => BS_BUILD_ID,
-                )
-            ),
-            array(
-                'browserName' => 'internet explorer',
-                'host' => 'hub.browserstack.com',
-                'port' => 80,
-                'timeout' => 30000,
-                'desiredCapabilities' => array(
-                    'browserstack.user' => BS_UNAME,
-                    'browserstack.key' => BS_KEY,
-                    'project' => 'phpMyAdmin',
-                    'build' => BS_BUILD_ID,
-                    'os' => 'windows',
-                    'os_version' => '7',
-                )
-            )
-        );
+	public static $browsers = array();
 
     /**
      * mysqli object
@@ -90,6 +51,54 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @var string
      */
     public $database_name;
+
+    /**
+     * Intialize the browsers static attribute.
+     */
+    static function init()
+    {
+        self::$browsers[] =
+            array(
+                'browserName' => 'firefox',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'desiredCapabilities' => array(
+                    'browserstack.user' => BS_UNAME,
+                    'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
+                )
+            );
+        self::$browsers[] =
+            array(
+                'browserName' => 'chrome',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'desiredCapabilities' => array(
+                    'browserstack.user' => BS_UNAME,
+                    'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
+                )
+            );
+        self::$browsers[] =
+            array(
+                'browserName' => 'internet explorer',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'desiredCapabilities' => array(
+                    'browserstack.user' => BS_UNAME,
+                    'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
+                    'os' => 'windows',
+                    'os_version' => '7',
+                )
+            );
+    }
 
     /**
      * Configures the selenium and database link.
