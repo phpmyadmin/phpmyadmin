@@ -57,6 +57,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      * Test for adding a new column
      *
      * @return void
+     *
+     * @group large
      */
     public function testAddColumn()
     {
@@ -92,6 +94,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      * Test for changing a column
      *
      * @return void
+     *
+     * @group large
      */
     public function testChangeColumn()
     {
@@ -120,6 +124,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      * Test for dropping columns
      *
      * @return void
+     *
+     * @group large
      */
     public function testDropColumns()
     {

@@ -72,6 +72,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      * Tests basic tracking functionality
      *
      * @return void
+     *
+     * @group large
      */
     public function testTrackingData()
     {
@@ -150,6 +152,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      * Tests deactivation of tracking
      *
      * @return void
+     *
+     * @group large
      */
     public function testDeactivateTracking()
     {
@@ -167,6 +171,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      * Tests dropping a tracking
      *
      * @return void
+     *
+     * @group large
      */
     public function testDropTracking()
     {
@@ -205,6 +211,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      * Tests structure snapshot of a tracking
      *
      * @return void
+     *
+     * @group large
      */
     public function testStructureSnapshot()
     {

@@ -66,6 +66,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for changing a table order
      *
      * @return void
+     *
+     * @group large
      */
     public function testChangeTableOrder()
     {
@@ -94,6 +96,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for moving a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testMoveTable()
     {
@@ -121,6 +125,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for renaming a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testRenameTable()
     {
@@ -156,6 +162,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for copying a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testCopyTable()
     {
@@ -182,6 +190,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for truncating a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testTruncateTable()
     {
@@ -206,6 +216,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for dropping a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testDropTable()
     {
