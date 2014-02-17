@@ -124,7 +124,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         );
         $this->assertEquals(1, $result->num_rows);
 
-        usleep(2000000);
+        usleep(2200000);
         $result = $this->dbQuery(
             "SELECT val FROM `" . $this->database_name . "`.`test_table`"
         );
