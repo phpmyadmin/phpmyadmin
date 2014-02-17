@@ -24,7 +24,7 @@ $bs_uname = getenv('BS_UNAME');
 $bs_key = getenv('BS_KEY');
 
 if ($bs_uname && $bs_key) {
-    define('PHPUNIT_HOST', $bs_uname . ":" . $bs_key . "@hub.browserstack.com");
+    define('PHPUNIT_HOST', $bs_uname . ":" . $bs_key . "@hub.browserstack.com:80");
 } else {
     define('PHPUNIT_HOST', "127.0.0.1");
 }
