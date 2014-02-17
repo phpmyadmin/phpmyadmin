@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+
 require_once 'TestBase.php';
 
 /**
@@ -14,7 +15,7 @@ require_once 'TestBase.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumLoginTest extends PMA_SeleniumBase
+class PMA_SeleniumLoginTest extends PMA_SeleniumBase
 {
     /**
      * Test for successful login
