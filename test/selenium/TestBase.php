@@ -36,7 +36,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'version' => '30',
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
-                    'os' => 'Windows',
                 )
             ),
             array(
@@ -48,8 +47,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'version' => '30',
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
-                    'os' => 'OS X',
-                    'os_version' => 'Mavericks'
                 )
             ),
             array(
@@ -61,8 +58,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'version' => '30',
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
-                    'os' => 'Windows',
-                    'os_version' => '8.1'
                 )
             )
         );
