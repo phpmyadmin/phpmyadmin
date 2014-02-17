@@ -31,7 +31,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'browserName' => 'firefox',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
-                'timeout' => 100000,
+                'timeout' => 30000,
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
@@ -41,7 +41,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
-                'timeout' => 100000,
+                'timeout' => 30000,
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
@@ -51,7 +51,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'browserName' => 'internet_explorer',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
-                'timeout' => 100000,
+                'timeout' => 30000,
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,

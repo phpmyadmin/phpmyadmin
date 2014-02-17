@@ -26,6 +26,8 @@ class PmaSeleniumLoginTest extends PMA_SeleniumBase
      * Test for successful login
      *
      * @return void
+     *
+     * @group large
      */
     public function testSuccessfulLogin()
     {
@@ -38,6 +40,8 @@ class PmaSeleniumLoginTest extends PMA_SeleniumBase
      * Test for unsuccessful login
      *
      * @return void
+     *
+     * @group large
      */
     public function testLoginWithWrongPassword()
     {
