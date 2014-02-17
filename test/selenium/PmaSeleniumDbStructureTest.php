@@ -73,6 +73,8 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
      * Test for truncating a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testTruncateTable()
     {
@@ -100,6 +102,8 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
      * Tests for dropping multiple tables
      *
      * @return void
+     *
+     * @group large
      */
     public function testDropMultipleTables()
     {

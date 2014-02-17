@@ -21,6 +21,8 @@ class PMA_SeleniumXSSTest extends PMA_SeleniumBase
      * Tests the SQL query tab with a null query
      *
      * @return void
+     *
+     * @group large
      */
     public function testQueryTabWithNullValue()
     {
