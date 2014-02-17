@@ -7,50 +7,9 @@
  * @subpackage Selenium
  */
 
-/**
- * Returns list of Selenium configured browsers.
- */
-function selenium_browsers() {
-    $bs_uname = getenv('BS_UNAME');
-    $bs_key = getenv('BS_KEY');
-    if ($bs_uname && $bs_key) {
-	    return array(
-            array(
-                'browserName' => 'chrome',
-                'host' => 'hub.browserstack.com',
-                'port' => 80,
-                'desiredCapabilities' => array(
-                    'version' => '30',
-                    'browserstack.user' => $bs_uname,
-                    'browserstack.key' => $bs_key,
-                    'os' => 'OS X',
-                    'os_version' => 'Mountain Lion'
-                )
-            ),
-            array(
-                'browserName' => 'chrome',
-                'host' => 'hub.browserstack.com',
-                'port' => 80,
-                'desiredCapabilities' => array(
-                    'version' => '30',
-                    'browserstack.user' => $bs_uname,
-                    'browserstack.key' => $bs_key,
-                    'os' => 'Windows',
-                    'os_version' => '8.1'
-                )
-            )
-        );
-    } else {
-        return array(
-            array(
-                'host' => '127.0.0.1',
-            )
-        );
-    }
-}
-
-$SELENIUM_BROWSERS =  selenium_browsers();
-$SELENIUM_URL = TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL;
+define('BS_UNAME', getenv('BS_UNAME'));
+define('BS_KEY', getenv('BS_KEY'));
+define('SELENIUM_URL', TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
 
 
 /**
@@ -67,7 +26,32 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access public
      * @var browsers
      */
-	private static $browsers = $SELENIUM_BROWSERS;
+	private static $browsers = array(
+            array(
+                'browserName' => 'chrome',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'desiredCapabilities' => array(
+                    'version' => '30',
+                    'browserstack.user' => BS_UNAME,
+                    'browserstack.key' => BS_KEY,
+                    'os' => 'OS X',
+                    'os_version' => 'Mountain Lion'
+                )
+            ),
+            array(
+                'browserName' => 'chrome',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'desiredCapabilities' => array(
+                    'version' => '30',
+                    'browserstack.user' => BS_UNAME,
+                    'browserstack.key' => BS_KEY,
+                    'os' => 'Windows',
+                    'os_version' => '8.1'
+                )
+            )
+        );
 
     /**
      * base URL for tests
@@ -75,7 +59,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var base_url
      */
-    private static $base_url = $SELENIUM_URL;
+    private static $base_url = SELENIUM_URL;
 
     /**
      * mysqli object
