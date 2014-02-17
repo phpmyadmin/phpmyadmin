@@ -242,13 +242,6 @@ $(function () {
         });
     });
 
-    /** Show full name when cursor hover .hover_show_full elements and name not fully shown */
-    $('body').append('<div id="full_name_layer" class="hide"></div>');
-    $('#full_name_layer').mouseleave(function() {
-        /** mouseleave */
-        $(this).addClass('hide');
-    });
-
     PMA_showCurrentNavigation();
 });
 
@@ -1206,7 +1199,7 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
 };
 
 /**
- * Show full name when cursor hover and name not fully shown
+ * Show full name when cursor hover and name not shown completely
  *
  * @param object $containerELem Container element
  *
@@ -1225,6 +1218,15 @@ function PMA_showFullName($containerELem) {
            < (thisOffset.left + $this.outerWidth()))
         {
             var $fullNameLayer = $('#full_name_layer');
+            if($fullNameLayer.length == 0)
+            {
+                $('body').append('<div id="full_name_layer" class="hide"></div>');
+                $('#full_name_layer').mouseleave(function() {
+                    /** mouseleave */
+                    $(this).addClass('hide');
+                });
+                $fullNameLayer = $('#full_name_layer');
+            }
             $fullNameLayer.removeClass('hide');
             $fullNameLayer.css({left: thisOffset.left, top: thisOffset.top});
             $fullNameLayer.html($this.clone());
