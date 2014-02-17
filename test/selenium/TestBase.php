@@ -28,7 +28,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
 	public static $browsers = array(
             array(
-                'browserName' => 'firefox',
+                'browserName' => 'Firefox',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 100000,
@@ -50,7 +50,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 )
             ),
             array(
-                'browserName' => 'internet_explorer',
+                'browserName' => 'Internet Explorer',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 100000,
