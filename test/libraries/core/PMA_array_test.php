@@ -369,8 +369,8 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
             'key3'=>'val3'
         );
         $target = array(
-            "key1"=>'val1',
-            'key2'=>array('skey1'=>'sval1', 'skey2'=>'sval2'),
+            "key1"=>'v\\al1',
+            'key2'=>array('s\\key1'=>'sval1', 'skey2'=>'sval2'),
             'key3'=>'val3'
         );
 
