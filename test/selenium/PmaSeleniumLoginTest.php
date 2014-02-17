@@ -42,7 +42,6 @@ class PMA_SeleniumLoginTest extends PMA_SeleniumBase
     {
         $this->login("Admin", "Admin");
         $this->assertTrue($this->isUnsuccessLogin());
-        $this->logOutIfLoggedIn();
     }
 }
 ?>
