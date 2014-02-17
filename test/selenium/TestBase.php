@@ -48,7 +48,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 )
             ),
             array(
-                'browserName' => 'internet_explorer',
+                'browserName' => 'internet explorer',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
