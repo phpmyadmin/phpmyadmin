@@ -49,8 +49,8 @@ function selenium_browsers() {
     }
 }
 
-define('SELENIUM_BROWSERS', selenium_browsers());
-define('SELENIUM_URL', TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
+$SELENIUM_BROWSERS =  selenium_browsers();
+$SELENIUM_URL = TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL;
 
 
 /**
@@ -67,7 +67,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access public
      * @var browsers
      */
-	private static $browsers = SELENIUM_BROWSERS;
+	private static $browsers = $SELENIUM_BROWSERS;
 
     /**
      * base URL for tests
@@ -75,7 +75,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var base_url
      */
-    private static $base_url = SELENIUM_URL;
+    private static $base_url = $SELENIUM_URL;
 
     /**
      * mysqli object
