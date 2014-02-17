@@ -389,15 +389,16 @@ if ($import_file != 'none' && ! $error) {
     $open_basedir = @ini_get('open_basedir');
 
     // If we are on a server with open_basedir, we must move the file
-    // before opening it. The doc explains how to create the "./tmp"
-    // directory
+    // before opening it.
 
     if (! empty($open_basedir)) {
 
-        $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
+        /**
+         * @todo make use of the config's temp dir with fallback to the system's tmp dir
+         */
+        $tmp_subdir = sys_get_temp_dir();
 
         if (is_writable($tmp_subdir)) {
-
 
             $import_file_new = $tmp_subdir . basename($import_file) . uniqid();
             if (move_uploaded_file($import_file, $import_file_new)) {
