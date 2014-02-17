@@ -29,9 +29,9 @@
             <directory suffix="_test.php">test/libraries/rte</directory>
             <directory suffix="_test.php">test/libraries</directory>
         </testsuite>
-        <!--<testsuite name="Selenium">-->
-            <!--<directory suffix="Test.php">test/selenium</directory>-->
-        <!--</testsuite>-->
+        <testsuite name="Selenium">
+            <directory suffix="Test.php">test/selenium</directory>
+        </testsuite>
     </testsuites>
 
     <logging>

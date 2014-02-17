@@ -16,7 +16,7 @@ require_once 'TestBase.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumDbOperationsTest extends PMA_SeleniumBase
+class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
 {
     /**
      * setUp function that can use the selenium session (called before each test)

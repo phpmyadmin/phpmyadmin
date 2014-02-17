@@ -30,12 +30,7 @@
             <directory suffix="_test.php">test/libraries</directory>
         </testsuite>
         <testsuite name="Selenium">
-            <file>test/selenium/PmaSeleniumLoginTest.php</file>
-            <file>test/selenium/PmaSeleniumXssTest.php</file>
-            <file>test/selenium/PmaSeleniumDbStructureTest.php</file>
-            <file>test/selenium/PmaSeleniumDbOperationsTest.php</file>
-            <file>test/selenium/PmaSeleniumServerSettingsTest.php</file>
-            <!--<directory suffix="Test.php">test/selenium</directory>-->
+            <directory suffix="Test.php">test/selenium</directory>
         </testsuite>
     </testsuites>
 

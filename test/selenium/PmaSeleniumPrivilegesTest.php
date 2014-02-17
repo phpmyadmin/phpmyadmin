@@ -7,7 +7,7 @@
  * @subpackage Selenium
  */
 
-require_once 'Helper.php';
+require_once 'TestBase.php';
 
 /**
  * PmaSeleniumPrivilegesTest class
@@ -15,52 +15,35 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumPrivilegesTest extends PMA_SeleniumBase
 {
-    /**
-     * Helper Object
-     *
-     * @var Helper
-     */
-    private $_helper;
-
-    /**
-     * Setup the browser environment to run the selenium test case
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->_helper->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-    }
-
     /**
      * Tests the changing of the password
      *
      * @return void
+     *
+     * @group large
      */
     public function testChangePassword()
     {
-        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->byLinkText("Change password")->click();
 
-        $e = $this->_helper->waitForElement("byId", "change_password_anchor");
+        $e = $this->waitForElement("byId", "change_password_anchor");
         try {
-            $ele = $this->_helper->waitForElement("byId", "text_pma_pw");
+            $ele = $this->waitForElement("byId", "text_pma_pw");
             $this->assertEquals("", $ele->value());
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         try {
-            $ele = $this->_helper->waitForElement("byId", "text_pma_pw2");
+            $ele = $this->waitForElement("byId", "text_pma_pw2");
             $this->assertEquals("", $ele->value());
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         try {
-            $ele = $this->_helper->waitForElement("byId", "generated_pw");
+            $ele = $this->waitForElement("byId", "generated_pw");
             $this->assertEquals("", $ele->value());
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
@@ -80,12 +63,10 @@ class PmaSeleniumPrivilegesTest extends PHPUnit_Extensions_Selenium2TestCase
         }
 
         $this->byCssSelector("span.ui-button-text:nth-child(1)")->click();
-        $ele = $this->_helper->waitForElement("byCssSelector", "div.success");
+        $ele = $this->waitForElement("byCssSelector", "div.success");
         $this->assertEquals(
             "The profile has been updated.",
             $ele->text()
         );
     }
 }
-
-?>

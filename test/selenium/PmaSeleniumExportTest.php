@@ -6,7 +6,8 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'Helper.php';
+
+require_once 'TestBase.php';
 
 /**
  * PmaSeleniumExportTest class
@@ -14,22 +15,8 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumExportTest extends PMA_SeleniumBase
 {
-    /**
-     * Name of database for the test
-     *
-     * @var string
-     */
-    private $_dbname;
-
-    /**
-     * Helper Object
-     *
-     * @var obj
-     */
-    private $_helper;
-
     /**
      * Setup the browser environment to run the selenium test case
      *
@@ -37,21 +24,15 @@ class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function setUp()
     {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->_helper->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->_helper->dbConnect();
-        $this->_dbname = 'pma_db_' . time();
-        $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
-        $this->_helper->dbQuery('USE ' . $this->_dbname);
-        $this->_helper->dbQuery(
+        parent::setUp();
+        $this->dbQuery(
             "CREATE TABLE `test_table` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
             . " `val` int(11) NOT NULL,"
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-        $this->_helper->dbQuery(
+        $this->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2);"
         );
     }
@@ -63,7 +44,7 @@ class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function setUpPage()
     {
-        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
     }
 
     /**
@@ -74,6 +55,8 @@ class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
      *
      * @return void
      * @dataProvider exportDataProvider
+     *
+     * @group large
      */
     public function testServerImport($plugin, $expected)
     {
@@ -93,11 +76,13 @@ class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
      *
      * @return void
      * @dataProvider exportDataProvider
+     *
+     * @group large
      */
     public function testDbExport($plugin, $expected)
     {
-        $this->_helper->waitForElement("byLinkText", $this->_dbname)->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement("byLinkText", $this->_dbname)->click();
+        $this->waitForElement(
             "byXPath",
             "//a[@class='item' and contains(., 'Database: " . $this->_dbname . "')]"
         );
@@ -117,17 +102,19 @@ class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
      *
      * @return void
      * @dataProvider exportDataProvider
+     *
+     * @group large
      */
     public function testTableExport($plugin, $expected)
     {
-        $this->_helper->dbQuery("INSERT INTO `test_table` (val) VALUES (3);");
+        $this->dbQuery("INSERT INTO `test_table` (val) VALUES (3);");
 
         // go to database page
-        $this->_helper->waitForElement("byLinkText", $this->_dbname)->click();
+        $this->waitForElement("byLinkText", $this->_dbname)->click();
 
         // got to table page
-        $this->_helper->waitForElement("byLinkText", "test_table")->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement("byLinkText", "test_table")->click();
+        $this->waitForElement(
             "byXPath",
             "//a[@class='tabactive' and contains(., 'Browse')]"
         );
@@ -178,7 +165,7 @@ class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
     {
         $this->byLinkText("Export")->click();
 
-        $this->_helper->waitForElement("byName", "dump");
+        $this->waitForElement("byName", "dump");
         $this->byCssSelector("label[for=radio_custom_export]")->click();
 
         if ($type == 'server') {
@@ -209,19 +196,8 @@ class PmaSeleniumExportTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->byId("buttonGo")->click();
 
-        $text = $this->_helper->waitForElement("byId", "textSQLDUMP")->text();
+        $text = $this->waitForElement("byId", "textSQLDUMP")->text();
 
         return $text;
     }
-
-    /**
-     * Tear Down function for test cases
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        $this->_helper->dbQuery('DROP DATABASE IF EXISTS ' . $this->_dbname);
-    }
-
 }
