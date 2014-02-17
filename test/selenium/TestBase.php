@@ -72,7 +72,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->setBrowserUrl('');
+        $this->setBrowserUrl($this->base_url);
     }
 
 
@@ -86,7 +86,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function login($username, $password)
     {
-        $this->url($this->base_url);
+        $this->url('');
         $usernameField = $this->byId('input_username');
         $usernameField->value($username);
         $passwordField = $this->byId('input_password');
