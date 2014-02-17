@@ -18,27 +18,6 @@ require_once 'TestBase.php';
 class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
 {
     /**
-     * Name of database for the test
-     *
-     * @var string
-     */
-    private $_dbname;
-
-    /**
-     * Setup the browser environment to run the selenium test case
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        parent::setUp();
-        $this->dbConnect();
-        $this->_dbname = TESTSUITE_DATABASE;
-        $this->dbQuery('CREATE DATABASE ' . $this->_dbname);
-        $this->dbQuery('USE ' . $this->_dbname);
-    }
-
-    /**
      * setUp function that can use the selenium session (called before each test)
      *
      * @return void
@@ -147,16 +126,6 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
         $this->assertTrue(
             $this->isElementPresent("byId", "imgpmalogo")
         );
-    }
-
-    /**
-     * Tear Down function for test cases
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->_dbname);
     }
 
 }

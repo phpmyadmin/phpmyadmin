@@ -28,12 +28,6 @@ if (getenv('BUILD_NUMBER')) {
  */
 abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 {
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->setBrowserUrl(SELENIUM_URL);
-    }
-
     /**
      * Selenium browsers setup
      *
@@ -89,6 +83,37 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     private $_mysqli;
 
+    /**
+     * Name of database for the test
+     *
+     * @var string
+     */
+    private $_dbname;
+
+    /**
+     * Configures the selenium and database link.
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+        $this->setBrowserUrl(SELENIUM_URL);
+        $this->dbConnect();
+        $this->_dbname = TESTSUITE_DATABASE;
+        $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->_dbname);
+        $this->dbQuery('USE ' . $this->_dbname);
+    }
+
+    /**
+     * Tear Down function for test cases
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->_dbname);
+    }
 
     /**
      * perform a login

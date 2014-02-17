@@ -18,13 +18,6 @@ require_once 'TestBase.php';
 class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
 {
     /**
-     * Name of database for the test
-     *
-     * @var string
-     */
-    private $_dbname;
-
-    /**
      * Setup the browser environment to run the selenium test case
      *
      * @return void
@@ -32,10 +25,6 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
     public function setUp()
     {
         parent::setUp();
-        $this->dbConnect();
-        $this->_dbname = TESTSUITE_DATABASE;
-        $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->_dbname);
-        $this->dbQuery('USE ' . $this->_dbname);
         $this->dbQuery(
             "CREATE TABLE `test_table` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
@@ -121,14 +110,5 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
         $result = $this->dbQuery("SHOW TABLES;");
         $this->assertEquals(0, $result->num_rows);
 
-    }
-    /**
-     * Tear Down function for test cases
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        $this->dbQuery('DROP DATABASE ' . $this->_dbname);
     }
 }
