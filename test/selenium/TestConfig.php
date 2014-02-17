@@ -38,13 +38,8 @@ class TestConfig
      */
     public function __construct()
     {
-        $xmlDoc = new DOMDocument();
-        $xmlDoc->load('../phpunit.xml.dist');
-        $searchNode = $xmlDoc->getElementsByTagName("browser");
-        foreach ($searchNode as $searchNode) {
-            $this->setCurrentBrowser($searchNode->getAttribute('browser'));
-            $this->setTimeoutValue($searchNode->getAttribute('timeout'));
-        }
+        $this->setCurrentBrowser('*firefox');
+        $this->setTimeoutValue(30000);
         $this->setLoginURL(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
         $this->setDBCredentials(
             TESTSUITE_USER,
