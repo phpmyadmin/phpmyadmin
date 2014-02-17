@@ -29,14 +29,6 @@ if (getenv('BUILD_NUMBER')) {
 abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
-     * Selenium browsers setup
-     *
-     * @access public
-     * @var browsers
-     */
-	public static $browsers = array();
-
-    /**
      * mysqli object
      *
      * @access private
@@ -53,13 +45,28 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     public $database_name;
 
     /**
-     * Intialize the browsers static attribute.
+     * Lists browsers to test
+     *
+     * @return Array of browsers to test
      */
-    static function init()
+    public static function browsers()
     {
-        self::$browsers[] =
-            array(
-                'browserName' => 'firefox',
+        $result = array();
+        $result[] = array(
+            'browserName' => 'firefox',
+            'host' => 'hub.browserstack.com',
+            'port' => 80,
+            'timeout' => 30000,
+            'desiredCapabilities' => array(
+                'browserstack.user' => BS_UNAME,
+                'browserstack.key' => BS_KEY,
+                'project' => 'phpMyAdmin',
+                'build' => BS_BUILD_ID,
+            )
+        );
+        if (getenv('TESTSUITE_FULL')) {
+            $result[] = array(
+                'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
@@ -70,51 +77,36 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'build' => BS_BUILD_ID,
                 )
             );
-        if (getenv('TESTSUITE_FULL')) {
-            self::$browsers[] =
-                array(
-                    'browserName' => 'chrome',
-                    'host' => 'hub.browserstack.com',
-                    'port' => 80,
-                    'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => BS_UNAME,
-                        'browserstack.key' => BS_KEY,
-                        'project' => 'phpMyAdmin',
-                        'build' => BS_BUILD_ID,
-                    )
-                );
-            self::$browsers[] =
-                array(
-                    'browserName' => 'internet explorer',
-                    'host' => 'hub.browserstack.com',
-                    'port' => 80,
-                    'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => BS_UNAME,
-                        'browserstack.key' => BS_KEY,
-                        'project' => 'phpMyAdmin',
-                        'build' => BS_BUILD_ID,
-                        'os' => 'windows',
-                        'os_version' => '7',
-                    )
-                );
-            self::$browsers[] =
-                array(
-                    'browserName' => 'Safari',
-                    'host' => 'hub.browserstack.com',
-                    'port' => 80,
-                    'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => BS_UNAME,
-                        'browserstack.key' => BS_KEY,
-                        'project' => 'phpMyAdmin',
-                        'build' => BS_BUILD_ID,
-                        'os' => 'OS X',
-                        'os_version' => 'Mavericks',
-                    )
-                );
+            $result[] = array(
+                'browserName' => 'internet explorer',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'desiredCapabilities' => array(
+                    'browserstack.user' => BS_UNAME,
+                    'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
+                    'os' => 'windows',
+                    'os_version' => '7',
+                )
+            );
+            $result[] = array(
+                'browserName' => 'Safari',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'desiredCapabilities' => array(
+                    'browserstack.user' => BS_UNAME,
+                    'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
+                    'os' => 'OS X',
+                    'os_version' => 'Mavericks',
+                )
+            );
         }
+        return $result;
     }
 
     /**
