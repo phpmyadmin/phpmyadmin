@@ -54,14 +54,6 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         );
 
     /**
-     * base URL for tests
-     *
-     * @access private
-     * @var base_url
-     */
-    public static $base_url = SELENIUM_URL;
-
-    /**
      * mysqli object
      *
      * @access private
@@ -72,7 +64,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->setBrowserUrl($this->base_url);
+        $this->setBrowserUrl(SELENIUM_URL);
     }
 
 
