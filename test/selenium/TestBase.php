@@ -11,6 +11,14 @@ define('BS_UNAME', getenv('BS_UNAME'));
 define('BS_KEY', getenv('BS_KEY'));
 define('SELENIUM_URL', TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
 
+if (getenv('BUILD_NUMBER')) {
+    define('BS_BUILD_ID', 'Jenkins ' . getenv('BUILD_NUMBER'));
+} elseif (getenv('TRAVIS_JOB_NUMBER')) {
+    define('BS_BUILD_ID', 'Travis ' . getenv('TRAVIS_JOB_NUMBER'));
+} else {
+    define('BS_BUILD_ID', 'Manual');
+}
+
 
 /**
  * Base class for Selenium tests.
@@ -41,6 +49,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
                 )
             ),
             array(
@@ -51,6 +61,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
                 )
             ),
             array(
@@ -61,6 +73,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => BS_UNAME,
                     'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => BS_BUILD_ID,
                 )
             )
         );
