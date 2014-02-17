@@ -6,7 +6,8 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'Helper.php';
+
+require_once 'TestBase.php';
 
 /**
  * PmaSeleniumDbStructureTest class
@@ -14,7 +15,7 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * Name of database for the test
@@ -24,41 +25,32 @@ class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
     private $_dbname;
 
     /**
-     * Helper Object
-     *
-     * @var Helper
-     */
-    private $_helper;
-
-    /**
      * Setup the browser environment to run the selenium test case
      *
      * @return void
      */
     public function setUp()
     {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->_helper->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->_helper->dbConnect();
-        $this->_dbname = 'pma_db_test';
-        $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
-        $this->_helper->dbQuery('USE ' . $this->_dbname);
-        $this->_helper->dbQuery(
+        parent::setUp();
+        $this->dbConnect();
+        $this->_dbname = TESTSUITE_DATABASE;
+        $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->_dbname);
+        $this->dbQuery('USE ' . $this->_dbname);
+        $this->dbQuery(
             "CREATE TABLE `test_table` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
             . " `val` int(11) NOT NULL,"
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-        $this->_helper->dbQuery(
+        $this->dbQuery(
             "CREATE TABLE `test_table2` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
             . " `val` int(11) NOT NULL,"
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-        $this->_helper->dbQuery(
+        $this->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2);"
         );
     }
@@ -70,9 +62,9 @@ class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function setUpPage()
     {
-        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
         $this->byLinkText($this->_dbname)->click();
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath", "//a[contains(., 'test_table')]"
         );
     }
@@ -86,20 +78,20 @@ class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
             "//button[contains(., 'OK')]"
         )->click();
 
         $this->assertNotNull(
-            $this->_helper->waitForElement(
+            $this->waitForElement(
                 "byXPath",
                 "//div[@class='success' and contains(., "
                 . "'MySQL returned an empty result')]"
             )
         );
 
-        $result = $this->_helper->dbQuery("SELECT count(*) as c FROM test_table");
+        $result = $this->dbQuery("SELECT count(*) as c FROM test_table");
         $row = $result->fetch_assoc();
         $this->assertEquals(0, $row['c']);
     }
@@ -114,15 +106,15 @@ class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();
         $this->select($this->byName("submit_mult"))
             ->selectOptionByLabel("Drop");
-        $this->_helper->waitForElement("byCssSelector", "input[id='buttonYes']")
+        $this->waitForElement("byCssSelector", "input[id='buttonYes']")
             ->click();
 
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
             "//p[contains(., 'No tables found in database')]"
         );
 
-        $result = $this->_helper->dbQuery("SHOW TABLES;");
+        $result = $this->dbQuery("SHOW TABLES;");
         $this->assertEquals(0, $result->num_rows);
 
     }
@@ -133,6 +125,6 @@ class PmaSeleniumDbStructureTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function tearDown()
     {
-        $this->_helper->dbQuery('DROP DATABASE ' . $this->_dbname);
+        $this->dbQuery('DROP DATABASE ' . $this->_dbname);
     }
 }
