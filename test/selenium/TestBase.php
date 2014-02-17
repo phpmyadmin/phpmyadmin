@@ -126,7 +126,16 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         parent::setUp();
         $this->setBrowserUrl(SELENIUM_URL);
-        $this->dbConnect();
+        $this->_mysqli = new mysqli(
+            "localhost",
+            TESTSUITE_USER,
+            TESTSUITE_PASSWORD
+        );
+        if ($this->_mysqli->connect_errno) {
+            throw new Exception(
+                'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
+            );
+        }
         $this->database_name = TESTSUITE_DATABASE . '_' . substr(md5(rand()), 0, 7);
         $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->database_name);
         $this->dbQuery('USE ' . $this->database_name);
@@ -140,6 +149,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     public function tearDown()
     {
         $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->database_name);
+        $this->_mysqli->disconnect();
+        $this->_mysqli = null;
     }
 
     /**
@@ -201,29 +212,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
-     * Establishes a connection with the local database
-     *
-     * @return void
-     *
-     * @throws Exception
-     */
-    public function dbConnect()
-    {
-        if ($this->_mysqli === null) {
-            $this->_mysqli = new mysqli(
-                "localhost",
-                TESTSUITE_USER,
-                TESTSUITE_PASSWORD
-            );
-            if ($this->_mysqli->connect_errno) {
-                throw new Exception(
-                    'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
-                );
-            }
-        }
-    }
-
-    /**
      * Executes a database query
      *
      * @param string $query SQL Query to be executed
@@ -234,11 +222,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function dbQuery($query)
     {
-        if ($this->_mysqli === null) {
-            throw new Exception(
-                'MySQL not connected'
-            );
-        }
         return $this->_mysqli->query($query);
     }
 
