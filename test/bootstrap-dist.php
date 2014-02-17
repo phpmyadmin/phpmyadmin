@@ -29,6 +29,23 @@ if ($bs_uname && $bs_key) {
     define('PHPUNIT_HOST', "127.0.0.1");
 }
 
+// Selenium tests setup
+$test_defaults = array(
+    'TESTSUITE_SERVER' => 'localhost',
+    'TESTSUITE_PASSWORD' => '',
+    'TESTSUITE_DATABASE' => 'test',
+    'TESTSUITE_PHPMYADMIN_HOST' => 'http://localhost',
+    'TESTSUITE_PHPMYADMIN_URL' => '/phpmyadmin',
+);
+foreach ($test_defaults as $varname => $defvalue) {
+    $envvar = getenv($varname);
+    if ($envvar) {
+        define($varname, $envvar);
+    } else {
+        define($varname, $defvalue);
+    }
+}
+
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 $CFG = new PMA_Config();
