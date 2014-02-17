@@ -72,6 +72,7 @@ class PmaSeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function setUp()
     {
         parent::setUp();
+        $this->setBrowserUrl('');
     }
 
 
