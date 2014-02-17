@@ -19,6 +19,7 @@ define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
 
+// BrowserStack integration
 $bs_uname = getenv('BS_UNAME');
 $bs_key = getenv('BS_KEY');
 
