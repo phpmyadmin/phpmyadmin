@@ -32,6 +32,7 @@ if ($bs_uname && $bs_key) {
 // Selenium tests setup
 $test_defaults = array(
     'TESTSUITE_SERVER' => 'localhost',
+    'TESTSUITE_USER' => 'root',
     'TESTSUITE_PASSWORD' => '',
     'TESTSUITE_DATABASE' => 'test',
     'TESTSUITE_PHPMYADMIN_HOST' => 'http://localhost',
