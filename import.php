@@ -407,6 +407,19 @@ if ($import_file != 'none' && ! $error) {
             }
 
             $size = filesize($import_file);
+        } else {
+
+            // If the php.ini is misconfigured (eg. there is no /tmp access defined
+            // with open_basedir), $tmp_subdir won't be writable and the user gets 
+            // a 'File could not be read!' error (at PMA_detectCompression), which 
+            // is not too meaningful. Show a meaningful error message to the user 
+            // instead.
+
+            $message = PMA_Message::error(
+                __('Uploaded file cannot be moved, because the server has open_basedir enabled without access to the %s directory (for temporary files).')
+            );
+            $message->addParam($tmp_subdir);
+            _pma_stop_import($message);
         }
     }
 
