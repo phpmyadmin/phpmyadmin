@@ -40,9 +40,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
      */
     public function setUp()
     {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
+        parent::setUp();
         $this->_txtUsername = 'pma_user';
         $this->_txtPassword = 'abc_123';
     }
