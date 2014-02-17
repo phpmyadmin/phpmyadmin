@@ -16,12 +16,6 @@ require_once 'TestBase.php';
  */
 class PmaSeleniumLoginTest extends PMA_SeleniumBase
 {
-    protected function setUp()
-    {
-        parent::setUp();
-        $this->setBrowserUrl(SELENIUM_URL);
-    }
-
     /**
      * Test for successful login
      *

@@ -20,6 +20,12 @@ define('SELENIUM_URL', TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
  */
 abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 {
+    protected function setUp()
+    {
+        parent::setUp();
+        $this->setBrowserUrl(SELENIUM_URL);
+    }
+
     /**
      * Selenium browsers setup
      *
