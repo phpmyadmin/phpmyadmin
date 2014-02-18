@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - bug #4284 Reordering a column erases comments for other columns
 - bug #4286 Open "Browse" in a new tab
 - bug #4287 Printview - Always one column too much
+- bug #4288 Expand database (+ icon) after timeout doesn't do anything
 
 4.1.7.0 (2014-02-09)
 - bug #4245 initial Browse query does not match sorting order
