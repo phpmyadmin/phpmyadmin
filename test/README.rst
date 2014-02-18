@@ -46,7 +46,7 @@ TESTSUITE_BROWSERSTACK_UNAME
 TESTSUITE_BROWSERSTACK_KEY
     BrowserStack access key.
 
-For example you can use following setup in ``phpunit.xml``:
+For example you can use following setup in ``phpunit.xml``::
 
     <php>
         <env name="TESTSUITE_SERVER" value="localhost"/>
