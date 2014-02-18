@@ -46,11 +46,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public static function browsers()
     {
-        $username = getenv('BS_UNAME');
-        $key = getenv('BS_KEY');
-        $selenium_host = getenv('TESTSUITE_SELENIUM_HOST');
-
-        if ($username && $key) {
+        if (! empty(TESTSUITE_BROWSERSTACK_USER)
+            && ! empty(TESTSUITE_BROWSERSTACK_KEY)
+            ) {
             /* BrowserStack integration */
             self::$_selenium_enabled = True;
 
@@ -68,21 +66,21 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'port' => 80,
                 'timeout' => 30000,
                 'desiredCapabilities' => array(
-                    'browserstack.user' => BS_UNAME,
-                    'browserstack.key' => BS_KEY,
+                    'browserstack.user' => TESTSUITE_BROWSERSTACK_USER,
+                    'browserstack.key' => TESTSUITE_BROWSERSTACK_KEY,
                     'project' => 'phpMyAdmin',
                     'build' => $build_id,
                 )
             );
-            if (getenv('TESTSUITE_FULL')) {
+            if (!empty(TESTSUITE_FULL)) {
                 $result[] = array(
                     'browserName' => 'firefox',
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
                     'desiredCapabilities' => array(
-                        'browserstack.user' => BS_UNAME,
-                        'browserstack.key' => BS_KEY,
+                        'browserstack.user' => TESTSUITE_BROWSERSTACK_USER,
+                        'browserstack.key' => TESTSUITE_BROWSERSTACK_KEY,
                         'project' => 'phpMyAdmin',
                         'build' => $build_id,
                     )
@@ -93,8 +91,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'port' => 80,
                     'timeout' => 30000,
                     'desiredCapabilities' => array(
-                        'browserstack.user' => BS_UNAME,
-                        'browserstack.key' => BS_KEY,
+                        'browserstack.user' => TESTSUITE_BROWSERSTACK_USER,
+                        'browserstack.key' => TESTSUITE_BROWSERSTACK_KEY,
                         'project' => 'phpMyAdmin',
                         'build' => $build_id,
                         'os' => 'windows',
@@ -107,8 +105,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'port' => 80,
                     'timeout' => 30000,
                     'desiredCapabilities' => array(
-                        'browserstack.user' => BS_UNAME,
-                        'browserstack.key' => BS_KEY,
+                        'browserstack.user' => TESTSUITE_BROWSERSTACK_USER,
+                        'browserstack.key' => TESTSUITE_BROWSERSTACK_KEY,
                         'project' => 'phpMyAdmin',
                         'build' => $build_id,
                         'os' => 'OS X',
@@ -117,13 +115,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 );
             }
             return $result;
-        } elseif ($selenium_host) {
+        } elseif (! empty(TESTSUITE_SELENIUM_HOST)) {
             self::$_selenium_enabled = True;
             return array(
                 array(
-                    'browserName' => getenv('TESTSUITE_SELENIUM_BROWSER'),
-                    'host' => $selenium_host,
-                    'port' => getenv('TESTSUITE_SELENIUM_PORT'),
+                    'browserName' => TESTSUITE_SELENIUM_BROWSER,
+                    'host' => TESTSUITE_SELENIUM_HOST,
+                    'port' => TESTSUITE_SELENIUM_PORT,
                 )
             );
         } else {
