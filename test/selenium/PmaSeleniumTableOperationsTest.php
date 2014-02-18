@@ -58,7 +58,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->byXPath("//a[contains(., 'Operations')]")->click();
         $this->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Alter table order by')]"
+            "//legend[contains(., 'Table maintenance')]"
         );
     }
 
