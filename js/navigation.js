@@ -374,6 +374,12 @@ function loadChildNodes($expandElem, callback) {
             if (callback && typeof callback == 'function') {
                 callback(data);
             }
+        } else {
+            var $throbber = $expandElem.find('img.throbber');
+            $throbber.hide();
+            $icon = $expandElem.find('img.ic_b_plus');
+            $icon.show();
+            PMA_ajaxShowMessage(data.error, false);
         }
     });
 }
