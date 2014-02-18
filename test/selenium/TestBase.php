@@ -193,6 +193,21 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
+     * Skips test if pmadb is not configured.
+     *
+     * @return void
+     */
+    protected function skipIfNotPMADB()
+    {
+        $this->url('chk_rel.php');
+        if ($this->isElementPresent("byXPath", "//*[@color=\"red\"]")) {
+            $this->markTestSkipped(
+                'The phpMyAdmin configuration storage is not working.'
+            );
+        }
+    }
+
+    /**
      * Tear Down function for test cases
      *
      * @return void

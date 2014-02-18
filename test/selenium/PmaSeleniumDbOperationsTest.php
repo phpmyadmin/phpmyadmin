@@ -42,6 +42,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function testDbComment()
     {
+        $this->skipIfNotPMADB();
         $this->byName("comment")->value("comment_foobar");
         $this->byXPath("(//input[@value='Go'])[1]")->click();
 

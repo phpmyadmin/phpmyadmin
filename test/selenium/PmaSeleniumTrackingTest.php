@@ -77,6 +77,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testTrackingData()
     {
+        $this->skipIfNotPMADB();
+
         $this->_executeSqlAndReturnToTableTracking();
 
         $this->byLinkText("Tracking report")->click();
@@ -157,6 +159,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testDeactivateTracking()
     {
+        $this->skipIfNotPMADB();
+
         $this->byCssSelector("input[value='Deactivate now']")->click();
         $this->waitForElement(
             "byCssSelector", "input[value='Activate now']"
@@ -176,6 +180,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testDropTracking()
     {
+        $this->skipIfNotPMADB();
+
         $this->byLinkText("Database: " . $this->database_name)->click();
         $this->waitForElement("byCssSelector", "table.data");
         usleep(1000000);
@@ -216,6 +222,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testStructureSnapshot()
     {
+        $this->skipIfNotPMADB();
+
         $this->byLinkText("Structure snapshot")->click();
         $this->waitForElement("byId", "tablestructure");
 
