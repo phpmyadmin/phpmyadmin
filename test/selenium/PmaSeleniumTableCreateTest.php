@@ -21,10 +21,12 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
      * Creates a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testCreateTable()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText($this->database_name)->click();
 
         $this->waitForElement('byId', 'create_table_form_minimal');
@@ -92,27 +94,27 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "int(14)",
-            $this->getTable("tablestructure.1.4")
+            $this->getTable('tablestructure', 1, 4)
         );
 
         $this->assertEquals(
             "UNSIGNED",
-            $this->getTable("tablestructure.1.6")
+            $this->getTable('tablestructure', 1, 6)
         );
 
         $this->assertEquals(
             "No",
-            $this->getTable("tablestructure.1.7")
+            $this->getTable('tablestructure', 1, 7)
         );
 
         $this->assertEquals(
             "None",
-            $this->getTable("tablestructure.1.8")
+            $this->getTable('tablestructure', 1, 8)
         );
 
         $this->assertEquals(
             "AUTO_INCREMENT",
-            $this->getTable("tablestructure.1.9")
+            $this->getTable('tablestructure', 1, 9)
         );
 
         $this->assertFalse(
@@ -131,22 +133,22 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "varchar(10)",
-            $this->getTable("tablestructure.2.4")
+            $this->getTable('tablestructure', 2, 4)
         );
 
         $this->assertEquals(
             "utf8_general_ci",
-            $this->getTable("tablestructure.2.5")
+            $this->getTable('tablestructure', 2, 5)
         );
 
         $this->assertEquals(
             "Yes",
-            $this->getTable("tablestructure.2.7")
+            $this->getTable('tablestructure', 2, 7)
         );
 
         $this->assertEquals(
             "def",
-            $this->getTable("tablestructure.2.8")
+            $this->getTable('tablestructure', 2, 8)
         );
 
         $this->assertFalse(

@@ -24,9 +24,8 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $more = $this->byLinkText("More");
-        $this->moveto($more);
+        $this->login();
+        $this->hoverMore();
         $this->waitForElement("byLinkText", "Settings")->click();
         $this->waitForElement(
             "byXPath", "//a[@class='tabactive' and contains(., 'Settings')]"
@@ -55,7 +54,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
             $this->isElementPresent("byLinkText", $this->database_name)
         );
 
-        $this->byCssSelector("a[href='#Servers-1-hide_db']")->click();
+        $this->waitForElement("byId", "Servers-1-hide_db")->clear();
         $this->byName("submit_save")->click();
         $this->waitForElement(
             "byXPath",

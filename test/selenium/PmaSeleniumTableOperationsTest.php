@@ -44,7 +44,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText($this->database_name)->click();
 
         $this->waitForElement(
@@ -53,12 +53,11 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         )->click();
 
         $this->waitForElement("byId", "table_results");
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
+        $this->hoverMore();
         $this->byXPath("//a[contains(., 'Operations')]")->click();
         $this->waitForElement(
             "byXPath",
-            "//legend[contains(., 'Alter table order by')]"
+            "//legend[contains(., 'Table maintenance')]"
         );
     }
 
@@ -66,6 +65,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for changing a table order
      *
      * @return void
+     *
+     * @group large
      */
     public function testChangeTableOrder()
     {
@@ -73,7 +74,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
             ->selectOptionByLabel("val");
 
         $this->byId("order_order_desc")->click();
-        $this->byXPath("(//input[@value='Go'])[1]")->click();
+        $this->byCssSelector("form#alterTableOrderby input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -86,7 +87,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "2",
-            $this->getTable("table_results.1.5")
+            $this->getTable('table_results', 1, 5)
         );
     }
 
@@ -94,13 +95,15 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for moving a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testMoveTable()
     {
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
             ->value("2");
 
-        $this->byXPath("(//input[@value='Go'])[2]")->click();
+        $this->byCssSelector("form#moveTableForm input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -121,6 +124,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for renaming a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testRenameTable()
     {
@@ -129,7 +134,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->byName("comment")->value("foobar");
 
-        $this->byXPath("(//input[@value='Go'])[3]")->click();
+        $this->byCssSelector("form#tableOptionsForm input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -156,12 +161,14 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for copying a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testCopyTable()
     {
         $this->byCssSelector("form#copyTable input[name='new_name']")->value("2");
         $this->byCssSelector("label[for='what_data']")->click();
-        $this->byXPath("(//input[@value='Go'])[4]")->click();
+        $this->byCssSelector("form#copyTable input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -182,6 +189,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for truncating a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testTruncateTable()
     {
@@ -206,6 +215,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      * Test for dropping a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testDropTable()
     {

@@ -45,7 +45,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText($this->database_name)->click();
     }
 
@@ -75,8 +75,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
      */
     public function testAddEvent()
     {
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
+        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 
@@ -124,7 +123,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         );
         $this->assertEquals(1, $result->num_rows);
 
-        usleep(2000000);
+        usleep(2200000);
         $result = $this->dbQuery(
             "SELECT val FROM `" . $this->database_name . "`.`test_table`"
         );
@@ -142,8 +141,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function testEditEvents()
     {
         $this->_eventSQL();
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
+        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 
@@ -185,8 +183,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function testDropEvent()
     {
         $this->_eventSQL();
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
+        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 

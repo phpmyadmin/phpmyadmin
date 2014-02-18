@@ -25,7 +25,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText($this->database_name)->click();
         $this->waitForElement("byLinkText", "Operations")->click();
         $this->waitForElement(
@@ -42,8 +42,9 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function testDbComment()
     {
+        $this->skipIfNotPMADB();
         $this->byName("comment")->value("comment_foobar");
-        $this->byXPath("(//input[@value='Go'])[1]")->click();
+        $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
 
         $this->assertNotNull(
             $this->waitForElement(
@@ -62,10 +63,11 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function testRenameDB()
     {
+        $new_db_name = $this->database_name . 'rename';
         $this->byCssSelector("form#rename_db_form input[name=newname]")
-            ->value("pma_test_db_renamed");
+            ->value($new_db_name);
 
-        $this->byXPath("(//input[@value='Go'])[3]")->click();
+        $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath", "//button[contains(., 'OK')]"
@@ -73,11 +75,11 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
 
         $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: pma_test_db_renamed')]"
+            "//a[@class='item' and contains(., 'Database: $new_db_name')]"
         );
 
         $result = $this->dbQuery(
-            "SHOW DATABASES LIKE 'pma_test_db_renamed';"
+            "SHOW DATABASES LIKE '$new_db_name';"
         );
         $this->assertEquals(1, $result->num_rows);
 
@@ -86,7 +88,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
         );
         $this->assertEquals(0, $result->num_rows);
 
-        $this->database_name = "pma_test_db_renamed";
+        $this->database_name = $new_db_name;
     }
 
     /**
@@ -98,22 +100,23 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function testCopyDb()
     {
+        $new_db_name = $this->database_name . 'copy';
         $this->byCssSelector("form#copy_db_form input[name=newname]")
-            ->value("pma_test_db_copy");
+            ->value($new_db_name);
 
-        $this->byXPath("(//input[@value='Go'])[4]")->click();
+        $this->byCssSelector("form#copy_db_form input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Database " . $this->database_name
-            . " has been copied to pma_test_db_copy')]"
+            . " has been copied to $new_db_name')]"
         );
 
         $result = $this->dbQuery(
-            "SHOW DATABASES LIKE 'pma_test_db_copy';"
+            "SHOW DATABASES LIKE '$new_db_name';"
         );
         $this->assertEquals(1, $result->num_rows);
 
-        $this->dbQuery("DROP DATABASE pma_test_db_copy");
+        $this->dbQuery("DROP DATABASE $new_db_name");
     }
 }

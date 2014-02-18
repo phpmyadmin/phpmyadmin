@@ -42,7 +42,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText($this->database_name)->click();
 
         $this->waitForElement(
@@ -57,6 +57,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      * Test for adding a new column
      *
      * @return void
+     *
+     * @group large
      */
     public function testAddColumn()
     {
@@ -84,7 +86,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "int(11)",
-            $this->getTable("tablestructure.2.4")
+            $this->getTable('tablestructure', 2, 4)
         );
     }
 
@@ -92,6 +94,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      * Test for changing a column
      *
      * @return void
+     *
+     * @group large
      */
     public function testChangeColumn()
     {
@@ -120,6 +124,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      * Test for dropping columns
      *
      * @return void
+     *
+     * @group large
      */
     public function testDropColumns()
     {

@@ -18,6 +18,18 @@ require_once 'TestBase.php';
 class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
 {
     /**
+     * Setup the browser environment to run the selenium test case
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        /* TODO: For now this tests needs superuser for deleting database */
+        $this->skipIfNotSuperUser();
+    }
+
+    /**
      * Creates a database and drops it
      *
      * @return void
@@ -26,11 +38,14 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
      */
     public function testCreateDropDatabase()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
+
+        $this->_dropDatabase();
 
         $this->byLinkText("Databases")->click();
 
         $element = $this->waitForElement('byId', 'text_create_db');
+        $element->clear();
         $element->value($this->database_name);
 
         $this->byId("buttonGo")->click();

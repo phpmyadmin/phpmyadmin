@@ -259,7 +259,7 @@ function expandTreeNode($expandElem, callback) {
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-            $children.show('fast');
+            $children.slideDown('fast');
         }
         if (callback && typeof callback == 'function') {
             callback.call();
@@ -279,7 +279,7 @@ function expandTreeNode($expandElem, callback) {
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                 $destination
                     .children('div.list_container')
-                    .show('fast');
+                    .slideDown('fast');
                 if ($destination.find('ul > li').length == 1) {
                     $destination.find('ul > li')
                         .find('a.expander.container')
@@ -335,7 +335,7 @@ function collapseTreeNode($expandElem) {
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_minus')) {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-            $children.hide('fast');
+            $children.slideUp('fast');
         }
     }
     $expandElem.blur();
@@ -374,6 +374,12 @@ function loadChildNodes($expandElem, callback) {
             if (callback && typeof callback == 'function') {
                 callback(data);
             }
+        } else {
+            var $throbber = $expandElem.find('img.throbber');
+            $throbber.hide();
+            $icon = $expandElem.find('img.ic_b_plus');
+            $icon.show();
+            PMA_ajaxShowMessage(data.error, false);
         }
     });
 }
@@ -1223,13 +1229,23 @@ function PMA_showFullName($containerELem) {
                 $('body').append('<div id="full_name_layer" class="hide"></div>');
                 $('#full_name_layer').mouseleave(function() {
                     /** mouseleave */
-                    $(this).addClass('hide');
+                    $(this).addClass('hide')
+                           .removeClass('hovering');
+                }).mouseenter(function() {
+                    /** mouseenter */
+                    $(this).addClass('hovering');
                 });
                 $fullNameLayer = $('#full_name_layer');
             }
             $fullNameLayer.removeClass('hide');
             $fullNameLayer.css({left: thisOffset.left, top: thisOffset.top});
             $fullNameLayer.html($this.clone());
+            setTimeout(function() {
+                if(! $fullNameLayer.hasClass('hovering'))
+                {
+                    $fullNameLayer.trigger('mouseleave');
+                }
+            }, 200);
         }
     });
 }

@@ -26,7 +26,7 @@ class PMA_SeleniumPrivilegesTest extends PMA_SeleniumBase
      */
     public function testChangePassword()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText("Change password")->click();
 
         $e = $this->waitForElement("byId", "change_password_anchor");
@@ -53,11 +53,11 @@ class PMA_SeleniumPrivilegesTest extends PMA_SeleniumBase
         $this->assertNotEquals("", $this->byId("text_pma_pw2")->value());
         $this->assertNotEquals("", $this->byId("generated_pw")->value());
 
-        if (TESTSUITE_PASSWORD != "") {
+        if ($GLOBALS['TESTSUITE_PASSWORD'] != "") {
             $this->byId("text_pma_pw")->clear();
             $this->byId("text_pma_pw2")->clear();
-            $this->byId("text_pma_pw")->value(TESTSUITE_PASSWORD);
-            $this->byId("text_pma_pw2")->value(TESTSUITE_PASSWORD);
+            $this->byId("text_pma_pw")->value($GLOBALS['TESTSUITE_PASSWORD']);
+            $this->byId("text_pma_pw2")->value($GLOBALS['TESTSUITE_PASSWORD']);
         } else {
             $this->byId("nopass_1")->click();
         }

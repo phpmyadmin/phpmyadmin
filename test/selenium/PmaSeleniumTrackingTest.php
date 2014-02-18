@@ -51,14 +51,16 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
+
+        $this->skipIfNotPMADB();
+
         $this->byLinkText($this->database_name)->click();
         $this->waitForElement(
             "byXPath",
             "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
         );
-        $ele = $this->byLinkText("More");
-        $this->moveto($ele);
+        $this->hoverMore();
         $this->byLinkText("Tracking")->click();
         $this->waitForElement("byLinkText", "Track table");
         $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
@@ -72,6 +74,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      * Tests basic tracking functionality
      *
      * @return void
+     *
+     * @group large
      */
     public function testTrackingData()
     {
@@ -85,17 +89,17 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "DROP TABLE IF EXISTS `test_table`",
-            $this->getTable("ddl_versions.1.4")
+            $this->getTable('ddl_versions', 1, 4)
         );
 
         $this->assertContains(
             "CREATE TABLE `test_table` (",
-            $this->getTable("ddl_versions.2.4")
+            $this->getTable('ddl_versions', 2, 4)
         );
 
         $this->assertContains(
             "UPDATE test_table SET val = val + 1",
-            $this->getTable("dml_versions.1.4")
+            $this->getTable('dml_versions', 1, 4)
         );
 
         $this->assertNotContains(
@@ -116,12 +120,12 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "DROP TABLE IF EXISTS `test_table`",
-            $this->getTable("ddl_versions.1.4")
+            $this->getTable('ddl_versions', 1, 4)
         );
 
         $this->assertContains(
             "CREATE TABLE `test_table` (",
-            $this->getTable("ddl_versions.2.4")
+            $this->getTable('ddl_versions', 2, 4)
         );
 
         // only data
@@ -137,7 +141,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "UPDATE test_table SET val = val + 1",
-            $this->getTable("dml_versions.1.4")
+            $this->getTable('dml_versions', 1, 4)
         );
 
         $this->assertNotContains(
@@ -150,6 +154,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      * Tests deactivation of tracking
      *
      * @return void
+     *
+     * @group large
      */
     public function testDeactivateTracking()
     {
@@ -167,14 +173,15 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      * Tests dropping a tracking
      *
      * @return void
+     *
+     * @group large
      */
     public function testDropTracking()
     {
         $this->byLinkText("Database: " . $this->database_name)->click();
         $this->waitForElement("byCssSelector", "table.data");
         usleep(1000000);
-        $ele = $this->byLinkText("More");
-        $this->moveto($ele);
+        $this->hoverMore();
         $this->byLinkText("Tracking")->click();
         $this->waitForElement("byId", "versions");
         $this->byLinkText("Drop")->click();
@@ -192,12 +199,12 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "test_table",
-            $this->getTable("noversions.1.1")
+            $this->getTable('noversions', 1, 1)
         );
 
         $this->assertContains(
             "test_table_2",
-            $this->getTable("noversions.2.1")
+            $this->getTable('noversions', 2, 1)
         );
     }
 
@@ -205,6 +212,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      * Tests structure snapshot of a tracking
      *
      * @return void
+     *
+     * @group large
      */
     public function testStructureSnapshot()
     {
@@ -213,22 +222,22 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "id",
-            $this->getTable("tablestructure.1.1")
+            $this->getTable('tablestructure', 1, 1)
         );
 
         $this->assertContains(
             "val",
-            $this->getTable("tablestructure.2.1")
+            $this->getTable('tablestructure', 2, 1)
         );
 
         $this->assertContains(
             "PRIMARY",
-            $this->getTable("tablestructure_indexes.1.1")
+            $this->getTable('tablestructure_indexes', 1, 1)
         );
 
         $this->assertContains(
             "id",
-            $this->getTable("tablestructure_indexes.1.5")
+            $this->getTable('tablestructure_indexes', 1, 5)
         );
     }
 
@@ -248,8 +257,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->byCssSelector("input[value='Go']")->click();
         $this->waitForElement("byClassName", "success");
 
-        $ele = $this->byLinkText("More");
-        $this->moveto($ele);
+        $this->hoverMore();
         $this->byLinkText("Tracking")->click();
         $this->waitForElement("byId", "versions");
     }

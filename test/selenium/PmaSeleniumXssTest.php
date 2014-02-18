@@ -26,7 +26,7 @@ class PMA_SeleniumXSSTest extends PMA_SeleniumBase
      */
     public function testQueryTabWithNullValue()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText("SQL")->click();
         $this->waitForElement("byId", "queryboxf");
         $this->byId("button_submit_query")->click();
