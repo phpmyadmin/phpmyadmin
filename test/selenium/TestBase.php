@@ -136,7 +136,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     protected function setUp()
     {
-        if (! $this->_selenium_enabled) {
+        if (! self::$_selenium_enabled) {
             $this->markTestSkipped('Selenium testing not configured.');
         }
 
