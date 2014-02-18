@@ -198,9 +198,29 @@ class PMA_DbQbe
      * @var array
      */
     private $_currentSearchId = null;
+    /**
+     * Current search criterias
+     *
+     * @access private
+     * @var string
+     */
+    private $_criterias = null;
 
     /**
-     * Gðetter for current search id
+     * Setter for criterias
+     *
+     * @param string $criterias Criterias
+     *
+     * @return static
+     */
+    private function _setCriterias($criterias)
+    {
+        $this->_criterias = $criterias;
+        return $this;
+    }
+
+    /**
+     * Getter for current search id
      *
      * @return array
      */
@@ -215,13 +235,16 @@ class PMA_DbQbe
      * @param string $dbname          Database name
      * @param array  $savedSearchList List of saved searches
      * @param int    $currentSearchId Current search id
+     * @param string $criterias       Current search criterias
      */
     public function __construct(
-        $dbname, $savedSearchList = array(), $currentSearchId = null
+        $dbname, $savedSearchList = array(), $currentSearchId = null,
+        $criterias = null
     ) {
         $this->_db = $dbname;
         $this->_savedSearchList = $savedSearchList;
         $this->_currentSearchId = $currentSearchId;
+        $this->_setCriterias($criterias);
         // Sets criteria parameters
         $this->_setSearchParams();
         $this->_setCriteriaTablesAndColumns();
@@ -1446,7 +1469,7 @@ class PMA_DbQbe
                 . '" ' . (
                     $id == $currentSearchId
                     ? ' selected="selected"'
-                    : '' . $id .'-' . $currentSearchId
+                    : '' . $id . '-' . $currentSearchId
                 )
                 . '>'
                 . htmlspecialchars($name)
