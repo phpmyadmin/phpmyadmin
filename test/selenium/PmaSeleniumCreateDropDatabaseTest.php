@@ -28,6 +28,8 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
     {
         $this->login();
 
+        $this->_dropDatabase();
+
         $this->byLinkText("Databases")->click();
 
         $element = $this->waitForElement('byId', 'text_create_db');
