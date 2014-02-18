@@ -951,6 +951,7 @@ class PMA_NavigationTree
                     $retval .= htmlspecialchars($node->real_name);
                     $retval .= "</a>";
                 }
+                $retval .= '<div class="clearfloat"></div>';
             } else {
                 $retval .= "{$node->name}";
             }
