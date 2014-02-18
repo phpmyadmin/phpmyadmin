@@ -1801,12 +1801,14 @@ div.sqlvalidate {
 
 #main_pane_left {
     width: 60%;
+    min-width: 260px;
     float: <?php echo $left; ?>;
     padding-top: 1em;
 }
 
 #main_pane_right {
-    margin-<?php echo $left; ?>: 60%;
+    overflow: hidden;
+    min-width: 160px;
     padding-top: 1em;
     padding-<?php echo $left; ?>: 1em;
 }
