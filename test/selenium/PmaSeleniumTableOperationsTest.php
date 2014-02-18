@@ -74,7 +74,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
             ->selectOptionByLabel("val");
 
         $this->byId("order_order_desc")->click();
-        $this->byCssSelector("form#alterTableOrderby input[@type='submit']")->click();
+        $this->byCssSelector("form#alterTableOrderby input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -103,7 +103,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
             ->value("2");
 
-        $this->byCssSelector("form#moveTableForm input[@type='submit']")->click();
+        $this->byCssSelector("form#moveTableForm input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -134,7 +134,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->byName("comment")->value("foobar");
 
-        $this->byCssSelector("form#tableOptionsForm input[@type='submit']")->click();
+        $this->byCssSelector("form#tableOptionsForm input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -168,7 +168,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
     {
         $this->byCssSelector("form#copyTable input[name='new_name']")->value("2");
         $this->byCssSelector("label[for='what_data']")->click();
-        $this->byCssSelector("form#copyTable input[@type='submit']")->click();
+        $this->byCssSelector("form#copyTable input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",

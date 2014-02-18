@@ -44,7 +44,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
     {
         $this->skipIfNotPMADB();
         $this->byName("comment")->value("comment_foobar");
-        $this->byXPath("(//input[@value='Go'])[1]")->click();
+        $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
 
         $this->assertNotNull(
             $this->waitForElement(
@@ -66,7 +66,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
         $this->byCssSelector("form#rename_db_form input[name=newname]")
             ->value("pma_test_db_renamed");
 
-        $this->byXPath("(//input[@value='Go'])[3]")->click();
+        $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath", "//button[contains(., 'OK')]"
@@ -102,7 +102,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
         $this->byCssSelector("form#copy_db_form input[name=newname]")
             ->value("pma_test_db_copy");
 
-        $this->byXPath("(//input[@value='Go'])[4]")->click();
+        $this->byCssSelector("form#copy_db_form input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
