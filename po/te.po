@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-04 06:38+0200\n"
-"Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
-"Language-Team: Telugu <http://l10n.cihar.com/projects/phpmyadmin/4-1/te/>\n"
+"PO-Revision-Date: 2014-02-18 13:50+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Telugu <https://l10n.cihar.com/projects/phpmyadmin/4-1/te/>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -218,7 +218,7 @@ msgstr "అన్నీ ఎంచుకోవద్దు"
 # మొదటి అనువాదము
 #: db_operations.php:45 tbl_create.php:21
 msgid "The database name is empty!"
-msgstr "డేటాబేస్ పేరు ఖాళీగా ఉన్నది"
+msgstr "డేటాబేస్ పేరు ఖాళీగా ఉన్నది!"
 
 # మొదటి అనువాదము
 #: db_operations.php:130
@@ -984,7 +984,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: js/messages.php:60
 msgid "The user name is empty!"
-msgstr "వాడుకరి పేరులో ఏమీ లేదు"
+msgstr "వాడుకరి పేరులో ఏమీ లేదు!"
 
 #: js/messages.php:61 libraries/server_privileges.lib.php:1553
 #: user_password.php:110
@@ -2668,7 +2668,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/DbSearch.class.php:399 libraries/TableSearch.class.php:1341
 msgid "Find:"
-msgstr "వెతుకు"
+msgstr "వెతుకు:"
 
 #: libraries/DbSearch.class.php:404 libraries/DbSearch.class.php:408
 msgid "Words are separated by a space character (\" \")."
@@ -6777,7 +6777,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/display_export.lib.php:242
 msgid "Database(s):"
-msgstr "డేటాబేసు(లు)"
+msgstr "డేటాబేసు(లు):"
 
 #: libraries/display_export.lib.php:244
 msgid "Table(s):"
@@ -8142,7 +8142,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: libraries/plugins/auth/AuthenticationCookie.class.php:219
 msgid "Username:"
-msgstr "వాడుకరి పేరు"
+msgstr "వాడుకరి పేరు:"
 
 # మొదటి అనువాదము
 #: libraries/plugins/auth/AuthenticationCookie.class.php:231
