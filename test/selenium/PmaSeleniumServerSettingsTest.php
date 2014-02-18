@@ -24,7 +24,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $more = $this->byLinkText("More");
         $this->moveto($more);
         $this->waitForElement("byLinkText", "Settings")->click();

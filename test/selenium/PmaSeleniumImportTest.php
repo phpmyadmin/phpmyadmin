@@ -24,7 +24,7 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
     }
 
     /**

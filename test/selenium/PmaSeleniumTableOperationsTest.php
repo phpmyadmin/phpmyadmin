@@ -44,7 +44,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText($this->database_name)->click();
 
         $this->waitForElement(

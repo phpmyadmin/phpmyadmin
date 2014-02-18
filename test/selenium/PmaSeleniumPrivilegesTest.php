@@ -26,7 +26,7 @@ class PMA_SeleniumPrivilegesTest extends PMA_SeleniumBase
      */
     public function testChangePassword()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText("Change password")->click();
 
         $e = $this->waitForElement("byId", "change_password_anchor");

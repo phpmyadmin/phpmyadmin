@@ -44,7 +44,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
     }
 
     /**

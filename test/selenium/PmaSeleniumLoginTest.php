@@ -26,7 +26,7 @@ class PMA_SeleniumLoginTest extends PMA_SeleniumBase
      */
     public function testSuccessfulLogin()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
     }

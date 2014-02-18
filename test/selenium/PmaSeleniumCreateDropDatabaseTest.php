@@ -26,7 +26,7 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
      */
     public function testCreateDropDatabase()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
 
         $this->byLinkText("Databases")->click();
 

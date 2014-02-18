@@ -54,7 +54,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
      */
     public function testCreateRemoveUser()
     {
-        $this->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
+        $this->login();
         $this->byLinkText("Users")->click();
 
         $link = $this->waitForElement("byLinkText", "Add user");

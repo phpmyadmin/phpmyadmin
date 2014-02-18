@@ -179,8 +179,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      *
      * @return void
      */
-    public function login($username, $password)
+    public function login($username = '', $password = '')
     {
+        if ($username == '') {
+            $username = $GLOBALS['TESTSUITE_USER'];
+        }
+        if ($password == '') {
+            $password = $GLOBALS['TESTSUITE_PASSWORD'];
+        }
         $this->url('');
         $usernameField = $this->byId('input_username');
         $usernameField->value($username);
