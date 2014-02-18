@@ -49,7 +49,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->waitForElement(
             "byXPath",
-            "//a[contains(., 'test_table') and contains(., 'sql.php')]"
+            "//a[contains(., 'test_table')]"
         )->click();
 
         $this->waitForElement("byId", "table_results");
