@@ -41,6 +41,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
     public function setUp()
     {
         parent::setUp();
+        $this->skipIfNotSuperUser();
         $this->_txtUsername = 'pma_user';
         $this->_txtPassword = 'abc_123';
     }

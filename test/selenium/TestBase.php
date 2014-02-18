@@ -158,6 +158,33 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
+     * Checks whether user is a superuser.
+     *
+     * @return boolean
+     */
+    protected function isSuperUser()
+    {
+        $result = $this->dbQuery('SELECT COUNT(*) FROM mysql.user');
+        if ($result !== False) {
+            $result::free();
+            return True;
+        }
+        return False;
+    }
+
+    /**
+     * Skips test if test user is not a superuser.
+     *
+     * @return void
+     */
+    protected function skipIfNotSuperUser()
+    {
+        if (! $this->isSuperUser()) {
+            $this->markTestSkipped('Test user is not a superuser.');
+        }
+    }
+
+    /**
      * Tear Down function for test cases
      *
      * @return void
