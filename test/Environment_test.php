@@ -40,7 +40,7 @@ class Environment_Test extends PHPUnit_Framework_TestCase
     {
         try {
             $pdo = new PDO(
-                "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'] . ";dbname=" . $GLOBALS['TESTSUITE_DATABASE'],
+                "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'],
                 $GLOBALS['TESTSUITE_USER'],
                 $GLOBALS['TESTSUITE_PASSWORD']
             );
@@ -50,7 +50,7 @@ class Environment_Test extends PHPUnit_Framework_TestCase
             );
 
             //$pdo->beginTransaction();
-            $test = $pdo->exec("SHOW TABLES;");
+            $test = $pdo->exec("SHOW DATABASES;");
             //$pdo->commit();
             $this->assertEquals(
                 0,
