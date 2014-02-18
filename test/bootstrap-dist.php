@@ -35,8 +35,7 @@ $test_defaults = array(
     'TESTSUITE_USER' => 'root',
     'TESTSUITE_PASSWORD' => '',
     'TESTSUITE_DATABASE' => 'test',
-    'TESTSUITE_PHPMYADMIN_HOST' => 'http://localhost',
-    'TESTSUITE_PHPMYADMIN_URL' => '/phpmyadmin',
+    'TESTSUITE_URL' => 'http://localhost/phpmyadmin/',
 );
 foreach ($test_defaults as $varname => $defvalue) {
     $envvar = getenv($varname);
