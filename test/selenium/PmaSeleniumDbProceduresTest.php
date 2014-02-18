@@ -70,8 +70,6 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
      */
     public function testAddProcedure()
     {
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
         $ele = $this->waitForElement("byPartialLinkText", "Routines");
         $ele->click();
 
@@ -129,8 +127,6 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     public function testEditProcedure()
     {
         $this->_procedureSQL();
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
         $ele = $this->waitForElement("byPartialLinkText", "Routines");
         $ele->click();
 
@@ -165,8 +161,6 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     public function testDropProcedure()
     {
         $this->_procedureSQL();
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
         $ele = $this->waitForElement("byPartialLinkText", "Routines");
         $ele->click();
 
