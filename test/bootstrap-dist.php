@@ -36,9 +36,9 @@ $test_defaults = array(
 foreach ($test_defaults as $varname => $defvalue) {
     $envvar = getenv($varname);
     if ($envvar) {
-        define($varname, $envvar);
+        $GLOBALS[$varname] = $envvar;
     } else {
-        define($varname, $defvalue);
+        $GLOBALS[$varname] = $defvalue;
     }
 }
 
