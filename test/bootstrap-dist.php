@@ -19,16 +19,6 @@ define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
 
-// BrowserStack integration
-$bs_uname = getenv('BS_UNAME');
-$bs_key = getenv('BS_KEY');
-
-if ($bs_uname && $bs_key) {
-    define('PHPUNIT_HOST', $bs_uname . ":" . $bs_key . "@hub.browserstack.com:80");
-} else {
-    define('PHPUNIT_HOST', "127.0.0.1");
-}
-
 // Selenium tests setup
 $test_defaults = array(
     'TESTSUITE_SERVER' => 'localhost',
