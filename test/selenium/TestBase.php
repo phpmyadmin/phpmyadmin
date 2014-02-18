@@ -37,7 +37,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var boolean
      */
-    private $_selenium_enabled = False;
+    private static $_selenium_enabled = False;
 
     /**
      * Lists browsers to test
