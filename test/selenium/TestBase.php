@@ -424,7 +424,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     public function hoverMore()
     {
         try {
-            $more = $this->byLinkText("More");
+            $more = $this->byCssSelector('li.submenu > a');
             $this->moveto($more);
         } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
