@@ -144,7 +144,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $this->setDesiredCapabilities(
             array_merge(
                 $caps,
-                array('name' => $this->testId)
+                array('name' => get_class($this) . '__' . $this->getName())
             )
         );
 
