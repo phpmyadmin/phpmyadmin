@@ -32,6 +32,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     public $database_name;
 
     /**
+     * Whether Selenium testing should be enabled.
+     *
+     * @access private
+     * @var boolean
+     */
+    private $_selenium_enabled = False;
+
+    /**
      * Lists browsers to test
      *
      * @return Array of browsers to test
@@ -43,6 +51,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         if (! $username || ! $key) {
             return array();
         }
+        self::$_selenium_enabled = True;
 
         $build_id = 'Manual';
         if (getenv('BUILD_TAG')) {
@@ -116,6 +125,10 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     protected function setUp()
     {
+        if (! $this->_selenium_enabled) {
+            $this->markTestSkipped('Selenium testing not configured.');
+        }
+
         parent::setUp();
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
         $this->_mysqli = new mysqli(
