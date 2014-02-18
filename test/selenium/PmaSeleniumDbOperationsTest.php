@@ -100,22 +100,23 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function testCopyDb()
     {
+        $new_db_name = $this->database_name . 'copy';
         $this->byCssSelector("form#copy_db_form input[name=newname]")
-            ->value("pma_test_db_copy");
+            ->value($new_db_name);
 
         $this->byCssSelector("form#copy_db_form input[type='submit']")->click();
 
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Database " . $this->database_name
-            . " has been copied to pma_test_db_copy')]"
+            . " has been copied to $new_db_name')]"
         );
 
         $result = $this->dbQuery(
-            "SHOW DATABASES LIKE 'pma_test_db_copy';"
+            "SHOW DATABASES LIKE '$new_db_name';"
         );
         $this->assertEquals(1, $result->num_rows);
 
-        $this->dbQuery("DROP DATABASE pma_test_db_copy");
+        $this->dbQuery("DROP DATABASE $new_db_name");
     }
 }
