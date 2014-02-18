@@ -48,74 +48,87 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         $username = getenv('BS_UNAME');
         $key = getenv('BS_KEY');
-        if (! $username || ! $key) {
+        $selenium_host = getenv('TESTSUITE_SELENIUM_HOST');
+
+        if ($username && $key) {
+            /* BrowserStack integration */
+            self::$_selenium_enabled = True;
+
+            $build_id = 'Manual';
+            if (getenv('BUILD_TAG')) {
+                $build_id = getenv('BUILD_TAG');
+            } elseif (getenv('TRAVIS_JOB_NUMBER')) {
+                $build_id = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
+            }
+
+            $result = array();
+            $result[] = array(
+                'browserName' => 'chrome',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'desiredCapabilities' => array(
+                    'browserstack.user' => BS_UNAME,
+                    'browserstack.key' => BS_KEY,
+                    'project' => 'phpMyAdmin',
+                    'build' => $build_id,
+                )
+            );
+            if (getenv('TESTSUITE_FULL')) {
+                $result[] = array(
+                    'browserName' => 'firefox',
+                    'host' => 'hub.browserstack.com',
+                    'port' => 80,
+                    'timeout' => 30000,
+                    'desiredCapabilities' => array(
+                        'browserstack.user' => BS_UNAME,
+                        'browserstack.key' => BS_KEY,
+                        'project' => 'phpMyAdmin',
+                        'build' => $build_id,
+                    )
+                );
+                $result[] = array(
+                    'browserName' => 'internet explorer',
+                    'host' => 'hub.browserstack.com',
+                    'port' => 80,
+                    'timeout' => 30000,
+                    'desiredCapabilities' => array(
+                        'browserstack.user' => BS_UNAME,
+                        'browserstack.key' => BS_KEY,
+                        'project' => 'phpMyAdmin',
+                        'build' => $build_id,
+                        'os' => 'windows',
+                        'os_version' => '7',
+                    )
+                );
+                $result[] = array(
+                    'browserName' => 'Safari',
+                    'host' => 'hub.browserstack.com',
+                    'port' => 80,
+                    'timeout' => 30000,
+                    'desiredCapabilities' => array(
+                        'browserstack.user' => BS_UNAME,
+                        'browserstack.key' => BS_KEY,
+                        'project' => 'phpMyAdmin',
+                        'build' => $build_id,
+                        'os' => 'OS X',
+                        'os_version' => 'Mavericks',
+                    )
+                );
+            }
+            return $result;
+        } elseif ($selenium_host) {
+            self::$_selenium_enabled = True;
+            return array(
+                array(
+                    'browserName' => getenv('TESTSUITE_SELENIUM_BROWSER'),
+                    'host' => $selenium_host,
+                    'port' => getenv('TESTSUITE_SELENIUM_PORT'),
+                )
+            );
+        } else {
             return array();
         }
-        self::$_selenium_enabled = True;
-
-        $build_id = 'Manual';
-        if (getenv('BUILD_TAG')) {
-            $build_id = getenv('BUILD_TAG');
-        } elseif (getenv('TRAVIS_JOB_NUMBER')) {
-            $build_id = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
-        }
-
-        $result = array();
-        $result[] = array(
-            'browserName' => 'chrome',
-            'host' => 'hub.browserstack.com',
-            'port' => 80,
-            'timeout' => 30000,
-            'desiredCapabilities' => array(
-                'browserstack.user' => BS_UNAME,
-                'browserstack.key' => BS_KEY,
-                'project' => 'phpMyAdmin',
-                'build' => $build_id,
-            )
-        );
-        if (getenv('TESTSUITE_FULL')) {
-            $result[] = array(
-                'browserName' => 'firefox',
-                'host' => 'hub.browserstack.com',
-                'port' => 80,
-                'timeout' => 30000,
-                'desiredCapabilities' => array(
-                    'browserstack.user' => BS_UNAME,
-                    'browserstack.key' => BS_KEY,
-                    'project' => 'phpMyAdmin',
-                    'build' => $build_id,
-                )
-            );
-            $result[] = array(
-                'browserName' => 'internet explorer',
-                'host' => 'hub.browserstack.com',
-                'port' => 80,
-                'timeout' => 30000,
-                'desiredCapabilities' => array(
-                    'browserstack.user' => BS_UNAME,
-                    'browserstack.key' => BS_KEY,
-                    'project' => 'phpMyAdmin',
-                    'build' => $build_id,
-                    'os' => 'windows',
-                    'os_version' => '7',
-                )
-            );
-            $result[] = array(
-                'browserName' => 'Safari',
-                'host' => 'hub.browserstack.com',
-                'port' => 80,
-                'timeout' => 30000,
-                'desiredCapabilities' => array(
-                    'browserstack.user' => BS_UNAME,
-                    'browserstack.key' => BS_KEY,
-                    'project' => 'phpMyAdmin',
-                    'build' => $build_id,
-                    'os' => 'OS X',
-                    'os_version' => 'Mavericks',
-                )
-            );
-        }
-        return $result;
     }
 
     /**

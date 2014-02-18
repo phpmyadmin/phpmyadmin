@@ -26,6 +26,9 @@ $test_defaults = array(
     'TESTSUITE_PASSWORD' => '',
     'TESTSUITE_DATABASE' => 'test',
     'TESTSUITE_URL' => 'http://localhost/phpmyadmin/',
+    'TESTSUITE_SELENIUM_HOST' => '',
+    'TESTSUITE_SELENIUM_PORT' => '4444',
+    'TESTSUITE_SELENIUM_BROWSER' => 'firefox',
 );
 foreach ($test_defaults as $varname => $defvalue) {
     $envvar = getenv($varname);
