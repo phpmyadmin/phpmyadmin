@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-09 14:46+0200\n"
-"Last-Translator: renwar kurd <renwarkurd@yahoo.com>\n"
+"PO-Revision-Date: 2014-02-18 13:48+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Kurdish Sorani "
-"<http://l10n.cihar.com/projects/phpmyadmin/4-1/ckb/>\n"
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1357,7 +1357,7 @@ msgstr ""
 
 #: js/messages.php:169
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ":داتا تۆمارکراوەکان کرانەوە،داواکاریەکان جێبەجێ ئەکرێن لەم کاتەدا"
+msgstr "داتا تۆمارکراوەکان کرانەوە،داواکاریەکان جێبەجێ ئەکرێن لەم کاتەدا:"
 
 #: js/messages.php:171
 msgid "Jump to Log table"
