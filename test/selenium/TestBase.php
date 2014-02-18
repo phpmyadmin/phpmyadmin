@@ -164,9 +164,11 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function tearDown()
     {
-        $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->database_name);
-        $this->_mysqli->close();
-        $this->_mysqli = null;
+        if ($this->_mysqli != null) {
+            $this->dbQuery('DROP DATABASE IF EXISTS ' . $this->database_name);
+            $this->_mysqli->close();
+            $this->_mysqli = null;
+        }
     }
 
     /**
