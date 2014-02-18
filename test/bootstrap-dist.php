@@ -19,24 +19,19 @@ define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
 
-// BrowserStack integration
-$bs_uname = getenv('BS_UNAME');
-$bs_key = getenv('BS_KEY');
-
-if ($bs_uname && $bs_key) {
-    define('PHPUNIT_HOST', $bs_uname . ":" . $bs_key . "@hub.browserstack.com:80");
-} else {
-    define('PHPUNIT_HOST', "127.0.0.1");
-}
-
 // Selenium tests setup
 $test_defaults = array(
     'TESTSUITE_SERVER' => 'localhost',
     'TESTSUITE_USER' => 'root',
     'TESTSUITE_PASSWORD' => '',
     'TESTSUITE_DATABASE' => 'test',
-    'TESTSUITE_PHPMYADMIN_HOST' => 'http://localhost',
-    'TESTSUITE_PHPMYADMIN_URL' => '/phpmyadmin',
+    'TESTSUITE_URL' => 'http://localhost/phpmyadmin/',
+    'TESTSUITE_SELENIUM_HOST' => '',
+    'TESTSUITE_SELENIUM_PORT' => '4444',
+    'TESTSUITE_SELENIUM_BROWSER' => 'firefox',
+    'TESTSUITE_BROWSERSTACK_USER' => '',
+    'TESTSUITE_BROWSERSTACK_KEY' => '',
+    'TESTSUITE_FULL' => '',
 );
 foreach ($test_defaults as $varname => $defvalue) {
     $envvar = getenv($varname);
