@@ -53,6 +53,8 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
      * Insert data into table
      *
      * @return void
+     *
+     * @group large
      */
     public function testAddData()
     {

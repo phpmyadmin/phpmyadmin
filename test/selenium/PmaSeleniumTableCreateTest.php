@@ -21,6 +21,8 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
      * Creates a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testCreateTable()
     {
