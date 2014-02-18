@@ -140,6 +140,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             $this->markTestSkipped('Selenium testing not configured.');
         }
 
+        $caps = $this->getDesiredCapabilities();
+        $this->setDesiredCapabilities(
+            array_merge(
+                $caps,
+                array('name' => $this->testId)
+            )
+        );
+
         parent::setUp();
         $this->setBrowserUrl($GLOBALS['TESTSUITE_URL']);
         $this->_mysqli = new mysqli(
