@@ -160,7 +160,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
             );
         }
-        $this->database_name = $GLOBALS['TESTSUITE_DATABASE'] . '_' . substr(md5(rand()), 0, 7);
+        $this->database_name = $GLOBALS['TESTSUITE_DATABASE'] . substr(md5(rand()), 0, 7);
         $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->database_name);
         $this->dbQuery('USE ' . $this->database_name);
     }
