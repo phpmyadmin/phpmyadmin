@@ -40,9 +40,9 @@ class Environment_Test extends PHPUnit_Framework_TestCase
     {
         try {
             $pdo = new PDO(
-                "mysql:host=" . TESTSUITE_SERVER . ";dbname=" . TESTSUITE_DATABASE,
-                TESTSUITE_USER,
-                TESTSUITE_PASSWORD
+                "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'] . ";dbname=" . $GLOBALS['TESTSUITE_DATABASE'],
+                $GLOBALS['TESTSUITE_USER'],
+                $GLOBALS['TESTSUITE_PASSWORD']
             );
             $this->assertNull(
                 $pdo->errorCode(),
