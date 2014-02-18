@@ -60,8 +60,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
             "byXPath",
             "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
         );
-        $ele = $this->byLinkText("More");
-        $this->moveto($ele);
+        $this->hoverMore();
         $this->byLinkText("Tracking")->click();
         $this->waitForElement("byLinkText", "Track table");
         $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
@@ -182,8 +181,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->byLinkText("Database: " . $this->database_name)->click();
         $this->waitForElement("byCssSelector", "table.data");
         usleep(1000000);
-        $ele = $this->byLinkText("More");
-        $this->moveto($ele);
+        $this->hoverMore();
         $this->byLinkText("Tracking")->click();
         $this->waitForElement("byId", "versions");
         $this->byLinkText("Drop")->click();
@@ -259,8 +257,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->byCssSelector("input[value='Go']")->click();
         $this->waitForElement("byClassName", "success");
 
-        $ele = $this->byLinkText("More");
-        $this->moveto($ele);
+        $this->hoverMore();
         $this->byLinkText("Tracking")->click();
         $this->waitForElement("byId", "versions");
     }

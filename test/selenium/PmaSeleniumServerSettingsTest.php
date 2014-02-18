@@ -25,8 +25,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login();
-        $more = $this->byLinkText("More");
-        $this->moveto($more);
+        $this->hoverMore();
         $this->waitForElement("byLinkText", "Settings")->click();
         $this->waitForElement(
             "byXPath", "//a[@class='tabactive' and contains(., 'Settings')]"

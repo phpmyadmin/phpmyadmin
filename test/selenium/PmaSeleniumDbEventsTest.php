@@ -75,8 +75,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
      */
     public function testAddEvent()
     {
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
+        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 
@@ -142,8 +141,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function testEditEvents()
     {
         $this->_eventSQL();
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
+        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 
@@ -185,8 +183,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function testDropEvent()
     {
         $this->_eventSQL();
-        $more = $this->waitForElement("byLinkText", "More");
-        $this->moveto($more);
+        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Events");
         $ele->click();
 

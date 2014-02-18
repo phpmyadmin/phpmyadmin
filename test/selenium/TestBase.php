@@ -415,5 +415,20 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $this->byClassName("CodeMirror-scroll")->click();
         $this->keys($text);
     }
+
+    /**
+     * Moves mouse over More link if it is present
+     *
+     * @return void
+     */
+    public function hoverMore()
+    {
+        try {
+            $more = $this->byLinkText("More");
+            $this->moveto($more);
+        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+            return;
+        }
+    }
 }
 ?>
