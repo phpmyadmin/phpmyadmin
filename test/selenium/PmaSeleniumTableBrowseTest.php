@@ -71,17 +71,17 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "1",
-            $this->getTable("table_results.1.5")
+            $this->getTable('table_results', 1, 5)
         );
 
         $this->assertEquals(
             "3",
-            $this->getTable("table_results.2.5")
+            $this->getTable('table_results', 2, 5)
         );
 
         $this->assertEquals(
             "2",
-            $this->getTable("table_results.3.5")
+            $this->getTable('table_results', 3, 5)
         );
 
         // case 2
@@ -91,17 +91,17 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "2",
-            $this->getTable("table_results.1.5")
+            $this->getTable('table_results', 1, 5)
         );
 
         $this->assertEquals(
             "1",
-            $this->getTable("table_results.2.5")
+            $this->getTable('table_results', 2, 5)
         );
 
         $this->assertEquals(
             "3",
-            $this->getTable("table_results.3.5")
+            $this->getTable('table_results', 3, 5)
         );
 
         // case 2
@@ -111,17 +111,17 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "3",
-            $this->getTable("table_results.1.5")
+            $this->getTable('table_results', 1, 5)
         );
 
         $this->assertEquals(
             "1",
-            $this->getTable("table_results.2.5")
+            $this->getTable('table_results', 2, 5)
         );
 
         $this->assertEquals(
             "2",
-            $this->getTable("table_results.3.5")
+            $this->getTable('table_results', 3, 5)
         );
 
         // case 4
@@ -131,17 +131,17 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "2",
-            $this->getTable("table_results.1.5")
+            $this->getTable('table_results', 1, 5)
         );
 
         $this->assertEquals(
             "1",
-            $this->getTable("table_results.2.5")
+            $this->getTable('table_results', 2, 5)
         );
 
         $this->assertEquals(
             "3",
-            $this->getTable("table_results.3.5")
+            $this->getTable('table_results', 3, 5)
         );
     }
 
@@ -186,12 +186,12 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "foobar",
-            $this->getTable("table_results.2.6")
+            $this->getTable('table_results', 2, 6)
         );
 
         $this->assertEquals(
             "2009-01-20 02:00:02",
-            $this->getTable("table_results.2.7")
+            $this->getTable('table_results', 2, 7)
         );
     }
 
@@ -227,7 +227,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "abcde",
-            $this->getTable("table_results.1.6")
+            $this->getTable('table_results', 1, 6)
         );
     }
 
@@ -267,12 +267,12 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "ABCDEFG",
-            $this->getTable("table_results.4.6")
+            $this->getTable('table_results', 4, 6)
         );
 
         $this->assertEquals(
             "2012-01-20 02:05:02",
-            $this->getTable("table_results.4.7")
+            $this->getTable('table_results', 4, 7)
         );
     }
 
@@ -298,12 +298,12 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "1",
-            $this->getTable("table_results.1.5")
+            $this->getTable('table_results', 1, 5)
         );
 
         $this->assertEquals(
             "3",
-            $this->getTable("table_results.2.5")
+            $this->getTable('table_results', 2, 5)
         );
     }
 

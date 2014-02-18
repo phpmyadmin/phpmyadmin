@@ -89,17 +89,17 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "DROP TABLE IF EXISTS `test_table`",
-            $this->getTable("ddl_versions.1.4")
+            $this->getTable('ddl_versions', 1, 4)
         );
 
         $this->assertContains(
             "CREATE TABLE `test_table` (",
-            $this->getTable("ddl_versions.2.4")
+            $this->getTable('ddl_versions', 2, 4)
         );
 
         $this->assertContains(
             "UPDATE test_table SET val = val + 1",
-            $this->getTable("dml_versions.1.4")
+            $this->getTable('dml_versions', 1, 4)
         );
 
         $this->assertNotContains(
@@ -120,12 +120,12 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "DROP TABLE IF EXISTS `test_table`",
-            $this->getTable("ddl_versions.1.4")
+            $this->getTable('ddl_versions', 1, 4)
         );
 
         $this->assertContains(
             "CREATE TABLE `test_table` (",
-            $this->getTable("ddl_versions.2.4")
+            $this->getTable('ddl_versions', 2, 4)
         );
 
         // only data
@@ -141,7 +141,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "UPDATE test_table SET val = val + 1",
-            $this->getTable("dml_versions.1.4")
+            $this->getTable('dml_versions', 1, 4)
         );
 
         $this->assertNotContains(
@@ -199,12 +199,12 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "test_table",
-            $this->getTable("noversions.1.1")
+            $this->getTable('noversions', 1, 1)
         );
 
         $this->assertContains(
             "test_table_2",
-            $this->getTable("noversions.2.1")
+            $this->getTable('noversions', 2, 1)
         );
     }
 
@@ -222,22 +222,22 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->assertContains(
             "id",
-            $this->getTable("tablestructure.1.1")
+            $this->getTable('tablestructure', 1, 1)
         );
 
         $this->assertContains(
             "val",
-            $this->getTable("tablestructure.2.1")
+            $this->getTable('tablestructure', 2, 1)
         );
 
         $this->assertContains(
             "PRIMARY",
-            $this->getTable("tablestructure_indexes.1.1")
+            $this->getTable('tablestructure_indexes', 1, 1)
         );
 
         $this->assertContains(
             "id",
-            $this->getTable("tablestructure_indexes.1.5")
+            $this->getTable('tablestructure_indexes', 1, 5)
         );
     }
 

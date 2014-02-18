@@ -86,7 +86,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "int(11)",
-            $this->getTable("tablestructure.2.4")
+            $this->getTable('tablestructure', 2, 4)
         );
     }
 

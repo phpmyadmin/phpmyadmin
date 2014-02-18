@@ -382,13 +382,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     /**
      * Get table cell data
      *
-     * @param string $identifier Identifier: tableId.row.column
+     * @param string $tableId Table identifier
+     * @param int    $row     Table row
+     * @param int    $column  Table column
      *
      * @return text Data from the particular table cell
      */
-    public function getTable($identifier)
+    public function getTable($tableID, $row, $column)
     {
-        list($tableID, $row, $column) = explode(".", $identifier);
         $sel = "table#{$tableID} tbody tr:nth-child({$row}) td:nth-child({$column})";
         $element = $this->byCssSelector(
             $sel

@@ -101,47 +101,47 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "1",
-            $this->getTable("table_results.1.5")
+            $this->getTable('table_results', 1, 5)
         );
 
         $this->assertEquals(
             "abcd",
-            $this->getTable("table_results.1.6")
+            $this->getTable('table_results', 1, 6)
         );
 
         $this->assertEquals(
             "2011-01-20 02:00:02",
-            $this->getTable("table_results.1.7")
+            $this->getTable('table_results', 1, 7)
         );
 
         $this->assertEquals(
             "2",
-            $this->getTable("table_results.2.5")
+            $this->getTable('table_results', 2, 5)
         );
 
         $this->assertEquals(
             "foo",
-            $this->getTable("table_results.2.6")
+            $this->getTable('table_results', 2, 6)
         );
 
         $this->assertEquals(
             "2010-01-20 02:00:02",
-            $this->getTable("table_results.2.7")
+            $this->getTable('table_results', 2, 7)
         );
 
         $this->assertEquals(
             "3",
-            $this->getTable("table_results.3.5")
+            $this->getTable('table_results', 3, 5)
         );
 
         $this->assertEquals(
             "Abcd",
-            $this->getTable("table_results.3.6")
+            $this->getTable('table_results', 3, 6)
         );
 
         $this->assertEquals(
             "2012-01-20 02:00:02",
-            $this->getTable("table_results.3.7")
+            $this->getTable('table_results', 3, 7)
         );
     }
 }
