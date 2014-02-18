@@ -104,7 +104,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
             ->value("2");
 
-        $this->byXPath("(//input[@value='Go'])[2]")->click();
+        $this->byXPath("//form#moveTableForm//input[@value='Go']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -135,7 +135,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->byName("comment")->value("foobar");
 
-        $this->byXPath("(//input[@value='Go'])[3]")->click();
+        $this->byXPath("//form#tableOptionsForm//input[@value='Go']")->click();
 
         $this->waitForElement(
             "byXPath",
@@ -169,7 +169,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
     {
         $this->byCssSelector("form#copyTable input[name='new_name']")->value("2");
         $this->byCssSelector("label[for='what_data']")->click();
-        $this->byXPath("(//input[@value='Go'])[4]")->click();
+        $this->byXPath("//form#copyTable//input[@value='Go']")->click();
 
         $this->waitForElement(
             "byXPath",
