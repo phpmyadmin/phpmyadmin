@@ -54,7 +54,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
             $this->isElementPresent("byLinkText", $this->database_name)
         );
 
-        $this->byCssSelector("a[href='#Servers-1-hide_db']")->clear();
+        $this->waitForElement("byId", "Servers-1-hide_db")->clear();
         $this->byName("submit_save")->click();
         $this->waitForElement(
             "byXPath",
