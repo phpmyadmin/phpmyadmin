@@ -1223,13 +1223,23 @@ function PMA_showFullName($containerELem) {
                 $('body').append('<div id="full_name_layer" class="hide"></div>');
                 $('#full_name_layer').mouseleave(function() {
                     /** mouseleave */
-                    $(this).addClass('hide');
+                    $(this).addClass('hide')
+                           .removeClass('hovering');
+                }).mouseenter(function() {
+                    /** mouseenter */
+                    $(this).addClass('hovering');
                 });
                 $fullNameLayer = $('#full_name_layer');
             }
             $fullNameLayer.removeClass('hide');
             $fullNameLayer.css({left: thisOffset.left, top: thisOffset.top});
             $fullNameLayer.html($this.clone());
+            setTimeout(function() {
+                if(! $fullNameLayer.hasClass('hovering'))
+                {
+                    $fullNameLayer.trigger('mouseleave');
+                }
+            }, 200);
         }
     });
 }
