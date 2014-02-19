@@ -422,8 +422,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             'script' => "$('#topmenu').menuResizer('destroy');",
             'args' => array()
         ));
-
-        $this->timeouts()->implicitWait(10000);
     }
 }
 ?>
