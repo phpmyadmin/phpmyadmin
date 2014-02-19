@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-19 14:53+0200\n"
+"PO-Revision-Date: 2014-02-19 15:23+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -1759,16 +1759,15 @@ msgid "Add an option for column \"%s\"."
 msgstr "新增欄位 \"%s\" 的選項。"
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "已建立 %d 個物件"
+msgstr "已建立 %d 個物件。"
 
 #: js/messages.php:333
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "按下 ESC 取消編輯"
+msgstr "按下 ESC 取消編輯。"
 
 #: js/messages.php:334
 msgid ""
@@ -1777,34 +1776,29 @@ msgid ""
 msgstr "有一些修改的資料尚未儲存，你確定要不儲存直接離開本頁？"
 
 #: js/messages.php:335
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "使用拖曳來重新排序"
+msgstr "使用拖曳來重新排序。"
 
 #: js/messages.php:336
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "點此進行排序"
+msgstr "點此進行排序。"
 
 #: js/messages.php:337
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "點此標記或取消標記"
+msgstr "點此標記或取消標記。"
 
 #: js/messages.php:338
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "雙擊點選以複製欄位名稱"
+msgstr "雙擊點選以複製欄位名稱。"
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "點選下拉箭頭<br />以切換顯示的欄位"
+msgstr "點選下拉箭頭<br />以切換欄位的顯示程度。"
 
 #: js/messages.php:342 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
@@ -1830,26 +1824,23 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "您可以單擊點選表格內容<br />直接做編輯修改。"
 
 #: js/messages.php:356
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "前往此連結"
+msgstr "前往此連結。"
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "複製欄位名稱"
+msgstr "複製欄位名稱。"
 
 #: js/messages.php:358
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "點選右鍵將欄位名稱複製到您的剪貼簿。"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "顯示資料列"
+msgstr "顯示資料列。"
 
 #: js/messages.php:362
 msgid "Generate password"
@@ -1876,10 +1867,9 @@ msgid "Hide Panel"
 msgstr "隱藏控制面板"
 
 #: js/messages.php:372
-#, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
-msgstr "顯示隱藏的導覽樹項目"
+msgstr "顯示隱藏的導覽樹項目。"
 
 #: js/messages.php:375
 msgid "The requested page was not found in the history, it may have expired."
@@ -1930,14 +1920,13 @@ msgid "Show Report Details"
 msgstr "顯示報告詳細資訊"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid ""
 #| "Your export is incomplete, due to a low execution time limit at the PHP "
 #| "level"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr "因 PHP 執行期時間限制太短，您的資料未完成匯出"
+msgstr "因 PHP 執行期時間限制太短，您的資料未完成匯出動作！"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:416
@@ -2592,10 +2581,9 @@ msgstr "易懂的二進位檔"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
-msgstr "已刪除該行"
+msgstr "已刪除該行。"
 
 #: libraries/DisplayResults.class.php:3457
 #: libraries/DisplayResults.class.php:5086 libraries/server_status.lib.php:518
@@ -2611,10 +2599,9 @@ msgstr "可能為近似值，請參考 [doc@faq3-11]FAQ 3.11[/doc]。"
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "您的 SQL 語法已順利執行"
+msgstr "您的 SQL 語法已順利執行。"
 
 #: libraries/DisplayResults.class.php:4966 libraries/structure.lib.php:653
 #, php-format
@@ -2631,7 +2618,7 @@ msgstr "顯示第 %1s - %2s 列"
 #: libraries/DisplayResults.class.php:4993
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "總計 %1$d 筆，目前查詢 %2$d 筆"
 
 #: libraries/DisplayResults.class.php:4997
 #, php-format
@@ -2639,10 +2626,10 @@ msgid "%d total"
 msgstr "總計 %d 筆"
 
 #: libraries/DisplayResults.class.php:5009 libraries/sql.lib.php:1642
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
-msgstr "查詢花費 %01.4f 秒"
+msgstr "查詢花費 %01.4f 秒。"
 
 #: libraries/DisplayResults.class.php:5093
 #: libraries/DisplayResults.class.php:5099 libraries/mult_submits.inc.php:46
@@ -2711,10 +2698,9 @@ msgid "Visualize GIS data"
 msgstr "視覺化的 GIS 資料"
 
 #: libraries/DisplayResults.class.php:5645
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "找不到連結"
+msgstr "無此連結！"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -2755,10 +2741,9 @@ msgid "Unknown error in file upload."
 msgstr "上傳檔案時發生未知錯誤。"
 
 #: libraries/File.class.php:476
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "移動上傳檔案時發生錯誤，請參考 [doc@faq1-11]FAQ 1.11[/doc]"
+msgstr "移動上傳檔案時發生錯誤，請參考 [doc@faq1-11]FAQ 1.11[/doc]。"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -2788,10 +2773,9 @@ msgstr "點選此列以回到頁面頂端"
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "必須啟用 Javascript 才能登入"
+msgstr "必須啟用 Javascript 才能登入！"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -3048,20 +3032,18 @@ msgid "Error while creating PDF:"
 msgstr "在產生 PDF 檔案時發生錯誤:"
 
 #: libraries/RecentTable.class.php:122
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "無法儲存最新資料表"
+msgstr "無法儲存最近使用的資料表！"
 
 #: libraries/RecentTable.class.php:161
 msgid "Recent tables"
 msgstr "最近使用的資料表"
 
 #: libraries/RecentTable.class.php:173
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "沒有最近使用的資料表"
+msgstr "沒有最近使用的資料表。"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3222,10 +3204,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "資料表 %1$s 已重新命名為 %2$s。"
 
 #: libraries/Table.class.php:1477
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "無法儲存資料表「介面偏好」"
+msgstr "無法儲存「介面偏好」的資料表！"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -3822,10 +3803,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "設定之上傳目錄錯誤，無法使用。"
 
 #: libraries/Util.class.php:3386
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "目前無可上傳的檔案"
+msgstr "無可上傳的檔案！"
 
 #: libraries/Util.class.php:3411 libraries/Util.class.php:3412
 #: libraries/structure.lib.php:305
@@ -3928,10 +3908,9 @@ msgid "Check Privileges"
 msgstr "檢查權限"
 
 #: libraries/common.inc.php:583
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "無法讀取設定檔"
+msgstr "無法讀取設定檔！"
 
 #: libraries/common.inc.php:585
 msgid ""
@@ -4111,39 +4090,35 @@ msgstr "以上皆非"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "輸入值不是正數"
+msgstr "輸入值不是正數！"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "輸入值不是非負數"
+msgstr "輸入值不是非負數！"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "錯誤的連結埠"
+msgstr "無效的連結埠！"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "輸入的值不正確"
+msgstr "輸入的值不正確！"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "輸入的值應小於等於 %s"
+msgstr "輸入的值應小於等於 %s！"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
@@ -4344,55 +4319,48 @@ msgid ""
 msgstr "此系統目前不支援 %sZip 解壓縮%s所必須的 (%s) 函數。"
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "無法初始化 MySQL 連結函式庫"
+msgstr "無法初始化 Drizzle 連線函式庫！"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "無法連線到目標資料庫"
+msgstr "無法連線到資料庫！"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
-msgstr "使用 config 認證方式時 config 認證方式的帳號不能爲空"
+msgstr "使用 config 認證方式時 config 認證方式的帳號不能爲空！"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid "Empty signon session name while using signon authentication method!"
-msgstr "選擇使用 Signon 認證方式時 Signon 連線階段名稱必須填寫"
+msgstr "選擇使用 Signon 認證方式時 Signon 連線階段名稱必須填寫！"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using signon authentication method!"
-msgstr "使用 singon 認證方式時登入網址不能爲空"
+msgstr "使用 singon 認證方式時登入網址不能爲空！"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "使用 PMA 資料庫時控制使用者不能爲空"
+msgstr "使用 PMA 資料庫時控制使用者不能爲空！"
 
 #: libraries/config/Validator.class.php:374
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
 #| "configuration storage"
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
-msgstr "使用 PMA 資料時控制使用者的密碼不能爲空"
+msgstr "使用 PMA 資料時控制使用者的密碼不能爲空！"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -4457,15 +4425,13 @@ msgid "Highlight pointer"
 msgstr "加強顯示滑鼠指標"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations."
-msgstr ""
-"允許在匯入和匯出時使用 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 壓縮"
+msgstr "允許在匯入時使用 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 壓縮。"
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -6137,7 +6103,7 @@ msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
-msgstr ""
+msgstr "設定選單功能必須同時啟用此資料表與使用者群組資料表，若有其中一個未填寫則會停用此功能，請參考：[kbd]pma__users[/kbd]。"
 
 #: libraries/config/messages.inc.php:705
 msgid "Users table"
@@ -6149,6 +6115,7 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"設定選單功能必須同時啟用此資料表與使用者資料表，若有其中一個未填寫則會停用此功能，請參考：[kbd]pma__usergroups[/kbd]。"
 
 #: libraries/config/messages.inc.php:707
 msgid "User groups table"
@@ -7335,24 +7302,21 @@ msgid ""
 msgstr "下列結構被建立或修改。您可以:"
 
 #: libraries/import.lib.php:1228
-#, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
-msgstr "點選結構的名稱查看內容"
+msgstr "點選結構的名稱查看內容。"
 
 #: libraries/import.lib.php:1229
-#, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr "點選相應的  \"選項 \" 連結修改它的設定"
+msgstr "點選 \"選項\" 連結以修改項目的設定值。"
 
 #: libraries/import.lib.php:1230
-#, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "點選「結構」連結以編輯"
+msgstr "點選「結構」連結以編輯。"
 
 #: libraries/import.lib.php:1236
 #, php-format
@@ -7396,10 +7360,9 @@ msgid "Binary"
 msgstr "二進位"
 
 #: libraries/insert_edit.lib.php:658
-#, fuzzy
 #| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "因長度問題，<br /> 該欄位可能無法編輯"
+msgstr "因長度問題，<br /> 該欄位可能無法編輯。"
 
 #: libraries/insert_edit.lib.php:1103
 msgid "Binary - do not edit"
@@ -8618,14 +8581,13 @@ msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "在匯入 ESRI Shapefile 時發生錯誤: 「%s」"
 
 #: libraries/plugins/import/ImportShp.class.php:204
-#, fuzzy
 #| msgid ""
 #| "You tried to import an invalid file or the imported file contains invalid "
 #| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
-msgstr "您匯入了不正確的檔案或是內涵不正確的內容"
+msgstr "您嘗試匯入無效的檔案或檔案內的資料不正確！"
 
 #: libraries/plugins/import/ImportShp.class.php:210
 #, php-format
@@ -8633,10 +8595,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial 擴充套件不支援「%s」ESRI 類型。"
 
 #: libraries/plugins/import/ImportShp.class.php:258
-#, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "匯入的檔案中沒有包含任何資料"
+msgstr "匯入的檔案中沒有任何資料！"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
@@ -9024,10 +8985,10 @@ msgid "Skip current error"
 msgstr "忽略目前錯誤"
 
 #: libraries/replication_gui.lib.php:292
-#, fuzzy, php-format
+#, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "忽略目前錯誤"
+msgstr "忽略接下來摸 %s 個錯誤。"
 
 #: libraries/replication_gui.lib.php:319
 #, php-format
@@ -9200,16 +9161,15 @@ msgid ""
 msgstr "無法讀取主要(Master)伺服器記錄。主要伺服器的權限設定可能有問題。"
 
 #: libraries/replication_gui.lib.php:997
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "無法更改主要伺服器"
+msgstr "無法更改主要伺服器！"
 
 #: libraries/replication_gui.lib.php:1001
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "主要伺服器成功更改至 %s"
+msgstr "主要伺服器成功更改至 %s。"
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
@@ -9306,16 +9266,14 @@ msgstr "定義"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "定義必須是 \"username@hostname\" 格式"
+msgstr "定義必須使用 \"username@hostname\" 格式！"
 
 #: libraries/rte/rte_events.lib.php:580
-#, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "您必須為事件指定一個名稱"
+msgstr "您必須填寫事件名稱！"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
@@ -9438,10 +9396,9 @@ msgid "SQL data access"
 msgstr "SQL 資料存取"
 
 #: libraries/rte/rte_routines.lib.php:1139
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "您必須提供一個預存程序名稱"
+msgstr "您必須填寫預存程序名稱！"
 
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
@@ -9517,28 +9474,24 @@ msgid "Time"
 msgstr "時間"
 
 #: libraries/rte/rte_triggers.lib.php:458
-#, fuzzy
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "您必須提供一個觸發器名稱"
+msgstr "您必須填寫觸發器名稱！"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "您必須為觸發器提供一個有效的時機"
+msgstr "您必須為觸發器填寫有效的時間！"
 
 #: libraries/rte/rte_triggers.lib.php:472
-#, fuzzy
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "您必須為事件指定一個正確觸發條件"
+msgstr "您必須為事件填寫有效的觸發條件！"
 
 #: libraries/rte/rte_triggers.lib.php:480
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "您必須提供一個合法的資料表名稱"
+msgstr "您必須填寫有效的資料表名稱！"
 
 #: libraries/rte/rte_triggers.lib.php:486
 msgid "You must provide a trigger definition."
@@ -9929,10 +9882,9 @@ msgstr "允許關閉伺服器。"
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:93
-#, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "允許查看所有使用者的程序"
+msgstr "允許查看所有使用者的執行程序。"
 
 #: libraries/server_privileges.lib.php:294
 #: libraries/server_privileges.lib.php:1051 server_privileges.php:73
@@ -9999,17 +9951,15 @@ msgstr "允許建立檢視表(View)."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-#, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "允許為事件設定排程"
+msgstr "允許為事件設定排程。"
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "允許建立和刪除觸發器(Trigger)"
+msgstr "允許建立和刪除觸發器(Trigger)。"
 
 #: libraries/server_privileges.lib.php:369
 #: libraries/server_privileges.lib.php:375
@@ -10090,10 +10040,9 @@ msgstr "指定資料表權限"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "注意: MySQL 權限名稱會以英文顯示"
+msgstr "注意: MySQL 權限名稱會以英文表示。"
 
 #: libraries/server_privileges.lib.php:977
 msgid "Administration"
@@ -10138,15 +10087,13 @@ msgid "Use text field"
 msgstr "使用文字方塊"
 
 #: libraries/server_privileges.lib.php:1315
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. "
-msgstr ""
-"這個帳號已存在相同的使用者名稱，但可能是不同的主機名稱。請確定您要繼續嗎？"
+msgstr "已存在與此帳號相同的使用者名稱，但可能使用不同的主機名稱。 "
 
 #: libraries/server_privileges.lib.php:1451
 msgid "Do not change the password"
@@ -11476,10 +11423,9 @@ msgid "Let every user access this bookmark"
 msgstr "讓所有使用者均可存取此書籤"
 
 #: libraries/sql.lib.php:1024
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "書籤並未建立"
+msgstr "書籤尚未建立！"
 
 #: libraries/sql.lib.php:1180
 #, php-format
@@ -11628,16 +11574,16 @@ msgstr "追蹤已停用。"
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "已刪除檢視表 %s"
+msgstr "已刪除檢視表 %s。"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "已刪除表 %s"
+msgstr "已刪除資料表 %s。"
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
@@ -11965,7 +11911,7 @@ msgstr "於 %s 之後"
 
 #: libraries/tbl_columns_definition_form.lib.php:1043
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "編輯 ENUM/SET 值"
 
 #: libraries/tbl_columns_definition_form.lib.php:1068
 msgctxt "for default"
@@ -12393,22 +12339,19 @@ msgid "Page:"
 msgstr "頁面："
 
 #: pmd_pdf.php:128
-#, fuzzy
 #| msgid "Import from selected page"
 msgid "Import from selected page."
-msgstr "從所選頁匯入"
+msgstr "從選擇的頁面匯入資料。"
 
 #: pmd_pdf.php:129
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Export to selected page."
-msgstr "匯出至所選頁"
+msgstr "從選擇的頁面匯出資料。"
 
 #: pmd_pdf.php:131
-#, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and export to it."
-msgstr "匯出至新頁"
+msgstr "建立新頁並匯出。"
 
 #: pmd_pdf.php:143
 msgid "New page name: "
@@ -12451,10 +12394,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "儲存設計器座標時出錯。"
 
 #: prefs_forms.php:86
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "無法儲存設定，送出的表單中有錯誤"
+msgstr "無法儲存設定，送出的表單內容發生錯誤！"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -12562,11 +12504,10 @@ msgid ""
 msgstr "phpMyAdmin 無法中止程序 %s。該程序可能已經關閉。"
 
 #: setup/frames/form.inc.php:25
-#, fuzzy
 #| msgid ""
 #| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
-msgstr "不正確的表單集，請檢查 setup/frames/form.inc.php 中的 $formsets 陣列"
+msgstr "不正確的表單集，請檢查 setup/frames/form.inc.php 中的 $formsets 陣列！"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
@@ -12805,10 +12746,10 @@ msgid "Description"
 msgstr "說明"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "追蹤報告"
+msgstr "帶您連結至 %s。"
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
