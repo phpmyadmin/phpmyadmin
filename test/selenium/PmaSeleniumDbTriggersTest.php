@@ -78,7 +78,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
      */
     public function testAddTrigger()
     {
-        $this->hoverMore();
+        $this->expandMore();
         $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 
@@ -138,7 +138,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
     public function testEditTriggers()
     {
         $this->_triggerSQL();
-        $this->hoverMore();
+        $this->expandMore();
         $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 
@@ -177,7 +177,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
     public function testDropTrigger()
     {
         $this->_triggerSQL();
-        $this->hoverMore();
+        $this->expandMore();
         $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 

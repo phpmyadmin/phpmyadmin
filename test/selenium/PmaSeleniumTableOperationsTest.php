@@ -53,7 +53,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         )->click();
 
         $this->waitForElement("byId", "table_results");
-        $this->hoverMore();
+        $this->expandMore();
         $this->byXPath("//a[contains(., 'Operations')]")->click();
         $this->waitForElement(
             "byXPath",

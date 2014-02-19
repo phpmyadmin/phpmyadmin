@@ -419,19 +419,18 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
-     * Moves mouse over More link if it is present
+     * Kills the More link in the menu
      *
      * @return void
      */
-    public function hoverMore()
+    public function expandMore()
     {
+        $this->execute(array(
+            'script' => "$('#topmenu').menuResizer('destroy');",
+            'args' => array()
+        ));
+
         $this->timeouts()->implicitWait(10000);
-        try {
-            $more = $this->byCssSelector('li.submenu > a');
-        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
-            return;
-        }
-        $more->click();
     }
 }
 ?>
