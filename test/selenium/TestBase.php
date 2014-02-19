@@ -407,13 +407,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function typeInTextArea($text)
     {
-        $text = str_replace(
-            "(",
-            PHPUnit_Extensions_Selenium2TestCase_Keys::SHIFT
-            . PHPUnit_Extensions_Selenium2TestCase_Keys::NUMPAD9
-            . PHPUnit_Extensions_Selenium2TestCase_Keys::NULL,
-            $text
-        );
         $this->byClassName("CodeMirror-scroll")->click();
         $this->keys($text);
     }
