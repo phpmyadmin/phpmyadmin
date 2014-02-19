@@ -70,6 +70,10 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      */
     public function testChangeTableOrder()
     {
+        /* FIXME: Need to create table which will allow this */
+        $this->markTestIncomplete(
+            'Changing order is not supported for some tables.'
+        );
         $this->select($this->byName("order_field"))
             ->selectOptionByLabel("val");
 
