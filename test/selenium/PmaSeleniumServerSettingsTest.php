@@ -57,14 +57,14 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
     {
         $this->byLinkText("Features")->click();
 
-        $this->waitForElement("byId", "Servers-1-hide_db")
+        $this->waitForElement("byName", "Servers-1-hide_db")
             ->value($this->database_name);
         $this->saveConfig();
         $this->assertFalse(
             $this->isElementPresent("byLinkText", $this->database_name)
         );
 
-        $this->waitForElement("byId", "Servers-1-hide_db")->clear();
+        $this->waitForElement("byName", "Servers-1-hide_db")->clear();
         $this->saveConfig();
         $this->assertTrue(
             $this->isElementPresent("byLinkText", $this->database_name)
