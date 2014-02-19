@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-19 15:14+0200\n"
-"Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
+"PO-Revision-Date: 2014-02-19 15:48+0200\n"
+"Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
@@ -218,16 +218,16 @@ msgid "The database name is empty!"
 msgstr "Името на БД е празно!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "БД %1$s беше преименувана на %2$s"
+msgstr "БД %1$s беше преименувана на %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "БД %1$s беше копирана като %2$s"
+msgstr "БД %1$s беше копирана като %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -293,10 +293,9 @@ msgstr[0] "%s таблица"
 msgstr[1] "%s таблици"
 
 #: db_qbe.php:50
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Изберете поне една колона за показване"
+msgstr "Изберете поне една колона за показване!"
 
 #: db_qbe.php:70
 #, php-format
@@ -471,10 +470,9 @@ msgstr "Използване на OpenStreetMaps като основен сло�
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
 #, php-format
@@ -584,7 +582,6 @@ msgid "Output"
 msgstr "Изход"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -593,7 +590,7 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 "Изберете \"GeomFromText\" (ГеомОтТекст) от колона \"Function\" (Функция) и "
-"копи-пейстнете текста долу в поле \"Стойност\""
+"копирайте текста по-долу в полето \"Стойност\"."
 
 #: import.php:116
 #, php-format
@@ -614,10 +611,9 @@ msgstr "Белязката беше изтрита."
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Файлът не може да бъде прочетен"
+msgstr "Файлът не може да бъде прочетен!"
 
 #: import.php:403 import.php:414 import.php:435 import.php:446
 #: libraries/File.class.php:592
@@ -640,7 +636,6 @@ msgstr ""
 "1.16[/doc]."
 
 #: import.php:481
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
@@ -648,7 +643,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Не може да бъде преобразуван знаковият набор на файла без библиотека за "
-"преобразуване на знакови набори"
+"преобразуване на знакови набори!"
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -657,10 +652,10 @@ msgstr ""
 "инсталацията!"
 
 #: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Белязка %s беше създадена"
+msgstr "Отметката %s беше създадена."
 
 #: import.php:562
 #, php-format
@@ -877,6 +872,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"Вашата версия на MySQL библиотеката (%s) се различава от инсталираната на "
+"MySQL сървъра версия (%s). Това може да доведе до неочаквани резултати."
 
 #: index.php:575
 #, php-format
@@ -893,7 +890,7 @@ msgstr "\"DROP DATABASE\" заявката е забранена."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Потвърждение"
 
 #: js/messages.php:36
 #, php-format
@@ -925,10 +922,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Операцията може да продължи дълго. Да продължи ли въпреки това?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Наистина ли искате да изпълните \"%s\"?"
+msgstr "Наистина ли искате да изтриете потребителска група \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
