@@ -447,7 +447,7 @@ class PMA_Table
         if ($length != ''
             && ! preg_match(
                 '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i',
+                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|DOUBLE|FLOAT|UUID)$@i',
                 $type
             )
         ) {
