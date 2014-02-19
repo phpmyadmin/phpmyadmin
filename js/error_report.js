@@ -15,6 +15,9 @@ var ErrorReport = {
      * @return void
      */
     error_handler: function (exception) {
+        if (exception.name === null || typeof(exception.name) == "undefined") {
+            exception.name = ErrorReport._extractExceptionName(exception);
+        }
         ErrorReport._last_exception = exception;
         $.get("error_report.php", {
             ajax_request: true,
@@ -150,6 +153,18 @@ var ErrorReport = {
         $("#error_notification").fadeOut(function () {
             $(this).remove();
         });
+    },
+    /**
+     * Extracts Exception name from message if it exists
+     *
+     * @return String
+     */
+    _extractExceptionName: function (exception) {
+        if (exception.message === null || typeof(exception.message) == "undefined"){
+            return "";
+        } else {
+            return (/([a-zA-Z]+):/).exec(exception.message)[1];
+        }
     },
     /**
      * Shows the modal dialog previewing the report
