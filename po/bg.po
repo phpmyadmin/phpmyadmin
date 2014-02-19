@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-19 15:14+0200\n"
-"Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
+"PO-Revision-Date: 2014-02-19 15:48+0200\n"
+"Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/bg/>\n"
 "Language: bg\n"
@@ -494,10 +494,9 @@ msgstr "Използване на OpenStreetMaps като основен сло�
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
 #, php-format
@@ -906,6 +905,8 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
+"Вашата версия на MySQL библиотеката (%s) се различава от инсталираната на "
+"MySQL сървъра версия (%s). Това може да доведе до неочаквани резултати."
 
 #: index.php:564
 #, php-format
@@ -922,7 +923,7 @@ msgstr "\"DROP DATABASE\" заявката е забранена."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Потвърждение"
 
 #: js/messages.php:36
 #, php-format
@@ -954,10 +955,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Операцията може да продължи дълго. Да продължи ли въпреки това?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Наистина ли искате да изпълните \"%s\"?"
+msgstr "Наистина ли искате да изтриете потребителска група \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
