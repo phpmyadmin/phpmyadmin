@@ -130,7 +130,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(
-            "3",
+            "4",
             $this->getTable('table_results', 3, 5)
         );
 
