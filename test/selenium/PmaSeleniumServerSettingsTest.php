@@ -33,6 +33,20 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
     }
 
     /**
+     * Saves config and asserts correct message.
+     *
+     * @return void
+     */
+    private function saveConfig()
+    {
+        $this->byName("submit_save")->click();
+        $this->waitForElement(
+            "byXPath",
+            "//div[@class='success' and contains(., 'Configuration has been saved')]"
+        );
+    }
+
+    /**
      * Tests whether hiding a database works or not
      *
      * @return void
@@ -45,21 +59,13 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
 
         $this->waitForElement("byId", "Servers-1-hide_db")
             ->value($this->database_name);
-        $this->byName("submit_save")->click();
-        $this->waitForElement(
-            "byXPath",
-            "//div[@class='success' and contains(., 'Configuration has been saved')]"
-        );
+        $this->saveConfig();
         $this->assertFalse(
             $this->isElementPresent("byLinkText", $this->database_name)
         );
 
         $this->waitForElement("byId", "Servers-1-hide_db")->clear();
-        $this->byName("submit_save")->click();
-        $this->waitForElement(
-            "byXPath",
-            "//div[@class='success' and contains(., 'Configuration has been saved')]"
-        );
+        $this->saveConfig();
         $this->assertTrue(
             $this->isElementPresent("byLinkText", $this->database_name)
         );
@@ -107,21 +113,13 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
 
         $this->waitForElement("byName", "NavigationDisplayLogo")
             ->click();
-        $this->byName("submit_save")->click();
-        $this->waitForElement(
-            "byXPath",
-            "//div[@class='success' and contains(., 'Configuration has been saved')]"
-        );
+        $this->saveConfig();
         $this->assertFalse(
             $this->isElementPresent("byId", "imgpmalogo")
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
-        $this->byName("submit_save")->click();
-        $this->waitForElement(
-            "byXPath",
-            "//div[@class='success' and contains(., 'Configuration has been saved')]"
-        );
+        $this->saveConfig();
         $this->assertTrue(
             $this->isElementPresent("byId", "imgpmalogo")
         );
