@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-16 07:26+0200\n"
+"PO-Revision-Date: 2014-02-19 15:24+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese <http://l10n.cihar.com/projects/"
-"phpmyadmin/4-1/zh_TW/>\n"
+"Language-Team: Traditional Chinese "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4321,15 +4321,13 @@ msgid "Highlight pointer"
 msgstr "加強顯示滑鼠指標"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations"
-msgstr ""
-"允許在匯入和匯出時使用 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 壓縮"
+msgstr "允許在匯入時使用 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 壓縮"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4401,7 +4399,6 @@ msgid "Check config file permissions"
 msgstr "檢查設定檔權限"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4409,9 +4406,7 @@ msgstr "檢查設定檔權限"
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature"
-msgstr ""
-"使 gzip/bzip2 即時壓縮，不需大量記憶體即可進行。如果建立壓縮檔案時發生錯誤，"
-"請停用該選項"
+msgstr "使 gzip 即時壓縮，不需大量記憶體即可進行。如果建立壓縮檔案時發生錯誤，請停用該選項"
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
@@ -9894,15 +9889,13 @@ msgid "Use text field"
 msgstr "使用文字方塊"
 
 #: libraries/server_privileges.lib.php:1310
-#, fuzzy
 #| msgid ""
 #| "An account already exists with the same username but possibly a different "
 #| "hostname. Are you sure you wish to proceed?"
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname. "
-msgstr ""
-"這個帳號已存在相同的使用者名稱，但可能是不同的主機名稱。請確定您要繼續嗎？"
+msgstr "已存在與此帳號相同的使用者名稱，但可能使用不同的主機名稱。 "
 
 #: libraries/server_privileges.lib.php:1446
 msgid "Do not change the password"
