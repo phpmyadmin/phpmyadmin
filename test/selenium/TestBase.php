@@ -68,6 +68,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
                     'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
+                    'browserstack.debug' => True,
                     'project' => 'phpMyAdmin',
                     'build' => $build_id,
                 )
