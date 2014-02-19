@@ -34,7 +34,6 @@ msgstr "ডাটাবেইজের মন্তব্য: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
 msgstr "টেবিলের মন্তব্য সমূহ"
@@ -272,24 +271,21 @@ msgstr "ব্যবহৃত"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Creation"
+msgstr "প্রস্তুত:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "সর্বশেষ আপডেট"
+msgstr "সর্বশেষ আপডেট:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1109
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Last check"
+msgstr "সর্বশেষ যাচাই:"
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
@@ -426,29 +422,34 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"একটি ভুল পাওয়াগেছে এবং আপনার সেটিংসের উপর ভিত্তিকরে একটি প্রতিবেদন "
+"স্বয়ংক্রিয় ভাবে দাখিল করা হয়েছে। "
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "আপনি পাতাটি রিফ্রেশ করে নিতে পারেন"
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"একটি ভুল পাওয়াগেছে এবং একটি প্রতিবেদনও তৈরী করা হয়েছে কিন্তু পাঠানো যায়নি।"
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"আপনি যদি কোন সমস্যা অনুভব করেন অনুগ্রহ করে সমস্যা সর্ম্পকিত একটি প্রতিবেদন "
+"দাখিল করুন।"
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "এই প্রতিবেদনটি দাখিলের জন্য ধন্যবাদ।"
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "দূভার্গ্যবশত দাখিল প্রক্রিয়াটি ব্যার্থ হয়েছে।"
 
 #: export.php:177
 msgid "Bad type!"
@@ -473,19 +474,17 @@ msgstr "ওপেনস্ট্রীটম্যাপ প্রধান স�
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
 msgstr "এসআরআইডি"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "জ্যামিতি"
+msgstr "জ্যামিতি %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
 msgstr "পয়েন্ট"
@@ -512,22 +511,21 @@ msgid "Add a point"
 msgstr "পয়েন্ট যোগ কর"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "লাইনস্ট্র্রিং"
+msgstr "লাইনস্ট্র্রিং %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:344
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
 msgstr "আউটার রিং"
 
 #: gis_data_editor.php:269 gis_data_editor.php:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "ইনার রিং"
+msgstr "ইনার রিং %d:"
 
 #: gis_data_editor.php:306
 msgid "Add a linestring"
@@ -538,7 +536,7 @@ msgid "Add an inner ring"
 msgstr "একটি ভিতরের গোলক যোগ কর"
 
 #: gis_data_editor.php:328
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
 msgstr "পলিগন"
@@ -624,7 +622,6 @@ msgstr "বুকর্মাকটি মুছা হয়েছে।"
 
 #: import.php:394 import.php:455 libraries/File.class.php:433
 #: libraries/File.class.php:526
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "ফাইলটি পড়া যাচ্ছে না"
@@ -694,10 +691,9 @@ msgid "Back"
 msgstr "পিছনে"
 
 #: index.php:125 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "প্রধান পাতা"
+msgstr "পিএইছপিমাইএডমিন ডেমো সার্ভার"
 
 #: index.php:129
 #, php-format
@@ -706,6 +702,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"আপনি একটি ডেমো সার্ভার ব্যবহার করছেন। আপনি সবকিছুই করতে পারবেন কিন্ত অনুগ্রহ "
+"করে রুট পরিবর্তন করবেন না, debian এবং pma ব্যবহারকারী। আরও তথ্য জন্য %s এ "
+"আছে।"
 
 #: index.php:139
 msgid "General Settings"
@@ -737,57 +736,49 @@ msgid "Server:"
 msgstr "সার্ভার:"
 
 #: index.php:264
-#, fuzzy
 msgid "Server type:"
-msgstr "সার্ভারের আইডি"
+msgstr "সার্ভারের ধরন:"
 
 #: index.php:268 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Server version"
+msgstr "সার্ভার সংস্করন:"
 
 #: index.php:274
-#, fuzzy
 msgid "Protocol version:"
-msgstr "Server version"
+msgstr "সংযোগ বিধি সংস্করন:"
 
 #: index.php:278
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "User"
+msgstr "ব্যবহারকারী:"
 
 #: index.php:283
-#, fuzzy
 msgid "Server charset:"
-msgstr "Server Choice"
+msgstr "সার্ভারের বর্ণসম্ভার:"
 
 #: index.php:298
 msgid "Web server"
 msgstr "ওয়েব র্সাভার"
 
 #: index.php:314
-#, fuzzy
 msgid "Database client version:"
-msgstr "MySQL client version"
+msgstr "ডাটাবেইজ সংযোজক সংস্করন:"
 
 #: index.php:318
-#, fuzzy
 msgid "PHP extension:"
-msgstr "PHP Version"
+msgstr "পিএইছপি সংযোজক:"
 
 #: index.php:332
 msgid "Show PHP information"
 msgstr "পিএইছপির তথ্যাবলী দেখাও"
 
 #: index.php:355
-#, fuzzy
 #| msgid "Information"
 msgid "Version information:"
-msgstr "তথ্য"
+msgstr "সংস্করন সম্পর্কিত তথ্য:"
 
 #: index.php:364 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
@@ -877,6 +868,8 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"সেটআপে ব্যবহৃত ডিরেক্টরী [code]config[/code] এখনো রয়েছে। এটা অবশ্যই মুছে "
+"ফেলা প্রয়োজন।"
 
 #: index.php:515
 #, php-format
@@ -909,7 +902,7 @@ msgstr "\"DROP DATABASE\" অকার্যকর করা আছে।"
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "নিশ্চিত"
 
 #: js/messages.php:36
 #, php-format
@@ -941,26 +934,24 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "এই কাজটি অনেক সময় নিতে পারে। এগুবেন?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "আপনি কি নিশ্চিত ভাবে \"%s\" কার্যকর করতে চান?"
+msgstr "আপনি কি নিশ্চিত ভাবে \"%s\" ব্যাবহারকরী দল মুছতে চান?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "র্ফমে কোন তথ্য নাই!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "কার্যকর পোর্ট নাম্বার নয়"
+msgstr "একটি কার্যকর নাম্বার দিন!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
-msgstr "কার্যকর পোর্ট নাম্বার নয়"
+msgstr "একটি কার্যকর দৈর্ঘ্য দিন!"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1185,10 +1176,9 @@ msgid "Add chart to grid"
 msgstr "গ্রিডে চিত্র যোগকর"
 
 #: js/messages.php:120
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "সিরিজে অন্তত একটি চলক যোগ করেন"
+msgstr "সিরিজে অন্তত একটি চলক যোগ করুন!"
 
 #: js/messages.php:121 libraries/DisplayResults.class.php:1330
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -1277,10 +1267,10 @@ msgstr "নিক্রিয় %s"
 
 #. l10n: %d seconds
 #: js/messages.php:141
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "long_query_time %ds নির্ধারন কর"
+msgstr "long_query_time %d সেকেন্ড নির্ধারন কর।"
 
 #: js/messages.php:143
 msgid ""
@@ -1326,7 +1316,7 @@ msgstr "সাধারন লগ থেকে"
 
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "এই অনুসন্ধানের ডাটাবেইজ নামটি সার্ভার লগে নাই।"
 
 #: js/messages.php:160
 msgid "Analysing logs"
@@ -1486,10 +1476,9 @@ msgid "Import monitor configuration"
 msgstr "পর্যবেক্ষকের কনফিগারেশন আমাদনি কর"
 
 #: js/messages.php:202
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "আমদানি করার জন্য ফাইলটি নির্বাচন করুন"
+msgstr "আমদানি করার জন্য ফাইলটি নির্বাচন করুন।"
 
 #: js/messages.php:204
 msgid "Analyse Query"
@@ -1541,7 +1530,7 @@ msgstr "লোডিং…"
 
 #: js/messages.php:224
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "অনুরোধ বাতিল করা হয়েছে!!"
 
 #: js/messages.php:225
 msgid "Processing Request"
@@ -1646,10 +1635,9 @@ msgid "Values for a new column"
 msgstr "নতুন স্তম্ভের জন্য তথ্য"
 
 #: js/messages.php:260
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "আলাদা আলাদা ক্ষেত্রে তথ্য দিন"
+msgstr "আলাদা আলাদা ক্ষেত্রে তথ্য দিন।"
 
 #: js/messages.php:261
 #, php-format
@@ -1703,16 +1691,14 @@ msgid "Show search criteria"
 msgstr "খোজাঁর শর্ত দেখাও"
 
 #: js/messages.php:280
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "খোজাঁর শর্ত লুকাও"
+msgstr "পাওয়া এবং প্রতিস্থাপনের শর্ত লুকাও"
 
 #: js/messages.php:281
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "খোজাঁর শর্ত দেখাও"
+msgstr "পাওয়া এবং প্রতিস্থাপনের শর্ত দেখাও"
 
 #: js/messages.php:285
 msgid "Each point represents a data row."
@@ -1748,10 +1734,9 @@ msgid "Select two different columns"
 msgstr "ভিন্ন ভিন্ন দুইটি স্তম্ভ নির্বাচন করুন"
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "প্রতিটি পয়েন্ট তথ্য"
+msgstr "প্রতিটি পয়েন্টের বিষয় "
 
 #: js/messages.php:304 js/messages.php:393 libraries/insert_edit.lib.php:2603
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
@@ -1795,10 +1780,9 @@ msgid "Select Foreign Key"
 msgstr "ফরেন কী নির্বাচন করুন"
 
 #: js/messages.php:321
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "অনুগ্রহ করে প্রাথমিক কী বা একটি অনন্য কী নির্বাচন করুন"
+msgstr "অনুগ্রহ করে প্রাথমিক কী বা একটি অনন্য কী নির্বাচন করুন!"
 
 #: js/messages.php:322 pmd_general.php:101
 msgid "Choose column to display"
@@ -1971,34 +1955,30 @@ msgid "Create view"
 msgstr "ভিউ তৈরী"
 
 #: js/messages.php:386
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "সার্ভারের পোর্ট"
+msgstr "ভুলের প্রতিবেদন পাঠাও"
 
 #: js/messages.php:387
 msgid "Submit Error Report"
-msgstr ""
+msgstr "ভুলের প্রতিবেদন দাখিল"
 
 #: js/messages.php:389
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "চলাচলের ট্রি লোডকরার সময় একটি ভুল হয়েছে"
+msgstr "একটি মারাত্মক জাভা স্ত্রিপট ভুল হয়েছে। আপনি কি এর প্রতিবেদন পাঠাতে চান?"
 
 #: js/messages.php:391
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "সেটিংস পরিবর্তন"
+msgstr "প্রতিবেদন সেটিংস পরিবর্তন"
 
 #: js/messages.php:392
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "খোলা টেবলগুলো দেখাও"
+msgstr "প্রতিবেদনের বিশদ দেখাও"
 
 #: js/messages.php:395
 msgid ""
@@ -2281,9 +2261,9 @@ msgid "Failed running test for rule '%s'."
 msgstr ""
 
 #: libraries/Advisor.class.php:225
-#, fuzzy, php-format
+#, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "'%s' নিয়মের জন্য লেখা গঠন করা গেল না।"
+msgstr "'%s' নিয়মের জন্য লেখা গঠন করতে ব্যর্থ হয়েছি।"
 
 #: libraries/Advisor.class.php:401
 #, php-format
@@ -2292,20 +2272,20 @@ msgid ""
 msgstr ""
 
 #: libraries/Advisor.class.php:420
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: \"%s\""
 msgid "Invalid rule declaration on line %s."
-msgstr "Invalid server index: \"%s\""
+msgstr "%s লাইনে অকার্যকর নিয়ম দেওয়া হয়েছে।"
 
 #: libraries/Advisor.class.php:428
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "%s লাইনে অপ্রত্যাশিত চিহ্ন।"
 
 #: libraries/Advisor.class.php:443
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
+msgstr "অপ্রত্যাশিত অক্ষর %1$s লাইনে। ট্যাব প্রত্যাশীত কিন্ত \"%2$s\" পাওয়া গেছে।"
 
 #: libraries/Advisor.class.php:478
 msgid "per second"
@@ -2357,28 +2337,24 @@ msgid "Descending"
 msgstr "অধ মুখী"
 
 #: libraries/DBQbe.class.php:365 libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
 msgstr "স্তম্ভ"
 
 #: libraries/DBQbe.class.php:411
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "সাজাঁন"
+msgstr "সাজানো:"
 
 #: libraries/DBQbe.class.php:477
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "দেখান"
+msgstr "দেখাও:"
 
 #: libraries/DBQbe.class.php:526
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "ক্ষেত্র"
+msgstr "শর্ত:"
 
 #: libraries/DBQbe.class.php:595
 msgid "Add/Delete criteria rows"
@@ -2397,14 +2373,13 @@ msgid "Use Tables"
 msgstr "টেবল ব্যবহার"
 
 #: libraries/DBQbe.class.php:672 libraries/DBQbe.class.php:780
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "অথবা"
+msgstr "অথবা:"
 
 #: libraries/DBQbe.class.php:676 libraries/DBQbe.class.php:765
 msgid "And:"
-msgstr ""
+msgstr "এবং:"
 
 #: libraries/DBQbe.class.php:680
 msgid "Ins"
@@ -2415,18 +2390,17 @@ msgid "Del"
 msgstr "মুছা"
 
 #: libraries/DBQbe.class.php:699
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Modify"
+msgstr "পরিবর্তন:"
 
 #: libraries/DBQbe.class.php:760
 msgid "Ins:"
-msgstr ""
+msgstr "প্রবেশ:"
 
 #: libraries/DBQbe.class.php:775
 msgid "Del:"
-msgstr ""
+msgstr "মুছ:"
 
 #: libraries/DBQbe.class.php:1380
 #, php-format
@@ -2581,10 +2555,9 @@ msgid "Number of rows:"
 msgstr "রো সংখ্যা:"
 
 #: libraries/DisplayResults.class.php:962
-#, fuzzy
 #| msgid "Mon"
 msgid "Mode:"
-msgstr "সোমবার"
+msgstr "অবস্থা:"
 
 #: libraries/DisplayResults.class.php:964
 msgid "horizontal"
@@ -2674,7 +2647,6 @@ msgstr "ভালভাবে জানা বাইনারী"
 
 #: libraries/DisplayResults.class.php:3405
 #: libraries/DisplayResults.class.php:3421
-#, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
 msgstr "রো টি মুছা হয়েছে।"
@@ -2685,7 +2657,6 @@ msgid "Kill"
 msgstr "হত্যা"
 
 #: libraries/DisplayResults.class.php:4544 libraries/structure.lib.php:771
-#, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "সম্ভবত আনুমানিক। [doc@faq3-11]FAQ 3.11[/doc] দেখুন।"
@@ -2695,7 +2666,6 @@ msgstr "সম্ভবত আনুমানিক। [doc@faq3-11]FAQ 3.11[/do
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
-#, fuzzy
 #| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
 msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে"
@@ -2716,7 +2686,7 @@ msgstr "রো দেখাচ্ছে %1s - %2s"
 #: libraries/DisplayResults.class.php:4993
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "মোট %1$d, অনুসন্ধানে %2$d"
 
 #: libraries/DisplayResults.class.php:4997
 #, php-format
@@ -2724,7 +2694,7 @@ msgid "%d total"
 msgstr "%d মোট"
 
 #: libraries/DisplayResults.class.php:5009 libraries/sql.lib.php:1642
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ"
@@ -2796,10 +2766,9 @@ msgid "Visualize GIS data"
 msgstr "জিআইএস তথ্য দেখা"
 
 #: libraries/DisplayResults.class.php:5645
-#, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
-msgstr "সংযোগটি পাওয়া যায়নি"
+msgstr "সংযোগটি পাওয়া যায়নি!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -2840,7 +2809,6 @@ msgid "Unknown error in file upload."
 msgstr "ফাইল আপলোডের সময় অজ্ঞাত ভুল।"
 
 #: libraries/File.class.php:476
-#, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "আপলোডকৃত ফাইলটি সরাতে সমস্যা হয়েছে, [doc@faq1-11]FAQ 1.11[/doc] দেখুন।"
@@ -2856,13 +2824,12 @@ msgstr "আপলোড ফাইলটি পড়া যায়নি।"
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "বর্তমানে Git'র %2$s শাখা হতে %1$s ব্যবহৃত হচ্ছে।"
 
 #: libraries/Footer.class.php:81
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "সংস্করন সম্পর্কিত তথ্য"
+msgstr "Git সম্পর্কিত তথ্য নাই।"
 
 #: libraries/Footer.class.php:162 libraries/Footer.class.php:166
 #: libraries/Footer.class.php:169
@@ -2875,10 +2842,9 @@ msgstr "পাতার উপরে যাওয়ার জন্য বার�
 
 #: libraries/Header.class.php:661
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
-#, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
-msgstr "এখান থেকে অবশ্যই জাভা স্ক্রীপট কার্যকর থাকতে হবে।"
+msgstr "এখানে আসার পুর্বেই জাভা স্ক্রীপট কার্যকর থাকতে হবে।"
 
 #: libraries/Index.class.php:535
 msgid "No index defined!"
@@ -3294,21 +3260,19 @@ msgid "Target database `%s` was not found!"
 msgstr "কাংখিত %s ডাটাবেইজ পাওয়া যায়নি!"
 
 #: libraries/Table.class.php:1261
-#, fuzzy
 msgid "Invalid database:"
-msgstr "কোন ডাটাবেজ নাই"
+msgstr "অকার্যকর ডাটাবেজ:"
 
 #: libraries/Table.class.php:1275
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Invalid table name:"
-msgstr "ভিতরে টেবিল (গুলি):"
+msgstr "অকার্যকর টেবিলের নাম:"
 
 #: libraries/Table.class.php:1310
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "টেবিল %1$s টি %2$s নাম করনে ভুল হয়েছে"
+msgstr "টেবিল %1$s টি %2$s নাম করনে ব্যাথ্য হয়েছে!"
 
 #: libraries/Table.class.php:1329
 #, php-format
@@ -3371,7 +3335,7 @@ msgstr "খোজাঁ বড় কর"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1216
 msgid "Find and Replace"
-msgstr ""
+msgstr "পাওয়া এবং প্রতিস্থাপন"
 
 #: libraries/TableSearch.class.php:240 libraries/insert_edit.lib.php:1395
 msgid "Edit/Insert"
@@ -3437,38 +3401,33 @@ msgid "Reset zoom"
 msgstr "জুম রিসেট"
 
 #: libraries/TableSearch.class.php:1342
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace with:"
-msgstr "Replace NULL by"
+msgstr "এর দ্বারা প্রতিস্থাপন কর:"
 
 #: libraries/TableSearch.class.php:1402
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "পাওয়া এবং প্রতিস্থাপন - পুর্বদর্শন"
 
 #: libraries/TableSearch.class.php:1406
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "স্তম্ভ"
+msgstr "অংক"
 
 #: libraries/TableSearch.class.php:1407
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "প্রকৃত অবস্থান"
+msgstr "প্রকৃত লেখা"
 
 #: libraries/TableSearch.class.php:1408
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "প্রয়োজনীয় সংযোগ"
+msgstr "প্রতিস্থাপিত লেখা"
 
 #: libraries/TableSearch.class.php:1432
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "প্রতিলিপি করা হয়েছে"
+msgstr "প্রতিস্থাপন করা হয়েছে"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3500,7 +3459,7 @@ msgstr "থীম %s এর থীম পথ পাওয়া যায়নি!"
 
 #: libraries/Theme_Manager.class.php:369
 msgid "Theme:"
-msgstr ""
+msgstr "খীম:"
 
 #: libraries/Types.class.php:320
 msgid ""
@@ -3528,6 +3487,8 @@ msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"একটি ৪ বাইট পুর্ণ সংখ্যা চিহ্নিতের সীমা -২,১৪৭,৪৮৩,৬৪৮ থেকে ২,১৪৭,৪৮৩,৬৪৭, "
+"অচিহ্নিতের সীমা ০ থেকে ৪,২৯৪.৯৬৭.২৯৫ "
 
 #: libraries/Types.class.php:328
 msgid ""
@@ -3824,10 +3785,9 @@ msgid "Max: %s%s"
 msgstr "সবোর্চ্চ: %s%s"
 
 #: libraries/Util.class.php:640 libraries/sql.lib.php:430
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL query"
+msgstr "SQL অনুসন্ধান:"
 
 #: libraries/Util.class.php:684 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3973,10 +3933,9 @@ msgid "shared"
 msgstr "উন্মুক্ত"
 
 #: libraries/browse_foreigners.lib.php:43
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "খুঁজুন"
+msgstr "খুঁজ:"
 
 #: libraries/browse_foreigners.lib.php:69
 #: libraries/browse_foreigners.lib.php:71
@@ -4079,10 +4038,10 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "অকার্যকর হোষ্টের নাম %1$s। কনফিগারেশন আবার দেখুন।"
 
 #: libraries/common.inc.php:659
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "সার্ভার"
+msgstr "সার্ভার %d"
 
 #: libraries/common.inc.php:858
 msgid "Invalid authentication method set in configuration:"
@@ -4160,15 +4119,15 @@ msgstr "বন্ধ"
 
 #: libraries/config.values.php:117
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "ভুলের প্রতিবেদন পাঠানোর পূর্বে জিজ্ঞেস করবে"
 
 #: libraries/config.values.php:118
 msgid "Always send error reports"
-msgstr ""
+msgstr "সবসময় ভুলের প্রতিবেদন পাঠাবে"
 
 #: libraries/config.values.php:119
 msgid "Never send error reports"
-msgstr ""
+msgstr "কখনো ভুলের প্রতিবেদন পাঠাবে না"
 
 #: libraries/config.values.php:148
 #: libraries/plugins/export/ExportHtmlword.class.php:69
@@ -4213,16 +4172,14 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "কাষ্টম - উপরের মতই, দ্রুত এবং কাষ্টম বাদ দিয়ে"
 
 #: libraries/config.values.php:183
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "সম্পুর্ন ইনর্সাট"
 
 #: libraries/config.values.php:184
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
-msgstr "অতিরিক্ত ইনসার্ট"
+msgstr "বর্ধিত ইনসার্ট"
 
 #: libraries/config.values.php:185
 msgid "both of the above"
@@ -4289,12 +4246,12 @@ msgstr "\"%s\" এর %s সংযোজক প্রয়োজন"
 #: libraries/config/FormDisplay.class.php:797
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
-msgstr ""
+msgstr "ফাংশন %s না পাওয়ায় সংকোচিত আমদানি কাজ করবে না।"
 
 #: libraries/config/FormDisplay.class.php:804
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr ""
+msgstr "ফাংশন %s না পাওয়ায় সংকোচিত রফতানি কাজ করবে না।"
 
 #: libraries/config/FormDisplay.class.php:815
 msgid "SQL Validator is disabled"
@@ -4311,7 +4268,7 @@ msgstr "সর্বোচ্চ %s"
 
 #: libraries/config/FormDisplay.tpl.php:216
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr ""
+msgstr "এই সেটিংস অকার্যকর করা আছে, আপনার কনফিগারেশনে প্রয়োগ করা যাবে না।"
 
 #: libraries/config/FormDisplay.tpl.php:308
 #, php-format
@@ -4329,7 +4286,7 @@ msgstr "ব্যাবহারকারীদেরকে এই মান প
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
-msgstr ""
+msgstr "প্রয়োগ"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1594
 #: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
@@ -4407,7 +4364,7 @@ msgstr ""
 "%sGZip compression and decompression%s এ ফাংশন  (%s) প্রয়োজন যা এখানে নাই।"
 
 #: libraries/config/ServerConfigChecks.class.php:399
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than 1440 seconds may cause random "
 #| "session invalidation if %ssession.gc_maxlifetime%s is lower than its "
@@ -4416,8 +4373,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%sLogin cookie validity%s ১৪৪০ সেকেন্ডের বেশী হলে র‍্যান্ডম সেশন অকার্যকর হওয়ার "
-"কারন হতে পারে যদি %ssession.gc_maxlifetime%s এর মান কম হয়। (বর্তমানে %d)।"
+"%sLogin cookie validity%s যদি %ssession.gc_maxlifetime%s বেশী হয় random সেশন "
+"অকার্যকর হতে পারে (বর্তমানে %ssession.gc_maxlifetime%s মান হল %d)।"
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4478,7 +4435,6 @@ msgid ""
 msgstr "%sZip decompression%s এর জন্য ফাংশন (%s) এর প্রয়োজন যা এখানে নাই।"
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
 msgstr "Drizzle সংযোগ লাইব্রেরী আরম্ভ করা যায়নি।"
@@ -4487,25 +4443,21 @@ msgstr "Drizzle সংযোগ লাইব্রেরী আরম্ভ ক�
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to Drizzle server"
 msgid "Could not connect to the database server!"
-msgstr "Drizzle সার্ভারে সংযোগ করা যায়নি"
+msgstr "ডাটাবেইজ সার্ভারে সংযোগ করা যায়নি"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method"
 msgid "Empty username while using config authentication method!"
-msgstr "কনফিগ প্রমাণীকরণের ক্ষেত্রে ব্যবহারকারীর নাম খালি পাওয়াগেছে"
+msgstr "কনফিগ প্রমাণীকরণের ক্ষেত্রে ব্যবহারকারীর নাম খালি পাওয়াগেছে!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
 msgid "Empty signon session name while using signon authentication method!"
-msgstr "সাইনঅন প্রমাণীকরণের ক্ষেত্রে সাইনঅন সেশনের নাম খালি পাওয়াগেছে"
+msgstr "সাইনঅন প্রমাণীকরণের ক্ষেত্রে সাইনঅন সেশনের নাম খালি পাওয়াগেছে!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using signon authentication method!"
 msgstr "শুন্য signon URL যখন signon প্রমাণীকরণ ব্যবহার করছেন।"
@@ -4534,7 +4486,7 @@ msgstr ""
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
-msgstr ""
+msgstr "ভুল মান:"
 
 #: libraries/config/Validator.class.php:467
 #, php-format
@@ -4542,14 +4494,13 @@ msgid "Incorrect IP address: %s"
 msgstr "অসত্য IP address: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "কার্যকর করা হলে ব্যবহারকারীরা লগইন র্ফমে যে কোন MySQL server দিতে পারবে কুকি "
-"প্রমাণীকরণের জন্য"
+"প্রমাণীকরণের জন্য।"
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
@@ -4571,7 +4522,6 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "সাধারন ব্যবহারকারীকে \"Drop database\" সংযোগ দেখাও"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
@@ -4579,7 +4529,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"[kbd]cookie[/kbd] প্রমাণীকরণে গোপন passphrase এর মাধ্যমে কুকি এনক্রীপট করা হয়"
+"[kbd]cookie[/kbd] প্রমাণীকরণে গোপন passphrase এর মাধ্যমে কুকি এনক্রীপট করা "
+"হয়।"
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4594,17 +4545,15 @@ msgid "Row marker"
 msgstr "রো চিহ্নিতকারী"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "মাউস দ্বার পয়েন্টড রো উজ্জ্বল কর"
+msgstr "মাউস দ্বার পয়েন্টড রো উজ্জ্বল কর।"
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "উজ্জ্বল পয়েন্টার"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4612,15 +4561,14 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations."
 msgstr ""
-"[a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] সংকোচন আমদানি রফতানীর জন্য "
-"কার্যকর করুন"
+"[a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] সংকোচন আমদানির জন্য কার্যকর "
+"করুন।"
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
 msgstr "বিজিপ্ড২"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
 #| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
@@ -4630,16 +4578,15 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"CHAR and VARCHAR স্তম্ভের জন্য কি ধরনের সম্পাদন ক্ষেত্র ব্যবহৃত হবে তা নির্ধারন করুন;"
-"[kbd]input[/kbd] ইনপুটের দৈর্ঘ সীমিত করবে, [kbd]textarea[/kbd] স্তম্ভের নতুন লাইন "
-"যোগ করবে।"
+"CHAR and VARCHAR স্তম্ভের জন্য কি ধরনের সম্পাদন ক্ষেত্র ব্যবহৃত হবে তা "
+"নির্ধারন করুন;[kbd]input[/kbd] ইনপুটের দৈর্ঘ সীমিত করবে, [kbd]textarea[/kbd] "
+"স্তম্ভের নতুন লাইন যোগ করবে।"
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
 msgstr "CHAR স্তম্ভ সম্পাদনা"
 
 #: libraries/config/messages.inc.php:49
-#, fuzzy
 #| msgid ""
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
@@ -4647,53 +4594,53 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"SQL অনুসন্ধান সম্পাদনার জন্য ব্যবহারকারীর জন্য সহজ সফটওয়ার ব্যবহার করুন ([a@http://"
-"codemirror.net/]CodeMirror[/a]), লাইন চিহ্নিতকরন এবং লাইন নাম্বার সহ"
+"SQL অনুসন্ধান সম্পাদনার জন্য ব্যবহারকারীর জন্য সহজ সফটওয়ার ব্যবহার করুন "
+"([a@http://codemirror.net/]CodeMirror[/a]), লাইন চিহ্নিতকরন এবং লাইন নাম্বার "
+"সহ।"
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
 msgstr "CodeMirror কার্যকর"
 
 #: libraries/config/messages.inc.php:55
-#, fuzzy
 #| msgid ""
 #| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "প্রস্তুতকৃত CHAR and VARCHAR স্তম্ভের ইনপুট ক্ষেত্রের সর্বনিন্ম আকার নির্ধারন করুন।"
+msgstr ""
+"প্রস্তুতকৃত CHAR and VARCHAR স্তম্ভের ইনপুট ক্ষেত্রের সর্বনিন্ম আকার "
+"নির্ধারন করুন।"
 
 #: libraries/config/messages.inc.php:58
 msgid "Minimum size for input field"
 msgstr "ইনপুট ক্ষেত্রের নূন্যতম আকার"
 
 #: libraries/config/messages.inc.php:60
-#, fuzzy
 #| msgid ""
 #| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 #| "columns"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr "প্রস্তুতকৃত CHAR এবং VARCHAR ইনপুট ক্ষেত্রের সর্বোচ্চ আকার নির্ধারণ করুন"
+msgstr ""
+"প্রস্তুতকৃত CHAR এবং VARCHAR ইনপুট ক্ষেত্রের সর্বোচ্চ আকার নির্ধারণ করুন।"
 
 #: libraries/config/messages.inc.php:63
 msgid "Maximum size for input field"
 msgstr "ইনপুট ক্ষেত্রের সর্বোচ্চ আকার"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 #| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR textarea'র জন্য স্তম্ভের সংখ্যা"
+msgstr "CHAR/VARCHAR textarea'র জন্য স্তম্ভের সংখ্যা।"
 
 #: libraries/config/messages.inc.php:65
 msgid "CHAR textarea columns"
 msgstr "CHAR textarea'র স্তম্ভ"
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
 msgstr "CHAR/VARCHAR textarea'র রো সংখ্যা"
@@ -4707,7 +4654,6 @@ msgid "Check config file permissions"
 msgstr "কনফিগ ফাইলের অনুমোদন পরীক্ষাকরুন"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4716,8 +4662,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"কাজের মধ্যই gzip/bzip2 সংকুচিত ফাইল রফতানী যা বেশী মেমোরী ব্যবহার করে না; যদি "
-"প্রস্তুতকৃত gzip/bzip2 ফাইল ঠিকমত কাজ না করে তবে ইহা অকার্যকর করুন।"
+"কাজের মধ্যই gzip সংকুচিত ফাইল রফতানী যা বেশী মেমোরী ব্যবহার করে না; যদি "
+"প্রস্তুতকৃত gzip ফাইল ঠিকমত কাজ না করে তবে ইহা অকার্যকর করুন।"
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -4753,50 +4699,45 @@ msgid "Default display direction"
 msgstr "স্বাভাবিক প্রর্দশন দিক"
 
 #: libraries/config/messages.inc.php:83
-#, fuzzy
 #| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "কোন ডাটাবেইজে প্রবেশ কালে প্রদর্শনের ট্যাব"
+msgstr "কোন ডাটাবেইজে প্রবেশ কালে প্রদর্শনের ট্যাব।"
 
 #: libraries/config/messages.inc.php:84
 msgid "Default database tab"
 msgstr "ডাটাবেইজের স্বাভাবিক ট্যাব"
 
 #: libraries/config/messages.inc.php:85
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "কোন সার্ভারে প্রবেশ কালে প্রদর্শনের ট্যাব"
+msgstr "কোন সার্ভারে প্রবেশ কালে প্রদর্শনের ট্যাব।"
 
 #: libraries/config/messages.inc.php:86
 msgid "Default server tab"
 msgstr "সার্ভারের স্বাভাবিক ট্যাব"
 
 #: libraries/config/messages.inc.php:87
-#, fuzzy
 #| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "কোন টেবলে প্রবেশকালে প্রর্দশনের ট্যাব"
+msgstr "কোন টেবলে প্রবেশকালে প্রর্দশনের ট্যাব।"
 
 #: libraries/config/messages.inc.php:88
 msgid "Default table tab"
 msgstr "সার্ভারের স্বাভাবিক ট্যাব"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Whether the table structure actions should be hidden"
 msgid "Whether the table structure actions should be hidden."
-msgstr "টেবল গঠনের কার্যাবলী লুকানো থাকবে"
+msgstr "টেবল গঠনের কার্যাবলী লুকানো থাকবে।"
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
 msgstr "টেবল গঠনের কার্যাবলী লুকাও"
 
 #: libraries/config/messages.inc.php:92
-#, fuzzy
 #| msgid "Show binary contents as HEX by default"
 msgid "Show binary contents as HEX by default."
-msgstr "বাইনারী বিষয়গুলো HEX এ দেখাবে"
+msgstr "স্বাভাবিকভাবে বাইনারী বিষয়গুলো HEX এ দেখাবে।"
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down"
@@ -4819,10 +4760,9 @@ msgid "Disable multi table maintenance"
 msgstr "অনেকগুলো টেবল এক সাথে রক্ষণাবেক্ষণ অকার্যকর"
 
 #: libraries/config/messages.inc.php:102
-#, fuzzy
 #| msgid "Edit SQL queries in popup window"
 msgid "Edit SQL queries in popup window."
-msgstr "SQL অনুসন্ধান পপআপ উইন্ডোর মধ্যে সম্পাদনা"
+msgstr "SQL অনুসন্ধান পপআপ উইন্ডোতে সম্পাদনা।"
 
 #: libraries/config/messages.inc.php:103
 msgid "Edit in window"
@@ -4833,14 +4773,13 @@ msgid "Display errors"
 msgstr "ভুলসমূহ প্রদর্শন"
 
 #: libraries/config/messages.inc.php:106
-#, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 #| "limit)"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
-msgstr "একটি স্ক্রীপট চলার সময় (সেকেন্ডে)নির্ধারন করুন ([kbd]০[/kbd] সীমাহীন"
+msgstr "একটি স্ক্রীপট চলার সময় (সেকেন্ডে)নির্ধারন করুন ([kbd]০[/kbd] সীমাহীন)।"
 
 #: libraries/config/messages.inc.php:109
 msgid "Maximum execution time"
@@ -4882,28 +4821,25 @@ msgstr "স্তম্ভের নাম প্রথম রোতে দা�
 #: libraries/config/messages.inc.php:115 libraries/config/messages.inc.php:342
 #: libraries/config/messages.inc.php:352
 #: libraries/plugins/import/ImportCsv.class.php:150
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
-msgstr "Fields enclosed by"
+msgstr "স্তম্ভ ঘেরার জন্য"
 
 #: libraries/config/messages.inc.php:116 libraries/config/messages.inc.php:343
 #: libraries/config/messages.inc.php:353
 #: libraries/plugins/import/ImportCsv.class.php:157
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with"
-msgstr "Fields escaped by"
+msgstr "স্তম্ভ এস্কেপডের উপকরণ"
 
 #: libraries/config/messages.inc.php:117 libraries/config/messages.inc.php:123
 #: libraries/config/messages.inc.php:130 libraries/config/messages.inc.php:139
 #: libraries/config/messages.inc.php:148 libraries/config/messages.inc.php:152
 #: libraries/config/messages.inc.php:193 libraries/config/messages.inc.php:196
 #: libraries/config/messages.inc.php:198
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with"
-msgstr "Replace NULL by"
+msgstr "নাল প্রতিস্থাপিত হবে"
 
 #: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:124
 msgid "Remove CRLF characters within columns"
@@ -4912,17 +4848,15 @@ msgstr "স্তম্ভের CRLF বর্ণ মুছ"
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:346
 #: libraries/config/messages.inc.php:357
 #: libraries/plugins/import/ImportCsv.class.php:135
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated with"
-msgstr "Lines terminated by"
+msgstr "স্তম্ভ শেষ হবে"
 
 #: libraries/config/messages.inc.php:120 libraries/config/messages.inc.php:341
 #: libraries/plugins/import/ImportCsv.class.php:164
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with"
-msgstr "Lines terminated by"
+msgstr "লাইন শেষ হবে"
 
 #: libraries/config/messages.inc.php:122
 msgid "Excel edition"
@@ -5031,10 +4965,9 @@ msgstr "foreign key পরীক্ষা অকার্যকর কর"
 
 #: libraries/config/messages.inc.php:170
 #: libraries/plugins/export/ExportSql.class.php:155
-#, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export views as tables"
-msgstr "টেবল থেকে \"%s\" রো রফতানী করা হচ্ছে"
+msgstr "ভিউ টেবিলের মত রফতানী করা হচ্ছে"
 
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:173
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:175
@@ -5076,17 +5009,15 @@ msgid "Export time in UTC"
 msgstr "UTC গঠনে রফতানী সময়"
 
 #: libraries/config/messages.inc.php:199
-#, fuzzy
 #| msgid "Force secured connection while using phpMyAdmin"
 msgid "Force secured connection while using phpMyAdmin."
-msgstr "phpMyAdmin ব্যাবহারের জন্য নিরাপদ সংযোগে বাধ্য কর"
+msgstr "phpMyAdmin ব্যাবহারের জন্য নিরাপদ সংযোগে বাধ্য কর।"
 
 #: libraries/config/messages.inc.php:200
 msgid "Force SSL connection"
 msgstr "SSL সংযোগে বাধ্য কর"
 
 #: libraries/config/messages.inc.php:202
-#, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 #| "the referenced data, [kbd]id[/kbd] is the key value"
@@ -5095,17 +5026,16 @@ msgid ""
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
 "ফরেন কী ড্রপডাউনের বিষয়গুলো গুছানোর পদ্ধতি [kbd]content[/kbd] হলো তথ্য এবং "
-"[kbd]id[/kbd] কী মান"
+"[kbd]id[/kbd] কী মান।"
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
 msgstr "ফরেন কী ড্রপডাউনের পদ্ধতি"
 
 #: libraries/config/messages.inc.php:207
-#, fuzzy
 #| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "যদি অল্প সংখ্যক বিষয় থাকে তবে ড্রপডাউন ব্যবহৃত হবে"
+msgstr "যদি অল্প সংখ্যক বিষয় থাকে তবে ড্রপডাউন ব্যবহৃত হবে।"
 
 #: libraries/config/messages.inc.php:208
 msgid "Foreign key limit"
@@ -5116,18 +5046,16 @@ msgid "Browse mode"
 msgstr "ব্রাউজ পদ্ধতি"
 
 #: libraries/config/messages.inc.php:210
-#, fuzzy
 #| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "ব্রাউজ পদ্ধতি পরিবর্তন"
+msgstr "ব্রাউজ পদ্ধতি পরিবর্তন।"
 
 #: libraries/config/messages.inc.php:212 libraries/config/messages.inc.php:214
 #: libraries/config/messages.inc.php:232 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "স্বাভাবিক অপশনগুলো পরিবর্তন"
+msgstr "স্বাভাবিক অপশনগুলো পরিবর্তন।"
 
 #: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:247
 #: libraries/config/setup.forms.php:324
@@ -5141,30 +5069,27 @@ msgid "Developer"
 msgstr "উন্নয়নকারী"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "phpMyAdmin উন্নয়নকারীদের জন্য সেটিংস"
+msgstr "phpMyAdmin উন্নয়নকারীদের জন্য সেটিংস।"
 
 #: libraries/config/messages.inc.php:217
 msgid "Edit mode"
 msgstr "সম্পাদনা পদ্ধতি"
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "সম্পাদনা পদ্ধতি পরিবর্তন"
+msgstr "সম্পাদনা পদ্ধতি পরিবর্তন।"
 
 #: libraries/config/messages.inc.php:220
 msgid "Export defaults"
 msgstr "রফতানী সর্ম্পকিত স্বাভাবিক"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "স্বাভাবিক রফতানী অপশনগুলো পরিবর্তন"
+msgstr "স্বাভাবিক রফতানী অপশনগুলো পরিবর্তন।"
 
 #: libraries/config/messages.inc.php:222 libraries/config/messages.inc.php:283
 #: setup/frames/menu.inc.php:17
@@ -5176,50 +5101,45 @@ msgid "General"
 msgstr "সাধারন"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "কিছু সাধারনভাবে ব্যবহৃত অপশন নির্ধারন করুন"
+msgstr "কিছু সাধারনভাবে ব্যবহৃত অপশন নির্ধারন করুন।"
 
 #: libraries/config/messages.inc.php:226
 msgid "Import defaults"
 msgstr "আমদানি সর্ম্পকিত স্বাভাবিক"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "স্বাভাবিক প্রচলিত আমদানি অপশন পরিবর্তন"
+msgstr "স্বাভাবিক প্রচলিত আমদানি অপশন পরিবর্তন।"
 
 #: libraries/config/messages.inc.php:228
 msgid "Import / export"
 msgstr "আমদানি /রফতানী"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr "আমদানি এবং রফতানী ডিরেক্টরি এবং সংকোচন নির্ধারন করুন"
+msgstr "আমদানি এবং রফতানী ডিরেক্টরি এবং সংকোচন নির্ধারন করুন।"
 
 #: libraries/config/messages.inc.php:231
 msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "ডাটাবেইজ দেখার অপশন"
+msgstr "ডাটাবেইজ দেখার অপশন।"
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:21
 msgid "Navigation panel"
 msgstr "চলাচলের ফ্রেম"
 
 #: libraries/config/messages.inc.php:236
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "চলাচলের ফ্রেম দেখার বিষয়গুলো পরিবর্তন"
+msgstr "চলাচলের ফ্রেম দেখার বিষয়গুলো পরিবর্তন।"
 
 #: libraries/config/messages.inc.php:237 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
@@ -5227,16 +5147,14 @@ msgid "Servers"
 msgstr "সার্ভার"
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "সার্ভারের প্রর্দশন অপশনগুলো"
+msgstr "সার্ভারের প্রর্দশন অপশনগুলো।"
 
 #: libraries/config/messages.inc.php:240
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "টেবল প্রর্দশনের অপশনগুলো"
+msgstr "টেবল প্রর্দশনের অপশনগুলো।"
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:23
 msgid "Main panel"
@@ -5251,10 +5169,9 @@ msgid "Other core settings"
 msgstr "অন্যান্য প্রধান সেটিংস"
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "যে সেটিংগুলো অন্য কোথাও খাপ খায় না"
+msgstr "যে সেটিংগুলো অন্য কোথাও খাপ খায় না।"
 
 #: libraries/config/messages.inc.php:249
 msgid "Page titles"
@@ -5283,7 +5200,6 @@ msgid "Security"
 msgstr "নিরাপত্তা"
 
 #: libraries/config/messages.inc.php:259
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
@@ -5291,8 +5207,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
-"মনে রাখবেন phpMyAdmin শুধুই একটি ব্যবহারকারীর সঙ্গে সংযোগ উপায় এবং এটি কোনভাবেই "
-"MySQL এর বিষয়াদি সীমাবদ্ধ করে না"
+"মনে রাখবেন phpMyAdmin শুধুই একটি ব্যবহারকারীর সঙ্গে সংযোগ উপায় এবং এটি "
+"কোনভাবেই MySQL এর বিষয়াদি নির্দিষ্ট করে না।"
 
 #: libraries/config/messages.inc.php:262
 msgid "Basic settings"
@@ -5303,37 +5219,33 @@ msgid "Authentication"
 msgstr "প্রমাণীকরণ"
 
 #: libraries/config/messages.inc.php:264
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "প্রমানীকরণ সেটিংস"
+msgstr "প্রমানীকরণ সেটিংস।"
 
 #: libraries/config/messages.inc.php:265
 msgid "Server configuration"
 msgstr "সার্ভার করফিগারেশন"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
-msgstr "উন্নত সার্ভার কনফিগারেশন, আপনি কি করছেন তা না জেনে এগুলো পরিবর্তন করবেন না"
+msgstr "উন্নত সার্ভার কনফিগারেশন, এগুলো কি তা না জেনে পরিবর্তন করবেন না।"
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "সার্ভার সংযোগের তথ্যগুলো দিন"
+msgstr "সার্ভার সংযোগের তথ্যগুলো দিন।"
 
 #: libraries/config/messages.inc.php:271
 msgid "Configuration storage"
 msgstr "কনফিগারেশন মজুদ ব্যবস্থা"
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
 #| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
@@ -5343,8 +5255,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"অন্যান্য অতিরিক্ত সুবিধাদির জন্য phpMyAdmin কনফিগারেশন মজুদ ব্যবস্থা কনফিগার করন, "
-"সহায়িকার [doc@linked-tables]phpMyAdmin configuration storage[/doc]দেখুন"
+"অন্যান্য অতিরিক্ত সুবিধাদির জন্য phpMyAdmin কনফিগারেশন মজুদ ব্যবস্থা কনফিগার "
+"করন, সহায়িকার [doc@linked-tables]phpMyAdmin configuration "
+"storage[/doc]দেখুন।"
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -5383,16 +5296,14 @@ msgid "SQL Query box"
 msgstr "SQL অনুসন্ধান বক্স"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "পরিবর্তিত সংযোগগুলো SQL অনুসন্ধান বক্সে দেখাচ্ছে"
+msgstr "পরিবর্তিত সংযোগগুলো SQL অনুসন্ধান বক্সে দেখাচ্ছে।"
 
 #: libraries/config/messages.inc.php:293
-#, fuzzy
 #| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "SQL অনুসন্ধান সেটিংস"
+msgstr "SQL অনুসন্ধান সেটিংস।"
 
 #: libraries/config/messages.inc.php:294
 msgid "SQL Validator"
@@ -5415,42 +5326,38 @@ msgid "Startup"
 msgstr "আরম্ভ কর"
 
 #: libraries/config/messages.inc.php:303
-#, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "প্রথম পাতাটি পরিবর্তন কর"
+msgstr "প্রথম পাতাটি পরিবর্তন কর।"
 
 #: libraries/config/messages.inc.php:304
 msgid "Database structure"
 msgstr "ডাটাবেইজ সার্ভার"
 
 #: libraries/config/messages.inc.php:306
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr "ডাটাবেইজ গঠনের সাথে বিশদ কি দেখাবে তা পছন্দ করুন (টেবলের তালিকা)"
+msgstr "ডাটাবেইজ গঠনের সাথে বিশদ কি দেখাবে তা পছন্দ করুন (টেবলের তালিকা)।"
 
 #: libraries/config/messages.inc.php:307
 msgid "Table structure"
 msgstr "টেবলের জন্য টেবলের গঠন"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
-msgstr "টেবল গঠনের সেটিংস (স্তম্ভের তালিকা)"
+msgstr "টেবল গঠনের সেটিংস (স্তম্ভের তালিকা)।"
 
 #: libraries/config/messages.inc.php:310
 msgid "Tabs"
 msgstr "ট্যাবসমূহ"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "ট্যাবগুলো কিভাবে কাজ করবে পছন্দ করুন"
+msgstr "ট্যাবগুলো কিভাবে কাজ করবে পছন্দ করুন।"
 
 #: libraries/config/messages.inc.php:312
 #: libraries/schema/User_Schema.class.php:422
@@ -5467,10 +5374,9 @@ msgid "Text fields"
 msgstr "অক্ষরের ক্ষেত্র"
 
 #: libraries/config/messages.inc.php:317
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "অক্ষর দেওয়ার ক্ষেত্রটি পরিবর্তন করুন"
+msgstr "অক্ষর দেওয়ার ক্ষেত্রটি পরিবর্তন করুন।"
 
 #: libraries/config/messages.inc.php:318
 msgid "Texy! text"
@@ -5485,13 +5391,11 @@ msgid "Warnings"
 msgstr "সর্তকতা"
 
 #: libraries/config/messages.inc.php:322
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "phpMyAdmin এর দেখানো কিছু সতর্কবার্তা অকার্যকর কর"
+msgstr "phpMyAdmin এর দেখানো কিছু সতর্কবার্তা অকার্যকর কর।"
 
 #: libraries/config/messages.inc.php:324
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
@@ -5500,7 +5404,7 @@ msgid ""
 "and export operations."
 msgstr ""
 "আমদানি রফতানীর জন্য [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] সংকুচন "
-"কার্যকর কর"
+"কার্যকর কর।"
 
 #: libraries/config/messages.inc.php:327
 msgid "GZip"
@@ -5511,7 +5415,6 @@ msgid "Extra parameters for iconv"
 msgstr "iconv'র জন্য অতিরিক্ত প্যারামিটার"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
@@ -5519,8 +5422,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"যদি কার্যকর করা হয় phpMyAdmin multiple-statement অনুসন্ধানগুলো গননা করবে যদি কোন "
-"একটি অনুসন্ধান ব্যার্থও হয়"
+"যদি কার্যকর করা হয় phpMyAdmin multiple-statement অনুসন্ধানগুলো গননা করবে যদি "
+"কোন একটি অনুসন্ধান ব্যার্থও হয়।"
 
 #: libraries/config/messages.inc.php:333
 msgid "Ignore multiple statement errors"
@@ -5551,7 +5454,6 @@ msgid "Replace table data with file"
 msgstr "টেবলের তথ্য ফাইল থেকে প্রতিস্থাপন কর"
 
 #: libraries/config/messages.inc.php:348
-#, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
 #| "table) and only SQL is always available"
@@ -5560,7 +5462,7 @@ msgid ""
 "table) and only SQL is always available."
 msgstr ""
 "স্বাভাবিক গঠন: মনে রাখবেন এই তালিকাটি স্থানের উপর নির্ভরশীল (ডাটাবেইজ,টেবল)) "
-"এবং শুধু SQL কার্যকর"
+"এবং শুধু SQL কার্যকর।"
 
 #: libraries/config/messages.inc.php:351
 msgid "Format of imported file"
@@ -5590,10 +5492,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "সঠিক দশমিকে শতকরা আমদানি (১২.০০% কে .১২)"
 
 #: libraries/config/messages.inc.php:364
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
-msgstr "আরম্ভ থেকে এড়িয়ে যাওয়ার অনুসন্ধানের সংখ্যা"
+msgstr "আরম্ভ থেকে এড়িয়ে যাওয়ার অনুসন্ধানের সংখ্যা।"
 
 #: libraries/config/messages.inc.php:365
 msgid "Partial import: skip queries"
@@ -5608,23 +5509,21 @@ msgid "Initial state for sliders"
 msgstr "স্লাইডারের প্রাথমিক অবস্থা"
 
 #: libraries/config/messages.inc.php:372
-#, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "এক সংগে কতগুলো রো ইনসার্ট করবে"
+msgstr "এক সংগে কতগুলো রো ইনসার্ট করবে।"
 
 #: libraries/config/messages.inc.php:373
 msgid "Number of inserted rows"
 msgstr "ইনর্সাটকৃত রো'র সংখ্যা"
 
 #: libraries/config/messages.inc.php:375
-#, fuzzy
 #| msgid ""
 #| "Maximum number of characters shown in any non-numeric column on browse "
 #| "view"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
-msgstr "সংখ্যা নয় এমন স্তম্ভে প্রদর্শনের জন্য সবোর্চ্চ অক্ষরের সংখ্যা"
+msgstr "সংখ্যা নয় এমন স্তম্ভে প্রদর্শনের জন্য সবোর্চ্চ অক্ষরের সংখ্যা।"
 
 #: libraries/config/messages.inc.php:377
 msgid "Limit column characters"
@@ -5646,7 +5545,6 @@ msgid "Delete all cookies on logout"
 msgstr "লগ আউটের সময় সব কুকি মুছে ফেলবে"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
@@ -5654,7 +5552,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode."
 msgstr ""
-"নির্ধারন করুন পূর্বের লগইন পুনরায় ব্যবহার করা হবে অথবা কুকিহীন প্রমাণীকরণ পদ্ধতি"
+"নির্ধারন করুন পূর্বের লগইন পুনরায় ব্যবহার করা হবে অথবা কুকিহীন প্রমাণীকরণ "
+"পদ্ধতি।"
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5676,30 +5575,27 @@ msgid "Login cookie store"
 msgstr "লগইন কুকি মজুদ"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "একটি লগইন কুকি কতক্ষন (সেকেন্ডে) কার্যকর থাকবে তা নির্ধারণ করুন"
+msgstr "একটি লগইন কুকি কতক্ষন (সেকেন্ডে) কার্যকর থাকবে তা নির্ধারণ করুন।"
 
 #: libraries/config/messages.inc.php:398
 msgid "Login cookie validity"
 msgstr "লগইন কুকির বৈধতা"
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "LONGTEXT স্তম্ভের জন্য টেক্সটএরিয়া দ্বিগুন কর"
+msgstr "LONGTEXT স্তম্ভের জন্য টেক্সটএরিয়া দ্বিগুন কর।"
 
 #: libraries/config/messages.inc.php:401
 msgid "Bigger textarea for LONGTEXT"
 msgstr "LONGTEXT এর জন্য বড় টেক্সটএড়িয়া"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "SQL অনুসন্ধান দেখানোর জন্য সর্বোচ্চ সংখ্যক বর্ণের সংখ্যা"
+msgstr "SQL অনুসন্ধান দেখানোর জন্য সর্বোচ্চ সংখ্যক বর্ণের সংখ্যা।"
 
 #: libraries/config/messages.inc.php:404
 msgid "Maximum displayed SQL length"
@@ -5711,24 +5607,22 @@ msgid "Users cannot set a higher value"
 msgstr "ব্যবহারকারী উচ্চতর মান নির্ধারন করতে পারবে না"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "টেবল তালিকায় প্রদর্শনের জন্য টেবলের সর্বোচ্চ সংখ্যা"
+msgstr "টেবল তালিকায় প্রদর্শনের জন্য টেবলের সর্বোচ্চ সংখ্যা।"
 
 #: libraries/config/messages.inc.php:408
 msgid "Maximum databases"
 msgstr "সর্বোচ্চ সংখ্যক ডাটাবেইজ"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "চলাচলের ট্রির প্রতি পাতায় কতগুলো জিনিস দেখাবে"
+msgstr "চলাচলের ট্রির প্রতি পাতায় কতগুলো জিনিস দেখাবে।"
 
 #: libraries/config/messages.inc.php:412
 msgid "Maximum items in branch"
@@ -5747,17 +5641,15 @@ msgid "Maximum number of rows to display"
 msgstr "প্রদর্শনের জন্য রো'র সবোর্চ্চ সংখ্যা"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "টেবল তালিকায় প্রদর্শনের জন্য টেবলের সর্বোচ্চ সংখ্যা"
+msgstr "টেবল তালিকায় প্রদর্শনের জন্য টেবলের সর্বোচ্চ সংখ্যা।"
 
 #: libraries/config/messages.inc.php:421
 msgid "Maximum tables"
 msgstr "টেবলের সর্বোচ্চ সংখ্যা"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
@@ -5765,15 +5657,14 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication."
 msgstr ""
-"কুকি প্রমাণীকরণের জন্য ব্যবহৃত mcrypt পাওয়া না গেলে যে সর্তক বার্তা দেওয়া হয় তা "
-"অকার্যকর"
+"কুকি প্রমাণীকরণের জন্য ব্যবহৃত mcrypt পাওয়া না গেলে যে সর্তক বার্তা দেওয়া হয় "
+"তা অকার্যকর।"
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
 msgstr "mcrypt সর্তকতা"
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)"
@@ -5781,35 +5672,32 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"একটি স্ক্রীপটের জন্য নির্ধারিত বাইটের সংখ্যা যেমন [kbd]৩২মে[/kbd] ([kbd]০[/"
-"kbd]কোন সীমা নির্দষ্ট না করার জন্য"
+"একটি স্ক্রীপটের জন্য নির্ধারিত বাইটের সংখ্যা যেমন [kbd]৩২মে[/kbd] "
+"([kbd]০[/kbd]কোন সীমা নির্দষ্ট না করার জন্য।"
 
 #: libraries/config/messages.inc.php:431
 msgid "Memory limit"
 msgstr "মেমরীর সীমা"
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show logo in navigation panel."
-msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
+msgstr "চলাচল ফ্রেইমে লোগো দেখাও।"
 
 #: libraries/config/messages.inc.php:433
 msgid "Display logo"
 msgstr "লোগো দেখাও"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid "URL where logo in the navigation panel will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "চলাচলের ফ্রেইমে যেখানে লোগোটি থাকবে তার URL"
+msgstr "চলাচলের ফ্রেইমে যেখানে লোগোটি থাকবে তার URL।"
 
 #: libraries/config/messages.inc.php:436
 msgid "Logo link URL"
 msgstr "লোগো সংযোগের URL"
 
 #: libraries/config/messages.inc.php:438
-#, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 #| "([kbd]new[/kbd])"
@@ -5818,17 +5706,16 @@ msgid ""
 "([kbd]new[/kbd])."
 msgstr ""
 "সংযুক্ত পাতাটি একটি নতুন উইন্ডোতে ([kbd]new[/kbd]) খোল বা প্রধান উইন্ডোটিতে "
-"([kbd]main[/kbd]) খোল"
+"([kbd]main[/kbd]) খোল।"
 
 #: libraries/config/messages.inc.php:441
 msgid "Logo link target"
 msgstr "লোগো সংযোগের লক্ষ্য"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid "Display server choice at the top of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "পছন্দের সার্ভারটি উপরের বামদিকের কোণার ফ্রেইমে দেখাও"
+msgstr "পছন্দের সার্ভারটি উপরের বামদিকের কোণার ফ্রেইমে দেখাও।"
 
 #: libraries/config/messages.inc.php:444
 msgid "Display servers selection"
@@ -5853,34 +5740,31 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "ডাটাবেইজ ফিল্টার বক্সে প্রদর্শনের জন্য নুন্যতম ডাটাবেইজ সংখ্যা"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)."
-msgstr "চলাচলের ট্রিতে বিষযগুলো দলবদ্ধ কর"
+msgstr "চলাচলের ট্রিতে বিষযগুলো দলবদ্ধ কর।"
 
 #: libraries/config/messages.inc.php:457
 msgid "Group items in the tree"
 msgstr "ট্রিতে বিষযগুলো দলবদ্ধ কর"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
-msgstr "বিভিন্ন পর্যায়ে ডাটাবেইজ ট্রি পৃথককারী ট্রিং"
+msgstr "বিভিন্ন পর্যায়ে ডাটাবেইজ ট্রি পৃথককারী ট্রিং।"
 
 #: libraries/config/messages.inc.php:460
 msgid "Database tree separator"
 msgstr "ডাটাবেইজ ট্রি পৃথককারী"
 
 #: libraries/config/messages.inc.php:462
-#, fuzzy
 #| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
-msgstr "বর্ণ যার দ্বারা টেবলগুলো ট্রি'র বিভিন্ন ক্ষেত্রে পৃথক হবে"
+msgstr "বর্ণ যার দ্বারা টেবলগুলো ট্রি'র বিভিন্ন ক্ষেত্রে পৃথক হবে।"
 
 #: libraries/config/messages.inc.php:463
 msgid "Table tree separator"
@@ -5891,40 +5775,38 @@ msgid "Maximum table tree depth"
 msgstr "টেবল ট্রির সর্বোচ্চ গভীরতা"
 
 #: libraries/config/messages.inc.php:466
-#, fuzzy
 #| msgid "Highlight server under the mouse cursor"
 msgid "Highlight server under the mouse cursor."
-msgstr "কার্সরের নীচে সার্ভার চিহ্নিত কর"
+msgstr "মাউস কার্সরের নীচে সার্ভার চিহ্নিত কর।"
 
 #: libraries/config/messages.inc.php:467
 msgid "Enable highlighting"
 msgstr "চিহ্নিতকরন কাযর্কর"
 
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "সম্প্রতি ব্যবহৃত টেবলের সর্বো্চ্চ সংখ্যা; অকার্যকর করার জন্য ০ নির্ধারন করুন"
+msgstr ""
+"সম্প্রতি ব্যবহৃত টেবলের সর্বো্চ্চ সংখ্যা; অকার্যকর করার জন্য ০ নির্ধারন "
+"করুন।"
 
 #: libraries/config/messages.inc.php:470
 msgid "Recently used tables"
 msgstr "সম্প্রতি ব্যবহৃত টেবল"
 
 #: libraries/config/messages.inc.php:471
-#, fuzzy
 #| msgid "These are Edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links."
-msgstr "এগুলো সম্পাদনা, প্রতিলিপি এবং মুছা সংযোগ"
+msgstr "এগুলো সম্পাদনা, প্রতিলিপি এবং মুছা সংযোগ।"
 
 #: libraries/config/messages.inc.php:472
 msgid "Where to show the table row links"
 msgstr "টেবলের রো সংযোগ কোথায় দেখাবে"
 
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "Use natural order for sorting table and database names"
 msgid "Use natural order for sorting table and database names."
-msgstr "টেবল এবং ডাটাবেইজের নাম সাজানোর জন্য স্বাভাবিক বিন্যাস ব্যবহার কর"
+msgstr "টেবল এবং ডাটাবেইজের নাম সাজানোর জন্য স্বাভাবিক বিন্যাস ব্যবহার কর।"
 
 #: libraries/config/messages.inc.php:475
 msgid "Natural order"
@@ -5932,27 +5814,24 @@ msgstr "স্বাভাবিক বিন্যাস"
 
 #: libraries/config/messages.inc.php:476 libraries/config/messages.inc.php:507
 #: libraries/config/messages.inc.php:509
-#, fuzzy
 #| msgid "Use only icons, only text or both"
 msgid "Use only icons, only text or both."
-msgstr "শুধু আইকন, শুধু মাত্র টেক্সট বা উভয়ই ব্যবহার কর"
+msgstr "শুধু আইকন, শুধু মাত্র টেক্সট বা উভয়ই ব্যবহার কর।"
 
 #: libraries/config/messages.inc.php:477
 msgid "Table navigation bar"
 msgstr "টেবল চলাচলের বার"
 
 #: libraries/config/messages.inc.php:479
-#, fuzzy
 #| msgid "use GZip output buffering for increased speed in HTTP transfers"
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
-msgstr "HTTP স্থানান্তরের গতি বাড়ানোর জন্য জিজিপ আউটপুট বাফারিং ব্যবহার কর"
+msgstr "HTTP স্থানান্তরের গতি বাড়ানোর জন্য জিজিপ আউটপুট বাফারিং ব্যবহার কর।"
 
 #: libraries/config/messages.inc.php:480
 msgid "GZip output buffering"
 msgstr "জিজিপ আউটপুট বাফারিং"
 
 #: libraries/config/messages.inc.php:482
-#, fuzzy
 #| msgid ""
 #| "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 #| "DATETIME and TIMESTAMP, ascending order otherwise"
@@ -5960,25 +5839,23 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
-"[kbd]দক্ষ[/kbd]- যেমন স্তম্ভ যদি সময়,দিন, দিনসময়্ এবং সময়কাল হয় তবে অধমূখী অন্যথায় "
-"উর্দ্ধ মুখী"
+"[kbd]দক্ষ[/kbd]- যেমন স্তম্ভ যদি সময়,দিন, দিনসময়্ এবং সময়কাল হয় তবে অধমূখী "
+"অন্যথায় উর্দ্ধ মুখী।"
 
 #: libraries/config/messages.inc.php:485
 msgid "Default sorting order"
 msgstr "গুছানোর স্বাভাবিক বিন্যাস"
 
 #: libraries/config/messages.inc.php:487
-#, fuzzy
 #| msgid "Use persistent connections to MySQL databases"
 msgid "Use persistent connections to MySQL databases."
-msgstr "MySQL ডাটাবেইজে স্থীর সংযোগ ব্যবহার কর"
+msgstr "MySQL ডাটাবেইজে স্থীর সংযোগ ব্যবহার কর।"
 
 #: libraries/config/messages.inc.php:488
 msgid "Persistent connections"
 msgstr "স্থীর সংযোগ"
 
 #: libraries/config/messages.inc.php:490
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
 #| "Structure page if any of the required tables for the phpMyAdmin "
@@ -5989,14 +5866,13 @@ msgid ""
 "configuration storage could not be found."
 msgstr ""
 "phpMyAdmin কনফিগারেশনের কোন একটি storage table পাওয়া না গেলে ডাটাবেইজের বিশদ "
-"গঠন যেখানে দেখানো হয় সেখানে প্রদর্শিত সর্তকতা অকার্যকর কর"
+"গঠন যেখানে দেখানো হয় সেখানে প্রদর্শিত সর্তকতা অকার্যকর কর।"
 
 #: libraries/config/messages.inc.php:495
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
 #: libraries/config/messages.inc.php:497
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if a difference between the "
 #| "MySQL library and server is detected"
@@ -6004,15 +5880,14 @@ msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected."
 msgstr ""
-"MySQL library এবং  সার্ভরের পার্থক্য পাওয়া গেলে যে স্বাভাবিক সর্তক বার্তা প্রদর্শিত "
-"হয় তা অকার্যকর কর"
+"MySQL library এবং  সার্ভরের পার্থক্য পাওয়া গেলে যে স্বাভাবিক সর্তক বার্তা "
+"প্রদর্শিত হয় তা অকার্যকর কর।"
 
 #: libraries/config/messages.inc.php:501
 msgid "Server/library difference warning"
 msgstr "সার্ভার/লাইব্রেরীর পার্থক্যের জন্য সতর্ক বার্তা"
 
 #: libraries/config/messages.inc.php:503
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
 #| "column names in a table are reserved MySQL words"
@@ -6021,7 +5896,7 @@ msgid ""
 "column names in a table are reserved MySQL words."
 msgstr ""
 "যদি কোন টেবলের স্তম্ভের নামে MySQL এর রির্জাভড ওর্য়াড ব্যবহার করা হয় তবে গঠন "
-"পাতায় যে সর্তকবার্তা প্রদর্শন করা হয় তা অকার্যকর কর"
+"পাতায় যে সর্তকবার্তা প্রদর্শন করা হয় তা অকার্যকর কর।"
 
 #: libraries/config/messages.inc.php:506
 msgid "MySQL reserved word warning"
@@ -6036,10 +5911,9 @@ msgid "How to display various action links"
 msgstr "বিভিন্ন ধরনের কাজের সংযোগ কিভাবে প্রদর্শন করবে"
 
 #: libraries/config/messages.inc.php:511
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY columns from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "BLOB এবং BINARY টেবল সম্পাদনা অ-অনুমোদিত"
+msgstr "BLOB এবং BINARY টেবল সম্পাদনা অ-অনুমোদিত।"
 
 #: libraries/config/messages.inc.php:512
 msgid "Protect binary columns"
@@ -6060,72 +5934,65 @@ msgid "Permanent query history"
 msgstr "অনুসন্ধানের স্থায়ী হিস্টোরী"
 
 #: libraries/config/messages.inc.php:520
-#, fuzzy
 #| msgid "How many queries are kept in history"
 msgid "How many queries are kept in history."
-msgstr "হিস্টোরীতে কতগুলো অনুসন্ধান থাকবে"
+msgstr "হিস্টোরীতে কতগুলো অনুসন্ধান থাকবে।"
 
 #: libraries/config/messages.inc.php:521
 msgid "Query history length"
 msgstr "অনুসন্ধান হিস্টোরীর দৈর্ঘ্য"
 
 #: libraries/config/messages.inc.php:523
-#, fuzzy
 #| msgid "Tab displayed when opening a new query window"
 msgid "Tab displayed when opening a new query window."
-msgstr "যখন অনুসন্ধান উইন্ডো খোলা হবে তখন প্রর্দশিত ট্যাব"
+msgstr "যখন অনুসন্ধান উইন্ডো খোলা হবে তখন প্রর্দশিত ট্যাব।"
 
 #: libraries/config/messages.inc.php:524
 msgid "Default query window tab"
 msgstr "স্বাভাবিক অনুসন্ধান উইন্ডো ট্যাব"
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
 #| msgid "Query window height (in pixels)"
 msgid "Query window height (in pixels)."
-msgstr "অনুসন্ধান উইন্ডোর উচ্চতা (পিক্সেলে)"
+msgstr "অনুসন্ধান উইন্ডোর উচ্চতা (পিক্সেলে)।"
 
 #: libraries/config/messages.inc.php:526
 msgid "Query window height"
 msgstr "অনুসন্ধান উইন্ডোর উচ্চতা"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Query window width (in pixels)"
 msgid "Query window width (in pixels)."
-msgstr "অনুসন্ধান উইন্ডোর প্রশস্ততা (পিক্সেলে)"
+msgstr "অনুসন্ধান উইন্ডোর প্রশস্ততা (পিক্সেলে)।"
 
 #: libraries/config/messages.inc.php:528
 msgid "Query window width"
 msgstr "অনুসন্ধান উইন্ডোর প্রশস্ততা"
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
 #| msgid "Select which functions will be used for character set conversion"
 msgid "Select which functions will be used for character set conversion."
-msgstr "বর্ণরাশি পরিবর্তনে কোন ফাংশন ব্যবহৃত হবে তা নির্বাচন করুন"
+msgstr "বর্ণরাশি পরিবর্তনে কোন ফাংশন ব্যবহৃত হবে তা নির্বাচন করুন।"
 
 #: libraries/config/messages.inc.php:531
 msgid "Recoding engine"
 msgstr "রের্কডিং ইঞ্জিন"
 
 #: libraries/config/messages.inc.php:533
-#, fuzzy
 #| msgid "When browsing tables, the sorting of each table is remembered"
 msgid "When browsing tables, the sorting of each table is remembered."
-msgstr "যখন টেবল ব্রাউজ করা হবে, টেবলের সজ্জা মনে রাখবে"
+msgstr "যখন টেবল ব্রাউজ করা হবে, টেবলের সজ্জা মনে রাখবে।"
 
 #: libraries/config/messages.inc.php:534
 msgid "Remember table's sorting"
 msgstr "টেবলের সজ্জা মনে রাখবে"
 
 #: libraries/config/messages.inc.php:536
-#, fuzzy
 #| msgid ""
 #| "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr "প্রতি X cells শিরোনাম পুনরায় দেখাবে, [kbd]০[/kbd] এটি অকার্যকর করবে"
+msgstr "প্রতি X cells শিরোনাম পুনরায় দেখাবে, [kbd]০[/kbd] এটি অকার্যকর করবে।"
 
 #: libraries/config/messages.inc.php:537
 msgid "Repeat headers"
@@ -6140,30 +6007,27 @@ msgid "Grid editing: save all edited cells at once"
 msgstr "গ্রীড সম্পাদনা: সম্পাদনকৃত সব সেল একত্রে সংরক্ষন কর"
 
 #: libraries/config/messages.inc.php:541
-#, fuzzy
 #| msgid "Directory where exports can be saved on server"
 msgid "Directory where exports can be saved on server."
-msgstr "সার্ভারে রফতানী সংরক্ষনের ডিরেক্টরী"
+msgstr "সার্ভারে রফতানী সংরক্ষনের ডিরেক্টরী।"
 
 #: libraries/config/messages.inc.php:542
 msgid "Save directory"
 msgstr "সংরক্ষনের ডিরেক্টরী"
 
 #: libraries/config/messages.inc.php:543
-#, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
-msgstr "ব্যবহৃত না হলে থালি রাখ"
+msgstr "ব্যবহৃত না হলে থালি রাখ।"
 
 #: libraries/config/messages.inc.php:544
 msgid "Host authorization order"
 msgstr "হোস্ট অনুমোদনের বিন্যাস"
 
 #: libraries/config/messages.inc.php:545
-#, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
-msgstr "স্বাভাবিকভাবে থাকার জন্য খালি রাখুন"
+msgstr "স্বাভাবিকভাবে থাকার জন্য খালি রাখুন।"
 
 #: libraries/config/messages.inc.php:546
 msgid "Host authorization rules"
@@ -6180,13 +6044,14 @@ msgstr "রুট লগইনের অনুমোদন"
 #: libraries/config/messages.inc.php:550
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
+"যথন এইছটিটিপি প্রমানীকরণ ব্যবহার হবে তখন প্রদর্শনের জন্য প্রাথমিক এইছটিটিপি "
+"প্রমানীকরণ নাম।"
 
 #: libraries/config/messages.inc.php:551
 msgid "HTTP Realm"
 msgstr "HTTP রাজ্য"
 
 #: libraries/config/messages.inc.php:553
-#, fuzzy
 #| msgid ""
 #| "The path for the config file for [a@http://swekey.com]SweKey hardware "
 #| "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -6197,17 +6062,16 @@ msgid ""
 "swekey.conf)."
 msgstr ""
 "কনফিগ ফাইলের পথ [a@http://swekey.com]SweKey hardware authentication[/a] "
-"(ডকুমেন্ট রুটে পাওয়া যায়নি; সাম্ভাব্য: /etc/swekey.conf)"
+"(ডকুমেন্ট রুটে পাওয়া যায়নি; সাম্ভাব্য: /etc/swekey.conf)।"
 
 #: libraries/config/messages.inc.php:557
 msgid "SweKey config file"
 msgstr "SweKey কনফিগ ফাইল"
 
 #: libraries/config/messages.inc.php:558
-#, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
-msgstr "ব্যবহারের জন্য প্রমাণীকরনের পদ্ধতী"
+msgstr "ব্যবহারের জন্য প্রমাণীকরনের পদ্ধতী।"
 
 #: libraries/config/messages.inc.php:559 setup/frames/index.inc.php:162
 msgid "Authentication type"
@@ -6226,7 +6090,6 @@ msgid "Bookmark table"
 msgstr "বুকর্মাক টেবল"
 
 #: libraries/config/messages.inc.php:566
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
 #| "[kbd]pma__column_info[/kbd]"
@@ -6234,28 +6097,26 @@ msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"স্তম্ভের মন্তব্য/মাইমের ধরন না দেখানোর জন্য খালি রাখুন, দেখুন:[kbd]pma_column_info[/"
-"kbd]"
+"স্তম্ভের মন্তব্য/মাইমের ধরন না দেখানোর জন্য খালি রাখুন, "
+"দেখুন:[kbd]pma_column_info[/kbd]।"
 
 #: libraries/config/messages.inc.php:569
 msgid "Column information table"
 msgstr "স্তম্ভ্ তথ্যের টেবল"
 
 #: libraries/config/messages.inc.php:570
-#, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "সংকুচিত MySQL সার্ভারের সংযোগ"
+msgstr "সংকুচিত MySQL সার্ভারের সংযোগ।"
 
 #: libraries/config/messages.inc.php:571
 msgid "Compress connection"
 msgstr "সংকুচিত সংযোগ"
 
 #: libraries/config/messages.inc.php:573
-#, fuzzy
 #| msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
-msgstr "সার্ভারে কিভাবে সংযোগ করবে, যদি না জানেন [kbd]tcp[/kbd] রাখেন"
+msgstr "সার্ভারে কিভাবে সংযোগ করবে, যদি না জানেন [kbd]tcp[/kbd] রাখেন।"
 
 #: libraries/config/messages.inc.php:574
 msgid "Connection type"
@@ -6266,7 +6127,6 @@ msgid "Control user password"
 msgstr "নিয়ন্ত্রক ব্যবহারকারীর পাসওর্য়াড"
 
 #: libraries/config/messages.inc.php:577
-#, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
 #| "information available on [a@http://wiki.phpmyadmin.net/pma/"
@@ -6275,15 +6135,14 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
-"একটি বিশেষ MySQL ব্যবহারকারী সীমিত অধিকার সহ কনফিগার করা হয়েছে, আরো তথ্যের জন্য "
-"দেখুন [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]"
+"একটি বিশেষ MySQL ব্যবহারকারী সীমিত অধিকার সহ কনফিগার করা হয়েছে, আরো তথ্যের "
+"জন্য দেখুন [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]।"
 
 #: libraries/config/messages.inc.php:580
 msgid "Control user"
 msgstr "নিয়ন্ত্রক ব্যবহারকারী"
 
 #: libraries/config/messages.inc.php:582
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -6291,15 +6150,14 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
-"কনফিগারেশন মজুদ (configuration storage) করার জন্য অন্য একটি হোস্ট; না থাকলে খালি "
-"রাখুন"
+"কনফিগারেশন মজুদ (configuration storage) করার জন্য অন্য একটি হোস্ট; না থাকলে "
+"খালি রাখুন।"
 
 #: libraries/config/messages.inc.php:585
 msgid "Control host"
 msgstr "হোস্ট নিয়ন্ত্রন"
 
 #: libraries/config/messages.inc.php:587
-#, fuzzy
 #| msgid ""
 #| "An alternate host to hold the configuration storage; leave blank to use "
 #| "the already defined host"
@@ -6308,17 +6166,15 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"কনফিগারেশন মজুদ (configuration storage) করার জন্য অন্য একটি হোস্ট; না থাকলে খালি "
-"রাখুন"
+"কনফিগারেশন মজুদ (configuration storage) করার জন্য অন্য একটি হোস্ট; না থাকলে "
+"খালি রাখুন।"
 
 #: libraries/config/messages.inc.php:591
-#, fuzzy
 #| msgid "Any host"
 msgid "Control port"
-msgstr "যেকোন হোষ্ট"
+msgstr "নিয়ন্ত্রন পোর্ট"
 
 #: libraries/config/messages.inc.php:593
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no Designer support, suggested: "
 #| "[kbd]pma__designer_coords[/kbd]"
@@ -6326,24 +6182,23 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"নকশাকারী সহায়তা দিতে না চাইলে খালি রাখুন, দেখুন:[kbd]pma_designer_coords[/kbd]"
+"নকশাকারী সহায়তা দিতে না চাইলে খালি রাখুন, "
+"দেখুন:[kbd]pma_designer_coords[/kbd]।"
 
 #: libraries/config/messages.inc.php:596
 msgid "Designer table"
 msgstr "নকশাকারী টেবল"
 
 #: libraries/config/messages.inc.php:598
-#, fuzzy
 #| msgid "Hide databases matching regular expression (PCRE)"
 msgid "Hide databases matching regular expression (PCRE)."
-msgstr "ডাটাবেইজের regular expression (PCRE) মিলকরন লুকাও"
+msgstr "ডাটাবেইজের regular expression (PCRE) মিলকরন লুকাও।"
 
 #: libraries/config/messages.inc.php:599
 msgid "Hide databases"
 msgstr "ডাটাবেইজ লুকাও"
 
 #: libraries/config/messages.inc.php:601
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
 #| "[kbd]pma__history[/kbd]"
@@ -6351,18 +6206,17 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"SQL অনুসন্ধানের হিস্টোরী সুবিধা দিতে না চাইলে খালি রাখুন, দেখুন: [kbd]pma_history[/"
-"kbd]"
+"SQL অনুসন্ধানের হিস্টোরী সুবিধা দিতে না চাইলে খালি রাখুন, দেখুন: "
+"[kbd]pma_history[/kbd]।"
 
 #: libraries/config/messages.inc.php:604
 msgid "SQL query history table"
 msgstr "SQL অনুসন্ধানের হিস্টোরী টেবল"
 
 #: libraries/config/messages.inc.php:605
-#, fuzzy
 #| msgid "Hostname where MySQL server is running"
 msgid "Hostname where MySQL server is running."
-msgstr "MySQL সার্ভারের হোস্ট নাম"
+msgstr "MySQL সার্ভারের হোস্ট নাম।"
 
 #: libraries/config/messages.inc.php:606
 msgid "Server hostname"
@@ -6373,7 +6227,6 @@ msgid "Logout URL"
 msgstr "লগআউট URL"
 
 #: libraries/config/messages.inc.php:609
-#, fuzzy
 #| msgid ""
 #| "Limits number of table preferences which are stored in database, the "
 #| "oldest records are automatically removed"
@@ -6381,17 +6234,17 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
-"ডাটাবেইজে রক্ষিত টেবলের তথ্যের সংখ্যা সীমিত করন, পুরাতন তথ্য স্বয়ংক্রীয়ভাবে মুছে যাবে"
+"ডাটাবেইজে রক্ষিত টেবলের তথ্যের সংখ্যা সীমিত করন, পুরাতন তথ্য স্বয়ংক্রীয়ভাবে "
+"মুছে যাবে।"
 
 #: libraries/config/messages.inc.php:613
 msgid "Maximal number of table preferences to store"
 msgstr "মজুদ করার জন্য সর্বো্চ্চ সংখ্যক টেবলের তথ্যের সংখ্য"
 
 #: libraries/config/messages.inc.php:614
-#, fuzzy
 #| msgid "Try to connect without password"
 msgid "Try to connect without password."
-msgstr "পাসওর্য়াডহীন সংযোগের চেষ্টা কর"
+msgstr "পাসওর্য়াডহীন সংযোগের চেষ্টা কর।"
 
 #: libraries/config/messages.inc.php:615
 msgid "Connect without password"
@@ -6414,31 +6267,29 @@ msgid "Show only listed databases"
 msgstr "শুধু তালিকার ডাটাবেইজ দেখাও"
 
 #: libraries/config/messages.inc.php:622 libraries/config/messages.inc.php:710
-#, fuzzy
 #| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
-msgstr "খালি রাখুন যদি কনফিগ প্রমাণীকরণ ব্যবহার না করেন"
+msgstr "খালি রাখুন যদি কনফিগ প্রমাণীকরণ ব্যবহার না করেন।"
 
 #: libraries/config/messages.inc.php:623
 msgid "Password for config auth"
 msgstr "কনফিগ প্রমাণীকরণের পাসওর্য়াড"
 
 #: libraries/config/messages.inc.php:625
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"পিডিএফ গঠনের সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন:[kbd]pma_pdf_pages[/kbd]"
+"পিডিএফ গঠনের সমর্থন না দেওয়ার জন্য খালি রাখুন, "
+"দেখুন:[kbd]pma_pdf_pages[/kbd]।"
 
 #: libraries/config/messages.inc.php:627
 msgid "PDF schema: pages table"
 msgstr "পিডিএফের গঠন: টেবলের পাতা"
 
 #: libraries/config/messages.inc.php:629
-#, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@http://"
 #| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
@@ -6448,9 +6299,9 @@ msgid ""
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"সর্ম্পক, বুকর্মাক এবং পিডিএফের জন্য ব্যবহৃত ডাটাবেইজসমূহ। পুর্ণ তথ্যে জন্য[a@http://wiki."
-"phpmyadmin.net/pma/pmadb]pmadb[/a] দেখুন। সমর্থন না করলে খালি রাখুন। দেখুন: "
-"[kbd]phpmyadmin[/kbd]"
+"সর্ম্পক, বুকর্মাক এবং পিডিএফের জন্য ব্যবহৃত ডাটাবেইজসমূহ। পুর্ণ তথ্যে "
+"জন্য[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] দেখুন। সমর্থন না করলে "
+"খালি রাখুন। দেখুন: [kbd]phpmyadmin[/kbd]।"
 
 #: libraries/config/messages.inc.php:633
 #: libraries/display_create_database.lib.php:31
@@ -6458,17 +6309,15 @@ msgid "Database name"
 msgstr "ডাটাবেইজের নাম"
 
 #: libraries/config/messages.inc.php:635
-#, fuzzy
 #| msgid "Port on which MySQL server is listening, leave empty for default"
 msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr "যে পোর্টে MySQL সার্ভার শুনছে, স্বাভাবিকটির জন্য খালি রাখুন"
+msgstr "যে পোর্টে MySQL সার্ভার শুনছে, স্বাভাবিকটির জন্য খালি রাখুন।"
 
 #: libraries/config/messages.inc.php:636
 msgid "Server port"
 msgstr "সার্ভারের পোর্ট"
 
 #: libraries/config/messages.inc.php:638
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
@@ -6476,15 +6325,14 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
-"যদি টেবলের পছন্দগুলো বি্ভিন্ন সেশনে \"persistent\" স্থায়ীভাবে রাখতে না চান খালি "
-"রাখুন, দেখুন: [kbd]pma_table_uiprefs[/kbd]"
+"যদি টেবলের পছন্দগুলো বি্ভিন্ন সেশনে \"persistent\" স্থায়ীভাবে রাখতে না চান "
+"খালি রাখুন, দেখুন: [kbd]pma_table_uiprefs[/kbd]।"
 
 #: libraries/config/messages.inc.php:641
 msgid "Recently used table"
 msgstr "সাময়িককালে ব্যবহৃত টেবল"
 
 #: libraries/config/messages.inc.php:643
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
@@ -6493,14 +6341,13 @@ msgid ""
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "না করার জন্য খালি রাখুন [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a]সাহায্যের জন্য, দেখুন:[kbd]pma__relation[/kbd]"
+"links[/a]সাহায্যের জন্য, দেখুন:[kbd]pma__relation[/kbd]।"
 
 #: libraries/config/messages.inc.php:647
 msgid "Relation table"
 msgstr "আন্তসর্ম্পক টেবল"
 
 #: libraries/config/messages.inc.php:649
-#, fuzzy
 #| msgid ""
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
@@ -6508,8 +6355,9 @@ msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
 msgstr ""
-"উদাহরণের জন্য [a@http://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]authentication types [/a] দেখুন"
+"উদাহরণের জন্য "
+"[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types "
+"[/a] দেখুন।"
 
 #: libraries/config/messages.inc.php:652
 msgid "Signon session name"
@@ -6520,41 +6368,38 @@ msgid "Signon URL"
 msgstr "সাইনঅন URL"
 
 #: libraries/config/messages.inc.php:655
-#, fuzzy
 #| msgid "Socket on which MySQL server is listening, leave empty for default"
 msgid "Socket on which MySQL server is listening, leave empty for default."
-msgstr "কোন সকেটে MySQL সার্ভার শুনছে, স্বাভাবিকটির জন্য"
+msgstr "কোন সকেটে MySQL সার্ভার শুনছে, স্বাভাবিকটির জন্য।"
 
 #: libraries/config/messages.inc.php:656
 msgid "Server socket"
 msgstr "সার্ভারের সকেট"
 
 #: libraries/config/messages.inc.php:657
-#, fuzzy
 #| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
-msgstr "MySQL সার্ভারে সংযোগের জন্য SSL কার্যকর কর"
+msgstr "MySQL সার্ভারে সংযোগের জন্য SSL কার্যকর কর।"
 
 #: libraries/config/messages.inc.php:658
 msgid "Use SSL"
 msgstr "SSL ব্যবহার কর"
 
 #: libraries/config/messages.inc.php:660
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
-msgstr "পিডিএফ গঠন সমর্থনের জন্য খালি রাখুন, দেখুন: [kbd]pma_table_coords[/kbd]"
+msgstr ""
+"পিডিএফ গঠন সমর্থনের জন্য খালি রাখুন, দেখুন: [kbd]pma_table_coords[/kbd]।"
 
 #: libraries/config/messages.inc.php:662
 msgid "PDF schema: table coordinates"
 msgstr "পিডিএফের গঠন: table coordinates"
 
 #: libraries/config/messages.inc.php:664
-#, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
 #| "suggested: [kbd]pma__table_info[/kbd]"
@@ -6562,15 +6407,14 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"স্তম্ভ বর্ণনার টেবল, সমর্থন দিতে না চাইলে খালি রাখুন; দেখুন: [kbd]pma_table_info[/"
-"kbd]"
+"স্তম্ভ বর্ণনার টেবল, সমর্থন দিতে না চাইলে খালি রাখুন; দেখুন: "
+"[kbd]pma_table_info[/kbd]।"
 
 #: libraries/config/messages.inc.php:667
 msgid "Display columns table"
 msgstr "স্তম্ভের টেবল দেখাও"
 
 #: libraries/config/messages.inc.php:669
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no \"persistent\" recently used tables across sessions, "
 #| "suggested: [kbd]pma__recent[/kbd]"
@@ -6578,8 +6422,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"যদি টেবলের পছন্দগুলো বি্ভিন্ন সেশনে \"persistent\" স্থায়ীভাবে রাখতে না চান খালি "
-"রাখুন, দেখুন: [kbd]pma_table_uiprefs[/kbd]"
+"যদি টেবলের পছন্দগুলো বি্ভিন্ন সেশনে \"persistent\" স্থায়ীভাবে রাখতে না চান "
+"খালি রাখুন, দেখুন: [kbd]pma_table_uiprefs[/kbd]।"
 
 #: libraries/config/messages.inc.php:672
 msgid "UI preferences table"
@@ -6632,7 +6476,6 @@ msgid "Statements to track"
 msgstr "ট্রেকের জন্য Statements"
 
 #: libraries/config/messages.inc.php:692
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: "
 #| "[kbd]pma__tracking[/kbd]"
@@ -6640,8 +6483,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"SQL অনুসন্ধান ট্রেকিং সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন: [kbd]pma_tracking[/"
-"kbd]"
+"SQL অনুসন্ধান ট্রেকিং সমর্থন না দেওয়ার জন্য খালি রাখুন, দেখুন: "
+"[kbd]pma_tracking[/kbd]।"
 
 #: libraries/config/messages.inc.php:695
 msgid "SQL query tracking table"
@@ -6658,7 +6501,6 @@ msgid "Automatically create versions"
 msgstr "স্বয়ংক্রীয়ভাবে সংস্করন তৈরী কর"
 
 #: libraries/config/messages.inc.php:702
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6667,7 +6509,7 @@ msgid ""
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
-"দেখুন:[kbd]pma_userconfig[/kbd]"
+"দেখুন:[kbd]pma_userconfig[/kbd]।"
 
 #: libraries/config/messages.inc.php:703
 msgid "User preferences storage table"
@@ -6681,7 +6523,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:705
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
 msgstr "টেবল ব্যবহার"
@@ -6694,13 +6535,11 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:707
-#, fuzzy
 #| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "হোষ্ট টেবল ব্যবহার কর"
+msgstr "ব্যাবহারকারীর দলের টেবল"
 
 #: libraries/config/messages.inc.php:708
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no user preferences storage in database, suggested: "
 #| "[kbd]pma__userconfig[/kbd]"
@@ -6709,7 +6548,7 @@ msgid ""
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
 "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
-"দেখুন:[kbd]pma_userconfig[/kbd]"
+"দেখুন:[kbd]pma_userconfig[/kbd]।"
 
 #: libraries/config/messages.inc.php:709
 msgid "Hidden navigation items table"
@@ -6742,7 +6581,6 @@ msgid "Allow to display all the rows"
 msgstr "সবগুলো রো প্রর্দশন করার অনুমতি"
 
 #: libraries/config/messages.inc.php:716
-#, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
 #| "authentication mode because the password is hard coded in the "
@@ -6754,8 +6592,8 @@ msgid ""
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
 "মনে রাখবেন [kbd]config[/kbd] প্রমাণীকরণ এর সাথে এটা কার্যকর করলে কাজ করবে না "
-"কারন পাসওয়ার্ডটি কনফিগারেশন ফাইলে লেখা আছে; এটা একই কমান্ড সরাসরি কার্যকর করার "
-"ক্ষমতা খর্ব করে না"
+"কারন পাসওয়ার্ডটি কনফিগারেশন ফাইলে লেখা আছে; এটা একই কমান্ড সরাসরি কার্যকর "
+"করার ক্ষমতা খর্ব করে না।"
 
 #: libraries/config/messages.inc.php:717
 msgid "Show password change form"
@@ -6766,96 +6604,88 @@ msgid "Show create database form"
 msgstr "ডাটাবেইজ তৈরীর ফর্ম দেখাও"
 
 #: libraries/config/messages.inc.php:719
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Creation timestamp for all tables"
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
-msgstr "সব টেবলের প্রস্তুত সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে"
+msgstr "সব টেবলের প্রস্তুত সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে।"
 
 #: libraries/config/messages.inc.php:720
 msgid "Show Creation timestamp"
 msgstr "প্রস্তুতের সময় দেখাও"
 
 #: libraries/config/messages.inc.php:721
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last update timestamp for all tables"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
-msgstr "সব টেবলের আপডেট সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে"
+msgstr "সব টেবলের আপডেট সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে।"
 
 #: libraries/config/messages.inc.php:722
 msgid "Show Last update timestamp"
 msgstr "সর্বশেষ আপডেটের সময় দেখাও"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
 #| msgid ""
 #| "Show or hide a column displaying the Last check timestamp for all tables"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
-msgstr "সব টেবলের সর্বশেষ পরীক্ষার সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে"
+msgstr "সব টেবলের সর্বশেষ পরীক্ষার সময় প্রর্দশনের স্তম্ভ দেখাবে বা লুকাবে।"
 
 #: libraries/config/messages.inc.php:724
 msgid "Show Last check timestamp"
 msgstr "সর্বশেষ পরীক্ষার সময় দেখাও"
 
 #: libraries/config/messages.inc.php:725
-#, fuzzy
 #| msgid ""
 #| "Defines whether or not type display direction option is shown when "
 #| "browsing a table"
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table."
-msgstr "যখন কোন টেবল দেখা হবে তখন টাইপ অপশন দেখাবে কিনা তা নির্ধারন করুন"
+msgstr "যখন কোন টেবল দেখা হবে তখন টাইপ অপশন দেখাবে কিনা তা নির্ধারন করুন।"
 
 #: libraries/config/messages.inc.php:726
-#, fuzzy
 msgid "Show display direction"
 msgstr "প্রদর্শনের দিক দেখাও"
 
 #: libraries/config/messages.inc.php:727
-#, fuzzy
 #| msgid ""
 #| "Defines whether or not type fields should be initially displayed in edit/"
 #| "insert mode"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
-msgstr "সম্পাদনা/ইনর্সাটের সময় টাইপ ফিল্ড দেখাবে কিনা তা নির্ধারন করুন"
+msgstr "সম্পাদনা/ইনর্সাটের সময় টাইপ ফিল্ড দেখাবে কিনা তা নির্ধারন করুন।"
 
 #: libraries/config/messages.inc.php:728
 msgid "Show field types"
 msgstr "ক্ষেত্রের ধরন দেখাও"
 
 #: libraries/config/messages.inc.php:729
-#, fuzzy
 #| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
-msgstr "ফাংশন ক্ষেত্রটি সম্পাদনা/ইনর্সাট অবস্থায় দেখাবে"
+msgstr "ফাংশন ক্ষেত্রটি সম্পাদনা/ইনর্সাট অবস্থায় দেখাবে।"
 
 #: libraries/config/messages.inc.php:730
 msgid "Show function fields"
 msgstr "ফাংশন ক্ষেত্র দেখাও"
 
 #: libraries/config/messages.inc.php:731
-#, fuzzy
 #| msgid "Whether to show hint or not"
 msgid "Whether to show hint or not."
-msgstr "আভাস দেখাবে অথবা না"
+msgstr "আভাস দেখাবে অথবা না।"
 
 #: libraries/config/messages.inc.php:732
 msgid "Show hint"
 msgstr "আভাস দেখাও"
 
 #: libraries/config/messages.inc.php:733
-#, fuzzy
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"  http://php.net/manual/function.phpinfo.php]phpinfo()[/a] আউটপুট সংযোগ দেখাও"
+"  http://php.net/manual/function.phpinfo.php]phpinfo()[/a] আউটপুট সংযোগ "
+"দেখাও।"
 
 #: libraries/config/messages.inc.php:734
 msgid "Show phpinfo() link"
@@ -6866,56 +6696,54 @@ msgid "Show detailed MySQL server information"
 msgstr "MySQL সার্ভরের বিশদ তথ্য দেখাও"
 
 #: libraries/config/messages.inc.php:736
-#, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
-msgstr "নিধার্রণ করুন phpMyAdmin দ্বারা প্রস্তুতকৃত SQL অনুসন্ধান প্রদর্শন করবে কিনা"
+msgstr ""
+"নিধার্রণ করুন phpMyAdmin দ্বারা প্রস্তুতকৃত SQL অনুসন্ধান প্রদর্শন করবে "
+"কিনা।"
 
 #: libraries/config/messages.inc.php:737
 msgid "Show SQL queries"
 msgstr "SQL অনুসন্ধান দেখাও"
 
 #: libraries/config/messages.inc.php:738
-#, fuzzy
 #| msgid ""
 #| "Defines whether the query box should stay on-screen after its submission"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
-msgstr "পেশ করার পর অনুসন্ধান বক্সটি পর্দায় থাকবে কিনা"
+msgstr "পেশ করার পর অনুসন্ধান বক্সটি পর্দায় থাকবে কিনা।"
 
 #: libraries/config/messages.inc.php:739 libraries/sql_query_form.lib.php:370
 msgid "Retain query box"
 msgstr "অনুসন্ধান বক্সটি রাখ"
 
 #: libraries/config/messages.inc.php:740
-#, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (eg. space usage)."
-msgstr "ডাটাবেইজ এবং টেবলের পরিসংখ্যান দেখাও (জায়গা ব্যবহৃত হবে)"
+msgstr "ডাটাবেইজ এবং টেবলের পরিসংখ্যান দেখাও (জায়গা ব্যবহৃত হবে)।"
 
 #: libraries/config/messages.inc.php:741
 msgid "Show statistics"
 msgstr "পরিসংখ্যান দেখাও"
 
 #: libraries/config/messages.inc.php:742
-#, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
-msgstr "ব্যবহৃত টেবল চিহ্নিত কর এবং লক্ড টেবল সহ ডাটাবেইজগুলো দেখাবার ব্যবস্থা কর"
+msgstr ""
+"ব্যবহৃত টেবল চিহ্নিত কর এবং লক্ড টেবল সহ ডাটাবেইজগুলো দেখাবার ব্যবস্থা কর।"
 
 #: libraries/config/messages.inc.php:743
 msgid "Skip locked tables"
 msgstr "লকড টেবল এড়িয়ে যাও"
 
 #: libraries/config/messages.inc.php:748
-#, fuzzy
 #| msgid "Requires SQL Validator to be enabled"
 msgid "Requires SQL Validator to be enabled."
-msgstr "SQL বৈধকরণ কার্যকর করা প্রয়োজন"
+msgstr "SQL বৈধকরণ কার্যকর করা প্রয়োজন।"
 
 #: libraries/config/messages.inc.php:750 libraries/replication_gui.lib.php:400
 #: libraries/replication_gui.lib.php:837 libraries/replication_gui.lib.php:853
@@ -6926,7 +6754,6 @@ msgid "Password"
 msgstr "পাসওর্য়াড"
 
 #: libraries/config/messages.inc.php:751
-#, fuzzy
 #| msgid ""
 #| "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 #| "installed"
@@ -6934,21 +6761,20 @@ msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed."
 msgstr ""
-"[strong]সতর্কবাণী:[/strong]PHP SOAP সংযোজক বা PEAR SOAP ইনষ্টলড থাকতে হবে"
+"[strong]সতর্কবাণী:[/strong]PHP SOAP সংযোজক বা PEAR SOAP ইনষ্টলড থাকতে হবে।"
 
 #: libraries/config/messages.inc.php:752
 msgid "Enable SQL Validator"
 msgstr "SQL বৈধকরণ কার্যকর"
 
 #: libraries/config/messages.inc.php:753
-#, fuzzy
 #| msgid ""
 #| "If you have a custom username, specify it here (defaults to "
 #| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
-msgstr "আপনার যদি একটি নাম থাকে তবে এখানে দেন (স্বাভাবিক [kbd]anonymous[/kbd])"
+msgstr "আপনার যদি একটি নাম থাকে তবে এখানে দেন (স্বাভাবিক [kbd]anonymous[/kbd])।"
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -6956,17 +6782,15 @@ msgid "Username"
 msgstr "ব্যাবহারকারীর নাম"
 
 #: libraries/config/messages.inc.php:755
-#, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
-msgstr "যদি Suhosin পাওয়া যায় তবে একটি সর্তক বার্তা প্রদর্শন করবে"
+msgstr "যদি Suhosin পাওয়া যায় তবে একটি সর্তক বার্তা প্রদর্শন করবে।"
 
 #: libraries/config/messages.inc.php:756
 msgid "Suhosin warning"
 msgstr "Suhosin সতর্কবার্তা"
 
 #: libraries/config/messages.inc.php:757
-#, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
 #| "SQL query textareas (*2) and for query window (*1.25)"
@@ -6974,15 +6798,14 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
-"সম্পাদনার সময় টেক্সটএরিয়া আকৃতি (স্তম্ভ) এই মানটি SQL অনুসন্ধানের টেক্সটএরিয়া (*২) "
-"এবং অনুসন্ধান উইন্ডো (*১.২৫) প্রভাব ফেলবে।"
+"সম্পাদনার সময়, টেক্সটএরিয়া (স্তম্ভ) আকৃতি  এই মানটি SQL অনুসন্ধানের "
+"টেক্সটএরিয়া (*২) এবং অনুসন্ধান উইন্ডো (*১.২৫) প্রভাব ফেলবে।"
 
 #: libraries/config/messages.inc.php:758
 msgid "Textarea columns"
 msgstr "টেক্সএরিয়া স্তম্ভ"
 
 #: libraries/config/messages.inc.php:759
-#, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 #| "query textareas (*2) and for query window (*1.25)"
@@ -6990,43 +6813,38 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
 msgstr ""
-"সম্পাদনের সময় টেক্সটএরিয়ার আকৃতি (রো) এই মানটি SQL অনুসন্ধানের টেক্সটএরিয়া (*২) "
-"এবং অনুসন্ধান উইন্ডো (*১.২৫) প্রভাব ফেলবে।"
+"সম্পাদনের সময়, টেক্সটএরিয়ার আকৃতি (রো) এই মানটি SQL অনুসন্ধানের টেক্সটএরিয়া "
+"(*২) এবং অনুসন্ধান উইন্ডো (*১.২৫) প্রভাব ফেলবে।"
 
 #: libraries/config/messages.inc.php:760
 msgid "Textarea rows"
 msgstr "টেক্সটএরিয়ার রোসমূহ"
 
 #: libraries/config/messages.inc.php:761
-#, fuzzy
 #| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
-msgstr "একটি ডাটাবেইজ নিবার্চন করা হলে ব্রাউজার উইন্ডোর শিরোনাম"
+msgstr "একটি ডাটাবেইজ নিবার্চন করা হলে ব্রাউজার উইন্ডোর শিরোনাম।"
 
 #: libraries/config/messages.inc.php:763
-#, fuzzy
 #| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
-msgstr "কিছু নির্বাচিত না থাকলে ব্রাউজার উইন্ডোর শিরোনাম"
+msgstr "কিছু নির্বাচিত না থাকলে ব্রাউজার উইন্ডোর শিরোনাম।"
 
 #: libraries/config/messages.inc.php:764
 msgid "Default title"
 msgstr "স্বাভাবিক শিরোনাম"
 
 #: libraries/config/messages.inc.php:765
-#, fuzzy
 #| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
-msgstr "একটি সার্ভার নিবার্চন করা হলে ব্রাউজারের শিরোনাম"
+msgstr "একটি সার্ভার নিবার্চন করা হলে ব্রাউজারের শিরোনাম।"
 
 #: libraries/config/messages.inc.php:767
-#, fuzzy
 #| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
-msgstr "একটি টেবল নির্বাচন করা হবে ব্রাউজার উইন্ডোর শিরোনাম"
+msgstr "একটি টেবল নির্বাচন করা হবে ব্রাউজার উইন্ডোর শিরোনাম।"
 
 #: libraries/config/messages.inc.php:769
-#, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
 #| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
@@ -7038,36 +6856,33 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"প্রক্সি দিন [kbd]IP: trusted HTTP header[/kbd]। উদাহরণটি দেখাচ্ছে যে phpMyAdmin "
-"1.2.3.4:[br][kbd]1.2.3.4:HTTP_X_FORWARDED_FOR[/kbd] থেকে আসা শিরোনামে "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) বিশ্বাস করবে"
+"প্রক্সি দিন [kbd]IP: trusted HTTP header[/kbd]। উদাহরণটি দেখাচ্ছে যে "
+"phpMyAdmin 1.2.3.4:[br][kbd]1.2.3.4:HTTP_X_FORWARDED_FOR[/kbd] থেকে আসা "
+"শিরোনামে HTTP_X_FORWARDED_FOR (X-Forwarded-For) বিশ্বাস করবে।"
 
 #: libraries/config/messages.inc.php:770
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "বিশ্বস্ত প্রক্সির তালিকা IP allow/deny এর জন্য"
 
 #: libraries/config/messages.inc.php:771
-#, fuzzy
 #| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
-msgstr "সার্ভরের আপলোড ডিরেক্টরি যেখানে আমদানির ফাইল রাখা যাবে"
+msgstr "সার্ভরের আপলোড ডিরেক্টরি যেখানে আমদানির ফাইল রাখা যাবে।"
 
 #: libraries/config/messages.inc.php:772
 msgid "Upload directory"
 msgstr "আপলোড ডিরেক্টরি"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 #| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
-msgstr "সমস্ত ডাটাবেইজের ভিতর খোঁজার অনুমতি"
+msgstr "সমস্ত ডাটাবেইজের ভিতর খোঁজার অনুমতি।"
 
 #: libraries/config/messages.inc.php:774
 msgid "Use database search"
 msgstr "ডাটাবেইজে খুঁজার ব্যবহার কর"
 
 #: libraries/config/messages.inc.php:775
-#, fuzzy
 #| msgid ""
 #| "When disabled, users cannot set any of the options below, regardless of "
 #| "the checkbox on the right"
@@ -7076,7 +6891,7 @@ msgid ""
 "checkbox on the right."
 msgstr ""
 "যদি অকার্যকর থাবে, ব্যবহারকারী নীচের কোন অপশন সেট করতে পারেব না, ডান দিকের "
-"চেকবক্স পর্যন্ত"
+"চেকবক্স পর্যন্ত।"
 
 #: libraries/config/messages.inc.php:776
 msgid "Enable the Developer tab in settings"
@@ -7087,10 +6902,9 @@ msgid "Check for latest version"
 msgstr "সর্বশেষ সংস্করনের জন্য খুঁজে দেখ"
 
 #: libraries/config/messages.inc.php:778
-#, fuzzy
 #| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "নতুন কোন সংস্করন আছে কিনা তা phpMyAdmin page এ পরীক্ষা করে দেখবে"
+msgstr "নতুন কোন সংস্করন আছে কিনা তা phpMyAdmin page এ পরীক্ষা করে দেখবে।"
 
 #: libraries/config/messages.inc.php:779 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
@@ -7119,7 +6933,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:783
-#, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
 msgstr "ব্যাবহারকারীর নাম"
@@ -7129,13 +6942,11 @@ msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:785
-#, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "পাসওর্য়াড"
 
 #: libraries/config/messages.inc.php:787
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
 #| "compression for import and export operations"
@@ -7144,7 +6955,7 @@ msgid ""
 "for import and export operations."
 msgstr ""
 "জিপ [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a]  সংকোচন আমদানি "
-"রফতানীর জন্য কার্যকর কর"
+"রফতানীর জন্য কার্যকর কর।"
 
 #: libraries/config/messages.inc.php:788
 msgid "ZIP"
@@ -7171,10 +6982,9 @@ msgid "Choose the default action when sending error reports."
 msgstr ""
 
 #: libraries/config/messages.inc.php:795
-#, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
-msgstr "সার্ভারের পোর্ট"
+msgstr "ভুল সর্ম্পকিত প্রতিবেদন দাখিল কর"
 
 #: libraries/config/setup.forms.php:40
 msgid "Config authentication"
@@ -7282,10 +7092,9 @@ msgstr "পাসওর্য়াড:"
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1473
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Re-type"
+msgstr "আবার দিন:"
 
 #: libraries/display_change_password.lib.php:80
 #, fuzzy
@@ -7306,10 +7115,9 @@ msgid "Create"
 msgstr "তৈরী"
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database:"
-msgstr "নতুন ডাটাবেজ় তৈরী কর"
+msgstr "ডাটাবেজ় তৈরী কর:"
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3834 server_privileges.php:130
@@ -7585,7 +7393,6 @@ msgid "%s of %s"
 msgstr "%s এর %s"
 
 #: libraries/display_import.lib.php:456
-#, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "আমদানির জন্য ফাইল আপলোড করছি…"
@@ -7963,10 +7770,9 @@ msgid "Please explain the steps that lead to the error:"
 msgstr ""
 
 #: libraries/error_report.lib.php:293
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
-msgstr "স্বয়ংক্রীয়ভাবে সংস্করন তৈরী কর"
+msgstr "পরবর্তী সময়ে স্বয়ংক্রীয়ভাবে প্রতিবেদন পাঠাবে"
 
 #: libraries/export.lib.php:113 libraries/export.lib.php:144
 #: libraries/export.lib.php:364
@@ -8075,10 +7881,9 @@ msgid "Binary - do not edit"
 msgstr "Binary - সম্পাদন করবেন না"
 
 #: libraries/insert_edit.lib.php:1228 libraries/sql_query_form.lib.php:491
-#, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "web server upload directory"
+msgstr "ওয়েব সার্ভারের আপলোড ডিরেক্টরি:"
 
 #: libraries/insert_edit.lib.php:1445
 #, php-format
@@ -8149,16 +7954,14 @@ msgid "No change"
 msgstr "পরিবর্তন নয়"
 
 #: libraries/mult_submits.lib.php:331
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table prefix:"
-msgstr "টেবিল উপসর্গ প্রতিস্থাপন"
+msgstr "টেবিল পুর্বপদ প্রতিস্থাপন:"
 
 #: libraries/mult_submits.lib.php:333
-#, fuzzy
 #| msgid "Copy table with prefix"
 msgid "Copy table with prefix:"
-msgstr "উপসর্গ সহ টেবিলটি অনুলিপি করুন"
+msgstr "পুর্বপদ সহ টেবিলটি অনুলিপি করুন:"
 
 #: libraries/mult_submits.lib.php:338
 msgid "From"
@@ -8174,10 +7977,9 @@ msgid "Submit"
 msgstr "জমা"
 
 #: libraries/mult_submits.lib.php:373
-#, fuzzy
 #| msgid "Replace table prefix"
 msgid "Add table prefix:"
-msgstr "টেবিল উপসর্গ প্রতিস্থাপন"
+msgstr "টেবিলের পুর্বপদ দিন:"
 
 #: libraries/mult_submits.lib.php:376
 msgid "Add prefix"
@@ -8375,40 +8177,34 @@ msgid "unknown"
 msgstr "অজানা"
 
 #: libraries/navigation/Navigation.class.php:59
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "চলাচলের ট্রি লোডকরার সময় একটি ভুল হয়েছে"
 
 #: libraries/navigation/Navigation.class.php:170
-#, fuzzy
 #| msgid "Events"
 msgid "Events:"
-msgstr "ইভেন্টসমূহ"
+msgstr "ইভেন্টসমূহ:"
 
 #: libraries/navigation/Navigation.class.php:171
-#, fuzzy
 #| msgid "Functions"
 msgid "Functions:"
-msgstr "ফাংশনসমূহ"
+msgstr "ফাংশনসমূহ:"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedures:"
-msgstr "প্রোসিডিউরস"
+msgstr "প্রোসিডিউরস:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "টেবল"
+msgstr "টেবলসমুহ:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "ভিউসমূহ"
+msgstr "ভিউসমূহ:"
 
 #: libraries/navigation/NavigationHeader.class.php:193
 msgid "Home"
@@ -8423,10 +8219,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin সহায়িকা"
 
 #: libraries/navigation/NavigationHeader.class.php:253
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "চলাচল ফ্রেম রিলোড"
+msgstr "চলাচল প্যানেল রিলোড"
 
 #: libraries/navigation/NavigationTree.class.php:731
 #, php-format
@@ -8440,23 +8235,20 @@ msgid "Expand/Collapse"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1056
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
-msgstr "নাম অনুযায়ী ডাটাবেইজ ফিল্টার"
+msgstr "নাম বা regex অনুযায়ী ডাটাবেইজ ফিল্টার"
 
 #: libraries/navigation/NavigationTree.class.php:1058
 #: libraries/navigation/NavigationTree.class.php:1092
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "দ্রুত ফিল্টারটি সরাও"
 
 #: libraries/navigation/NavigationTree.class.php:1091
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
-msgstr "নাম অনুযায়ী দেখাও"
+msgstr "নাম বা regex অনুযায়ী ফিল্টার"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -8481,19 +8273,16 @@ msgid "New"
 msgstr "নতুন"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "ডাটাবেইজ রফতানী অপশন"
+msgstr "ডাটাবেইজ কার্যক্রম"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "আভাস দেখাও"
+msgstr "গোপন জিনিস দেখাও"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:33
-#, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
 msgctxt "Create new database"
@@ -8531,10 +8320,9 @@ msgid "New"
 msgstr "নতুন"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
-msgstr "প্রোসিডিউরস"
+msgstr "প্রোসিডিউর"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
@@ -8571,10 +8359,9 @@ msgid "New"
 msgstr "নতুন"
 
 #: libraries/operations.lib.php:75
-#, fuzzy
 #| msgid "Rename database to"
 msgid "Rename database to:"
-msgstr "ডাটাবেজ পুনঃনামকরন"
+msgstr "ডাটাবেজ পুনঃনামকরন:"
 
 #: libraries/operations.lib.php:107
 #, php-format
@@ -8605,10 +8392,9 @@ msgid "Data only"
 msgstr "শুধুমাত্র তথ্য"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "ডাটাবেজ কপি করঃ"
+msgstr "ডাটাবেজ কপি কর:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -8807,9 +8593,8 @@ msgid "Username:"
 msgstr "নাম:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:231
-#, fuzzy
 msgid "Server Choice:"
-msgstr "Server Choice"
+msgstr "পছন্দের সার্ভার:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:408
 msgid "Entered captcha is wrong, try again!"
@@ -8951,9 +8736,8 @@ msgstr "ভিউ এর গঠন"
 #: libraries/plugins/export/ExportOdt.class.php:679
 #: libraries/plugins/export/ExportSql.class.php:1709
 #: libraries/plugins/export/ExportTexytext.class.php:520
-#, fuzzy
 msgid "Stand-in structure for view"
-msgstr "গঠন দেখর জন্য"
+msgstr "দর্শনের বর্তমান গঠন"
 
 #: libraries/plugins/export/ExportLatex.class.php:43
 msgid "Content of table @TABLE@"
@@ -8975,24 +8759,21 @@ msgstr "অবজেক্ট তৈরীর অপশন"
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Table caption"
+msgstr "টেবলের শিরোনাম:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued):"
-msgstr "Table caption"
+msgstr "টেবলের শিরোনাম (চলমান):"
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Label key"
+msgstr "লেবেল কি:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -9012,59 +8793,52 @@ msgid "Display MIME types"
 msgstr "MIME ধরন দেখাও"
 
 #: libraries/plugins/export/ExportLatex.class.php:162
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Put fields names in the first row"
+msgstr "প্রথম সারিতে স্তম্ভের নাম রাখ:"
 
 #: libraries/plugins/export/ExportLatex.class.php:218
 #: libraries/plugins/export/ExportSql.class.php:648
 #: libraries/plugins/export/ExportXml.class.php:191
 #: libraries/replication_gui.lib.php:406 libraries/replication_gui.lib.php:677
 #: libraries/server_privileges.lib.php:1324 libraries/sql.lib.php:422
-#, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "হোষ্ট"
+msgstr "হোষ্ট:"
 
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:655
 #: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
-#, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "তৈরী করার জন্য সময়"
+msgstr "তৈরী করতে ব্যবহৃত সময়:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:661
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "PHP Version"
+msgstr "পিএইছপির সংস্করন:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:811
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:424
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "ডাটাবেজ"
+msgstr "ডাটাবেইজ:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
 #: libraries/plugins/export/ExportSql.class.php:1756
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "ডাটা"
+msgstr "ডাটা:"
 
 #: libraries/plugins/export/ExportLatex.class.php:487
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "Structure"
+msgstr "গঠন:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
 msgid "Export table names"
@@ -9216,28 +8990,24 @@ msgid "Constraints for table"
 msgstr "টেবলের সীমবদ্ধতা"
 
 #: libraries/plugins/export/ExportSql.class.php:1277
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "স্তুপকৃত টেবলের সীমবদ্ধতা"
+msgstr "স্তুপকৃত টেবলের ইনডেক্স"
 
 #: libraries/plugins/export/ExportSql.class.php:1287
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "টেবিলের ভিতরে:"
+msgstr "টেবিলের ইনডেক্সসমুহ"
 
 #: libraries/plugins/export/ExportSql.class.php:1313
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "শুন্য মানের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT) ব্যবহার করবে না"
+msgstr "স্তুপকৃত টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)"
 
 #: libraries/plugins/export/ExportSql.class.php:1323
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "AUTO_INCREMENT যোগ কর"
+msgstr "টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)"
 
 #: libraries/plugins/export/ExportSql.class.php:1537
 msgid "MIME TYPES FOR TABLE"
@@ -9248,10 +9018,10 @@ msgid "RELATIONS FOR TABLE"
 msgstr "টেবিলের সর্ম্পক"
 
 #: libraries/plugins/export/ExportSql.class.php:1691
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
-msgstr "ভিউ এর গঠন"
+msgstr "ভিউ এর গঠন %s টেবলে রফতানী করা হয়েছে"
 
 #: libraries/plugins/export/ExportSql.class.php:1779
 msgid "Error reading data:"
@@ -9266,10 +9036,9 @@ msgid "Export contents"
 msgstr "তথ্য রফতানী কর"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "টেবিল"
+msgstr "টেবিল:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -9411,7 +9180,6 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "ys a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as matted "
 #| "e. The first option is the offset (in hours) which will be ed to the "
@@ -9430,12 +9198,12 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"TIME, TIMESTAMP, DATETIME অথবা সংখ্যার  unix সময়কাল স্তম্ভ গঠিত তারিখ হিসাবে "
-"প্রদর্শন কর। প্রথম অপশনটি হল অফসেট যা সময়ের সংগে যুক্ত হবে (স্বাভাবিক:০)। দ্বিতীয় "
-"অপশনটি ভিন্ন তারিখ/সময়ের গঠন। তৃতীয়টি নির্ধারন করে আপনি স্থানীয় সময় না UTC দেখতে "
-"চান (\"local\" or \"utc\" ব্যাবহার করেন)তার জন্য। সেই অনুযায়ী, সময়ের গঠনের "
-"বিভিন্ন মান হয় -\"local\" এর জন্য পিএইচপির strftime() ফাংশনের সহায়িকা দেখুন এবং "
-"\"utc\" হয় gmdate() ফাংশন ব্যাবহার করে।"
+"TIME, TIMESTAMP, DATETIME অথবা সংখ্যার  unix সময়কাল গঠিত তারিখ স্তম্ভ হিসাবে "
+"প্রদর্শন কর। প্রথম অপশনটি হল অফসেট যা সময়ের সংগে যুক্ত হবে (স্বাভাবিক:০)। "
+"দ্বিতীয় অপশনটি ভিন্ন তারিখ/সময়ের গঠন। তৃতীয়টি নির্ধারন করে আপনি স্থানীয় সময় "
+"না UTC দেখতে চান (\"local\" or \"utc\" ব্যাবহার করেন)তার জন্য। সেই অনুযায়ী, "
+"সময়ের গঠনের বিভিন্ন মান হয় -\"local\" এর জন্য পিএইচপির strftime() ফাংশনের "
+"সহায়িকা দেখুন এবং \"utc\" হয় gmdate() ফাংশন ব্যাবহার করে।"
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -9506,7 +9274,6 @@ msgstr ""
 "একটি (IPv4) ইন্টারনেট নেটওর্য়াক ঠিকানা ইন্টারনেট উপযোগী দশমিক গঠনে রুপান্তর করবে।"
 
 #: libraries/plugins/transformations/abstract/PreApPendTransformationsPlugin.class.php:32
-#, fuzzy
 #| msgid ""
 #| "Appends text to a string. The only option is the text to be appended "
 #| "(enclosed in single quotes, default empty string)."
@@ -9515,8 +9282,8 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
-"একটি স্ট্রিং এ লেখা যোগ কর। একমাত্র অপশনটি হল যুক্ত হওয়ার লেখাটি (একটি কৌওট দ্বারা "
-"সীমিত হবে, স্বাভাবিক হলো শুন্য স্থান)"
+"একটি স্ট্রিং এ লেখা যোগ কর। একমাত্র অপশনটি হল যুক্ত হওয়ার লেখাটি (একটি কৌওট "
+"দ্বারা সীমিত হবে, স্বাভাবিক হলো শুন্য স্থান)।"
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
@@ -9615,16 +9382,14 @@ msgid "User preferences"
 msgstr "ব্যবহারকারীর পছন্দ (preferences)"
 
 #: libraries/relation.lib.php:268
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Configurable menus"
-msgstr "কনফিগারেশন ফাইল"
+msgstr "কনফিগার করারমত মেনু"
 
 #: libraries/relation.lib.php:279
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "চলাচল ফ্রেম রিলোড"
+msgstr "চলাচল ফ্রেম লুকাও/দেখাও"
 
 #: libraries/relation.lib.php:285
 msgid "Quick steps to setup advanced features:"
@@ -9797,10 +9562,10 @@ msgid "Skip current error"
 msgstr "বর্তমান ভুলটি এড়িয়ে যাও"
 
 #: libraries/replication_gui.lib.php:292
-#, fuzzy, php-format
+#, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "বর্তমান ভুলটি এড়িয়ে যাও"
+msgstr "পরবর্তী %s টি ভুল এড়িয়ে যাও।"
 
 #: libraries/replication_gui.lib.php:319
 #, php-format
@@ -9829,10 +9594,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:383 libraries/replication_gui.lib.php:767
 #: libraries/server_privileges.lib.php:1264
-#, fuzzy
 #| msgid "User name"
 msgid "User name:"
-msgstr "ব্যাভারকারীর নাম"
+msgstr "ব্যাবহারকারীর নাম:"
 
 #: libraries/replication_gui.lib.php:389 libraries/replication_gui.lib.php:771
 #: libraries/replication_gui.lib.php:787
@@ -9842,9 +9606,8 @@ msgid "User name"
 msgstr "ব্যবহারকারীর নাম"
 
 #: libraries/replication_gui.lib.php:418
-#, fuzzy
 msgid "Port:"
-msgstr "সাজাঁন"
+msgstr "পোর্ট:"
 
 #: libraries/replication_gui.lib.php:502
 msgid "Master status"
@@ -9905,10 +9668,9 @@ msgstr "যে কোন ব্যবহারকারী"
 #: libraries/replication_gui.lib.php:849
 #: libraries/server_privileges.lib.php:1418
 #: libraries/server_privileges.lib.php:2823
-#, fuzzy
 #| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Use text field"
+msgstr "আক্ষরিক ক্ষেত্র ব্যবহার কর:"
 
 #: libraries/replication_gui.lib.php:810
 #: libraries/server_privileges.lib.php:1409
@@ -9930,53 +9692,45 @@ msgid "Re-type"
 msgstr "পুনরায় লিখুন"
 
 #: libraries/replication_gui.lib.php:865
-#, fuzzy
 #| msgid "Generate Password"
 msgid "Generate Password:"
-msgstr "পাসওয়ার্ড তৈরী কর"
+msgstr "পাসওয়ার্ড তৈরী কর:"
 
 #: libraries/replication_gui.lib.php:903
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "প্রতিলিপির অবস্থা"
+msgstr "প্রতিলিপির প্রস্তুত কাজ সফলভাবে শুরু হয়েছে।"
 
 #: libraries/replication_gui.lib.php:904
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "প্রধান প্রতিলিপি"
+msgstr "প্রতিলিপি তৈরীরকাজে সমস্যা হয়েছে।"
 
 #: libraries/replication_gui.lib.php:907
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "The privileges were reloaded successfully."
+msgstr "প্রতিলিপি সফলভাবে বন্ধ হয়েছে।"
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "প্রধান প্রতিলিপি"
+msgstr "প্রতিলিপি বন্ধে সমস্যা হয়েছে।"
 
 #: libraries/replication_gui.lib.php:911
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "প্রতিলিপির অবস্থা"
+msgstr "প্রতিলিপি সফলভাবে পুনস্থাপন করা হয়েছে।"
 
 #: libraries/replication_gui.lib.php:912
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "প্রধান প্রতিলিপি"
+msgstr "প্রতিলিপি পুনস্থাপনে সমস্যা হয়েছে।"
 
 #: libraries/replication_gui.lib.php:915
 msgid "Success."
-msgstr ""
+msgstr "সফল।"
 
 #: libraries/replication_gui.lib.php:916
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "ভুল"
@@ -10038,11 +9792,10 @@ msgid "Event %1$s has been created."
 msgstr "ইভেন্ট %1$s তৈরী হয়েছে।"
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>আপনার কাজ প্রক্রিয়া করার সময় এক বা একাধীক ভুল হয়েছে:</b>"
+msgstr "আপনার কাজ প্রক্রিয়া করার সময় এক বা একাধীক ভুল হয়েছে:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -10053,10 +9806,9 @@ msgstr "ইভেন্ট সম্পাদনা"
 #: libraries/rte/rte_routines.lib.php:1322
 #: libraries/rte/rte_routines.lib.php:1545
 #: libraries/rte/rte_triggers.lib.php:236
-#, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request:"
-msgstr "Processes"
+msgstr "নির্দেশ প্রক্রিয়া করনে সমস্যা হয়েছে:"
 
 #: libraries/rte/rte_events.lib.php:423 libraries/rte/rte_routines.lib.php:946
 #: libraries/rte/rte_triggers.lib.php:353 view_create.php:177
@@ -10182,7 +9934,6 @@ msgid "Routine %1$s has been created."
 msgstr "রুটিন %1$s তৈরী করা হয়েছে।"
 
 #: libraries/rte/rte_routines.lib.php:378
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
 msgid "<b>One or more errors have occurred while processing your request:</b>"
@@ -10579,10 +10330,9 @@ msgid "Unknown language: %1$s."
 msgstr "অজ্ঞাত ভাষা: %1$s।"
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server:"
-msgstr "সার্ভার"
+msgstr "বর্তমান সার্ভার:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -10857,7 +10607,7 @@ msgstr "কিছু না"
 #: libraries/server_privileges.lib.php:2942
 #: libraries/server_user_groups.lib.php:78
 msgid "User group"
-msgstr ""
+msgstr "ব্যাবহারকারীর দল"
 
 #: libraries/server_privileges.lib.php:704
 msgid "Resource limits"
@@ -10917,7 +10667,6 @@ msgid "Global privileges"
 msgstr "সর্বময় অধিকারসমূহ"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
 msgstr "সর্বময়"
@@ -11052,10 +10801,9 @@ msgid "wildcard"
 msgstr "ওয়াইল্ডকার্ড"
 
 #: libraries/server_privileges.lib.php:2110
-#, fuzzy
 #| msgid "database-specific"
 msgid "table-specific"
-msgstr "নির্দিষ্ট ডাটবেইজে"
+msgstr "নির্দিষ্ট টেবলে"
 
 #: libraries/server_privileges.lib.php:2207
 msgid "Edit Privileges"
@@ -11066,10 +10814,9 @@ msgid "Revoke"
 msgstr "বাতিল"
 
 #: libraries/server_privileges.lib.php:2277
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "সার্ভার সম্পাদনা"
+msgstr "ব্যবহারকারী দল সম্পাদনা"
 
 #: libraries/server_privileges.lib.php:2452
 msgid "… keep the old one."
@@ -11103,20 +10850,18 @@ msgid "Column-specific privileges"
 msgstr "স্বম্ভ সম্পকির্ত অধিকার"
 
 #: libraries/server_privileges.lib.php:2819
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
-msgstr "নিচের ডাটাবেইজ এ সুবিধাসমূহ যোগ কর"
+msgstr "নিচের ডাটাবেইজ এ সুবিধাসমূহ যোগ কর:"
 
 #: libraries/server_privileges.lib.php:2846
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr "ওয়াইল্ডকার্ড % এবং _ ব্যবহারের জন্য \\ দিয়ে এস্কেপ করতে হবে।"
 
 #: libraries/server_privileges.lib.php:2864
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "নিচের টেবিল এ সুবিধাসমূহ যোগ কর"
+msgstr "নিচের টেবিল এ সুবিধাসমূহ যোগ কর:"
 
 #: libraries/server_privileges.lib.php:3108
 msgid "Remove selected users"
@@ -11169,10 +10914,9 @@ msgid "Privileges for %s"
 msgstr "%s এর অধিকারসমূহ"
 
 #: libraries/server_privileges.lib.php:3736
-#, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit Privileges:"
-msgstr "সুবিধাসমূহ সম্পাদনা কর"
+msgstr "সুবিধাসমূহ সম্পাদনা:"
 
 #: libraries/server_privileges.lib.php:3797 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -11503,22 +11247,19 @@ msgid "Questions since startup: %s"
 msgstr "আরম্ভ করার পর থেকে প্রশ্নসমূহ: %s"
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "per hour"
+msgstr "প্রতি ঘন্টায়:"
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "per minute"
+msgstr "প্রতি মিনিটে:"
 
 #: libraries/server_status_queries.lib.php:54
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "per second"
+msgstr "প্রতি সেকেন্ডে:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -12210,83 +11951,72 @@ msgstr "থ্রেডের সংখ্যা যা ঘুমন্ত ন�
 #: libraries/server_user_groups.lib.php:23
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "ব্যবহারকারী দল '%s' এর ব্যবহারকারী"
 
 #: libraries/server_user_groups.lib.php:34
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "এই ব্যবহারকারী দলের কোন ব্যাবহারকারী পাওয়া যায়নি।"
 
 #: libraries/server_user_groups.lib.php:65 libraries/server_users.lib.php:30
-#, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "ব্যবহারকারী"
+msgstr "ব্যবহারকারীর দল"
 
 #: libraries/server_user_groups.lib.php:79
-#, fuzzy
 #| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Server version"
+msgstr "সার্ভার লেভেল ট্যাব"
 
 #: libraries/server_user_groups.lib.php:80
-#, fuzzy
 #| msgid "Database server"
 msgid "Database level tabs"
-msgstr "ডাটাবেইজ সার্ভার"
+msgstr "ডাটাবেইজ লেবেল ট্যাব"
 
 #: libraries/server_user_groups.lib.php:81
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "টেবলের মন্তব্য"
+msgstr "টেবলের লেভেল ট্যাব"
 
 #: libraries/server_user_groups.lib.php:110
-#, fuzzy
 #| msgid "Views"
 msgid "View users"
-msgstr "ভিউসমূহ"
+msgstr "ব্যাবহারকারীদের দেখাও"
 
 #: libraries/server_user_groups.lib.php:147
 #: libraries/server_user_groups.lib.php:208
-#, fuzzy
 #| msgid "Add user"
 msgid "Add user group"
-msgstr "ব্যবহারকারী যোগ কর"
+msgstr "ব্যবহারকারীর দল যোগ কর"
 
 #: libraries/server_user_groups.lib.php:211
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "ব্যবহারকারীর দল সম্পাদনা কর: '%s'"
 
 #: libraries/server_user_groups.lib.php:227
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "কোন অধিকার নাই।"
+msgstr "ব্যবহারকারীর দলের মেনু নির্ধারন"
 
 #: libraries/server_user_groups.lib.php:234
-#, fuzzy
 #| msgid "Column names: "
 msgid "Group name:"
-msgstr "স্তম্ভের নাম:"
+msgstr "দলের নাম:"
 
 #: libraries/server_user_groups.lib.php:268
-#, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Server version"
+msgstr "সার্ভার লেভেল ট্যাব"
 
 #: libraries/server_user_groups.lib.php:271
-#, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "ডাটাবেইজ সার্ভার"
+msgstr "ডাটাবেইজ লেভেল ট্যাব"
 
 #: libraries/server_user_groups.lib.php:274
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "টেবলের মন্তব্য"
+msgstr "টেবলের লেবেল ট্যাব"
 
 #: libraries/server_variables.lib.php:114
 msgid "Setting variable failed"
@@ -12306,65 +12036,56 @@ msgid "SQL result"
 msgstr "SQL ফলাফল"
 
 #: libraries/sql.lib.php:428
-#, fuzzy
 #| msgid "Generate"
 msgid "Generated by:"
-msgstr "তৈরী কর"
+msgstr "তৈরী করেছে:"
 
 #: libraries/sql.lib.php:464
-#, fuzzy
 #| msgid "Data files"
 msgid "Detailed profile"
-msgstr "ডাটা ফাইলসমূহ"
+msgstr "বিশদ রূপরেখা"
 
 #: libraries/sql.lib.php:467
-#, fuzzy
 #| msgid "Other"
 msgid "Order"
-msgstr "স্থিতি উপাত্ত"
+msgstr "বিন্যাস"
 
 #: libraries/sql.lib.php:469 libraries/sql.lib.php:485
-#, fuzzy
 msgid "State"
 msgstr "অবস্থা"
 
 #: libraries/sql.lib.php:482
 msgid "Summary by state"
-msgstr ""
+msgstr "অবস্থানুযায়ী সারসংক্ষেপ"
 
 #: libraries/sql.lib.php:488
-#, fuzzy
 #| msgid "Total"
 msgid "Total Time"
-msgstr "মোট"
+msgstr "মোট সময়"
 
 #: libraries/sql.lib.php:490
-#, fuzzy
 #| msgid "Time"
 msgid "% Time"
-msgstr "সময়"
+msgstr "সময় %"
 
 #: libraries/sql.lib.php:492
-#, fuzzy
 #| msgid "Close"
 msgid "Calls"
-msgstr "বন্ধ"
+msgstr "ডাকা"
 
 #: libraries/sql.lib.php:494
-#, fuzzy
 #| msgid "Time"
 msgid "ø Time"
-msgstr "সময়"
+msgstr "সময় ø"
 
 #: libraries/sql.lib.php:762 libraries/sql.lib.php:782
 msgid "Bookmark this SQL query"
 msgstr "এই এসকিউএল অনুসন্ধানটি বুকর্মাক কর"
 
 #: libraries/sql.lib.php:766
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "লেবেল"
+msgstr "লেবেল:"
 
 #: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
@@ -12390,7 +12111,6 @@ msgid "Validated SQL"
 msgstr "এসকিউএল যাচাই"
 
 #: libraries/sql.lib.php:1913
-#, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
 #| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -12398,8 +12118,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
-"এই টেবিলে কোন অনন্য স্তম্ভ নাই। সংরক্ষনের পরে সম্পাদনা, চেকবক্স, প্রতিলিপি এবং মুছার "
-"জন্য সংযোগগুলো কাজ করবে না।"
+"এই নির্বাচনে কোন অনন্য স্তম্ভ নাই। সম্পাদনা, চেকবক্স, প্রতিলিপি এবং মুছার "
+"ব্যবস্থা কাজ করবে না।"
 
 #: libraries/sql.lib.php:1950
 #, php-format
@@ -12421,10 +12141,9 @@ msgid "Clear"
 msgstr "পরিস্কার"
 
 #: libraries/sql_query_form.lib.php:318
-#, fuzzy
 #| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "এই SQL query টি বুকমার্ক করুন"
+msgstr "এই SQL query টি বুকমার্ক করুন:"
 
 #: libraries/sql_query_form.lib.php:332
 msgid "Replace existing bookmark of same name"
@@ -12530,16 +12249,16 @@ msgstr "অনুসরণ অকার্যকর রয়েছে।"
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "ভিউ %s মুছা হয়েছে"
+msgstr "ভিউ %s মুছা হয়েছে।"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "টেবল %s মুছা হয়েছে"
+msgstr "টেবল %s মুছা হয়েছে।"
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
@@ -12794,20 +12513,18 @@ msgid "Y-Axis label:"
 msgstr "Y-অক্ষের মোড়ক:"
 
 #: libraries/tbl_chart.lib.php:234
-#, fuzzy
 #| msgid "Start"
 msgid "Start row:"
-msgstr "শনিবার"
+msgstr "শুরুর স্তম্ভ:"
 
 #: libraries/tbl_chart.lib.php:300
 msgid "Chart title"
 msgstr "চিত্রের নাম"
 
 #: libraries/tbl_columns_definition_form.lib.php:72
-#, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Storage Engine"
+msgstr "মজুদ ইঞ্জিন:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
 #, fuzzy
@@ -12817,7 +12534,7 @@ msgstr "একত্রীকরণ"
 
 #: libraries/tbl_columns_definition_form.lib.php:110
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "পাটির্শানের ব্যাখ্যা:"
 
 #: libraries/tbl_columns_definition_form.lib.php:160
 msgid "Table name"
@@ -12845,10 +12562,9 @@ msgid "Move column"
 msgstr "স্বম্ভ সরাও"
 
 #: libraries/tbl_columns_definition_form.lib.php:318
-#, fuzzy
 #| msgid "Available transformations"
 msgid "List of available transformations and their options"
-msgstr "প্রাপ্ত রুপান্তরসমূহ"
+msgstr "প্রাপপীয় রুপান্তরসমূহের তালিকা এবং উহাদের অপশন"
 
 #: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
@@ -12955,27 +12671,23 @@ msgid "Index type:"
 msgstr "ইনডেক্সের ধরণ:"
 
 #: libraries/tbl_printview.lib.php:30
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables:"
-msgstr "Show tables"
+msgstr "টেবলসমূহ দেখাচ্ছে:"
 
 #: libraries/tbl_printview.lib.php:173
-#, fuzzy
 msgid "Row Statistics:"
-msgstr "Row Statistics"
+msgstr "সারির পরসংখ্যান:"
 
 #: libraries/tbl_printview.lib.php:300
-#, fuzzy
 #| msgid "Space usage"
 msgid "Space usage:"
-msgstr "Space usage"
+msgstr "ব্যবহৃত স্থান:"
 
 #: libraries/tbl_relation.lib.php:386
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display:"
-msgstr "প্রদর্শনের জন্য ক্ষেত্র পছন্দ কর"
+msgstr "প্রদর্শনের জন্য স্তম্ভ পছন্দ কর:"
 
 #: libraries/tbl_relation.lib.php:419
 msgid "Internal relation"
@@ -13265,9 +12977,8 @@ msgid "Hide/Show Tables with no relation"
 msgstr "সম্পর্কহীন টেবল দেখাও/লুকাও"
 
 #: pmd_general.php:225
-#, fuzzy
 msgid "Number of tables:"
-msgstr "Number of fields"
+msgstr "টেবলের সংখ্যা:"
 
 #: pmd_general.php:499
 msgid "Delete relation"
@@ -13312,10 +13023,9 @@ msgid "Page creation failed"
 msgstr "পাতা তৈরী করা যায়নি"
 
 #: pmd_pdf.php:118
-#, fuzzy
 #| msgid "pages"
 msgid "Page:"
-msgstr "পাতাসমুহ"
+msgstr "পাতা:"
 
 #: pmd_pdf.php:128
 #, fuzzy
@@ -13363,7 +13073,7 @@ msgstr "FOREIGN KEY সর্ম্পক যোগ করা হয়েছে"
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
-msgstr ""
+msgstr "ভুল: সর্ম্পক তৈরী অকার্যকর করা আছে!"
 
 #: pmd_relation_new.php:104
 msgid "Internal relation added"
@@ -13459,10 +13169,9 @@ msgid "All"
 msgstr "সবগুলো"
 
 #: querywindow.php:154
-#, fuzzy
 #| msgid "SQL history"
 msgid "SQL history:"
-msgstr "SQL history"
+msgstr "SQL হিষ্টোরী:"
 
 #: schema_edit.php:37 schema_edit.php:43 schema_edit.php:49 schema_edit.php:54
 #, php-format
@@ -13505,13 +13214,14 @@ msgid "Cannot load or save configuration"
 msgstr "কনফিগারেশন লোড বা সংরক্ষন করতে পারছি না"
 
 #: setup/frames/index.inc.php:56
-#, fuzzy
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"ওয়েব সার্ভরে লেখার উপযুক্ত [em]config[/em] ফোল্ডার তৈরী করুন phpMyAdmin এর প্রধান"
+"ওয়েব সার্ভরে লেখার উপযুক্ত [em]config[/em] ফোল্ডার তৈরী করুন phpMyAdmin এর "
+"প্রধান ডিরেক্টরীতে যেভাবে [doc@setup_script]documentation[/doc] বর্ণনা করা "
+"হয়েছে। অন্যথায় আপনি শুধু ইহা ডাউনলোড বা প্রর্দশন করতে পারবেন।"
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -13762,10 +13472,9 @@ msgid "Rename view to"
 msgstr "ভিউ এর নাম পরিবর্তন কর"
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "টেবিলটি মুছ (DROP)"
+msgstr "ভিউটি মুছ (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -14086,10 +13795,10 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr "{query_cache_limit} বাড়াতে পারেন।"
 
 #: libraries/advisory_rules.txt:172
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "বর্তমান অনুসন্ধান ক্যাশ হিটের হার হল %s%% যা 20%%'র নীচে"
+msgstr "বর্তমান অনুসন্ধান ক্যাশ হিটের হার হল %s%% যা ২০%%'র নীচে"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query Cache usage"
@@ -14122,7 +13831,6 @@ msgid "Query cache fragmentation"
 msgstr "অনুসন্ধান ক্যাশ ফ্রেগম্যানটেশন"
 
 #: libraries/advisory_rules.txt:184
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
 msgstr "অনুসন্ধান ক্যাশটি অনেক বেশী ফ্র্যাগমেন্টেড।"
@@ -14148,10 +13856,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "ব্যবহৃত কুয়েরী ক্যাশে"
+msgstr "অনৃসনাধ ক্যাশে অল্প মেমোরী"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -14225,7 +13932,6 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit ১ মেবা নিধারণ করা হয়েছে"
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "সর্টের হার যা সাময়িক টেবল তৈরী করে"
@@ -14328,10 +14034,10 @@ msgstr ""
 "সর্ম্পুন ইনডেক্স স্ক্যান কমানো যেতে পারে।"
 
 #: libraries/advisory_rules.txt:245
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "ইনডেক্স স্ক্যানের গড়:%s, এই মানটি প্রতি ঘন্টায় ১এর কম হবে"
+msgstr "ইনডেক্স স্ক্যানের গড়:%s, এই মানটি প্রতি ঘন্টায় ১ এর কম হবে"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading fixed position"
@@ -14504,13 +14210,13 @@ msgstr ""
 "হয়েছে কিনা বা অনুসন্ধান পরীক্ষা করুন এবং প্রত্যাশিত ইনডেক্সগুলু ব্যবহার হচ্ছে কিনা দেখুন।"
 
 #: libraries/advisory_rules.txt:308
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"এখন পর্যন্ত সর্বোচ্চ %% MyISAM কী বাফার ব্যবহৃত হয়েছে: %s%%, এই মানাটি 95%% এর "
-"বেশী হবে"
+"এখন পর্যন্ত সর্বোচ্চ %% MyISAM কী বাফার ব্যবহৃত হয়েছে: %s%%, এই মানাটি 95%% "
+"এর বেশী হবে"
 
 #: libraries/advisory_rules.txt:311
 msgid "Percentage of MyISAM key buffer used"
@@ -14561,7 +14267,6 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "খোলা টেবলের হার:%s, এর মান প্রতি ঘন্টায় ১০ এর কম হবে"
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
 msgstr "খোলা ফাইল সীমার ব্যবহৃত হার"
@@ -14954,7 +14659,6 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
 
-#, fuzzy
 #~| msgid ""
 #~| "Leave blank for no user preferences storage in database, suggested: "
 #~| "[kbd]pma__userconfig[/kbd]"
@@ -14963,9 +14667,8 @@ msgstr "concurrent_insert এর জন্য ০ নির্ধারন ক�
 #~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
-#~ "দেখুন:[kbd]pma_userconfig[/kbd]"
+#~ "দেখুন:[kbd]pma_userconfig[/kbd]।"
 
-#, fuzzy
 #~| msgid ""
 #~| "Leave blank for no user preferences storage in database, suggested: "
 #~| "[kbd]pma__userconfig[/kbd]"
@@ -14974,7 +14677,7 @@ msgstr "concurrent_insert এর জন্য ০ নির্ধারন ক�
 #~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
-#~ "দেখুন:[kbd]pma_userconfig[/kbd]"
+#~ "দেখুন:[kbd]pma_userconfig[/kbd]।"
 
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে"
