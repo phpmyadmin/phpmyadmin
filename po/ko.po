@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-19 15:41+0200\n"
-"Last-Translator: Alfred Woo <joona0825@digutsoft.com>\n"
+"PO-Revision-Date: 2014-02-19 16:05+0200\n"
+"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -4295,7 +4295,7 @@ msgstr "인증 방식 설정에 사용자 이름이 비어있습니다."
 
 #: libraries/config/Validator.class.php:301
 msgid "Empty signon session name while using signon authentication method"
-msgstr ""
+msgstr "사인온 인증 방식의 세션 이름이 비어있습니다."
 
 #: libraries/config/Validator.class.php:310
 msgid "Empty signon URL while using signon authentication method"
@@ -4374,16 +4374,13 @@ msgid "Highlight pointer"
 msgstr "포인터 하이라이트"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations"
-msgstr ""
-"가져오기와 내보내기 작업시 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압"
-"축을 활성화합니다."
+msgstr "가져오기 작업시 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압축을 활성화합니다."
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
@@ -4455,7 +4452,6 @@ msgid "Check config file permissions"
 msgstr "설정 파일에 대한 권한을 확인"
 
 #: libraries/config/messages.inc.php:43
-#, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
 #| "if you encounter problems with created gzip/bzip2 files disable this "
@@ -4464,8 +4460,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature"
 msgstr ""
-"많은 메모리가 필요없이 즉시 'gzip/bzip2' 수출(들) 압축; 생성된 'gzip/bzip2' "
-"파일에 문제가 생기면, 기능을 비활성화 하세요."
+"많은 메모리가 필요 없이 내보내기 파일을 gzip으로 압축 할 수 있습니다; 만약 gzip 생성 중 문제가 발생하면 이 기능을 비활성화 "
+"하십시오."
 
 #: libraries/config/messages.inc.php:44
 msgid "Compress on the fly"
@@ -4611,13 +4607,13 @@ msgstr "첫 줄에 열 이름을 넣기"
 #: libraries/config/messages.inc.php:256
 #: libraries/plugins/import/ImportCsv.class.php:150
 msgid "Columns enclosed with"
-msgstr ""
+msgstr "열을 시작하는 문자"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:250
 #: libraries/config/messages.inc.php:257
 #: libraries/plugins/import/ImportCsv.class.php:157
 msgid "Columns escaped with"
-msgstr ""
+msgstr "특수 문자 구분에 사용된 문자"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:82
 #: libraries/config/messages.inc.php:89 libraries/config/messages.inc.php:98
@@ -4635,12 +4631,12 @@ msgstr "열 내의 CRLF 문자를 제거하기"
 #: libraries/config/messages.inc.php:261
 #: libraries/plugins/import/ImportCsv.class.php:135
 msgid "Columns terminated with"
-msgstr ""
+msgstr "열을 종료하는 문자"
 
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:248
 #: libraries/plugins/import/ImportCsv.class.php:164
 msgid "Lines terminated with"
-msgstr ""
+msgstr "행을 종료하는 문자"
 
 #: libraries/config/messages.inc.php:81
 msgid "Excel edition"
