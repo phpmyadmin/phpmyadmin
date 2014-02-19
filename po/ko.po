@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-19 16:09+0200\n"
-"Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
+"PO-Revision-Date: 2014-02-19 16:50+0200\n"
+"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -5181,10 +5181,11 @@ msgid "Replace table data with file"
 msgstr "파일 내용으로 테이블 데이터 대체하기"
 
 #: libraries/config/messages.inc.php:254
+#, fuzzy
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
-msgstr ""
+msgstr "기본 형식; 이 목록은 위치(데이터베이스, 테이블)에 의존하며, SQL만 이용할 수 있음을 유의하십시오."
 
 #: libraries/config/messages.inc.php:255
 msgid "Format of imported file"
@@ -5240,7 +5241,7 @@ msgstr "입력된 행 갯수"
 #: libraries/config/messages.inc.php:275
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view"
-msgstr ""
+msgstr "숫자 이외의 열이 브라우저에서 표시될 최대 문자수"
 
 #: libraries/config/messages.inc.php:276
 msgid "Limit column characters"
@@ -5312,7 +5313,7 @@ msgstr "최대한 표시될 SQL 길이"
 #: libraries/config/messages.inc.php:289 libraries/config/messages.inc.php:296
 #: libraries/config/messages.inc.php:352
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "더 높은 값을 설정 할 수 없습니다."
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of databases displayed in database list"
@@ -5337,6 +5338,8 @@ msgid ""
 "contains more rows, &quot;Previous&quot; and &quot;Next&quot; links will be "
 "shown."
 msgstr ""
+"한 화면에 표시될 결과의 최대 행수. 결과가 최대 행수를 넘어가면, &quot;이전&quot; 과 &quot;다음&quot; 링크가 "
+"표시됩니다."
 
 #: libraries/config/messages.inc.php:295
 msgid "Maximum number of rows to display"
@@ -5344,7 +5347,7 @@ msgstr "출력할 최대 행 갯수"
 
 #: libraries/config/messages.inc.php:297
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "테이블 목록에 표시될 최대 테이블수"
 
 #: libraries/config/messages.inc.php:298
 msgid "Maximum tables"
@@ -5354,7 +5357,7 @@ msgstr "최대 테이블 수"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
-msgstr ""
+msgstr "쿠키 인증에 mcrypt가 없는 경우에도 기본 경고를 표시하지 않습니다."
 
 #: libraries/config/messages.inc.php:300
 msgid "mcrypt warning"
@@ -5532,6 +5535,7 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"데이터베이스 상세 구조 페이지에서 phpMyAdmin 설정에 필요한 테이블이 존재하지 않는 경우에도 기본 경고를 표시하지 않습니다."
 
 #: libraries/config/messages.inc.php:339
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -5541,7 +5545,7 @@ msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected"
-msgstr ""
+msgstr "MySQL 라이브러리와 서버가 서로 다른 경우에도 기본 경고를 표시하지 않습니다."
 
 #: libraries/config/messages.inc.php:341
 msgid "Server/library difference warning"
@@ -5586,7 +5590,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:353
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "기록에 남길 쿼리 수"
 
 #: libraries/config/messages.inc.php:354
 msgid "Query history length"
@@ -5651,7 +5655,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:370
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "내보내기를 저장할 수 있는 서버 내의 디렉토리"
 
 #: libraries/config/messages.inc.php:371
 msgid "Save directory"
@@ -5738,7 +5742,7 @@ msgstr "연결 압축"
 
 #: libraries/config/messages.inc.php:390
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr ""
+msgstr "서버 연결 방법, 확실하지 않은 경우 [kbd]tcp[/kbd] 로 그대로 두십시오."
 
 #: libraries/config/messages.inc.php:391
 msgid "Connection type"
@@ -5776,10 +5780,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:398
-#, fuzzy
 #| msgid "Contribute"
 msgid "Control port"
-msgstr "기여"
+msgstr "제어 포트"
 
 #: libraries/config/messages.inc.php:399
 msgid ""
@@ -5800,10 +5803,9 @@ msgid "PHP extension to use"
 msgstr "사용할 PHP 확장기능"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "as regular expression"
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr "정규표현식"
+msgstr "정규 표현식으로 매칭된 데이터베이스 숨기기"
 
 #: libraries/config/messages.inc.php:404
 msgid "Hide databases"
@@ -5813,7 +5815,7 @@ msgstr "데이터베이스 숨기기"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]"
-msgstr ""
+msgstr "SQL 쿼리 기록을 지원 하지 않으려면 빈칸으로 남기십시오, 제안 [kbd]pma__history[/kbd]"
 
 #: libraries/config/messages.inc.php:406
 msgid "SQL query history table"
