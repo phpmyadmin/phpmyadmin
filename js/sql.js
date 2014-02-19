@@ -187,6 +187,8 @@ AJAX.registerOnload('sql.js', function () {
      * @memberOf    jQuery
      */
     $("#button_submit_query").live('click', function (event) {
+        $(".success,.error").hide();
+        //hide already existing error or success message
         var $form = $(this).closest("form");
         // the Go button related to query submission was clicked,
         // instead of the one related to Bookmarks, so empty the
