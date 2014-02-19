@@ -49,7 +49,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->waitForElement(
             "byXPath",
-            "//a[contains(., 'test_table')]"
+            "//*[@id='pma_navigation_tree']//a[contains(., 'test_table')]"
         )->click();
 
         $this->waitForElement("byId", "table_results");
