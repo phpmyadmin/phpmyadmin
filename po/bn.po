@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 13:58+0200\n"
+"PO-Revision-Date: 2014-02-20 07:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <http://l10n.cihar.com/projects/phpmyadmin/4-1/bn/>\n"
+"Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/4-1/bn/>\n"
 "Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -414,7 +414,7 @@ msgid ""
 "submitted based on your settings."
 msgstr ""
 "একটি ভুল পাওয়াগেছে এবং আপনার সেটিংসের উপর ভিত্তিকরে একটি প্রতিবেদন "
-"স্বয়ংক্রিয় ভাবে দাখিল করা হয়েছে। "
+"স্বয়ংক্রিয় ভাবে দাখিল করা হয়েছে।"
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
@@ -554,7 +554,7 @@ msgid "Add an inner ring"
 msgstr "একটি ভিতরের গোলক যোগ কর"
 
 #: gis_data_editor.php:327
-#, php-format
+#, fuzzy, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
 msgstr "পলিগন"
@@ -1807,7 +1807,7 @@ msgstr "অনুসন্ধান ফলাফল"
 #: js/messages.php:320
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "প্রতিটি পয়েন্টের বিষয় "
+msgstr "প্রতিটি পয়েন্টের বিষয়"
 
 #: js/messages.php:323 js/messages.php:416 libraries/insert_edit.lib.php:2612
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
@@ -3517,7 +3517,7 @@ msgid ""
 "range is 0 to 4,294,967,295"
 msgstr ""
 "একটি ৪ বাইট পুর্ণ সংখ্যা চিহ্নিতের সীমা -২,১৪৭,৪৮৩,৬৪৮ থেকে ২,১৪৭,৪৮৩,৬৪৭, "
-"অচিহ্নিতের সীমা ০ থেকে ৪,২৯৪.৯৬৭.২৯৫ "
+"অচিহ্নিতের সীমা ০ থেকে ৪,২৯৪.৯৬৭.২৯৫"
 
 #: libraries/Types.class.php:305
 msgid ""
@@ -12862,7 +12862,7 @@ msgid ""
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
 "%sLogin cookie validity%s যদি %ssession.gc_maxlifetime%s বেশী হয় random সেশন "
-"অকার্যকর হতে পারে (বর্তমানে %ssession.gc_maxlifetime%s মান হল %d)।"
+"অকার্যকর হতে পারে (বর্তমানে session.gc_maxlifetime মান হল %d)।"
 
 #: setup/lib/index.lib.php:257
 #, php-format
