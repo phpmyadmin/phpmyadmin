@@ -536,7 +536,7 @@ msgid "Add an inner ring"
 msgstr "একটি ভিতরের গোলক যোগ কর"
 
 #: gis_data_editor.php:328
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
 msgstr "পলিগন"
