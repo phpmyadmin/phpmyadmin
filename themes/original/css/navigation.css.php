@@ -165,6 +165,9 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation_tree img {
     margin: 0;
 }
+#pma_navigation_tree i {
+    display: block;
+}
 #pma_navigation_tree div.block {
     position: relative;
     width:1.5em;
