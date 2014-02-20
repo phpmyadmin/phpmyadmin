@@ -33,19 +33,24 @@ if ($cfgRelation['savedsearcheswork']) {
         ->setDbname($_REQUEST['db']);
 
     //Criterias field is filled only when clicking on "Save search".
-    if (!empty($_REQUEST['criterias'])) {
-        //var_dump($GLOBALS);
-        $saveResult = $savedSearch->setId($_REQUEST['searchId'])
-            ->setSearchName($_REQUEST['searchName'])
-            ->setCriterias($_REQUEST['criterias'])
-            ->saveSearch();
-        /*if (!$saveResult) {
-            $response->addHTML('raté');
-            exit();
-        }*/
-    /*} elseif (!empty($_REQUEST)) { //else, this is a delete.
-        $saveResult = $savedSearch->setId($_REQUEST['searchId'])
-            ->deleteSearch();*/
+    if (!empty($_REQUEST['action'])) {
+        if ('save' === $_REQUEST['action']) {
+            $saveResult = $savedSearch->setId($_REQUEST['searchId'])
+                ->setSearchName($_REQUEST['searchName'])
+                ->setCriterias($_REQUEST)
+                ->save();
+            /*if (!$saveResult) {
+                $response->addHTML('raté');
+                exit();
+            }*/
+        } elseif ('delete' === $_REQUEST['action']) {
+            $deleteResult = $savedSearch->setId($_REQUEST['searchId'])
+                ->delete();
+        } elseif ('load' === $_REQUEST['action']) {
+            $loadResult = $savedSearch->setId($_REQUEST['searchId'])
+                ->load();
+        }
+        //Else, it's an "update query"
     }
 
     $savedSearchList = $savedSearch->getList();
@@ -85,7 +90,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $currentSearchId);
+$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
 /**
  * Displays the Query by example form

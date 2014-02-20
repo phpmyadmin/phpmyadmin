@@ -130,13 +130,35 @@ class PMA_SavedSearches
     /**
      * Setter for criterias
      *
-     * @param string $criterias JSON of saved searches
+     * @param array $criterias Criterias of saved searches
      *
      * @return static
      */
     public function setCriterias($criterias)
     {
-        $this->_criterias = $criterias;
+        $aListFieldsToGet = array(
+            'criteriaColumn',
+            'criteriaSort',
+            'criteriaShow',
+            'criteria',
+            'criteriaAndOrRow',
+            'criteriaAndOrColumn'
+        );
+
+        $data = array();
+
+        $data['criteriaColumnCount'] = count($criterias['criteriaColumn']);
+        $data['criteriaColumnAdd'] = count($criterias['criteriaAndOrRow']);
+
+        foreach ($aListFieldsToGet as $field) {
+            $data[$field] = $criterias[$field];
+        }
+
+        for ($i = 0; $i < $data['criteriaColumnAdd']; $i++) {
+            $data['Or' . $i] = $criterias['Or' . $i];
+        }
+
+        $this->_criterias = json_encode($data);
         return $this;
     }
 
@@ -211,7 +233,7 @@ class PMA_SavedSearches
      *
      * @return boolean
      */
-    public function saveSearch()
+    public function save()
     {
         if (null == $this->getUsername()
             || null == $this->getDbname()
@@ -281,7 +303,7 @@ class PMA_SavedSearches
      *
      * @return boolean
      */
-    public function deleteSearch()
+    public function delete()
     {
         if (null == $this->getId()) {
             PMA_Util::mysqlDie(__('Missing information to delete the search.'));
@@ -295,6 +317,36 @@ class PMA_SavedSearches
             . "WHERE id = '" . PMA_Util::sqlAddSlashes($this->getId()) . "'";
 
         return (bool)PMA_queryAsControlUser($sqlQuery);
+    }
+
+    /**
+     * Load the current search from an id.
+     *
+     * @return bool Success
+     */
+    public function load()
+    {
+        if (null == $this->getId()) {
+            PMA_Util::mysqlDie(__('Missing information to load the search.'));
+        }
+
+        $savedSearchesTbl = PMA_Util::backquote($this->_config['cfgRelation']['db'])
+            . "."
+            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+        $sqlQuery = "SELECT id, search_name, search_data "
+            . "FROM " . $savedSearchesTbl . " "
+            . "WHERE id = '" . PMA_Util::sqlAddSlashes($this->getId()) . "' ";
+
+        $resList = PMA_queryAsControlUser($sqlQuery);
+
+        if (false === ($oneResult = $GLOBALS['dbi']->fetchArray($resList))) {
+            PMA_Util::mysqlDie(__('Error while loading the search.'));
+        }
+
+        $this->setSearchName($oneResult['search_name'])
+            ->setCriterias($oneResult['search_data']);
+
+        return true;
     }
 
     /**
@@ -325,11 +377,13 @@ class PMA_SavedSearches
             $sqlQuery .= "AND " . $where . " ";
         }
 
+        $sqlQuery .= "order by search_name ASC ";
+
         $resList = PMA_queryAsControlUser($sqlQuery);
 
         $list = array();
-        while ($one_result = $GLOBALS['dbi']->fetchArray($resList)) {
-            $list[$one_result['id']] = $one_result['search_name'];
+        while ($oneResult = $GLOBALS['dbi']->fetchArray($resList)) {
+            $list[$oneResult['id']] = $oneResult['search_name'];
         }
 
         return $list;
