@@ -212,12 +212,12 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->doubleclick();
 
         $this->assertEquals(
-            $this->byCssSelector("textarea.edit_box")->value(),
+            $this->byCssSelector("input.edit_box")->value(),
             "abcd"
         );
 
-        $this->byCssSelector("textarea.edit_box")->clear();
-        $this->byCssSelector("textarea.edit_box")->value("abcde");
+        $this->byCssSelector("input.edit_box")->clear();
+        $this->byCssSelector("input.edit_box")->value("abcde");
         $this->keys(PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
 
         $success = $this->waitForElement(

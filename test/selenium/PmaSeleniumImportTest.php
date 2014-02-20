@@ -115,6 +115,10 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
      */
     private function _doImport($type)
     {
+        /* FIXME: Need to implement file upload compatible with remote Selenium */
+        $this->markTestIncomplete(
+            'File uploading not yet implemented in Selenium test'
+        );
         $this->byLinkText("Import")->click();
         $ele = $this->waitForElement("byId", "input_import_file");
         $ele->value(

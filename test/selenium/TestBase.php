@@ -68,6 +68,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
                     'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
+                    'browserstack.debug' => True,
                     'project' => 'phpMyAdmin',
                     'build' => $build_id,
                 )
@@ -406,31 +407,23 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function typeInTextArea($text)
     {
-        $text = str_replace(
-            "(",
-            PHPUnit_Extensions_Selenium2TestCase_Keys::SHIFT
-            . PHPUnit_Extensions_Selenium2TestCase_Keys::NUMPAD9
-            . PHPUnit_Extensions_Selenium2TestCase_Keys::NULL,
-            $text
-        );
         $this->byClassName("CodeMirror-scroll")->click();
         $this->keys($text);
     }
 
     /**
-     * Moves mouse over More link if it is present
+     * Kills the More link in the menu
      *
      * @return void
      */
-    public function hoverMore()
+    public function expandMore()
     {
-        $this->timeouts()->implicitWait(10000);
         try {
             $more = $this->byCssSelector('li.submenu > a');
         } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
-        $this->moveto($more);
+        $more->click();
     }
 }
 ?>

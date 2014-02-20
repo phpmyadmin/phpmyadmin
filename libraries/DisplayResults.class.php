@@ -2376,7 +2376,8 @@ class PMA_DisplayResults
     private function _buildNullDisplay($class, $condition_field, $meta, $align = '')
     {
         // the null class is needed for grid editing
-        return '<td ' . $align . ' data-decimals="'.$meta->decimals.'" data-type="'.$meta->type.'"  class="'
+        return '<td ' . $align . ' data-decimals="' . $meta->decimals
+            . '" data-type="' . $meta->type . '"  class="'
             . $this->_addClass(
                 $class, $condition_field, $meta, ''
             )
@@ -3620,14 +3621,11 @@ class PMA_DisplayResults
             || ($type == self::DATETIME_FIELD)
         ) {
             $field_type_class = 'datetimefield';
-        }
-        else if ($type == self::DATE_FIELD) {
+        } elseif ($type == self::DATE_FIELD) {
             $field_type_class = 'datefield';
-        }
-        else if ($type == self::TIME_FIELD) {
+        } elseif ($type == self::TIME_FIELD) {
             $field_type_class = 'timefield';
-        }
-        else {
+        } else {
             $field_type_class = '';
         }
         return $field_type_class;
@@ -4992,7 +4990,9 @@ class PMA_DisplayResults
         if (!$message_view_warning) {
 
             if (isset($unlim_num_rows) && ($unlim_num_rows != $total)) {
-                $message_total = PMA_Message::notice($pre_count . __('%1$d total, %2$d in query'));
+                $message_total = PMA_Message::notice(
+                    $pre_count . __('%1$d total, %2$d in query')
+                );
                 $message_total->addParam($total);
                 $message_total->addParam($unlim_num_rows);
             } else {

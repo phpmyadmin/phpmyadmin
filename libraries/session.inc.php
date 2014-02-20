@@ -80,8 +80,8 @@ if (! isset($_COOKIE[$session_name])) {
     // on first start of session we check for errors
     // f.e. session dir cannot be accessed - session file not created
     $orig_error_count = $GLOBALS['error_handler']->countErrors();
-    $r = session_start();
-    if ($r !== true
+    $session_result = session_start();
+    if ($session_result !== true
         || $orig_error_count != $GLOBALS['error_handler']->countErrors()
     ) {
         setcookie($session_name, '', 1);
@@ -96,7 +96,7 @@ if (! isset($_COOKIE[$session_name])) {
             . 'in your browser.'
         );
     }
-    unset($orig_error_count);
+    unset($orig_error_count, $session_result);
 } else {
     session_start();
 }

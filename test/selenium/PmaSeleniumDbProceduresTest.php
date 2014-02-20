@@ -45,6 +45,10 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     {
         $this->login();
         $this->byLinkText($this->database_name)->click();
+        $this->waitForElement(
+            "byXPath", "//a[contains(., 'test_table')]"
+        );
+        $this->expandMore();
     }
 
     /**
@@ -70,7 +74,6 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
      */
     public function testAddProcedure()
     {
-        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Routines");
         $ele->click();
 
@@ -128,7 +131,6 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     public function testEditProcedure()
     {
         $this->_procedureSQL();
-        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Routines");
         $ele->click();
 
@@ -163,7 +165,6 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     public function testDropProcedure()
     {
         $this->_procedureSQL();
-        $this->hoverMore();
         $ele = $this->waitForElement("byPartialLinkText", "Routines");
         $ele->click();
 

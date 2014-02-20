@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-02 09:54+0200\n"
+"PO-Revision-Date: 2014-02-20 07:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hindi <http://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
+"Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12778,7 +12778,7 @@ msgstr "इन्डेक्स नाम"
 #: libraries/tbl_indexes.lib.php:263
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "\"PRIMARY\" नाम हो सकता है  केवल एक प्राथमिक कुंजी का"
+msgstr "\"PRIMARY\" नाम हो सकता है केवल एक प्राथमिक कुंजी का!"
 
 #: libraries/tbl_indexes.lib.php:282
 #, fuzzy

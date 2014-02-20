@@ -498,6 +498,19 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $query
         );
 
+        //type is DOUBLE
+        $type = "DOUBLE";
+        $query = PMA_Table::generateFieldSpec(
+            $name, $type, $index, $length, $attribute, $collation,
+            $null, $default_type,  $default_value, $extra, $comment,
+            $field_primary, $move_to
+        );
+        $this->assertEquals(
+            "`PMA_name` DOUBLE PMA_attribute NULL DEFAULT '12' "
+            . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
         //type is BOOLEAN
         $type = "BOOLEAN";
         $query = PMA_Table::generateFieldSpec(
