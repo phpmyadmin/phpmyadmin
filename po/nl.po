@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-12 12:01+0200\n"
+"PO-Revision-Date: 2014-02-20 12:06+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7659,24 +7659,21 @@ msgid ""
 msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
 
 #: libraries/import.lib.php:1228
-#, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
-msgstr "Bekijk de inhoud van een structuur door op de naam te klikken"
+msgstr "Bekijk de inhoud van een structuur door op de naam te klikken."
 
 #: libraries/import.lib.php:1229
-#, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
-msgstr "Een instelling veranderen door op \"Opties\" te klikken"
+msgstr "Een instelling wijzigen door op \"Opties\" te klikken."
 
 #: libraries/import.lib.php:1230
-#, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Klik op de \"Structuur\"-link om de structuur aan te passen"
+msgstr "Klik op de \"Structuur\"-link om de structuur aan te passen."
 
 #: libraries/import.lib.php:1236
 #, php-format
@@ -7720,11 +7717,10 @@ msgid "Binary"
 msgstr "Binair"
 
 #: libraries/insert_edit.lib.php:658
-#, fuzzy
 #| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
-"Vanwege z'n lengte,<br /> kan deze kolom mogelijk niet gewijzigd worden"
+"Vanwege z'n lengte,<br /> kan deze kolom mogelijk niet gewijzigd worden."
 
 #: libraries/insert_edit.lib.php:1103
 msgid "Binary - do not edit"
@@ -8825,28 +8821,24 @@ msgid "Constraints for table"
 msgstr "Beperkingen voor tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1277
-#, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Beperkingen voor gedumpte tabellen"
+msgstr "Indexen voor geëxporteerde tabellen"
 
 #: libraries/plugins/export/ExportSql.class.php:1287
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "In de tabellen:"
+msgstr "Indexen voor tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1313
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Gebruik geen AUTO_INCREMENT voor 0-waarden"
+msgstr "AUTO_INCREMENT voor geëxporteerde tabellen"
 
 #: libraries/plugins/export/ExportSql.class.php:1323
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Voeg AUTO_INCREMENT-waarde toe"
+msgstr "AUTO_INCREMENT voor een tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1537
 msgid "MIME TYPES FOR TABLE"
@@ -8977,7 +8969,6 @@ msgstr ""
 "\"."
 
 #: libraries/plugins/import/ImportShp.class.php:204
-#, fuzzy
 #| msgid ""
 #| "You tried to import an invalid file or the imported file contains invalid "
 #| "data"
@@ -8986,7 +8977,7 @@ msgid ""
 "data!"
 msgstr ""
 "U probeerde een ongeldig bestand te importeren, of het geïmporteerde bestand "
-"bevat ongeldige gegevens"
+"bevat ongeldige gegevens!"
 
 #: libraries/plugins/import/ImportShp.class.php:210
 #, php-format
@@ -8994,10 +8985,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "De extensie MySQL Spatial ondersteunt ESRI-type \"%s\" niet."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-#, fuzzy
 #| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "Het geïmporteerde bestand bevat geen gegevens"
+msgstr "Het geïmporteerde bestand bevat geen gegevens!"
 
 #: libraries/plugins/import/ImportSql.class.php:71
 msgid "SQL compatibility mode:"
