@@ -1389,6 +1389,8 @@ AJAX.registerOnload('functions.js', function () {
     });
 
     $("input#sql_query_edit_save").live('click', function () {
+        $(".success").hide();
+        //hide already existing success message
         var sql_query;
         if (codemirror_inline_editor) {
             sql_query = codemirror_inline_editor.getValue();
