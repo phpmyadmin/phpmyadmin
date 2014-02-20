@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-20 12:06+0200\n"
+"PO-Revision-Date: 2014-02-20 12:50+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -195,7 +195,7 @@ msgstr "Ja"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "Bekijk een dump (schema) van databank"
+msgstr "Bekijk export (schema) van databank"
 
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:334 libraries/DBQbe.class.php:268
@@ -4831,7 +4831,7 @@ msgstr "Tabelnaam-template"
 #: libraries/plugins/export/ExportOdt.class.php:77
 #: libraries/plugins/export/ExportTexytext.class.php:62
 msgid "Dump table"
-msgstr "Dump tabel"
+msgstr "Exporteer tabel"
 
 #: libraries/config/messages.inc.php:132
 #: libraries/plugins/export/ExportLatex.class.php:89
@@ -7029,7 +7029,7 @@ msgstr "Rijen:"
 
 #: libraries/display_export.lib.php:319
 msgid "Dump some row(s)"
-msgstr "Verwijder enkele rijen"
+msgstr "Exporteer enkele rijen"
 
 #: libraries/display_export.lib.php:334
 msgid "Row to begin at:"
@@ -7037,7 +7037,7 @@ msgstr "Te beginnen op rij:"
 
 #: libraries/display_export.lib.php:351
 msgid "Dump all rows"
-msgstr "Dump alle rijen"
+msgstr "Exporteer alle rijen"
 
 #: libraries/display_export.lib.php:367 libraries/display_export.lib.php:626
 msgid "Output:"
@@ -7645,7 +7645,7 @@ msgstr "De webserver heeft geen rechten om het bestand %s op te slaan."
 #: libraries/export.lib.php:370
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Dump is bewaard als %s."
+msgstr "Het exportbestand is bewaard als %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1636
@@ -8526,14 +8526,14 @@ msgstr "Excel-editie:"
 #: libraries/plugins/export/ExportTexytext.class.php:80
 #: libraries/plugins/export/ExportXml.class.php:133
 msgid "Data dump options"
-msgstr "Datadump-opties"
+msgstr "Dataexport-opties"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:203
 #: libraries/plugins/export/ExportOdt.class.php:260
 #: libraries/plugins/export/ExportSql.class.php:1918
 #: libraries/plugins/export/ExportTexytext.class.php:185
 msgid "Dumping data for table"
-msgstr "Gegevens worden uitgevoerd voor tabel"
+msgstr "Gegevens worden geëxporteerd voor tabel"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:487
 #: libraries/plugins/export/ExportOdt.class.php:567
@@ -8753,7 +8753,7 @@ msgstr "<code>INSERT IGNORE</code>-opdrachten"
 
 #: libraries/plugins/export/ExportSql.class.php:379
 msgid "Function to use when dumping data:"
-msgstr "Functie om te gebruiken bij het verwijderen van gegevens:"
+msgstr "Functie om te gebruiken bij het exporteren van gegevens:"
 
 #: libraries/plugins/export/ExportSql.class.php:392
 msgid "Syntax to use when inserting data:"
@@ -8800,8 +8800,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Dump kolommen in binair formaat met hexadecimale notatie <i>(bijvoorbeeld, "
-"\"abc\" wordt 0x616263)</i>"
+"Exporteer kolommen in binair formaat met hexadecimale notatie "
+"<i>(bijvoorbeeld, \"abc\" wordt 0x616263)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:447
 msgid ""
@@ -8814,7 +8814,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1233
 msgid "Constraints for dumped tables"
-msgstr "Beperkingen voor gedumpte tabellen"
+msgstr "Beperkingen voor geëxporteerde tabellen"
 
 #: libraries/plugins/export/ExportSql.class.php:1243
 msgid "Constraints for table"
@@ -12701,11 +12701,11 @@ msgstr "Laat %1$s zien met datums van %2$s tot %3$s door gebruiker %4$s %5$s"
 
 #: libraries/tbl_tracking.lib.php:537
 msgid "SQL dump (file download)"
-msgstr "SQL-dump (naar bestand)"
+msgstr "SQL-export (naar bestand)"
 
 #: libraries/tbl_tracking.lib.php:539
 msgid "SQL dump"
-msgstr "SQL-dump"
+msgstr "SQL-export"
 
 #: libraries/tbl_tracking.lib.php:542
 msgid "This option will replace your table and contained data."
@@ -12750,8 +12750,8 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
-"U kunt de dump gebruiken door deze in een tijdelijke databank te importeren. "
-"Let er wel op dat u hier rechten voor nodig heeft."
+"U kunt de export gebruiken door deze in een tijdelijke databank te "
+"importeren. Let er wel op dat u hier rechten voor nodig heeft."
 
 #: libraries/tbl_tracking.lib.php:1049
 msgid "Comment out these two lines if you do not need them."
@@ -12761,7 +12761,8 @@ msgstr ""
 
 #: libraries/tbl_tracking.lib.php:1059
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "SQL-statements geëxporteerd. Kopieer de dump of voer de dump uit."
+msgstr ""
+"SQL-statements geëxporteerd. Kopieer het exportbestand of voer deze uit."
 
 #: libraries/tbl_tracking.lib.php:1087
 msgid "SQL statements executed."
@@ -13114,7 +13115,7 @@ msgstr "Geen databanken"
 
 #: server_export.php:21
 msgid "View dump (schema) of databases"
-msgstr "Dump (schema) van de databanken bekijken"
+msgstr "Export (schema) van de databanken bekijken"
 
 #: server_privileges.php:142
 msgid "Username and hostname didn't change."
@@ -13334,7 +13335,7 @@ msgstr "Tabel %s bestaat reeds!"
 
 #: tbl_export.php:28
 msgid "View dump (schema) of table"
-msgstr "Een dump (schema) van tabel bekijken"
+msgstr "Een export (schema) van tabel bekijken"
 
 #: tbl_get_field.php:32
 msgid "Invalid table name"
