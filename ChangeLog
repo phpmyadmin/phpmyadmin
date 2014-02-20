@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - bug #4288 Expand database (+ icon) after timeout doesn't do anything
 - bug #4285 Fixed CSS for setup
 - Fixed altering table to DOUBLE/FLOAT field
+- bug #4292 Success message and failure message being shown together
 
 4.1.7.0 (2014-02-09)
 - bug #4245 initial Browse query does not match sorting order
