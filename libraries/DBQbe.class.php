@@ -177,15 +177,64 @@ class PMA_DbQbe
      * @var integer
      */
     private $_new_row_count;
+    /**
+     * List of saved searches
+     *
+     * @access private
+     * @var array
+     */
+    private $_savedSearchList = null;
+    /**
+     * Current search
+     *
+     * @access private
+     * @var PMA_SavedSearches
+     */
+    private $_currentSearch = null;
+
+    /**
+     * Initialize criterias
+     *
+     * @return static
+     */
+    private function _loadCriterias()
+    {
+        if (null === $this->_currentSearch) {
+            return $this;
+        }
+
+        $criterias = $this->_currentSearch->getCriterias();
+        //@todo Send the criterias in the attributes.
+        //Find a way to refactor this part with the initiale attribution called
+        //in the __construct.
+
+        return $this;
+    }
+
+    /**
+     * Getter for current search
+     *
+     * @return PMA_SavedSearches
+     */
+    private function _getCurrentSearch()
+    {
+        return $this->_currentSearch;
+    }
 
     /**
      * Public Constructor
      *
-     * @param string $db Database name
+     * @param string            $dbname          Database name
+     * @param array             $savedSearchList List of saved searches
+     * @param PMA_SavedSearches $currentSearch   Current search id
      */
-    public function __construct($db)
-    {
-        $this->_db = $db;
+    public function __construct(
+        $dbname, $savedSearchList = array(), $currentSearch = null
+    ) {
+        $this->_db = $dbname;
+        $this->_savedSearchList = $savedSearchList;
+        $this->_currentSearch = $currentSearch;
+        $this->_loadCriterias();
         // Sets criteria parameters
         $this->_setSearchParams();
         $this->_setCriteriaTablesAndColumns();
@@ -989,7 +1038,7 @@ class PMA_DbQbe
             $column_index++
             ) {
                 if (! empty($this->_curField[$column_index])
-                    && ! empty($_REQUEST['Or' .$row_index][$column_index])
+                    && ! empty($_REQUEST['Or' . $row_index][$column_index])
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
@@ -1116,7 +1165,6 @@ class PMA_DbQbe
         $where_clause_columns
     ) {
         $GLOBALS['dbi']->selectDb($this->_db);
-        $candidate_columns = array();
 
         // Get unique columns and index columns
         $indexes = $this->_getIndexes(
@@ -1125,42 +1173,36 @@ class PMA_DbQbe
         $unique_columns = $indexes['unique'];
         $index_columns = $indexes['index'];
 
-        // now we want to find the best.
-        if (isset($unique_columns) && count($unique_columns) > 0) {
-            $candidate_columns = $unique_columns;
-            $needsort = 1;
-        } elseif (isset($index_columns) && count($index_columns) > 0) {
-            $candidate_columns = $index_columns;
-            $needsort = 1;
-        } elseif (isset($where_clause_columns) && count($where_clause_columns) > 0) {
-            $candidate_columns = $where_clause_columns;
-            $needsort = 0;
-        } else {
-            $candidate_columns = $all_tables;
-            $needsort = 0;
-        }
+        list($candidate_columns, $needsort)
+            = $this->_getLeftJoinColumnCandidatesBest(
+                $all_tables, $where_clause_columns, $unique_columns, $index_columns
+            );
 
         // If we came up with $unique_columns (very good) or $index_columns (still
         // good) as $candidate_columns we want to check if we have any 'Y' there
         // (that would mean that they were also found in the whereclauses
         // which would be great). if yes, we take only those
-        if ($needsort == 1) {
-            foreach ($candidate_columns as $column => $is_where) {
-                $table = explode('.', $column);
-                $table = $table[0];
-                if ($is_where == 'Y') {
-                    $vg[$column] = $table;
-                } else {
-                    $sg[$column] = $table;
-                }
-            }
-            if (isset($vg)) {
-                $candidate_columns = $vg;
-                // Candidates restricted in index+where
+        if ($needsort != 1) {
+            return $candidate_columns;
+        }
+
+        $veryGood = array();
+        $stillGood = array();
+        foreach ($candidate_columns as $column => $is_where) {
+            $table = explode('.', $column);
+            $table = $table[0];
+            if ($is_where == 'Y') {
+                $veryGood[$column] = $table;
             } else {
-                $candidate_columns = $sg;
-                // None of the candidates where in a where-clause
+                $stillGood[$column] = $table;
             }
+        }
+        if (isset($veryGood)) {
+            $candidate_columns = $veryGood;
+            // Candidates restricted in index+where
+        } else {
+            $candidate_columns = $stillGood;
+            // None of the candidates where in a where-clause
         }
 
         return $candidate_columns;
@@ -1343,9 +1385,12 @@ class PMA_DbQbe
      */
     public function getSelectionForm($cfgRelation)
     {
-        $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';        $html_output .= '<fieldset>';
+        $html_output = '<form action="db_qbe.php" method="post" id="formQBE">';
+        $html_output .= '<fieldset>';
 
-        $html_output .= $this->_getSavedSearchesField();
+        if ($GLOBALS['cfgRelation']['savedsearcheswork']) {
+            $html_output .= $this->_getSavedSearchesField();
+        }
 
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
@@ -1394,7 +1439,8 @@ class PMA_DbQbe
         $html_output .= '</form>';
         return $html_output;
     }
-/**
+
+    /**
      * Get fields to display
      *
      * @return string
@@ -1402,25 +1448,37 @@ class PMA_DbQbe
     private function _getSavedSearchesField()
     {
         $html_output = __('Saved searches : ');
-        $html_output .= '<select name="existingSavedSearches"
-            id="existingSavedSearches">';
-        $searches = array(
-            1 => 'test'
-        );
+        $html_output .= '<select name="searchId" id="searchId">';
         $html_output .= '<option value="">New search</option>';
-        foreach ($searches as $name => $search) {
-            $html_output .= '<option value="' . htmlspecialchars($name) . '">'
-                . htmlspecialchars($search)
+
+        $currentSearch = $this->_getCurrentSearch();
+        $currentSearchId = null;
+        $currentSearchName = null;
+        if (null != $currentSearch) {
+            $currentSearchId = $currentSearch->getId();
+            $currentSearchName = $currentSearch->getSearchName();
+        }
+
+        foreach ($this->_savedSearchList as $id => $name) {
+            $html_output .= '<option value="' . htmlspecialchars($id)
+                . '" ' . (
+                    $id == $currentSearchId
+                    ? 'selected="selected" '
+                    : ''
+                )
+                . '>'
+                . htmlspecialchars($name)
                 . '</option>';
         }
 
         $html_output .= '</select>';
-        $html_output .= '<input type="text" name="searchName" id="searchName"
-            value="" />';
-        $html_output .= '<input type="hidden" name="criterias" id="criterias"
-            value="" />';
-        $html_output .= '<input type="submit" name="saveSearch" id="saveSearch"
-            value="' . __('Save search') . '" />';
+        $html_output .= '<input type="text" name="searchName" id="searchName" '
+            . 'value="' . $currentSearchName . '" />';
+        $html_output .= '<input type="hidden" name="action" id="action" value="" />';
+        $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" '
+            . 'value="' . __('Save search') . '" />';
+        $html_output .= '<input type="submit" name="deleteSearch" id="deleteSearch" '
+            . 'value="' . __('Delete search') . '" />';
 
         return $html_output;
     }
@@ -1454,6 +1512,39 @@ class PMA_DbQbe
         $this->_criteria_row_count = max($rows + $criteriaRowAdd, 0);
 
         return $criteriaColumnCount;
+    }
+
+    /**
+     * Get best
+     *
+     * @param array $all_tables           All tables
+     * @param array $where_clause_columns Columns with where clause
+     * @param array $unique_columns       Unique columns
+     * @param array $index_columns        Indexed columns
+     *
+     * @return array
+     */
+    private function _getLeftJoinColumnCandidatesBest(
+        $all_tables, $where_clause_columns, $unique_columns, $index_columns
+    ) {
+        // now we want to find the best.
+        if (isset($unique_columns) && count($unique_columns) > 0) {
+            $candidate_columns = $unique_columns;
+            $needsort = 1;
+            return array($candidate_columns, $needsort);
+        } elseif (isset($index_columns) && count($index_columns) > 0) {
+            $candidate_columns = $index_columns;
+            $needsort = 1;
+            return array($candidate_columns, $needsort);
+        } elseif (isset($where_clause_columns) && count($where_clause_columns) > 0) {
+            $candidate_columns = $where_clause_columns;
+            $needsort = 0;
+            return array($candidate_columns, $needsort);
+        } else {
+            $candidate_columns = $all_tables;
+            $needsort = 0;
+            return array($candidate_columns, $needsort);
+        }
     }
 }
 

@@ -24,6 +24,12 @@ class PMA_SavedSearches
     private $_config = null;
 
     /**
+     * Id
+     * @var int|null
+     */
+    private $_id = null;
+
+    /**
      * Username
      * @var string
      */
@@ -36,16 +42,86 @@ class PMA_SavedSearches
     private $_dbname = null;
 
     /**
+     * Saved search name
+     * @var string
+     */
+    private $_searchName = null;
+
+    /**
+     * Setter of id
+     *
+     * @param int|null $searchId Id of search
+     *
+     * @return static
+     */
+    public function setId($searchId)
+    {
+        $searchId = (int)$searchId;
+        if (empty($searchId)) {
+            $searchId = null;
+        }
+
+        $this->_id = $searchId;
+        return $this;
+    }
+
+    /**
+     * Getter of id
+     *
+     * @return int|null
+     */
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    /**
+     * Setter of searchName
+     *
+     * @param string $searchName Saved search name
+     *
+     * @return static
+     */
+    public function setSearchName($searchName)
+    {
+        $this->_searchName = $searchName;
+        return $this;
+    }
+
+    /**
+     * Getter of searchName
+     *
+     * @return string
+     */
+    public function getSearchName()
+    {
+        return $this->_searchName;
+    }
+
+    /**
      * JSON of saved search
      * @var string
      */
     private $_criterias = null;
 
+    /**
+     * Setter of config
+     *
+     * @param array $config Global configuration
+     *
+     * @return static
+     */
     public function setConfig($config)
     {
         $this->_config = $config;
+        return $this;
     }
 
+    /**
+     * Getter of config
+     *
+     * @return array
+     */
     public function getConfig()
     {
         return $this->_config;
@@ -54,13 +130,36 @@ class PMA_SavedSearches
     /**
      * Setter for criterias
      *
-     * @param string $criterias JSON of saved searches
+     * @param array $criterias Criterias of saved searches
      *
-     * @return void
+     * @return static
      */
     public function setCriterias($criterias)
     {
-        $this->_criterias = $criterias;
+        $aListFieldsToGet = array(
+            'criteriaColumn',
+            'criteriaSort',
+            'criteriaShow',
+            'criteria',
+            'criteriaAndOrRow',
+            'criteriaAndOrColumn'
+        );
+
+        $data = array();
+
+        $data['criteriaColumnCount'] = count($criterias['criteriaColumn']);
+        $data['criteriaColumnAdd'] = count($criterias['criteriaAndOrRow']);
+
+        foreach ($aListFieldsToGet as $field) {
+            $data[$field] = $criterias[$field];
+        }
+
+        for ($i = 0; $i < $data['criteriaColumnAdd']; $i++) {
+            $data['Or' . $i] = $criterias['Or' . $i];
+        }
+
+        $this->_criterias = json_encode($data);
+        return $this;
     }
 
     /**
@@ -76,13 +175,14 @@ class PMA_SavedSearches
     /**
      * Setter for username
      *
-     * @param string $username
+     * @param string $username Username
      *
-     * @return void
+     * @return static
      */
     public function setUsername($username)
     {
         $this->_username = $username;
+        return $this;
     }
 
     /**
@@ -96,19 +196,20 @@ class PMA_SavedSearches
     }
 
     /**
-     * Setter for DB name
+     * Setter for DB name
      *
-     * @param string $dbname
+     * @param string $dbname DB name
      *
-     * @return void
+     * @return static
      */
     public function setDbname($dbname)
     {
         $this->_dbname = $dbname;
+        return $this;
     }
 
     /**
-     * Getter for DB name
+     * Getter for DB name
      *
      * @return string
      */
@@ -132,25 +233,159 @@ class PMA_SavedSearches
      *
      * @return boolean
      */
-    public function saveSearch()
+    public function save()
     {
         if (null == $this->getUsername()
             || null == $this->getDbname()
+            || null == $this->getSearchName()
             || null == $this->getCriterias()
         ) {
-            //@todo Send an error.
+            PMA_Util::mysqlDie(__('Missing information to save the search.'));
+        }
+
+        $savedSearchesTbl
+            = PMA_Util::backquote($this->_config['cfgRelation']['db']) . "."
+            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+
+        //If it's an insert.
+        if (null === $this->getId()) {
+            $wheres = array(
+                "search_name = '" . PMA_Util::sqlAddSlashes($this->getSearchName())
+                    . "'"
+            );
+            $existingSearches = $this->getList($wheres);
+
+            if (!empty($existingSearches)) {
+                PMA_Util::mysqlDie(__('An entry with this name already exists.'));
+            }
+
+            $sqlQuery = "INSERT INTO " . $savedSearchesTbl
+                . "(`username`, `db_name`, `search_name`, `search_data`)"
+                . " VALUES ("
+                . "'" . PMA_Util::sqlAddSlashes($this->getUsername()) . "',"
+                . "'" . PMA_Util::sqlAddSlashes($this->getDbname()) . "',"
+                . "'" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "',"
+                . "'" . PMA_Util::sqlAddSlashes($this->getCriterias())
+                . "')";
+
+            $result = (bool)PMA_queryAsControlUser($sqlQuery);
+            if (!$result) {
+                return false;
+            }
+
+            $this->setId($GLOBALS['dbi']->insertId());
+
+            return true;
+        }
+
+        //Else, it's an update.
+        $wheres = array(
+            "id != " . $this->getId(),
+            "search_name = '" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "'"
+        );
+        $existingSearches = $this->getList($wheres);
+
+        if (!empty($existingSearches)) {
+            PMA_Util::mysqlDie(__('An entry with this name already exists.'));
+        }
+
+        $sqlQuery = "UPDATE " . $savedSearchesTbl
+            . "SET `search_name` = '"
+            . PMA_Util::sqlAddSlashes($this->getSearchName()) . "', "
+            . "`search_data` = '"
+            . PMA_Util::sqlAddSlashes($this->getCriterias()) . "' "
+            . "WHERE id = " . $this->getId();
+        return (bool)PMA_queryAsControlUser($sqlQuery);
+    }
+
+    /**
+     * Delete the search
+     *
+     * @return boolean
+     */
+    public function delete()
+    {
+        if (null == $this->getId()) {
+            PMA_Util::mysqlDie(__('Missing information to delete the search.'));
+        }
+
+        $savedSearchesTbl
+            = PMA_Util::backquote($this->_config['cfgRelation']['db']) . "."
+            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+
+        $sqlQuery = "DELETE FROM " . $savedSearchesTbl
+            . "WHERE id = '" . PMA_Util::sqlAddSlashes($this->getId()) . "'";
+
+        return (bool)PMA_queryAsControlUser($sqlQuery);
+    }
+
+    /**
+     * Load the current search from an id.
+     *
+     * @return bool Success
+     */
+    public function load()
+    {
+        if (null == $this->getId()) {
+            PMA_Util::mysqlDie(__('Missing information to load the search.'));
+        }
+
+        $savedSearchesTbl = PMA_Util::backquote($this->_config['cfgRelation']['db'])
+            . "."
+            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+        $sqlQuery = "SELECT id, search_name, search_data "
+            . "FROM " . $savedSearchesTbl . " "
+            . "WHERE id = '" . PMA_Util::sqlAddSlashes($this->getId()) . "' ";
+
+        $resList = PMA_queryAsControlUser($sqlQuery);
+
+        if (false === ($oneResult = $GLOBALS['dbi']->fetchArray($resList))) {
+            PMA_Util::mysqlDie(__('Error while loading the search.'));
+        }
+
+        $this->setSearchName($oneResult['search_name'])
+            ->setCriterias($oneResult['search_data']);
+
+        return true;
+    }
+
+    /**
+     * Get the list of saved search of a user on a DB
+     *
+     * @param array $wheres List of filters
+     *
+     * @return array|bool List of saved search or false on failure
+     */
+    public function getList(array $wheres = array())
+    {
+        if (null == $this->getUsername()
+            || null == $this->getDbname()
+        ) {
             return false;
         }
 
-        $savedSearchesTable = PMA_Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . PMA_Util::backquote($GLOBALS['cfgRelation']['savedsearches']);
-        $sqlQuery = "INSERT INTO " . $savedSearchesTable
-            . "(`username`, `db_name`, `config_data`)"
-            . " VALUES ("
-            . "'" . PMA_Util::sqlAddSlashes($this->getUsername()) . "',"
-            . "'" . PMA_Util::sqlAddSlashes($this->getDbname()) . "',"
-            . "'" . PMA_Util::sqlAddSlashes($this->getCriterias())
-            . "')";
-        return (bool)PMA_queryAsControlUser($sqlQuery, false);
+        $savedSearchesTbl = PMA_Util::backquote($this->_config['cfgRelation']['db'])
+            . "."
+            . PMA_Util::backquote($this->_config['cfgRelation']['savedsearches']);
+        $sqlQuery = "SELECT id, search_name "
+            . "FROM " . $savedSearchesTbl . " "
+            . "WHERE "
+            . "username = '" . PMA_Util::sqlAddSlashes($this->getUsername()) . "' "
+            . "AND db_name = '" . PMA_Util::sqlAddSlashes($this->getDbname()) . "' ";
+
+        foreach ($wheres as $where) {
+            $sqlQuery .= "AND " . $where . " ";
+        }
+
+        $sqlQuery .= "order by search_name ASC ";
+
+        $resList = PMA_queryAsControlUser($sqlQuery);
+
+        $list = array();
+        while ($oneResult = $GLOBALS['dbi']->fetchArray($resList)) {
+            $list[$oneResult['id']] = $oneResult['search_name'];
+        }
+
+        return $list;
     }
 }

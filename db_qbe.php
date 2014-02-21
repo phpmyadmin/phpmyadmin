@@ -15,12 +15,47 @@ require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 
 $response = PMA_Response::getInstance();
-$header = $response->getHeader();
-$scripts = $header->getScripts();
-$scripts->addFile('db_qbe.js');
 
 // Gets the relation settings
 $cfgRelation = PMA_getRelationsParam();
+
+$savedSearchList = array();
+$currentSearchId = null;
+if ($cfgRelation['savedsearcheswork']) {
+    include 'libraries/SavedSearches.php';
+    $header = $response->getHeader();
+    $scripts = $header->getScripts();
+    $scripts->addFile('db_qbe.js');
+
+    //Get saved search list.
+    $savedSearch = new PMA_SavedSearches($GLOBALS);
+    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+        ->setDbname($_REQUEST['db']);
+
+    //Criterias field is filled only when clicking on "Save search".
+    if (!empty($_REQUEST['action'])) {
+        if ('save' === $_REQUEST['action']) {
+            $saveResult = $savedSearch->setId($_REQUEST['searchId'])
+                ->setSearchName($_REQUEST['searchName'])
+                ->setCriterias($_REQUEST)
+                ->save();
+            /*if (!$saveResult) {
+                $response->addHTML('raté');
+                exit();
+            }*/
+        } elseif ('delete' === $_REQUEST['action']) {
+            $deleteResult = $savedSearch->setId($_REQUEST['searchId'])
+                ->delete();
+        } elseif ('load' === $_REQUEST['action']) {
+            $loadResult = $savedSearch->setId($_REQUEST['searchId'])
+                ->load();
+        }
+        //Else, it's an "update query"
+    }
+
+    $savedSearchList = $savedSearch->getList();
+    $currentSearchId = $savedSearch->getId();
+}
 
 /**
  * A query has been submitted -> (maybe) execute it
@@ -49,22 +84,13 @@ $url_query .= '&amp;goto=db_qbe.php';
 $url_params['goto'] = 'db_qbe.php';
 require 'libraries/db_info.inc.php';
 
-if (!empty($_REQUEST['criterias'])) {
-    require 'libraries\SavedSearches.php';
-    $savedSearch = new PMA_SavedSearches($GLOBALS);
-    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user']);
-    $savedSearch->setDbname($_REQUEST['db']);
-    $savedSearch->setCriterias($_REQUEST['criterias']);
-    $savedSearch->saveSearch();
-}
-
 if ($message_to_display) {
     PMA_Message::error(__('You have to choose at least one column to display!'))->display();
 }
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA_DBQbe($GLOBALS['db']);
+$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
 /**
  * Displays the Query by example form
