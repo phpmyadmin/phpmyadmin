@@ -25,29 +25,17 @@ AJAX.registerTeardown('db_qbe.js', function () {
     $("#deleteSearch").die('click');
 });
 
-$.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
-
 AJAX.registerOnload('db_qbe.js', function () {
 
     /**
      * Ajax event handlers for 'Select saved search'
      */
     $("#searchId").live('change', function (event) {
+        console.debug('Value : ' + $(this).val());
+        if ('' == $(this).val()) {
+            return false;
+        }
+
         $('#action').val('load');
         $('#formQBE').submit();
     });

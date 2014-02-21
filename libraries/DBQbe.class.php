@@ -199,14 +199,14 @@ class PMA_DbQbe
      */
     private function _loadCriterias()
     {
-        if (null === $this->_currentSearch) {
+        if (null === $this->_currentSearch
+            || null === $this->_currentSearch->getCriterias()
+        ) {
             return $this;
         }
 
         $criterias = $this->_currentSearch->getCriterias();
-        //@todo Send the criterias in the attributes.
-        //Find a way to refactor this part with the initiale attribution called
-        //in the __construct.
+        $_REQUEST = $criterias + $_REQUEST;
 
         return $this;
     }
@@ -517,6 +517,9 @@ class PMA_DbQbe
      */
     private function _getShowRow()
     {
+        /*var_dump($_REQUEST['criteriaShow']);
+        die();*/
+
         $html_output = '<tr class="odd noclick">';
         $html_output .= '<th>' . __('Show:') . '</th>';
         $new_column_count = 0;

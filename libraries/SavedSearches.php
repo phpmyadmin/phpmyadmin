@@ -99,8 +99,8 @@ class PMA_SavedSearches
     }
 
     /**
-     * JSON of saved search
-     * @var string
+     * Criterias
+     * @var array
      */
     private $_criterias = null;
 
@@ -131,41 +131,48 @@ class PMA_SavedSearches
      * Setter for criterias
      *
      * @param array $criterias Criterias of saved searches
+     * @param bool  $json      Criterias are in JSON format
      *
      * @return static
      */
-    public function setCriterias($criterias)
+    public function setCriterias($criterias, $json = false)
     {
+        if (true === $json) {
+            $this->_criterias = json_decode($criterias, true);
+            return $this;
+        }
+
         $aListFieldsToGet = array(
             'criteriaColumn',
             'criteriaSort',
             'criteriaShow',
             'criteria',
             'criteriaAndOrRow',
-            'criteriaAndOrColumn'
+            'criteriaAndOrColumn',
+            'rows'
         );
 
         $data = array();
 
         $data['criteriaColumnCount'] = count($criterias['criteriaColumn']);
-        $data['criteriaColumnAdd'] = count($criterias['criteriaAndOrRow']);
+        $data['rows'] = count($criterias['rows']);
 
         foreach ($aListFieldsToGet as $field) {
             $data[$field] = $criterias[$field];
         }
 
-        for ($i = 0; $i < $data['criteriaColumnAdd']; $i++) {
+        for ($i = 0; $i < $data['rows']; $i++) {
             $data['Or' . $i] = $criterias['Or' . $i];
         }
 
-        $this->_criterias = json_encode($data);
+        $this->_criterias = $data;
         return $this;
     }
 
     /**
      * Getter for criterias
      *
-     * @return string
+     * @return array
      */
     public function getCriterias()
     {
@@ -265,7 +272,7 @@ class PMA_SavedSearches
                 . "'" . PMA_Util::sqlAddSlashes($this->getUsername()) . "',"
                 . "'" . PMA_Util::sqlAddSlashes($this->getDbname()) . "',"
                 . "'" . PMA_Util::sqlAddSlashes($this->getSearchName()) . "',"
-                . "'" . PMA_Util::sqlAddSlashes($this->getCriterias())
+                . "'" . PMA_Util::sqlAddSlashes(json_encode($this->getCriterias()))
                 . "')";
 
             $result = (bool)PMA_queryAsControlUser($sqlQuery);
@@ -293,7 +300,7 @@ class PMA_SavedSearches
             . "SET `search_name` = '"
             . PMA_Util::sqlAddSlashes($this->getSearchName()) . "', "
             . "`search_data` = '"
-            . PMA_Util::sqlAddSlashes($this->getCriterias()) . "' "
+            . PMA_Util::sqlAddSlashes(json_encode($this->getCriterias())) . "' "
             . "WHERE id = " . $this->getId();
         return (bool)PMA_queryAsControlUser($sqlQuery);
     }
@@ -344,7 +351,7 @@ class PMA_SavedSearches
         }
 
         $this->setSearchName($oneResult['search_name'])
-            ->setCriterias($oneResult['search_data']);
+            ->setCriterias($oneResult['search_data'], true);
 
         return true;
     }
