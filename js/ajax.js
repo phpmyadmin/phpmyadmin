@@ -294,6 +294,13 @@ var AJAX = {
                 }
 
                 if (data._selflink) {
+                    
+                    var source = data._selflink.split('?')[0];
+                    //Check for faulty links
+                    if (source == "import.php") {
+                    	var replacement = "tbl_sql.php";
+                    	data._selflink = data._selflink.replace(source,replacement);
+                    }
                     $('#selflink > a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
