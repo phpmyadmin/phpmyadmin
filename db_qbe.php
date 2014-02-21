@@ -29,28 +29,28 @@ if ($cfgRelation['savedsearcheswork']) {
 
     //Get saved search list.
     $savedSearch = new PMA_SavedSearches($GLOBALS);
-    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-        ->setDbname($_REQUEST['db']);
+    $savedSearch->setId($_REQUEST['searchId'])
+        ->setUsername($GLOBALS['cfg']['Server']['user'])
+        ->setDbname($_REQUEST['db'])
+        ->setSearchName($_REQUEST['searchName']);
 
     //Criterias field is filled only when clicking on "Save search".
     if (!empty($_REQUEST['action'])) {
         if ('save' === $_REQUEST['action']) {
-            $saveResult = $savedSearch->setId($_REQUEST['searchId'])
-                ->setSearchName($_REQUEST['searchName'])
-                ->setCriterias($_REQUEST)
+            $saveResult = $savedSearch->setCriterias($_REQUEST)
                 ->save();
             /*if (!$saveResult) {
                 $response->addHTML('raté');
                 exit();
             }*/
         } elseif ('delete' === $_REQUEST['action']) {
-            $deleteResult = $savedSearch->setId($_REQUEST['searchId'])
-                ->delete();
+            $deleteResult = $savedSearch->delete();
         } elseif ('load' === $_REQUEST['action']) {
-            $loadResult = $savedSearch->setId($_REQUEST['searchId'])
-                ->load();
+            $loadResult = $savedSearch->load();
         }
         //Else, it's an "update query"
+    /*} else { //This is another form…
+        $loadResult = $savedSearch->load();*/
     }
 
     $savedSearchList = $savedSearch->getList();
