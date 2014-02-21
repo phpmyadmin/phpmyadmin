@@ -9,6 +9,8 @@ before_install:
 before_script:
   - git clone git://github.com/zenovich/runkit.git && cd runkit && phpize && ./configure && make && make install && cd ..
   - phpenv config-add test/travis.php.ini
+  - pear channel-discover pear.phpunit.de
+  - pear install phpunit/PHPUnit_Selenium
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev --no-interaction
 script:

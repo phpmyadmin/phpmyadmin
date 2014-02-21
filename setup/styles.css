@@ -1,6 +1,8 @@
 /* global styles */
 
 body {
+    margin-right: auto;
+    min-width: 960px;
     padding-bottom: 1em;
     color: #444;
     font: .8em sans-serif;
@@ -79,6 +81,7 @@ h1 {
 
 #page {
     margin-left: 220px;
+    margin-right: 25px;
 }
 
 #footer {
@@ -205,8 +208,8 @@ div.notice[id^=version_check] h4 {
 /* form tabs */
 
 ul.tabs {
-    margin: 1.1em .2em 0;
-    padding: 0 0 .3em 0;
+    margin: 1.1em 2px 0;
+    padding: 0 0 3px 0;
     list-style: none;
     font-weight: bold;
 }
@@ -218,7 +221,7 @@ ul.tabs li {
 
 ul.tabs li a {
     display: block;
-    margin: .1em .2em 0;
+    margin: 1px .2em 0;
     white-space: nowrap;
     text-decoration: none;
     border: 1px solid #D5D5D5;
@@ -250,7 +253,7 @@ ul.tabs li.active a {
 }
 
 .tabs_contents {
-    margin-top: 1em;
+    margin-top: 13px;
 }
 
 .tabs_contents fieldset {

@@ -6,7 +6,8 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'Helper.php';
+
+require_once 'TestBase.php';
 
 /**
  * PmaSeleniumTableCreateTest class
@@ -14,54 +15,27 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumTableCreateTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 {
-    /**
-     * Name of database for the test
-     *
-     * @var string
-     */
-    private $_dbname;
-
-    /**
-     * Helper Object
-     *
-     * @var Helper
-     */
-    private $_helper;
-
-    /**
-     * Setup the browser environment to run the selenium test case
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->_helper->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->_helper->dbConnect();
-        $this->_dbname = 'pma_db_' . time();
-        $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
-    }
-
     /**
      * Creates a table
      *
      * @return void
+     *
+     * @group large
      */
     public function testCreateTable()
     {
-        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->byLinkText($this->_dbname)->click();
+        $this->login();
+        $this->byLinkText($this->database_name)->click();
 
-        $this->_helper->waitForElement('byId', 'create_table_form_minimal');
+        $this->waitForElement('byId', 'create_table_form_minimal');
         $this->byCssSelector(
             "form#create_table_form_minimal input[name=table]"
         )->value("test_table");
         $this->byName("num_fields")->value("4");
         $this->byCssSelector('input[value=Go]')->click();
-        $this->_helper->waitForElement('byName', 'do_save_data');
+        $this->waitForElement('byName', 'do_save_data');
 
         // column details
         $column_text_details = array(
@@ -96,7 +70,7 @@ class PmaSeleniumTableCreateTest extends PHPUnit_Extensions_Selenium2TestCase
 
         // post
         $this->byName("do_save_data")->click();
-        $this->_helper->waitForElement("byLinkText", "test_table");
+        $this->waitForElement("byLinkText", "test_table");
 
         $this->_tableStructureAssertions();
     }
@@ -110,7 +84,7 @@ class PmaSeleniumTableCreateTest extends PHPUnit_Extensions_Selenium2TestCase
     {
         // go to structure page
         $this->byLinkText("Structure")->click();
-        $this->_helper->waitForElement("byId", "tablestructure");
+        $this->waitForElement("byId", "tablestructure");
 
         // make assertions for first row
         $this->assertContains(
@@ -120,31 +94,31 @@ class PmaSeleniumTableCreateTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->assertEquals(
             "int(14)",
-            $this->_helper->getTable("tablestructure.1.4")
+            $this->getTable('tablestructure', 1, 4)
         );
 
         $this->assertEquals(
             "UNSIGNED",
-            $this->_helper->getTable("tablestructure.1.6")
+            $this->getTable('tablestructure', 1, 6)
         );
 
         $this->assertEquals(
             "No",
-            $this->_helper->getTable("tablestructure.1.7")
+            $this->getTable('tablestructure', 1, 7)
         );
 
         $this->assertEquals(
             "None",
-            $this->_helper->getTable("tablestructure.1.8")
+            $this->getTable('tablestructure', 1, 8)
         );
 
         $this->assertEquals(
             "AUTO_INCREMENT",
-            $this->_helper->getTable("tablestructure.1.9")
+            $this->getTable('tablestructure', 1, 9)
         );
 
         $this->assertFalse(
-            $this->_helper->isElementPresent(
+            $this->isElementPresent(
                 'byCssSelector',
                 'table#tablestructure tbody tr:nth-child(1) "
                 . "ul.table-structure-actions li.primary a'
@@ -159,39 +133,29 @@ class PmaSeleniumTableCreateTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->assertEquals(
             "varchar(10)",
-            $this->_helper->getTable("tablestructure.2.4")
+            $this->getTable('tablestructure', 2, 4)
         );
 
         $this->assertEquals(
             "utf8_general_ci",
-            $this->_helper->getTable("tablestructure.2.5")
+            $this->getTable('tablestructure', 2, 5)
         );
 
         $this->assertEquals(
             "Yes",
-            $this->_helper->getTable("tablestructure.2.7")
+            $this->getTable('tablestructure', 2, 7)
         );
 
         $this->assertEquals(
             "def",
-            $this->_helper->getTable("tablestructure.2.8")
+            $this->getTable('tablestructure', 2, 8)
         );
 
         $this->assertFalse(
-            $this->_helper->isElementPresent(
+            $this->isElementPresent(
                 'byCssSelector',
                 'css=ul.table-structure-actions:nth-child(2) li.primary a'
             )
         );
-    }
-
-    /**
-     * Tear down functions for test cases
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        $this->_helper->dbQuery('DROP DATABASE ' . $this->_dbname);
     }
 }

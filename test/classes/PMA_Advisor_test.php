@@ -250,7 +250,7 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=http%3A%2F%2F' .
-                        'phpma.org%2F&amp;lang=en&amp;token=token">web</a>',
+                        'phpma.org%2F">web</a>',
                     'id' => 'Distribution'
                 ),
                 null,

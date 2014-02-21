@@ -775,7 +775,7 @@ div#tablestatistics table {
     margin-<?php echo $right; ?>: 0.5em;
     min-width: 16em;
 }
-/* END table stats */
+/* end table stats */
 
 
 /* server privileges */
@@ -784,7 +784,7 @@ div#tablestatistics table {
 #tabledatabases td {
     vertical-align: middle;
 }
-/* END server privileges */
+/* end server privileges */
 
 
 
@@ -920,7 +920,7 @@ div#tablestatistics table {
 #fieldset_user_global_rights legend input {
     margin-<?php echo $left; ?>: 2em;
 }
-/* END user privileges */
+/* end user privileges */
 
 
 /* serverstatus */
@@ -1141,7 +1141,7 @@ div#querywindowcontainer {
 div#querywindowcontainer fieldset {
     margin-top: 0;
 }
-/* END querywindow */
+/* end querywindow */
 
 /* profiling */
 
@@ -1179,7 +1179,7 @@ div#profilingchart {
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
 }
 
-/* END profiling */
+/* end profiling */
 
 /* querybox */
 
@@ -1235,7 +1235,18 @@ div#queryboxcontainer div#bookmarkoptions {
 #maincontainer li {
     margin:  0.2em 0em;
 }
-/* END main page */
+
+#full_name_layer {
+    position: absolute;
+    padding: 2px;
+    margin-top: -3px;
+    z-index: 801;
+
+    border: solid 1px #888;
+    background: #fff;
+
+}
+/* end main page */
 
 /* iconic view for ul items */
 
@@ -1244,7 +1255,7 @@ li.no_bullets {
     margin-left: -25px !important;      //align with other list items which have bullets
 }
 
-/* END iconic view for ul items */
+/* end iconic view for ul items */
 
 #body_browse_foreigners {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
@@ -1370,12 +1381,14 @@ div.sqlvalidate  {
 
 #main_pane_left {
     width:              60%;
+    min-width:          260px;
     float:              <?php echo $left; ?>;
     padding-top:        1em;
 }
 
 #main_pane_right {
-    margin-<?php echo $left; ?>: 60%;
+    overflow:           hidden;
+    min-width:          160px;
     padding-top: 1em;
     padding-<?php echo $left; ?>: 1em;
 }

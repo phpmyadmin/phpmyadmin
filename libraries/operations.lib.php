@@ -21,7 +21,7 @@ if (! defined('PHPMYADMIN')) {
 function PMA_getHtmlForDatabaseComment($db)
 {
     $html_output = '<div class="operations_half_width">'
-        . '<form method="post" action="db_operations.php">'
+        . '<form method="post" action="db_operations.php" id="formDatabaseComment">'
         . PMA_URL_getHiddenInputs($db)
         . '<fieldset>'
         . '<legend>';

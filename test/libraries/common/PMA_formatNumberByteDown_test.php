@@ -92,7 +92,8 @@ class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
             array(100, 2, 2, array('0.10', __('KiB'))),
             array(1034, 3, 2, array('1.01', __('KiB'))),
             array(100233, 3, 3, array('97.884', __('KiB'))),
-            array(2206451, 1, 2, array('2.10', __('MiB')))
+            array(2206451, 1, 2, array('2.10', __('MiB'))),
+            array(21474836480, 4, 0, array('20', __('GiB')))
         );
     }
 

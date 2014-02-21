@@ -16,9 +16,9 @@ Continuous integration:
 
 Translations:
 
-.. image:: http://l10n.cihar.com/widgets/phpmyadmin-status-badge.png
+.. image:: https://l10n.cihar.com/widgets/phpmyadmin-status-badge.png
     :alt: Translation status
-    :target: http://l10n.cihar.com/engage/phpmyadmin/?utm_source=widget
+    :target: https://l10n.cihar.com/engage/phpmyadmin/?utm_source=widget
 
 Code coverage:
 

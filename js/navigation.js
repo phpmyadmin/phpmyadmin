@@ -124,12 +124,13 @@ $(function () {
         dialog.editorDialog(1, $(this));
     });
 
-    /** Edit Routines, Triggers and Events */
+    /** Execute Routines */
     $('li.procedure > a.ajax, li.function > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('routine');
-        dialog.editorDialog(0, $(this));
+        dialog.executeDialog($(this));
     });
+    /** Edit Triggers and Events */
     $('li.trigger > a.ajax').live('click', function (event) {
         event.preventDefault();
         var dialog = new RTE.object('trigger');
@@ -141,10 +142,15 @@ $(function () {
         dialog.editorDialog(0, $(this));
     });
 
-    /** Export Routines, Triggers and Events */
-    $('li.procedure div:eq(1) a.ajax img,' +
-        ' li.function div:eq(1) a.ajax img,' +
-        ' li.trigger div:eq(1) a.ajax img,' +
+    /** Edit Routines */
+    $('li.procedure div a.ajax img,' +
+        ' li.function div a.ajax img').live('click', function (event) {
+        event.preventDefault();
+        var dialog = new RTE.object('routine');
+        dialog.editorDialog(0, $(this).parent());
+    });
+    /** Export Triggers and Events */
+    $('li.trigger div:eq(1) a.ajax img,' +
         ' li.event div:eq(1) a.ajax img'
         ).live('click', function (event) {
         event.preventDefault();
@@ -259,7 +265,7 @@ function expandTreeNode($expandElem, callback) {
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_plus')) {
             $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-            $children.show('fast');
+            $children.slideDown('fast');
         }
         if (callback && typeof callback == 'function') {
             callback.call();
@@ -279,7 +285,7 @@ function expandTreeNode($expandElem, callback) {
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                 $destination
                     .children('div.list_container')
-                    .show('fast');
+                    .slideDown('fast');
                 if ($destination.find('ul > li').length == 1) {
                     $destination.find('ul > li')
                         .find('a.expander.container')
@@ -288,6 +294,7 @@ function expandTreeNode($expandElem, callback) {
                 if (callback && typeof callback == 'function') {
                     callback.call();
                 }
+                PMA_showFullName($destination);
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
@@ -334,7 +341,7 @@ function collapseTreeNode($expandElem) {
     if ($expandElem.hasClass('loaded')) {
         if ($icon.is('.ic_b_minus')) {
             $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-            $children.hide('fast');
+            $children.slideUp('fast');
         }
     }
     $expandElem.blur();
@@ -373,6 +380,12 @@ function loadChildNodes($expandElem, callback) {
             if (callback && typeof callback == 'function') {
                 callback(data);
             }
+        } else {
+            var $throbber = $expandElem.find('img.throbber');
+            $throbber.hide();
+            $icon = $expandElem.find('img.ic_b_plus');
+            $icon.show();
+            PMA_ajaxShowMessage(data.error, false);
         }
     });
 }
@@ -406,6 +419,7 @@ function PMA_showCurrentNavigation() {
             }
         }
     }
+    PMA_showFullName($('#pma_navigation_tree_content'));
 
     function handleTableOrDb(table, $dbItem) {
         if (table) {
@@ -1195,3 +1209,49 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
     this.$this.find('div.pageselector').show();
     this.$this.find('div.throbber').remove();
 };
+
+/**
+ * Show full name when cursor hover and name not shown completely
+ *
+ * @param object $containerELem Container element
+ *
+ * @return void
+ */
+function PMA_showFullName($containerELem) {
+
+    $containerELem.find('.hover_show_full').mouseenter(function() {
+        /** mouseenter */
+        var $this = $(this);
+        var thisOffset = $this.offset();
+        if($this.text() == '')
+            return;
+        var $parent = $this.parent();
+        if(  ($parent.offset().left + $parent.outerWidth())
+           < (thisOffset.left + $this.outerWidth()))
+        {
+            var $fullNameLayer = $('#full_name_layer');
+            if($fullNameLayer.length == 0)
+            {
+                $('body').append('<div id="full_name_layer" class="hide"></div>');
+                $('#full_name_layer').mouseleave(function() {
+                    /** mouseleave */
+                    $(this).addClass('hide')
+                           .removeClass('hovering');
+                }).mouseenter(function() {
+                    /** mouseenter */
+                    $(this).addClass('hovering');
+                });
+                $fullNameLayer = $('#full_name_layer');
+            }
+            $fullNameLayer.removeClass('hide');
+            $fullNameLayer.css({left: thisOffset.left, top: thisOffset.top});
+            $fullNameLayer.html($this.clone());
+            setTimeout(function() {
+                if(! $fullNameLayer.hasClass('hovering'))
+                {
+                    $fullNameLayer.trigger('mouseleave');
+                }
+            }, 200);
+        }
+    });
+}

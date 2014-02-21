@@ -173,6 +173,13 @@ form {
     display: inline;
 }
 
+
+input,
+select {
+    /* Fix outline in Chrome: */
+    outline: none;
+}
+
 input[type=text],
 input[type=password],
 input[type=number],
@@ -181,16 +188,66 @@ input[type=date] {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
 
-    box-shadow: 0 1px 2px #ddd;
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
 
     background: white;
     border: 1px solid #aaa;
     color: #555;
     padding: 4px;
     margin: 6px;
+}
 
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+select {
+    transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+}
+
+input[type=text][disabled],
+input[type=text][disabled]:hover,
+input[type=password][disabled],
+input[type=password][disabled]:hover,
+input[type=number][disabled],
+input[type=number][disabled]:hover,
+input[type=date][disabled],
+input[type=date][disabled]:hover,
+select[disabled],
+select[disabled]:hover {
+    background: #e8e8e8;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=password]:hover,
+input[type=password]:focus,
+input[type=number]:hover,
+input[type=number]:focus,
+input[type=date]:hover,
+input[type=date]:focus,
+select:focus,
+select:hover {
+
+    border: 1px solid #7c7c7c;
+
+
+    background: #fff;
+}
+
+input[type=text]:hover,
+input[type=password]:hover,
+input[type=number]:hover,
+input[type=date]:hover,
+select:hover {
+    box-shadow: 0 1px 3px #aaa;
+    -webkit-box-shadow: 0 1px 3px #aaa;
+    -moz-box-shadow: 0 1px 3px #aaa;
 }
 
 input[type=submit],
@@ -331,11 +388,7 @@ select {
     -webkit-border-radius: 2px;
     border-radius: 2px;
 
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
-    box-shadow: 0 1px 2px #ddd;
-
-    border: 1px solid #aaa;
+    border: 1px solid #bbb;
     color: #333;
     padding: 3px;
     background: white;
@@ -1021,7 +1074,7 @@ div#tablestatistics table {
     min-width: 16em;
 }
 
-/* END table stats */
+/* end table stats */
 
 
 /* server privileges */
@@ -1030,7 +1083,7 @@ div#tablestatistics table {
 #tabledatabases td {
     vertical-align: middle;
 }
-/* END server privileges */
+/* end server privileges */
 
 
 /* Heading */
@@ -1168,7 +1221,7 @@ div#tablestatistics table {
 #fieldset_user_global_rights legend input {
     margin-<?php echo $left; ?>: 2em;
 }
-/* END user privileges */
+/* end user privileges */
 
 
 /* serverstatus */
@@ -1439,7 +1492,7 @@ div#querywindowcontainer {
 div#querywindowcontainer fieldset {
     margin-top: 0;
 }
-/* END querywindow */
+/* end querywindow */
 
 /* profiling */
 
@@ -1477,7 +1530,7 @@ div#profilingchart {
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
 }
 
-/* END profiling */
+/* end profiling */
 
 /* table charting */
 
@@ -1488,7 +1541,7 @@ div#profilingchart {
     padding: 10px;
 }
 
-/* END table charting */
+/* end table charting */
 
 /* querybox */
 
@@ -1604,7 +1657,19 @@ div#queryboxcontainer div#bookmarkoptions {
 #maincontainer li {
     margin-bottom: .3em;
 }
-/* END main page */
+
+#full_name_layer {
+    position: absolute;
+    padding: 2px;
+    margin-top: -3px;
+    z-index: 801;
+
+    border-radius: 3px;
+    border: solid 1px #888;
+    background: #fff;
+
+}
+/* end main page */
 
 
 /* iconic view for ul items */
@@ -1614,7 +1679,7 @@ li.no_bullets {
     margin-left: -25px !important;      //align with other list items which have bullets
 }
 
-/* END iconic view for ul items */
+/* end iconic view for ul items */
 
 #body_browse_foreigners {
     background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
@@ -1736,12 +1801,14 @@ div.sqlvalidate {
 
 #main_pane_left {
     width: 60%;
+    min-width: 260px;
     float: <?php echo $left; ?>;
     padding-top: 1em;
 }
 
 #main_pane_right {
-    margin-<?php echo $left; ?>: 60%;
+    overflow: hidden;
+    min-width: 160px;
     padding-top: 1em;
     padding-<?php echo $left; ?>: 1em;
 }

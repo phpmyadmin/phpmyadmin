@@ -6,7 +6,9 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'Helper.php';
+
+require_once 'TestBase.php';
+
 
 /**
  * PmaSeleniumDbOperationsTest class
@@ -14,38 +16,8 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumDbOperationsTest extends PHPUnit_Extensions_Selenium2TestCase
+class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
 {
-    /**
-     * Name of database for the test
-     *
-     * @var string
-     */
-    private $_dbname;
-
-    /**
-     * Helper Object
-     *
-     * @var Helper
-     */
-    private $_helper;
-
-    /**
-     * Setup the browser environment to run the selenium test case
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        $this->_helper = new Helper($this);
-        $this->setBrowser($this->_helper->getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-        $this->_helper->dbConnect();
-        $this->_dbname = 'pma_db_test';
-        $this->_helper->dbQuery('CREATE DATABASE ' . $this->_dbname);
-        $this->_helper->dbQuery('USE ' . $this->_dbname);
-    }
-
     /**
      * setUp function that can use the selenium session (called before each test)
      *
@@ -53,11 +25,11 @@ class PmaSeleniumDbOperationsTest extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function setUpPage()
     {
-        $this->_helper->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->byLinkText($this->_dbname)->click();
-        $this->_helper->waitForElement("byLinkText", "Operations")->click();
-        $this->_helper->waitForElement(
-            "byXPath", "//legend[contains(., 'Database comment:')]"
+        $this->login();
+        $this->byLinkText($this->database_name)->click();
+        $this->waitForElement("byLinkText", "Operations")->click();
+        $this->waitForElement(
+            "byXPath", "//legend[contains(., 'Rename database to:')]"
         );
     }
 
@@ -65,14 +37,17 @@ class PmaSeleniumDbOperationsTest extends PHPUnit_Extensions_Selenium2TestCase
      * Test for adding database comment
      *
      * @return void
+     *
+     * @group large
      */
     public function testDbComment()
     {
+        $this->skipIfNotPMADB();
         $this->byName("comment")->value("comment_foobar");
-        $this->byXPath("(//input[@value='Go'])[1]")->click();
+        $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
 
         $this->assertNotNull(
-            $this->_helper->waitForElement(
+            $this->waitForElement(
                 "byXPath",
                 "//span[@id='span_table_comment' and contains(., 'comment_foobar')]"
             )
@@ -83,69 +58,65 @@ class PmaSeleniumDbOperationsTest extends PHPUnit_Extensions_Selenium2TestCase
      * Test for renaming database
      *
      * @return void
+     *
+     * @group large
      */
     public function testRenameDB()
     {
+        $new_db_name = $this->database_name . 'rename';
         $this->byCssSelector("form#rename_db_form input[name=newname]")
-            ->value("pma_test_db_renamed");
+            ->value($new_db_name);
 
-        $this->byXPath("(//input[@value='Go'])[3]")->click();
+        $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath", "//button[contains(., 'OK')]"
         )->click();
 
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: pma_test_db_renamed')]"
+            "//a[@class='item' and contains(., 'Database: $new_db_name')]"
         );
 
-        $result = $this->_helper->dbQuery(
-            "SHOW DATABASES LIKE 'pma_test_db_renamed';"
+        $result = $this->dbQuery(
+            "SHOW DATABASES LIKE '$new_db_name';"
         );
         $this->assertEquals(1, $result->num_rows);
 
-        $result = $this->_helper->dbQuery(
-            "SHOW DATABASES LIKE '" . $this->_dbname . "';"
+        $result = $this->dbQuery(
+            "SHOW DATABASES LIKE '" . $this->database_name . "';"
         );
         $this->assertEquals(0, $result->num_rows);
 
-        $this->_dbname = "pma_test_db_renamed";
+        $this->database_name = $new_db_name;
     }
 
     /**
      * Test for copying database
      *
      * @return void
+     *
+     * @group large
      */
     public function testCopyDb()
     {
+        $new_db_name = $this->database_name . 'copy';
         $this->byCssSelector("form#copy_db_form input[name=newname]")
-            ->value("pma_test_db_copy");
+            ->value($new_db_name);
 
-        $this->byXPath("(//input[@value='Go'])[4]")->click();
+        $this->byCssSelector("form#copy_db_form input[type='submit']")->click();
 
-        $this->_helper->waitForElement(
+        $this->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Database " . $this->_dbname
-            . " has been copied to pma_test_db_copy')]"
+            "//div[@class='success' and contains(., 'Database " . $this->database_name
+            . " has been copied to $new_db_name')]"
         );
 
-        $result = $this->_helper->dbQuery(
-            "SHOW DATABASES LIKE 'pma_test_db_copy';"
+        $result = $this->dbQuery(
+            "SHOW DATABASES LIKE '$new_db_name';"
         );
         $this->assertEquals(1, $result->num_rows);
 
-        $this->_helper->dbQuery("DROP DATABASE pma_test_db_copy");
-    }
-
-    /**
-     * Tear Down function for test cases
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        $this->_helper->dbQuery('DROP DATABASE ' . $this->_dbname);
+        $this->dbQuery("DROP DATABASE $new_db_name");
     }
 }

@@ -19,22 +19,45 @@ define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
 
+// Selenium tests setup
+$test_defaults = array(
+    'TESTSUITE_SERVER' => 'localhost',
+    'TESTSUITE_USER' => 'root',
+    'TESTSUITE_PASSWORD' => '',
+    'TESTSUITE_DATABASE' => 'test',
+    'TESTSUITE_URL' => 'http://localhost/phpmyadmin/',
+    'TESTSUITE_SELENIUM_HOST' => '',
+    'TESTSUITE_SELENIUM_PORT' => '4444',
+    'TESTSUITE_SELENIUM_BROWSER' => 'firefox',
+    'TESTSUITE_BROWSERSTACK_USER' => '',
+    'TESTSUITE_BROWSERSTACK_KEY' => '',
+    'TESTSUITE_FULL' => '',
+);
+foreach ($test_defaults as $varname => $defvalue) {
+    $envvar = getenv($varname);
+    if ($envvar) {
+        $GLOBALS[$varname] = $envvar;
+    } else {
+        $GLOBALS[$varname] = $defvalue;
+    }
+}
+
+// Initialize PMA_VERSION variable
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 $CFG = new PMA_Config();
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 unset($CFG);
 
+// Ensure we have session started
 session_start();
-
-// You can put some additional code that should run before tests here
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['is_ajax_request'] = false;
 
-
+// Check whether we have runkit extension
 define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));
 $GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');
 

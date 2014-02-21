@@ -913,7 +913,7 @@ class PMA_NavigationTree
             if ($parent[0]->type == Node::CONTAINER
                 && (in_array($parent[0]->real_name, $haveAjax) || $isNewView)
             ) {
-                $linkClass = ' class="ajax"';
+                $linkClass = ' ajax';
             }
 
             if ($node->type == Node::CONTAINER) {
@@ -927,7 +927,10 @@ class PMA_NavigationTree
                         $args[] = urlencode($parent->real_name);
                     }
                     $link = vsprintf($node->links['icon'], $args);
-                    $retval .= "<a$linkClass href='$link'>{$node->icon}</a>";
+                    if($linkClass != '')
+                        $retval .= "<a class='$linkClass' href='$link'>{$node->icon}</a>";
+                    else
+                        $retval .= "<a href='$link'>{$node->icon}</a>";
                 } else {
                     $retval .= "<u>{$node->icon}</u>";
                 }
@@ -940,14 +943,15 @@ class PMA_NavigationTree
                 }
                 $link = vsprintf($node->links['text'], $args);
                 if ($node->type == Node::CONTAINER) {
-                    $retval .= "<a href='$link'>";
+                    $retval .= "<a class='hover_show_full' href='$link'>";
                     $retval .= htmlspecialchars($node->name);
                     $retval .= "</a>";
                 } else {
-                    $retval .= "<a$linkClass href='$link'>";
+                    $retval .= "<a class='hover_show_full$linkClass' href='$link'>";
                     $retval .= htmlspecialchars($node->real_name);
                     $retval .= "</a>";
                 }
+                $retval .= '<div class="clearfloat"></div>';
             } else {
                 $retval .= "{$node->name}";
             }

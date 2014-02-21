@@ -442,11 +442,16 @@ function PMA_arrayMergeRecursive()
  */
 function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
+    static $walked_keys = array();
     static $recursive_counter = 0;
     if (++$recursive_counter > 1000) {
         PMA_fatalError(__('possible deep recursion attack'));
     }
     foreach ($array as $key => $value) {
+        if (isset($walked_keys[$key])) {
+            continue;
+        }
+
         if (is_array($value)) {
             PMA_arrayWalkRecursive($array[$key], $function, $apply_to_keys_also);
         } else {
@@ -458,6 +463,9 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
             if ($new_key != $key) {
                 $array[$new_key] = $array[$key];
                 unset($array[$key]);
+                $walked_keys[$new_key] = true;
+            } else {
+                $walked_keys[$key] = true;
             }
         }
     }
@@ -802,8 +810,51 @@ function PMA_linkURL($url)
     }
     $params = array();
     $params['url'] = $url;
-    return './url.php' . PMA_URL_getCommon($params);
+
+    $url = PMA_URL_getCommon($params);
+    //strip off token and such sensitive information. Just keep url.
+    $arr = parse_url($url);
+    parse_str($arr["query"], $vars);
+    $query = http_build_query(array("url" => $vars["url"]));
+    $url = './url.php?' . $query;
+
+    return $url;
 }
+
+/**
+ * Checks whether domain of URL is whitelisted domain or not.
+ * Use only for URLs of external sites.
+ *
+ * @param string $url URL of external site.
+ *
+ * @return boolean.True:if domain of $url is allowed domain, False:otherwise.
+ */
+function PMA_isAllowedDomain($url)
+{
+    $arr = parse_url($url);
+    $domain = $arr["host"];
+    $domainWhiteList = array(
+        /* Include current domain */
+        $_SERVER['SERVER_NAME'],
+        /* phpMyAdmin domains */
+        'wiki.phpmyadmin.net', 'www.phpMyAdmin.net', 'phpmyadmin.net',
+        'docs.phpmyadmin.net',
+        /* mysql.com domains */
+        'dev.mysql.com','bugs.mysql.com',
+        /* php.net domains */
+        'php.net',
+        /* Github domains*/
+        'github.com','www.github.com',
+        /* Following are doubtful ones. */
+        'www.primebase.com','pbxt.blogspot.com'
+    );
+    if (in_array($domain, $domainWhiteList)) {
+        return true;
+    }
+
+    return false;
+}
+
 
 /**
  * Adds JS code snippets to be displayed by the PMA_Response class.
