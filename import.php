@@ -370,7 +370,8 @@ if ($import_file != 'none' && ! $error) {
     if (! empty($open_basedir)) {
 
         /**
-         * @todo make use of the config's temp dir with fallback to the system's tmp dir
+         * @todo make use of the config's temp dir with fallback to the 
+         * system's tmp dir
          */
         $tmp_subdir = sys_get_temp_dir();
 
@@ -584,7 +585,9 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
         if (isset($local_import_file)) {
             $message->addString('(' . htmlspecialchars($local_import_file) . ')');
         } else {
-            $message->addString('(' . htmlspecialchars($_FILES['import_file']['name']) . ')');
+            $message->addString(
+                '(' . htmlspecialchars($_FILES['import_file']['name']) . ')'
+            );
         }
     }
 }

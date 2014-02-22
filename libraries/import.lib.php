@@ -1319,7 +1319,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
  * @access  public
  *
  */
-function PMA_stopImport( PMA_Message $error_message ) {
+function PMA_stopImport( PMA_Message $error_message )
+{
     global $import_handle, $file_to_unlink;
 
     // Close open handles
