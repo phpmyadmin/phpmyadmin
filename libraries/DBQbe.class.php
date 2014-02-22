@@ -517,9 +517,6 @@ class PMA_DbQbe
      */
     private function _getShowRow()
     {
-        /*var_dump($_REQUEST['criteriaShow']);
-        die();*/
-
         $html_output = '<tr class="odd noclick">';
         $html_output .= '<th>' . __('Show:') . '</th>';
         $new_column_count = 0;
