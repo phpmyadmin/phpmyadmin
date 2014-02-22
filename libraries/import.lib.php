@@ -1309,4 +1309,36 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     unset($tables);
 }
 
+
+/**
+ * Stops the import on (mostly upload/file related) error
+ *
+ * @param PMA_Message $error_message The error message 
+ *
+ * @return void
+ * @access  public
+ *
+ */
+function PMA_stopImport( PMA_Message $error_message ) {
+    global $import_handle, $file_to_unlink;
+
+    // Close open handles
+    if ($import_handle !== false && $import_handle !== null) {
+        fclose($import_handle);
+    }
+
+    // Delete temporary file
+    if ($file_to_unlink != '') {
+        unlink($file_to_unlink);
+    }
+
+    $_SESSION['Import_message']['message'] = $error_message->getDisplay();
+
+    $response = PMA_Response::getInstance();
+    $response->isSuccess(false);
+    $response->addJSON('message', PMA_Message::error($msg));
+
+    exit;
+}
+
 ?>
