@@ -45,12 +45,13 @@ if ($cfgRelation['savedsearcheswork']) {
             }*/
         } elseif ('delete' === $_REQUEST['action']) {
             $deleteResult = $savedSearch->delete();
+            //After deletion, reset search.
+            $savedSearch = new PMA_SavedSearches($GLOBALS);
+            $_REQUEST = array();
         } elseif ('load' === $_REQUEST['action']) {
             $loadResult = $savedSearch->load();
         }
         //Else, it's an "update query"
-    /*} else { //This is another form…
-        $loadResult = $savedSearch->load();*/
     }
 
     $savedSearchList = $savedSearch->getList();

@@ -31,7 +31,6 @@ AJAX.registerOnload('db_qbe.js', function () {
      * Ajax event handlers for 'Select saved search'
      */
     $("#searchId").live('change', function (event) {
-        console.debug('Value : ' + $(this).val());
         if ('' == $(this).val()) {
             return false;
         }
