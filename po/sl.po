@@ -4,9 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-19 20:25+0200\n"
+"PO-Revision-Date: 2014-02-22 15:17+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/4-1/sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12772,10 +12773,10 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Prosimo, na spletnem strežniku ustvarite zapisljivo mapo [em]config[/em] v "
-"najvišjem nivoju mape phpMyAdmina, kot opisuje [doc@setup_script]"
-"dokumentacija[/doc]. V naprotnem primeru jo boste lahko samo prenesli ali jo "
-"prikazali."
+"Prosimo, da na spletnem strežniku ustvarite zapisljivo mapo [em]config[/em] "
+"v najvišjem nivoju mape phpMyAdmina, kot opisuje "
+"[doc@setup_script]dokumentacija[/doc]. V nasprotnem primeru jo boste lahko "
+"samo prenesli ali jo prikazali."
 
 #: setup/frames/index.inc.php:68
 msgid ""
@@ -12829,7 +12830,7 @@ msgstr "Nov strežnik"
 
 #: setup/frames/index.inc.php:229
 msgid "Default language"
-msgstr "Privzet jezik"
+msgstr "Privzeti jezik"
 
 #: setup/frames/index.inc.php:239
 msgid "let the user choose"
@@ -12841,7 +12842,7 @@ msgstr "- noben -"
 
 #: setup/frames/index.inc.php:254
 msgid "Default server"
-msgstr "Privzet strežnik"
+msgstr "Privzeti strežnik"
 
 #: setup/frames/index.inc.php:266
 msgid "End of line"
