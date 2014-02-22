@@ -855,27 +855,29 @@ class PMA_DbQbe
             $column_index < $this->_criteria_column_count;
             $column_index++
         ) {
-            if (! empty($this->_criteriaColumnInsert)
+            if (!empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
-                $or = 'Or' . $new_row_index . '[' . $new_column_count . ']';
+                $orFieldName = 'Or' . $new_row_index . '[' . $new_column_count . ']';
                 $html_output .= '<td class="center">';
                 $html_output .= '<input type="text"'
-                    . ' name="Or' . $or . '" class="textfield"'
+                    . ' name="Or' . $orFieldName . '" class="textfield"'
                     . ' style="width: ' . $this->_realwidth . '" size="20" />';
                 $html_output .= '</td>';
                 $new_column_count++;
             } // end if
-            if (! empty($this->_criteriaColumnDelete)
+            if (!empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$column_index])
                 && $this->_criteriaColumnDelete[$column_index] == 'on'
             ) {
                 continue;
             }
-            $or = 'Or' . $new_row_index;
-            if (! empty($_POST[$or]) && isset($_POST[$or][$column_index])) {
-                $tmp_or = $_POST[$or][$column_index];
+            $orFieldName = 'Or' . $new_row_index;
+            if (!empty($_REQUEST[$orFieldName])
+                && isset($_REQUEST[$orFieldName][$column_index])
+            ) {
+                $tmp_or = $_REQUEST[$orFieldName][$column_index];
             } else {
                 $tmp_or     = '';
             }
@@ -885,8 +887,9 @@ class PMA_DbQbe
                 . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
                 . ' style="width: ' . $this->_realwidth . '" size="20" />';
             $html_output .= '</td>';
-            if (! empty(${$or}) && isset(${$or}[$column_index])) {
-                $GLOBALS[${'cur' . $or}][$new_column_count] = ${$or}[$column_index];
+            if (!empty(${$orFieldName}) && isset(${$orFieldName}[$column_index])) {
+                $GLOBALS[${'cur' . $orFieldName}][$new_column_count]
+                    = ${$orFieldName}[$column_index];
             }
             $new_column_count++;
         } // end for

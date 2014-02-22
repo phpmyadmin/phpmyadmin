@@ -155,13 +155,12 @@ class PMA_SavedSearches
         $data = array();
 
         $data['criteriaColumnCount'] = count($criterias['criteriaColumn']);
-        $data['rows'] = count($criterias['rows']);
 
         foreach ($aListFieldsToGet as $field) {
             $data[$field] = $criterias[$field];
         }
 
-        for ($i = 0; $i < $data['rows']; $i++) {
+        for ($i = 0; $i <= $data['rows']; $i++) {
             $data['Or' . $i] = $criterias['Or' . $i];
         }
 
