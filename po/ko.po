@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-11 09:16+0100\n"
-"PO-Revision-Date: 2014-02-19 16:40+0200\n"
+"PO-Revision-Date: 2014-02-23 05:38+0200\n"
 "Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: Korean "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
@@ -6364,10 +6364,9 @@ msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:667
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Display columns table"
-msgstr "열(컬럼) 이름 복사"
+msgstr "열 목록 표시"
 
 #: libraries/config/messages.inc.php:669
 #, fuzzy
@@ -6477,10 +6476,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:705
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "사용할 테이블"
+msgstr "사용자 목록"
 
 #: libraries/config/messages.inc.php:706
 msgid ""
