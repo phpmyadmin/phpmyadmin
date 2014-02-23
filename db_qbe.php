@@ -47,6 +47,8 @@ if ($cfgRelation['savedsearcheswork']) {
             $deleteResult = $savedSearch->delete();
             //After deletion, reset search.
             $savedSearch = new PMA_SavedSearches($GLOBALS);
+            $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+                ->setDbname($_REQUEST['db']);
             $_REQUEST = array();
         } elseif ('load' === $_REQUEST['action']) {
             $loadResult = $savedSearch->load();

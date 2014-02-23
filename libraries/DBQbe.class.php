@@ -1041,7 +1041,7 @@ class PMA_DbQbe
             $column_index++
             ) {
                 if (! empty($this->_curField[$column_index])
-                    && ! empty($_REQUEST['Or' . $row_index][$column_index])
+                    && ! empty($_REQUEST['Or' .$row_index][$column_index])
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
@@ -1549,4 +1549,4 @@ class PMA_DbQbe
         }
     }
 }
-?>
+
