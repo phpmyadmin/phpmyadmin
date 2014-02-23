@@ -394,13 +394,16 @@ function PMA_checkRelationsParam()
     $cfgRelation['userconfigwork'] = false;
     $cfgRelation['menuswork']      = false;
     $cfgRelation['navwork']        = false;
+    $cfgRelation['savedsearcheswork'] = false;
     $cfgRelation['allworks']       = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
     if ($GLOBALS['server'] == 0
         || empty($GLOBALS['cfg']['Server']['pmadb'])
-        || ! $GLOBALS['dbi']->selectDb($GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink'])
+        || ! $GLOBALS['dbi']->selectDb(
+            $GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink']
+        )
     ) {
         // No server selected -> no bookmark table
         // we return the array with the falses in it,
@@ -462,7 +465,9 @@ function PMA_checkRelationsParam()
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['usergroups']) {
             $cfgRelation['usergroups']      = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['navigationhiding']) {
-            $cfgRelation['navigationhiding']      = $curr_table[0];
+            $cfgRelation['navigationhiding'] = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['savedsearches']) {
+            $cfgRelation['savedsearches']    = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -521,6 +526,10 @@ function PMA_checkRelationsParam()
         $cfgRelation['navwork']          = true;
     }
 
+    if (isset($cfgRelation['savedsearches'])) {
+        $cfgRelation['savedsearcheswork']      = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
@@ -528,6 +537,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
+        && $cfgRelation['savedsearcheswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
