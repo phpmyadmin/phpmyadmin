@@ -871,8 +871,8 @@ class PMA_DbQbe
                 continue;
             }
             $or = 'Or' . $new_row_index;
-            if (! empty($_POST[$or]) && isset($_POST[$or][$column_index])) {
-                $tmp_or = $_POST[$or][$column_index];
+            if (! empty($_REQUEST[$or]) && isset($_REQUEST[$or][$column_index])) {
+                $tmp_or = $_REQUEST[$or][$column_index];
             } else {
                 $tmp_or     = '';
             }
