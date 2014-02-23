@@ -395,6 +395,7 @@ function PMA_checkRelationsParam()
     $cfgRelation['menuswork']      = false;
     $cfgRelation['navwork']        = false;
     $cfgRelation['allworks']       = false;
+    $cfgRelation['savedsearcheswork'] = false;
     $cfgRelation['user']           = null;
     $cfgRelation['db']             = null;
 
@@ -463,6 +464,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['usergroups']      = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['navigationhiding']) {
             $cfgRelation['navigationhiding']      = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['savedsearches']) {
+            $cfgRelation['savedsearches']    = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -521,6 +524,10 @@ function PMA_checkRelationsParam()
         $cfgRelation['navwork']          = true;
     }
 
+    if (isset($cfgRelation['savedsearches'])) {
+        $cfgRelation['savedsearcheswork']      = true;
+    }
+
     if ($cfgRelation['relwork'] && $cfgRelation['displaywork']
         && $cfgRelation['pdfwork'] && $cfgRelation['commwork']
         && $cfgRelation['mimework'] && $cfgRelation['historywork']
@@ -528,6 +535,7 @@ function PMA_checkRelationsParam()
         && $cfgRelation['trackingwork'] && $cfgRelation['userconfigwork']
         && $cfgRelation['bookmarkwork'] && $cfgRelation['designerwork']
         && $cfgRelation['menuswork'] && $cfgRelation['navwork']
+        && $cfgRelation['savedsearcheswork']
     ) {
         $cfgRelation['allworks'] = true;
     }
