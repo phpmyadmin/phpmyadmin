@@ -457,7 +457,7 @@ $cfg['Servers'][$i]['users'] = '';
 $cfg['Servers'][$i]['usergroups'] = '';
 
 /**
- * table to store information about item hidden from navigation triee
+ * table to store information about item hidden from navigation tree
  *   - leave blank to disable hide/show navigation items feature
  *     SUGGESTED: 'pma__navigationhiding'
  *

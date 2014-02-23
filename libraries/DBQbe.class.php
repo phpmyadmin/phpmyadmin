@@ -143,7 +143,7 @@ class PMA_DbQbe
      */
     private $_curCriteria;
     /**
-     * Current criteria AND/OR column realtions
+     * Current criteria AND/OR column relations
      *
      * @access private
      * @var array
@@ -808,27 +808,29 @@ class PMA_DbQbe
             $column_index < $this->_criteria_column_count;
             $column_index++
         ) {
-            if (! empty($this->_criteriaColumnInsert)
+            if (!empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
-                $or = 'Or' . $new_row_index . '[' . $new_column_count . ']';
+                $orFieldName = 'Or' . $new_row_index . '[' . $new_column_count . ']';
                 $html_output .= '<td class="center">';
                 $html_output .= '<input type="text"'
-                    . ' name="Or' . $or . '" class="textfield"'
+                    . ' name="Or' . $orFieldName . '" class="textfield"'
                     . ' style="width: ' . $this->_realwidth . '" size="20" />';
                 $html_output .= '</td>';
                 $new_column_count++;
             } // end if
-            if (! empty($this->_criteriaColumnDelete)
+            if (!empty($this->_criteriaColumnDelete)
                 && isset($this->_criteriaColumnDelete[$column_index])
                 && $this->_criteriaColumnDelete[$column_index] == 'on'
             ) {
                 continue;
             }
-            $or = 'Or' . $new_row_index;
-            if (! empty($_POST[$or]) && isset($_POST[$or][$column_index])) {
-                $tmp_or = $_POST[$or][$column_index];
+            $orFieldName = 'Or' . $new_row_index;
+            if (!empty($_POST[$orFieldName])
+                && isset($_POST[$orFieldName][$column_index])
+            ) {
+                $tmp_or = $_POST[$orFieldName][$column_index];
             } else {
                 $tmp_or     = '';
             }
@@ -838,8 +840,9 @@ class PMA_DbQbe
                 . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
                 . ' style="width: ' . $this->_realwidth . '" size="20" />';
             $html_output .= '</td>';
-            if (! empty(${$or}) && isset(${$or}[$column_index])) {
-                $GLOBALS[${'cur' . $or}][$new_column_count] = ${$or}[$column_index];
+            if (!empty(${$orFieldName}) && isset(${$orFieldName}[$column_index])) {
+                $GLOBALS[${'cur' . $orFieldName}][$new_column_count]
+                    = ${$orFieldName}[$column_index];
             }
             $new_column_count++;
         } // end for
@@ -1121,7 +1124,6 @@ class PMA_DbQbe
         $where_clause_columns
     ) {
         $GLOBALS['dbi']->selectDb($this->_db);
-        $candidate_columns = array();
 
         // Get unique columns and index columns
         $indexes = $this->_getIndexes(
@@ -1149,23 +1151,25 @@ class PMA_DbQbe
         // good) as $candidate_columns we want to check if we have any 'Y' there
         // (that would mean that they were also found in the whereclauses
         // which would be great). if yes, we take only those
-        if ($needsort == 1) {
-            foreach ($candidate_columns as $column => $is_where) {
-                $table = explode('.', $column);
-                $table = $table[0];
-                if ($is_where == 'Y') {
-                    $vg[$column] = $table;
-                } else {
-                    $sg[$column] = $table;
-                }
-            }
-            if (isset($vg)) {
-                $candidate_columns = $vg;
-                // Candidates restricted in index+where
+        if ($needsort != 1) {
+            return $candidate_columns;
+        }
+
+        foreach ($candidate_columns as $column => $is_where) {
+            $table = explode('.', $column);
+            $table = $table[0];
+            if ($is_where == 'Y') {
+                $vg[$column] = $table;
             } else {
-                $candidate_columns = $sg;
-                // None of the candidates where in a where-clause
+                $sg[$column] = $table;
             }
+        }
+        if (isset($vg)) {
+            $candidate_columns = $vg;
+            // Candidates restricted in index+where
+        } else {
+            $candidate_columns = $sg;
+            // None of the candidates where in a where-clause
         }
 
         return $candidate_columns;
@@ -1184,46 +1188,48 @@ class PMA_DbQbe
     private function _getMasterTable($all_tables, $all_columns,
         $where_clause_columns, $where_clause_tables
     ) {
-        $master = '';
         if (count($where_clause_tables) == 1) {
             // If there is exactly one column that has a decent where-clause
             // we will just use this
             $master = key($where_clause_tables);
-        } else {
-            // Now let's find out which of the tables has an index
-            // (When the control user is the same as the normal user
-            // because he is using one of his databases as pmadb,
-            // the last db selected is not always the one where we need to work)
-            $candidate_columns = $this->_getLeftJoinColumnCandidates(
-                $all_tables, $all_columns, $where_clause_columns
-            );
-            // If our array of candidates has more than one member we'll just
-            // find the smallest table.
-            // Of course the actual query would be faster if we check for
-            // the Criteria which gives the smallest result set in its table,
-            // but it would take too much time to check this
-            if (count($candidate_columns) > 1) {
-                // Of course we only want to check each table once
-                $checked_tables = $candidate_columns;
-                foreach ($candidate_columns as $table) {
-                    if ($checked_tables[$table] != 1) {
-                        $tsize[$table] = PMA_Table::countRecords(
-                            $this->_db,
-                            $table,
-                            false
-                        );
-                        $checked_tables[$table] = 1;
-                    }
-                    $csize[$table] = $tsize[$table];
-                }
-                asort($csize);
-                reset($csize);
-                $master = key($csize); // Smallest
-            } else {
-                reset($candidate_columns);
-                $master = current($candidate_columns); // Only one single candidate
+            return $master;
+        }
+
+        // Now let's find out which of the tables has an index
+        // (When the control user is the same as the normal user
+        // because he is using one of his databases as pmadb,
+        // the last db selected is not always the one where we need to work)
+        $candidate_columns = $this->_getLeftJoinColumnCandidates(
+            $all_tables, $all_columns, $where_clause_columns
+        );
+        // If our array of candidates has more than one member we'll just
+        // find the smallest table.
+        // Of course the actual query would be faster if we check for
+        // the Criteria which gives the smallest result set in its table,
+        // but it would take too much time to check this
+        if (!(count($candidate_columns) > 1)) {
+            reset($candidate_columns);
+            $master = current($candidate_columns); // Only one single candidate
+            return $master;
+        }
+
+        // Of course we only want to check each table once
+        $checked_tables = $candidate_columns;
+        foreach ($candidate_columns as $table) {
+            if ($checked_tables[$table] != 1) {
+                $tsize[$table] = PMA_Table::countRecords(
+                    $this->_db,
+                    $table,
+                    false
+                );
+                $checked_tables[$table] = 1;
             }
-        } // end if (exactly one where clause)
+            $csize[$table] = $tsize[$table];
+        }
+        asort($csize);
+        reset($csize);
+        $master = key($csize); // Smallest
+
         return $master;
     }
 
@@ -1271,7 +1277,7 @@ class PMA_DbQbe
      *
      * @param string $cfgRelation Relation Settings
      *
-     * @return FROM clause
+     * @return string FROM clause
      */
     private function _getFromClause($cfgRelation)
     {
