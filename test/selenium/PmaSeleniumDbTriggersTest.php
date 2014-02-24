@@ -68,8 +68,10 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
     private function _triggerSQL()
     {
         $this->dbQuery(
-            "CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW"
-            . " UPDATE `" . $this->database_name . "`.`test_table2` SET val = val + 1"
+            "CREATE TRIGGER `test_trigger` "
+            . "AFTER INSERT ON `test_table` FOR EACH ROW"
+            . " UPDATE `" . $this->database_name
+            . "`.`test_table2` SET val = val + 1"
         );
     }
 

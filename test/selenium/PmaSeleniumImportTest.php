@@ -58,7 +58,8 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
         $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
+            "//a[@class='item' and contains(., 'Database: "
+            . $this->database_name . "')]"
         );
 
         $this->_doImport("db");
@@ -88,7 +89,8 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
         $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
+            "//a[@class='item' and contains(., 'Database: "
+            . $this->database_name . "')]"
         );
 
         // got to table page

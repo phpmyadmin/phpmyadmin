@@ -37,7 +37,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var boolean
      */
-    private static $_selenium_enabled = False;
+    private static $_selenium_enabled = false;
 
     /**
      * Lists browsers to test
@@ -48,9 +48,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
             && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
-            ) {
+        ) {
             /* BrowserStack integration */
-            self::$_selenium_enabled = True;
+            self::$_selenium_enabled = true;
 
             $build_id = 'Manual';
             if (getenv('BUILD_TAG')) {
@@ -59,19 +59,21 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 $build_id = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
             }
 
+            $capabilities = array(
+                'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
+                'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
+                'browserstack.debug' => true,
+                'project' => 'phpMyAdmin',
+                'build' => $build_id,
+            );
+
             $result = array();
             $result[] = array(
                 'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
-                'desiredCapabilities' => array(
-                    'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
-                    'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                    'browserstack.debug' => True,
-                    'project' => 'phpMyAdmin',
-                    'build' => $build_id,
-                )
+                'desiredCapabilities' => $capabilities,
             );
             if (!empty($GLOBALS['TESTSUITE_FULL'])) {
                 $result[] = array(
@@ -79,25 +81,19 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
-                        'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                        'project' => 'phpMyAdmin',
-                        'build' => $build_id,
-                    )
+                    'desiredCapabilities' => $capabilities,
                 );
                 $result[] = array(
                     'browserName' => 'internet explorer',
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
-                        'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                        'project' => 'phpMyAdmin',
-                        'build' => $build_id,
-                        'os' => 'windows',
-                        'os_version' => '7',
+                    'desiredCapabilities' => array_merge(
+                        $capabilities,
+                        array(
+                            'os' => 'windows',
+                            'os_version' => '7',
+                        )
                     )
                 );
                 $result[] = array(
@@ -105,19 +101,18 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
-                        'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                        'project' => 'phpMyAdmin',
-                        'build' => $build_id,
-                        'os' => 'OS X',
-                        'os_version' => 'Mavericks',
+                    'desiredCapabilities' => array_merge(
+                        $capabilities,
+                        array(
+                            'os' => 'OS X',
+                            'os_version' => 'Mavericks',
+                        )
                     )
                 );
             }
             return $result;
         } elseif (! empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])) {
-            self::$_selenium_enabled = True;
+            self::$_selenium_enabled = true;
             return array(
                 array(
                     'browserName' => $GLOBALS['TESTSUITE_SELENIUM_BROWSER'],
@@ -161,9 +156,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
             );
         }
-        $this->database_name = $GLOBALS['TESTSUITE_DATABASE'] . substr(md5(rand()), 0, 7);
-        $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->database_name);
-        $this->dbQuery('USE ' . $this->database_name);
+        $this->database_name = $GLOBALS['TESTSUITE_DATABASE']
+            . substr(md5(rand()), 0, 7);
+        $this->dbQuery(
+            'CREATE DATABASE IF NOT EXISTS ' . $this->database_name
+        );
+        $this->dbQuery(
+            'USE ' . $this->database_name
+        );
     }
 
     /**
@@ -174,11 +174,11 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function isSuperUser()
     {
         $result = $this->dbQuery('SELECT COUNT(*) FROM mysql.user');
-        if ($result !== False) {
+        if ($result !== false) {
             $result::free();
-            return True;
+            return true;
         }
-        return False;
+        return false;
     }
 
     /**
@@ -307,7 +307,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function isLoggedIn()
     {
-        return $this->isElementPresent('byXPath', '//*[@id="serverinfo"]/a[1]');
+        return $this->isElementPresent(
+            'byXPath', '//*[@id="serverinfo"]/a[1]'
+        );
     }
 
     /**
@@ -383,7 +385,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     /**
      * Get table cell data
      *
-     * @param string $tableId Table identifier
+     * @param string $tableID Table identifier
      * @param int    $row     Table row
      * @param int    $column  Table column
      *
@@ -391,7 +393,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function getTable($tableID, $row, $column)
     {
-        $sel = "table#{$tableID} tbody tr:nth-child({$row}) td:nth-child({$column})";
+        $sel = "table#{$tableID} tbody tr:nth-child({$row}) "
+            . "td:nth-child({$column})";
         $element = $this->byCssSelector(
             $sel
         );
@@ -424,10 +427,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             return;
         }
         /* We need to resize to ensure it fits into accessible area */
-        $this->execute(array(
-            'script' => "$('#topmenu').css('width', '50%').menuResizer('destroy');",
-            'args' => array()
-        ));
+        $this->execute(
+            array(
+                'script' => "$('#topmenu').css('width', '50%')"
+                    . ".menuResizer('destroy');",
+                'args' => array()
+            )
+        );
         $this->waitForElementNotPresent('byCssSelector', 'li.submenu');
     }
 }
