@@ -167,6 +167,10 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->waitForElement('byLinkText', "Export")->click();
 
         $this->waitForElement("byId", "quick_or_custom");
+        /*
+         * FIXME: There should be better way to wait for javascript to be executed
+         */
+        usleep(200);
         $this->byCssSelector("label[for=radio_custom_export]")->click();
 
         if ($type == 'server') {
