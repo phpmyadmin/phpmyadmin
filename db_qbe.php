@@ -29,13 +29,13 @@ if ($cfgRelation['savedsearcheswork']) {
 
     //Get saved search list.
     $savedSearch = new PMA_SavedSearches($GLOBALS);
-    $savedSearch->setId($_REQUEST['searchId'])
-        ->setUsername($GLOBALS['cfg']['Server']['user'])
-        ->setDbname($_REQUEST['db'])
-        ->setSearchName($_REQUEST['searchName']);
+    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+        ->setDbname($_REQUEST['db']);
 
     //Criterias field is filled only when clicking on "Save search".
     if (!empty($_REQUEST['action'])) {
+        $savedSearch->setId($_REQUEST['searchId'])
+            ->setSearchName($_REQUEST['searchName']);
         if ('save' === $_REQUEST['action']) {
             $saveResult = $savedSearch->setCriterias($_REQUEST)
                 ->save();
