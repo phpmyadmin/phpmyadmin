@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-24 10:13+0100\n"
-"PO-Revision-Date: 2014-02-24 14:26+0200\n"
+"PO-Revision-Date: 2014-02-24 14:33+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
@@ -885,7 +885,7 @@ msgstr "ការ​លុប​ទិន្នន័យ​តាមដាន"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
-msgstr "ការ​លុប សោ/សន្ទស្សន៍ ចម្បង"
+msgstr "ការ​លុប សោ/សន្ទស្សន៍ បឋម"
 
 #: js/messages.php:43
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1202,21 +1202,23 @@ msgstr "បិទ %s"
 #: js/messages.php:141
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "កំណត់"
+msgstr "កំណត់ long_query_time ទៅ %d វិនាទី។"
 
 #: js/messages.php:143
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"អ្នក​មិន​អាច​ផ្លាស់​ប្ដូរ​អថេរ​ទាំង​នេះ​ទេ។ សូម​ចូល​ជា root "
+"ឬ​ទាក់ទង​ទៅ​អ្នក​គ្រប់គ្រង​មូលដ្ឋាន​ទិន្នន័យ​របស់​អ្នក។"
 
 #: js/messages.php:146
 msgid "Change settings"
-msgstr ""
+msgstr "ប្ដូរ​ការ​កំណត់"
 
 #: js/messages.php:147
 msgid "Current settings"
-msgstr ""
+msgstr "ការ​កំណត់​បច្ចុប្បន្ន"
 
 #: js/messages.php:149 libraries/server_status_monitor.lib.php:216
 msgid "Chart Title"
@@ -1225,12 +1227,12 @@ msgstr ""
 #. l10n: As in differential values
 #: js/messages.php:151
 msgid "Differential"
-msgstr ""
+msgstr "ភាព​ខុស​គ្នា"
 
 #: js/messages.php:152
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "បាន​ចែក​នឹង %s"
 
 #: js/messages.php:153
 msgid "Unit"
@@ -1238,11 +1240,11 @@ msgstr ""
 
 #: js/messages.php:155
 msgid "From slow log"
-msgstr ""
+msgstr "ពី​កំណត់​ត្រា​យឺត"
 
 #: js/messages.php:156
 msgid "From general log"
-msgstr ""
+msgstr "ពី​កំណត់​ត្រា​ទូទៅ"
 
 #: js/messages.php:158
 msgid "The database name is not known for this query in the server's logs."
@@ -1258,7 +1260,7 @@ msgstr ""
 
 #: js/messages.php:162
 msgid "Cancel request"
-msgstr ""
+msgstr "បោះបង់​សំណើ"
 
 #: js/messages.php:163
 msgid ""
@@ -1284,19 +1286,19 @@ msgstr ""
 
 #: js/messages.php:168
 msgid "No data found"
-msgstr ""
+msgstr "រក​មិន​ឃើញ​ទិន្នន័យ"
 
 #: js/messages.php:169
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "បាន​វិភាគ​កំណត់ត្រា ប៉ុន្តែ​រក​មិន​ឃើញ​ទិន្នន័យ​ក្នុង​ពេល​នេះ​ទេ។"
 
 #: js/messages.php:171
 msgid "Analyzing…"
-msgstr ""
+msgstr "កំពុង​វិភាគ…"
 
 #: js/messages.php:172
 msgid "Explain output"
-msgstr ""
+msgstr "ពន្យល់​លទ្ធផល"
 
 #: js/messages.php:174 js/messages.php:546
 #: libraries/plugins/export/ExportHtmlword.class.php:486
@@ -1318,7 +1320,7 @@ msgstr ""
 #: js/messages.php:177
 msgctxt "Display format"
 msgid "Table"
-msgstr ""
+msgstr "តារាង"
 
 #: js/messages.php:178
 msgid "Chart"
@@ -1332,7 +1334,7 @@ msgstr ""
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:183
 msgid "Filter"
-msgstr ""
+msgstr "ត្រង"
 
 #: js/messages.php:184
 msgid "Filter queries by word/regexp:"
@@ -1348,11 +1350,11 @@ msgstr ""
 
 #: js/messages.php:187
 msgid "Total:"
-msgstr ""
+msgstr "សរុប៖"
 
 #: js/messages.php:189
 msgid "Loading logs"
-msgstr ""
+msgstr "កំពុង​ផ្ទុក​កំណត់ត្រា"
 
 #: js/messages.php:190
 msgid "Monitor refresh failed"
@@ -1367,7 +1369,7 @@ msgstr ""
 
 #: js/messages.php:192
 msgid "Reload page"
-msgstr ""
+msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
 #: js/messages.php:194
 msgid "Affected rows:"
@@ -1390,7 +1392,7 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
 #: setup/frames/menu.inc.php:25
 msgid "Import"
-msgstr ""
+msgstr "នាំចូល"
 
 #: js/messages.php:201
 msgid "Import monitor configuration"
@@ -1414,11 +1416,11 @@ msgstr ""
 
 #: js/messages.php:210
 msgid "Issue"
-msgstr ""
+msgstr "បញ្ហា"
 
 #: js/messages.php:211
 msgid "Recommendation"
-msgstr ""
+msgstr "ការ​ណែនាំ"
 
 #: js/messages.php:212
 msgid "Rule details"
@@ -1434,54 +1436,54 @@ msgstr ""
 
 #: js/messages.php:215
 msgid "Test"
-msgstr ""
+msgstr "សាកល្បង"
 
 #: js/messages.php:220 libraries/server_variables.lib.php:159
 #: pmd_general.php:468 pmd_general.php:507 pmd_general.php:634
 #: pmd_general.php:684 pmd_general.php:760 pmd_general.php:816
 #: pmd_general.php:879 pmd_general.php:912
 msgid "Cancel"
-msgstr ""
+msgstr "បោះបង់"
 
 #: js/messages.php:223 libraries/navigation/NavigationHeader.class.php:55
 #: libraries/server_status_monitor.lib.php:164
 msgid "Loading…"
-msgstr ""
+msgstr "កំពុង​ផ្ទុក…"
 
 #: js/messages.php:224
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "បាន​បោះបង់​សំណើ!"
 
 #: js/messages.php:225
 msgid "Processing Request"
-msgstr ""
+msgstr "កំពុង​ដំណើរការ​សំណើ"
 
 #: js/messages.php:226
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "មាន​កំហុស​ក្នុង​ពេល​ដំណើរការ​សំណើ"
 
 #: js/messages.php:227
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "កូដ​កំហុស៖ %s"
 
 #: js/messages.php:228
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "អត្ថបទ​កំហុស៖ %s"
 
 #: js/messages.php:229 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:458
 msgid "No databases selected."
-msgstr ""
+msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #: js/messages.php:230
 msgid "Dropping Column"
-msgstr ""
+msgstr "ការ​លុប​ជួរ​ឈរ"
 
 #: js/messages.php:231
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "ការ​បន្ថែម​លេខ​ប​ឋម"
 
 #: js/messages.php:232 pmd_general.php:466 pmd_general.php:632
 #: pmd_general.php:682 pmd_general.php:758 pmd_general.php:814
