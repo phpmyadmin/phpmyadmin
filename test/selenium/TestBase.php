@@ -427,7 +427,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             'script' => "$('.submenu').addClass('submenuhover');",
             'args' => array()
         ));
-        $this->waitForElement('byCssSelector', 'li.submenu ul.notonly');
+        $this->waitForElement('byCssSelector', 'li.submenu.submenuhover');
     }
 }
 ?>
