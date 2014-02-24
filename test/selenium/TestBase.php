@@ -423,7 +423,11 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
-        $more->click();
+        $this->execute(array(
+            'script' => "$('#topmenu').menuResizer('destroy');",
+            'args' => array()
+        ));
+        usleep(100);
     }
 }
 ?>
