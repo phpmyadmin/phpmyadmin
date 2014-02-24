@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-20 07:47+0200\n"
+"PO-Revision-Date: 2014-02-24 07:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/4-1/bn/>\n"
 "Language: bn\n"
@@ -557,7 +557,7 @@ msgstr "একটি ভিতরের গোলক যোগ কর"
 #, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "পলিগন"
+msgstr "পলিগন %d:"
 
 #: gis_data_editor.php:386 js/messages.php:336
 msgid "Add a polygon"
