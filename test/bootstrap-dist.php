@@ -103,7 +103,7 @@ function test_date($date_format)
 }
 
 if (PMA_HAS_RUNKIT && $GLOBALS['runkit_internal_override']) {
-    echo "Enabling headers testing...\n";
+    echo "Enabling headers testing using runkit...\n";
     runkit_function_rename('header', 'test_header_override');
     runkit_function_rename('headers_sent', 'test_headers_sent_override');
     runkit_function_rename('test_header', 'header');
