@@ -55,7 +55,6 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
     public function testDbImport()
     {
         $this->dbQuery("CREATE DATABASE " . $this->database_name);
-        $this->waitForElement('byLinkText', "Databases")->click();
         $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
