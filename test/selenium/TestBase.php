@@ -37,7 +37,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var boolean
      */
-    private static $_selenium_enabled = False;
+    private static $_selenium_enabled = false;
 
     /**
      * Lists browsers to test
@@ -48,9 +48,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
             && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
-            ) {
+        ) {
             /* BrowserStack integration */
-            self::$_selenium_enabled = True;
+            self::$_selenium_enabled = true;
 
             $build_id = 'Manual';
             if (getenv('BUILD_TAG')) {
@@ -68,7 +68,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array(
                     'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
                     'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                    'browserstack.debug' => True,
+                    'browserstack.debug' => true,
                     'project' => 'phpMyAdmin',
                     'build' => $build_id,
                 )
@@ -117,7 +117,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             }
             return $result;
         } elseif (! empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])) {
-            self::$_selenium_enabled = True;
+            self::$_selenium_enabled = true;
             return array(
                 array(
                     'browserName' => $GLOBALS['TESTSUITE_SELENIUM_BROWSER'],
@@ -174,11 +174,11 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function isSuperUser()
     {
         $result = $this->dbQuery('SELECT COUNT(*) FROM mysql.user');
-        if ($result !== False) {
+        if ($result !== false) {
             $result::free();
-            return True;
+            return true;
         }
-        return False;
+        return false;
     }
 
     /**
