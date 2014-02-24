@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.1.9.0 (not yet released)
 - bug #4279 CTRL + up or down moves two fields (part one)
+- bug #4294 output as text radio clickable for "OpenDocument Text" export 
 
 4.1.8.0 (2014-02-22)
 - bug #4276 Login loop on session expiry
