@@ -244,6 +244,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $passwordField = $this->byId('input_password');
         $passwordField->value($password);
         $this->byId('input_go')->click();
+        /* Wait for loading the page */
+        $this->waitForElement("byLinkText", $this->database_name);
     }
 
     /**
