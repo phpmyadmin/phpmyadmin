@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-24 10:13+0100\n"
-"PO-Revision-Date: 2014-02-13 18:38+0200\n"
+"PO-Revision-Date: 2014-02-24 16:46+0200\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
-"Language-Team: Slovak <http://l10n.cihar.com/projects/phpmyadmin/master/sk/"
-">\n"
+"Language-Team: Slovak "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -640,13 +640,12 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:495
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "Bez potrebnej knižnice nemožno previesť konverziu znakovej sady"
+msgstr "Bez potrebnej knižnice nemožno previesť konverziu znakovej sady!"
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -1800,7 +1799,7 @@ msgid "Add an option for column \"%s\"."
 msgstr "Pridať voľbu pre stĺpec \"%s\"."
 
 #: js/messages.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
 msgstr "Vytvorené objekty: %d"
