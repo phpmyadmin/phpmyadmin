@@ -27,7 +27,7 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
     public function testCreateTable()
     {
         $this->login();
-        $this->byLinkText($this->database_name)->click();
+        $this->waitForElement('byLinkText', $this->database_name)->click();
 
         $this->waitForElement('byId', 'create_table_form_minimal');
         $this->byCssSelector(

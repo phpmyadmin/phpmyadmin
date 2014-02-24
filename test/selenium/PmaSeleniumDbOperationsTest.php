@@ -26,7 +26,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login();
-        $this->byLinkText($this->database_name)->click();
+        $this->waitForElement('byLinkText', $this->database_name)->click();
         $this->waitForElement("byLinkText", "Operations")->click();
         $this->waitForElement(
             "byXPath", "//legend[contains(., 'Rename database to:')]"

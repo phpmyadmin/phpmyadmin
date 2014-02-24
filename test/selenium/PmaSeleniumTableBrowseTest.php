@@ -49,7 +49,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login();
-        $this->byLinkText($this->database_name)->click();
+        $this->waitForElement('byLinkText', $this->database_name)->click();
         $this->waitForElement("byLinkText", "test_table");
         $this->byLinkText("Browse")->click();
         $this->waitForElement("byId", "table_results");

@@ -55,7 +55,7 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
     public function testDbImport()
     {
         $this->dbQuery("CREATE DATABASE " . $this->database_name);
-        $this->byLinkText("Databases")->click();
+        $this->waitForElement('byLinkText', "Databases")->click();
         $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
@@ -118,7 +118,7 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
         $this->markTestIncomplete(
             'File uploading not yet implemented in Selenium test'
         );
-        $this->byLinkText("Import")->click();
+        $this->waitForElement('byLinkText', "Import")->click();
         $ele = $this->waitForElement("byId", "input_import_file");
         $ele->value(
             dirname(__FILE__) . "/../test_data/" . $type . "_import.sql"

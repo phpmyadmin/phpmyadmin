@@ -163,7 +163,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      */
     private function _doExport($type, $plugin)
     {
-        $this->byLinkText("Export")->click();
+        $this->waitForElement('byLinkText', "Export")->click();
 
         $this->waitForElement("byId", "quick_or_custom");
         $this->byCssSelector("label[for=radio_custom_export]")->click();

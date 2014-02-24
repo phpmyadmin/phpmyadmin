@@ -55,7 +55,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->skipIfNotPMADB();
 
-        $this->byLinkText($this->database_name)->click();
+        $this->waitForElement('byLinkText', $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
             "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"

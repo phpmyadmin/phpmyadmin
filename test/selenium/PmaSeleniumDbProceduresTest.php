@@ -44,7 +44,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login();
-        $this->byLinkText($this->database_name)->click();
+        $this->waitForElement('byLinkText', $this->database_name)->click();
         $this->waitForElement(
             "byXPath", "//a[contains(., 'test_table')]"
         );
