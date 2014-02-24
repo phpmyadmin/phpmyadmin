@@ -427,11 +427,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             return;
         }
         /* We need to resize to ensure it fits into accessible area */
-        $this->execute(array(
-            'script' => "$('#topmenu').css('width', '50%')"
-                . ".menuResizer('destroy');",
-            'args' => array()
-        ));
+        $this->execute(
+            array(
+                'script' => "$('#topmenu').css('width', '50%')"
+                    . ".menuResizer('destroy');",
+                'args' => array()
+            )
+        );
         $this->waitForElementNotPresent('byCssSelector', 'li.submenu');
     }
 }
