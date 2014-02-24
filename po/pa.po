@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-24 09:04+0100\n"
+"POT-Creation-Date: 2014-02-24 10:13+0100\n"
 "PO-Revision-Date: 2014-01-06 12:13+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Punjabi <http://l10n.cihar.com/projects/phpmyadmin/master/pa/"
@@ -1296,7 +1296,7 @@ msgstr ""
 msgid "Explain output"
 msgstr ""
 
-#: js/messages.php:174 js/messages.php:547
+#: js/messages.php:174 js/messages.php:546
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -2100,25 +2100,27 @@ msgstr ""
 msgid "Wk"
 msgstr ""
 
-#: js/messages.php:533
+#. l10n: Month-year order for calendar, use either "calendar-month-year"
+#. * or "calendar-year-month".
+#: js/messages.php:532
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:536
+#: js/messages.php:535
 msgctxt "Year suffix"
 msgid "none"
 msgstr ""
 
-#: js/messages.php:548
+#: js/messages.php:547
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:549
+#: js/messages.php:548
 msgid "Minute"
 msgstr ""
 
-#: js/messages.php:550
+#: js/messages.php:549
 msgid "Second"
 msgstr ""
 

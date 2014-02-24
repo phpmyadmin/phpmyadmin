@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-24 09:04+0100\n"
+"POT-Creation-Date: 2014-02-24 10:13+0100\n"
 "PO-Revision-Date: 2013-08-23 11:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Georgian <http://l10n.cihar.com/projects/phpmyadmin/master/ka/"
@@ -1441,7 +1441,7 @@ msgstr "Analyze"
 msgid "Explain output"
 msgstr "SQL-ის ახსნა"
 
-#: js/messages.php:174 js/messages.php:547
+#: js/messages.php:174 js/messages.php:546
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -2398,29 +2398,31 @@ msgstr "შაბ"
 msgid "Wk"
 msgstr "ვიკი"
 
-#: js/messages.php:533
+#. l10n: Month-year order for calendar, use either "calendar-month-year"
+#. * or "calendar-year-month".
+#: js/messages.php:532
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:536
+#: js/messages.php:535
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "არაა"
 
-#: js/messages.php:548
+#: js/messages.php:547
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:549
+#: js/messages.php:548
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "in use"
 
-#: js/messages.php:550
+#: js/messages.php:549
 #, fuzzy
 #| msgid "per second"
 msgid "Second"

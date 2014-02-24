@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-24 09:04+0100\n"
+"POT-Creation-Date: 2014-02-24 10:13+0100\n"
 "PO-Revision-Date: 2014-02-14 13:01+0200\n"
 "Last-Translator: Yuki Shira <shirayuking@gmail.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -1381,7 +1381,7 @@ msgstr "解析しています…"
 msgid "Explain output"
 msgstr "EXPLAIN の結果"
 
-#: js/messages.php:174 js/messages.php:547
+#: js/messages.php:174 js/messages.php:546
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -2228,25 +2228,27 @@ msgstr "土"
 msgid "Wk"
 msgstr "週"
 
-#: js/messages.php:533
+#. l10n: Month-year order for calendar, use either "calendar-month-year"
+#. * or "calendar-year-month".
+#: js/messages.php:532
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:536
+#: js/messages.php:535
 msgctxt "Year suffix"
 msgid "none"
 msgstr "年"
 
-#: js/messages.php:548
+#: js/messages.php:547
 msgid "Hour"
 msgstr "時"
 
-#: js/messages.php:549
+#: js/messages.php:548
 msgid "Minute"
 msgstr "分"
 
-#: js/messages.php:550
+#: js/messages.php:549
 msgid "Second"
 msgstr "秒"
 
