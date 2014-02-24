@@ -297,6 +297,8 @@ function PMA_langDetails($lang)
         );
     case 'kk':
         return array('kk|kazakh', 'kk', 'Қазақ');
+    case 'km':
+        return array('km|khmer', 'km', 'ខ្មែរ');
     case 'kn':
         return array('kn|kannada', 'kn', 'ಕನ್ನಡ');
     case 'ky':
