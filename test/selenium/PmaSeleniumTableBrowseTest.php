@@ -50,8 +50,10 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     {
         $this->login();
         $this->waitForElement('byLinkText', $this->database_name)->click();
-        $this->waitForElement("byLinkText", "test_table");
-        $this->byLinkText("Browse")->click();
+        $this->waitForElement(
+            "byXPath",
+            "//*[@id='pma_navigation_tree']//a[contains(., 'test_table')]"
+        )->click();
         $this->waitForElement("byId", "table_results");
     }
 
