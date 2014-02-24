@@ -66,5 +66,3 @@ function PMA_getHtmlForAdvisor()
 }
 
 ?>
-
-

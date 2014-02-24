@@ -28,4 +28,3 @@ $import_type = 'table';
 require_once 'libraries/display_import.inc.php';
 
 ?>
-

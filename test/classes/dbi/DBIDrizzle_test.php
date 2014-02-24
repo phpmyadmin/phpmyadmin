@@ -437,4 +437,3 @@ class Mock_Con
         return "numColumns";
     }
 }
-

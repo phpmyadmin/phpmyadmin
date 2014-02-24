@@ -321,4 +321,3 @@ function PMA_getHtmlForTableChartDisplay($url_query, $url_params, $keys,
     return $htmlString;
 }
 ?>
-

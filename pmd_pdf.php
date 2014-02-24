@@ -160,4 +160,3 @@ echo '<p>' . __('Export/Import to scale:');
     </div>
   </form>
 </div>
-

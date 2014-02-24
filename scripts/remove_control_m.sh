@@ -13,10 +13,9 @@ then
 fi
 
 for i in `find . -name "*.$1"`
-	 do 
+	 do
 	 echo $i
 	 tr -d '\015' < $i > ${i}.new
 	 rm $i
 	 mv ${i}.new $i
-	done;
-
+done

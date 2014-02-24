@@ -494,4 +494,3 @@ class PMA_TblPrintViewTest extends PHPUnit_Framework_TestCase
 }
 
 ?>
-

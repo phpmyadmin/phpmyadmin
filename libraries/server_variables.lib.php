@@ -1680,5 +1680,3 @@ function PMA_getArrayForDocumentLinks()
 }
 
 ?>
-
-

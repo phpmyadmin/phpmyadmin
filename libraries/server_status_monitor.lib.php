@@ -848,5 +848,3 @@ function PMA_getJsonForQueryAnalyzer()
 }
 
 ?>
-
-

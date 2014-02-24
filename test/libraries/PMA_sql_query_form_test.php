@@ -255,4 +255,3 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-

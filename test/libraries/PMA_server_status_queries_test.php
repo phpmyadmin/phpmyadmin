@@ -240,4 +240,3 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-

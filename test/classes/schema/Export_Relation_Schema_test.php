@@ -251,5 +251,3 @@ class PMA_Export_Relation_Schema_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-
-

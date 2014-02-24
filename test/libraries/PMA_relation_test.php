@@ -252,4 +252,3 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-
