@@ -21,6 +21,7 @@ $cfgRelation = PMA_getRelationsParam();
 
 $savedSearchList = array();
 $currentSearchId = null;
+$displayUpdateSearchHint = false;
 if ($cfgRelation['savedsearcheswork']) {
     include 'libraries/SavedSearches.php';
     $header = $response->getHeader();
@@ -39,6 +40,7 @@ if ($cfgRelation['savedsearcheswork']) {
         if ('save' === $_REQUEST['action']) {
             $saveResult = $savedSearch->setCriterias($_REQUEST)
                 ->save();
+            $displayUpdateSearchHint = true;
             /*if (!$saveResult) {
                 $response->addHTML('raté');
                 exit();
@@ -52,6 +54,7 @@ if ($cfgRelation['savedsearcheswork']) {
             $_REQUEST = array();
         } elseif ('load' === $_REQUEST['action']) {
             $loadResult = $savedSearch->load();
+            $displayUpdateSearchHint = true;
         }
         //Else, it's an "update query"
     }
@@ -111,6 +114,16 @@ if ($cfgRelation['designerwork']) {
                 __('Switch to %svisual builder%s'),
                 '<a href="' . $url . '">',
                 '</a>'
+            )
+        )
+    );
+}
+if ($displayUpdateSearchHint) {
+    $response->addHTML(
+        PMA_Message::notice(
+            __(
+                'After saving or loading a search, you can rename it and save the '
+                . 'new criterias.'
             )
         )
     );
