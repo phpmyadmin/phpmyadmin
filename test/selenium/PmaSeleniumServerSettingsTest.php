@@ -37,7 +37,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
      *
      * @return void
      */
-    private function saveConfig()
+    private function _saveConfig()
     {
         $this->byName("submit_save")->click();
         usleep(100);
@@ -63,13 +63,13 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
 
         $this->waitForElement("byName", "Servers-1-hide_db")
             ->value($this->database_name);
-        $this->saveConfig();
+        $this->_saveConfig();
         $this->assertFalse(
             $this->isElementPresent("byLinkText", $this->database_name)
         );
 
         $this->waitForElement("byName", "Servers-1-hide_db")->clear();
-        $this->saveConfig();
+        $this->_saveConfig();
         $this->assertTrue(
             $this->isElementPresent("byLinkText", $this->database_name)
         );
@@ -117,13 +117,13 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
 
         $this->waitForElement("byName", "NavigationDisplayLogo")
             ->click();
-        $this->saveConfig();
+        $this->_saveConfig();
         $this->assertFalse(
             $this->isElementPresent("byId", "imgpmalogo")
         );
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
-        $this->saveConfig();
+        $this->_saveConfig();
         $this->assertTrue(
             $this->isElementPresent("byId", "imgpmalogo")
         );
