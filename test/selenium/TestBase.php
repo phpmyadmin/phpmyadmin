@@ -385,7 +385,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     /**
      * Get table cell data
      *
-     * @param string $tableId Table identifier
+     * @param string $tableID Table identifier
      * @param int    $row     Table row
      * @param int    $column  Table column
      *
