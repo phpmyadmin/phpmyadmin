@@ -525,11 +525,10 @@ PMA_printJsValue(
 /* l10n: Column header for week of the year in calendar */
 PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
 
-/* l10n: Month-year order for calendar, use either "calendar-month-year"
- * or "calendar-year-month".
- */
 PMA_printJsValue(
     "$.datepicker.regional['']['showMonthAfterYear']",
+    /* l10n: Month-year order for calendar, use either "calendar-month-year"
+     * or "calendar-year-month". */
     (__('calendar-month-year') == 'calendar-year-month')
 );
 /* l10n: Year suffix for calendar, "none" is empty. */
