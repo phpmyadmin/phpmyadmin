@@ -59,19 +59,21 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 $build_id = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
             }
 
+            $capabilities = array(
+                'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
+                'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
+                'browserstack.debug' => true,
+                'project' => 'phpMyAdmin',
+                'build' => $build_id,
+            );
+
             $result = array();
             $result[] = array(
                 'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
-                'desiredCapabilities' => array(
-                    'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
-                    'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                    'browserstack.debug' => true,
-                    'project' => 'phpMyAdmin',
-                    'build' => $build_id,
-                )
+                'desiredCapabilities' => $capabilities,
             );
             if (!empty($GLOBALS['TESTSUITE_FULL'])) {
                 $result[] = array(
@@ -79,25 +81,19 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
-                        'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                        'project' => 'phpMyAdmin',
-                        'build' => $build_id,
-                    )
+                    'desiredCapabilities' => $capabilities,
                 );
                 $result[] = array(
                     'browserName' => 'internet explorer',
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
-                        'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                        'project' => 'phpMyAdmin',
-                        'build' => $build_id,
-                        'os' => 'windows',
-                        'os_version' => '7',
+                    'desiredCapabilities' => array_merge(
+                        $capabilities,
+                        array(
+                            'os' => 'windows',
+                            'os_version' => '7',
+                        )
                     )
                 );
                 $result[] = array(
@@ -105,13 +101,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
-                    'desiredCapabilities' => array(
-                        'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
-                        'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                        'project' => 'phpMyAdmin',
-                        'build' => $build_id,
-                        'os' => 'OS X',
-                        'os_version' => 'Mavericks',
+                    'desiredCapabilities' => array_merge(
+                        $capabilities,
+                        array(
+                            'os' => 'OS X',
+                            'os_version' => 'Mavericks',
+                        )
                     )
                 );
             }
