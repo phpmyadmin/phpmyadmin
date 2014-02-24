@@ -419,7 +419,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     public function expandMore()
     {
         try {
-            $more = $this->waitForElement('byCssSelector', 'li.submenu > a');
+            $this->waitForElement('byCssSelector', 'li.submenu > a');
         } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
@@ -427,7 +427,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             'script' => "$('.submenu').addClass('submenuhover');",
             'args' => array()
         ));
-        usleep(100);
+        $this->waitForElement('byCssSelector', 'li.submenu ul.notonly');
     }
 }
 ?>
