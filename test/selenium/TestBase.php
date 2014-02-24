@@ -423,11 +423,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
+        /* We need to resize to ensure it fits into accessible area */
         $this->execute(array(
-            'script' => "$('.submenu').addClass('submenuhover');",
+            'script' => "$('#topmenu').css('width', '50%').menuResizer('destroy');",
             'args' => array()
         ));
-        $this->waitForElement('byCssSelector', 'li.submenu.submenuhover');
+        $this->waitForElementNotPresent('byCssSelector', 'li.submenu');
     }
 }
 ?>
