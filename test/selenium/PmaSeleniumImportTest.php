@@ -86,7 +86,6 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
         );
 
         // go to database page
-        $this->byLinkText("Databases")->click();
         $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
