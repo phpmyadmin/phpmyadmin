@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-24 10:13+0100\n"
-"PO-Revision-Date: 2014-02-24 12:14+0200\n"
+"PO-Revision-Date: 2014-02-24 13:59+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
@@ -25,11 +25,13 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"មិន​មាន​ឯកសារ %s នៅ​លើ​ប្រព័ន្ធ​នេះ​ទេ។ សូម​ចូល​ទៅ www.phpmyadmin.net "
+"សម្រាប់​ព័ត៌មាន​បន្ថែម។"
 
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "មូលដ្ឋានទិន្នន័យ %1$s ត្រូវបានបង្កើត។"
+msgstr "មូលដ្ឋាន​ទិន្នន័យ %1$s ត្រូវ​បាន​បង្កើត។"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -222,7 +224,7 @@ msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទ
 #: db_operations.php:130
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "បានប្ដូរឈ្មោះមូលដ្ឋានទិន្នន័យ %1$s ទៅជា %2$s។"
+msgstr "បាន​ប្ដូរ​ឈ្មោះ​មូលដ្ឋាន​ទិន្នន័យ %1$s ទៅ​ជា %2$s។"
 
 #: db_operations.php:136
 #, php-format
@@ -291,7 +293,7 @@ msgstr[0] "%s តារាង"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "អ្នក​ត្រូវ​តែ​ជ្រើស​ជួរ​ឈរ​មួយ​យ៉ាង​តិច ដើម្បី​បង្ហាញ!"
 
 #: db_qbe.php:70
 #, php-format
@@ -426,14 +428,18 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"បាន​រក​ឃើញ​កំហុស​មួយ ហើយ​ក៏​បាន​បង្កើត​របាយការណ៍​កំហុស​មួយ​ដែរ "
+"ប៉ុន្តែ​បរាជ័យ​ក្នុង​ការ​ផ្ញើ​ចេញ។"
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"ប្រសិន​បើ​អ្នក​ជួប​ប្រទះ​បញ្ហា​ណា​មួយ "
+"សូម​ដាក់​ស្នើ​បញ្ហា​នោះ​មក​ដោយ​ខ្លួន​ឯង។"
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "សូម​អរគុណ​សម្រាប់​ការ​ដាក់ស្នើ​របាយការណ៍​នេះ។"
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
