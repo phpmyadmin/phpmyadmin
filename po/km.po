@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-24 10:13+0100\n"
-"PO-Revision-Date: 2014-02-24 13:59+0200\n"
+"PO-Revision-Date: 2014-02-24 14:09+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
@@ -131,7 +131,7 @@ msgstr "លំនាំដើម"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1407
 #: libraries/tbl_printview.lib.php:477
 msgid "Links to"
-msgstr ""
+msgstr "តំណ​ទៅ​កាន់"
 
 #: db_datadict.php:175 db_printview.php:53
 #: libraries/config/messages.inc.php:134 libraries/config/messages.inc.php:150
@@ -306,11 +306,11 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr ""
+msgstr "ចូល​មិន​បាន!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
-msgstr ""
+msgstr "តារាង​ដែល​តាមដាន"
 
 #: db_tracking.php:80 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:762
@@ -366,7 +366,7 @@ msgstr "បង្ហាញ"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
 
 #: db_tracking.php:103 libraries/Index.class.php:627
 #: libraries/Util.class.php:3409 libraries/Util.class.php:3410
@@ -379,38 +379,38 @@ msgstr "លុប"
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:312
 msgid "active"
-msgstr ""
+msgstr "ដែល​សកម្ម"
 
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:212
 #: libraries/tbl_tracking.lib.php:314
 msgid "not active"
-msgstr ""
+msgstr "ដែល​អសកម្ម"
 
 #: db_tracking.php:143
 msgid "Versions"
-msgstr ""
+msgstr "កំណែ"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:353
 msgid "Tracking report"
-msgstr ""
+msgstr "របាយការណ៍​តាមដាន"
 
 #: db_tracking.php:149 libraries/tbl_tracking.lib.php:242
 #: libraries/tbl_tracking.lib.php:758
 msgid "Structure snapshot"
-msgstr ""
+msgstr "រូបភាព​រចនាសម្ព័ន្ធ"
 
 #: db_tracking.php:203
 msgid "Untracked tables"
-msgstr ""
+msgstr "តារាង​ដែល​មិន​តាមដាន"
 
 #: db_tracking.php:222 libraries/structure.lib.php:1545
 msgid "Track table"
-msgstr ""
+msgstr "តាមដាន​តារាង"
 
 #: db_tracking.php:249
 msgid "Database Log"
-msgstr ""
+msgstr "កំណត់ត្រា​មូលដ្ឋាន​ទិន្នន័យ"
 
 #: error_report.php:33
 msgid ""
@@ -421,7 +421,7 @@ msgstr ""
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "អ្នក​ប្រហែល​ជា​ចង់​ផ្ទុក​ទំព័រ​ឡើង​វិញ។"
 
 #: error_report.php:45
 msgid ""
@@ -447,29 +447,29 @@ msgstr ""
 
 #: export.php:177
 msgid "Bad type!"
-msgstr ""
+msgstr "ប្រភេទ​មិន​ល្អ!"
 
 #: export.php:238
 msgid "Bad parameters!"
-msgstr ""
+msgstr "ប៉ារ៉ាម៉ែត្រ​មិន​ល្អ!"
 
 #: file_echo.php:22
 msgid "Invalid export type"
-msgstr ""
+msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "តម្លៃ​នៃ​ជួរ​ឈរ \"%s\""
 
 #: gis_data_editor.php:141 libraries/tbl_gis_visualization.lib.php:242
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "ប្រើ OpenStreetMaps ជា​ស្រទាប់​មូលដ្ឋាន"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
 msgid "SRID:"
-msgstr ""
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
 #, php-format
@@ -478,28 +478,28 @@ msgstr ""
 
 #: gis_data_editor.php:208
 msgid "Point:"
-msgstr ""
+msgstr "ចំណុច៖"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
 #: gis_data_editor.php:365 js/messages.php:306
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
 #: gis_data_editor.php:371 js/messages.php:307
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
 #: js/messages.php:309
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "ចំណុច %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
 #: js/messages.php:315
 msgid "Add a point"
-msgstr ""
+msgstr "បន្ថែម​ចំណុច​មួយ"
 
 #: gis_data_editor.php:264
 #, php-format
@@ -534,7 +534,7 @@ msgstr ""
 
 #: gis_data_editor.php:398
 msgid "Add geometry"
-msgstr ""
+msgstr "បន្ថែម​ធរណីមាត្រ"
 
 #: gis_data_editor.php:404 js/messages.php:219
 #: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1695
@@ -572,11 +572,11 @@ msgstr ""
 #: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:336
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
-msgstr ""
+msgstr "ទៅ"
 
 #: gis_data_editor.php:407
 msgid "Output"
-msgstr ""
+msgstr "លទ្ធផល"
 
 #: gis_data_editor.php:410
 msgid ""
@@ -593,7 +593,7 @@ msgstr ""
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
-msgstr ""
+msgstr "កំពុង​បង្ហាញ​ចំណាំ"
 
 #: import.php:299 import.php:561
 msgid "The bookmark has been deleted."
@@ -638,7 +638,7 @@ msgstr ""
 #: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr ""
+msgstr "បាន​បង្កើត​ចំណាំ %s ។"
 
 #: import.php:577
 #, php-format
