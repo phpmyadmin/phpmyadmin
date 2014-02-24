@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-11 09:16+0100\n"
+"POT-Creation-Date: 2014-02-24 09:04+0100\n"
 "PO-Revision-Date: 2014-02-22 15:17+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -540,9 +540,9 @@ msgid "Add geometry"
 msgstr "Dodaj geometrijo"
 
 #: gis_data_editor.php:404 js/messages.php:219
-#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1693
+#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1695
 #: libraries/TableSearch.class.php:1229 libraries/browse_foreigners.lib.php:51
-#: libraries/core.lib.php:564 libraries/display_change_password.lib.php:100
+#: libraries/core.lib.php:572 libraries/display_change_password.lib.php:100
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:370
 #: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1592
@@ -598,21 +598,28 @@ msgstr ""
 "Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
 "%sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
-#: import.php:284 import.php:550
+#: import.php:284 import.php:565
 msgid "Showing bookmark"
 msgstr "Prikazovanje zaznamka"
 
-#: import.php:299 import.php:546
+#: import.php:299 import.php:561
 msgid "The bookmark has been deleted."
 msgstr "Zaznamek je odstranjen."
 
-#: import.php:394 import.php:455 libraries/File.class.php:433
-#: libraries/File.class.php:526
+#: import.php:396
+#, php-format
+msgid ""
+"Uploaded file cannot be moved, because the server has open_basedir enabled "
+"without access to the %s directory (for temporary files)."
+msgstr ""
+
+#: import.php:409 import.php:470 libraries/File.class.php:433
+#: libraries/File.class.php:527
 msgid "File could not be read!"
 msgstr "Ne morem prebrati datoteke!"
 
-#: import.php:403 import.php:414 import.php:435 import.php:446
-#: libraries/File.class.php:592
+#: import.php:418 import.php:429 import.php:450 import.php:461
+#: libraries/File.class.php:593
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -621,7 +628,7 @@ msgstr ""
 "Poskušali ste naložiti datoteko z nepodprtim stiskanjem (%s). Bodisi podpora "
 "za njega ni vključena ali pa je onemogočena z vašo konfiguracijo."
 
-#: import.php:461
+#: import.php:476
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -631,29 +638,29 @@ msgstr ""
 "je velikost datoteke presegala največjo velikost, dovoljeno v konfiguraciji "
 "PHP. Glej [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:481
+#: import.php:495
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Ne morem pretvoriti nabora znakov datoteke brez knjižnice za pretvorbo "
 "nabora znakov!"
 
-#: import.php:519 libraries/display_import.inc.php:32
+#: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Ne morem naložiti vtičnikov za uvoz, prosimo, preverite vašo namestitev!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
+#: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ustvaril sem zaznamek %s."
 
-#: import.php:562
+#: import.php:577
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Uvažanje je uspešno zaključeno, izvedenih je bilo %d poizvedb."
 
-#: import.php:581
+#: import.php:598
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -661,7 +668,7 @@ msgstr ""
 "Časovna omejitev skripta je potekla; če želite končati uvoz, prosimo, "
 "ponovno pošljite isto datoteko in uvoz se bo nadaljeval."
 
-#: import.php:585
+#: import.php:602
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -754,15 +761,26 @@ msgstr "Različica odjemalca zbirk podatkov:"
 msgid "PHP extension:"
 msgstr "Razširitev PHP:"
 
-#: index.php:332
+#: index.php:325 js/messages.php:121 libraries/DisplayResults.class.php:1332
+#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
+#: libraries/display_export.lib.php:571
+#: libraries/plugins/export/ExportSql.class.php:1756
+#: libraries/server_privileges.lib.php:2661
+#: libraries/server_status.lib.php:523
+#: libraries/server_status_monitor.lib.php:278
+#: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:594
+msgid "None"
+msgstr "Brez"
+
+#: index.php:337
 msgid "Show PHP information"
 msgstr "Pokaži podatke o PHP"
 
-#: index.php:355
+#: index.php:360
 msgid "Version information:"
 msgstr "Podatki o različici:"
 
-#: index.php:364 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:244
@@ -770,27 +788,27 @@ msgstr "Podatki o različici:"
 msgid "Documentation"
 msgstr "Dokumentacija"
 
-#: index.php:371
+#: index.php:376
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:380
+#: index.php:385
 msgid "Official Homepage"
 msgstr "Uradna domača stran phpMyAdmin"
 
-#: index.php:387
+#: index.php:392
 msgid "Contribute"
 msgstr "Prispevaj"
 
-#: index.php:394
+#: index.php:399
 msgid "Get support"
 msgstr "Prosi za podporo"
 
-#: index.php:401
+#: index.php:406
 msgid "List of changes"
 msgstr "Seznam sprememb"
 
-#: index.php:423
+#: index.php:428
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -802,7 +820,7 @@ msgstr ""
 "privzetimi nastavitvami, zato je izpostavljen vdorom. Čimprej odpravite to "
 "varnostno luknjo tako, da uporabniku 'root' nastavite geslo."
 
-#: index.php:440
+#: index.php:445
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -811,7 +829,7 @@ msgstr ""
 "V vaši konfiguraciji PHP ste omogočili mbstring.func_overload. Možnost ni "
 "združljiva s phpMyAdminom in lahko pokvari nekatere podatke!"
 
-#: index.php:455
+#: index.php:460
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -821,7 +839,7 @@ msgstr ""
 "nabor znakov. Brez razširitve mbstring phpMyAdmin ni sposoben pravilno "
 "razcepiti nizov, kar lahko vodi v nepričakovane rezultate."
 
-#: index.php:470
+#: index.php:475
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -833,7 +851,7 @@ msgstr ""
 "veljavnosti piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša "
 "prijava iztekla prej, kot je določeno v phpMyAdminu."
 
-#: index.php:482
+#: index.php:487
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -842,13 +860,13 @@ msgstr ""
 "določene v phpMyAdminu. Zaradi tega se bo vaša prijava iztekla prej, kot je "
 "določeno v phpMyAdminu."
 
-#: index.php:494
+#: index.php:499
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Konfiguracijski datoteki morate sedaj določiti skrivno geslo "
 "(blowfish_secret)."
 
-#: index.php:505
+#: index.php:510
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -861,7 +879,7 @@ msgstr ""
 "strežnika morda ogrožena, saj bodo nepooblaščene osebe lahko prenesle vašo "
 "konfiguracijo."
 
-#: index.php:515
+#: index.php:520
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -871,7 +889,7 @@ msgstr ""
 "nekatere razširjene zmožnosti onemogočene. Če želite izvedeti zakaj, "
 "kliknite %stukaj%s."
 
-#: index.php:551
+#: index.php:556
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -880,7 +898,7 @@ msgstr ""
 "Vaša PHP-knjižnica MySQL različice %s se razlikuje od vašega strežnika MySQL "
 "različice %s. To lahko povzroči nepredvidljivo vedenje."
 
-#: index.php:575
+#: index.php:580
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1167,17 +1185,6 @@ msgstr "Dodaj grafikon na mrežo"
 #: js/messages.php:120
 msgid "Please add at least one variable to the series!"
 msgstr "Prosimo, da v serijo dodate vsaj eno spremenljivko!"
-
-#: js/messages.php:121 libraries/DisplayResults.class.php:1330
-#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
-#: libraries/display_export.lib.php:571
-#: libraries/plugins/export/ExportSql.class.php:1756
-#: libraries/server_privileges.lib.php:2661
-#: libraries/server_status.lib.php:523
-#: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:594
-msgid "None"
-msgstr "Brez"
 
 #: js/messages.php:122
 msgid "Resume monitor"
@@ -1647,7 +1654,7 @@ msgstr "Skrij polje poizvedbe"
 msgid "Show query box"
 msgstr "Prikaži polje poizvedbe"
 
-#: js/messages.php:269 libraries/DisplayResults.class.php:3360
+#: js/messages.php:269 libraries/DisplayResults.class.php:3363
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1208 libraries/Util.class.php:3413
 #: libraries/Util.class.php:3414 libraries/config/messages.inc.php:744
@@ -1730,7 +1737,7 @@ msgstr "Vsebina kazalca podatkov"
 msgid "Ignore"
 msgstr "Prezri"
 
-#: js/messages.php:305 libraries/DisplayResults.class.php:3363
+#: js/messages.php:305 libraries/DisplayResults.class.php:3366
 msgid "Copy"
 msgstr "Kopiraj"
 
@@ -1746,7 +1753,7 @@ msgstr "Daljica"
 msgid "Polygon"
 msgstr "Večkotnik"
 
-#: js/messages.php:312 libraries/DisplayResults.class.php:1677
+#: js/messages.php:312 libraries/DisplayResults.class.php:1679
 msgid "Geometry"
 msgstr "Geometrija"
 
@@ -1917,7 +1924,7 @@ msgstr ", zadnja ustaljena različica:"
 msgid "up to date"
 msgstr "posodobljeno"
 
-#: js/messages.php:383 libraries/DisplayResults.class.php:5219
+#: js/messages.php:383 libraries/DisplayResults.class.php:5221
 #: view_create.php:178
 msgid "Create view"
 msgstr "Ustvari pogled"
@@ -2289,18 +2296,18 @@ msgstr ""
 msgid "Font size"
 msgstr "Velikost pisave"
 
-#: libraries/DBQbe.class.php:347 libraries/DisplayResults.class.php:1314
-#: libraries/DisplayResults.class.php:2047
-#: libraries/DisplayResults.class.php:2055 libraries/TableSearch.class.php:851
+#: libraries/DBQbe.class.php:347 libraries/DisplayResults.class.php:1316
+#: libraries/DisplayResults.class.php:2049
+#: libraries/DisplayResults.class.php:2057 libraries/TableSearch.class.php:851
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:450
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
 msgid "Ascending"
 msgstr "Naraščajoče"
 
-#: libraries/DBQbe.class.php:350 libraries/DisplayResults.class.php:1326
-#: libraries/DisplayResults.class.php:2042
-#: libraries/DisplayResults.class.php:2060 libraries/TableSearch.class.php:852
+#: libraries/DBQbe.class.php:350 libraries/DisplayResults.class.php:1328
+#: libraries/DisplayResults.class.php:2044
+#: libraries/DisplayResults.class.php:2062 libraries/TableSearch.class.php:852
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:447
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2367,12 +2374,12 @@ msgstr "Vstavljeno:"
 msgid "Del:"
 msgstr "Izbrisano:"
 
-#: libraries/DBQbe.class.php:1380
+#: libraries/DBQbe.class.php:1386
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "Poizvedba SQL na zbirki podatkov <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1394 libraries/Util.class.php:1237
+#: libraries/DBQbe.class.php:1400 libraries/Util.class.php:1237
 msgid "Submit Query"
 msgstr "Izvedi poizvedbo"
 
@@ -2448,8 +2455,8 @@ msgstr "Prebrskaj"
 msgid "Delete the matches for the %s table?"
 msgstr "Izbrišem zadetke v tabeli %s?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3431
-#: libraries/DisplayResults.class.php:5086
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3434
+#: libraries/DisplayResults.class.php:5088
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2540,11 +2547,11 @@ msgstr "vodoravno (zasukani naslovi)"
 msgid "vertical"
 msgstr "navpičnem"
 
-#: libraries/DisplayResults.class.php:1272
+#: libraries/DisplayResults.class.php:1274
 msgid "Sort by key"
 msgstr "Uredi po ključu"
 
-#: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:793
+#: libraries/DisplayResults.class.php:1615 libraries/TableSearch.class.php:793
 #: libraries/import.lib.php:1233 libraries/import.lib.php:1265
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -2571,56 +2578,56 @@ msgstr "Uredi po ključu"
 msgid "Options"
 msgstr "Možnosti"
 
-#: libraries/DisplayResults.class.php:1619
-#: libraries/DisplayResults.class.php:1726
+#: libraries/DisplayResults.class.php:1621
+#: libraries/DisplayResults.class.php:1728
 msgid "Partial texts"
 msgstr "Delna besedila"
 
-#: libraries/DisplayResults.class.php:1620
-#: libraries/DisplayResults.class.php:1730
+#: libraries/DisplayResults.class.php:1622
+#: libraries/DisplayResults.class.php:1732
 msgid "Full texts"
 msgstr "Polna besedila"
 
-#: libraries/DisplayResults.class.php:1635
+#: libraries/DisplayResults.class.php:1637
 msgid "Relational key"
 msgstr "Relacijski ključ"
 
-#: libraries/DisplayResults.class.php:1636
+#: libraries/DisplayResults.class.php:1638
 msgid "Relational display column"
 msgstr "Relacijski prikazni stolpec"
 
-#: libraries/DisplayResults.class.php:1648
+#: libraries/DisplayResults.class.php:1650
 msgid "Show binary contents"
 msgstr "Prikaži dvojiške vsebine"
 
-#: libraries/DisplayResults.class.php:1653
+#: libraries/DisplayResults.class.php:1655
 msgid "Show BLOB contents"
 msgstr "Prikaži vsebine BLOB"
 
-#: libraries/DisplayResults.class.php:1658
+#: libraries/DisplayResults.class.php:1660
 #: libraries/config/messages.inc.php:93
 msgid "Show binary contents as HEX"
 msgstr "Prikaži dvojiške vsebine kot HEX"
 
-#: libraries/DisplayResults.class.php:1669
+#: libraries/DisplayResults.class.php:1671
 msgid "Hide browser transformation"
 msgstr "Skrij pretvorbo z brskalnikom"
 
-#: libraries/DisplayResults.class.php:1678
+#: libraries/DisplayResults.class.php:1680
 msgid "Well Known Text"
 msgstr "Dobro poznano besedilo"
 
-#: libraries/DisplayResults.class.php:1679
+#: libraries/DisplayResults.class.php:1681
 msgid "Well Known Binary"
 msgstr "Dobro poznana dvojiška datoteka"
 
-#: libraries/DisplayResults.class.php:3405
-#: libraries/DisplayResults.class.php:3421
+#: libraries/DisplayResults.class.php:3408
+#: libraries/DisplayResults.class.php:3424
 msgid "The row has been deleted."
 msgstr "Vrstica je izbrisana."
 
-#: libraries/DisplayResults.class.php:3457
-#: libraries/DisplayResults.class.php:5086 libraries/server_status.lib.php:518
+#: libraries/DisplayResults.class.php:3460
+#: libraries/DisplayResults.class.php:5088 libraries/server_status.lib.php:518
 msgid "Kill"
 msgstr "Prekini proces"
 
@@ -2648,23 +2655,23 @@ msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 msgid "Showing rows %1s - %2s"
 msgstr "Prikazujem vrstice %1s–%2s"
 
-#: libraries/DisplayResults.class.php:4993
+#: libraries/DisplayResults.class.php:4994
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "skupno %1$d, %2$d v poizvedbi"
 
-#: libraries/DisplayResults.class.php:4997
+#: libraries/DisplayResults.class.php:4999
 #, php-format
 msgid "%d total"
 msgstr "skupaj %d"
 
-#: libraries/DisplayResults.class.php:5009 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1643
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Poizvedba je potrebovala %01.4f sekunde."
 
-#: libraries/DisplayResults.class.php:5093
-#: libraries/DisplayResults.class.php:5099 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5095
+#: libraries/DisplayResults.class.php:5101 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2959
@@ -2674,8 +2681,8 @@ msgstr "Poizvedba je potrebovala %01.4f sekunde."
 msgid "With selected:"
 msgstr "Z označenim:"
 
-#: libraries/DisplayResults.class.php:5097
-#: libraries/DisplayResults.class.php:5098
+#: libraries/DisplayResults.class.php:5099
+#: libraries/DisplayResults.class.php:5100
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1010
@@ -2688,13 +2695,13 @@ msgstr "Z označenim:"
 msgid "Check All"
 msgstr "Označi vse"
 
-#: libraries/DisplayResults.class.php:5103 libraries/structure.lib.php:1390
+#: libraries/DisplayResults.class.php:5105 libraries/structure.lib.php:1390
 #: libraries/structure.lib.php:2068 querywindow.php:85
 msgid "Change"
 msgstr "Spremeni"
 
-#: libraries/DisplayResults.class.php:5116
-#: libraries/DisplayResults.class.php:5387 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5118
+#: libraries/DisplayResults.class.php:5389 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3415 libraries/Util.class.php:3416
 #: libraries/Util.class.php:4119 libraries/Util.class.php:4134
@@ -2707,29 +2714,29 @@ msgstr "Spremeni"
 msgid "Export"
 msgstr "Izvozi"
 
-#: libraries/DisplayResults.class.php:5275
+#: libraries/DisplayResults.class.php:5277
 msgid "Query results operations"
 msgstr "Dejanja rezultatov poizvedbe"
 
-#: libraries/DisplayResults.class.php:5311 libraries/Header.class.php:343
+#: libraries/DisplayResults.class.php:5313 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1513
 msgid "Print view"
 msgstr "Pogled za tiskanje"
 
-#: libraries/DisplayResults.class.php:5329
+#: libraries/DisplayResults.class.php:5331
 msgid "Print view (with full texts)"
 msgstr "Pogled za tiskanje (s polnimi besedili)"
 
-#: libraries/DisplayResults.class.php:5400 libraries/tbl_chart.lib.php:294
+#: libraries/DisplayResults.class.php:5402 libraries/tbl_chart.lib.php:294
 msgid "Display chart"
 msgstr "Prikaži grafikon"
 
-#: libraries/DisplayResults.class.php:5425
+#: libraries/DisplayResults.class.php:5427
 msgid "Visualize GIS data"
 msgstr "Predstavi podatke GIS"
 
-#: libraries/DisplayResults.class.php:5645
+#: libraries/DisplayResults.class.php:5647
 msgid "Link not found!"
 msgstr "Povezave ni mogoče najti!"
 
@@ -3066,7 +3073,7 @@ msgstr[3] "Vstavil sem %1$d vrstic."
 #: libraries/schema/Pdf_Relation_Schema.class.php:1203
 #: libraries/schema/Pdf_Relation_Schema.class.php:1227
 #: libraries/schema/User_Schema.class.php:434
-#: libraries/select_lang.lib.php:587
+#: libraries/select_lang.lib.php:589
 msgid "Page number:"
 msgstr "Številka strani:"
 
@@ -6767,7 +6774,7 @@ msgstr "Besedilo OpenDocument"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Manjka razširitev %s. Prosimo, preverite vašo konfiguracijo PHP."
 
-#: libraries/core.lib.php:447
+#: libraries/core.lib.php:448
 msgid "possible deep recursion attack"
 msgstr "možen napad globoke rekurzije"
 
@@ -7541,7 +7548,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump je shranjen v datoteko %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1636
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
@@ -7664,11 +7671,11 @@ msgstr ""
 "Uporabite tipko TAB za premik od vrednosti do vrednosti ali CTRL+puščice za "
 "premik kamor koli"
 
-#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1631
+#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1632
 msgid "Showing SQL query"
 msgstr "Prikazovanje poizvedbe SQL"
 
-#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1611
+#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1612
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id vstavljene vrstice: %1$d"
@@ -7961,16 +7968,16 @@ msgstr[3] "najdenih %s drugih rezultatov"
 msgid "Expand/Collapse"
 msgstr "Razširi/Skrči"
 
-#: libraries/navigation/NavigationTree.class.php:1056
+#: libraries/navigation/NavigationTree.class.php:1060
 msgid "Filter databases by name or regex"
 msgstr "Filtriraj zbirke podatkov po imenu ali regularnem izrazu"
 
-#: libraries/navigation/NavigationTree.class.php:1058
-#: libraries/navigation/NavigationTree.class.php:1092
+#: libraries/navigation/NavigationTree.class.php:1062
+#: libraries/navigation/NavigationTree.class.php:1096
 msgid "Clear fast filter"
 msgstr "Počisti hitri filter"
 
-#: libraries/navigation/NavigationTree.class.php:1091
+#: libraries/navigation/NavigationTree.class.php:1095
 msgid "Filter by name or regex"
 msgstr "Filtriraj po imenu ali regularnem izrazu"
 
@@ -10012,8 +10019,8 @@ msgstr "Preklopi odložišče (scratchboard)"
 msgid "File doesn't exist"
 msgstr "Datoteka ne obstaja"
 
-#: libraries/select_lang.lib.php:594 libraries/select_lang.lib.php:603
-#: libraries/select_lang.lib.php:612
+#: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
+#: libraries/select_lang.lib.php:614
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Neznani jezik: %1$s."
@@ -11816,24 +11823,24 @@ msgstr "Oznaka:"
 msgid "Let every user access this bookmark"
 msgstr "Dovoli dostop do zaznamka vsem uporabnikom"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:1025
 msgid "Bookmark not created!"
 msgstr "Zaznamka nisem ustvaril!"
 
-#: libraries/sql.lib.php:1180
+#: libraries/sql.lib.php:1181
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
-#: libraries/sql.lib.php:1628
+#: libraries/sql.lib.php:1629
 msgid "Showing as PHP code"
 msgstr "Prikazovanje kot koda PHP"
 
-#: libraries/sql.lib.php:1633
+#: libraries/sql.lib.php:1634
 msgid "Validated SQL"
 msgstr "Preverjen SQL"
 
-#: libraries/sql.lib.php:1913
+#: libraries/sql.lib.php:1914
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -11841,7 +11848,7 @@ msgstr ""
 "Trenutna izbira ne vsebuje unikatnega stolpca. Možnosti urejanja mreže, "
 "potrditvena polja, Uredi, Kopiraj in Izbriši niso na voljo."
 
-#: libraries/sql.lib.php:1950
+#: libraries/sql.lib.php:1951
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Težave z indeksi tabele `%s`"
@@ -13158,7 +13165,6 @@ msgstr "Opis"
 
 #: url.php:31
 #, php-format
-#| msgid "Taking you to "
 msgid "Taking you to %s."
 msgstr "Prestavili vas bomo na %s."
 

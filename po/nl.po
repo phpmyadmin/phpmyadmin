@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-11 09:16+0100\n"
+"POT-Creation-Date: 2014-02-24 09:04+0100\n"
 "PO-Revision-Date: 2014-02-20 12:50+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -537,9 +538,9 @@ msgid "Add geometry"
 msgstr "Een geometrie toevoegen"
 
 #: gis_data_editor.php:404 js/messages.php:219
-#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1693
+#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1695
 #: libraries/TableSearch.class.php:1229 libraries/browse_foreigners.lib.php:51
-#: libraries/core.lib.php:564 libraries/display_change_password.lib.php:100
+#: libraries/core.lib.php:572 libraries/display_change_password.lib.php:100
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:370
 #: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1592
@@ -595,21 +596,28 @@ msgstr ""
 "U probeerde waarschijnlijk een bestand te uploaden dat te groot is. Zie "
 "%sdocumentatie%s voor oplossingen voor deze beperking."
 
-#: import.php:284 import.php:550
+#: import.php:284 import.php:565
 msgid "Showing bookmark"
 msgstr "Toon bladwijzer"
 
-#: import.php:299 import.php:546
+#: import.php:299 import.php:561
 msgid "The bookmark has been deleted."
 msgstr "De bladwijzer werd verwijderd."
 
-#: import.php:394 import.php:455 libraries/File.class.php:433
-#: libraries/File.class.php:526
+#: import.php:396
+#, php-format
+msgid ""
+"Uploaded file cannot be moved, because the server has open_basedir enabled "
+"without access to the %s directory (for temporary files)."
+msgstr ""
+
+#: import.php:409 import.php:470 libraries/File.class.php:433
+#: libraries/File.class.php:527
 msgid "File could not be read!"
 msgstr "Bestand kon niet worden gelezen!"
 
-#: import.php:403 import.php:414 import.php:435 import.php:446
-#: libraries/File.class.php:592
+#: import.php:418 import.php:429 import.php:450 import.php:461
+#: libraries/File.class.php:593
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -619,7 +627,7 @@ msgstr ""
 "uploaden. De ondersteuning is niet geïmplementeerd of uitgeschakeld in de "
 "configuratie."
 
-#: import.php:461
+#: import.php:476
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -630,30 +638,30 @@ msgstr ""
 "de maximale bestandsgrootte zoals opgegeven in de PHP-configuratie. Zie "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
-#: import.php:481
+#: import.php:495
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "De karakterset van het bestand kan niet omgezet worden zonder de 'character "
 "set conversion' bibliotheek!"
 
-#: import.php:519 libraries/display_import.inc.php:32
+#: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "De plugins voor het importeren konden niet worden geladen, controleer uw "
 "installatie!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
+#: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s werd aangemaakt."
 
-#: import.php:562
+#: import.php:577
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "Import is geslaagd, %d queries uitgevoerd."
 
-#: import.php:581
+#: import.php:598
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -661,7 +669,7 @@ msgstr ""
 "De maximale uitvoertijd is verstreken, indien u de import wil afmaken kunt u "
 "het bestand opnieuw invoeren."
 
-#: import.php:585
+#: import.php:602
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -753,15 +761,26 @@ msgstr "Client-versie van databank:"
 msgid "PHP extension:"
 msgstr "PHP-uitbreiding:"
 
-#: index.php:332
+#: index.php:325 js/messages.php:121 libraries/DisplayResults.class.php:1332
+#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
+#: libraries/display_export.lib.php:571
+#: libraries/plugins/export/ExportSql.class.php:1756
+#: libraries/server_privileges.lib.php:2661
+#: libraries/server_status.lib.php:523
+#: libraries/server_status_monitor.lib.php:278
+#: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:594
+msgid "None"
+msgstr "Geen"
+
+#: index.php:337
 msgid "Show PHP information"
 msgstr "Informatie over PHP weergeven"
 
-#: index.php:355
+#: index.php:360
 msgid "Version information:"
 msgstr "Versie-informatie:"
 
-#: index.php:364 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:244
@@ -769,27 +788,27 @@ msgstr "Versie-informatie:"
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: index.php:371
+#: index.php:376
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:380
+#: index.php:385
 msgid "Official Homepage"
 msgstr "Officiële phpMyAdmin-website"
 
-#: index.php:387
+#: index.php:392
 msgid "Contribute"
 msgstr "Bijdragen"
 
-#: index.php:394
+#: index.php:399
 msgid "Get support"
 msgstr "Ondersteuning krijgen"
 
-#: index.php:401
+#: index.php:406
 msgid "List of changes"
 msgstr "Lijst met wijzigingen"
 
-#: index.php:423
+#: index.php:428
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -801,7 +820,7 @@ msgstr ""
 "met deze standaardwaarden, en is open voor ongewilde toegang. Het wordt "
 "aangeraden dit op te lossen."
 
-#: index.php:440
+#: index.php:445
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -811,7 +830,7 @@ msgstr ""
 "optie is incompatibel met phpMyAdmin en kan ervoor zorgen dat sommige "
 "gegevens corrupt raken!"
 
-#: index.php:455
+#: index.php:460
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -821,7 +840,7 @@ msgstr ""
 "karakterset te gebruiken. Zonder de uitbreiding mbstring kan phpMyAdmin "
 "strings niet correct splitsen, wat tot onverwachte resultaten kan leiden."
 
-#: index.php:470
+#: index.php:475
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -833,7 +852,7 @@ msgstr ""
 "ingestelde cookiegeldigheid in phpMyAdmin. Hierdoor verloopt uw sessie "
 "eerder dan in phpMyAdmin is ingesteld."
 
-#: index.php:482
+#: index.php:487
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -842,13 +861,13 @@ msgstr ""
 "dan die instelling in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
 "phpMyAdmin is ingesteld."
 
-#: index.php:494
+#: index.php:499
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Het configuratiebestand heeft nu een geheime wachtwoordzin nodig "
 "(blowfish_secret)."
 
-#: index.php:505
+#: index.php:510
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -861,7 +880,7 @@ msgstr ""
 "van uw server aangetast worden omdat ongepriviligieerde personen uw "
 "configuratie kunnen downloaden."
 
-#: index.php:515
+#: index.php:520
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -871,7 +890,7 @@ msgstr ""
 "uitgebreide mogelijkheden zijn uitgeschakeld. Om te weten te komen waarom "
 "klik %shier%s."
 
-#: index.php:551
+#: index.php:556
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -880,7 +899,7 @@ msgstr ""
 "Uw MySQL-bibliotheekversie %s in PHP verschilt van uw MySQL-serverversie %s. "
 "Dit kan onvoorspelbaar gedrag veroorzaken."
 
-#: index.php:575
+#: index.php:580
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1167,17 +1186,6 @@ msgstr "Grafiek toevoegen aan raster"
 #: js/messages.php:120
 msgid "Please add at least one variable to the series!"
 msgstr "Voeg tenminste één variabele toe aan de reeks!"
-
-#: js/messages.php:121 libraries/DisplayResults.class.php:1330
-#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
-#: libraries/display_export.lib.php:571
-#: libraries/plugins/export/ExportSql.class.php:1756
-#: libraries/server_privileges.lib.php:2661
-#: libraries/server_status.lib.php:523
-#: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:594
-msgid "None"
-msgstr "Geen"
 
 #: js/messages.php:122
 msgid "Resume monitor"
@@ -1652,7 +1660,7 @@ msgstr "SQL-queryveld verbergen"
 msgid "Show query box"
 msgstr "SQL-queryveld tonen"
 
-#: js/messages.php:269 libraries/DisplayResults.class.php:3360
+#: js/messages.php:269 libraries/DisplayResults.class.php:3363
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1208 libraries/Util.class.php:3413
 #: libraries/Util.class.php:3414 libraries/config/messages.inc.php:744
@@ -1738,7 +1746,7 @@ msgstr "Inhoud gegevenspunt"
 msgid "Ignore"
 msgstr "Negeren"
 
-#: js/messages.php:305 libraries/DisplayResults.class.php:3363
+#: js/messages.php:305 libraries/DisplayResults.class.php:3366
 msgid "Copy"
 msgstr "Kopiëren"
 
@@ -1754,7 +1762,7 @@ msgstr "Lijnstuk definitie"
 msgid "Polygon"
 msgstr "Polygoon"
 
-#: js/messages.php:312 libraries/DisplayResults.class.php:1677
+#: js/messages.php:312 libraries/DisplayResults.class.php:1679
 msgid "Geometry"
 msgstr "Geometrie"
 
@@ -1928,7 +1936,7 @@ msgstr ", meest recente versie:"
 msgid "up to date"
 msgstr "Recent bijgewerkt"
 
-#: js/messages.php:383 libraries/DisplayResults.class.php:5219
+#: js/messages.php:383 libraries/DisplayResults.class.php:5221
 #: view_create.php:178
 msgid "Create view"
 msgstr "VIEW aanmaken"
@@ -2300,18 +2308,18 @@ msgstr ""
 msgid "Font size"
 msgstr "Lettertypegrootte"
 
-#: libraries/DBQbe.class.php:347 libraries/DisplayResults.class.php:1314
-#: libraries/DisplayResults.class.php:2047
-#: libraries/DisplayResults.class.php:2055 libraries/TableSearch.class.php:851
+#: libraries/DBQbe.class.php:347 libraries/DisplayResults.class.php:1316
+#: libraries/DisplayResults.class.php:2049
+#: libraries/DisplayResults.class.php:2057 libraries/TableSearch.class.php:851
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:450
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
 msgid "Ascending"
 msgstr "Oplopend"
 
-#: libraries/DBQbe.class.php:350 libraries/DisplayResults.class.php:1326
-#: libraries/DisplayResults.class.php:2042
-#: libraries/DisplayResults.class.php:2060 libraries/TableSearch.class.php:852
+#: libraries/DBQbe.class.php:350 libraries/DisplayResults.class.php:1328
+#: libraries/DisplayResults.class.php:2044
+#: libraries/DisplayResults.class.php:2062 libraries/TableSearch.class.php:852
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:447
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2378,12 +2386,12 @@ msgstr "Invoegen:"
 msgid "Del:"
 msgstr "Verwijderen:"
 
-#: libraries/DBQbe.class.php:1380
+#: libraries/DBQbe.class.php:1386
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL-query op databank <b>%s</b>:"
 
-#: libraries/DBQbe.class.php:1394 libraries/Util.class.php:1237
+#: libraries/DBQbe.class.php:1400 libraries/Util.class.php:1237
 msgid "Submit Query"
 msgstr "Query uitvoeren"
 
@@ -2454,8 +2462,8 @@ msgstr "Verkennen"
 msgid "Delete the matches for the %s table?"
 msgstr "Verwijder gevonden rijen voor de tabel %s?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3431
-#: libraries/DisplayResults.class.php:5086
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3434
+#: libraries/DisplayResults.class.php:5088
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2546,11 +2554,11 @@ msgstr "horizontale (omgedraaide headers)"
 msgid "vertical"
 msgstr "verticale"
 
-#: libraries/DisplayResults.class.php:1272
+#: libraries/DisplayResults.class.php:1274
 msgid "Sort by key"
 msgstr "Sorteren op sleutel"
 
-#: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:793
+#: libraries/DisplayResults.class.php:1615 libraries/TableSearch.class.php:793
 #: libraries/import.lib.php:1233 libraries/import.lib.php:1265
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -2577,56 +2585,56 @@ msgstr "Sorteren op sleutel"
 msgid "Options"
 msgstr "Opties"
 
-#: libraries/DisplayResults.class.php:1619
-#: libraries/DisplayResults.class.php:1726
+#: libraries/DisplayResults.class.php:1621
+#: libraries/DisplayResults.class.php:1728
 msgid "Partial texts"
 msgstr "Gedeeltelijke teksten"
 
-#: libraries/DisplayResults.class.php:1620
-#: libraries/DisplayResults.class.php:1730
+#: libraries/DisplayResults.class.php:1622
+#: libraries/DisplayResults.class.php:1732
 msgid "Full texts"
 msgstr "Volledige teksten"
 
-#: libraries/DisplayResults.class.php:1635
+#: libraries/DisplayResults.class.php:1637
 msgid "Relational key"
 msgstr "Relationele sleutel"
 
-#: libraries/DisplayResults.class.php:1636
+#: libraries/DisplayResults.class.php:1638
 msgid "Relational display column"
 msgstr "Relationele weergave-kolom"
 
-#: libraries/DisplayResults.class.php:1648
+#: libraries/DisplayResults.class.php:1650
 msgid "Show binary contents"
 msgstr "Toon binaire inhoud"
 
-#: libraries/DisplayResults.class.php:1653
+#: libraries/DisplayResults.class.php:1655
 msgid "Show BLOB contents"
 msgstr "Toon BLOB-inhoud"
 
-#: libraries/DisplayResults.class.php:1658
+#: libraries/DisplayResults.class.php:1660
 #: libraries/config/messages.inc.php:93
 msgid "Show binary contents as HEX"
 msgstr "Toon binaire-inhoud als HEX"
 
-#: libraries/DisplayResults.class.php:1669
+#: libraries/DisplayResults.class.php:1671
 msgid "Hide browser transformation"
 msgstr "Browsertransformaties verbergen"
 
-#: libraries/DisplayResults.class.php:1678
+#: libraries/DisplayResults.class.php:1680
 msgid "Well Known Text"
 msgstr "Goed bekende tekst"
 
-#: libraries/DisplayResults.class.php:1679
+#: libraries/DisplayResults.class.php:1681
 msgid "Well Known Binary"
 msgstr "Goed gekende binaire waarde"
 
-#: libraries/DisplayResults.class.php:3405
-#: libraries/DisplayResults.class.php:3421
+#: libraries/DisplayResults.class.php:3408
+#: libraries/DisplayResults.class.php:3424
 msgid "The row has been deleted."
 msgstr "De regel werd verwijderd."
 
-#: libraries/DisplayResults.class.php:3457
-#: libraries/DisplayResults.class.php:5086 libraries/server_status.lib.php:518
+#: libraries/DisplayResults.class.php:3460
+#: libraries/DisplayResults.class.php:5088 libraries/server_status.lib.php:518
 msgid "Kill"
 msgstr "stop proces"
 
@@ -2655,23 +2663,23 @@ msgstr ""
 msgid "Showing rows %1s - %2s"
 msgstr "Weergave van records %1s - %2s"
 
-#: libraries/DisplayResults.class.php:4993
+#: libraries/DisplayResults.class.php:4994
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d in totaal, %2$d in de query"
 
-#: libraries/DisplayResults.class.php:4997
+#: libraries/DisplayResults.class.php:4999
 #, php-format
 msgid "%d total"
 msgstr "%d totaal"
 
-#: libraries/DisplayResults.class.php:5009 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1643
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Query duurde %01.4f seconden."
 
-#: libraries/DisplayResults.class.php:5093
-#: libraries/DisplayResults.class.php:5099 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5095
+#: libraries/DisplayResults.class.php:5101 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2959
@@ -2681,8 +2689,8 @@ msgstr "Query duurde %01.4f seconden."
 msgid "With selected:"
 msgstr "Met geselecteerd:"
 
-#: libraries/DisplayResults.class.php:5097
-#: libraries/DisplayResults.class.php:5098
+#: libraries/DisplayResults.class.php:5099
+#: libraries/DisplayResults.class.php:5100
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1010
@@ -2695,13 +2703,13 @@ msgstr "Met geselecteerd:"
 msgid "Check All"
 msgstr "Selecteer alles"
 
-#: libraries/DisplayResults.class.php:5103 libraries/structure.lib.php:1390
+#: libraries/DisplayResults.class.php:5105 libraries/structure.lib.php:1390
 #: libraries/structure.lib.php:2068 querywindow.php:85
 msgid "Change"
 msgstr "Veranderen"
 
-#: libraries/DisplayResults.class.php:5116
-#: libraries/DisplayResults.class.php:5387 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5118
+#: libraries/DisplayResults.class.php:5389 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3415 libraries/Util.class.php:3416
 #: libraries/Util.class.php:4119 libraries/Util.class.php:4134
@@ -2714,29 +2722,29 @@ msgstr "Veranderen"
 msgid "Export"
 msgstr "Exporteren"
 
-#: libraries/DisplayResults.class.php:5275
+#: libraries/DisplayResults.class.php:5277
 msgid "Query results operations"
 msgstr "Handelingen voor queryresultaat"
 
-#: libraries/DisplayResults.class.php:5311 libraries/Header.class.php:343
+#: libraries/DisplayResults.class.php:5313 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1513
 msgid "Print view"
 msgstr "Afdrukken"
 
-#: libraries/DisplayResults.class.php:5329
+#: libraries/DisplayResults.class.php:5331
 msgid "Print view (with full texts)"
 msgstr "Afdrukken (met volledige teksten)"
 
-#: libraries/DisplayResults.class.php:5400 libraries/tbl_chart.lib.php:294
+#: libraries/DisplayResults.class.php:5402 libraries/tbl_chart.lib.php:294
 msgid "Display chart"
 msgstr "Grafiek weergeven"
 
-#: libraries/DisplayResults.class.php:5425
+#: libraries/DisplayResults.class.php:5427
 msgid "Visualize GIS data"
 msgstr "GIS-gegevens visualiseren"
 
-#: libraries/DisplayResults.class.php:5645
+#: libraries/DisplayResults.class.php:5647
 msgid "Link not found!"
 msgstr "Link niet gevonden!"
 
@@ -3070,7 +3078,7 @@ msgstr[1] "%1$d rijen toegevoegd."
 #: libraries/schema/Pdf_Relation_Schema.class.php:1203
 #: libraries/schema/Pdf_Relation_Schema.class.php:1227
 #: libraries/schema/User_Schema.class.php:434
-#: libraries/select_lang.lib.php:587
+#: libraries/select_lang.lib.php:589
 msgid "Page number:"
 msgstr "Paginanummer:"
 
@@ -6518,8 +6526,6 @@ msgid "Show statistics"
 msgstr "Toon statistieken"
 
 #: libraries/config/messages.inc.php:742
-#| msgid ""
-#| "Mark used tables and make it possible to show databases with locked tables"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
@@ -6531,7 +6537,6 @@ msgid "Skip locked tables"
 msgstr "Herken vergrendelde tabellen"
 
 #: libraries/config/messages.inc.php:748
-#| msgid "Requires SQL Validator to be enabled"
 msgid "Requires SQL Validator to be enabled."
 msgstr "Vereist dat SQL-Validator geactiveerd is."
 
@@ -6544,9 +6549,6 @@ msgid "Password"
 msgstr "Wachtwoord"
 
 #: libraries/config/messages.inc.php:751
-#| msgid ""
-#| "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
-#| "installed"
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed."
@@ -6559,15 +6561,11 @@ msgid "Enable SQL Validator"
 msgstr "SQL-Validator activeren"
 
 #: libraries/config/messages.inc.php:753
-#| msgid ""
-#| "If you have a custom username, specify it here (defaults to "
-#| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Geef eventueel aangepaste gebruikersnaam op (standaard "
-"[kbd]anonymous[/kbd])."
+"Geef eventueel aangepaste gebruikersnaam op (standaard [kbd]anonymous[/kbd])."
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -6575,7 +6573,6 @@ msgid "Username"
 msgstr "Gebruikersnaam"
 
 #: libraries/config/messages.inc.php:755
-#| msgid "A warning is displayed on the main page if Suhosin is detected"
 msgid "A warning is displayed on the main page if Suhosin is detected."
 msgstr ""
 "Een waarschuwing wordt getoond op de hoofdpagina als Suhosin gedetecteerd "
@@ -6586,9 +6583,6 @@ msgid "Suhosin warning"
 msgstr "Suhosin-waarschuwing"
 
 #: libraries/config/messages.inc.php:757
-#| msgid ""
-#| "Textarea size (columns) in edit mode, this value will be emphasized for "
-#| "SQL query textareas (*2) and for query window (*1.25)"
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
@@ -6601,9 +6595,6 @@ msgid "Textarea columns"
 msgstr "Tekstveldkolommen"
 
 #: libraries/config/messages.inc.php:759
-#| msgid ""
-#| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-#| "query textareas (*2) and for query window (*1.25)"
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
@@ -6616,12 +6607,10 @@ msgid "Textarea rows"
 msgstr "Tekstveldregels"
 
 #: libraries/config/messages.inc.php:761
-#| msgid "Title of browser window when a database is selected"
 msgid "Title of browser window when a database is selected."
 msgstr "Titel van het browserscherm wanneer een databank geselecteerd is."
 
 #: libraries/config/messages.inc.php:763
-#| msgid "Title of browser window when nothing is selected"
 msgid "Title of browser window when nothing is selected."
 msgstr "Titel van het browserscherm wanneer niets geselecteerd is."
 
@@ -6630,21 +6619,14 @@ msgid "Default title"
 msgstr "Standaard titel"
 
 #: libraries/config/messages.inc.php:765
-#| msgid "Title of browser window when a server is selected"
 msgid "Title of browser window when a server is selected."
 msgstr "Titel van het browserscherm wanneer een server geselecteerd is."
 
 #: libraries/config/messages.inc.php:767
-#| msgid "Title of browser window when a table is selected"
 msgid "Title of browser window when a table is selected."
 msgstr "Titel van het browserscherm wanneer een tabel geselecteerd is."
 
 #: libraries/config/messages.inc.php:769
-#| msgid ""
-#| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
-#| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
-#| "Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-#| "HTTP_X_FORWARDED_FOR[/kbd]"
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6653,15 +6635,14 @@ msgid ""
 msgstr ""
 "Voer proxy's in als [kbd]IP: trusted HTTP header[/kbd]. Het volgende "
 "voorbeeld geeft aan dat phpMyAdmin een HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header moet vertrouwen wanneer deze afkomstig is van het IP "
-"1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
+"For) header moet vertrouwen wanneer deze afkomstig is van het IP 1.2.3.4:[br]"
+"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/config/messages.inc.php:770
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Lijst van vertrouwde proxyservers"
 
 #: libraries/config/messages.inc.php:771
-#| msgid "Directory on server where you can upload files for import"
 msgid "Directory on server where you can upload files for import."
 msgstr ""
 "Directory op de server waar te importeren bestanden kunnen worden ge-upload."
@@ -6671,7 +6652,6 @@ msgid "Upload directory"
 msgstr "Uploadfolder"
 
 #: libraries/config/messages.inc.php:773
-#| msgid "Allow for searching inside the entire database"
 msgid "Allow for searching inside the entire database."
 msgstr "Toestaan om te zoeken binnen de volledige databank."
 
@@ -6680,9 +6660,6 @@ msgid "Use database search"
 msgstr "Databankzoekfunctie gebruiken"
 
 #: libraries/config/messages.inc.php:775
-#| msgid ""
-#| "When disabled, users cannot set any of the options below, regardless of "
-#| "the checkbox on the right"
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -6699,7 +6676,6 @@ msgid "Check for latest version"
 msgstr "Controleren op de meest recente versie"
 
 #: libraries/config/messages.inc.php:778
-#| msgid "Enables check for latest version on main phpMyAdmin page"
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Schakel de controle op de nieuwste versie in op de hoofdpagina van "
@@ -6713,11 +6689,6 @@ msgid "Version check"
 msgstr "Versiecontrole"
 
 #: libraries/config/messages.inc.php:780
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin or when submitting error reports. You need "
-#| "this if the server where phpMyAdmin is installed does not have direct "
-#| "access to the internet. The format is: \"hostname:portnumber\""
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6750,7 +6721,6 @@ msgid "Proxy username"
 msgstr "Proxy gebruikersnaam"
 
 #: libraries/config/messages.inc.php:784
-#| msgid "The password for authenticating with the proxy"
 msgid "The password for authenticating with the proxy."
 msgstr "Het wachtwoord voor de authenticatie met de proxy."
 
@@ -6759,23 +6729,18 @@ msgid "Proxy password"
 msgstr "Proxy wachtwoord"
 
 #: libraries/config/messages.inc.php:787
-#| msgid ""
-#| "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
-#| "compression for import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Gebruik "
-"[a@http://nl.wikipedia.org/wiki/ZIP_(bestandstype)]ZIP[/a]-compressie voor "
-"import- en exportoperaties."
+"Gebruik [a@http://nl.wikipedia.org/wiki/ZIP_(bestandstype)]ZIP[/a]-"
+"compressie voor import- en exportoperaties."
 
 #: libraries/config/messages.inc.php:788
 msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:789
-#| msgid "Enter your public key for your domain reCaptcha service"
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "Voer uw openbare sleutel in voor de reCaptcha service op uw domein."
 
@@ -6784,7 +6749,6 @@ msgid "Public key for reCaptcha"
 msgstr "Openbare sleutel voor reCaptcha"
 
 #: libraries/config/messages.inc.php:791
-#| msgid "Enter your private key for your domain reCaptcha service"
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "Voer uw private sleutel in voor de reCaptcha service op uw domein."
 
@@ -6793,7 +6757,6 @@ msgid "Private key for reCaptcha"
 msgstr "Private sleutel voor reCaptcha"
 
 #: libraries/config/messages.inc.php:794
-#| msgid "Choose the default action when sending error reports"
 msgid "Choose the default action when sending error reports."
 msgstr "Kies de standaard actie bij het verzenden van foutmeldingsverslagen."
 
@@ -6863,7 +6826,7 @@ msgstr "OpenDocument Tekst"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "De extensie %s ontbreekt. Controleer uw PHP-configuratie."
 
-#: libraries/core.lib.php:447
+#: libraries/core.lib.php:448
 msgid "possible deep recursion attack"
 msgstr "mogelijke diepe recursieaanval"
 
@@ -7648,7 +7611,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Het exportbestand is bewaard als %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1636
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL gaf een lege resultatenset terug (0 rijen)."
@@ -7659,19 +7622,15 @@ msgid ""
 msgstr "De volgende structuren zijn aangemaakt of aangepast. Hier kunt u:"
 
 #: libraries/import.lib.php:1228
-#| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "Bekijk de inhoud van een structuur door op de naam te klikken."
 
 #: libraries/import.lib.php:1229
-#| msgid ""
-#| "Change any of its settings by clicking the corresponding \"Options\" link"
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Een instelling wijzigen door op \"Opties\" te klikken."
 
 #: libraries/import.lib.php:1230
-#| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Klik op de \"Structuur\"-link om de structuur aan te passen."
 
@@ -7717,7 +7676,6 @@ msgid "Binary"
 msgstr "Binair"
 
 #: libraries/insert_edit.lib.php:658
-#| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
 "Vanwege z'n lengte,<br /> kan deze kolom mogelijk niet gewijzigd worden."
@@ -7774,11 +7732,11 @@ msgstr ""
 "Gebruik de TAB-toets om van waarde naar waarde te navigeren of CTRL+pijltjes "
 "om vrijuit te navigeren"
 
-#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1631
+#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1632
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1611
+#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1612
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"
@@ -8071,16 +8029,16 @@ msgstr[1] "%s andere resultaten gevonden"
 msgid "Expand/Collapse"
 msgstr "Uitklappen/samenvouwen"
 
-#: libraries/navigation/NavigationTree.class.php:1056
+#: libraries/navigation/NavigationTree.class.php:1060
 msgid "Filter databases by name or regex"
 msgstr "Databanken filteren op naam of regex"
 
-#: libraries/navigation/NavigationTree.class.php:1058
-#: libraries/navigation/NavigationTree.class.php:1092
+#: libraries/navigation/NavigationTree.class.php:1062
+#: libraries/navigation/NavigationTree.class.php:1096
 msgid "Clear fast filter"
 msgstr "Snelle filter leegmaken"
 
-#: libraries/navigation/NavigationTree.class.php:1091
+#: libraries/navigation/NavigationTree.class.php:1095
 msgid "Filter by name or regex"
 msgstr "Filter op naam of regex"
 
@@ -8821,22 +8779,18 @@ msgid "Constraints for table"
 msgstr "Beperkingen voor tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1277
-#| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Indexen voor geëxporteerde tabellen"
 
 #: libraries/plugins/export/ExportSql.class.php:1287
-#| msgid "Inside tables:"
 msgid "Indexes for table"
 msgstr "Indexen voor tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1313
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT voor geëxporteerde tabellen"
 
 #: libraries/plugins/export/ExportSql.class.php:1323
-#| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT voor een tabel"
 
@@ -8969,9 +8923,6 @@ msgstr ""
 "\"."
 
 #: libraries/plugins/import/ImportShp.class.php:204
-#| msgid ""
-#| "You tried to import an invalid file or the imported file contains invalid "
-#| "data"
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data!"
@@ -8985,7 +8936,6 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "De extensie MySQL Spatial ondersteunt ESRI-type \"%s\" niet."
 
 #: libraries/plugins/import/ImportShp.class.php:258
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
 msgstr "Het geïmporteerde bestand bevat geen gegevens!"
 
@@ -10169,8 +10119,8 @@ msgstr "Voorbeeldkader aan/uit"
 msgid "File doesn't exist"
 msgstr "Bestand bestaat niet"
 
-#: libraries/select_lang.lib.php:594 libraries/select_lang.lib.php:603
-#: libraries/select_lang.lib.php:612
+#: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
+#: libraries/select_lang.lib.php:614
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Onbekende taal: %1$s."
@@ -12013,26 +11963,26 @@ msgstr "Label:"
 msgid "Let every user access this bookmark"
 msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:1025
 #, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
 msgstr "Bladwijzer niet aangemaakt"
 
-#: libraries/sql.lib.php:1180
+#: libraries/sql.lib.php:1181
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: libraries/sql.lib.php:1628
+#: libraries/sql.lib.php:1629
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
 
-#: libraries/sql.lib.php:1633
+#: libraries/sql.lib.php:1634
 msgid "Validated SQL"
 msgstr "Gevalideerde SQL"
 
-#: libraries/sql.lib.php:1913
+#: libraries/sql.lib.php:1914
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -12041,7 +11991,7 @@ msgstr ""
 "rasterbewerkingen, checkboxen, Bewerken, Kopiëren en Verwijderen, zijn niet "
 "beschikbaar."
 
-#: libraries/sql.lib.php:1950
+#: libraries/sql.lib.php:1951
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemen met de indexen van de tabel `%s`"

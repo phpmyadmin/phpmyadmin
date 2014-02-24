@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-11 09:16+0100\n"
+"POT-Creation-Date: 2014-02-24 09:04+0100\n"
 "PO-Revision-Date: 2014-02-20 07:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/>\n"
+"Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/"
+">\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -537,9 +538,9 @@ msgid "Add geometry"
 msgstr "ज्यामिति जोडें"
 
 #: gis_data_editor.php:404 js/messages.php:219
-#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1693
+#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1695
 #: libraries/TableSearch.class.php:1229 libraries/browse_foreigners.lib.php:51
-#: libraries/core.lib.php:564 libraries/display_change_password.lib.php:100
+#: libraries/core.lib.php:572 libraries/display_change_password.lib.php:100
 #: libraries/display_create_table.lib.php:71
 #: libraries/display_export.lib.php:294 libraries/display_import.lib.php:370
 #: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1592
@@ -598,23 +599,30 @@ msgstr ""
 "आप शायद बहुत बड़ी फाइल अपलोड करने की कोशिश कर रहे हैं. इस दुविधा के लिए कृपया करके "
 "%sdocumentation%s पढ़ें."
 
-#: import.php:284 import.php:550
+#: import.php:284 import.php:565
 msgid "Showing bookmark"
 msgstr "बुकमार्क प्रदर्शित किया जा रहा है"
 
-#: import.php:299 import.php:546
+#: import.php:299 import.php:561
 msgid "The bookmark has been deleted."
 msgstr "यह बुकमार्क हटा दिया गया है."
 
-#: import.php:394 import.php:455 libraries/File.class.php:433
-#: libraries/File.class.php:526
+#: import.php:396
+#, php-format
+msgid ""
+"Uploaded file cannot be moved, because the server has open_basedir enabled "
+"without access to the %s directory (for temporary files)."
+msgstr ""
+
+#: import.php:409 import.php:470 libraries/File.class.php:433
+#: libraries/File.class.php:527
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "फाइल पढ़ी नहीं जा सकती"
 
-#: import.php:403 import.php:414 import.php:435 import.php:446
-#: libraries/File.class.php:592
+#: import.php:418 import.php:429 import.php:450 import.php:461
+#: libraries/File.class.php:593
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -623,7 +631,7 @@ msgstr ""
 "आप असमर्थित सम्पीडन (%s) के साथ फाइल लोड करने का प्रयास कर रहे हैं. इसके लिए या तो "
 "समर्थन कार्यान्वित  नहीं  है या आपने विन्यास को अक्षम कर रखा है."
 
-#: import.php:461
+#: import.php:476
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -633,7 +641,7 @@ msgstr ""
 "गया या फ़ाइल का आकार अधिकतम PHP विन्यास द्वारा अनुमति आकार के पार हो गई है. "
 "[doc@faq1-16] अकसर किये गए सवाल 1.16 [/doc] देखें."
 
-#: import.php:481
+#: import.php:495
 #, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
@@ -642,29 +650,29 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr "अक्षर सेट रूपांतरण पुस्तकालय के बिना फ़ाइल के अक्षर सेट को परिवर्तित नहीं कर सकते"
 
-#: import.php:519 libraries/display_import.inc.php:32
+#: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "आयात प्लगइन्स नहीं लोड किये जा सके। कृपया अपनी संस्थापना जाँचें!"
 
-#: import.php:553 libraries/sql.lib.php:1020 libraries/sql.lib.php:1803
+#: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "बुकमार्क %s बनाया"
 
-#: import.php:562
+#: import.php:577
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "आयात सफलतापूर्वक समाप्त हो गया है,%d कुएरी चलाई गयी हैं."
 
-#: import.php:581
+#: import.php:598
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
 "स्क्रिप्ट मध्यांतर पारित की गयी है, आयात खत्म करने के लिए वही फाइल फिर से जमा करें."
 
-#: import.php:585
+#: import.php:602
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -767,17 +775,28 @@ msgstr "सरल संस्करण का उपयोग"
 msgid "PHP extension:"
 msgstr "PHPविस्तार"
 
-#: index.php:332
+#: index.php:325 js/messages.php:121 libraries/DisplayResults.class.php:1332
+#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
+#: libraries/display_export.lib.php:571
+#: libraries/plugins/export/ExportSql.class.php:1756
+#: libraries/server_privileges.lib.php:2661
+#: libraries/server_status.lib.php:523
+#: libraries/server_status_monitor.lib.php:278
+#: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:594
+msgid "None"
+msgstr "कुछ नहीं"
+
+#: index.php:337
 msgid "Show PHP information"
 msgstr "PHP कि जानकारी दिखाओ"
 
-#: index.php:355
+#: index.php:360
 #, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
 msgstr "संस्करण जानकारी"
 
-#: index.php:364 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:244
@@ -785,27 +804,27 @@ msgstr "संस्करण जानकारी"
 msgid "Documentation"
 msgstr "प्रलेखन"
 
-#: index.php:371
+#: index.php:376
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:380
+#: index.php:385
 msgid "Official Homepage"
 msgstr "phpMyAdmin का आधिकारिक होमपेज"
 
-#: index.php:387
+#: index.php:392
 msgid "Contribute"
 msgstr "योगदान"
 
-#: index.php:394
+#: index.php:399
 msgid "Get support"
 msgstr "समर्थन पाएं"
 
-#: index.php:401
+#: index.php:406
 msgid "List of changes"
 msgstr "परिवर्तनों की सूची"
 
-#: index.php:423
+#: index.php:428
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -813,21 +832,21 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 
-#: index.php:440
+#: index.php:445
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: index.php:455
+#: index.php:460
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
 
-#: index.php:470
+#: index.php:475
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -835,17 +854,17 @@ msgid ""
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:482
+#: index.php:487
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:494
+#: index.php:499
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 
-#: index.php:505
+#: index.php:510
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -857,7 +876,7 @@ msgstr ""
 "हो जाये उसे मिटा दे। वर्ना अनधिकृत लोग जो आपका कॉन्फ़िगरेशन डाउनलोड करेंगे उनसे आपकी "
 "सर्वर की सुरक्षा खतरेमे आ सकती है।"
 
-#: index.php:515
+#: index.php:520
 #, fuzzy, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
@@ -869,14 +888,14 @@ msgstr ""
 "लिंक्ड टेबलओं के साथ काम करने के लिए अतिरिक्त सुविधाओं को निष्क्रिय कर दिया गया है. क्यों ये "
 "किया गया है, जानने के लिए %shere%s पर क्लिक करें."
 
-#: index.php:551
+#: index.php:556
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
 
-#: index.php:575
+#: index.php:580
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1174,17 +1193,6 @@ msgstr "चार्ट को जाली (grid) पर लगाएँ"
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
 msgstr "कृपया, श्रृंखला में कम से कम एक चर (variable) ज़रूर जोड़ें"
-
-#: js/messages.php:121 libraries/DisplayResults.class.php:1330
-#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
-#: libraries/display_export.lib.php:571
-#: libraries/plugins/export/ExportSql.class.php:1756
-#: libraries/server_privileges.lib.php:2661
-#: libraries/server_status.lib.php:523
-#: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:594
-msgid "None"
-msgstr "कुछ नहीं"
 
 #: js/messages.php:122
 msgid "Resume monitor"
@@ -1672,7 +1680,7 @@ msgstr "क्वॅरी बॉक्स छिपाएँ"
 msgid "Show query box"
 msgstr "क्वॅरी बॉक्स दिखाएँ"
 
-#: js/messages.php:269 libraries/DisplayResults.class.php:3360
+#: js/messages.php:269 libraries/DisplayResults.class.php:3363
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1208 libraries/Util.class.php:3413
 #: libraries/Util.class.php:3414 libraries/config/messages.inc.php:744
@@ -1758,7 +1766,7 @@ msgstr "डॅटा बिन्दु सामग्री"
 msgid "Ignore"
 msgstr "उपेक्षा करें"
 
-#: js/messages.php:305 libraries/DisplayResults.class.php:3363
+#: js/messages.php:305 libraries/DisplayResults.class.php:3366
 msgid "Copy"
 msgstr "प्रतिलिपि करें"
 
@@ -1776,7 +1784,7 @@ msgstr "लाईन समाप्त होता है"
 msgid "Polygon"
 msgstr "बहुभुज"
 
-#: js/messages.php:312 libraries/DisplayResults.class.php:1677
+#: js/messages.php:312 libraries/DisplayResults.class.php:1679
 msgid "Geometry"
 msgstr "ज्यामिति"
 
@@ -1969,7 +1977,7 @@ msgstr "नवीनतम स्थिर संस्करण:"
 msgid "up to date"
 msgstr "अद्यतन"
 
-#: js/messages.php:383 libraries/DisplayResults.class.php:5219
+#: js/messages.php:383 libraries/DisplayResults.class.php:5221
 #: view_create.php:178
 msgid "Create view"
 msgstr "दृश्य बनाइये"
@@ -2343,18 +2351,18 @@ msgstr ""
 msgid "Font size"
 msgstr "फ़ॉन्ट का आकार"
 
-#: libraries/DBQbe.class.php:347 libraries/DisplayResults.class.php:1314
-#: libraries/DisplayResults.class.php:2047
-#: libraries/DisplayResults.class.php:2055 libraries/TableSearch.class.php:851
+#: libraries/DBQbe.class.php:347 libraries/DisplayResults.class.php:1316
+#: libraries/DisplayResults.class.php:2049
+#: libraries/DisplayResults.class.php:2057 libraries/TableSearch.class.php:851
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:450
 #: libraries/structure.lib.php:860 libraries/structure.lib.php:877
 msgid "Ascending"
 msgstr "आरोही"
 
-#: libraries/DBQbe.class.php:350 libraries/DisplayResults.class.php:1326
-#: libraries/DisplayResults.class.php:2042
-#: libraries/DisplayResults.class.php:2060 libraries/TableSearch.class.php:852
+#: libraries/DBQbe.class.php:350 libraries/DisplayResults.class.php:1328
+#: libraries/DisplayResults.class.php:2044
+#: libraries/DisplayResults.class.php:2062 libraries/TableSearch.class.php:852
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:447
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2433,12 +2441,12 @@ msgstr ""
 msgid "Del:"
 msgstr ""
 
-#: libraries/DBQbe.class.php:1380
+#: libraries/DBQbe.class.php:1386
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "डेटाबेस <b>%s</b> पर SQL क्वरी:"
 
-#: libraries/DBQbe.class.php:1394 libraries/Util.class.php:1237
+#: libraries/DBQbe.class.php:1400 libraries/Util.class.php:1237
 msgid "Submit Query"
 msgstr "क्वरी भेजें"
 
@@ -2512,8 +2520,8 @@ msgstr "ब्राउज़"
 msgid "Delete the matches for the %s table?"
 msgstr "इस %s टेबल से मैच हटाएँ?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3431
-#: libraries/DisplayResults.class.php:5086
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3434
+#: libraries/DisplayResults.class.php:5088
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2618,11 +2626,11 @@ msgstr ""
 msgid "vertical"
 msgstr "खडा"
 
-#: libraries/DisplayResults.class.php:1272
+#: libraries/DisplayResults.class.php:1274
 msgid "Sort by key"
 msgstr "कुंजी सॉर्ट"
 
-#: libraries/DisplayResults.class.php:1613 libraries/TableSearch.class.php:793
+#: libraries/DisplayResults.class.php:1615 libraries/TableSearch.class.php:793
 #: libraries/import.lib.php:1233 libraries/import.lib.php:1265
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -2649,60 +2657,60 @@ msgstr "कुंजी सॉर्ट"
 msgid "Options"
 msgstr "विकल्प"
 
-#: libraries/DisplayResults.class.php:1619
-#: libraries/DisplayResults.class.php:1726
+#: libraries/DisplayResults.class.php:1621
+#: libraries/DisplayResults.class.php:1728
 msgid "Partial texts"
 msgstr "आंशिक पाठ"
 
-#: libraries/DisplayResults.class.php:1620
-#: libraries/DisplayResults.class.php:1730
+#: libraries/DisplayResults.class.php:1622
+#: libraries/DisplayResults.class.php:1732
 msgid "Full texts"
 msgstr "पूर्ण पाठ"
 
-#: libraries/DisplayResults.class.php:1635
+#: libraries/DisplayResults.class.php:1637
 msgid "Relational key"
 msgstr "कुंजी संबंधपरक"
 
-#: libraries/DisplayResults.class.php:1636
+#: libraries/DisplayResults.class.php:1638
 msgid "Relational display column"
 msgstr "संबंधपरक प्रदर्शन स्तंभ"
 
-#: libraries/DisplayResults.class.php:1648
+#: libraries/DisplayResults.class.php:1650
 msgid "Show binary contents"
 msgstr "द्विआधारी सामग्री दिखाने"
 
-#: libraries/DisplayResults.class.php:1653
+#: libraries/DisplayResults.class.php:1655
 msgid "Show BLOB contents"
 msgstr "BLOB सामग्री दिखाने"
 
-#: libraries/DisplayResults.class.php:1658
+#: libraries/DisplayResults.class.php:1660
 #: libraries/config/messages.inc.php:93
 msgid "Show binary contents as HEX"
 msgstr "द्विआधारी सामग्री को हेक्स सामग्री की तरह प्रदशित करें"
 
-#: libraries/DisplayResults.class.php:1669
+#: libraries/DisplayResults.class.php:1671
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "सामग्री दिखाने"
 
-#: libraries/DisplayResults.class.php:1678
+#: libraries/DisplayResults.class.php:1680
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1679
+#: libraries/DisplayResults.class.php:1681
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3405
-#: libraries/DisplayResults.class.php:3421
+#: libraries/DisplayResults.class.php:3408
+#: libraries/DisplayResults.class.php:3424
 #, fuzzy
 #| msgid "The row has been deleted"
 msgid "The row has been deleted."
 msgstr "रौ को डिलीट कर दिया"
 
-#: libraries/DisplayResults.class.php:3457
-#: libraries/DisplayResults.class.php:5086 libraries/server_status.lib.php:518
+#: libraries/DisplayResults.class.php:3460
+#: libraries/DisplayResults.class.php:5088 libraries/server_status.lib.php:518
 msgid "Kill"
 msgstr ""
 
@@ -2735,25 +2743,25 @@ msgstr "इस द्रश्य में कम से कम इतनी �
 msgid "Showing rows %1s - %2s"
 msgstr "रौ देखिये"
 
-#: libraries/DisplayResults.class.php:4993
+#: libraries/DisplayResults.class.php:4994
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:4997
+#: libraries/DisplayResults.class.php:4999
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "कुल"
 
-#: libraries/DisplayResults.class.php:5009 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1643
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "क्वरी को %01.4f सेकेंड का समय लगा"
 
-#: libraries/DisplayResults.class.php:5093
-#: libraries/DisplayResults.class.php:5099 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5095
+#: libraries/DisplayResults.class.php:5101 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2959
@@ -2763,8 +2771,8 @@ msgstr "क्वरी को %01.4f सेकेंड का समय लग
 msgid "With selected:"
 msgstr "चुने हुओं को:"
 
-#: libraries/DisplayResults.class.php:5097
-#: libraries/DisplayResults.class.php:5098
+#: libraries/DisplayResults.class.php:5099
+#: libraries/DisplayResults.class.php:5100
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1010
@@ -2777,13 +2785,13 @@ msgstr "चुने हुओं को:"
 msgid "Check All"
 msgstr "सभी को चेक करें"
 
-#: libraries/DisplayResults.class.php:5103 libraries/structure.lib.php:1390
+#: libraries/DisplayResults.class.php:5105 libraries/structure.lib.php:1390
 #: libraries/structure.lib.php:2068 querywindow.php:85
 msgid "Change"
 msgstr "बदलें"
 
-#: libraries/DisplayResults.class.php:5116
-#: libraries/DisplayResults.class.php:5387 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5118
+#: libraries/DisplayResults.class.php:5389 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3415 libraries/Util.class.php:3416
 #: libraries/Util.class.php:4119 libraries/Util.class.php:4134
@@ -2796,31 +2804,31 @@ msgstr "बदलें"
 msgid "Export"
 msgstr "निर्यात"
 
-#: libraries/DisplayResults.class.php:5275
+#: libraries/DisplayResults.class.php:5277
 msgid "Query results operations"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5311 libraries/Header.class.php:343
+#: libraries/DisplayResults.class.php:5313 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1513
 msgid "Print view"
 msgstr "छपाई द्रश्य"
 
-#: libraries/DisplayResults.class.php:5329
+#: libraries/DisplayResults.class.php:5331
 msgid "Print view (with full texts)"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5400 libraries/tbl_chart.lib.php:294
+#: libraries/DisplayResults.class.php:5402 libraries/tbl_chart.lib.php:294
 #, fuzzy
 #| msgid "Display Features"
 msgid "Display chart"
 msgstr "फीचरस दिखाओ"
 
-#: libraries/DisplayResults.class.php:5425
+#: libraries/DisplayResults.class.php:5427
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5645
+#: libraries/DisplayResults.class.php:5647
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -3158,7 +3166,7 @@ msgstr[1] "बहुवचन %1$d पंक्तिया डाली।"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1203
 #: libraries/schema/Pdf_Relation_Schema.class.php:1227
 #: libraries/schema/User_Schema.class.php:434
-#: libraries/select_lang.lib.php:587
+#: libraries/select_lang.lib.php:589
 msgid "Page number:"
 msgstr "पृष्ठ संख्या:"
 
@@ -7096,7 +7104,7 @@ msgstr "दस्तावेज़ खोलें"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s विस्तार गायब है. कृपया अपने PHP विन्यास की जाँच करें"
 
-#: libraries/core.lib.php:447
+#: libraries/core.lib.php:448
 msgid "possible deep recursion attack"
 msgstr ""
 
@@ -7811,7 +7819,7 @@ msgid "Dump has been saved to file %s."
 msgstr "डंप को %s फाइल में सेव किया गया है."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1636
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ने एक खाली परिणाम सेट लोताया"
@@ -7943,11 +7951,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1631
+#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1632
 msgid "Showing SQL query"
 msgstr "SQL क्वेरी शो"
 
-#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1611
+#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1612
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "इनसर्ट रो id: %1$d"
@@ -8264,20 +8272,20 @@ msgstr[1] ""
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1056
+#: libraries/navigation/NavigationTree.class.php:1060
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter databases by name or regex"
 msgstr "टेबल क्रमांक को बदलिये "
 
-#: libraries/navigation/NavigationTree.class.php:1058
-#: libraries/navigation/NavigationTree.class.php:1092
+#: libraries/navigation/NavigationTree.class.php:1062
+#: libraries/navigation/NavigationTree.class.php:1096
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "फ़ाइल के रूप में सहेजें"
 
-#: libraries/navigation/NavigationTree.class.php:1091
+#: libraries/navigation/NavigationTree.class.php:1095
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter by name or regex"
@@ -10423,8 +10431,8 @@ msgstr ""
 msgid "File doesn't exist"
 msgstr "फ़ाइल मौजूद नहीं है"
 
-#: libraries/select_lang.lib.php:594 libraries/select_lang.lib.php:603
-#: libraries/select_lang.lib.php:612
+#: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
+#: libraries/select_lang.lib.php:614
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "अज्ञात भाषा: %1$s."
@@ -12164,26 +12172,26 @@ msgstr "लेबल"
 msgid "Let every user access this bookmark"
 msgstr "हर उपयोकर्ता को अनुमति दें इस बुकमार्क का उपयोग करने के लिए"
 
-#: libraries/sql.lib.php:1024
+#: libraries/sql.lib.php:1025
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "बुकमार्क %s बनाया"
 
-#: libraries/sql.lib.php:1180
+#: libraries/sql.lib.php:1181
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1628
+#: libraries/sql.lib.php:1629
 msgid "Showing as PHP code"
 msgstr "PHP कोड की तरह दिखाएँ"
 
-#: libraries/sql.lib.php:1633
+#: libraries/sql.lib.php:1634
 msgid "Validated SQL"
 msgstr "SQL मान्य"
 
-#: libraries/sql.lib.php:1913
+#: libraries/sql.lib.php:1914
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12195,7 +12203,7 @@ msgstr ""
 "इस टेबल में कोई भी विशिष्ट (unique) कॉलम नहीं है। इस बात कि सम्भावना है कि ग्रिड "
 "सम्पादन, टिक-बॉक्स, सम्पादन, प्रतिलिपि एवं मिटाने के लिंक से जुडी सुविधाएँ काम न करें।"
 
-#: libraries/sql.lib.php:1950
+#: libraries/sql.lib.php:1951
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "`%s` टेबल के अनुक्रमित के साथ समस्याएँ"
