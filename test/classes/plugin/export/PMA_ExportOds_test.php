@@ -192,7 +192,7 @@ class PMA_ExportOds_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['ods_buffer'] = 'header';
 
-        $this->expectOutputRegex('/^504b.*636f6e74656e742e786d6c2f/');
+        $this->expectOutputRegex('/^504b.*636f6e74656e742e786d6c/');
         $this->setOutputCallback('bin2hex');
 
         $this->assertTrue(
