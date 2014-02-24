@@ -77,7 +77,8 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
         $this->byCssSelector("span.ui-button-text:nth-child(1)")->click();
 
         $this->waitForElementNotPresent(
-            "byCssSelector", "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
+            "byCssSelector",
+            "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
         );
 
         $this->waitForElement(

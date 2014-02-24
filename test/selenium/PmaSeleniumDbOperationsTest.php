@@ -44,12 +44,17 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
     {
         $this->skipIfNotPMADB();
         $this->byName("comment")->value("comment_foobar");
-        $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
+        $this->byCssSelector(
+            "form#formDatabaseComment input[type='submit']"
+        )->click();
 
         $this->assertNotNull(
             $this->waitForElement(
                 "byXPath",
                 "//span[@id='span_table_comment' and contains(., 'comment_foobar')]"
+            'script' => "$('#topmenu').css('width', '50%')"
+                . ".menuResizer('destroy');",
+            'args' => array()
             )
         );
     }
@@ -108,7 +113,8 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
 
         $this->waitForElement(
             "byXPath",
-            "//div[@class='success' and contains(., 'Database " . $this->database_name
+            "//div[@class='success' and contains(., 'Database "
+            . $this->database_name
             . " has been copied to $new_db_name')]"
         );
 

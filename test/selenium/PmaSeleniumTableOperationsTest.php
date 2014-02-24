@@ -78,7 +78,9 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
             ->selectOptionByLabel("val");
 
         $this->byId("order_order_desc")->click();
-        $this->byCssSelector("form#alterTableOrderby input[type='submit']")->click();
+        $this->byCssSelector(
+            "form#alterTableOrderby input[type='submit']"
+        )->click();
 
         $this->waitForElement(
             "byXPath",
@@ -112,7 +114,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and "
-            . "contains(., 'Table `" . $this->database_name . "`.`test_table` has been "
+            . "contains(., 'Table `" . $this->database_name
+            . "`.`test_table` has been "
             . "moved to `" . $this->database_name . "`.`test_table2`.')]"
         );
 
@@ -177,7 +180,8 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and "
-            . "contains(., 'Table `" . $this->database_name . "`.`test_table` has been "
+            . "contains(., 'Table `" . $this->database_name
+            . "`.`test_table` has been "
             . "copied to `" . $this->database_name . "`.`test_table2`.')]"
         );
 

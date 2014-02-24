@@ -66,7 +66,8 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $this->dbQuery(
             "CREATE EVENT `test_event` ON SCHEDULE EVERY 2 MINUTE_SECOND STARTS "
             . "'$start' ENDS '$end' ON COMPLETION NOT PRESERVE ENABLE "
-            . "DO UPDATE `" . $this->database_name . "`.`test_table` SET val = val + 1"
+            . "DO UPDATE `" . $this->database_name
+            . "`.`test_table` SET val = val + 1"
         );
     }
 
@@ -122,7 +123,8 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         );
 
         $result = $this->dbQuery(
-            "SHOW EVENTS WHERE Db='" . $this->database_name . "' AND Name='test_event'"
+            "SHOW EVENTS WHERE Db='" . $this->database_name
+            . "' AND Name='test_event'"
         );
         $this->assertEquals(1, $result->num_rows);
 
@@ -202,7 +204,8 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
 
         usleep(1000000);
         $result = $this->dbQuery(
-            "SHOW EVENTS WHERE Db='" . $this->database_name . "' AND Name='test_event'"
+            "SHOW EVENTS WHERE Db='" . $this->database_name
+            . "' AND Name='test_event'"
         );
         $this->assertEquals(0, $result->num_rows);
     }

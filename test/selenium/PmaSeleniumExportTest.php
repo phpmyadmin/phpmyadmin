@@ -84,7 +84,8 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->waitForElement("byLinkText", $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
-            "//a[@class='item' and contains(., 'Database: " . $this->database_name . "')]"
+            "//a[@class='item' and contains(., 'Database: "
+            . $this->database_name . "')]"
         );
 
         $text = $this->_doExport('db', $plugin);
@@ -170,7 +171,9 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         if ($type == 'server') {
             $this->byLinkText('Unselect All')->click();
-            $this->byCssSelector("option[value=" . $this->database_name . "]")->click();
+            $this->byCssSelector(
+                "option[value=" . $this->database_name . "]"
+            )->click();
         }
 
         if ($type == 'table') {
