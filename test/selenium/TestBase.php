@@ -156,9 +156,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
             );
         }
-        $this->database_name = $GLOBALS['TESTSUITE_DATABASE'] . substr(md5(rand()), 0, 7);
-        $this->dbQuery('CREATE DATABASE IF NOT EXISTS ' . $this->database_name);
-        $this->dbQuery('USE ' . $this->database_name);
+        $this->database_name = $GLOBALS['TESTSUITE_DATABASE']
+            . substr(md5(rand()), 0, 7);
+        $this->dbQuery(
+            'CREATE DATABASE IF NOT EXISTS ' . $this->database_name
+        );
+        $this->dbQuery(
+            'USE ' . $this->database_name
+        );
     }
 
     /**
@@ -302,7 +307,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function isLoggedIn()
     {
-        return $this->isElementPresent('byXPath', '//*[@id="serverinfo"]/a[1]');
+        return $this->isElementPresent(
+            'byXPath', '//*[@id="serverinfo"]/a[1]'
+        );
     }
 
     /**
@@ -386,7 +393,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function getTable($tableID, $row, $column)
     {
-        $sel = "table#{$tableID} tbody tr:nth-child({$row}) td:nth-child({$column})";
+        $sel = "table#{$tableID} tbody tr:nth-child({$row}) "
+            . "td:nth-child({$column})";
         $element = $this->byCssSelector(
             $sel
         );
@@ -420,7 +428,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         }
         /* We need to resize to ensure it fits into accessible area */
         $this->execute(array(
-            'script' => "$('#topmenu').css('width', '50%').menuResizer('destroy');",
+            'script' => "$('#topmenu').css('width', '50%')"
+                . ".menuResizer('destroy');",
             'args' => array()
         ));
         $this->waitForElementNotPresent('byCssSelector', 'li.submenu');
