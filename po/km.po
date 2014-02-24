@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-24 10:13+0100\n"
-"PO-Revision-Date: 2014-02-24 14:09+0200\n"
+"PO-Revision-Date: 2014-02-24 14:26+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
@@ -597,7 +597,7 @@ msgstr "កំពុង​បង្ហាញ​ចំណាំ"
 
 #: import.php:299 import.php:561
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "បាន​លុប​ចំណាំ។"
 
 #: import.php:396
 #, php-format
@@ -609,7 +609,7 @@ msgstr ""
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
 msgid "File could not be read!"
-msgstr ""
+msgstr "មិន​អាច​អាន​ឯកសារ​បាន!"
 
 #: import.php:418 import.php:429 import.php:450 import.php:461
 #: libraries/File.class.php:593
@@ -661,7 +661,7 @@ msgstr ""
 #: libraries/export.lib.php:437
 #: libraries/schema/Export_Relation_Schema.class.php:247 user_password.php:239
 msgid "Back"
-msgstr ""
+msgstr "បកក្រោយ"
 
 #: index.php:125 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
@@ -677,12 +677,12 @@ msgstr ""
 
 #: index.php:139
 msgid "General Settings"
-msgstr ""
+msgstr "ការ​កំណត់​ទូទៅ"
 
 #: index.php:167 libraries/display_change_password.lib.php:51
 #: libraries/display_change_password.lib.php:52 user_password.php:233
 msgid "Change password"
-msgstr ""
+msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
 #: index.php:183
 msgid "Server connection collation"
@@ -690,29 +690,29 @@ msgstr ""
 
 #: index.php:206
 msgid "Appearance Settings"
-msgstr ""
+msgstr "ការ​កំណត់​រូបរាង​បង្ហាញ"
 
 #: index.php:236 prefs_manage.php:286
 msgid "More settings"
-msgstr ""
+msgstr "ការ​កំណត់​ច្រើន​ទៀត"
 
 #: index.php:257
 msgid "Database server"
-msgstr ""
+msgstr "ម៉ាស៊ីន​មេ​មូលដ្ឋាន​ទិន្នន័យ"
 
 #: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:207
 msgid "Server:"
-msgstr ""
+msgstr "ម៉ាស៊ីន​មេ៖"
 
 #: index.php:264
 msgid "Server type:"
-msgstr ""
+msgstr "ប្រភេទ​ម៉ាស៊ីន​មេ៖"
 
 #: index.php:268 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
-msgstr ""
+msgstr "កំណែ​ម៉ាស៊ីន​មេ៖"
 
 #: index.php:274
 msgid "Protocol version:"
@@ -720,7 +720,7 @@ msgstr ""
 
 #: index.php:278
 msgid "User:"
-msgstr ""
+msgstr "អ្នកប្រើ៖"
 
 #: index.php:283
 msgid "Server charset:"
@@ -736,7 +736,7 @@ msgstr ""
 
 #: index.php:318
 msgid "PHP extension:"
-msgstr ""
+msgstr "កម្មវិធី​បន្ថែម​របស់ PHP៖"
 
 #: index.php:325 js/messages.php:121 libraries/DisplayResults.class.php:1332
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -747,15 +747,15 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:278
 #: libraries/tbl_columns_definition_form.lib.php:687 pmd_general.php:594
 msgid "None"
-msgstr ""
+msgstr "គ្មាន"
 
 #: index.php:337
 msgid "Show PHP information"
-msgstr ""
+msgstr "បង្ហាញ​ព័ត៌មាន PHP"
 
 #: index.php:360
 msgid "Version information:"
-msgstr ""
+msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 
 #: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
@@ -767,23 +767,23 @@ msgstr ""
 
 #: index.php:376
 msgid "Wiki"
-msgstr ""
+msgstr "វិគី"
 
 #: index.php:385
 msgid "Official Homepage"
-msgstr ""
+msgstr "គេហទំព័រ​ផ្លូវការ"
 
 #: index.php:392
 msgid "Contribute"
-msgstr ""
+msgstr "រួម​ចំណែក"
 
 #: index.php:399
 msgid "Get support"
-msgstr ""
+msgstr "ទទួល​ការ​គាំទ្រ"
 
 #: index.php:406
 msgid "List of changes"
-msgstr ""
+msgstr "បញ្ជី​បន្លាស់​ប្ដូរ"
 
 #: index.php:428
 msgid ""
@@ -856,24 +856,24 @@ msgstr ""
 
 #: js/messages.php:29 libraries/import.lib.php:122 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "ពាក្យ​បញ្ជា \"DROP DATABASE\" ត្រូវ​បាន​បិទ។"
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "បញ្ជាក់"
 
 #: js/messages.php:36
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr ""
+msgstr "តើ​អ្នក​ពិត​ជា​ចង់​អនុវត្ត \"%s\" មែនទេ?"
 
 #: js/messages.php:37 libraries/mult_submits.lib.php:408
 msgid "You are about to DESTROY a complete database!"
-msgstr ""
+msgstr "អ្នក​រៀប​នឹង​កម្ទេច (DESTROY) មូលដ្ឋាន​ទិន្នន័យ​ទាំង​ស្រុង​ហើយ!"
 
 #: js/messages.php:38
 msgid "You are about to DESTROY a complete table!"
-msgstr ""
+msgstr "អ្នក​រៀប​នឹង​កម្ទេច (DESTROY) តារាង​ទាំង​ស្រុង​ហើយ!"
 
 #: js/messages.php:39
 msgid "You are about to TRUNCATE a complete table!"
@@ -881,50 +881,50 @@ msgstr ""
 
 #: js/messages.php:41
 msgid "Deleting tracking data"
-msgstr ""
+msgstr "ការ​លុប​ទិន្នន័យ​តាមដាន"
 
 #: js/messages.php:42
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "ការ​លុប សោ/សន្ទស្សន៍ ចម្បង"
 
 #: js/messages.php:43
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr ""
+msgstr "ប្រតិបត្តិការណ៍​នេះ​អាច​ប្រើ​ពេល​យូរ។ ចង់​ធ្វើ​ទេ?"
 
 #: js/messages.php:44
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr ""
+msgstr "តើ​អ្នក​ពិត​ជា​លុប​ក្រុម​អ្នក​ប្រើ \"%s\" មែន​ទេ?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
-msgstr ""
+msgstr "ខ្វះ​តម្លៃ​ក្នុង​បែបបទ!"
 
 #: js/messages.php:48
 msgid "Please enter a valid number!"
-msgstr ""
+msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: js/messages.php:49
 msgid "Please enter a valid length!"
-msgstr ""
+msgstr "សូម​បញ្ចូល​ប្រវែង​ត្រឹម​ត្រូវ!"
 
 #: js/messages.php:50
 msgid "Add Index"
-msgstr ""
+msgstr "បន្ថែម​សន្ទស្សន៍"
 
 #: js/messages.php:51
 msgid "Edit Index"
-msgstr ""
+msgstr "កែ​សន្ទស្សន៍"
 
 #: js/messages.php:52 libraries/tbl_indexes.lib.php:394
 #, php-format
 msgid "Add %s column(s) to index"
-msgstr ""
+msgstr "បន្ថែម​ជួរ​ឈរ %s ទៅ​សន្ទស្សន៍"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:56 libraries/tbl_chart.lib.php:216
 msgid "Y Values"
-msgstr ""
+msgstr "តម្លៃ Y"
 
 #: js/messages.php:59
 msgid "The host name is empty!"
@@ -932,46 +932,46 @@ msgstr ""
 
 #: js/messages.php:60
 msgid "The user name is empty!"
-msgstr ""
+msgstr "ឈ្មោះ​អ្នក​ប្រើ​នៅ​ទទេ!"
 
 #: js/messages.php:61 libraries/server_privileges.lib.php:1558
 #: user_password.php:110
 msgid "The password is empty!"
-msgstr ""
+msgstr "ពាក្យ​សម្ងាត់​នៅ​ទទេ!"
 
 #: js/messages.php:62 libraries/server_privileges.lib.php:1556
 #: user_password.php:113
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "ពាក្យ​សម្ងាត់​មិន​ដូច​គ្នា!"
 
 #: js/messages.php:63
 msgid "Removing Selected Users"
-msgstr ""
+msgstr "ការ​លុប​អ្នក​ប្រើ​ដែល​បាន​ជ្រើស"
 
 #: js/messages.php:64 js/messages.php:119 libraries/tbl_tracking.lib.php:354
 #: libraries/tbl_tracking.lib.php:759
 msgid "Close"
-msgstr ""
+msgstr "បិទ"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:67 libraries/ServerStatusData.class.php:205
 #: libraries/server_status_queries.lib.php:145
 msgid "Other"
-msgstr ""
+msgstr "ផ្សេងៗ"
 
 #. l10n: Thousands separator
 #: js/messages.php:69 libraries/Util.class.php:1438
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:71 libraries/Util.class.php:1440
 msgid "."
-msgstr ""
+msgstr "."
 
 #: js/messages.php:73
 msgid "Connections / Processes"
-msgstr ""
+msgstr "ការ​ភ្ជាប់ / ដំណើរការ"
 
 #: js/messages.php:76
 msgid "Local monitor configuration incompatible!"
@@ -999,11 +999,11 @@ msgstr ""
 
 #: js/messages.php:83
 msgid "System CPU Usage"
-msgstr ""
+msgstr "ការ​ប្រើ CPU ប្រព័ន្ធ"
 
 #: js/messages.php:84
 msgid "System memory"
-msgstr ""
+msgstr "អង្គ​ចងចាំ​ប្រព័ន្ធ"
 
 #: js/messages.php:85
 msgid "System swap"
@@ -1015,7 +1015,7 @@ msgstr ""
 
 #: js/messages.php:88
 msgid "Total memory"
-msgstr ""
+msgstr "អង្គ​ចងចាំ​សរុប"
 
 #: js/messages.php:89
 msgid "Cached memory"
@@ -1027,11 +1027,11 @@ msgstr ""
 
 #: js/messages.php:91
 msgid "Free memory"
-msgstr ""
+msgstr "អង្គ​ចងចាំ​ទំនេរ"
 
 #: js/messages.php:92
 msgid "Used memory"
-msgstr ""
+msgstr "អង្គ​ចងចាំ​ដែល​បាន​ប្រើ"
 
 #: js/messages.php:94
 msgid "Total Swap"
@@ -1051,75 +1051,75 @@ msgstr ""
 
 #: js/messages.php:99
 msgid "Bytes sent"
-msgstr ""
+msgstr "ចំនួន​បៃ​ដែល​បាន​ផ្ញើ"
 
 #: js/messages.php:100
 msgid "Bytes received"
-msgstr ""
+msgstr "ចំនួន​បៃ​ដែល​បាន​ទទួល"
 
 #: js/messages.php:101 libraries/server_status.lib.php:220
 msgid "Connections"
-msgstr ""
+msgstr "ការ​តភ្ជាប់"
 
 #: js/messages.php:102 libraries/server_status.lib.php:412
 msgid "Processes"
-msgstr ""
+msgstr "ដំណើរការ"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:105 libraries/Util.class.php:1382
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:106 libraries/Util.class.php:1384
 #: libraries/server_status_monitor.lib.php:259
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:107 libraries/Util.class.php:1386
 #: libraries/server_status_monitor.lib.php:260
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:108 libraries/Util.class.php:1388
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:109 libraries/Util.class.php:1390
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:110 libraries/Util.class.php:1392
 msgid "PiB"
-msgstr ""
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:111 libraries/Util.class.php:1394
 msgid "EiB"
-msgstr ""
+msgstr "EiB"
 
 #: js/messages.php:112
 #, php-format
 msgid "%d table(s)"
-msgstr ""
+msgstr "%d តារាង"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:115
 msgid "Questions"
-msgstr ""
+msgstr "សំណួរ"
 
 #: js/messages.php:116 libraries/server_status.lib.php:129
 msgid "Traffic"
-msgstr ""
+msgstr "ចរាចរណ៍"
 
 #: js/messages.php:117 libraries/Menu.class.php:549
 #: libraries/Util.class.php:4121 libraries/server_status_monitor.lib.php:299
 msgid "Settings"
-msgstr ""
+msgstr "ការ​កំណត់"
 
 #: js/messages.php:118
 msgid "Add chart to grid"
@@ -1190,19 +1190,19 @@ msgstr ""
 #: js/messages.php:137
 #, php-format
 msgid "Enable %s"
-msgstr ""
+msgstr "បើក %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:139
 #, php-format
 msgid "Disable %s"
-msgstr ""
+msgstr "បិទ %s"
 
 #. l10n: %d seconds
 #: js/messages.php:141
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr ""
+msgstr "កំណត់"
 
 #: js/messages.php:143
 msgid ""
