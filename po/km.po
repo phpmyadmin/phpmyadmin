@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-24 10:13+0100\n"
-"PO-Revision-Date: 2014-02-24 11:57+0200\n"
-"Last-Translator: sovichet <sovichet.tep@gmail.com>\n"
+"PO-Revision-Date: 2014-02-24 12:14+0200\n"
+"Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
 "Language-Team: Central Khmer "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
 "Language: km\n"
@@ -61,7 +61,7 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
 #: libraries/tbl_tracking.lib.php:896
 msgid "Column"
-msgstr ""
+msgstr "ជួរឈរ"
 
 #: db_datadict.php:169 db_printview.php:49 libraries/Index.class.php:564
 #: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:245
@@ -86,7 +86,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:473 libraries/tbl_tracking.lib.php:810
 #: libraries/tbl_tracking.lib.php:893
 msgid "Type"
-msgstr ""
+msgstr "ប្រភេទ"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
 #: libraries/TableSearch.class.php:1282 libraries/insert_edit.lib.php:1620
@@ -104,7 +104,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:812
 #: libraries/tbl_tracking.lib.php:899
 msgid "Null"
-msgstr ""
+msgstr "មោឃៈ"
 
 #: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
@@ -119,7 +119,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
 msgid "Default"
-msgstr ""
+msgstr "លំនាំដើម"
 
 #: db_datadict.php:173 libraries/plugins/export/ExportHtmlword.class.php:406
 #: libraries/plugins/export/ExportLatex.class.php:515
@@ -143,7 +143,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
-msgstr ""
+msgstr "មតិ"
 
 #: db_datadict.php:240 js/messages.php:239 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
@@ -165,7 +165,7 @@ msgstr ""
 #: libraries/tbl_tracking.lib.php:931 libraries/tbl_tracking.lib.php:936
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
 msgid "No"
-msgstr ""
+msgstr "ទេ"
 
 #: db_datadict.php:240 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
@@ -194,7 +194,7 @@ msgstr ""
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
 msgid "Yes"
-msgstr ""
+msgstr "ព្រម"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
@@ -203,31 +203,31 @@ msgstr ""
 #: db_export.php:33 db_printview.php:41 db_structure.php:68 db_tracking.php:51
 #: export.php:334 libraries/DBQbe.class.php:268
 msgid "No tables found in database."
-msgstr ""
+msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
 
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
 msgid "Select All"
-msgstr ""
+msgstr "ជ្រើសទាំងអស់"
 
 #: db_export.php:47 libraries/DbSearch.class.php:448
 #: libraries/display_export.lib.php:48
 msgid "Unselect All"
-msgstr ""
+msgstr "មិនរើសទាំងអស់"
 
 #: db_operations.php:45 tbl_create.php:21
 msgid "The database name is empty!"
-msgstr ""
+msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
 #: db_operations.php:130
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr ""
+msgstr "បានប្ដូរឈ្មោះមូលដ្ឋានទិន្នន័យ %1$s ទៅជា %2$s។"
 
 #: db_operations.php:136
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr ""
+msgstr "បានចម្លងមូលដ្ឋានទិន្នន័យ %1$s ទៅ %2$s។"
 
 #: db_operations.php:260
 #, php-format
@@ -249,19 +249,19 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:311 libraries/tbl_relation.lib.php:527
 #: libraries/tbl_tracking.lib.php:196
 msgid "Table"
-msgstr ""
+msgstr "តារាង"
 
 #: db_printview.php:48 libraries/build_html_for_db.lib.php:32
 #: libraries/import.lib.php:191 libraries/structure.lib.php:768
 #: libraries/structure.lib.php:1739 libraries/structure.lib.php:1930
 #: libraries/tbl_printview.lib.php:193
 msgid "Rows"
-msgstr ""
+msgstr "ជួរដេក"
 
 #: db_printview.php:51 libraries/structure.lib.php:787
 #: libraries/tbl_indexes.lib.php:316
 msgid "Size"
-msgstr ""
+msgstr "ទំហំ"
 
 #: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1157
 #: libraries/structure.lib.php:731
@@ -271,24 +271,23 @@ msgstr ""
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 msgid "Creation:"
-msgstr ""
+msgstr "ការបង្កើត៖"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
 msgid "Last update:"
-msgstr ""
+msgstr "បច្ចុប្បន្នភាពចុងក្រោយ៖"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1109
 #: libraries/schema/Pdf_Relation_Schema.class.php:1367
 msgid "Last check:"
-msgstr ""
+msgstr "ពិនិត្យចុងក្រោយ៖"
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s តារាង"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display!"
@@ -325,26 +324,26 @@ msgstr ""
 #: libraries/server_status.lib.php:349 libraries/tbl_relation.lib.php:288
 #: libraries/tbl_relation.lib.php:477 libraries/tbl_tracking.lib.php:195
 msgid "Database"
-msgstr ""
+msgstr "មូលដ្ឋានទិន្នន័យ"
 
 #: db_tracking.php:82
 msgid "Last version"
-msgstr ""
+msgstr "កំណែចុងក្រោយ"
 
 #: db_tracking.php:83 libraries/tbl_tracking.lib.php:198
 msgid "Created"
-msgstr ""
+msgstr "បានបង្កើត"
 
 #: db_tracking.php:84 libraries/tbl_tracking.lib.php:199
 msgid "Updated"
-msgstr ""
+msgstr "បានធ្វើបច្ចុប្បន្នភាព"
 
 #: db_tracking.php:85 js/messages.php:173 libraries/Menu.class.php:516
 #: libraries/Util.class.php:4117 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:361
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
-msgstr ""
+msgstr "ស្ថានភាព"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
@@ -356,12 +355,12 @@ msgstr ""
 #: libraries/server_user_groups.lib.php:82 libraries/structure.lib.php:765
 #: libraries/structure.lib.php:1214
 msgid "Action"
-msgstr ""
+msgstr "សកម្មភាព"
 
 #: db_tracking.php:87 libraries/navigation/Navigation.class.php:196
 #: libraries/tbl_tracking.lib.php:201 tbl_change.php:149
 msgid "Show"
-msgstr ""
+msgstr "បង្ហាញ"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
@@ -373,7 +372,7 @@ msgstr ""
 #: libraries/structure.lib.php:1394 libraries/structure.lib.php:2070
 #: libraries/structure.lib.php:2072
 msgid "Drop"
-msgstr ""
+msgstr "លុប"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:312
