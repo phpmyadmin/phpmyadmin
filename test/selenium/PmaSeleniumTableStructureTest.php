@@ -76,6 +76,9 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             . "'Table test_table has been altered successfully')]"
         );
 
+        $this->byLinkText("Structure")->click();
+        $this->waitForElement("byId", "tablestructure");
+
         $this->assertEquals(
             "val3",
             $this->byCssSelector('label[for=checkbox_row_2]')->text()
@@ -110,6 +113,9 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             "//div[@class='success' and contains(., "
             . "'Table test_table has been altered successfully')]"
         );
+
+        $this->byLinkText("Structure")->click();
+        $this->waitForElement("byId", "tablestructure");
 
         $this->assertEquals(
             "val3",
