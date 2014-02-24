@@ -132,8 +132,8 @@ function toggle_save_to_file()
         $("#ul_save_asfile > li> select").prop('disabled', true);
     } else {
         $("#ul_save_asfile > li").fadeTo('fast', 1);
-        $("#ul_save_asfile > li > input").removeProp('disabled');
-        $("#ul_save_asfile > li> select").removeProp('disabled');
+        $("#ul_save_asfile > li > input").prop('disabled', false);
+        $("#ul_save_asfile > li> select").prop('disabled', false);
     }
 }
 
@@ -185,7 +185,10 @@ AJAX.registerOnload('export.js', function () {
         var active_plugin = $("#plugins option:selected").val();
         var force_file = $("#force_file_" + active_plugin).val();
         if (force_file == "true") {
-            $("#radio_dump_asfile").prop('checked', true);
+            if ($("#radio_dump_asfile").prop('checked') !== true) {
+                $("#radio_dump_asfile").prop('checked', true);
+                toggle_save_to_file();
+            }
             $("#radio_view_as_text").prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
             $("#radio_view_as_text").prop('disabled', false).parent().fadeTo('fast', 1);
