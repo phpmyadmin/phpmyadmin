@@ -25,7 +25,7 @@ msgstr "系統上找不到 %s 檔案，詳情請參考 www.phpmyadmin.net。"
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "建立資料庫 %1$s 成功。"
+msgstr "資料庫 %1$s 建立成功。"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment: "
@@ -139,7 +139,7 @@ msgstr "連結到"
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:480
 msgid "Comments"
-msgstr "說明"
+msgstr "備註"
 
 #: db_datadict.php:240 js/messages.php:250 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:883
