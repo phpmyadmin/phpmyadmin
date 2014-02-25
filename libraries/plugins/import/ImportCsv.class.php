@@ -651,7 +651,24 @@ class ImportCsv extends AbstractImportCsv
         }
     }
 
-
+    /**
+     * read the expected column_seperated_with String of length $csv_terminated_len from the $buffer
+     * into variable $ch and return the read string $ch
+     * @param string $buffer
+     * @param string $ch
+     * @param int $i
+     * @param int $csv_terminated_len
+     * @return string
+     */
+    
+    public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len)
+    {
+        for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
+            $i++;
+            $ch .= $buffer[$i];
+        }
+        return $ch;
+    }
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
 
@@ -676,12 +693,5 @@ class ImportCsv extends AbstractImportCsv
     {
         $this->_analyze = $analyze;
     }
-    public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len)
-    {
-        for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
-            $i++;
-            $ch .= $buffer[$i];
-        }
-        return $ch;
-    }
+   
 }
