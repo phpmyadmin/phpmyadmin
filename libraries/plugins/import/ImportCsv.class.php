@@ -291,9 +291,10 @@ class ImportCsv extends AbstractImportCsv
             $len = strlen($buffer);
             // Currently parsed char
             $ch = $buffer[$i];
-            if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-            {
-                $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+            if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
+                $ch = $this->readCsvTerminatedString(
+                    $buffer, $ch, $i, $csv_terminated_len
+                );
                 $i += $csv_terminated_len-1;
                 
             }
@@ -320,9 +321,10 @@ class ImportCsv extends AbstractImportCsv
                         $values[] = '';
                         $i++;
                         $ch = $buffer[$i];
-                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                        {
-                            $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
+                            $ch = $this->readCsvTerminatedString(
+                                $buffer, $ch, $i, $csv_terminated_len
+                            );
                             $i += $csv_terminated_len-1;
                         }
                         continue;
@@ -337,9 +339,10 @@ class ImportCsv extends AbstractImportCsv
                         $need_end = true;
                         $i++;
                         $ch = $buffer[$i];
-                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                        {
-                            $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
+                            $ch = $this->readCsvTerminatedString(
+                                $buffer, $ch, $i, $csv_terminated_len
+                            );
                             $i += $csv_terminated_len-1;
                         }
                     } else {
@@ -362,9 +365,12 @@ class ImportCsv extends AbstractImportCsv
                             }
                             $i++;
                             $ch = $buffer[$i];
-                            if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                            {
-                                $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                            if ($csv_terminated_len > 1
+                                && $ch == $csv_terminated[0]
+                            ) {
+                                $ch = $this->readCsvTerminatedString(
+                                    $buffer, $ch, $i, $csv_terminated_len
+                                );
                                 $i += $csv_terminated_len-1;
                             }
                             if ($csv_enclosed == $csv_escaped
@@ -385,9 +391,10 @@ class ImportCsv extends AbstractImportCsv
                         }
                         $i++;
                         $ch = $buffer[$i];
-                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                        {
-                            $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
+                            $ch = $this->readCsvTerminatedString(
+                                $buffer, $ch, $i, $csv_terminated_len
+                            );
                             $i += $csv_terminated_len-1;
                         }
                     }
@@ -400,9 +407,10 @@ class ImportCsv extends AbstractImportCsv
                     if ($fail) {
                         $i = $fallbacki;
                         $ch = $buffer[$i];
-                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                        {
-                            $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0]) {
+                            $ch = $this->readCsvTerminatedString(
+                                $buffer, $ch, $i, $csv_terminated_len
+                            );
                             $i += $csv_terminated_len-1;
                         }
                         break;
@@ -414,18 +422,24 @@ class ImportCsv extends AbstractImportCsv
                         } elseif ($i == $len - 1) {
                             $i = $fallbacki;
                             $ch = $buffer[$i];
-                            if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                            {
-                                $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                            if ($csv_terminated_len > 1
+                                && $ch == $csv_terminated[0]
+                            ) {
+                                $ch = $this->readCsvTerminatedString(
+                                    $buffer, $ch, $i, $csv_terminated_len
+                                );
                                 $i += $csv_terminated_len-1;
                             }
                             break;
                         } else {
                             $i++;
                             $ch = $buffer[$i];
-                            if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                            {
-                                $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                            if ($csv_terminated_len > 1
+                                && $ch == $csv_terminated[0]
+                            ) {
+                                $ch = $this->readCsvTerminatedString(
+                                    $buffer, $ch, $i, $csv_terminated_len
+                                );
                                 $i += $csv_terminated_len-1;
                             }
                         }
@@ -442,18 +456,24 @@ class ImportCsv extends AbstractImportCsv
                         if ($i == $len - 1) {
                             $i = $fallbacki;
                             $ch = $buffer[$i];
-                            if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                            {
-                                $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                            if ($csv_terminated_len > 1
+                                && $ch == $csv_terminated[0]
+                            ) {
+                                $ch = $this->readCsvTerminatedString(
+                                    $buffer, $ch, $i, $csv_terminated_len
+                                );
                                 $i += $csv_terminated_len-1;
                             }
                             break;
                         }
                         $i++;
                         $ch = $buffer[$i];
-                        if ($csv_terminated_len > 1 && $ch == $csv_terminated[0])
-                        {
-                            $ch = $this->readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len);
+                        if ($csv_terminated_len > 1
+                            && $ch == $csv_terminated[0]
+                        ) {
+                            $ch = $this->readCsvTerminatedString(
+                                $buffer, $ch, $i, $csv_terminated_len
+                            );
                             $i += $csv_terminated_len-1;
                         }
                     }
@@ -658,8 +678,7 @@ class ImportCsv extends AbstractImportCsv
     }
     public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len)
     {
-        for ($j=0; $j<$csv_terminated_len-1; $j++)
-        {
+        for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
             $i++;
             $ch .= $buffer[$i];
         }
