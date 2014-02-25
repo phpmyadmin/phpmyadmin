@@ -798,6 +798,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $(g.cEdit).find('.edit_box').val('');
                     });
                 }
+                
+                //reset the position of the edit_area div after closing datetime picker
+                $('.edit_area').css({'top' :'0','position':''});
 
                 if ($td.is('.relation')) {
                     //handle relations
@@ -1709,9 +1712,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             });
             $('html').click(function (e) {
                 // hide edit cell if the click is not from the datepicker or edit area
-                if ($(e.target).parents().index($('#ui-datepicker-div')) == -1 && 
-                    $(e.target).parents().index($('.cEdit .edit_area')) == -1){ 
-                    g.hideEditCell();
+                if (($(e.target).parents().index($('#ui-datepicker-div')) && 
+                   $(e.target).parents().index($('.cEdit .edit_area'))) == -1){ 
+                   g.hideEditCell();
                 }
             }).keydown(function (e) {
                 if (e.which == 27 && g.isCellEditActive) {
