@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - bug #4237 HTTP Referer disclosure in SQL links
 + rfe       Show full names on navigation hover
 + rfe #1505 Behaviour on click on a routine in nav panel
++ rfe #1418 Support more than one separating character on CSV import
 
 4.1.9.0 (not yet released)
 - bug #4279 CTRL + up or down moves two fields (part one)
