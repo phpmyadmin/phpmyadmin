@@ -298,7 +298,7 @@ msgstr "切換至 %sVisual Builder%s"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:268
 msgid "Access denied"
-msgstr "拒絕存取"
+msgstr "存取被拒"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
