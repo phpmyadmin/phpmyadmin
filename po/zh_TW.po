@@ -625,7 +625,7 @@ msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集！"
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
-msgstr "無法載入匯入插件，請檢查您的安裝！"
+msgstr "無法載入匯入外掛程式，請檢查您的安裝！"
 
 #: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
 #, php-format
@@ -728,7 +728,7 @@ msgstr "資料庫用戶端版本:"
 
 #: index.php:318
 msgid "PHP extension:"
-msgstr "PHP 套件:"
+msgstr "PHP 擴充套件:"
 
 #: index.php:325 js/messages.php:121 libraries/DisplayResults.class.php:1332
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -6535,7 +6535,7 @@ msgstr "欄位數"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
-msgstr "無法載入匯出插件，請檢查安裝！"
+msgstr "無法載入匯出外掛程式，請檢查安裝！"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
@@ -8377,7 +8377,7 @@ msgstr "CSV 輸入的第 %d 行欄位數有錯。"
 
 #: libraries/plugins/import/ImportLdi.class.php:112
 msgid "This plugin does not support compressed imports!"
-msgstr "該插件不支援匯入檔案！"
+msgstr "該外掛程式不支援匯入檔案！"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
@@ -9606,7 +9606,7 @@ msgstr "開始"
 
 #: libraries/server_plugins.lib.php:75
 msgid "Plugin"
-msgstr "插件"
+msgstr "外掛程式"
 
 #: libraries/server_plugins.lib.php:76 libraries/server_plugins.lib.php:132
 msgid "Module"
@@ -9639,7 +9639,7 @@ msgstr "沒有權限。"
 
 #: libraries/server_privileges.lib.php:176 server_privileges.php:59
 msgid "Includes all privileges except GRANT."
-msgstr "除了GRANT以外，包括了所有的權限。"
+msgstr "除了GRANT以外的所有權限。"
 
 #: libraries/server_privileges.lib.php:249
 #: libraries/server_privileges.lib.php:861
@@ -9651,7 +9651,7 @@ msgstr "允許讀取資料。"
 #: libraries/server_privileges.lib.php:866
 #: libraries/server_privileges.lib.php:1043 server_privileges.php:78
 msgid "Allows inserting and replacing data."
-msgstr "允許新增與替換資料。"
+msgstr "允許新增與取代資料。"
 
 #: libraries/server_privileges.lib.php:259
 #: libraries/server_privileges.lib.php:871
@@ -9713,7 +9713,7 @@ msgstr "允許修改現有資料表的結構。"
 #: libraries/server_privileges.lib.php:314
 #: libraries/server_privileges.lib.php:1175 server_privileges.php:103
 msgid "Gives access to the complete list of databases."
-msgstr "允許訪問完整的資料庫列表。"
+msgstr "允許存取完整的資料庫列表。"
 
 #: libraries/server_privileges.lib.php:320
 #: libraries/server_privileges.lib.php:1155 server_privileges.php:107
