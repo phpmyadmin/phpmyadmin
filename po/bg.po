@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-24 10:13+0100\n"
-"PO-Revision-Date: 2014-02-20 07:47+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"bg/>\n"
+"PO-Revision-Date: 2014-02-25 04:27+0200\n"
+"Last-Translator: Valter Georgiev <blagynchy@gmail.com>\n"
+"Language-Team: Bulgarian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10823,7 +10823,7 @@ msgstr "Специфични за колоната права"
 
 #: libraries/server_privileges.lib.php:2819
 msgid "Add privileges on the following database:"
-msgstr "Добавяне на права"
+msgstr "Добавяне на права върху ДБ"
 
 #: libraries/server_privileges.lib.php:2846
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
