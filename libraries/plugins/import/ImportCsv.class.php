@@ -651,7 +651,24 @@ class ImportCsv extends AbstractImportCsv
         }
     }
 
-
+    /**
+     * Read the expected column_seperated_with String of length $csv_terminated_len from the $buffer
+     * into variable $ch and return the read string $ch
+     * @param string $buffer, The original string buffer read from csv file
+     * @param string $ch, Partially read "column Sepearted with" string, also used to return after reading length equal $csv_terminated_len
+     * @param int $i, Current read counter of buffer string
+     * @param int $csv_terminated_len, The length of "column seperated with" String.
+     * @return string
+     */
+    
+    public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len)
+    {
+        for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
+            $i++;
+            $ch .= $buffer[$i];
+        }
+        return $ch;
+    }
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
 
@@ -676,12 +693,5 @@ class ImportCsv extends AbstractImportCsv
     {
         $this->_analyze = $analyze;
     }
-    public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len)
-    {
-        for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
-            $i++;
-            $ch .= $buffer[$i];
-        }
-        return $ch;
-    }
+   
 }
