@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-26 10:12+0200\n"
+"POT-Creation-Date: 2014-02-24 10:13+0100\n"
+"PO-Revision-Date: 2014-02-26 17:35+0200\n"
 "Last-Translator: cmdr.by <matusevich@abiatec.com>\n"
 "Language-Team: Belarusian <https://l10n.cihar.com/projects/phpmyadmin/master/"
 "be/>\n"
@@ -229,16 +229,14 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "База дадзеных %1$s была скапіяваная ў %2$s."
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr ""
-"Дадатковыя магчымасьці работы з зьвязанымі табліцамі былі адключаныя. Каб "
-"высьветліць чаму, націсьніце %sтут%s."
+msgstr "Сховішча канфігурацыі PHPMyAdmin дэактываванае.  %sДаведацца%s чаму."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:768
@@ -274,10 +272,9 @@ msgstr "выкарыстоўваецца"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Створаная"
+msgstr "Створаная:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
 #: libraries/schema/Pdf_Relation_Schema.class.php:1362
