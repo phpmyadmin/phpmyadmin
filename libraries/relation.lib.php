@@ -280,6 +280,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'navwork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'savedsearches',
+            isset($cfgRelation['savedsearches']),
+            $messages,
+            'savedsearches'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Saving Query-By-Example searches'),
+            'savedsearcheswork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
