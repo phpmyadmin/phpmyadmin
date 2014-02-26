@@ -155,7 +155,7 @@ PMA_displayFormTop(
 );
 echo '<div class="form">';
 if ($cf->getServerCount() > 0) {
-    echo '<table cellspacing="0" class="datatable" style="table-layout: fixed">';
+    echo '<table class="datatable" style="table-layout: fixed">';
     echo '<tr>';
     echo '<th>#</th>';
     echo '<th>' . __('Name') . '</th>';
@@ -186,7 +186,7 @@ if ($cf->getServerCount() > 0) {
     }
     echo '</table>';
 } else {
-    echo '<table width="100%">';
+    echo '<table>';
     echo '<tr>';
     echo '<td>';
     echo '<i>' . __('There are no configured servers') . '</i>';
@@ -195,7 +195,7 @@ if ($cf->getServerCount() > 0) {
     echo '</table>';
 }
 
-echo '<table width="100%">';
+echo '<table>';
 echo '<tr>';
 echo '<td class="lastrow" style="text-align: left">';
 echo '<input type="submit" name="submit" value="' . __('New server') . '" />';
@@ -216,7 +216,7 @@ echo '<fieldset class="simple"><legend>' . __('Configuration file') . '</legend>
 $form_display = new FormDisplay($cf);
 
 PMA_displayFormTop('config.php');
-echo '<table width="100%" cellspacing="0">';
+echo '<table>';
 
 // Display language list
 $opts = array(
@@ -270,7 +270,7 @@ PMA_displayInput(
 );
 
 echo '<tr>';
-echo '<td colspan="2" class="lastrow" style="text-align: left">';
+echo '<td colspan="3" class="lastrow" style="text-align: left">';
 echo '<input type="submit" name="submit_display" value="' . __('Display') . '" />';
 echo '<input type="submit" name="submit_download" value="' . __('Download') . '" />';
 echo '&nbsp; &nbsp;';

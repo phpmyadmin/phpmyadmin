@@ -150,6 +150,7 @@ dfn:hover {
 }
 
 th {
+    white-space: nowrap;
     font-weight: bold;
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background: #f3f3f3;
