@@ -652,12 +652,12 @@ class ImportCsv extends AbstractImportCsv
     }
 
     /**
-     * read the expected column_seperated_with String of length $csv_terminated_len from the $buffer
+     * Read the expected column_seperated_with String of length $csv_terminated_len from the $buffer
      * into variable $ch and return the read string $ch
-     * @param string $buffer
-     * @param string $ch
-     * @param int $i
-     * @param int $csv_terminated_len
+     * @param string $buffer, The original string buffer read from csv file
+     * @param string $ch, Partially read "column Sepearted with" string, also used to return after reading length equal $csv_terminated_len
+     * @param int $i, Current read counter of buffer string
+     * @param int $csv_terminated_len, The length of "column seperated with" String.
      * @return string
      */
     
