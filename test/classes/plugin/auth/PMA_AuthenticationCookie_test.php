@@ -77,11 +77,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $mockResponse->expects($this->once())
             ->method('addJSON')
             ->with(
-                'message',
-                PMA_Message::error(
-                    '1<br /><br />[ <a href="https://phpmyadmin.net/" ' .
-                    'class="ajax login-link">Log in</a> ]'
-                )
+                'redirect_url',
+                'https://phpmyadmin.net/'
             );
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
@@ -94,39 +91,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
         // Case 2
 
-        $mockResponse = $this->getMockBuilder('PMA_Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('isAjax', 'isSuccess', 'addJSON'))
-            ->getMock();
 
-        $mockResponse->expects($this->once())
-            ->method('isAjax')
-            ->with()
-            ->will($this->returnValue(true));
-
-        $mockResponse->expects($this->once())
-            ->method('isSuccess')
-            ->with(false);
-
-        $mockResponse->expects($this->once())
-            ->method('addJSON')
-            ->with(
-                'message',
-                PMA_Message::error(
-                    'Your session has expired. Please log in again.' .
-                    '<br /><br />[ <a href="https://phpmyadmin.net/" ' .
-                    'class="ajax login-link">Log in</a> ]'
-                )
-            );
-
-        $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue(null, $mockResponse);
-        $GLOBALS['conn_error'] = '';
-
-        $this->assertTrue(
-            $this->object->auth()
-        );
 
         // case 3
 
