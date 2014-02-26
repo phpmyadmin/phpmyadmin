@@ -23,7 +23,7 @@ $savedSearchList = array();
 $currentSearchId = null;
 $displayUpdateSearchHint = false;
 if ($cfgRelation['savedsearcheswork']) {
-    include 'libraries/SavedSearches.php';
+    include 'libraries/SavedSearches.class.php';
     $header = $response->getHeader();
     $scripts = $header->getScripts();
     $scripts->addFile('db_qbe.js');
@@ -33,18 +33,18 @@ if ($cfgRelation['savedsearcheswork']) {
     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
         ->setDbname($_REQUEST['db']);
 
-    //Criterias field is filled only when clicking on "Save search".
-    if (!empty($_REQUEST['action'])) {
-        $savedSearch->setId($_REQUEST['searchId'])
-            ->setSearchName($_REQUEST['searchName']);
+    if (!empty($_REQUEST['searchId'])) {
+        $savedSearch->setId($_REQUEST['searchId']);
+        $displayUpdateSearchHint = true;
+    }
+
+    //Action field is sent.
+    if (isset($_REQUEST['action'])) {
+        $savedSearch->setSearchName($_REQUEST['searchName']);
         if ('save' === $_REQUEST['action']) {
             $saveResult = $savedSearch->setCriterias($_REQUEST)
                 ->save();
             $displayUpdateSearchHint = true;
-            /*if (!$saveResult) {
-                $response->addHTML('raté');
-                exit();
-            }*/
         } elseif ('delete' === $_REQUEST['action']) {
             $deleteResult = $savedSearch->delete();
             //After deletion, reset search.
@@ -52,6 +52,7 @@ if ($cfgRelation['savedsearcheswork']) {
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($_REQUEST['db']);
             $_REQUEST = array();
+            $displayUpdateSearchHint = false;
         } elseif ('load' === $_REQUEST['action']) {
             $loadResult = $savedSearch->load();
             $displayUpdateSearchHint = true;
