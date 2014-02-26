@@ -33,30 +33,35 @@ if ($cfgRelation['savedsearcheswork']) {
     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
         ->setDbname($_REQUEST['db']);
 
-    //Criterias field is filled only when clicking on "Save search".
-    if (!empty($_REQUEST['action'])) {
+    if (isset($_REQUEST['action'])) {
         $savedSearch->setId($_REQUEST['searchId'])
             ->setSearchName($_REQUEST['searchName']);
-        if ('save' === $_REQUEST['action']) {
-            $saveResult = $savedSearch->setCriterias($_REQUEST)
-                ->save();
-            $displayUpdateSearchHint = true;
-            /*if (!$saveResult) {
-                $response->addHTML('raté');
-                exit();
-            }*/
-        } elseif ('delete' === $_REQUEST['action']) {
-            $deleteResult = $savedSearch->delete();
-            //After deletion, reset search.
-            $savedSearch = new PMA_SavedSearches($GLOBALS);
-            $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
-                ->setDbname($_REQUEST['db']);
-            $_REQUEST = array();
-        } elseif ('load' === $_REQUEST['action']) {
-            $loadResult = $savedSearch->load();
+
+        //Criterias field is filled only when clicking on "Save search".
+        if (!empty($_REQUEST['action'])) {
+            if ('save' === $_REQUEST['action']) {
+                $saveResult = $savedSearch->setCriterias($_REQUEST)
+                    ->save();
+                $displayUpdateSearchHint = true;
+                /*if (!$saveResult) {
+                    $response->addHTML('raté');
+                    exit();
+                }*/
+            } elseif ('delete' === $_REQUEST['action']) {
+                $deleteResult = $savedSearch->delete();
+                //After deletion, reset search.
+                $savedSearch = new PMA_SavedSearches($GLOBALS);
+                $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+                    ->setDbname($_REQUEST['db']);
+                $_REQUEST = array();
+            } elseif ('load' === $_REQUEST['action']) {
+                $loadResult = $savedSearch->load();
+                $displayUpdateSearchHint = true;
+            }
+            //Else, it's an "update query"
+        } elseif (!empty($_REQUEST['searchName'])) {
             $displayUpdateSearchHint = true;
         }
-        //Else, it's an "update query"
     }
 
     $savedSearchList = $savedSearch->getList();
