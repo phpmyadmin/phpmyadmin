@@ -63,13 +63,13 @@ abstract class AbstractImportCsv extends ImportPlugin
         $leaf->setName("enclosed");
         $leaf->setText(__('Columns enclosed with:'));
         $leaf->setSize(2);
-        $leaf->setLen(1);
+        $leaf->setLen(2);
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("escaped");
         $leaf->setText(__('Columns escaped with:'));
         $leaf->setSize(2);
-        $leaf->setLen(1);
+        $leaf->setLen(2);
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("new_line");
