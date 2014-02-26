@@ -119,6 +119,7 @@ if (!defined('TESTSUITE')) {
             'sql_max_query_size',
             'sql_hex_for_blob',
             'sql_utc_time',
+            'sql_drop_database',
             'csv_separator',
             'csv_enclosed',
             'csv_escaped',
