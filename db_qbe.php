@@ -19,6 +19,50 @@ $response = PMA_Response::getInstance();
 // Gets the relation settings
 $cfgRelation = PMA_getRelationsParam();
 
+$savedSearchList = array();
+$currentSearchId = null;
+$displayUpdateSearchHint = false;
+if ($cfgRelation['savedsearcheswork']) {
+    include 'libraries/SavedSearches.php';
+    $header = $response->getHeader();
+    $scripts = $header->getScripts();
+    $scripts->addFile('db_qbe.js');
+
+    //Get saved search list.
+    $savedSearch = new PMA_SavedSearches($GLOBALS);
+    $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+        ->setDbname($_REQUEST['db']);
+
+    //Criterias field is filled only when clicking on "Save search".
+    if (!empty($_REQUEST['action'])) {
+        $savedSearch->setId($_REQUEST['searchId'])
+            ->setSearchName($_REQUEST['searchName']);
+        if ('save' === $_REQUEST['action']) {
+            $saveResult = $savedSearch->setCriterias($_REQUEST)
+                ->save();
+            $displayUpdateSearchHint = true;
+            /*if (!$saveResult) {
+                $response->addHTML('raté');
+                exit();
+            }*/
+        } elseif ('delete' === $_REQUEST['action']) {
+            $deleteResult = $savedSearch->delete();
+            //After deletion, reset search.
+            $savedSearch = new PMA_SavedSearches($GLOBALS);
+            $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+                ->setDbname($_REQUEST['db']);
+            $_REQUEST = array();
+        } elseif ('load' === $_REQUEST['action']) {
+            $loadResult = $savedSearch->load();
+            $displayUpdateSearchHint = true;
+        }
+        //Else, it's an "update query"
+    }
+
+    $savedSearchList = $savedSearch->getList();
+    $currentSearchId = $savedSearch->getId();
+}
+
 /**
  * A query has been submitted -> (maybe) execute it
  */
@@ -52,7 +96,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA_DBQbe($GLOBALS['db']);
+$db_qbe = new PMA_DBQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
 /**
  * Displays the Query by example form
@@ -70,6 +114,16 @@ if ($cfgRelation['designerwork']) {
                 __('Switch to %svisual builder%s'),
                 '<a href="' . $url . '">',
                 '</a>'
+            )
+        )
+    );
+}
+if ($displayUpdateSearchHint) {
+    $response->addHTML(
+        PMA_Message::notice(
+            __(
+                'After saving or loading a search, you can rename it and save the '
+                . 'new criterias.'
             )
         )
     );

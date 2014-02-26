@@ -42,6 +42,7 @@ $js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
 $js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
 $js_messages['strOperationTakesLongTime'] = __('This operation could take a long time. Proceed anyway?');
 $js_messages['strDropUserGroupWarning'] = __('Do you really want to delete user group "%s"?');
+$js_messages['strConfirmDeleteQBESearch'] = __('Do you really want to delete the search "%s"?');
 
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
