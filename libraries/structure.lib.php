@@ -273,7 +273,7 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
 ) {
     $html_output = '<div class="clearfloat">';
     $html_output .= '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
+        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '" '
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
     $html_output .= '<input type="checkbox" id="tablesForm_checkall" '
@@ -546,7 +546,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
         // correct confirmation message
         $html_output .= ' view';
     }
-    $html_output .= '"';
+    $html_output .= '" ';
     $html_output .= 'href="sql.php?' . $tbl_url_query
         . '&amp;reload=1&amp;purge=1&amp;sql_query='
         . urlencode($drop_query) . '&amp;message_to_show='
@@ -569,7 +569,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
 function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
     $unit, $overhead
 ) {
-     $html_output = '<td class="value tbl_size"><a'
+     $html_output = '<td class="value tbl_size"><a '
         . 'href="tbl_structure.php?' . $tbl_url_query . '#showusage" >'
         . '<span>' . $formatted_size . '</span> '
         . '<span class="unit">' . $unit . '</span>'
@@ -1848,7 +1848,7 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
                 ($action=='Unique' ? 'class="ajax add_unique_anchor"' : ' ')
                )
               )
-            . 'href="sql.php?' . $url_query . '&amp;sql_query='
+            . ' href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
