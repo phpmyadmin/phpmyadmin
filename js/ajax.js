@@ -339,6 +339,9 @@ var AJAX = {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
             AJAX.xhr = null;
+            if (data.redirect_url) {
+                window.location.href=data.redirect_url;
+            }
         }
     },
     /**

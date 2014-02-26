@@ -75,33 +75,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($response->isAjax()) {
             $response->isSuccess(false);
 
-            $login_link = '<br /><br />[ ' .
-                sprintf(
-                    '<a href="%s" class="ajax login-link">%s</a>',
-                    $GLOBALS['cfg']['PmaAbsoluteUri'],
-                    __('Log in')
-                )
-                . ' ]';
-
-            if (! empty($conn_error)) {
-
-                $conn_error .= $login_link;
-
-                $response->addJSON(
-                    'message',
-                    PMA_Message::error(
-                        $conn_error
-                    )
-                );
-            } else {
-                $response->addJSON(
-                    'message',
-                    PMA_Message::error(
-                        __('Your session has expired. Please log in again.') .
-                        $login_link
-                    )
-                );
-            }
+            $login_link = $GLOBALS['cfg']['PmaAbsoluteUri'];
+            $response->addJSON(
+                'redirect_url',
+                $login_link
+            );
             if (defined('TESTSUITE')) {
                 return true;
             } else {
