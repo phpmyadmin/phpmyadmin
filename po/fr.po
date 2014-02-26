@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-11 12:16+0200\n"
+"PO-Revision-Date: 2014-02-26 22:52+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -304,6 +304,8 @@ msgid ""
 "After saving or loading a search, you can rename it and save the new "
 "criteria."
 msgstr ""
+"Après avoir sauvegardé ou chargé une recherche, vous pouvez la renommer et "
+"sauvegarder les nouveaux critères."
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -617,6 +619,9 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Le fichier téléchargé ne peut pas être déplacé, car le serveur a l'option "
+"open_basedir activée mais n'a pas accès au répertoire %s (pour les fichiers "
+"temporaires)."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -956,10 +961,10 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Voulez-vous vraiment supprimer le groupe «%s» ?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer le groupe «%s» ?"
+msgstr "Voulez-vous vraiment supprimer la recherche «%s» ?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
@@ -1056,15 +1061,15 @@ msgstr ""
 
 #: js/messages.php:80
 msgid "Query cache efficiency"
-msgstr "Efficacité de la cache de requêtes"
+msgstr "Efficacité du cache de requêtes"
 
 #: js/messages.php:81
 msgid "Query cache usage"
-msgstr "Utilisation de la cache de requêtes"
+msgstr "Utilisation du cache de requêtes"
 
 #: js/messages.php:82
 msgid "Query cache used"
-msgstr "Cache de requêtes utilisée"
+msgstr "Cache de requêtes utilisé"
 
 #: js/messages.php:84
 msgid "System CPU Usage"
@@ -2410,19 +2415,17 @@ msgstr "Exécuter la requête"
 
 #: libraries/DBQbe.class.php:1451
 msgid "Saved searches : "
-msgstr ""
+msgstr "Recherches sauvegardées : "
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Search"
 msgid "Save search"
-msgstr "Rechercher"
+msgstr "Sauvegarder la recherche"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete search"
-msgstr "Effacer la relation"
+msgstr "Effacer la recherche"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3132,30 +3135,27 @@ msgid "There are no recent tables."
 msgstr "Il n'y a pas de tables récentes."
 
 #: libraries/SavedSearches.php:249
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the search."
-msgstr "Tables manquantes pour le stockage de configurations phpMyAdmin"
+msgstr "Informations manquantes pour sauvegarder la recherche."
 
 #: libraries/SavedSearches.php:265 libraries/SavedSearches.php:295
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "L'utilisateur %s existe déjà !"
+msgstr "Une entrée existe déjà sous ce nom."
 
 #: libraries/SavedSearches.php:315
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Informations manquantes pour effacer la recherche."
 
 #: libraries/SavedSearches.php:336
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Informations manquantes pour charger la recherche."
 
 #: libraries/SavedSearches.php:349
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Erreur lors du déplacement du fichier téléversé."
+msgstr "Erreur lors du chargement de la recherche."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3235,7 +3235,7 @@ msgstr "Montrer l'état des serveurs esclaves"
 
 #: libraries/ServerStatusData.class.php:244
 msgid "Flush query cache"
-msgstr "Vider la cache des requêtes"
+msgstr "Vider le cache des requêtes"
 
 #: libraries/ServerStatusData.class.php:263
 #: libraries/engines/innodb.lib.php:144
