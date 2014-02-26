@@ -123,7 +123,7 @@ if ($displayUpdateSearchHint) {
         PMA_Message::notice(
             __(
                 'After saving or loading a search, you can rename it and save the '
-                . 'new criterias.'
+                . 'new criteria.'
             )
         )
     );
