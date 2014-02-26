@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-22 15:21+0200\n"
-"Last-Translator: Rodrigo Souza <rodrigo.chrome@outlook.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-02-26 21:54+0200\n"
+"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -304,6 +304,8 @@ msgid ""
 "After saving or loading a search, you can rename it and save the new "
 "criteria."
 msgstr ""
+"Após salvar ou carregar uma busca, você pode renomeá-la e salvar o novo "
+"critério."
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -955,10 +957,10 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Você realmente deseja remover o grupo \"%s\"?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Você realmente deseja remover o grupo \"%s\"?"
+msgstr "Você realmente deseja excluir a busca \"%s\"?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
@@ -2419,19 +2421,17 @@ msgstr "Enviar query"
 
 #: libraries/DBQbe.class.php:1451
 msgid "Saved searches : "
-msgstr ""
+msgstr "Pesquisas salvas: "
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Search"
 msgid "Save search"
-msgstr "Procurar"
+msgstr "Salvar pesquisa"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete search"
-msgstr "Apagar relacionamento"
+msgstr "Excluir pesquisa"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3138,30 +3138,27 @@ msgid "There are no recent tables."
 msgstr "Não existem tabelas recentes."
 
 #: libraries/SavedSearches.php:249
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the search."
-msgstr "Tabelas do armazenamento de configurações do phpMyAdmin faltando"
+msgstr "Faltam informações para salvar a pesquisa."
 
 #: libraries/SavedSearches.php:265 libraries/SavedSearches.php:295
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "O usuário %s já existe!"
+msgstr "Já existe uma entrada com este nome."
 
 #: libraries/SavedSearches.php:315
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Faltam informações para excluir a pesquisa."
 
 #: libraries/SavedSearches.php:336
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Faltam informações para carregar a pesquisa."
 
 #: libraries/SavedSearches.php:349
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Erro ao mover o arquivo enviado."
+msgstr "Erro ao carregar a pesquisa."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
