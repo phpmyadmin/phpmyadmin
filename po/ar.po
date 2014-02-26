@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 11:01+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/4-1/ar/>\n"
+"PO-Revision-Date: 2014-02-27 00:38+0200\n"
+"Last-Translator: Fahad Abdullah Alshareef <fahad.a.shareef@gmail.com>\n"
+"Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/4-1/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -423,12 +423,12 @@ msgstr "سجل قاعدة البيانات"
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr ""
+msgstr "تم اكتشاف خطأ، وتلقائياً تم إرسال تقرير بهذا الخطأ بناءً على إعداداتك."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "لربما يكون من الأفضل أن تقوم بتحديث هذه الصفحة."
 
 #: error_report.php:45
 msgid ""
