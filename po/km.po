@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-27 03:57+0200\n"
-"Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
+"PO-Revision-Date: 2014-02-27 11:07+0200\n"
+"Last-Translator: Sok Sophea <sksophea@gmail.com>\n"
 "Language-Team: Central Khmer "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
 "Language: km\n"
@@ -34,13 +34,13 @@ msgstr "មូលដ្ឋាន​ទិន្នន័យ %1$s ត្រូវ
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr ""
+msgstr "មតិយោបល់​មូលដ្ឋាន​ទិន្នន័យ៖"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
 msgid "Table comments:"
-msgstr ""
+msgstr "មតិយោបល់​តារាង៖"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1281
@@ -195,7 +195,7 @@ msgstr "ទេ"
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
 msgid "Yes"
-msgstr "ព្រម"
+msgstr "បាទ/ចាស"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
