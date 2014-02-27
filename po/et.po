@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-25 08:27+0200\n"
+"PO-Revision-Date: 2014-02-27 07:46+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: et\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -306,6 +306,8 @@ msgid ""
 "After saving or loading a search, you can rename it and save the new "
 "criteria."
 msgstr ""
+"Sa saad otsingu nime muuta pärast ta salvestamist või laadimist, ja "
+"salvestada uue kriteeriumi."
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -949,10 +951,10 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Kas tõesti tahad kustudata kasutajate grupi \"%s\"?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Kas tõesti tahad kustudata kasutajate grupi \"%s\"?"
+msgstr "Kas sa soovid tõesti kustutada otsingu \"%s\"?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
@@ -2383,19 +2385,17 @@ msgstr "Saada päring"
 
 #: libraries/DBQbe.class.php:1451
 msgid "Saved searches : "
-msgstr ""
+msgstr "Salvestatud otsingud: "
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Search"
 msgid "Save search"
-msgstr "Otsi"
+msgstr "Salvesta otsing"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete search"
-msgstr "Kustuta seos"
+msgstr "Kustuta otsing"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3097,30 +3097,27 @@ msgid "There are no recent tables."
 msgstr "Hiljutisi tabeleid ei ole."
 
 #: libraries/SavedSearches.php:249
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the search."
-msgstr "Puudulikud phpMyAdmini seadistuse salvestuse tabelid"
+msgstr "Otsingu salvestamiseks on vaja täiendavat informatsiooni."
 
 #: libraries/SavedSearches.php:265 libraries/SavedSearches.php:295
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "Kasutaja %s on juba olemas!"
+msgstr "Sellise nimega kirje on juba olemas."
 
 #: libraries/SavedSearches.php:315
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Otsingu kustutamiseks on vaja täiendavat informatsiooni."
 
 #: libraries/SavedSearches.php:336
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Otsingu laadimiseks on vaja täiendavat informatsiooni."
 
 #: libraries/SavedSearches.php:349
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Üleslaetud faili liigutamisel esines viga."
+msgstr "Otsingu laadimisel esines viga."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
