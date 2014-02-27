@@ -45,9 +45,11 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
         $this->login();
         $this->waitForElement('byLinkText', $this->database_name)->click();
 
+        $this->navigateTable('test_table');
+
         $this->waitForElement(
             "byXPath",
-            "(//a[contains(., 'Structure')])[2]"
+            "(//a[contains(., 'Structure')])"
         )->click();
 
         $this->waitForElement("byId", "tablestructure");
