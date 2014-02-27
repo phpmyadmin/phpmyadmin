@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-24 07:36+0200\n"
+"PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
-">\n"
+"Language-Team: Bengali "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/bn/>\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -29,7 +29,7 @@ msgstr "ডাটাবেইজ %1$s তৈরী করা হয়েছে।"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment:"
-msgstr "ডাটাবেইজের মন্তব্য: "
+msgstr "ডাটাবেইজের মন্তব্য:"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
