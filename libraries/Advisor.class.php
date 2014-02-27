@@ -315,21 +315,14 @@ class Advisor
      * Runs a code expression, replacing variable names with their respective
      * values
      *
-     * @param string $expr        expression to evaluate
-     * @param int    $ignoreUntil if > 0, it doesn't replace any variables until
-     *                            that string position, but still evaluates the
-     *                            whole expr
+     * @param string $expr expression to evaluate
      *
      * @return string result of evaluated expression
      *
      * @throws Exception
      */
-    function ruleExprEvaluate($expr, $ignoreUntil = 0)
+    function ruleExprEvaluate($expr)
     {
-        if ($ignoreUntil > 0) {
-            $exprIgnore = substr($expr, 0, $ignoreUntil);
-            $expr = substr($expr, $ignoreUntil);
-        }
         // Evaluate fired() conditions
         $expr = preg_replace_callback(
             '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui',
@@ -342,9 +335,6 @@ class Advisor
             array($this, '_ruleExprEvaluateVariable'),
             $expr
         );
-        if ($ignoreUntil > 0) {
-            $expr = $exprIgnore . $expr;
-        }
         $value = 0;
         $err = 0;
 
