@@ -99,8 +99,7 @@ class PMA
     {
         if (null === $this->databases) {
             $this->databases = new PMA_List_Database(
-                $this->userlink,
-                $this->controllink
+                $this->userlink
             );
         }
 
