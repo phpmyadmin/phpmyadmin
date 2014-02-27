@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-25 03:04+0200\n"
+"PO-Revision-Date: 2014-02-27 03:57+0200\n"
 "Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
-"Language-Team: Central Khmer <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/km/>\n"
+"Language-Team: Central Khmer "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
+"Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: km\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -900,10 +900,10 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "តើ​អ្នក​ពិត​ជា​លុប​ក្រុម​អ្នក​ប្រើ \"%s\" មែន​ទេ?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "តើ​អ្នក​ពិត​ជា​លុប​ក្រុម​អ្នក​ប្រើ \"%s\" មែន​ទេ?"
+msgstr "តើ​អ្នក​ពិត​ជា​លុប​ការ​ស្វែងរក \"%s\" មែនទេ?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
