@@ -1078,18 +1078,14 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
                 $this->object->blowfishEncrypt('data123', 'sec321')
             );
         } else {
+            //using our own iv for testing 
+            $tmp = $GLOBALS['iv'];
+            $GLOBALS['iv'] = "testiv09";
             $this->assertEquals(
-                base64_encode(
-                    mcrypt_encrypt(
-                        MCRYPT_BLOWFISH,
-                        'sec321',
-                        'data123',
-                        MCRYPT_MODE_CBC,
-                        $GLOBALS['iv']
-                    )
-                ),
+                'x/2GwHKoPyc=',
                 $this->object->blowfishEncrypt('data123', 'sec321')
             );
+            $GLOBALS['iv'] = $tmp;
         }
     }
 
@@ -1101,13 +1097,16 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     public function testBlowfishDecrypt()
     {
         if (function_exists('mcrypt_encrypt')) {
-             $this->assertEquals(
-                'root',
-                $this->object->blowfishDecrypt(
-                    'UG1MQSH8SSM=',
-                    '04a4f0a762b42202d7c90fb0a1b83451'
-                    )
-                );
+            
+             //using our own iv for testing 
+            $tmp = $GLOBALS['iv'];
+            $GLOBALS['iv'] = "testiv09";
+            $this->assertEquals(
+                'data123',
+                $this->object->blowfishDecrypt('x/2GwHKoPyc=', 'sec321')
+            );
+            $GLOBALS['iv'] = $tmp;
+            
         } else {
             $this->assertEquals(
                 'data123',
