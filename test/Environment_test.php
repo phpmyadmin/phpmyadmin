@@ -68,17 +68,5 @@ class Environment_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertEquals(5, $version_parts[1]);
     }
-
-    /**
-     * Test of session handling
-     *
-     * @return void
-     *
-     * @todo Think about this test
-     */
-    public function testSession()
-    {
-        $this->markTestIncomplete('No session testing');
-    }
 }
 ?>
