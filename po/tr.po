@@ -4552,7 +4552,7 @@ msgstr "Blowfish gizliliği"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "Seçili satırları vurgular"
+msgstr "Seçili satırları vurgular."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4725,7 +4725,7 @@ msgstr "Binari içerikleri varsayılandan HEX olarak göster."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Sunucu listelemeyi aşağı açılır menü yerine liste olarak gösterir"
+msgstr "Sunucu listelemeyi aşağı açılır menü yerine liste olarak gösterir."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
