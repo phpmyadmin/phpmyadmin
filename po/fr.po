@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-26 22:52+0200\n"
+"PO-Revision-Date: 2014-02-27 18:36+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
@@ -4586,7 +4586,7 @@ msgstr "Secret Blowfish"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "Utilisé quand on clique sur une ligne"
+msgstr "Utilisé quand on clique sur une ligne."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4757,7 +4757,7 @@ msgstr "Montrer par défaut le contenu binaire en hexadécimal."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Montrer la liste des serveurs au lieu d'un menu déroulant"
+msgstr "Montrer la liste des serveurs au lieu d'un menu déroulant."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
