@@ -328,23 +328,12 @@ Server connection settings
     :default: ``''``
 
     This special account is used for 2 distinct purposes: to make possible all
-    relational features (see :config:option:`$cfg['Servers'][$i]['pmadb']`) and,
-    for a MySQL server running with ``--skip-show-database``, to enable a
-    multi-user installation (:term:`HTTP` or cookie
-    authentication mode).
-
-    When using :term:`HTTP` or
-    cookie authentication modes (or 'config' authentication mode since phpMyAdmin
-    2.2.1), you need to supply the details of a MySQL account that has ``SELECT``
-    privilege on the *mysql.user (all columns except "Password")*, *mysql.db (all
-    columns)* and *mysql.tables\_priv (all columns except "Grantor" and
-    "Timestamp")* tables. This account is used to check what databases the user
-    will see at login.
+    relational features (see :config:option:`$cfg['Servers'][$i]['pmadb']`).
 
     .. versionchanged:: 2.2.5
         those were called ``stduser`` and ``stdpass``
 
-    .. seealso:: :ref:`setup`, :ref:`authentication_modes`
+    .. seealso:: :ref:`setup`, :ref:`authentication_modes`, :ref:`linked-tables`
 
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 

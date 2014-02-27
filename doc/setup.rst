@@ -268,9 +268,17 @@ depending on the database name.
 
 After having imported the :file:`examples/create_tables.sql` file, you
 should specify the table names in your :file:`config.inc.php` file. The
-directives used for that can be found in the :ref:`config`. You will also need to
-have a controluser with the proper rights to those tables (see section
-:ref:`authentication_modes` below).
+directives used for that can be found in the :ref:`config`. 
+
+You will also need to have a controluser 
+(:config:option:`$cfg['Servers'][$i]['controluser']` and
+:config:option:`$cfg['Servers'][$i]['controlpass']` settings)
+with the proper rights to those tables. For example you can create it 
+using following statement:
+
+.. code-block:: mysql
+   
+   GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost'  IDENTIFIED BY 'pmapass';
 
 .. _upgrading:
 
@@ -316,47 +324,6 @@ However, keep in mind that the password travels in plain text, unless
 you are using the HTTPS protocol. In cookie mode, the password is
 stored, encrypted with the blowfish algorithm, in a temporary cookie.
 
-.. note: 
-   
-    This section is only applicable if your MySQL server is running
-    with ``--skip-show-database``. 
-
-For ':term:`HTTP`' and 'cookie' modes, phpMyAdmin needs a controluser that has
-**only** the ``SELECT`` privilege on the *`mysql`.`user` (all columns except
-`Password`)*, *`mysql`.`db` (all columns)*, *`mysql`.`host` (all columns)* and
-*`mysql`.`tables\_priv` (all columns except `Grantor` and `Timestamp`)* tables.
-You must specify the details for the controluser in the :file:`config.inc.php`
-file under the :config:option:`$cfg['Servers'][$i]['controluser']` and
-:config:option:`$cfg['Servers'][$i]['controlpass']` settings. The following
-example assumes you want to use ``pma`` as the controluser and ``pmapass`` as
-the controlpass, but **this is only an example: use something else in your
-file!** Input these statements from the phpMyAdmin :term:`SQL` Query window or
-mysql command–line client. Of course you have to replace ``localhost`` with the
-webserver's host if it's not the same as the MySQL server's one. 
-
-.. code-block:: mysql
-   
-   GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
-   GRANT SELECT (
-   Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
-   Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
-   File_priv, Grant_priv, References_priv, Index_priv, Alter_priv,
-   Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv,
-   Execute_priv, Repl_slave_priv, Repl_client_priv
-   ) ON mysql.user TO 'pma'@'localhost';
-   GRANT SELECT ON mysql.db TO 'pma'@'localhost';
-   GRANT SELECT ON mysql.host TO 'pma'@'localhost';
-   GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
-   ON mysql.tables_priv TO 'pma'@'localhost';
-   
-If you want to use the many new relation and bookmark features:
-   
-.. code-block:: mysql
-   
-   GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
-   
-(this of course requires that your :ref:`linked-tables` be set up).
-   
 Then each of the *true* users should be granted a set of privileges
 on a set of particular databases. Normally you shouldn't give global
 privileges to an ordinary user, unless you understand the impact of those
