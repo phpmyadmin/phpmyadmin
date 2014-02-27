@@ -454,6 +454,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             "byXPath",
             "//*[@id='pma_navigation_tree']//a[contains(., '$table')]"
         )->click();
+
+        // Wait for it to load
+        $this->waitForElement(
+            "byXPath",
+            "//a[@class='tabactive' and contains(., 'Browse')]"
+        );
     }
 }
 ?>

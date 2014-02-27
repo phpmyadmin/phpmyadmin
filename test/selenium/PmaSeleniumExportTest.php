@@ -112,11 +112,6 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         $this->navigateTable('test_table');
 
-        $this->waitForElement(
-            "byXPath",
-            "//a[@class='tabactive' and contains(., 'Browse')]"
-        );
-
         $text = $this->_doExport('table', $plugin);
 
         foreach ($expected as $str) {

@@ -47,7 +47,6 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->login();
         $this->navigateTable('test_table');
 
-        $this->waitForElement("byId", "table_results");
         $this->expandMore();
         $this->byXPath("//a[contains(., 'Operations')]")->click();
         $this->waitForElement(

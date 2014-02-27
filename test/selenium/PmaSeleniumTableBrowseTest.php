@@ -50,7 +50,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     {
         $this->login();
         $this->navigateTable('test_table');
-        $this->waitForElement("byId", "table_results");
     }
 
     /**
