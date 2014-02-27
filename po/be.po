@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-26 17:35+0200\n"
-"Last-Translator: cmdr.by <matusevich@abiatec.com>\n"
+"PO-Revision-Date: 2014-02-27 10:40+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/be/>\n"
 "Language: be\n"
@@ -39,7 +39,7 @@ msgstr "Камэнтар да базы дадзеных: "
 #: libraries/tbl_printview.lib.php:579
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Камэнтар да табліцы"
+msgstr "Камэнтар да табліцы:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
