@@ -174,14 +174,11 @@ class Advisor
      */
     function translate($str, $param = null)
     {
+        $string = _gettext(Advisor::escapePercent($str));
         if (is_null($param)) {
-            return sprintf(_gettext(Advisor::escapePercent($str)));
+            return sprintf($string);
         } else {
-            $printf = 'sprintf("' . _gettext(Advisor::escapePercent($str)) . '",';
-            return $this->ruleExprEvaluate(
-                $printf . $param . ')',
-                strlen($printf)
-            );
+            return sprintf($string, $this->ruleExprEvaluate($param));
         }
     }
 
