@@ -73,10 +73,14 @@ class PMA_Scripts
                 $scripts[] = "scripts[]=" . $value['filename'];
             }
         }
+        $separator = PMA_URL_getArgSeparator();
+        $url = 'js/get_scripts.js.php'
+            . PMA_URL_getCommon(array(), 'none')
+            . $separator . implode($separator, $scripts);
+
         $static_scripts = sprintf(
-            '<script type="text/javascript" '
-            . 'src="js/get_scripts.js.php%s&%s"></script>',
-            PMA_URL_getCommon(array(), 'none'), implode("&", $scripts)
+            '<script type="text/javascript" src="%s"></script>',
+            htmlspecialchars($url)
         );
         return $static_scripts . $dynamic_scripts;
     }

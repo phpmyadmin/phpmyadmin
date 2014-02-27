@@ -11,6 +11,7 @@
 
 require_once 'libraries/Scripts.class.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/url_generating.lib.php';
 
 /**
  * Tests for Script.class.php
@@ -78,7 +79,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             '<script type="text/javascript" src="js/get_scripts.js.php?lang=en'
-            . '&token=token&scripts[]=common.js"></script>',
+            . '&amp;token=token&amp;scripts[]=common.js"></script>',
             $this->_callPrivateFunction(
                 '_includeFiles',
                 array(
@@ -107,7 +108,7 @@ class PMA_Scripts_Test extends PHPUnit_Framework_TestCase
 
         $this->assertRegExp(
             '@<script type="text/javascript" src="js/get_scripts.js.php\\?lang=en'
-            . '&token=token&scripts\\[\\]=common.js"></script><script type="text/'
+            . '&amp;token=token&amp;scripts\\[\\]=common.js"></script><script type="text/'
             . 'javascript">// <!\\[CDATA\\[' . "\n"
             . 'AJAX.scriptHandler.add\\("common.js",1\\);' . "\n"
             . '\\$\\(function\\(\\) \\{AJAX.fireOnload\\("common.js"\\);\\}\\);'

@@ -924,7 +924,6 @@ ul#topmenu2 li {
 .menucontainer {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'dcdcdc'); ?>
     border-top: 1px solid #aaa;
-    border-bottom: 1px solid #ccc;
 }
 
 /* default tab styles */
@@ -972,6 +971,11 @@ ul#topmenu ul.only {
 ul#topmenu > li {
     border-right: 1px solid #fff;
     border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+ul#topmenu > li:first-child {
+    border-left: 0;
 }
 
 /* default tab styles */
@@ -1020,6 +1024,7 @@ ul#topmenu2 a.tabactive {
 ul#topmenu > li.active {
     /* border-bottom: 0pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>; */
     border-right: 0;
+    border-bottom-color: #fff;
 }
 /* end topmenu */
 
