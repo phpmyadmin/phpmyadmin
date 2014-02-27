@@ -4655,7 +4655,7 @@ msgid "Blowfish secret"
 msgstr "بلوفش خفیہ کاری"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "منتخب صفیں نمایاں کریں"
 
 #: libraries/config/messages.inc.php:34
@@ -4860,7 +4860,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "ثنائی مشمولات کو بطور HEX طے شدہ دکھائیں"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "سرور فہرست کو ڈراپ ڈاؤن کی بجائے لڑی میں دکھائیں"
 
 #: libraries/config/messages.inc.php:96
@@ -14965,7 +14965,7 @@ msgstr ""
 #~ msgstr ""
 #~ "phpMyAdmin ایک <b>فریم صلاحیت</b> والے براؤزر کے ساتھ زیادہ موزوں ہے۔"
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "کوائفیہ فہرست کو ڈراپ ڈاؤن کی بجائے لڑی میں دکھائیں"
 
 #~ msgid "Display databases as a list"

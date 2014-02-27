@@ -4590,7 +4590,7 @@ msgid "Blowfish secret"
 msgstr "Тайна Blowfish фраза"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Маркиране избраните редове"
 
 #: libraries/config/messages.inc.php:34
@@ -4809,7 +4809,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Показване на двоичните данни по подразбиране в шестнадесетичен вид"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Показване сървърите като списък вместо падащо меню"
 
 #: libraries/config/messages.inc.php:96
@@ -14970,7 +14970,7 @@ msgstr "concurrent_insert e 0"
 #~ "phpMyAdmin е по-дружелюбен ако използвате браузър с поддържка на "
 #~ "<b>рамки</b>."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "Показване на БД като списък вместо на падащо меню"
 
 #~ msgid "Display databases as a list"

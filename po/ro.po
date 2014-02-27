@@ -4752,7 +4752,7 @@ msgid "Blowfish secret"
 msgstr "Secret blowfish"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Evidențiază rândurile selectate"
 
 #: libraries/config/messages.inc.php:34
@@ -4967,7 +4967,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Afișează conținutul binar ca HEX implicit"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Afișează listarea server-elor ca o listă, în loc de un drop down"
 
 #: libraries/config/messages.inc.php:96
@@ -15930,7 +15930,7 @@ msgstr "concurrent_insert este setat cu 0"
 #~ "phpMyAdmin are o interfață mai prietenoasă cu un navigator ce lucreaza cu "
 #~ "<b>cadre</b>."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr ""
 #~ "Afișează listarea bazelor de date ca o listă, în loc de un drop down"
 

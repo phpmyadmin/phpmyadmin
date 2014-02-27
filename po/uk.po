@@ -4508,7 +4508,7 @@ msgid "Blowfish secret"
 msgstr "Blowfish секрет"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Виділити обрані рядки"
 
 #: libraries/config/messages.inc.php:34
@@ -4677,7 +4677,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Показувати двійковий вміст як HEX по замовчуванню."
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Показати список сервера у вигляді списку, а не випадаючого меню"
 
 #: libraries/config/messages.inc.php:96
@@ -15093,7 +15093,7 @@ msgstr "concurrent_insert встановлений у 0"
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr "phpMyAdmin є більш зручним в браузері з підтримкою <b>фреймів</b>."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "Показати список бази даних у вигляді списку, а не випадаючого меню"
 
 #~ msgid "Display databases as a list"

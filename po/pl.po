@@ -4736,7 +4736,7 @@ msgid "Blowfish secret"
 msgstr "Sekret Blowfish"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Podświetl zaznaczone rekordy"
 
 #: libraries/config/messages.inc.php:34
@@ -4954,7 +4954,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Pokaż binarne treści jako HEX domyślnie"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Pokaż wykaz serwerów jako listę zamiast listy rozwijanej"
 
 #: libraries/config/messages.inc.php:96
@@ -15894,7 +15894,7 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ "phpMyAdmin jest bardziej przyjazny w przeglądarkach WWW <b>obsługujących "
 #~ "ramki</b>."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "Pokaż wykaz baz danych jako listę zamiast listy rozwijanej"
 
 #~ msgid "Display databases as a list"

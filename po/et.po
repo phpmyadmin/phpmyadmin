@@ -4518,7 +4518,7 @@ msgid "Blowfish secret"
 msgstr "Blowfish turvasõna"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Tõsta valitud read esile"
 
 #: libraries/config/messages.inc.php:34
@@ -4690,7 +4690,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Näita binaarset sisu vaikimisi HEX-ina."
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Näita servereid rippmenüü asemel nimekirjana"
 
 #: libraries/config/messages.inc.php:96
@@ -14848,7 +14848,7 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr ""
 #~ "phpMyAdmin on parema välimusega <b>raamimisvõimelises</b> veebilehitsejas."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "Näita andmebaase rippmenüü asemel nimekirjana"
 
 #~ msgid "Display databases as a list"
