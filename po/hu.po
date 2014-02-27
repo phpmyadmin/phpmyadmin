@@ -4676,7 +4676,7 @@ msgid "Blowfish secret"
 msgstr "Blowfish titkosítás"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "A kijelölt sorok szövegkiemeléssel"
 
 #: libraries/config/messages.inc.php:34
@@ -4894,7 +4894,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Bináris tartalom megjelenítése HEX-ként, mint alapértelmezett"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "A szerverek legördülő helyett listaként történő megjelenítése"
 
 #: libraries/config/messages.inc.php:96
@@ -15656,7 +15656,7 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr "A phpMyAdmin <b>keretkezelő</b> böngészőben használhatóbb."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "Az adatbázisok legördülő helyett listaként történő megjelenítése"
 
 #~ msgid "Display databases as a list"

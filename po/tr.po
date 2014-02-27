@@ -4554,7 +4554,7 @@ msgid "Blowfish secret"
 msgstr "Blowfish gizliliği"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Seçili satırları vurgular"
 
 #: libraries/config/messages.inc.php:34
@@ -4727,7 +4727,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Binari içerikleri varsayılandan HEX olarak göster."
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Sunucu listelemeyi aşağı açılır menü yerine liste olarak gösterir"
 
 #: libraries/config/messages.inc.php:96
@@ -14970,7 +14970,7 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "phpMyAdmin, <b>çerçeve-kabiliyeti</b> olan tarayıcı ile daha "
 #~ "kullanışlıdır."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr ""
 #~ "Veritabanı listelemeyi aşağı açılır menü yerine liste olarak gösterir"
 

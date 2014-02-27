@@ -4629,7 +4629,7 @@ msgid "Blowfish secret"
 msgstr "Kevrin Blow fish"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Lakaat al linennoù dibabet da skediñ"
 
 #: libraries/config/messages.inc.php:34
@@ -4835,7 +4835,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù) dre ziouer"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Diskouez roll ar servijerioù e-lec'h ur roll desachañ"
 
 #: libraries/config/messages.inc.php:96
@@ -14523,7 +14523,7 @@ msgstr ""
 #~ msgstr ""
 #~ "Un tamm aesoc'h eo phpMyAdmin gant ur merdeer a <b>skor ar frammoù</b>."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "Diskouez roll an diazoù roadennoù e-lec'h ul lañser desachañ"
 
 #~ msgid "Display databases as a list"

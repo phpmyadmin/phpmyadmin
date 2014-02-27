@@ -4762,7 +4762,7 @@ msgid "Blowfish secret"
 msgstr ""
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr ""
 
 #: libraries/config/messages.inc.php:34
@@ -4929,7 +4929,7 @@ msgid "Show binary contents as HEX by default."
 msgstr ""
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr ""
 
 #: libraries/config/messages.inc.php:96

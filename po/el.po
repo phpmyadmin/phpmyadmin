@@ -4599,7 +4599,7 @@ msgid "Blowfish secret"
 msgstr "Μυστικό κολιτσίδας"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Επισήμανση επιλεγμένων γραμμών"
 
 #: libraries/config/messages.inc.php:34
@@ -4770,7 +4770,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Εμφάνιση δυαδικών περιεχομένων ως Δεκαεξαδικά HEX ως προεπιλογή."
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Εμφάνιση λίστας διακομιστών ως λίστα και όχι ως αναδυόμενο μενού"
 
 #: libraries/config/messages.inc.php:96
@@ -15192,7 +15192,7 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ "Το phpMyAdmin είναι πιο φιλικό με έναν <b>που υποστηρίζει frames</b> "
 #~ "φυλλομετρητή."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr ""
 #~ "Εμφάνιση λίστας βάσεων δεδομένων ως λίστα και όχι ως αναδυόμενο μενού"
 

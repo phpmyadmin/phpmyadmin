@@ -4550,7 +4550,7 @@ msgid "Blowfish secret"
 msgstr "BLOWFISH 암호화"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "선택된 행을 하이라이트"
 
 #: libraries/config/messages.inc.php:34
@@ -4760,7 +4760,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "2진수 데이터를 HEX형식으로 표시하도록 기본설정"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "서버 목록을 목록 형태로 출력(드롭 다운 사용 안 함)"
 
 #: libraries/config/messages.inc.php:96

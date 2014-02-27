@@ -4523,7 +4523,7 @@ msgid "Blowfish secret"
 msgstr "গোপন Blowfish"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "নির্বাচিত রোগুলো উজ্জ্বল কর"
 
 #: libraries/config/messages.inc.php:34
@@ -4694,7 +4694,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "স্বাভাবিকভাবে বাইনারী বিষয়গুলো HEX এ দেখাবে।"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "সার্ভারের তালিকা ড্রপ ডাউনের পরিবর্তে একটি তালিকা হিসাবে দেখাবে"
 
 #: libraries/config/messages.inc.php:96

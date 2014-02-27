@@ -4415,7 +4415,7 @@ msgid "Blowfish secret"
 msgstr "Blowfish 加密密碼"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "加強顯示已選擇的資料列"
 
 #: libraries/config/messages.inc.php:34
@@ -4578,7 +4578,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "預設以 16 進位顯示二進位內容。"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "不使用下拉式選單改採清單方式顯示伺服器清單"
 
 #: libraries/config/messages.inc.php:96
@@ -14313,7 +14313,7 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr "phpMyAdmin 較適合使用在支援<b>頁框</b>的瀏覽器."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "直接顯示資料庫列表而不使用下拉選單"
 
 #~ msgid "Display databases as a list"

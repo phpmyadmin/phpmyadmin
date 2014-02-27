@@ -4476,7 +4476,7 @@ msgid "Blowfish secret"
 msgstr "Blowfish රහස"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "තෝරාගත් පේළි ඉස්මතු කරන්න"
 
 #: libraries/config/messages.inc.php:34
@@ -4641,7 +4641,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "පෙරනිමිය ලෙස ද්වීමය දත්ත HEX ලෙස පෙන්වන්න."
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "සේවාදායකයන් පතනයක් ලෙස නොව ලැයිස්තුවක් ලෙස පෙන්වන්න"
 
 #: libraries/config/messages.inc.php:96
@@ -14668,7 +14668,7 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr "<b >frame සහය ඇති</b> බ්‍රව්සර සමග phpMyAdmin වඩා හොඳින් ක්‍රියා කරයි."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "දත්තගබඩා පතනයක් ලෙස නොව ලැයිස්තුවක් ලෙස පෙන්වන්න"
 
 #~ msgid "Display databases as a list"

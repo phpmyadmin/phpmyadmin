@@ -4561,7 +4561,7 @@ msgid "Blowfish secret"
 msgstr "Skrivno geslo (blowfish)"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Poudari izbrane vrstice"
 
 #: libraries/config/messages.inc.php:34
@@ -4732,7 +4732,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Privzeto prikaži dvojiške vsebine kot HEX."
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr "Prikaži naštete strežnike kot seznam namesto spustnega menija"
 
 #: libraries/config/messages.inc.php:96
@@ -14966,7 +14966,7 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 #~ msgstr "phpMyAdmin je prijaznejši z brskalnikom, ki <b>podpira okvirje</b>."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "Prikaži naštete zbirke podatkov kot seznam namesto spustnega menija"
 
 #~ msgid "Display databases as a list"

@@ -5043,7 +5043,7 @@ msgid "Blowfish secret"
 msgstr "Sirli kalit so‘z (Blowfish)"
 
 #: libraries/config/messages.inc.php:33
-msgid "Highlight selected rows"
+msgid "Highlight selected rows."
 msgstr "Tanlangan qatorlarni belgilash"
 
 #: libraries/config/messages.inc.php:34
@@ -5254,7 +5254,7 @@ msgid "Show binary contents as HEX by default."
 msgstr "Ikkilik ma’lumotlarni o‘n oltilik shaklda ko‘rsatish"
 
 #: libraries/config/messages.inc.php:95
-msgid "Show server listing as a list instead of a drop down"
+msgid "Show server listing as a list instead of a drop down."
 msgstr ""
 "Serverlar ro‘yxatini pastga tushadigan menyu o‘rniga oddiy ro‘yxat shaklida "
 "ko‘rsatish"
@@ -16504,7 +16504,7 @@ msgstr "Maksimal ulanishlar soni "
 #~ "phpMyAdmin ishlashi uchun <b>freymlar</b> bilan ishlay oladigan brauzer "
 #~ "kerak."
 
-#~ msgid "Show database listing as a list instead of a drop down"
+#~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr ""
 #~ "Ma`lumotlar bazasi ro‘yxatini pastga tushadigan menyu o‘rniga oddiy "
 #~ "ro‘yxat shaklida ko‘rsatish"

@@ -30,7 +30,7 @@ $strConfigblowfish_secret_desc = __(
     . 'authentication.'
 );
 $strConfigblowfish_secret_name = __('Blowfish secret');
-$strConfigBrowseMarkerEnable_desc = __('Highlight selected rows');
+$strConfigBrowseMarkerEnable_desc = __('Highlight selected rows.');
 $strConfigBrowseMarkerEnable_name = __('Row marker');
 $strConfigBrowsePointerEnable_desc = __('Highlight row pointed by the mouse cursor.');
 $strConfigBrowsePointerEnable_name = __('Highlight pointer');
@@ -92,7 +92,7 @@ $strConfigHideStructureActions_name = __('Hide table structure actions');
 $strConfigDisplayBinaryAsHex_desc = __('Show binary contents as HEX by default.');
 $strConfigDisplayBinaryAsHex_name = __('Show binary contents as HEX');
 $strConfigDisplayServersList_desc
-    = __('Show server listing as a list instead of a drop down');
+    = __('Show server listing as a list instead of a drop down.');
 $strConfigDisplayServersList_name = __('Display servers as a list');
 $strConfigDisableMultiTableMaintenance_desc = __(
     'Disable the table maintenance mass operations, like optimizing or repairing '
