@@ -436,5 +436,24 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         );
         $this->waitForElementNotPresent('byCssSelector', 'li.submenu');
     }
+
+    /**
+     * Navigates browser to a table page.
+     *
+     * @param string $table Name of table
+     *
+     * @return void
+     */
+    public function navigateTable($table)
+    {
+        // go to database page
+        $this->waitForElement("byLinkText", $this->database_name)->click();
+
+        // go to table page
+        $this->waitForElement(
+            "byXPath",
+            "//*[@id='pma_navigation_tree']//a[contains(., '$table')]"
+        )->click();
+    }
 }
 ?>

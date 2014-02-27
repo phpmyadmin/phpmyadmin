@@ -110,14 +110,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
     {
         $this->dbQuery("INSERT INTO `test_table` (val) VALUES (3);");
 
-        // go to database page
-        $this->waitForElement("byLinkText", $this->database_name)->click();
-
-        // got to table page
-        $this->waitForElement(
-            "byXPath",
-            "//*[@id='pma_navigation_tree']//a[contains(., 'test_table')]"
-        )->click();
+        $this->navigateTable('test_table');
 
         $this->waitForElement(
             "byXPath",
