@@ -2420,7 +2420,7 @@ msgid "Submit Query"
 msgstr "Enviar query"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr "Pesquisas salvas: "
 
 #: libraries/DBQbe.class.php:1479

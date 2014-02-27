@@ -1448,8 +1448,8 @@ class PMA_DbQbe
      */
     private function _getSavedSearchesField()
     {
-        $html_output = __('Saved searches : ');
-        $html_output .= '<select name="searchId" id="searchId">';
+        $html_output = __('Saved searches:');
+        $html_output .= ' <select name="searchId" id="searchId">';
         $html_output .= '<option value="">New search</option>';
 
         $currentSearch = $this->_getCurrentSearch();

@@ -2490,7 +2490,7 @@ msgid "Submit Query"
 msgstr "క్వెరీ ని సమర్పించు"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 # Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది

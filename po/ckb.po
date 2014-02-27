@@ -2405,7 +2405,7 @@ msgid "Submit Query"
 msgstr "ناردنی داواکاری"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479

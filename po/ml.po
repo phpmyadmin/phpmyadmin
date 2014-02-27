@@ -2326,7 +2326,7 @@ msgid "Submit Query"
 msgstr "അഭ്യർത്ഥന സമർപ്പിക്കുക"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479

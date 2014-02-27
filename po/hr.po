@@ -2607,7 +2607,7 @@ msgid "Submit Query"
 msgstr "Podnesi upit"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479
