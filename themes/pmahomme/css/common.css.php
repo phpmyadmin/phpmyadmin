@@ -1502,7 +1502,7 @@ div#querywindowcontainer fieldset {
 /* profiling */
 
 div#profilingchart {
-    width: 550px;
+    width: 850px;
     height: 370px;
     float: <?php echo $left; ?>;
 }

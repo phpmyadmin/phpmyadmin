@@ -506,6 +506,7 @@ function PMA_getHtmlForProfilingChart($url_query, $db, $profiling_results)
 </script>
 EOT;
         $profiling_table .= "</div>";
+        $profiling_table .= "<div class='clearfloat'></div>";
 
         //require_once 'libraries/chart.lib.php';
         $profiling_table .= '<div id="profilingChartData" style="display:none;">';
