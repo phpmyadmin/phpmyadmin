@@ -31,8 +31,8 @@ msgid "Database %1$s has been created."
 msgstr "Zbirka podatkov %1$s je ustvarjena."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
-msgstr "Pripomba zbirke podatkov: "
+msgid "Database comment:"
+msgstr "Pripomba zbirke podatkov:"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70

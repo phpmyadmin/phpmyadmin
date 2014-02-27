@@ -31,7 +31,7 @@ msgid "Database %1$s has been created."
 msgstr "%1$s డేటాబేసు సృష్టించబడింది."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
+msgid "Database comment:"
 msgstr "డేటాబేస్ వ్యాఖ్య: "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
@@ -780,7 +780,7 @@ msgstr ""
 
 #: index.php:314
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database client version:"
 msgstr "డేటాబేస్ వ్యాఖ్య:"
 

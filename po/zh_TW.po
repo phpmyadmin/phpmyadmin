@@ -28,8 +28,8 @@ msgid "Database %1$s has been created."
 msgstr "資料庫 %1$s 建立成功。"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
-msgstr "資料庫備註: "
+msgid "Database comment:"
+msgstr "資料庫備註:"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
