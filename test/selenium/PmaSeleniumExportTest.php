@@ -114,7 +114,11 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->waitForElement("byLinkText", $this->database_name)->click();
 
         // got to table page
-        $this->waitForElement("byLinkText", "test_table")->click();
+        $this->waitForElement(
+            "byXPath",
+            "//*[@id='pma_navigation_tree']//a[contains(., 'test_table')]"
+        )->click();
+
         $this->waitForElement(
             "byXPath",
             "//a[@class='tabactive' and contains(., 'Browse')]"
