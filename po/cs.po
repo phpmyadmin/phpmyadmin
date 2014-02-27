@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-27 11:20+0200\n"
+"PO-Revision-Date: 2014-02-27 11:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
@@ -305,7 +305,7 @@ msgstr "Přepnout na %svizuálního návrháře%s"
 msgid ""
 "After saving or loading a search, you can rename it and save the new "
 "criteria."
-msgstr ""
+msgstr "Po uložení nebo nahrání vyhledávání ho můžete upravit a uložit znovu."
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -2383,7 +2383,7 @@ msgstr "Provést dotaz"
 
 #: libraries/DBQbe.class.php:1451
 msgid "Saved searches:"
-msgstr ""
+msgstr "Uložená vyhledávání:"
 
 #: libraries/DBQbe.class.php:1479
 #| msgid "Search"
