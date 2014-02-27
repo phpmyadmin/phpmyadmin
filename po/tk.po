@@ -34,7 +34,7 @@ msgid "Database %1$s has been created."
 msgstr "%1$s maglumatlar ulgamy döredildi."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
+msgid "Database comment:"
 msgstr ""
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352

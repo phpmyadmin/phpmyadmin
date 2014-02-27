@@ -32,8 +32,8 @@ msgid "Database %1$s has been created."
 msgstr "Andmebaas %1$s on loodud."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
-msgstr "Andmebaasi kommentaar: "
+msgid "Database comment:"
+msgstr "Andmebaasi kommentaar:"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70

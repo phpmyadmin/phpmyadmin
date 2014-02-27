@@ -31,8 +31,8 @@ msgid "Database %1$s has been created."
 msgstr "%1$s ساندان غەلبىلىك قۇرۇلدى."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
-msgstr "ساندان ئىزاھاتى: "
+msgid "Database comment:"
+msgstr "ساندان ئىزاھاتى:"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
@@ -784,7 +784,7 @@ msgstr ""
 
 #: index.php:314
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database client version:"
 msgstr "ساندان ئىزاھاتى:"
 
@@ -5200,7 +5200,7 @@ msgstr "LaTeX"
 
 #: libraries/config/messages.inc.php:234
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Databases display options."
 msgstr "ساندان ئىزاھاتى:"
 
@@ -8052,7 +8052,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database operations"
 msgstr "ساندان ئىزاھاتى:"
 

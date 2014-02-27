@@ -28,7 +28,7 @@ msgid "Database %1$s has been created."
 msgstr "ডাটাবেইজ %1$s তৈরী করা হয়েছে।"
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
+msgid "Database comment:"
 msgstr "ডাটাবেইজের মন্তব্য: "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352

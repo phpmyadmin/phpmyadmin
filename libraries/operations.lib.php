@@ -29,7 +29,7 @@ function PMA_getHtmlForDatabaseComment($db)
         $html_output .= '<img class="icon ic_b_comment" '
             . 'src="themes/dot.gif" alt="" />';
     }
-    $html_output .=  __('Database comment: ');
+    $html_output .=  __('Database comment:');
     $html_output .= '</legend>';
     $html_output .= '<input type="text" name="comment" '
         . 'class="textfield" size="30"'

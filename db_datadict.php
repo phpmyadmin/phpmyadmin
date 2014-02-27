@@ -49,8 +49,8 @@ if ($cfgRelation['commwork']) {
      * Displays DB comment
      */
     if ($comment) {
-        echo '<p>' . __('Database comment: ')
-            . '<i>' . htmlspecialchars($comment) . '</i></p>';
+        echo '<p>' . __('Database comment:')
+            . ' <i>' . htmlspecialchars($comment) . '</i></p>';
     } // end if
 }
 

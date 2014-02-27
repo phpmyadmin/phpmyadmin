@@ -29,7 +29,7 @@ msgid "Database %1$s has been created."
 msgstr "വിവരശേഖരം(ങ്ങൾ) %1$s സൃഷ്ടിച്ചിരിക്കുന്നു."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
+msgid "Database comment:"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
@@ -741,7 +741,7 @@ msgstr ""
 
 #: index.php:314
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database client version:"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -4499,13 +4499,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:90
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Whether the table structure actions should be hidden."
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
 #: libraries/config/messages.inc.php:91
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Hide table structure actions"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -4876,7 +4876,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:234
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Databases display options."
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -5050,7 +5050,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:304
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database structure"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -5061,7 +5061,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:307
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Table structure"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -7603,7 +7603,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database operations"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -8146,7 +8146,7 @@ msgstr ""
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:424
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database:"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -11018,7 +11018,7 @@ msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
 
 #: libraries/server_user_groups.lib.php:80
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database level tabs"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 
@@ -11060,7 +11060,7 @@ msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
 
 #: libraries/server_user_groups.lib.php:271
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database-level tabs"
 msgstr "വിവരശേഖര അഭിപ്രായം: "
 

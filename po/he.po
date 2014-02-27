@@ -29,8 +29,8 @@ msgid "Database %1$s has been created."
 msgstr "מסד הנתונים %1$s נוצר."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
-msgstr "הערה על מסד הנתונים: "
+msgid "Database comment:"
+msgstr "הערה על מסד הנתונים:"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70

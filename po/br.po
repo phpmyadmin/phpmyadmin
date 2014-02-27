@@ -34,8 +34,8 @@ msgid "Database %1$s has been created."
 msgstr "Krouet eo bet an diaz roadennoù %1$s."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
-msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
+msgid "Database comment:"
+msgstr "Evezhiadenn diwar-benn an diaz roadennoù :"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
@@ -794,7 +794,7 @@ msgstr ""
 
 #: index.php:314
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database client version:"
 msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
 

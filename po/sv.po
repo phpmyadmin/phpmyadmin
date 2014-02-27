@@ -30,8 +30,8 @@ msgid "Database %1$s has been created."
 msgstr "Databas %1$s har skapats."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
-msgstr "Databaskommentar: "
+msgid "Database comment:"
+msgstr "Databaskommentar:"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70

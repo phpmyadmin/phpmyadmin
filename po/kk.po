@@ -34,8 +34,8 @@ msgid "Database %1$s has been created."
 msgstr "%1$s дерекқоры құрылды."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
-msgid "Database comment: "
-msgstr "Дерекқорына түсініктеме: "
+msgid "Database comment:"
+msgstr "Дерекқорына түсініктеме:"
 
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1352
 #: libraries/tbl_columns_definition_form.lib.php:70
@@ -779,7 +779,7 @@ msgstr ""
 
 #: index.php:314
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database client version:"
 msgstr "Дерекқорына түсініктеме: "
 
@@ -4968,7 +4968,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:234
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Databases display options."
 msgstr "Дерекқорына түсініктеме: "
 
@@ -7718,7 +7718,7 @@ msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database operations"
 msgstr "Дерекқорына түсініктеме: "
 
@@ -11166,7 +11166,7 @@ msgstr "Ағымдағы баптау"
 
 #: libraries/server_user_groups.lib.php:80
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database level tabs"
 msgstr "Дерекқорына түсініктеме: "
 
@@ -11212,7 +11212,7 @@ msgstr "Ағымдағы баптау"
 
 #: libraries/server_user_groups.lib.php:271
 #, fuzzy
-#| msgid "Database comment: "
+#| msgid "Database comment:"
 msgid "Database-level tabs"
 msgstr "Дерекқорына түсініктеме: "
 
