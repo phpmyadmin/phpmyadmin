@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-27 11:37+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-02-27 11:56+0200\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
@@ -4519,7 +4519,7 @@ msgstr "Blowfish turvasõna"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "Tõsta valitud read esile"
+msgstr "Tõsta valitud read esile."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4691,7 +4691,7 @@ msgstr "Näita binaarset sisu vaikimisi HEX-ina."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Näita servereid rippmenüü asemel nimekirjana"
+msgstr "Näita servereid rippmenüü asemel nimekirjana."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
