@@ -4733,7 +4733,7 @@ msgstr "Privzeto prikaži dvojiške vsebine kot HEX."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Prikaži naštete strežnike kot seznam namesto spustnega menija"
+msgstr "Prikaži naštete strežnike kot seznam namesto spustnega menija."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
