@@ -2615,6 +2615,10 @@ fieldset .disabled-field td {
     overflow: hidden;
 }
 
+.pma_table th.draggable span {
+    margin-<?php echo $right; ?>: 10px;
+}
+
 .modal-copy input {
     display: block;
     width: 100%;
