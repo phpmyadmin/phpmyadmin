@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-20 12:50+0200\n"
+"PO-Revision-Date: 2014-02-27 16:59+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -956,10 +955,10 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Weet u zeker dat u gebruikersgroep \"%s\" wil verwijderen?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Weet u zeker dat u gebruikersgroep \"%s\" wil verwijderen?"
+msgstr "Weet u zeker dat u opzoeking \"%s\" wil verwijderen?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
@@ -2414,16 +2413,14 @@ msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Search"
 msgid "Save search"
-msgstr "Zoeken"
+msgstr "Opzoeking opslaan"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete search"
-msgstr "Relatie verwijderen"
+msgstr "Opzoeking verwijderen"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3129,16 +3126,14 @@ msgid "There are no recent tables."
 msgstr "Er zijn geen recente tabellen."
 
 #: libraries/SavedSearches.php:249
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the search."
-msgstr "Tabellen voor de configuratie-opslag van phpMyAdmin ontbreken"
+msgstr "Informatie om de opzoeking op te slaan ontbreekt."
 
 #: libraries/SavedSearches.php:265 libraries/SavedSearches.php:295
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "De gebruiker %s bestaat al!"
+msgstr "Er bestaat reeds een waarde met deze naam."
 
 #: libraries/SavedSearches.php:315
 msgid "Missing information to delete the search."
@@ -3149,10 +3144,9 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/SavedSearches.php:349
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Fout bij het verplaatsen van het geüploade bestand."
+msgstr "Fout bij het laden van de opzoeking."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -4587,7 +4581,7 @@ msgstr "Blowfish geheim"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "Geselecteerde rijen markeren"
+msgstr "Geselecteerde rijen markeren."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4760,7 +4754,7 @@ msgstr "Toon binaire inhoud standaard in HEX-formaat."
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Toon een serveroverzicht als een lijst in plaats van een afrolmenu"
+msgstr "Toon een serveroverzicht als een lijst in plaats van een afrolmenu."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
@@ -9411,10 +9405,10 @@ msgid "Skip current error"
 msgstr "Sla de huidige fout over"
 
 #: libraries/replication_gui.lib.php:292
-#, fuzzy, php-format
+#, php-format
 #| msgid "Skip current error"
 msgid "Skip next %s errors."
-msgstr "Sla de huidige fout over"
+msgstr "Sla de volgende %s fouten over."
 
 #: libraries/replication_gui.lib.php:319
 #, php-format
@@ -9594,16 +9588,15 @@ msgstr ""
 "probleem met de rechten op de master."
 
 #: libraries/replication_gui.lib.php:997
-#, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Wijzigen van master is mislukt"
+msgstr "Wijzigen van master is mislukt!"
 
 #: libraries/replication_gui.lib.php:1001
-#, fuzzy, php-format
+#, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
-msgstr "Masterserver succesvol gewijzigd in %s"
+msgstr "Masterserver succesvol gewijzigd in %s."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:157 libraries/rte/rte_routines.lib.php:307
@@ -9636,13 +9629,11 @@ msgid "Event %1$s has been created."
 msgstr "Gebeurtenis %1$s werd aangemaakt."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
-"<b>Een of meer fouten zijn opgetreden tijdens het uitvoeren van uw opdracht:"
-"</b>"
+"Een of meer fouten zijn opgetreden tijdens het uitvoeren van uw opdracht:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -9706,16 +9697,14 @@ msgstr "Naam"
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
-#, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "De naam moet het formaat \"gebruikersnaam@computernaam\" hebben"
+msgstr "De naam moet het formaat \"gebruikersnaam@computernaam\" hebben!"
 
 #: libraries/rte/rte_events.lib.php:580
-#, fuzzy
 #| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "Vul een naam voor de gebeurtenis in"
+msgstr "Vul een naam voor de gebeurtenis in!"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
@@ -9841,10 +9830,9 @@ msgid "SQL data access"
 msgstr "SQL-gegevenstoegang"
 
 #: libraries/rte/rte_routines.lib.php:1139
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "Vul een routinenaam in"
+msgstr "Vul een routinenaam in!"
 
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
@@ -9922,28 +9910,24 @@ msgid "Time"
 msgstr "Tijdstip"
 
 #: libraries/rte/rte_triggers.lib.php:458
-#, fuzzy
 #| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "U moet een triggernaam ingeven"
+msgstr "U moet een triggernaam ingeven!"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "U moet een geldig tijdstip voor de trigger ingeven"
+msgstr "U moet een geldig tijdstip voor de trigger ingeven!"
 
 #: libraries/rte/rte_triggers.lib.php:472
-#, fuzzy
 #| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "U moet een geldige gebeurtenis voor de trigger ingeven"
+msgstr "U moet een geldige gebeurtenis voor de trigger ingeven!"
 
 #: libraries/rte/rte_triggers.lib.php:480
-#, fuzzy
 #| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "U moet een geldige tabelnaam ingeven"
+msgstr "U moet een geldige tabelnaam ingeven!"
 
 #: libraries/rte/rte_triggers.lib.php:486
 msgid "You must provide a trigger definition."
