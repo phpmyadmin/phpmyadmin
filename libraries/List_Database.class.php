@@ -105,10 +105,6 @@ class PMA_List_Database extends PMA_List
         $GLOBALS['dbi']->getError();
 
         if ($GLOBALS['errno'] !== 0) {
-            // failed! we will display a warning that phpMyAdmin could not
-            // safely retrieve database list, the admin has to setup a
-            // control user
-            $GLOBALS['error_showdatabases'] = true;
             $this->can_retrieve_databases = false;
         }
 
