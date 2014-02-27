@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-27 11:29+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-02-27 11:30+0200\n"
+"Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
 "Language-Team: German "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -450,7 +450,7 @@ msgstr ""
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr "Danke für die Übermittlung dieses Berichts."
+msgstr "Vielen Dank für das Absenden des Berichtes."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
