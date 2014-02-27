@@ -2413,7 +2413,7 @@ msgid "Submit Query"
 msgstr "வினவலை சமர்ப்பி"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479

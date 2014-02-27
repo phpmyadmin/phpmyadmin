@@ -2522,7 +2522,7 @@ msgid "Submit Query"
 msgstr "Doen Navraag"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479

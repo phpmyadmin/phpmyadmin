@@ -2444,7 +2444,7 @@ msgid "Submit Query"
 msgstr "クエリを実行する"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479

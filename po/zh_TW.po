@@ -2339,7 +2339,7 @@ msgid "Submit Query"
 msgstr "送出查詢"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479

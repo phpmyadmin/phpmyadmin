@@ -2431,7 +2431,7 @@ msgid "Submit Query"
 msgstr "Submitte Query"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr "Cercas salveguardate: "
 
 #: libraries/DBQbe.class.php:1479

@@ -2675,7 +2675,7 @@ msgid "Submit Query"
 msgstr "сўровни бажариш"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches : "
+msgid "Saved searches:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1479
