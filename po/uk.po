@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-27 11:35+0200\n"
+"PO-Revision-Date: 2014-02-27 11:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Ukrainian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/uk/>\n"
@@ -4678,7 +4678,7 @@ msgstr "Показувати двійковий вміст як HEX по зам�
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Показати список сервера у вигляді списку, а не випадаючого меню"
+msgstr "Показати список сервера у вигляді списку, а не випадаючого меню."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
