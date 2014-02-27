@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-02-03 17:00+0200\n"
+"PO-Revision-Date: 2014-02-27 11:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Polish <http://l10n.cihar.com/projects/phpmyadmin/master/pl/"
-">\n"
+"Language-Team: Polish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pl/>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
@@ -4737,7 +4737,7 @@ msgstr "Sekret Blowfish"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "Podświetl zaznaczone rekordy"
+msgstr "Podświetl zaznaczone rekordy."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4955,7 +4955,7 @@ msgstr "Pokaż binarne treści jako HEX domyślnie"
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Pokaż wykaz serwerów jako listę zamiast listy rozwijanej"
+msgstr "Pokaż wykaz serwerów jako listę zamiast listy rozwijanej."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
@@ -13751,7 +13751,7 @@ msgstr "Relacja FOREIGN KEY została dodana"
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
-msgstr "Błąd: funkcjonalność relacyjna jest wyłączona!"
+msgstr "Błąd: Funkcjonalność relacyjna jest wyłączona!"
 
 #: pmd_relation_new.php:104
 msgid "Internal relation added"
