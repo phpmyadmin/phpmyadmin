@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4294 output as text radio clickable for "OpenDocument Text" export 
 - bug #4297 DROP DATABASE tick box in export no longer works
 - bug #4291 Unable to export comments in OpenDocument text format
+- bug #4299 Deletion even when the user says "No" to the confirmation message
 
 4.1.8.0 (2014-02-22)
 - bug #4276 Login loop on session expiry
