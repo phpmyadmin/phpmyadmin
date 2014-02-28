@@ -484,10 +484,10 @@ function PMA_exportServer(
 }
 
 /**
- * Export at the database level 
+ * Export at the database level
  *
  * @param string $db              the database to export
- * @param string $tables          the tables to export
+ * @param array  $tables          the tables to export
  * @param string $whatStrucOrData structure or data or both
  * @param object $export_plugin   the selected export plugin
  * @param string $crlf            end of line character(s)
