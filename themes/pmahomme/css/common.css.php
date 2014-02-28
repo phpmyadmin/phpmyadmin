@@ -1125,7 +1125,7 @@ div#tablestatistics table {
     font-weight: bold;
     font-style: italic;
     white-space: nowrap;
-    margin-left: 10px;  
+    margin-left: 10px;
     color: #D6D6D6;
     text-shadow: none;
 }
@@ -2080,7 +2080,6 @@ select#table_select {
     margin-bottom: 0;
 }
 
-#quick_or_custom,
 #output_quick_export {
     display: none;
 }
@@ -2808,7 +2807,7 @@ fieldset .disabled-field td {
     padding: 0;
 }
 
-.cEdit .edit_area {   
+.cEdit .edit_area {
     background: #FFF;
     border: 1px solid #999;
     min-width: 10em;

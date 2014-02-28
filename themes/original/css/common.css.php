@@ -243,7 +243,7 @@ fieldset .formelement {
         clear: none;
     }
     #relationalTable td:first-child + td {
-        width: 25%;  
+        width: 25%;
     }
     #relationalTable td:first-child + td select {
         width: 32%;
@@ -251,8 +251,8 @@ fieldset .formelement {
     }
     #relationalTable {
         width: 100%;
-    }  
-    
+    }
+
 }
 
 /* revert for Gecko */
@@ -820,7 +820,7 @@ div#tablestatistics table {
     font-weight: bold;
     font-style: italic;
     white-space: nowrap;
-    margin-left: 10px;  
+    margin-left: 10px;
     color: #D6D6D6;
     text-shadow: none;
 }
@@ -1588,7 +1588,6 @@ select#table_select {
     margin-bottom: 0;
 }
 
-#quick_or_custom,
 #output_quick_export {
     display: none;
 }
