@@ -40,11 +40,12 @@ $db_search = new PMA_DbSearch($GLOBALS['db']);
 if ( $GLOBALS['is_ajax_request'] != true) {
     include 'libraries/db_info.inc.php';
 }
-$response->addHTML('<div id="searchresults">');
 
 // Main search form has been submitted, get results
 if (isset($_REQUEST['submit_search'])) {
     $response->addHTML($db_search->getSearchResults());
+} else {
+    $response->addHTML('<div id="searchresults"></div>');
 }
 
 // If we are in an Ajax request, we need to exit after displaying all the HTML
@@ -53,5 +54,9 @@ if ($GLOBALS['is_ajax_request'] == true && empty($_REQUEST['ajax_page_request'])
 }
 
 // Display the search form
+$response->addHTML('<div id="togglesearchresultsdiv">'
+    . '<a id="togglesearchresultlink"></a></div>'
+    . '<br class="clearfloat" />');
 $response->addHTML($db_search->getSelectionForm($url_params));
+$response->addHTML($db_search->_getResultDivs());
 ?>
