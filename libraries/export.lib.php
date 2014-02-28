@@ -376,14 +376,15 @@ function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
 }
 
 /**
- * Compress the export buffer 
+ * Compress the export buffer
  *
  * @param string $dump_buffer the current dump buffer
  * @param string $compression the compression mode
+ * @param string $filename    the filename
  *
  * @return object $message a message object (or empty string)
  */
-function PMA_compressExport($dump_buffer, $compression)
+function PMA_compressExport($dump_buffer, $compression, $filename)
 {
     if ($compression == 'zip' && @function_exists('gzcompress')) {
         $zipfile = new ZipFile();
