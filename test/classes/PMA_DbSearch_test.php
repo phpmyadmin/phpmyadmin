@@ -153,14 +153,16 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
                 ),
                 true,
                 '<tr class="noclick odd"><td>2 matches in <strong>table1</strong>'
-                . '</td><td><a name="browse_search" href="sql.php?db=pma&amp;table'
+                . '</td><td><a name="browse_search" class="ajax" '
+                . 'href="sql.php?db=pma&amp;table'
                 . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'
                 . 'sql_query=column1&amp;server=0&amp;lang=en&amp;token=token" '
                 . 'onclick="loadResult(\'sql.php?db=pma&amp;table=table1&amp;goto='
                 . 'db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;sql_query=column1'
                 . '&amp;server=0&amp;lang=en&amp;token=token\',\'table1\',\'db=pma'
                 . '&amp;table=table1&amp;server=0&amp;lang=en&amp;token=token\');'
-                . 'return false;" >Browse</a></td><td><a name="delete_search" href'
+                . 'return false;" >Browse</a></td><td>'
+                . '<a name="delete_search" class="ajax" href'
                 . '="sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0'
                 . '&amp;is_js_confirmed=0&amp;sql_query=column2&amp;server=0&amp;'
                 . 'lang=en&amp;token=token" onclick="deleteResult(\'sql.php?db=pma'
@@ -225,14 +227,8 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
             . '<input type="text" name="criteriaColumnName" size="60"value="" />'
             . '</td></tr></table></fieldset><fieldset class="tblFooters"><input '
             . 'type="submit" name="submit_search" value="Go" id="buttonGo" />'
-            . '</fieldset></form><!-- These two table-image and table-link elements '
-            . 'display the table name in browse search results  --><div id="table-'
-            . 'info"><a class="item" id="table-link" ></a></div><div id="browse-'
-            . 'results"><!-- this browse-results div is used to load the browse and '
-            . 'delete results in the db search --></div><br class="clearfloat" />'
-            . '<div id="sqlqueryform"><!-- this sqlqueryform div is used to load '
-            . 'the delete form in the db search --></div><!--  toggle query box '
-            . 'link--><a id="togglequerybox"></a>',
+            . '</fieldset></form><div id="togglesearchformdiv">'
+            . '<a id="togglesearchformlink"></a></div>',
             $this->object->getSelectionForm($url_params)
         );
     }
