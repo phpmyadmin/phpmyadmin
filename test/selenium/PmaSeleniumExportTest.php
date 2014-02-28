@@ -162,7 +162,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         /*
          * FIXME: There should be better way to wait for javascript to be executed
          */
-        usleep(200);
+        usleep(500);
         $this->byCssSelector("label[for=radio_custom_export]")->click();
 
         if ($type == 'server') {
