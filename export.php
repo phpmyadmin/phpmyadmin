@@ -443,7 +443,8 @@ if (!defined('TESTSUITE')) {
 
         // Compression needed?
         if ($compression) {
-            $dump_buffer = PMA_compressExport($dump_buffer, $compression);
+            $dump_buffer
+                = PMA_compressExport($dump_buffer, $compression, $filename);
         }
 
         /* If we saved on server, we have to close file now */
