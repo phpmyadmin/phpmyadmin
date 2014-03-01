@@ -28,10 +28,11 @@ phpMyAdmin - ChangeLog
 + rfe #1418 Support more than one separating character on CSV import
 + rfe #569  Load/Save Query By Example
 - bug #4281 Grid edit ENUM field, dialog disappears when trying to select
+- bug #4304 DB export using zip compression generates an empty archive
 
 4.1.9.0 (not yet released)
 - bug #4279 CTRL + up or down moves two fields (part one)
-- bug #4294 output as text radio clickable for "OpenDocument Text" export 
+- bug #4294 output as text radio clickable for "OpenDocument Text" export
 - bug #4297 DROP DATABASE tick box in export no longer works
 - bug #4291 Unable to export comments in OpenDocument text format
 - bug #4299 Deletion even when the user says "No" to the confirmation message
@@ -51,7 +52,7 @@ phpMyAdmin - ChangeLog
 - Fixed altering table to DOUBLE/FLOAT field
 - bug #4292 Success message and failure message being shown together
 - bug #4293 opening new tab (using selflink) for import.php based actions
-            results in error and logout 
+            results in error and logout
 
 4.1.7.0 (2014-02-09)
 - bug #4245 initial Browse query does not match sorting order
