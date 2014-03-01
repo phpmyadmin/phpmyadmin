@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-02-26 12:50-0500\n"
-"PO-Revision-Date: 2014-03-01 01:55+0200\n"
+"PO-Revision-Date: 2014-03-01 17:29+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -944,10 +944,10 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Vill du verkligen ta bort användargruppen \"%s\"?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Vill du verkligen ta bort användargruppen \"%s\"?"
+msgstr "Vill du verkligen ta bort sökningen \"%s\"?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
@@ -2382,7 +2382,7 @@ msgstr "Skicka fråga"
 
 #: libraries/DBQbe.class.php:1451
 msgid "Saved searches:"
-msgstr ""
+msgstr "Sparade sökningar:"
 
 #: libraries/DBQbe.class.php:1479
 #| msgid "Search"
