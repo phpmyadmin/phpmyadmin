@@ -1369,7 +1369,7 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_system_schema, $tbl_storage_engine
 ) {
     $html_output = '<img class="selectallarrow" '
-        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
+        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" '
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
 
     $html_output .= '<input type="checkbox" id="fieldsForm_checkall" '
