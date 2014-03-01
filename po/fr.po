@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 10:54+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/4-1/fr/>\n"
+"PO-Revision-Date: 2014-02-26 21:29+0200\n"
+"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/4-1/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1061,15 +1061,15 @@ msgstr ""
 
 #: js/messages.php:81
 msgid "Query cache efficiency"
-msgstr "Efficacité de la cache de requêtes"
+msgstr "Efficacité du cache de requêtes"
 
 #: js/messages.php:82
 msgid "Query cache usage"
-msgstr "Utilisation de la cache de requêtes"
+msgstr "Utilisation du cache de requêtes"
 
 #: js/messages.php:83
 msgid "Query cache used"
-msgstr "Cache de requêtes utilisée"
+msgstr "Cache de requêtes utilisé"
 
 #: js/messages.php:85
 msgid "System CPU Usage"
@@ -3262,7 +3262,7 @@ msgstr "Montrer l'état des serveurs esclaves"
 
 #: libraries/ServerStatusData.class.php:244
 msgid "Flush query cache"
-msgstr "Vider la cache des requêtes"
+msgstr "Vider le cache des requêtes"
 
 #: libraries/ServerStatusData.class.php:263
 #: libraries/engines/innodb.lib.php:144

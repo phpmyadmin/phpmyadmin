@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-08-23 11:32+0200\n"
+"PO-Revision-Date: 2014-02-27 10:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Belarusian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"be/>\n"
+"Language-Team: Belarusian "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -22,6 +22,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Файл %s недаступны на гэтай сістэме, падрабязнасці на сайце "
+"www.phpmyadmin.net."
 
 #: db_create.php:61
 #, php-format
@@ -35,10 +37,9 @@ msgstr "Камэнтар да базы дадзеных: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Камэнтар да табліцы"
+msgstr "Камэнтар да табліцы:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -59,10 +60,9 @@ msgstr "Камэнтар да табліцы"
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:731
 #: libraries/tbl_tracking.lib.php:818
-#, fuzzy
 #| msgid "Column names"
 msgid "Column"
-msgstr "Назвы калёнак"
+msgstr "Калонка"
 
 #: db_datadict.php:169 db_printview.php:49 libraries/Index.class.php:564
 #: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:243
@@ -233,16 +233,14 @@ msgid "Database %1$s has been copied to %2$s"
 msgstr "База дадзеных %s была скапіяваная ў %s"
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
 #| "To find out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr ""
-"Дадатковыя магчымасьці работы з зьвязанымі табліцамі былі адключаныя. Каб "
-"высьветліць чаму, націсьніце %sтут%s."
+msgstr "Сховішча канфігурацыі PHPMyAdmin дэактываванае.  %sДаведацца%s чаму."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:519
@@ -276,10 +274,9 @@ msgstr "выкарыстоўваецца"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Створаная"
+msgstr "Створаная:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
@@ -15050,16 +15047,14 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:450
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Памер пулу буфэру"
+msgstr "Памер пулу буфэру InnoDB"
 
 #: libraries/advisory_rules.txt:453
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Памер пулу буфэру"
+msgstr "Недастатковы памер буферу InnoDB."
 
 #: libraries/advisory_rules.txt:454
 #, php-format

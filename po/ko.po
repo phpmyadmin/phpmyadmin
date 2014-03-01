@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-19 16:50+0200\n"
+"PO-Revision-Date: 2014-02-23 05:41+0200\n"
 "Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
@@ -5972,10 +5972,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:438
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Display columns table"
-msgstr "열(컬럼) 이름 복사"
+msgstr "열 목록 표시"
 
 #: libraries/config/messages.inc.php:439
 msgid ""
@@ -6061,32 +6060,27 @@ msgid "User preferences storage table"
 msgstr "사용자 설정 스토리지 테이블"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]pma__users"
 "[/kbd]"
-msgstr ""
-"PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
+msgstr "설정을 변경할 수 있는 메뉴를 지정하지 않는 경우 빈칸으로 남겨두십시오. 권장: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:456
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "사용할 테이블"
+msgstr "사용자 목록"
 
 #: libraries/config/messages.inc.php:457
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank to disable configurable menus feature, suggested: [kbd]"
 "pma__usergroups[/kbd]"
-msgstr ""
-"PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
+msgstr "설정을 변경할 수 있는 메뉴를 지정하지 않는 경우 빈칸으로 남겨두십시오. 권장: [kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:458
 #| msgid "Use Tables"
@@ -6094,7 +6088,6 @@ msgid "User groups table"
 msgstr "사용자 그룹 테이블"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query tracking support, suggested: [kbd]"
 #| "pma__tracking[/kbd]"
@@ -6102,8 +6095,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]"
 msgstr ""
-"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]"
-"pma__tracking[/kbd]"
+"네비게이션 항목의 표시 설정을 사용하지 않는 경우 빈칸으로 남겨두십시오. 권장: "
+"[kbd]pma__navigationhiding[/kbd]"
 
 #: libraries/config/messages.inc.php:460
 msgid "Hidden navigation items table"

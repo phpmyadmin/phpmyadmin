@@ -119,6 +119,7 @@ if (!defined('TESTSUITE')) {
             'sql_max_query_size',
             'sql_hex_for_blob',
             'sql_utc_time',
+            'sql_drop_database',
             'csv_separator',
             'csv_enclosed',
             'csv_escaped',
@@ -654,7 +655,8 @@ if (!defined('TESTSUITE')) {
 
         // Will we need relation & co. setup?
         $do_relation = isset($GLOBALS[$what . '_relation']);
-        $do_comments = isset($GLOBALS[$what . '_include_comments']);
+        $do_comments = isset($GLOBALS[$what . '_include_comments'])
+            || isset($GLOBALS[$what . '_comments']) ;
         $do_mime     = isset($GLOBALS[$what . '_mime']);
         if ($do_relation || $do_comments || $do_mime) {
             $cfgRelation = PMA_getRelationsParam();

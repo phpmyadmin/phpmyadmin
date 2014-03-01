@@ -1901,13 +1901,6 @@ $cfg['Export']['sql_max_query_size'] = 50000;
 /**
  *
  *
- * @global boolean $cfg['Export']['sql_comments']
- */
-$cfg['Export']['sql_comments'] = false;
-
-/**
- *
- *
  * @global boolean $cfg['Export']['sql_mime']
  */
 $cfg['Export']['sql_mime'] = false;

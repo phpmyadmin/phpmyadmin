@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-04 08:40+0200\n"
-"Last-Translator: Daniel Silva <daniel.p.silva.97@gmail.com>\n"
+"PO-Revision-Date: 2014-02-27 11:34+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese "
-"<http://l10n.cihar.com/projects/phpmyadmin/4-1/pt/>\n"
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12790,7 +12790,7 @@ msgstr "Relação FOREIGN KEY adicionada"
 
 #: pmd_relation_new.php:84
 msgid "Error: Relational features are disabled!"
-msgstr "Erro: as características relacionais estão desactivadas!"
+msgstr "Erro: As características relacionais estão desactivadas!"
 
 #: pmd_relation_new.php:100
 msgid "Internal relation added"

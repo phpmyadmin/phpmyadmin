@@ -1,4 +1,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+// gloabl vars to hold Arrow Down event timeStamps
+var prevTimeStamp = 0; 
+var curTimeStamp = 0;
+
 /**
   * Allows moving around inputs/select by Ctrl+arrows
   *
@@ -7,6 +12,17 @@
 function onKeyDownArrowsHandler(e)
 {
     e = e || window.event;
+
+    curTimeStamp = e.timeStamp;
+    if( prevTimeStamp == 0 ) {
+        prevTimeStamp = curTimeStamp;
+    }
+    else if( Math.abs(curTimeStamp-prevTimeStamp) < 150 ) {
+        // event in a very quick succession
+        return;
+    }
+    prevTimeStamp = curTimeStamp;
+    
     var o = (e.srcElement || e.target);
     if (!o) {
         return;
@@ -14,7 +30,6 @@ function onKeyDownArrowsHandler(e)
     if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") {
         return;
     }
-    console.log(e);
     if (navigator.userAgent.toLowerCase().indexOf('applewebkit/') != -1) {
         if (e.ctrlKey || e.shiftKey || !e.altKey) {
             return;

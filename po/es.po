@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-04 00:07+0200\n"
+"PO-Revision-Date: 2014-02-27 18:03+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/4-1/es/>\n"
+"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/4-1/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4660,7 +4660,7 @@ msgstr "Muestra los servidores en una lista en lugar de un drop down"
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
-msgstr "Muestra los servidores en una lista"
+msgstr "Mostrar los servidores en una lista"
 
 #: libraries/config/messages.inc.php:62
 msgid ""

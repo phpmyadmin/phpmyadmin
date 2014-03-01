@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-02 11:01+0200\n"
+"PO-Revision-Date: 2014-02-27 11:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/4-1/ar/>\n"
+"Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/4-1/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,12 +293,12 @@ msgstr "آخر فحص"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s  جدول (جداول)"
-msgstr[1] "%s  جدول (جداول)"
-msgstr[2] "%s  جدول (جداول)"
-msgstr[3] "%s  جدول (جداول)"
-msgstr[4] "%s  جدول (جداول)"
-msgstr[5] "%s  جدول (جداول)"
+msgstr[0] "%s جدول (جداول)"
+msgstr[1] "%s جدول (جداول)"
+msgstr[2] "%s جدول (جداول)"
+msgstr[3] "%s جدول (جداول)"
+msgstr[4] "%s جدول (جداول)"
+msgstr[5] "%s جدول (جداول)"
 
 #: db_qbe.php:50
 msgid "You have to choose at least one column to display"
@@ -423,12 +423,12 @@ msgstr "سجل قاعدة البيانات"
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
-msgstr ""
+msgstr "تم اكتشاف خطأ، وتلقائياً تم إرسال تقرير بهذا الخطأ بناءً على إعداداتك."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "لربما يكون من الأفضل أن تقوم بتحديث هذه الصفحة."
 
 #: error_report.php:45
 msgid ""
@@ -2306,17 +2306,17 @@ msgstr "ألقى PHP بالخطأ التالي: %s"
 #: libraries/Advisor.class.php:107
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "فشلت في تقييم مسبق للقاعدة '%s'"
+msgstr "فشلت في تقييم مسبق للقاعدة '%s'."
 
 #: libraries/Advisor.class.php:124
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr "فشلت في حساب القيمة للقاعدة '%s'"
+msgstr "فشلت في حساب القيمة للقاعدة '%s'."
 
 #: libraries/Advisor.class.php:143
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr "فشلت في تشغيل الإختبار للقاعدة '%s'"
+msgstr "فشلت في تشغيل الإختبار للقاعدة '%s'."
 
 #: libraries/Advisor.class.php:225
 #, php-format
@@ -2328,7 +2328,8 @@ msgstr "فشل تنسيق النص لـ '%s'."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
-"إعلان قاعدة غير صالح على السطر %1$s، السطر المتوقع هو %2$s من القاعدة السابقة"
+"إعلان قاعدة غير صالح على السطر %1$s، السطر المتوقع هو %2$s من القاعدة "
+"السابقة."
 
 #: libraries/Advisor.class.php:417
 #, php-format
@@ -2967,7 +2968,7 @@ msgstr "لقد تم حذف المفتاح الأساسي"
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "تم حذف الفهرس %s"
+msgstr "تم حذف الفهرس %s."
 
 #: libraries/Index.class.php:738
 #, php-format
@@ -3140,34 +3141,34 @@ msgstr "خطأ"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d صف تأثر"
-msgstr[1] "%1$d صف تأثر"
-msgstr[2] "%1$d صفوف تأثرت"
-msgstr[3] "%1$d صفوف تأثرت"
-msgstr[4] "%1$d صفوف تأثرت"
-msgstr[5] "%1$d صفوف تأثرت"
+msgstr[0] "%1$d صف تأثر."
+msgstr[1] "%1$d صف تأثر."
+msgstr[2] "%1$d صفوف تأثرت."
+msgstr[3] "%1$d صفوف تأثرت."
+msgstr[4] "%1$d صفوف تأثرت."
+msgstr[5] "%1$d صفوف تأثرت."
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d صف حذف"
-msgstr[1] "%1$d صف حذف"
-msgstr[2] "%1$d صفوف حذفت"
-msgstr[3] "%1$d صفوف حذفت"
-msgstr[4] "%1$d صفوف حذفت"
-msgstr[5] "%1$d صفوف حذفت"
+msgstr[0] "%1$d صف حذف."
+msgstr[1] "%1$d صف حذف."
+msgstr[2] "%1$d صفوف حذفت."
+msgstr[3] "%1$d صفوف حذفت."
+msgstr[4] "%1$d صفوف حذفت."
+msgstr[5] "%1$d صفوف حذفت."
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d صف أضيف"
-msgstr[1] "%1$d صف أضيف"
-msgstr[2] "%1$d صفوف أضيفت"
-msgstr[3] "%1$d صفوف أضيفت"
-msgstr[4] "%1$d صفوف أضيفت"
-msgstr[5] "%1$d صفوف أضيفت"
+msgstr[0] "%1$d صف أضيف."
+msgstr[1] "%1$d صف أضيف."
+msgstr[2] "%1$d صفوف أضيفت."
+msgstr[3] "%1$d صفوف أضيفت."
+msgstr[4] "%1$d صفوف أضيفت."
+msgstr[5] "%1$d صفوف أضيفت."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2475
 #: libraries/browse_foreigners.lib.php:393
@@ -3925,7 +3926,7 @@ msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1234
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل"
+msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل."
 
 #: libraries/Util.class.php:3387
 msgid "There are no files to upload"
@@ -4293,7 +4294,7 @@ msgstr "أقصى %s"
 
 #: libraries/config/FormDisplay.tpl.php:216
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "هذا الإعداد معطل , لن يتم تطبيقه في التكوين"
+msgstr "هذا الإعداد معطل , لن يتم تطبيقه في التكوين."
 
 #: libraries/config/FormDisplay.tpl.php:308
 #, php-format
@@ -8072,7 +8073,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "لانشاط منذ %s ثواني , الرجاء تسجيل الدخول من جديد"
+msgstr "لانشاط منذ %s ثواني , الرجاء تسجيل الدخول من جديد."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:691
 #: libraries/plugins/auth/AuthenticationCookie.class.php:693
@@ -8096,7 +8097,7 @@ msgstr "الملف %s لايحتوي على أي مفتاح تعريف"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
 msgid "Hardware authentication failed!"
-msgstr "فشلت المصادقة المحسوسة"
+msgstr "فشلت المصادقة المحسوسة!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"

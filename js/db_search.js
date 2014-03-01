@@ -44,15 +44,21 @@ function loadResult(result_path, table_name, link)
         /**  Load the browse results to the page */
         $("#table-info").show();
         $('#table-link').attr({"href" : 'sql.php?' + link }).text(table_name);
-        var url = result_path + " #sqlqueryresults";
-        $('#browse-results').load(url, null, function () {
-            $('html, body')
-                .animate({
-                    scrollTop: $("#browse-results").offset().top
-                }, 1000);
-            PMA_ajaxRemoveMessage($msg);
-            PMA_makegrid($('#table_results')[0], true, true, true, true);
-        }).show();
+        var url = result_path + "#sqlqueryresults";
+        $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
+            if (data.success) {
+                $('#browse-results').html(data.message);
+                $('html, body')
+                    .animate({
+                        scrollTop: $("#browse-results").offset().top
+                    }, 1000);
+                PMA_ajaxRemoveMessage($msg);
+                PMA_makegrid($('#table_results')[0], true, true, true, true);
+                $('#browse-results').show();
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+         });
     });
 }
 
@@ -69,7 +75,6 @@ function deleteResult(result_path, msg)
     $(function () {
         /**  Hides the results shown by the browse criteria */
         $("#table-info").hide();
-        $('#browse-results').hide();
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
@@ -77,13 +82,16 @@ function deleteResult(result_path, msg)
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
-            var url = result_path + " #result_query, #sqlqueryform";
-            $('#browse-results').load(url, function () {
+            var url = result_path + "#result_query, #sqlqueryform";
+            $.get(url, {'ajax_request': true, 'is_js_confirmed': true}, 
+                function (data) {
+            if (data.success) {
+                $('#sqlqueryform').html(data.sql_query);
                 /** Refresh the search results after the deletion */
                 document.getElementById('buttonGo').click();
                 $('#togglequerybox').html(PMA_messages.strHideQueryBox);
                 /** Show the results of the deletion option */
-                $('#browse-results').show();
+                $('#browse-results').hide();
                 $('#sqlqueryform').show();
                 $('#togglequerybox').show();
                 $('html, body')
@@ -91,7 +99,10 @@ function deleteResult(result_path, msg)
                         scrollTop: $("#browse-results").offset().top
                     }, 1000);
                 PMA_ajaxRemoveMessage($msg);
-            });
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+         });
         }
     });
 }
@@ -111,12 +122,10 @@ AJAX.registerOnload('db_search.js', function () {
     /**
      * Prepare a div containing a link for toggle the search results
      */
-    $('<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>')
-    .insertAfter('#searchresults')
+    $('#togglesearchresultsdiv')
     /** don't show it until we have results on-screen */
     .hide();
 
-    $('<br class="clearfloat" />').insertAfter("#togglesearchresultsdiv").show();
     /**
      * Changing the displayed text according to
      * the hide/show criteria in search result forms
@@ -139,8 +148,7 @@ AJAX.registerOnload('db_search.js', function () {
      * Prepare a div containing a link for toggle the search form,
      * otherwise it's incorrectly displayed after a couple of clicks
      */
-    $('<div id="togglesearchformdiv"><a id="togglesearchformlink"></a></div>')
-    .insertAfter('#db_search_form')
+    $('#togglesearchformdiv')
     .hide(); // don't show it until we have results on-screen
 
     /**
