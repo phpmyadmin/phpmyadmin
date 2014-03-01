@@ -301,6 +301,11 @@ var AJAX = {
                     	var replacement = "tbl_sql.php";
                     	data._selflink = data._selflink.replace(source,replacement);
                     }
+                    // Bug #4302
+                    // Append single_table=TRUE to url
+                    if ( $('input[name=single_table]').val() !== undefined) {
+                        data._selflink += '&single_table=' + $('input[name=single_table]').val();
+                    }
                     $('#selflink > a').attr('href', data._selflink);
                 }
                 if (data._scripts) {
