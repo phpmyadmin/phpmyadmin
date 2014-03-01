@@ -1752,10 +1752,14 @@ $(function () {
      */
     $('span.ajax_notification a, span.ajax_notification button, span.ajax_notification input')
     .live('mouseover', function () {
-        $(this).parents('span.ajax_notification').tooltip('disable');
+        if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
+            $(this).parents('span.ajax_notification').tooltip('disable');
+        }
     })
     .live('mouseout', function () {
-        $(this).parents('span.ajax_notification').tooltip('enable');
+        if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
+            $(this).parents('span.ajax_notification').tooltip('enable');
+        }
     });
 });
 
