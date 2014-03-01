@@ -1802,7 +1802,8 @@ function PMA_createProfilingChartJqplot(target, data)
             },
             legend: {
                 show: true,
-                location: 'e'
+                location: 'e',
+                rendererOptions: {numberColumns: 2}
             },
             // from http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette
             seriesColors: [
