@@ -53,6 +53,7 @@ AJAX.registerTeardown('import.js', function () {
     $("#select_local_import_file").unbind('change');
     $("#input_import_file").unbind('change').unbind('focus');
     $("#select_local_import_file").unbind('focus');
+    $("#text_csv_enclosed").add("#text_csv_escaped").unbind('keyup');
 });
 
 AJAX.registerOnload('import.js', function () {
