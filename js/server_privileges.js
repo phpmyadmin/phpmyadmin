@@ -280,7 +280,7 @@ AJAX.registerOnload('server_privileges.js', function () {
                     $(this).remove();
 
                     //If this is the last user with this_user_initial, remove the link from #initials_table
-                    if ($("#tableuserrights").find('input:checkbox[value^=' + this_user_initial + ']').length === 0) {
+                    if ($("#tableuserrights").find('input:checkbox[value^="' + this_user_initial + '"]').length === 0) {
                         $("#initials_table").find('td > a:contains(' + this_user_initial + ')').parent('td').html(this_user_initial);
                     }
 

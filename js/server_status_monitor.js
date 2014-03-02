@@ -1023,16 +1023,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         destroyGrid();
         initGrid();
-
-        if (oldData) {
-            $.each(runtime.charts, function (key, chartObj) {
-                for (var j = 0, l = chartObj.nodes.length; j < l; j++) {
-                    if (oldData[chartObj.nodes[j].dataPoint]) {
-                        chartObj.chart.series[j].setData(oldData[chartObj.nodes[j].dataPoint]);
-                    }
-                }
-            });
-        }
     }
 
     /* Calculactes the dynamic chart size that depends on the column width */

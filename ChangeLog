@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 - bug #4291 Unable to export comments in OpenDocument text format
 - bug #4299 Deletion even when the user says "No" to the confirmation message
 - bug #4303 "New" link in navi panel is shown even if no privileges
+- bug #4302 Some params are being omitted from microhistory
 
 4.1.8.0 (2014-02-22)
 - bug #4276 Login loop on session expiry
