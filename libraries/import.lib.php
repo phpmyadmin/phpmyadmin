@@ -81,7 +81,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
     $read_multiply = 1;
     if (!isset($import_run_buffer)) {
         // Do we have something to push into buffer?
-        $import_run_buffer = PMA_importRunQuery_post(
+        $import_run_buffer = PMA_ImportRunQuery_post(
             $import_run_buffer, $sql, $full
         );
         return;
@@ -91,7 +91,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
     if ($skip_queries > 0) {
         $skip_queries--;
         // Do we have something to push into buffer?
-        $import_run_buffer = PMA_importRunQuery_post(
+        $import_run_buffer = PMA_ImportRunQuery_post(
             $import_run_buffer, $sql, $full
         );
         return;
@@ -261,7 +261,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
     }
 
     // Do we have something to push into buffer?
-    $import_run_buffer = PMA_importRunQuery_post($import_run_buffer, $sql, $full);
+    $import_run_buffer = PMA_ImportRunQuery_post($import_run_buffer, $sql, $full);
 }
 
 /**
@@ -273,7 +273,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false,
  *
  * @return array Buffer of queries for import
  */
-function PMA_importRunQuery_post($import_run_buffer, $sql, $full)
+function PMA_ImportRunQuery_post($import_run_buffer, $sql, $full)
 {
     if (!empty($sql) || !empty($full)) {
         $import_run_buffer = array('sql' => $sql, 'full' => $full);
