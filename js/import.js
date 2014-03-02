@@ -53,6 +53,7 @@ AJAX.registerTeardown('import.js', function () {
     $("#select_local_import_file").unbind('change');
     $("#input_import_file").unbind('change').unbind('focus');
     $("#select_local_import_file").unbind('focus');
+    $("#text_csv_enclosed").add("#text_csv_escaped").unbind('keyup');
 });
 
 AJAX.registerOnload('import.js', function () {
@@ -99,4 +100,18 @@ AJAX.registerOnload('import.js', function () {
     .find("h3")
     .remove();
     //$("form[name=import] *").unwrap();
+    
+    /**
+     * for input element text_csv_enclosed and text_csv_escaped allow just one character to enter.
+     * as mysql allows just one character for these fields,
+     * if first character is escape then allow two including escape character.
+     */
+    $("#text_csv_enclosed").add("#text_csv_escaped").bind('keyup', function() {
+        if($(this).val().length === 2 && $(this).val().charAt(0) !== "\\") {
+            $(this).val($(this).val().substring(0, 1));
+            return false;
+        }
+        return true;
+    });
+    
 });
