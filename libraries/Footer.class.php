@@ -141,6 +141,23 @@ class PMA_Footer
         ) {
             $params['viewing_mode'] = $_REQUEST['viewing_mode'];
         }
+        if (isset($_REQUEST['checkprivsdb'])
+            //TODO: coming from server_privileges.php, here $db is not set, uncomment below line when that is fixed
+            //&& $_REQUEST['checkprivsdb'] == $db
+        ) {
+            $params['checkprivsdb'] = $_REQUEST['checkprivsdb'];
+        }
+        if (isset($_REQUEST['checkprivstable'])
+            //TODO: coming from server_privileges.php, here $table is not set, uncomment below line when that is fixed
+            //&& $_REQUEST['checkprivstable'] == $table
+        ) {
+            $params['checkprivstable'] = $_REQUEST['checkprivstable'];
+        }
+        if (isset($_REQUEST['single_table'])
+            && in_array($_REQUEST['single_table'], array(true, false))
+        ) {
+            $params['single_table'] = $_REQUEST['single_table'];
+        }        
         return basename(PMA_getenv('SCRIPT_NAME')) . PMA_URL_getCommon(
             $params,
             $encoding
