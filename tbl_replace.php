@@ -1,302 +1,403 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Manipulation of table data like inserting, replacing and updating
+ *
+ * Usally called as form action from tbl_change.php to insert or update table rows
+ *
+ * @todo 'edit_next' tends to not work as expected if used ...
+ * at least there is no order by it needs the original query
+ * and the row number and than replace the LIMIT clause
+ *
+ * @package PhpMyAdmin
+ */
 
 /**
  * Gets some core libraries
  */
-require_once('./libraries/common.lib.php');
+require_once 'libraries/common.inc.php';
+
+/**
+ * functions implementation for this script
+ */
+require_once 'libraries/insert_edit.lib.php';
 
 // Check parameters
-PMA_checkParameters(array('db', 'table', 'goto'));
+PMA_Util::checkParameters(array('db', 'table', 'goto'));
 
-PMA_DBI_select_db($db);
+$GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
 /**
  * Initializes some variables
  */
-// Defines the url to return in case of success of the query
-if (isset($sql_query)) {
-    $sql_query = urldecode($sql_query);
-}
-if (!isset($dontlimitchars)) {
-    $dontlimitchars = 0;
-}
-if (!isset($pos)) {
-    $pos = 0;
-}
-$is_gotofile = FALSE;
-if (isset($after_insert) && $after_insert == 'new_insert') {
-    $goto = 'tbl_change.php?'
-          . PMA_generate_common_url($db, $table, '&')
-          . '&goto=' . urlencode($goto)
-          . '&pos=' . $pos
-          . '&session_max_rows=' . $session_max_rows
-          . '&disp_direction=' . $disp_direction
-          . '&repeat_cells=' . $repeat_cells
-          . '&dontlimitchars=' . $dontlimitchars
-          . '&after_insert=' . $after_insert
-          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
-} elseif (isset($after_insert) && $after_insert == 'same_insert') {
-    $goto = 'tbl_change.php?'
-          . PMA_generate_common_url($db, $table, '&')
-          . '&goto=' . urlencode($goto)
-          . '&pos=' . $pos
-          . '&session_max_rows=' . $session_max_rows
-          . '&disp_direction=' . $disp_direction
-          . '&repeat_cells=' . $repeat_cells
-          . '&dontlimitchars=' . $dontlimitchars
-          . '&after_insert=' . $after_insert
-          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
-    if (isset($primary_key)) {
-        foreach ($primary_key AS $pk) {
-            $goto .= '&primary_key[]=' . $pk;
+$goto_include = false;
+
+$response = PMA_Response::getInstance();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('makegrid.js');
+// Needed for generation of Inline Edit anchors
+$scripts->addFile('sql.js');
+$scripts->addFile('indexes.js');
+$scripts->addFile('gis_data_editor.js');
+
+// check whether insert row mode, if so include tbl_change.php
+PMA_isInsertRow();
+
+$after_insert_actions = array('new_insert', 'same_insert', 'edit_next');
+if (isset($_REQUEST['after_insert'])
+    && in_array($_REQUEST['after_insert'], $after_insert_actions)
+) {
+    $url_params['after_insert'] = $_REQUEST['after_insert'];
+    if (isset($_REQUEST['where_clause'])) {
+        foreach ($_REQUEST['where_clause'] as $one_where_clause) {
+            if ($_REQUEST['after_insert'] == 'same_insert') {
+                $url_params['where_clause'][] = $one_where_clause;
+            } elseif ($_REQUEST['after_insert'] == 'edit_next') {
+                PMA_setSessionForEditNext($one_where_clause);
+            }
         }
     }
-} elseif (isset($after_insert) && $after_insert == 'edit_next') {
-    $goto = 'tbl_change.php?'
-          . PMA_generate_common_url($db, $table, '&')
-          . '&goto=' . urlencode($goto)
-          . '&pos=' . $pos
-          . '&session_max_rows=' . $session_max_rows
-          . '&disp_direction=' . $disp_direction
-          . '&repeat_cells=' . $repeat_cells
-          . '&dontlimitchars=' . $dontlimitchars
-          . '&after_insert=' . $after_insert
-          . (empty($sql_query) ? '' : '&sql_query=' . urlencode($sql_query));
-    if (isset($primary_key)) {
-        foreach ($primary_key AS $pk) {
-            $local_query    = 'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . str_replace('` =', '` >', urldecode($pk)) . ' LIMIT 1;';
-            $res            = PMA_DBI_query($local_query);
-            $row            = PMA_DBI_fetch_row($res);
-            $meta           = PMA_DBI_get_fields_meta($res);
-            $goto .= '&primary_key[]=' . urlencode(PMA_getUvaCondition($res, count($row), $meta, $row));
-        }
-    }
-} elseif ($goto == 'sql.php') {
-    $goto = 'sql.php?'
-          . PMA_generate_common_url($db, $table, '&')
-          . '&pos=' . $pos
-          . '&session_max_rows=' . $session_max_rows
-          . '&disp_direction=' . $disp_direction
-          . '&repeat_cells=' . $repeat_cells
-          . '&dontlimitchars=' . $dontlimitchars
-          . '&sql_query=' . urlencode($sql_query);
-} elseif (!empty($goto)) {
-    // Security checkings
-    $is_gotofile     = preg_replace('@^([^?]+).*$@', '\\1', $goto);
-    if (!@file_exists('./' . $is_gotofile)) {
-        $goto        = (! isset($table) || ! strlen($table)) ? 'db_details.php' : 'tbl_properties.php';
-        $is_gotofile = TRUE;
-    } else {
-        $is_gotofile = ($is_gotofile == $goto);
-    }
 }
+//get $goto_include for different cases
+$goto_include = PMA_getGotoInclude($goto_include);
 
 // Defines the url to return in case of failure of the query
-if (isset($err_url)) {
-    $err_url = urldecode($err_url);
-} else {
-    $err_url = str_replace('&', '&amp;', $goto)
-             . (empty($primary_key) ? '' : '&amp;primary_key=' . (is_array($primary_key) ? $primary_key[0] : $primary_key));
-}
-
-// Misc
-$seen_binary = FALSE;
+$err_url = PMA_getErrorUrl($url_params);
 
 /**
  * Prepares the update/insert of a row
  */
-if (isset($primary_key)) {
-    // we were editing something => use primary key
-    $loop_array = (is_array($primary_key) ? $primary_key : array(0 => $primary_key));
-    $using_key  = TRUE;
-    $is_insert  = ($submit_type == $strInsertAsNewRow);
-} else {
-    // new row => use indexes
-    $loop_array = array();
-    for ($i = 0; $i < $cfg['InsertRows']; $i++) $loop_array[$i] = $i;
-    $using_key  = FALSE;
-    $is_insert  = TRUE;
-}
+list($loop_array, $using_key, $is_insert, $is_insertignore)
+    = PMA_getParamsForUpdateOrInsert();
 
 $query = array();
-$message = '';
+$value_sets = array();
+$func_no_param = array(
+    'CONNECTION_ID',
+    'CURRENT_USER',
+    'CURDATE',
+    'CURTIME',
+    'CURRENT_DATE',
+    'CURRENT_TIME',
+    'DATABASE',
+    'LAST_INSERT_ID',
+    'NOW',
+    'PI',
+    'RAND',
+    'SYSDATE',
+    'UNIX_TIMESTAMP',
+    'USER',
+    'UTC_DATE',
+    'UTC_TIME',
+    'UTC_TIMESTAMP',
+    'UUID',
+    'UUID_SHORT',
+    'VERSION',
+);
+$func_optional_param = array(
+    'RAND',
+    'UNIX_TIMESTAMP',
+);
 
-foreach ($loop_array AS $primary_key_index => $enc_primary_key) {
+$gis_from_text_functions = array(
+    'GeomFromText',
+    'GeomCollFromText',
+    'LineFromText',
+    'MLineFromText',
+    'PointFromText',
+    'MPointFromText',
+    'PolyFromText',
+    'MPolyFromText',
+);
+
+$gis_from_wkb_functions = array(
+    'GeomFromWKB',
+    'GeomCollFromWKB',
+    'LineFromWKB',
+    'MLineFromWKB',
+    'PointFromWKB',
+    'MPointFromWKB',
+    'PolyFromWKB',
+    'MPolyFromWKB',
+);
+
+// to create an object of PMA_File class
+require_once './libraries/File.class.php';
+
+$query_fields = array();
+foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
-    if (!$using_key && isset($GLOBALS['insert_ignore_' . $enc_primary_key])) {
+    if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
         continue;
     }
 
-    // Restore the "primary key" to a convenient format
-    $primary_key = urldecode($enc_primary_key);
-
     // Defines the SET part of the sql query
-    $valuelist = '';
-    $fieldlist = '';
+    $query_values = array();
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-    $me_fields      = isset($fields['multi_edit'])      && isset($fields['multi_edit'][$enc_primary_key])      ? $fields['multi_edit'][$enc_primary_key]      : null;
-    $me_fields_prev = isset($fields_prev['multi_edit']) && isset($fields_prev['multi_edit'][$enc_primary_key]) ? $fields_prev['multi_edit'][$enc_primary_key] : null;
-    $me_funcs       = isset($funcs['multi_edit'])       && isset($funcs['multi_edit'][$enc_primary_key])       ? $funcs['multi_edit'][$enc_primary_key]       : null;
-    $me_fields_type = isset($fields_type['multi_edit']) && isset($fields_type['multi_edit'][$enc_primary_key]) ? $fields_type['multi_edit'][$enc_primary_key] : null;
-    $me_fields_null = isset($fields_null['multi_edit']) && isset($fields_null['multi_edit'][$enc_primary_key]) ? $fields_null['multi_edit'][$enc_primary_key] : null;
-    $me_fields_null_prev = isset($fields_null_prev['multi_edit']) && isset($fields_null_prev['multi_edit'][$enc_primary_key]) ? $fields_null_prev['multi_edit'][$enc_primary_key] : null;
-    $me_auto_increment  = isset($auto_increment['multi_edit']) && isset($auto_increment['multi_edit'][$enc_primary_key])       ? $auto_increment['multi_edit'][$enc_primary_key]       : null;
+    $multi_edit_colummns
+        = isset($_REQUEST['fields']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields']['multi_edit'][$rownumber]
+        : array();
+    $multi_edit_columns_name
+        = isset($_REQUEST['fields_name']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_name']['multi_edit'][$rownumber]
+        : null;
+    $multi_edit_columns_prev
+        = isset($_REQUEST['fields_prev']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_prev']['multi_edit'][$rownumber]
+        : null;
+    $multi_edit_funcs
+        = isset($_REQUEST['funcs']['multi_edit'][$rownumber])
+        ? $_REQUEST['funcs']['multi_edit'][$rownumber]
+        : null;
+    $multi_edit_salt
+        = isset($_REQUEST['salt']['multi_edit'][$rownumber])
+        ? $_REQUEST['salt']['multi_edit'][$rownumber]
+        :null;
+    $multi_edit_columns_type
+        = isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_type']['multi_edit'][$rownumber]
+        : null;
+    $multi_edit_columns_null
+        = isset($_REQUEST['fields_null']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_null']['multi_edit'][$rownumber]
+        : null;
+    $multi_edit_columns_null_prev
+        = isset($_REQUEST['fields_null_prev']['multi_edit'][$rownumber])
+        ? $_REQUEST['fields_null_prev']['multi_edit'][$rownumber]
+        : null;
+    $multi_edit_auto_increment
+        = isset($_REQUEST['auto_increment']['multi_edit'][$rownumber])
+        ? $_REQUEST['auto_increment']['multi_edit'][$rownumber]
+        : null;
 
-    if ($using_key && isset($me_fields_type) && is_array($me_fields_type) && isset($primary_key)) {
-        $prot_result      = PMA_DBI_query('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $primary_key . ';');
-        $prot_row         = PMA_DBI_fetch_assoc($prot_result);
-        PMA_DBI_free_result($prot_result);
-        unset($prot_result);
+    // When a select field is nullified, it's not present in $_REQUEST
+    // so initialize it; this way, the foreach($multi_edit_colummns) will process it
+    foreach ($multi_edit_columns_name as $key => $val) {
+        if (! isset($multi_edit_colummns[$key])) {
+            $multi_edit_colummns[$key] = '';
+        }
     }
 
-    foreach ($me_fields AS $encoded_key => $val) {
-        $key         = urldecode($encoded_key);
-        $fieldlist   .= PMA_backquote($key) . ', ';
+    // Iterate in the order of $multi_edit_columns_name,
+    // not $multi_edit_colummns, to avoid problems
+    // when inserting multiple entries
+    foreach ($multi_edit_columns_name as $key => $colummn_name) {
+        $current_value = $multi_edit_colummns[$key];
+        // Note: $key is an md5 of the fieldname. The actual fieldname is
+        // available in $multi_edit_columns_name[$key]
 
-        require('./libraries/tbl_replace_fields.inc.php');
+        $file_to_insert = new PMA_File();
+        $file_to_insert->checkTblChangeForm($key, $rownumber);
 
-        if (empty($me_funcs[$encoded_key])) {
-            $cur_value = $val . ', ';
-        } elseif (preg_match('@^(UNIX_TIMESTAMP)$@', $me_funcs[$encoded_key]) && $val != '\'\'') {
-            $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
-        } elseif (preg_match('@^(NOW|CURDATE|CURTIME|UNIX_TIMESTAMP|RAND|USER|LAST_INSERT_ID)$@', $me_funcs[$encoded_key])) {
-            $cur_value = $me_funcs[$encoded_key] . '(), ';
-        } else {
-            $cur_value = $me_funcs[$encoded_key] . '(' . $val . '), ';
+        $possibly_uploaded_val = $file_to_insert->getContent();
+
+        if ($file_to_insert->isError()) {
+            $message .= $file_to_insert->getError();
         }
+        // delete $file_to_insert temporary variable
+        $file_to_insert->cleanUp();
 
-        //  i n s e r t
+        $current_value = PMA_getCurrentValueForDifferentTypes(
+            $possibly_uploaded_val, $key, $multi_edit_columns_type,
+            $current_value, $multi_edit_auto_increment,
+            $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
+            $multi_edit_columns_null_prev, $is_insert,
+            $using_key, $where_clause, $table
+        );
+
+        $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit(
+            $multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
+            $multi_edit_salt, $gis_from_text_functions, $current_value,
+            $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
+        );
+
+        list($query_values, $query_fields)
+            = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+                $multi_edit_columns_name, $multi_edit_columns_null, $current_value,
+                $multi_edit_columns_prev, $multi_edit_funcs, $is_insert,
+                $query_values, $query_fields, $current_value_as_an_array,
+                $value_sets, $key, $multi_edit_columns_null_prev
+            );
+    } //end of foreach
+
+    if (count($query_values) > 0) {
         if ($is_insert) {
-            // no need to add column into the valuelist
-            $valuelist .= $cur_value;
-
-        //  u p d a t e
-        } elseif (isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !empty($me_fields_null_prev[$encoded_key]) && !isset($me_fields_null[$encoded_key])) {
-            // field had the null checkbox before the update
-            // field no longer has the null checkbox
-            $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
-        } elseif (empty($me_funcs[$encoded_key])
-            && isset($me_fields_prev) && isset($me_fields_prev[$encoded_key])
-            && ("'" . PMA_sqlAddslashes(urldecode($me_fields_prev[$encoded_key])) . "'" == $val)) {
-            // No change for this column and no MySQL function is used -> next column
-            continue;
-        } elseif (!empty($val)) {
-            // avoid setting a field to NULL when it's already NULL
-            // (field had the null checkbox before the update
-            //  field still has the null checkbox)
-            if (!(isset($me_fields_null_prev) && isset($me_fields_null_prev[$encoded_key]) && !empty($me_fields_null_prev[$encoded_key]) && isset($me_fields_null[$encoded_key]))) {
-                $valuelist .= PMA_backquote($key) . ' = ' . $cur_value;
-            }
+            $value_sets[] = implode(', ', $query_values);
+        } else {
+            // build update query
+            $query[] = 'UPDATE ' . PMA_Util::backquote($GLOBALS['db'])
+                . '.' . PMA_Util::backquote($GLOBALS['table'])
+                . ' SET ' . implode(', ', $query_values)
+                . ' WHERE ' . $where_clause
+                . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
         }
-    } // end while
-
-    // get rid of last ,
-    $valuelist    = preg_replace('@, $@', '', $valuelist);
-
-    // Builds the sql query
-    if ($is_insert) {
-        if (empty($query)) {
-            // first inserted row -> prepare template
-            $fieldlist = preg_replace('@, $@', '', $fieldlist);
-            $query = array('INSERT INTO ' . PMA_backquote($table) . ' (' . $fieldlist . ') VALUES ');
-        }
-        // append current values
-        $query[0]  .= '(' . $valuelist . '), ';
-        $message   = $strInsertedRows . '&nbsp;';
-    } elseif (!empty($valuelist)) {
-        // build update query
-        $query[]   = 'UPDATE ' . PMA_backquote($table) . ' SET ' . $valuelist . ' WHERE' . $primary_key . ' LIMIT 1';
-
-        $message  = $strAffectedRows . '&nbsp;';
     }
-} // end for
+} // end foreach ($loop_array as $where_clause)
+unset($multi_edit_columns_name, $multi_edit_columns_prev, $multi_edit_funcs,
+    $multi_edit_columns_type, $multi_edit_columns_null, $func_no_param,
+    $multi_edit_auto_increment, $current_value_as_an_array, $key, $current_value,
+    $loop_array, $where_clause, $using_key,  $multi_edit_columns_null_prev);
 
-// trim last , from insert query
-if ($is_insert) {
-    $query[0] = preg_replace('@, $@', '', $query[0]);
-}
-
-if (empty($valuelist) && empty($query)) {
+// Builds the sql query
+if ($is_insert && count($value_sets) > 0) {
+    $query = PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets);
+} elseif (empty($query)) {
     // No change -> move back to the calling script
-    $message = $strNoModification;
-    if ($is_gotofile) {
-        $js_to_run = 'functions.js';
-        require_once('./libraries/header.inc.php');
-        require('./' . PMA_securePath($goto));
-    } else {
-        PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . '&disp_query=');
-
-    }
-    exit();
+    //
+    // Note: logic passes here for inline edit
+    $message = PMA_Message::success(__('No change'));
+    $active_page = $goto_include;
+    include '' . PMA_securePath($goto_include);
+    exit;
 }
+unset($multi_edit_colummns, $is_insertignore);
 
 /**
  * Executes the sql query and get the result, then move back to the calling
  * page
  */
-$sql_query = implode(';', $query) . ';';
-$total_affected_rows = 0;
-$last_message = '';
-$warning_message = '';
+list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
+    $error_messages, $return_to_sql_query)
+        = PMA_executeSqlQuery($url_params, $query);
 
-foreach ($query AS $query_index => $single_query) {
-    if ($cfg['IgnoreMultiSubmitErrors']) {
-        $result = PMA_DBI_try_query($single_query);
-    } else {
-        $result = PMA_DBI_query($single_query);
-    }
-    if (isset($GLOBALS['warning'])) {
-        $warning_message .= $GLOBALS['warning'] . '[br]';
-    }
-    if (!$result) {
-        $message .= PMA_DBI_getError();
-    } else {
-        if (@PMA_DBI_affected_rows()) {
-            $total_affected_rows += @PMA_DBI_affected_rows();
-        }
-
-        $insert_id = PMA_DBI_insert_id();
-        if ($insert_id != 0) {
-            $last_message .= '[br]'.$strInsertedRowId . '&nbsp;' . $insert_id;
-        }
-    } // end if
-    PMA_DBI_free_result($result);
-    unset($result);
-}
-
-if ($total_affected_rows != 0) {
-    $message .= $total_affected_rows;
+if ($is_insert && count($value_sets) > 0) {
+    $message = PMA_Message::getMessageForInsertedRows($total_affected_rows);
 } else {
-    $message .= $strModifications;
+    $message = PMA_Message::getMessageForAffectedRows($total_affected_rows);
 }
 
-$message .= $last_message;
+$message->addMessages($last_messages, '<br />');
 
-if (!empty($warning_message)) {
-    // TODO: use a <div class="warning"> in PMA_showMessage()
-    // for this part of the message
-    $message .= '[br]' . $warning_message;
+if (! empty($warning_messages)) {
+    $message->addMessages($warning_messages, '<br />');
+    $message->isError(true);
 }
+if (! empty($error_messages)) {
+    $message->addMessages($error_messages);
+    $message->isError(true);
+}
+unset(
+    $error_messages, $warning_messages, $total_affected_rows,
+    $last_messages, $last_message
+);
 
-if ($is_gotofile) {
-    if ($goto == 'db_details.php' && isset($table)) {
-        unset($table);
+/**
+ * The following section only applies to grid editing.
+ * However, verifying isAjax() is not enough to ensure we are coming from
+ * grid editing. If we are coming from the Edit or Copy link in Browse mode,
+ * ajax_page_request is present in the POST parameters.
+ */
+if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
+    /**
+     * If we are in grid editing, we need to process the relational and
+     * transformed fields, if they were edited. After that, output the correct
+     * link/transformed value and exit
+     *
+     * Logic taken from libraries/DisplayResults.class.php
+     */
+
+    if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
+
+        $map = PMA_getForeigners($db, $table, '', 'both');
+
+        $relation_fields = array();
+        parse_str($_REQUEST['rel_fields_list'], $relation_fields);
+
+        // loop for each relation cell
+        foreach ($relation_fields as $cell_index => $curr_rel_field) {
+            foreach ($curr_rel_field as $relation_field => $relation_field_value) {
+                $where_comparison = "='" . $relation_field_value . "'";
+                $dispval = PMA_getDisplayValueForForeignTableColumn(
+                    $where_comparison, $relation_field_value, $map, $relation_field
+                );
+
+                $extra_data['relations'][$cell_index]
+                    = PMA_getLinkForRelationalDisplayField(
+                        $map, $relation_field, $where_comparison,
+                        $dispval, $relation_field_value
+                    );
+            }
+        }   // end of loop for each relation cell
     }
-    $js_to_run = 'functions.js';
-    $active_page = $goto;
-    require_once('./libraries/header.inc.php');
-    require('./' . PMA_securePath($goto));
-} else {
+    if (isset($_REQUEST['do_transformations'])
+        && $_REQUEST['do_transformations'] == true
+    ) {
+        include_once 'libraries/transformations.lib.php';
+        //if some posted fields need to be transformed, generate them here.
+        $mime_map = PMA_getMIME($db, $table);
 
-    // if we have seen binary,
-    // we do not append the query to the Location so it won't be displayed
-    // on the resulting page
-    // Nijel: we also need to limit size of url...
-    $add_query = (!$seen_binary && strlen($sql_query) < 1024 ? '&disp_query=' . urlencode($sql_query) : '');
-    PMA_sendHeaderLocation($cfg['PmaAbsoluteUri'] . $goto . '&disp_message=' . urlencode($message) . $add_query);
+        if ($mime_map === false) {
+            $mime_map = array();
+        }
+        $edited_values = array();
+        parse_str($_REQUEST['transform_fields_list'], $edited_values);
+
+        if (! isset($extra_data)) {
+            $extra_data = array();
+        }
+        foreach ($mime_map as $transformation) {
+            $file = PMA_securePath($transformation['transformation']);
+            // if only an underscore in the file name, nothing to transform
+            if ($file != '_') {
+                $column_name = $transformation['column_name'];
+                $extra_data = PMA_transformEditedValues(
+                    $db, $table, $transformation, $edited_values, $file,
+                    $column_name, $extra_data
+                );
+            }
+        }   // end of loop for each $mime_map
+    }
+
+    // Need to check the inline edited value can be truncated by MySQL
+    // without informing while saving
+    $column_name = $_REQUEST['fields_name']['multi_edit'][0][0];
+
+    PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+        $db, $table, $column_name, $extra_data
+    );
+
+    /**Get the total row count of the table*/
+    $extra_data['row_count'] = PMA_Table::countRecords(
+        $_REQUEST['db'], $_REQUEST['table']
+    );
+
+    $extra_data['sql_query']
+        = PMA_Util::getMessage($message, $GLOBALS['display_query']);
+
+    $response = PMA_Response::getInstance();
+    $response->isSuccess($message->isSuccess());
+    $response->addJSON('message', $message);
+    $response->addJSON($extra_data);
+    exit;
 }
-exit();
+
+if (! empty($return_to_sql_query)) {
+    $disp_query = $GLOBALS['sql_query'];
+    $disp_message = $message;
+    unset($message);
+    $GLOBALS['sql_query'] = $return_to_sql_query;
+}
+
+$scripts->addFile('tbl_change.js');
+
+$active_page = $goto_include;
+
+/**
+ * If user asked for "and then Insert another new row" we have to remove
+ * WHERE clause information so that tbl_change.php does not go back
+ * to the current record
+ */
+if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert']) {
+    unset($_REQUEST['where_clause']);
+}
+
+/**
+ * Load target page.
+ */
+require '' . PMA_securePath($goto_include);
+exit;
+
 ?>

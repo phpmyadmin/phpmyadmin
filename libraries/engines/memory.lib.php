@@ -1,17 +1,27 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * the MEMORY (HEAP) storage engine
+ * The MEMORY (HEAP) storage engine
+ *
+ * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_memory extends PMA_StorageEngine
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
+/**
+ * The MEMORY (HEAP) storage engine
+ *
+ * @package PhpMyAdmin-Engines
+ */
+class PMA_StorageEngine_Memory extends PMA_StorageEngine
 {
     /**
-     * returns array with variable names dedicated to MyISAM storage engine
+     * Returns array with variable names dedicated to MEMORY storage engine
      *
-     * @return  array   variable names
+     * @return array   variable names
      */
-    function getVariables()
+    public function getVariables()
     {
         return array(
             'max_heap_table_size' => array(

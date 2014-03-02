@@ -1,30 +1,31 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Server SQL executor
+ *
+ * @package PhpMyAdmin
+ */
 
-require_once('./libraries/common.lib.php');
+/**
+ *
+ */
+require_once 'libraries/common.inc.php';
 
 /**
  * Does the common work
  */
-$js_to_run = 'functions.js';
-require_once './libraries/server_common.inc.php';
-require_once './libraries/sql_query_form.lib.php';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('makegrid.js');
+$scripts->addFile('sql.js');
 
-
-/**
- * Displays the links
- */
-require './libraries/server_links.inc.php';
-
+require_once 'libraries/server_common.inc.php';
+require_once 'libraries/sql_query_form.lib.php';
 
 /**
  * Query box, bookmark, insert data from textfile
  */
-PMA_sqlQueryForm();
+$response->addHTML(PMA_getHtmlForSqlQueryForm());
 
-/**
- * Displays the footer
- */
-require_once './libraries/footer.inc.php';
 ?>

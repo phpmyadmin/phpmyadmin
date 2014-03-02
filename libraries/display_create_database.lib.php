@@ -1,35 +1,63 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Displays form for creating database (if user has privileges for that)
+ *
+ * @package PhpMyAdmin
+ */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
-// Displays form for creating database (if user has privileges for that)
-
-require_once('./libraries/check_user_privileges.lib.php');
+/**
+ *
+ */
+require_once './libraries/check_user_privileges.lib.php';
 
 if ($is_create_db_priv) {
     // The user is allowed to create a db
-    ?>
-        <form method="post" action="db_create.php"><b>
-            <?php echo '<label for="text_create_db">' . $strCreateNewDatabase . '</label>&nbsp;' . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></b><br />
-            <?php echo PMA_generate_common_hidden_inputs('', '', 5); ?>
-            <input type="hidden" name="reload" value="1" />
-            <input type="text" name="db" value="<?php echo $db_to_create; ?>" maxlength="64" class="textfield" id="text_create_db"/>
-            <?php
-    if (PMA_MYSQL_INT_VERSION >= 40101) {
-        require_once('./libraries/mysql_charsets.lib.php');
-        echo PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'db_collation', null, null, TRUE, 5);
+    $html .= '<form method="post" action="db_create.php"'
+        . ' id="create_database_form" class="ajax"><strong>';
+    $html .= '<label for="text_create_db">'
+        . PMA_Util::getImage('b_newdb.png')
+        . " " . __('Create database')
+        . '</label>&nbsp;'
+        . PMA_Util::showMySQLDocu('CREATE_DATABASE');
+    $html .= '</strong><br />';
+    $html .= PMA_URL_getHiddenInputs('', '', 5);
+    $html .= '<input type="hidden" name="reload" value="1" />';
+    $html .= '<input type="text" name="new_db" value="' . $db_to_create
+        . '" maxlength="64" class="textfield" id="text_create_db" '
+        . 'required placeholder="' . __('Database name') . '"/>';
+
+    include_once './libraries/mysql_charsets.inc.php';
+    $html .= PMA_generateCharsetDropdownBox(
+        PMA_CSDROPDOWN_COLLATION,
+        'db_collation',
+        null,
+        null,
+        true,
+        5
+    );
+
+    if (! empty($dbstats)) {
+        $html .= '<input type="hidden" name="dbstats" value="1" />';
     }
-            ?>
-            <input type="submit" value="<?php echo $strCreate; ?>" id="buttonGo" />
-        </form>
-    <?php
+
+    $html .= '<input type="submit" value="' . __('Create') . '" id="buttonGo" />';
+    $html .= '</form>';
 } else {
-    ?>
-    <!-- db creation no privileges message -->
-        <b><?php echo $strCreateNewDatabase . ':&nbsp;' . PMA_showMySQLDocu('SQL-Syntax', 'CREATE_DATABASE'); ?></b><br />
-        <?php
-              echo '<span class="noPrivileges">'
-                 . ($cfg['ErrorIconic'] ? '<img src="' . $pmaThemeImage . 's_error2.png" width="11" height="11" hspace="2" border="0" align="middle" />' : '')
-                 . '' . $strNoPrivileges .'</span>';
+    $html .= '<!-- db creation no privileges message -->';
+    $html .= '<strong>' . __('Create database:') . '&nbsp;'
+        . PMA_Util::showMySQLDocu('CREATE_DATABASE')
+        . '</strong><br />';
+
+    $html .= '<span class="noPrivileges">'
+        . PMA_Util::getImage(
+            's_error2.png',
+            '',
+            array('hspace' => 2, 'border' => 0, 'align' => 'middle')
+        )
+        . '' . __('No Privileges') . '</span>';
 } // end create db form or message
 ?>

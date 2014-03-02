@@ -1,8 +1,5 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * SQL Validator interface for phpMyAdmin
  *
@@ -25,19 +22,25 @@
  * run this: "pear install Mail_Mime Net_DIME SOAP"
  *
  * Enable the SQL Validator options in the configuration file
- * $cfg['SQLQuery']['Validate'] = TRUE;
- * $cfg['SQLValidator']['use']  = FALSE;
+ * $cfg['SQLQuery']['Validate'] = true;
+ * $cfg['SQLValidator']['use']  = true;
  *
  * Also set a username and password if you have a private one
+ *
+ * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
-
-// We need the PEAR libraries, so do a minimum version check first
-// I'm not sure if PEAR was available before this point
-// For now we actually use a configuration flag
-if ($cfg['SQLValidator']['use'] == TRUE)  {
-    require_once('./libraries/sqlvalidator.class.php');
-} // if ($cfg['SQLValidator']['use'] == TRUE)
+/**
+ * We need the PEAR libraries, so do a minimum version check first
+ * I'm not sure if PEAR was available before this point
+ * For now we actually use a configuration flag
+ */
+if ($cfg['SQLValidator']['use'] == true) {
+    include_once './libraries/sqlvalidator.class.php';
+} // if ($cfg['SQLValidator']['use'] == true)
 
 
 /**
@@ -46,11 +49,11 @@ if ($cfg['SQLValidator']['use'] == TRUE)  {
  *
  * <http://developer.mimer.com/validator/index.htm>
  *
- * @param   string   SQL query to validate
+ * @param string $sql SQL query to validate
  *
- * @return  string   Validator result string
+ * @return string Validator result string
  *
- * @global  array    The PMA configuration array
+ * @global array $cfg The PMA configuration array
  */
 function PMA_validateSQL($sql)
 {
@@ -60,8 +63,14 @@ function PMA_validateSQL($sql)
 
     if ($cfg['SQLValidator']['use']) {
         if (isset($GLOBALS['sqlvalidator_error'])
-            && $GLOBALS['sqlvalidator_error']) {
-            $str = sprintf($GLOBALS['strValidatorError'], '<a href="./Documentation.html#faqsqlvalidator" target="documentation">', '</a>');
+            && $GLOBALS['sqlvalidator_error']
+        ) {
+            $str = sprintf(
+                __('The SQL validator could not be initialized. Please check if you have installed the necessary PHP extensions as described in the %sdocumentation%s.'),
+                '<a href="' . PMA_Util::getDocuLink('faq', 'faqsqlvalidator')
+                .  '" target="documentation">',
+                '</a>'
+            );
         } else {
             // create new class instance
             $srv = new PMA_SQLValidator();
@@ -70,7 +79,10 @@ function PMA_validateSQL($sql)
             // The class defaults to anonymous with an empty password
             // automatically
             if ($cfg['SQLValidator']['username'] != '') {
-                $srv->setCredentials($cfg['SQLValidator']['username'], $cfg['SQLValidator']['password']);
+                $srv->setCredentials(
+                    $cfg['SQLValidator']['username'],
+                    $cfg['SQLValidator']['password']
+                );
             }
 
             // Identify ourselves to the server properly...

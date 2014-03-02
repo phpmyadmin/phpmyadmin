@@ -1,98 +1,88 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * This library is used with the server IP allow/deny host authentication
  * feature
+ *
+ * @package PhpMyAdmin
  */
-
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Gets the "true" IP address of the current user
  *
- * @return  string   the ip of the user
+ * @return string   the ip of the user
  *
  * @access  private
  */
 function PMA_getIp()
 {
-    global $REMOTE_ADDR;
-    global $HTTP_X_FORWARDED_FOR, $HTTP_X_FORWARDED, $HTTP_FORWARDED_FOR, $HTTP_FORWARDED;
-    global $HTTP_VIA, $HTTP_X_COMING_FROM, $HTTP_COMING_FROM;
-
-    // Get some server/environment variables values
-    if (empty($REMOTE_ADDR) && PMA_getenv('REMOTE_ADDR')) {
-        $REMOTE_ADDR = PMA_getenv('REMOTE_ADDR');
-    }
-    if (empty($HTTP_X_FORWARDED_FOR) && PMA_getenv('HTTP_X_FORWARDED_FOR')) {
-        $HTTP_X_FORWARDED_FOR = PMA_getenv('HTTP_X_FORWARDED_FOR');
-    }
-    if (empty($HTTP_X_FORWARDED) && PMA_getenv('HTTP_X_FORWARDED')) {
-        $HTTP_X_FORWARDED = PMA_getenv('HTTP_X_FORWARDED');
-    }
-    if (empty($HTTP_FORWARDED_FOR) && PMA_getenv('HTTP_FORWARDED_FOR')) {
-        $HTTP_FORWARDED_FOR = PMA_getenv('HTTP_FORWARDED_FOR');
-    }
-    if (empty($HTTP_FORWARDED) && PMA_getenv('HTTP_FORWARDED')) {
-        $HTTP_FORWARDED = PMA_getenv('HTTP_FORWARDED');
-    }
-    if (empty($HTTP_VIA) && PMA_getenv('HTTP_VIA')) {
-        $HTTP_VIA = PMA_getenv('HTTP_VIA');
-    }
-    if (empty($HTTP_X_COMING_FROM) && PMA_getenv('HTTP_X_COMING_FROM')) {
-        $HTTP_X_COMING_FROM = PMA_getenv('HTTP_X_COMING_FROM');
-    }
-    if (empty($HTTP_COMING_FROM) && PMA_getenv('HTTP_COMING_FROM')) {
-        $HTTP_COMING_FROM = PMA_getenv('HTTP_COMING_FROM');
+    /* Get the address of user */
+    if (empty($_SERVER['REMOTE_ADDR'])) {
+        /* We do not know remote IP */
+        return false;
     }
 
-    // Gets the default ip sent by the user
-    if (!empty($REMOTE_ADDR)) {
-        $direct_ip = $REMOTE_ADDR;
-    }
+    $direct_ip = $_SERVER['REMOTE_ADDR'];
 
-    // Gets the proxy ip sent by the user
-    $proxy_ip     = '';
-    if (!empty($HTTP_X_FORWARDED_FOR)) {
-        $proxy_ip = $HTTP_X_FORWARDED_FOR;
-    } elseif (!empty($HTTP_X_FORWARDED)) {
-        $proxy_ip = $HTTP_X_FORWARDED;
-    } elseif (!empty($HTTP_FORWARDED_FOR)) {
-        $proxy_ip = $HTTP_FORWARDED_FOR;
-    } elseif (!empty($HTTP_FORWARDED)) {
-        $proxy_ip = $HTTP_FORWARDED;
-    } elseif (!empty($HTTP_VIA)) {
-        $proxy_ip = $HTTP_VIA;
-    } elseif (!empty($HTTP_X_COMING_FROM)) {
-        $proxy_ip = $HTTP_X_COMING_FROM;
-    } elseif (!empty($HTTP_COMING_FROM)) {
-        $proxy_ip = $HTTP_COMING_FROM;
-    } // end if... elseif...
-
-    // Returns the true IP if it has been found, else false
-    if (empty($proxy_ip)) {
-        // True IP without proxy
+    /* Do we trust this IP as a proxy? If yes we will use it's header. */
+    if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
+        /* Return true IP */
         return $direct_ip;
-    } else {
-        $is_ip = preg_match('|^([0-9]{1,3}\.){3,3}[0-9]{1,3}|', $proxy_ip, $regs);
-        if ($is_ip && (count($regs) > 0)) {
-            // True IP behind a proxy
-            return $regs[0];
-        } else {
-            // Can't define IP: there is a proxy but we don't have
-            // information about the true IP
-            return false;
-        }
-    } // end if... else...
+    }
+
+    $trusted_header_value
+        = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+    $matches = array();
+    // the $ checks that the header contains only one IP address,
+    // ?: makes sure the () don't capture
+    $is_ip = preg_match(
+        '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
+        $trusted_header_value, $matches
+    );
+
+    if ($is_ip && (count($matches) == 1)) {
+        // True IP behind a proxy
+        return $matches[0];
+    }
+
+    /* Return true IP */
+    return $direct_ip;
 } // end of the 'PMA_getIp()' function
+
+
+/**
+ * Matches for IPv4 or IPv6 addresses
+ *
+ * @param string $testRange string of IP range to match
+ * @param string $ipToTest  string of IP to test against range
+ *
+ * @return boolean    whether the IP mask matches
+ *
+ * @access  public
+ */
+function PMA_ipMaskTest($testRange, $ipToTest)
+{
+    $result = true;
+
+    if (strpos($testRange, ':') > -1 || strpos($ipToTest, ':') > -1) {
+        // assume IPv6
+        $result = PMA_ipv6MaskTest($testRange, $ipToTest);
+    } else {
+        $result = PMA_ipv4MaskTest($testRange, $ipToTest);
+    }
+
+    return $result;
+} // end of the "PMA_ipMaskTest()" function
 
 
 /**
  * Based on IP Pattern Matcher
  * Originally by J.Adams <jna@retina.net>
  * Found on <http://www.php.net/manual/en/function.ip2long.php>
- * Modified by Robbat2 <robbat2@users.sourceforge.net>
+ * Modified for phpMyAdmin
  *
  * Matches:
  * xxx.xxx.xxx.xxx        (exact)
@@ -102,65 +92,182 @@ function PMA_getIp()
  * Does not match:
  * xxx.xxx.xxx.xx[yyy-zzz]  (range, partial octets not supported)
  *
- * @param   string   string of IP range to match
- * @param   string   string of IP to test against range
+ * @param string $testRange string of IP range to match
+ * @param string $ipToTest  string of IP to test against range
  *
- * @return  boolean    always true
+ * @return boolean    whether the IP mask matches
  *
  * @access  public
  */
-function PMA_ipMaskTest($testRange, $ipToTest)
+function PMA_ipv4MaskTest($testRange, $ipToTest)
 {
-   $result = true;
+    $result = true;
+    $match = preg_match(
+        '|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|',
+        $testRange,
+        $regs
+    );
+    if ($match) {
+        // performs a mask match
+        $ipl    = ip2long($ipToTest);
+        $rangel = ip2long(
+            $regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]
+        );
 
-   if (preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs)) {
-       // performs a mask match
-       $ipl    = ip2long($ipToTest);
-       $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);
+        $maskl  = 0;
 
-       $maskl  = 0;
+        for ($i = 0; $i < 31; $i++) {
+            if ($i < $regs[5] - 1) {
+                $maskl = $maskl + PMA_Util::pow(2, (30 - $i));
+            } // end if
+        } // end for
 
-       for ($i = 0; $i < 31; $i++) {
-           if ($i < $regs[5] - 1) {
-               $maskl = $maskl + pow(2, (30 - $i));
-           } // end if
-       } // end for
+        if (($maskl & $rangel) == ($maskl & $ipl)) {
+            return true;
+        }
 
-       if (($maskl & $rangel) == ($maskl & $ipl)) {
-           return true;
-       } else {
-           return false;
-       }
-   } else {
-       // range based
-       $maskocts = explode('.', $testRange);
-       $ipocts   = explode('.', $ipToTest);
+        return false;
+    }
 
-       // perform a range match
-       for ($i = 0; $i < 4; $i++) {
-            if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs)) {
-                if (($ipocts[$i] > $regs[2])
-                    || ($ipocts[$i] < $regs[1])) {
-                    $result = false;
-                } // end if
-            } else {
-                if ($maskocts[$i] <> $ipocts[$i]) {
-                    $result = false;
-                } // end if
-            } // end if/else
-       } //end for
-   } //end if/else
+    // range based
+    $maskocts = explode('.', $testRange);
+    $ipocts   = explode('.', $ipToTest);
 
-   return $result;
-} // end of the "PMA_IPMaskTest()" function
+    // perform a range match
+    for ($i = 0; $i < 4; $i++) {
+        if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs)) {
+            if (($ipocts[$i] > $regs[2]) || ($ipocts[$i] < $regs[1])) {
+                $result = false;
+            } // end if
+        } else {
+            if ($maskocts[$i] <> $ipocts[$i]) {
+                $result = false;
+            } // end if
+        } // end if/else
+    } //end for
+
+    return $result;
+} // end of the "PMA_ipv4MaskTest()" function
+
+
+/**
+ * IPv6 matcher
+ * CIDR section taken from http://stackoverflow.com/a/10086404
+ * Modified for phpMyAdmin
+ *
+ * Matches:
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
+ * (exact)
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:[yyyy-zzzz]
+ * (range, only at end of IP - no subnets)
+ * xxxx:xxxx:xxxx:xxxx/nn
+ * (CIDR)
+ *
+ * Does not match:
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]
+ * (range, partial octets not supported)
+ *
+ * @param string $test_range string of IP range to match
+ * @param string $ip_to_test string of IP to test against range
+ *
+ * @return boolean    whether the IP mask matches
+ *
+ * @access  public
+ */
+function PMA_ipv6MaskTest($test_range, $ip_to_test)
+{
+    $result = true;
+
+    // convert to lowercase for easier comparison
+    $test_range = strtolower($test_range);
+    $ip_to_test = strtolower($ip_to_test);
+
+    $is_cidr = strpos($test_range, '/') > -1;
+    $is_range = strpos($test_range, '[') > -1;
+    $is_single = ! $is_cidr && ! $is_range;
+
+    $ip_hex = bin2hex(inet_pton($ip_to_test));
+
+    if ($is_single) {
+        $range_hex = bin2hex(inet_pton($test_range));
+        $result = $ip_hex === $range_hex;
+        return $result;
+    }
+
+    if ($is_range) {
+        // what range do we operate on?
+        $range_match = array();
+        $match = preg_match(
+            '/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match
+        );
+        if ($match) {
+            $range_start = $range_match[1];
+            $range_end   = $range_match[2];
+
+            // get the first and last allowed IPs
+            $first_ip  = str_replace($range_match[0], $range_start, $test_range);
+            $first_hex = bin2hex(inet_pton($first_ip));
+            $last_ip   = str_replace($range_match[0], $range_end, $test_range);
+            $last_hex  = bin2hex(inet_pton($last_ip));
+
+            // check if the IP to test is within the range
+            $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
+        }
+        return $result;
+    }
+
+    if ($is_cidr) {
+        // Split in address and prefix length
+        list($first_ip, $subnet) = explode('/', $test_range);
+
+        // Parse the address into a binary string
+        $first_bin = inet_pton($first_ip);
+        $first_hex = bin2hex($first_bin);
+
+        // Overwriting first address string to make sure notation is optimal
+        $first_ip = inet_ntop($first_bin);
+
+        $flexbits = 128 - $subnet;
+
+        // Build the hexadecimal string of the last address
+        $last_hex = $first_hex;
+
+        $pos = 31;
+        while ($flexbits > 0) {
+            // Get the character at this position
+            $orig = substr($last_hex, $pos, 1);
+
+            // Convert it to an integer
+            $origval = hexdec($orig);
+
+            // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
+            $newval = $origval | (pow(2, min(4, $flexbits)) - 1);
+
+            // Convert it back to a hexadecimal character
+            $new = dechex($newval);
+
+            // And put that character back in the string
+            $last_hex = substr_replace($last_hex, $new, $pos, 1);
+
+            // We processed one nibble, move to previous position
+            $flexbits -= 4;
+            $pos -= 1;
+        }
+
+        // check if the IP to test is within the range
+        $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
+    }
+
+    return $result;
+} // end of the "PMA_ipv6MaskTest()" function
 
 
 /**
  * Runs through IP Allow/Deny rules the use of it below for more information
  *
- * @param   string 'allow' | 'deny' type of rule to match
+ * @param string $type 'allow' | 'deny' type of rule to match
  *
- * @return  bool   Matched a rule ?
+ * @return bool   Matched a rule ?
  *
  * @access  public
  *
@@ -206,7 +313,8 @@ function PMA_allowDeny($type)
 
         // check for username
         if (($rule_data[1] != '%') //wildcarded first
-            && ($rule_data[1] != $username)) {
+            && ($rule_data[1] != $username)
+        ) {
             continue;
         }
 
@@ -217,7 +325,6 @@ function PMA_allowDeny($type)
         }
 
         // Handle shortcuts with above array
-        // DON'T use "array_key_exists" as it's only PHP 4.1 and newer.
         if (isset($shortcuts[$rule_data[2]])) {
             $rule_data[2] = $shortcuts[$rule_data[2]];
         }

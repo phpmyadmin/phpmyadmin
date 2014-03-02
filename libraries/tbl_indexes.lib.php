@@ -1,258 +1,406 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4:
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * function library for handling table indexes
- */
-
-/**
- * Return a list of all index types
+ * Set of functions related to table indexes
  *
- * @access  public
- * @return  array       Index types
- * @author  Garvin Hicking (pma@supergarv.de)
+ * @package PhpMyAdmin
  */
-function PMA_get_indextypes() {
-    return array(
-        'PRIMARY',
-        'INDEX',
-        'UNIQUE',
-        'FULLTEXT'
-    );
+if (! defined('PHPMYADMIN')) {
+    exit;
 }
 
 /**
- * Function to get all index information from a certain table
+ * Function to get the name and type of the columns of a table
  *
- * @param   string      Table name
- * @param   string      Error URL
+ * @param string $db    current database
+ * @param string $table current table
  *
- * @access  public
- * @return  array       Index keys
+ * @return array
  */
-function PMA_get_indexes($tbl_name, $err_url_0 = '') {
-    $tbl_local_query = 'SHOW KEYS FROM ' . PMA_backquote($tbl_name);
-    $tbl_result      = PMA_DBI_query($tbl_local_query) or PMA_mysqlDie('', $tbl_local_query, '', $err_url_0);
-    $tbl_ret_keys    = array();
-    while ($tbl_row = PMA_DBI_fetch_assoc($tbl_result)) {
-        $tbl_ret_keys[]  = $tbl_row;
-    }
-    PMA_DBI_free_result($tbl_result);
-
-    return $tbl_ret_keys;
-}
-
-/**
- * Function to check over array of indexes and look for common problems
- *
- * @param   array       Array of indexes
- * @param   boolean     Whether to output HTML in table layout
- *
- * @access  public
- * @return  string      Output HTML
- * @author  Garvin Hicking (pma@supergarv.de)
- */
-function PMA_check_indexes($idx_collection, $table = true) {
-    $index_types = PMA_get_indextypes();
-    $output  = '';
-
-    if ( ! is_array($idx_collection) || empty($idx_collection['ALL'])) {
-        return $output;
-    }
-
-    foreach ($idx_collection['ALL'] AS $w_keyname => $w_count) {
-        if (isset($idx_collection['PRIMARY'][$w_keyname]) && (isset($idx_collection['INDEX'][$w_keyname]) || isset($idx_collection['UNIQUE'][$w_keyname]))) {
-            $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningPrimary'], htmlspecialchars($w_keyname)), $table);
-        } elseif (isset($idx_collection['UNIQUE'][$w_keyname]) && isset($idx_collection['INDEX'][$w_keyname])) {
-            $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningUnique'], htmlspecialchars($w_keyname)), $table);
-        }
-
-        foreach ($index_types AS $index_type) {
-            if (isset($idx_collection[$index_type][$w_keyname]) && $idx_collection[$index_type][$w_keyname] > 1) {
-                $output .= PMA_index_warning(sprintf($GLOBALS['strIndexWarningMultiple'], $index_type, htmlspecialchars($w_keyname)), $table);
-            }
-        }
-    }
-
-    return $output;
-}
-
-/**
- * Loop array of returned index keys and extract key information to
- * seperate arrays. Those arrays are passed by reference.
- *
- * @param   array       Referenced Array of indexes
- * @param   array       Referenced return array
- * @param   array       Referenced return array
- * @param   array       Referenced return array
- *
- * @access  public
- * @return  boolean     void
- * @author  Garvin Hicking (pma@supergarv.de)
- */
-function PMA_extract_indexes(&$ret_keys, &$indexes, &$indexes_info, &$indexes_data) {
-    if (!is_array($ret_keys)) {
-        return false;
-    }
-
-    $prev_index   = '';
-    foreach ($ret_keys as $row) {
-        if ($row['Key_name'] != $prev_index ){
-            $indexes[]  = $row['Key_name'];
-            $prev_index = $row['Key_name'];
-        }
-
-        $indexes_info[$row['Key_name']]['Sequences'][]     = $row['Seq_in_index'];
-        $indexes_info[$row['Key_name']]['Non_unique']      = $row['Non_unique'];
-
-        if (isset($row['Cardinality'])) {
-            $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-        }
-
-        //    I don't know what does following column mean....
-        //    $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-        $indexes_info[$row['Key_name']]['Comment']         = (isset($row['Comment']))
-                                                           ? $row['Comment']
-                                                           : '';
-        $indexes_info[$row['Key_name']]['Index_type']      = (isset($row['Index_type']))
-                                                           ? $row['Index_type']
-                                                           : '';
-
-        $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Column_name']  = $row['Column_name'];
-        if (isset($row['Sub_part'])) {
-            $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
-        }
-    } // end while
-
-    return true;
-}
-
-/**
- * Show index data and prepare returned collection array for index
- * key checks.
- *
- * @param   string      $table          The tablename
- * @param   array       $indexes        Referenced Array of indexes
- * @param   array       $indexes_info   Referenced info array
- * @param   array       $indexes_data   Referenced data array
- * @param   boolean     $display_html   Output HTML code, or just return collection array?
- * @param   boolean     $print_mode
- * @access  public
- * @return  array       Index collection array
- * @author  Garvin Hicking (pma@supergarv.de)
- */
-function PMA_show_indexes($table, &$indexes, &$indexes_info, &$indexes_data, $display_html = true, $print_mode = false) {
-    $idx_collection = array();
-    $odd_row = true;
-    foreach ($indexes as $index_name) {
-        if ($display_html) {
-            $row_span = ' rowspan="' . count($indexes_info[$index_name]['Sequences']) . '" ';
-
-            echo '        <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n";
-            echo '            <th ' . $row_span . '>' . "\n"
-               . '                ' . htmlspecialchars($index_name) . "\n"
-               . '            </th>' . "\n";
-        }
-
-        if ((PMA_MYSQL_INT_VERSION < 40002 && $indexes_info[$index_name]['Comment'] == 'FULLTEXT')
-            || (PMA_MYSQL_INT_VERSION >= 40002 && $indexes_info[$index_name]['Index_type'] == 'FULLTEXT')) {
-            $index_type = 'FULLTEXT';
-        } elseif ($index_name == 'PRIMARY') {
-            $index_type = 'PRIMARY';
-        } elseif ($indexes_info[$index_name]['Non_unique'] == '0') {
-            $index_type = 'UNIQUE';
+function PMA_getNameAndTypeOfTheColumns($db, $table)
+{
+    $columns = array();
+    foreach ($GLOBALS['dbi']->getColumnsFull($db, $table) as $row) {
+        if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
+            $tmp[2] = substr(
+                preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
+            );
+            $columns[$row['Field']] = $tmp[1] . '('
+                . str_replace(',', ', ', $tmp[2]) . ')';
         } else {
-            $index_type = 'INDEX';
+            $columns[$row['Field']] = $row['Type'];
         }
-
-        if ($display_html) {
-            echo '            <td ' . $row_span . '>' . "\n"
-               . '                ' . $index_type . '</td>' . "\n";
-
-            echo '            <td ' . $row_span . ' align="right">' . "\n"
-               . '                ' . (isset($indexes_info[$index_name]['Cardinality']) ? $indexes_info[$index_name]['Cardinality'] : $GLOBALS['strNone']) . '&nbsp;' . "\n"
-               . '            </td>' . "\n";
-
-            if (!$print_mode) {
-                echo '            <td ' . $row_span . '>' . "\n"
-                   . '                <a href="tbl_indexes.php?' . $GLOBALS['url_query'] . '&amp;index=' . urlencode($index_name) . '">' . $GLOBALS['edit_link_text'] . '</a>' . "\n"
-                   . '            </td>' . "\n";
-
-                if ($index_name == 'PRIMARY') {
-                    $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY');
-                    $js_msg      = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP PRIMARY KEY';
-                    $zero_rows   = urlencode($GLOBALS['strPrimaryKeyHasBeenDropped']);
-                } else {
-                    $local_query = urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index_name));
-                    $js_msg      = 'ALTER TABLE ' . PMA_jsFormat($table) . ' DROP INDEX ' . PMA_jsFormat($index_name);
-                    $zero_rows   = urlencode(sprintf($GLOBALS['strIndexHasBeenDropped'], htmlspecialchars($index_name)));
-                }
-
-                echo '            <td ' . $row_span . '>' . "\n"
-                   . '                <a href="sql.php?' . $GLOBALS['url_query'] . '&amp;sql_query=' . $local_query . '&amp;zero_rows=' . $zero_rows . '" onclick="return confirmLink(this, \'' . $js_msg . '\')">' . $GLOBALS['drop_link_text']  . '</a>' . "\n"
-                   . '            </td>' . "\n";
-            }
-        }
-
-        foreach ($indexes_info[$index_name]['Sequences'] AS $row_no => $seq_index) {
-            $col_name = $indexes_data[$index_name][$seq_index]['Column_name'];
-            if ($row_no == 0) {
-                if (isset($idx_collection[$index_type][$col_name])) {
-                    $idx_collection[$index_type][$col_name]++;
-                } else {
-                    $idx_collection[$index_type][$col_name] = 1;
-                }
-
-                if (isset($idx_collection['ALL'][$col_name])) {
-                    $idx_collection['ALL'][$col_name]++;
-                } else {
-                    $idx_collection['ALL'][$col_name] = 1;
-                }
-            }
-
-            if ($display_html) {
-                if ($row_no > 0) {
-                    echo '        <tr class="' . ( $odd_row ? 'odd' : 'even' ) . '">' . "\n";
-                }
-
-                if ( isset($indexes_data[$index_name][$seq_index]['Sub_part'])
-                  && strlen($indexes_data[$index_name][$seq_index]['Sub_part']) ) {
-                    echo '            <td>' . $col_name . '</td>' . "\n";
-                    echo '            <td align="right">' . "\n"
-                       . '                ' . $indexes_data[$index_name][$seq_index]['Sub_part'] . "\n"
-                       . '            </td>' . "\n";
-                    echo '        </tr>' . "\n";
-                } else {
-                    echo '            <td colspan="2">' . "\n"
-                       . '                ' . htmlspecialchars($col_name) . "\n"
-                       . '            </td>' . "\n";
-                    echo '        </tr>' . "\n";
-                }
-            }
-        } // end foreach $indexes_info[$index_name]['Sequences']
-
-        $odd_row = ! $odd_row;
     } // end while
 
-    return $idx_collection;
+    return $columns;
 }
 
 /**
- * Function to emit a index warning
+ * Function to handle the creation or edit of an index
  *
- * @author  Garvin Hicking (pma@supergarv.de)
- * @access  public
- * @param   string      $string     Message string
- * @param   boolean     $table      Whether to output HTML in table layout
- * @return  string      Output HTML
+ * @param string    $db    current db
+ * @param string    $table current table
+ * @param PMA_Index $index current index
+ *
+ * @return void
  */
-function PMA_index_warning($string, $table = true) {
-    $output = '<div class="warning">' . $string . '</div>';
+function PMA_handleCreateOrEditIndex($db, $table, $index)
+{
+    $error = false;
 
-    if ( $table ) {
-        $output = '<tr><td colspan=7">' . $output . '</td></tr>';
+    $sql_query = PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, $error);
+
+    if (! $error) {
+        $GLOBALS['dbi']->query($sql_query);
+        $message = PMA_Message::success(
+            __('Table %1$s has been altered successfully')
+        );
+        $message->addParam($table);
+
+        if ($GLOBALS['is_ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->addJSON('message', $message);
+            $response->addJSON('index_table', PMA_Index::getView($table, $db));
+            $response->addJSON(
+                'sql_query',
+                PMA_Util::getMessage(null, $sql_query)
+            );
+        } else {
+            include 'tbl_structure.php';
+        }
+        exit;
+    } else {
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', $error);
+        exit;
+    }
+}
+
+/**
+ * Function to get the sql query for index creation or edit
+ *
+ * @param string    $db     current db
+ * @param string    $table  current table
+ * @param PMA_Index $index  current index
+ * @param bool      &$error whether error occoured or not
+ *
+ * @return string
+ */
+function PMA_getSqlQueryForIndexCreateOrEdit($db, $table, $index, &$error)
+{
+    // $sql_query is the one displayed in the query box
+    $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($db)
+        . '.' . PMA_Util::backquote($table);
+
+    // Drops the old index
+    if (! empty($_REQUEST['old_index'])) {
+        if ($_REQUEST['old_index'] == 'PRIMARY') {
+            $sql_query .= ' DROP PRIMARY KEY,';
+        } else {
+            $sql_query .= ' DROP INDEX '
+                . PMA_Util::backquote($_REQUEST['old_index']) . ',';
+        }
+    } // end if
+
+    // Builds the new one
+    switch ($index->getType()) {
+    case 'PRIMARY':
+        if ($index->getName() == '') {
+            $index->setName('PRIMARY');
+        } elseif ($index->getName() != 'PRIMARY') {
+            $error = PMA_Message::error(
+                __('The name of the primary key must be "PRIMARY"!')
+            );
+        }
+        $sql_query .= ' ADD PRIMARY KEY';
+        break;
+    case 'FULLTEXT':
+    case 'UNIQUE':
+    case 'INDEX':
+    case 'SPATIAL':
+        if ($index->getName() == 'PRIMARY') {
+            $error = PMA_Message::error(__('Can\'t rename index to PRIMARY!'));
+        }
+        $sql_query .= ' ADD ' . $index->getType() . ' '
+            . ($index->getName() ? PMA_Util::backquote($index->getName()) : '');
+        break;
+    } // end switch
+
+    $index_fields = array();
+    foreach ($index->getColumns() as $key => $column) {
+        $index_fields[$key] = PMA_Util::backquote($column->getName());
+        if ($column->getSubPart()) {
+            $index_fields[$key] .= '(' . $column->getSubPart() . ')';
+        }
+    } // end while
+
+    if (empty($index_fields)) {
+        $error = PMA_Message::error(__('No index parts defined!'));
+    } else {
+        $sql_query .= ' (' . implode(', ', $index_fields) . ')';
     }
 
-    return $output . "\n";
+    if (PMA_MYSQL_INT_VERSION > 50500) {
+        $sql_query .= "COMMENT '"
+            . PMA_Util::sqlAddSlashes($index->getComment())
+            . "'";
+    }
+    $sql_query .= ';';
+
+    return $sql_query;
+}
+
+/**
+ * Function to prepare the form values for index
+ *
+ * @param string $db    curent database
+ * @param string $table current table
+ *
+ * @return PMA_Index
+ */
+function PMA_prepareFormValues($db, $table)
+{
+    if (isset($_REQUEST['index'])) {
+        if (is_array($_REQUEST['index'])) {
+            // coming already from form
+            $index = new PMA_Index($_REQUEST['index']);
+        } else {
+            $index = PMA_Index::singleton($db, $table, $_REQUEST['index']);
+        }
+    } else {
+        $index = new PMA_Index;
+    }
+
+    return $index;
+}
+
+/**
+ * Function to get the number of fields for the form
+ *
+ * @param PMA_Index $index index
+ *
+ * @return int
+ */
+function PMA_getNumberOfFieldsForForm($index)
+{
+    if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
+        // coming already from form
+        $add_fields
+            = count($_REQUEST['index']['columns']['names'])
+            - $index->getColumnCount();
+        if (isset($_REQUEST['add_fields'])) {
+            $add_fields += $_REQUEST['added_fields'];
+        }
+    } elseif (isset($_REQUEST['create_index'])) {
+        $add_fields = $_REQUEST['added_fields'];
+    } else {
+        $add_fields = 1;
+    }// end preparing form values
+
+    return $add_fields;
+}
+
+/**
+ * Function to get form parameters
+ *
+ * @param string $db    current db
+ * @param string $table current table
+ *
+ * @return array
+ */
+function PMA_getFormParameters($db, $table)
+{
+    $form_params = array(
+        'db'    => $db,
+        'table' => $table,
+    );
+
+    if (isset($_REQUEST['create_index'])) {
+        $form_params['create_index'] = 1;
+    } elseif (isset($_REQUEST['old_index'])) {
+        $form_params['old_index'] = $_REQUEST['old_index'];
+    } elseif (isset($_REQUEST['index'])) {
+        $form_params['old_index'] = $_REQUEST['index'];
+    }
+
+    return $form_params;
+}
+
+/**
+ * Function to get html for displaying the index form
+ *
+ * @param array     $fields      fields
+ * @param PMA_Index $index       index
+ * @param array     $form_params form parameters
+ * @param int       $add_fields  number of fields in the form
+ *
+ * @return string
+ */
+function PMA_getHtmlForIndexForm($fields, $index, $form_params, $add_fields)
+{
+    $html = "";
+    $html .= '<form action="tbl_indexes.php" method="post" name="index_frm" id="'
+        . 'index_frm" class="ajax"'
+        . 'onsubmit="if (typeof(this.elements[\'index[Key_name]\'].disabled) !='
+        . ' \'undefined\') {'
+        . 'this.elements[\'index[Key_name]\'].disabled = false}">';
+
+    $html .= PMA_URL_getHiddenInputs($form_params);
+
+    $html .= '<fieldset id="index_edit_fields">';
+
+    $html .= '<div class="index_info">';
+
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
+        . '<label for="input_index_name">'
+        . __('Index name:')
+        . PMA_Util::showHint(
+            PMA_Message::notice(
+                __(
+                    '"PRIMARY" <b>must</b> be the name of'
+                    . ' and <b>only of</b> a primary key!'
+                )
+            )
+        )
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . '<input type="text" name="index[Key_name]" id="input_index_name"'
+        . ' size="25"'
+        . 'value="' . htmlspecialchars($index->getName()) . '"'
+        . 'onfocus="this.select()" />'
+        . '</div>';
+
+    if (PMA_MYSQL_INT_VERSION > 50500) {
+        $html .= '<div>'
+            . '<div class="label">'
+            . '<strong>'
+            . '<label for="input_index_comment">'
+            . __('Comment:')
+            . '</label>'
+            . '</strong>'
+            . '</div>'
+            . '<input type="text" name="index[Index_comment]" '
+            . 'id="input_index_comment" size="30"'
+            . 'value="' . htmlspecialchars($index->getComment()) . '"'
+            . 'onfocus="this.select()" />'
+            . '</div>';
+    }
+
+    $html .= '<div>'
+        . '<div class="label">'
+        . '<strong>'
+        . '<label for="select_index_type">'
+        . __('Index type:')
+        . PMA_Util::showMySQLDocu('ALTER_TABLE')
+        . '</label>'
+        . '</strong>'
+        . '</div>'
+        . '<select name="index[Index_type]" id="select_index_type" >'
+        . $index->generateIndexSelector()
+        . '</select>'
+        . '</div>';
+
+    $html .= '<div class="clearfloat"></div>';
+
+    $html .= '</div>';
+
+    $html .= '<table id="index_columns">';
+
+    $html .= '<thead>'
+        . '<tr>'
+        . '<th>' . __('Column') . '</th>'
+        . '<th>' . __('Size') . '</th>'
+        . '</tr>'
+        . '</thead>';
+
+    $odd_row = true;
+    $spatial_types = array(
+        'geometry', 'point', 'linestring', 'polygon', 'multipoint',
+        'multilinestring', 'multipolygon', 'geomtrycollection'
+    );
+    $html .= '<tbody>';
+    /* @var $column PMA_Index_Column */
+    foreach ($index->getColumns() as $column) {
+        $html .= '<tr class="';
+        $html .= $odd_row ? 'odd' : 'even';
+        $html .= 'noclick">';
+        $html .= '<td>';
+        $html .= '<select name="index[columns][names][]">';
+        $html .= '<option value="">-- ' . __('Ignore') . ' --</option>';
+        foreach ($fields as $field_name => $field_type) {
+            if (($index->getType() != 'FULLTEXT'
+                || preg_match('/(char|text)/i', $field_type))
+                && ($index->getType() != 'SPATIAL'
+                || in_array($field_type, $spatial_types))
+            ) {
+                $html .= '<option value="' . htmlspecialchars($field_name) . '"'
+                    . (($field_name == $column->getName())
+                    ? ' selected="selected"'
+                    : '') . '>'
+                    . htmlspecialchars($field_name) . ' ['
+                    . htmlspecialchars($field_type) . ']'
+                    . '</option>' . "\n";
+            }
+        } // end foreach $fields
+        $html .= '</select>';
+        $html .= '</td>';
+        $html .= '<td>';
+        $html .= '<input type="text" size="5" onfocus="this.select()"'
+            . 'name="index[columns][sub_parts][]" value="';
+        if ($index->getType() != 'SPATIAL') {
+            $html .= $column->getSubPart();
+        }
+        $html .= '"/>';
+        $html .= '</td>';
+        $html .= '</tr>';
+        $odd_row = !$odd_row;
+    } // end foreach $edited_index_info['Sequences']
+
+    for ($i = 0; $i < $add_fields; $i++) {
+        $html .= '<tr class="';
+        $html .= $odd_row ? 'odd' : 'even';
+        $html .= 'noclick">';
+        $html .= '<td>';
+        $html .= '<select name="index[columns][names][]">';
+        $html .= '<option value="">-- ' . __('Ignore') . ' --</option>';
+        foreach ($fields as $field_name => $field_type) {
+            $html .= '<option value="' . htmlspecialchars($field_name) . '">'
+                . htmlspecialchars($field_name) . ' ['
+                . htmlspecialchars($field_type) . ']'
+                . '</option>' . "\n";
+        } // end foreach $fields
+        $html .= '</select>';
+        $html .= '</td>';
+        $html .= '<td>'
+            . '<input type="text" size="5" onfocus="this.select()"'
+            . 'name="index[columns][sub_parts][]" value="" />'
+            . '</td>';
+        $html .= '</tr>';
+        $odd_row = !$odd_row;
+    } // end foreach $edited_index_info['Sequences']
+
+    $html .= '</tbody>';
+
+    $html .= '</table>';
+
+    $html .= '</fieldset>';
+
+    $html .= '<fieldset class="tblFooters">';
+
+    $btn_value = sprintf(__('Add %s column(s) to index'), 1);
+    $html .= '<div class="slider"></div>';
+    $html .= '<div class="add_fields">';
+    $html .= '<input type="submit" value="' . $btn_value . '" />';
+    $html .= '</div>';
+
+    $html .= '</fieldset>';
+
+    $html .= '</form>';
+
+    return $html;
 }
 ?>

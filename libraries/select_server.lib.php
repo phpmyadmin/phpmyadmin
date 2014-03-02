@@ -1,26 +1,25 @@
 <?php
-/*
- * Code for displaying server selection written by nijel
- * $Id$
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Code for displaying server selection
+ *
+ * @package PhpMyAdmin
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
- * display server selection in list or selectbox form, or option tags only
+ * Renders the server selection in list or selectbox form, or option tags only
  *
- * @globals $lang
- * @globals $convcharset
- * @uses    $GLOBALS['cfg']['DisplayServersList']
- * @uses    $GLOBALS['strServer']
- * @uses    $GLOBALS['cfg']['Servers']
- * @uses    $GLOBALS['strGo']
- * @uses    implode()
- * @uses    htmlspecialchars()
- * @param   boolean $not_only_options   whether to include form tags or not
- * @param   boolean $ommit_fieldset     whether to ommit fieldset tag or not
+ * @param boolean $not_only_options whether to include form tags or not
+ * @param boolean $ommit_fieldset   whether to ommit fieldset tag or not
+ *
+ * @return string
  */
-function PMA_select_server($not_only_options, $ommit_fieldset)
+function PMA_selectServer($not_only_options, $ommit_fieldset)
 {
-    global $lang, $convcharset;
+    $retval = '';
 
     // Show as list?
     if ($not_only_options) {
@@ -31,19 +30,21 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
     }
 
     if ($not_only_options) {
-        echo '<form method="post" action="index.php" target="_parent">';
+        $retval .= '<form method="post" action="'
+            . $GLOBALS['cfg']['DefaultTabServer'] . '" class="disableAjax">';
+        $retval .= PMA_URL_getHiddenInputs();
 
         if (! $ommit_fieldset) {
-            echo '<fieldset>';
+            $retval .= '<fieldset>';
         }
-        echo '<label for="select_server">' . $GLOBALS['strServer'] . ':</label> ';
+        $retval .= '<label for="select_server">'
+            . __('Current Server:') . '</label> ';
 
-        echo '<select name="server" id="select_server"'
-            . ' onchange="if (this.value != \'\') this.form.submit();">';
-        echo '<option value="">(' . $GLOBALS['strServers'] . ') ...</option>' . "\n";
+        $retval .= '<select name="server" id="select_server" class="autosubmit">';
+        $retval .= '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
     } elseif ($list) {
-        echo $GLOBALS['strServer'] . ':<br />';
-        echo '<ul id="list_server">';
+        $retval .= __('Current Server:') . '<br />';
+        $retval .= '<ul id="list_server">';
     }
 
     foreach ($GLOBALS['cfg']['Servers'] as $key => $server) {
@@ -56,7 +57,6 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
         } else {
             $selected = 0;
         }
-
         if (!empty($server['verbose'])) {
             $label = $server['verbose'];
         } else {
@@ -65,46 +65,47 @@ function PMA_select_server($not_only_options, $ommit_fieldset)
                 $label .= ':' . $server['port'];
             }
         }
-        // loic1: if 'only_db' is an array and there is more than one
-        //        value, displaying such informations may not be a so good
-        //        idea
-        if (!empty($server['only_db'])) {
-            // TODO FIXME this can become a really big/long/wide selectbox ...
-            $label .= ' - ' . (is_array($server['only_db']) ? implode(', ', $server['only_db']) : $server['only_db']);
+        if (! empty($server['only_db'])) {
+            if (! is_array($server['only_db'])) {
+                $label .= ' - ' . $server['only_db'];
+                // try to avoid displaying a too wide selector
+            } elseif (count($server['only_db']) < 4) {
+                $label .= ' - ' . implode(', ', $server['only_db']);
+            }
         }
         if (!empty($server['user']) && $server['auth_type'] == 'config') {
             $label .= '  (' . $server['user'] . ')';
         }
 
         if ($list) {
-            echo '<li>';
-            if ($selected && !$ommit_fieldset) {
-                echo '<b>' . htmlspecialchars($label) . '</b>';
+            $retval .= '<li>';
+            if ($selected) {
+                $retval .= '<strong>' . htmlspecialchars($label) . '</strong>';
             } else {
-                echo '<a class="item" href="index.php?server=' . $key . '&amp;lang=' . $lang . '&amp;convcharset=' . $convcharset . '" target="_top">' . htmlspecialchars($label) . '</a>';
+
+                $retval .= '<a class="disableAjax item" href="'
+                    . $GLOBALS['cfg']['DefaultTabServer']
+                    . PMA_URL_getCommon(array('server' => $key))
+                    . '" >' . htmlspecialchars($label) . '</a>';
             }
-            echo '</li>';
+            $retval .= '</li>';
         } else {
-            echo '            <option value="' . $key . '" ' . ($selected ? ' selected="selected"' : '') . '>' . htmlspecialchars($label) . '</option>' . "\n";
+            $retval .= '<option value="' . $key . '" '
+                . ($selected ? ' selected="selected"' : '') . '>'
+                . htmlspecialchars($label) . '</option>' . "\n";
         }
     } // end while
 
     if ($not_only_options) {
-        echo '</select>';
-        ?>
-        <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
-        <input type="hidden" name="convcharset" value="<?php echo $convcharset; ?>" />
-        <?php
-        // Show submit button if we have just one server (this happens with no default)
-        echo '<noscript>';
-        echo '<input type="submit" value="' . $GLOBALS['strGo'] . '" />';
-        echo '</noscript>';
+        $retval .= '</select>';
         if (! $ommit_fieldset) {
-            echo '</fieldset>';
+            $retval .= '</fieldset>';
         }
-        echo '</form>';
+        $retval .= '</form>';
     } elseif ($list) {
-        echo '</ul>';
+        $retval .= '</ul>';
     }
+
+    return $retval;
 }
 ?>

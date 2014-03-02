@@ -1,37 +1,32 @@
 <?php
-/* get some globals */
-require_once('./libraries/common.lib.php');
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Displays list of themes.
+ *
+ * @package PhpMyAdmin
+ */
 
-/* Theme Select */
-$path_to_themes = $cfg['ThemePath'] . '/';
+/**
+ * get some globals
+ */
+require './libraries/common.inc.php';
+$response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
+$header = $response->getHeader();
+$header->setBodyId('bodythemes');
+$header->setTitle('phpMyAdmin - ' . __('Theme'));
+$header->disableMenu();
 
-/* set language and charset */
-require_once('./libraries/header_http.inc.php');
+$hash    = '#pma_' . preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION);
+$url     = PMA_linkURL('http://www.phpmyadmin.net/home_page/themes.php') . $hash;
+$output  = '<h1>phpMyAdmin - ' . __('Theme') . '</h1>';
+$output .= '<p>';
+$output .= '<a href="' . $url . '" class="_blank">';
+$output .= __('Get more themes!');
+$output .= '</a>';
+$output .= '</p>';
+$output .= $_SESSION['PMA_Theme_Manager']->getPrintPreviews();
 
-/* HTML header */
-$page_title = 'phpMyAdmin - ' . $strTheme;
-require('./libraries/header_meta_style.inc.php');
+$response->addHTML($output);
+
 ?>
-<script type="text/javascript" language="javascript">
-// <![CDATA[
-function takeThis(what){
-    if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
-        window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
-        window.opener.document.forms['setTheme'].submit();
-        self.close();
-    } else {
-        alert('<?php echo sprintf($strNoThemeSupport, $cfg['ThemePath']); ?>');
-        self.close();
-    }
-}
-// ]]>
-</script>
-</head>
-
-<body id="bodythemes">
-<h1>phpMyAdmin - <?php echo $strTheme; ?></h1>
-<?php
-$_SESSION['PMA_Theme_Manager']->printPreviews();
-?>
-</body>
-</html>

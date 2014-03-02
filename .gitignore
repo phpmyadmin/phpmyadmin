@@ -1,0 +1,45 @@
+# Directory for creating releases
+/release/
+# Configuration files
+/config.inc.php
+/config.header.inc.php
+/config.footer.inc.php
+# Upload/save dirs
+/upload/
+/save/
+# For setup script
+/config/
+# ctags
+tags
+# Editor files
+phpmyadmin.wpj
+.projectOptions
+.vimrc
+.project
+.settings
+.buildpath
+.cache
+.idea
+.netbeans
+*.sw[op]
+# IIS files
+web.config
+# Locales
+/locale/
+# Backups
+*~
+# Javascript line counts
+/js/line_counts.php
+# API documentation
+/apidoc/
+# Demo server
+revision-info.php
+# PHPUnit
+phpunit.xml
+/test/bootstrap.php
+# Jenkins
+/build/
+# Netbeans ide stuff
+/nbproject/
+# Eclipse ide stuff
+/.pydevproject

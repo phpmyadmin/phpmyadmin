@@ -1,31 +1,28 @@
 <?php
-/* $Id$ */
-// vim: expandtab sw=4 ts=4 sts=4 foldmarker={,} fdm=marker:
-
-
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Parser BUG decoder
+ * Parser bug report decoder
  *
  * This is the parser bug decoder system
- * Throw the bug data in teh query box, and hit submit for output.
+ * Throw the bug data in the query box, and hit submit for output.
  *
  * Copyright 2002 Robin Johnson <robbat2@users.sourceforge.net>
+ *
+ * @package PhpMyAdmin-debug
  */
-
 
 /**
  * Displays the form
  */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" dir="ltr">
 
 <head>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>phpMyAdmin - Parser BUG decoder</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta charset="iso-8859-1" />
+    <title>phpMyAdmin - Parser bug report decoder</title>
     <style type="text/css">
     <!--
     body, p {
@@ -44,7 +41,7 @@
 
 
 <body bgcolor="#FFFFFF">
-<h1>Parser BUG decoder</h1>
+<h1>Parser bug report decoder</h1>
 <br />
 
 <form method="post" action="./decode_bug.php">
@@ -64,7 +61,7 @@
 /**
  * Display the decoded bug report in ASCII format
  *
- * @param  string  the text data
+ * @param string $textdata the text data
  *
  * @return string  the text enclosed by "<pre>...</pre>" tags
  *
@@ -80,17 +77,17 @@ if (!empty($_POST) && isset($_POST['bug_encoded'])) {
     $bug_encoded = $_POST['bug_encoded'];
 }
 
-if (!empty($bug_encoded)) {
-    if (get_magic_quotes_gpc()) {
+if (!empty($bug_encoded) && is_string($bug_encoded)) {
+    if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
         $bug_encoded = stripslashes($bug_encoded);
     }
 
-    $bug_encoded     = ereg_replace('[[:space:]]', '', $bug_encoded);
+    $bug_encoded     = preg_replace('/[[:space:]]/', '', $bug_encoded);
     $bug_decoded     = base64_decode($bug_encoded);
     if (substr($bug_encoded, 0, 2) == 'eN') {
         if (function_exists('gzuncompress')) {
             $result  = PMA_printDecodedBug(gzuncompress($bug_decoded));
-            } else {
+        } else {
             $result  = 'Error: &quot;gzuncompress()&quot; is unavailable!' . "\n";
         }
     } else {
