@@ -951,10 +951,16 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckPermissions()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
+        //load file permissions for the current permissions file
+        $perms = @fileperms($GLOBALS['PMA_Config']->getSource());
+
+        //testing for permissions
+        $this->assertTrue(!($perms === false) && ($perms & 2));
+
+        //if the above assertion is true then applying further assertions
+        if(!($perms === false) && ($perms & 2)) {             
+            $this->assertFalse($GLOBALS['PMA_Config']->get('PMA_IS_WINDOWS') == 0);
+        }
     }
 
 
