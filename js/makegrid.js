@@ -1003,6 +1003,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     $input_field.datepicker("show");
 
+                    //move ui-datepicker-div inside cEdit div                             
+                    var datepicker_div = $('#ui-datepicker-div');
+                    datepicker_div.css({'top': 0, 'left': 0, 'position': 'relative'});
+                    $('.cEdit').append(datepicker_div);                    
+
                     var edit_area_top = $('#ui-datepicker-div').height()+32;
                     $('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
 
@@ -1711,8 +1716,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
             });
             $('html').click(function (e) {
-                // hide edit cell if the click is not from the datepicker or edit area
-                if ($(e.target).parents().index($('#ui-datepicker-div')) == -1 && $(e.target).parents().index($('.cEdit .edit_area')) == -1){
+                // hide edit cell if the click is not fromDat edit area
+                if ($(e.target).parents().index($('.cEdit')) == -1){
                    g.hideEditCell();
                 }
             }).keydown(function (e) {
