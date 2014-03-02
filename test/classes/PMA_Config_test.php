@@ -59,7 +59,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
         unset($this->object);
         unset($GLOBALS['PMA_Config']);
-        unset($GLOBALS['server']);
     }
 
     /**
@@ -954,10 +953,12 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function testCheckPermissions()
     {
         //load file permissions for the current permissions file
+        $perms = @fileperms($this->object->getSource());
+        //testing for permissions for no configration file
+        $this->assertFalse(!($perms === false) && ($perms & 2));
+        
+        //load file permissions for the current permissions file
         $perms = @fileperms($GLOBALS['PMA_Config']->getSource());
-
-        //testing for permissions
-        $this->assertTrue(!($perms === false) && ($perms & 2));
 
         //if the above assertion is true then applying further assertions
         if(!($perms === false) && ($perms & 2)) {             
