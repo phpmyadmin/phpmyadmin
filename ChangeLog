@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - bug #4299 Deletion even when the user says "No" to the confirmation message
 - bug #4303 "New" link in navi panel is shown even if no privileges
 - bug #4302 Some params are being omitted from microhistory
+- bug #4298 Missing validation on Import CSV: "Columns enclosed with" and "Columns escaped with"
 
 4.1.8.0 (2014-02-22)
 - bug #4276 Login loop on session expiry
