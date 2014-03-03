@@ -1060,7 +1060,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     {
         if (function_exists('mcrypt_encrypt')) {
             
-             //using our own iv for testing 
+            //using our own iv for testing 
             $tmp = $GLOBALS['iv'];
             $GLOBALS['iv'] = "testiv09";
             $this->assertEquals(
