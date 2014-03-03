@@ -714,7 +714,7 @@ RTE.ROUTINE = {
                     /*
                     * Define the function if the user presses enter
                     */
-                    $('form.rte_form').live('keyup', function (event) {
+                    $('form.rte_form').on('keyup', function (event) {
                         event.preventDefault();
                         if (event.keyCode === 13) {
                             /**
@@ -730,6 +730,7 @@ RTE.ROUTINE = {
                                     // Routine executed successfully
                                     PMA_ajaxRemoveMessage($msg);
                                     PMA_slidingMessage(data.message);
+                                    $('form.rte_form').off('keyup');
                                     $ajaxDialog.remove();
                                 } else {
                                     PMA_ajaxShowMessage(data.error, false);
