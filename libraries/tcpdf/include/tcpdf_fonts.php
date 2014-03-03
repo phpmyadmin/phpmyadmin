@@ -1140,7 +1140,7 @@ class TCPDF_FONTS {
 								$subsetglyphs[$g] = true;
 							}
 						}
-					}
+					}	
 					break;
 				}
 				case 6: { // Format 6: Trimmed table mapping
