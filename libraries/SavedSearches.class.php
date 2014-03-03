@@ -246,7 +246,9 @@ class PMA_SavedSearches
             || null == $this->getSearchName()
             || null == $this->getCriterias()
         ) {
-            PMA_Util::mysqlDie(__('Missing information to save the search.'));
+            PMA_Util::mysqlDie(
+                __('Missing information to save the search bookmark.')
+            );
         }
 
         $savedSearchesTbl
