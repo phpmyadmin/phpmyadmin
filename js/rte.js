@@ -201,7 +201,7 @@ RTE.COMMON = {
                                 that.$ajaxDialog.dialog('close');
                                 // If we are in 'edit' mode, we must
                                 // remove the reference to the old row.
-                                if (mode === 'edit') {
+                                if (mode === 'edit' && $edit_row !== null ) {
                                     $edit_row.remove();
                                 }
                                 // Sometimes, like when moving a trigger from
