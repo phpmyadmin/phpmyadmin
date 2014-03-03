@@ -807,6 +807,7 @@ class PMA_NavigationTree
             }
             if ($node->is_group
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
+                || (in_array($node->real_name, $sterile))    //if node name itself is in sterile, then allow
             ) {
                 $loaded = '';
                 if ($node->is_group) {
