@@ -294,7 +294,7 @@ var AJAX = {
                 }
 
                 if (data._selflink) {
-                    
+
                     var source = data._selflink.split('?')[0];
                     //Check for faulty links
                     if (source == "import.php") {
@@ -343,6 +343,10 @@ var AJAX = {
                 // add one more GET param to display session expiry msg
                 window.location.href += '&session_expired=1';
                 window.location.reload();
+            }
+            if (data.fieldWithError) {
+                $(':input .error').removeClass("error");
+                $('#'+data.fieldWithError).addClass("error");
             }
         }
     },

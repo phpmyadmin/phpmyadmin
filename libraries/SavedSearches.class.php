@@ -242,6 +242,8 @@ class PMA_SavedSearches
     public function save()
     {
         if (null == $this->getSearchName()) {
+            $response = PMA_Response::getInstance();
+            $response->addJSON('fieldWithError', 'searchName');
             PMA_Util::mysqlDie(
                 __('Please provide a name for this bookmarked search.')
             );
