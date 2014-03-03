@@ -408,6 +408,20 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .=  __('You are about to DESTROY a complete database!') . ' ';
     }
     $html .= __('Do you really want to execute the following query?');
+    if($what == 'row_delete' and substr_count($full_query,"<br />")>20){
+        $html .= '<form action="' . $action . '" method="post">';
+        $html .= PMA_URL_getHiddenInputs($_url_params);
+        // Display option to disable foreign key checks while dropping tables
+        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+        $html .= '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
+        $html .= '</form>';
+
+        $html .= '<form action="' . $action . '" method="post">';
+        $html .= PMA_URL_getHiddenInputs($_url_params);
+        $html .= '<input type="hidden" name="mult_btn" value="' . __('No') . '" />';
+        $html .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
+        $html .= '</form>';
+    }
     $html .= '</legend>';
     $html .= '<code>' . $full_query . '</code>';
     $html .= '</fieldset>';
