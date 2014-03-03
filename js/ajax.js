@@ -339,8 +339,10 @@ var AJAX = {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
             AJAX.xhr = null;
-            if (data.redirect_url) {
-                window.location.href=data.redirect_url;
+            if (parseInt(data.redirect_flag) == 1) {
+                // add one more GET param to display session expiry msg
+                window.location.href += '&session_expired=1';
+                window.location.reload();
             }
         }
     },

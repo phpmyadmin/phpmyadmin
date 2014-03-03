@@ -77,8 +77,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $mockResponse->expects($this->once())
             ->method('addJSON')
             ->with(
-                'redirect_url',
-                'https://phpmyadmin.net/'
+                'redirect_flag',
+                '1'
             );
 
         $attrInstance = new ReflectionProperty('PMA_Response', '_instance');
@@ -89,11 +89,8 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(
             $this->object->auth()
         );
+
         // Case 2
-
-
-
-        // case 3
 
         $mockResponse = $this->getMockBuilder('PMA_Response')
             ->disableOriginalConstructor()
@@ -278,7 +275,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         @unlink('testlogo_right.png');
 
-        // case 4
+        // case 3
 
         $mockResponse = $this->getMockBuilder('PMA_Response')
             ->disableOriginalConstructor()
