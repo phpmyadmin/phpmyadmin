@@ -130,7 +130,7 @@ RTE.COMMON = {
                     buttons: button_options,
                     title: data.title
                 });
-                // Attach syntax highlited editor to export dialog
+                // Attach syntax highlighted editor to export dialog
                 /**
                  * @var $elm jQuery object containing the reference
                  *           to the Export textarea.
@@ -201,7 +201,7 @@ RTE.COMMON = {
                                 that.$ajaxDialog.dialog('close');
                                 // If we are in 'edit' mode, we must
                                 // remove the reference to the old row.
-                                if (mode === 'edit') {
+                                if (mode === 'edit' && $edit_row !== null ) {
                                     $edit_row.remove();
                                 }
                                 // Sometimes, like when moving a trigger from
@@ -320,7 +320,7 @@ RTE.COMMON = {
                 if ($('input[name=editor_process_edit]').length > 0) {
                     mode = 'edit';
                 }
-                // Attach syntax highlited editor to the definition
+                // Attach syntax highlighted editor to the definition
                 /**
                  * @var elm jQuery object containing the reference to
                  *                 the Definition textarea.
