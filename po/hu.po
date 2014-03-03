@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-26 12:50-0500\n"
+"POT-Creation-Date: 2014-03-03 16:13+0100\n"
 "PO-Revision-Date: 2014-02-03 16:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
 "hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -292,18 +292,18 @@ msgid_plural "%s tables"
 msgstr[0] "%s tábla"
 msgstr[1] "%s tábla"
 
-#: db_qbe.php:94
+#: db_qbe.php:95
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
 msgstr "Ki kell legalább egy megjelenítendő oszlopot választania"
 
-#: db_qbe.php:114
+#: db_qbe.php:115
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Átváltás a %svizuális tervezőre%s"
 
-#: db_qbe.php:125
+#: db_qbe.php:126
 msgid ""
 "After saving or loading a search, you can rename it and save the new "
 "criteria."
@@ -311,7 +311,7 @@ msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:695
+#: libraries/plugins/auth/AuthenticationCookie.class.php:675
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -553,7 +553,7 @@ msgstr "Geometria hozzáadása"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:294
+#: libraries/plugins/auth/AuthenticationCookie.class.php:274
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -574,7 +574,7 @@ msgstr "Geometria hozzáadása"
 #: libraries/tbl_chart.lib.php:244
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
-#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:336
+#: pmd_pdf.php:158 prefs_manage.php:271 prefs_manage.php:329
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
 msgstr "Indítás"
@@ -598,11 +598,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a %"
-"sdokumentációban%s a korlátozás feloldása végett."
+"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a "
+"%sdokumentációban%s a korlátozás feloldása végett."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -663,7 +663,7 @@ msgstr ""
 "Nem lehetett betölteni az importáló beépülő modulokat. Kérjük, ellenőrizze a "
 "telepítését!"
 
-#: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
+#: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1805
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -693,7 +693,7 @@ msgstr ""
 "növeli meg a PHP időkorlátozását."
 
 #: import_status.php:87 libraries/Util.class.php:733
-#: libraries/export.lib.php:437
+#: libraries/export.lib.php:438
 #: libraries/schema/Export_Relation_Schema.class.php:247 user_password.php:239
 msgid "Back"
 msgstr "Vissza"
@@ -729,7 +729,7 @@ msgstr "Kiszolgálókapcsolat illesztése"
 msgid "Appearance Settings"
 msgstr "Megjelenési beállítások"
 
-#: index.php:236 prefs_manage.php:286
+#: index.php:236 prefs_manage.php:279
 msgid "More settings"
 msgstr "További beállítások"
 
@@ -737,7 +737,7 @@ msgstr "További beállítások"
 msgid "Database server"
 msgstr "Adatbázis-kiszolgáló"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:207
+#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:187
 msgid "Server:"
 msgstr "Kiszolgáló:"
 
@@ -1496,7 +1496,7 @@ msgstr ""
 #: libraries/Util.class.php:4120 libraries/Util.class.php:4135
 #: libraries/Util.class.php:4151 libraries/config/messages.inc.php:225
 #: libraries/display_import.lib.php:108
-#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
+#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:232
 #: setup/frames/menu.inc.php:25
 msgid "Import"
 msgstr "Importálás"
@@ -2297,12 +2297,12 @@ msgstr "Nem sikerült '%s' szabály értékének kiszámolása."
 msgid "Failed running test for rule '%s'."
 msgstr "Nem sikerült '%s' szabály tesztfuttatása."
 
-#: libraries/Advisor.class.php:225
+#: libraries/Advisor.class.php:222
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "'%s' szabály karakterformázása sikertelen."
 
-#: libraries/Advisor.class.php:401
+#: libraries/Advisor.class.php:388
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2310,38 +2310,38 @@ msgstr ""
 "Érvénytelen szabálydeklaráció a(z) %1$s sorban, előző szabály %2$s. sora "
 "várt."
 
-#: libraries/Advisor.class.php:420
+#: libraries/Advisor.class.php:407
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Érvénytelen szabálymeghatározás a(z) %s. sorban."
 
-#: libraries/Advisor.class.php:428
+#: libraries/Advisor.class.php:415
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Nem várt karakterek a(z) %s sorban."
 
-#: libraries/Advisor.class.php:443
+#: libraries/Advisor.class.php:430
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 "Nem várt karakter a(z) %1$s. sorban. Várt elem a tab, de helyette \"%2$s\" "
 "található."
 
-#: libraries/Advisor.class.php:478
+#: libraries/Advisor.class.php:465
 msgid "per second"
 msgstr "másodpercenként"
 
-#: libraries/Advisor.class.php:481
+#: libraries/Advisor.class.php:468
 msgid "per minute"
 msgstr "percenként"
 
-#: libraries/Advisor.class.php:484 libraries/server_status.lib.php:137
+#: libraries/Advisor.class.php:471 libraries/server_status.lib.php:137
 #: libraries/server_status.lib.php:221
 #: libraries/server_status_queries.lib.php:98
 msgid "per hour"
 msgstr "óránként"
 
-#: libraries/Advisor.class.php:487
+#: libraries/Advisor.class.php:474
 msgid "per day"
 msgstr "naponta"
 
@@ -2727,11 +2727,11 @@ msgstr "Az SQL-lekérdezés végrehajtása sikerült"
 #: libraries/DisplayResults.class.php:4966 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a %"
-"sdokumentációban%s."
+"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a "
+"%sdokumentációban%s."
 
 #: libraries/DisplayResults.class.php:4979
 #, php-format
@@ -2748,7 +2748,7 @@ msgstr ""
 msgid "%d total"
 msgstr "összesen %d"
 
-#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1643
+#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1644
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2794,7 +2794,7 @@ msgstr "Módosítás"
 #: libraries/server_privileges.lib.php:2260
 #: libraries/server_privileges.lib.php:2967
 #: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:297
-#: prefs_manage.php:300 setup/frames/menu.inc.php:27
+#: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Exportálás"
 
@@ -2893,8 +2893,8 @@ msgstr "Jelenleg futtatott Git revízió %1$s a %2$s branchból."
 msgid "Git information missing!"
 msgstr "Git információ hiányzik!"
 
-#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
-#: libraries/Footer.class.php:169
+#: libraries/Footer.class.php:179 libraries/Footer.class.php:183
+#: libraries/Footer.class.php:186
 msgid "Open new phpMyAdmin window"
 msgstr "Új phpMyAdmin ablak nyitása"
 
@@ -2903,7 +2903,7 @@ msgid "Click on the bar to scroll to top of page"
 msgstr "Kattintson a sávra az oldal tetejére való görgetéshez"
 
 #: libraries/Header.class.php:661
-#: libraries/plugins/auth/AuthenticationCookie.class.php:178
+#: libraries/plugins/auth/AuthenticationCookie.class.php:158
 #, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
@@ -3184,27 +3184,27 @@ msgstr "Legutóbbi táblák"
 msgid "There are no recent tables."
 msgstr "Nincsenek utoljára használt táblák"
 
-#: libraries/SavedSearches.php:249
+#: libraries/SavedSearches.class.php:249
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the search."
 msgstr "Hiányzó phpMyAdmin konfiguráció tároló táblák"
 
-#: libraries/SavedSearches.php:265 libraries/SavedSearches.php:295
+#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "%s felhasználó már létezik!"
 
-#: libraries/SavedSearches.php:315
+#: libraries/SavedSearches.class.php:315
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.php:336
+#: libraries/SavedSearches.class.php:336
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.php:349
+#: libraries/SavedSearches.class.php:349
 #, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
@@ -3599,16 +3599,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Small floating-point szám, értéktartománya -3.402823466E+38 és -1.175494351E-"
-"38 között, 0, 1.175494351E-38 és 3.402823466E+38 között"
+"Small floating-point szám, értéktartománya -3.402823466E+38 és "
+"-1.175494351E-38 között, 0, 1.175494351E-38 és 3.402823466E+38 között"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Double-precision floating-point szám, értéktartománya -1.7976931348623157E"
@@ -3981,7 +3981,7 @@ msgid "Click to toggle"
 msgstr "Kattintson a váltáshoz"
 
 #: libraries/Util.class.php:3321 libraries/sql_query_form.lib.php:477
-#: prefs_manage.php:249
+#: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Számítógép tallózása:"
 
@@ -4104,13 +4104,13 @@ msgstr "A(z) \"%s\" adatbázis jogainak ellenőrzése."
 msgid "Check Privileges"
 msgstr "Jogok ellenőrzése"
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:585
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "A beállítófájl olvasása meghiúsult"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:587
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4118,12 +4118,12 @@ msgstr ""
 "Ez általában azt jelenti, hogy szintaktikai hiba áll fenn, ellenőrizze az "
 "alább látható hibákat."
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:594
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nem lehetett betölteni az alapértelmezett konfigurációt innen: %1$s"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:601
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -4131,43 +4131,43 @@ msgstr ""
 "A [code]$cfg['PmaAbsoluteUri'][/code] utasítás értékét a konfigurációs "
 "fájlban KELL megadni!"
 
-#: libraries/common.inc.php:632
+#: libraries/common.inc.php:634
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Érvénytelen szerverindex: %s"
 
-#: libraries/common.inc.php:643
+#: libraries/common.inc.php:645
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "A(z) %1$s szerver hosztneve érvénytelen. Ellenőrizze a beállításokat."
 
-#: libraries/common.inc.php:659
+#: libraries/common.inc.php:661
 #, php-format
 msgid "Server %d"
 msgstr "Kiszolgáló %d"
 
-#: libraries/common.inc.php:858
+#: libraries/common.inc.php:860
 msgid "Invalid authentication method set in configuration:"
 msgstr "Érvénytelen hitelesítési mód került beállításra a konfigurációban:"
 
-#: libraries/common.inc.php:1001
+#: libraries/common.inc.php:1003
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Frissítenie kell %s %s vagy újabb verzióra."
 
-#: libraries/common.inc.php:1087
+#: libraries/common.inc.php:1089
 msgid "Error: Token mismatch"
 msgstr "Hiba: Token eltérés"
 
-#: libraries/common.inc.php:1119
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS felülírási kísérlet"
 
-#: libraries/common.inc.php:1126
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "lehetséges kiaknázás"
 
-#: libraries/common.inc.php:1135
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "numerikus kulcs észlelve"
 
@@ -4391,8 +4391,8 @@ msgid "Apply"
 msgstr "Alkalmaz"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1594
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
-#: prefs_manage.php:349
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: prefs_manage.php:342
 msgid "Reset"
 msgstr "Visszaállítás"
 
@@ -4479,8 +4479,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"A %sLogin cookie validity%s, amely nagyobb, mint a %ssession.gc_maxlifetime%"
-"s, véletlenszerű munkamenet érvénytelenítést okozhat (a session."
+"A %sLogin cookie validity%s, amely nagyobb, mint a %ssession.gc_maxlifetime"
+"%s, véletlenszerű munkamenet érvénytelenítést okozhat (a session."
 "gc_maxlifetime értéke jelenleg: %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
@@ -4522,15 +4522,15 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Ön a [kbd]konfigurációs[/kbd] hitelesítési típust állította be, s az "
 "automatikus bejelentkezéshez megadta a felhasználónevet és a jelszót, ami "
 "működő állomások esetén nemkívánatos beállítás. Bárki, aki tudja vagy "
 "kitalálja a phpMyAdmin URL-címét, közvetlenül hozzá tud férni a phpMyAdmin "
-"panelhoz. Állítsa %sauthentication type%s-t  [kbd]cookie[/kbd]-ra vagy [kbd]"
-"http[/kbd]-re."
+"panelhoz. Állítsa %sauthentication type%s-t  [kbd]cookie[/kbd]-ra vagy "
+"[kbd]http[/kbd]-re."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4713,8 +4713,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4734,8 +4734,8 @@ msgstr "CHAR mezők szerkesztése"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Felhasználóbarát szerkesztő használata az SQL-lekérdezések ([a@http://"
 "codemirror.net/]CodeMirror[/a]) szintaxis kiemelővel és a sorok számának "
@@ -4943,7 +4943,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr "Végrehajtási idő legfeljebb"
 
-#: libraries/config/messages.inc.php:110 prefs_manage.php:313
+#: libraries/config/messages.inc.php:110 prefs_manage.php:306
 msgid "Save as file"
 msgstr "Mentés fájlként"
 
@@ -5179,8 +5179,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Az elemek rendezési sorrendje egy idegen kulcs legördülő panelban; [kbd]"
-"tartalom[/kbd]: hivatkozott adat, [kbd]id[/kbd]: a kulcs értéke"
+"Az elemek rendezési sorrendje egy idegen kulcs legördülő panelban; "
+"[kbd]tartalom[/kbd]: hivatkozott adat, [kbd]id[/kbd]: a kulcs értéke"
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
@@ -5349,8 +5349,9 @@ msgstr "Oldalcímek"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Megadhatja a böngésző fejlécében megjelenített címet. Hivatkozzon a "
 "[doc@cfg_TitleTable]dokumentációra[/doc] a mágikus parancsok végett, amiket "
@@ -5498,9 +5499,9 @@ msgid ""
 msgstr ""
 "Amennyiben szeretné használni az SQL-validátor szolgáltatást, tudatában kell "
 "lennie annak, hogy [strong]minden SQL parancsot névtelenül tároljuk "
-"statisztikai okokból[/strong]. [br][em][a@http://sqlvalidator.mimer.com/]"
-"Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. All "
-"rights reserved.[/em]"
+"statisztikai okokból[/strong]. [br][em][a@http://sqlvalidator.mimer."
+"com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
+"All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:302
 msgid "Startup"
@@ -5884,8 +5885,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"Egy parancsfájl számára a lefoglaláshoz engedélyezett bájtok száma, pl. [kbd]"
-"32M[/kbd] (korlátlan: [kbd]0[/kbd])"
+"Egy parancsfájl számára a lefoglaláshoz engedélyezett bájtok száma, pl. "
+"[kbd]32M[/kbd] (korlátlan: [kbd]0[/kbd])"
 
 #: libraries/config/messages.inc.php:431
 msgid "Memory limit"
@@ -6332,8 +6333,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Hagyja üresen, ha nincs [a@http://wiki.phpmyadmin.net/pma/bookmark]könyvjelző"
-"[/a] támogatás, alapértelmezés: [kbd]pma_bookmark[/kbd]"
+"Hagyja üresen, ha nincs [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]könyvjelző[/a] támogatás, alapértelmezés: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:564
 msgid "Bookmark table"
@@ -6342,14 +6343,14 @@ msgstr "Könyvjelzők táblája"
 #: libraries/config/messages.inc.php:566
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Hagyja üresen, ha nincs oszlopmegjegyzés/mime-típus, ajánlott: [kbd]"
-"pma_column_info[/kbd]"
+"Hagyja üresen, ha nincs oszlopmegjegyzés/mime-típus, ajánlott: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:569
 msgid "Column information table"
@@ -6385,8 +6386,8 @@ msgstr "A kontrollfelhasználó jelszava"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6436,14 +6437,14 @@ msgstr "Kontroll port"
 #: libraries/config/messages.inc.php:593
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#| "[/kbd]"
+#| "Leave blank for no Designer support, suggested: "
+#| "[kbd]pma__designer_coords[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Hagyja üresen, ha nem akar Tervező támogatást, ajánlott: [kbd]"
-"pma_designer_coords[/kbd]"
+"Hagyja üresen, ha nem akar Tervező támogatást, ajánlott: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:596
 msgid "Designer table"
@@ -6462,8 +6463,8 @@ msgstr "Adatbázisok elrejtése"
 #: libraries/config/messages.inc.php:601
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma__history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6547,8 +6548,8 @@ msgstr "A konfigurációs hitelesítés jelszava"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Hagyja üresen, ha nem szeretne PDF-séma támogatást, ajánlott: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Hagyja üresen, ha nem szeretne PDF-séma támogatást, ajánlott: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:627
 msgid "PDF schema: pages table"
@@ -6608,8 +6609,8 @@ msgstr "Utoljára használt tábla"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Hagyja üresen, ha nincs [a@http://wiki.phpmyadmin.net/pma/relation]relációs "
 "hivatkozás[/a] támogatás, ajánlott: [kbd]pma_relation[/kbd]"
@@ -6624,8 +6625,8 @@ msgstr "Relációs tábla"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Lásd a [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]hitelesítési "
 "típusok[/a] példáját"
@@ -6669,8 +6670,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Hagyja üresen, ha nincs PDF-séma támogatás, alapértelmezés: [kbd]"
-"pma_table_coords[/kbd]"
+"Hagyja üresen, ha nincs PDF-séma támogatás, alapértelmezés: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:662
 msgid "PDF schema: table coordinates"
@@ -6756,11 +6757,11 @@ msgstr "Utasítások követésre"
 #: libraries/config/messages.inc.php:692
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Hagyja üresen, ha nincs szükség az SQL-lekérdezések előzményeinek "
 "támogatására, ajánlott: [kbd]pma_history[/kbd]"
@@ -6784,11 +6785,11 @@ msgstr "Verziók automatikus létrehozása"
 #: libraries/config/messages.inc.php:702
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Hagyja üresen, ha nincs szükség a felhasználói beállítások tárolására az "
 "adatbázisban, ajánlott: [kbd]pma_history[/kbd]"
@@ -7086,14 +7087,14 @@ msgstr "SQL Validator engedélyezése"
 #: libraries/config/messages.inc.php:753
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#| "[/kbd])"
+#| "If you have a custom username, specify it here (defaults to "
+#| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Ha Önnek egyedi felhasználóneve van, itt megnevezheti (alapértelmezett: [kbd]"
-"anonymous[/kbd])"
+"Ha Önnek egyedi felhasználóneve van, itt megnevezheti (alapértelmezett: "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -7440,7 +7441,7 @@ msgid "No Password"
 msgstr "Nincs jelszó"
 
 #: libraries/display_change_password.lib.php:67
-#: libraries/plugins/auth/AuthenticationCookie.class.php:225
+#: libraries/plugins/auth/AuthenticationCookie.class.php:205
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:833
 #: libraries/server_privileges.lib.php:1438
 msgid "Password:"
@@ -7604,8 +7605,8 @@ msgstr ", @TABLE@ lesz a tábla neve"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ennek az értéknek az értelmezése a(z) %1$sstrftime%2$s használatával "
 "történik, vagyis időformázó karakterláncokat használhat. Továbbá a következő "
@@ -8114,11 +8115,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Dokumentáció és további információ a PBXT honlapján: %sPrimeBase XT Honlap:%"
-"s."
+"Dokumentáció és további információ a PBXT honlapján: %sPrimeBase XT Honlap:"
+"%s."
 
 #: libraries/engines/pbxt.lib.php:156
 msgid "Related Links"
@@ -8174,7 +8175,7 @@ msgid "Dump has been saved to file %s."
 msgstr "A kiíratás mentése a(z) %s fájlba megtörtént."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1638
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "A MySQL üres eredményhalmazt adott vissza (pl. nulla sorok)."
@@ -8305,11 +8306,11 @@ msgstr ""
 "A TAB billentyűvel értékről értékre lépkedhet, vagy a CTRL+nyilakkal bárhová "
 "léphet"
 
-#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1633
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1613
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
@@ -8657,7 +8658,7 @@ msgstr "Adatbázis exportálási beállításai"
 msgid "Show hidden items"
 msgstr "Segítség megjelenítése"
 
-#: libraries/navigation/Nodes/Node_Database_Container.class.php:33
+#: libraries/navigation/Nodes/Node_Database_Container.class.php:34
 #, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
@@ -8915,7 +8916,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Nem lehet csatlakozni: érvénytelenek a beállítások."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:86
-#: libraries/plugins/auth/AuthenticationCookie.class.php:166
+#: libraries/plugins/auth/AuthenticationCookie.class.php:143
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
@@ -8924,11 +8925,11 @@ msgstr "Üdvözli a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A %1"
-"$stelepítőszkripttel%2$s el tudja készíteni."
+"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A "
+"%1$stelepítőszkripttel%2$s el tudja készíteni."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -8950,52 +8951,51 @@ msgstr "Kapcsolódási kísérlet ismétlése"
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Blowfish használata mcrypt-ből sikertelen!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:82
-#: libraries/plugins/auth/AuthenticationCookie.class.php:196
-msgid "Log in"
-msgstr "Belépés"
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:100
+#: libraries/plugins/auth/AuthenticationCookie.class.php:153
 msgid "Your session has expired. Please log in again."
 msgstr "Lejárt a munkamenet. Lépjen be újra."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
-#: libraries/plugins/auth/AuthenticationCookie.class.php:214
+#: libraries/plugins/auth/AuthenticationCookie.class.php:176
+msgid "Log in"
+msgstr "Belépés"
+
+#: libraries/plugins/auth/AuthenticationCookie.class.php:184
+#: libraries/plugins/auth/AuthenticationCookie.class.php:194
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Az állomásnevet/IP-címet és a port számát szóközzel elválasztva írhatja be."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:219
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "Username:"
 msgstr "Felhasználónév:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:231
+#: libraries/plugins/auth/AuthenticationCookie.class.php:211
 msgid "Server Choice:"
 msgstr "Szerver választása:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:408
+#: libraries/plugins/auth/AuthenticationCookie.class.php:388
 msgid "Entered captcha is wrong, try again!"
 msgstr "A megadott captcha helytelen, próbálja újra!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:417
+#: libraries/plugins/auth/AuthenticationCookie.class.php:397
 msgid "Please enter correct captcha!"
 msgstr "Adja meg a helyes captchat!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
+#: libraries/plugins/auth/AuthenticationCookie.class.php:671
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "A konfiguráció tiltja a jelszó nélküli bejelentkezést (lásd AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:698
+#: libraries/plugins/auth/AuthenticationCookie.class.php:678
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Nem volt tevékenység %s másodperce; jelentkezzen be újra."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:703
-#: libraries/plugins/auth/AuthenticationCookie.class.php:705
+#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:685
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "Nem lehet bejelentkezni a MySQL szerverre"
@@ -9032,17 +9032,17 @@ msgid "Columns separated with:"
 msgstr "Oszlopok elválasztása ezzel:"
 
 #: libraries/plugins/export/ExportCsv.class.php:69
-#: libraries/plugins/import/AbstractImportCsv.class.php:65
+#: libraries/plugins/import/AbstractImportCsv.class.php:64
 msgid "Columns enclosed with:"
 msgstr "Oszlopok körbezárása ezzel:"
 
 #: libraries/plugins/export/ExportCsv.class.php:73
-#: libraries/plugins/import/AbstractImportCsv.class.php:71
+#: libraries/plugins/import/AbstractImportCsv.class.php:70
 msgid "Columns escaped with:"
 msgstr "Oszlopok escape-elése ezzel:"
 
 #: libraries/plugins/export/ExportCsv.class.php:77
-#: libraries/plugins/import/AbstractImportCsv.class.php:77
+#: libraries/plugins/import/AbstractImportCsv.class.php:76
 msgid "Lines terminated with:"
 msgstr "Sorok végződése ezzel:"
 
@@ -9780,23 +9780,27 @@ msgstr "Beállítható menü"
 msgid "Hide/show navigation items"
 msgstr "Navigációs elemek mutatása/elrejtése"
 
-#: libraries/relation.lib.php:285
+#: libraries/relation.lib.php:290
+msgid "Saving Query-By-Example searches"
+msgstr ""
+
+#: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
 msgstr "Gyors lépések a haladó funkciók beállításához:"
 
-#: libraries/relation.lib.php:289
+#: libraries/relation.lib.php:300
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
 "Hozza létre a kívánt táblákat a <code>examples/create_tables.sql</code> "
 "használatával."
 
-#: libraries/relation.lib.php:295
+#: libraries/relation.lib.php:306
 msgid "Create a pma user and give access to these tables."
 msgstr ""
 "Hozzon létre egy pma felhasználót és adjon hozzáférést ezekhez a táblákhoz."
 
-#: libraries/relation.lib.php:300
+#: libraries/relation.lib.php:311
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -9804,12 +9808,12 @@ msgstr ""
 "Engedélyezze a haladó funkciókat a beállító fájlban (<code>config.inc.php</"
 "code>), például induljon ki a <code>config.sample.inc.php</code> fájlból."
 
-#: libraries/relation.lib.php:308
+#: libraries/relation.lib.php:319
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Jelentkezzen be újra a phpMyAdminba a frissített beállítófájl betöltéséhez."
 
-#: libraries/relation.lib.php:1507
+#: libraries/relation.lib.php:1518
 msgid "no description"
 msgstr "nincs leírás"
 
@@ -11355,13 +11359,13 @@ msgstr "Felhasználók áttekintése"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Megjegyzés: a phpMyAdmin a felhasználók jogait közvetlenül a MySQL "
 "privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver által "
-"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben %"
-"stöltse be újra a jogokat%s a folytatás előtt."
+"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
+"%stöltse be újra a jogokat%s a folytatás előtt."
 
 #: libraries/server_privileges.lib.php:3931
 msgid "The selected user was not found in the privilege table."
@@ -12548,41 +12552,41 @@ msgstr "Hívások"
 msgid "ø Time"
 msgstr "ø idő"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:763 libraries/sql.lib.php:783
 msgid "Bookmark this SQL query"
 msgstr "Az SQL-lekérdezés hozzáadása a könyvjelzőkhöz"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:767
 msgid "Label:"
 msgstr "Címke:"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:775 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr ""
 "A hozzáférés ehhez a könyvjelzőhöz az összes felhasználó számára "
 "engedélyezett"
 
-#: libraries/sql.lib.php:1025
+#: libraries/sql.lib.php:1026
 #, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
 msgstr "A könyvjelző nem készült el"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1182
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "A(z) „%s” könyvjelző használata alapértelmezett tallózás lekérdezésként."
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1630
 msgid "Showing as PHP code"
 msgstr "Megjelenítés PHP kódként"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1635
 msgid "Validated SQL"
 msgstr "Érvényes SQL"
 
-#: libraries/sql.lib.php:1914
+#: libraries/sql.lib.php:1915
 #, fuzzy
 #| msgid ""
 #| "Table %s does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -12594,7 +12598,7 @@ msgstr ""
 "A(z) %s tábla nem tartalmaz egyedi oszlopot. Rács szerkesztés, checkbox, "
 "szerkesztése, másolása és törlés funkciók nem állnak rendelkezésre."
 
-#: libraries/sql.lib.php:1951
+#: libraries/sql.lib.php:1952
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Probléma a(z) `%s` tábla indexeivel"
@@ -12706,8 +12710,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a %"
-"sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
+"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a "
+"%sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
 "kiterjesztést."
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
@@ -13342,7 +13346,7 @@ msgstr "%1$s verzió létrejött, a %2$s nyomonkövetése aktív."
 msgid "Manage your settings"
 msgstr "Beállítások kezelése"
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:304
+#: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved"
 msgstr "A módosítások mentése megtörtént"
 
@@ -13582,56 +13586,56 @@ msgstr "A beállítás rossz adatot tartalmaz néhány mezőben."
 msgid "Do you want to import remaining settings?"
 msgstr "Szeretné importálni a megmaradt beállításokat?"
 
-#: prefs_manage.php:232 prefs_manage.php:261
+#: prefs_manage.php:225 prefs_manage.php:254
 msgid "Saved on: @DATE@"
 msgstr "Mentés dátuma: @DATE@"
 
-#: prefs_manage.php:247
+#: prefs_manage.php:240
 msgid "Import from file"
 msgstr "Importálás fájlból"
 
-#: prefs_manage.php:255
+#: prefs_manage.php:248
 msgid "Import from browser's storage"
 msgstr "Importálás a böngészőből"
 
-#: prefs_manage.php:258
+#: prefs_manage.php:251
 msgid "Settings will be imported from your browser's local storage."
 msgstr "A beállítások a böngészője helyi tárolójából lesznek importálva."
 
-#: prefs_manage.php:264
+#: prefs_manage.php:257
 msgid "You have no saved settings!"
 msgstr "Nincsenek elmentett beállításai!"
 
-#: prefs_manage.php:269 prefs_manage.php:329
+#: prefs_manage.php:262 prefs_manage.php:322
 msgid "This feature is not supported by your web browser"
 msgstr "Az ön web böngészője nem támogatja ezt a szolgáltatást"
 
-#: prefs_manage.php:275
+#: prefs_manage.php:268
 msgid "Merge with current configuration"
 msgstr "Egyesítés a jelenlegi beállítással"
 
-#: prefs_manage.php:289
+#: prefs_manage.php:282
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"További beállításokat állíthat be a config.inc.php modosításával, pl. %"
-"sBeállító parancsfájl%s használatával."
+"További beállításokat állíthat be a config.inc.php modosításával, pl. "
+"%sBeállító parancsfájl%s használatával."
 
-#: prefs_manage.php:318
+#: prefs_manage.php:311
 msgid "Save to browser's storage"
 msgstr "Mentés a böngésző tárolójába"
 
-#: prefs_manage.php:322
+#: prefs_manage.php:315
 msgid "Settings will be saved in your browser's local storage."
 msgstr "A beállítások a böngészője helyi tárolójába lesznek mentve."
 
-#: prefs_manage.php:324
+#: prefs_manage.php:317
 msgid "Existing settings will be overwritten!"
 msgstr "A meglévő beállítások felülíródnak!"
 
-#: prefs_manage.php:346
+#: prefs_manage.php:339
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 "Alaphelyzetbe állíthatja az összes beállítását és visszaállíthatja azokat az "
@@ -13843,8 +13847,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Ön Git verziót használ, futtassa a [kbd]git pull[/kbd] parancsot :-)[br]"
-"Legújabb stabil verzió: %s, kiadás dátuma: %s."
+"Ön Git verziót használ, futtassa a [kbd]git pull[/kbd] parancsot :-)"
+"[br]Legújabb stabil verzió: %s, kiadás dátuma: %s."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
@@ -14026,8 +14030,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"A lassú lekérdezések mértékének kisebbnek kellene 5%%nál lennie, az érték %s%"
-"%."
+"A lassú lekérdezések mértékének kisebbnek kellene 5%%nál lennie, az érték %s"
+"%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -14046,8 +14050,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"A lassú lekérdezések mértéke %s óránként, kevesebbnek kellene lennie, mint 1%"
-"% óránként."
+"A lassú lekérdezések mértéke %s óránként, kevesebbnek kellene lennie, mint "
+"1%% óránként."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -14318,8 +14322,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "A szabad lekérdezési gyorsítótár-memória jelenlegi aránya a teljes "
 "lekérdezési gyorsítótár méretéhez %s%%. 80%% felett kellene lennie"
@@ -14476,8 +14480,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "A rendezések %s%%-a átmeneti táblákat hoz létre, ennek az értéknek "
 "alacsonyabbnak kell lennie, mint 10%%."
@@ -15248,22 +15252,22 @@ msgstr "A concurrent_insert 0-ra van állítva"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~| "pma__users[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: "
+#~| "[kbd]pma__users[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Hagyja üresen, ha nincs szükség a konfigurálható menü funkcióra, "
 #~ "ajánlott: [kbd]pma__users[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~| "pma__usergroups[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: "
+#~| "[kbd]pma__usergroups[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Hagyja üresen, ha nincs szükség a konfigurálható menü funkcióra, "
 #~ "ajánlott: [kbd]pma__usergroups[/kbd]"
@@ -15375,8 +15379,9 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ "típusokhoz kattintson ide: %stransformation descriptions%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Bővebben a [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 #~ "hibakövetőben[/a] és a [a@http://bugs.mysql.com/19588]MySQL "
@@ -15689,14 +15694,14 @@ msgstr "A concurrent_insert 0-ra van állítva"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "E beállítás [kbd]beágyazottra[/kbd] állításakor a táblanév alias kerül "
-#~ "csak felhasználásra a táblák felosztásához/beágyazásához a $cfg"
-#~ "['LeftFrameTableSeparator'] utasítás alapján, ezért csak a mappát hívják "
-#~ "úgy, mint az aliast, a táblanév változatlan marad"
+#~ "csak felhasználásra a táblák felosztásához/beágyazásához a "
+#~ "$cfg['LeftFrameTableSeparator'] utasítás alapján, ezért csak a mappát "
+#~ "hívják úgy, mint az aliast, a táblanév változatlan marad"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "A tábla megjegyzésének megjelenítése a neve helyett"
@@ -16046,8 +16051,8 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) %"
-#~ "s könyvtárban."
+#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) "
+#~ "%s könyvtárban."
 
 #~ msgid "Switch to"
 #~ msgstr "Váltás"
@@ -16207,5 +16212,5 @@ msgstr "A concurrent_insert 0-ra van állítva"
 #~ "This [a@?page=form&amp;formset=features#tab_Security]option[/a] should be "
 #~ "enabled if your web server supports it"
 #~ msgstr ""
-#~ "Engedélyeznie kell ezt a [a@?page=form&amp;formset=features#tab_Security]"
-#~ "beállítást[/a], ha támogatja a webszerver"
+#~ "Engedélyeznie kell ezt a [a@?page=form&amp;"
+#~ "formset=features#tab_Security]beállítást[/a], ha támogatja a webszerver"

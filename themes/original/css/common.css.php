@@ -2614,3 +2614,15 @@ div.jqplot-noData-container {
     height:10em;
     width:570px;
 }
+
+div#page_content div#tableslistcontainer table.data {
+    border-top: 0.1px solid #EEEEEE;
+}
+
+div#page_content form#db_search_form.ajax fieldset {
+    margin-top: -0.3em;
+}
+
+div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
+    margin-top: 1em;
+}

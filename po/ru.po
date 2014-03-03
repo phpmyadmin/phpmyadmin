@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-26 12:50-0500\n"
+"POT-Creation-Date: 2014-03-03 16:13+0100\n"
 "PO-Revision-Date: 2014-02-03 17:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
 ">\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -294,19 +294,19 @@ msgstr[0] "%s таблица"
 msgstr[1] "%s таблицы"
 msgstr[2] "%s таблиц"
 
-#: db_qbe.php:94
+#: db_qbe.php:95
 #, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
 msgstr ""
 "Для выполнения запроса, должен быть выбран отображаемый столбец/столбцы"
 
-#: db_qbe.php:114
+#: db_qbe.php:115
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Переключиться на %sвизуальный составитель запросов%s"
 
-#: db_qbe.php:125
+#: db_qbe.php:126
 msgid ""
 "After saving or loading a search, you can rename it and save the new "
 "criteria."
@@ -314,7 +314,7 @@ msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:695
+#: libraries/plugins/auth/AuthenticationCookie.class.php:675
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -556,7 +556,7 @@ msgstr "Добавить геометрии"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:294
+#: libraries/plugins/auth/AuthenticationCookie.class.php:274
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -577,7 +577,7 @@ msgstr "Добавить геометрии"
 #: libraries/tbl_chart.lib.php:244
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
-#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:336
+#: pmd_pdf.php:158 prefs_manage.php:271 prefs_manage.php:329
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
 msgstr "OK"
@@ -601,8 +601,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
@@ -665,7 +665,7 @@ msgstr ""
 "Отсутствуют модули импорта. Проверьте содержимое установленной копии "
 "phpMyAdmin!"
 
-#: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
+#: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1805
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -695,7 +695,7 @@ msgstr ""
 "пока не будет увеличено ограничение времени выполнения php-сценариев."
 
 #: import_status.php:87 libraries/Util.class.php:733
-#: libraries/export.lib.php:437
+#: libraries/export.lib.php:438
 #: libraries/schema/Export_Relation_Schema.class.php:247 user_password.php:239
 msgid "Back"
 msgstr "Назад"
@@ -732,7 +732,7 @@ msgstr "Сопоставление кодировки соединения с My
 msgid "Appearance Settings"
 msgstr "Настройки внешнего вида"
 
-#: index.php:236 prefs_manage.php:286
+#: index.php:236 prefs_manage.php:279
 msgid "More settings"
 msgstr "Дополнительные настройки"
 
@@ -740,7 +740,7 @@ msgstr "Дополнительные настройки"
 msgid "Database server"
 msgstr "Сервер баз данных"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:207
+#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:187
 msgid "Server:"
 msgstr "Сервер:"
 
@@ -1501,7 +1501,7 @@ msgstr ""
 #: libraries/Util.class.php:4120 libraries/Util.class.php:4135
 #: libraries/Util.class.php:4151 libraries/config/messages.inc.php:225
 #: libraries/display_import.lib.php:108
-#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
+#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:232
 #: setup/frames/menu.inc.php:25
 msgid "Import"
 msgstr "Импорт"
@@ -2311,12 +2311,12 @@ msgstr "Не удалось подсчитать значение для пра�
 msgid "Failed running test for rule '%s'."
 msgstr "Не удалось запустить проверку правила '%s'."
 
-#: libraries/Advisor.class.php:225
+#: libraries/Advisor.class.php:222
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Не удалось форматировать строку для правила '%s'."
 
-#: libraries/Advisor.class.php:401
+#: libraries/Advisor.class.php:388
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2324,38 +2324,38 @@ msgstr ""
 "Неверное определение правила на строке %1$s, ожидается строка %2$s "
 "предыдущего правила."
 
-#: libraries/Advisor.class.php:420
+#: libraries/Advisor.class.php:407
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Неверное определение правила на строке %s."
 
-#: libraries/Advisor.class.php:428
+#: libraries/Advisor.class.php:415
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Неожиданные символы на строке %s."
 
-#: libraries/Advisor.class.php:443
+#: libraries/Advisor.class.php:430
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Неожиданный символ на строке %1$s. Ожидается символ табуляции, а найден \"%2"
-"$s\"."
+"Неожиданный символ на строке %1$s. Ожидается символ табуляции, а найден "
+"\"%2$s\"."
 
-#: libraries/Advisor.class.php:478
+#: libraries/Advisor.class.php:465
 msgid "per second"
 msgstr "в секунду"
 
-#: libraries/Advisor.class.php:481
+#: libraries/Advisor.class.php:468
 msgid "per minute"
 msgstr "в минуту"
 
-#: libraries/Advisor.class.php:484 libraries/server_status.lib.php:137
+#: libraries/Advisor.class.php:471 libraries/server_status.lib.php:137
 #: libraries/server_status.lib.php:221
 #: libraries/server_status_queries.lib.php:98
 msgid "per hour"
 msgstr "в час"
 
-#: libraries/Advisor.class.php:487
+#: libraries/Advisor.class.php:474
 msgid "per day"
 msgstr "на день"
 
@@ -2743,8 +2743,8 @@ msgstr "SQL-запрос был успешно выполнен"
 #: libraries/DisplayResults.class.php:4966 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
@@ -2764,7 +2764,7 @@ msgstr ""
 msgid "%d total"
 msgstr "%d всего"
 
-#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1643
+#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1644
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -2810,7 +2810,7 @@ msgstr "Изменить"
 #: libraries/server_privileges.lib.php:2260
 #: libraries/server_privileges.lib.php:2967
 #: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:297
-#: prefs_manage.php:300 setup/frames/menu.inc.php:27
+#: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Экспорт"
 
@@ -2911,8 +2911,8 @@ msgstr "Запущена Git ревизия %1$s из ветки %2$s."
 msgid "Git information missing!"
 msgstr "Отсутствует Git информация!"
 
-#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
-#: libraries/Footer.class.php:169
+#: libraries/Footer.class.php:179 libraries/Footer.class.php:183
+#: libraries/Footer.class.php:186
 msgid "Open new phpMyAdmin window"
 msgstr "Открыть phpMyAdmin в новом окне"
 
@@ -2921,7 +2921,7 @@ msgid "Click on the bar to scroll to top of page"
 msgstr "Кликните на строку, чтобы перейти вверх страницы"
 
 #: libraries/Header.class.php:661
-#: libraries/plugins/auth/AuthenticationCookie.class.php:178
+#: libraries/plugins/auth/AuthenticationCookie.class.php:158
 #, fuzzy
 #| msgid "Javascript must be enabled past this point"
 msgid "Javascript must be enabled past this point!"
@@ -3203,27 +3203,27 @@ msgstr "Недавние таблицы"
 msgid "There are no recent tables."
 msgstr "Отсутствуют недавние таблицы"
 
-#: libraries/SavedSearches.php:249
+#: libraries/SavedSearches.class.php:249
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the search."
 msgstr "Отсутствие таблиц хранения конфигурации phpMyAdmin"
 
-#: libraries/SavedSearches.php:265 libraries/SavedSearches.php:295
+#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "Пользователь %s уже существует!"
 
-#: libraries/SavedSearches.php:315
+#: libraries/SavedSearches.class.php:315
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.php:336
+#: libraries/SavedSearches.class.php:336
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.php:349
+#: libraries/SavedSearches.class.php:349
 #, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
@@ -3604,8 +3604,8 @@ msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
-"Восьми-байтовое целое число, диапазон чисел со знаком от -"
-"9,223,372,036,854,775,808 до 9,223,372,036,854,775,807, диапазон чисел без "
+"Восьми-байтовое целое число, диапазон чисел со знаком от "
+"-9,223,372,036,854,775,808 до 9,223,372,036,854,775,807, диапазон чисел без "
 "знака от 0 до 18,446,744,073,709,551,615"
 
 #: libraries/Types.class.php:330 libraries/Types.class.php:779
@@ -3619,20 +3619,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Малое число с плавающей точкой, допустимые значения от -3.402823466E+38 до -"
-"1.175494351E-38, 0, и от 1.175494351E-38 до 3.402823466E+38"
+"Малое число с плавающей точкой, допустимые значения от -3.402823466E+38 до "
+"-1.175494351E-38, 0, и от 1.175494351E-38 до 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Число с плавающей точкой удвоенной точности, допустимые значения от -"
-"1.7976931348623157E+308 до -2.2250738585072014E-308, 0, и от "
+"Число с плавающей точкой удвоенной точности, допустимые значения от "
+"-1.7976931348623157E+308 до -2.2250738585072014E-308, 0, и от "
 "2.2250738585072014E-308 до 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -3679,8 +3679,8 @@ msgid ""
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Временная метка, диапазон от \"1970-01-01 00:00:01\" UTC до \"2038-01-09 "
-"03:14:07\" UTC, содержит количество секунд прошедших со времени (\"1970-01-"
-"01 00:00:00\" UTC)"
+"03:14:07\" UTC, содержит количество секунд прошедших со времени "
+"(\"1970-01-01 00:00:00\" UTC)"
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:795
 #, php-format
@@ -4008,7 +4008,7 @@ msgid "Click to toggle"
 msgstr "Кликните для переключения"
 
 #: libraries/Util.class.php:3321 libraries/sql_query_form.lib.php:477
-#: prefs_manage.php:249
+#: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Обзор вашего компьютера:"
 
@@ -4131,13 +4131,13 @@ msgstr "Проверить привилегии для базы данных \"%
 msgid "Check Privileges"
 msgstr "Проверить привилегии"
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:585
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "Ошибка при чтении конфигурационного файла"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:587
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4145,12 +4145,12 @@ msgstr ""
 "Обычно это означает наличие синтаксических ошибок, пожалуйста, проверьте "
 "выведенные ниже ошибки."
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:594
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Невозможно загрузить изначальную конфигурацию из: %1$s"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:601
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -4158,46 +4158,46 @@ msgstr ""
 "Директива [code]$cfg['PmaAbsoluteUri'][/code] ДОЛЖНА быть установлена в "
 "конфигурационном файле!"
 
-#: libraries/common.inc.php:632
+#: libraries/common.inc.php:634
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Неверный индекс сервера: %s"
 
-#: libraries/common.inc.php:643
+#: libraries/common.inc.php:645
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Для сервера %1$s указано неверное имя хоста. Исправьте настройки заданные в "
 "конфигурационном файле phpMyAdmin."
 
-#: libraries/common.inc.php:659
+#: libraries/common.inc.php:661
 #, php-format
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: libraries/common.inc.php:858
+#: libraries/common.inc.php:860
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "В конфигурационном файле phpMyAdmin установлен неверный метод аутентификации:"
 
-#: libraries/common.inc.php:1001
+#: libraries/common.inc.php:1003
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Необходимо обновить %s до версии %s или выше."
 
-#: libraries/common.inc.php:1087
+#: libraries/common.inc.php:1089
 msgid "Error: Token mismatch"
 msgstr "Ошибка: Несоответствие Тоукена"
 
-#: libraries/common.inc.php:1119
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "попытка перезаписи GLOBALS"
 
-#: libraries/common.inc.php:1126
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "возможная уязвимость"
 
-#: libraries/common.inc.php:1135
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "определена числовая клавиша"
 
@@ -4421,8 +4421,8 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1594
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
-#: prefs_manage.php:349
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: prefs_manage.php:342
 msgid "Reset"
 msgstr "Сбросить"
 
@@ -4546,8 +4546,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"При необходимости используйте дополнительные настройки безопасности - %"
-"sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
+"При необходимости используйте дополнительные настройки безопасности - "
+"%sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
 "защита по IP может быть ненадежной, если ваш IP не является выделенным и "
 "кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
@@ -4557,8 +4557,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Вы установили [kbd]config[/kbd] идентификацию и ввели имя пользователя с "
 "паролем для автоматического входа, что крайне не рекомендуется для рабочего "
@@ -4679,8 +4679,8 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Включение данного параметра позволяет странице расположенной на другом "
-"домене вызвать phpMyAdmin внутри фрейма, что является потенциальной [strong]"
-"дырой в безопасности[/strong] допуская возможность XFS (Cross Frame "
+"домене вызвать phpMyAdmin внутри фрейма, что является потенциальной "
+"[strong]дырой в безопасности[/strong] допуская возможность XFS (Cross Frame "
 "Scripting)"
 
 #: libraries/config/messages.inc.php:25
@@ -4745,8 +4745,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4766,11 +4766,11 @@ msgstr "Редактирование полей типа CHAR"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
-"Использовать визуальный редактор SQL запросов ([a@http://codemirror.net/]"
-"CodeMirror[/a]) с подсветкой синтаксиса и нумерацией строк"
+"Использовать визуальный редактор SQL запросов ([a@http://codemirror."
+"net/]CodeMirror[/a]) с подсветкой синтаксиса и нумерацией строк"
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
@@ -4975,7 +4975,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr "Максимальное время выполнения"
 
-#: libraries/config/messages.inc.php:110 prefs_manage.php:313
+#: libraries/config/messages.inc.php:110 prefs_manage.php:306
 msgid "Save as file"
 msgstr "Сохранить как файл"
 
@@ -5385,8 +5385,9 @@ msgstr "Заголовки страниц"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Определите текст заголовка браузера. Для ввода особых значений используйте "
 "подставные строки, которые описаны в [doc@cfg_TitleTable]документации[/doc]."
@@ -6373,8 +6374,9 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/bookmark]закладок"
-"[/a] оставьте поле пустым, рекомендуется: [kbd]pma__bookmark[/kbd]"
+"Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]закладок[/a] оставьте поле пустым, рекомендуется: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:564
 msgid "Bookmark table"
@@ -6383,11 +6385,11 @@ msgstr "Таблица закладок"
 #: libraries/config/messages.inc.php:566
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Для отключения поддержки комментариев/mime-типов полей оставьте поле пустым, "
 "рекомендуется: [kbd]pma__column_info[/kbd]"
@@ -6424,8 +6426,8 @@ msgstr "Пароль выделенного пользователя"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6475,8 +6477,8 @@ msgstr "Контрольный порт"
 #: libraries/config/messages.inc.php:593
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#| "[/kbd]"
+#| "Leave blank for no Designer support, suggested: "
+#| "[kbd]pma__designer_coords[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
@@ -6501,8 +6503,8 @@ msgstr "Скрыть базы данных"
 #: libraries/config/messages.inc.php:601
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma__history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6588,8 +6590,8 @@ msgstr "Прописанный пароль"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Для отключения поддержки PDF схемы оставьте поле пустым, рекомендуется: [kbd]"
-"pma__pdf_pages[/kbd]"
+"Для отключения поддержки PDF схемы оставьте поле пустым, рекомендуется: "
+"[kbd]pma__pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:627
 msgid "PDF schema: pages table"
@@ -6607,9 +6609,9 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "База данных используемая для расширенных функций: связей, закладок, и PDF. "
-"Для более полной информации смотрите [a@http://wiki.phpmyadmin.net/pma/pmadb]"
-"pmadb[/a]. Для отключения поддержки, оставьте поле пустым. Рекомендуется: "
-"[kbd]phpmyadmin[/kbd]"
+"Для более полной информации смотрите [a@http://wiki.phpmyadmin.net/pma/"
+"pmadb]pmadb[/a]. Для отключения поддержки, оставьте поле пустым. "
+"Рекомендуется: [kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:633
 #: libraries/display_create_database.lib.php:31
@@ -6650,12 +6652,12 @@ msgstr "Недавно использованная таблица"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/relation]"
-"связанных таблиц[/a] оставьте поле пустым, рекомендуется: [kbd]pma__relation"
-"[/kbd]"
+"Для отключения поддержки [a@http://wiki.phpmyadmin.net/pma/"
+"relation]связанных таблиц[/a] оставьте поле пустым, рекомендуется: "
+"[kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:647
 msgid "Relation table"
@@ -6667,8 +6669,8 @@ msgstr "Таблица связей"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Для примера смотрите раздел [a@http://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]типы идентификации[/a]"
@@ -6712,8 +6714,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Для отключения поддержки PDF схемы оставьте поле пустым, рекомендуется: [kbd]"
-"pma__table_coords[/kbd]"
+"Для отключения поддержки PDF схемы оставьте поле пустым, рекомендуется: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:662
 msgid "PDF schema: table coordinates"
@@ -6800,11 +6802,11 @@ msgstr "Слежение за выражениями"
 #: libraries/config/messages.inc.php:692
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Для отключения поддержки слежения за SQL запросами оставьте поле пустым, "
 "рекомендуется: [kbd]pma__tracking[/kbd]"
@@ -6828,11 +6830,11 @@ msgstr "Автоматическое создание версий"
 #: libraries/config/messages.inc.php:702
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Для отключения возможности хранения пользовательских настроек в базе данных "
 "оставьте поле пустым, рекомендуется: [kbd]pma__userconfig[/kbd]"
@@ -6870,8 +6872,8 @@ msgstr "Использовать таблицу хостов"
 #: libraries/config/messages.inc.php:708
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -7032,8 +7034,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Вывести ссылку для отображения [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Вывести ссылку для отображения [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:734
 msgid "Show phpinfo() link"
@@ -7127,8 +7129,8 @@ msgstr "Включение SQL валидатора"
 #: libraries/config/messages.inc.php:753
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#| "[/kbd])"
+#| "If you have a custom username, specify it here (defaults to "
+#| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
@@ -7469,7 +7471,7 @@ msgid "No Password"
 msgstr "Без пароля"
 
 #: libraries/display_change_password.lib.php:67
-#: libraries/plugins/auth/AuthenticationCookie.class.php:225
+#: libraries/plugins/auth/AuthenticationCookie.class.php:205
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:833
 #: libraries/server_privileges.lib.php:1438
 msgid "Password:"
@@ -7633,8 +7635,8 @@ msgstr ", @TABLE@ будет замещено именем таблицы"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
 "вставка текущей даты и времени. Дополнительно могут быть использованы "
@@ -8145,8 +8147,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацию и дальнейшую информацию по PBXT смотрите на %sдомашней странице "
 "PrimeBase XT%s."
@@ -8205,7 +8207,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1638
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
@@ -8334,11 +8336,11 @@ msgstr ""
 "Для перемещения между полями значения, используйте клавишу TAB, либо CTRL"
 "+клавиши со стрелками - для свободного перемещения"
 
-#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1633
 msgid "Showing SQL query"
 msgstr "Отображает SQL-запрос"
 
-#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1613
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Идентификатор вставленной строки: %1$d"
@@ -8703,7 +8705,7 @@ msgstr "Параметры экспорта базы данных"
 msgid "Show hidden items"
 msgstr "Показать подсказку"
 
-#: libraries/navigation/Nodes/Node_Database_Container.class.php:33
+#: libraries/navigation/Nodes/Node_Database_Container.class.php:34
 #, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
@@ -8961,7 +8963,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Соединение невозможно! Неверные настройки."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:86
-#: libraries/plugins/auth/AuthenticationCookie.class.php:166
+#: libraries/plugins/auth/AuthenticationCookie.class.php:143
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
@@ -8970,8 +8972,8 @@ msgstr "Добро пожаловать в %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Возможная причина - отсутствие файла конфигурации. Для его создания вы "
 "можете воспользоваться %1$sсценарием установки%2$s."
@@ -8996,51 +8998,50 @@ msgstr "Повторить попытку соединения"
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Невозможно использование Blowfish из mcrypt!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:82
-#: libraries/plugins/auth/AuthenticationCookie.class.php:196
-msgid "Log in"
-msgstr "Авторизация"
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:100
+#: libraries/plugins/auth/AuthenticationCookie.class.php:153
 msgid "Your session has expired. Please log in again."
 msgstr "Время сессии истекло. Пожалуйста, войдите заново."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
-#: libraries/plugins/auth/AuthenticationCookie.class.php:214
+#: libraries/plugins/auth/AuthenticationCookie.class.php:176
+msgid "Log in"
+msgstr "Авторизация"
+
+#: libraries/plugins/auth/AuthenticationCookie.class.php:184
+#: libraries/plugins/auth/AuthenticationCookie.class.php:194
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Вы можете ввести хост/IP адрес и порт разделенные пробелом."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:219
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "Username:"
 msgstr "Пользователь:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:231
+#: libraries/plugins/auth/AuthenticationCookie.class.php:211
 msgid "Server Choice:"
 msgstr "Выбор сервера:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:408
+#: libraries/plugins/auth/AuthenticationCookie.class.php:388
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:417
+#: libraries/plugins/auth/AuthenticationCookie.class.php:397
 msgid "Please enter correct captcha!"
 msgstr ""
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
+#: libraries/plugins/auth/AuthenticationCookie.class.php:671
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "Вход без пароля запрещен при конфигурации (смотрите AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:698
+#: libraries/plugins/auth/AuthenticationCookie.class.php:678
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr ""
 "Отсутствие активности более %s секунд, пожалуйста, авторизуйтесь заново."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:703
-#: libraries/plugins/auth/AuthenticationCookie.class.php:705
+#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:685
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "Невозможно подключиться к серверу MySQL"
@@ -9077,17 +9078,17 @@ msgid "Columns separated with:"
 msgstr "Разделитель полей:"
 
 #: libraries/plugins/export/ExportCsv.class.php:69
-#: libraries/plugins/import/AbstractImportCsv.class.php:65
+#: libraries/plugins/import/AbstractImportCsv.class.php:64
 msgid "Columns enclosed with:"
 msgstr "Значения полей обрамлены:"
 
 #: libraries/plugins/export/ExportCsv.class.php:73
-#: libraries/plugins/import/AbstractImportCsv.class.php:71
+#: libraries/plugins/import/AbstractImportCsv.class.php:70
 msgid "Columns escaped with:"
 msgstr "Символ экранирования:"
 
 #: libraries/plugins/export/ExportCsv.class.php:77
-#: libraries/plugins/import/AbstractImportCsv.class.php:77
+#: libraries/plugins/import/AbstractImportCsv.class.php:76
 msgid "Lines terminated with:"
 msgstr "Разделитель строк:"
 
@@ -9829,22 +9830,26 @@ msgstr "Настройки: %s"
 msgid "Hide/show navigation items"
 msgstr "Обновить фрейм навигации"
 
-#: libraries/relation.lib.php:285
+#: libraries/relation.lib.php:290
+msgid "Saving Query-By-Example searches"
+msgstr ""
+
+#: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
 msgstr "Шаги необходимые для установки дополнительных функций:"
 
-#: libraries/relation.lib.php:289
+#: libraries/relation.lib.php:300
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
 "Создайте необходимые таблицы с помощью скрипта <code>examples/create_tables."
 "sql</code>."
 
-#: libraries/relation.lib.php:295
+#: libraries/relation.lib.php:306
 msgid "Create a pma user and give access to these tables."
 msgstr "Создайте пользователя pma и предоставьте доступ к этим таблицам."
 
-#: libraries/relation.lib.php:300
+#: libraries/relation.lib.php:311
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -9852,12 +9857,12 @@ msgstr ""
 "Подключите дополнительные функции в конфигурационном файле (<code>config.inc."
 "php</code>), начните с примера в <code>config.sample.inc.php</code>."
 
-#: libraries/relation.lib.php:308
+#: libraries/relation.lib.php:319
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Перезайдите в phpMyAdmin, чтобы загрузить обновленный конфигурационный файл."
 
-#: libraries/relation.lib.php:1507
+#: libraries/relation.lib.php:1518
 msgid "no description"
 msgstr "нет описания"
 
@@ -11410,8 +11415,8 @@ msgstr "Обзор учетных записей"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Примечание: phpMyAdmin получает информацию о пользовательских привилегиях "
 "непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может "
@@ -12656,38 +12661,38 @@ msgstr "Закрыть"
 msgid "ø Time"
 msgstr "Время"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:763 libraries/sql.lib.php:783
 msgid "Bookmark this SQL query"
 msgstr "Создание закладки"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:767
 msgid "Label:"
 msgstr "Метка:"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:775 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Доступна для всех пользователей"
 
-#: libraries/sql.lib.php:1025
+#: libraries/sql.lib.php:1026
 #, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
 msgstr "Закладка не создана"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1182
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Для обзора данных использован запрос из закладки \"%s\"."
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1630
 msgid "Showing as PHP code"
 msgstr "Отображает как PHP-код"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1635
 msgid "Validated SQL"
 msgstr "SQL синтаксис проверен"
 
-#: libraries/sql.lib.php:1914
+#: libraries/sql.lib.php:1915
 #, fuzzy
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -12699,7 +12704,7 @@ msgstr ""
 "Данная таблица не содержит уникального столбца. Изменение сетки, выставление "
 "галочки, редактирование, копирование и удаление не доступно."
 
-#: libraries/sql.lib.php:1951
+#: libraries/sql.lib.php:1952
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблемы с индексами таблицы `%s`"
@@ -13444,7 +13449,7 @@ msgstr "Версия %1$s создана, отслеживание %2$s вклю
 msgid "Manage your settings"
 msgstr "Пользовательские настройки"
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:304
+#: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved"
 msgstr "Настройки успешно сохранены"
 
@@ -13686,35 +13691,35 @@ msgstr "В некоторых полях, настройки содержать 
 msgid "Do you want to import remaining settings?"
 msgstr "Вы хотите импортировать оставшиеся настройки?"
 
-#: prefs_manage.php:232 prefs_manage.php:261
+#: prefs_manage.php:225 prefs_manage.php:254
 msgid "Saved on: @DATE@"
 msgstr "Сохранено: @DATE@"
 
-#: prefs_manage.php:247
+#: prefs_manage.php:240
 msgid "Import from file"
 msgstr "Импорт из файла"
 
-#: prefs_manage.php:255
+#: prefs_manage.php:248
 msgid "Import from browser's storage"
 msgstr "Импорт из хранилища браузера"
 
-#: prefs_manage.php:258
+#: prefs_manage.php:251
 msgid "Settings will be imported from your browser's local storage."
 msgstr "Настройки будут импортированы из локального хранилища вашего браузера."
 
-#: prefs_manage.php:264
+#: prefs_manage.php:257
 msgid "You have no saved settings!"
 msgstr "У вас нет сохраненных настроек!"
 
-#: prefs_manage.php:269 prefs_manage.php:329
+#: prefs_manage.php:262 prefs_manage.php:322
 msgid "This feature is not supported by your web browser"
 msgstr "Данная функция не поддерживается вашим браузером"
 
-#: prefs_manage.php:275
+#: prefs_manage.php:268
 msgid "Merge with current configuration"
 msgstr "Объединение с текущими настройками"
 
-#: prefs_manage.php:289
+#: prefs_manage.php:282
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -13723,19 +13728,19 @@ msgstr ""
 "Вы можете установить дополнительные настройки отредактировав config.inc.php, "
 "к примеру, используя %sСкрипт настройки%s."
 
-#: prefs_manage.php:318
+#: prefs_manage.php:311
 msgid "Save to browser's storage"
 msgstr "Сохранить в хранилище браузера"
 
-#: prefs_manage.php:322
+#: prefs_manage.php:315
 msgid "Settings will be saved in your browser's local storage."
 msgstr "Настройки будут сохранены в локальное хранилище вашего браузера."
 
-#: prefs_manage.php:324
+#: prefs_manage.php:317
 msgid "Existing settings will be overwritten!"
 msgstr "Текущие настройки будут перезаписаны!"
 
-#: prefs_manage.php:346
+#: prefs_manage.php:339
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 "Вы можете сбросить все пользовательские настройки и восстановить их в "
@@ -13802,8 +13807,8 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Пожалуйста, создайте на сервере в корневой директории phpMyAdmin каталог [em]"
-"config[/em] и установите у него разрешение на запись, как описано в "
+"Пожалуйста, создайте на сервере в корневой директории phpMyAdmin каталог "
+"[em]config[/em] и установите у него разрешение на запись, как описано в "
 "[doc@setup_script]документации[/doc]. В противном случае вы сможете только "
 "скачать, или просмотреть его."
 
@@ -13822,8 +13827,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"Если ваш сервер настроен также и на приём HTTPS запросов, перейдите по [a@%s]"
-"данной ссылке[/a] для использования безопасного соединения."
+"Если ваш сервер настроен также и на приём HTTPS запросов, перейдите по [a@"
+"%s]данной ссылке[/a] для использования безопасного соединения."
 
 #: setup/frames/index.inc.php:89
 msgid "Insecure connection"
@@ -14434,8 +14439,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Текущее соотношение свободного кеша запросов по отношению к полному кешу "
 "запросов составляет %s%%. Значение должно быть выше 80%%"
@@ -14592,8 +14597,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% сортировок вызывает создание временных таблиц, данное значение должно "
 "быть ниже 10%%."
@@ -15372,22 +15377,22 @@ msgstr "concurrent_insert установлен в 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Для отключения возможности хранения пользовательских настроек в базе "
 #~ "данных оставьте поле пустым, рекомендуется: [kbd]pma__userconfig[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Для отключения возможности хранения пользовательских настроек в базе "
 #~ "данных оставьте поле пустым, рекомендуется: [kbd]pma__userconfig[/kbd]"
@@ -15501,11 +15506,13 @@ msgstr "concurrent_insert установлен в 0"
 #~ "воспользуйтесь данной ссылкой - %sописание преобразований%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
-#~ "Подробнее смотрите на [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] и [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "Подробнее смотрите на [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] и [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Отключить использование INFORMATION_SCHEMA"
@@ -15847,13 +15854,13 @@ msgstr "concurrent_insert установлен в 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "При выборе [kbd]nested[/kbd], комментарий таблицы будет выведен только у "
-#~ "корневого значения, разделенных указанной в директиве $cfg"
-#~ "['LeftFrameTableSeparator'] строкой, таблиц"
+#~ "корневого значения, разделенных указанной в директиве "
+#~ "$cfg['LeftFrameTableSeparator'] строкой, таблиц"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Комментарий таблицы вместо имени"

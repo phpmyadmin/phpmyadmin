@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-26 12:50-0500\n"
+"POT-Creation-Date: 2014-03-03 16:13+0100\n"
 "PO-Revision-Date: 2014-02-28 19:44+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
+"sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,16 +293,16 @@ msgstr[1] "%s tabeli"
 msgstr[2] "%s tabele"
 msgstr[3] "%s tabel"
 
-#: db_qbe.php:94
+#: db_qbe.php:95
 msgid "You have to choose at least one column to display!"
 msgstr "Za prikaz morate izbrati morate vsaj en stolpec!"
 
-#: db_qbe.php:114
+#: db_qbe.php:115
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Preklopi na %svidni graditelj%s"
 
-#: db_qbe.php:125
+#: db_qbe.php:126
 msgid ""
 "After saving or loading a search, you can rename it and save the new "
 "criteria."
@@ -312,7 +312,7 @@ msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:695
+#: libraries/plugins/auth/AuthenticationCookie.class.php:675
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -559,7 +559,7 @@ msgstr "Dodaj geometrijo"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:294
+#: libraries/plugins/auth/AuthenticationCookie.class.php:274
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -580,7 +580,7 @@ msgstr "Dodaj geometrijo"
 #: libraries/tbl_chart.lib.php:244
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
-#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:336
+#: pmd_pdf.php:158 prefs_manage.php:271 prefs_manage.php:329
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
 msgstr "Izvedi"
@@ -600,11 +600,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v %"
-"sdokumentaciji%s ogledate načine, kako obiti omejitev."
+"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
+"%sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -660,7 +660,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Ne morem naložiti vtičnikov za uvoz, prosimo, preverite vašo namestitev!"
 
-#: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
+#: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1805
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ustvaril sem zaznamek %s."
@@ -688,7 +688,7 @@ msgstr ""
 "povečate vaše časovne omejitve PHP."
 
 #: import_status.php:87 libraries/Util.class.php:733
-#: libraries/export.lib.php:437
+#: libraries/export.lib.php:438
 #: libraries/schema/Export_Relation_Schema.class.php:247 user_password.php:239
 msgid "Back"
 msgstr "Nazaj"
@@ -725,7 +725,7 @@ msgstr "Razvrščanje znakov povezave strežnika"
 msgid "Appearance Settings"
 msgstr "Prikazne nastavitve"
 
-#: index.php:236 prefs_manage.php:286
+#: index.php:236 prefs_manage.php:279
 msgid "More settings"
 msgstr "Več nastavitev"
 
@@ -733,7 +733,7 @@ msgstr "Več nastavitev"
 msgid "Database server"
 msgstr "Strežnik zbirke podatkov"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:207
+#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:187
 msgid "Server:"
 msgstr "Strežnik:"
 
@@ -961,7 +961,6 @@ msgstr "Ali res želite izbrisati uporabniško skupino »%s«?"
 
 #: js/messages.php:45
 #, php-format
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Ali res želite izbrisati iskanje »%s«?"
 
@@ -1481,7 +1480,7 @@ msgstr ""
 #: libraries/Util.class.php:4120 libraries/Util.class.php:4135
 #: libraries/Util.class.php:4151 libraries/config/messages.inc.php:225
 #: libraries/display_import.lib.php:108
-#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
+#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:232
 #: setup/frames/menu.inc.php:25
 msgid "Import"
 msgstr "Uvozi"
@@ -2252,12 +2251,12 @@ msgstr "Izračun vrednosti za pravilo '%s' je spodletel."
 msgid "Failed running test for rule '%s'."
 msgstr "Zagon preizkusa za pravilo '%s' je spodletel."
 
-#: libraries/Advisor.class.php:225
+#: libraries/Advisor.class.php:222
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Oblikovanje niza za pravilo '%s' je spodletelo."
 
-#: libraries/Advisor.class.php:401
+#: libraries/Advisor.class.php:388
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2265,38 +2264,38 @@ msgstr ""
 "Neveljavna označba v vrstici %1$s; pričakoval sem vrstico %2$s prejšnjega "
 "pravila."
 
-#: libraries/Advisor.class.php:420
+#: libraries/Advisor.class.php:407
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Neveljavna označba pravila v vrstici %s."
 
-#: libraries/Advisor.class.php:428
+#: libraries/Advisor.class.php:415
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Nepričakovani znaki v vrstici %s."
 
-#: libraries/Advisor.class.php:443
+#: libraries/Advisor.class.php:430
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Nepričakovan znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel »%2"
-"$s«."
+"Nepričakovan znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel "
+"»%2$s«."
 
-#: libraries/Advisor.class.php:478
+#: libraries/Advisor.class.php:465
 msgid "per second"
 msgstr "na sekundo"
 
-#: libraries/Advisor.class.php:481
+#: libraries/Advisor.class.php:468
 msgid "per minute"
 msgstr "na minuto"
 
-#: libraries/Advisor.class.php:484 libraries/server_status.lib.php:137
+#: libraries/Advisor.class.php:471 libraries/server_status.lib.php:137
 #: libraries/server_status.lib.php:221
 #: libraries/server_status_queries.lib.php:98
 msgid "per hour"
 msgstr "na uro"
 
-#: libraries/Advisor.class.php:487
+#: libraries/Advisor.class.php:474
 msgid "per day"
 msgstr "na dan"
 
@@ -2406,12 +2405,10 @@ msgid "Saved searches:"
 msgstr "Shranjena iskanja:"
 
 #: libraries/DBQbe.class.php:1479
-#| msgid "Search"
 msgid "Save search"
 msgstr "Shrani iskanje"
 
 #: libraries/DBQbe.class.php:1481
-#| msgid "Delete relation"
 msgid "Delete search"
 msgstr "Izbriši iskanje"
 
@@ -2678,8 +2675,8 @@ msgstr "Poizvedbo SQL sem uspešno izvedel."
 #: libraries/DisplayResults.class.php:4966 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: libraries/DisplayResults.class.php:4979
@@ -2697,7 +2694,7 @@ msgstr "skupno %1$d, %2$d v poizvedbi"
 msgid "%d total"
 msgstr "skupaj %d"
 
-#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1643
+#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1644
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Poizvedba je potrebovala %01.4f sekunde."
@@ -2742,7 +2739,7 @@ msgstr "Spremeni"
 #: libraries/server_privileges.lib.php:2260
 #: libraries/server_privileges.lib.php:2967
 #: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:297
-#: prefs_manage.php:300 setup/frames/menu.inc.php:27
+#: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "Izvozi"
 
@@ -2834,8 +2831,8 @@ msgstr "Trenutno poganjamo redakcijo Git %1$s z veje %2$s."
 msgid "Git information missing!"
 msgstr "Manjkajo podatki o različici Git!"
 
-#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
-#: libraries/Footer.class.php:169
+#: libraries/Footer.class.php:179 libraries/Footer.class.php:183
+#: libraries/Footer.class.php:186
 msgid "Open new phpMyAdmin window"
 msgstr "Odpri novo okno phpMyAdmin"
 
@@ -2844,7 +2841,7 @@ msgid "Click on the bar to scroll to top of page"
 msgstr "Kliknite na prečko, da se vrnete na vrh strani"
 
 #: libraries/Header.class.php:661
-#: libraries/plugins/auth/AuthenticationCookie.class.php:178
+#: libraries/plugins/auth/AuthenticationCookie.class.php:158
 msgid "Javascript must be enabled past this point!"
 msgstr "Po tej točki mora biti JavaScript omogočen!"
 
@@ -3125,26 +3122,23 @@ msgstr "Nedavne tabele"
 msgid "There are no recent tables."
 msgstr "Ni nobenih nedavnih tabel."
 
-#: libraries/SavedSearches.php:249
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#: libraries/SavedSearches.class.php:249
 msgid "Missing information to save the search."
 msgstr "Za shranitev iskanja manjkajo podatki."
 
-#: libraries/SavedSearches.php:265 libraries/SavedSearches.php:295
-#| msgid "The user %s already exists!"
+#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
 msgid "An entry with this name already exists."
 msgstr "Vnos s tem imenom že obstaja."
 
-#: libraries/SavedSearches.php:315
+#: libraries/SavedSearches.class.php:315
 msgid "Missing information to delete the search."
 msgstr "Za izbris iskanja manjkajo podatki."
 
-#: libraries/SavedSearches.php:336
+#: libraries/SavedSearches.class.php:336
 msgid "Missing information to load the search."
 msgstr "Za naložitev iskanja manjkajo podatki."
 
-#: libraries/SavedSearches.php:349
-#| msgid "Error while moving uploaded file."
+#: libraries/SavedSearches.class.php:349
 msgid "Error while loading the search."
 msgstr "Napaka pri nalaganju iskanja."
 
@@ -3317,8 +3311,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Čiščenje nastavitev uporabniškega vmesnika tabel je spodletelo (glej $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Čiščenje nastavitev uporabniškega vmesnika tabel je spodletelo (glej "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1657
 #, php-format
@@ -3533,20 +3527,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Majhno število z decimalno vejico; dovoljene so vrednosti od -3,402823466E"
 "+38 do -1,175494351E-38, 0 in od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od -"
-"1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
+"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od "
+"-1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -3920,7 +3914,7 @@ msgid "Click to toggle"
 msgstr "Kliknite za preklop"
 
 #: libraries/Util.class.php:3321 libraries/sql_query_form.lib.php:477
-#: prefs_manage.php:249
+#: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "Prebrskajte svoj računalnik:"
 
@@ -4040,11 +4034,11 @@ msgstr "Preveri privilegije za zbirko podatkov \"%s\"."
 msgid "Check Privileges"
 msgstr "Preveri privilegije"
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:585
 msgid "Failed to read configuration file!"
 msgstr "Ne morem prebrati konfiguracijske datoteke!"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:587
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4052,12 +4046,12 @@ msgstr ""
 "To po navadi pomeni, da ima skladenjsko napako; prosimo, preverite vse "
 "spodaj prikazane napake."
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:594
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Ne morem naložiti privzete konfiguracije iz: %1$s"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:601
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
@@ -4065,45 +4059,45 @@ msgstr ""
 "Ukaz [code]$cfg['PmaAbsoluteUri'][/code] MORA biti določen v konfiguracijski "
 "datoteki!"
 
-#: libraries/common.inc.php:632
+#: libraries/common.inc.php:634
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Neveljaven indeks strežnika: %s"
 
-#: libraries/common.inc.php:643
+#: libraries/common.inc.php:645
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 "Neveljavno ime gostitelja za strežnik %1$s. Prosim, preglejte svojo "
 "konfiguracijo."
 
-#: libraries/common.inc.php:659
+#: libraries/common.inc.php:661
 #, php-format
 msgid "Server %d"
 msgstr "Strežnik %d"
 
-#: libraries/common.inc.php:858
+#: libraries/common.inc.php:860
 msgid "Invalid authentication method set in configuration:"
 msgstr "Neveljaven način overitve določen v konfiguracijski datoteki:"
 
-#: libraries/common.inc.php:1001
+#: libraries/common.inc.php:1003
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s bi morali nadgraditi na različico %s ali novejšo."
 
-#: libraries/common.inc.php:1087
+#: libraries/common.inc.php:1089
 msgid "Error: Token mismatch"
 msgstr "Napaka: Neujemanje žetonov"
 
-#: libraries/common.inc.php:1119
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "poskus prepisa GLOBALS"
 
-#: libraries/common.inc.php:1126
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "možno izkoriščanje"
 
-#: libraries/common.inc.php:1135
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "zaznana številska tipka"
 
@@ -4318,8 +4312,8 @@ msgid "Apply"
 msgstr "Uveljavi"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1594
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
-#: prefs_manage.php:349
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: prefs_manage.php:342
 msgid "Reset"
 msgstr "Ponastavi"
 
@@ -4401,8 +4395,8 @@ msgid ""
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
 "%sVeljavnost prijavnega piškotka%s večja od %ssession.gc_maxlifetime%s lahko "
-"povzroči naključno razvrednotenje seje (session.gc_maxlifetime je trenutno %"
-"d)."
+"povzroči naključno razvrednotenje seje (session.gc_maxlifetime je trenutno "
+"%d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4443,8 +4437,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Nastavili ste vrsto overovitve [kbd]config[/kbd] in vključili uporabniško "
 "ime in geslo za samodejno prijavo, kar ni zaželena možnost za gostitelje "
@@ -4533,8 +4527,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Omogočitev tega dovoljuje strani, ki se nahaja na drugačni domeni, "
-"vključitev phpMyAdmina v okvirju, kar predstavlja morebitno [strong]"
-"varnostno luknjo[/strong], saj dovoljuje skriptne napade z okvirji (XSS)."
+"vključitev phpMyAdmina v okvirju, kar predstavlja morebitno "
+"[strong]varnostno luknjo[/strong], saj dovoljuje skriptne napade z okvirji "
+"(XSS)."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4550,8 +4545,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Skrivno geslo, ki se uporabi pri šifriranju piškotkov v overovitvi [kbd]"
-"cookie[/kbd]."
+"Skrivno geslo, ki se uporabi pri šifriranju piškotkov v overovitvi "
+"[kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4592,8 +4587,8 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Določa, katera vrsta urejevalnih kontrolnikov naj se uporablja za stolpce "
-"CHAR in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, [kbd]"
-"textarea[/kbd] – omogoča nove vrstice v stolpcu."
+"CHAR in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, "
+"[kbd]textarea[/kbd] – omogoča nove vrstice v stolpcu."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4601,8 +4596,8 @@ msgstr "Urejanje stolpcev CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Uporabi uporabniku prijazen urejevalnik za urejanje poizvedb SQL ([a@http://"
 "codemirror.net/]CodeMirror[/a]) z obarvanjem skladnje in številkami vrstic."
@@ -4772,7 +4767,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr "Najdaljši čas izvajanja"
 
-#: libraries/config/messages.inc.php:110 prefs_manage.php:313
+#: libraries/config/messages.inc.php:110 prefs_manage.php:306
 msgid "Save as file"
 msgstr "Shrani kot datoteko"
 
@@ -5142,8 +5137,9 @@ msgstr "Naslovi strani"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Določite besedilo naslovne vrstice brskalnika. Oglejte si "
 "[doc@cfg_TitleTable]dokumentacijo[/doc] za čarobne nize, ki jih lahko "
@@ -5268,10 +5264,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Če želite uporabljati storitev Preverjalnika SQL, se zavedajte, da [strong]"
-"so vse izjave SQL brezimno shranjene v statistične namene[/strong].[br][em]"
-"[a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 "
-"Upright Database Technology. Vse pravice pridržane.[/em]"
+"Če želite uporabljati storitev Preverjalnika SQL, se zavedajte, da "
+"[strong]so vse izjave SQL brezimno shranjene v statistične namene[/strong]."
+"[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
+"2002 Upright Database Technology. Vse pravice pridržane.[/em]"
 
 #: libraries/config/messages.inc.php:302
 msgid "Startup"
@@ -5972,11 +5968,11 @@ msgstr "Tabela zaznamkov"
 
 #: libraries/config/messages.inc.php:566
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite pripomb/vrst MIME stolpcev; predlagano: [kbd]"
-"pma__column_info[/kbd]."
+"Pustite prazno, če ne želite pripomb/vrst MIME stolpcev; predlagano: "
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:569
 msgid "Column information table"
@@ -6046,8 +6042,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: [kbd]"
-"pma__designer_coords[/kbd]."
+"Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: "
+"[kbd]pma__designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:596
 msgid "Designer table"
@@ -6131,8 +6127,8 @@ msgstr "Geslo za overovitev config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore sheme PDF; predlagano: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Pustite prazno, če ne želite podpore sheme PDF; predlagano: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:627
 msgid "PDF schema: pages table"
@@ -6177,8 +6173,8 @@ msgstr "Nedavno uporabljena tabela"
 
 #: libraries/config/messages.inc.php:643
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relacijskih povezav[/a]; priporočeno: [kbd]pma__relation[/kbd]."
@@ -6189,8 +6185,8 @@ msgstr "Relacijska tabela"
 
 #: libraries/config/messages.inc.php:649
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Oglejte si [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
 "overovitev[/a] za primer."
@@ -6225,8 +6221,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore sheme PDF; predlagano: [kbd]"
-"pma__table_coords[/kbd]."
+"Pustite prazno, če ne želite podpore sheme PDF; predlagano: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:662
 msgid "PDF schema: table coordinates"
@@ -6304,11 +6300,11 @@ msgstr "Izjave za sledenje"
 
 #: libraries/config/messages.inc.php:692
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: [kbd]"
-"pma__tracking[/kbd]."
+"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:695
 msgid "SQL query tracking table"
@@ -6327,8 +6323,8 @@ msgstr "Samodejno ustvari različice"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
 "podatkov; predlagano: [kbd]pma__userconfig[/kbd]."
@@ -6494,8 +6490,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Prikaže povezavo do podatkov [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]."
+"Prikaže povezavo do podatkov [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:734
 msgid "Show phpinfo() link"
@@ -6573,8 +6569,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Če imate uporabniško ime po meri, ga določite tukaj (privzeto [kbd]anonymous"
-"[/kbd])."
+"Če imate uporabniško ime po meri, ga določite tukaj (privzeto "
+"[kbd]anonymous[/kbd])."
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -6866,7 +6862,7 @@ msgid "No Password"
 msgstr "Brez gesla"
 
 #: libraries/display_change_password.lib.php:67
-#: libraries/plugins/auth/AuthenticationCookie.class.php:225
+#: libraries/plugins/auth/AuthenticationCookie.class.php:205
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:833
 #: libraries/server_privileges.lib.php:1438
 msgid "Password:"
@@ -7029,8 +7025,8 @@ msgstr ", @TABLE@ bo postalo ime tabele"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
@@ -7540,8 +7536,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacijo in nadaljnje informacije o PBXT lahko najdete na %sDomači "
 "strani PrimeBase XT%s."
@@ -7601,7 +7597,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Dump je shranjen v datoteko %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1638
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
@@ -7724,11 +7720,11 @@ msgstr ""
 "Uporabite tipko TAB za premik od vrednosti do vrednosti ali CTRL+puščice za "
 "premik kamor koli"
 
-#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1633
 msgid "Showing SQL query"
 msgstr "Prikazovanje poizvedbe SQL"
 
-#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1613
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id vstavljene vrstice: %1$d"
@@ -8064,7 +8060,7 @@ msgstr "Posegi zbirke podatkov"
 msgid "Show hidden items"
 msgstr "Prikaži skrite predmete"
 
-#: libraries/navigation/Nodes/Node_Database_Container.class.php:33
+#: libraries/navigation/Nodes/Node_Database_Container.class.php:34
 msgctxt "Create new database"
 msgid "New"
 msgstr "Novo"
@@ -8317,7 +8313,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "Ne morem se povezati: neveljavne nastavitve."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:86
-#: libraries/plugins/auth/AuthenticationCookie.class.php:166
+#: libraries/plugins/auth/AuthenticationCookie.class.php:143
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
@@ -8326,8 +8322,8 @@ msgstr "Dobrodošli v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Najverjetneje niste ustvarili konfiguracijske datoteke. Morda želite "
 "uporabiti %1$snastavitveni skript%2$s, da jo ustvarite."
@@ -8351,51 +8347,50 @@ msgstr "Poskusi se ponovno povezati"
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Uporaba Blowfish iz mcrypt je spodletela!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:82
-#: libraries/plugins/auth/AuthenticationCookie.class.php:196
-msgid "Log in"
-msgstr "Prijava"
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:100
+#: libraries/plugins/auth/AuthenticationCookie.class.php:153
 msgid "Your session has expired. Please log in again."
 msgstr "Vaša seja je potekla. Prosimo, prijavite se znova."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
-#: libraries/plugins/auth/AuthenticationCookie.class.php:214
+#: libraries/plugins/auth/AuthenticationCookie.class.php:176
+msgid "Log in"
+msgstr "Prijava"
+
+#: libraries/plugins/auth/AuthenticationCookie.class.php:184
+#: libraries/plugins/auth/AuthenticationCookie.class.php:194
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "Vnesete lahko ime gostitelja/IP-naslov in vrata ločena s presledkom."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:219
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "Username:"
 msgstr "Uporabniško ime:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:231
+#: libraries/plugins/auth/AuthenticationCookie.class.php:211
 msgid "Server Choice:"
 msgstr "Izbira strežnika:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:408
+#: libraries/plugins/auth/AuthenticationCookie.class.php:388
 msgid "Entered captcha is wrong, try again!"
 msgstr "Vnesena captcha je napačna; poskusite znova!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:417
+#: libraries/plugins/auth/AuthenticationCookie.class.php:397
 msgid "Please enter correct captcha!"
 msgstr "Prosimo, vnesite pravilno captcho!"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
+#: libraries/plugins/auth/AuthenticationCookie.class.php:671
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
 "Prijava brez gesla je prepovedana s konfiguracijo (glej AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:698
+#: libraries/plugins/auth/AuthenticationCookie.class.php:678
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Brez aktivnosti v zadnjih %s sekundah; prosimo, prijavite se znova."
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:703
-#: libraries/plugins/auth/AuthenticationCookie.class.php:705
+#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:685
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "Ne morem se prijaviti v strežnik MySQL"
@@ -8432,17 +8427,17 @@ msgid "Columns separated with:"
 msgstr "Stolpci so ločeni z:"
 
 #: libraries/plugins/export/ExportCsv.class.php:69
-#: libraries/plugins/import/AbstractImportCsv.class.php:65
+#: libraries/plugins/import/AbstractImportCsv.class.php:64
 msgid "Columns enclosed with:"
 msgstr "Stolpci so obdani z:"
 
 #: libraries/plugins/export/ExportCsv.class.php:73
-#: libraries/plugins/import/AbstractImportCsv.class.php:71
+#: libraries/plugins/import/AbstractImportCsv.class.php:70
 msgid "Columns escaped with:"
 msgstr "Stolpci so izognjeni z:"
 
 #: libraries/plugins/export/ExportCsv.class.php:77
-#: libraries/plugins/import/AbstractImportCsv.class.php:77
+#: libraries/plugins/import/AbstractImportCsv.class.php:76
 msgid "Lines terminated with:"
 msgstr "Vrstice so zaključene z:"
 
@@ -8723,8 +8718,8 @@ msgid ""
 "(7,8,9)</code>"
 msgstr ""
 "vključi več vrstic v vsaki izjavi <code>INSERT</code><br /> &nbsp; &nbsp; "
-"&nbsp; Primer: <code>INSERT INTO ime_tabele VALUES (1,2,3), (4,5,6), (7,8,9)"
-"</code>"
+"&nbsp; Primer: <code>INSERT INTO ime_tabele VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:410
 msgid ""
@@ -9156,20 +9151,24 @@ msgstr "Nastavljivi meniji"
 msgid "Hide/show navigation items"
 msgstr "Skrij/prikaži navigacijske predmete"
 
-#: libraries/relation.lib.php:285
+#: libraries/relation.lib.php:290
+msgid "Saving Query-By-Example searches"
+msgstr ""
+
+#: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
 msgstr "Hitri koraki za namestitev naprednih funkcij:"
 
-#: libraries/relation.lib.php:289
+#: libraries/relation.lib.php:300
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr "Ustvarite potrebne tabele z <code>examples/create_tables.sql</code>."
 
-#: libraries/relation.lib.php:295
+#: libraries/relation.lib.php:306
 msgid "Create a pma user and give access to these tables."
 msgstr "Ustvarite uporabnika pma in mu dodelite dostop do teh tabel."
 
-#: libraries/relation.lib.php:300
+#: libraries/relation.lib.php:311
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -9177,13 +9176,13 @@ msgstr ""
 "Omogočite napredne funkcije v konfiguracijski datoteki (<code>config.inc."
 "php</code>); začnite na primer s <code>config.sample.inc.php</code>."
 
-#: libraries/relation.lib.php:308
+#: libraries/relation.lib.php:319
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 "Ponovno se prijavite v phpMyAdmin, da naložite posodobljeno konfiguracijsko "
 "datoteko."
 
-#: libraries/relation.lib.php:1507
+#: libraries/relation.lib.php:1518
 msgid "no description"
 msgstr "brez opisa"
 
@@ -10677,8 +10676,8 @@ msgstr "Pregled uporabnikov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
@@ -11864,36 +11863,36 @@ msgstr "Klicev"
 msgid "ø Time"
 msgstr "ø časa"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:763 libraries/sql.lib.php:783
 msgid "Bookmark this SQL query"
 msgstr "Označi to poizvedbo SQL"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:767
 msgid "Label:"
 msgstr "Oznaka:"
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:775 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Dovoli dostop do zaznamka vsem uporabnikom"
 
-#: libraries/sql.lib.php:1025
+#: libraries/sql.lib.php:1026
 msgid "Bookmark not created!"
 msgstr "Zaznamka nisem ustvaril!"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1182
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1630
 msgid "Showing as PHP code"
 msgstr "Prikazovanje kot koda PHP"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1635
 msgid "Validated SQL"
 msgstr "Preverjen SQL"
 
-#: libraries/sql.lib.php:1914
+#: libraries/sql.lib.php:1915
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -11901,7 +11900,7 @@ msgstr ""
 "Trenutna izbira ne vsebuje unikatnega stolpca. Možnosti urejanja mreže, "
 "potrditvena polja, Uredi, Kopiraj in Izbriši niso na voljo."
 
-#: libraries/sql.lib.php:1951
+#: libraries/sql.lib.php:1952
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Težave z indeksi tabele `%s`"
@@ -12640,7 +12639,7 @@ msgstr "Različica %1$s je ustvarjena, sledenje %2$s je aktivirano."
 msgid "Manage your settings"
 msgstr "Upravljajte svoje nastavitve"
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:304
+#: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved"
 msgstr "Konfiguracija je shranjena"
 
@@ -12872,35 +12871,35 @@ msgstr "Konfiguracija vsebuje nepravilne podatke za nekatera polja."
 msgid "Do you want to import remaining settings?"
 msgstr "Ali želite uvoziti preostale nastavitve?"
 
-#: prefs_manage.php:232 prefs_manage.php:261
+#: prefs_manage.php:225 prefs_manage.php:254
 msgid "Saved on: @DATE@"
 msgstr "Shranjeno: @DATE@"
 
-#: prefs_manage.php:247
+#: prefs_manage.php:240
 msgid "Import from file"
 msgstr "Uvozi iz datoteke"
 
-#: prefs_manage.php:255
+#: prefs_manage.php:248
 msgid "Import from browser's storage"
 msgstr "Uvozi iz hrambe brskalnika"
 
-#: prefs_manage.php:258
+#: prefs_manage.php:251
 msgid "Settings will be imported from your browser's local storage."
 msgstr "Nastavitve bodo uvožene iz brskalnikove lokalne hrambe."
 
-#: prefs_manage.php:264
+#: prefs_manage.php:257
 msgid "You have no saved settings!"
 msgstr "Nimate shranjenih nastavitev!"
 
-#: prefs_manage.php:269 prefs_manage.php:329
+#: prefs_manage.php:262 prefs_manage.php:322
 msgid "This feature is not supported by your web browser"
 msgstr "Te funkcije vaš spletni brskalnik ne podpira"
 
-#: prefs_manage.php:275
+#: prefs_manage.php:268
 msgid "Merge with current configuration"
 msgstr "Združi s trenutno konfiguracijo"
 
-#: prefs_manage.php:289
+#: prefs_manage.php:282
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
@@ -12909,19 +12908,19 @@ msgstr ""
 "Več nastavitev lahko nastavite s spreminjanjem config.inc.php, npr. z "
 "uporabo %sNastavitvenega skripta%s."
 
-#: prefs_manage.php:318
+#: prefs_manage.php:311
 msgid "Save to browser's storage"
 msgstr "Shrani v hrambo brskalnika"
 
-#: prefs_manage.php:322
+#: prefs_manage.php:315
 msgid "Settings will be saved in your browser's local storage."
 msgstr "Nastavitve bodo shranjene v lokalno hrambo vašega brskalnika."
 
-#: prefs_manage.php:324
+#: prefs_manage.php:317
 msgid "Existing settings will be overwritten!"
 msgstr "Obstoječe nastavitve bodo prepisane!"
 
-#: prefs_manage.php:346
+#: prefs_manage.php:339
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 "Ponastavite lahko vse svoje nastavitve in jih obnovite na njihove privzete "
@@ -12983,9 +12982,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosimo, da na spletnem strežniku ustvarite zapisljivo mapo [em]config[/em] "
-"v najvišjem nivoju mape phpMyAdmina, kot opisuje [doc@setup_script]"
-"dokumentacija[/doc]. V nasprotnem primeru jo boste lahko samo prenesli ali "
-"jo prikazali."
+"v najvišjem nivoju mape phpMyAdmina, kot opisuje "
+"[doc@setup_script]dokumentacija[/doc]. V nasprotnem primeru jo boste lahko "
+"samo prenesli ali jo prikazali."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -13127,8 +13126,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Uporabljate nadležno različico, zaženite [kbd]tecnoba odstrani[/kbd] :-)[br]"
-"Najnovejša stabilna različica je %s, izdana %s."
+"Uporabljate nadležno različico, zaženite [kbd]tecnoba odstrani[/kbd] :-)"
+"[br]Najnovejša stabilna različica je %s, izdana %s."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
@@ -13597,8 +13596,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Trenutni delež prostega pomnilnika predpomnilnika poizvedb je v primerjavi s "
 "skupnim pomnilnikom predpomnilnima poizvedb %s %%. Moral bi biti nad 80 %%"
@@ -13753,8 +13752,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s %% vseh razvrščanj povzroča začasne tabele; vrednost bi morala biti nižja "
 "od 10 %%."
@@ -14510,15 +14509,15 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Pustite prazno, da onemogočite zmožnost nastavljivih menijev; predlagano: "
 #~ "[kbd]pma__users[/kbd]."
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Pustite prazno, da onemogočite zmožnost nastavljivih menijev; predlagano: "
 #~ "[kbd]pma__usergroups[/kbd]."
@@ -14625,8 +14624,8 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ "For a list of available transformation options and their MIME type "
 #~ "transformations, click on %stransformation descriptions%s"
 #~ msgstr ""
-#~ "Za seznam razpoložljivih možnosti pretvorbe in vrst MIME kliknite na %"
-#~ "sopise transformacij%s"
+#~ "Za seznam razpoložljivih možnosti pretvorbe in vrst MIME kliknite na "
+#~ "%sopise transformacij%s"
 
 #~ msgid ""
 #~ "Uncheck this to prevent the sending of error reports for javascript errors"
@@ -14637,12 +14636,13 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ msgstr "Omogoči poročanje o napakah v JavaScriptu"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
-#~ "Več informacij na [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "sledilniku hroščev PMA[/a] in[a@http://bugs.mysql.com/19588]hroščih MySQL"
-#~ "[/a]"
+#~ "Več informacij na [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]sledilniku hroščev PMA[/a] in[a@http://bugs.mysql."
+#~ "com/19588]hroščih MySQL[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Onemogoči uporabo INFORMATION_SCHEMA"
@@ -14996,14 +14996,14 @@ msgstr "concurrent_insert je nastavljeno na 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Ko je nastavljeno na [kbd]nested[/kbd], je pridevek imena tabele "
-#~ "uporabljen samo za razdružitev/združitev tabel v skladu z določilom $cfg"
-#~ "['LeftFrameTableSeparator'], zato je samo mapa imenovana kot pridevek, "
-#~ "sama imena tabel pa ostanejo nespremenjena"
+#~ "uporabljen samo za razdružitev/združitev tabel v skladu z določilom "
+#~ "$cfg['LeftFrameTableSeparator'], zato je samo mapa imenovana kot "
+#~ "pridevek, sama imena tabel pa ostanejo nespremenjena"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Prikaži pripombo tabele namesto njenega imena"

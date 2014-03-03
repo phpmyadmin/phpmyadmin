@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 6.0.055
+// Version     : 6.0.061
 // Begin       : 2002-08-03
-// Last Update : 2014-01-15
+// Last Update : 2014-02-18
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -104,7 +104,7 @@
  * Tools to encode your unicode fonts are on fonts/utils directory.</p>
  * @package com.tecnick.tcpdf
  * @author Nicola Asuni
- * @version 6.0.055
+ * @version 6.0.061
  */
 
 // TCPDF configuration
@@ -128,7 +128,7 @@ require_once(dirname(__FILE__).'/include/tcpdf_static.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 6.0.055
+ * @version 6.0.061
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF {
@@ -3638,7 +3638,7 @@ class TCPDF {
 			$gvars = $this->getGraphicVars();
 			if (!empty($this->theadMargins['gvars'])) {
 				// set the correct graphic style
-				$this->setGraphicVars($this->theadMargins['gvars']); // DEBUG
+				$this->setGraphicVars($this->theadMargins['gvars']);
 				$this->rMargin = $gvars['rMargin'];
 				$this->lMargin = $gvars['lMargin'];
 			}
@@ -7738,7 +7738,7 @@ class TCPDF {
 			// remove buffer file from cache
 			unlink($this->buffer);
 		}
-		if ($destroyall AND isset($this->cached_files) AND !empty($this->cached_files)) {
+		if ($destroyall AND !empty($this->cached_files)) {
 			// remove cached files
 			foreach ($this->cached_files as $cachefile) {
 				if (is_file($cachefile)) {
@@ -13658,7 +13658,9 @@ class TCPDF {
 			 $out = '<< /Type /OCG';
 			 $out .= ' /Name '.$this->_textstring($layer['name'], $this->pdflayers[$key]['objid']);
 			 $out .= ' /Usage <<';
-			 $out .= ' /Print <</PrintState /'.($layer['print']?'ON':'OFF').'>>';
+			 if (isset($layer['print']) AND ($layer['print'] !== NULL)) {
+				 $out .= ' /Print <</PrintState /'.($layer['print']?'ON':'OFF').'>>';
+			 }
 			 $out .= ' /View <</ViewState /'.($layer['view']?'ON':'OFF').'>>';
 			 $out .= ' >> >>';
 			 $out .= "\n".'endobj';
@@ -13669,7 +13671,7 @@ class TCPDF {
 	/**
 	 * Start a new pdf layer.
 	 * @param $name (string) Layer name (only a-z letters and numbers). Leave empty for automatic name.
-	 * @param $print (boolean) Set to true to print this layer.
+	 * @param $print (boolean|null) Set to TRUE to print this layer, FALSE to not print and NULL to not set this option
 	 * @param $view (boolean) Set to true to view this layer.
 	 * @public
 	 * @since 5.9.102 (2011-07-13)
@@ -16369,6 +16371,7 @@ class TCPDF {
 		$dom[$key]['align'] = '';
 		$dom[$key]['listtype'] = '';
 		$dom[$key]['text-indent'] = 0;
+		$dom[$key]['text-transform'] = '';
 		$dom[$key]['border'] = array();
 		$dom[$key]['dir'] = $this->rtl?'rtl':'ltr';
 		$thead = false; // true when we are inside the THEAD tag
@@ -16421,6 +16424,7 @@ class TCPDF {
 					$dom[$key]['fgcolor'] = $dom[($dom[($dom[$key]['parent'])]['parent'])]['fgcolor'];
 					$dom[$key]['strokecolor'] = $dom[($dom[($dom[$key]['parent'])]['parent'])]['strokecolor'];
 					$dom[$key]['align'] = $dom[($dom[($dom[$key]['parent'])]['parent'])]['align'];
+					$dom[$key]['text-transform'] = $dom[($dom[($dom[$key]['parent'])]['parent'])]['text-transform'];
 					$dom[$key]['dir'] = $dom[($dom[($dom[$key]['parent'])]['parent'])]['dir'];
 					if (isset($dom[($dom[($dom[$key]['parent'])]['parent'])]['listtype'])) {
 						$dom[$key]['listtype'] = $dom[($dom[($dom[$key]['parent'])]['parent'])]['listtype'];
@@ -16492,6 +16496,7 @@ class TCPDF {
 						$dom[$key]['align'] = $dom[$parentkey]['align'];
 						$dom[$key]['listtype'] = $dom[$parentkey]['listtype'];
 						$dom[$key]['text-indent'] = $dom[$parentkey]['text-indent'];
+						$dom[$key]['text-transform'] = $dom[$parentkey]['text-transform'];
 						$dom[$key]['border'] = array();
 						$dom[$key]['dir'] = $dom[$parentkey]['dir'];
 					}
@@ -16541,6 +16546,10 @@ class TCPDF {
 							if ($dom[$key]['text-indent'] == 'inherit') {
 								$dom[$key]['text-indent'] = $dom[$parentkey]['text-indent'];
 							}
+						}
+						// text-transform
+						if (isset($dom[$key]['style']['text-transform'])) {
+							$dom[$key]['text-transform'] = $dom[$key]['style']['text-transform'];
 						}
 						// font size
 						if (isset($dom[$key]['style']['font-size'])) {
@@ -16934,10 +16943,33 @@ class TCPDF {
 				// text
 				$dom[$key]['tag'] = false;
 				$dom[$key]['block'] = false;
-				//$element = str_replace('&nbsp;', TCPDF_FONTS::unichr(160, $this->isunicode), $element);
-				$dom[$key]['value'] = stripslashes($this->unhtmlentities($element));
 				$dom[$key]['parent'] = end($level);
 				$dom[$key]['dir'] = $dom[$dom[$key]['parent']]['dir'];
+				if (!empty($dom[$dom[$key]['parent']]['text-transform'])) {
+					// text-transform for unicode requires mb_convert_case (Multibyte String Functions)
+					if (function_exists('mb_convert_case')) {
+						$ttm = array('capitalize' => MB_CASE_TITLE, 'uppercase' => MB_CASE_UPPER, 'lowercase' => MB_CASE_LOWER);
+						if (isset($ttm[$dom[$dom[$key]['parent']]['text-transform']])) {
+							$element = mb_convert_case($element, $ttm[$dom[$dom[$key]['parent']]['text-transform']], $this->encoding);
+						}
+					} elseif (!$this->isunicode) {
+						switch ($dom[$dom[$key]['parent']]['text-transform']) {
+							case 'capitalize': {
+								$element = ucwords(strtolower($element));
+								break;
+							}
+							case 'uppercase': {
+								$element = strtoupper($element);
+								break;
+							}
+							case 'lowercase': {
+								$element = strtolower($element);
+								break;
+							}
+						}
+					}
+				}
+				$dom[$key]['value'] = stripslashes($this->unhtmlentities($element));
 			}
 			++$elkey;
 			++$key;
@@ -23602,7 +23634,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 			if (end($this->svgdefs) !== FALSE) {
 				$last_svgdefs_id = key($this->svgdefs);
 				if (isset($this->svgdefs[$last_svgdefs_id]['attribs']['child_elements'])) {
-					$attribs['id'] = 'DF_'.(count($this->svgdefs) + 1);
+					$attribs['id'] = 'DF_'.(count($this->svgdefs[$last_svgdefs_id]['attribs']['child_elements']) + 1);
 					$this->svgdefs[$last_svgdefs_id]['attribs']['child_elements'][$attribs['id']] = array('name' => $name, 'attribs' => $attribs);
 					return;
 				}
@@ -23621,7 +23653,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 			// default fill attribute for clipping
 			$attribs['fill'] = 'none';
 		}
-		if (isset($attribs['style']) AND !TCPDF_STATIC::empty_string($attribs['style'])) {
+		if (isset($attribs['style']) AND !TCPDF_STATIC::empty_string($attribs['style']) AND ($attribs['style'][0] != ';')) {
 			// fix style for regular expression
 			$attribs['style'] = ';'.$attribs['style'];
 		}
@@ -23692,6 +23724,11 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 				// group together related graphics elements
 				array_push($this->svgstyles, $svgstyle);
 				$this->StartTransform();
+				$x = (isset($attribs['x'])?$attribs['x']:0);
+				$y = (isset($attribs['y'])?$attribs['y']:0);
+				$w = (isset($attribs['width'])?$attribs['width']:1);
+				$h = (isset($attribs['height'])?$attribs['height']:1);
+				$tm = TCPDF_STATIC::getTransformationMatrixProduct($tm, array($w, 0, 0, $h, $x, $y));
 				$this->SVGTransform($tm);
 				$this->setSVGStyles($svgstyle, $prev_svgstyle);
 				break;
@@ -24104,6 +24141,13 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 						if (isset($use['attribs']['y']) AND isset($attribs['y'])) {
 							$attribs['y'] += $use['attribs']['y'];
 						}
+						if (empty($attribs['style'])) {
+							$attribs['style'] = '';
+						}
+						if (!empty($use['attribs']['style'])) {
+							// merge styles
+							$attribs['style'] = str_replace(';;',';',';'.$use['attribs']['style'].$attribs['style']);
+						}
 						$attribs = array_merge($use['attribs'], $attribs);
 						$this->startSVGElementHandler('use-tag', $use['name'], $attribs);
 						return;
@@ -24123,6 +24167,9 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 				if (empty($child_element['attribs']['closing_tag'])) {
 					$this->startSVGElementHandler('child-tag', $child_element['name'], $child_element['attribs']);
 				} else {
+					if (isset($child_element['attribs']['content'])) {
+						$this->svgtext = $child_element['attribs']['content'];
+					}
 					$this->endSVGElementHandler('child-tag', $child_element['name']);
 				}
 			}
@@ -24144,12 +24191,12 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 				if (isset($this->svgdefs[$last_svgdefs_id]['attribs']['child_elements'])) {
 					foreach($this->svgdefs[$last_svgdefs_id]['attribs']['child_elements'] as $child_element) {
 						if (isset($child_element['attribs']['id']) AND ($child_element['name'] == $name)) {
-							$this->svgdefs[$last_svgdefs_id]['attribs']['child_elements'][$child_element['attribs']['id'].'_CLOSE'] = array('name' => $name, 'attribs' => array('closing_tag' => TRUE));
+							$this->svgdefs[$last_svgdefs_id]['attribs']['child_elements'][$child_element['attribs']['id'].'_CLOSE'] = array('name' => $name, 'attribs' => array('closing_tag' => TRUE, 'content' => $this->svgtext));
 							return;
 						}
 					}
 					if ($this->svgdefs[$last_svgdefs_id]['name'] == $name) {
-						$this->svgdefs[$last_svgdefs_id]['attribs']['child_elements'][$last_svgdefs_id.'_CLOSE'] = array('name' => $name, 'attribs' => array('closing_tag' => TRUE));
+						$this->svgdefs[$last_svgdefs_id]['attribs']['child_elements'][$last_svgdefs_id.'_CLOSE'] = array('name' => $name, 'attribs' => array('closing_tag' => TRUE, 'content' => $this->svgtext));
 						return;
 					}
 				}

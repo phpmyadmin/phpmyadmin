@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-02-26 12:50-0500\n"
+"POT-Creation-Date: 2014-03-03 16:13+0100\n"
 "PO-Revision-Date: 2014-02-25 17:31+0200\n"
 "Last-Translator: Peter Dave Hello <xs910203@gmail.com>\n"
 "Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
 "phpmyadmin/master/zh_TW/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -285,16 +285,16 @@ msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s 張資料表"
 
-#: db_qbe.php:94
+#: db_qbe.php:95
 msgid "You have to choose at least one column to display!"
 msgstr "您必須至少選擇一個要顯示的欄位！"
 
-#: db_qbe.php:114
+#: db_qbe.php:115
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "切換至 %sVisual Builder%s"
 
-#: db_qbe.php:125
+#: db_qbe.php:126
 msgid ""
 "After saving or loading a search, you can rename it and save the new "
 "criteria."
@@ -302,7 +302,7 @@ msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
-#: libraries/plugins/auth/AuthenticationCookie.class.php:695
+#: libraries/plugins/auth/AuthenticationCookie.class.php:675
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
@@ -544,7 +544,7 @@ msgstr "新增幾何形"
 #: libraries/operations.lib.php:254 libraries/operations.lib.php:650
 #: libraries/operations.lib.php:703 libraries/operations.lib.php:752
 #: libraries/operations.lib.php:1066 libraries/operations.lib.php:1343
-#: libraries/plugins/auth/AuthenticationCookie.class.php:294
+#: libraries/plugins/auth/AuthenticationCookie.class.php:274
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
 #: libraries/rte/rte_events.lib.php:548
@@ -565,7 +565,7 @@ msgstr "新增幾何形"
 #: libraries/tbl_chart.lib.php:244
 #: libraries/tbl_columns_definition_form.lib.php:174
 #: libraries/tbl_tracking.lib.php:429 libraries/tbl_tracking.lib.php:547
-#: pmd_pdf.php:158 prefs_manage.php:278 prefs_manage.php:336
+#: pmd_pdf.php:158 prefs_manage.php:271 prefs_manage.php:329
 #: view_create.php:273 view_operations.php:106
 msgid "Go"
 msgstr "執行"
@@ -584,8 +584,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr "您上傳的檔案過大，請參考 %s說明文件%s 了解如何解決此問題。"
 
 #: import.php:284 import.php:565
@@ -638,7 +638,7 @@ msgstr "沒有字元集轉換函式庫，無法轉換檔案字元集！"
 msgid "Could not load import plugins, please check your installation!"
 msgstr "無法載入匯入外掛程式，請檢查您的安裝！"
 
-#: import.php:568 libraries/sql.lib.php:1021 libraries/sql.lib.php:1804
+#: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1805
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
@@ -664,7 +664,7 @@ msgstr ""
 "動作，您可增加 PHP 執行時間的限制。"
 
 #: import_status.php:87 libraries/Util.class.php:733
-#: libraries/export.lib.php:437
+#: libraries/export.lib.php:438
 #: libraries/schema/Export_Relation_Schema.class.php:247 user_password.php:239
 msgid "Back"
 msgstr "返回"
@@ -700,7 +700,7 @@ msgstr "伺服器連線編碼與排序"
 msgid "Appearance Settings"
 msgstr "外觀設定"
 
-#: index.php:236 prefs_manage.php:286
+#: index.php:236 prefs_manage.php:279
 msgid "More settings"
 msgstr "更多設定"
 
@@ -708,7 +708,7 @@ msgstr "更多設定"
 msgid "Database server"
 msgstr "資料庫伺服器"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:207
+#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:187
 msgid "Server:"
 msgstr "伺服器:"
 
@@ -1434,7 +1434,7 @@ msgstr "無法使用匯入的設定檔建立圖表，將重設為預設的設定
 #: libraries/Util.class.php:4120 libraries/Util.class.php:4135
 #: libraries/Util.class.php:4151 libraries/config/messages.inc.php:225
 #: libraries/display_import.lib.php:108
-#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:239
+#: libraries/server_status_monitor.lib.php:364 prefs_manage.php:232
 #: setup/frames/menu.inc.php:25
 msgid "Import"
 msgstr "匯入"
@@ -2194,47 +2194,47 @@ msgstr "在計算數值時，條件 \"%s\" 失敗。"
 msgid "Failed running test for rule '%s'."
 msgstr "在執行測試時，條件 \"%s\" 失敗。"
 
-#: libraries/Advisor.class.php:225
+#: libraries/Advisor.class.php:222
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "無法產生規則 '%s' 的格式化文字。"
 
-#: libraries/Advisor.class.php:401
+#: libraries/Advisor.class.php:388
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr "第 %1$s 行的規則宣告無效，上一修規則應在第 %2$s 行。"
 
-#: libraries/Advisor.class.php:420
+#: libraries/Advisor.class.php:407
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "第 %s 行規則宣告無效。"
 
-#: libraries/Advisor.class.php:428
+#: libraries/Advisor.class.php:415
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "第 %s 行有不明符號。"
 
-#: libraries/Advisor.class.php:443
+#: libraries/Advisor.class.php:430
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "第 %1$s 行有不明符號。應該要是「tab」，但我們找到「%2$s」。"
 
-#: libraries/Advisor.class.php:478
+#: libraries/Advisor.class.php:465
 msgid "per second"
 msgstr "每秒"
 
-#: libraries/Advisor.class.php:481
+#: libraries/Advisor.class.php:468
 msgid "per minute"
 msgstr "每分鐘"
 
-#: libraries/Advisor.class.php:484 libraries/server_status.lib.php:137
+#: libraries/Advisor.class.php:471 libraries/server_status.lib.php:137
 #: libraries/server_status.lib.php:221
 #: libraries/server_status_queries.lib.php:98
 msgid "per hour"
 msgstr "每小時"
 
-#: libraries/Advisor.class.php:487
+#: libraries/Advisor.class.php:474
 msgid "per day"
 msgstr "每天"
 
@@ -2610,8 +2610,8 @@ msgstr "您的 SQL 語法已順利執行。"
 #: libraries/DisplayResults.class.php:4966 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "這個檢視表至少需有此數量的資料列，請參考%sdocumentation%s。"
 
 #: libraries/DisplayResults.class.php:4979
@@ -2629,7 +2629,7 @@ msgstr "總計 %1$d 筆，目前查詢 %2$d 筆"
 msgid "%d total"
 msgstr "總計 %d 筆"
 
-#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1643
+#: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1644
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢花費 %01.4f 秒。"
@@ -2674,7 +2674,7 @@ msgstr "修改"
 #: libraries/server_privileges.lib.php:2260
 #: libraries/server_privileges.lib.php:2967
 #: libraries/server_status_monitor.lib.php:368 libraries/structure.lib.php:297
-#: prefs_manage.php:300 setup/frames/menu.inc.php:27
+#: prefs_manage.php:293 setup/frames/menu.inc.php:27
 msgid "Export"
 msgstr "匯出"
 
@@ -2763,8 +2763,8 @@ msgstr "目前正在運行 Git %2$s 的分支版本 %1$s。"
 msgid "Git information missing!"
 msgstr "缺少 Git 資訊！"
 
-#: libraries/Footer.class.php:162 libraries/Footer.class.php:166
-#: libraries/Footer.class.php:169
+#: libraries/Footer.class.php:179 libraries/Footer.class.php:183
+#: libraries/Footer.class.php:186
 msgid "Open new phpMyAdmin window"
 msgstr "開啟新 phpMyAdmin 視窗"
 
@@ -2773,7 +2773,7 @@ msgid "Click on the bar to scroll to top of page"
 msgstr "點選此列以回到頁面頂端"
 
 #: libraries/Header.class.php:661
-#: libraries/plugins/auth/AuthenticationCookie.class.php:178
+#: libraries/plugins/auth/AuthenticationCookie.class.php:158
 msgid "Javascript must be enabled past this point!"
 msgstr "必須啟用 Javascript 才能登入！"
 
@@ -3043,27 +3043,27 @@ msgstr "最近使用的資料表"
 msgid "There are no recent tables."
 msgstr "沒有最近使用的資料表。"
 
-#: libraries/SavedSearches.php:249
+#: libraries/SavedSearches.class.php:249
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the search."
 msgstr "未安裝 phpMyAdmin 進階功能資料表的警告"
 
-#: libraries/SavedSearches.php:265 libraries/SavedSearches.php:295
+#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "使用者 %s 己存在！"
 
-#: libraries/SavedSearches.php:315
+#: libraries/SavedSearches.class.php:315
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.php:336
+#: libraries/SavedSearches.class.php:336
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.php:349
+#: libraries/SavedSearches.class.php:349
 #, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
@@ -3445,16 +3445,16 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "浮點數，範圍為 -3.402823466E+38 至 -1.175494351E-38、0 及 1.175494351E-38 至 "
 "3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "倍準浮點數，範圍為 -1.7976931348623157E+308 至 -2.2250738585072014E-308、0 "
@@ -3811,7 +3811,7 @@ msgid "Click to toggle"
 msgstr "點此切換"
 
 #: libraries/Util.class.php:3321 libraries/sql_query_form.lib.php:477
-#: prefs_manage.php:249
+#: prefs_manage.php:242
 msgid "Browse your computer:"
 msgstr "由電腦上傳:"
 
@@ -3929,64 +3929,64 @@ msgstr "檢查資料庫 「%s」 之權限."
 msgid "Check Privileges"
 msgstr "檢查權限"
 
-#: libraries/common.inc.php:583
+#: libraries/common.inc.php:585
 msgid "Failed to read configuration file!"
 msgstr "無法讀取設定檔！"
 
-#: libraries/common.inc.php:585
+#: libraries/common.inc.php:587
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "此情況通常是有語法錯誤，請檢查下列顯示的錯誤。"
 
-#: libraries/common.inc.php:592
+#: libraries/common.inc.php:594
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "無法讀取預設設定: %1$s"
 
-#: libraries/common.inc.php:599
+#: libraries/common.inc.php:601
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr "必須在您的設定檔案中設定 [code]$cfg['PmaAbsoluteUri'][/code]。"
 
-#: libraries/common.inc.php:632
+#: libraries/common.inc.php:634
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "無效的伺服器索引: %s"
 
-#: libraries/common.inc.php:643
+#: libraries/common.inc.php:645
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "伺服器 %1$s 主機名稱錯誤，請檢查設定檔案。"
 
-#: libraries/common.inc.php:659
+#: libraries/common.inc.php:661
 #, php-format
 msgid "Server %d"
 msgstr "伺服器 %d"
 
-#: libraries/common.inc.php:858
+#: libraries/common.inc.php:860
 msgid "Invalid authentication method set in configuration:"
 msgstr "在設定檔中設定的認證方式無效:"
 
-#: libraries/common.inc.php:1001
+#: libraries/common.inc.php:1003
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您應升級到 %s %s 或更新版本。"
 
-#: libraries/common.inc.php:1087
+#: libraries/common.inc.php:1089
 msgid "Error: Token mismatch"
 msgstr "錯誤: 連線資訊失效，請重新連線"
 
-#: libraries/common.inc.php:1119
+#: libraries/common.inc.php:1121
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/common.inc.php:1126
+#: libraries/common.inc.php:1128
 msgid "possible exploit"
 msgstr "$_REQUEST 數量過多（駭客？）"
 
-#: libraries/common.inc.php:1135
+#: libraries/common.inc.php:1137
 msgid "numeric key detected"
 msgstr "$_GLOBALS 內含非法的數字鍵名"
 
@@ -4200,8 +4200,8 @@ msgid "Apply"
 msgstr "套用"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1594
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:342
-#: prefs_manage.php:349
+#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: prefs_manage.php:342
 msgid "Reset"
 msgstr "重新設定"
 
@@ -4312,8 +4312,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "您設定了 [kbd]config[/kbd] 認證方式，且爲了能夠自動登入而儲存了帳號和密碼，但"
 "在常用主機上不建議這樣設定。如果有人知道 phpMyAdmin 的網址，他們就能夠進入 "
@@ -4456,8 +4456,8 @@ msgstr "CHAR 欄位編輯方式"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "使用 [a@http://codemirror.net/]CodeMirror[/a] 編輯器來編輯 SQL 查詢語法 (具語"
 "法加強顯示和行號功能)。"
@@ -4617,7 +4617,7 @@ msgstr "設定 Script 允許執行的時間限制 (秒，[kbd]0[/kbd] 爲不設�
 msgid "Maximum execution time"
 msgstr "執行時間限制"
 
-#: libraries/config/messages.inc.php:110 prefs_manage.php:313
+#: libraries/config/messages.inc.php:110 prefs_manage.php:306
 msgid "Save as file"
 msgstr "另存新檔"
 
@@ -4987,8 +4987,9 @@ msgstr "頁面標題"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "設定瀏覽器標題列顯示的文字。請參考 [doc@cfg_TitleTable]說明文件[/doc] 中的變"
 "數字串會替換為特殊內容。"
@@ -5049,8 +5050,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"請設定 phpMyAdmin 進階功能以開啟其他進階功能，請參考 [doc@linked-tables]"
-"phpMyAdmin 進階功能[/doc]。"
+"請設定 phpMyAdmin 進階功能以開啟其他進階功能，請參考 [doc@linked-"
+"tables]phpMyAdmin 進階功能[/doc]。"
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -5774,8 +5775,8 @@ msgstr "書籤表"
 
 #: libraries/config/messages.inc.php:566
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr "無欄位註解/MIME類型時留空白。建議值: [kbd]pma__column_info[/kbd]。"
 
 #: libraries/config/messages.inc.php:569
@@ -5930,8 +5931,8 @@ msgid ""
 "no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "關聯、書籤與 PDF 功能所使用的資料庫，請參考  [a@http://wiki.phpmyadmin.net/"
-"pma/pmadb]pmadb [/a] 取得更多資訊。留空則關閉此功能，建議為:  [kbd]phpmyadmin"
-"[/kbd]。"
+"pma/pmadb]pmadb [/a] 取得更多資訊。留空則關閉此功能，建議為:  "
+"[kbd]phpmyadmin[/kbd]。"
 
 #: libraries/config/messages.inc.php:633
 #: libraries/display_create_database.lib.php:31
@@ -5959,8 +5960,8 @@ msgstr "最近使用的資料表"
 
 #: libraries/config/messages.inc.php:643
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "不使用 [a@http://wiki.phpmyadmin.net/pma/relation]關聯連結[/a] 功能請留空，建"
 "議值: [kbd]pma__relation[/kbd]。"
@@ -5971,8 +5972,8 @@ msgstr "關係表"
 
 #: libraries/config/messages.inc.php:649
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "請參考 [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]認證模式[/a] 中的"
 "範例。"
@@ -6073,8 +6074,8 @@ msgstr "要追蹤的指令"
 
 #: libraries/config/messages.inc.php:692
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr "不使用 SQL 查詢追蹤功能請留空，建議值: [kbd]pma__tracking[/kbd]。"
 
 #: libraries/config/messages.inc.php:695
@@ -6093,8 +6094,8 @@ msgstr "自動建立版本"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr "不在資料庫中儲存使用者偏好設定請留空，建議值: [kbd]pma__config[/kbd]。"
 
 #: libraries/config/messages.inc.php:703
@@ -6603,7 +6604,7 @@ msgid "No Password"
 msgstr "無密碼"
 
 #: libraries/display_change_password.lib.php:67
-#: libraries/plugins/auth/AuthenticationCookie.class.php:225
+#: libraries/plugins/auth/AuthenticationCookie.class.php:205
 #: libraries/replication_gui.lib.php:395 libraries/replication_gui.lib.php:833
 #: libraries/server_privileges.lib.php:1438
 msgid "Password:"
@@ -6763,8 +6764,8 @@ msgstr "，@TABLE@ 會替換為資料表名稱"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "此數值會使用 %1$sstrftime%2$s 來解析，所以您可以使用時間格式的字串。除此之"
 "外，以下資料格式也會被轉換: %3$s。其他的文字則會保持原樣。請參考 %4$s常見問"
@@ -7241,8 +7242,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr "有關 PBXT 的更相關資訊請可以 %sPrimeBase XT 首頁%s 中找到。"
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7297,7 +7298,7 @@ msgid "Dump has been saved to file %s."
 msgstr "匯出資料已儲存至檔案 %s。"
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1637
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1638
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 回傳空的查詢結果 (即零資料列)。"
@@ -7415,11 +7416,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr "按 TAB 鍵跳到下一個數值，或 CTRL+方向鍵 作隨意移動"
 
-#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1632
+#: libraries/insert_edit.lib.php:1973 libraries/sql.lib.php:1633
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1612
+#: libraries/insert_edit.lib.php:1998 libraries/sql.lib.php:1613
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 id: %1$d"
@@ -7752,7 +7753,7 @@ msgstr "資料庫操作"
 msgid "Show hidden items"
 msgstr "顯示隱藏項目"
 
-#: libraries/navigation/Nodes/Node_Database_Container.class.php:33
+#: libraries/navigation/Nodes/Node_Database_Container.class.php:34
 msgctxt "Create new database"
 msgid "New"
 msgstr "新增"
@@ -8005,7 +8006,7 @@ msgid "Cannot connect: invalid settings."
 msgstr "無法連線: 設定錯誤."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:86
-#: libraries/plugins/auth/AuthenticationCookie.class.php:166
+#: libraries/plugins/auth/AuthenticationCookie.class.php:143
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
@@ -8014,8 +8015,8 @@ msgstr "歡迎使用 %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr "您可能還沒有建立設定檔案。您可以使用 %1$s 設定指令 %2$s 來建立。"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -8038,50 +8039,49 @@ msgstr ""
 "無法使用 Blowfish 密文進行加密！（<a href=\"http://www.question-defense.com/"
 "tools/phpmyadmin-blowfish-secret-generator\" target=\"_blank\">參考資料</a>）"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:82
-#: libraries/plugins/auth/AuthenticationCookie.class.php:196
-msgid "Log in"
-msgstr "登入"
-
-#: libraries/plugins/auth/AuthenticationCookie.class.php:100
+#: libraries/plugins/auth/AuthenticationCookie.class.php:153
 msgid "Your session has expired. Please log in again."
 msgstr "您的連線已過期，請重新登入。"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:204
-#: libraries/plugins/auth/AuthenticationCookie.class.php:214
+#: libraries/plugins/auth/AuthenticationCookie.class.php:176
+msgid "Log in"
+msgstr "登入"
+
+#: libraries/plugins/auth/AuthenticationCookie.class.php:184
+#: libraries/plugins/auth/AuthenticationCookie.class.php:194
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr "您可以輸入以空格分隔的 主機名稱/IP位址 和 連結埠。"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:219
+#: libraries/plugins/auth/AuthenticationCookie.class.php:199
 msgid "Username:"
 msgstr "使用者名稱:"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:231
+#: libraries/plugins/auth/AuthenticationCookie.class.php:211
 msgid "Server Choice:"
 msgstr "選擇伺服器："
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:408
+#: libraries/plugins/auth/AuthenticationCookie.class.php:388
 msgid "Entered captcha is wrong, try again!"
 msgstr "輸入驗證碼錯誤，請再試一次！"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:417
+#: libraries/plugins/auth/AuthenticationCookie.class.php:397
 msgid "Please enter correct captcha!"
 msgstr "請輸入正確的驗證碼！"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:691
+#: libraries/plugins/auth/AuthenticationCookie.class.php:671
 #: libraries/plugins/auth/AuthenticationSignon.class.php:266
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr "禁止無密碼登入 (請參考 AllowNoPassword)"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:698
+#: libraries/plugins/auth/AuthenticationCookie.class.php:678
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "登錄超時 (%s 秒未操作)，請重新登錄。"
 
-#: libraries/plugins/auth/AuthenticationCookie.class.php:703
-#: libraries/plugins/auth/AuthenticationCookie.class.php:705
+#: libraries/plugins/auth/AuthenticationCookie.class.php:683
+#: libraries/plugins/auth/AuthenticationCookie.class.php:685
 #: libraries/plugins/auth/AuthenticationSignon.class.php:282
 msgid "Cannot log in to the MySQL server"
 msgstr "無法登入 MySQL 伺服器"
@@ -8118,17 +8118,17 @@ msgid "Columns separated with:"
 msgstr "欄位分隔符號:"
 
 #: libraries/plugins/export/ExportCsv.class.php:69
-#: libraries/plugins/import/AbstractImportCsv.class.php:65
+#: libraries/plugins/import/AbstractImportCsv.class.php:64
 msgid "Columns enclosed with:"
 msgstr "內容分隔符號:"
 
 #: libraries/plugins/export/ExportCsv.class.php:73
-#: libraries/plugins/import/AbstractImportCsv.class.php:71
+#: libraries/plugins/import/AbstractImportCsv.class.php:70
 msgid "Columns escaped with:"
 msgstr "內容跳脫符號:"
 
 #: libraries/plugins/export/ExportCsv.class.php:77
-#: libraries/plugins/import/AbstractImportCsv.class.php:77
+#: libraries/plugins/import/AbstractImportCsv.class.php:76
 msgid "Lines terminated with:"
 msgstr "換行符號:"
 
@@ -8811,20 +8811,24 @@ msgstr "配置選單"
 msgid "Hide/show navigation items"
 msgstr "隱藏/顯示導覽項目"
 
-#: libraries/relation.lib.php:285
+#: libraries/relation.lib.php:290
+msgid "Saving Query-By-Example searches"
+msgstr ""
+
+#: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
 msgstr "快速設定進階功能:"
 
-#: libraries/relation.lib.php:289
+#: libraries/relation.lib.php:300
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr "透過 <code>examples/create_tables.sql</code> 建立必需的資料表。"
 
-#: libraries/relation.lib.php:295
+#: libraries/relation.lib.php:306
 msgid "Create a pma user and give access to these tables."
 msgstr "建立一個 pma 使用者並授權存取上一步操作中所建立的資料表的權限。"
 
-#: libraries/relation.lib.php:300
+#: libraries/relation.lib.php:311
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -8832,11 +8836,11 @@ msgstr ""
 "在設定檔 (<code>config.inc.php</code>) 中啓用進階功能，請參考 <code>config."
 "sample.inc.php</code> 中的範例。"
 
-#: libraries/relation.lib.php:308
+#: libraries/relation.lib.php:319
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "請重新登入 phpMyAdmin 以載入新設定並使其生效。"
 
-#: libraries/relation.lib.php:1507
+#: libraries/relation.lib.php:1518
 msgid "no description"
 msgstr "無說明"
 
@@ -10291,8 +10295,8 @@ msgstr "檢視使用者"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin 直接由 MySQL 權限表取得使用者權限。若有使用者中途手動更改權"
 "限，則表中顯示的內容可能與伺服器實際使用的使用者權限有異。在這種情況下，您應"
@@ -11391,36 +11395,36 @@ msgstr "呼叫數"
 msgid "ø Time"
 msgstr "ø 時間"
 
-#: libraries/sql.lib.php:762 libraries/sql.lib.php:782
+#: libraries/sql.lib.php:763 libraries/sql.lib.php:783
 msgid "Bookmark this SQL query"
 msgstr "將此 SQL 查詢加爲書籤"
 
-#: libraries/sql.lib.php:766
+#: libraries/sql.lib.php:767
 msgid "Label:"
 msgstr "標籤："
 
-#: libraries/sql.lib.php:774 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:775 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "讓所有使用者均可存取此書籤"
 
-#: libraries/sql.lib.php:1025
+#: libraries/sql.lib.php:1026
 msgid "Bookmark not created!"
 msgstr "書籤尚未建立！"
 
-#: libraries/sql.lib.php:1181
+#: libraries/sql.lib.php:1182
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用書籤 \"%s\" 作爲預設的查詢。"
 
-#: libraries/sql.lib.php:1629
+#: libraries/sql.lib.php:1630
 msgid "Showing as PHP code"
 msgstr "顯示的內容爲 PHP 程式碼"
 
-#: libraries/sql.lib.php:1634
+#: libraries/sql.lib.php:1635
 msgid "Validated SQL"
 msgstr "已校驗的 SQL"
 
-#: libraries/sql.lib.php:1914
+#: libraries/sql.lib.php:1915
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
@@ -11428,7 +11432,7 @@ msgstr ""
 "目前選擇的項目不含唯一(Unique)的資料欄位，將無法執行修改、複製、刪除等相關的"
 "功能。"
 
-#: libraries/sql.lib.php:1951
+#: libraries/sql.lib.php:1952
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "資料表 `%s` 的索引存在問題"
@@ -12155,7 +12159,7 @@ msgstr "已建立版本 %1$s，%2$s 的追蹤已啓用。"
 msgid "Manage your settings"
 msgstr "管理您的設定"
 
-#: libraries/user_preferences.inc.php:46 prefs_manage.php:304
+#: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved"
 msgstr "已儲存設定"
 
@@ -12384,56 +12388,56 @@ msgstr "部分設定含有錯誤的資料。"
 msgid "Do you want to import remaining settings?"
 msgstr "是否匯入其餘的設定？"
 
-#: prefs_manage.php:232 prefs_manage.php:261
+#: prefs_manage.php:225 prefs_manage.php:254
 msgid "Saved on: @DATE@"
 msgstr "儲存於: @DATE@"
 
-#: prefs_manage.php:247
+#: prefs_manage.php:240
 msgid "Import from file"
 msgstr "從檔案匯入"
 
-#: prefs_manage.php:255
+#: prefs_manage.php:248
 msgid "Import from browser's storage"
 msgstr "從瀏覽器記錄匯入"
 
-#: prefs_manage.php:258
+#: prefs_manage.php:251
 msgid "Settings will be imported from your browser's local storage."
 msgstr "將使用瀏覽器的本機儲存記錄匯入設定。"
 
-#: prefs_manage.php:264
+#: prefs_manage.php:257
 msgid "You have no saved settings!"
 msgstr "您尚未儲存設定！"
 
-#: prefs_manage.php:269 prefs_manage.php:329
+#: prefs_manage.php:262 prefs_manage.php:322
 msgid "This feature is not supported by your web browser"
 msgstr "您所使用的瀏覽器不支援此功能"
 
-#: prefs_manage.php:275
+#: prefs_manage.php:268
 msgid "Merge with current configuration"
 msgstr "與目前設定合併"
 
-#: prefs_manage.php:289
+#: prefs_manage.php:282
 #, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程式%"
-"s 。"
+"透過修改 config.inc.php 設定檔您可以調整更多的設定項目，如: 使用 %s安裝程"
+"式%s 。"
 
-#: prefs_manage.php:318
+#: prefs_manage.php:311
 msgid "Save to browser's storage"
 msgstr "儲存到瀏覽器記錄"
 
-#: prefs_manage.php:322
+#: prefs_manage.php:315
 msgid "Settings will be saved in your browser's local storage."
 msgstr "設定將儲存到瀏覽器的本機記錄。"
 
-#: prefs_manage.php:324
+#: prefs_manage.php:317
 msgid "Existing settings will be overwritten!"
 msgstr "現有設定將被覆蓋！"
 
-#: prefs_manage.php:346
+#: prefs_manage.php:339
 msgid "You can reset all your settings and restore them to default values."
 msgstr "您可以重新設定所有設定恢復爲預設值。"
 
@@ -13070,8 +13074,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr "目前閒置查詢快取記憶體為全部查詢快取的大小的 %s%%，這個值應高於 80%%"
 
 #: libraries/advisory_rules.txt:181
@@ -13207,8 +13211,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr "有 %s%% 的排序會產生暫存表，這個值應低於 10%%。"
 
 #: libraries/advisory_rules.txt:218
@@ -13895,13 +13899,13 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr "空白為停用選單設定功能，建議值：[kbd]pma__users[/kbd]。"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr "空白為停用選單設定功能，建議值：[kbd]pma__usergroups[/kbd]。"
 
 #~ msgid "Your SQL query has been executed successfully"
@@ -14014,8 +14018,9 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ msgstr "啟動 JavaScript 錯誤回報"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "詳情請參考  [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA 問題追"
 #~ "蹤系統[/a] 與 [a@http://bugs.mysql.com/19588]MySQL 問題回報[/a]"
@@ -14343,13 +14348,13 @@ msgstr "concurrent_insert 目前設定為 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "當設爲 [kbd]nested[/kbd] 時，資料表的別名僅根據 $cfg"
-#~ "['LeftFrameTableSeparator'] 作分割/層疊用，所有只有目錄的名字像別名，資料"
-#~ "表自己的名字並不改變"
+#~ "當設爲 [kbd]nested[/kbd] 時，資料表的別名僅根據 "
+#~ "$cfg['LeftFrameTableSeparator'] 作分割/層疊用，所有只有目錄的名字像別名，"
+#~ "資料表自己的名字並不改變"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "顯示資料表備註而不顯示資料資料表名稱"
@@ -14892,8 +14897,8 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation.html#faq6-29"
-#~ "\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
+#~ "html#faq6-29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "新增新使用者"
