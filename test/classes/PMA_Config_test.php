@@ -46,7 +46,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object = new PMA_Config;
         $GLOBALS['server'] = 0;
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['PMA_Config'] = new PMA_Config(CONFIG_FILE);
+        $GLOBALS['PMA_Config'] = new PMA_Config("./config.sample.inc.php");
     }
 
     /**
@@ -958,7 +958,9 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         
         //load file permissions for the current permissions file
         $perms = @fileperms($GLOBALS['PMA_Config']->getSource());
-
+        //testing for permissions 
+        $this->assertTrue(!($perms === false) && ($perms & 2));
+        
         //if the above assertion is true then applying further assertions
         if(!($perms === false) && ($perms & 2)) {             
             $this->assertFalse($GLOBALS['PMA_Config']->get('PMA_IS_WINDOWS') == 0);
