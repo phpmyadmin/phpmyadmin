@@ -124,7 +124,7 @@ if ($displayUpdateSearchHint) {
     $response->addHTML(
         PMA_Message::notice(
             __(
-                'After saving or loading a search bookmark, you can rename it and '
+                'After saving or loading a bookmarked search, you can rename it and '
                 . 'save the new criteria.'
             )
         )
