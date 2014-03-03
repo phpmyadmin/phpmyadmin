@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - bug #4298 Missing validation on Import CSV: "Columns enclosed with" and "Columns escaped with"
 - bug #4040 Fatal error while resetting settings
 - bug #4305 JS error when editing procedure from nav panel
+- bug #4308 Edit routine form submitting when pressing enter
 
 4.1.8.0 (2014-02-22)
 - bug #4276 Login loop on session expiry
