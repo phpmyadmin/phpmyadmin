@@ -50,7 +50,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
             ->method('display')
             ->with(true, true);
 
-        PMA_process_formset($formDisplay);
+        PMA_Process_formset($formDisplay);
 
         // case 2
         $formDisplay = $this->getMockBuilder('FormDisplay')
@@ -69,7 +69,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValue(true));
 
         ob_start();
-        PMA_process_formset($formDisplay);
+        PMA_Process_formset($formDisplay);
         $result = ob_get_clean();
 
         $this->assertContains(
@@ -108,7 +108,7 @@ class PMA_From_Processing_Test extends PHPUnit_Framework_TestCase
             ->with()
             ->will($this->returnValue(false));
 
-        PMA_process_formset($formDisplay);
+        PMA_Process_formset($formDisplay);
 
         $this->assertEquals(
             array('HTTP/1.1 303 See Other', 'Location: index.php'),

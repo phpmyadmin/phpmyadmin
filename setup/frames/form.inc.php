@@ -32,5 +32,5 @@ $form_display = new FormDisplay($GLOBALS['ConfigFile']);
 foreach ($forms[$formset_id] as $form_name => $form) {
     $form_display->registerForm($form_name, $form);
 }
-PMA_process_formset($form_display);
+PMA_Process_formset($form_display);
 ?>

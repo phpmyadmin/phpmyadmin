@@ -46,5 +46,5 @@ $form_display = new FormDisplay($cf);
 foreach ($forms['Servers'] as $form_name => $form) {
     $form_display->registerForm($form_name, $form, $id);
 }
-PMA_process_formset($form_display);
+PMA_Process_formset($form_display);
 ?>
