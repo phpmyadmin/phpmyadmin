@@ -76,9 +76,11 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     // which is set inside import.php
     usleep(300000);
 
+    $loginCookieValidity = $GLOBALS['cfg']['LoginCookieValidity'];
     // wait until message is available
     while ($_SESSION['Import_message']['message'] == null) {
         usleep(250000); // 0.25 sec
+        $GLOBALS['cfg']['LoginCookieValidity'] += 0.25; // Increment session validity by 0.25 sec
     }
 
     echo $_SESSION['Import_message']['message'];
@@ -86,6 +88,8 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     echo '    [ <a href="' . $_SESSION['Import_message']['go_back_url']
         . '">' . __('Back') . '</a> ]' . "\n";
     echo '</fieldset>'."\n";
+
+    $GLOBALS['cfg']['LoginCookieValidity'] = $loginCookieValidity;
 
 } else {
     PMA_importAjaxStatus($_GET["id"]);
