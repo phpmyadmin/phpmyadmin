@@ -194,18 +194,6 @@ if (isset($_POST['submit_export'])
     $result = PMA_saveUserprefs(array());
     if ($result === true) {
         $params = array();
-        /*Since we are not resetting theme on reset settings, we dont need below block of code.
-         * for now just commenting out the code so that if we need in future we can reuse
-        */
-       /* 
-        * if ($_SESSION['PMA_Theme_Manager']->theme->getId() != 'original') {
-            $GLOBALS['PMA_Config']->removeCookie(
-                $_SESSION['PMA_Theme_Manager']->getThemeCookieName()
-            );
-            unset($_SESSION['PMA_Theme_Manager']);
-            unset($_SESSION['PMA_Theme']);
-        }
-        */
         if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
             $GLOBALS['PMA_Config']->removeCookie('pma_fontsize');
         }
