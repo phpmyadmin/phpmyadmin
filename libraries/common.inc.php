@@ -487,7 +487,9 @@ if ($token_mismatch) {
         /* Permit to log out even if there is a token mismatch */
         'old_usr',
         /* Permit redirection with token-mismatch in url.php */
-        'url'
+        'url',
+        /* Permit session expiry flag */
+        'session_expired'
     );
     /**
      * Allow changing themes in test/theme.php

@@ -76,8 +76,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             $response->isSuccess(false);
 
             $response->addJSON(
-                'redirect_url',
-                $GLOBALS['cfg']['PmaAbsoluteUri']
+                'redirect_flag',
+                '1'
             );
             if (defined('TESTSUITE')) {
                 return true;
@@ -148,6 +148,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Show error message
         if (! empty($conn_error)) {
             PMA_Message::rawError($conn_error)->display();
+        }
+        elseif (isset($_GET['session_expired']) && intval($_GET['session_expired'])==1) {
+            PMA_Message::rawError(__('Your session has expired. Please log in again.'))->display();
         }
 
         echo "<noscript>\n";
