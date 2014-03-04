@@ -303,7 +303,7 @@ class PMA_Validator
             && empty($values['Servers/1/user'])
         ) {
             $result['Servers/1/user']
-                = __('Empty username while using config authentication method!');
+                = __('Empty username while using [kbd]config[/kbd] authentication method!');
             $error = true;
         }
         if ($values['Servers/1/auth_type'] == 'signon'
@@ -311,7 +311,7 @@ class PMA_Validator
         ) {
             $result['Servers/1/SignonSession'] = __(
                 'Empty signon session name '
-                . 'while using signon authentication method!'
+                . 'while using [kbd]signon[/kbd] authentication method!'
             );
             $error = true;
         }
@@ -319,7 +319,7 @@ class PMA_Validator
             && empty($values['Servers/1/SignonURL'])
         ) {
             $result['Servers/1/SignonURL']
-                = __('Empty signon URL while using signon authentication method!');
+                = __('Empty signon URL while using [kbd]signon[/kbd] authentication method!');
             $error = true;
         }
 
