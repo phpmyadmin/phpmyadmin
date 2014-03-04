@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-03-04 10:32+0200\n"
+"PO-Revision-Date: 2014-03-04 16:27+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -304,7 +304,6 @@ msgid "Switch to %svisual builder%s"
 msgstr "Commuta a %svisual builder%s (constructor visual)"
 
 #: db_qbe.php:127
-#, fuzzy
 #| msgid ""
 #| "After saving or loading a search, you can rename it and save the new "
 #| "criteria."
@@ -312,8 +311,8 @@ msgid ""
 "After saving or loading a bookmarked search, you can rename it and save the "
 "new criteria."
 msgstr ""
-"Postea salveguardar o cargar un cerca, tu pote renominar lo e salveguardar "
-"le nove criterio."
+"Postea salveguardar o cargar un cerca de marcator de libros, tu pote "
+"renominar lo e salveguardar le nove criterio."
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -2440,16 +2439,14 @@ msgid "Saved bookmarked search:"
 msgstr "Cercas salveguardate:"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Save bookmark"
-msgstr "Monstrante marcator de libro"
+msgstr "Salveguarda marcator de libro"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete search"
 msgid "Delete bookmark"
-msgstr "Dele cerca"
+msgstr "Dele marcator de libro"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3161,10 +3158,9 @@ msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:258
-#, fuzzy
 #| msgid "Missing information to save the search."
 msgid "Missing information to save the bookmarked search."
-msgstr "Information mancante pro salveguardar le cerca."
+msgstr "Information mancante pro salveguardar le cerca de marcator de libro."
 
 #: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 msgid "An entry with this name already exists."
@@ -4408,7 +4404,6 @@ msgstr ""
 "pertine a un ISP ubi miles de usatores, e te mesme, es connectite."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4419,8 +4414,8 @@ msgid ""
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 "Tu non habeva fixate le parola clave de blowfish e tu ha habilitate "
-"authentication de cookie, assi un clave ha essite create pro te. Illo es "
-"usate pro cryptar cookie; tu non necessita memorar lo."
+"authentication de [kbd]cookie[/kbd], assi un clave ha essite create pro te. "
+"Illo es usate pro cryptar cookies; tu non necessita memorar lo."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4476,7 +4471,7 @@ msgstr ""
 "impersonation."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4484,11 +4479,12 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si on usa le authentication de cookie e %sLogin cookie store%s non es 0, %s "
-"le validate de cookie %s debe esser fixate a un valor minus o equal a illo."
+"Si on usa le authentication de [kbd]cookie[/kbd] e %sLogin cookie store%s "
+"non es 0, %s le validate de cookie %s debe esser fixate a un valor minus o "
+"equal a illo."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -4552,27 +4548,27 @@ msgid "Could not connect to the database server!"
 msgstr "Il non pote connecter a servitor de base de datos!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Vacua nomine de usator quando on usa methodo de authentication de configurar!"
+"Vacua nomine de usator quando on usa methodo de authentication de "
+"[kbd]config[/kbd]!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
 "Vacua nomine de session de signon quando on usa methodo de authentication "
-"signon!"
+"[kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Vacua URL de signon quando on usa methodo de authentication de signon!"
+msgstr ""
+"Vacua URL de signon quando on usa methodo de authentication de "
+"[kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -5568,7 +5564,6 @@ msgid "Delete all cookies on logout"
 msgstr "Dele omne cookies quando on exi (logout)"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
@@ -5577,7 +5572,7 @@ msgid ""
 "kbd] authentication mode."
 msgstr ""
 "Defini si le previe session de authentication deberea esser restaurate o non "
-"quando in modo de authentication de cookie."
+"quando in modo de authentication de [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5668,7 +5663,6 @@ msgid "Maximum tables"
 msgstr "Maxime numero de tabellas"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
@@ -5677,7 +5671,7 @@ msgid ""
 "[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Dishabilita le aviso predefinite que es monstrate si mcrypt es mancante pro "
-"le authentication de cookie."
+"le authentication de [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -5832,10 +5826,12 @@ msgstr "Barra de navigation de tabella"
 #: libraries/config/messages.inc.php:479
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
+"Usa buffering de exito de GZip pro augmentar le velocitate in transferentias "
+"de HTTP."
 
 #: libraries/config/messages.inc.php:480
 msgid "GZip output buffering"
-msgstr ""
+msgstr "Buffering de exito de GZip"
 
 #: libraries/config/messages.inc.php:482
 msgid ""
@@ -5864,17 +5860,19 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:495
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Tabellas de immagazinage de configuration de phpMyAdmin es mancante"
 
 #: libraries/config/messages.inc.php:497
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected."
 msgstr ""
+"Dishabilita le aviso predefinite que es monstrate si un differentia es "
+"relevate inter le bibliotheca de MySQL e le servitor."
 
 #: libraries/config/messages.inc.php:501
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Aviso de differentia de Servitor/Bibliotheca"
 
 #: libraries/config/messages.inc.php:503
 msgid ""
