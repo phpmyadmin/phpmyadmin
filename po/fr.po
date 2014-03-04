@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-02-27 18:36+0200\n"
+"POT-Creation-Date: 2014-03-04 13:47+0100\n"
+"PO-Revision-Date: 2014-03-04 14:48+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -300,7 +300,6 @@ msgid "Switch to %svisual builder%s"
 msgstr "Passer au %smode visuel%s"
 
 #: db_qbe.php:127
-#, fuzzy
 #| msgid ""
 #| "After saving or loading a search, you can rename it and save the new "
 #| "criteria."
@@ -308,8 +307,8 @@ msgid ""
 "After saving or loading a bookmarked search, you can rename it and save the "
 "new criteria."
 msgstr ""
-"Après avoir sauvegardé ou chargé une recherche, vous pouvez la renommer et "
-"sauvegarder les nouveaux critères."
+"Après avoir sauvegardé ou chargé un signet de recherche, vous pouvez le "
+"renommer et sauvegarder les nouveaux critères."
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -2417,22 +2416,19 @@ msgid "Submit Query"
 msgstr "Exécuter la requête"
 
 #: libraries/DBQbe.class.php:1451
-#, fuzzy
 #| msgid "Saved searches:"
 msgid "Saved bookmarked search:"
-msgstr "Recherches sauvegardées : "
+msgstr "Signets de recherches sauvegardés :"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Save bookmark"
-msgstr "Affichage du signet"
+msgstr "Enregistrer le signet"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete search"
 msgid "Delete bookmark"
-msgstr "Effacer la recherche"
+msgstr "Effacer le signet"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3143,13 +3139,12 @@ msgstr "Il n'y a pas de tables récentes."
 
 #: libraries/SavedSearches.class.php:248
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Veuillez fournir un nom pour ce signet de recherche."
 
 #: libraries/SavedSearches.class.php:258
-#, fuzzy
 #| msgid "Missing information to save the search."
 msgid "Missing information to save the bookmarked search."
-msgstr "Informations manquantes pour sauvegarder la recherche."
+msgstr "Informations manquantes pour sauvegarder le signet de recherche."
 
 #: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 msgid "An entry with this name already exists."
@@ -4391,7 +4386,6 @@ msgstr ""
 "%s."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4402,8 +4396,8 @@ msgid ""
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 "Vous n'aviez pas configuré un secret Blowfish et utilisez l'authentification "
-"cookie , alors une clé secrète a été générée pour vous. Elle sert à "
-"encrypter les cookies, vous n'avez pas à vous en souvenir."
+"[kbd]cookie[/kbd] , alors une clé secrète a été générée pour vous. Elle "
+"sert à encrypter les cookies, vous n'avez pas à vous en souvenir."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4457,7 +4451,7 @@ msgstr ""
 "risque."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4465,28 +4459,28 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si vous utilisez l'authentification cookie et que le paramètre %sLogin "
-"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity"
-"%s doit avoir une valeur plus petite ou égale à celui-ci."
+"Si vous utilisez l'authentification [kbd]cookie[/kbd] et que le paramètre %"
+"sLogin cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie "
+"validity%s doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
 #| "IP-based protection may not be reliable if your IP belongs to an ISP "
 #| "where thousands of users, including you, are connected to."
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des paramètres de protection - "
-"%sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
-"Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
-"appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
-"compris, sont connectés."
+"Si vous l'estimez nécessaire, utilisez des paramètres de protection - %"
+"sauthentification [kbd]host[/kbd]%s et %sserveurs mandataires de confiance%"
+"s. Cependant, la protection par adresse IP peut ne pas être fiable si votre "
+"IP appartient à un fournisseur via lequel des milliers d'utilisateurs, vous "
+"y compris, sont connectés."
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4533,25 +4527,23 @@ msgid "Could not connect to the database server!"
 msgstr "Connexion au serveur de base de données impossible !"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Le code d'utilisateur est vide alors que vous utilisez la méthode config !"
+"Le code d'utilisateur est vide alors que vous utilisez la méthode "
+"d'authentification [kbd]config[/kbd] !"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Le nom de session signon est vide !"
+msgstr "Le nom de session [kbd]signon[/kbd] est vide !"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "L'URL de signon est vide !"
+msgstr "L'URL de [kbd]signon[/kbd] est vide !"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -5540,7 +5532,6 @@ msgid "Delete all cookies on logout"
 msgstr "Détruire tous les cookies à la déconnexion"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
@@ -5549,7 +5540,7 @@ msgid ""
 "kbd] authentication mode."
 msgstr ""
 "Définit si le nom de l'utilisateur précédent devrait apparaître dans le "
-"panneau de connexion en mode cookie."
+"panneau de connexion en mode d'authentification [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5644,7 +5635,6 @@ msgid "Maximum tables"
 msgstr "Nombre maximum de tables"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
@@ -5653,7 +5643,7 @@ msgid ""
 "[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Désactive l'avertissement par défaut qui est affiché si mcrypt est manquant "
-"pour l'authentification par cookie."
+"pour l'authentification par [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -9266,7 +9256,7 @@ msgstr "Cacher/montrer des éléments de navigation"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Enregistrement des recherches (requête par un exemple)"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
