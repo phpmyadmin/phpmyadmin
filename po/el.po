@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-03 16:13+0100\n"
-"PO-Revision-Date: 2014-02-27 16:16+0200\n"
+"PO-Revision-Date: 2014-03-04 09:33+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9246,7 +9245,7 @@ msgstr "Απόκρυψη/εμφάνιση αντικειμένων πλοήγη�
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Αποθήκευση αναζητήσεων Ερώτημα-Ανά-Παράδειγμα"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
