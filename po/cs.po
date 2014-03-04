@@ -6,10 +6,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-03-04 14:17+0200\n"
+"PO-Revision-Date: 2014-03-04 14:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
-">\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4385,7 +4384,7 @@ msgstr ""
 "nastavena na vyšší hodnotu než je tato."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
@@ -4397,8 +4396,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
-"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
+"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -4446,25 +4445,23 @@ msgid "Could not connect to the database server!"
 msgstr "Nepodařilo se připojit databázovému serveru!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Při použití nastavené přihlašovací metody nebylo vyplněno uživatelské jméno!"
+"Při použití přihlašovací metody [kbd]config[/kbd] nebylo vyplněno "
+"uživatelské jméno!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Prázdné jméno signon sezení při použití přihlašování signon!"
+msgstr "Prázdné jméno signon sezení při použití přihlašování [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Prázdné přihlašovací URL při použití přihlašování signon!"
+msgstr "Prázdné přihlašovací URL při použití přihlašování [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -5451,7 +5448,6 @@ msgid "Delete all cookies on logout"
 msgstr "Smazat všechny cookies při odhlášení"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
@@ -5460,7 +5456,7 @@ msgid ""
 "kbd] authentication mode."
 msgstr ""
 "Určuje, zda se má pamatovat předchozí přihlášení, při použití přihlašování "
-"pomocí cookies."
+"pomocí [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5551,7 +5547,6 @@ msgid "Maximum tables"
 msgstr "Nejvyšší počet zobrazených tabulek"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
@@ -5560,7 +5555,7 @@ msgid ""
 "[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Vypne varování o chybějícím rozšíření mcrypt při použití přihlašování přes "
-"cookies."
+"[kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -9106,7 +9101,7 @@ msgstr "Zobrazit nebo skrýt položky z navigace"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Ukládání dotazů"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
