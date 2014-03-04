@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-03 16:13+0100\n"
-"PO-Revision-Date: 2014-02-27 11:56+0200\n"
+"PO-Revision-Date: 2014-03-04 08:30+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9079,7 +9079,7 @@ msgstr "Peida/kuva navigeerimiselemendid"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Salvestatakse näidispäringu otsinguid"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
