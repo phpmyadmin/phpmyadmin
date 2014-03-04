@@ -241,12 +241,22 @@ class PMA_SavedSearches
      */
     public function save()
     {
+        if (null == $this->getSearchName()) {
+            $response = PMA_Response::getInstance();
+            $response->addJSON('fieldWithError', 'searchName');
+            PMA_Util::mysqlDie(
+                __('Please provide a name for this bookmarked search.')
+            );
+        }
+
         if (null == $this->getUsername()
             || null == $this->getDbname()
             || null == $this->getSearchName()
             || null == $this->getCriterias()
         ) {
-            PMA_Util::mysqlDie(__('Missing information to save the search.'));
+            PMA_Util::mysqlDie(
+                __('Missing information to save the bookmarked search.')
+            );
         }
 
         $savedSearchesTbl

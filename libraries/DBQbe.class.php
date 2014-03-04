@@ -1448,9 +1448,9 @@ class PMA_DbQbe
      */
     private function _getSavedSearchesField()
     {
-        $html_output = __('Saved searches:');
+        $html_output = __('Saved bookmarked search:');
         $html_output .= ' <select name="searchId" id="searchId">';
-        $html_output .= '<option value="">New search</option>';
+        $html_output .= '<option value="">New bookmark</option>';
 
         $currentSearch = $this->_getCurrentSearch();
         $currentSearchId = null;
@@ -1476,9 +1476,9 @@ class PMA_DbQbe
             . 'value="' . $currentSearchName . '" />';
         $html_output .= '<input type="hidden" name="action" id="action" value="" />';
         $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" '
-            . 'value="' . __('Save search') . '" />';
+            . 'value="' . __('Save bookmark') . '" />';
         $html_output .= '<input type="submit" name="deleteSearch" id="deleteSearch" '
-            . 'value="' . __('Delete search') . '" />';
+            . 'value="' . __('Delete bookmark') . '" />';
 
         return $html_output;
     }
