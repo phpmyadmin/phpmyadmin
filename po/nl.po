@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-03 16:13+0100\n"
-"PO-Revision-Date: 2014-02-27 16:59+0200\n"
+"PO-Revision-Date: 2014-03-04 11:38+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2410,7 +2409,7 @@ msgstr "Query uitvoeren"
 
 #: libraries/DBQbe.class.php:1451
 msgid "Saved searches:"
-msgstr ""
+msgstr "Opgeslagen opzoekingen :"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Save search"
@@ -3133,11 +3132,11 @@ msgstr "Er bestaat reeds een waarde met deze naam."
 
 #: libraries/SavedSearches.class.php:315
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Informatie ontbreekt om de opzoeking te verwijderen."
 
 #: libraries/SavedSearches.class.php:336
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Informatie ontbreekt om de opzoeking te laden."
 
 #: libraries/SavedSearches.class.php:349
 msgid "Error while loading the search."
@@ -10311,10 +10310,9 @@ msgstr "Maakt het mogelijk om de server te stoppen."
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1163 server_privileges.php:93
-#, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Maakt het mogelijk om processen van alle gebruikers te zien"
+msgstr "Maakt het mogelijk om processen van alle gebruikers te zien."
 
 #: libraries/server_privileges.lib.php:294
 #: libraries/server_privileges.lib.php:1051 server_privileges.php:73
@@ -10386,17 +10384,15 @@ msgstr "Maakt het mogelijk om nieuwe views te maken."
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1123 server_privileges.php:71
-#, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Maakt het mogelijk om gebeurtenissen in de planner te zetten"
+msgstr "Maakt het mogelijk om gebeurtenissen in de planner te zetten."
 
 #: libraries/server_privileges.lib.php:358
 #: libraries/server_privileges.lib.php:1127 server_privileges.php:111
-#, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Maakt het mogelijk om triggers te maken en te verwijderen"
+msgstr "Maakt het mogelijk om triggers aan te maken en te verwijderen."
 
 #: libraries/server_privileges.lib.php:369
 #: libraries/server_privileges.lib.php:375
@@ -10485,10 +10481,9 @@ msgstr "Tabel-specifieke rechten"
 #: libraries/server_privileges.lib.php:829
 #: libraries/server_privileges.lib.php:1014
 #: libraries/server_privileges.lib.php:2938
-#, fuzzy
 #| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "Opmerking: de namen van de MySQL-rechten zijn uitgedrukt in het Engels"
+msgstr "Opmerking: de namen van de MySQL-rechten zijn uitgedrukt in het Engels."
 
 #: libraries/server_privileges.lib.php:977
 msgid "Administration"
@@ -10500,10 +10495,9 @@ msgid "Global privileges"
 msgstr "Globale rechten"
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "global"
 msgid "Global"
-msgstr "globaal"
+msgstr "Globaal"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:2750
@@ -11990,10 +11984,9 @@ msgid "Let every user access this bookmark"
 msgstr "Elke gebruiker toegang geven tot deze bladwijzer"
 
 #: libraries/sql.lib.php:1026
-#, fuzzy
 #| msgid "Bookmark not created"
 msgid "Bookmark not created!"
-msgstr "Bladwijzer niet aangemaakt"
+msgstr "Bladwijzer niet aangemaakt!"
 
 #: libraries/sql.lib.php:1182
 #, php-format
@@ -12148,16 +12141,16 @@ msgstr "Tracking is niet actief."
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "View %s has been dropped"
 msgid "View %s has been dropped."
-msgstr "View %s is verwijderd"
+msgstr "View %s werd verwijderd."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been dropped"
 msgid "Table %s has been dropped."
-msgstr "Tabel %s is vervallen"
+msgstr "Tabel %s werd verwijderd."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
@@ -12387,7 +12380,7 @@ msgstr "Tijdlijn"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Puntenwolk"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
@@ -12492,7 +12485,7 @@ msgstr "na %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1043
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Bewerk ENUM/SET waarden"
 
 # "Geen" of indien telbaar: "Geen enkele".
 #: libraries/tbl_columns_definition_form.lib.php:1068
@@ -12936,22 +12929,19 @@ msgid "Page:"
 msgstr "Pagina:"
 
 #: pmd_pdf.php:128
-#, fuzzy
 #| msgid "Import from selected page"
 msgid "Import from selected page."
-msgstr "Import vanaf geselecteerde pagina"
+msgstr "Import vanaf geselecteerde pagina."
 
 #: pmd_pdf.php:129
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Export to selected page."
-msgstr "Exporteren naar geselecteerde pagina"
+msgstr "Exporteren naar geselecteerde pagina."
 
 #: pmd_pdf.php:131
-#, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and export to it."
-msgstr "Een pagina aanmaken en ernaar exporteren"
+msgstr "Een pagina aanmaken en ernaar exporteren."
 
 #: pmd_pdf.php:143
 msgid "New page name: "
@@ -12994,11 +12984,10 @@ msgid "Error saving coordinates for Designer."
 msgstr "Fout bij het opslaan van coördinaten voor de Designer."
 
 #: prefs_forms.php:86
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
-"Het verstuurde formulier bevat fouten, instellingen werden niet opgeslagen"
+"Instellingen werden niet opgeslagen, het verstuurde formulier bevat fouten!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -13111,12 +13100,12 @@ msgstr ""
 "al gesloten."
 
 #: setup/frames/form.inc.php:25
-#, fuzzy
 #| msgid ""
 #| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 msgstr ""
-"Ongeldige formset, controleer de array $formsets in setup/frames/form.inc.php"
+"Ongeldige formset, controleer de array $formsets in "
+"setup/frames/form.inc.php!"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
@@ -13365,10 +13354,10 @@ msgid "Description"
 msgstr "Omschrijving"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Tracking-rapport"
+msgstr "U wordt doorverwezen naar %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
