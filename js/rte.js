@@ -193,6 +193,7 @@ RTE.COMMON = {
                             PMA_messages.strProcessingRequest
                         );
                         var url = $('form.rte_form').last().attr('action');
+                        var db = $('form.rte_form').last().children('input[name=db]').val();
                         $.post(url, data, function (data) {
                             if (data.success === true) {
                                 // Item created successfully
@@ -203,6 +204,10 @@ RTE.COMMON = {
                                 // remove the reference to the old row.
                                 if (mode === 'edit' && $edit_row !== null ) {
                                     $edit_row.remove();
+                                }
+                                // In case if we have a wrong database selected
+                                if (db !== PMA_commonParams.get('db')) {
+                                   PMA_commonParams.set('db', db);
                                 }
                                 // Sometimes, like when moving a trigger from
                                 // a table to another one, the new row should
