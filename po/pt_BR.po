@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-02-27 11:34+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-03-04 21:26+0200\n"
+"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2429,16 +2429,14 @@ msgid "Saved bookmarked search:"
 msgstr "Pesquisas salvas:"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Save bookmark"
-msgstr "Exibindo marcadores"
+msgstr "Salvar marcador"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete search"
 msgid "Delete bookmark"
-msgstr "Excluir pesquisa"
+msgstr "Excluir marcador"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -4390,7 +4388,6 @@ msgstr ""
 "conectados."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4400,9 +4397,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Você não tinha um segredo blowfish configurado e habilitou a autenticação "
-"por cookies, então uma chave foi gerada automaticamente para você. Ela é "
-"usada para encriptar cookies; você não precisa se lembrar dela."
+"Você não tinha nenhuma chave blowfish configurada e habilitou a autenticação "
+"por [kbd]cookies[/kbd], então uma chave foi gerada automaticamente para "
+"você. Ela é usada para encriptar cookies; você não precisa se lembrar dela."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
