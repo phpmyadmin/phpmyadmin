@@ -86,9 +86,6 @@ if (isset($_REQUEST['do_save_data'])) {
     exit;
 } // end do create table
 
-//This fixes the problem with the breadcrub navigation, Bug 4306
-$GLOBALS['table'] = '';
-
 /**
  * Displays the form used to define the structure of the table
  */
