@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-03-04 08:30+0200\n"
+"PO-Revision-Date: 2014-03-04 16:44+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -302,7 +302,6 @@ msgid "Switch to %svisual builder%s"
 msgstr "Mine %sgraafilisele loojale%s"
 
 #: db_qbe.php:127
-#, fuzzy
 #| msgid ""
 #| "After saving or loading a search, you can rename it and save the new "
 #| "criteria."
@@ -310,8 +309,8 @@ msgid ""
 "After saving or loading a bookmarked search, you can rename it and save the "
 "new criteria."
 msgstr ""
-"Sa saad otsingu nime muuta pärast ta salvestamist või laadimist, ja "
-"salvestada uue kriteeriumi."
+"Sa saad otsingu järjehoidja nime muuta pärast ta salvestamist või laadimist, "
+"ja salvestada uue kriteeriumi."
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -2393,16 +2392,14 @@ msgid "Saved bookmarked search:"
 msgstr "Salvestatud otsingud:"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Save bookmark"
-msgstr "Näitan järjehoidjat"
+msgstr "Salvesta järjehoidja"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete search"
 msgid "Delete bookmark"
-msgstr "Kustuta otsing"
+msgstr "Kustuta järjehoidja"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3108,10 +3105,9 @@ msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:258
-#, fuzzy
 #| msgid "Missing information to save the search."
 msgid "Missing information to save the bookmarked search."
-msgstr "Otsingu salvestamiseks on vaja täiendavat informatsiooni."
+msgstr "Otsingu järjehoidja salvestamiseks on vaja täiendavat informatsiooni."
 
 #: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 msgid "An entry with this name already exists."
@@ -4327,7 +4323,6 @@ msgstr ""
 "kellega on ühendatud koos sinuga tuhandeid kasutajaid."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4337,9 +4332,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Kuna sa ei ole blowfish turvasõna määranud, kuid oled valinud küpsisega "
-"autentimine, siis loodi võti sinu jaoks automaatselt. Seda kasutatakse "
-"küpsiste krüptimiseks, sa ei pea seda meelde jätma."
+"Kuna sa ei ole blowfish turvasõna määranud, kuid oled valinud "
+"[kbd]küpsisega[/kbd] autentimine, siis loodi võti sinu jaoks automaatselt. "
+"Seda kasutatakse küpsiste krüptimiseks, sa ei pea seda meelde jätma."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4394,7 +4389,7 @@ msgstr ""
 "minutit). 1800-st suuremad väärtused võivad tuua esile turvariski."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4402,12 +4397,12 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Kui kasutada küpsisega autentimist ja %ssisselogimise küpsise salvestus%s ei "
-"ole 0, siis %ssisselogimise küpsise kehtivuse%s väärtus peab olema madalam "
-"või sellega võrdne."
+"Kui kasutada [kbd]küpsisega[/kbd] autentimist ja %ssisselogimise küpsise "
+"salvestus%s ei ole 0, siis %ssisselogimise küpsise kehtivuse%s väärtus peab "
+"olema madalam või sellega võrdne."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -4419,8 +4414,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Kui tunned, et see on vajalik, siis kasuta täiendavaid kaitse sätteid - "
-"%shostiga autentimise%s sätteid ja %susaldusväärsete prokside nimekirja%s. "
+"Kui tunned, et see on vajalik, siis kasuta täiendavaid kaitse sätteid - %"
+"shostiga autentimise%s sätteid ja %susaldusväärsete prokside nimekirja%s. "
 "Siiski ei pruugi IP-põhine kaitse olla usaldusväärne, kui sinu IP kuulub "
 "ISP'le, kellega on ühendatud koos sinuga tuhandeid kasutajaid."
 
@@ -4465,24 +4460,23 @@ msgid "Could not connect to the database server!"
 msgstr "Ei saa ühenduda andmebaasi serveriga!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Tühi kasutajanimi kasutades autentimise meetodit \"config\"!"
+msgstr "Tühi kasutajanimi kasutades autentimise meetodit \"[kbd]config[/kbd]\"!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Tühi sisselogimise nimi kasutades autentimise meetodit \"signon\"!"
+msgstr ""
+"Tühi sisselogimise nimi kasutades autentimise meetodit \"[kbd]signon[/kbd]\"!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Tühi sisselogimise URL kasutades autentimise meetodit \"signon\"!"
+msgstr ""
+"Tühi sisselogimise URL kasutades autentimise meetodit \"[kbd]signon[/kbd]\"!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -5473,7 +5467,6 @@ msgid "Delete all cookies on logout"
 msgstr "Kustuta väljalogimisel kõik küpsised"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
@@ -5481,8 +5474,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Määra, kas küpsisega autentimisel kutsutakse tagasi eelmine sisselogimine "
-"või mitte."
+"Määra, kas [kbd]küpsisega[/kbd] autentimisel kutsutakse tagasi eelmine "
+"sisselogimine või mitte."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5572,7 +5565,6 @@ msgid "Maximum tables"
 msgstr "Suurim hulk tabeleid"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
@@ -5580,8 +5572,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "[kbd]cookie[/kbd] authentication."
 msgstr ""
-"Keela vaikimisi hoiatus, mis kuvatakse siis, kui küpsisega autentimise jaoks "
-"puudub mcrypt."
+"Keela vaikimisi hoiatus, mis kuvatakse siis, kui [kbd]küpsisega[/kbd] "
+"autentimise jaoks puudub mcrypt."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
