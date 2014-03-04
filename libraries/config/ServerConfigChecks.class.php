@@ -375,7 +375,7 @@ class ServerConfigChecks
             '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]',
             '[/a]'
         );
-        $sBlowfishSecretMsg = __('You didn\'t have blowfish secret set and have enabled cookie authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.');
+        $sBlowfishSecretMsg = __('You didn\'t have blowfish secret set and have enabled [kbd]cookie[/kbd] authentication, so a key was automatically generated for you. It is used to encrypt cookies; you don\'t need to remember it.');
         $sBZipDumpWarning = __('%sBzip2 compression and decompression%s requires functions (%s) which are unavailable on this system.');
         $sBZipDumpWarning = sprintf(
             $sBZipDumpWarning,
@@ -413,14 +413,14 @@ class ServerConfigChecks
             '[a@?page=form&amp;formset=Features#tab_Security]',
             '[/a]'
         );
-        $sLoginCookieValidityWarn3 = __('If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin cookie validity%s must be set to a value less or equal to it.');
+        $sLoginCookieValidityWarn3 = __('If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not 0, %sLogin cookie validity%s must be set to a value less or equal to it.');
         $sLoginCookieValidityWarn3 = sprintf(
             $sLoginCookieValidityWarn3,
             '[a@?page=form&amp;formset=Features#tab_Security]',
             '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]',
             '[/a]'
         );
-        $sSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %shost authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
+        $sSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
         $sSecurityInfoMsg = sprintf(
             $sSecurityInfoMsg,
             '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]',
