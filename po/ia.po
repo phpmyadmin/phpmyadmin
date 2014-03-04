@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-26 22:56+0200\n"
+"PO-Revision-Date: 2014-03-04 16:27+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -5186,6 +5186,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Si tu vole usar le servicio de validator de SQL, tu deberea esser conscie "
+"que [strong]omne declarationes SQL es immagazinate de forma anonyme pro "
+"fines statistic[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+"Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+"reserved.[/em]"
 
 #: libraries/config/messages.inc.php:222
 msgid "Startup"
@@ -5621,7 +5626,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:333
 msgid "GZip output buffering"
-msgstr ""
+msgstr "Buffering de exito de GZip"
 
 #: libraries/config/messages.inc.php:334
 msgid ""
@@ -5650,7 +5655,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:339
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Tabellas de immagazinage de configuration de phpMyAdmin es mancante"
 
 #: libraries/config/messages.inc.php:340
 msgid ""
@@ -5660,7 +5665,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:341
 msgid "Server/library difference warning"
-msgstr ""
+msgstr "Aviso de differentia de Servitor/Bibliotheca"
 
 #: libraries/config/messages.inc.php:342
 msgid ""
@@ -12384,6 +12389,11 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"Iste %soption%s deberea esser dishabilitate proque il permitte attaccos de "
+"accesso de fortia brutal a qualcunque servitor MySQL. Si tu crede que illo "
+"es necessari, usa %sle lista de proxy digne de fide%s. Totevia, le "
+"protection basate sur IP poterea non esser digne de confidentia si tu IP "
+"pertine a un ISP ubi miles de usatores, e te mesme, es connectite."
 
 #: setup/lib/index.lib.php:225
 msgid ""
