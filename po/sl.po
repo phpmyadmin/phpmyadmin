@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-02-28 19:44+0200\n"
+"PO-Revision-Date: 2014-03-04 20:39+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -303,7 +303,6 @@ msgid "Switch to %svisual builder%s"
 msgstr "Preklopi na %svidni graditelj%s"
 
 #: db_qbe.php:127
-#, fuzzy
 #| msgid ""
 #| "After saving or loading a search, you can rename it and save the new "
 #| "criteria."
@@ -311,8 +310,8 @@ msgid ""
 "After saving or loading a bookmarked search, you can rename it and save the "
 "new criteria."
 msgstr ""
-"Po shranjevanju ali nalaganju iskanja lahko preimenujete ali shranite nove "
-"kriterije."
+"Po shranjevanju ali nalaganju zabeleženega iskanja lahko preimenujete ali "
+"shranite nove kriterije."
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -2411,16 +2410,14 @@ msgid "Saved bookmarked search:"
 msgstr "Shranjena iskanja:"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Save bookmark"
-msgstr "Prikazovanje zaznamka"
+msgstr "Shrani zaznamek"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete search"
 msgid "Delete bookmark"
-msgstr "Izbriši iskanje"
+msgstr "Izbriši zaznamek"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3137,10 +3134,9 @@ msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:258
-#, fuzzy
 #| msgid "Missing information to save the search."
 msgid "Missing information to save the bookmarked search."
-msgstr "Za shranitev iskanja manjkajo podatki."
+msgstr "Za shranitev zabeleženega iskanja manjkajo podatki."
 
 #: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 msgid "An entry with this name already exists."
@@ -4364,7 +4360,6 @@ msgstr ""
 "povezanih tisoče uporabnikov, vključno z vami."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4375,7 +4370,7 @@ msgid ""
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 "Ker niste določili skrivnega gesla (blowfish) in imate omogočeno overovitev "
-"s piškotki, je bil ključ za vas samodejno ustvarjen. Uporablja se pri "
+"[kbd]cookie[/kbd], je bil ključ za vas samodejno ustvarjen. Uporablja se pri "
 "šifriranju piškotkov; ne rabite si ga zapomniti."
 
 #: libraries/config/ServerConfigChecks.class.php:379
@@ -4430,7 +4425,7 @@ msgstr ""
 "kot je pretvarjanje za drugo osebo."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4438,12 +4433,12 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Če uporabljate overovitev piškotkov in %sShranjevanje prijavnih piškotkov%s "
-"ni 0, mora biti %sVeljavnost prijavnega piškotka%s določena na manjšo ali "
-"enako vrednost."
+"Če uporabljate overovitev [kbd]cookie[/kbd] in %sShranjevanje prijavnih "
+"piškotkov%s ni 0, mora biti %sVeljavnost prijavnega piškotka%s določena na "
+"manjšo ali enako vrednost."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -4457,7 +4452,7 @@ msgid ""
 msgstr ""
 "Če menite, da je to potrebno, uporabite dodatne nastavitve zaščite – "
 "nastavitve %soverovitve gostitelja%s in %sseznam zaupanih proxyjev%s. Kakor "
-"koli, zaščita temelječa na IP ni zanesljiva, če vaš IP pripada ISP-ju, na "
+"koli, zaščita, temelječa na IP, ni zanesljiva, če vaš IP pripada ISP-ju, na "
 "katerega je povezanih tisoče uporabnikov, vključno z vami."
 
 #: libraries/config/ServerConfigChecks.class.php:431
@@ -4503,24 +4498,23 @@ msgid "Could not connect to the database server!"
 msgstr "Ne morem se povezati s strežnikom zbirke podatkov!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Počisti uporabniško ime pri uporabi overitvenega načina config!"
+msgstr ""
+"Počisti uporabniško ime pri uporabi overitvenega načina [kbd]config[/kbd]!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Počisti ime seje signon pri uporabi overitvenega načina signon!"
+msgstr ""
+"Počisti ime seje signon pri uporabi overitvenega načina [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Počisti URL signon pri uporabi overitvenega načina signon!"
+msgstr "Počisti URL signon pri uporabi overitvenega načina [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -5514,7 +5508,6 @@ msgid "Delete all cookies on logout"
 msgstr "Izbriši vse piškotke ob odjavi"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
@@ -5522,8 +5515,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Določi, ali se naj prejšnji prijavni podatki v načinu overovitve piškotkov "
-"prikličejo ali ne."
+"Določi, ali se naj prejšnji prijavni podatki v načinu overovitve "
+"[kbd]cookie[/kbd] prikličejo ali ne."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5616,7 +5609,6 @@ msgid "Maximum tables"
 msgstr "Največ tabel"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
@@ -5625,7 +5617,7 @@ msgid ""
 "[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Onemogoči privzeto opozorilo, ki se prikaže, če mcrypt manjka za overitev "
-"piškotkov."
+"[kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
