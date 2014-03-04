@@ -420,7 +420,7 @@ class ServerConfigChecks
             '[/a]', '[a@?page=form&amp;formset=Features#tab_Security]',
             '[/a]'
         );
-        $sSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
+        $sSecurityInfoMsg = __('If you feel this is necessary, use additional protection settings - %shost authentication%s settings and %strusted proxies list%s. However, IP-based protection may not be reliable if your IP belongs to an ISP where thousands of users, including you, are connected to.');
         $sSecurityInfoMsg = sprintf(
             $sSecurityInfoMsg,
             '[a@?page=servers&amp;mode=edit&amp;id=%1$d#tab_Server_config]',
