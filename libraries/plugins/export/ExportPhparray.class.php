@@ -151,7 +151,7 @@ class ExportPhparray extends ExportPlugin
     }
 
     /**
-     * Outputs the content of a table in NHibernate format
+     * Outputs the content of a table in PHP Array format
      *
      * @param string $db        database name
      * @param string $table     table name
@@ -217,7 +217,9 @@ class ExportPhparray extends ExportPlugin
             $buffer .= ')';
         }
 
-        $buffer .= $crlf . ');' . $crlf;
+        if ($record_cnt>0) {
+            $buffer .= $crlf . ');' . $crlf;
+        }
         if (! PMA_exportOutputHandler($buffer)) {
             return false;
         }
