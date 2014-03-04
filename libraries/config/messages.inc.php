@@ -382,8 +382,8 @@ $strConfigLoginCookieDeleteAll_desc = __(
 );
 $strConfigLoginCookieDeleteAll_name = __('Delete all cookies on logout');
 $strConfigLoginCookieRecall_desc = __(
-    'Define whether the previous login should be recalled or not in cookie '
-    . 'authentication mode.'
+    'Define whether the previous login should be recalled or not in '
+    . '[kbd]cookie[/kbd] authentication mode.'
 );
 $strConfigLoginCookieRecall_name = __('Recall user name');
 $strConfigLoginCookieStore_desc = __(
@@ -420,8 +420,8 @@ $strConfigMaxTableList_cmt = __('Users cannot set a higher value');
 $strConfigMaxTableList_desc = __('Maximum number of tables displayed in table list.');
 $strConfigMaxTableList_name = __('Maximum tables');
 $strConfigMcryptDisableWarning_desc = __(
-    'Disable the default warning that is displayed if mcrypt is missing for cookie '
-    . 'authentication.'
+    'Disable the default warning that is displayed if mcrypt is missing for '
+    . '[kbd]cookie[/kbd] authentication.'
 );
 $strConfigMcryptDisableWarning_name = __('mcrypt warning');
 $strConfigMemoryLimit_desc = __(
