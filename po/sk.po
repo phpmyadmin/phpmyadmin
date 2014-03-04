@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-03 16:13+0100\n"
+"POT-Creation-Date: 2014-03-04 13:47+0100\n"
 "PO-Revision-Date: 2014-02-27 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -295,15 +295,15 @@ msgstr[2] "%s tabuliek"
 msgid "You have to choose at least one column to display!"
 msgstr "Zvoľte prosím aspoň jeden stĺpec, ktorý chcete zobraziť!"
 
-#: db_qbe.php:115
+#: db_qbe.php:116
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Prepnúť do %svizuálneho návrhára%s"
 
-#: db_qbe.php:126
+#: db_qbe.php:127
 msgid ""
-"After saving or loading a search, you can rename it and save the new "
-"criteria."
+"After saving or loading a bookmarked search, you can rename it and save the "
+"new criteria."
 msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
@@ -2401,19 +2401,21 @@ msgid "Submit Query"
 msgstr "Odošli dopyt"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches:"
-msgstr ""
+#, fuzzy
+#| msgid "Search"
+msgid "Saved bookmarked search:"
+msgstr "Hľadať"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy
-#| msgid "Search"
-msgid "Save search"
-msgstr "Hľadať"
+#| msgid "Showing bookmark"
+msgid "Save bookmark"
+msgstr "Zobrazujem obľúbený príkaz"
 
 #: libraries/DBQbe.class.php:1481
 #, fuzzy
 #| msgid "Delete relation"
-msgid "Delete search"
+msgid "Delete bookmark"
 msgstr "Zmazať reláciu"
 
 #: libraries/DatabaseInterface.class.php:2041
@@ -3124,27 +3126,31 @@ msgstr "Nedávne tabuľky"
 msgid "There are no recent tables."
 msgstr "Neboli nájdené žiadne nedávne tabuľky."
 
-#: libraries/SavedSearches.class.php:249
+#: libraries/SavedSearches.class.php:248
+msgid "Please provide a name for this bookmarked search."
+msgstr ""
+
+#: libraries/SavedSearches.class.php:258
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
-msgid "Missing information to save the search."
+msgid "Missing information to save the bookmarked search."
 msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
 
-#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
+#: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "Používateľ %s už existuje!"
 
-#: libraries/SavedSearches.class.php:315
+#: libraries/SavedSearches.class.php:325
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:336
+#: libraries/SavedSearches.class.php:346
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:349
+#: libraries/SavedSearches.class.php:359
 #, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
@@ -4353,9 +4359,9 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:378
 msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
+"You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
+"authentication, so a key was automatically generated for you. It is used to "
+"encrypt cookies; you don't need to remember it."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:379
@@ -4405,17 +4411,17 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:416
 #, php-format
 msgid ""
-"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
-"cookie validity%s must be set to a value less or equal to it."
+"If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
+"0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, php-format
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:431
@@ -4460,20 +4466,22 @@ msgstr "Nepodarilo sa pripojiť k cieľu"
 #: libraries/config/Validator.class.php:306
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
-msgid "Empty username while using config authentication method!"
+msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Pri použití nastavenej autorizačnej metódy nebolo vyplnené užívateľské meno"
 
 #: libraries/config/Validator.class.php:313
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
-msgid "Empty signon session name while using signon authentication method!"
+msgid ""
+"Empty signon session name while using [kbd]signon[/kbd] authentication "
+"method!"
 msgstr "Prázdny názov relácie signon pri využití autentifikačnej metódy signon"
 
 #: libraries/config/Validator.class.php:322
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
-msgid "Empty signon URL while using signon authentication method!"
+msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Prázdna signon URL pri využití autentifikačnej metódy signon"
 
 #: libraries/config/Validator.class.php:369
@@ -5628,8 +5636,8 @@ msgstr "Vymazať všetky cookies pri prihlásení"
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
 msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode."
+"Define whether the previous login should be recalled or not in [kbd]cookie[/"
+"kbd] authentication mode."
 msgstr ""
 "Určuje, či sa má obnoviť predchádzajúce prihlásenia alebo nie v cookie "
 "overovacom móde"
@@ -5742,7 +5750,7 @@ msgstr "Maximum tabuliek"
 #| "cookie authentication"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
-"cookie authentication."
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Vypnúť štandardné varovanie o chýbajúcom rozšírení mcrypt pri cookie "
 "overovaní"
@@ -8405,20 +8413,20 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/navigation/NavigationTree.class.php:840
+#: libraries/navigation/NavigationTree.class.php:841
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1060
+#: libraries/navigation/NavigationTree.class.php:1061
 msgid "Filter databases by name or regex"
 msgstr "Filtrovať databázy podľa mena alebo regulárneho výrazu"
 
-#: libraries/navigation/NavigationTree.class.php:1062
-#: libraries/navigation/NavigationTree.class.php:1096
+#: libraries/navigation/NavigationTree.class.php:1063
+#: libraries/navigation/NavigationTree.class.php:1097
 msgid "Clear fast filter"
 msgstr "Vyčistiť rýchly filter"
 
-#: libraries/navigation/NavigationTree.class.php:1095
+#: libraries/navigation/NavigationTree.class.php:1096
 msgid "Filter by name or regex"
 msgstr "Filtrovať podľa mena alebo regulárneho výrazu"
 

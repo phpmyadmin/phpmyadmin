@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-03 16:13+0100\n"
+"POT-Creation-Date: 2014-03-04 13:47+0100\n"
 "PO-Revision-Date: 2014-02-16 01:03+0200\n"
 "Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
 "Language-Team: Simplified Chinese <http://l10n.cihar.com/projects/phpmyadmin/"
@@ -289,15 +289,15 @@ msgstr[0] "%s 张表"
 msgid "You have to choose at least one column to display!"
 msgstr "您最少要选择显示一列！"
 
-#: db_qbe.php:115
+#: db_qbe.php:116
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "切换到%s可视化查询生成器%s"
 
-#: db_qbe.php:126
+#: db_qbe.php:127
 msgid ""
-"After saving or loading a search, you can rename it and save the new "
-"criteria."
+"After saving or loading a bookmarked search, you can rename it and save the "
+"new criteria."
 msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
@@ -2328,19 +2328,21 @@ msgid "Submit Query"
 msgstr "提交查询"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches:"
-msgstr ""
+#, fuzzy
+#| msgid "Search"
+msgid "Saved bookmarked search:"
+msgstr "搜索"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy
-#| msgid "Search"
-msgid "Save search"
-msgstr "搜索"
+#| msgid "Showing bookmark"
+msgid "Save bookmark"
+msgstr "显示书签"
 
 #: libraries/DBQbe.class.php:1481
 #, fuzzy
 #| msgid "Delete relation"
-msgid "Delete search"
+msgid "Delete bookmark"
 msgstr "删除关系"
 
 #: libraries/DatabaseInterface.class.php:2041
@@ -3031,27 +3033,31 @@ msgstr "最近使用的表"
 msgid "There are no recent tables."
 msgstr "没有最近使用的表。"
 
-#: libraries/SavedSearches.class.php:249
+#: libraries/SavedSearches.class.php:248
+msgid "Please provide a name for this bookmarked search."
+msgstr ""
+
+#: libraries/SavedSearches.class.php:258
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
-msgid "Missing information to save the search."
+msgid "Missing information to save the bookmarked search."
 msgstr "丢失 phpMyAdmin 高级功能数据表"
 
-#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
+#: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "用户 %s 己存在！"
 
-#: libraries/SavedSearches.class.php:315
+#: libraries/SavedSearches.class.php:325
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:336
+#: libraries/SavedSearches.class.php:346
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:349
+#: libraries/SavedSearches.class.php:359
 #, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
@@ -4220,10 +4226,15 @@ msgstr ""
 "用%s可信代理表%s。但如果您和许多人共用一个 IP 地址，该措施的安全性将下降。"
 
 #: libraries/config/ServerConfigChecks.class.php:378
+#, fuzzy
+#| msgid ""
+#| "You didn't have blowfish secret set and have enabled cookie "
+#| "authentication, so a key was automatically generated for you. It is used "
+#| "to encrypt cookies; you don't need to remember it."
 msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
+"You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
+"authentication, so a key was automatically generated for you. It is used to "
+"encrypt cookies; you don't need to remember it."
 msgstr ""
 "您打开了 Cookies 认证方式，但没有设置短语密码，因此系统自动生成了一个短语密"
 "码，该密语用于加密 Cookies。您不需要记住这个短语密码。"
@@ -4274,21 +4285,29 @@ msgstr ""
 "会增加安全风险。"
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
-"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
-"cookie validity%s must be set to a value less or equal to it."
+"If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
+"0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "如果使用 cookie 认证且%s登录 cookie 保存时间%s不为 0，%s登录 cookie 有效期%s"
 "的值不能超过前者。"
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
 msgstr ""
 "如果有必要，您可以使用额外的保护设置 - %s主机认证%s和%s可信代理表%s。但如果您"
 "和许多人共用一个 IP 地址，该措施的安全性将下降。"
@@ -4333,15 +4352,23 @@ msgid "Could not connect to the database server!"
 msgstr "无法连接到数据库！"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method!"
+#, fuzzy
+#| msgid "Empty username while using config authentication method!"
+msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "使用 config 认证方式时用户名不能为空！"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method!"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method!"
+msgid ""
+"Empty signon session name while using [kbd]signon[/kbd] authentication "
+"method!"
 msgstr "使用 singon 认证方式时 signon 会话名不能为空！"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method!"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method!"
+msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "使用 singon 认证方式时 singon 地址不能为空！"
 
 #: libraries/config/Validator.class.php:369
@@ -5421,9 +5448,13 @@ msgid "Delete all cookies on logout"
 msgstr "退出时删除所有 cookies"
 
 #: libraries/config/messages.inc.php:385
+#, fuzzy
+#| msgid ""
+#| "Define whether the previous login should be recalled or not in cookie "
+#| "authentication mode."
 msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode."
+"Define whether the previous login should be recalled or not in [kbd]cookie[/"
+"kbd] authentication mode."
 msgstr "设置在 cookie 认证下是否能自动重复上次登录。"
 
 #: libraries/config/messages.inc.php:388
@@ -5526,9 +5557,13 @@ msgid "Maximum tables"
 msgstr "最大表数量"
 
 #: libraries/config/messages.inc.php:423
+#, fuzzy
+#| msgid ""
+#| "Disable the default warning that is displayed if mcrypt is missing for "
+#| "cookie authentication."
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
-"cookie authentication."
+"[kbd]cookie[/kbd] authentication."
 msgstr "在使用 cookie 认证时不显示缺少 mcrypt 的警告。"
 
 #: libraries/config/messages.inc.php:426
@@ -8088,24 +8123,24 @@ msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "找到 %s 条其他结果"
 
-#: libraries/navigation/NavigationTree.class.php:840
+#: libraries/navigation/NavigationTree.class.php:841
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1060
+#: libraries/navigation/NavigationTree.class.php:1061
 #, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
 msgstr "根据名称筛选数据库"
 
-#: libraries/navigation/NavigationTree.class.php:1062
-#: libraries/navigation/NavigationTree.class.php:1096
+#: libraries/navigation/NavigationTree.class.php:1063
+#: libraries/navigation/NavigationTree.class.php:1097
 #, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "清除快速筛选数据"
 
-#: libraries/navigation/NavigationTree.class.php:1095
+#: libraries/navigation/NavigationTree.class.php:1096
 #, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"

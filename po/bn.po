@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-03 16:13+0100\n"
+"POT-Creation-Date: 2014-03-04 13:47+0100\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -296,15 +296,15 @@ msgstr[1] "%s টি টেবল"
 msgid "You have to choose at least one column to display!"
 msgstr "দেখানোর জন্য সর্বনীন্ম একটি স্তম্ভ প্রয়োজন"
 
-#: db_qbe.php:115
+#: db_qbe.php:116
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "দেখে তৈরীর %svisual builder%s যাও"
 
-#: db_qbe.php:126
+#: db_qbe.php:127
 msgid ""
-"After saving or loading a search, you can rename it and save the new "
-"criteria."
+"After saving or loading a bookmarked search, you can rename it and save the "
+"new criteria."
 msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
@@ -2392,19 +2392,21 @@ msgid "Submit Query"
 msgstr "অনুসন্ধান পেশ কর"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches:"
-msgstr ""
+#, fuzzy
+#| msgid "Search"
+msgid "Saved bookmarked search:"
+msgstr "খোঁজা"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy
-#| msgid "Search"
-msgid "Save search"
-msgstr "খোঁজা"
+#| msgid "Showing bookmark"
+msgid "Save bookmark"
+msgstr "বুকর্মাক দেখাচ্ছে"
 
 #: libraries/DBQbe.class.php:1481
 #, fuzzy
 #| msgid "Delete relation"
-msgid "Delete search"
+msgid "Delete bookmark"
 msgstr "সর্ম্পক মুছা"
 
 #: libraries/DatabaseInterface.class.php:2041
@@ -3106,27 +3108,31 @@ msgstr "সাম্প্রতিক টেবিলসমূহ"
 msgid "There are no recent tables."
 msgstr "সাম্প্রতিক কোন টেবিল নাই"
 
-#: libraries/SavedSearches.class.php:249
+#: libraries/SavedSearches.class.php:248
+msgid "Please provide a name for this bookmarked search."
+msgstr ""
+
+#: libraries/SavedSearches.class.php:258
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
-msgid "Missing information to save the search."
+msgid "Missing information to save the bookmarked search."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
+#: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "ব্যবহারকারী %s পূর্ব থেকেই আছে!"
 
-#: libraries/SavedSearches.class.php:315
+#: libraries/SavedSearches.class.php:325
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:336
+#: libraries/SavedSearches.class.php:346
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:349
+#: libraries/SavedSearches.class.php:359
 #, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
@@ -4325,10 +4331,15 @@ msgstr ""
 "এমন কোন ISP'র হয় যেখানে আপনি সহ অনেক ব্যবহারকারী সংযুক্ত আছে।"
 
 #: libraries/config/ServerConfigChecks.class.php:378
+#, fuzzy
+#| msgid ""
+#| "You didn't have blowfish secret set and have enabled cookie "
+#| "authentication, so a key was automatically generated for you. It is used "
+#| "to encrypt cookies; you don't need to remember it."
 msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
+"You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
+"authentication, so a key was automatically generated for you. It is used to "
+"encrypt cookies; you don't need to remember it."
 msgstr ""
 "আপনি গোপন blowfish সেট করেন নাই এবং কুকি প্রমাণীকরন কার্যকর করেছেন, তাই একটি কী "
 "আপনার জন্য স্বয়ংক্রীয় ভাবে তৈরী হয়েছে। এটা কুকি এনক্রীপট করতে ব্যবহৃত হয়। এটা মনে "
@@ -4383,21 +4394,29 @@ msgstr ""
 "বেশী হলে এটা একটা নিরাপত্তা ঝুঁকি হতে পারে।"
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
-"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
-"cookie validity%s must be set to a value less or equal to it."
+"If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
+"0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "যদি কুকি প্রমাণীকরন ব্যবহার করেন এবং %sLogin cookie store%s যদি ০ না হয়, "
 "%sLogin cookie validity%s 'র মান অবশ্যই এর থেকে কম বা সমান এ সেট করতে হবে।"
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
 msgstr ""
 "প্রয়োজন মনে করলে, অতিরিক্ত নিরাপত্তা ব্যবস্থা - %shost authentication%s সেটিংস "
 "এবং %strusted proxies list%s ব্যবহার করেন।"
@@ -4443,15 +4462,23 @@ msgid "Could not connect to the database server!"
 msgstr "ডাটাবেইজ সার্ভারে সংযোগ করা যায়নি"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method!"
+#, fuzzy
+#| msgid "Empty username while using config authentication method!"
+msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "কনফিগ প্রমাণীকরণের ক্ষেত্রে ব্যবহারকারীর নাম খালি পাওয়াগেছে!"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method!"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method!"
+msgid ""
+"Empty signon session name while using [kbd]signon[/kbd] authentication "
+"method!"
 msgstr "সাইনঅন প্রমাণীকরণের ক্ষেত্রে সাইনঅন সেশনের নাম খালি পাওয়াগেছে!"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method!"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method!"
+msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "শুন্য signon URL যখন signon প্রমাণীকরণ ব্যবহার করছেন।"
 
 #: libraries/config/Validator.class.php:369
@@ -5435,9 +5462,13 @@ msgid "Delete all cookies on logout"
 msgstr "লগ আউটের সময় সব কুকি মুছে ফেলবে"
 
 #: libraries/config/messages.inc.php:385
+#, fuzzy
+#| msgid ""
+#| "Define whether the previous login should be recalled or not in cookie "
+#| "authentication mode."
 msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode."
+"Define whether the previous login should be recalled or not in [kbd]cookie[/"
+"kbd] authentication mode."
 msgstr ""
 "নির্ধারন করুন পূর্বের লগইন পুনরায় ব্যবহার করা হবে অথবা কুকিহীন প্রমাণীকরণ পদ্ধতি।"
 
@@ -5528,9 +5559,13 @@ msgid "Maximum tables"
 msgstr "টেবলের সর্বোচ্চ সংখ্যা"
 
 #: libraries/config/messages.inc.php:423
+#, fuzzy
+#| msgid ""
+#| "Disable the default warning that is displayed if mcrypt is missing for "
+#| "cookie authentication."
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
-"cookie authentication."
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "কুকি প্রমাণীকরণের জন্য ব্যবহৃত mcrypt পাওয়া না গেলে যে সর্তক বার্তা দেওয়া হয় তা "
 "অকার্যকর।"
@@ -7901,20 +7936,20 @@ msgid_plural "%s other results found"
 msgstr[0] "%s টি অন্যান্য ফলাফল পাওয়াগেছে"
 msgstr[1] "%s গুলো অন্যান্য ফলাফল পাওয়াগেছে"
 
-#: libraries/navigation/NavigationTree.class.php:840
+#: libraries/navigation/NavigationTree.class.php:841
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1060
+#: libraries/navigation/NavigationTree.class.php:1061
 msgid "Filter databases by name or regex"
 msgstr "নাম বা regex অনুযায়ী ডাটাবেইজ ফিল্টার"
 
-#: libraries/navigation/NavigationTree.class.php:1062
-#: libraries/navigation/NavigationTree.class.php:1096
+#: libraries/navigation/NavigationTree.class.php:1063
+#: libraries/navigation/NavigationTree.class.php:1097
 msgid "Clear fast filter"
 msgstr "দ্রুত ফিল্টারটি সরাও"
 
-#: libraries/navigation/NavigationTree.class.php:1095
+#: libraries/navigation/NavigationTree.class.php:1096
 msgid "Filter by name or regex"
 msgstr "নাম বা regex অনুযায়ী ফিল্টার"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-03 16:13+0100\n"
+"POT-Creation-Date: 2014-03-04 13:47+0100\n"
 "PO-Revision-Date: 2014-02-14 13:01+0200\n"
 "Last-Translator: Yuki Shira <shirayuking@gmail.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -293,15 +293,15 @@ msgstr[0] "%s テーブル"
 msgid "You have to choose at least one column to display!"
 msgstr "最低 1 つは表示するカラムを選択してください！"
 
-#: db_qbe.php:115
+#: db_qbe.php:116
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
 
-#: db_qbe.php:126
+#: db_qbe.php:127
 msgid ""
-"After saving or loading a search, you can rename it and save the new "
-"criteria."
+"After saving or loading a bookmarked search, you can rename it and save the "
+"new criteria."
 msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
@@ -2444,19 +2444,21 @@ msgid "Submit Query"
 msgstr "クエリを実行する"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches:"
-msgstr ""
+#, fuzzy
+#| msgid "Search"
+msgid "Saved bookmarked search:"
+msgstr "検索"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy
-#| msgid "Search"
-msgid "Save search"
-msgstr "検索"
+#| msgid "Showing bookmark"
+msgid "Save bookmark"
+msgstr "表示中のブックマーク"
 
 #: libraries/DBQbe.class.php:1481
 #, fuzzy
 #| msgid "Delete relation"
-msgid "Delete search"
+msgid "Delete bookmark"
 msgstr "リレーションを削除"
 
 #: libraries/DatabaseInterface.class.php:2041
@@ -3183,27 +3185,31 @@ msgstr "最近使用したテーブル"
 msgid "There are no recent tables."
 msgstr "最近使用したテーブルはありません"
 
-#: libraries/SavedSearches.class.php:249
+#: libraries/SavedSearches.class.php:248
+msgid "Please provide a name for this bookmarked search."
+msgstr ""
+
+#: libraries/SavedSearches.class.php:258
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
-msgid "Missing information to save the search."
+msgid "Missing information to save the bookmarked search."
 msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
 
-#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
+#: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "ユーザ %s は既に存在します!"
 
-#: libraries/SavedSearches.class.php:315
+#: libraries/SavedSearches.class.php:325
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:336
+#: libraries/SavedSearches.class.php:346
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:349
+#: libraries/SavedSearches.class.php:359
 #, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
@@ -4441,10 +4447,15 @@ msgstr ""
 "ている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
 
 #: libraries/config/ServerConfigChecks.class.php:378
+#, fuzzy
+#| msgid ""
+#| "You didn't have blowfish secret set and have enabled cookie "
+#| "authentication, so a key was automatically generated for you. It is used "
+#| "to encrypt cookies; you don't need to remember it."
 msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
+"You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
+"authentication, so a key was automatically generated for you. It is used to "
+"encrypt cookies; you don't need to remember it."
 msgstr ""
 "blowfish 暗号のパスフレーズなしで cookie 認証が有効にされましたので、パスフ"
 "レーズを自動的に生成しました。パスフレーズはクッキーを暗号化するために内部で"
@@ -4508,22 +4519,30 @@ msgstr ""
 "ます。"
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
-"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
-"cookie validity%s must be set to a value less or equal to it."
+"If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
+"0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "cookie 認証を使用していて且つ%sログインクッキーの保存期間%sを 0 にしていない"
 "場合、%sログインクッキーの有効期間%sは保存期間の値以下に設定する必要がありま"
 "す。"
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
 msgstr ""
 "それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
 "（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
@@ -4578,19 +4597,21 @@ msgstr "対象先のデータベースに接続できませんでした"
 #: libraries/config/Validator.class.php:306
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
-msgid "Empty username while using config authentication method!"
+msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "config 認証方法を使いましたが、ユーザ名が空欄です。"
 
 #: libraries/config/Validator.class.php:313
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
-msgid "Empty signon session name while using signon authentication method!"
+msgid ""
+"Empty signon session name while using [kbd]signon[/kbd] authentication "
+"method!"
 msgstr "signon 認証方法を使いましたが、サインオンセッション名が空欄です。"
 
 #: libraries/config/Validator.class.php:322
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
-msgid "Empty signon URL while using signon authentication method!"
+msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "signon 認証方法を使いましたが、サインオン URL が空欄です。"
 
 #: libraries/config/Validator.class.php:369
@@ -5751,9 +5772,13 @@ msgid "Delete all cookies on logout"
 msgstr "ログアウト時にすべてのクッキーを削除する"
 
 #: libraries/config/messages.inc.php:385
+#, fuzzy
+#| msgid ""
+#| "Define whether the previous login should be recalled or not in cookie "
+#| "authentication mode."
 msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode."
+"Define whether the previous login should be recalled or not in [kbd]cookie[/"
+"kbd] authentication mode."
 msgstr ""
 "クッキー認証モードの場合に、前回ログインしたときの状態に戻すかどうかを定義し"
 "ます。"
@@ -5864,7 +5889,7 @@ msgstr "テーブルの最大数"
 #| "cookie authentication"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
-"cookie authentication."
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "cookie 認証で mcrypt 拡張がなかった場合、警告を表示します。チェックを入れると"
 "このメッセージは表示されません。"
@@ -8616,24 +8641,24 @@ msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 
-#: libraries/navigation/NavigationTree.class.php:840
+#: libraries/navigation/NavigationTree.class.php:841
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1060
+#: libraries/navigation/NavigationTree.class.php:1061
 #, fuzzy
 #| msgid "Filter databases by name"
 msgid "Filter databases by name or regex"
 msgstr "データベース名を絞る"
 
-#: libraries/navigation/NavigationTree.class.php:1062
-#: libraries/navigation/NavigationTree.class.php:1096
+#: libraries/navigation/NavigationTree.class.php:1063
+#: libraries/navigation/NavigationTree.class.php:1097
 #, fuzzy
 #| msgid "Clear series"
 msgid "Clear fast filter"
 msgstr "系列をクリアする"
 
-#: libraries/navigation/NavigationTree.class.php:1095
+#: libraries/navigation/NavigationTree.class.php:1096
 #, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter by name or regex"

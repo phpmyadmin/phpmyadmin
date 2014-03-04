@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-03 16:13+0100\n"
+"POT-Creation-Date: 2014-03-04 13:47+0100\n"
 "PO-Revision-Date: 2014-02-23 05:38+0200\n"
 "Last-Translator: minsung kang <manyfun7@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -293,15 +293,15 @@ msgstr[0] "%s개 테이블"
 msgid "You have to choose at least one column to display!"
 msgstr "출력하려면 적어도 1개 이상의 열을 선택해야 합니다!"
 
-#: db_qbe.php:115
+#: db_qbe.php:116
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "%s비주얼 쿼리 빌더%s로 전환"
 
-#: db_qbe.php:126
+#: db_qbe.php:127
 msgid ""
-"After saving or loading a search, you can rename it and save the new "
-"criteria."
+"After saving or loading a bookmarked search, you can rename it and save the "
+"new criteria."
 msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
@@ -2414,19 +2414,21 @@ msgid "Submit Query"
 msgstr "질의 실행"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches:"
-msgstr ""
+#, fuzzy
+#| msgid "Search"
+msgid "Saved bookmarked search:"
+msgstr "검색"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy
-#| msgid "Search"
-msgid "Save search"
-msgstr "검색"
+#| msgid "Showing bookmark"
+msgid "Save bookmark"
+msgstr "북마크 보이기"
 
 #: libraries/DBQbe.class.php:1481
 #, fuzzy
 #| msgid "Delete relation"
-msgid "Delete search"
+msgid "Delete bookmark"
 msgstr "관계(relation) 삭제"
 
 #: libraries/DatabaseInterface.class.php:2041
@@ -3141,27 +3143,31 @@ msgstr "최근 테이블"
 msgid "There are no recent tables."
 msgstr "최근 테이블이 없습니다."
 
-#: libraries/SavedSearches.class.php:249
+#: libraries/SavedSearches.class.php:248
+msgid "Please provide a name for this bookmarked search."
+msgstr ""
+
+#: libraries/SavedSearches.class.php:258
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
-msgid "Missing information to save the search."
+msgid "Missing information to save the bookmarked search."
 msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 
-#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
+#: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "사용자 %s 가 이미 존재합니다!"
 
-#: libraries/SavedSearches.class.php:315
+#: libraries/SavedSearches.class.php:325
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:336
+#: libraries/SavedSearches.class.php:346
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:349
+#: libraries/SavedSearches.class.php:359
 #, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
@@ -4366,9 +4372,9 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:378
 msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
+"You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
+"authentication, so a key was automatically generated for you. It is used to "
+"encrypt cookies; you don't need to remember it."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:379
@@ -4413,17 +4419,17 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:416
 #, php-format
 msgid ""
-"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
-"cookie validity%s must be set to a value less or equal to it."
+"If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
+"0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, php-format
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:431
@@ -4466,17 +4472,23 @@ msgid "Could not connect to the database server!"
 msgstr "Drizzle 서버에 접속할 수 없습니다."
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method!"
-msgstr ""
+#, fuzzy
+#| msgid "Can not find signon authentication script:"
+msgid "Empty username while using [kbd]config[/kbd] authentication method!"
+msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method!"
-msgstr ""
+#, fuzzy
+#| msgid "Can not find signon authentication script:"
+msgid ""
+"Empty signon session name while using [kbd]signon[/kbd] authentication "
+"method!"
+msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 
 #: libraries/config/Validator.class.php:322
 #, fuzzy
 #| msgid "Can not find signon authentication script:"
-msgid "Empty signon URL while using signon authentication method!"
+msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
 
 #: libraries/config/Validator.class.php:369
@@ -5588,10 +5600,14 @@ msgid "Delete all cookies on logout"
 msgstr "로그아웃시 모든 쿠키 삭제"
 
 #: libraries/config/messages.inc.php:385
+#, fuzzy
+#| msgid ""
+#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#| "authentication"
 msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode."
-msgstr ""
+"Define whether the previous login should be recalled or not in [kbd]cookie[/"
+"kbd] authentication mode."
+msgstr "[kbd]쿠키[/kbd] 인증방식에서 쿠키를 암호화하는데 사용할 비밀 암호"
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5692,10 +5708,14 @@ msgid "Maximum tables"
 msgstr "최대 테이블 수"
 
 #: libraries/config/messages.inc.php:423
+#, fuzzy
+#| msgid ""
+#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#| "authentication"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
-"cookie authentication."
-msgstr ""
+"[kbd]cookie[/kbd] authentication."
+msgstr "[kbd]쿠키[/kbd] 인증방식에서 쿠키를 암호화하는데 사용할 비밀 암호"
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -8184,22 +8204,22 @@ msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s 개의 결과가 발견됨"
 
-#: libraries/navigation/NavigationTree.class.php:840
+#: libraries/navigation/NavigationTree.class.php:841
 msgid "Expand/Collapse"
 msgstr "펼치기/접기"
 
-#: libraries/navigation/NavigationTree.class.php:1060
+#: libraries/navigation/NavigationTree.class.php:1061
 msgid "Filter databases by name or regex"
 msgstr "데이터베이스 이름 또는 정규식으로 필터링"
 
-#: libraries/navigation/NavigationTree.class.php:1062
-#: libraries/navigation/NavigationTree.class.php:1096
+#: libraries/navigation/NavigationTree.class.php:1063
+#: libraries/navigation/NavigationTree.class.php:1097
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "파일로 저장"
 
-#: libraries/navigation/NavigationTree.class.php:1095
+#: libraries/navigation/NavigationTree.class.php:1096
 msgid "Filter by name or regex"
 msgstr "이름 또는 정규식으로 필터링"
 

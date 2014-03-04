@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-03 16:13+0100\n"
+"POT-Creation-Date: 2014-03-04 13:47+0100\n"
 "PO-Revision-Date: 2014-02-02 13:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
@@ -296,15 +296,15 @@ msgstr[0] "%s та жадвал"
 msgid "You have to choose at least one column to display!"
 msgstr "Сўровни бажариш учун, майдон/майдонлар танланган бўлиши керак"
 
-#: db_qbe.php:115
+#: db_qbe.php:116
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "%sсўровларнинг визуал таркибига%s ўтиш"
 
-#: db_qbe.php:126
+#: db_qbe.php:127
 msgid ""
-"After saving or loading a search, you can rename it and save the new "
-"criteria."
+"After saving or loading a bookmarked search, you can rename it and save the "
+"new criteria."
 msgstr ""
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
@@ -2675,19 +2675,21 @@ msgid "Submit Query"
 msgstr "сўровни бажариш"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches:"
-msgstr ""
+#, fuzzy
+#| msgid "Search"
+msgid "Saved bookmarked search:"
+msgstr "Қидириш"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy
-#| msgid "Search"
-msgid "Save search"
-msgstr "Қидириш"
+#| msgid "Showing bookmark"
+msgid "Save bookmark"
+msgstr "Хатчўпларни кўрсатиш"
 
 #: libraries/DBQbe.class.php:1481
 #, fuzzy
 #| msgid "Delete relation"
-msgid "Delete search"
+msgid "Delete bookmark"
 msgstr "Боғлиқликни ўчириш"
 
 #: libraries/DatabaseInterface.class.php:2041
@@ -3451,25 +3453,29 @@ msgstr "Жадвалларни санаш"
 msgid "There are no recent tables."
 msgstr "Биронта ҳам конфигурацияланган сервер мавжуд эмас"
 
-#: libraries/SavedSearches.class.php:249
-msgid "Missing information to save the search."
+#: libraries/SavedSearches.class.php:248
+msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
+#: libraries/SavedSearches.class.php:258
+msgid "Missing information to save the bookmarked search."
+msgstr ""
+
+#: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 #, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
 msgstr "\"%s\" номли фойдаланувчи мавжуд!"
 
-#: libraries/SavedSearches.class.php:315
+#: libraries/SavedSearches.class.php:325
 msgid "Missing information to delete the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:336
+#: libraries/SavedSearches.class.php:346
 msgid "Missing information to load the search."
 msgstr ""
 
-#: libraries/SavedSearches.class.php:349
+#: libraries/SavedSearches.class.php:359
 #, fuzzy
 msgid "Error while loading the search."
 msgstr "Файл юкланаётган вақтда номаълум хатолик юз берди."
@@ -4735,10 +4741,15 @@ msgstr ""
 "ишонарли бўлмаслиги мумкин."
 
 #: libraries/config/ServerConfigChecks.class.php:378
+#, fuzzy
+#| msgid ""
+#| "You didn't have blowfish secret set and have enabled cookie "
+#| "authentication, so a key was automatically generated for you. It is used "
+#| "to encrypt cookies; you don't need to remember it."
 msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
+"You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
+"authentication, so a key was automatically generated for you. It is used to "
+"encrypt cookies; you don't need to remember it."
 msgstr ""
 "Сиз конфигурацион файлда калит сўз(Blowfish)ни белгиламагансиз, лекин cookie-"
 "аутентификация усулидан фойдаланаяпсиз, шунинг учун калит сўз автоматик "
@@ -4810,8 +4821,8 @@ msgstr ""
 #: libraries/config/ServerConfigChecks.class.php:416
 #, php-format
 msgid ""
-"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
-"cookie validity%s must be set to a value less or equal to it."
+"If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
+"0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:423
@@ -4824,10 +4835,10 @@ msgstr ""
 #| "IP belongs to an ISP where usands of users, including you, are connected "
 #| "to."
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Агар керак деб билсангиз, қўшимча ҳимоя созланишлари - [a@?page=servers&amp;"
 "mode=edit&amp;id=%1$d#tab_Server_config]host аутентификация[/a] созланишлари "
@@ -4901,7 +4912,7 @@ msgstr "Нишонга уланиб бўлмади"
 #: libraries/config/Validator.class.php:306
 #, fuzzy
 #| msgid "Empty username while using config authentication method"
-msgid "Empty username while using config authentication method!"
+msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "config аутентификация усули ишлатилмоқда, лекин phpMyAdmin конфигурацион "
 "файлида фойдаланувчи номи белгиланмаган"
@@ -4909,7 +4920,9 @@ msgstr ""
 #: libraries/config/Validator.class.php:313
 #, fuzzy
 #| msgid "Empty signon session name while using signon authentication method"
-msgid "Empty signon session name while using signon authentication method!"
+msgid ""
+"Empty signon session name while using [kbd]signon[/kbd] authentication "
+"method!"
 msgstr ""
 "signon аутентификация усули ишлатилмоқда, лекин phpMyAdmin конфигурацион "
 "файлида сессия номи белгиланмаган"
@@ -4917,7 +4930,7 @@ msgstr ""
 #: libraries/config/Validator.class.php:322
 #, fuzzy
 #| msgid "Empty signon URL while using signon authentication method"
-msgid "Empty signon URL while using signon authentication method!"
+msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "signon аутентификация усули ишлатилмоқда, лекин phpMyAdmin конфигурацион "
 "файлида URL (унификация қилинган ахборот ресурс кўрсатгичи) белгиланмаган"
@@ -6106,8 +6119,8 @@ msgstr "Чиқишда барча \"cookies\"ларни ўчириш"
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode"
 msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode."
+"Define whether the previous login should be recalled or not in [kbd]cookie[/"
+"kbd] authentication mode."
 msgstr ""
 "cookie-аутентификация усулидан фойдаланилганда олдинги логин сессияси қайта "
 "чақирилиб олиниши керакми"
@@ -6212,10 +6225,16 @@ msgid "Maximum tables"
 msgstr "Максимал жадваллар сони"
 
 #: libraries/config/messages.inc.php:423
+#, fuzzy
+#| msgid ""
+#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#| "authentication"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
-"cookie authentication."
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
+"[kbd]cookie[/kbd]-аутентификация усулида cookie-ларни шифрлаш учун "
+"ишлатиладиган сирли ибора"
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -8970,24 +8989,24 @@ msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 
-#: libraries/navigation/NavigationTree.class.php:840
+#: libraries/navigation/NavigationTree.class.php:841
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1060
+#: libraries/navigation/NavigationTree.class.php:1061
 #, fuzzy
 #| msgid "table name"
 msgid "Filter databases by name or regex"
 msgstr "жадвал номи"
 
-#: libraries/navigation/NavigationTree.class.php:1062
-#: libraries/navigation/NavigationTree.class.php:1096
+#: libraries/navigation/NavigationTree.class.php:1063
+#: libraries/navigation/NavigationTree.class.php:1097
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Файл каби сақлаш"
 
-#: libraries/navigation/NavigationTree.class.php:1095
+#: libraries/navigation/NavigationTree.class.php:1096
 #, fuzzy
 #| msgid "table name"
 msgid "Filter by name or regex"

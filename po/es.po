@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-03 16:13+0100\n"
+"POT-Creation-Date: 2014-03-04 13:47+0100\n"
 "PO-Revision-Date: 2014-03-03 17:40+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -296,15 +296,19 @@ msgstr[1] "%s tablas"
 msgid "You have to choose at least one column to display!"
 msgstr "¡Debe elegir al menos una columna para mostrar!"
 
-#: db_qbe.php:115
+#: db_qbe.php:116
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Cambiar al %sconstructor visual%s"
 
-#: db_qbe.php:126
+#: db_qbe.php:127
+#, fuzzy
+#| msgid ""
+#| "After saving or loading a search, you can rename it and save the new "
+#| "criteria."
 msgid ""
-"After saving or loading a search, you can rename it and save the new "
-"criteria."
+"After saving or loading a bookmarked search, you can rename it and save the "
+"new criteria."
 msgstr ""
 "Después de guardar o cargar una búsqueda puede renombrarla y guardar los "
 "nuevos criterios."
@@ -2423,15 +2427,21 @@ msgid "Submit Query"
 msgstr "Ejecutar la consulta"
 
 #: libraries/DBQbe.class.php:1451
-msgid "Saved searches:"
+#, fuzzy
+#| msgid "Saved searches:"
+msgid "Saved bookmarked search:"
 msgstr "Búsquedas guardadas:"
 
 #: libraries/DBQbe.class.php:1479
-msgid "Save search"
-msgstr "Guardar búsqueda"
+#, fuzzy
+#| msgid "Showing bookmark"
+msgid "Save bookmark"
+msgstr "Mostrando el favorito"
 
 #: libraries/DBQbe.class.php:1481
-msgid "Delete search"
+#, fuzzy
+#| msgid "Delete search"
+msgid "Delete bookmark"
 msgstr "Eliminar búsqueda"
 
 #: libraries/DatabaseInterface.class.php:2041
@@ -3143,23 +3153,29 @@ msgstr "Tablas recientes"
 msgid "There are no recent tables."
 msgstr "No existen tablas recientes."
 
-#: libraries/SavedSearches.class.php:249
-msgid "Missing information to save the search."
+#: libraries/SavedSearches.class.php:248
+msgid "Please provide a name for this bookmarked search."
+msgstr ""
+
+#: libraries/SavedSearches.class.php:258
+#, fuzzy
+#| msgid "Missing information to save the search."
+msgid "Missing information to save the bookmarked search."
 msgstr "Falta información para guardar la búsqueda."
 
-#: libraries/SavedSearches.class.php:265 libraries/SavedSearches.class.php:295
+#: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 msgid "An entry with this name already exists."
 msgstr "Ya existe un elemento con este nombre."
 
-#: libraries/SavedSearches.class.php:315
+#: libraries/SavedSearches.class.php:325
 msgid "Missing information to delete the search."
 msgstr "Falta información para borrar la búsqueda."
 
-#: libraries/SavedSearches.class.php:336
+#: libraries/SavedSearches.class.php:346
 msgid "Missing information to load the search."
 msgstr "Falta información para cargar la búsqueda."
 
-#: libraries/SavedSearches.class.php:349
+#: libraries/SavedSearches.class.php:359
 msgid "Error while loading the search."
 msgstr "Error al cargar la búsqueda."
 
@@ -4396,10 +4412,15 @@ msgstr ""
 "al que están conectados miles de usuarios, incluyendo usted."
 
 #: libraries/config/ServerConfigChecks.class.php:378
+#, fuzzy
+#| msgid ""
+#| "You didn't have blowfish secret set and have enabled cookie "
+#| "authentication, so a key was automatically generated for you. It is used "
+#| "to encrypt cookies; you don't need to remember it."
 msgid ""
-"You didn't have blowfish secret set and have enabled cookie authentication, "
-"so a key was automatically generated for you. It is used to encrypt cookies; "
-"you don't need to remember it."
+"You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
+"authentication, so a key was automatically generated for you. It is used to "
+"encrypt cookies; you don't need to remember it."
 msgstr ""
 "Usted no tuvo un conjunto secreto blowfish y ha activado la autenticación "
 "por cookie, así que una clave fue generada automáticamente. Se usa para "
@@ -4459,22 +4480,30 @@ msgstr ""
 "un riesgo a la seguridad tal como la suplantación."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
+#| "%sLogin cookie validity%s must be set to a value less or equal to it."
 msgid ""
-"If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
-"cookie validity%s must be set to a value less or equal to it."
+"If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
+"0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Si se utiliza autenticación por cookie y el %salmacenamiento de cookie de "
 "inicio de sesión%s no es 0, la %svalidez de la cookie de inicio de sesión%s "
 "debe ser definida a un valor menor o igual al mismo."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "If you feel this is necessary, use additional protection settings - "
+#| "%shost authentication%s settings and %strusted proxies list%s. However, "
+#| "IP-based protection may not be reliable if your IP belongs to an ISP "
+#| "where thousands of users, including you, are connected to."
 msgid ""
-"If you feel this is necessary, use additional protection settings - %shost "
-"authentication%s settings and %strusted proxies list%s. However, IP-based "
-"protection may not be reliable if your IP belongs to an ISP where thousands "
-"of users, including you, are connected to."
+"If you feel this is necessary, use additional protection settings - "
+"%s[kbd]host[/kbd] authentication%s settings and %strusted proxies list%s. "
+"However, IP-based protection may not be reliable if your IP belongs to an "
+"ISP where thousands of users, including you, are connected to."
 msgstr ""
 "Si lo cree necesario, utilice configuraciones de protección adicionales - "
 "configuración de %sautenticación de host%s y una %slista de proxies de "
@@ -4528,19 +4557,27 @@ msgid "Could not connect to the database server!"
 msgstr "¡No se pudo conectar con el servidor de base de datos!"
 
 #: libraries/config/Validator.class.php:306
-msgid "Empty username while using config authentication method!"
+#, fuzzy
+#| msgid "Empty username while using config authentication method!"
+msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "¡El nombre de usuario está vacío e intentó usar el método de autenticación "
 "config!"
 
 #: libraries/config/Validator.class.php:313
-msgid "Empty signon session name while using signon authentication method!"
+#, fuzzy
+#| msgid "Empty signon session name while using signon authentication method!"
+msgid ""
+"Empty signon session name while using [kbd]signon[/kbd] authentication "
+"method!"
 msgstr ""
 "¡El nombre de sesión al signon está vacío mientras usó el método de "
 "autenticación signon!"
 
 #: libraries/config/Validator.class.php:322
-msgid "Empty signon URL while using signon authentication method!"
+#, fuzzy
+#| msgid "Empty signon URL while using signon authentication method!"
+msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
 "¡El URL de sesión al signon está vacío mientras usó el método de "
 "autenticación signon!"
@@ -5545,9 +5582,13 @@ msgid "Delete all cookies on logout"
 msgstr "Eliminar todas las cookies al finalizar sesión"
 
 #: libraries/config/messages.inc.php:385
+#, fuzzy
+#| msgid ""
+#| "Define whether the previous login should be recalled or not in cookie "
+#| "authentication mode."
 msgid ""
-"Define whether the previous login should be recalled or not in cookie "
-"authentication mode."
+"Define whether the previous login should be recalled or not in [kbd]cookie[/"
+"kbd] authentication mode."
 msgstr ""
 "Define si el inicio de sesión anterior se debe recordar o no en la modalidad "
 "autenticación mediante cookie."
@@ -5646,9 +5687,13 @@ msgid "Maximum tables"
 msgstr "Número máximo de tablas"
 
 #: libraries/config/messages.inc.php:423
+#, fuzzy
+#| msgid ""
+#| "Disable the default warning that is displayed if mcrypt is missing for "
+#| "cookie authentication."
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
-"cookie authentication."
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Desactivar advertencia predeterminada que se muestra si no se encuentra "
 "mcrypt para la cookie de autenticación."
@@ -8123,20 +8168,20 @@ msgid_plural "%s other results found"
 msgstr[0] "Se encontró %s resultado adicional"
 msgstr[1] "Se encontraron %s resultados adicionales"
 
-#: libraries/navigation/NavigationTree.class.php:840
+#: libraries/navigation/NavigationTree.class.php:841
 msgid "Expand/Collapse"
 msgstr "Expandir/Colapsar"
 
-#: libraries/navigation/NavigationTree.class.php:1060
+#: libraries/navigation/NavigationTree.class.php:1061
 msgid "Filter databases by name or regex"
 msgstr "Filtrar bases de datos por nombre o expresión regular"
 
-#: libraries/navigation/NavigationTree.class.php:1062
-#: libraries/navigation/NavigationTree.class.php:1096
+#: libraries/navigation/NavigationTree.class.php:1063
+#: libraries/navigation/NavigationTree.class.php:1097
 msgid "Clear fast filter"
 msgstr "Vaciar filtro rápido"
 
-#: libraries/navigation/NavigationTree.class.php:1095
+#: libraries/navigation/NavigationTree.class.php:1096
 msgid "Filter by name or regex"
 msgstr "Filtrar por nombre o expresión regular"
 
@@ -14742,6 +14787,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "Save search"
+#~ msgstr "Guardar búsqueda"
 
 #~ msgid ""
 #~ "Leave blank to disable configurable menus feature, suggested: "
