@@ -37,6 +37,12 @@ AJAX.registerOnload('db_operations.js', function () {
 
         var $form = $(this);
 
+        if(emptyFormElements(this, 'newname')) {
+            // new database name is empty, display error msg
+            var msg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> The database name is empty!</div>';
+            PMA_ajaxShowMessage(msg, false);
+            return;
+        }
         var question = escapeHtml('CREATE DATABASE ' + $('#new_db_name').val() + ' / DROP DATABASE ' + PMA_commonParams.get('db'));
 
         PMA_prepareForAjaxRequest($form);

@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - bug #4305 JS error when editing procedure from nav panel
 - bug #4308 Edit routine form submitting when pressing enter
 - bug #4307 Nav: "Columns" won't expand with specific schema
+- rfe #1511 Rename database interface improvement
 
 4.1.8.0 (2014-02-22)
 - bug #4276 Login loop on session expiry
