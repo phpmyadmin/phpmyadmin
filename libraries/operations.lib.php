@@ -76,7 +76,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
-        . 'size="30" class="textfield" value="" />'
+        . 'size="30" class="textfield" value="" required />'
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
         . '<input id="rename_db_input" type="submit" value="' . __('Go') . '" />'
@@ -175,7 +175,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= __('Copy database to:')
         . '</legend>'
         . '<input type="text" name="newname" size="30" '
-        . 'class="textfield" value="" /><br />'
+        . 'class="textfield" value="" required /><br />'
         . PMA_Util::getRadioFields(
             'what', $choices, 'data', true
         );
