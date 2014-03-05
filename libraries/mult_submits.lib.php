@@ -408,13 +408,14 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .=  __('You are about to DESTROY a complete database!') . ' ';
     }
     $html .= __('Do you really want to execute the following query?');
-    if($what == 'row_delete'){
+    if ($what == 'row_delete') {
         $response = array('Yes','No');
-        foreach ($response as $resp){
+        foreach ($response as $resp) {
             $html .= '<form action="' . $action . '" method="post">';
             $html .= PMA_URL_getHiddenInputs($_url_params);
-            $html .= '<input type="hidden" name="mult_btn" value="' . __($resp) . '" />';
-            $html .= '<input type="submit" value="' . __($resp) . '" id="button'.$resp.'" />';
+            $html .= '<input type="hidden" name="mult_btn" value="'
+                . __($resp) . '" />';
+            $html .= '<input type="submit" value="' . __($resp) . '" />';
             $html .= '</form>';
         }
     }
@@ -446,13 +447,13 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .= '</div>';
     }
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
-    $html .= '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
+    $html .= '<input type="submit" value="' . __('Yes') . '" />';
     $html .= '</form>';
 
     $html .= '<form action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
     $html .= '<input type="hidden" name="mult_btn" value="' . __('No') . '" />';
-    $html .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
+    $html .= '<input type="submit" value="' . __('No') . '" />';
     $html .= '</form>';
     $html .= '</fieldset>';
 
