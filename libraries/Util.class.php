@@ -2284,17 +2284,16 @@ class PMA_Util
         /* Opera has trouble with <input type="image"> */
         /* IE (before version 9) has trouble with <button> */
         if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-            return '<input style="cursor:pointer" type="image" name="' . $image_name
+            return '<input type="image" name="' . $image_name
                 . '" class="' . $button_class
                 . '" value="' . htmlspecialchars($value)
-                . 'style="cursor:pointer"'
                 . '" title="' . htmlspecialchars($text)
                 . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
                 . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
                     ? '&nbsp;' . htmlspecialchars($text)
                     : '') . "\n";
         } else {
-            return '<button  style="cursor:pointer" class="' . $button_class . '" type="submit"'
+            return '<button class="' . $button_class . '" type="submit"'
                 .' name="' . $button_name . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text) . '">' . "\n"
                 . self::getIcon($image, $text)

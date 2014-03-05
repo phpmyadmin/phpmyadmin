@@ -518,8 +518,15 @@ fieldset div[class=formelement] {
 }
 
 button.mult_submit {
-    border: none;
-    background-color: transparent;
+    border:             none;
+    background-color:   transparent;
+    cursor:pointer;
+}
+button.mult_submit:hover {
+   border: none;
+   text-decoration: underline;
+   background-color:   transparent;
+   cursor:pointer;
 }
 
 /* odd items 1,3,5,7,... */
