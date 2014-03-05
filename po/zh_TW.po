@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-02-25 17:31+0200\n"
-"Last-Translator: Peter Dave Hello <xs910203@gmail.com>\n"
-"Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"PO-Revision-Date: 2014-03-05 07:14+0200\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"Language-Team: Traditional Chinese "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -298,7 +298,7 @@ msgstr "切換至 %sVisual Builder%s"
 msgid ""
 "After saving or loading a bookmarked search, you can rename it and save the "
 "new criteria."
-msgstr ""
+msgstr "在儲存或讀取已標籤記錄的查詢，您可以另存新的名稱。"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -926,10 +926,10 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "您確定要刪除群組「%s」？"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "您確定要刪除群組「%s」？"
+msgstr "您確定要刪除查詢「%s」？"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
@@ -2345,16 +2345,14 @@ msgid "Saved bookmarked search:"
 msgstr "搜尋"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Save bookmark"
-msgstr "顯示書籤"
+msgstr "儲存書籤"
 
 #: libraries/DBQbe.class.php:1481
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "刪除關聯"
+msgstr "刪除書籤"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3050,30 +3048,27 @@ msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:258
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "未安裝 phpMyAdmin 進階功能資料表的警告"
+msgstr "遺失可書籤儲存查詢的資訊。"
 
 #: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "使用者 %s 己存在！"
+msgstr "項目 %s 己存在。"
 
 #: libraries/SavedSearches.class.php:325
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "遺失用來刪除查詢的資訊。"
 
 #: libraries/SavedSearches.class.php:346
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "遺失用來讀取查詢的資訊。"
 
 #: libraries/SavedSearches.class.php:359
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "移動暫存檔時發生錯誤，請確認 TempDir 資料夾的寫入權限。"
+msgstr "載入查詢時發生錯誤。"
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -4239,7 +4234,6 @@ msgstr ""
 "用%s可信代理表%s。但如果您和許多人共用一個 IP 網址，該措施的安全性將下降。"
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4249,8 +4243,8 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"您開啟了 Cookies 認證方式，但沒有設定短語密碼，因此系統自動產生了一個短語密"
-"碼，該密語用於加密 Cookies。您不需要記住這個短語密碼。"
+"您開啟了 [kbd]cookie[/kbd] 認證方式，但沒有設定短語密碼，因此系統自動產生了一個短語密碼，該密語用於加密 "
+"Cookies。您不需要記住這個短語密碼。"
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4298,7 +4292,7 @@ msgstr ""
 "會增加安全風險。"
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4306,11 +4300,10 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"如果使用 cookie 認證且%s登入 cookie 儲存時間%s不爲 0，%s登入 cookie 有效期%s"
-"的值不能超過前者。"
+"如果使用 [kbd]cookie[/kbd] 認證且%s登入 cookie 儲存時間%s不爲 0，%s登入 cookie 有效期%s的值不能超過前者。"
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -4322,8 +4315,7 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"如果有必要，您可以使用額外的保護設定 - %s主機認證%s和%s可信代理表%s。但如果您"
-"和許多人共用一個 IP 網址，該措施的安全性將下降。"
+"如果有必要，您可以使用額外的保護設定 - %s主機認證%s 和 %s可信代理表%s。 但如果您和許多人共用一個 IP 網址，該措施的安全性將下降。"
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4365,24 +4357,21 @@ msgid "Could not connect to the database server!"
 msgstr "無法連線到資料庫！"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "使用 config 認證方式時 config 認證方式的帳號不能爲空！"
+msgstr "使用 [kbd]config[/kbd] 認證方式時使用者帳號不能爲空！"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "選擇使用 Signon 認證方式時 Signon 連線階段名稱必須填寫！"
+msgstr "選擇使用 [kbd]signon[/kbd] 認證方式時 signon 連線階段名稱必須填寫！"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "使用 singon 認證方式時登入網址不能爲空！"
+msgstr "使用 [kbd]signon[/kbd] 認證方式時登入網址不能爲空！"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -5338,14 +5327,13 @@ msgid "Delete all cookies on logout"
 msgstr "登出時刪除所有 cookies"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr "定義在 cookie 認證方式中是否顯示上次登入的帳號。"
+msgstr "定義在 [kbd]cookie[/kbd] 認證方式中是否顯示上次登入的帳號。"
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5433,14 +5421,13 @@ msgid "Maximum tables"
 msgstr "最大資料表數量"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "[kbd]cookie[/kbd] authentication."
-msgstr "關閉在使用 Cookie 認證時缺少 mcrypt 的預設警告訊息。"
+msgstr "關閉在使用 [kbd]cookie[/kbd] 認證時缺少 mcrypt 的預設警告訊息。"
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -8848,7 +8835,7 @@ msgstr "隱藏/顯示導覽項目"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "儲存 QBE 查詢"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
