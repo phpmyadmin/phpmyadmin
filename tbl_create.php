@@ -86,6 +86,9 @@ if (isset($_REQUEST['do_save_data'])) {
     exit;
 } // end do create table
 
+//this needs to be reset to empty string for the breadcrumb navigation to work properly.
+$GLOBALS['table'] = '';
+
 /**
  * Displays the form used to define the structure of the table
  */
