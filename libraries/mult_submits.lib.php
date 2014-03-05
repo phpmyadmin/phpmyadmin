@@ -408,6 +408,16 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .=  __('You are about to DESTROY a complete database!') . ' ';
     }
     $html .= __('Do you really want to execute the following query?');
+    if($what == 'row_delete'){
+        $response = array('Yes','No');
+        foreach ($response as $resp){
+            $html .= '<form action="' . $action . '" method="post">';
+            $html .= PMA_URL_getHiddenInputs($_url_params);
+            $html .= '<input type="hidden" name="mult_btn" value="' . __($resp) . '" />';
+            $html .= '<input type="submit" value="' . __($resp) . '" id="button'.$resp.'" />';
+            $html .= '</form>';
+        }
+    }
     $html .= '</legend>';
     $html .= '<code>' . $full_query . '</code>';
     $html .= '</fieldset>';
