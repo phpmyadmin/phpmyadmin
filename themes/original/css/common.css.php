@@ -66,13 +66,18 @@ h3 {
 
 a, a:link,
 a:visited,
-a:active {
+a:active,
+button.mult_submit,
+.checkall_box+label {
     text-decoration:    none;
     color:              #0000FF;
     cursor:             pointer;
 }
 
-a:hover {
+a:hover,
+button.mult_submit:hover,
+button.mult_submit:focus,
+.checkall_box+label:hover {
     text-decoration:    underline;
     color:              #FF0000;
 }
