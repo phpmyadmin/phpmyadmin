@@ -355,8 +355,8 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                 'purge' => '1',
                 'message_to_show' => sprintf(
                     ($tbl_is_view
-                        ? __('View %s has been dropped.')
-                        : __('Table %s has been dropped.')
+                        ? __('View %s was dropped.')
+                        : __('Table %s was dropped.')
                     ),
                     htmlspecialchars($table)
                 ),
