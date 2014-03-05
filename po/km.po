@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-02-27 11:07+0200\n"
-"Last-Translator: Sok Sophea <sksophea@gmail.com>\n"
-"Language-Team: Central Khmer <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/km/>\n"
+"PO-Revision-Date: 2014-03-05 11:28+0200\n"
+"Last-Translator: Sutha Seng <suthaseng@gmail.com>\n"
+"Language-Team: Central Khmer "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
 "Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,7 +269,7 @@ msgstr "ទំហំ"
 #: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1157
 #: libraries/structure.lib.php:731
 msgid "in use"
-msgstr ""
+msgstr "កំពុង​ប្រើ"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
@@ -306,6 +306,8 @@ msgid ""
 "After saving or loading a bookmarked search, you can rename it and save the "
 "new criteria."
 msgstr ""
+"បន្ទាប់​ពី​រក្សាទុក ឬ​ផ្ទុក​ការ​ស្វែងរក​ដែល​បាន​ចំណាំ​, "
+"អ្នក​អាច​ប្ដូរ​ឈ្មោះ​វា ហើយ​រក្សាទុក​ព័ត៌មាន​សម្ងាត់​ថ្មី​។"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:81
 #: libraries/plugins/auth/AuthenticationConfig.class.php:96
@@ -424,6 +426,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"កំហុស​ត្រូវ​បាន​រក​ឃើញ ហើយកំហុស​​ត្រូវ​បាន​ដាក់​ស្នើ​ដោយ​ស្វ័យប្រវត្តិ​ផ្អែក"
+"​លើ​ការ​កំណត់​របស់​អ្នក។"
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
@@ -446,7 +450,7 @@ msgstr "សូម​អរគុណ​សម្រាប់​ការ​ដា
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "សំណាង​មិន​ល្អ,​បាន​បរាជ័យ​ក្នុង​ការ​ដាក់​ស្នើ។"
 
 #: export.php:178
 msgid "Bad type!"
@@ -628,6 +632,10 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"គ្មាន​ទិន្នន័យ​បាន​ទទួល​ដើម្បី​នាំចូល​ឡើយ។ "
+"គ្មាន​ឈ្មោះ​ឯកសារ​​ត្រូវ​បាន​ដាក់​ស្នើ ឬ​ទំហំ​ឯកសារ​លើស​ទំហំ​អតិបរមា​បាន​អនុ"
+"ញ្ញាត​ដោយ​ការ​កំណត់​រចនាសម្ព័ន្ធ​សម្រាប់ PHP របស់​អ្នក។ មើល [doc@faq1-16]FAQ "
+"1.16[/doc] ។"
 
 #: import.php:495
 msgid ""
