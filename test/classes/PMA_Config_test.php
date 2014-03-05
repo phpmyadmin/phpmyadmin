@@ -969,6 +969,11 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         
         //load file permissions for the current permissions file
         $perms = @fileperms($this->permTestObj->getSource());
+        
+        //todo: remove this line after one test run
+        //for testing purpose
+        var_dump($perms);
+        
         //testing for permissions 
         $this->assertTrue(!($perms === false) && ($perms & 2));
         
