@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-03-05 07:14+0200\n"
+"PO-Revision-Date: 2014-03-05 07:20+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -601,9 +601,7 @@ msgstr "書籤已被刪除。"
 msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
-msgstr ""
-"已上傳的檔案無法被移出暫存區，因為伺服器上的open_basedir設定被啟用，但卻沒有"
-"提供資料夾 %s 的存取權限。"
+msgstr "已上傳的檔案無法被移出暫存區，因為伺服器上的 open_basedir 設定被啟用，但卻沒有提供資料夾 %s 的存取權限。"
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -3050,7 +3048,7 @@ msgstr ""
 #: libraries/SavedSearches.class.php:258
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "遺失可書籤儲存查詢的資訊。"
+msgstr "遺失可已標籤記錄查詢的資訊。"
 
 #: libraries/SavedSearches.class.php:275 libraries/SavedSearches.class.php:305
 #| msgid "The user %s already exists!"
@@ -4315,7 +4313,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"如果有必要，您可以使用額外的保護設定 - %s主機認證%s 和 %s可信代理表%s。 但如果您和許多人共用一個 IP 網址，該措施的安全性將下降。"
+"如果您覺得有必要可以使用額外的保護設定 - %s主機認證%s 和 %s可信認代理主機清單%s。 但以 IP 為基礎的保護方式必須依賴可靠的 IP "
+"位置，若 ISP 所提供的 IP 有可能與許多人共用則無法保証安全。"
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4432,7 +4431,7 @@ msgstr "Blowfish 加密密碼"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "加強顯示已選擇的資料列"
+msgstr "加強顯示已選擇的資料列。"
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4595,7 +4594,7 @@ msgstr "預設以 16 進位顯示二進位內容。"
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "不使用下拉式選單改採清單方式顯示伺服器清單"
+msgstr "使用清單替代下拉式選單的方式顯示伺服器清單。"
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
