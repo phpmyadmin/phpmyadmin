@@ -187,7 +187,6 @@ $html_output .= PMA_getHtmlForGisEditor();
 if (! isset($after_insert)) {
     $after_insert = 'back';
 }
-$html_output .= '</form>';
 
 //action panel
 $html_output .= PMA_getActionsPanel(

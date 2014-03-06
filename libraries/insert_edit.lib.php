@@ -1605,7 +1605,7 @@ function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_val
  */
 function PMA_getHeadAndFootOfInsertRowTable($url_params)
 {
-    $html_output = '<div id = "edit_row">'
+    $html_output = '<div id="clearfloat">'
         . '<table class="insertRowTable">'
         . '<thead>'
         . '<tr>'

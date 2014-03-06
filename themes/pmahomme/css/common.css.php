@@ -2921,7 +2921,3 @@ div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_
     margin-top: 1em;
 }
 
-div#edit_row {
-    float: left;
-    clear: both;
-}
