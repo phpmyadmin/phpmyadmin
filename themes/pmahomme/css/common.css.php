@@ -273,7 +273,7 @@ input.button {
 
     text-shadow: 0 1px 0 #fff;
 
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('f8f8f8', 'd8d8d8'); ?>
 }
 
 input[type=submit]:hover,
@@ -282,7 +282,7 @@ input[type=reset]:hover,
 input[name=submit_reset]:hover,
 input.button:hover {
     position: relative;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('fff', 'ddd'); ?>
     cursor: pointer;
 }
 
@@ -292,8 +292,9 @@ input[type=reset]:active,
 input[name=submit_reset]:active,
 input.button:active {
     position: relative;
-    top: 1px;
-    left: 1px;
+    <?php echo $_SESSION['PMA_Theme']->getCssGradient('eee', 'ddd'); ?>
+    box-shadow: 0 1px 6px -2px #333 inset;
+    text-shadow: none;
 }
 
 textarea {
@@ -2023,7 +2024,6 @@ input[type=date].invalid_value,
     padding: 5px 12px;
     color: #111;
     text-decoration: none;
-    background: #ddd;
 
     border-radius: 12px;
     -webkit-border-radius: 12px;
@@ -2033,9 +2033,6 @@ input[type=date].invalid_value,
 
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     cursor: pointer;
-}
-#buttonGo:hover {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('cccccc', 'dddddd'); ?>
 }
 
 .format_specific_options h3 {
