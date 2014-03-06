@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 + rfe #1508 confirmation message at the top
 - bug #4306 breadcrubs wrong on table create
 + rfe #1511 better validate database name for copying
++ rfe #1510 Database tab "Drop" button should be a link
 
 4.1.9.0 (not yet released)
 - bug #4279 CTRL + up or down moves two fields (part one)
