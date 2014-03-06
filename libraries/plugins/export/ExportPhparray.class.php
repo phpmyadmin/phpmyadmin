@@ -218,7 +218,7 @@ class ExportPhparray extends ExportPlugin
         }
 
         if ($record_cnt > 0) {
-            $buffer .= $crlf . ');' . $crlf; 
+            $buffer .= $crlf . ');' . $crlf;
         }
         if (! PMA_exportOutputHandler($buffer)) {
             return false;
