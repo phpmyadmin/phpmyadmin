@@ -1785,8 +1785,8 @@ class PMA_Util
         }
 
         $tab_navigation .=
-             '</ul>' . "\n"
-            . '<div class="clearfloat"></div>'
+              '<div class="clearfloat"></div>'
+            . '</ul>' . "\n"
             . '</div>' . "\n";
 
         return $tab_navigation;
