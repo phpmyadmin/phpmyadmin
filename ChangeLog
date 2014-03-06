@@ -34,7 +34,9 @@ phpMyAdmin - ChangeLog
 + rfe #1511 better validate database name for copying
 + rfe #1510 Database tab "Drop" button should be a link
 
-4.1.9.0 (not yet released)
+4.1.10.0 (not yet released)
+
+4.1.9.0 (2014-03-06)
 - bug #4279 CTRL + up or down moves two fields (part one)
 - bug #4294 output as text radio clickable for "OpenDocument Text" export
 - bug #4297 DROP DATABASE tick box in export no longer works
