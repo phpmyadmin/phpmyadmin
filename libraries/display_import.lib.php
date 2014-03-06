@@ -402,7 +402,7 @@ function PMA_getHtmlForImport(
 
     $html .= PMA_getHtmlForImportJS($upload_id);
 
-    $html .= '    <form action="import.php" method="post" '
+    $html .= '    <form action="import.php" method="post" onsubmit="return isFileSelected()"' 
         . 'enctype="multipart/form-data"';
     $html .= '        name="import"';
     if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {

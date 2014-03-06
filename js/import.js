@@ -115,3 +115,14 @@ AJAX.registerOnload('import.js', function () {
     });
     
 });
+
+function isFileSelected()
+{
+    var f = document.getElementById("input_import_file");
+        if(""==f.value){
+             var msg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> No file choosen!</div>';
+             PMA_ajaxShowMessage(msg, false);
+            return false;
+        }
+    
+}
