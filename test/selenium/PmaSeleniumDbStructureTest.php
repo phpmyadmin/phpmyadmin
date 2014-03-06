@@ -99,7 +99,7 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();
         $this->select($this->byName("submit_mult"))
             ->selectOptionByLabel("Drop");
-        $this->waitForElement("byCssSelector", "input[id='buttonYes']")
+        $this->waitForElement("byId", "buttonYes")
             ->click();
 
         $this->waitForElement(
