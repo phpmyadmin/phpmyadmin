@@ -446,14 +446,14 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .= '</span>';
         $html .= '</div>';
     }
-    $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" id="buttonYes" />';
-    $html .= '<input type="submit" value="' . __('Yes') . '" />';
+    $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+    $html .= '<input type="submit" value="' . __('Yes') . '" id="buttonYes" />';
     $html .= '</form>';
 
     $html .= '<form action="' . $action . '" method="post">';
     $html .= PMA_URL_getHiddenInputs($_url_params);
-    $html .= '<input type="hidden" name="mult_btn" value="' . __('No') . '" id="buttonNo" />';
-    $html .= '<input type="submit" value="' . __('No') . '" />';
+    $html .= '<input type="hidden" name="mult_btn" value="' . __('No') . '" />';
+    $html .= '<input type="submit" value="' . __('No') . '" id="buttonNo" />';
     $html .= '</form>';
     $html .= '</fieldset>';
 
