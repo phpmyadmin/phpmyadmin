@@ -2276,9 +2276,9 @@ class PMA_Util
         }
 
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
-            return ' <input type="submit" name="' . $button_name . '"'
-                . ' value="' . htmlspecialchars($value) . '"'
-                . ' title="' . htmlspecialchars($text) . '" />' . "\n";
+            return ' <input style="cursor:pointer" type="submit" name="' . $button_name . '"'
+                .' value="' . htmlspecialchars($value) . '"'
+                .' title="' . htmlspecialchars($text) . '" />' . "\n";
         }
 
         /* Opera has trouble with <input type="image"> */
@@ -2288,16 +2288,16 @@ class PMA_Util
                 . '" class="' . $button_class
                 . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text)
-                . '" src="' . $GLOBALS['pmaThemeImage'] . $image . '" />'
+                . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
                 . ($GLOBALS['cfg']['ActionLinksMode'] == 'both'
                     ? '&nbsp;' . htmlspecialchars($text)
                     : '') . "\n";
         } else {
             return '<button class="' . $button_class . '" type="submit"'
-                . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
+                .' name="' . $button_name . '" value="' . htmlspecialchars($value)
                 . '" title="' . htmlspecialchars($text) . '">' . "\n"
                 . self::getIcon($image, $text)
-                . '</button>' . "\n";
+                .'</button>' . "\n";
         }
     } // end function
 
