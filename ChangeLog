@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - bug #4304 DB export using zip compression generates an empty archive
 + rfe #1508 confirmation message at the top
 - bug #4306 breadcrubs wrong on table create
++ rfe #1511 better validate database name for copying
 
 4.1.9.0 (not yet released)
 - bug #4279 CTRL + up or down moves two fields (part one)
