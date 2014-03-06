@@ -113,7 +113,7 @@ LC_ALL=C date -u > RELEASE-DATE-${version}
 echo "* Generating documentation"
 if [ -f doc/conf.py ] ; then
     LC_ALL=C make -C doc html
-    find doc -name '*.pyc' | xargs rm
+    find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
 else
     LC_ALL=C w3m -dump Documentation.html > Documentation.txt
 fi
