@@ -346,6 +346,13 @@ $read_limit = $memory_limit / 8;
 if (isset($_FILES['import_file'])) {
     $import_file = $_FILES['import_file']['tmp_name'];
 }
+if(empty($_FILES['import_file']['name'])){
+        $message = PMA_Message::error(
+            __('No file choosen')
+        );
+        PMA_stopImport($message);
+}
+
 if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
     // sanitize $local_import_file as it comes from a POST
@@ -473,7 +480,7 @@ if ($import_file != 'none' && ! $error) {
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
         $message = PMA_Message::error(
-            __('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].')
+            __('The file size exceeded the maximum size permitted by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].')
         );
         PMA_stopImport($message);
     }
