@@ -9,10 +9,12 @@
 /**
  * Get the variables sent or posted to this script and a core script
  */
+
 require_once 'libraries/common.inc.php';
 require_once 'libraries/sql.lib.php';
 require_once 'libraries/bookmark.lib.php';
 //require_once 'libraries/display_import_functions.lib.php';
+
 
 if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
@@ -560,7 +562,7 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
         $message = PMA_Message::success(
             '<em>'
             . __('Import has been successfully finished, %d queries executed.')
-            . '</em>'
+            . '</em>'            
         );
         $message->addParam($executed_queries);
 
@@ -639,4 +641,6 @@ if ($go_sql) {
     $active_page = $goto;
     include '' . $goto;
 }
+// Update the last_access_time so that session doesnot expire after large file upload.
+$_SESSION['last_access_time'] = time();
 ?>
