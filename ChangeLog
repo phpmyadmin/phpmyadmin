@@ -33,6 +33,7 @@ phpMyAdmin - ChangeLog
 - bug #4306 breadcrubs wrong on table create
 + rfe #1511 better validate database name for copying
 + rfe #1510 Database tab "Drop" button should be a link
++ rfe #1513 Highlight required form fields after failed submission
 
 4.1.10.0 (not yet released)
 
