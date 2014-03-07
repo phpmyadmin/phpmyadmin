@@ -242,11 +242,14 @@ class PMA_SavedSearches
     public function save()
     {
         if (null == $this->getSearchName()) {
-            $response = PMA_Response::getInstance();
-            $response->addJSON('fieldWithError', 'searchName');
-            PMA_Util::mysqlDie(
+            $message = PMA_Message::error(
                 __('Please provide a name for this bookmarked search.')
             );
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('fieldWithError', 'searchName');
+            $response->addJSON('message', $message);
+            exit;
         }
 
         if (null == $this->getUsername()
@@ -254,9 +257,13 @@ class PMA_SavedSearches
             || null == $this->getSearchName()
             || null == $this->getCriterias()
         ) {
-            PMA_Util::mysqlDie(
+            $message = PMA_Message::error(
                 __('Missing information to save the bookmarked search.')
             );
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('message', $message);
+            exit;
         }
 
         $savedSearchesTbl
@@ -272,7 +279,14 @@ class PMA_SavedSearches
             $existingSearches = $this->getList($wheres);
 
             if (!empty($existingSearches)) {
-                PMA_Util::mysqlDie(__('An entry with this name already exists.'));
+                $message = PMA_Message::error(
+                    __('An entry with this name already exists.')
+                );
+                $response = PMA_Response::getInstance();
+                $response->isSuccess($message->isSuccess());
+                $response->addJSON('fieldWithError', 'searchName');
+                $response->addJSON('message', $message);
+                exit;
             }
 
             $sqlQuery = "INSERT INTO " . $savedSearchesTbl
@@ -302,7 +316,14 @@ class PMA_SavedSearches
         $existingSearches = $this->getList($wheres);
 
         if (!empty($existingSearches)) {
-            PMA_Util::mysqlDie(__('An entry with this name already exists.'));
+            $message = PMA_Message::error(
+                __('An entry with this name already exists.')
+            );
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('fieldWithError', 'searchName');
+            $response->addJSON('message', $message);
+            exit;
         }
 
         $sqlQuery = "UPDATE " . $savedSearchesTbl
@@ -322,7 +343,14 @@ class PMA_SavedSearches
     public function delete()
     {
         if (null == $this->getId()) {
-            PMA_Util::mysqlDie(__('Missing information to delete the search.'));
+            $message = PMA_Message::error(
+                __('Missing information to delete the search.')
+            );
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('fieldWithError', 'searchId');
+            $response->addJSON('message', $message);
+            exit;
         }
 
         $savedSearchesTbl
@@ -343,7 +371,14 @@ class PMA_SavedSearches
     public function load()
     {
         if (null == $this->getId()) {
-            PMA_Util::mysqlDie(__('Missing information to load the search.'));
+            $message = PMA_Message::error(
+                __('Missing information to load the search.')
+            );
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('fieldWithError', 'searchId');
+            $response->addJSON('message', $message);
+            exit;
         }
 
         $savedSearchesTbl = PMA_Util::backquote($this->_config['cfgRelation']['db'])
@@ -356,7 +391,12 @@ class PMA_SavedSearches
         $resList = PMA_queryAsControlUser($sqlQuery);
 
         if (false === ($oneResult = $GLOBALS['dbi']->fetchArray($resList))) {
-            PMA_Util::mysqlDie(__('Error while loading the search.'));
+            $message = PMA_Message::error(__('Error while loading the search.'));
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('fieldWithError', 'searchId');
+            $response->addJSON('message', $message);
+            exit;
         }
 
         $this->setSearchName($oneResult['search_name'])
