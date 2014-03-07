@@ -232,7 +232,7 @@ function PMA_addDatepicker($this_element, type, options)
             $this_element.data('comes_from', '');
         }
     };
-    if (type == "datetime") {
+    if (type == "datetime" || type == "timestamp") {
         $this_element.datetimepicker($.extend(defaultOptions, options));
     }
     else if (type == "date") {
