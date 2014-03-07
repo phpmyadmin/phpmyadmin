@@ -1029,4 +1029,7 @@ if (!defined('TESTSUITE')) {
         <?php
     } // end if
 }
+
+// Update the last_access_time so that session doesnot expire after large export.
+$_SESSION['last_access_time'] = time();
 ?>
