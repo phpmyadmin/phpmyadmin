@@ -1315,10 +1315,20 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 });
                             });
                             // update the display of executed SQL query command
-                            $('#result_query').remove();
                             if (typeof data.sql_query != 'undefined') {
-                                // display feedback
-                                $('#sqlqueryresults').prepend(data.sql_query);
+                                //extract query box 
+                            	var $result_query = $($.parseHTML(data.sql_query));
+                            	var sqlOuter = $result_query.find('.sqlOuter').wrap('<p>').parent().html();
+                            	var tools = $result_query.find('.tools').wrap('<p>').parent().html();
+                                // If two query box exists update query in second else add a second box
+                                if($('#result_query').find('div.sqlOuter').length>1) {
+	                               $('#result_query').children(":nth-child(4)").remove(); 
+	                               $('#result_query').children(":nth-child(4)").remove(); 
+	                               $('#result_query').append(sqlOuter+tools);
+                                }
+                                else {
+	                                $('#result_query').append(sqlOuter+tools);
+                                }
                                 PMA_highlightSQL($('#result_query'));
                             }
                             // hide and/or update the successfully saved cells
