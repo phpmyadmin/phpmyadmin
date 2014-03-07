@@ -76,7 +76,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
-        . 'size="30" class="textfield" value="" required />'
+        . 'size="30" class="textfield" value="" required="required" />'
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
         . '<input id="rename_db_input" type="submit" value="' . __('Go') . '" />'
@@ -175,7 +175,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= __('Copy database to:')
         . '</legend>'
         . '<input type="text" name="newname" size="30" '
-        . 'class="textfield" value="" required /><br />'
+        . 'class="textfield" value="" required="required" /><br />'
         . PMA_Util::getRadioFields(
             'what', $choices, 'data', true
         );
@@ -686,7 +686,7 @@ function PMA_getHtmlForMoveTable()
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
     $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name"'
-        . ' onfocus="this.select()" required '
+        . ' onfocus="this.select()" required="required" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '" /><br />';
 
     // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
@@ -790,7 +790,8 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
     $html_output .= '<tr><td>' . __('Rename table to') . '</td>'
         . '<td>'
         . '<input type="text" size="20" name="new_name" onfocus="this.select()"'
-        . 'value="' . htmlspecialchars($GLOBALS['table']) . '" required />'
+        . 'value="' . htmlspecialchars($GLOBALS['table'])
+        . '" required="required" />'
         . '</td>'
         . '</tr>';
 
@@ -1016,7 +1017,7 @@ function PMA_getHtmlForCopytable()
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-    $html_output .= '<input class="halfWidth" type="text" required '
+    $html_output .= '<input class="halfWidth" type="text" required="required" '
         . 'size="20" name="new_name" onfocus="this.select()" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
