@@ -345,7 +345,7 @@ var AJAX = {
                 window.location.reload();
             }
             if (data.fieldWithError) {
-                $(':input .error').removeClass("error");
+                $(':input.error').removeClass("error");
                 $('#'+data.fieldWithError).addClass("error");
             }
         }
