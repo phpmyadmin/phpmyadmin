@@ -656,4 +656,7 @@ if ($go_sql) {
     $active_page = $goto;
     include '' . $goto;
 }
+
+// Update the last_access_time so that session doesnot expire after large file upload.
+$_SESSION['last_access_time'] = time();
 ?>

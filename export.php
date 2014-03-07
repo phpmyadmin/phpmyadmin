@@ -470,4 +470,7 @@ if (!defined('TESTSUITE')) {
         echo PMA_getHtmlForDisplayedExportFooter($back_button);
     } // end if
 }
+
+// Update the last_access_time so that session doesnot expire after large export.
+$_SESSION['last_access_time'] = time();
 ?>

@@ -77,9 +77,13 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     usleep(300000);
 
     // wait until message is available
-    while ($_SESSION['Import_message']['message'] == null) {
-        usleep(250000); // 0.25 sec
-    }
+    if(isset($_SESSION['Import_message']['message'])) {
+		while ($_SESSION['Import_message']['message'] == null) {
+			usleep(250000); // 0.25 sec
+		}
+	} else {
+		// if import.php fails to set error message, An error message regarding session expiration to be displayed.
+	}
 
     echo $_SESSION['Import_message']['message'];
     echo '<fieldset class="tblFooters">' . "\n";
