@@ -1312,7 +1312,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . ((! isset($GLOBALS['pred_username'])
                 || $GLOBALS['pred_username'] == 'userdefined'
             )
-            ? 'required'
+            ? 'required="required"'
             : '') . ' />' . "\n";
 
     $html_output .= '<div id="user_exists_warning"'
@@ -1437,7 +1437,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . ((isset($GLOBALS['pred_hostname'])
                 && $GLOBALS['pred_hostname'] == 'userdefined'
             )
-            ? 'required'
+            ? 'required="required"'
             : '')
         . ' />' . "\n"
         . PMA_Util::showHint(
@@ -1484,7 +1484,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . '<input type="password" id="text_pma_pw" name="pma_pw" '
         . 'title="' . __('Password') . '" '
         . 'onchange="pred_password.value = \'userdefined\'; this.required = true; pma_pw2.required = true;" '
-        . (isset($GLOBALS['username']) ? '' : 'required')
+        . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n";
 
@@ -1497,7 +1497,7 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
         . 'title="' . __('Re-type') . '" '
         . 'onchange="pred_password.value = \'userdefined\'; this.required = true; pma_pw.required = true;" '
-        . (isset($GLOBALS['username']) ? '' : 'required')
+        . (isset($GLOBALS['username']) ? '' : 'required="required"')
         . '/>' . "\n"
         . '</div>' . "\n"
        // Generate password added here via jQuery
