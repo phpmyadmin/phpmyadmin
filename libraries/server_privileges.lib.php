@@ -1273,8 +1273,10 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . 'if (this.value == \'any\') {'
         . '    username.value = \'\'; '
         . '    user_exists_warning.style.display = \'none\'; '
+        . '    username.required = false; '
         . '} else if (this.value == \'userdefined\') {'
         . '    username.focus(); username.select(); '
+        . '    username.required = true; '
         . '}">' . "\n";
 
     $html_output .= '<option value="any"'
@@ -1306,7 +1308,12 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
                : $GLOBALS['username']
            ) . '"'
         )
-        . ' onchange="pred_username.value = \'userdefined\';" />' . "\n";
+        . ' onchange="pred_username.value = \'userdefined\'; this.required = true;" '
+        . ((! isset($GLOBALS['pred_username'])
+                || $GLOBALS['pred_username'] == 'userdefined'
+            )
+            ? 'required'
+            : '') . ' />' . "\n";
 
     $html_output .= '<div id="user_exists_warning"'
         . ' name="user_exists_warning" style="display:none;">'
@@ -1353,8 +1360,10 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         )
         . 'else if (this.value == \'hosttable\') { '
         . '    hostname.value = \'\'; '
+        . '    hostname.required = false; '
         . '} else if (this.value == \'userdefined\') {'
         . '    hostname.focus(); hostname.select(); '
+        . '    hostname.required = true; '
         . '}">' . "\n";
     unset($_current_user);
 
@@ -1424,7 +1433,13 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         // use default value of '%' to match with the default 'Any host'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
         . '" title="' . __('Host')
-        . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
+        . '" onchange="pred_hostname.value = \'userdefined\'; this.required = true;" '
+        . ((isset($GLOBALS['pred_hostname'])
+                && $GLOBALS['pred_hostname'] == 'userdefined'
+            )
+            ? 'required'
+            : '')
+        . ' />' . "\n"
         . PMA_Util::showHint(
             __(
                 'When Host table is used, this field is ignored '
@@ -1444,8 +1459,12 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
     $html_output .= '            onchange="'
         . 'if (this.value == \'none\') { '
         . '    pma_pw.value = \'\'; pma_pw2.value = \'\'; '
+        . '    pma_pw.required = false; pma_pw2.required = false; '
         . '} else if (this.value == \'userdefined\') { '
         . '    pma_pw.focus(); pma_pw.select(); '
+        . '    pma_pw.required = true; pma_pw2.required = true; '
+        . '} else { '
+        . '    pma_pw.required = false; pma_pw2.required = false; '
         . '}">' . "\n"
         . ($mode == 'change' ? '<option value="keep" selected="selected">'
             . __('Do not change the password')
@@ -1464,7 +1483,9 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . '</span>' . "\n"
         . '<input type="password" id="text_pma_pw" name="pma_pw" '
         . 'title="' . __('Password') . '" '
-        . 'onchange="pred_password.value = \'userdefined\';" />' . "\n"
+        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; pma_pw2.required = true;" '
+        . (isset($GLOBALS['username']) ? '' : 'required')
+        . '/>' . "\n"
         . '</div>' . "\n";
 
     $html_output .= '<div class="item" '
@@ -1475,7 +1496,9 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
         . '<span class="options">&nbsp;</span>' . "\n"
         . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
         . 'title="' . __('Re-type') . '" '
-        . 'onchange="pred_password.value = \'userdefined\';" />' . "\n"
+        . 'onchange="pred_password.value = \'userdefined\'; this.required = true; pma_pw.required = true;" '
+        . (isset($GLOBALS['username']) ? '' : 'required')
+        . '/>' . "\n"
         . '</div>' . "\n"
        // Generate password added here via jQuery
        . '</fieldset>' . "\n";
