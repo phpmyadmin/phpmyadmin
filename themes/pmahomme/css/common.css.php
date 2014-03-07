@@ -1104,7 +1104,6 @@ div#tablestatistics table {
 }
 
 #serverinfo {
-    border-bottom: 1px solid #fff;
     background: #888;
     padding: .3em .9em;
     padding-<?php echo $left; ?>: 2.2em;
