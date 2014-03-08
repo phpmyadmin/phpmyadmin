@@ -2631,3 +2631,4 @@ div#page_content form#db_search_form.ajax fieldset {
 div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
     margin-top: 1em;
 }
+
