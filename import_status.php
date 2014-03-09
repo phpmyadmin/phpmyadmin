@@ -77,9 +77,15 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     usleep(300000);
 
     // wait until message is available
-    while ($_SESSION['Import_message']['message'] == null) {
-        usleep(250000); // 0.25 sec
-    }
+    // If the session will expire before reaching here, $_SESSION will not available
+    // and server might be stuck into loop below. Thats why a check condition.
+    if(isset($_SESSION['Import_message']['message'])) {
+		while ($_SESSION['Import_message']['message'] == null) {
+			usleep(250000); // 0.25 sec
+		}
+	} else {
+		// if import.php fails to set error message, An error message regarding session expiration to be displayed.
+	}
 
     echo $_SESSION['Import_message']['message'];
     echo '<fieldset class="tblFooters">' . "\n";
