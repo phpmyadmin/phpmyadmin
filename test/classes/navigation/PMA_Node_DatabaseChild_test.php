@@ -13,6 +13,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'libraries/navigation/Nodes/Node.class.php';
 require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
 require_once 'libraries/navigation/NodeFactory.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for Node_DatabaseChild class
