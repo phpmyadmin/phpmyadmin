@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-03-09 15:32+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2014-03-09 15:37+0200\n"
+"Last-Translator: Tae-rok Hwang <hwangti@hwangti.kr>\n"
 "Language-Team: Korean "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -7160,10 +7160,10 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "데이터베이스 %s에서 테이블을 추출"
 
 #: libraries/display_export.lib.php:173
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "데이터베이스 %s에 새로운 테이블을 만듭니다."
+msgstr "\"%s\" 테이블 내보내기"
 
 #: libraries/display_export.lib.php:198
 msgid "Export Method:"
