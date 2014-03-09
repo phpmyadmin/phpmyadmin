@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-02-23 05:38+0200\n"
-"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2014-03-09 15:32+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"Language-Team: Korean "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4564,7 +4564,7 @@ msgstr "BLOWFISH 암호화"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "선택된 행을 하이라이트"
+msgstr "선택된 행을 하이라이트."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4774,7 +4774,7 @@ msgstr "2진수 데이터를 HEX형식으로 표시하도록 기본설정"
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "서버 목록을 목록 형태로 출력(드롭 다운 사용 안 함)"
+msgstr "서버 목록을 목록 형태로 출력(드롭 다운 사용 안 함)."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
@@ -5276,27 +5276,24 @@ msgid "Server configuration"
 msgstr "서버 환경설정"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
-msgstr "고급 서버 설정 (이 옵션에 대해 자세히 모른다면 변경하지 마세요.)"
+msgstr "고급 서버 설정 (이 옵션에 대해 자세히 모른다면 변경하지 마세요)."
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "서버 연결 파라미터 입력"
+msgstr "서버 연결 파라미터 입력."
 
 #: libraries/config/messages.inc.php:271
 msgid "Configuration storage"
 msgstr "설정 저장공간"
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
 #| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
@@ -5306,8 +5303,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"추가적인 기능을 사용하기 위해 phpMyAdmin 설정 저장공간을 설정하세요. 설명서"
-"의 [doc@linked-tables]phpMyAdmin configuration storage[/doc] 참고"
+"추가적인 기능을 사용하기 위해 phpMyAdmin 설정 저장공간을 설정하세요. 설명서의 [doc@linked-"
+"tables]phpMyAdmin configuration storage[/doc] 참고."
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -5345,16 +5342,14 @@ msgid "SQL Query box"
 msgstr "SQL 질의 상자"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "SQL 쿼리 박스에 표시할 링크를 설정"
+msgstr "SQL 쿼리 박스에 표시할 링크를 설정."
 
 #: libraries/config/messages.inc.php:293
-#, fuzzy
 #| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "SQL 질의문 설정"
+msgstr "SQL 질의문 설정."
 
 #: libraries/config/messages.inc.php:294
 msgid "SQL Validator"
@@ -5377,47 +5372,43 @@ msgid "Startup"
 msgstr "시작"
 
 #: libraries/config/messages.inc.php:303
-#, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "시작 페이지 사용자화"
+msgstr "시작 페이지 사용자화."
 
 #: libraries/config/messages.inc.php:304
 msgid "Database structure"
 msgstr "데이터베이스 구조"
 
 #: libraries/config/messages.inc.php:306
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr "데이터베이스 구조(테이블 목록)란에서 어떤 정보를 보여줄 지 선택"
+msgstr "데이터베이스 구조(테이블 목록)란에서 어떤 정보를 보여줄 지 선택."
 
 #: libraries/config/messages.inc.php:307
 msgid "Table structure"
 msgstr "테이블 구조"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Settings for the table structure (list of columns)"
 msgid "Settings for the table structure (list of columns)."
-msgstr "테이블 구조(컬럼 목록) 설정"
+msgstr "테이블 구조(컬럼 목록) 설정."
 
 #: libraries/config/messages.inc.php:310
 msgid "Tabs"
 msgstr "탭"
 
 #: libraries/config/messages.inc.php:311
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "탭이 어떻게 동작할지 선택"
+msgstr "탭이 어떻게 동작할지 선택."
 
 #: libraries/config/messages.inc.php:312
 #: libraries/schema/User_Schema.class.php:422
 msgid "Display relational schema"
-msgstr ""
+msgstr "릴레이션 스키마 표시"
 
 #: libraries/config/messages.inc.php:314
 #: libraries/schema/User_Schema.class.php:492
@@ -5429,10 +5420,9 @@ msgid "Text fields"
 msgstr "텍스트 필드"
 
 #: libraries/config/messages.inc.php:317
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "문자열 입력필드 사용자화"
+msgstr "문자열 입력필드 사용자화."
 
 #: libraries/config/messages.inc.php:318
 msgid "Texy! text"
@@ -5447,22 +5437,18 @@ msgid "Warnings"
 msgstr "경고"
 
 #: libraries/config/messages.inc.php:322
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "phpMyAdmin에서 보여지는 일부 경고 비활성화"
+msgstr "phpMyAdmin로 인해 출력되는 경고의 일부를 끔."
 
 #: libraries/config/messages.inc.php:324
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for import "
 "and export operations."
-msgstr ""
-"가져오기 또는 내보내기 작업에 [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] "
-"압축 사용"
+msgstr "가져오기와 내보내기 작업에 [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] 압축 사용."
 
 #: libraries/config/messages.inc.php:327
 msgid "GZip"
@@ -5473,16 +5459,13 @@ msgid "Extra parameters for iconv"
 msgstr "iconv 확장 파라미터"
 
 #: libraries/config/messages.inc.php:330
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
-msgstr ""
-"활성화 할 경우, phpMyAdmin은 다중 쿼리 실행 중 하나가 실패하더라도 실행을 계"
-"속합니다"
+msgstr "활성화 할 경우, phpMyAdmin은 다중 쿼리 실행 중 하나가 실패하더라도 실행을 계속합니다."
 
 #: libraries/config/messages.inc.php:333
 msgid "Ignore multiple statement errors"
@@ -5661,7 +5644,7 @@ msgstr "최대한 표시될 SQL 길이"
 #: libraries/config/messages.inc.php:405 libraries/config/messages.inc.php:419
 #: libraries/config/messages.inc.php:519
 msgid "Users cannot set a higher value"
-msgstr "더 높은 값을 설정 할 수 없습니다."
+msgstr "사용자는 더 높은 값을 설정 할 수 없습니다"
 
 #: libraries/config/messages.inc.php:407
 #, fuzzy
@@ -9226,10 +9209,12 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"문자열 앞/뒤에 문자를 추가. 첫 번째 옵션은 앞쪽에 추가, 두 번째 옵션은 뒤에 추가 (작은 따옴표로 묶여져 있음, 기본값은 빈 "
+"문자열)."
 
 #: libraries/plugins/transformations/abstract/SQLTransformationsPlugin.class.php:31
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "텍스트를 SQL 쿼리형식으로 문법 강조를 합니다."
 
 #: libraries/plugins/transformations/abstract/SubstringTransformationsPlugin.class.php:31
 msgid ""
@@ -9239,6 +9224,8 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
+"문자열의 일부를 표시. 첫 번째 옵션은 문자열 앞 부분에 생략할 문자 수 (기본값은 0). 두 번재 옵션은 리턴할 문자열 수 (기본값: "
+"문자열 끝 까지). 세 번째 옵션은 생략된 문자열에 대신 표시될 문자열 (기본값: \"...\")."
 
 #: libraries/plugins/transformations/abstract/TextImageLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9246,6 +9233,8 @@ msgid ""
 "option is a URL prefix like \"http://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
+"이미지와 링크를 표시; 컬럼에 파일명이 있음. 첫 번재 옵션은 URL 앞쪽에 추가될 문자열 (예: "
+"\"http://www.example.com/\"). 두 번째와 세 번째 옵션은 너비와 높이(pixel 단위)."
 
 #: libraries/plugins/transformations/abstract/TextLinkTransformationsPlugin.class.php:33
 msgid ""
@@ -9253,39 +9242,37 @@ msgid ""
 "prefix like \"http://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
+"링크 표시; 컬럼에 파일명이 있음. 첫 번재 옵션은 URL 앞쪽에 추가될 문자열 (예: \"http://www.example.com\"). "
+"두 번재 옵션은 링크의 타이틀 내용."
 
 #: libraries/relation.lib.php:89
 msgid "not OK"
-msgstr ""
+msgstr "not OK"
 
 #: libraries/relation.lib.php:96
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
-msgstr "확인"
+msgstr "OK"
 
 #: libraries/relation.lib.php:99
 msgid "Enabled"
 msgstr "사용가능"
 
 #: libraries/relation.lib.php:106 libraries/relation.lib.php:124
-#, fuzzy
 #| msgid "General Settings"
 msgid "General relation features"
-msgstr "일반 설정"
+msgstr "일반 릴레이션 기능"
 
 #: libraries/relation.lib.php:135
-#, fuzzy
 #| msgid "Display chart"
 msgid "Display Features"
-msgstr "차트 표시"
+msgstr "기능 표시"
 
 #: libraries/relation.lib.php:152
-#, fuzzy
 #| msgid "Creation:"
 msgid "Creation of PDFs"
-msgstr "생성:"
+msgstr "PDF 생성"
 
 #: libraries/relation.lib.php:163
 msgid "Displaying Column Comments"
@@ -9294,10 +9281,9 @@ msgstr "열(칼럼) 설명(코멘트) 출력하기"
 #: libraries/relation.lib.php:169
 #: libraries/tbl_columns_definition_form.lib.php:321
 #: transformation_overview.php:39
-#, fuzzy
 #| msgid "Version information"
 msgid "Browser transformation"
-msgstr "버전 정보"
+msgstr "브라우저 변형"
 
 #: libraries/relation.lib.php:175
 msgid ""
@@ -9325,20 +9311,18 @@ msgid "User preferences"
 msgstr "사용자 환경설정"
 
 #: libraries/relation.lib.php:268
-#, fuzzy
 #| msgid "Configuration file"
 msgid "Configurable menus"
-msgstr "설정 파일"
+msgstr "설정 가능한 메뉴"
 
 #: libraries/relation.lib.php:279
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Hide/show navigation items"
-msgstr "네비게이션 프레임 새로고침"
+msgstr "네비게이션 아이템 숨기기/보이기"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Query-By-Example 검색을 저장"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
