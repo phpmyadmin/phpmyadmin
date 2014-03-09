@@ -9,6 +9,7 @@
 require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Tests for Node_Column class
