@@ -151,7 +151,7 @@ class ExportPhparray extends ExportPlugin
     }
 
     /**
-     * Outputs the content of a table in NHibernate format
+     * Outputs the content of a table in PHP array format
      *
      * @param string $db        database name
      * @param string $table     table name
