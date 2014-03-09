@@ -10,11 +10,13 @@
  * Include to test
  */
 require_once 'libraries/user_preferences.lib.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/url_generating.lib.php';
 
 /**
  * tests for methods under user_preferences libarary

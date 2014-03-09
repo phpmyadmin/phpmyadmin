@@ -11,9 +11,12 @@
  */
 require_once 'libraries/Util.class.php';
 require_once 'libraries/tbl_columns_definition_form.lib.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Partition.class.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/transformations.lib.php';
+require_once 'libraries/mysql_charsets.lib.php';
 
 /**
  * Tests for libraries/tbl_columns_definition_form.lib.php
