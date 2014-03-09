@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-04 14:21+0100\n"
-"PO-Revision-Date: 2014-03-09 15:38+0200\n"
-"Last-Translator: Gyeongsu Han <hansim@gmail.com>\n"
+"PO-Revision-Date: 2014-03-09 15:45+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -9433,10 +9433,9 @@ msgid ""
 msgstr ""
 
 #: libraries/replication_gui.lib.php:212
-#, fuzzy
 #| msgid "Show slave status"
 msgid "See slave status table"
-msgstr "Slave 상태 보기"
+msgstr "Slave 상태 테이블 보기"
 
 #: libraries/replication_gui.lib.php:217
 msgid "Control slave:"
@@ -9889,10 +9888,9 @@ msgid "<b>One or more errors have occurred while processing your request:</b>"
 msgstr "<b>요청을 처리하는 중에 하나 혹은 그 이상의 오류가 발생했습니다:</b>"
 
 #: libraries/rte/rte_routines.lib.php:446
-#, fuzzy
 #| msgid "Edit Index"
 msgid "Edit routine"
-msgstr "인덱스 수정"
+msgstr "루틴 수정"
 
 #: libraries/rte/rte_routines.lib.php:949
 #, fuzzy
@@ -10107,10 +10105,9 @@ msgid "No trigger with name %1$s found in database %2$s"
 msgstr "데이터베이스에 테이블이 없습니다."
 
 #: libraries/rte/rte_words.lib.php:49
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no triggers to display."
-msgstr "최근 테이블이 없습니다."
+msgstr "표시할 트리거가 없습니다."
 
 #: libraries/rte/rte_words.lib.php:55
 msgid "Add event"
@@ -10172,10 +10169,9 @@ msgstr ""
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:894
 #: libraries/schema/Pdf_Relation_Schema.class.php:1232
-#, fuzzy
 #| msgid "Relational key"
 msgid "Relational schema"
-msgstr "관계키"
+msgstr "릴레이션 스키마"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1195
 msgid "Table of contents"
@@ -10248,10 +10244,9 @@ msgid "Show color"
 msgstr "색깔 보기"
 
 #: libraries/schema/User_Schema.class.php:463
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show dimension of tables"
-msgstr "열려있는 테이블 보기"
+msgstr "테이블 크기 보기"
 
 #: libraries/schema/User_Schema.class.php:468
 msgid "Same width for all tables"
@@ -10697,10 +10692,9 @@ msgid "Add user"
 msgstr "사용자 추가"
 
 #: libraries/server_privileges.lib.php:1692
-#, fuzzy
 #| msgid "Database server"
 msgid "Database for user"
-msgstr "데이터베이스 서버"
+msgstr "유저 전용 데이터베이스"
 
 #: libraries/server_privileges.lib.php:1696
 msgid "Create database with same name and grant all privileges."
@@ -10764,10 +10758,9 @@ msgid "global"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2102
-#, fuzzy
 #| msgid "Databases"
 msgid "database-specific"
-msgstr "데이터베이스"
+msgstr "데이터베이스 고유"
 
 #: libraries/server_privileges.lib.php:2104
 msgid "wildcard"
@@ -12861,10 +12854,9 @@ msgid "Create relation"
 msgstr "관계 생성"
 
 #: pmd_general.php:106
-#, fuzzy
 #| msgid "Reload page"
 msgid "Reload"
-msgstr "페이지 새로고침"
+msgstr "새로고침"
 
 #: pmd_general.php:111
 msgid "Help"
@@ -13183,10 +13175,9 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:89
-#, fuzzy
 #| msgid "Server connection collation"
 msgid "Insecure connection"
-msgstr "서버 연결 콜레이션(언어)"
+msgstr "보호되지 않은 연결"
 
 #: setup/frames/index.inc.php:118
 #, fuzzy
