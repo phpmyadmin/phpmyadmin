@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-test
  */
 require_once 'libraries/plugins/export/ExportCsv.class.php';
+require_once 'libraries/export.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
