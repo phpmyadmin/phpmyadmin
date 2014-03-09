@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.1.10.0 (not yet released)
 - bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit
+- bug #4278 reCaptcha re-login requires double effort
 
 4.1.9.0 (2014-03-06)
 - bug #4279 CTRL + up or down moves two fields (part one)
@@ -47,7 +48,6 @@ phpMyAdmin - ChangeLog
 - bug #4263 Japanese character encoding not working properly when exporting
 - bug #4269 Notice on table relation page
 - bug #4270 Bad text-color for table comments
-- bug #4278 reCaptcha re-login requires double effort
 - bug #4272 Incorrect tabindex
 - bug #4271 Query by example and the second criteria line
 - bug #4242 Wildcard-containing only_db failure in sidebar
