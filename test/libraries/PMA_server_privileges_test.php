@@ -45,6 +45,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
+        $GLOBALS['cfg']['SendErrorReports'] = "never";
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['RememberSorting'] = true;
         $GLOBALS['cfg']['SQP'] = array();

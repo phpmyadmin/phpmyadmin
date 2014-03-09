@@ -14,9 +14,11 @@ require_once 'libraries/tbl_columns_definition_form.lib.php';
 require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Partition.class.php';
 require_once 'libraries/Types.class.php';
+require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/StorageEngine.class.php';
 
 /**
  * Tests for libraries/tbl_columns_definition_form.lib.php
@@ -36,6 +38,10 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DBG'] = null;
         $GLOBALS['cfg']['TextareaCols'] = 10;
         $GLOBALS['cfg']['TextareaRows'] = 15;
+        $GLOBALS['pmaThemeImage'] = 'image';
+
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**

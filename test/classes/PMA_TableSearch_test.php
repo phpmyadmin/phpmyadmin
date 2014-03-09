@@ -21,6 +21,7 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Types.class.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/url_generating.lib.php';
 
 /**
  * Tests for PMA_TableSearch

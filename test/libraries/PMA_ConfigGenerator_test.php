@@ -13,6 +13,7 @@ require_once 'setup/lib/ConfigGenerator.class.php';
 require_once 'libraries/config/ConfigFile.class.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * tests for methods under Config file generator

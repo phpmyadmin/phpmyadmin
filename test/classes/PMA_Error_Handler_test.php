@@ -12,6 +12,7 @@
 require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Util.class.php';
+require_once 'libraries/Theme.class.php';
 
 /**
  * Test for PMA_Error_Handler class.
@@ -36,6 +37,9 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
     {
         $this->object = new PMA_Error_Handler();
 
+        $GLOBALS['pmaThemeImage'] = 'image';
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**
@@ -273,6 +277,7 @@ class PMA_Error_Handler_Test extends PHPUnit_Framework_TestCase
      */
     public function testHasDisplayErrors()
     {
+        $GLOBALS['cfg']['Error_Handler']['display'] = false;
         $this->assertFalse($this->object->hasDisplayErrors());
     }
 }

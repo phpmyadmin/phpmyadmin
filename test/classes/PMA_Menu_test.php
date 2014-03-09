@@ -51,6 +51,8 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DefaultTabTable'] = 'sql.php';
         $GLOBALS['cfg']['OBGzip'] = false;
         $GLOBALS['cfg']['NaturalOrder'] = true;
+        $GLOBALS['cfg']['TabsMode'] = 'both';
+        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';

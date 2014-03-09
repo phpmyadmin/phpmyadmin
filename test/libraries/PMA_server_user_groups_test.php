@@ -28,6 +28,8 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['users'] = 'users';
         $GLOBALS['cfg']['Server']['usergroups'] = 'usergroups';

@@ -14,6 +14,7 @@ require_once 'libraries/Error.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Util.class.php';
+require_once 'libraries/Theme.class.php';
 
 /**
  * Erorr class testing.
@@ -37,6 +38,10 @@ class PMA_Error_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PMA_Error('2', 'Compile Error', 'error.txt', 15);
+
+        $GLOBALS['pmaThemeImage'] = 'image';
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**
