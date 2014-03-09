@@ -11,6 +11,7 @@ require_once 'libraries/Util.class.php';
  * Include to test.
  */
 require_once 'libraries/TableSearch.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**

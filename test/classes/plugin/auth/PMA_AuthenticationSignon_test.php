@@ -7,6 +7,7 @@
  */
 
 require_once 'libraries/plugins/auth/AuthenticationSignon.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/Theme.class.php';
