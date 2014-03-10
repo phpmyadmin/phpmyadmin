@@ -27,6 +27,10 @@ class Node_Table_Container_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['token'] = 'token';
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
+        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
+        $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '__';
+        $GLOBALS['cfg']['NavigationTreeTableLevel'] = 1;
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
     }
 

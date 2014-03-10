@@ -28,6 +28,16 @@ require_once 'libraries/sanitizing.lib.php';
 class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * SetUp for test cases
+     *
+     * @return void
+     */
+    public function setup()
+    {
+        $GLOBALS['cfg']['ProxyUrl'] = '';
+    }
+
+    /**
      * Test for PMA_messagesBegin()
      *
      * @return void

@@ -14,6 +14,7 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
+require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Error_Handler.class.php';
 
 /**

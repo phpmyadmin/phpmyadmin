@@ -18,6 +18,7 @@ require_once 'libraries/config.default.php';
 require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/Response.class.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/sanitizing.lib.php';
 
 /**
  * tests for AuthenticationCookie class
@@ -38,6 +39,9 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $this->object = new AuthenticationCookie(null);
+
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**

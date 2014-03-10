@@ -17,6 +17,8 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/Message.class.php';
 
 /**
  * tests for methods under user_preferences libarary

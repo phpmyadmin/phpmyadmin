@@ -107,6 +107,7 @@ class PMA_Util_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetLatestVersion()
     {
+        $GLOBALS['cfg']['ProxyUrl'] = '';
         $GLOBALS['cfg']['VersionCheckProxyUrl'] = '';
         $version = PMA_Util::getLatestVersion();
         $this->assertNotEmpty($version->version);

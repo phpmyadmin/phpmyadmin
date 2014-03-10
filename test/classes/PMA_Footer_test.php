@@ -55,6 +55,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
@@ -70,6 +71,9 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         unset($GLOBALS['sql_query']);
         $GLOBALS['error_handler'] = new PMA_Error_Handler();
         unset($_POST);
+
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**
