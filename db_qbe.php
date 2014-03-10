@@ -21,7 +21,6 @@ $cfgRelation = PMA_getRelationsParam();
 
 $savedSearchList = array();
 $currentSearchId = null;
-$displayUpdateSearchHint = false;
 if ($cfgRelation['savedsearcheswork']) {
     include 'libraries/SavedSearches.class.php';
     $header = $response->getHeader();
@@ -35,7 +34,6 @@ if ($cfgRelation['savedsearcheswork']) {
 
     if (!empty($_REQUEST['searchId'])) {
         $savedSearch->setId($_REQUEST['searchId']);
-        $displayUpdateSearchHint = true;
     }
 
     //Action field is sent.
@@ -45,11 +43,9 @@ if ($cfgRelation['savedsearcheswork']) {
             $saveResult = $savedSearch->setId(null)
                 ->setCriterias($_REQUEST)
                 ->save();
-            $displayUpdateSearchHint = true;
         } elseif ('update' === $_REQUEST['action']) {
             $saveResult = $savedSearch->setCriterias($_REQUEST)
                 ->save();
-            $displayUpdateSearchHint = true;
         } elseif ('delete' === $_REQUEST['action']) {
             $deleteResult = $savedSearch->delete();
             //After deletion, reset search.
@@ -57,7 +53,6 @@ if ($cfgRelation['savedsearcheswork']) {
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($_REQUEST['db']);
             $_REQUEST = array();
-            $displayUpdateSearchHint = false;
         } elseif ('load' === $_REQUEST['action']) {
             if (empty($_REQUEST['searchId'])) {
                 //when not loading a search, reset the object.
@@ -67,7 +62,6 @@ if ($cfgRelation['savedsearcheswork']) {
                 $_REQUEST = array();
             } else {
                 $loadResult = $savedSearch->load();
-                $displayUpdateSearchHint = true;
             }
         }
         //Else, it's an "update query"
@@ -133,15 +127,6 @@ if ($cfgRelation['designerwork']) {
         )
     );
 }
-if ($displayUpdateSearchHint) {
-    $response->addHTML(
-        PMA_Message::notice(
-            __(
-                'After saving or loading a bookmarked search, you can rename it and '
-                . 'save the new criteria.'
-            )
-        )
-    );
-}
+
 $response->addHTML($db_qbe->getSelectionForm($cfgRelation));
 ?>
