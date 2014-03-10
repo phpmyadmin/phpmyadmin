@@ -22,6 +22,7 @@
 AJAX.registerTeardown('db_qbe.js', function () {
     $("#searchId").die('change');
     $("#saveSearch").die('click');
+    $("#updateSearch").die('click');
     $("#deleteSearch").die('click');
 });
 
@@ -31,23 +32,26 @@ AJAX.registerOnload('db_qbe.js', function () {
      * Ajax event handlers for 'Select saved search'
      */
     $("#searchId").live('change', function (event) {
-        if ('' == $(this).val()) {
-            return false;
-        }
-
         $('#action').val('load');
         $('#formQBE').submit();
     });
 
     /**
-     * Ajax event handlers for 'Save search'
+     * Ajax event handlers for 'Create bookmark'
      */
     $("#saveSearch").live('click', function (event) {
-        $('#action').val('save');
+        $('#action').val('create');
     });
 
     /**
-     * Ajax event handlers for 'Delete search'
+     * Ajax event handlers for 'Update bookmark'
+     */
+    $("#updateSearch").live('click', function (event) {
+        $('#action').val('update');
+    });
+
+    /**
+     * Ajax event handlers for 'Delete bookmark'
      */
     $("#deleteSearch").live('click', function (event) {
         var question = $.sprintf(PMA_messages.strConfirmDeleteQBESearch, $("#searchId option:selected").text());

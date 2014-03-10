@@ -41,7 +41,12 @@ if ($cfgRelation['savedsearcheswork']) {
     //Action field is sent.
     if (isset($_REQUEST['action'])) {
         $savedSearch->setSearchName($_REQUEST['searchName']);
-        if ('save' === $_REQUEST['action']) {
+        if ('create' === $_REQUEST['action']) {
+            $saveResult = $savedSearch->setId(null)
+                ->setCriterias($_REQUEST)
+                ->save();
+            $displayUpdateSearchHint = true;
+        } elseif ('update' === $_REQUEST['action']) {
             $saveResult = $savedSearch->setCriterias($_REQUEST)
                 ->save();
             $displayUpdateSearchHint = true;
@@ -54,8 +59,16 @@ if ($cfgRelation['savedsearcheswork']) {
             $_REQUEST = array();
             $displayUpdateSearchHint = false;
         } elseif ('load' === $_REQUEST['action']) {
-            $loadResult = $savedSearch->load();
-            $displayUpdateSearchHint = true;
+            if (empty($_REQUEST['searchId'])) {
+                //when not loading a search, reset the object.
+                $savedSearch = new PMA_SavedSearches($GLOBALS);
+                $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+                    ->setDbname($_REQUEST['db']);
+                $_REQUEST = array();
+            } else {
+                $loadResult = $savedSearch->load();
+                $displayUpdateSearchHint = true;
+            }
         }
         //Else, it's an "update query"
     }
