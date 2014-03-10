@@ -1240,7 +1240,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "\na\n"
-            . '<input type="text" name="fieldsb" value="" size="10" class='
+            . '<input type="text" name="fieldsb" value="" size="10" maxlength="10" class='
             . '"textfield" c tabindex="3" id="field_1_3" />',
             $result
         );
@@ -1258,7 +1258,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $result = PMA_getHTMLinput($column, 'a', 'b', 30, 'c', 23, 2, 0);
 
         $this->assertEquals(
-            '<input type="text" name="fieldsa" value="b" size="30" class='
+            '<input type="text" name="fieldsa" value="b" size="30" maxlength="30" class='
             . '"textfield datefield" c tabindex="25" id="field_0_3" />',
             $result
         );
@@ -1268,7 +1268,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = 'datetime';
         $result = PMA_getHTMLinput($column, 'a', 'b', 30, 'c', 23, 2, 0);
         $this->assertEquals(
-            '<input type="text" name="fieldsa" value="b" size="30" class='
+            '<input type="text" name="fieldsa" value="b" size="30" maxlength="30" class='
             . '"textfield datetimefield" c tabindex="25" id="field_0_3" />',
             $result
         );
@@ -1278,7 +1278,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = 'timestamp';
         $result = PMA_getHTMLinput($column, 'a', 'b', 30, 'c', 23, 2, 0);
         $this->assertEquals(
-            '<input type="text" name="fieldsa" value="b" size="30" class='
+            '<input type="text" name="fieldsa" value="b" size="30" maxlength="30" class='
             . '"textfield datetimefield" c tabindex="25" id="field_0_3" />',
             $result
         );
@@ -1353,7 +1353,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "a\n"
-            . '<input type="text" name="fieldsb" value="&lt;" size="20" class="text'
+            . '<input type="text" name="fieldsb" value="&lt;" size="20" maxlength="20" class="text'
             . 'field datetimefield" c tabindex="34" id="field_1_3" /><input type='
             . '"hidden" name="auto_incrementb" value="1" /><input type="hidden" name'
             . '="fields_typeb" value="timestamp" />',
