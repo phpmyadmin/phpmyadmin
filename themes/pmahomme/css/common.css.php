@@ -42,7 +42,7 @@ body#loginform {
 }
 
 #page_content {
-    margin: 0 .5em;
+    margin: 0 0 0 .5em;
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
@@ -1821,6 +1821,7 @@ div.sqlvalidate {
     min-width: 160px;
     padding-top: 1em;
     padding-<?php echo $left; ?>: 1em;
+    padding-<?php echo $right; ?>: .5em;
 }
 
 .group {
