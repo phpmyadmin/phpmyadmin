@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return void
  */
-function PMA_log_user($user, $status = 'ok')
+function PMA_logUser($user, $status = 'ok')
 {
     if (function_exists('apache_note')) {
         apache_note('userID', $user);

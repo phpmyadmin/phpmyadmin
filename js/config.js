@@ -61,6 +61,7 @@ function setFieldValue(field, field_type, value)
     field = $(field);
     switch (field_type) {
     case 'text':
+    case 'number':
         //TODO: replace to .val()
         field.attr('value', (value !== undefined ? value : field.attr('defaultValue')));
         break;
@@ -102,6 +103,7 @@ function getFieldValue(field, field_type)
     field = $(field);
     switch (field_type) {
     case 'text':
+    case 'number':
         return field.prop('value');
     case 'checkbox':
         return field.prop('checked');
@@ -202,7 +204,7 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      */
-    validate_positive_number: function (isKeyUp) {
+    PMA_validatePositiveNumber: function (isKeyUp) {
         if (isKeyUp && this.value === '') {
             return true;
         }
@@ -214,7 +216,7 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      */
-    validate_non_negative_number: function (isKeyUp) {
+    PMA_validateNonNegativeNumber: function (isKeyUp) {
         if (isKeyUp && this.value === '') {
             return true;
         }
@@ -226,7 +228,7 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      */
-    validate_port_number: function (isKeyUp) {
+    PMA_validatePortNumber: function (isKeyUp) {
         if (this.value === '') {
             return true;
         }
@@ -239,7 +241,7 @@ var validators = {
      * @param {boolean} isKeyUp
      * @param {string}  regexp
      */
-    validate_by_regex: function (isKeyUp, regexp) {
+    PMA_validateByRegex: function (isKeyUp, regexp) {
         if (isKeyUp && this.value === '') {
             return true;
         }
@@ -254,7 +256,7 @@ var validators = {
      * @param {boolean} isKeyUp
      * @param {int} max_value
      */
-    validate_upper_bound: function (isKeyUp, max_value) {
+    PMA_validateUpperBound: function (isKeyUp, max_value) {
         var val = parseInt(this.value, 10);
         if (isNaN(val)) {
             return true;
@@ -333,9 +335,12 @@ function displayErrors(error_list)
         var errors = error_list[field_id];
         var field = $('#' + field_id);
         var isFieldset = field.attr('tagName') == 'FIELDSET';
-        var errorCnt = isFieldset
-            ? field.find('dl.errors')
-            : field.siblings('.inline_errors');
+        var errorCnt;
+        if (isFieldset) {
+            errorCnt = field.find('dl.errors');
+        } else {
+            errorCnt = field.siblings('.inline_errors');
+        }
 
         // remove empty errors (used to clear error list)
         errors = $.grep(errors, function (item) {
@@ -406,16 +411,19 @@ function validate_fieldset(fieldset, isKeyUp, errors)
  */
 function validate_field(field, isKeyUp, errors)
 {
+    var args, result;
     field = $(field);
     var field_id = field.attr('id');
     errors[field_id] = [];
     var functions = getFieldValidators(field_id, isKeyUp);
     for (var i = 0; i < functions.length; i++) {
-        var args = functions[i][1] !== null
-            ? functions[i][1].slice(0)
-            : [];
+        if (typeof functions[i][1] !== 'undefined' && functions[i][1] !== null) {
+            args = functions[i][1].slice(0);
+        } else {
+            args = [];
+        }
         args.unshift(isKeyUp);
-        var result = functions[i][0].apply(field[0], args);
+        result = functions[i][0].apply(field[0], args);
         if (result !== true) {
             if (typeof result == 'string') {
                 result = [result];
@@ -621,7 +629,7 @@ AJAX.registerOnload('config.js', function () {
                 restoreField(field_sel.substr(1));
             } else {
                 field_sel = href.match(/^[^=]+/)[0];
-                var value = href.match(/=(.+)$/)[1];
+                var value = href.match(/\=(.+)$/)[1];
                 setFieldValue($(field_sel), 'text', value);
             }
             $(field_sel).trigger('change');
@@ -652,16 +660,19 @@ AJAX.registerOnload('config.js', function () {
         .add('#export_text_file, #import_text_file')
         .click(function () {
             var enable_id = $(this).attr('id');
-            var disable_id = enable_id.match(/local_storage$/)
-                ? enable_id.replace(/local_storage$/, 'text_file')
-                : enable_id.replace(/text_file$/, 'local_storage');
+            var disable_id;
+            if (enable_id.match(/local_storage$/)) {
+                disable_id = enable_id.replace(/local_storage$/, 'text_file');
+            } else {
+                disable_id = enable_id.replace(/text_file$/, 'local_storage');
+            }
             $('#opts_' + disable_id).addClass('disabled').find('input').prop('disabled', true);
             $('#opts_' + enable_id).removeClass('disabled').find('input').prop('disabled', false);
         });
 
     // detect localStorage state
     var ls_supported = window.localStorage || false;
-    var ls_exists = ls_supported ? (window.localStorage['config'] || false) : false;
+    var ls_exists = ls_supported ? (window.localStorage.config || false) : false;
     $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
     $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
     if (ls_exists) {
@@ -672,8 +683,9 @@ AJAX.registerOnload('config.js', function () {
         var disabled = false;
         if (!ls_supported) {
             disabled = form.find('input[type=radio][value$=local_storage]').prop('checked');
-        } else if (!ls_exists && form.attr('name') == 'prefs_import'
-                && $('#import_local_storage')[0].checked) {
+        } else if (!ls_exists && form.attr('name') == 'prefs_import' &&
+            $('#import_local_storage')[0].checked
+            ) {
             disabled = true;
         }
         form.find('input[type=submit]').prop('disabled', disabled);
@@ -715,20 +727,25 @@ function savePrefsToLocalStorage(form)
         type: 'POST',
         data: {
             ajax_request: true,
+            server: form.find('input[name=server]').val(),
             token: form.find('input[name=token]').val(),
             submit_get_json: true
         },
-        success: function (response) {
-            window.localStorage['config'] = response.prefs;
-            window.localStorage['config_mtime'] = response.mtime;
-            window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
-            updatePrefsDate();
-            $('div.localStorage-empty').hide();
-            $('div.localStorage-exists').show();
-            var group = form.parent('.group');
-            group.css('height', group.height() + 'px');
-            form.hide('fast');
-            form.prev('.click-hide-message').show('fast');
+        success: function (data) {
+            if (data.success === true) {
+                window.localStorage['config'] = data.prefs;
+                window.localStorage['config_mtime'] = data.mtime;
+                window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
+                updatePrefsDate();
+                $('div.localStorage-empty').hide();
+                $('div.localStorage-exists').show();
+                var group = form.parent('.group');
+                group.css('height', group.height() + 'px');
+                form.hide('fast');
+                form.prev('.click-hide-message').show('fast');
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
         },
         complete: function () {
             submit.prop('disabled', false);
@@ -742,22 +759,11 @@ function savePrefsToLocalStorage(form)
 function updatePrefsDate()
 {
     var d = new Date(window.localStorage['config_mtime_local']);
-    var msg = PMA_messages.strSavedOn.replace('@DATE@', formatDate(d));
+    var msg = PMA_messages.strSavedOn.replace(
+        '@DATE@',
+        PMA_formatDateTime(d)
+    );
     $('#opts_import_local_storage div.localStorage-exists').html(msg);
-}
-
-/**
- * Returns date formatted as YYYY-MM-DD HH:II
- *
- * @param {Date} d
- */
-function formatDate(d)
-{
-    return d.getFullYear() + '-'
-        + (d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth())
-        + '-' + (d.getDate() < 10 ? '0' + d.getDate() : d.getDate())
-        + ' ' + (d.getHours() < 10 ? '0' + d.getHours() : d.getHours())
-        + ':' + (d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes());
 }
 
 /**

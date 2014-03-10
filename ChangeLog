@@ -1,139 +1,129 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.0.0 (not yet released)
+4.2.0.0 (not yet released)
++ rfe #1403 Export only triggers
++ rfe #1483 Export Server/Database/Table without triggers
++ rfe #1662 Add table comment tool tip in database structure page
++ rfe #1447 Single table for display Character Sets and Collations
++ rfe #1455 Display icons/text/both for the table row actions
++ rfe #1473 Transformation to convert Boolean value to text
+- bug #4157 Changing users password will delete it
++ rfe #1474 Text transformation combines Append and Prepend
++ Added warning about the mysql extension being deprecated
+  and removed the extension directive
++ Added support for scatter charts
++ rfe #1478 Make Column Headings Sticky
++ rfe #1480 Enhance privileges initials table
++ rfe #1472 [interface] Break "Edit privileges" with sub-menus
++ rfe #1466 Minor refactoring required
++ rfe #1004 Create indexes at the end in SQL export
++ rfe #1479 Relations edit form for larger monitors
++ rfe #1475 Inline query box vertical resize
++ rfe #1500 [interface] Add bottom border to top menu container
++ rfe #1498 Add datepicker for 'TIME' type
+- bug #4237 HTTP Referer disclosure in SQL links
++ rfe       Show full names on navigation hover
++ rfe #1505 Behaviour on click on a routine in nav panel
++ rfe #1418 Support more than one separating character on CSV import
++ rfe #569  Load/Save Query By Example
+- bug #4281 Grid edit ENUM field, dialog disappears when trying to select
+- bug #4304 DB export using zip compression generates an empty archive
++ rfe #1508 confirmation message at the top
+- bug #4306 breadcrubs wrong on table create
++ rfe #1511 better validate database name for copying
++ rfe #1510 Database tab "Drop" button should be a link
++ rfe #1513 Highlight required form fields after failed submission
++ rfe #1460 Redirect to login page after session has expired
 
-4.0.0.0 (not yet released)
-+ Patch #3481047 for rfe #3480477 Insert as new row enhancement
-+ Patch #3480999 Activate codemirror in the query window
-- Patch #3495284 XML Import - fix message and redirect
-+ rfe #3484063 Null checkbox behavior
-+ Patch #3497179 Contest-5: Add user: Allow create DB w/same name + grant u_%
-+ Patch #3498201 Contest-6: Export all privileges
-+ Patch #3502814 for rfe #3187077 Change password buttons should match
-+ rfe #3488640 Expand table-group in non-light navigation frame if only one
-+ Patch #3509360 Contest-3: Option "Truncate table" before "insert"
-+ Patch #3506552 Contest-2: Show index information in the data dictionary
-+ Patch #3510656 Contest-1: Ignoring foreign keys while dropping tables
-- Bug #3509686 Reverting sort on joined column does not work
-+ New transformation: append string
-+ rfe #3507804 Session upload progress (PHP 5.4)
-+ rfe #3488185 draggable columns vs copy column name
-+ Patch #3507001 Contest-4: Textarea for large character columns
-+ Removed the PHP version of the ENUM editor
-+ Patch #3507111 Display distinct results, linked to corresponding data rows
-- bug #3507917 [export] JSON has unescaped values for allegedly numeric columns
-+ rfe #3516187 show tables creation, last update, last check timestamps in db_structure
-- bug #3059806 Supporting running from CIFS/Samba shares
-- bug #3516341 [export] Open Document Text, Word and Texy! Text show table structure twice
-- bug [export] Texy! Text: Columns containing Pipe Character don't export properly
-+ [export] Show triggers in Open Document Text, Word and Texy! Text
-- Patch #3415061 [auth] Login screen appears under the page
-+ rfe #3517354 [interface] Allow disabling CodeMirror with $cfg['CodemirrorEnable'] = false
-+ rfe #3475567 [interface] New directive $cfg['HideStructureActions']
-- bug #3468272 [import] Fixed import of ODS with more paragraphs in a cell
-- bug #3510196 [core] Improved redirecting with ForceSSL option
-+ rfe #3518852 [edit] edit blob but not other binary, new option $cfg['ProtectBinary'] = 'noblob'
-+ Hide language select box if there are no locales installed
-+ Removed some directives: verbose_check, SuggestDBName, LightTabs,
-VerboseMultiSubmit, ReplaceHelpImg
-- Patch #3500882 Fixing checkbox behaviour while editing identical rows
-+ rfe #3441722 [interface] Display description of datatypes
-+ rfe #3517835 [structure] Move columns easily
-+ Ajaxified "Create View" functionality
-+ [import] New plugin: import mediawiki
-+ New navigation system
-+ Discontinued the use of a frame-based layout
-+ rfe #3528994 [interface] Allow wrapping possibly long values in replication-status table
-+ [interface] Autoselect username input on cookie login page
-- bug #3563799 [interface] Grid editing destroying huge amount of data
-+ [import] Remove support for the unactive docSQL import format
-- bug #3577443 [edit] "Browse foreign values" does not show on ajax edit
-+ rfe #3522109 [browse] Grid editing: action to trigger it (or disable)
-- bug #3526598 [interface] SQL query not shown when creating table
-+ Dropped configuration directive: AllowThirdPartyFraming
-+ Dropped configuration directive: LeftFrameLight
-+ Dropped configuration directive: DisplayDatabasesList
-+ Dropped configuration directives: ShowTooltipAliasDB and ShowTooltipAliasTB
-+ Dropped configuration directive: NaviDatabaseNameColor
-+ Added configuration directive: MaxNavigationItems
-+ Renamed configuration directive: LeftFrameDBTree => NavigationTreeEnableGrouping
-+ Renamed configuration directive: LeftFrameDBSeparator => NavigationTreeDbSeparator
-+ Renamed configuration directive: LeftFrameTableSeparator => NavigationTreeTableSeparator
-+ Renamed configuration directive: LeftFrameTableLevel => NavigationTreeTableLevel
-+ Renamed configuration directive: LeftPointerEnable => NavigationTreePointerEnable
-+ Renamed configuration directive: LeftDefaultTabTable => NavigationTreeDefaultTabTable
-+ Renamed configuration directive: LeftDisplayTableFilterMinimum => NavigationTreeDisplayTableFilterMinimum
-+ Renamed configuration directive: LeftDisplayLogo => NavigationDisplayLogo
-+ Renamed configuration directive: LeftLogoLink => NavigationLogoLink
-+ Renamed configuration directive: LeftLogoLinkWindow => NavigationLogoLinkWindow
-+ Renamed configuration directive: LeftDisplayServers => NavigationDisplayServers
-+ Renamed configuration directive: LeftRecentTable => NumRecentTables
-+ Renamed configuration directive: LeftDisplayDatabaseFilterMinimum => NavigationTreeDisplayDbFilterMinimum
-+ Removed the "Mark row on click" feature; must now click the checkbox to mark
-+ Removed the "Synchronize" feature
-+ Improved layout of server variables page
-+ rfe #1052091 [config] Double-underscores in PMA table names
-+ Improved the "More" dropdown on the table structure page
-+ [interface] Added "scroll to top" link in menubar
-+ [designer] Fullscreen mode for the designer
-+ Upgraded jquery to v1.8.3 and jquery-ui to v1.9.2
-+ Patch #3597529 [status] Add raw value as title on server status page
-+ Support MySQL 5.6 partitioning
-+ Removed the AjaxEnable directive
-+ rfe #3542567 Accept IPv6 ranges and IPv6 CIDR notations in $cfg['Servers'][$i]['AllowDeny']['rules']
-- Bug #3576788 Grid editing shows the value before silent truncation
-- Upgraded jqPlot to 1.0.4 r1121
-- Upgraded to jquery-ui-timepicker-addon 1.1.1
-+ rfe #3599046 [interface] Added comments for indexes
-- Replaced qtip with jQuery UI tooltip
-- Upgraded CodeMirror to 2.37
-- bug #2951 [export] Correctly export decimal fields.
-- bug #3762 [core] Make Advisor work on Windows withou COM extension.
-- bug #3519 [export] Prevent infinite recursion in PDF export.
-- bug #3827 Table specific privileges not displayed for db name containing
-underscore 
-- rfe #1386 Add IF NOT EXISTS clause when copying database
-- No longer package .travis.yml configuration file when creating a release.
-- bug #3830 Can't export custom query because it lowercases table names
-- bug #3829 Enabling query profiling crashes javascript based navigation
-+ rfe #879 Reserved word warning
-+ Remove the database ordering sub-feature of the only_db directive
-- bug #3840 When exporting to gzip format, the data is compressed 2 times
-+ rfe #1319 Permit to create index when creating foreign key
-- bug #3703 Incorrect updating of the list of users
-- bug #3853 Blowfish implementation might be broken (replace with phpseclib)
-- bug #3865 Using like operator on each backslash needs 4 backslash protection
-- bug #3860 Displayed git revision info is not set
-- bug #3871 Check referential integrity broken across databases
-- bug #3874 [export] No preselected option when exporting table
-- bug #3873 Can't copy table to target database if table exists there
-- bug #3683 Incorrect listing of records from to count
-- bug #3876 [import] PHP 5.2 - unexpected T_PAAMAYIM_NEKUDOTAYIM
+4.1.10.0 (not yet released)
+- bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit
+- bug #4278 reCaptcha re-login requires double effort
 
-3.5.9.0 (not yet released)
+4.1.9.0 (2014-03-06)
+- bug #4279 CTRL + up or down moves two fields (part one)
+- bug #4294 output as text radio clickable for "OpenDocument Text" export
+- bug #4297 DROP DATABASE tick box in export no longer works
+- bug #4291 Unable to export comments in OpenDocument text format
+- bug #4299 Deletion even when the user says "No" to the confirmation message
+- bug #4303 "New" link in navi panel is shown even if no privileges
+- bug #4302 Some params are being omitted from microhistory
+- bug #4298 Missing validation on Import CSV: "Columns enclosed with" and "Columns escaped with"
+- bug #4040 Fatal error while resetting settings
+- bug #4305 JS error when editing procedure from nav panel
+- bug #4308 Edit routine form submitting when pressing enter
+- bug #4307 Nav: "Columns" won't expand with specific schema
 
-3.5.8.0 (2013-04-08)
-- bug #3828 MariaDB reported as MySQL
-- bug #3854 Incorrect header for Safari 6.0
-- bug #3705 Attempt to open trigger for edit gives NULL
-- Use HTML5 DOCTYPE 
-- [security] Self-XSS on GIS visualisation page, reported by Janek Vind
-- bug #3800 Incorrect keyhandler behaviour #2
+4.1.8.0 (2014-02-22)
+- bug #4276 Login loop on session expiry
+- bug #4249 Incorrect number of result rows for SQL with subqueries
+- bug #4275 Broken Link to php extension manual
+- bug #4053 List of procedures is not displayed after executing with Enter
+- bug #4081 Setup page content shifted to the right edge of its tabs
+- bug #4284 Reordering a column erases comments for other columns
+- bug #4286 Open "Browse" in a new tab
+- bug #4287 Printview - Always one column too much
+- bug #4288 Expand database (+ icon) after timeout doesn't do anything
+- bug #4285 Fixed CSS for setup
+- Fixed altering table to DOUBLE/FLOAT field
+- bug #4292 Success message and failure message being shown together
+- bug #4293 opening new tab (using selflink) for import.php based actions
+            results in error and logout
 
-3.5.7.0 (2013-02-15)
-- bug #3779 [core] Problem with backslash in enum fields
-- bug #3816 Missing server_processlist.php
-- bug #3821 Safari: white page
-- Correct detection of the Chrome browser
+4.1.7.0 (2014-02-09)
+- bug #4245 initial Browse query does not match sorting order
+- bug #4250 Notice on export page
+- bug #4253 "New" text in navigation frame acts like a database
+- bug #4262 Cannot define a column with fractional seconds
+- bug #4265 Missing datepicker icon for DATETIME(length)
+- bug #4257 Hide fractional seconds when applicable
+- bug #4264 Uncheck "Ignore" while inserting, upon leaving a textarea
+- bug #4260 reCaptcha is ignoring language settings
+- bug #4259 reCaptcha sound session expired problem
+- bug #4263 Japanese character encoding not working properly when exporting
+- bug #4269 Notice on table relation page
+- bug #4270 Bad text-color for table comments
+- bug #4272 Incorrect tabindex
+- bug #4271 Query by example and the second criteria line
+- bug #4242 Wildcard-containing only_db failure in sidebar
 
-3.5.6.0 (2013-01-28)
-- bug #3593604 [status] Erroneous advisor rule
-- bug #3596070 [status] localStorage broken in server status monitor
-- bug #3598736 [routines] Editing a procedure with special characters
-- bug #3600322 [core] Visualize GIS data throws Fatal Error
-- bug #3599362 [core] Double-escaped error message
-- bug #3776 [cookies] Login without auth on second server
+4.1.6.0 (2014-01-26)
+- bug #4232 User not found after creating the user
+- bug #4241 Confusing dialog when trying to create an already existing user
+- bug #4239 Missing LIMIT clause for some queries
+- rfe #1489 Do not show create icon when user has no privileges
+- bug #4218 Chrome behavior with date fields
+- bug #3579 NOW() function incorrectly selected (regression)
+- bug #4244 Advisor complaints about MariaDB 10.x is version less than 5.1
+- bug #3889 When login fails and error display is active, login data is
+displayed (regression)
+- bug #4247 open_basedir warnings on export page
+- bug #4013 AJAX request waiting until version info is retrieved
+- bug #4248 js error when changing number of columns in status monitor
+
+4.1.5.0 (2014-01-17)
+- bug #3780 Allow aborting loading pages
+- bug #4223 Database list: Create database misses collation column
+- bug #4224 Empty table names when a table is "inuse"
+- bug #4225 Partition maintenance broken
+- bug #4219 Table list (left panel) does not reload when table renamed
+- bug #4230 "in use" displayed for all views in database print view
+- bug #4226 Notice: Undefined index: pma_config_loading
+- bug #4221 Bzip2 export cannot be directly imported (so withdraw bz2 export)
+- bug #4204 Reloading user privileges hides user groups submenu
+- bug #4231 DATE columns quick edit decrement by one day
+
+4.1.4.0 (2014-01-07)
+- bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times
+- bug #4209 Missing compression in one case
+- bug #4208 Can't browse tables after sorting on columns with fieldnames that have a '-'
+- bug #4184 Switch to wrong page after adding an index
+- bug #3885 Additional fix for this bug
+- bug #4212 Table "disappears" if it has the same name as its tablegroup
+- bug #4213 Datetime Quick Edit decrements by one day
+- bug #4217 Current value not highlighted when browsing foreign values
+- bug #4220 Incorrect key values in foreign key browser
+- bug #4215 MariaDB 5.5: error in Drizzle detection
 
          --- Older ChangeLogs can be found on our project website ---
                      http://www.phpmyadmin.net/old-stuff/ChangeLogs/

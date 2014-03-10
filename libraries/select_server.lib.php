@@ -30,18 +30,20 @@ function PMA_selectServer($not_only_options, $ommit_fieldset)
     }
 
     if ($not_only_options) {
-        $retval .= '<form method="post" action="' . $GLOBALS['cfg']['DefaultTabServer'] . '" class="disableAjax">';
-        $retval .= PMA_generate_common_hidden_inputs();
+        $retval .= '<form method="post" action="'
+            . $GLOBALS['cfg']['DefaultTabServer'] . '" class="disableAjax">';
+        $retval .= PMA_URL_getHiddenInputs();
 
         if (! $ommit_fieldset) {
             $retval .= '<fieldset>';
         }
-        $retval .= '<label for="select_server">' . __('Current Server') . ':</label> ';
+        $retval .= '<label for="select_server">'
+            . __('Current Server:') . '</label> ';
 
         $retval .= '<select name="server" id="select_server" class="autosubmit">';
         $retval .= '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
     } elseif ($list) {
-        $retval .= __('Current Server') . ':<br />';
+        $retval .= __('Current Server:') . '<br />';
         $retval .= '<ul id="list_server">';
     }
 
@@ -81,8 +83,9 @@ function PMA_selectServer($not_only_options, $ommit_fieldset)
                 $retval .= '<strong>' . htmlspecialchars($label) . '</strong>';
             } else {
 
-                $retval .= '<a class="disableAjax item" href="' . $GLOBALS['cfg']['DefaultTabServer']
-                    . PMA_generate_common_url(array('server' => $key))
+                $retval .= '<a class="disableAjax item" href="'
+                    . $GLOBALS['cfg']['DefaultTabServer']
+                    . PMA_URL_getCommon(array('server' => $key))
                     . '" >' . htmlspecialchars($label) . '</a>';
             }
             $retval .= '</li>';

@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Error.class.php
  *
@@ -12,8 +13,14 @@
 require_once 'libraries/Error.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/Util.class.php';
 
-class PMA_Error_test extends PHPUnit_Framework_TestCase
+/**
+ * Erorr class testing.
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Error_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -74,7 +81,12 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
     public function testSetFile()
     {
         $this->object->setFile('./pma.txt');
-        $this->assertStringStartsWith('./../../', $this->object->getFile());
+        $this->assertStringStartsWith(
+            implode(
+                DIRECTORY_SEPARATOR,
+                array('.', '..', '..')
+            ), $this->object->getFile()
+        );
     }
 
     /**

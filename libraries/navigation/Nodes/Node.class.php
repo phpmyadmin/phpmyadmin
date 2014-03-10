@@ -139,7 +139,7 @@ class Node
      *
      * @param Node $child A child node
      *
-     * @return nothing
+     * @return void
      */
     public function addChild($child)
     {
@@ -180,7 +180,7 @@ class Node
      *
      * @param string $name The name of child to be removed
      *
-     * @return nothing
+     * @return void
      */
     public function removeChild($name)
     {
@@ -233,11 +233,11 @@ class Node
     public function realParent()
     {
         $retval = $this->parents();
-        if (count($retval) > 0) {
-            return $retval[0];
-        } else {
+        if (count($retval) <= 0) {
             return false;
         }
+
+        return $retval[0];
     }
 
     /**
@@ -281,14 +281,15 @@ class Node
         $paths  = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
             $retval = true;
-        } else {
-            foreach ($this->parent->children as $child) {
-                if ($child != $this
-                    && ($child->type == Node::OBJECT || $child->hasChildren(false))
-                ) {
-                    $retval = true;
-                    break;
-                }
+            return $retval;
+        }
+
+        foreach ($this->parent->children as $child) {
+            if ($child !== $this
+                && ($child->type == Node::OBJECT || $child->hasChildren(false))
+            ) {
+                $retval = true;
+                break;
             }
         }
         return $retval;
@@ -359,24 +360,12 @@ class Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
-        // @todo obey the DisableIS directive
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-        $query .= $this->_getWhereClause($searchClause); 
+        $query .= $this->_getWhereClause($searchClause);
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
-        return PMA_DBI_fetch_result($query);
-    }
-
-    /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        return '';
+        return $GLOBALS['dbi']->fetchResult($query);
     }
 
     /**
@@ -391,32 +380,20 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-            $query  = "SELECT COUNT(*) ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-            $query .= $this->_getWhereClause($searchClause); 
-            $retval = (int)PMA_DBI_fetch_value($query);
-        } else {
-            $query = "SHOW DATABASES ";
-            if (! empty($searchClause)) {
-                $query .= "LIKE '%";
-                $query .= PMA_Util::sqlAddSlashes(
-                    $searchClause, true
-                );
-                $query .= "%' ";
-            }
-            $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
-        }
+        $query  = "SELECT COUNT(*) ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $query .= $this->_getWhereClause($searchClause);
+        $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         return $retval;
     }
 
     /**
      * Returns the WHERE clause depending on the $searchClause parameter
-     * and the hide_db directive  
+     * and the hide_db directive
      *
      * @param string $searchClause A string used to filter the results of the query
      *
-     * @return string 
+     * @return string
      */
     private function _getWhereClause($searchClause = '')
     {
@@ -451,5 +428,14 @@ class Node
         return $whereClause;
     }
 
+    /**
+     * Returns HTML for control buttons displayed infront of a node
+     *
+     * @return String HTML for control buttons
+     */
+    public function getHtmlForControlButtons()
+    {
+        return '';
+    }
 }
 ?>

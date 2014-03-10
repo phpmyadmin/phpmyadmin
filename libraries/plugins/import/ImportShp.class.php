@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 // Drizzle does not support GIS data types
 if (PMA_DRIZZLE) {
+    $GLOBALS['skip_import'] = true;
     return;
 }
 
@@ -78,17 +79,10 @@ class ImportShp extends ImportPlugin
      */
     public function doImport()
     {
-        global $db, $error, $finished;
-
-        if ((int) ini_get('memory_limit') < 512) {
-            @ini_set('memory_limit', '512M');
-        }
-        @set_time_limit(300);
+        global $db, $error, $finished, $compression,
+            $import_file, $local_import_file, $message;
 
         $GLOBALS['finished'] = false;
-        $buffer = '';
-        $eof = false;
-
 
         $shp = new PMA_ShapeFile(1);
         // If the zip archive has more than one file,
@@ -106,8 +100,8 @@ class ImportShp extends ImportPlugin
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression == 'application/zip'
-                && ! empty($cfg['TempDir'])
-                && is_writable($cfg['TempDir'])
+                && ! empty($GLOBALS['cfg']['TempDir'])
+                && is_writable($GLOBALS['cfg']['TempDir'])
             ) {
                 $dbf_file_name = PMA_findFileFromZipArchive(
                     '/^.*\.dbf$/i', $import_file
@@ -117,11 +111,11 @@ class ImportShp extends ImportPlugin
                     // Extract the .dbf file and point to it.
                     $extracted =  PMA_zipExtract(
                         $import_file,
-                        realpath($cfg['TempDir']),
+                        realpath($GLOBALS['cfg']['TempDir']),
                         array($dbf_file_name)
                     );
                     if ($extracted) {
-                        $dbf_file_path = realpath($cfg['TempDir'])
+                        $dbf_file_path = realpath($GLOBALS['cfg']['TempDir'])
                             . (PMA_IS_WINDOWS ? '\\' : '/') . $dbf_file_name;
                         $temp_dbf_file = true;
                         // Replace the .dbf with .*, as required
@@ -133,7 +127,7 @@ class ImportShp extends ImportPlugin
                     }
                 }
             } elseif (! empty($local_import_file)
-                && ! empty($cfg['UploadDir'])
+                && ! empty($GLOBALS['cfg']['UploadDir'])
                 && $compression == 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
@@ -158,7 +152,10 @@ class ImportShp extends ImportPlugin
         }
 
         // Delete the .dbf file extracted to 'TempDir'
-        if ($temp_dbf_file) {
+        if ($temp_dbf_file
+            && isset($dbf_file_path)
+            && file_exists($dbf_file_path)
+        ) {
             unlink($dbf_file_path);
         }
 
@@ -205,20 +202,20 @@ class ImportShp extends ImportPlugin
                 $message = PMA_Message::error(
                     __(
                         'You tried to import an invalid file or the imported file'
-                        . ' contains invalid data'
+                        . ' contains invalid data!'
                     )
                 );
             } else {
                 $message = PMA_Message::error(
                     __('MySQL Spatial Extension does not support ESRI type "%s".')
                 );
-                $message->addParam($param);
+                $message->addParam($esri_types[$shp->shapeType]);
             }
             return;
         }
 
         if (isset($gis_type)) {
-            include_once './libraries/gis/pma_gis_factory.php';
+            include_once './libraries/gis/GIS_Factory.class.php';
             $gis_obj =  PMA_GIS_Factory::factory($gis_type);
         } else {
             $gis_obj = null;
@@ -258,7 +255,7 @@ class ImportShp extends ImportPlugin
         if (count($rows) == 0) {
             $error = true;
             $message = PMA_Message::error(
-                __('The imported file does not contain any data')
+                __('The imported file does not contain any data!')
             );
             return;
         }
@@ -272,8 +269,8 @@ class ImportShp extends ImportPlugin
 
         // Set table name based on the number of tables
         if (strlen($db)) {
-            $result = PMA_DBI_fetch_result('SHOW TABLES');
-            $table_name = 'TABLE '.(count($result) + 1);
+            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+            $table_name = 'TABLE ' . (count($result) + 1);
         } else {
             $table_name = 'TBL_NAME';
         }

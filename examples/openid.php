@@ -33,32 +33,34 @@ $AUTH_MAP = array(
 /**
  * Simple function to show HTML page with given content.
  *
+ * @param string $contents Content to include in page
+ *
  * @return void
  */
-function show_page($contents)
+function Show_page($contents)
 {
     header('Content-Type: text/html; charset=utf-8');
     echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
     ?>
-<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-<head>
+    <!DOCTYPE HTML>
+    <html lang="en" dir="ltr">
+    <head>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <meta charset="utf-8" />
     <title>phpMyAdmin OpenID signon example</title>
-</head>
-<body>
-<?php
-if (isset($_SESSION) && isset($_SESSION['PMA_single_signon_error_message'])) {
-    echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
-    unset($_SESSION['PMA_single_signon_message']);
-}
-echo $contents;
-?>
-</body>
-</html>
-<?php
+    </head>
+    <body>
+    <?php
+    if (isset($_SESSION) && isset($_SESSION['PMA_single_signon_error_message'])) {
+        echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
+        unset($_SESSION['PMA_single_signon_message']);
+    }
+    echo $contents;
+    ?>
+    </body>
+    </html>
+    <?php
 }
 
 /* Need to have cookie visible from parent directory */
@@ -91,7 +93,7 @@ OpenID: <input type="text" name="identifier" /><br />
 </form>
 </body>
 </html>';
-    show_page($content);
+    Show_page($content);
     exit;
 }
 
@@ -111,7 +113,7 @@ try {
     $contents = "<div class='relyingparty_results'>\n";
     $contents .= "<pre>" . $e->getMessage() . "</pre>\n";
     $contents .= "</div class='relyingparty_results'>";
-    show_page($contents);
+    Show_page($contents);
     exit;
 }
 
@@ -123,7 +125,7 @@ if (isset($_POST['start'])) {
         $contents = "<div class='relyingparty_results'>\n";
         $contents .= "<pre>" . $e->getMessage() . "</pre>\n";
         $contents .= "</div class='relyingparty_results'>";
-        show_page($contents);
+        Show_page($contents);
         exit;
     }
 
@@ -152,7 +154,7 @@ if (isset($_POST['start'])) {
         /* Redirect to phpMyAdmin (should use absolute URL here!) */
         header('Location: ../index.php');
     } else {
-        show_page('<p>User not allowed!</p>');
+        Show_page('<p>User not allowed!</p>');
         exit;
     }
 }

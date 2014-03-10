@@ -29,13 +29,18 @@ class Node_Database extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage('s_db.png');
+        $this->icon  = PMA_Util::getImage(
+            's_db.png',
+            __('Database operations')
+        );
         $this->links = array(
-            'text' => 'db_structure.php?server=' . $GLOBALS['server']
+            'text' => $GLOBALS['cfg']['DefaultTabDatabase']
+                    . '?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
             'icon' => 'db_operations.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
         );
+        $this->classes = 'database';
     }
 
     /**
@@ -54,149 +59,86 @@ class Node_Database extends Node
         $db     = $this->real_name;
         switch ($type) {
         case 'tables':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `TABLE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = (int)PMA_DBI_fetch_value($query);
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`='BASE' ";
             } else {
-                $query  = "SHOW FULL TABLES FROM ";
-                $query .= PMA_Util::backquote($db);
-                $query .= " WHERE `Table_type`='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . PMA_Util::backquote(
-                        "Tables_in_" . $db
-                    );
-                    $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
+                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
             }
+            if (! empty($searchClause)) {
+                $query .= "AND `TABLE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `TABLE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = (int)PMA_DBI_fetch_value($query);
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`!='BASE' ";
             } else {
-                $query  = "SHOW FULL TABLES FROM ";
-                $query .= PMA_Util::backquote($db);
-                $query .= " WHERE `Table_type`!='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . PMA_Util::backquote(
-                        "Tables_in_" . $db
-                    );
-                    $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
+                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
             }
+            if (! empty($searchClause)) {
+                $query .= "AND `TABLE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
         case 'procedures':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
-                $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `ROUTINE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = (int)PMA_DBI_fetch_value($query);
-            } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+            $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
+            $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `ROUTINE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
             }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
         case 'functions':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
-                $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `ROUTINE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = (int)PMA_DBI_fetch_value($query);
-            } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+            $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
+            $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `ROUTINE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
             }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
         case 'events':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT COUNT(*) ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA`='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `EVENT_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = (int)PMA_DBI_fetch_value($query);
-            } else {
-                $db    = PMA_Util::backquote($db);
-                $query = "SHOW EVENTS FROM $db ";
-                if (! empty($searchClause)) {
-                    $query .= "WHERE `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
+            $db     = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
+            $query .= "WHERE `EVENT_SCHEMA`='$db' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `EVENT_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
             }
+            $retval = (int)$GLOBALS['dbi']->fetchValue($query);
             break;
         default:
             break;
@@ -222,226 +164,163 @@ class Node_Database extends Node
         $db       = $this->real_name;
         switch ($type) {
         case 'tables':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `TABLE_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `TABLE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `TABLE_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `TABLE_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`='BASE' ";
             } else {
-                $query  = " SHOW FULL TABLES FROM ";
-                $query .= PMA_Util::backquote($db);
-                $query .= " WHERE `Table_type`='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . PMA_Util::backquote(
-                        "Tables_in_" . $db
-                    );
-                    $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = PMA_DBI_try_query($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr[0];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
+                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
             }
+            if (! empty($searchClause)) {
+                $query .= "AND `TABLE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $query .= "ORDER BY `TABLE_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `TABLE_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
-                $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `TABLE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `TABLE_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `TABLE_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
+            $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
+            if (PMA_DRIZZLE) {
+                $query .= "AND `TABLE_TYPE`!='BASE' ";
             } else {
-                $query  = "SHOW FULL TABLES FROM ";
-                $query .= PMA_Util::backquote($db);
-                $query .= " WHERE `Table_type`!='BASE TABLE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND " . PMA_Util::backquote(
-                        "Tables_in_" . $db
-                    );
-                    $query .= " LIKE '%" . PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = PMA_DBI_try_query($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr[0];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
+                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
             }
+            if (! empty($searchClause)) {
+                $query .= "AND `TABLE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
+            }
+            $query .= "ORDER BY `TABLE_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
             break;
         case 'procedures':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `ROUTINE_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
-                $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `ROUTINE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
-            } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = PMA_DBI_try_query($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `ROUTINE_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+            $query .= "WHERE `ROUTINE_SCHEMA`='$escdDb'";
+            $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `ROUTINE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
             }
+            $query .= "ORDER BY `ROUTINE_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
             break;
         case 'functions':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `ROUTINE_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-                $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
-                $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `ROUTINE_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
-            } else {
-                $db    = PMA_Util::sqlAddSlashes($db);
-                $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = PMA_DBI_try_query($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `ROUTINE_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+            $query .= "WHERE `ROUTINE_SCHEMA`='$escdDb' ";
+            $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `ROUTINE_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
             }
+            $query .= "ORDER BY `ROUTINE_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
             break;
         case 'events':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-                $db     = PMA_Util::sqlAddSlashes($db);
-                $query  = "SELECT `EVENT_NAME` AS `name` ";
-                $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA`='$db' ";
-                if (! empty($searchClause)) {
-                    $query .= "AND `EVENT_NAME` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $query .= "ORDER BY `EVENT_NAME` ASC ";
-                $query .= "LIMIT " . intval($pos) . ", $maxItems";
-                $retval = PMA_DBI_fetch_result($query);
-            } else {
-                $db    = PMA_Util::backquote($db);
-                $query = "SHOW EVENTS FROM $db ";
-                if (! empty($searchClause)) {
-                    $query .= "WHERE `Name` LIKE '%";
-                    $query .= PMA_Util::sqlAddSlashes(
-                        $searchClause, true
-                    );
-                    $query .= "%'";
-                }
-                $handle = PMA_DBI_try_query($query);
-                if ($handle !== false) {
-                    $count = 0;
-                    while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $maxItems) {
-                            $retval[] = $arr['Name'];
-                            $count++;
-                        }
-                        $pos--;
-                    }
-                }
+            $escdDb = PMA_Util::sqlAddSlashes($db);
+            $query  = "SELECT `EVENT_NAME` AS `name` ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
+            $query .= "WHERE `EVENT_SCHEMA`='$escdDb' ";
+            if (! empty($searchClause)) {
+                $query .= "AND `EVENT_NAME` LIKE '%";
+                $query .= PMA_Util::sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%'";
             }
+            $query .= "ORDER BY `EVENT_NAME` ASC ";
+            $query .= "LIMIT " . intval($pos) . ", $maxItems";
+            $retval = $GLOBALS['dbi']->fetchResult($query);
             break;
         default:
             break;
         }
+
+        // Remove hidden items so that they are not displayed in navigation tree
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $navTable = PMA_Util::backquote($cfgRelation['db'])
+                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+            $sqlQuery = "SELECT `item_name` FROM " . $navTable
+                . " WHERE `username`='" . $cfgRelation['user'] . "'"
+                . " AND `item_type`='" . substr($type, 0, -1) . "'"
+                . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+            $result = PMA_queryAsControlUser($sqlQuery, false);
+            if ($result) {
+                $hiddenItems = array();
+                while ($row = $GLOBALS['dbi']->fetchArray($result)) {
+                    $hiddenItems[] = $row[0];
+                }
+                foreach ($retval as $key => $item) {
+                    if (in_array($item, $hiddenItems)) {
+                        unset($retval[$key]);
+                    }
+                }
+            }
+            $GLOBALS['dbi']->freeResult($result);
+        }
+
         return $retval;
     }
 
-
     /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
+     * Returns HTML for show hidden button displayed infront of database node
      *
-     * @return string
+     * @return String HTML for show hidden button
      */
-    public function getComment()
+    public function getHtmlForControlButtons()
     {
-        return PMA_getDbComment($this->real_name);
+        $ret = '';
+        $db = $this->real_name;
+
+        $cfgRelation = PMA_getRelationsParam();
+        if ($cfgRelation['navwork']) {
+            $navTable = PMA_Util::backquote($cfgRelation['db'])
+                . "." . PMA_Util::backquote($cfgRelation['navigationhiding']);
+            $sqlQuery = "SELECT COUNT(*) FROM " . $navTable
+                . " WHERE `username`='"
+                . PMA_Util::sqlAddSlashes($GLOBALS['cfg']['Server']['user']) . "'"
+                . " AND `db_name`='" . PMA_Util::sqlAddSlashes($db) . "'";
+            $count = $GLOBALS['dbi']->fetchValue(
+                $sqlQuery, 0, 0, $GLOBALS['controllink']
+            );
+            if ($count > 0) {
+                $ret = '<span class="dbItemControls">'
+                    . '<a href="navigation.php?'
+                    . PMA_URL_getCommon()
+                    . '&showUnhideDialog=true'
+                    . '&dbName=' . urldecode($db) . '"'
+                    . ' class="showUnhide ajax">'
+                    . PMA_Util::getImage(
+                        'lightbulb.png', __('Show hidden items')
+                    )
+                    . '</a></span>';
+            }
+        }
+        return $ret;
     }
 }
 

@@ -45,10 +45,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             var $cnt = $(this);
             var pos = $cnt.offset();
             // Hide if the mouseclick is outside the popupcontent
-            if (event.pageX < pos.left
-               || event.pageY < pos.top
-               || event.pageX > pos.left + $cnt.outerWidth()
-               || event.pageY > pos.top + $cnt.outerHeight()
+            if (event.pageX < pos.left ||
+                event.pageY < pos.top ||
+                event.pageX > pos.left + $cnt.outerWidth() ||
+                event.pageY > pos.top + $cnt.outerHeight()
             ) {
                 $cnt.hide().removeClass('openedPopup');
             }
@@ -94,7 +94,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     lineNumbers: true,
                     matchBrackets: true,
                     indentUnit: 4,
-                    mode: "text/x-mysql"
+                    mode: "text/x-mysql",
+                    lineWrapping: true
                 }
             );
         }
@@ -366,40 +367,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         defaultChartGrid['c5'] = presetCharts['swap'];
     }
 
-    /* Buttons that are on the top right corner of each chart */
-    var gridbuttons = {
-        cogButton: {
-            //enabled: true,
-            symbol: 'url(' + pmaThemeImage  + 's_cog.png)',
-            x: -36,
-            symbolFill: '#B5C9DF',
-            hoverSymbolFill: '#779ABF',
-            _titleKey: 'settings',
-            menuName: 'gridsettings',
-            menuItems: [{
-                textKey: 'editChart',
-                onclick: function () {
-                    editChart(this);
-                }
-            }, {
-                textKey: 'removeChart',
-                onclick: function () {
-                    removeChart(this);
-                }
-            }]
-        }
-    };
-
     $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').click(function (event) {
         event.preventDefault();
         editMode = !editMode;
         if ($(this).attr('href') == '#endChartEditMode') {
             editMode = false;
         }
-
-        // Icon graphics have zIndex 19, 20 and 21.
-        // Let's just hope nothing else has the same zIndex
-        $('#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode);
 
         $('a[href="#endChartEditMode"]').toggle(editMode);
 
@@ -413,79 +386,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     left: chartSize().width - 63,
                     width: 54,
                     height: 24
-                },
-                events: {
-                    // Drop event. The drag child element is moved into the drop element
-                    // and vice versa. So the parameters are switched.
-                    drop: function (drag, drop, pos) {
-                        var dragKey, dropKey, dropRender;
-                        var dragRender = $(drag).children().first().attr('id');
-
-                        if ($(drop).children().length > 0) {
-                            dropRender = $(drop).children().first().attr('id');
-                        }
-
-                        // Find the charts in the array
-                        $.each(runtime.charts, function (key, value) {
-                            if (value.chart.options.chart.renderTo == dragRender) {
-                                dragKey = key;
-                            }
-                            if (dropRender && value.chart.options.chart.renderTo == dropRender) {
-                                dropKey = key;
-                            }
-                        });
-
-                        // Case 1: drag and drop are charts -> Switch keys
-                        if (dropKey) {
-                            if (dragKey) {
-                                dragChart = runtime.charts[dragKey];
-                                runtime.charts[dragKey] = runtime.charts[dropKey];
-                                runtime.charts[dropKey] = dragChart;
-                            } else {
-                                // Case 2: drop is a empty cell => just completely rebuild the ids
-                                var keys = [];
-                                var dropKeyNum = parseInt(dropKey.substr(1), 10);
-                                var insertBefore = pos.col + pos.row * monitorSettings.columns;
-                                var values = [];
-                                var newChartList = {};
-                                var c = 0;
-
-                                $.each(runtime.charts, function (key, value) {
-                                    if (key != dropKey) {
-                                        keys.push(key);
-                                    }
-                                });
-
-                                keys.sort();
-
-                                // Rebuilds all ids, with the dragged chart correctly inserted
-                                for (var i = 0; i < keys.length; i++) {
-                                    if (keys[i] == insertBefore) {
-                                        newChartList['c' + (c++)] = runtime.charts[dropKey];
-                                        insertBefore = -1; // Insert ok
-                                    }
-                                    newChartList['c' + (c++)] = runtime.charts[keys[i]];
-                                }
-
-                                // Not inserted => put at the end
-                                if (insertBefore != -1) {
-                                    newChartList['c' + (c++)] = runtime.charts[dropKey];
-                                }
-
-                                runtime.charts = newChartList;
-                            }
-
-                            saveMonitor();
-                        }
-                    }
                 }
             });
 
         } else {
             $("#chartGrid").sortableTable('destroy');
-            saveMonitor(); // Save settings
         }
-
+        saveMonitor(); // Save settings
         return false;
     });
 
@@ -532,15 +439,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $tr = $tr.next();
             row++;
         }
-
-        /* Apply new chart size to all charts */
-        $.each(runtime.charts, function (key, value) {
-            value.chart.setSize(
-                newSize.width,
-                newSize.height,
-                false
-            );
-        });
 
         if (monitorSettings.gridMaxPoints == 'auto') {
             runtime.gridMaxPoints = Math.round((newSize.width - 40) / 12);
@@ -827,15 +725,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                     if (logVars['slow_query_log'] == 'ON') {
                         if (logVars['long_query_time'] > 2) {
-                            str += PMA_getImage('s_attention.png') + ' '
-                                + $.sprintf(PMA_messages.strSmallerLongQueryTimeAdvice, logVars['long_query_time'])
-                                + '<br />';
+                            str += PMA_getImage('s_attention.png') + ' ';
+                            str += $.sprintf(PMA_messages.strSmallerLongQueryTimeAdvice, logVars['long_query_time']);
+                            str += '<br />';
                         }
 
                         if (logVars['long_query_time'] < 2) {
-                            str += PMA_getImage('s_success.png') + ' '
-                                + $.sprintf(PMA_messages.strLongQueryTimeSet, logVars['long_query_time'])
-                                + '<br />';
+                            str += PMA_getImage('s_success.png') + ' ';
+                            str += $.sprintf(PMA_messages.strLongQueryTimeSet, logVars['long_query_time']);
+                            str += '<br />';
                         }
                     }
 
@@ -851,28 +749,28 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                             varValue = 'FILE';
                         }
 
-                        str += '- <a class="set" href="#log_output-' + varValue + '">'
-                            + $.sprintf(PMA_messages.strSetLogOutput, varValue)
-                            + ' </a><br />';
+                        str += '- <a class="set" href="#log_output-' + varValue + '">';
+                        str += $.sprintf(PMA_messages.strSetLogOutput, varValue);
+                        str += ' </a><br />';
 
                         if (logVars['general_log'] != 'ON') {
-                            str += '- <a class="set" href="#general_log-ON">'
-                                + $.sprintf(PMA_messages.strEnableVar, 'general_log')
-                                + ' </a><br />';
+                            str += '- <a class="set" href="#general_log-ON">';
+                            str += $.sprintf(PMA_messages.strEnableVar, 'general_log');
+                            str += ' </a><br />';
                         } else {
-                            str += '- <a class="set" href="#general_log-OFF">'
-                                + $.sprintf(PMA_messages.strDisableVar, 'general_log')
-                                + ' </a><br />';
+                            str += '- <a class="set" href="#general_log-OFF">';
+                            str += $.sprintf(PMA_messages.strDisableVar, 'general_log');
+                            str += ' </a><br />';
                         }
 
                         if (logVars['slow_query_log'] != 'ON') {
-                            str += '- <a class="set" href="#slow_query_log-ON">'
-                                +  $.sprintf(PMA_messages.strEnableVar, 'slow_query_log')
-                                + ' </a><br />';
+                            str += '- <a class="set" href="#slow_query_log-ON">';
+                            str +=  $.sprintf(PMA_messages.strEnableVar, 'slow_query_log');
+                            str += ' </a><br />';
                         } else {
-                            str += '- <a class="set" href="#slow_query_log-OFF">'
-                                +  $.sprintf(PMA_messages.strDisableVar, 'slow_query_log')
-                                + ' </a><br />';
+                            str += '- <a class="set" href="#slow_query_log-OFF">';
+                            str +=  $.sprintf(PMA_messages.strDisableVar, 'slow_query_log');
+                            str += ' </a><br />';
                         }
 
                         varValue = 5;
@@ -880,9 +778,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                             varValue = 1;
                         }
 
-                        str += '- <a class="set" href="#long_query_time-' + varValue + '">'
-                            + $.sprintf(PMA_messages.setSetLongQueryTime, varValue)
-                            + ' </a><br />';
+                        str += '- <a class="set" href="#long_query_time-' + varValue + '">';
+                        str += $.sprintf(PMA_messages.setSetLongQueryTime, varValue);
+                        str += ' </a><br />';
 
                     } else {
                         str += PMA_messages.strNoSuperUser + '<br/>';
@@ -914,8 +812,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('input[name="chartType"]').change(function () {
         $('#chartVariableSettings').toggle(this.checked && this.value == 'variable');
         var title = $('input[name="chartTitle"]').val();
-        if (title == PMA_messages.strChartTitle
-           || title == $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
+        if (title == PMA_messages.strChartTitle ||
+            title == $('label[for="' + $('input[name="chartTitle"]').data('lastRadio') + '"]').text()
         ) {
             $('input[name="chartTitle"]')
                 .data('lastRadio', $(this).attr('id'))
@@ -1027,6 +925,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Initializes the monitor, called only once */
     function initGrid() {
 
+        var i;
+
         /* Apply default values & config */
         if (window.localStorage) {
             if (window.localStorage['monitorCharts']) {
@@ -1074,10 +974,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         /* Calculate how much spacing there is between each chart */
         $('#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
         chartSpacing = {
-            width: $('#chartGrid td:nth-child(2)').offset().left
-                    - $('#chartGrid td:nth-child(1)').offset().left,
-            height: $('#chartGrid tr:nth-child(2) td:nth-child(2)').offset().top
-                    - $('#chartGrid tr:nth-child(1) td:nth-child(1)').offset().top
+            width: $('#chartGrid td:nth-child(2)').offset().left -
+                $('#chartGrid td:nth-child(1)').offset().left,
+            height: $('#chartGrid tr:nth-child(2) td:nth-child(2)').offset().top -
+                $('#chartGrid tr:nth-child(1) td:nth-child(1)').offset().top
         };
         $('#chartGrid').html('');
 
@@ -1087,14 +987,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             keys.push(key);
         });
         keys.sort();
-        for (var i = 0; i < keys.length; i++) {
+        for (i = 0; i < keys.length; i++) {
             addChart(runtime.charts[keys[i]], true);
         }
 
         /* Fill in missing cells */
         var numCharts = $('#chartGrid .monitorChart').length;
         var numMissingCells = (monitorSettings.columns - numCharts % monitorSettings.columns) % monitorSettings.columns;
-        for (var i = 0; i < numMissingCells; i++) {
+        for (i = 0; i < numMissingCells; i++) {
             $('#chartGrid tr:last').append('<td></td>');
         }
 
@@ -1123,16 +1023,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         destroyGrid();
         initGrid();
-
-        if (oldData) {
-            $.each(runtime.charts, function (key, chartObj) {
-                for (var j = 0, l = chartObj.nodes.length; j < l; j++) {
-                    if (oldData[chartObj.nodes[j].dataPoint]) {
-                        chartObj.chart.series[j].setData(oldData[chartObj.nodes[j].dataPoint]);
-                    }
-                }
-            });
-        }
     }
 
     /* Calculactes the dynamic chart size that depends on the column width */
@@ -1147,6 +1037,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     /* Adds a chart to the chart grid */
     function addChart(chartObj, initialize) {
 
+        var i;
         var settings = {
             title: escapeHtml(chartObj.title),
             grid: {
@@ -1182,13 +1073,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
         };
 
-        if (settings.title === PMA_messages.strSystemCPUUsage
-            || settings.title === PMA_messages.strQueryCacheEfficiency) {
+        if (settings.title === PMA_messages.strSystemCPUUsage ||
+            settings.title === PMA_messages.strQueryCacheEfficiency
+        ) {
             settings.axes.yaxis.tickOptions = {
                 formatString: "%d %%"
             };
-        } else if (settings.title === PMA_messages.strSystemMemory
-            || settings.title === PMA_messages.strSystemSwap
+        } else if (settings.title === PMA_messages.strSystemMemory ||
+            settings.title === PMA_messages.strSystemSwap
         ) {
             settings.stackSeries = true;
             settings.axes.yaxis.tickOptions = {
@@ -1197,6 +1089,20 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         } else if (settings.title === PMA_messages.strTraffic) {
             settings.axes.yaxis.tickOptions = {
                 formatter: $.jqplot.byteFormatter(1) // KiB
+            };
+        } else if (settings.title === PMA_messages.strQuestions ||
+            settings.title === PMA_messages.strConnections
+        ) {
+            settings.axes.yaxis.tickOptions = {
+                formatter: function (format, val) {
+                    if (Math.abs(val) >= 1000000) {
+                        return $.jqplot.sprintf("%.3g M", val / 1000000);
+                    } else if (Math.abs(val) >= 1000) {
+                        return $.jqplot.sprintf("%.3g k", val / 1000);
+                    } else {
+                        return $.jqplot.sprintf("%d", val);
+                    }
+                }
             };
         }
 
@@ -1209,7 +1115,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $('#chartGrid').append('<tr></tr>');
             }
 
-            $('#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
+            $('#chartGrid tr:last').append(
+                '<td><div id="gridChartContainer' + runtime.chartAI + '" class="">' +
+                '<div class="ui-state-default monitorChart" id="' +
+                'gridchart' + runtime.chartAI + '"></div></div></td>'
+            );
         }
 
         // Set series' data as [0,0], smooth lines won't plot with data array having null values.
@@ -1218,25 +1128,27 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         for (i in chartObj.series) {
             series.push([[0, 0]]);
         }
-        
+
         // set Tooltip for each series
-        for(i in settings.series) {
+        for (i in settings.series) {
             settings.series[i].highlighter = {
                 show: true,
                 tooltipContentEditor: function (str, seriesIndex, pointIndex, plot) {
-                    var tooltipHtml = '<div style="font-size:12px;background-color:#FFFFFF;'
-                        + 'opacity:0.95;filter:alpha(opacity=95);padding:5px;">';
+                    var j;
+                    // TODO: move style to theme CSS
+                    var tooltipHtml = '<div style="font-size:12px;background-color:#FFFFFF;' +
+                        'opacity:0.95;filter:alpha(opacity=95);padding:5px;">';
                     // x value i.e. time
                     var timeValue = str.split(",")[0];
+                    var seriesValue;
                     tooltipHtml += 'Time: ' + timeValue;
                     tooltipHtml += '<span style="font-weight:bold;">';
                     // Add y values to the tooltip per series
                     for (j in plot.series) {
                         // get y value if present
                         if (plot.series[j].data.length > pointIndex) {
-                            var seriesValue = plot.series[j].data[pointIndex][1];
-                        }
-                        else {
+                            seriesValue = plot.series[j].data[pointIndex][1];
+                        } else {
                             return;
                         }
                         var seriesLabel = plot.series[j].label;
@@ -1249,8 +1161,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                             // using format string
                             seriesValue = $.sprintf(plot.series[0]._yaxis.tickOptions.formatString, seriesValue);
                         }
-                        tooltipHtml += '<br /><span style="color:' + seriesColor + '">'
-                            + seriesLabel + ': ' + seriesValue + '</span>';
+                        tooltipHtml += '<br /><span style="color:' + seriesColor + '">' +
+                            seriesLabel + ': ' + seriesValue + '</span>';
                     }
                     tooltipHtml += '</span></div>';
                     return tooltipHtml;
@@ -1265,7 +1177,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
 
         var $legend = $('<div />').css('padding', '0.5em');
-        for (var i in chartObj.chart.series) {
+        for (i in chartObj.chart.series) {
             $legend.append(
                 $('<div />').append(
                     $('<div>').css({
@@ -1283,7 +1195,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             );
         }
         $('#gridchart' + runtime.chartAI)
-            .css('overflow', 'hidden')
             .parent()
             .append($legend);
 
@@ -1313,13 +1224,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function (ev, gridpos, datapos, neighbor, plot) {
-            if (! drawTimeSpan) {
+            if (! drawTimeSpan || editMode) {
                 return;
             }
 
             selectionTimeDiff.push(datapos.xaxis);
 
-            if (selectionTimeDiff[1] < selectionTimeDiff[0]) {
+            if (selectionTimeDiff[1] <= selectionTimeDiff[0]) {
                 selectionTimeDiff = [];
                 return;
             }
@@ -1332,7 +1243,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function (ev, gridpos, datapos, neighbor, plot) {
-            if (! drawTimeSpan) {
+            if (! drawTimeSpan || editMode) {
                 return;
             }
             if (selectionStartX !== undefined) {
@@ -1360,66 +1271,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         runtime.chartAI++;
     }
 
-    /* Opens a dialog that allows one to edit the title and series labels of the supplied chart */
-    function editChart(chartObj) {
-        var htmlnode = chartObj.options.chart.renderTo;
-        if (! htmlnode) {
-            return;
-        }
-
-        var chart = null;
-        var chartKey = null;
-        $.each(runtime.charts, function (key, value) {
-            if (value.chart.options.chart.renderTo == htmlnode) {
-                chart = value;
-                chartKey = key;
-                return false;
-            }
-        });
-
-        if (chart === null) {
-            return;
-        }
-
-        var htmlStr = '<p><b>' + PMA_messages.strChartTitle + ': </b> <br/> <input type="text" size="35" name="chartTitle" value="' + chart.title + '" />';
-        htmlStr += '</p><p><b>' + PMA_messages.strSeries + ':</b> </p><ol>';
-        for (var i = 0; i < chart.nodes.length; i++) {
-            htmlStr += '<li><i>' + chart.nodes[i].dataPoints[0].name  + ': </i><br/><input type="text" name="chartSerie-' + i + '" value="' + chart.nodes[i].name + '" /></li>';
-        }
-
-        dlgBtns = {};
-        dlgBtns[PMA_messages.strSave] = function () {
-            runtime.charts[chartKey].title = $('#emptyDialog input[name="chartTitle"]').val();
-            runtime.charts[chartKey].chart.setTitle({ text: runtime.charts[chartKey].title });
-
-            $('#emptyDialog input[name*="chartSerie"]').each(function () {
-                var $t = $(this);
-                var idx = $t.attr('name').split('-')[1];
-                runtime.charts[chartKey].nodes[idx].name = $t.val();
-                runtime.charts[chartKey].chart.series[idx].name = $t.val();
-            });
-
-            $(this).dialog('close');
-            saveMonitor();
-        };
-        dlgBtns[PMA_messages.strCancel] = function () {
-            $(this).dialog('close');
-        };
-
-        $('#emptyDialog').html(htmlStr + '</ol>');
-        $('#emptyDialog').dialog({
-            title: PMA_messages.strChartEdit,
-            width: 'auto',
-            height: 'auto',
-            buttons: dlgBtns
-        });
-    }
-
     function PMA_getLogAnalyseDialog(min, max) {
         $('#logAnalyseDialog input[name="dateStart"]')
-            .val(formatDate(min, 'yyyy-MM-dd HH:mm:ss'));
+            .val(PMA_formatDateTime(min, true));
         $('#logAnalyseDialog input[name="dateEnd"]')
-            .val(formatDate(max, 'yyyy-MM-dd HH:mm:ss'));
+            .val(PMA_formatDateTime(max, true));
 
         var dlgBtns = { };
 
@@ -1451,32 +1307,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             removeVariables: $('#removeVariables').prop('checked'),
             limitTypes: $('#limitTypes').prop('checked')
         });
-    }
-
-    /* Removes a chart from the grid */
-    function removeChart(chartObj) {
-        var htmlnode = chartObj.options.chart.renderTo;
-        if (! htmlnode) {
-            return;
-        }
-
-        $.each(runtime.charts, function (key, value) {
-            if (value.chart.options.chart.renderTo == htmlnode) {
-                delete runtime.charts[key];
-                return false;
-            }
-        });
-
-        buildRequiredDataList();
-
-        // Using settimeout() because clicking the remove link fires an onclick event
-        // which throws an error when the chart is destroyed
-        setTimeout(function () {
-            chartObj.destroy();
-            $('#' + htmlnode).remove();
-        }, 10);
-
-        saveMonitor(); // Save settings
     }
 
     /* Called in regular intervalls, this function updates the values of each chart in the grid */
@@ -1529,9 +1359,11 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                             elem.nodes[j].transformFn,
                             chartData[key][j],
                             // Check if first iteration (oldChartData==null), or if newly added chart oldChartData[key]==null
-                            (oldChartData === null
-                             || oldChartData[key] === null
-                             || oldChartData[key] === undefined ? null : oldChartData[key][j])
+                            (
+                                oldChartData === null ||
+                                oldChartData[key] === null ||
+                                oldChartData[key] === undefined ? null : oldChartData[key][j]
+                            )
                         );
 
                     // Otherwise use original value and apply differential and divisor if given,
@@ -1540,9 +1372,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         value = parseFloat(chartData[key][j][0].value);
 
                         if (elem.nodes[j].display == 'differential') {
-                            if (oldChartData === null
-                             || oldChartData[key] === null
-                             || oldChartData[key] === undefined
+                            if (oldChartData === null ||
+                                oldChartData[key] === null ||
+                                oldChartData[key] === undefined
                             ) {
                                 continue;
                             }
@@ -1563,8 +1395,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                             elem.maxYLabel = 0.5;
                         }
                         // free old data point values and update maxYLabel
-                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints
-                            && elem.chart.series[j].data[0][0] < runtime.xmin) {
+                        if (elem.chart.series[j].data.length > runtime.gridMaxPoints &&
+                            elem.chart.series[j].data[0][0] < runtime.xmin
+                        ) {
                             // check if the next freeable point is highest
                             if (elem.maxYLabel <= elem.chart.series[j].data[0][1]) {
                                 elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
@@ -1573,8 +1406,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                                 elem.chart.series[j].data.splice(0, elem.chart.series[j].data.length - runtime.gridMaxPoints);
                             }
                         }
-                        if (elem.title === PMA_messages.strSystemMemory
-                            || elem.title === PMA_messages.strSystemSwap
+                        if (elem.title === PMA_messages.strSystemMemory ||
+                            elem.title === PMA_messages.strSystemSwap
                         ) {
                             total += value;
                         }
@@ -1588,15 +1421,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     (runtime.xmax - tickInterval * 3), (runtime.xmax - tickInterval * 2),
                     (runtime.xmax - tickInterval), runtime.xmax];
 
-                if (elem.title !== PMA_messages.strSystemCPUUsage
-                    && elem.title !== PMA_messages.strQueryCacheEfficiency
-                    && elem.title !== PMA_messages.strSystemMemory
-                    && elem.title !== PMA_messages.strSystemSwap
+                if (elem.title !== PMA_messages.strSystemCPUUsage &&
+                    elem.title !== PMA_messages.strQueryCacheEfficiency &&
+                    elem.title !== PMA_messages.strSystemMemory &&
+                    elem.title !== PMA_messages.strSystemSwap
                 ) {
                     elem.chart['axes']['yaxis']['max'] = Math.ceil(elem.maxYLabel * 1.1);
                     elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(elem.maxYLabel * 1.1 / 5);
-                } else if (elem.title === PMA_messages.strSystemMemory
-                    || elem.title === PMA_messages.strSystemSwap
+                } else if (elem.title === PMA_messages.strSystemMemory ||
+                    elem.title === PMA_messages.strSystemSwap
                 ) {
                     elem.chart['axes']['yaxis']['max'] = Math.ceil(total * 1.1 / 100) * 100;
                     elem.chart['axes']['yaxis']['tickInterval'] = Math.ceil(total * 1.1 / 5);
@@ -1729,6 +1562,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             },
             function (data) {
                 var logData;
+                var dlgBtns = {};
                 if (data.success === true) {
                     logData = data.message;
                 } else {
@@ -1778,7 +1612,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                     }
 
-                    var dlgBtns = {};
                     dlgBtns[PMA_messages.strJumpToTable] = function () {
                         $(this).dialog("close");
                         $(document).scrollTop($('#logTable').offset().top);
@@ -1790,7 +1623,6 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     $('#emptyDialog').dialog({title: PMA_messages.strNoDataFoundTitle});
                     $('#emptyDialog').html('<p>' + PMA_messages.strNoDataFound + '</p>');
 
-                    var dlgBtns = {};
                     dlgBtns[PMA_messages.strClose] = function () {
                         $(this).dialog("close");
                     };
@@ -2061,7 +1893,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var query = rowData.argument || rowData.sql_text;
 
         if (codemirror_editor) {
-            query = PMA_SQLPrettyPrint(query);
+            //TODO: somehow PMA_SQLPrettyPrint messes up the query, needs be fixed
+            //query = PMA_SQLPrettyPrint(query);
             codemirror_editor.setValue(query);
             // Codemirror is bugged, it doesn't refresh properly sometimes.
             // Following lines seem to fix that
@@ -2116,9 +1949,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db
         }, function (data) {
+            var i;
             if (data.success === true) {
                 data = data.message;
-            } else {
+            }
+            if (data.error) {
+                if (data.error.indexOf('1146') != -1 || data.error.indexOf('1046') != -1) {
+                    data.error = PMA_messages['strServerLogError'];
+                }
                 $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;
             }
@@ -2130,7 +1968,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             var explain = '<b>' + PMA_messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
             if (data.explain.length > 1) {
                 explain += ' (';
-                for (var i = 0; i < data.explain.length; i++) {
+                for (i = 0; i < data.explain.length; i++) {
                     if (i > 0) {
                         explain += ', ';
                     }
@@ -2139,7 +1977,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 explain += ')';
             }
             explain += '<p></p>';
-            for (var i = 0, l = data.explain.length; i < l; i++) {
+            for (i = 0, l = data.explain.length; i < l; i++) {
                 explain += '<div class="explain-' + i + '"' + (i > 0 ?  'style="display:none;"' : '') + '>';
                 $.each(data.explain[i], function (key, value) {
                     value = (value === null) ? 'null' : value;
@@ -2171,7 +2009,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 var duration;
                 var otherTime = 0;
 
-                for (var i = 0, l = data.profiling.length; i < l; i++) {
+                for (i = 0, l = data.profiling.length; i < l; i++) {
                     duration = parseFloat(data.profiling[i].duration);
 
                     totalTime += duration;
@@ -2180,7 +2018,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 }
 
                 // Only put those values in the pie which are > 2%
-                for (var i = 0, l = data.profiling.length; i < l; i++) {
+                for (i = 0, l = data.profiling.length; i < l; i++) {
                     duration = parseFloat(data.profiling[i].duration);
 
                     if (duration / totalTime > 0.02) {

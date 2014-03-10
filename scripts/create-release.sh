@@ -113,6 +113,7 @@ LC_ALL=C date -u > RELEASE-DATE-${version}
 echo "* Generating documentation"
 if [ -f doc/conf.py ] ; then
     LC_ALL=C make -C doc html
+    find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
 else
     LC_ALL=C w3m -dump Documentation.html > Documentation.txt
 fi
@@ -129,10 +130,9 @@ if [ -d po ] ; then
     rm -rf po
 fi
 
-if [ -f ./scripts/compress-js ] ; then
-    echo "* Compressing javascript files"
-    ./scripts/compress-js
-    rm -rf sources
+if [ -f ./scripts/line-counts.sh ] ; then
+    echo "* Generating line counts"
+    ./scripts/line-counts.sh
 fi
 
 echo "* Removing unneeded files"
@@ -174,7 +174,7 @@ for kit in $KITS ; do
         rm -rf scripts/google-javascript-compiler/
 
         # Remove scripts which are not useful for user
-        for s in compress-js create-release.sh generate-mo mergepo.py php2gettext.sh remove_control_m.sh update-po upload-release pending-po pendingpo.py ; do
+        for s in generate-sprites advisor2po lang-cleanup.sh locales-contributors remove-incomplete-mo compress-js create-release.sh generate-mo remove_control_m.sh update-po upload-release ; do
             rm -f scripts/$s
         done
     fi
@@ -298,7 +298,6 @@ Todo now:
  6. send a short mail (with list of major changes) to
         phpmyadmin-devel@lists.sourceforge.net
         phpmyadmin-news@lists.sourceforge.net
-        phpmyadmin-users@lists.sourceforge.net
 
     Don't forget to update the Description section in the announcement,
     based on documentation.

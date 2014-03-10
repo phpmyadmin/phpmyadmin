@@ -11,7 +11,7 @@
 
 require_once 'libraries/zip.lib.php';
 
-class PMA_zip_test extends PHPUnit_Framework_TestCase
+class PMA_Zip_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -55,8 +55,8 @@ class PMA_zip_test extends PHPUnit_Framework_TestCase
     /**
      * Test for unix2DosTime
      *
-     * @param $unixtime
-     * @param $output
+     * @param int $unixTime UNIX timestamp
+     * @param int $output   DOS timestamp
      *
      * @dataProvider providerForTestUnix2DosTime
      */

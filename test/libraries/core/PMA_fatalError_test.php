@@ -3,7 +3,8 @@
 /**
  * Test for PMA_fatalError() from libraries/core.lib.php
  *
- * PMA_fatalError() displays the given error message on phpMyAdmin error page in foreign language
+ * PMA_fatalError() displays the given error message on phpMyAdmin error page in
+ * foreign language
  * and ends script execution and closes session
  *
  * @package PhpMyAdmin-test
@@ -24,7 +25,7 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_fatalError_test extends PHPUnit_Framework_TestCase
+class PMA_FatalError_Test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {
@@ -36,7 +37,6 @@ class PMA_fatalError_test extends PHPUnit_Framework_TestCase
         );
         $GLOBALS['cfg']['OBGzip'] = false;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['server'] = 1;
@@ -55,7 +55,10 @@ class PMA_fatalError_test extends PHPUnit_Framework_TestCase
         $message = "Fatal error #%d in file %s.";
         $params = array(1, 'error_file.php');
 
-        $this->expectOutputRegex("/Fatal error #1 in file error_file.php./", "Not EQ");
+        $this->expectOutputRegex(
+            "/Fatal error #1 in file error_file.php./",
+            "Not EQ"
+        );
         PMA_fatalError($message, $params);
 
         $message = "Fatal error in file %s.";

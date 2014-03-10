@@ -8,18 +8,17 @@
  */
 
 require_once 'PHPUnit/TextUI/TestRunner.php';
-require_once dirname(__FILE__).'/selenium/PmaSeleniumTestCase.php';
-require_once dirname(__FILE__).'/selenium/PmaSeleniumLoginTest.php';
-require_once dirname(__FILE__).'/selenium/PmaSeleniumXssTest.php';
-require_once dirname(__FILE__).'/selenium/PmaSeleniumPrivilegesTest.php';
-require_once dirname(__FILE__).'/selenium/PmaSeleniumCreateDropDatabaseTest.php';
-require_once dirname(__FILE__).'/selenium/PmaSeleniumCreateRemoveUserTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumLoginTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumXssTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumPrivilegesTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumCreateDropDatabaseTest.php';
+require_once __DIR__ . '/selenium/PmaSeleniumCreateRemoveUserTest.php';
 
 /**
  * AllSeleniumTests class
- * 
+ *
  * Runs all the selenium test cases
- * 
+ *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
@@ -38,8 +37,8 @@ class AllSeleniumTests
 
     /**
      * Creates a SeleniumTestSuite and add all the selenium test cases to it
-     * 
-     * @return PHPUnit_Extensions_SeleniumTestSuite 
+     *
+     * @return PHPUnit_Extensions_SeleniumTestSuite
      */
     public static function suite()
     {

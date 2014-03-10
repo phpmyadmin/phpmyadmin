@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/gis/pma_gis_geometry.php';
+require_once 'libraries/gis/GIS_Geometry.class.php';
 
 /**
  * Abstract parent class for all PMA_GIS_<Geom_type> test classes

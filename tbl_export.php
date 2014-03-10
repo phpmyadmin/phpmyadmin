@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Table export
  *
  * @package PhpMyAdmin
  */
@@ -37,14 +38,27 @@ if (! empty($sql_query)) {
     // Need to generate WHERE clause?
     if (isset($where_clause)) {
 
-        $temp_sql_array = preg_split("/\bwhere\b/i", $sql_query);
+        // Regular expressions which can appear in sql query,
+        // before the sql segment which remains as it is.
+        $regex_array = array(
+            '/\bwhere\b/i', '/\bgroup by\b/i', '/\bhaving\b/i', '/\border by\b/i'
+        );
+
+        $first_occurring_regex = PMA_Util::getFirstOccurringRegularExpression(
+            $regex_array, $sql_query
+        );
+        unset($regex_array);
 
         // The part "SELECT `id`, `name` FROM `customers`"
-        // is not modified by the next code segment, when exporting 
+        // is not modified by the next code segment, when exporting
         // the result set from a query such as
         // "SELECT `id`, `name` FROM `customers` WHERE id NOT IN
         //  ( SELECT id FROM companies WHERE name LIKE '%u%')"
-        $sql_query = $temp_sql_array[0];
+        if (! is_null($first_occurring_regex)) {
+            $temp_sql_array = preg_split($first_occurring_regex, $sql_query);
+            $sql_query = $temp_sql_array[0];
+        }
+        unset($first_occurring_regex, $temp_sql_array);
 
         // Append the where clause using the primary key of each row
         if (is_array($where_clause) && (count($where_clause) > 0)) {
@@ -62,11 +76,12 @@ if (! empty($sql_query)) {
         }
     } else {
         // Just crop LIMIT clause
-        $sql_query = $analyzed_sql[0]['section_before_limit'] . $analyzed_sql[0]['section_after_limit'];
+        $sql_query = $analyzed_sql[0]['section_before_limit']
+            . $analyzed_sql[0]['section_after_limit'];
     }
     echo PMA_Util::getMessage(PMA_Message::success());
 }
 
 $export_type = 'table';
-require_once 'libraries/display_export.lib.php';
+require_once 'libraries/display_export.inc.php';
 ?>

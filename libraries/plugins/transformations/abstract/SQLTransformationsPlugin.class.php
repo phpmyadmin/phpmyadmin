@@ -39,11 +39,12 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @return void
+     * @return string
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        $result = PMA_SQP_formatHtml(PMA_SQP_parse($buffer));
+        // see PMA_highlightSQL()
+        $result = PMA_Util::formatSql($buffer);
         // Need to clear error state not to break subsequent queries display.
         PMA_SQP_resetError();
         return $result;

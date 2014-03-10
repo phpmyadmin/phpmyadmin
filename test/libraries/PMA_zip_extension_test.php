@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for displaying results
+ * Tests zip extension usage.
  *
  * @package PhpMyAdmin-test
  */
@@ -12,7 +12,12 @@
 require_once 'libraries/zip_extension.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_zip_extension_test extends PHPUnit_Framework_TestCase
+/**
+ * Tests zip extension usage.
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Test zip file content
@@ -45,7 +50,7 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase
                 null,
                 array(
                     'error' => '',
-                    'data' => 'TEST FILE'. "\n"
+                    'data' => 'TEST FILE' . "\n"
                 )
             ),
             array(

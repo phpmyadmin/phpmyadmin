@@ -15,7 +15,8 @@ if (! defined('PHPMYADMIN')) {
 /**
  * We need way to disable external XML entities processing.
  */
-if (!function_exists('libxml_disable_entity_loader')) {
+if (! function_exists('libxml_disable_entity_loader')) {
+    $GLOBALS['skip_import'] = true;
     return;
 }
 
@@ -93,7 +94,7 @@ class ImportXml extends ImportPlugin
             $data = PMA_importGetNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
-                $offset -= strlen($buffer);
+                $GLOBALS['offset'] -= strlen($buffer);
                 break;
             } elseif ($data === true) {
                 /* Handle rest of buffer */
@@ -210,8 +211,8 @@ class ImportXml extends ImportPlugin
 
             $create = array();
 
-            foreach ($struct as $tier1 => $val1) {
-                foreach ($val1 as $tier2 => $val2) {
+            foreach ($struct as $val1) {
+                foreach ($val1 as $val2) {
                     // Need to select the correct database for the creation of
                     // tables, views, triggers, etc.
                     /**
@@ -253,7 +254,7 @@ class ImportXml extends ImportPlugin
             /**
              * Process all database content
              */
-            foreach ($xml as $k1 => $v1) {
+            foreach ($xml as $v1) {
                 $tbl_attr = $v1->attributes();
 
                 $isInTables = false;
@@ -268,7 +269,7 @@ class ImportXml extends ImportPlugin
                     $tables[] = array((string)$tbl_attr['name']);
                 }
 
-                foreach ($v1 as $k2 => $v2) {
+                foreach ($v1 as $v2) {
                     $row_attr = $v2->attributes();
                     if (! array_search((string)$row_attr['name'], $tempRow)) {
                         $tempRow[] = (string)$row_attr['name'];
@@ -315,7 +316,6 @@ class ImportXml extends ImportPlugin
         }
 
         unset($xml);
-        unset($tempRows);
         unset($tempCells);
         unset($rows);
 

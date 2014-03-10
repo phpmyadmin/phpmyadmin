@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="test/bootstrap-dist.php"
-         backupGlobals="false"
+         backupGlobals="true"
          backupStaticAttributes="false"
          strict="true"
+         timeoutForSmallTests="3"
          colors="true"
          verbose="true">
 
@@ -14,18 +15,12 @@
                  timeout="30000"/>
     </selenium>
 
-    <php>
-        <const name="TESTSUITE_SERVER" value="localhost"/>
-        <const name="TESTSUITE_USER" value="root"/>
-        <const name="TESTSUITE_PASSWORD" value=""/>
-        <const name="TESTSUITE_DATABASE" value="test"/>
-        <const name="TESTSUITE_PHPMYADMIN_HOST" value="http://localhost" />
-        <const name="TESTSUITE_PHPMYADMIN_URL" value="/phpmyadmin" />
-    </php>
-
     <testsuites>
         <testsuite name="Classes">
             <directory suffix="_test.php">test/classes</directory>
+        </testsuite>
+        <testsuite name="Engines">
+            <directory suffix="_test.php">test/engines</directory>
         </testsuite>
         <testsuite name="Unit">
             <file>test/Environment_test.php</file>
@@ -34,14 +29,12 @@
             <directory suffix="_test.php">test/libraries/rte</directory>
             <directory suffix="_test.php">test/libraries</directory>
         </testsuite>
-        <!--<testsuite name="Selenium">-->
-            <!--<directory suffix="Test.php">test/selenium</directory>-->
-        <!--</testsuite>-->
+        <testsuite name="Selenium">
+            <directory suffix="Test.php">test/selenium</directory>
+        </testsuite>
     </testsuites>
 
     <logging>
         <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
     </logging>
-
 </phpunit>
-

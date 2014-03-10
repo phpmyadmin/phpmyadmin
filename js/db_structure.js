@@ -57,6 +57,7 @@ function PMA_adjustTotals() {
 
     $allTr.each(function () {
         var $this = $(this);
+        var i, tmpVal;
         // Get the number of rows for this SQL table
         var strRows = $this.find('.tbl_rows').text();
         // If the value is approximated
@@ -65,7 +66,7 @@ function PMA_adjustTotals() {
             // The approximated value contains a preceding ~ and a following 2 (Eg 100 --> ~1002)
             strRows = strRows.substring(1, strRows.length - 1);
         }
-        strRows = strRows.replace(/[,.]/g , '');
+        strRows = strRows.replace(/[,.]/g, '');
         var intRow = parseInt(strRows, 10);
         if (! isNaN(intRow)) {
             rowsSum += intRow;
@@ -79,16 +80,16 @@ function PMA_adjustTotals() {
         var strOverheadUnit = $.trim($this.find('.tbl_overhead span.unit').text());
         // Given a value and a unit, such as 100 and KiB, for the table size
         // and overhead calculate their numeric values in bytes, such as 102400
-        for (var i = 0; i < byteUnits.length; i++) {
+        for (i = 0; i < byteUnits.length; i++) {
             if (strSizeUnit == byteUnits[i]) {
-                var tmpVal = parseFloat(strSize);
+                tmpVal = parseFloat(strSize);
                 valSize = tmpVal * Math.pow(1024, i);
                 break;
             }
         }
-        for (var i = 0; i < byteUnits.length; i++) {
+        for (i = 0; i < byteUnits.length; i++) {
             if (strOverheadUnit == byteUnits[i]) {
-                var tmpVal = parseFloat(strOverhead);
+                tmpVal = parseFloat(strOverhead);
                 valOverhead = tmpVal * Math.pow(1024, i);
                 break;
             }
@@ -196,9 +197,8 @@ AJAX.registerOnload('db_structure.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question =
-            PMA_messages.strTruncateTableStrongWarning + ' '
-            + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name));
+        var question = PMA_messages.strTruncateTableStrongWarning + ' ' +
+            $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name));
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
 
@@ -253,9 +253,8 @@ AJAX.registerOnload('db_structure.js', function () {
          */
         var question;
         if (! is_view) {
-            question =
-                PMA_messages.strDropTableStrongWarning + ' '
-                + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
+            question = PMA_messages.strDropTableStrongWarning + ' ' +
+                $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
         } else {
             question =
                 $.sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));

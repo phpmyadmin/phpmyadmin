@@ -11,7 +11,7 @@
  */
 require_once 'libraries/rte/rte_events.lib.php';
 
-class PMA_EVN_getDataFromRequest_test extends PHPUnit_Framework_TestCase
+class PMA_EVN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider provider

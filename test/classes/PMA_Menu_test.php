@@ -13,7 +13,7 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Menu.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
@@ -39,12 +39,10 @@ class PMA_Menu_Test extends PHPUnit_Framework_TestCase
         if (!defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $GLOBALS['cfg']['NavigationBarIconic'] = 'both';
+        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'both';
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['pmaThemeImage'] = 'theme/';

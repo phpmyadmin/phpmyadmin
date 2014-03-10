@@ -12,7 +12,7 @@
  */
 require_once 'libraries/Util.class.php';
 
-class PMA_pow_test extends PHPUnit_Framework_TestCase
+class PMA_Pow_Test extends PHPUnit_Framework_TestCase
 {
     public function testIntOverflow()
     {

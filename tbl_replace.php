@@ -25,7 +25,7 @@ require_once 'libraries/insert_edit.lib.php';
 // Check parameters
 PMA_Util::checkParameters(array('db', 'table', 'goto'));
 
-PMA_DBI_select_db($GLOBALS['db']);
+$GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
 /**
  * Initializes some variables
@@ -41,7 +41,7 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-// check whether insert row moode, if so include tbl_change.php
+// check whether insert row mode, if so include tbl_change.php
 PMA_isInsertRow();
 
 $after_insert_actions = array('new_insert', 'same_insert', 'edit_next');
@@ -152,6 +152,10 @@ foreach ($loop_array as $rownumber => $where_clause) {
         = isset($_REQUEST['funcs']['multi_edit'][$rownumber])
         ? $_REQUEST['funcs']['multi_edit'][$rownumber]
         : null;
+    $multi_edit_salt
+        = isset($_REQUEST['salt']['multi_edit'][$rownumber])
+        ? $_REQUEST['salt']['multi_edit'][$rownumber]
+        :null;
     $multi_edit_columns_type
         = isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_type']['multi_edit'][$rownumber]
@@ -206,8 +210,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
         $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
-            $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
-            $func_optional_param, $func_no_param, $key
+            $multi_edit_salt, $gis_from_text_functions, $current_value,
+            $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
         );
 
         list($query_values, $query_fields)
@@ -303,17 +307,18 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         parse_str($_REQUEST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
-        foreach ($relation_fields as $cell_index => $curr_cell_rel_field) {
-            foreach ($curr_cell_rel_field as $relation_field => $relation_field_value) {
+        foreach ($relation_fields as $cell_index => $curr_rel_field) {
+            foreach ($curr_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
                 $dispval = PMA_getDisplayValueForForeignTableColumn(
                     $where_comparison, $relation_field_value, $map, $relation_field
                 );
 
-                $extra_data['relations'][$cell_index] = PMA_getLinkForRelationalDisplayField(
-                    $map, $relation_field, $where_comparison,
-                    $dispval, $relation_field_value
-                );
+                $extra_data['relations'][$cell_index]
+                    = PMA_getLinkForRelationalDisplayField(
+                        $map, $relation_field, $where_comparison,
+                        $dispval, $relation_field_value
+                    );
             }
         }   // end of loop for each relation cell
     }
@@ -345,15 +350,15 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
             }
         }   // end of loop for each $mime_map
     }
-    
+
     // Need to check the inline edited value can be truncated by MySQL
     // without informing while saving
     $column_name = $_REQUEST['fields_name']['multi_edit'][0][0];
-    
+
     PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         $db, $table, $column_name, $extra_data
     );
-    
+
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords(
         $_REQUEST['db'], $_REQUEST['table']

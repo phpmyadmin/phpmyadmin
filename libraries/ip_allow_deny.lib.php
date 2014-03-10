@@ -20,28 +20,32 @@ if (! defined('PHPMYADMIN')) {
 function PMA_getIp()
 {
     /* Get the address of user */
-    if (!empty($_SERVER['REMOTE_ADDR'])) {
-        $direct_ip = $_SERVER['REMOTE_ADDR'];
-    } else {
+    if (empty($_SERVER['REMOTE_ADDR'])) {
         /* We do not know remote IP */
         return false;
     }
 
+    $direct_ip = $_SERVER['REMOTE_ADDR'];
+
     /* Do we trust this IP as a proxy? If yes we will use it's header. */
-    if (isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
-        $trusted_header_value
-            = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
-        $matches = array();
-        // the $ checks that the header contains only one IP address,
-        // ?: makes sure the () don't capture
-        $is_ip = preg_match(
-            '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
-            $trusted_header_value, $matches
-        );
-        if ($is_ip && (count($matches) == 1)) {
-            // True IP behind a proxy
-            return $matches[0];
-        }
+    if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
+        /* Return true IP */
+        return $direct_ip;
+    }
+
+    $trusted_header_value
+        = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+    $matches = array();
+    // the $ checks that the header contains only one IP address,
+    // ?: makes sure the () don't capture
+    $is_ip = preg_match(
+        '|^(?:[0-9]{1,3}\.){3,3}[0-9]{1,3}$|',
+        $trusted_header_value, $matches
+    );
+
+    if ($is_ip && (count($matches) == 1)) {
+        // True IP behind a proxy
+        return $matches[0];
     }
 
     /* Return true IP */
@@ -120,27 +124,27 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 
         if (($maskl & $rangel) == ($maskl & $ipl)) {
             return true;
-        } else {
-            return false;
         }
-    } else {
-        // range based
-        $maskocts = explode('.', $testRange);
-        $ipocts   = explode('.', $ipToTest);
 
-        // perform a range match
-        for ($i = 0; $i < 4; $i++) {
-            if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs)) {
-                if (($ipocts[$i] > $regs[2]) || ($ipocts[$i] < $regs[1])) {
-                    $result = false;
-                } // end if
-            } else {
-                if ($maskocts[$i] <> $ipocts[$i]) {
-                    $result = false;
-                } // end if
-            } // end if/else
-        } //end for
-    } //end if/else
+        return false;
+    }
+
+    // range based
+    $maskocts = explode('.', $testRange);
+    $ipocts   = explode('.', $ipToTest);
+
+    // perform a range match
+    for ($i = 0; $i < 4; $i++) {
+        if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs)) {
+            if (($ipocts[$i] > $regs[2]) || ($ipocts[$i] < $regs[1])) {
+                $result = false;
+            } // end if
+        } else {
+            if ($maskocts[$i] <> $ipocts[$i]) {
+                $result = false;
+            } // end if
+        } // end if/else
+    } //end for
 
     return $result;
 } // end of the "PMA_ipv4MaskTest()" function
@@ -152,15 +156,19 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
  * Modified for phpMyAdmin
  *
  * Matches:
- * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx         (exact)
- * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:[yyyy-zzzz]  (range, only at end of IP - no subnets)
- * xxxx:xxxx:xxxx:xxxx/nn                          (CIDR)
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
+ * (exact)
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:[yyyy-zzzz]
+ * (range, only at end of IP - no subnets)
+ * xxxx:xxxx:xxxx:xxxx/nn
+ * (CIDR)
  *
  * Does not match:
- * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]  (range, partial octets not supported)
+ * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]
+ * (range, partial octets not supported)
  *
- * @param string $test_range  string of IP range to match
- * @param string $ip_to_test  string of IP to test against range
+ * @param string $test_range string of IP range to match
+ * @param string $ip_to_test string of IP to test against range
  *
  * @return boolean    whether the IP mask matches
  *
@@ -169,7 +177,7 @@ function PMA_ipv4MaskTest($testRange, $ipToTest)
 function PMA_ipv6MaskTest($test_range, $ip_to_test)
 {
     $result = true;
-    
+
     // convert to lowercase for easier comparison
     $test_range = strtolower($test_range);
     $ip_to_test = strtolower($ip_to_test);
@@ -183,10 +191,16 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
     if ($is_single) {
         $range_hex = bin2hex(inet_pton($test_range));
         $result = $ip_hex === $range_hex;
-    } elseif ($is_range) {
+        return $result;
+    }
+
+    if ($is_range) {
         // what range do we operate on?
         $range_match = array();
-        if (preg_match('/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match)) {
+        $match = preg_match(
+            '/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match
+        );
+        if ($match) {
             $range_start = $range_match[1];
             $range_end   = $range_match[2];
 
@@ -199,7 +213,10 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
             // check if the IP to test is within the range
             $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
         }
-    } elseif ($is_cidr) {
+        return $result;
+    }
+
+    if ($is_cidr) {
         // Split in address and prefix length
         list($first_ip, $subnet) = explode('/', $test_range);
 
@@ -217,24 +234,24 @@ function PMA_ipv6MaskTest($test_range, $ip_to_test)
 
         $pos = 31;
         while ($flexbits > 0) {
-          // Get the character at this position
-          $orig = substr($last_hex, $pos, 1);
+            // Get the character at this position
+            $orig = substr($last_hex, $pos, 1);
 
-          // Convert it to an integer
-          $origval = hexdec($orig);
+            // Convert it to an integer
+            $origval = hexdec($orig);
 
-          // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
-          $newval = $origval | (pow(2, min(4, $flexbits)) - 1);
+            // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
+            $newval = $origval | (pow(2, min(4, $flexbits)) - 1);
 
-          // Convert it back to a hexadecimal character
-          $new = dechex($newval);
+            // Convert it back to a hexadecimal character
+            $new = dechex($newval);
 
-          // And put that character back in the string
-          $last_hex = substr_replace($last_hex, $new, $pos, 1);
+            // And put that character back in the string
+            $last_hex = substr_replace($last_hex, $new, $pos, 1);
 
-          // We processed one nibble, move to previous position
-          $flexbits -= 4;
-          $pos -= 1;
+            // We processed one nibble, move to previous position
+            $flexbits -= 4;
+            $pos -= 1;
         }
 
         // check if the IP to test is within the range

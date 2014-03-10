@@ -63,9 +63,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function MUST exit/quit the application
      *
-     * @global string the last connection error
+     * @global string $conn_error the last connection error
      *
-     * @return void
+     * @return boolean|void
      */
     public function auth()
     {
@@ -75,34 +75,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($response->isAjax()) {
             $response->isSuccess(false);
 
-            $login_link = '<br /><br />[ ' .
-                sprintf(
-                    '<a href="%s" class="ajax login-link">%s</a>', 
-                    $GLOBALS['cfg']['PmaAbsoluteUri'], 
-                    __('Log in')
-                )
-                . ' ]';
-
-            if (! empty($conn_error)) {
-
-                $conn_error .= $login_link;
-
-                $response->addJSON(
-                    'message',
-                    PMA_Message::error(
-                        $conn_error
-                    )
-                );
+            $response->addJSON(
+                'redirect_flag',
+                '1'
+            );
+            if (defined('TESTSUITE')) {
+                return true;
             } else {
-                $response->addJSON(
-                    'message',
-                    PMA_Message::error(
-                        __('Your session has expired. Please log in again.') .
-                        $login_link
-                    )
-                );
+                exit;
             }
-            exit;
         }
 
         /* Perform logout to custom URL */
@@ -110,7 +91,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
         ) {
             PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
-            exit;
+            if (defined('TESTSUITE')) {
+                return true;
+            } else {
+                exit;
+            }
         }
 
         // No recall if blowfish secret is not configured as it would produce
@@ -127,8 +112,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             // skip the IE autocomplete feature.
             $autocomplete   = ' autocomplete="off"';
         }
-
-        $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
 
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
@@ -166,10 +149,13 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! empty($conn_error)) {
             PMA_Message::rawError($conn_error)->display();
         }
+        elseif (isset($_GET['session_expired']) && intval($_GET['session_expired'])==1) {
+            PMA_Message::rawError(__('Your session has expired. Please log in again.'))->display();
+        }
 
         echo "<noscript>\n";
         PMA_message::error(
-            __("Javascript must be enabled past this point")
+            __("Javascript must be enabled past this point!")
         )->display();
         echo "</noscript>\n";
 
@@ -222,7 +208,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             </div>';
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             echo '<div class="item">
-                <label for="select_server">' . __('Server Choice') .':</label>
+                <label for="select_server">' . __('Server Choice:') . '</label>
                 <select name="server" id="select_server"';
             if ($GLOBALS['cfg']['AllowArbitraryServer']) {
                 echo ' onchange="document.forms[\'login_form\'].'
@@ -239,6 +225,50 @@ class AuthenticationCookie extends AuthenticationPlugin
                 . $GLOBALS['server'] . '" />';
         } // end if (server choice)
 
+        // We already have one correct captcha.
+        $skip = false;
+        if (  isset($_SESSION['last_valid_captcha'])
+            && $_SESSION['last_valid_captcha']
+        ) {
+            $skip = true;
+        }
+
+        // Add captcha input field if reCaptcha is enabled
+        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+            && !$skip
+        ) {
+            // If enabled show captcha to the user on the login screen.
+            echo '<script type="text/javascript">
+                    var RecaptchaOptions = {
+                        theme : "white"
+                    };
+                 </script>
+                 <script type="text/javascript"
+                    src="https://www.google.com/recaptcha/api/challenge?'
+                    . 'k=' . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '&amp;'
+                    . 'hl=' . $GLOBALS['lang'] . '">
+                 </script>
+                 <noscript>
+                    <iframe src="https://www.google.com/recaptcha/api/noscript?k='
+                . $GLOBALS['cfg']['CaptchaLoginPublicKey'] . '"
+                        height="300" width="500" frameborder="0"></iframe><br>
+                    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                    </textarea>
+                    <input type="hidden" name="recaptcha_response_field"
+                        value="manual_challenge">
+                 </noscript>
+                 <script type="text/javascript">
+                    $("#recaptcha_reload_btn").addClass("disableAjax");
+                    $("#recaptcha_switch_audio_btn").addClass("disableAjax");
+                    $("#recaptcha_switch_img_btn").addClass("disableAjax");
+                    $("#recaptcha_whatsthis_btn").addClass("disableAjax");
+                    $("#recaptcha_audio_play_again").live("mouseover", function() {
+                        $(this).addClass("disableAjax");
+                    });
+                 </script>';
+        }
+
         echo '</fieldset>
         <fieldset class="tblFooters">
             <input value="' . __('Go') . '" type="submit" id="input_go" />';
@@ -254,7 +284,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo PMA_generate_common_hidden_inputs($_form_params, '', 0, 'server');
+        echo PMA_URL_getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
 
@@ -262,14 +292,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         Swekey_login('input_username', 'input_go');
         // END Swekey Integration
 
-        // show the "Cookies required" message only if cookies are disabled
-        // (we previously tried to set some cookies)
-        if (empty($_COOKIE)) {
-            trigger_error(
-                __('Cookies must be enabled past this point.'),
-                E_USER_NOTICE
-            );
-        }
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
             echo '<div>';
             $GLOBALS['error_handler']->dispErrors();
@@ -279,7 +301,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (file_exists(CUSTOM_FOOTER_FILE)) {
             include CUSTOM_FOOTER_FILE;
         }
-        exit;
+        if (! defined('TESTSUITE')) {
+            exit;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -287,7 +313,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function DOES NOT check authentication - it just checks/provides
      * authentication credentials required to connect to the MySQL server
-     * usually with PMA_DBI_connect()
+     * usually with $GLOBALS['dbi']->connect()
      *
      * it returns false if something is missing - which usually leads to
      * auth() which displays login form
@@ -304,6 +330,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function authCheck()
     {
+        global $conn_error;
+
         // Initialization
         /**
          * @global $GLOBALS['pma_auth_server'] the user provided server to
@@ -315,7 +343,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['from_cookie'] = false;
 
         // BEGIN Swekey Integration
-        if (! Swekey_auth_check()) {
+        if (! Swekey_Auth_check()) {
             return false;
         }
         // END Swekey Integration
@@ -329,6 +357,54 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
+        // We already have one correct captcha.
+        $skip = false;
+        if (  isset($_SESSION['last_valid_captcha'])
+            && $_SESSION['last_valid_captcha']
+        ) {
+            $skip = true;
+        }
+
+        // Verify Captcha if it is required.
+        if (  !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+            && !$skip
+        ) {
+            if (  !empty($_POST["recaptcha_challenge_field"])
+                && !empty($_POST["recaptcha_response_field"])
+            ) {
+                include_once 'libraries/plugins/auth/recaptchalib.php';
+
+                // Use private key to verify captcha status.
+                $resp = recaptcha_check_answer(
+                    $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                    $_SERVER["REMOTE_ADDR"],
+                    $_POST["recaptcha_challenge_field"],
+                    $_POST["recaptcha_response_field"]
+                );
+
+                // Check if the captcha entered is valid, if not stop the login.
+                if ( !$resp->is_valid ) {
+                    $conn_error = __('Entered captcha is wrong, try again!');
+                    $_SESSION['last_valid_captcha'] = false;
+                    return false;
+                } else {
+                    $_SESSION['last_valid_captcha'] = true;
+                }
+            } elseif (! empty($_POST["recaptcha_challenge_field"])
+                && empty($_POST["recaptcha_response_field"])
+            ) {
+                $conn_error = __('Please enter correct captcha!');
+                return false;
+            } else {
+                if (! isset($_SESSION['last_valid_captcha'])
+                    || ! $_SESSION['last_valid_captcha']
+                ) {
+                    return false;
+                }
+            }
+        }
+
         if (! empty($_REQUEST['old_usr'])) {
             // The user wants to be logged out
             // -> delete his choices that were stored in session
@@ -336,7 +412,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             // according to the PHP manual we should do this before the destroy:
             //$_SESSION = array();
 
-            session_destroy();
+            if (! defined('TESTSUITE')) {
+                session_destroy();
+                // $_SESSION array is not immediately emptied
+                $_SESSION['last_valid_captcha'] = false;
+            }
             // -> delete password cookie(s)
             if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
                 foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
@@ -406,7 +486,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Util::cacheUnset('dbs_where_create_table_allowed', true);
             $GLOBALS['no_activity'] = true;
             $this->authFails();
-            exit;
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
         }
 
         // password
@@ -550,10 +634,14 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_Response::getInstance()->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_generate_common_url($url_params, '&'),
+                $redirect_url . PMA_URL_getCommon($url_params, '&'),
                 true
             );
-            exit;
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
         } // end if
 
         return true;
@@ -584,13 +672,13 @@ class AuthenticationCookie extends AuthenticationPlugin
                 . ' (see AllowNoPassword)'
             );
         } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-            $conn_error = __('Access denied');
+            $conn_error = __('Access denied!');
         } elseif (! empty($GLOBALS['no_activity'])) {
             $conn_error = sprintf(
-                __('No activity within %s seconds; please log in again'),
+                __('No activity within %s seconds; please log in again.'),
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
-        } elseif (PMA_DBI_getError()) {
+        } elseif ($GLOBALS['dbi']->getError()) {
             $conn_error = '#' . $GLOBALS['errno'] . ' '
                 . __('Cannot log in to the MySQL server');
         } else {

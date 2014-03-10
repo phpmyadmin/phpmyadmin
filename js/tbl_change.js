@@ -132,6 +132,7 @@ function isDate(val, tmstmp)
 * The following patterns are accepted in this validation (accepted in mysql as well)
 * 1) 2:3:4
 * 2) 2:23:43
+* 3) 2:23:43.123456
 */
 function isTime(val)
 {
@@ -142,7 +143,7 @@ function isTime(val)
         }
     }
     val = arrayVal.join(":");
-    var tmexp = new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))$/);
+    var tmexp = new RegExp(/^(([0-1][0-9])|(2[0-3])):((0[0-9])|([1-5][0-9])):((0[0-9])|([1-5][0-9]))(\.[0-9]{1,6}){0,1}$/);
     return tmexp.test(val);
 }
 
@@ -150,6 +151,18 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 {
     var evt = window.event || arguments.callee.caller.arguments[0];
     var target = evt.target || evt.srcElement;
+
+    //To generate the textbox that can take the salt
+    var new_salt_box = "<br><input type=text name=salt[multi_edit][" + multi_edit + "][" + urlField + "]" +
+        " id=salt_" + target.id + " placeholder='enter Salt'>";
+
+    //If AES_ENCRYPT is Selected then append the new textbox for salt
+    if (target.value == "AES_ENCRYPT" && !($("#salt_" + target.id).length)) {
+        $("input[name='fields[multi_edit][" + multi_edit + "][" + urlField + "]']").after(new_salt_box);
+    } else {
+        //The value of the select is no longer AES_ENCRYPT, remove the textbox for salt
+        $("#salt_" + target.id).remove();
+    }
 
     // Unchecks the corresponding "NULL" control
     $("input[name='fields_null[multi_edit][" + multi_edit + "][" + urlField + "]']").prop('checked', false);
@@ -223,7 +236,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
 AJAX.registerTeardown('tbl_change.js', function () {
     $('span.open_gis_editor').die('click');
     $("input[name='gis_data[save]']").die('click');
-    $('input.checkbox_null').unbind('click');
+    $('input.checkbox_null').die('click');
     $('select[name="submit_type"]').unbind('change');
     $("#insert_rows").die('change');
 });
@@ -276,7 +289,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      * "Continue insertion" are handled in the "Continue insertion" code
      *
      */
-    $('input.checkbox_null').bind('click', function (e) {
+    $('input.checkbox_null').live('click', function (e) {
         nullify(
             // use hidden fields populated by tbl_change.php
             $(this).siblings('.nullify_code').val(),
@@ -375,7 +388,8 @@ AJAX.registerOnload('tbl_change.js', function () {
                     var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
                     $this_element.attr('name', new_name);
 
-                    if ($this_element.is('.textfield')) {
+                    // handle input text fields and textareas
+                    if ($this_element.is('.textfield') || $this_element.is('.char')) {
                         // do not remove the 'value' attribute for ENUM columns
                         if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
                             $this_element.val($this_element.closest('tr').find('span.default_value').html());
@@ -465,14 +479,14 @@ AJAX.registerOnload('tbl_change.js', function () {
             // IMO it's not really important to handle the tabindex for
             // function and Null
             var tabindex = 0;
-            $('.textfield')
+            $('.textfield, .char, textarea')
             .each(function () {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
                 // update the IDs of textfields to ensure that they are unique
                 $(this).attr('id', "field_" + tabindex + "_3");
             });
-            $('select.control_at_footer')
+            $('.control_at_footer')
             .each(function () {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
@@ -492,3 +506,23 @@ AJAX.registerOnload('tbl_change.js', function () {
         }
     });
 });
+
+function changeValueFieldType(elem, searchIndex)
+{
+    var fieldsValue = $("select#fieldID_" + searchIndex);
+    if (0 == fieldsValue.size()) {
+        return;
+    }
+
+    var type = $(elem).val();
+    if (
+        'IN (...)' == type
+        || 'NOT IN (...)' == type
+        || 'BETWEEN' == type
+        || 'NOT BETWEEN' == type
+    ) {
+        $("#fieldID_" + searchIndex).attr('multiple', '');
+    } else {
+        $("#fieldID_" + searchIndex).removeAttr('multiple');
+    }
+}

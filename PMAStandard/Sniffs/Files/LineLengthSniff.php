@@ -128,7 +128,7 @@ class PMAStandard_Sniffs_Files_LineLengthSniff implements PHP_CodeSniffer_Sniff
             return;
         }
 
-        if (preg_match("|__\('[^']{40,999}'\)|", $lineContent) !== 0) {
+        if (preg_match("@__\('([^']|\\'){40,999}'\)@", $lineContent) !== 0) {
             return;
         }
 

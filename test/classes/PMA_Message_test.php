@@ -14,8 +14,14 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Message.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Theme.class.php';
 
-class PMA_Message_test extends PHPUnit_Framework_TestCase
+/**
+ * Test for PMA_Message class
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Message_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @var    PMA_Message
@@ -33,6 +39,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PMA_Message;
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
     /**
@@ -67,7 +75,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->object = new PMA_Message('test<&>', PMA_Message::SUCCESS);
         $this->assertEquals($this->object, PMA_Message::success('test<&>'));
         $this->assertEquals(
-            'Your SQL query has been executed successfully',
+            'Your SQL query has been executed successfully.',
             PMA_Message::success()->getString()
         );
     }
@@ -320,6 +328,11 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testDecodeBB
+     *
+     * @return array Test data
+     */
     public function decodeBBDataProvider()
     {
         return array(
@@ -341,7 +354,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
             ),
             array(
                 '[a@http://foo.bar/@Documentation]link[/a]',
-                '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F&amp;lang=en&amp;token=token" target="Documentation">link</a>'
+                '<a href="./url.php?url=http%3A%2F%2Ffoo.bar%2F"'
+                . ' target="Documentation">link</a>'
             ),
             array(
                 '[a@./non-existing@Documentation]link[/a]',
@@ -349,7 +363,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
             ),
             array(
                 '[doc@foo]link[/doc]',
-                '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23foo&amp;lang=en&amp;token=token" target="documentation">link</a>'
+                '<a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2F'
+                . 'latest%2Fsetup.html%23foo" '
+                . 'target="documentation">link</a>'
             ),
         );
     }
@@ -367,8 +383,6 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     public function testDecodeBB($actual, $expected)
     {
-        $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         unset($GLOBALS['server']);
         unset($GLOBALS['collation_connection']);
         $this->assertEquals($expected, PMA_Message::decodeBB($actual));
@@ -475,7 +489,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     {
         $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         $this->assertEquals(
-            '<kbd>test</kbd> <a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fcfg.html%23cfg_Example&amp;lang=en&amp;token=token" target="documentation">test</a>',
+            '<kbd>test</kbd> <a href="./url.php?url=http%3A%2F%2Fdocs.phpmyadmin.'
+            . 'net%2Fen%2Flatest%2Fcfg.html%23cfg_Example"'
+            . ' target="documentation">test</a>',
             $this->object->getMessage()
         );
     }
@@ -495,7 +511,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * testing display method (output string and _is_displayed varible)
+     * testing display method (output string and _is_displayed variable)
      *
      * @return void
      */
@@ -504,7 +520,10 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->object->isDisplayed());
         $this->object->setMessage('Test Message');
 
-        $this->expectOutputString('<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> Test Message</div>');
+        $this->expectOutputString(
+            '<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> '
+            . 'Test Message</div>'
+        );
         $this->object->display();
 
         $this->assertTrue($this->object->isDisplayed());
@@ -519,7 +538,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     {
         $this->object->setMessage('Test Message');
         $this->assertEquals(
-            '<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> Test Message</div>',
+            '<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> '
+            . 'Test Message</div>',
             $this->object->getDisplay()
         );
     }
@@ -536,12 +556,29 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->object->isDisplayed(false));
     }
 
+    /**
+     * Data provider for testAffectedRows
+     *
+     * @return array Test-data
+     */
     public function providerAffectedRows()
     {
         return array(
-            array(1, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  1 row affected.</div>'),
-            array(2, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  2 rows affected.</div>'),
-            array(10000, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  10000 rows affected.</div>'),
+            array(
+                1,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  1 row affected.</div>'
+            ),
+            array(
+                2,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  2 rows affected.</div>'
+            ),
+            array(
+                10000,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  10000 rows affected.</div>'
+            )
         );
     }
 
@@ -564,12 +601,29 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->object->display();
     }
 
+    /**
+     * Data provider for testInsertedRows
+     *
+     * @return array Test-data
+     */
     public function providerInsertedRows()
     {
         return array(
-            array(1, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  1 row inserted.</div>'),
-            array(2, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  2 rows inserted.</div>'),
-            array(100000, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  100000 rows inserted.</div>'),
+            array(
+                1,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  1 row inserted.</div>'
+            ),
+            array(
+                2,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  2 rows inserted.</div>'
+            ),
+            array(
+                100000,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  100000 rows inserted.</div>'
+            )
         );
     }
 
@@ -592,12 +646,29 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->object->display();
     }
 
+    /**
+     * Data provider for testDeletedRows
+     *
+     * @return array Test-data
+     */
     public function providerDeletedRows()
     {
         return array(
-            array(1, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  1 row deleted.</div>'),
-            array(2, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  2 rows deleted.</div>'),
-            array(500000, '<div class="notice"><img src="theme/s_notice.png" title="" alt="" />  500000 rows deleted.</div>'),
+            array(
+                1,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  1 row deleted.</div>'
+            ),
+            array(
+                2,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  2 rows deleted.</div>'
+            ),
+            array(
+                500000,
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" '
+                . '/>  500000 rows deleted.</div>'
+            )
         );
     }
 

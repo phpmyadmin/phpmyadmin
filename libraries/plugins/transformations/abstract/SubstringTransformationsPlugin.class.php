@@ -43,7 +43,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @return void
+     * @return string
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
@@ -64,9 +64,11 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
 
         $newtext = '';
         if ($options[1] != 'all') {
-            $newtext = PMA_substr($buffer, $options[0], $options[1]);
+            $newtext = $GLOBALS['PMA_String']->substr(
+                $buffer, $options[0], $options[1]
+            );
         } else {
-            $newtext = PMA_substr($buffer, $options[0]);
+            $newtext = $GLOBALS['PMA_String']->substr($buffer, $options[0]);
         }
 
         $length = strlen($newtext);

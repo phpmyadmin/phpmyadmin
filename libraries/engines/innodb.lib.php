@@ -14,14 +14,14 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin-Engines
  */
-class PMA_StorageEngine_innodb extends PMA_StorageEngine
+class PMA_StorageEngine_Innodb extends PMA_StorageEngine
 {
     /**
      * Returns array with variable names related to InnoDB storage engine
      *
      * @return array   variable names
      */
-    function getVariables()
+    public function getVariables()
     {
         return array(
             'innodb_data_home_dir' => array(
@@ -124,7 +124,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return string  SQL query LIKE pattern
      */
-    function getVariablesLikePattern()
+    public function getVariablesLikePattern()
     {
         return 'innodb\\_%';
     }
@@ -134,7 +134,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return array detail pages
      */
-    function getInfoPages()
+    public function getInfoPages()
     {
         if ($this->support < PMA_ENGINE_SUPPORT_YES) {
             return array();
@@ -150,7 +150,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return string  html table with stats
      */
-    function getPageBufferpool()
+    public function getPageBufferpool()
     {
         // The following query is only possible because we know
         // that we are on MySQL 5 here (checked above)!
@@ -159,7 +159,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
              SHOW STATUS
             WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\'
                OR Variable_name = \'Innodb_page_size\';';
-        $status = PMA_DBI_fetch_result($sql, 0, 1);
+        $status = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
 
         $output = '<table class="data" id="table_innodb_bufferpool_usage">' . "\n"
             . '    <caption class="tblHeaders">' . "\n"
@@ -318,11 +318,11 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return string  result of SHOW INNODB STATUS inside pre tags
      */
-    function getPageStatus()
+    public function getPageStatus()
     {
         return '<pre id="pre_innodb_status">' . "\n"
             . htmlspecialchars(
-                PMA_DBI_fetch_value('SHOW INNODB STATUS;', 0, 'Status')
+                $GLOBALS['dbi']->fetchValue('SHOW INNODB STATUS;', 0, 'Status')
             ) . "\n"
             . '</pre>' . "\n";
     }
@@ -334,7 +334,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return string html output
      */
-    function getPage($id)
+    public function getPage($id)
     {
         if (! array_key_exists($id, $this->getInfoPages())) {
             return false;
@@ -351,7 +351,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return string  mysql helppage filename
      */
-    function getMysqlHelpPage()
+    public function getMysqlHelpPage()
     {
         return 'innodb-storage-engine';
     }
@@ -364,9 +364,9 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return string the version number, or empty if not running as a plugin
      */
-    function getInnodbPluginVersion()
+    public function getInnodbPluginVersion()
     {
-        return PMA_DBI_fetch_value('SELECT @@innodb_version;');
+        return $GLOBALS['dbi']->fetchValue('SELECT @@innodb_version;');
     }
 
     /**
@@ -378,9 +378,9 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return string the InnoDB file format
      */
-    function getInnodbFileFormat()
+    public function getInnodbFileFormat()
     {
-        return PMA_DBI_fetch_value(
+        return $GLOBALS['dbi']->fetchValue(
             "SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 0, 1
         );
     }
@@ -394,12 +394,11 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      *
      * @return boolean whether this feature is supported or not
      */
-    function supportsFilePerTable()
+    public function supportsFilePerTable()
     {
-        $innodb_file_per_table = PMA_DBI_fetch_value(
+        if ($GLOBALS['dbi']->fetchValue(
             "SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 0, 1
-        );
-        if ($innodb_file_per_table == 'ON') {
+        ) == 'ON') {
             return true;
         } else {
             return false;

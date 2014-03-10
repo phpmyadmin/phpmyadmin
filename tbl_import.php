@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Table import
  *
  * @package PhpMyAdmin
  */
@@ -24,7 +25,6 @@ $url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
 require_once 'libraries/tbl_info.inc.php';
 
 $import_type = 'table';
-require_once 'libraries/display_import.lib.php';
+require_once 'libraries/display_import.inc.php';
 
 ?>
-

@@ -1,12 +1,21 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Swekey
+ *
  * @package Swekey
  */
 
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Checks Swekey authentication.
+ *
+ * @return boolean whether authentication succeeded or not
  */
-function Swekey_auth_check()
+function Swekey_Auth_check()
 {
     global $cfg;
     $confFile = $cfg['Server']['auth_swekey_config'];
@@ -28,11 +37,12 @@ function Swekey_auth_check()
             if (preg_match("/^[0-9A-F]{32}:.+$/", $line) != false) {
                 $items = explode(":", $line);
                 if (count($items) == 2) {
-                    $_SESSION['SWEKEY']['VALID_SWEKEYS'][$items[0]] = trim($items[1]);
+                    $_SESSION['SWEKEY']['VALID_SWEKEYS'][$items[0]]
+                        = trim($items[1]);
                 }
             } elseif (preg_match("/^[A-Z_]+=.*$/", $line) != false) {
                 $items = explode("=", $line);
-                $_SESSION['SWEKEY']['CONF_'.trim($items[0])] = trim($items[1]);
+                $_SESSION['SWEKEY']['CONF_' . trim($items[0])] = trim($items[1]);
             }
         }
 
@@ -70,8 +80,10 @@ function Swekey_auth_check()
 
 /**
  * Handle Swekey authentication error.
+ *
+ * @return string HTML
  */
-function Swekey_auth_error()
+function Swekey_Auth_error()
 {
     if (! isset($_SESSION['SWEKEY'])) {
         return null;
@@ -88,9 +100,9 @@ function Swekey_auth_error()
     function Swekey_GetValidKey()
     {
         var valids = "<?php
-            foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
-                echo $key.',';
-            }
+    foreach ($_SESSION['SWEKEY']['VALID_SWEKEYS'] as $key => $value) {
+                echo $key . ',';
+    }
         ?>";
         var connected_keys = Swekey_ListKeyIds().split(",");
         for (i in connected_keys) {
@@ -131,7 +143,10 @@ function Swekey_auth_error()
     }
 
     if (count($_SESSION['SWEKEY']['VALID_SWEKEYS']) == 0) {
-        return sprintf(__('File %s does not contain any key id'), $GLOBALS['cfg']['Server']['auth_swekey_config']);
+        return sprintf(
+            __('File %s does not contain any key id'),
+            $GLOBALS['cfg']['Server']['auth_swekey_config']
+        );
     }
 
     include_once "libraries/plugins/auth/swekey/swekey.php";
@@ -148,15 +163,16 @@ function Swekey_auth_error()
         if ($pos === false) {
             $pos = strrpos($caFile, '\\'); // windows
         }
-        $caFile = substr($caFile, 0, $pos + 1).'musbe-ca.crt';
-//        echo "\n<!-- $caFile -->\n";
-//        if (file_exists($caFile))
-//            echo "<!-- exists -->\n";
+        $caFile = substr($caFile, 0, $pos + 1) . 'musbe-ca.crt';
+        //        echo "\n<!-- $caFile -->\n";
+        //        if (file_exists($caFile))
+        //            echo "<!-- exists -->\n";
     }
 
     if (file_exists($caFile)) {
         Swekey_SetCAFile($caFile);
-    } elseif (! empty($caFile) && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")) {
+    } elseif (! empty($caFile)
+        && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")) {
         return "Internal Error: CA File $caFile not found";
     }
 
@@ -170,13 +186,16 @@ function Swekey_auth_error()
             unset($swekey_id);
         } else {
             if (strlen($swekey_id) == 32) {
-                $res = Swekey_CheckOtp($swekey_id, $_SESSION['SWEKEY']['RND_TOKEN'], $swekey_otp);
+                $res = Swekey_CheckOtp(
+                    $swekey_id, $_SESSION['SWEKEY']['RND_TOKEN'], $swekey_otp
+                );
                 unset($_SESSION['SWEKEY']['RND_TOKEN']);
                 if (! $res) {
-                    $result = __('Hardware authentication failed') . ' (' . Swekey_GetLastError() . ')';
+                    $result = __('Hardware authentication failed!') . ' (' . Swekey_GetLastError() . ')';
                 } else {
                     $_SESSION['SWEKEY']['AUTHENTICATED_SWEKEY'] = $swekey_id;
-                    $_SESSION['SWEKEY']['FORCE_USER'] = $_SESSION['SWEKEY']['VALID_SWEKEYS'][$swekey_id];
+                    $_SESSION['SWEKEY']['FORCE_USER']
+                        = $_SESSION['SWEKEY']['VALID_SWEKEYS'][$swekey_id];
                     return null;
                 }
             } else {
@@ -193,7 +212,7 @@ function Swekey_auth_error()
 
     $_SESSION['SWEKEY']['RND_TOKEN'] = Swekey_GetFastRndToken();
     if (strlen($_SESSION['SWEKEY']['RND_TOKEN']) != 64) {
-        $result = __('Hardware authentication failed') . ' (' . Swekey_GetLastError() . ')';
+        $result = __('Hardware authentication failed!') . ' (' . Swekey_GetLastError() . ')';
         unset($_SESSION['SWEKEY']['CONF_LOADED']); // reload the conf file
     }
 
@@ -208,7 +227,7 @@ function Swekey_auth_error()
                 url = url.substr(0, url.indexOf("?"));
             }
             Swekey_SetUnplugUrl(key, "pma_login", url + "?session_to_unset=<?php echo session_id();?>&token=<?php echo $_SESSION[' PMA_token ']; ?>");
-            var otp = Swekey_GetOtp(key, <?php echo '"'.$_SESSION['SWEKEY']['RND_TOKEN'].'"';?>);
+            var otp = Swekey_GetOtp(key, <?php echo '"' . $_SESSION['SWEKEY']['RND_TOKEN'] . '"';?>);
             window.location.search="?swekey_id=" + key + "&swekey_otp=" + otp + "&token=<?php echo $_SESSION[' PMA_token ']; ?>";
         }
         </script>
@@ -222,10 +241,15 @@ function Swekey_auth_error()
 
 /**
  * Perform login using Swekey.
+ *
+ * @param string $input_name Input "Name"
+ * @param string $input_go   Input "Go"
+ *
+ * @return void
  */
 function Swekey_login($input_name, $input_go)
 {
-    $swekeyErr = Swekey_auth_error();
+    $swekeyErr = Swekey_Auth_error();
     if ($swekeyErr != null) {
         PMA_Message::error($swekeyErr)->display();
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
@@ -240,7 +264,7 @@ function Swekey_login($input_name, $input_go)
         if (empty($_SESSION['SWEKEY']['FORCE_USER'])) {
             echo 'var user = null;';
         } else {
-            echo 'var user = "'.$_SESSION['SWEKEY']['FORCE_USER'].'";';
+            echo 'var user = "' . $_SESSION['SWEKEY']['FORCE_USER'] . '";';
         }
 
         ?>

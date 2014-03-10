@@ -19,7 +19,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation {
     width: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
     overflow: hidden;
-    overflow-y: auto;
     position: fixed;
     top: 0;
     <?php echo $left; ?>: 0;
@@ -31,6 +30,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation_content {
     width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     <?php echo $left; ?>: 0;
@@ -68,12 +68,12 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation #pmalogo,
 #pma_navigation #serverChoice,
-#pma_navigation #leftframelinks,
+#pma_navigation #navipanellinks,
 #pma_navigation #recentTableList,
 #pma_navigation #databaseList,
 #pma_navigation div.pageselector.dbselector {
     text-align: center;
-    margin: 5px 10px 0px;
+    padding: 5px 10px 0px;
     border: 0;
 }
 
@@ -83,11 +83,25 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     width: 80%;
 }
 
+#pma_navigation_content > img.throbber {
+    display: none;
+    margin: .3em auto 0;
+}
+
 /* Navigation tree*/
 #pma_navigation_tree {
-    margin: 5px 0 0;
+    margin: 0;
     margin-<?php echo $left; ?>: 10px;
     color: #444;
+    height: 74%;
+    position: relative;
+}
+#pma_navigation_tree_content {
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    height: 100%;
 }
 #pma_navigation_tree a {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
@@ -98,6 +112,25 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation_tree li.activePointer {
     color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+}
+#pma_navigation_tree li.selected {
+    color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
+}
+#pma_navigation_tree li .dbItemControls {
+    padding-left: 4px;
+}
+#pma_navigation_tree li .navItemControls {
+    display: none;
+    padding-left: 4px;
+}
+#pma_navigation_tree li.activePointer .navItemControls {
+    display: inline;
+    opacity: 0.5;
+}
+#pma_navigation_tree li.activePointer .navItemControls:hover {
+    display: inline;
+    opacity: 1.0;
 }
 #pma_navigation_tree ul {
     clear: both;
@@ -110,11 +143,17 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree li {
     white-space: nowrap;
+    padding-bottom: 4px;
     clear: both;
     min-height: 16px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
 }
 #pma_navigation_tree img {
     margin: 0;
+}
+#pma_navigation_tree i {
+    display: block;
 }
 #pma_navigation_tree div.block {
     position: relative;
@@ -127,7 +166,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation_tree div.block i,
 #pma_navigation_tree div.block b {
     width: 1.5em;
-    height: 1.5em;
+    height: 1.7em;
     min-width: 16px;
     min-height: 8px;
     position: absolute;
@@ -192,6 +231,11 @@ li.fast_filter {
     border-<?php echo $left; ?>: 1px solid #666;
 }
 li.fast_filter input {
+    margin: 3px 0 0 0;
+    font-size: 0.7em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-<?php echo $left; ?>: 4px;
     padding-<?php echo $right; ?>: 1.7em;
     width: 100%;
 }

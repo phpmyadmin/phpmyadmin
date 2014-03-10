@@ -12,7 +12,9 @@
 require_once 'libraries/StorageEngine.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/config.default.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
 /**
@@ -73,6 +75,11 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
                     'Support' => 'NO',
                     'Comment' => 'dummy2 comment',
                 ),
+                'FEDERATED' => array(
+                    'Engine' => 'FEDERATED',
+                    'Support' => 'NO',
+                    'Comment' => 'Federated MySQL storage engine'
+                ),
             ),
             $this->object->getStorageEngines()
         );
@@ -87,15 +94,11 @@ class PMA_StorageEngineTest extends PHPUnit_Framework_TestCase
      */
     public function testGetHtmlSelect()
     {
+        $html = $this->object->getHtmlSelect();
 
-        $this->assertEquals(
-            '<select name="engine">
-    <option value="dummy" title="dummy comment">
-        dummy
-    </option>
-</select>
-',
-            $this->object->getHtmlSelect()
+        $this->assertContains(
+            '<option value="dummy" title="dummy comment">',
+            $html
         );
     }
 

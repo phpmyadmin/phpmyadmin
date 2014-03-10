@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA_generate_common_url()
+ * tests for PMA_URL_getCommon()
  *
  * @package PhpMyAdmin-test
  */
@@ -12,7 +12,7 @@
 require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
-class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
+class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
@@ -22,121 +22,109 @@ class PMA_generate_common_url_test extends PHPUnit_Framework_TestCase
     public function testOldStyle()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_get_arg_separator();
+        $separator = PMA_URL_getArgSeparator();
         $expected = 'server=x' . htmlentities($separator)
-            . 'lang=x' . htmlentities($separator)
+            . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = 'db=db'
             . htmlentities($separator) . 'table=table'
             . htmlentities($separator) . $expected;
 
-        $this->assertEquals($expected, PMA_generate_common_url('db', 'table'));
+        $this->assertEquals($expected, PMA_URL_getCommon('db', 'table'));
     }
 
     public function testOldStyleDbOnly()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_get_arg_separator();
+        $separator = PMA_URL_getArgSeparator();
         $expected = 'server=x' . htmlentities($separator)
-            . 'lang=x' . htmlentities($separator)
+            . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = 'db=db'
             . htmlentities($separator) . $expected;
 
-        $this->assertEquals($expected, PMA_generate_common_url('db'));
+        $this->assertEquals($expected, PMA_URL_getCommon('db'));
     }
 
     public function testNewStyle()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_get_arg_separator();
+        $separator = PMA_URL_getArgSeparator();
         $expected = 'server=x' . htmlentities($separator)
-            . 'lang=x' . htmlentities($separator)
+            . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = '?db=db'
             . htmlentities($separator) . 'table=table'
             . htmlentities($separator) . $expected;
         $params = array('db' => 'db', 'table' => 'table');
-        $this->assertEquals($expected, PMA_generate_common_url($params));
+        $this->assertEquals($expected, PMA_URL_getCommon($params));
     }
 
     public function testOldStyleWithAlternateSeparator()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_get_arg_separator();
+        $separator = PMA_URL_getArgSeparator();
         $expected = 'server=x' . $separator
-            . 'lang=x' . $separator
+            . 'lang=en' . $separator
             . 'collation_connection=x' . $separator
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = 'db=db' . $separator . 'table=table' . $separator . $expected;
-        $this->assertEquals($expected, PMA_generate_common_url('db', 'table', '&'));
+        $this->assertEquals($expected, PMA_URL_getCommon('db', 'table', '&'));
     }
 
     public function testOldStyleWithAlternateSeparatorDbOnly()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_get_arg_separator();
+        $separator = PMA_URL_getArgSeparator();
         $expected = 'server=x' . $separator
-            . 'lang=x' . $separator
+            . 'lang=en' . $separator
             . 'collation_connection=x' . $separator
-            . 'token=x'
+            . 'token=token'
             ;
 
         $expected = 'db=db' . $separator . $expected;
-        $this->assertEquals($expected, PMA_generate_common_url('db', '', '&'));
+        $this->assertEquals($expected, PMA_URL_getCommon('db', '', '&'));
     }
 
     public function testDefault()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['lang'] = 'x';
         $GLOBALS['collation_connection'] = 'x';
-        $_SESSION[' PMA_token '] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = PMA_get_arg_separator();
+        $separator = PMA_URL_getArgSeparator();
         $expected = 'server=x' . htmlentities($separator)
-            . 'lang=x' . htmlentities($separator)
+            . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x' . htmlentities($separator)
-            . 'token=x'
+            . 'token=token'
             ;
-        $this->assertEquals($expected, PMA_generate_common_url());
+        $this->assertEquals($expected, PMA_URL_getCommon());
     }
 }
 ?>

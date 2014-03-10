@@ -1,6 +1,21 @@
 language: php
 php:
+  - "5.5"
   - "5.4"
   - "5.3"
-before_script: ./scripts/generate-mo --quiet
-script: phpunit --configuration phpunit.xml.nocoverage
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq ant
+before_script:
+  - git clone git://github.com/zenovich/runkit.git && cd runkit && phpize && ./configure && make && make install && cd ..
+  - phpenv config-add test/travis.php.ini
+  - pear channel-discover pear.phpunit.de
+  - pear install phpunit/PHPUnit_Selenium
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install --dev --no-interaction
+script:
+  - ./scripts/generate-mo --quiet
+  - PHPUNIT_ARGS=--debug ant phpunit lint
+  - if [[ $TRAVIS_PULL_REQUEST != "false" ]] ; then ./scripts/check-dco origin/$TRAVIS_BRANCH..FETCH_HEAD ; fi
+after_script:
+  - php vendor/bin/coveralls -v

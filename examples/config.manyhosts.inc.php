@@ -1,10 +1,12 @@
 <?php
-
 /**
  * This example configuration shows how to configure phpMyAdmin for
  * many hosts that all have identical configuration otherwise. To add
  * a new host, just drop it into $hosts below. Contributed by
  * Matthew Hawkins.
+ *
+ * @package    PhpMyAdmin
+ * @subpackage Example
  */
 
 $i=0;
@@ -21,7 +23,6 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['port']     = '';
     $cfg['Servers'][$i]['socket']   = '';
     $cfg['Servers'][$i]['connect_type']     = 'tcp';
-    $cfg['Servers'][$i]['extension']        = 'mysql';
     $cfg['Servers'][$i]['compress'] = false;
     $cfg['Servers'][$i]['controluser']      = 'pma';
     $cfg['Servers'][$i]['controlpass']      = 'pmapass';
@@ -43,4 +44,8 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['designer_coords'] = 'pma__designer_coords';
     $cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
     $cfg['Servers'][$i]['recent'] = 'pma__recent';
+    $cfg['Servers'][$i]['users'] = 'pma__users';
+    $cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
+    $cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+    $cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
 }

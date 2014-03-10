@@ -3,9 +3,9 @@
 <project name="phpMyAdmin" default="build" basedir=".">
  <property name="source" value="."/>
  <property name="source_comma_sep" value="."/>
-
- <fileset dir="${source}" includes="js/pmd/*.js,js/*.js" id="jsfiles" />
- <pathconvert pathsep=" " property="js-list" refid="jsfiles" />
+ <property environment="env"/>
+ <property name="env.PHPUNIT_XML" value="phpunit.xml.dist"/>
+ <property name="env.PHPUNIT_ARGS" value=""/>
 
  <target name="clean" description="Clean up and create artifact directories">
   <delete dir="${basedir}/build/api"/>
@@ -22,14 +22,14 @@
  </target>
 
  <target name="phpunit" description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
-  <exec executable="phpunit">
-      <arg line="--configuration phpunit.xml.dist"/>
+  <exec executable="phpunit" failonerror="true">
+      <arg line="--configuration ${env.PHPUNIT_XML} ${env.PHPUNIT_ARGS}"/>
   </exec>
  </target>
 
  <target name="phpunit-nocoverage" description="Run unit tests using PHPUnit and generates junit.xml">
-  <exec executable="phpunit">
-      <arg line="--configuration phpunit.xml.nocoverage"/>
+  <exec executable="phpunit" failonerror="true">
+      <arg line="--configuration phpunit.xml.nocoverage ${env.PHPUNIT_ARGS}"/>
   </exec>
  </target>
 
@@ -47,7 +47,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib
+              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,PMAStandard,phpseclib,recaptchalib.php,swekey.php
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -62,6 +62,8 @@
               --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
+              --exclude libraries/plugins/auth/recaptchalib.php
+              --exclude libraries/plugins/auth/swekey/swekey.php
               ${source}" />
   </exec>
  </target>
@@ -76,15 +78,18 @@
               --exclude libraries/php-gettext
               --exclude libraries/bfShapeFiles
               --exclude libraries/phpseclib
+              --exclude libraries/plugins/auth/recaptchalib.php
+              --exclude libraries/plugins/auth/swekey/swekey.php
               ${source}" />
   </exec>
  </target>
 
- <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding test, tcpdf directories">
+ <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries">
   <exec executable="phpcs">
    <arg line="
-	      --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*
+              --ignore=*/php-gettext/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/PMAStandard/*,*/phpseclib/*,*/recaptchalib.php,*/swekey.php
               --report=checkstyle
+              --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'
               --standard=PMAStandard
               ${source}" />
@@ -106,10 +111,29 @@
  </target>
 
  <target name="jshint" description="Javascript checks">
-  <exec executable="jshint" output="${basedir}/build/logs/jslint.xml">
-   <arg line="--config ./.jshintrc --jslint-reporter ${js-list}" />
-  </exec>
+  <apply executable="jshint" output="${basedir}/build/logs/jslint.xml"  parallel="true">
+   <arg line="--config ./.jshintrc --jslint-reporter" />
+   <fileset dir="${basedir}">
+    <include name="js/pmd/*.js" />
+    <include name="js/*.js" />
+    <include name="setup/*.js" />
+   </fileset>
+  </apply>
  </target>
 
- <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb"/>
+ <target name="lint" description="Perform syntax check of sourcecode files">
+  <apply executable="php" failonerror="true">
+   <arg value="-l" />
+
+   <fileset dir="${basedir}">
+    <include name="libraries/**/*.php" />
+    <include name="setup/**/*.php" />
+    <include name="test/**/*.php" />
+    <include name="*.php" />
+    <modified />
+   </fileset>
+  </apply>
+ </target>
+
+ <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb,lint,jshint"/>
 </project>

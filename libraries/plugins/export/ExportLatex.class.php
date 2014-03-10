@@ -118,17 +118,17 @@ class ExportLatex extends ExportPlugin
             // create primary items and add them to the group
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_caption");
-            $leaf->setText(__('Table caption'));
+            $leaf->setText(__('Table caption:'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_continued_caption");
-            $leaf->setText(__('Table caption (continued)'));
+            $leaf->setText(__('Table caption (continued):'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             $leaf = new TextPropertyItem();
             $leaf->setName("structure_label");
-            $leaf->setText(__('Label key'));
+            $leaf->setText(__('Label key:'));
             $leaf->setDoc('faq6-27');
             $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['relation'])) {
@@ -159,21 +159,21 @@ class ExportLatex extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem();
         $leaf->setName("columns");
-        $leaf->setText(__('Put columns names in the first row'));
+        $leaf->setText(__('Put columns names in the first row:'));
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_caption");
-        $leaf->setText(__('Table caption'));
+        $leaf->setText(__('Table caption:'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_continued_caption");
-        $leaf->setText(__('Table caption (continued)'));
+        $leaf->setText(__('Table caption (continued):'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("data_label");
-        $leaf->setText(__('Label key'));
+        $leaf->setText(__('Label key:'));
         $leaf->setDoc('faq6-27');
         $dataOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
@@ -215,15 +215,15 @@ class ExportLatex extends ExportPlugin
             . '% version ' . PMA_VERSION . $crlf
             . '% http://www.phpmyadmin.net' . $crlf
             . '%' . $crlf
-            . '% ' . __('Host') . ': ' . $cfg['Server']['host'];
+            . '% ' . __('Host:') . ' ' . $cfg['Server']['host'];
         if (! empty($cfg['Server']['port'])) {
              $head .= ':' . $cfg['Server']['port'];
         }
         $head .= $crlf
-            . '% ' . __('Generation Time') . ': '
+            . '% ' . __('Generation Time:') . ' '
             . PMA_Util::localisedDate() . $crlf
-            . '% ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
-            . '% ' . __('PHP Version') . ': ' . phpversion() . $crlf;
+            . '% ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
+            . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
         return PMA_exportOutputHandler($head);
     }
 
@@ -248,7 +248,7 @@ class ExportLatex extends ExportPlugin
     {
         global $crlf;
         $head = '% ' . $crlf
-            . '% ' . __('Database') . ': ' . '\'' . $db . '\'' . $crlf
+            . '% ' . __('Database:') . ' ' . '\'' . $db . '\'' . $crlf
             . '% ' . $crlf;
         return PMA_exportOutputHandler($head);
     }
@@ -290,15 +290,17 @@ class ExportLatex extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $result      = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result      = $GLOBALS['dbi']->tryQuery(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
 
-        $columns_cnt = PMA_DBI_num_fields($result);
+        $columns_cnt = $GLOBALS['dbi']->numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = PMA_DBI_field_name($result, $i);
+            $columns[$i] = $GLOBALS['dbi']->fieldName($result, $i);
         }
         unset($i);
 
-        $buffer = $crlf . '%' . $crlf . '% ' . __('Data') . ': ' . $table
+        $buffer = $crlf . '%' . $crlf . '% ' . __('Data:') . ' ' . $table
             . $crlf . '%' . $crlf . ' \\begin{longtable}{|';
 
         for ($index = 0; $index < $columns_cnt; $index++) {
@@ -370,7 +372,7 @@ class ExportLatex extends ExportPlugin
         }
 
         // print the whole table
-        while ($record = PMA_DBI_fetch_assoc($result)) {
+        while ($record = $GLOBALS['dbi']->fetchAssoc($result)) {
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -403,7 +405,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        PMA_DBI_free_result($result);
+        $GLOBALS['dbi']->freeResult($result);
         return true;
     } // end getTableLaTeX
 
@@ -452,7 +454,7 @@ class ExportLatex extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys = PMA_DBI_get_table_indexes($db, $table);
+        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
@@ -462,7 +464,7 @@ class ExportLatex extends ExportPlugin
         /**
          * Gets fields properties
          */
-        PMA_DBI_select_db($db);
+        $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
         if ($do_relation && ! empty($cfgRelation['relation'])) {
@@ -482,7 +484,7 @@ class ExportLatex extends ExportPlugin
         /**
          * Displays the table structure
          */
-        $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure') . ': ' . $table
+        $buffer      = $crlf . '%' . $crlf . '% ' . __('Structure:') . ' ' . $table
             . $crlf . '%' . $crlf . ' \\begin{longtable}{';
         if (! PMA_exportOutputHandler($buffer)) {
             return false;
@@ -563,7 +565,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $fields = PMA_DBI_get_columns($db, $table);
+        $fields = $GLOBALS['dbi']->getColumns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
                 = PMA_Util::extractColumnSpec(

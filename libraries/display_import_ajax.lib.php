@@ -31,7 +31,8 @@ $upload_id = uniqid("");
   * and own file with functions in upload_#KEY#.php
   */
 $plugins = array(
-   "session",
+   // PHP 5.4 session-based upload progress is problematic, see bug 3964
+   //"session",
    "progress",
    "apc",
    "noplugin"
@@ -39,7 +40,7 @@ $plugins = array(
 
 // select available plugin
 foreach ($plugins as $plugin) {
-    $check = "PMA_import_" . $plugin . "Check";
+    $check = "PMA_Import_" . $plugin . "Check";
 
     if ($check()) {
         $upload_class = "Upload" . ucwords($plugin);
@@ -55,7 +56,7 @@ foreach ($plugins as $plugin) {
   * @return boolean true if APC extension is available and if rfc1867 is enabled,
   *                      false if it is not
   */
-function PMA_import_apcCheck()
+function PMA_Import_apcCheck()
 {
     if (! extension_loaded('apc')
         || ! function_exists('apc_fetch')
@@ -72,7 +73,7 @@ function PMA_import_apcCheck()
   * @return boolean true if UploadProgress extension is available,
   *                 false if it is not
   */
-function PMA_import_progressCheck()
+function PMA_Import_progressCheck()
 {
     if (! function_exists("uploadprogress_get_info")
         || ! function_exists('getallheaders')
@@ -88,7 +89,7 @@ function PMA_import_progressCheck()
   * @return boolean true if PHP 5.4 session upload-progress is available,
   *                 false if it is not
   */
-function PMA_import_sessionCheck()
+function PMA_Import_sessionCheck()
 {
     if (PMA_PHP_INT_VERSION < 50400
         || ! ini_get('session.upload_progress.enabled')
@@ -104,7 +105,7 @@ function PMA_import_sessionCheck()
   *
   * @return boolean true
   */
-function PMA_import_nopluginCheck()
+function PMA_Import_nopluginCheck()
 {
     return true;
 }
@@ -122,10 +123,7 @@ function PMA_importAjaxStatus($id)
 {
     header('Content-type: application/json');
     echo json_encode(
-        call_user_func(
-            $_SESSION[$GLOBALS['SESSION_KEY']]['handler'] . '::getUploadStatus',
-            $id
-        )
+        $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
     );
 }
 ?>

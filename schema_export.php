@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Schema export handler
  *
  * @package PhpMyAdmin
  */
@@ -12,6 +13,13 @@ require_once 'libraries/common.inc.php';
 require 'libraries/StorageEngine.class.php';
 
 /**
+ * Validate vulnerable POST parameters
+ */
+if (! PMA_isValid($_POST['pdf_page_number'], 'numeric')) {
+    die('Attack stopped');
+}
+
+/**
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
@@ -19,7 +27,7 @@ $cfgRelation = PMA_getRelationsParam();
 
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Index.class.php';
-require_once 'libraries/schema/Export_Relation_Schema.class.php';
+require_once 'libraries/schema/User_Schema.class.php';
 
 /**
  * get all the export options and verify
@@ -49,18 +57,18 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
-if (! isset($export_type) || ! preg_match('/^[a-zA-Z]+$/', $export_type)) {
-    $export_type = 'pdf';
-}
-PMA_DBI_select_db($db);
+$user_schema = new PMA_User_Schema();
 
-$path = PMA_securePath(ucfirst($export_type));
-if (!file_exists('libraries/schema/' . $path . '_Relation_Schema.class.php')) {
-    PMA_Export_Relation_Schema::dieSchema(
-        $_POST['chpage'],
-        $export_type,
-        __('File doesn\'t exist')
-    );
+/**
+ * This function will process the user defined pages
+ * and tables which will be exported as Relational schema
+ * you can set the table positions on the paper via scratchboard
+ * for table positions, put the x,y co-ordinates
+ *
+ * @param string $do It tells what the Schema is supposed to do
+ *                  create and select a page, generate schema etc
+ */
+if (isset($_REQUEST['do'])) {
+    $user_schema->setAction($_REQUEST['do']);
+    $user_schema->processUserChoice();
 }
-require "libraries/schema/".$path.'_Relation_Schema.class.php';
-$obj_schema = eval("new PMA_".$path."_Relation_Schema();");

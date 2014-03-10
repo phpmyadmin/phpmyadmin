@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.inc.php';
 
-$is_superuser = PMA_isSuperuser();
+$is_superuser = $GLOBALS['dbi']->isSuperuser();
 
 /**
  * Gets a core script and starts output buffering work
@@ -83,7 +83,7 @@ if ($no_js) {
 }
 
 $titles['Change'] = PMA_Util::getIcon('b_edit.png', __('Change'));
-$url_query = PMA_generate_common_url($db, $table);
+$url_query = PMA_URL_getCommon($db, $table);
 
 if (! empty($sql_query)) {
     $show_query = 1;
@@ -142,7 +142,7 @@ if ($tabs) {
     unset($tabs);
 }
 
-PMA_sqlQueryForm($query_to_display, $querydisplay_tab);
+echo PMA_getHtmlForSqlQueryForm($query_to_display, $querydisplay_tab);
 
 // Hidden forms and query frame interaction stuff
 
@@ -151,7 +151,7 @@ if (! empty($_sql_history)
     && ($querydisplay_tab == 'history' || $querydisplay_tab == 'full')
 ) {
     $tab = $querydisplay_tab != 'full' ? 'sql' : 'full';
-    echo __('SQL history') . ':<br />'
+    echo __('SQL history:') . '<br />'
         . '<ul>';
     foreach ($_sql_history as $query) {
         echo '<li>' . "\n";
@@ -163,12 +163,12 @@ if (! empty($_sql_history)
             'db' => $query['db'],
             'table' => $query['table'],
         );
-        echo '<a href="querywindow.php' . PMA_generate_common_url($url_params)
+        echo '<a href="querywindow.php' . PMA_URL_getCommon($url_params)
             . '">' . $titles['Change'] . '</a>';
 
         // execute link
         $url_params['auto_commit'] = 'true';
-        echo '<a href="import.php' . PMA_generate_common_url($url_params) . '"'
+        echo '<a href="import.php' . PMA_URL_getCommon($url_params) . '"'
             . ' target="frame_content">';
 
         if (! empty($query['db'])) {
@@ -196,7 +196,7 @@ if (! empty($_sql_history)
 
 echo '<form action="querywindow.php" method="post" name="hiddenqueryform"';
 echo ' id="hiddenqueryform">';
-echo PMA_generate_common_hidden_inputs('', '');
+echo PMA_URL_getHiddenInputs('', '');
 echo '<input type="hidden" name="db" value="' . htmlspecialchars($db) . '" />';
 echo '<input type="hidden" name="table" value="'
     . htmlspecialchars($table) . '" />';

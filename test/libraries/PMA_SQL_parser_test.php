@@ -10,8 +10,21 @@
  * Include to test.
  */
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/sqlparser.data.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Message.class.php';
+require_once 'libraries/Util.class.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/sanitizing.lib.php';
 
-class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
+/**
+ * PMA_SQLParser_Test class
+ *
+ * this class is for testing sqlparser.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_SQLParser_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -23,6 +36,8 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
         if (function_exists('mb_internal_encoding')) {
             mb_internal_encoding('utf-8');
         }
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
     /**
@@ -40,9 +55,76 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
     public function testParser($sql, $expected, $error = '')
     {
         PMA_SQP_resetError();
+        $this->expectOutputString($error);
         $parsed_sql = PMA_SQP_parse($sql);
-        $this->assertEquals($error, PMA_SQP_getErrorString());
+        $this->assertEquals('', PMA_SQP_getErrorString());
         $this->assertEquals($expected, $parsed_sql);
+    }
+
+    /**
+     * Test for PMA_SQP_isKeyWord
+     *
+     * @return void
+     */
+    public function testPMA_SQP_isKeyWord()
+    {
+        PMA_SQP_resetError();
+        $this->assertTrue(PMA_SQP_isKeyWord("ACCESSIBLE"));
+        $this->assertTrue(PMA_SQP_isKeyWord("accessible"));
+        $this->assertTrue(PMA_SQP_isKeyWord("ASC"));
+        $this->assertFalse(PMA_SQP_isKeyWord("hello"));
+    }
+
+    /**
+     * Test PMA_SQP_typeCheck
+     *
+     * @return void
+     */
+    public function testPMA_SQP_typeCheck()
+    {
+        $this->assertTrue(
+            PMA_SQP_typeCheck("VARCHAR", "VARCHAR")
+        );
+
+        $this->assertFalse(
+            PMA_SQP_typeCheck("VARCHAR", "VARCHAR_INT")
+        );
+
+        $this->assertTrue(
+            PMA_SQP_typeCheck("VARCHAR_INT", "VARCHAR")
+        );
+
+        $this->assertFalse(
+            PMA_SQP_typeCheck("TIME_INT", "VARCHAR")
+        );
+    }
+
+    /**
+     * Test PMA_SQP_throwError
+     *
+     * @return void
+     */
+    public function testPMA_SQP_throwError()
+    {
+        global $SQP_errorString;
+        $message = "error from testPMA_SQP_throwError";
+        $sql = "select * from PMA.PMABookmark";
+        PMA_SQP_throwError($message, $sql);
+
+        $this->assertContains(
+            "There seems to be an error in your SQL query.",
+            $SQP_errorString
+        );
+
+        $this->assertContains(
+            'ERROR: ' . $message,
+            $SQP_errorString
+        );
+
+        $this->assertContains(
+            'SQL: ' . htmlspecialchars($sql),
+            $SQP_errorString
+        );
     }
 
     /**
@@ -177,7 +259,8 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
                         'pos' => 0,
                     ),
                     'len' => 5,
-                )
+                ),
+                '<div class="notice"><img src="theme/s_notice.png" title="" alt="" /> Automatically appended backtick to the end of query!</div>'
             ),
             array(
                 'SELECT * FROM `a_table` tbla INNER JOIN b_table` tblb ON tblb.id = tbla.id WHERE tblb.field1 != tbla.field1`;',

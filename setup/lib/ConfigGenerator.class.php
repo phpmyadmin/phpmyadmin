@@ -16,13 +16,15 @@ class ConfigGenerator
     /**
      * Creates config file
      *
+     * @param ConfigFile $cf Config file instance
+     *
      * @return string
      */
-    public static function getConfigFile()
+    public static function getConfigFile(ConfigFile $cf)
     {
-        $cf = ConfigFile::getInstance();
-
-        $crlf = (isset($_SESSION['eol']) && $_SESSION['eol'] == 'win') ? "\r\n" : "\n";
+        $crlf = (isset($_SESSION['eol']) && $_SESSION['eol'] == 'win')
+            ? "\r\n"
+            : "\n";
         $c = $cf->getConfig();
 
         // header
@@ -39,7 +41,9 @@ class ConfigGenerator
         if ($cf->getServerCount() > 0) {
             $ret .= "/* Servers configuration */$crlf\$i = 0;" . $crlf . $crlf;
             foreach ($c['Servers'] as $id => $server) {
-                $ret .= '/* Server: ' . strtr($cf->getServerName($id) . " [$id] ", '*/', '-') . "*/" . $crlf
+                $ret .= '/* Server: '
+                    . strtr($cf->getServerName($id) . " [$id] ", '*/', '-')
+                    . "*/" . $crlf
                     . '$i++;' . $crlf;
                 foreach ($server as $k => $v) {
                     $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
@@ -72,7 +76,7 @@ class ConfigGenerator
                 $ret .= self::_getVarExport($k, $cf->getDefault($k), $crlf);
             }
         }
-        $ret .= '?>';
+        $ret .= '?' . '>';
 
         return $ret;
     }
@@ -80,26 +84,29 @@ class ConfigGenerator
     /**
      * Returns exported configuration variable
      *
-     * @param string $var_name
-     * @param mixed  $var_value
-     * @param string $crlf
+     * @param string $var_name  configuration name
+     * @param mixed  $var_value configuration value(s)
+     * @param string $crlf      line ending
      *
      * @return string
      */
     private static function _getVarExport($var_name, $var_value, $crlf)
     {
         if (!is_array($var_value) || empty($var_value)) {
-            return "\$cfg['$var_name'] = " . var_export($var_value, true) . ';' . $crlf;
+            return "\$cfg['$var_name'] = "
+                . var_export($var_value, true) . ';' . $crlf;
         }
         $ret = '';
         if (self::_isZeroBasedArray($var_value)) {
-            $ret = "\$cfg['$var_name'] = " . self::_exportZeroBasedArray($var_value, $crlf)
+            $ret = "\$cfg['$var_name'] = "
+                . self::_exportZeroBasedArray($var_value, $crlf)
                 . ';' . $crlf;
         } else {
             // string keys: $cfg[key][subkey] = value
             foreach ($var_value as $k => $v) {
                 $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-                $ret .= "\$cfg['$var_name']['$k'] = " . var_export($v, true) . ';' . $crlf;
+                $ret .= "\$cfg['$var_name']['$k'] = "
+                    . var_export($v, true) . ';' . $crlf;
             }
         }
         return $ret;
@@ -108,13 +115,13 @@ class ConfigGenerator
     /**
      * Check whether $array is a continuous 0-based array
      *
-     * @param array $array
+     * @param array $array Array to check
      *
      * @return boolean
      */
     private static function _isZeroBasedArray(array $array)
     {
-        for ($i = 0; $i < count($array); $i++) {
+        for ($i = 0, $nb = count($array); $i < $nb; $i++) {
             if (! isset($array[$i])) {
                 return false;
             }
@@ -125,8 +132,8 @@ class ConfigGenerator
     /**
      * Exports continuous 0-based array
      *
-     * @param array $array
-     * @param string $crlf
+     * @param array  $array Array to export
+     * @param string $crlf  Newline string
      *
      * @return string
      */

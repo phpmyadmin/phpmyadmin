@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 
 /* Get the transformations interface */
 require_once 'libraries/plugins/TransformationsPlugin.class.php';
-/* For PMA_transformation_global_html_replace */
+/* For PMA_Transformation_globalHtmlReplace */
 require_once 'libraries/transformations.lib.php';
 
 /**
@@ -43,7 +43,7 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @return void
+     * @return string
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
@@ -56,7 +56,7 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
                 . $buffer . '</a>'
         );
 
-        $buffer = PMA_transformation_global_html_replace(
+        $buffer = PMA_Transformation_globalHtmlReplace(
             $buffer,
             $transform_options
         );

@@ -119,7 +119,10 @@ function PMA_getImage(image, alternate, attributes) {
     } else {
         // it's an image file
         retval.isSprite = false;
-        retval.attr('src', "<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>" + image);
+        retval.attr(
+            'src',
+            "<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>" + image
+        );
     }
     // set all other attrubutes
     for (var i in attributes) {

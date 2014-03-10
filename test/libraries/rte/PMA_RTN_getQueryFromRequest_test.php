@@ -19,7 +19,7 @@ require_once './libraries/Types.class.php';
 require_once 'libraries/rte/rte_routines.lib.php';
 
 
-class PMA_RTN_getQueryFromRequest_test extends PHPUnit_Framework_TestCase
+class PMA_RTN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider provider

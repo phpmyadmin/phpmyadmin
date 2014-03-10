@@ -22,8 +22,6 @@ class PMA_OutputBuffering
 
     /**
      * Initializes class
-     *
-     * @return void
      */
     private function __construct()
     {
@@ -119,7 +117,7 @@ class PMA_OutputBuffering
     /**
      * Gets buffer content
      *
-     * @return buffer content
+     * @return string buffer content
      */
     public function getContents()
     {
@@ -135,12 +133,9 @@ class PMA_OutputBuffering
     {
         if (ob_get_status() && $this->_mode) {
             ob_flush();
+        } else {
+            flush();
         }
-        /**
-         * previously we had here an "else flush()" but some PHP versions
-         * (at least PHP 5.2.11) have a bug (49816) that produces garbled
-         * data
-         */
     }
 }
 

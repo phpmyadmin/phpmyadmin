@@ -5,6 +5,28 @@
  */
 
 /**
+ * Disables the "Dump some row(s)" sub-options
+ */
+function disable_dump_some_rows_sub_options()
+{
+    $("label[for='limit_to']").fadeTo('fast', 0.4);
+    $("label[for='limit_from']").fadeTo('fast', 0.4);
+    $("input[type='text'][name='limit_to']").prop('disabled', 'disabled');
+    $("input[type='text'][name='limit_from']").prop('disabled', 'disabled');
+}
+
+/**
+ * Enables the "Dump some row(s)" sub-options
+ */
+function enable_dump_some_rows_sub_options()
+{
+    $("label[for='limit_to']").fadeTo('fast', 1);
+    $("label[for='limit_from']").fadeTo('fast', 1);
+    $("input[type='text'][name='limit_to']").prop('disabled', '');
+    $("input[type='text'][name='limit_from']").prop('disabled', '');
+}
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('export.js', function () {
@@ -110,8 +132,8 @@ function toggle_save_to_file()
         $("#ul_save_asfile > li> select").prop('disabled', true);
     } else {
         $("#ul_save_asfile > li").fadeTo('fast', 1);
-        $("#ul_save_asfile > li > input").removeProp('disabled');
-        $("#ul_save_asfile > li> select").removeProp('disabled');
+        $("#ul_save_asfile > li > input").prop('disabled', false);
+        $("#ul_save_asfile > li> select").prop('disabled', false);
     }
 }
 
@@ -163,9 +185,13 @@ AJAX.registerOnload('export.js', function () {
         var active_plugin = $("#plugins option:selected").val();
         var force_file = $("#force_file_" + active_plugin).val();
         if (force_file == "true") {
+            if ($("#radio_dump_asfile").prop('checked') !== true) {
+                $("#radio_dump_asfile").prop('checked', true);
+                toggle_save_to_file();
+            }
             $("#radio_view_as_text").prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
-            $("#radio_view_as_text").removeProp('disabled').parent().fadeTo('fast', 1);
+            $("#radio_view_as_text").prop('disabled', false).parent().fadeTo('fast', 1);
         }
     });
 });
@@ -191,18 +217,35 @@ function toggle_quick_or_custom()
         $("#output_quick_export").show();
     }
 }
+var time_out;
+function check_time_out(time_limit)
+{
+    //margin of one second to avoid race condition to set/access session variable
+    time_limit = time_limit + 1;
+    var href = "export.php";
+    var params = {
+        'ajax_request' : true,
+        'token' : PMA_commonParams.get('token'),
+        'check_time_out' : true
+    };
+     clearTimeout(time_out);
+     time_out = setTimeout(function(){
+         $.get(href, params, function (data) {
+            if (data['message'] !== 'success') {
+                PMA_ajaxShowMessage(
+                    '<div class="error">' +
+                    PMA_messages.strTimeOutError +
+                    '</div>',
+                    false
+                );
+            }
+        });
+     }, time_limit * 1000);
 
+}
 AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
 
-    /**
-     * Sets up the interface for Javascript-enabled browsers since the default is for
-     *  Javascript-disabled browsers
-     * TODO: drop non-JS behaviour
-     */
-    if ($("input[type='hidden'][name='export_method']").val() != "custom-no-form") {
-        $("#quick_or_custom").show();
-    }
     $("#scroll_to_options_msg").hide();
     $("#format_specific_opts div.format_specific_options")
     .hide()
@@ -221,7 +264,7 @@ AJAX.registerOnload('export.js', function () {
      * Initially disables the "Dump some row(s)" sub-options
      */
     disable_dump_some_rows_sub_options();
-    
+
     /**
      * Disables the "Dump some row(s)" sub-options when it is not selected
      */
@@ -233,25 +276,3 @@ AJAX.registerOnload('export.js', function () {
         }
     });
 });
-
-/**
- * Disables the "Dump some row(s)" sub-options
- */
-function disable_dump_some_rows_sub_options()
-{
-    $("label[for='limit_to']").fadeTo('fast', 0.4);
-    $("label[for='limit_from']").fadeTo('fast', 0.4);
-    $("input[type='text'][name='limit_to']").prop('disabled', 'disabled');
-    $("input[type='text'][name='limit_from']").prop('disabled', 'disabled');
-}
-
-/**
- * Enables the "Dump some row(s)" sub-options
- */
-function enable_dump_some_rows_sub_options()
-{
-    $("label[for='limit_to']").fadeTo('fast', 1);
-    $("label[for='limit_from']").fadeTo('fast', 1);
-    $("input[type='text'][name='limit_to']").prop('disabled', '');
-    $("input[type='text'][name='limit_from']").prop('disabled', '');
-}

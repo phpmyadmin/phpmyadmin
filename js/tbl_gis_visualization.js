@@ -5,7 +5,7 @@
  * @requires    jquery
  * @requires    jquery/jquery.svg.js
  * @requires    jquery/jquery.mousewheel.js
- * @requires    jquery/jquery.event.drag-2.0.js
+ * @requires    jquery/jquery.event.drag-2.2.js
  */
 
 // Constants
@@ -16,7 +16,7 @@ var defaultY = 0;
 // Variables
 var x;
 var y;
-var scale;
+var scale = 1;
 
 var svg;
 

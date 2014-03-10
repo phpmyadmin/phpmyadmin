@@ -23,9 +23,11 @@ function PMA_checkLink($url)
         'https://',
         './url.php?url=http%3A%2F%2F',
         './url.php?url=https%3A%2F%2F',
+        './doc/html/',
     );
     if (defined('PMA_SETUP')) {
         $valid_starts[] = '?page=form&';
+        $valid_starts[] = '?page=servers&';
     }
     foreach ($valid_starts as $val) {
         if (substr($url, 0, strlen($val)) == $val) {
@@ -159,20 +161,30 @@ function PMA_sanitize($message, $escape = false, $safe = false)
 
 
 /**
- * Sanitize a filename by removing anything besides A-Za-z0-9_.-
+ * Sanitize a filename by removing anything besides legit characters
  *
  * Intended usecase:
  *    When using a filename in a Content-Disposition header
  *    the value should not contain ; or "
  *
- * @param string $filename The filename
+ *    When exporting, avoiding generation of an unexpected double-extension file
+ *
+ * @param string  $filename    The filename
+ * @param boolean $replaceDots Whether to also replace dots
  *
  * @return string  the sanitized filename
  *
  */
-function PMA_sanitizeFilename($filename)
+function PMA_sanitizeFilename($filename, $replaceDots = false)
 {
-    $filename = preg_replace('/[^A-Za-z0-9_.-]/', '_', $filename);
+    $pattern = '/[^A-Za-z0-9_';
+    // if we don't have to replace dots
+    if (! $replaceDots) {
+        // then add the dot to the list of legit characters
+        $pattern .= '.';
+    }
+    $pattern .= '-]/';
+    $filename = preg_replace($pattern, '_', $filename);
     return $filename;
 }
 

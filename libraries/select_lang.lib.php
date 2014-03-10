@@ -12,11 +12,11 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Returns language name
  *
- * @param string $tmplang
+ * @param string $tmplang Language code
  *
  * @return string
  */
-function PMA_langName($tmplang)
+function PMA_languageName($tmplang)
 {
     $lang_name = ucfirst(substr(strrchr($tmplang[0], '|'), 1));
 
@@ -119,7 +119,10 @@ function PMA_langSet(&$lang)
     /* Partial backward compatibility with 3.3 and older branches */
     $lang = str_replace('-utf-8', '', $lang);
 
-    if (!is_string($lang) || empty($lang) || empty($GLOBALS['available_languages'][$lang])) {
+    if (!is_string($lang)
+        || empty($lang)
+        || empty($GLOBALS['available_languages'][$lang])
+    ) {
         return false;
     }
     $GLOBALS['lang'] = $lang;
@@ -153,8 +156,11 @@ function PMA_langDetect($str, $envType)
         if (strpos($expr, '[-_]') === false) {
             $expr = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $expr);
         }
-        if (($envType == 1 && preg_match('/^(' . addcslashes($expr, '/') . ')(;q=[0-9]\\.[0-9])?$/i', $str))
-            || ($envType == 2 && preg_match('/(\(|\[|;[[:space:]])(' . addcslashes($expr, '/') . ')(;|\]|\))/i', $str))
+        $pattern1 = '/^(' . addcslashes($expr, '/') . ')(;q=[0-9]\\.[0-9])?$/i';
+        $pattern2 = '/(\(|\[|;[[:space:]])(' . addcslashes($expr, '/')
+            . ')(;|\]|\))/i';
+        if (($envType == 1 && preg_match($pattern1, $str))
+            || ($envType == 2 && preg_match($pattern2, $str))
         ) {
             if (PMA_langSet($lang)) {
                 return true;
@@ -200,17 +206,29 @@ function PMA_langDetails($lang)
     case 'af':
         return array('af|afrikaans', 'af', '');
     case 'ar':
-        return array('ar|arabic', 'ar', '&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;');
+        return array(
+            'ar|arabic',
+            'ar',
+            '&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;'
+        );
     case 'az':
         return array('az|azerbaijani', 'az', 'Az&#601;rbaycanca');
     case 'bn':
         return array('bn|bangla', 'bn', 'বাংলা');
     case 'be':
-        return array('be|belarusian', 'be', '&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;');
+        return array(
+            'be|belarusian',
+            'be',
+            '&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;'
+        );
     case 'be@latin':
         return array('be[-_]lat|belarusian latin', 'be-lat', 'Bie&#0322;aruskaja');
     case 'bg':
-        return array('bg|bulgarian', 'bg', '&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;');
+        return array(
+            'bg|bulgarian',
+            'bg',
+            '&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;'
+        );
     case 'bs':
         return array('bs|bosnian', 'bs', 'Bosanski');
     case 'br':
@@ -228,7 +246,11 @@ function PMA_langDetails($lang)
     case 'de':
         return array('de|german', 'de', 'Deutsch');
     case 'el':
-        return array('el|greek', 'el', '&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;');
+        return array(
+            'el|greek',
+            'el',
+            '&Epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;'
+        );
     case 'en':
         return array('en|english', 'en', '');
     case 'en_GB':
@@ -268,9 +290,19 @@ function PMA_langDetails($lang)
     case 'ko':
         return array('ko|korean', 'ko', '&#54620;&#44397;&#50612;');
     case 'ka':
-        return array('ka|georgian', 'ka', '&#4325;&#4304;&#4320;&#4311;&#4323;&#4314;&#4312;');
+        return array(
+            'ka|georgian',
+            'ka',
+            '&#4325;&#4304;&#4320;&#4311;&#4323;&#4314;&#4312;'
+        );
     case 'kk':
         return array('kk|kazakh', 'kk', 'Қазақ');
+    case 'km':
+        return array('km|khmer', 'km', 'ខ្មែរ');
+    case 'kn':
+        return array('kn|kannada', 'kn', 'ಕನ್ನಡ');
+    case 'ky':
+        return array('ky|kyrgyz', 'ky', 'Кыргызча');
     case 'lt':
         return array('lt|lithuanian', 'lt', 'Lietuvi&#371;');
     case 'lv':
@@ -280,7 +312,11 @@ function PMA_langDetails($lang)
     case 'ml':
         return array('ml|malayalam', 'ml', 'Malayalam');
     case 'mn':
-        return array('mn|mongolian', 'mn', '&#1052;&#1086;&#1085;&#1075;&#1086;&#1083;');
+        return array(
+            'mn|mongolian',
+            'mn',
+            '&#1052;&#1086;&#1085;&#1075;&#1086;&#1083;'
+        );
     case 'ms':
         return array('ms|malay', 'ms', 'Bahasa Melayu');
     case 'nl':
@@ -298,7 +334,11 @@ function PMA_langDetails($lang)
     case 'ro':
         return array('ro|romanian', 'ro', 'Rom&acirc;n&#259;');
     case 'ru':
-        return array('ru|russian', 'ru', '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;');
+        return array(
+            'ru|russian',
+            'ru',
+            '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;'
+        );
     case 'si':
         return array('si|sinhala', 'si', '&#3523;&#3538;&#3458;&#3524;&#3517;');
     case 'sk':
@@ -310,7 +350,11 @@ function PMA_langDetails($lang)
     case 'sr@latin':
         return array('sr[-_]lat|serbian latin', 'sr-lat', 'Srpski');
     case 'sr':
-        return array('sr|serbian', 'sr', '&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;');
+        return array(
+            'sr|serbian',
+            'sr',
+            '&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;'
+        );
     case 'sv':
         return array('sv|swedish', 'sv', 'Svenska');
     case 'ta':
@@ -318,7 +362,11 @@ function PMA_langDetails($lang)
     case 'te':
         return array('te|telugu', 'te', 'తెలుగు');
     case 'th':
-        return array('th|thai', 'th', '&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;');
+        return array(
+            'th|thai',
+            'th',
+            '&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;'
+        );
     case 'tk':
         return array('tk|turkmen', 'tk', 'türkmençe');
     case 'tr':
@@ -328,17 +376,37 @@ function PMA_langDetails($lang)
     case 'ug':
         return array('ug|uyghur', 'ug', 'ئۇيغۇرچە');
     case 'uk':
-        return array('uk|ukrainian', 'uk', '&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;');
+        return array(
+            'uk|ukrainian',
+            'uk',
+            '&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;'
+        );
     case 'ur':
         return array('ur|urdu', 'ur', 'اُردوُ');
     case 'uz@latin':
         return array('uz[-_]lat|uzbek-latin', 'uz-lat', 'O&lsquo;zbekcha');
     case 'uz':
-        return array('uz[-_]cyr|uzbek-cyrillic', 'uz-cyr', '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;');
+        return array(
+            'uz[-_]cyr|uzbek-cyrillic',
+            'uz-cyr',
+            '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;'
+        );
+    case 'vls':
+        return array('vls|flemish', 'vls', 'West-Vlams');
     case 'zh_TW':
-        return array('zh[-_](tw|hk)|chinese traditional', 'zh-TW', '&#20013;&#25991;');
+        return array(
+            'zh[-_](tw|hk)|chinese traditional',
+            'zh-TW',
+            '&#20013;&#25991;'
+        );
     case 'zh_CN':
-        return array('zh|chinese simplified', 'zh', '&#20013;&#25991;');
+        // only TW and HK use traditional Chinese while others (CN, SG, MY)
+        // use simplified Chinese
+        return array(
+            'zh(?![-_](tw|hk))([-_][[:alpha:]]{2,3})?|chinese simplified',
+            'zh',
+            '&#20013;&#25991;'
+        );
     }
     return array("$lang|$lang", $lang, $lang);
 }
@@ -367,9 +435,10 @@ function PMA_langList()
 
     /* Process all files */
     while (false !== ($file = readdir($handle))) {
+        $path = $GLOBALS['lang_path'] . '/' . $file . '/LC_MESSAGES/phpmyadmin.mo';
         if ($file != "."
             && $file != ".."
-            && file_exists($GLOBALS['lang_path'] . '/' . $file . '/LC_MESSAGES/phpmyadmin.mo')
+            && file_exists($path)
         ) {
             $result[$file] = PMA_langDetails($file);
         }
@@ -381,7 +450,8 @@ function PMA_langList()
 }
 
 /**
- * @global string  path to the translations directory; may be absent if the kit is English-only
+ * @global string  path to the translations directory;
+ *                 may be absent if the kit is English-only
  */
 $GLOBALS['lang_path'] = './locale/';
 
@@ -475,7 +545,10 @@ if (! PMA_langCheck()) {
         );
         // stop execution
         // and tell the user that his chosen language is invalid
-        PMA_fatalError('Could not load any language, please check your language settings and folder.');
+        PMA_fatalError(
+            'Could not load any language, '
+            . 'please check your language settings and folder.'
+        );
     }
 }
 

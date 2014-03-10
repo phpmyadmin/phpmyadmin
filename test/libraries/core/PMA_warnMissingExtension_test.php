@@ -19,11 +19,10 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 
-class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
+class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server'] = array(
@@ -32,7 +31,6 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         );
         $GLOBALS['cfg']['OBGzip'] = false;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
         $GLOBALS['server'] = 1;
@@ -63,7 +61,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $warn = 'The <a href="' . PMA_getPHPDocLink('book.' . $ext . '.php')
             . '" target="Documentation"><em>' . $ext
             . '</em></a> extension is missing. Please check your PHP configuration.'
-            . ' ' .$extra;
+            . ' ' . $extra;
 
         ob_start();
         PMA_warnMissingExtension($ext, true, $extra);

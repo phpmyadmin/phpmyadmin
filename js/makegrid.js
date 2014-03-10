@@ -194,6 +194,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.reposDrop();
                 g.colRsz = false;
                 $(g.cRsz).find('div').removeClass('colborder_active');
+                if($('#sticky_columns').length !== 0) {
+                    rearrangeStickyColumns();
+                }
             } else if (g.colReorder) {
                 // shift columns
                 if (g.colReorder.newn != g.colReorder.n) {
@@ -220,6 +223,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $(g.cPointer).css('visibility', 'hidden');
 
                 g.colReorder = false;
+                if($('#sticky_columns').length !== 0) {
+                    rearrangeStickyColumns();
+                }
             }
             $(document.body).css('cursor', 'inherit').noSelect(false);
         },
@@ -622,12 +628,24 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         var new_html = data.isNeedToRecheck
                             ? data.truncatableFieldValue
                             : $this_field.data('value');
+
+                        //remove decimal places if column type not supported                            
+                        if (($this_field.attr('data-decimals') == 0) && ( $this_field.attr('data-type').indexOf('time') != -1)){                          
+                            new_html = new_html.substring(0, new_html.indexOf('.'));                            
+                        }
+                        //remove addtional decimal places 
+                        if (($this_field.attr('data-decimals') > 0) && ( $this_field.attr('data-type').indexOf('time') != -1)){
+                            new_html = new_html.substring(0, new_html.length - (6 - $this_field.attr('data-decimals')));  
+                        }                              
                         if ($this_field.is('.truncated')) {
                             if (new_html.length > g.maxTruncatedLen) {
                                 new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
                             }
                         }
                         $this_field.find('span').text(new_html);
+                    }
+                    if ($this_field.is('.bit')) {
+                        $this_field.find('span').text($this_field.data('value'));
                     }
                 }
                 if (data.transformations !== undefined) {
@@ -703,6 +721,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                 // empty all edit area, then rebuild it based on $td classes
                 $editArea.empty();
+                $editArea.removeClass('edit_area_right');
 
                 // add show data row link if the data resulted by 'browse distinct values' in table structure
                 if ($td.find('input').hasClass('data_browse_link')) {
@@ -716,19 +735,15 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($td.find('a').length > 0) {
                     var gotoLink = document.createElement('div');
                     gotoLink.className = 'goto_link';
-                    $(gotoLink).append(g.gotoLinkText + ': ')
-                        .append($td.find('a').clone().click(
-                            function (event) {
-                                event.preventDefault();
-                                window.open(this.href);
-                            }));
+                    $(gotoLink).append(g.gotoLinkText + ': ').append($td.find('a').clone());
                     $editArea.append(gotoLink);
                 }
 
                 g.wasEditedCellNull = false;
                 if ($td.is(':not(.not_null)')) {
                     // append a null checkbox
-                    $editArea.append('<div class="null_div">Null :<input type="checkbox"></div>');
+                    $editArea.append('<div class="null_div">Null:<input type="checkbox"></div>');
+
                     var $checkbox = $editArea.find('.null_div input');
                     // check if current <td> is NULL
                     if ($td.is('.null')) {
@@ -783,6 +798,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $(g.cEdit).find('.edit_box').val('');
                     });
                 }
+
+                //reset the position of the edit_area div after closing datetime picker
+                $('.edit_area').css({'top' :'0','position':''});
 
                 if ($td.is('.relation')) {
                     //handle relations
@@ -956,49 +974,52 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.show();
                     }
                     g.isEditCellTextEditable = true;
-                } else if ($td.is('.datefield, .datetimefield, .timestampfield')) {
+                } else if ($td.is('.timefield, .datefield, .datetimefield, .timestampfield')) {
                     var $input_field = $(g.cEdit).find('.edit_box');
 
                     // remember current datetime value in $input_field, if it is not null
                     var is_null = $td.is('.null');
-                    var current_datetime_value = !is_null ? $input_field.val() : '';
+                    var current_datetime_value = !is_null ? $input_field.val() : '';                                   
 
-                    var showTimeOption = true;
-                    if ($td.is('.datefield')) {
-                        showTimeOption = false;
-                    }
-                    PMA_addDatepicker($editArea, {
-                        altField: $input_field,
-                        showTimepicker: showTimeOption,
-                        onSelect: function (dateText, inst) {
-                            // remove null checkbox if it exists
-                            $(g.cEdit).find('.null_div input[type=checkbox]').prop('checked', false);
+                    var showMillisec = false;
+                    var showMicrosec = false;
+                    var timeFormat = 'HH:mm:ss';
+                    // check for decimal places of seconds
+                    if (($td.attr('data-decimals') > 0) && ($td.attr('data-type').indexOf('time') != -1)){
+                        showMillisec = true;                       
+                        timeFormat = 'HH:mm:ss.lc';
+                        if ($td.attr('data-decimals') > 3) {
+                            showMicrosec = true;
                         }
+
+                    }
+
+                    // add datetime picker
+                    PMA_addDatepicker($input_field, $td.attr('data-type'), {
+                        showMillisec: showMillisec,
+                        showMicrosec: showMicrosec,
+                        timeFormat: timeFormat                       
                     });
 
+                    $input_field.datepicker("show");
+
+                    //move ui-datepicker-div inside cEdit div                             
+                    var datepicker_div = $('#ui-datepicker-div');
+                    datepicker_div.css({'top': 0, 'left': 0, 'position': 'relative'});
+                    $('.cEdit').append(datepicker_div);                    
+
+                    var edit_area_top = $('#ui-datepicker-div').height()+32;
+                    $('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
+
+                    if(is_null){
+                        $('.edit_area').hide();
+                    }
+                  
                     // cancel any click on the datepicker element
                     $editArea.find('> *').click(function (e) {
                         e.stopPropagation();
                     });
 
-                    // force to restore modified $input_field value after adding datepicker
-                    // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
-                    if (is_null
-                        || current_datetime_value == '0000-00-00'
-                        || current_datetime_value == '0000-00-00 00:00:00'
-                    ) {
-                        $input_field.val(current_datetime_value);
-                    } else {
-                        $editArea.datetimepicker('setDate', current_datetime_value);
-                    }
-                    $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-
-                    // remove {cursor: 'pointer'} added inside
-                    // jquery-ui-timepicker-addon.js
-                    $input_field.css('cursor', '');
-                    // make the cell editable, so one can can bypass the timepicker
-                    // and enter date/time value manually
-                    g.isEditCellTextEditable = true;
                 } else {
                     g.isEditCellTextEditable = true;
                     // only append edit area hint if there is a null checkbox
@@ -1006,7 +1027,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
                     }
                 }
-                if ($editArea.children().length > 0) {
+                if ($(g.cEdit).offset().left + $editArea.outerWidth() > $(document.body).width()) {
+                    $editArea.addClass('edit_area_right');
+                }
+                if ($editArea.children().length > 0 && !is_null) {
                     $editArea.show();
                 }
             }
@@ -1019,8 +1043,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if (g.isSaving) {
                 return;
             }
-            g.isSaving = true;
-
+            g.isSaving = true;           
             /**
              * @var relation_fields Array containing the name/value pairs of relational fields
              */
@@ -1061,6 +1084,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
              * multi edit variables
              */
             var me_fields_name = [];
+            var me_fields_type = [];
             var me_fields = [];
             var me_fields_null = [];
 
@@ -1081,6 +1105,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                  * @TODO array indices are still not correct, they should be md5 of field's name
                  */
                 var fields_name = [];
+                var fields_type = [];
                 var fields = [];
                 var fields_null = [];
 
@@ -1118,6 +1143,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         fields_null.push('on');
                         fields.push('');
                     } else {
+                        if ($this_field.is('.bit')) {
+                            fields_type.push('bit');
+                        }
                         fields_null.push('');
                         fields.push($this_field.data('value'));
 
@@ -1157,6 +1185,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 $tr.find('.condition_array').val(JSON.stringify(condition_array));
 
                 me_fields_name.push(fields_name);
+                me_fields_type.push(fields_type);
                 me_fields.push(fields);
                 me_fields_null.push(fields_null);
 
@@ -1179,6 +1208,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             'where_clause' : full_where_clause,
                             'fields[multi_edit]' : me_fields,
                             'fields_name[multi_edit]' : me_fields_name,
+                            'fields_type[multi_edit]' : me_fields_type,
                             'fields_null[multi_edit]' : me_fields_null,
                             'rel_fields_list' : rel_fields_list,
                             'do_transformations' : transformation_fields,
@@ -1246,10 +1276,21 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 });
                             });
                             // update the display of executed SQL query command
-                            $('#result_query').remove();
                             if (typeof data.sql_query != 'undefined') {
-                                // display feedback
-                                $('#sqlqueryresults').prepend(data.sql_query);
+                                //extract query box 
+                            	var $result_query = $($.parseHTML(data.sql_query));
+                            	var sqlOuter = $result_query.find('.sqlOuter').wrap('<p>').parent().html();
+                            	var tools = $result_query.find('.tools').wrap('<p>').parent().html();
+                                // If two query box exists update query in second else add a second box
+                                if($('#result_query').find('div.sqlOuter').length>1) {
+	                               $('#result_query').children(":nth-child(4)").remove(); 
+	                               $('#result_query').children(":nth-child(4)").remove(); 
+	                               $('#result_query').append(sqlOuter+tools);
+                                }
+                                else {
+	                                $('#result_query').append(sqlOuter+tools);
+                                }
+                                PMA_highlightSQL($('#result_query'));
                             }
                             // hide and/or update the successfully saved cells
                             g.hideEditCell(true, data);
@@ -1309,7 +1350,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
             } else {
                 if ($this_field.is('.bit')) {
-                    this_field_params[field_name] = '0b' + $(g.cEdit).find('.edit_box').val();
+                    this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 } else if ($this_field.is('.set')) {
                     $test_element = $(g.cEdit).find('select');
                     this_field_params[field_name] = $test_element.map(function () {
@@ -1424,6 +1465,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             // register events
             $(t).find('th.draggable')
                 .mousedown(function (e) {
+                    $('#sqlqueryresults').addClass("turnOffSelect");
                     if (g.visibleHeadersCount > 1) {
                         g.dragStartReorder(e, this);
                     }
@@ -1444,9 +1486,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 .dblclick(function (e) {
                     e.preventDefault();
                     $("<div/>")
-                    .prop("title", PMA_messages["strColNameCopyTitle"])
+                    .prop("title", PMA_messages.strColNameCopyTitle)
                     .addClass("modal-copy")
-                    .text(PMA_messages["strColNameCopyText"])
+                    .text(PMA_messages.strColNameCopyText)
                     .append(
                         $("<input/>")
                         .prop("readonly", true)
@@ -1601,7 +1643,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             // adjust g.cEdit
             g.cEdit.className = 'cEdit';
-            $(g.cEdit).html('<textarea class="edit_box" rows="1" ></textarea><div class="edit_area" />');
+            $(g.cEdit).html('<input class="edit_box" rows="1" ></input><div class="edit_area" />');
             $(g.cEdit).hide();
 
             // assign cell editing hint
@@ -1634,7 +1676,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         e.preventDefault();
                         // get the click count and increase
                         var clicks = $cell.data('clicks');
-                        clicks = (clicks === null) ? 1 : clicks + 1;
+                        clicks = (typeof clicks === 'undefined') ? 1 : clicks + 1;
 
                         if (clicks == 1) {
                             // if there are no previous clicks,
@@ -1684,9 +1726,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 }
             });
             $('html').click(function (e) {
-                // hide edit cell if the click is not from g.cEdit
-                if ($(e.target).parents().index(g.cEdit) == -1) {
-                    g.hideEditCell();
+                // hide edit cell if the click is not fromDat edit area
+                if ($(e.target).parents().index($('.cEdit')) == -1){
+                   g.hideEditCell();
                 }
             }).keydown(function (e) {
                 if (e.which == 27 && g.isCellEditActive) {
@@ -1822,6 +1864,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             g.dragMove(e);
         });
         $(document).mouseup(function (e) {
+            $('#sqlqueryresults').removeClass("turnOffSelect");
             g.dragEnd(e);
         });
     }

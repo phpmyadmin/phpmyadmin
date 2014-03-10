@@ -10,14 +10,19 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-$separator = PMA_get_arg_separator('html');
-?>
-<ul>
-    <li><a href="index.php"><?php echo __('Overview') ?></a></li>
-    <li><a href="?page=form<?php echo $separator ?>formset=Features"><?php echo __('Features') ?></a></li>
-    <li><a href="?page=form<?php echo $separator ?>formset=Sql_queries"><?php echo __('SQL queries') ?></a></li>
-    <li><a href="?page=form<?php echo $separator ?>formset=Navi_panel"><?php echo __('Navigation panel') ?></a></li>
-    <li><a href="?page=form<?php echo $separator ?>formset=Main_panel"><?php echo __('Main panel') ?></a></li>
-    <li><a href="?page=form<?php echo $separator ?>formset=Import"><?php echo __('Import') ?></a></li>
-    <li><a href="?page=form<?php echo $separator ?>formset=Export"><?php echo __('Export') ?></a></li>
-</ul>
+$separator = PMA_URL_getArgSeparator('html');
+echo '<ul>';
+echo '<li><a href="index.php">' . __('Overview') . '</a></li>';
+echo '<li><a href="?page=form' . $separator . 'formset=Features">'
+    . __('Features') . '</a></li>';
+echo '<li><a href="?page=form' . $separator . 'formset=Sql_queries">'
+    . __('SQL queries') . '</a></li>';
+echo '<li><a href="?page=form' . $separator . 'formset=Navi_panel">'
+    . __('Navigation panel') . '</a></li>';
+echo '<li><a href="?page=form' . $separator . 'formset=Main_panel">'
+    . __('Main panel') . '</a></li>';
+echo '<li><a href="?page=form' . $separator . 'formset=Import">'
+    . __('Import') . '</a></li>';
+echo '<li><a href="?page=form' . $separator . 'formset=Export">'
+    . __('Export') . '</a></li>';
+echo '</ul>';

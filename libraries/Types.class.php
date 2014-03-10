@@ -161,12 +161,13 @@ class PMA_Types
 
         foreach ($this->getTypeOperators($type, $null) as $fc) {
             if (isset($selectedOperator) && $selectedOperator == $fc) {
-                $html .= '<option value="' . htmlspecialchars($fc)  . '" selected="selected">'
-                    . htmlspecialchars($fc)  . '</option>';
+                $selected = ' selected="selected"';
             } else {
-                $html .= '<option value="' . htmlspecialchars($fc)  . '">'
-                    . htmlspecialchars($fc)  . '</option>';
+                $selected = '';
             }
+            $html .= '<option value="' . htmlspecialchars($fc)  . '"'
+                . $selected . '>'
+                . htmlspecialchars($fc)  . '</option>';
         }
 
         return $html;
@@ -271,6 +272,29 @@ class PMA_Types
             'DATE',
         );
     }
+
+    /**
+     * Returns an array of integer types
+     *
+     * @return string[] integer types
+     */
+    public function getIntegerTypes()
+    {
+        return array();
+    }
+
+    /**
+     * Returns the min and max values of a given integer type
+     *
+     * @param string  $type   integer type
+     * @param boolean $signed whether signed
+     *
+     * @return string[] min and max values
+     */
+    public function getIntegerRange($type, $signed = true)
+    {
+        return array('', '');
+    }
 }
 
 /**
@@ -299,7 +323,7 @@ class PMA_Types_MySQL extends PMA_Types
         case 'MEDIUMINT':
             return __('A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is 0 to 16,777,215');
         case 'INT':
-            return __('A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned range is 0 to 4,294,967,295.');
+            return __('A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned range is 0 to 4,294,967,295');
         case 'BIGINT':
             return __('An 8-byte integer, signed range is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615');
         case 'DECIMAL':
@@ -451,6 +475,7 @@ class PMA_Types_MySQL extends PMA_Types
         switch ($class) {
         case 'CHAR':
             return array(
+                'AES_ENCRYPT',
                 'BIN',
                 'CHAR',
                 'COMPRESS',
@@ -683,6 +708,48 @@ class PMA_Types_MySQL extends PMA_Types
 
         return $ret;
     }
+
+    /**
+     * Returns an array of integer types
+     *
+     * @return string[] integer types
+     */
+    public function getIntegerTypes()
+    {
+        return array('tinyint', 'smallint', 'mediumint', 'int', 'bigint');
+    }
+
+    /**
+     * Returns the min and max values of a given integer type
+     *
+     * @param string  $type   integer type
+     * @param boolean $signed whether signed
+     *
+     * @return string[] min and max values
+     */
+    public function getIntegerRange($type, $signed = true)
+    {
+        static $min_max_data = array(
+            'unsigned' => array(
+                'tinyint'   => array('0', '255'),
+                'smallint'  => array('0', '65535'),
+                'mediumint' => array('0', '16777215'),
+                'int'       => array('0', '4294967295'),
+                'bigint'    => array('0', '18446744073709551615')
+            ),
+            'signed' => array(
+                'tinyint'   => array('-128', '127'),
+                'smallint'  => array('-32768', '32767'),
+                'mediumint' => array('-8388608', '8388607'),
+                'int'       => array('-2147483648', '2147483647'),
+                'bigint'    => array('-9223372036854775808', '9223372036854775807')
+            )
+        );
+        $relevantArray = $signed
+            ? $min_max_data['signed']
+            : $min_max_data['unsigned'];
+        return isset($relevantArray[$type]) ? $relevantArray[$type] : array('', '');
+    }
 }
 
 /**
@@ -831,7 +898,7 @@ class PMA_Types_Drizzle extends PMA_Types
                 WHERE plugin_name IN ('" . implode("','", $functions) . "')
                   AND plugin_type = 'Function'
                   AND is_active";
-            $drizzle_functions = PMA_DBI_fetch_result($sql, 'f', 'f');
+            $drizzle_functions = $GLOBALS['dbi']->fetchResult($sql, 'f', 'f');
             if (count($drizzle_functions) > 0) {
                 $ret = array_merge($ret, $drizzle_functions);
                 sort($ret);
@@ -980,5 +1047,32 @@ class PMA_Types_Drizzle extends PMA_Types
         $ret[_pgettext('string types', 'String')] = $types_string;
 
         return $ret;
+    }
+
+    /**
+     * Returns an array of integer types
+     *
+     * @return string[] integer types
+     */
+    public function getIntegerTypes()
+    {
+        return array('integer', 'bigint');
+    }
+
+    /**
+     * Returns the min and max values of a given integer type
+     *
+     * @param string  $type   integer type
+     * @param boolean $signed whether signed (ignored for Drizzle)
+     *
+     * @return string[] min and max values
+     */
+    public function getIntegerRange($type, $signed = true)
+    {
+        static $min_max_data = array(
+            'integer' => array('-2147483648', '2147483647'),
+            'bigint'  => array('-9223372036854775808', '9223372036854775807')
+        );
+        return isset($min_max_data[$type]) ? $min_max_data[$type] : array('', '');
     }
 }

@@ -17,9 +17,9 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * tests for operations
@@ -38,11 +38,9 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg'] = array(
-            'MySQLManualType' => 'none',
             'ServerDefault' => 1,
-            'PropertiesIconic' => true,
+            'ActionLinksMode' => 'icons',
         );
         $GLOBALS['server'] = 1;
     }

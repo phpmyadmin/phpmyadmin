@@ -13,16 +13,11 @@ require_once 'libraries/Util.class.php';
  */
 require_once 'libraries/rte/rte_events.lib.php';
 
-class PMA_EVN_getEditorForm_test extends PHPUnit_Framework_TestCase
+class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $GLOBALS['tear_down']['token'] = false;
         $GLOBALS['tear_down']['server'] = false;
-        if (! isset($_SESSION[' PMA_token '])) {
-            $_SESSION[' PMA_token '] = '';
-            $GLOBALS['tear_down']['token'] = true;
-        }
         if (! isset($GLOBALS['cfg']['ServerDefault'])) {
             $GLOBALS['cfg']['ServerDefault'] = '';
             $GLOBALS['tear_down']['server'] = true;
@@ -31,9 +26,6 @@ class PMA_EVN_getEditorForm_test extends PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
-        if ($GLOBALS['tear_down']['token']) {
-            unset($_SESSION[' PMA_token ']);
-        }
         if ($GLOBALS['tear_down']['server']) {
             unset($GLOBALS['cfg']['ServerDefault']);
         }

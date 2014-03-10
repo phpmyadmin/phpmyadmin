@@ -17,8 +17,18 @@ require_once 'libraries/Theme_Manager.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/core.lib.php';
 
-class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
+/**
+ * tests for PMA_Theme_Manager class
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Theme_Manager_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     *
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['cfg']['ThemePath'] = './themes';
@@ -26,18 +36,26 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
-        $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
     }
 
+    /**
+     * Test for PMA_Theme_Manager::getThemeCookieName
+     *
+     * @return void
+     */
     public function testCookieName()
     {
         $tm = new PMA_Theme_Manager();
         $this->assertEquals('pma_theme', $tm->getThemeCookieName());
     }
 
+    /**
+     * Test for PMA_Theme_Manager::getThemeCookieName
+     *
+     * @return void
+     */
     public function testPerServerCookieName()
     {
         $tm = new PMA_Theme_Manager();
@@ -45,6 +63,11 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
         $this->assertEquals('pma_theme-99', $tm->getThemeCookieName());
     }
 
+    /**
+     * Test for PMA_Theme_Manager::getHtmlSelectBox
+     *
+     * @return void
+     */
     public function testHtmlSelectBox()
     {
         $tm = new PMA_Theme_Manager();
@@ -106,7 +129,17 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     {
         $tm = new PMA_Theme_Manager();
         $this->assertEquals(
-            '<div class="theme_preview"><h2>Original (2.9) </h2><p><a class="take_theme" name="original" href="index.php?set_theme=original&amp;server=99&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token"><img src="./themes/original/screen.png" border="1" alt="Original" title="Original" /><br />[ <strong>take it</strong> ]</a></p></div><div class="theme_preview"><h2>pmahomme (1.1) </h2><p><a class="take_theme" name="pmahomme" href="index.php?set_theme=pmahomme&amp;server=99&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token"><img src="./themes/pmahomme/screen.png" border="1" alt="pmahomme" title="pmahomme" /><br />[ <strong>take it</strong> ]</a></p></div>',
+            '<div class="theme_preview"><h2>Original (2.9) </h2><p><a class='
+            . '"take_theme" name="original" href="index.php?set_theme=original'
+            . '&amp;server=99&amp;lang=en&amp;collation_connection=utf8_general_ci'
+            . '&amp;token=token"><img src="./themes/original/screen.png" border="1" '
+            . 'alt="Original" title="Original" /><br />[ <strong>take it</strong> ]'
+            . '</a></p></div><div class="theme_preview"><h2>pmahomme (1.1) </h2><p>'
+            . '<a class="take_theme" name="pmahomme" href="index.php?set_theme='
+            . 'pmahomme&amp;server=99&amp;lang=en&amp;collation_connection=utf8_'
+            . 'general_ci&amp;token=token"><img src="./themes/pmahomme/screen.png" '
+            . 'border="1" alt="pmahomme" title="pmahomme" /><br />[ <strong>take it'
+            . '</strong> ]</a></p></div>',
             $tm->getPrintPreviews()
         );
     }

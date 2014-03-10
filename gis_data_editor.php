@@ -12,7 +12,7 @@
  *
  * @param string $variable variable to be escaped
  *
- * @return escaped variable
+ * @return string escaped variable
  */
 function escape($variable)
 {
@@ -20,8 +20,9 @@ function escape($variable)
 }
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/gis/pma_gis_factory.php';
-require_once 'libraries/gis_visualization.lib.php';
+require_once 'libraries/gis/GIS_Factory.class.php';
+require_once 'libraries/gis/GIS_Visualization.class.php';
+require_once 'libraries/tbl_gis_visualization.lib.php';
 
 // Get data if any posted
 $gis_data = array();
@@ -122,7 +123,7 @@ if (isset($_REQUEST['input_name'])) {
     echo '<input type="hidden" name="input_name" value="'
         . htmlspecialchars($_REQUEST['input_name']) . '" />';
 }
-echo PMA_generate_common_hidden_inputs();
+echo PMA_URL_getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" style="width:450px;height:300px;'
@@ -158,7 +159,8 @@ foreach ($gis_types as $gis_type) {
 }
 echo '</select>';
 echo '&nbsp;&nbsp;&nbsp;&nbsp;';
-echo '<label for="srid">' .  __("SRID") . ':</label>';
+/* l10n: Spatial Reference System Identifier */
+echo '<label for="srid">' .  __('SRID:') . '</label>';
 echo '<input name="gis_data[srid]" type="text" value="' . $srid . '" />';
 echo '</div>';
 echo '<!-- End of header section -->';
@@ -181,7 +183,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
     if ($geom_type == 'GEOMETRYCOLLECTION') {
         echo '<br/><br/>';
-        echo __("Geometry") . ' ' . ($a + 1) . ': ';
+        printf(__('Geometry %d:'), $a + 1);
         echo '<br/>';
         if (isset($gis_data[$a]['gis_type'])) {
             $type = $gis_data[$a]['gis_type'];
@@ -203,7 +205,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
     if ($type == 'POINT') {
         echo '<br/>';
-        echo __("Point") . ': ';
+        echo __('Point:');
         echo '<label for="x">' . __("X") . '</label>';
         echo '<input name="gis_data[' . $a . '][POINT][x]" type="text"'
             . ' value="' . escape($gis_data[$a]['POINT']['x']) . '" />';
@@ -238,7 +240,7 @@ for ($a = 0; $a < $geom_count; $a++) {
             echo '<label for="y">' . __("Y") . '</label>';
             echo '<input type="text"'
                 . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][y]"'
-                . ' value="' . escape($gis_data[$a][$type][$i]['y']). '" />';
+                . ' value="' . escape($gis_data[$a][$type][$i]['y']) . '" />';
         }
         echo '<input type="submit"'
             . ' name="gis_data[' . $a . '][' . $type . '][add_point]"'
@@ -259,12 +261,12 @@ for ($a = 0; $a < $geom_count; $a++) {
         for ($i = 0; $i < $no_of_lines; $i++) {
             echo '<br/>';
             if ($type == 'MULTILINESTRING') {
-                echo __("Linestring") . ' ' . ($i + 1) . ':';
+                printf(__('Linestring %d:'), $i + 1);
             } else {
                 if ($i == 0) {
-                    echo __("Outer Ring") . ':';
+                    echo __('Outer ring:');
                 } else {
-                    echo __("Inner Ring") . ' ' . $i . ':';
+                    printf(__('Inner ring %d:'), $i);
                 }
             }
 
@@ -280,23 +282,24 @@ for ($a = 0; $a < $geom_count; $a++) {
                 $no_of_points++;
             }
             echo '<input type="hidden" value="' . $no_of_points . '"'
-               . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][no_of_points]" />';
+                . ' name="gis_data[' . $a . '][' . $type . '][' . $i
+                . '][no_of_points]" />';
 
             for ($j = 0; $j < $no_of_points; $j++) {
                 echo('<br/>');
                 printf(__('Point %d'), $j + 1);
                 echo ': ';
                 echo '<label for="x">' .  __("X") . '</label>';
-                echo '<input type="text"'
-                    . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][' . $j . '][x]"'
-                    . ' value="' . escape($gis_data[$a][$type][$i][$j]['x']) . '" />';
+                echo '<input type="text" name="gis_data[' . $a . '][' . $type . ']['
+                    . $i . '][' . $j . '][x]" value="'
+                    . escape($gis_data[$a][$type][$i][$j]['x']) . '" />';
                 echo '<label for="y">' . __("Y") . '</label>';
-                echo '<input type="text"'
-                    . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][' . $j . '][y]"'
-                    . ' value="' . escape($gis_data[$a][$type][$i][$j]['x']) . '" />';
+                echo '<input type="text" name="gis_data[' . $a . '][' . $type . ']['
+                    . $i . '][' . $j . '][y]"' . ' value="'
+                    . escape($gis_data[$a][$type][$i][$j]['x']) . '" />';
             }
-            echo '<input type="submit"'
-                . ' name="gis_data[' . $a . '][' . $type . '][' . $i . '][add_point]"'
+            echo '<input type="submit" name="gis_data[' . $a . '][' . $type . ']['
+                . $i . '][add_point]"'
                 . ' class="add addPoint" value="' . __("Add a point") . '" />';
         }
         $caption = ($type == 'MULTILINESTRING')
@@ -322,7 +325,7 @@ for ($a = 0; $a < $geom_count; $a++) {
 
         for ($k = 0; $k < $no_of_polygons; $k++) {
             echo '<br/>';
-            echo __("Polygon") . ' ' . ($k + 1) . ':';
+            printf(__('Polygon %d:'), $k + 1);
             $no_of_lines = isset($gis_data[$a][$type][$k]['no_of_lines'])
                 ? $gis_data[$a][$type][$k]['no_of_lines'] : 1;
             if ($no_of_lines < 1) {
@@ -332,15 +335,15 @@ for ($a = 0; $a < $geom_count; $a++) {
                 $no_of_lines++;
             }
             echo '<input type="hidden"'
-                . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][no_of_lines]"'
-                . ' value="' . $no_of_lines . '" />';
+                . ' name="gis_data[' . $a . '][' . $type . '][' . $k
+                . '][no_of_lines]"' . ' value="' . $no_of_lines . '" />';
 
             for ($i = 0; $i < $no_of_lines; $i++) {
                 echo '<br/><br/>';
                 if ($i == 0) {
-                    echo __("Outer Ring") . ':';
+                    echo __('Outer ring:');
                 } else {
-                    echo __("Inner Ring") . ' ' . $i . ':';
+                    printf(__('Inner ring %d:'), $i);
                 }
 
                 $no_of_points = isset($gis_data[$a][$type][$k][$i]['no_of_points'])
@@ -352,8 +355,8 @@ for ($a = 0; $a < $geom_count; $a++) {
                     $no_of_points++;
                 }
                 echo '<input type="hidden"'
-                    . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][no_of_points]"'
-                    . ' value="' . $no_of_points . '" />';
+                    . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i
+                    . '][no_of_points]"' . ' value="' . $no_of_points . '" />';
 
                 for ($j = 0; $j < $no_of_points; $j++) {
                     echo '<br/>';
@@ -361,21 +364,26 @@ for ($a = 0; $a < $geom_count; $a++) {
                     echo ': ';
                     echo '<label for="x">' .  __("X") . '</label>';
                     echo '<input type="text"'
-                        . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][' . $j . '][x]"'
-                        . ' value="' . escape($gis_data[$a][$type][$k][$i][$j]['x']). '" />';
+                        . ' name="gis_data[' . $a . '][' . $type . '][' . $k . ']['
+                        . $i . '][' . $j . '][x]"'
+                        . ' value="' . escape($gis_data[$a][$type][$k][$i][$j]['x'])
+                        . '" />';
                     echo '<label for="y">' . __("Y") . '</label>';
                     echo '<input type="text"'
-                        . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][' . $j . '][y]"'
-                        . ' value="' . escape($gis_data[$a][$type][$k][$i][$j]['y']) . '" />';
+                        . ' name="gis_data[' . $a . '][' . $type . '][' . $k . ']['
+                        . $i . '][' . $j . '][y]"'
+                        . ' value="' . escape($gis_data[$a][$type][$k][$i][$j]['y'])
+                        . '" />';
                 }
                 echo '<input type="submit"'
-                    . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i . '][add_point]"'
+                    . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][' . $i
+                    . '][add_point]"'
                     . ' class="add addPoint" value="' . __("Add a point") . '" />';
             }
             echo '<br/>';
             echo '<input type="submit"'
                 . ' name="gis_data[' . $a . '][' . $type . '][' . $k . '][add_line]"'
-                . ' class="add addLine" value="' . __('Add an inner ring'). '" />';
+                . ' class="add addLine" value="' . __('Add an inner ring') . '" />';
             echo '<br/>';
         }
         echo '<br/>';
@@ -400,7 +408,7 @@ echo '<h3>' . __('Output') . '</h3>';
 echo '<p>';
 echo __(
     'Choose "GeomFromText" from the "Function" column and paste the'
-    . ' string below into the "Value" field'
+    . ' string below into the "Value" field.'
 );
 echo '</p>';
 echo '<textarea id="gis_data_textarea" cols="95" rows="5">';

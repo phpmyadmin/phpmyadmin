@@ -35,7 +35,7 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
         echo '<input type="hidden" name="check_page_refresh" '
             . ' id="check_page_refresh" value="" />' . "\n";
     }
-    echo PMA_generate_common_hidden_inputs('', '', 0, 'server') . "\n";
+    echo PMA_URL_getHiddenInputs('', '', 0, 'server') . "\n";
     echo PMA_getHiddenFields((array)$hidden_fields);
 }
 
@@ -115,7 +115,6 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * o values_disabled -  (array)list of disabled values (keys from values)
  * o comment - (string) tooltip comment
  * o comment_warning - (bool) whether this comments warns about something
- * o wiki - (string) wiki link
  *
  * @param string $path             config option path
  * @param string $name             config option name
@@ -133,6 +132,10 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     global $_FormDisplayGroup;
     static $icons;    // An array of IMG tags used further below in the function
 
+    if (defined('TESTSUITE')) {
+        $icons = null;
+    }
+
     $is_setup_script = defined('PMA_SETUP');
     if ($icons === null) { // if the static variables have not been initialised
         $icons = array();
@@ -143,7 +146,6 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         $icon_init = array(
             'edit'   => array('b_edit.png',   ''),
             'help'   => array('b_help.png',   __('Documentation')),
-            'info'   => array('b_info.png',   __('Wiki')),
             'reload' => array('s_reload.png', ''),
             'tblops' => array('b_tblops.png', '')
         );
@@ -200,25 +202,18 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
     echo '<th>';
     echo '<label for="' . htmlspecialchars($path) . '">' . $name . '</label>';
 
-    if (! empty($opts['doc']) || ! empty($opts['wiki'])) {
+    if (! empty($opts['doc'])) {
         echo '<span class="doc">';
-        if (! empty($opts['doc'])) {
-            echo '<a href="' . $opts['doc']
-                . '" target="documentation">' . $icons['help'] . '</a>';
-            echo "\n";
-        }
-        if (! empty($opts['wiki'])) {
-            echo '<a href="' . $opts['wiki']
-                . '" target="wiki">' . $icons['info'] . '</a>';
-            echo "\n";
-        }
+        echo '<a href="' . $opts['doc']
+            . '" target="documentation">' . $icons['help'] . '</a>';
+        echo "\n";
         echo '</span>';
     }
 
     if ($option_is_disabled) {
         echo '<span class="disabled-notice" title="';
         echo __(
-            'This setting is disabled, it will not be applied to your configuration'
+            'This setting is disabled, it will not be applied to your configuration.'
         );
         echo '">' . __('Disabled') . "</span>";
     }
@@ -235,12 +230,16 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         echo '<input type="text" size="60" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
+    case 'password':
+        echo '<input type="password" size="60" ' . $name_id . $field_class
+            . ' value="' . htmlspecialchars($value) . '" />';
+        break;
     case 'short_text':
         echo '<input type="text" size="25" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'number_text':
-        echo '<input type="text" size="15" ' . $name_id . $field_class
+        echo '<input type="number" size="15" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'checkbox':
@@ -389,7 +388,7 @@ function PMA_displayFieldsetBottom()
     echo '<tr>';
     echo '<td colspan="' . $colspan . '" class="lastrow">';
     echo '<input type="submit" name="submit_save" value="'
-        . __('Save') . '" class="green" />';
+        . __('Apply') . '" class="green" />';
     echo '<input type="button" name="submit_reset" value="'
         . __('Reset') . '" />';
     echo '</td>';
@@ -443,6 +442,7 @@ function PMA_addJsValidate($field_id, $validators, &$js_array)
     foreach ((array)$validators as $validator) {
         $validator = (array)$validator;
         $v_name = array_shift($validator);
+        $v_name = "PMA_" . $v_name;
         $v_args = array();
         foreach ($validator as $arg) {
             $v_args[] = PMA_escapeJsString($arg);

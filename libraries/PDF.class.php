@@ -9,7 +9,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/tcpdf/tcpdf.php';
+require_once TCPDF_INC;
 
 /**
  * PDF font to use.
@@ -36,16 +36,18 @@ class PMA_PDF extends TCPDF
      * @param string  $encoding    charset encoding; default is UTF-8.
      * @param boolean $diskcache   if true reduce the RAM memory usage by caching
      *                             temporary data on filesystem (slower).
+     * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
      *
-     * @return void
      * @access public
      */
     public function __construct($orientation = 'P', $unit = 'mm', $format = 'A4',
-        $unicode = true, $encoding = 'UTF-8', $diskcache = false
+        $unicode = true, $encoding = 'UTF-8', $diskcache = false, $pdfa=false
     ) {
-        parent::__construct();
+        parent::__construct(
+            $orientation, $unit, $format, $unicode,
+            $encoding, $diskcache, $pdfa
+        );
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
-        $this->AliasNbPages();
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $this->SetFont(PMA_PDF_FONT, '', 14);
@@ -63,7 +65,12 @@ class PMA_PDF extends TCPDF
         if (!isset($this->footerset[$this->page])) {
             $this->SetY(-15);
             $this->SetFont(PMA_PDF_FONT, '', 14);
-            $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
+            $this->Cell(
+                0, 6,
+                __('Page number:') . ' '
+                . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(),
+                'T', 0, 'C'
+            );
             $this->Cell(0, 6, PMA_Util::localisedDate(), 0, 1, 'R');
             $this->SetY(20);
 
@@ -82,19 +89,24 @@ class PMA_PDF extends TCPDF
      */
     function SetAlias($name, $value)
     {
-        $this->Alias[$this->UTF8ToUTF16BE($name)] = $this->UTF8ToUTF16BE($value);
+        $name = TCPDF_FONTS::UTF8ToUTF16BE(
+            $name, false, true, $this->CurrentFont
+        );
+        $this->Alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
+            $value, false, true, $this->CurrentFont
+        );
     }
 
     /**
-     * Improved with alias expading.
+     * Improved with alias expanding.
      *
      * @return void
      */
     function _putpages()
     {
         if (count($this->Alias) > 0) {
-            $nb = count($this->pages);
-            for ($n = 1;$n <= $nb;$n++) {
+            $nbPages = count($this->pages);
+            for ($n = 1; $n <= $nbPages; $n++) {
                 $this->pages[$n] = strtr($this->pages[$n], $this->Alias);
             }
         }

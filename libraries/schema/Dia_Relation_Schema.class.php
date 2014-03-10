@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Classes to create relation schema in Dia format.
  *
  * @package PhpMyAdmin
  */
@@ -14,8 +15,9 @@ require_once 'Export_Relation_Schema.class.php';
  * This Class inherits the XMLwriter class and
  * helps in developing structure of DIA Schema Export
  *
- * @access public
- * @see http://php.net/manual/en/book.xmlwriter.php
+ * @package PhpMyAdmin
+ * @access  public
+ * @see     http://php.net/manual/en/book.xmlwriter.php
  */
 class PMA_DIA extends XMLWriter
 {
@@ -29,7 +31,6 @@ class PMA_DIA extends XMLWriter
      *
      * Upon instantiation This starts writing the Dia XML document
      *
-     * @return void
      * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
      */
     function __construct()
@@ -192,10 +193,11 @@ class PMA_DIA extends XMLWriter
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in dia XML document.
  *
- * @name Table_Stats
- * @see PMA_DIA
+ * @package PhpMyAdmin
+ * @name    Table_Stats_Dia
+ * @see     PMA_DIA
  */
-class Table_Stats
+class Table_Stats_Dia
 {
     /**
      * Defines properties
@@ -208,18 +210,16 @@ class Table_Stats
     public $tableColor;
 
     /**
-     * The "Table_Stats" constructor
+     * The "Table_Stats_Dia" constructor
      *
      * @param string  $tableName  The table name
      * @param integer $pageNumber The current page number (from the
      *                            $cfg['Servers'][$i]['table_coords'] table)
      * @param boolean $showKeys   Whether to display ONLY keys or not
      *
-     * @return void
-     *
-     * @global object    The current dia document
-     * @global array     The relations settings
-     * @global string    The current db name
+     * @global object $dia         The current dia document
+     * @global array  $cfgRelation The relations settings
+     * @global string $db          The current db name
      *
      * @see PMA_DIA
      */
@@ -229,8 +229,10 @@ class Table_Stats
 
         $this->tableName = $tableName;
         $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
-        if (! $result || ! PMA_DBI_num_rows($result)) {
+        $result = $GLOBALS['dbi']->tryQuery(
+            $sql, null, PMA_DatabaseInterface::QUERY_STORE
+        );
+        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $dia->dieSchema(
                 $pageNumber, "DIA",
                 sprintf(__('The %s table doesn\'t exist!'), $tableName)
@@ -251,7 +253,7 @@ class Table_Stats
             }
             $this->fields = array_keys($all_columns);
         } else {
-            while ($row = PMA_DBI_fetch_row($result)) {
+            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $this->fields[] = $row[0];
             }
         }
@@ -263,8 +265,10 @@ class Table_Stats
             . ' AND table_name = \''
             . PMA_Util::sqlAddSlashes($tableName) . '\''
             . ' AND pdf_page_number = ' . $pageNumber;
-        $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
-        if (! $result || ! PMA_DBI_num_rows($result)) {
+        $result = PMA_queryAsControlUser(
+            $sql, false, PMA_DatabaseInterface::QUERY_STORE
+        );
+        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $dia->dieSchema(
                 $pageNumber,
                 "DIA",
@@ -274,7 +278,7 @@ class Table_Stats
                 )
             );
         }
-        list($this->x, $this->y) = PMA_DBI_fetch_row($result);
+        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
         $this->x = (double) $this->x;
         $this->y = (double) $this->y;
         /*
@@ -284,13 +288,13 @@ class Table_Stats
         /*
          * index
          */
-        $result = PMA_DBI_query(
+        $result = $GLOBALS['dbi']->query(
             'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
             null,
-            PMA_DBI_QUERY_STORE
+            PMA_DatabaseInterface::QUERY_STORE
         );
-        if (PMA_DBI_num_rows($result) > 0) {
-            while ($row = PMA_DBI_fetch_assoc($result)) {
+        if ($GLOBALS['dbi']->numRows($result) > 0) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {
                     $this->primary[] = $row['Column_name'];
                 }
@@ -319,7 +323,7 @@ class Table_Stats
      *
      * @return void
      *
-     * @global object The current Dia document
+     * @global object $dia The current Dia document
      *
      * @access public
      * @see PMA_DIA
@@ -353,7 +357,7 @@ class Table_Stats
             </dia:attribute>
             <dia:attribute name="obj_bb">
                 <dia:rectangle val="'
-            .($this->x * $factor) . ',' . ($this->y * $factor) . ';9.97,9.2"/>
+            . ($this->x * $factor) . ',' . ($this->y * $factor) . ';9.97,9.2"/>
             </dia:attribute>
             <dia:attribute name="meta">
                 <dia:composite type="dict"/>
@@ -468,10 +472,11 @@ class Table_Stats
  * master table's master field to foreign table's foreign key
  * in dia XML document.
  *
- * @name Relation_Stats
- * @see PMA_DIA
+ * @package PhpMyAdmin
+ * @name    Relation_Stats_Dia
+ * @see     PMA_DIA
  */
-class Relation_Stats
+class Relation_Stats_Dia
 {
     /**
      * Defines properties
@@ -487,16 +492,14 @@ class Relation_Stats
     public $referenceColor;
 
     /**
-     * The "Relation_Stats" constructor
+     * The "Relation_Stats_Dia" constructor
      *
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name
      * @param string $foreign_field The relation field in the foreign table
      *
-     * @return void
-     *
-     * @see Relation_Stats::_getXy
+     * @see Relation_Stats_Dia::_getXy
      */
     function __construct($master_table, $master_field, $foreign_table,
         $foreign_field
@@ -551,9 +554,9 @@ class Relation_Stats
      * if changeColor is true then an array of $listOfColors will be used to choose
      * the random colors for references lines. we can change/add more colors to this
      *
-     * @return void
+     * @return boolean|void
      *
-     * @global object The current Dia document
+     * @global object $dia The current Dia document
      *
      * @access public
      * @see PMA_PDF
@@ -678,7 +681,8 @@ class Relation_Stats
  * inherits Export_Relation_Schema class has common functionality added
  * to this class
  *
- * @name Dia_Relation_Schema
+ * @package PhpMyAdmin
+ * @name    Dia_Relation_Schema
  */
 class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
 {
@@ -699,8 +703,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * Upon instantiation This outputs the Dia XML document
      * that user can download
      *
-     * @return void
-     * @see PMA_DIA,Table_Stats,Relation_Stats
+     * @see PMA_DIA,Table_Stats_Dia,Relation_Stats_Dia
      */
     function __construct()
     {
@@ -722,7 +725,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
         $alltables = $this->getAllTables($db, $this->pageNumber);
         foreach ($alltables as $table) {
             if (! isset($this->tables[$table])) {
-                $this->_tables[$table] = new Table_Stats(
+                $this->_tables[$table] = new Table_Stats_Dia(
                     $table, $this->pageNumber, $this->showKeys
                 );
             }
@@ -754,8 +757,18 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
             $this->_drawRelations($this->showColor);
         }
         $dia->endDiaDoc();
+    }
+
+    /**
+     * Output Dia Document for download
+     *
+     * @return void
+     * @access public
+     */
+    function showOutput()
+    {
+        global $dia, $db;
         $dia->showOutput($db . '-' . $this->pageNumber);
-        exit();
     }
 
     /**
@@ -770,22 +783,22 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see Table_Stats::__construct(),Relation_Stats::__construct()
+     * @see Table_Stats_Dia::__construct(),Relation_Stats_Dia::__construct()
      */
     private function _addRelation($masterTable, $masterField, $foreignTable,
         $foreignField, $showKeys
     ) {
         if (! isset($this->_tables[$masterTable])) {
-            $this->_tables[$masterTable] = new Table_Stats(
+            $this->_tables[$masterTable] = new Table_Stats_Dia(
                 $masterTable, $this->pageNumber, $showKeys
             );
         }
         if (! isset($this->_tables[$foreignTable])) {
-            $this->_tables[$foreignTable] = new Table_Stats(
+            $this->_tables[$foreignTable] = new Table_Stats_Dia(
                 $foreignTable, $this->pageNumber, $showKeys
             );
         }
-        $this->_relations[] = new Relation_Stats(
+        $this->_relations[] = new Relation_Stats_Dia(
             $this->_tables[$masterTable], $masterField,
             $this->_tables[$foreignTable], $foreignField
         );
@@ -803,7 +816,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see Relation_Stats::relationDraw()
+     * @see Relation_Stats_Dia::relationDraw()
      */
     private function _drawRelations($changeColor)
     {
@@ -823,7 +836,7 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @return void
      *
      * @access private
-     * @see Table_Stats::tableDraw()
+     * @see Table_Stats_Dia::tableDraw()
      */
     private function _drawTables($changeColor)
     {

@@ -27,16 +27,17 @@ class PMA_ExportPdf extends PMA_PDF
     /**
      * Add page if needed.
      *
-     * @param float   $h       cell height. Default value: 0
-     * @param mixed   $y       starting y position, leave empty for current position
-     * @param boolean $addpage if true add a page, otherwise only return
-     *                         the true/false state
+     * @param float|int $h       cell height. Default value: 0
+     * @param mixed     $y       starting y position, leave empty for current
+     *                           position
+     * @param boolean   $addpage if true add a page, otherwise only return
+     *                           the true/false state
      *
      * @return boolean true in case of page break, false otherwise.
      */
     function checkPageBreak($h = 0, $y = '', $addpage = true)
     {
-        if ($this->empty_string($y)) {
+        if (TCPDF_STATIC::empty_string($y)) {
             $y = $this->y;
         }
         $current_page = $this->page;
@@ -112,8 +113,8 @@ class PMA_ExportPdf extends PMA_PDF
             $this->Cell(
                 0,
                 $this->FontSizePt,
-                __('Database') . ': ' . $this->currentDb . ',  '
-                . __('Table') . ': ' . $this->currentTable,
+                __('Database:') . ' ' . $this->currentDb . ',  '
+                . __('Table:') . ' ' . $this->currentTable,
                 0, 1, 'L'
             );
             $l = ($this->lMargin);
@@ -160,6 +161,13 @@ class PMA_ExportPdf extends PMA_PDF
         $this->SetAutoPageBreak(true);
     }
 
+    /**
+     * Generate table
+     *
+     * @param int $lineheight Height of line
+     *
+     * @return void
+     */
     function morepagestable($lineheight = 8)
     {
         // some things to set and 'remember'
@@ -178,7 +186,7 @@ class PMA_ExportPdf extends PMA_PDF
         $tmpheight = array();
         $maxpage = $this->page;
 
-        while ($data = PMA_DBI_fetch_row($this->results)) {
+        while ($data = $GLOBALS['dbi']->fetchRow($this->results)) {
             $this->page = $currpage;
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth+$l, $h);
@@ -197,11 +205,11 @@ class PMA_ExportPdf extends PMA_PDF
                     $l += $this->tablewidths[$col];
                 }
 
-                if (! isset($tmpheight[$row.'-'.$this->page])) {
-                    $tmpheight[$row.'-'.$this->page] = 0;
+                if (! isset($tmpheight[$row . '-' . $this->page])) {
+                    $tmpheight[$row . '-' . $this->page] = 0;
                 }
-                if ($tmpheight[$row.'-'.$this->page] < $this->GetY()) {
-                    $tmpheight[$row.'-'.$this->page] = $this->GetY();
+                if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
+                    $tmpheight[$row . '-' . $this->page] = $this->GetY();
                 }
                 if ($this->page > $maxpage) {
                     $maxpage = $this->page;
@@ -210,7 +218,7 @@ class PMA_ExportPdf extends PMA_PDF
             }
 
             // get the height we were in the last used page
-            $h = $tmpheight[$row.'-'.$maxpage];
+            $h = $tmpheight[$row . '-' . $maxpage];
             // set the "pointer" to the left margin
             $l = $this->lMargin;
             // set the $currpage to the last page
@@ -265,6 +273,13 @@ class PMA_ExportPdf extends PMA_PDF
         $this->tMargin = $topMargin;
     }
 
+    /**
+     * MySQL report
+     *
+     * @param string $query Query to execute
+     *
+     * @return void
+     */
     function mysqlReport($query)
     {
         unset($this->tablewidths);
@@ -277,9 +292,11 @@ class PMA_ExportPdf extends PMA_PDF
         /**
          * Pass 1 for column widths
          */
-        $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $this->numFields  = PMA_DBI_num_fields($this->results);
-        $this->fields = PMA_DBI_get_fields_meta($this->results);
+        $this->results = $GLOBALS['dbi']->query(
+            $query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
+        $this->numFields  = $GLOBALS['dbi']->numFields($this->results);
+        $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;
@@ -345,7 +362,7 @@ class PMA_ExportPdf extends PMA_PDF
         /**
           * @todo force here a LIMIT to avoid reading all rows
           */
-        while ($row = PMA_DBI_fetch_row($this->results)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($this->results)) {
             foreach ($colFits as $key => $val) {
                 $stringWidth = $this->getstringwidth($row[$key]) + 6 ;
                 if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
@@ -391,16 +408,18 @@ class PMA_ExportPdf extends PMA_PDF
 
         ksort($this->tablewidths);
 
-        PMA_DBI_free_result($this->results);
+        $GLOBALS['dbi']->freeResult($this->results);
 
         // Pass 2
 
-        $this->results = PMA_DBI_query($query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $this->results = $GLOBALS['dbi']->query(
+            $query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
-        PMA_DBI_free_result($this->results);
+        $GLOBALS['dbi']->freeResult($this->results);
 
     } // end of mysqlReport function
 

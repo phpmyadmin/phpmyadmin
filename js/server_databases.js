@@ -36,8 +36,8 @@ AJAX.registerOnload('server_databases.js', function () {
          * @var selected_dbs Array containing the names of the checked databases
          */
         var selected_dbs = [];
-        // loop over all checked checkboxes, except the #checkall checkbox
-        $form.find('input:checkbox:checked:not(#checkall)').each(function () {
+        // loop over all checked checkboxes, except the .checkall_box checkbox
+        $form.find('input:checkbox:checked:not(.checkall_box)').each(function () {
             $(this).closest('tr').addClass('removeMe');
             selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });
@@ -53,15 +53,13 @@ AJAX.registerOnload('server_databases.js', function () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question =
-            PMA_messages.strDropDatabaseStrongWarning + ' '
-            + $.sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
+        var question = PMA_messages.strDropDatabaseStrongWarning + ' ' +
+            $.sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
 
         $(this).PMA_confirm(
             question,
-            $form.prop('action')
-                + '?' + $(this).serialize()
-                + '&drop_selected_dbs=1&is_js_confirmed=1&ajax_request=true',
+            $form.prop('action') + '?' + $(this).serialize() +
+                '&drop_selected_dbs=1&is_js_confirmed=1&ajax_request=true',
             function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
@@ -76,6 +74,10 @@ AJAX.registerOnload('server_databases.js', function () {
 
                         $rowsToRemove.remove();
                         $form.find('tbody').PMA_sort_table('.name');
+                        if ($form.find('tbody').find('tr').length == 0) {
+                            // user just dropped the last db on this page
+                            PMA_commonActions.refreshMain();
+                        }
                         PMA_reloadNavigation();
                     } else {
                         $form.find('tr.removeMe').removeClass('removeMe');
@@ -92,14 +94,16 @@ AJAX.registerOnload('server_databases.js', function () {
     $('#create_database_form.ajax').live('submit', function (event) {
         event.preventDefault();
 
-        $form = $(this);
+        var $form = $(this);
 
+        // TODO Remove this section when all browsers support HTML5 "required" property
         var newDbNameInput = $form.find('input[name=new_db]');
         if (newDbNameInput.val() === '') {
             newDbNameInput.focus();
             alert(PMA_messages.strFormEmpty);
             return;
         }
+        // end remove
 
         PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);

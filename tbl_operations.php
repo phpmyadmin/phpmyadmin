@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Various table operations
  *
  * @package PhpMyAdmin
  */
@@ -33,7 +34,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Gets available MySQL charsets and storage engines
  */
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/StorageEngine.class.php';
 
 /**
@@ -43,7 +44,7 @@ require_once 'libraries/Partition.class.php';
 
 // reselect current db (needed in some cases probably due to
 // the calling of relation.lib.php)
-PMA_DBI_select_db($GLOBALS['db']);
+$GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
 /**
  * Gets tables informations
@@ -51,7 +52,8 @@ PMA_DBI_select_db($GLOBALS['db']);
 require 'libraries/tbl_info.inc.php';
 
 // define some variables here, for improved syntax in the conditionals
-$is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = $is_aria = $is_pbxt = false;
+$is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = false;
+$is_aria = $is_pbxt = false;
 // set initial value of these variables, based on the current table engine
 list($is_myisam_or_aria, $is_innodb, $is_isam,
     $is_berkeleydb, $is_aria, $is_pbxt
@@ -107,8 +109,7 @@ if (isset($_REQUEST['submitoptions'])) {
     }
 
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && strtolower($_REQUEST['new_tbl_storage_engine'])
-            !== strtolower($tbl_storage_engine)
+        && strtolower($_REQUEST['new_tbl_storage_engine']) !== strtolower($tbl_storage_engine)
     ) {
         $new_tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
@@ -143,7 +144,7 @@ if (isset($_REQUEST['submitoptions'])) {
             . PMA_Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
-        $result        .= PMA_DBI_query($sql_query) ? true : false;
+        $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
         $warning_messages = PMA_getWarningMessagesArray();
@@ -181,7 +182,7 @@ if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {
         $_message = $result
             ? PMA_Message::success(
-                __('Your SQL query has been executed successfully')
+                __('Your SQL query has been executed successfully.')
             )
             : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
@@ -225,15 +226,45 @@ $url_params['goto']
 /**
  * Get columns names
  */
-$columns = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
+$columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 
 /**
  * Displays the page
  */
+$response->addHTML('<div id="boxContainer" data-box-width="300">');
+
 /**
  * Order the table
  */
-$response->addHTML(PMA_getHtmlForOrderTheTable($columns));
+$hideOrderTable = false;
+// `ALTER TABLE ORDER BY` does not make sense for InnoDB tables that contain
+// a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
+// InnoDB always orders table rows according to such an index if one is present.
+if ($tbl_storage_engine == 'INNODB') {
+    include_once 'libraries/Index.class.php';
+    $indexes = PMA_Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    foreach ($indexes as $name => $idx) {
+        if ($name == 'PRIMARY') {
+            $hideOrderTable = true;
+            break;
+        } elseif (! $idx->getNonUnique()) {
+            $notNull = true;
+            foreach ($idx->getColumns() as $column) {
+                if ($column->getNull()) {
+                    $notNull = false;
+                    break;
+                }
+            }
+            if ($notNull) {
+                $hideOrderTable = true;
+                break;
+            }
+        }
+    }
+}
+if (! $hideOrderTable) {
+    $response->addHTML(PMA_getHtmlForOrderTheTable($columns));
+}
 
 /**
  * Move table
@@ -278,8 +309,6 @@ $response->addHTML(
  */
 $response->addHTML(PMA_getHtmlForCopytable());
 
-$response->addHTML('<br class="clearfloat"/>');
-
 /**
  * Table maintenance
  */
@@ -292,12 +321,12 @@ $response->addHTML(
     )
 );
 
-if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     $truncate_table_url_params = array();
     $drop_table_url_params = array();
 
     if (! $tbl_is_view
-        && ! (isset($db_is_information_schema) && $db_is_information_schema)
+        && ! (isset($db_is_system_schema) && $db_is_system_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
             . PMA_Util::backquote($GLOBALS['table']);
@@ -314,7 +343,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
             )
         );
     }
-    if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+    if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         $this_sql_query = 'DROP TABLE '
             . PMA_Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
@@ -326,8 +355,8 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
                 'purge' => '1',
                 'message_to_show' => sprintf(
                     ($tbl_is_view
-                        ? __('View %s has been dropped')
-                        : __('Table %s has been dropped')
+                        ? __('View %s has been dropped.')
+                        : __('Table %s has been dropped.')
                     ),
                     htmlspecialchars($table)
                 ),
@@ -344,7 +373,6 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
         )
     );
 }
-$response->addHTML('<br class="clearfloat">');
 
 if (PMA_Partition::havePartitioning()) {
     $partition_names = PMA_Partition::getPartitionNames($db, $table);
@@ -364,7 +392,7 @@ unset($partition_names);
 // this choice (InnoDB maintains integrity by itself)
 
 if ($cfgRelation['relwork'] && ! $is_innodb) {
-    PMA_DBI_select_db($GLOBALS['db']);
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
     if ($foreign) {
@@ -374,5 +402,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
     } // end if ($foreign)
 
 } // end  if (!empty($cfg['Server']['relation']))
+
+$response->addHTML('</div>');
 
 ?>

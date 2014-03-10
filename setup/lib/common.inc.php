@@ -32,7 +32,8 @@ restore_error_handler();
 // Save current language in a cookie, required since we use PMA_MINIMUM_COMMON
 $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
 
-ConfigFile::getInstance()->setPersistKeys(
+$GLOBALS['ConfigFile'] = new ConfigFile();
+$GLOBALS['ConfigFile']->setPersistKeys(
     array(
         'DefaultLang',
         'ServerDefault',
@@ -42,7 +43,6 @@ ConfigFile::getInstance()->setPersistKeys(
         'Servers/1/host',
         'Servers/1/port',
         'Servers/1/socket',
-        'Servers/1/extension',
         'Servers/1/connect_type',
         'Servers/1/auth_type',
         'Servers/1/user',

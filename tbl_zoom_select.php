@@ -12,7 +12,7 @@
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/mysql_charsets.lib.php';
+require_once './libraries/mysql_charsets.inc.php';
 require_once './libraries/TableSearch.class.php';
 require_once './libraries/tbl_info.inc.php';
 
@@ -21,11 +21,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');
 $scripts->addFile('sql.js');
-$scripts->addFile('date.js');
-/* < IE 9 doesn't support canvas natively */
-if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-    $scripts->addFile('canvg/flashcanvas.js');
-}
 $scripts->addFile('jqplot/jquery.jqplot.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
 $scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
@@ -35,20 +30,6 @@ $scripts->addFile('jqplot/plugins/jqplot.cursor.js');
 $scripts->addFile('canvg/canvg.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('tbl_zoom_plot_jqplot.js');
-
-/**
- * Sets globals from $_POST
- */
-$post_params = array(
-    'dataLabel',
-    'maxPlotLimit',
-    'zoom_submit'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
 
 $table_search = new PMA_TableSearch($db, $table, "zoom");
 
@@ -61,14 +42,18 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
     $extra_data = array();
     $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`'
         . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
-    $result = PMA_DBI_query($row_info_query . ";", null, PMA_DBI_QUERY_STORE);
-    $fields_meta = PMA_DBI_get_fields_meta($result);
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    $result = $GLOBALS['dbi']->query(
+        $row_info_query . ";", null, PMA_DatabaseInterface::QUERY_STORE
+    );
+    $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         // for bit fields we need to convert them to printable form
         $i = 0;
         foreach ($row as $col => $val) {
             if ($fields_meta[$i]->type == 'bit') {
-                $row[$col] = PMA_Util::printableBitValue($val, $fields_meta[$i]->length);
+                $row[$col] = PMA_Util::printableBitValue(
+                    $val, $fields_meta[$i]->length
+                );
             }
             $i++;
         }
@@ -114,33 +99,38 @@ if (! isset($goto)) {
     $goto = $GLOBALS['cfg']['DefaultTabTable'];
 }
 // Defines the url to return to in case of error in the next sql statement
-$err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
+$err_url   = $goto . '?' . PMA_URL_getCommon($db, $table);
 
 //Set default datalabel if not selected
 if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
     $dataLabel = PMA_getDisplayField($db, $table);
+} else {
+    $dataLabel = $_POST['dataLabel'];
 }
 
 // Displays the zoom search form
+$response->addHTML($table_search->getSecondaryTabs());
 $response->addHTML($table_search->getSelectionForm($goto, $dataLabel));
 
 /*
  * Handle the input criteria and generate the query result
  * Form for displaying query results
  */
-if (isset($zoom_submit)
+if (isset($_POST['zoom_submit'])
     && $_POST['criteriaColumnNames'][0] != 'pma_null'
     && $_POST['criteriaColumnNames'][1] != 'pma_null'
     && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
 ) {
     //Query generation part
     $sql_query = $table_search->buildSqlQuery();
-    $sql_query .= ' LIMIT ' . $maxPlotLimit;
+    $sql_query .= ' LIMIT ' . $_POST['maxPlotLimit'];
 
     //Query execution part
-    $result = PMA_DBI_query($sql_query . ";", null, PMA_DBI_QUERY_STORE);
-    $fields_meta = PMA_DBI_get_fields_meta($result);
-    while ($row = PMA_DBI_fetch_assoc($result)) {
+    $result = $GLOBALS['dbi']->query(
+        $sql_query . ";", null, PMA_DatabaseInterface::QUERY_STORE
+    );
+    $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+    while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
         //Need a row with indexes as 0,1,2 for the getUniqueCondition
         // hence using a temporary array
         $tmpRow = array();
@@ -156,8 +146,10 @@ if (isset($zoom_submit)
         $row['where_clause'] = $uniqueCondition[0];
 
         $tmpData = array(
-            $_POST['criteriaColumnNames'][0] => $row[$_POST['criteriaColumnNames'][0]],
-            $_POST['criteriaColumnNames'][1] => $row[$_POST['criteriaColumnNames'][1]],
+            $_POST['criteriaColumnNames'][0] =>
+                $row[$_POST['criteriaColumnNames'][0]],
+            $_POST['criteriaColumnNames'][1] =>
+                $row[$_POST['criteriaColumnNames'][1]],
             'where_clause' => $uniqueCondition[0]
         );
         $tmpData[$dataLabel] = ($dataLabel) ? $row[$dataLabel] : '';

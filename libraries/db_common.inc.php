@@ -18,16 +18,16 @@ PMA_Util::checkParameters(array('db'));
 
 $is_show_stats = $cfg['ShowStats'];
 
-$db_is_information_schema = PMA_is_system_schema($db);
-if ($db_is_information_schema) {
+$db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
+if ($db_is_system_schema) {
     $is_show_stats = false;
 }
 
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'index.php?' . PMA_generate_common_url();
-$err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
+$err_url_0 = 'index.php?' . PMA_URL_getCommon();
+$err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_URL_getCommon($db);
 
 
 /**
@@ -36,18 +36,18 @@ $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
  */
 if (! isset($is_db) || ! $is_db) {
     if (strlen($db)) {
-        $is_db = PMA_DBI_select_db($db);
+        $is_db = $GLOBALS['dbi']->selectDb($db);
         // This "Command out of sync" 2014 error may happen, for example
         // after calling a MySQL procedure; at this point we can't select
         // the db but it's not necessarily wrong
-        if (PMA_DBI_getError() && $GLOBALS['errno'] == 2014) {
+        if ($GLOBALS['dbi']->getError() && $GLOBALS['errno'] == 2014) {
             $is_db = true;
             unset($GLOBALS['errno']);
         }
     }
     // Not a valid db name -> back to the welcome page
     $uri = $cfg['PmaAbsoluteUri'] . 'index.php?'
-        . PMA_generate_common_url('', '', '&')
+        . PMA_URL_getCommon('', '', '&')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (! strlen($db) || ! $is_db) {
         $response = PMA_Response::getInstance();
@@ -75,7 +75,7 @@ if (isset($_REQUEST['submitcollation'])
     $sql_query        = 'ALTER DATABASE '
         . PMA_Util::backquote($db)
         . ' DEFAULT' . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
-    $result           = PMA_DBI_query($sql_query);
+    $result           = $GLOBALS['dbi']->query($sql_query);
     $message          = PMA_Message::success();
     unset($db_charset);
 
@@ -95,6 +95,6 @@ if (isset($_REQUEST['submitcollation'])
 /**
  * Set parameters for links
  */
-$url_query = PMA_generate_common_url($db);
+$url_query = PMA_URL_getCommon($db);
 
 ?>

@@ -11,7 +11,7 @@
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
 
-class PMA_TRI_getDataFromRequest_test extends PHPUnit_Framework_TestCase
+class PMA_TRI_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider provider

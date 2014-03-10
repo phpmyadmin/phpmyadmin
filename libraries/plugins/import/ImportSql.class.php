@@ -49,7 +49,7 @@ class ImportSql extends ImportPlugin
         $importPluginProperties->setExtension('sql');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $compats = PMA_DBI_getCompatibilities();
+        $compats = $GLOBALS['dbi']->getCompatibilities();
         if (count($compats) > 0) {
             $values = array();
             foreach ($compats as $val) {
@@ -152,7 +152,9 @@ class ImportSql extends ImportPlugin
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
         if (count($sql_modes) > 0) {
-            PMA_DBI_try_query('SET SQL_MODE="' . implode(',', $sql_modes) . '"');
+            $GLOBALS['dbi']->tryQuery(
+                'SET SQL_MODE="' . implode(',', $sql_modes) . '"'
+            );
         }
         unset($sql_modes);
 
@@ -170,7 +172,7 @@ class ImportSql extends ImportPlugin
             $data = PMA_importGetNextChunk();
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
-                $offset -= strlen($buffer);
+                $GLOBALS['offset'] -= strlen($buffer);
                 break;
             } elseif ($data === true) {
                 // Handle rest of buffer
@@ -187,6 +189,11 @@ class ImportSql extends ImportPlugin
                     continue;
                 }
             }
+
+            // Convert CR (but not CRLF) to LF otherwise all queries
+            // may not get executed on some platforms
+            $buffer = preg_replace("/\r($|[^\n])/", "\n$1", $buffer);
+
             // Current length of our buffer
             $len = strlen($buffer);
 

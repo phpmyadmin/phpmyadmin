@@ -111,7 +111,7 @@ class ImportMediawiki extends ImportPlugin
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing
-                $offset -= strlen($buffer);
+                $GLOBALS['offset'] -= strlen($buffer);
                 break;
             } elseif ($data === true) {
                 // Handle rest of buffer
@@ -217,8 +217,8 @@ class ImportMediawiki extends ImportPlugin
                     // End processing because the current line does not
                     // contain any column information
                 } elseif (substr($cur_buffer_line, 0, 2) === '|-'
-                      || substr($cur_buffer_line, 0, 2) === '|+'
-                      || substr($cur_buffer_line, 0, 2) === '|}'
+                    || substr($cur_buffer_line, 0, 2) === '|+'
+                    || substr($cur_buffer_line, 0, 2) === '|}'
                 ) {
                     // Check begin row or end table
 
@@ -358,9 +358,9 @@ class ImportMediawiki extends ImportPlugin
     private function _setTableName(&$table_name)
     {
         if (empty($table_name)) {
-            $result = PMA_DBI_fetch_result('SHOW TABLES');
+            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             // todo check if the name below already exists
-            $table_name = 'TABLE '.(count($result) + 1);
+            $table_name = 'TABLE ' . (count($result) + 1);
         }
     }
 
@@ -380,7 +380,7 @@ class ImportMediawiki extends ImportPlugin
             // If they are not set, generic names will be given (COL 1, COL 2, etc)
             $num_cols = count($table_row);
             for ($i = 0; $i < $num_cols; ++ $i) {
-                $table_headers [$i] = 'COL '. ($i + 1);
+                $table_headers [$i] = 'COL ' . ($i + 1);
             }
         }
     }

@@ -16,9 +16,12 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Util.class.php';
+require_once 'libraries/Config.class.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/Table.class.php';
 require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/vendor_config.php';
+require_once 'libraries/relation.lib.php';
 
 /**
  * Tests for Footer class
@@ -48,15 +51,18 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $_SERVER['SCRIPT_NAME'] = 'index.php';
-        $GLOBALS['db'] = 'mysql';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
-        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
         $GLOBALS['cfg']['Error_Handler']['gather'] = false;
         $GLOBALS['cfg']['Error_Handler']['display'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'db_structure.php';
         $GLOBALS['server'] = '1';
-        $_SESSION[' PMA_token '] = 'token';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
         $this->object = new PMA_Footer();
@@ -118,7 +124,8 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertRegExp(
-            '/<div id="session_debug">2 queries executed 2 times in 2.7 seconds<pre>/',
+            '/<div id="session_debug">2 queries executed 2 times in 2.7 seconds'
+            . '<pre>/',
             $this->_callPrivateFunction(
                 '_getDebugMessage',
                 array()
@@ -134,11 +141,14 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     public function testGetSelfLink()
     {
 
-        $GLOBALS['cfg']['NavigationBarIconic'] = false;
+        $GLOBALS['cfg']['TabsMode'] = 'text';
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=mysql&amp;table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank">Open new phpMyAdmin window</a></div>',
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
+            . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
+            . 'utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" '
+            . 'target="_blank">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(
@@ -156,13 +166,17 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
     public function testGetSelfLinkWithImage()
     {
 
-        $GLOBALS['cfg']['NavigationBarIconic'] = true;
+        $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'image';
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=mysql&amp;table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" target="_blank"><img src="imagewindow-new.png" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
+            . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
+            . 'utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" '
+            . 'target="_blank"><img src="imagewindow-new.png" title="Open new '
+            . 'phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(
@@ -201,7 +215,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
             $footer->getDisplay()
         );
     }
-    
+
     /**
      * Test for footer get Scripts
      *

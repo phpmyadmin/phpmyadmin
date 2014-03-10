@@ -37,7 +37,11 @@ class AuthenticationHttp extends AuthenticationPlugin
             && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
         ) {
             PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['LogoutURL']);
-            exit;
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
         }
 
         if (empty($GLOBALS['cfg']['Server']['auth_http_realm'])) {
@@ -62,7 +66,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $response = PMA_Response::getInstance();
         $response->getFooter()->setMinimal();
         $header = $response->getHeader();
-        $header->setTitle(__('Access denied'));
+        $header->setTitle(__('Access denied!'));
         $header->disableMenu();
         $header->setBodyId('loginform');
 
@@ -81,23 +85,29 @@ class AuthenticationHttp extends AuthenticationPlugin
             include CUSTOM_FOOTER_FILE;
         }
 
-        exit;
+        if (! defined('TESTSUITE')) {
+            exit;
+        } else {
+            return false;
+        }
     }
 
     /**
      * Gets advanced authentication settings
      *
-     * @global  string    the username if register_globals is on
-     * @global  string    the password if register_globals is on
-     * @global  array     the array of server variables if register_globals is
-     *                    off
-     * @global  array     the array of environment variables if register_globals
-     *                    is off
-     * @global  string    the username for the ? server
-     * @global  string    the password for the ? server
-     * @global  string    the username for the WebSite Professional server
-     * @global  string    the password for the WebSite Professional server
-     * @global  string    the username of the user who logs out
+     * @global  string $PHP_AUTH_USER   the username if register_globals is on
+     * @global  string $PHP_AUTH_PW     the password if register_globals is on
+     * @global  array                   the array of server variables if
+     *                                  register_globals is off
+     * @global  array                   the array of environment variables if
+     *                                  register_globals is off
+     * @global  string                  the username for the ? server
+     * @global  string                  the password for the ? server
+     * @global  string                  the username for the WebSite Professional
+     *                                  server
+     * @global  string                  the password for the WebSite Professional
+     *                                  server
+     * @global  string                  the username of the user who logs out
      *
      * @return boolean   whether we get authentication settings or not
      */
@@ -159,13 +169,15 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // User logged out -> ensure the new username is not the same
-        $old_usr = $_REQUEST['old_usr'];
+        $old_usr = isset($_REQUEST['old_usr']) ? $_REQUEST['old_usr'] : '';
         if (! empty($old_usr)
             && (isset($PHP_AUTH_USER) && $old_usr == $PHP_AUTH_USER)
         ) {
             $PHP_AUTH_USER = '';
             // -> delete user's choices that were stored in session
-            session_destroy();
+            if (! defined('TESTSUITE')) {
+                session_destroy();
+            }
         }
 
         // Returns whether we get authentication settings or not
@@ -179,11 +191,11 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Set the user and password after last checkings if required
      *
-     * @global  array     the valid servers settings
-     * @global  integer   the id of the current server
-     * @global  array     the current server settings
-     * @global  string    the current username
-     * @global  string    the current password
+     * @global  array   $cfg           the valid servers settings
+     * @global  integer $server        the id of the current server
+     * @global  array                  the current server settings
+     * @global  string  $PHP_AUTH_USER the current username
+     * @global  string  $PHP_AUTH_PW   the current password
      *
      * @return boolean   always true
      */
@@ -225,7 +237,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function authFails()
     {
-        $error = PMA_DBI_getError();
+        $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             PMA_fatalError($error);
         } else {

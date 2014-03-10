@@ -9,16 +9,18 @@
 /**
  * Common functions.
  */
+// we don't want the usual PMA_Response-generated HTML above the column's data
+define('PMA_BYPASS_GET_INSTANCE', 1);
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mime.lib.php';
 
 /* Check parameters */
 PMA_Util::checkParameters(
-    array('db', 'table', 'where_clause', 'transform_key')
+    array('db', 'table')
 );
 
 /* Select database */
-if (!PMA_DBI_select_db($db)) {
+if (!$GLOBALS['dbi']->selectDb($db)) {
     PMA_Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '', ''
@@ -26,15 +28,15 @@ if (!PMA_DBI_select_db($db)) {
 }
 
 /* Check if table exists */
-if (!PMA_DBI_get_columns($db, $table)) {
+if (!$GLOBALS['dbi']->getColumns($db, $table)) {
     PMA_Util::mysqlDie(__('Invalid table name'));
 }
 
 /* Grab data */
-$sql = 'SELECT ' . PMA_Util::backquote($transform_key)
+$sql = 'SELECT ' . PMA_Util::backquote($_GET['transform_key'])
     . ' FROM ' . PMA_Util::backquote($table)
-    . ' WHERE ' . $where_clause . ';';
-$result = PMA_DBI_fetch_value($sql);
+    . ' WHERE ' . $_GET['where_clause'] . ';';
+$result = $GLOBALS['dbi']->fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {
@@ -45,7 +47,7 @@ if ($result === false) {
 @ini_set('url_rewriter.tags', '');
 
 PMA_downloadHeader(
-    $table . '-' .  $transform_key . '.bin',
+    $table . '-' .  $_GET['transform_key'] . '.bin',
     PMA_detectMIME($result),
     strlen($result)
 );

@@ -56,14 +56,9 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem
      */
     public function removeProperty($property)
     {
-        $this->_properties = array_udiff(
+        $this->_properties = array_diff(
             $this->getProperties(),
-            array($property),
-            // for PHP 5.2 compability 
-            create_function(
-                '$a, $b',
-                'return ($a === $b ) ? 0 : 1'
-            )
+            array($property)
         );
     }
 

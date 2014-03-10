@@ -28,10 +28,10 @@ header('Content-Type: text/html; charset=utf-8');
         <?php echo htmlspecialchars($_SERVER['HTTP_HOST']); ?> - Theme Test</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css"
-        href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
+        href="../phpmyadmin.css.php?<?php echo PMA_URL_getCommon(); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
-    <script src="../js/jquery/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="../js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="../js/messages.php" type="text/javascript"></script>
     <script type="text/javascript">
         var PMA_TEST_THEME = true;
@@ -45,15 +45,15 @@ header('Content-Type: text/html; charset=utf-8');
 
 $separator = '<span class=\'separator item\'>&nbsp;»</span>' . "\n";
 $item = '<a href="%1$s?%2$s" class="item">'
-    .' <img class="icon %5$s" src="../themes/dot.gif"'
-    .' width="16" height="16" alt="" /> ' . "\n"
-    .'%4$s: %3$s</a>' . "\n";
+    . ' <img class="icon %5$s" src="../themes/dot.gif"'
+    . ' width="16" height="16" alt="" /> ' . "\n"
+    . '%4$s: %3$s</a>' . "\n";
 
 echo '<div id="serverinfo">' . "\n";
 printf(
     $item,
     $GLOBALS['cfg']['DefaultTabServer'],
-    PMA_generate_common_url(),
+    PMA_URL_getCommon(),
     'Server',
     __('Server'),
     'ic_s_host'
@@ -84,7 +84,7 @@ printf(
 );
 
 echo '<span class="table_comment" id="span_table_comment">'
-    .'&quot;Table comment&quot;</span>' . "\n";
+    . '&quot;Table comment&quot;</span>' . "\n";
 
 echo '</div>';
 

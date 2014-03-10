@@ -80,8 +80,8 @@ if (! isset($_COOKIE[$session_name])) {
     // on first start of session we check for errors
     // f.e. session dir cannot be accessed - session file not created
     $orig_error_count = $GLOBALS['error_handler']->countErrors();
-    $r = session_start();
-    if ($r !== true
+    $session_result = session_start();
+    if ($session_result !== true
         || $orig_error_count != $GLOBALS['error_handler']->countErrors()
     ) {
         setcookie($session_name, '', 1);
@@ -92,10 +92,11 @@ if (! isset($_COOKIE[$session_name])) {
         PMA_fatalError(
             'Cannot start session without errors, please check errors given '
             . 'in your PHP and/or webserver log file and configure your PHP '
-            . 'installation properly.'
+            . 'installation properly. Also ensure that cookies are enabled '
+            . 'in your browser.'
         );
     }
-    unset($orig_error_count);
+    unset($orig_error_count, $session_result);
 } else {
     session_start();
 }
@@ -110,7 +111,7 @@ if (! isset($_SESSION[' PMA_token '])) {
 
 /**
  * tries to secure session from hijacking and fixation
- * should be called before login and after successfull login
+ * should be called before login and after successful login
  * (only required if sensitive information stored in session)
  *
  * @return void

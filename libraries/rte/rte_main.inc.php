@@ -22,7 +22,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
     /**
      * Displays the header and tabs
      */
-    if (! empty($table) && in_array($table, PMA_DBI_get_tables($db))) {
+    if (! empty($table) && in_array($table, $GLOBALS['dbi']->getTables($db))) {
         include_once './libraries/tbl_common.inc.php';
     } else {
         $table = '';
@@ -36,9 +36,9 @@ if ($GLOBALS['is_ajax_request'] != true) {
      * create the missing $url_query variable
      */
     if (strlen($db)) {
-        PMA_DBI_select_db($db);
+        $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
-            $url_query = PMA_generate_common_url($db, $table);
+            $url_query = PMA_URL_getCommon($db, $table);
         }
     }
 }
@@ -68,7 +68,7 @@ $ajax_class = array(
 $titles = PMA_Util::buildActionTitles();
 
 /**
- * Keep a list of errors that occured while
+ * Keep a list of errors that occurred while
  * processing an 'Add' or 'Edit' operation.
  */
 $errors = array();
@@ -79,7 +79,11 @@ $errors = array();
  */
 switch ($_PMA_RTE) {
 case 'RTN':
-    PMA_RTN_main();
+    $type = null;
+    if (isset($_REQUEST['type'])) {
+        $type = $_REQUEST['type'];
+    }
+    PMA_RTN_main($type);
     break;
 case 'TRI':
     PMA_TRI_main();

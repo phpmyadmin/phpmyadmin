@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * phpMyAdmin theme manager
  *
  * @package PhpMyAdmin
  */
@@ -9,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * phpMyAdmin theme manager
  *
  * @package PhpMyAdmin
  */
@@ -59,7 +61,6 @@ class PMA_Theme_Manager
      * Constructor for Theme Manager class
      *
      * @access public
-     * @return void
      */
     public function __construct()
     {
@@ -98,7 +99,7 @@ class PMA_Theme_Manager
     /**
      * sets if there are different themes per server
      *
-     * @param boolean $per_server
+     * @param boolean $per_server Whether to enable per server flag
      *
      * @access public
      * @return void
@@ -112,7 +113,7 @@ class PMA_Theme_Manager
      * Initialise the class
      *
      * @access public
-     * @return void
+     * @return boolean|void
      */
     public function init()
     {
@@ -209,6 +210,7 @@ class PMA_Theme_Manager
     }
 
     /**
+     * Returns name for storing theme
      *
      * @return string cookie name
      * @access public
@@ -258,7 +260,9 @@ class PMA_Theme_Manager
     }
 
     /**
-     * @param string $folder
+     * Checks whether folder is valid for storing themes
+     *
+     * @param string $folder Folder name to test
      *
      * @return boolean
      * @access private
@@ -313,7 +317,8 @@ class PMA_Theme_Manager
             closedir($handleThemes);
         } else {
             trigger_error(
-                'phpMyAdmin-ERROR: cannot open themes folder: ' . $this->getThemesPath(),
+                'phpMyAdmin-ERROR: cannot open themes folder: '
+                . $this->getThemesPath(),
                 E_USER_WARNING
             );
             return false;
@@ -355,20 +360,23 @@ class PMA_Theme_Manager
         if ($form) {
             $select_box .= '<form name="setTheme" method="get"';
             $select_box .= ' action="index.php" class="disableAjax">';
-            $select_box .=  PMA_generate_common_hidden_inputs();
+            $select_box .=  PMA_URL_getHiddenInputs();
         }
 
         $theme_preview_path= './themes.php';
-        $theme_preview_href = '<a href="' . $theme_preview_path . '" target="themes" class="themeselect">';
-        $select_box .=  $theme_preview_href . __('Theme') . '</a>:' . "\n";
+        $theme_preview_href = '<a href="'
+            . $theme_preview_path . '" target="themes" class="themeselect">';
+        $select_box .=  $theme_preview_href . __('Theme:') . '</a>' . "\n";
 
-        $select_box .=  '<select name="set_theme" lang="en" dir="ltr" class="autosubmit">';
+        $select_box .=  '<select name="set_theme" lang="en" dir="ltr"'
+            . ' class="autosubmit">';
         foreach ($this->themes as $each_theme_id => $each_theme) {
             $select_box .=  '<option value="' . $each_theme_id . '"';
             if ($this->active_theme === $each_theme_id) {
                 $select_box .=  ' selected="selected"';
             }
-            $select_box .=  '>' . htmlspecialchars($each_theme->getName()) . '</option>';
+            $select_box .=  '>' . htmlspecialchars($each_theme->getName())
+                . '</option>';
         }
         $select_box .=  '</select>';
 
@@ -417,7 +425,7 @@ class PMA_Theme_Manager
     /**
      * returns PMA_Theme object for fall back theme
      *
-     * @return object PMA_Theme
+     * @return PMA_Theme fall back theme
      * @access public
      */
     public function getFallBackTheme()

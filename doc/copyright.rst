@@ -6,7 +6,7 @@ Copyright
 .. code-block:: none
 
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
-    Copyright (C) 2001-2013 Marc Delisle <marc_at_infomarc.info>
+    Copyright (C) 2001-2014 Marc Delisle <marc_at_infomarc.info>
         Olivier Müller <om_at_omnis.ch>
         Robin Johnson <robbat2_at_users.sourceforge.net>
         Alexander M. Turek <me_at_derrabus.de>

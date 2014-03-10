@@ -12,10 +12,10 @@
 require_once 'libraries/StorageEngine.class.php';
 require_once 'libraries/engines/ndbcluster.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
-class PMA_StorageEngine_ndbcluster_test extends PHPUnit_Framework_TestCase
+class PMA_StorageEngine_Ndbcluster_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -31,7 +31,7 @@ class PMA_StorageEngine_ndbcluster_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_StorageEngine_ndbcluster('nbdcluster');
+        $this->object = new PMA_StorageEngine_Ndbcluster('nbdcluster');
     }
 
     /**

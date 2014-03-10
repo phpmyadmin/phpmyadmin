@@ -1,23 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Import progress bar backend
  *
  * @package PhpMyAdmin
  */
 
 /* PHP 5.4 stores upload progress data only in the default session.
  * After calling session_name(), we won't find the progress data anymore.
-
+ *
+ * https://bugs.php.net/bug.php?id=64075
+ *
  * The bug should be somewhere in
  * https://github.com/php/php-src/blob/master/ext/session/session.c#L2342
-
- * Until this is fixed, we need to load the default session to load the data.
- * As we cannot load the phpMyAdmin-session after that, we will try to do
- * an internal POST request to call ourselves in a new instance.
- * That POST request grabs the transmitted upload data and stores them.
  *
- * TODO: The internal HTTP request may fail if the DNS name cannot be resolved
- * or if a firewall blocks outgoing requests on the used port.
+ * Until this is fixed, we need to load the default session to load the data,
+ * export the upload progress information from there,
+ * and re-import after switching to our session.
  */
 
 if (version_compare(PHP_VERSION, '5.4.0', '>=')
@@ -65,24 +64,11 @@ if (defined('SESSIONUPLOAD')) {
     }
 }
 
-/**
- * Sets globals from $_GET
- */
-$get_params = array(
-    'message',
-    'id'
-);
-foreach ($get_params as $one_get_param) {
-    if (isset($_GET[$one_get_param])) {
-        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
-    }
-}
-
 // AJAX requests can't be cached!
 PMA_noCacheHeader();
 
-// $GLOBALS["message"] is used for asking for an import message
-if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
+// $_GET["message"] is used for asking for an import message
+if (isset($_GET["message"]) && $_GET["message"]) {
 
     header('Content-type: text/html');
 
@@ -99,9 +85,9 @@ if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
     echo '<fieldset class="tblFooters">' . "\n";
     echo '    [ <a href="' . $_SESSION['Import_message']['go_back_url']
         . '">' . __('Back') . '</a> ]' . "\n";
-    echo '</fieldset>'."\n";
+    echo '</fieldset>' . "\n";
 
 } else {
-    PMA_importAjaxStatus($GLOBALS["id"]);
+    PMA_importAjaxStatus($_GET["id"]);
 }
 ?>

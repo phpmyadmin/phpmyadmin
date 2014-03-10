@@ -22,7 +22,7 @@ $scripts->addFile('server_privileges.js');
  * script
  */
 if (! $cfg['ShowChgPassword']) {
-    $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
+    $cfg['ShowChgPassword'] = $GLOBALS['dbi']->selectDb('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
     PMA_Message::error(
@@ -68,8 +68,8 @@ exit;
 /**
  * Send the message as an ajax request
  *
- * @param array   $change_password_message
- * @param string  $sql_query
+ * @param array  $change_password_message Message to display
+ * @param string $sql_query               SQL query executed
  *
  * @return void
  */
@@ -120,9 +120,9 @@ function PMA_setChangePasswordMsg()
 /**
  * Change the password
  *
- * @param string  $password
- * @param string  $message
- * @param array   $change_password_message
+ * @param string $password                New password
+ * @param string $message                 Message
+ * @param array  $change_password_message Message to show
  *
  * @return void
  */
@@ -133,7 +133,7 @@ function PMA_changePassword($password, $message, $change_password_message)
     $hashing_function = PMA_changePassHashingFunction();
     $sql_query = 'SET password = '
         . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
-    PMA_ChangePassUrlParamsAndSubmitQuery(
+    PMA_changePassUrlParamsAndSubmitQuery(
         $password, $_url_params, $sql_query, $hashing_function
     );
 
@@ -160,30 +160,30 @@ function PMA_changePassHashingFunction()
 /**
  * Generate the error url and submit the query
  *
- * @param string  $password
- * @param array   $_url_params
- * @param string  $sql_query
- * @param string  $hashing_function
+ * @param string $password         Password
+ * @param array  $_url_params      URL parameters
+ * @param string $sql_query        SQL query
+ * @param string $hashing_function Hashing function
  *
  * @return void
  */
-function PMA_ChangePassUrlParamsAndSubmitQuery(
+function PMA_changePassUrlParamsAndSubmitQuery(
     $password, $_url_params, $sql_query, $hashing_function
 ) {
-    $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
+    $err_url = 'user_password.php' . PMA_URL_getCommon($_url_params);
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''
         : $hashing_function . '(\'' . PMA_Util::sqlAddSlashes($password) . '\')');
-    if (! @PMA_DBI_try_query($local_query)) {
-        PMA_Util::mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
+    if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
+        PMA_Util::mysqlDie($GLOBALS['dbi']->getError(), $sql_query, false, $err_url);
     }
 }
 
 /**
  * Change password authentication type
  *
- * @param array   $_url_params
- * @param string  $password
+ * @param array  $_url_params URL parameters
+ * @param string $password    Password
  *
  * @return array   $_url_params
  */
@@ -222,9 +222,9 @@ function PMA_changePassAuthType($_url_params, $password)
 /**
  * Display the page
  *
- * @param string  $message
- * @param string  $sql_query
- * @param array   $_url_params
+ * @param string $message     Message
+ * @param string $sql_query   SQL query
+ * @param array  $_url_params URL parameters
  *
  * @return void
  */
@@ -234,9 +234,9 @@ function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
     echo PMA_Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php'.PMA_generate_common_url($_url_params)
-        .' target="_parent">'. "\n"
-        .'<strong>'.__('Back').'</strong></a>';
+    echo '<a href="index.php' . PMA_URL_getCommon($_url_params)
+        . ' target="_parent">' . "\n"
+        . '<strong>' . __('Back') . '</strong></a>';
     exit;
 }
 ?>

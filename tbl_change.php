@@ -24,33 +24,19 @@ require_once 'libraries/db_table_exists.lib.php';
 require_once 'libraries/insert_edit.lib.php';
 
 /**
- * Sets global variables.
- * Here it's better to use a if, instead of the '?' operator
- * to avoid setting a variable to '' when it's not present in $_REQUEST
+ * Determine whether Insert or Edit and set global variables
  */
+list(
+    $insert_mode, $where_clause, $where_clause_array, $where_clauses,
+    $result, $rows, $found_unique_key, $after_insert
+) = PMA_determineInsertOrEdit(
+    isset($where_clause) ? $where_clause : null, $db, $table
+);
 
-if (isset($_REQUEST['where_clause'])) {
-    $where_clause = $_REQUEST['where_clause'];
-}
-if (isset($_SESSION['edit_next'])) {
-    $where_clause = $_SESSION['edit_next'];
-    unset($_SESSION['edit_next']);
-    $after_insert = 'edit_next';
-}
-if (isset($_REQUEST['ShowFunctionFields'])) {
-    $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
-}
-if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
-    $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
-}
-if (isset($_REQUEST['after_insert'])) {
-    $after_insert = $_REQUEST['after_insert'];
-}
 /**
  * file listing
- */
+*/
 require_once 'libraries/file_listing.lib.php';
-
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -64,43 +50,13 @@ if (empty($GLOBALS['goto'])) {
         $GLOBALS['goto'] = 'db_sql.php';
     }
 }
-/**
- * @todo check if we could replace by "db_|tbl_" - please clarify!?
- */
-$_url_params = array(
-    'db' => $db,
-    'sql_query' => $_REQUEST['sql_query']
-);
 
-if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
-    $_url_params['table'] = $table;
-}
 
-$err_url = $GLOBALS['goto'] . PMA_generate_common_url($_url_params);
+$_url_params = PMA_getUrlParameters($db, $table);
+$err_url = $GLOBALS['goto'] . PMA_URL_getCommon($_url_params);
 unset($_url_params);
 
-
-/**
- * Sets parameters for links
- * where is this variable used?
- * replace by PMA_generate_common_url($url_params);
- */
-$url_query = PMA_generate_common_url($url_params, 'html', '');
-
-/**
- * get table information
- * @todo should be done by a Table object
- */
-require_once 'libraries/tbl_info.inc.php';
-
-/**
- * Get comments for table fileds/columns
- */
-$comments_map = array();
-
-if ($GLOBALS['cfg']['ShowPropertyComments']) {
-    $comments_map = PMA_getComments($db, $table);
-}
+$comments_map = PMA_getCommentsMap($db, $table);
 
 /**
  * START REGULAR OUTPUT
@@ -120,58 +76,16 @@ $scripts->addFile('gis_data_editor.js');
 /**
  * Displays the query submitted and its result
  *
- * @todo where does $disp_message and $disp_query come from???
+ * $disp_message come from tbl_replace.php
  */
 if (! empty($disp_message)) {
-    if (! isset($disp_query)) {
-        $disp_query     = null;
-    }
-    $response->addHTML(PMA_Util::getMessage($disp_message, $disp_query));
+    $response->addHTML(PMA_Util::getMessage($disp_message, null));
 }
 
-/**
- * Get the analysis of SHOW CREATE TABLE for this table
- * @todo should be handled by class Table
- */
-$show_create_table = PMA_DBI_fetch_value(
-    'SHOW CREATE TABLE ' . PMA_Util::backquote($db) . '.' . PMA_Util::backquote($table),
-    0, 1
-);
-$analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-unset($show_create_table);
+// used as a global by PMA_Util::getDefaultFunctionForField()
+$analyzed_sql = PMA_Table::analyzeStructure($db, $table);
 
-/**
- * Get the list of the fields of the current table
- */
-PMA_DBI_select_db($db);
-$table_fields = array_values(PMA_DBI_get_columns($db, $table));
-
-$paramTableDbArray = array($table, $db);
-
-/**
- * Determine what to do, edit or insert? 
- */
-if (isset($where_clause)) {
-    // we are editing
-    $insert_mode = false;
-    $where_clause_array = PMA_getWhereClauseArray($where_clause);
-    list($where_clauses, $result, $rows, $found_unique_key)
-        = PMA_analyzeWhereClauses($where_clause_array, $table, $db);
-} else {
-    // we are inserting
-    $insert_mode = true;
-    $where_clause = null;
-    list($result, $rows) = PMA_loadFirstRow($table, $db);
-    $where_clauses = null;
-    $where_clause_array = null;
-    $found_unique_key = false;
-}
-
-// Copying a row - fetched data will be inserted as a new row,
-// therefore the where clause is needless.
-if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
-    $where_clause = $where_clauses = null;
-}
+$table_columns = PMA_getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
 $foreigners = PMA_getForeigners($db, $table);
@@ -198,7 +112,7 @@ $chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
 $html_output = '';
 // Set if we passed the first timestamp field
 $timestamp_seen = false;
-$columns_cnt     = count($table_fields);
+$columns_cnt     = count($table_columns);
 
 $tabindex              = 0;
 $tabindex_for_function = +3000;
@@ -213,25 +127,19 @@ $url_params = PMA_urlParamsInEditMode(
     $url_params, $where_clause_array, $where_clause
 );
 
-//Insert/Edit form
-//If table has blob fields we have to disable ajax.
 $has_blob_field = false;
-foreach ($table_fields as $column) {
+foreach ($table_columns as $column) {
     if (PMA_isColumnBlob($column)) {
         $has_blob_field = true;
         break;
     }
 }
-$html_output .='<form id="insertForm" ';
-if ($has_blob_field && $is_upload) {
-    $html_output .='class="disableAjax" ';
-}
-$html_output .='method="post" action="tbl_replace.php" name="insertForm" ';
-if ($is_upload) {
-    $html_output .= ' enctype="multipart/form-data"';
-}
-$html_output .= '>';
-$html_output .= PMA_generate_common_hidden_inputs($_form_params);
+
+//Insert/Edit form
+//If table has blob fields we have to disable ajax.
+$html_output .= PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
+
+$html_output .= PMA_URL_getHiddenInputs($_form_params);
 
 $titles['Browse'] = PMA_Util::getIcon('b_browse.png', __('Browse foreign values'));
 
@@ -255,163 +163,26 @@ foreach ($rows as $row_id => $current_row) {
     }
 
     $jsvkey = $row_id;
-    $rownumber_param = '&amp;rownumber=' . $row_id;
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
     $current_result = (isset($result) && is_array($result) && isset($result[$row_id])
         ? $result[$row_id]
         : $result);
     if ($insert_mode && $row_id > 0) {
-        $html_output .= '<input type="checkbox" checked="checked"'
-            . ' name="insert_ignore_' . $row_id . '"'
-            . ' id="insert_ignore_' . $row_id . '" />'
-            .'<label for="insert_ignore_' . $row_id . '">'
-            . __('Ignore')
-            . '</label><br />' . "\n";
+        $html_output .= PMA_getHtmlForIgnoreOption($row_id);
     }
 
-    $html_output .= PMA_getHeadAndFootOfInsertRowTable($url_params)
-        . '<tbody>';
-
-    // Sets a multiplier used for input-field counts
-    // (as zero cannot be used, advance the counter plus one)
-    $m_rows = $o_rows + 1;
-    //store the default value for CharEditing
-    $default_char_editing  = $cfg['CharEditing'];
-
-    $odd_row = true;
-    for ($i = 0; $i < $columns_cnt; $i++) {
-        if (! isset($table_fields[$i]['processed'])) {
-            $column = $table_fields[$i];
-            $column = PMA_analyzeTableColumnsArray(
-                $column, $comments_map, $timestamp_seen
-            );
-        }
-
-        $extracted_columnspec
-            = PMA_Util::extractColumnSpec($column['Type']);
-
-        if (-1 === $column['len']) {
-            $column['len'] = PMA_DBI_field_len($current_result, $i);
-            // length is unknown for geometry fields,
-            // make enough space to edit very simple WKTs
-            if (-1 === $column['len']) {
-                $column['len'] = 30;
-            }
-        }
-        //Call validation when the form submited...
-        $unnullify_trigger = $chg_evt_handler
-            . "=\"return verificationsAfterFieldChange('"
-            . PMA_escapeJsString($column['Field_md5']) . "', '"
-            . PMA_escapeJsString($jsvkey) . "','".$column['pma_type'] . "')\"";
-
-        // Use an MD5 as an array index to avoid having special characters
-        // in the name atttibute (see bug #1746964 )
-        $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
-
-        if ($column['Type'] == 'datetime'
-            && ! isset($column['Default'])
-            && ! is_null($column['Default'])
-            && ($insert_mode || ! isset($current_row[$column['Field']]))
-        ) {
-            // INSERT case or
-            // UPDATE case with an NULL value
-            $current_row[$column['Field']] = date('Y-m-d H:i:s', time());
-        }
-
-        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
-            . '<td ' . ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : '') . 'class="center">'
-            . $column['Field_title']
-            . '<input type="hidden" name="fields_name' . $column_name_appendix . '" value="' . $column['Field_html'] . '"/>'
-            . '</td>';
-        if ($cfg['ShowFieldTypesInDataEditView']) {
-             $html_output .= '<td class="center' . $column['wrap'] . '">'
-                . '<span class="column_type">' . $column['pma_type'] . '</span>'
-                . '</td>';
-        } //End if
-
-        // Get a list of GIS data types.
-        $gis_data_types = PMA_Util::getGISDatatypes();
-
-        // Prepares the field value
-        $real_null_value = false;
-        $special_chars_encoded = '';
-        if (isset($current_row)) {
-            // (we are editing)
-            list(
-                $real_null_value, $special_chars_encoded, $special_chars,
-                $data, $backup_field
-            )
-                = PMA_getSpecialCharsAndBackupFieldForExistingRow(
-                    $current_row, $column, $extracted_columnspec,
-                    $real_null_value, $gis_data_types, $column_name_appendix
-                );
-        } else {
-            // (we are inserting)
-            // display default values
-            list($real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded)
-                = PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, $real_null_value);
-        }
-
-        $idindex = ($o_rows * $columns_cnt) + $i + 1;
-        $tabindex = $idindex;
-
-        // Get a list of data types that are not yet supported.
-        $no_support_types = PMA_Util::unsupportedDatatypes();
-
-        // The function column
-        // -------------------
-        if ($cfg['ShowFunctionFields']) {
-            $html_output .= PMA_getFunctionColumn(
-                $column, $is_upload, $column_name_appendix,
-                $unnullify_trigger, $no_support_types, $tabindex_for_function,
-                $tabindex, $idindex, $insert_mode
-            );
-        }
-
-        // The null column
-        // ---------------
-        $foreignData = PMA_getForeignData(
-            $foreigners, $column['Field'], false, '', ''
-        );
-        $html_output .= PMA_getNullColumn(
-            $column, $column_name_appendix, $real_null_value,
-            $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,
-            $foreignData
-        );
-
-        // The value column (depends on type)
-        // ----------------
-        // See bug #1667887 for the reason why we don't use the maxlength
-        // HTML attribute
-        $html_output .= '        <td>' . "\n";
-        // Will be used by js/tbl_change.js to set the default value
-        // for the "Continue insertion" feature
-        $html_output .= '<span class="default_value hide">'
-            . $special_chars . '</span>';
-
-        $html_output .= PMA_getValueColumn(
-            $column, $backup_field, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
-            $foreignData, $odd_row, $paramTableDbArray, $rownumber_param, $titles,
-            $text_dir, $special_chars_encoded, $vkey, $is_upload,
-            $biggest_max_file_size, $default_char_editing,
-            $no_support_types, $gis_data_types, $extracted_columnspec
-        );
-
-        $html_output .= '</td>'
-        . '</tr>';
-
-        $odd_row = !$odd_row;
-    } // end for
-    $o_rows++;
-    $html_output .= '  </tbody>'
-        . '</table><br />';
+    $html_output .= PMA_getHtmlForInsertEditRow(
+        $url_params, $table_columns, $column, $comments_map, $timestamp_seen,
+        $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
+        isset($current_row) ? $current_row : null, $o_rows, $tabindex, $columns_cnt,
+        $is_upload, $tabindex_for_function, $foreigners, $tabindex_for_null,
+        $tabindex_for_value, $table, $db, $row_id, $titles,
+        $biggest_max_file_size, $text_dir
+    );
 } // end foreach on multi-edit
 
-$html_output .='<div id="gis_editor"></div>'
-    . '<div id="popup_background"></div>'
-    . '<br />';
+$html_output .= PMA_getHtmlForGisEditor();
 
 if (! isset($after_insert)) {
     $after_insert = 'back';
@@ -438,6 +209,6 @@ if ($insert_mode) {
         $table, $db, $where_clause_array, $err_url
     );
 }
-$response->addHTML($html_output);
 
+$response->addHTML($html_output);
 ?>

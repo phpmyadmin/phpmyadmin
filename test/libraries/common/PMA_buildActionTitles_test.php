@@ -14,13 +14,13 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_buildActionTitles_test extends PHPUnit_Framework_TestCase
+class PMA_BuildActionTitles_Test extends PHPUnit_Framework_TestCase
 {
 
     function setup()
     {
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $GLOBALS['cfg'] = array('PropertiesIconic' => 'both');
+        $GLOBALS['cfg'] = array('ActionLinksMode' => 'both');
         $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 

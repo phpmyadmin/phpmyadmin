@@ -13,7 +13,7 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Header.class.php';
 require_once 'libraries/Table.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Config.class.php';
@@ -42,7 +42,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             define('PMA_IS_WINDOWS', false);
         }
         $GLOBALS['server'] = 0;
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['message'] = 'phpmyadminmessage';
         $GLOBALS['is_ajax_request'] = false;
         $_SESSION['PMA_Theme'] = new PMA_Theme();
@@ -54,7 +53,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table1';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
     }
@@ -73,7 +71,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getDisplay()
         );
     }
-    
+
     /**
      * Test for Set BodyId
      *
@@ -103,7 +101,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getDisplay()
         );
     }
-    
+
     /**
      * Test for Get JsParams
      *
@@ -117,7 +115,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             $header->getJsParams()
         );
     }
-        
+
     /**
      * Test for Get JsParamsCode
      *
@@ -133,7 +131,7 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for Get Message 
+     * Test for Get Message
      *
      * @return void
      */
@@ -144,5 +142,43 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
             'phpmyadminmessage',
             $header->getMessage()
         );
+    }
+
+    /**
+     * Test for Disable Warnings
+     *
+     * @return void
+     * @test
+     * @covers PMA_Header::disableWarnings
+     */
+    public function testDisableWarnings()
+    {
+        $header = new PMA_Header();
+        $header->disableWarnings();
+        $this->assertAttributeEquals(
+            false,
+            '_warningsEnabled',
+            $header
+        );
+    }
+
+    /**
+     * Tests private method _getWarnings when warnings are disabled
+     *
+     * @return void
+     * @test
+     * @covers PMA_Header::_getWarnings
+     * @depends testDisableWarnings
+     */
+    public function testGetWarningsWithWarningsDisabled()
+    {
+        $method = new ReflectionMethod(
+            'PMA_Header', '_getWarnings'
+        );
+        $method->setAccessible(true);
+
+        $header = new PMA_Header();
+        $header->disableWarnings();
+        $this->assertEmpty($method->invoke($header));
     }
 }

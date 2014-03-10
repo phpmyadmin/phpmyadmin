@@ -15,8 +15,9 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/select_lang.lib.php';
+require_once 'libraries/sanitizing.lib.php';
 
-class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
+class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
 {
     function setup()
     {
@@ -24,7 +25,6 @@ class PMA_checkParameters_test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['cfg'] = array('ServerDefault' => 1);
         $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['text_dir'] = 'ltr';
     }
 

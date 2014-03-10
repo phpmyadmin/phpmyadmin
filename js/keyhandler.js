@@ -1,27 +1,28 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+// gloabl vars to hold Arrow Down event timeStamps
+var prevTimeStamp = 0; 
+var curTimeStamp = 0;
+
 /**
   * Allows moving around inputs/select by Ctrl+arrows
   *
   * @param object   event data
   */
-
-AJAX.registerTeardown('keyhandler.js', function () {
-    $('#table_columns').die('keydown');
-    $('table.insertRowTable').die('keydown');
-});
-
-AJAX.registerOnload('keyhandler.js', function () {
-    $('#table_columns').live('keydown', function (event) {
-        onKeyDownArrowsHandler(event.originalEvent);
-    });
-    $('table.insertRowTable').live('keydown', function (event) {
-        onKeyDownArrowsHandler(event.originalEvent);
-    });
-});
-
 function onKeyDownArrowsHandler(e)
 {
     e = e || window.event;
+
+    curTimeStamp = e.timeStamp;
+    if( prevTimeStamp == 0 ) {
+        prevTimeStamp = curTimeStamp;
+    }
+    else if( Math.abs(curTimeStamp-prevTimeStamp) < 150 ) {
+        // event in a very quick succession
+        return;
+    }
+    prevTimeStamp = curTimeStamp;
+    
     var o = (e.srcElement || e.target);
     if (!o) {
         return;
@@ -72,6 +73,13 @@ function onKeyDownArrowsHandler(e)
         return;
     }
 
+    var is_firefox = navigator.userAgent.toLowerCase().indexOf("firefox/") > -1;
+
+    // restore selected index, bug #3799
+    if (is_firefox && e.type == "keyup") {
+        o.selectedIndex = window["selectedIndex_" + o.id];
+    }
+
     var id = "field_" + y + "_" + x;
     nO = document.getElementById(id);
     if (! nO) {
@@ -83,9 +91,28 @@ function onKeyDownArrowsHandler(e)
     if (! nO) {
         return;
     }
-    nO.focus();
+    if (e.type == "keydown") {
+        nO.focus();
+        if (is_firefox) {
+            window["selectedIndex_" + nO.id] = nO.selectedIndex;
+        }
+    }
     if (nO.tagName != 'SELECT') {
         nO.select();
     }
     e.returnValue = false;
 }
+
+AJAX.registerTeardown('keyhandler.js', function () {
+    $('#table_columns').die('keydown keyup');
+    $('table.insertRowTable').die('keydown keyup');
+});
+
+AJAX.registerOnload('keyhandler.js', function () {
+    $('#table_columns').live('keydown keyup', function (event) {
+        onKeyDownArrowsHandler(event.originalEvent);
+    });
+    $('table.insertRowTable').live('keydown keyup', function (event) {
+        onKeyDownArrowsHandler(event.originalEvent);
+    });
+});

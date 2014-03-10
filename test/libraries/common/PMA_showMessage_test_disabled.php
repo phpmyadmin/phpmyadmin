@@ -16,7 +16,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/js_escape.lib.php';
 
-class PMA_showMessage_test extends PHPUnit_Framework_TestCase
+class PMA_ShowMessage_Test extends PHPUnit_Framework_TestCase
 {
     function setUp()
     {
@@ -33,11 +33,9 @@ class PMA_showMessage_test extends PHPUnit_Framework_TestCase
         global $cfg;
 
         $GLOBALS['is_ajax_request'] = true;
-        $cfg['Server']['DisableIS'] = false;
         $GLOBALS['table'] = 'tbl';
         $GLOBALS['db'] = 'db';
 
-        $_SESSION[' PMA_token '] = md5(uniqid(rand(), true));
 
         $GLOBALS['sql_query'] = "SELECT * FROM tblPatient ";
 

@@ -8,18 +8,17 @@
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Util.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 /*
  * Include to test.
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
 
-class PMA_TRI_getEditorForm_test extends PHPUnit_Framework_TestCase
+class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg']['ServerDefault'] = '';
         $GLOBALS['db'] = 'pma_test';
     }

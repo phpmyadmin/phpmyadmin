@@ -45,15 +45,24 @@ class Form
     private $_fieldsTypes;
 
     /**
+     * ConfigFile instance
+     * @var ConfigFile
+     */
+    private $_configFile;
+
+    /**
      * Constructor, reads default config values
      *
-     * @param string $form_name
-     * @param array  $form
-     * @param int    $index     arbitrary index, stored in Form::$index
+     * @param string     $form_name Form name
+     * @param array      $form      Form data
+     * @param ConfigFile $cf        Config file instance
+     * @param int        $index     arbitrary index, stored in Form::$index
      */
-    public function __construct($form_name, array $form, $index = null)
-    {
+    public function __construct(
+        $form_name, array $form, ConfigFile $cf, $index = null
+    ) {
         $this->index = $index;
+        $this->_configFile = $cf;
         $this->loadForm($form_name, $form);
     }
 
@@ -75,13 +84,13 @@ class Form
     /**
      * Returns allowed values for select fields
      *
-     * @param string $option_path
+     * @param string $option_path Option path
      *
      * @return array
      */
     public function getOptionValueList($option_path)
     {
-        $value = ConfigFile::getInstance()->getDbEntry($option_path);
+        $value = $this->_configFile->getDbEntry($option_path);
         if ($value === null) {
             trigger_error("$option_path - select options not defined", E_USER_ERROR);
             return array();
@@ -94,20 +103,22 @@ class Form
         if (isset($value[0]) && $value[0] === '#') {
             // remove first element ('#')
             array_shift($value);
-        } else {
-            // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
-            $has_string_keys = false;
-            $keys = array();
-            for ($i = 0; $i < count($value); $i++) {
-                if (!isset($value[$i])) {
-                    $has_string_keys = true;
-                    break;
-                }
-                $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
+            // $value has keys and value names, return it
+            return $value;
+        }
+
+        // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
+        $has_string_keys = false;
+        $keys = array();
+        for ($i = 0, $nb = count($value); $i < $nb; $i++) {
+            if (!isset($value[$i])) {
+                $has_string_keys = true;
+                break;
             }
-            if (! $has_string_keys) {
-                $value = array_combine($keys, $value);
-            }
+            $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
+        }
+        if (! $has_string_keys) {
+            $value = array_combine($keys, $value);
         }
 
         // $value has keys and value names, return it
@@ -118,9 +129,9 @@ class Form
      * array_walk callback function, reads path of form fields from
      * array (see file comment in setup.forms.php or user_preferences.forms.inc)
      *
-     * @param mixed $value
-     * @param mixed $key
-     * @param mixed $prefix
+     * @param mixed $value  Value
+     * @param mixed $key    Key
+     * @param mixed $prefix Prefix
      *
      * @return void
      */
@@ -131,23 +142,24 @@ class Form
         if (is_array($value)) {
             $prefix .= $key . '/';
             array_walk($value, array($this, '_readFormPathsCallback'), $prefix);
-        } else {
-            if (!is_int($key)) {
-                $this->default[$prefix . $key] = $value;
-                $value = $key;
-            }
-            // add unique id to group ends
-            if ($value == ':group:end') {
-                $value .= ':' . $group_counter++;
-            }
-            $this->fields[] = $prefix . $value;
+            return;
         }
+
+        if (!is_int($key)) {
+            $this->default[$prefix . $key] = $value;
+            $value = $key;
+        }
+        // add unique id to group ends
+        if ($value == ':group:end') {
+            $value .= ':' . $group_counter++;
+        }
+        $this->fields[] = $prefix . $value;
     }
 
     /**
      * Reads form paths to {@link $fields}
      *
-     * @param array $form
+     * @param array $form Form
      *
      * @return void
      */
@@ -175,7 +187,7 @@ class Form
      */
     protected function readTypes()
     {
-        $cf = ConfigFile::getInstance();
+        $cf = $this->_configFile;
         foreach ($this->fields as $name => $path) {
             if (strpos($name, ':group:') === 0) {
                 $this->_fieldsTypes[$name] = 'group';
@@ -195,8 +207,8 @@ class Form
      * Reads form settings and prepares class to work with given subset of
      * config file
      *
-     * @param string $form_name
-     * @param array  $form
+     * @param string $form_name Form name
+     * @param array  $form      Form
      *
      * @return void
      */

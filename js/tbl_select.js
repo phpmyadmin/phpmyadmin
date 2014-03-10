@@ -111,7 +111,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                     $("#sqlqueryresults").html(data.sql_query);
                 } else { // results found
                     $("#sqlqueryresults").html(data.message);
-                    $("#sqlqueryresults").trigger('makegrid');
+                    $("#sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
                 }
                 $('#tbl_search_form')
                 // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
@@ -128,6 +128,7 @@ AJAX.registerOnload('tbl_select.js', function () {
             } else {
                 $("#sqlqueryresults").html(data.error);
             }
+            PMA_highlightSQL($('#sqlqueryresults'));
         }); // end $.post()
     });
 
@@ -174,7 +175,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         ];
         var outputGeomFunctions = binaryFunctions.concat(tempArray);
 
-        // If the chosen function takes two geomerty objects as parameters
+        // If the chosen function takes two geometry objects as parameters
         var $operator = $geomFuncSelector.parents('tr').find('td:nth-child(5)').find('select');
         if ($.inArray($geomFuncSelector.val(), binaryFunctions) >= 0) {
             $operator.prop('readonly', true);

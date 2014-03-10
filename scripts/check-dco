@@ -1,0 +1,21 @@
+#!/bin/sh
+# Checks whether all commits in given range have Signed-Off-By
+
+if [ -z "$1" ] ; then
+    echo "Usage: check-dco COMMITRANGE"
+    exit 1
+fi
+
+RESULT=0
+
+for rev in `git rev-list --no-merges $1` ; do
+    if ! git log -1 $rev | grep -iq '^    Signed-Off-By:' ; then
+        echo '------------------------------------------'
+        echo "Missing Signed-Off-By in following commit:"
+        git --no-pager log -1 $rev
+        echo
+        RESULT=1
+    fi
+done
+
+exit $RESULT

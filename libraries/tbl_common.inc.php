@@ -17,13 +17,13 @@ require_once './libraries/bookmark.lib.php';
 // Check parameters
 PMA_Util::checkParameters(array('db', 'table'));
 
-$db_is_information_schema = PMA_is_system_schema($db);
+$db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
 
 /**
  * Set parameters for links
  * @deprecated
  */
-$url_query = PMA_generate_common_url($db, $table);
+$url_query = PMA_URL_getCommon($db, $table);
 
 /**
  * Set parameters for links
@@ -36,8 +36,8 @@ $url_params['table'] = $table;
  * Defines the urls to return to in case of error in a sql statement
  */
 $err_url_0 = $cfg['DefaultTabDatabase']
-    . PMA_generate_common_url(array('db' => $db,));
-$err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url($url_params);
+    . PMA_URL_getCommon(array('db' => $db,));
+$err_url   = $cfg['DefaultTabTable'] . PMA_URL_getCommon($url_params);
 
 
 /**

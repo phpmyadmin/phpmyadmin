@@ -285,7 +285,8 @@ canvas.pmd * {
     border-left: #999 solid 1px;
     height: 28px;
     z-index: 101;
-    width: 100%
+    width: 100%;
+    position: fixed;
 }
 
 .pmd_header a {

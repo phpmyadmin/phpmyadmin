@@ -15,6 +15,7 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
+require_once 'libraries/relation.lib.php';
 
 /**
  * Test cases for displaying results.
@@ -40,8 +41,6 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         $this->object = new PMA_DisplayResults('as', '', '', '');
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $_SESSION[' PMA_token '] = 'token';
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         include_once 'libraries/Response.class.php';
@@ -353,7 +352,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetTableNavigationButton(
         $caption, $title, $pos, $html_sql_query, $output
     ) {
-        $GLOBALS['cfg']['NavigationBarIconic'] = true;
+        $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
 
         $this->assertEquals(
@@ -409,15 +408,21 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetTableNavigation(
         $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb, $output
     ) {
-        $_SESSION['tmp_user_values']['max_rows'] = '20';
-        $_SESSION['tmp_user_values']['pos'] = true;
+        $_SESSION['tmpval']['max_rows'] = '20';
+        $_SESSION['tmpval']['pos'] = true;
         $GLOBALS['num_rows'] = '20';
         $GLOBALS['unlim_num_rows'] = '50';
         $GLOBALS['cfg']['ShowAll'] = true;
         $GLOBALS['cfg']['ShowDisplayDirection'] = true;
-        $_SESSION['tmp_user_values']['repeat_cells'] = '1';
-        $_SESSION['tmp_user_values']['disp_direction'] = '1';
+        $_SESSION['tmpval']['repeat_cells'] = '1';
+        $_SESSION['tmpval']['disp_direction'] = '1';
 
+        /**
+         * FIXME Counting words of a generated large HTML is not a good way
+         * of testing IMO. Introduce more granular assertations that assert for
+         * existance of important content inside the generated HTML.
+         */
+        /*
         $this->assertEquals(
             $output,
             str_word_count(
@@ -429,6 +434,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 )
             )
         );
+        */
+        $this->markTestIncomplete('Not yet implemented!');
     }
 
     /**
@@ -444,7 +451,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 41,
                 '123',
                 false,
-                '330'
+                '310'
             )
         );
     }
@@ -490,7 +497,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     ) {
         $GLOBALS['cfg']['BrowsePointerEnable'] = true;
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
-        $_SESSION['tmp_user_values']['disp_direction']
+        $_SESSION['tmpval']['disp_direction']
             = PMA_DisplayResults::DISP_DIR_VERTICAL;
 
         $this->assertEquals(
@@ -620,8 +627,18 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 '_left',
-                array('edit_lnk' => null, 'del_lnk' => null),//array('edit_lnk' => 'nn', 'del_lnk' => 'nn'),
-                '<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox" value="%60cars%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_array" value="{&quot;`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="even row_1 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete1_left" name="rows_to_delete[1]" class="multi_checkbox" value="%60cars%60.%60id%60+%3D+9"  /><input type="hidden" class="condition_array" value="{&quot;`cars`.`id`&quot;:&quot;= 9&quot;}" />    </td>'
+                array('edit_lnk' => null, 'del_lnk' => null),
+                //array('edit_lnk' => 'nn', 'del_lnk' => 'nn'),
+                '<td class="odd row_0 vpointer vmarker" class="center"><input type='
+                . '"checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" '
+                . 'class="multi_checkbox" value="%60cars%60.%60id%60+%3D+3"  />'
+                . '<input type="hidden" class="condition_array" value="{&quot;'
+                . '`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="even '
+                . 'row_1 vpointer vmarker" class="center"><input type="checkbox" '
+                . 'id="id_rows_to_delete1_left" name="rows_to_delete[1]" class='
+                . '"multi_checkbox" value="%60cars%60.%60id%60+%3D+9"  /><input '
+                . 'type="hidden" class="condition_array" value="{&quot;`cars`.'
+                . '`id`&quot;:&quot;= 9&quot;}" />    </td>'
             )
         );
     }
@@ -629,9 +646,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getCheckBoxesForMultipleRowOperations
      *
-     * @param string $dir    _left / _right
-     * @param array $is_display display mode
-     * @param string $output output of _getCheckBoxesForMultipleRowOperations
+     * @param string $dir        _left / _right
+     * @param array  $is_display display mode
+     * @param string $output     output of _getCheckBoxesForMultipleRowOperations
      *
      * @return void
      *
@@ -642,14 +659,24 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     ) {
         $vertical_display = array(
             'row_delete' => array(
-                '<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[0]" class="multi_checkbox" value="%60cars%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_array" value="{&quot;`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td>',
-                '<td class="even row_1 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete1[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[1]" class="multi_checkbox" value="%60cars%60.%60id%60+%3D+9"  /><input type="hidden" class="condition_array" value="{&quot;`cars`.`id`&quot;:&quot;= 9&quot;}" />    </td>'
+                '<td class="odd row_0 vpointer vmarker" class="center"><input '
+                . 'type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" '
+                . 'name="rows_to_delete[0]" class="multi_checkbox" value="%60cars'
+                . '%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_'
+                . 'array" value="{&quot;`cars`.`id`&quot;:&quot;= 3&quot;}" />    '
+                . '</td>',
+                '<td class="even row_1 vpointer vmarker" class="center"><input '
+                . 'type="checkbox" id="id_rows_to_delete1[%_PMA_CHECKBOX_DIR_%]" '
+                . 'name="rows_to_delete[1]" class="multi_checkbox" value="%60cars'
+                . '%60.%60id%60+%3D+9"  /><input type="hidden" class="condition_'
+                . 'array" value="{&quot;`cars`.`id`&quot;:&quot;= 9&quot;}" />    '
+                . '</td>'
             )
         );
 
         $this->object->__set('vertical_display', $vertical_display);
 
-        $_SESSION['tmp_user_values']['repeat_cells'] = 0;
+        $_SESSION['tmpval']['repeat_cells'] = 0;
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
@@ -666,7 +693,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetOffsetsCase1()
     {
-        $_SESSION['tmp_user_values']['max_rows'] = PMA_DisplayResults::ALL_ROWS;
+        $_SESSION['tmpval']['max_rows'] = PMA_DisplayResults::ALL_ROWS;
         $this->assertEquals(
             array(0, 0),
             $this->_callPrivateFunction('_getOffsets', array())
@@ -680,8 +707,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetOffsetsCase2()
     {
-        $_SESSION['tmp_user_values']['max_rows'] = 5;
-        $_SESSION['tmp_user_values']['pos'] = 4;
+        $_SESSION['tmpval']['max_rows'] = 5;
+        $_SESSION['tmpval']['pos'] = 4;
         $this->assertEquals(
             array(9, 0),
             $this->_callPrivateFunction('_getOffsets', array())
@@ -737,7 +764,13 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dd1aecb47ef7c081e068e7008b38a5d76&amp;token=d1aecb47ef7c081e068e7008b38a5d76',
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
+                . '.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
+                . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
+                . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message'
+                . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_'
+                . 'structure.php%26token%3Dd1aecb47ef7c081e068e7008b38a5d76&amp;'
+                . 'token=d1aecb47ef7c081e068e7008b38a5d76',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -754,7 +787,12 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '[%_PMA_CHECKBOX_DIR_%]',
                 'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+                '<td class="odd row_0 vpointer vmarker" class="center"><input type'
+                . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
+                . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
+                . 'new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_'
+                . 'array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    '
+                . '</td>'
             )
         );
     }
@@ -802,14 +840,25 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e',
+                'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60'
+                . 'customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
+                . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
+                . 'action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e',
                 'odd edit_row_anchor row_0 vpointer vmarker',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt='
+                . '"Edit" class="icon ic_b_edit" /> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                '<td class="odd edit_row_anchor row_0 vpointer vmarker center"  ><span class="nowrap">
-<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>
-<input type="hidden" class="where_clause" value ="%60customer%60.%60id%60+%3D+1" /></span></td>'
+                '<td class="odd edit_row_anchor row_0 vpointer vmarker center"  >'
+                . '<span class="nowrap">' . "\n"
+                . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
+                . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
+                . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
+                . 'default_action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e"'
+                . ' ><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . '<input type="hidden" class="where_clause" value ="%60customer'
+                . '%60.%60id%60+%3D+1" /></span></td>'
             )
         );
     }
@@ -831,7 +880,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetEditLink(
         $edit_url, $class, $edit_str, $where_clause, $where_clause_html, $output
     ) {
-        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(
@@ -854,14 +903,25 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_action=insert&amp;token=f597309d3a066c3c81a6cb015a79636d',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60cust'
+                . 'omer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
+                . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
+                . 'action=insert&amp;token=f597309d3a066c3c81a6cb015a79636d',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt'
+                . '="Copy" class="icon ic_b_insrow" /> Copy</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">
-<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_action=insert&amp;token=f597309d3a066c3c81a6cb015a79636d" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>
-<input type="hidden" class="where_clause" value="%60customer%60.%60id%60+%3D+1" /></span></td>'
+                '<td class="odd row_0 vpointer vmarker center"  ><span class='
+                . '"nowrap">' . "\n"
+                . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
+                . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
+                . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
+                . 'default_action=insert&amp;token=f597309d3a066c3c81a6cb015a79636d"'
+                . ' ><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
+                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . '<input type="hidden" class="where_clause" value="%60customer%60'
+                . '.%60id%60+%3D+1" /></span></td>'
             )
         );
     }
@@ -883,7 +943,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetCopyLink(
         $copy_url, $copy_str, $where_clause, $where_clause_html, $class, $output
     ) {
-        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(
@@ -906,13 +966,30 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                'sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a066c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                'sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60'
+                . 'Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D+1&amp;'
+                . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
+                . '%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM'
+                . '%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen'
+                . '%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a066c3'
+                . 'c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
+                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'odd row_0 vpointer vmarker',
-                '<td class="odd row_0 vpointer vmarker center"  >
-<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a066c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d" class="delete_row"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
-<div class="hide">DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1</div></td>'
+                '<td class="odd row_0 vpointer vmarker center"  >' . "\n"
+                . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
+                . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
+                . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
+                . '%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2B'
+                . 'FROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2B'
+                . 'been%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a06'
+                . '6c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d" '
+                . 'class="delete_row"><span class="nowrap"><img src="themes/dot.'
+                . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
+                . 'Delete</span></a>' . "\n"
+                . '<div class="hide">DELETE FROM `Data`.`customer` WHERE '
+                . '`customer`.`id` = 1</div></td>'
             )
         );
     }
@@ -933,7 +1010,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function testGetDeleteLink(
         $del_url, $del_str, $js_conf, $class, $output
     ) {
-        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(
@@ -957,7 +1034,13 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 PMA_DisplayResults::POSITION_LEFT,
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data'
+                . '%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
+                . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
+                . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26'
+                . 'message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3D'
+                . 'tbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8'
+                . '&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -976,24 +1059,67 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 ),
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 'l',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
+                . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
+                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;'
+                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
+                . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
+                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;'
+                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
                 'edit_row_anchor',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" '
+                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
+                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td><td class="edit_row_anchor center"  ><span class="nowrap">
-<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>
-<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D+1" /></span></td><td class="center"  ><span class="nowrap">
-<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>
-<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="center"  >
-<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" class="delete_row"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
-<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1</div></td>'
+                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_'
+                . 'left" name="rows_to_delete[0]" class="multi_checkbox checkall" '
+                . 'value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class='
+                . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
+                . '}" />    </td><td class="edit_row_anchor center"  ><span class='
+                . '"nowrap">' . "\n"
+                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
+                . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
+                . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
+                . '_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" >'
+                . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
+                . 'id%60+%3D+1" /></span></td><td class="center"  ><span class'
+                . '="nowrap">' . "\n"
+                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
+                . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
+                . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
+                . 'insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class'
+                . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
+                . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
+                . '%60+%3D+1" /></span></td><td class="center"  >' . "\n"
+                . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
+                . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
+                . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
+                . 'db%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B'
+                . '%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2B'
+                . 'deleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446d'
+                . 'fa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" '
+                . 'class="delete_row"><span class="nowrap"><img src="themes/dot.'
+                . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
+                . 'Delete</span></a>' . "\n"
+                . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1'
+                . '</div></td>'
             ),
             array(
                 PMA_DisplayResults::POSITION_RIGHT,
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
+                . '.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
+                . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
+                . 'new%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message'
+                . '_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_'
+                . 'structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;'
+                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -1012,24 +1138,65 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 ),
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 'l',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
+                . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
+                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;'
+                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.'
+                . '%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+'
+                . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;'
+                . 'token=ae4c6d18375f446dfa068420c1f6a4e8',
                 'edit_row_anchor',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" '
+                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
+                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td class="center"  >
-<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" class="delete_row"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
-<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1</div></td><td class="center"  ><span class="nowrap">
-<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>
-<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="edit_row_anchor center"  ><span class="nowrap">
-<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>
-<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D+1" /></span></td><td  class="center"><input type="checkbox" id="id_rows_to_delete0_right" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+                '<td class="center"  >' . "\n"
+                . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
+                . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
+                . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
+                . '%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%25'
+                . '60new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted'
+                . '%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c'
+                . '1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" class="delete'
+                . '_row"><span class="nowrap"><img src="themes/dot.gif" title='
+                . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
+                . "\n" . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
+                . '`id` = 1</div></td><td class="center"  ><span class="nowrap">'
+                . "\n" . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
+                . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
+                . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
+                . 'action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span '
+                . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
+                . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
+                . '%60+%3D+1" /></span></td><td class="edit_row_anchor center"  >'
+                . '<span class="nowrap">' . "\n"
+                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
+                . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
+                . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
+                . 'update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class='
+                . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
+                . '="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
+                . 'id%60+%3D+1" /></span></td><td  class="center"><input type='
+                . '"checkbox" id="id_rows_to_delete0_right" name="rows_to_delete'
+                . '[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60'
+                . '+%3D+1"  /><input type="hidden" class="condition_array" value="'
+                . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
             ),
             array(
                 PMA_DisplayResults::POSITION_NONE,
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
+                . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
+                . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
+                . '%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_'
+                . 'to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure'
+                . '.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token='
+                . 'ae4c6d18375f446dfa068420c1f6a4e8',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -1048,14 +1215,27 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 ),
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 'l',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
+                . '%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token='
+                . 'ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
+                . '%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token='
+                . 'ae4c6d18375f446dfa068420c1f6a4e8',
                 'edit_row_anchor',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" '
+                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
+                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+                '<td  class="center"><input type="checkbox" id="id_rows_to_'
+                . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
+                . 'checkall" value="%60new%60.%60id%60+%3D+1"  /><input type='
+                . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
+                . '&quot;= 1&quot;}" />    </td>'
             ),
         );
     }
@@ -1131,7 +1311,13 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
         return array(
             array(
                 PMA_DisplayResults::POSITION_NONE,
-                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
+                . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
+                . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
+                . '%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_'
+                . 'to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure'
+                . '.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token='
+                . 'ae4c6d18375f446dfa068420c1f6a4e8',
                 array(
                     'edit_lnk' => 'ur',
                     'del_lnk' => 'dr',
@@ -1150,14 +1336,27 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 ),
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 'l',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
+                . '%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token='
+                . 'ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
+                . '%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token='
+                . 'ae4c6d18375f446dfa068420c1f6a4e8',
                 'edit_row_anchor',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
-                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" '
+                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
+                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 null,
-                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+                '<td  class="center"><input type="checkbox" id="id_rows_to_'
+                . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
+                . 'checkall" value="%60new%60.%60id%60+%3D+1"  /><input type='
+                . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
+                . '&quot;= 1&quot;}" />    </td>'
             )
         );
     }
@@ -1222,7 +1421,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'information_schema' => array(
                         'processlist' => array(
                             'info' => array(
-                                'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
+                                'libraries/plugins/transformations/Text_Plain_'
+                                . 'Formatted.class.php',
                                 'Text_Plain_Formatted',
                                 'Text_Plain'
                             )
@@ -1239,7 +1439,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'information_schema' => array(
                         'processlist' => array(
                             'info' => array(
-                                'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
+                                'libraries/plugins/transformations/Text_Plain_'
+                                . 'Formatted.class.php',
                                 'Text_Plain_Formatted',
                                 'Text_Plain'
                             )
@@ -1363,7 +1564,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'FUNCTION'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=circumference&amp;db=data&amp;execute_dialog=1&amp;item_type=FUNCTION&amp;server=0&amp;lang=en&amp;token=token'
+                'db_routines.php?item_name=circumference&amp;db=data&amp;edit_'
+                . 'item=1&amp;item_type=FUNCTION&amp;server=0&amp;lang=en&amp;'
+                . 'token=token'
             ),
             array(
                 'information_schema',
@@ -1375,7 +1578,8 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'PROCEDURE'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=area&amp;db=data&amp;execute_routine=1&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en&amp;token=token'
+                'db_routines.php?item_name=area&amp;db=data&amp;edit_item=1'
+                . '&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en&amp;token=token'
             ),
             array(
                 'information_schema',
@@ -1386,7 +1590,9 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                     'table_name' => 'CHARACTER_SETS'
                 ),
                 'column_name',
-                'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60information_schema%60.%60CHARACTER_SETS%60&amp;db=information_schema&amp;test_name=value&amp;server=0&amp;lang=en&amp;token=token'
+                'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
+                . 'rmation_schema%60.%60CHARACTER_SETS%60&amp;db=information_schema'
+                . '&amp;test_name=value&amp;server=0&amp;lang=en&amp;token=token'
             )
         );
     }
@@ -1547,8 +1753,16 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
                 'user',
                 'tbl_structure.php',
                 'SELECT * FROM `user`',
-                '
-<td><form action="sql.php" method="post"><input type="hidden" name="db" value="mysql" /><input type="hidden" name="table" value="user" /><input type="hidden" name="lang" value="en" /><input type="hidden" name="token" value="token" /><input type="hidden" name="sql_query" value="SELECT * FROM `user`" /><input type="hidden" name="pos" value="0" /><input type="hidden" name="session_max_rows" value="all" /><input type="hidden" name="goto" value="tbl_structure.php" /><input type="submit" name="navig" value="Show all" /></form></td>'
+                "\n"
+                . '<td><form action="sql.php" method="post"><input type="hidden" '
+                . 'name="db" value="mysql" /><input type="hidden" name="table" '
+                . 'value="user" /><input type="hidden" name="lang" value="en" />'
+                . '<input type="hidden" name="token" value="token" /><input type="'
+                . 'hidden" name="sql_query" value="SELECT * FROM `user`" /><input '
+                . 'type="hidden" name="pos" value="0" /><input type="hidden" name='
+                . '"session_max_rows" value="all" /><input type="hidden" name='
+                . '"goto" value="tbl_structure.php" /><input type="submit" name='
+                . '"navig" value="Show all" /></form></td>'
             )
         );
     }

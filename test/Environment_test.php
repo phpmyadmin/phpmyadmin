@@ -26,8 +26,8 @@ class Environment_Test extends PHPUnit_Framework_TestCase
     public function testPhpVersion()
     {
         $this->assertTrue(
-            version_compare('5.2', phpversion(), '<='),
-            'phpMyAdmin requires PHP 5.2 or above'
+            version_compare('5.3', phpversion(), '<='),
+            'phpMyAdmin requires PHP 5.3 or above'
         );
     }
 
@@ -40,18 +40,16 @@ class Environment_Test extends PHPUnit_Framework_TestCase
     {
         try {
             $pdo = new PDO(
-                "mysql:host=" . TESTSUITE_SERVER . ";dbname=" . TESTSUITE_DATABASE,
-                TESTSUITE_USER,
-                TESTSUITE_PASSWORD
+                "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'],
+                $GLOBALS['TESTSUITE_USER'],
+                $GLOBALS['TESTSUITE_PASSWORD']
             );
             $this->assertNull(
                 $pdo->errorCode(),
                 "Error when trying to connect to database"
             );
 
-            //$pdo->beginTransaction();
-            $test = $pdo->exec("SHOW TABLES;");
-            //$pdo->commit();
+            $test = $pdo->exec("SHOW DATABASES;");
             $this->assertEquals(
                 0,
                 $pdo->errorCode(),
@@ -59,7 +57,7 @@ class Environment_Test extends PHPUnit_Framework_TestCase
             );
         }
         catch (Exception $e) {
-            $this->fail("Error: ".$e->getMessage());
+            $this->markTestSkipped("Error: " . $e->getMessage());
         }
 
         // Check id MySQL server is 5 version
@@ -69,18 +67,6 @@ class Environment_Test extends PHPUnit_Framework_TestCase
             $version_parts
         );
         $this->assertEquals(5, $version_parts[1]);
-    }
-
-    /**
-     * Test of session handling
-     *
-     * @return void
-     *
-     * @todo Think about this test
-     */
-    public function testSession()
-    {
-        $this->markTestIncomplete();
     }
 }
 ?>

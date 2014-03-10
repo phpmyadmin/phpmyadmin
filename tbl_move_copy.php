@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Table moving and copying
  *
  * @package PhpMyAdmin
  */
@@ -16,13 +17,13 @@ PMA_Util::checkParameters(array('db', 'table'));
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_sql.php?' . PMA_generate_common_url($db, $table);
+$err_url = 'tbl_sql.php?' . PMA_URL_getCommon($db, $table);
 
 
 /**
  * Selects the database to work with
  */
-PMA_DBI_select_db($db);
+$GLOBALS['dbi']->selectDb($db);
 
 $goto = $cfg['DefaultTabTable'];
 

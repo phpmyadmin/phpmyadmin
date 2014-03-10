@@ -13,7 +13,7 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_getBrowseUploadFileBlock_test extends PHPUnit_Framework_TestCase
+class PMA_GetBrowseUploadFileBlock_Test extends PHPUnit_Framework_TestCase
 {
 
     protected function setUp()
@@ -21,8 +21,10 @@ class PMA_getBrowseUploadFileBlock_test extends PHPUnit_Framework_TestCase
         $GLOBALS['is_upload'] = false;
     }
 
-    /*
+    /**
      * Data provider for test
+     *
+     * @return array
      */
     public function dataProvider()
     {
@@ -38,19 +40,28 @@ class PMA_getBrowseUploadFileBlock_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider dataProvider
+     * Test for PMA_Util::getBrowseUploadFileBlock
+     *
+     * @param int    $size Size
+     * @param string $unit Unit
+     * @param string $res  Result
+     *
      * @return void
+     *
+     * @dataProvider dataProvider
      */
     function testBrowseUploadFile($size, $unit, $res)
     {
         $this->assertEquals(
             PMA_Util::getBrowseUploadFileBlock($size),
-            '<label for="input_import_file">' . __("Browse your computer:") . '</label>'
+            '<label for="input_import_file">' . __("Browse your computer:")
+            . '</label>'
             . '<div id="upload_form_status" style="display: none;"></div>'
             . '<div id="upload_form_status_info" style="display: none;"></div>'
             . '<input type="file" name="import_file" id="input_import_file" />'
-            . "(" . __('Max: '). $res . $unit .")" . "\n"
-            . '<input type="hidden" name="MAX_FILE_SIZE" value="' .$size . '" />' . "\n"
-        );        
+            . "(" . __('Max: ') . $res . $unit . ")" . "\n"
+            . '<input type="hidden" name="MAX_FILE_SIZE" value="'
+            . $size . '" />' . "\n"
+        );
     }
 }

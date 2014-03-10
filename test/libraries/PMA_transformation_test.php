@@ -11,7 +11,7 @@
  */
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Util.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/Theme.class.php';
@@ -34,11 +34,9 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg'] = array(
-            'MySQLManualType' => 'none',
             'ServerDefault' => 1,
-            'PropertiesIconic' => true,
+            'ActionLinksMode' => 'icons',
         );
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
@@ -68,7 +66,7 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $expected,
-            PMA_transformation_getOptions($input)
+            PMA_Transformation_getOptions($input)
         );
     }
 
@@ -109,15 +107,16 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     2 => 'Image/JPEG: Inline',
                     3 => 'Image/JPEG: Link',
                     4 => 'Image/PNG: Inline',
-                    5 => 'Text/Plain: Append',
+                    5 => 'Text/Plain: Bool2text',
                     6 => 'Text/Plain: Dateformat',
                     7 => 'Text/Plain: External',
                     8 => 'Text/Plain: Formatted',
                     9 => 'Text/Plain: Imagelink',
                     10 => 'Text/Plain: Link',
                     11 => 'Text/Plain: Longtoipv4',
-                    12 => 'Text/Plain: Sql',
-                    13 => 'Text/Plain: Substring',
+                    12 => 'Text/Plain: Preappend',
+                    13 => 'Text/Plain: Sql',
+                    14 => 'Text/Plain: Substring',
                     ),
                 'transformation_file' => array (
                     0 => 'Application_Octetstream_Download.class.php',
@@ -125,15 +124,16 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
                     2 => 'Image_JPEG_Inline.class.php',
                     3 => 'Image_JPEG_Link.class.php',
                     4 => 'Image_PNG_Inline.class.php',
-                    5 => 'Text_Plain_Append.class.php',
+                    5 => 'Text_Plain_Bool2text.class.php',
                     6 => 'Text_Plain_Dateformat.class.php',
                     7 => 'Text_Plain_External.class.php',
                     8 => 'Text_Plain_Formatted.class.php',
                     9 => 'Text_Plain_Imagelink.class.php',
                     10 => 'Text_Plain_Link.class.php',
                     11 => 'Text_Plain_Longtoipv4.class.php',
-                    12 => 'Text_Plain_Sql.class.php',
-                    13 => 'Text_Plain_Substring.class.php',
+                    12 => 'Text_Plain_Preappend.class.php',
+                    13 => 'Text_Plain_Sql.class.php',
+                    14 => 'Text_Plain_Substring.class.php',
                 ),
             ),
             PMA_getAvailableMIMEtypes()
@@ -147,6 +147,10 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
      */
     public function testGetMime()
     {
+        $_SESSION['relation'][$GLOBALS['server']]['commwork'] = true;
+        $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
+        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
+        $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
         $this->assertEquals(
             array('o' => array(
                 'column_name' => 'o',

@@ -1,7 +1,6 @@
 This directory holds import plugins for phpMyAdmin. Any new plugin should
-basically follow the structure presented here. Official plugins need to
-have str* messages with their definition in language files, but if you build
-some plugins for your use, you can directly use texts in plugin.
+basically follow the structure presented here. The messages must use our
+gettext mechanism, see http://wiki.phpmyadmin.net/pma/Gettext_for_developers. 
 
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
@@ -128,7 +127,7 @@ class Import[Name] extends ImportPlugin
             $data = PMA_importGetNextChunk();
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
-                $offset -= strlen($buffer);
+                $GLOBALS['offset'] -= strlen($buffer);
                 break;
             } elseif ($data === true) {
                 // Handle rest of buffer

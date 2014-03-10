@@ -16,6 +16,77 @@ page can be used for this.
     uploading them to your server, as PHP seems not to like :term:`Mac`-style
     end of lines character ("``\r``").
 
+Linux distributions
++++++++++++++++++++
+
+phpMyAdmin is included in most Linux distributions. It is recommended to use
+distribution packages when possible - they usually provide integration to your
+distribution and you will automatically get security updates from your distribution.
+
+
+Debian
+------
+
+Debian's package repositories include a phpMyAdmin package, but be aware that
+the configuration file is maintained in ``/etc/phpmyadmin`` and may differ in
+some ways from the official phpMyAdmin documentation.
+
+OpenSUSE
+--------
+
+OpenSUSE already comes with phpMyAdmin package, just install packages from
+the `openSUSE Build Service <http://software.opensuse.org/package/phpMyAdmin>`_.
+    
+Ubuntu
+------
+
+Ubuntu ships phpMyAdmin package, however if you want to use recent version, you
+can use packages from
+`PPA for Michal Čihař <https://launchpad.net/~nijel/+archive/phpmyadmin>`_.
+
+Gentoo
+------
+
+Gentoo ships the phpMyAdmin package, both in a near stock configuration as well
+as in a ``webapp-config`` configuration. Use ``emerge dev-db/phpmyadmin`` to
+install.
+
+Mandriva
+--------
+        
+Mandriva ships the phpMyAdmin package in their ``contrib`` branch and can be
+installed via the usual Control Center. 
+
+Fedora
+------
+
+Fedora ships the phpMyAdmin package, but be aware that the configuration file
+is maintained in ``/etc/phpMyAdmin/`` and may differ in some ways from the
+official phpMyAdmin documentation.
+
+Red Hat Enterprise Linux
+------------------------
+        
+Red Hat Enterprise Linux itself and thus derivatives like CentOS don't
+ship phpMyAdmin, but the Fedora-driven repository 
+`Extra Packages for Enterprise Linux (EPEL) <http://fedoraproject.org/wiki/EPEL>`_
+is doing so, if it's
+`enabled <http://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_.
+But be aware that the configuration file is maintained in
+``/etc/phpMyAdmin/`` and may differ in some ways from the
+official phpMyAdmin documentation.
+
+
+Installing on Windows
++++++++++++++++++++++
+
+The easiest way to get phpMyAdmin on Windows is using third party products
+which include phpMyAdmin together with a database and web server such as 
+`XAMPP <http://www.apachefriends.org/en/xampp.html>`_.
+
+You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
+
+
 .. _quick_install:
 
 Quick Install
@@ -43,20 +114,20 @@ Quick Install
    some advanced features.
 
 
-Manualy creating file
----------------------
+Manually creating the file
+--------------------------
 
 To manually create the file, simply use your text editor to create the
 file :file:`config.inc.php` (you can copy :file:`config.sample.inc.php` to get
-minimal configuration file) in the main (top-level) phpMyAdmin
+a minimal configuration file) in the main (top-level) phpMyAdmin
 directory (the one that contains :file:`index.php`). phpMyAdmin first
 loads :file:`libraries/config.default.php` and then overrides those values
 with anything found in :file:`config.inc.php`. If the default value is
 okay for a particular setting, there is no need to include it in
-:file:`config.inc.php`. You'll need a few directives to get going, a
+:file:`config.inc.php`. You'll probably need only a few directives to get going; a
 simple configuration may look like this:
 
-.. code-block:: php
+.. code-block:: xml+php
 
     
     <?php
@@ -69,7 +140,7 @@ simple configuration may look like this:
 
 Or, if you prefer to not be prompted every time you log in:
 
-.. code-block:: php
+.. code-block:: xml+php
 
     
     <?php
@@ -115,14 +186,15 @@ On other platforms, simply create the folder and ensure that your web
 server has read and write access to it. :ref:`faq1_26` can help with
 this.
 
-Next, open ``setup/`` in your browser. Note that **changes are
-not saved to disk until explicitly choose ``Save``** from the
-*Configuration* area of the screen. Normally the script saves the new
+Next, open ``setup/`` in your browser. If you have an existing configuration,
+use the ``Load`` button to bring its content inside the setup panel.
+Note that **changes are not saved to disk until you explicitly choose ``Save``**
+from the *Configuration* area of the screen. Normally the script saves the new
 :file:`config.inc.php` to the ``config/`` directory, but if the webserver does
 not have the proper permissions you may see the error "Cannot load or
 save configuration." Ensure that the ``config/`` directory exists and
 has the proper permissions - or use the ``Download`` link to save the
-config file locally and upload (via FTP or some similar means) to the
+config file locally and upload it (via FTP or some similar means) to the
 proper location.
 
 Once the file has been saved, it must be moved out of the ``config/``
@@ -157,7 +229,7 @@ options which the setup script does not provide.
    configure this yourself. Such configuration prevents from possible
    path exposure and cross side scripting vulnerabilities that might
    happen to be found in that code.
-#. It is generally good idea to protect public phpMyAdmin installation
+#. It is generally a good idea to protect a public phpMyAdmin installation
    against access by robots as they usually can not do anything good
    there. You can do this using ``robots.txt`` file in root of your
    webserver or limit access by web server configuration, see
@@ -173,7 +245,7 @@ options which the setup script does not provide.
 phpMyAdmin configuration storage
 ++++++++++++++++++++++++++++++++
 
-For a whole set of new features (bookmarks, comments, :term:`SQL`-history,
+For a whole set of additional features (bookmarks, comments, :term:`SQL`-history,
 tracking mechanism, :term:`PDF`-generation, column contents transformation,
 etc.) you need to create a set of special tables.  Those tables can be located
 in your own database, or in a central database for a multi-user installation
@@ -196,9 +268,17 @@ depending on the database name.
 
 After having imported the :file:`examples/create_tables.sql` file, you
 should specify the table names in your :file:`config.inc.php` file. The
-directives used for that can be found in the :ref:`config`. You will also need to
-have a controluser with the proper rights to those tables (see section
-:ref:`authentication_modes` below).
+directives used for that can be found in the :ref:`config`. 
+
+You will also need to have a controluser 
+(:config:option:`$cfg['Servers'][$i]['controluser']` and
+:config:option:`$cfg['Servers'][$i]['controlpass']` settings)
+with the proper rights to those tables. For example you can create it 
+using following statement:
+
+.. code-block:: mysql
+   
+   GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost'  IDENTIFIED BY 'pmapass';
 
 .. _upgrading:
 
@@ -244,51 +324,6 @@ However, keep in mind that the password travels in plain text, unless
 you are using the HTTPS protocol. In cookie mode, the password is
 stored, encrypted with the blowfish algorithm, in a temporary cookie.
 
-.. note: 
-   
-    This section is only applicable if your MySQL server is running
-    with ``--skip-show-database``. 
-
-For ':term:`HTTP`' and 'cookie' modes, phpMyAdmin needs a controluser that has
-**only** the ``SELECT`` privilege on the *`mysql`.`user` (all columns except
-`Password`)*, *`mysql`.`db` (all columns)*, *`mysql`.`host` (all columns)* and
-*`mysql`.`tables\_priv` (all columns except `Grantor` and `Timestamp`)* tables.
-You must specify the details for the controluser in the :file:`config.inc.php`
-file under the :config:option:`$cfg['Servers'][$i]['controluser']` and
-:config:option:`$cfg['Servers'][$i]['controlpass']` settings. The following
-example assumes you want to use ``pma`` as the controluser and ``pmapass`` as
-the controlpass, but **this is only an example: use something else in your
-file!** Input these statements from the phpMyAdmin :term:`SQL` Query window or
-mysql command–line client. Of course you have to replace ``localhost`` with the
-webserver's host if it's not the same as the MySQL server's one. 
-
-If you want to use the many new relation and bookmark features:  (this of
-course requires that your :ref:`linked-tables` be set up).
-
-.. code-block:: mysql
-   
-   GRANT USAGE ON mysql.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
-   GRANT SELECT (
-   Host, User, Select_priv, Insert_priv, Update_priv, Delete_priv,
-   Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv,
-   File_priv, Grant_priv, References_priv, Index_priv, Alter_priv,
-   Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv,
-   Execute_priv, Repl_slave_priv, Repl_client_priv
-   ) ON mysql.user TO 'pma'@'localhost';
-   GRANT SELECT ON mysql.db TO 'pma'@'localhost';
-   GRANT SELECT ON mysql.host TO 'pma'@'localhost';
-   GRANT SELECT (Host, Db, User, Table_name, Table_priv, Column_priv)
-   ON mysql.tables_priv TO 'pma'@'localhost';
-   
-If you want to use the many new relation and bookmark features:
-   
-.. code-block:: mysql
-   
-   GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost';
-   
-(this of course requires that your phpMyAdmin
-configuration storage be set up).
-   
 Then each of the *true* users should be granted a set of privileges
 on a set of particular databases. Normally you shouldn't give global
 privileges to an ordinary user, unless you understand the impact of those
@@ -329,9 +364,11 @@ Cookie authentication mode
   (for example, if you're running :term:`IIS`).
 * Obviously, the user must enable cookies in the browser, but this is
   now a requirement for all authentication modes.
-* With this mode, the user can truly log out of phpMyAdmin and log in
-  back with the same username.
-* If you want to log in to arbitrary server see :config:option:`$cfg['AllowArbitraryServer']` directive.
+* With this mode, the user can truly log out of phpMyAdmin and log
+  back in with the same username.
+* If you want to allow users to enter any hostname to connect (rather than only
+  servers that are configured in :file:`config.inc.php`),
+  see the :config:option:`$cfg['AllowArbitraryServer']` directive.
 * As mentioned in the :ref:`require` section, having the ``mcrypt`` extension will
   speed up access considerably, but is not required.
 
@@ -357,12 +394,11 @@ Signon authentication mode
 Config authentication mode
 --------------------------
 
-* This mode is the less secure one because it requires you to fill the
+* This mode is sometimes the less secure one because it requires you to fill the
   :config:option:`$cfg['Servers'][$i]['user']` and
   :config:option:`$cfg['Servers'][$i]['password']`
   fields (and as a result, anyone who can read your :file:`config.inc.php`
-  can discover your username and password).  But you don't need to setup
-  a "controluser" here: using the :config:option:`$cfg['Servers'][$i]['only_db']` might be enough.
+  can discover your username and password).
 * In the :ref:`faqmultiuser` section, there is an entry explaining how
   to protect your configuration file.
 * For additional security in this mode, you may wish to consider the
@@ -409,16 +445,17 @@ since this link provides funding for phpMyAdmin.
 Securing your phpMyAdmin installation
 +++++++++++++++++++++++++++++++++++++
 
-The phpMyAdmin team tries hardly to make the application secure, however there
+The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
 * remove ``setup`` directory from phpMyAdmin, you will probably not 
   use it after initial setup
-* prevent access to ``libraries`` directory from browser, 
-  as it is not needed, supplied ``.htaccess`` file does this
 * properly choose authentication method - :ref:`cookie`
   is probably the best choice for shared hosting
 * in case you don't want all MySQL users to be able to access 
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
 * consider hiding phpMyAdmin behind authentication proxy, so that 
   MySQL credentials are not all users need to login
+* if you are afraid of automated attacks, enabling Captcha by 
+  :config:option:`$cfg['CaptchaLoginPublicKey']` and
+  :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.

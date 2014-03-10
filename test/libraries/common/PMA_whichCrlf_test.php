@@ -12,7 +12,7 @@
  */
 require_once 'libraries/Util.class.php';
 
-class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
+class PMA_WhichCrlf_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -22,12 +22,11 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
      */
     public function testWhichCrlf()
     {
-        $runkit = function_exists('runkit_constant_redefine');
-        if ($runkit && defined('PMA_USR_OS')) {
+        if (PMA_HAS_RUNKIT && defined('PMA_USR_OS')) {
             $pma_usr_os = PMA_USR_OS;
         }
 
-        if (defined('PMA_USR_OS') && !$runkit) {
+        if (defined('PMA_USR_OS') && !PMA_HAS_RUNKIT) {
 
             if (PMA_USR_OS == 'Win') {
                 $this->assertEquals(
@@ -43,7 +42,7 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
 
         } else {
 
-            if ($runkit) {
+            if (PMA_HAS_RUNKIT) {
                 if (!defined('PMA_USR_OS')) {
                     define('PMA_USR_OS', 'Linux');
                 } else {
@@ -55,7 +54,7 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
                 );
             }
 
-            if ($runkit) {
+            if (PMA_HAS_RUNKIT) {
                 runkit_constant_redefine('PMA_USR_OS', 'Win');
             } else {
                 define('PMA_USR_OS', 'Win');
@@ -66,7 +65,7 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
 
         }
 
-        if ($runkit) {
+        if (PMA_HAS_RUNKIT) {
             if (isset($pma_usr_os)) {
                 runkit_constant_redefine('PMA_USR_OS', 'Win');
             } else {

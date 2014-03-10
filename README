@@ -1,7 +1,7 @@
 phpMyAdmin - Readme
 ===================
 
-Version 4.1-dev
+Version 4.2.0-dev
 
 A set of PHP-scripts to manage MySQL over the web.
 
@@ -13,7 +13,7 @@ Copyright
 Copyright (C) 1998-2000
     Tobias Ratschiller <tobias_at_ratschiller.com>
 
-Copyright (C) 2001-2013
+Copyright (C) 2001-2014
     Marc Delisle <marc_at_infomarc.info>
     Olivier Müller <om_at_omnis.ch>
     Robin Johnson <robbat2_at_users.sourceforge.net>
@@ -39,10 +39,37 @@ details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+Licensing of current contributions
+----------------------------------
+
+Beginning on 2013-12-01, new contributions to this codebase are all licensed
+under terms compatible with GPLv2-or-later.  phpMyAdmin is currently
+transitioning older code to GPLv2-or-later, but work is not yet complete.
+
+Third party licenses
+--------------------
+
+phpMyAdmin includes several third party libraries which come under their
+respective licenses.
+
+jQuery's license, which is where we got the files under js/jquery/ is
+(MIT|GPL), a copy of each license is available in this repository (GPL
+is available as LICENSE, MIT as js/jquery/MIT-LICENSE.txt).
+
+TCPDF which is located under libraries/tcpdf is released under GPL
+version 3 and the license is available as libraries/tcpdf/LICENSE.TXT.
+
+DejaVu fonts which are located under libraries/tcpdf/fonts/ and their
+license is documented in
+libraries/tcpdf/fonts/dejavu-fonts-ttf-2.33/LICENSE.
+
+PHP-gettext which is located under libraries/php-gettext/ is released
+under GPL version 2 license which is available in the LICENSE file.
+
 Requirements
 ------------
 
-* PHP 5.2 or later
+* PHP 5.3 or later
 * MySQL 5.0 or later
 * a web-browser (doh!)
 

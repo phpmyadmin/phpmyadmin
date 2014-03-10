@@ -12,7 +12,7 @@
 require_once 'libraries/php-gettext/gettext.php';
 require_once 'libraries/php-gettext/streams.php';
 
-class PMA_gettext_test extends PHPUnit_Framework_TestCase
+class PMA_Gettext_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected

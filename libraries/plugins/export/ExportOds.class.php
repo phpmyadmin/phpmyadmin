@@ -48,7 +48,7 @@ class ExportOds extends ExportPlugin
         include_once "$props/options/items/HiddenPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
-        $exportPluginProperties->setText('Open Document Spreadsheet');
+        $exportPluginProperties->setText('OpenDocument Spreadsheet');
         $exportPluginProperties->setExtension('ods');
         $exportPluginProperties->setMimeType(
             'application/vnd.oasis.opendocument.spreadsheet'
@@ -110,7 +110,7 @@ class ExportOds extends ExportPlugin
                 . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
             . '<office:automatic-styles>'
                 . '<number:date-style style:name="N37"'
-                    .' number:automatic-order="true">'
+                    . ' number:automatic-order="true">'
                 . '<number:month number:style="long"/>'
                 . '<number:text>/</number:text>'
                 . '<number:day number:style="long"/>'
@@ -226,12 +226,14 @@ class ExportOds extends ExportPlugin
         global $what;
 
         // Gets the data from the database
-        $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_num_fields($result);
-        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $result = $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
+        $fields_cnt = $GLOBALS['dbi']->numFields($result);
+        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
         $field_flags = array();
         for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = PMA_DBI_field_flags($result, $j);
+            $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
         }
 
         $GLOBALS['ods_buffer'] .=
@@ -245,7 +247,7 @@ class ExportOds extends ExportPlugin
                     '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                     . htmlspecialchars(
-                        stripslashes(PMA_DBI_field_name($result, $i))
+                        stripslashes($GLOBALS['dbi']->fieldName($result, $i))
                     )
                     . '</text:p>'
                     . '</table:table-cell>';
@@ -254,7 +256,7 @@ class ExportOds extends ExportPlugin
         } // end if
 
         // Format the data
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || is_null($row[$j])) {
@@ -324,7 +326,7 @@ class ExportOds extends ExportPlugin
             } // end for
             $GLOBALS['ods_buffer'] .= '</table:table-row>';
         } // end while
-        PMA_DBI_free_result($result);
+        $GLOBALS['dbi']->freeResult($result);
 
         $GLOBALS['ods_buffer'] .= '</table:table>';
 

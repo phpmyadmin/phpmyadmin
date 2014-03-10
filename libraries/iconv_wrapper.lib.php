@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Iconv wrapper for AIX
  *
  * @package PhpMyAdmin
  */
@@ -53,9 +54,25 @@ $gnu_iconv_to_aix_iconv_codepage_map = array (
  * @access  public
  *
  */
-function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str)
+function PMA_convertAIXIconv($in_charset, $out_charset, $str)
 {
+    list($in_charset, $out_charset) = PMA_convertAIXMapCharsets(
+        $in_charset, $out_charset
+    );
+    // Call iconv() with the possibly modified parameters
+    return iconv($in_charset, $out_charset, $str);
+} //  end of the "PMA_convertAIXIconv()" function
 
+/**
+ * Maps input and output character set names to corresponding AIX ones
+ *
+ * @param string $in_charset  input character set
+ * @param string $out_charset output character set
+ *
+ * @return array array of mapped input and output character set names
+ */
+function PMA_convertAIXMapCharsets($in_charset, $out_charset)
+{
     global $gnu_iconv_to_aix_iconv_codepage_map;
 
     // Check for transliteration argument at the end of output character set name
@@ -97,9 +114,7 @@ function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str)
     // output character set name
     $out_charset = $out_charset_plain;
 
-    // Call iconv() with the possibly modified parameters
-    $result = iconv($in_charset, $out_charset, $str);
-    return $result;
-} //  end of the "PMA_aix_iconv_wrapper()" function
+    return array($in_charset, $out_charset);
+}
 
 ?>

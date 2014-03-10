@@ -99,14 +99,14 @@ rule 'Slow query logging' [!PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50600]
 # versions
 rule 'Release Series' [!PMA_DRIZZLE]
 	version
-	substr(value,0,1) <= 5 && substr(value,2,1) < 1
+	substr(value,0,2) <= '5.' && substr(value,2,1) < 1
 	The MySQL server version less than 5.1.
 	You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 even more so.
 	Current version: %s | value
 
 rule 'Minor Version' [! fired('Release Series')]
 	version
-	substr(value,0,1) <= 5 && substr(value,2,1) < 1 && substr(value,4,2) < 30
+	substr(value,0,2) <= '5.' && substr(value,2,1) <= 1 && substr(value,4,2) < 30
 	Version less than 5.1.30 (the first GA release of 5.1).
 	You should upgrade, as recent versions of MySQL 5.1 have improved performance and MySQL 5.5 even more so.
 	Current version: %s | value
@@ -200,8 +200,8 @@ rule 'Query cache max size' [!fired('Query cache disabled')]
 	Current query cache size: %s | implode(' ',ADVISOR_formatByteDown(value, 2, 2))
 
 rule 'Query cache min result size' [!fired('Query cache disabled')]
-	value == 1024*1024
 	query_cache_limit
+	value == 1024*1024
 	The max size of the result set in the query cache is the default of 1 MiB.
 	Changing {query_cache_limit} (usually by increasing) may increase efficiency. This variable determines the maximum size a query result may have to be inserted into the query cache. If there are many query results above 1 MiB that are well cacheable (many reads, little writes) then increasing {query_cache_limit} will increase efficiency. Whereas in the case of many query results being above 1 MiB that are not very well cacheable (often invalidated due to table updates) increasing {query_cache_limit} might reduce efficiency.
 	query_cache_limit is set to 1 MiB

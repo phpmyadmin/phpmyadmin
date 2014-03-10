@@ -15,15 +15,13 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_getDbLink_test extends PHPUnit_Framework_TestCase
+class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
 {
     function setUp()
     {
         global $cfg;
         include_once 'libraries/vendor_config.php';
         include 'libraries/config.default.php';
-        $_SESSION[' PMA_token '] = 'token';
-        $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = 99;
     }
 

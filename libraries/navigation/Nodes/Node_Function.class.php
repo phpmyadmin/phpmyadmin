@@ -9,12 +9,14 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
+
 /**
  * Represents a function node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Function extends Node
+class Node_Function extends Node_DatabaseChild
 {
     /**
      * Initialises the class
@@ -29,7 +31,7 @@ class Node_Function extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon  = PMA_Util::getImage('b_routines.png');
+        $this->icon  = PMA_Util::getImage('b_routines.png', __('Function'));
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
@@ -42,25 +44,13 @@ class Node_Function extends Node
     }
 
     /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
+     * Returns the type of the item represented by the node.
      *
-     * @return string
+     * @return string type of the item
      */
-    public function getComment()
+    protected function getItemType()
     {
-        $db      = PMA_Util::sqlAddSlashes(
-            $this->realParent()->real_name
-        );
-        $routine = PMA_Util::sqlAddSlashes(
-            $this->real_name
-        );
-        $query  = "SELECT `ROUTINE_COMMENT` ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
-        $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
-        $query .= "AND `ROUTINE_NAME`='$routine' ";
-        $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-        return PMA_DBI_fetch_value($query);
+        return 'function';
     }
 }
 

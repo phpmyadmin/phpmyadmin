@@ -15,15 +15,29 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Config.class.php';
 
-class PMA_PDF_test extends PHPUnit_Framework_TestCase
+/**
+ * tests for PMA_PDF class
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_PDF_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * SetUp for test cases
+     *
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['PMA_Config']->enableBc();
     }
+
     /**
+     * Test for PMA_PDF::getPDFData
+     *
      * @group large
+     * @return void
      */
     public function testBasic()
     {
@@ -32,7 +46,10 @@ class PMA_PDF_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_PDF::getPDFData
+     *
      * @group large
+     * @return void
      */
     public function testAlias()
     {
@@ -42,7 +59,10 @@ class PMA_PDF_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_PDF::getPDFData
+     *
      * @group large
+     * @return void
      */
     public function testDocument()
     {

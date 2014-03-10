@@ -11,14 +11,14 @@ require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once './libraries/Types.class.php';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 /*
  * Include to test.
  */
 require_once 'libraries/rte/rte_routines.lib.php';
 
-class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
+class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
@@ -26,15 +26,11 @@ class PMA_RTN_getExecuteForm_test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Types'] = new PMA_Types_MySQL();
         $GLOBALS['server'] = 0;
         $cfg['ServerDefault'] = 1;
-        $GLOBALS['lang'] = 'en';
-        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg']['ServerDefault'] = '';
         $cfg['ShowFunctionFields'] = true;
         $cfg['DefaultFunctions']['FUNC_NUMBER'] = '';
         $cfg['DefaultFunctions']['FUNC_DATE'] = '';
         $cfg['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
-        $cfg['MySQLManualType'] = 'viewable';
-        $cfg['MySQLManualBase'] = 'http://dev.mysql.com/doc/refman';
     }
 
     /**

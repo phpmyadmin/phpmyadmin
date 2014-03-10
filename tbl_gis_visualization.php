@@ -14,7 +14,7 @@ $url_params['goto'] = $cfg['DefaultTabDatabase'];
 $url_params['back'] = 'sql.php';
 
 // Import visualization functions
-require_once 'libraries/gis_visualization.lib.php';
+require_once 'libraries/tbl_gis_visualization.lib.php';
 
 $response = PMA_Response::getInstance();
 // Throw error if no sql query is set
@@ -27,9 +27,9 @@ if (! isset($sql_query) || $sql_query == '') {
 }
 
 // Execute the query and return the result
-$result = PMA_DBI_try_query($sql_query);
+$result = $GLOBALS['dbi']->tryQuery($sql_query);
 // Get the meta data of results
-$meta = PMA_DBI_get_fields_meta($result);
+$meta = $GLOBALS['dbi']->getFieldsMeta($result);
 
 // Find the candidate fields for label column and spatial column
 $labelCandidates = array(); $spatialCandidates = array();
@@ -58,10 +58,10 @@ if (! isset($visualizationSettings['spatialColumn'])) {
 
 // Convert geometric columns from bytes to text.
 $modified_query = PMA_GIS_modifyQuery($sql_query, $visualizationSettings);
-$modified_result = PMA_DBI_try_query($modified_query);
+$modified_result = $GLOBALS['dbi']->tryQuery($modified_query);
 
 $data = array();
-while ($row = PMA_DBI_fetch_assoc($modified_result)) {
+while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
     $data[] = $row;
 }
 
@@ -107,114 +107,13 @@ $visualization = PMA_GIS_visualizationResults(
 /**
  * Displays the page
  */
+
+$html = PMA_getHtmlForGisVisualization(
+    $url_params, $labelCandidates, $spatialCandidates,
+    $visualizationSettings, $sql_query, $visualization, $svg_support,
+    $data
+);
+
+$response->addHTML($html);
+
 ?>
-<!-- Display visualization options -->
-<div id="div_view_options">
-<fieldset>
-    <legend><?php echo __('Display GIS Visualization'); ?></legend>
-    <div style="width: 400px; float: left;">
-    <form method="post" action="tbl_gis_visualization.php">
-    <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
-    <table class="gis_table">
-    <tr><td><label for="labelColumn"><?php echo __("Label column"); ?></label></td>
-        <td><select name="visualizationSettings[labelColumn]" id="labelColumn">
-            <option value=""><?php echo __("-- None --"); ?></option>
-        <?php
-
-foreach ($labelCandidates as $labelCandidate) {
-    echo('<option value="' . htmlspecialchars($labelCandidate) . '"');
-    if ($labelCandidate == $visualizationSettings['labelColumn']) {
-        echo(' selected="selected"');
-    }
-    echo('>' . htmlspecialchars($labelCandidate) . '</option>');
-}
-        ?>
-        </select></td>
-    </tr>
-
-    <tr><td><label for="spatial Column"><?php echo __("Spatial column"); ?></label></td>
-        <td><select name="visualizationSettings[spatialColumn]" id="spatialColumn">
-        <?php
-
-foreach ($spatialCandidates as $spatialCandidate) {
-    echo('<option value="' . htmlspecialchars($spatialCandidate) . '"');
-    if ($spatialCandidate == $visualizationSettings['spatialColumn']) {
-        echo(' selected="selected"');
-    }
-    echo('>' . htmlspecialchars($spatialCandidate) . '</option>');
-}
-        ?>
-        </select></td>
-    </tr>
-    <tr><td></td>
-        <td class="button"><input type="submit" name="displayVisualizationBtn" value="<?php echo __('Redraw'); ?>" /></td>
-    </tr>
-<?php
-if (! $GLOBALS['PMA_Config']->isHttps()) {
-    ?>
-    <tr><td class="choice" colspan="2">
-        <input type="checkbox" name="visualizationSettings[choice]" id="choice" value="useBaseLayer"
-    <?php
-    if (isset($visualizationSettings['choice'])) {
-        echo(' checked="checked"');
-    }
-    ?>
-        />
-        <label for="choice"><?php echo __("Use OpenStreetMaps as Base Layer"); ?></label>
-    </td></tr>
-    <?php
-}
-?>
-    </table>
-    <input type="hidden" name="displayVisualization" value="redraw">
-    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
-    </form>
-    </div>
-
-    <div  style="float:left;">
-    <form method="post" class="disableAjax"  action="tbl_gis_visualization.php">
-    <?php echo PMA_generate_common_hidden_inputs($url_params); ?>
-    <table class="gis_table">
-    <tr><td><label for="fileName"><?php echo __("File name"); ?></label></td>
-        <td><input type="text" name="fileName" id="fileName" /></td>
-    </tr>
-    <tr><td><label for="fileFormat"><?php echo __("Format"); ?></label></td>
-        <td><select name="fileFormat" id="fileFormat">
-            <option value="png">PNG</option>
-            <option value="pdf">PDF</option>
-            <?php
-
-if ($svg_support) {
-    echo ('<option value="svg" selected="selected">SVG</option>');
-}
-            ?>
-        </select></td>
-    </tr>
-    <tr><td></td>
-        <td class="button"><input type="submit" name="saveToFileBtn" value="<?php echo __('Download'); ?>" /></td>
-    </tr>
-    </table>
-    <input type="hidden" name="saveToFile" value="download">
-    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($sql_query); ?>" />
-    </form>
-    </div>
-
-    <div style="clear:both;">&nbsp;</div>
-
-    <div id="placeholder" style="width:<?php echo htmlspecialchars($visualizationSettings['width']); ?>px;height:<?php echo htmlspecialchars($visualizationSettings['height']); ?>px;">
-        <?php echo $visualization; ?>
-    </div>
-    <div id="openlayersmap"></div>
-    <input type="hidden" id="pmaThemeImage" value="<?php echo($GLOBALS['pmaThemeImage']); ?>" />
-    <script language="javascript" type="text/javascript">
-        function drawOpenLayers()
-        {
-            <?php
-            if (! $GLOBALS['PMA_Config']->isHttps()) {
-                echo (PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol'));
-            }
-            ?>
-        }
-    </script>
-</fieldset>
-</div>

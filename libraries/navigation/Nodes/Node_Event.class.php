@@ -9,12 +9,14 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/navigation/Nodes/Node_DatabaseChild.class.php';
+
 /**
  * Represents a event node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class Node_Event extends Node
+class Node_Event extends Node_DatabaseChild
 {
     /**
      * Initialises the class
@@ -42,24 +44,13 @@ class Node_Event extends Node
     }
 
     /**
-     * Returns the comment associated with node
-     * This method should be overridden by specific type of nodes
+     * Returns the type of the item represented by the node.
      *
-     * @return string
+     * @return string type of the item
      */
-    public function getComment()
+    protected function getItemType()
     {
-        $db    = PMA_Util::sqlAddSlashes(
-            $this->realParent()->real_name
-        );
-        $event = PMA_Util::sqlAddSlashes(
-            $this->real_name
-        );
-        $query  = "SELECT `EVENT_COMMENT` ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-        $query .= "WHERE `EVENT_SCHEMA`='$db' ";
-        $query .= "AND `EVENT_NAME`='$event' ";
-        return PMA_DBI_fetch_value($query);
+        return 'event';
     }
 }
 

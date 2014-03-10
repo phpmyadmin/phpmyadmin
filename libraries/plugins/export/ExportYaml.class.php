@@ -156,17 +156,19 @@ class ExportYaml extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $result = $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
 
-        $columns_cnt = PMA_DBI_num_fields($result);
+        $columns_cnt = $GLOBALS['dbi']->numFields($result);
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
+            $columns[$i] = stripslashes($GLOBALS['dbi']->fieldName($result, $i));
         }
         unset($i);
 
         $buffer = '';
         $record_cnt = 0;
-        while ($record = PMA_DBI_fetch_row($result)) {
+        while ($record = $GLOBALS['dbi']->fetchRow($result)) {
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table
@@ -206,7 +208,7 @@ class ExportYaml extends ExportPlugin
                 return false;
             }
         }
-        PMA_DBI_free_result($result);
+        $GLOBALS['dbi']->freeResult($result);
 
         return true;
     } // end getTableYAML

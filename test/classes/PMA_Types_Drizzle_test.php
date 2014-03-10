@@ -11,10 +11,15 @@
 
 require_once 'libraries/Types.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
-class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
+/**
+ * Tests for Types.class.php
+ *
+ * @package PhpMyAdmin-test
+ */
+class PMA_Types_Drizzle_Test extends PHPUnit_Framework_TestCase
 {
     /**
      * @var PMA_Types
@@ -24,6 +29,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
+     *
+     * @return void
      */
     protected function setUp()
     {
@@ -33,9 +40,10 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getTypeDescription
      *
-     * @param string $type The data type to get a description.
-     * @param $output string
+     * @param string $type   The data type to get a description.
+     * @param string $output Expected string
      *
+     * @return void
      * @dataProvider providerForTestGetTypeDescription
      */
     public function testGetTypeDescription($type, $output)
@@ -48,6 +56,7 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
 
     /**
      * Provider for testGetTypeDescription
+     *
      * @return array
      */
     public function providerForTestGetTypeDescription()
@@ -59,11 +68,14 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
             ),
             array(
                 'BIGINT',
-                'An 8-byte integer, range is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807'
+                'An 8-byte integer, range is -9,223,372,036,854,775,808 to 9,223,'
+                . '372,036,854,775,807'
             ),
             array(
                 'DECIMAL',
-                'A fixed-point number (M, D) - the maximum number of digits (M) is 65 (default 10), the maximum number of decimals (D) is 30 (default 0)'
+                'A fixed-point number (M, D) - the maximum number of digits (M) '
+                . 'is 65 (default 10), the maximum number of decimals (D) is 30 '
+                . '(default 0)'
             ),
             array(
                 'DOUBLE',
@@ -87,11 +99,13 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
             ),
             array(
                 'DATETIME',
-                'A date and time combination, supported range is 0001-01-01 00:00:0 to 9999-12-31 23:59:59'
+                'A date and time combination, supported range is 0001-01-01 00:00:0 '
+                . 'to 9999-12-31 23:59:59'
             ),
             array(
                 'TIMESTAMP',
-                'A timestamp, range is \'0001-01-01 00:00:00\' UTC to \'9999-12-31 23:59:59\' UTC; TIMESTAMP(6) can store microseconds'
+                'A timestamp, range is \'0001-01-01 00:00:00\' UTC to \'9999-12-31 '
+                . '23:59:59\' UTC; TIMESTAMP(6) can store microseconds'
             ),
             array(
                 'TIME',
@@ -99,19 +113,24 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
             ),
             array(
                 'VARCHAR',
-                'A variable-length (0-16,383) string, the effective maximum length is subject to the maximum row size'
+                'A variable-length (0-16,383) string, the effective maximum length '
+                . 'is subject to the maximum row size'
             ),
             array(
                 'TEXT',
-                'A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored with a two-byte prefix indicating the length of the value in bytes'
+                'A TEXT column with a maximum length of 65,535 (2^16 - 1) characters'
+                . ', stored with a two-byte prefix indicating the length of the valu'
+                . 'e in bytes'
             ),
             array(
                 'VARBINARY',
-                'A variable-length (0-65,535) string, uses binary collation for all comparisons'
+                'A variable-length (0-65,535) string, uses binary collation for all '
+                . 'comparisons'
             ),
             array(
                 'BLOB',
-                'A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with a two-byte prefix indicating the length of the value'
+                'A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, '
+                . 'stored with a two-byte prefix indicating the length of the value'
             ),
             array(
                 'ENUM',
@@ -127,9 +146,10 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getTypeClass
      *
-     * @param $type
-     * @param $output
+     * @param string $type   Type to test
+     * @param string $output Expected result
      *
+     * @return void
      * @dataProvider providerFortTestGetTypeClass
      */
     public function testGetTypeClass($type, $output)
@@ -140,6 +160,11 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider
+     *
+     * @return array Test-data
+     */
     public function providerFortTestGetTypeClass()
     {
         return array(
@@ -169,9 +194,10 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getFunctionsClass
      *
-     * @param string $class The class to get function list.
-     * @param $output array
+     * @param string $class  The class to get function list.
+     * @param array  $output Expected result
      *
+     * @return void
      * @dataProvider providerFortTestGetFunctionsClass
      */
     public function testGetFunctionsClass($class, $output)
@@ -185,6 +211,7 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
 
     /**
      * Provider for testGetFunctionsClass
+     *
      * @return array
      */
     public function providerFortTestGetFunctionsClass()
@@ -305,6 +332,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getAttributes
+     *
+     * @return void
      */
     public function testGetAttributes()
     {
@@ -319,6 +348,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getColumns
+     *
+     * @return void
      */
     public function testGetColumns()
     {

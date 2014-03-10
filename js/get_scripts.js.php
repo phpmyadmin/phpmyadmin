@@ -1,12 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Concatenates reveral js files to reduce the number of
+ * Concatenates several js files to reduce the number of
  * http requests sent to the server
  *
  * @package PhpMyAdmin
  */
+
 chdir('..');
+
+// Close session early as we won't write anything there
+session_write_close();
 
 // Send correct type
 header('Content-Type: text/javascript; charset=UTF-8');
@@ -17,16 +21,16 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
     foreach ($_GET['scripts'] as $script) {
         // Sanitise filename
         $script_name = 'js';
+
         $path = explode("/", $script);
         foreach ($path as $index => $filename) {
-            if (! preg_match("@^\.+$@", $filename)
-                && preg_match("@^[\w\.-]+$@", $filename)
-            ) {
-                // Disallow "." and ".." alone
-                // Allow alphanumeric, "." and "-" chars only
+            // Allow alphanumeric, "." and "-" chars only, no files starting
+            // with .
+            if (preg_match("@^[\w][\w\.-]+$@", $filename)) {
                 $script_name .= DIRECTORY_SEPARATOR . $filename;
             }
         }
+
         // Output file contents
         if (preg_match("@\.js$@", $script_name) && is_readable($script_name)) {
             readfile($script_name);
@@ -35,4 +39,7 @@ if (! empty($_GET['scripts']) && is_array($_GET['scripts'])) {
     }
 }
 
+if (isset($_GET['call_done'])) {
+    echo "AJAX.scriptHandler.done();";
+}
 ?>

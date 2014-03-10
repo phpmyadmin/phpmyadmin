@@ -68,13 +68,13 @@ and :file:`index.php`.
 
 .. _faq1_7:
 
-1.7 How can I GZip or Bzip a dump or a CSV export? It does not seem to work.
-----------------------------------------------------------------------------
+1.7 How can I GZip a dump or a CSV export? It does not seem to work.
+--------------------------------------------------------------------
 
-These features are based on the ``gzencode()`` and ``bzcompress()``
-PHP functions to be more independent of the platform (Unix/Windows,
-Safe Mode or not, and so on). So, you must have Zlib/Bzip2 support
-(``--with-zlib`` and ``--with-bz2``).
+This feature is based on the ``gzencode()``
+PHP function to be more independent of the platform (Unix/Windows,
+Safe Mode or not, and so on). So, you must have Zlib support
+(``--with-zlib``).
 
 .. _faq1_8:
 
@@ -218,8 +218,7 @@ generally caused by using MySQL version 4.1 or newer. MySQL changed
 the authentication hash and your PHP is trying to use the old method.
 The proper solution is to use the `mysqli extension
 <http://www.php.net/mysqli>`_ with the proper client library to match
-your MySQL installation. Your chosen extension is specified in 
-:config:option:`$cfg['Servers'][$i]['extension']`. More
+your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
 Documentation <http://dev.mysql.com/doc/mysql/en/old-client.html>`_.
 
@@ -239,16 +238,19 @@ files to use font faces. Please refers to the `TCPDF manual
 
 .. _faqmysql:
 
-1.20 I receive the error "cannot load MySQL extension, please check PHP Configuration".
----------------------------------------------------------------------------------------
+1.20 I receive an error about missing mysqli and mysql extensions.
+------------------------------------------------------------------
 
 To connect to a MySQL server, PHP needs a set of MySQL functions
 called "MySQL extension". This extension may be part of the PHP
 distribution (compiled-in), otherwise it needs to be loaded
-dynamically. Its name is probably *mysql.so* or *php\_mysql.dll*.
+dynamically. Its name is probably *mysqli.so* or *php\_mysqli.dll*.
 phpMyAdmin tried to load the extension but failed. Usually, the
 problem is solved by installing a software package called "PHP-MySQL"
 or something similar.
+
+There are currently two interfaces PHP provides as MySQL extensions - ``mysql``
+and ``mysqli``. The ``mysqli`` is tried first, because it's the best one.
 
 .. _faq1_21:
 
@@ -391,8 +393,8 @@ MMCache but upgrading MMCache to version 2.3.21 solves the problem.
 
 Yes.
 
-Since release 3.0 only PHP 5.2 and newer. For older PHP versions, use
-phpMyAdmin 2.11.x.
+Since release 4.1 phpMyAdmin supports only PHP 5.3 and newer. For PHP 5.2 you
+can use 4.0.x releases.
 
 .. _faq1_32:
 
@@ -423,8 +425,9 @@ Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
 1.34 Can I access directly to database or table pages?
 ------------------------------------------------------
 
-Yes. Out of the box, you can use :term:`URL` like http://server/phpMyAdmin/index.php?server=X&db=databas
-e&table=table&target=script. For ``server`` you use the server number
+Yes. Out of the box, you can use :term:`URL` like
+http://server/phpMyAdmin/index.php?server=X&db=database&table=table&target=script.
+For ``server`` you use the server number
 which refers to the order of the server paragraph in
 :file:`config.inc.php`. Table and script parts are optional. If you want
 http://server/phpMyAdmin/database[/table][/script] :term:`URL`, you need to do some configuration. Following
@@ -796,7 +799,9 @@ has to be enabled in your PHP.
 If using APC, you must set ``apc.rfc1867`` to ``on`` in your :file:`php.ini`.
 
 If using PHP 5.4.0 or higher, you must set
-``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`.
+``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`. However,
+starting from phpMyAdmin version 4.0.4, session-based upload progress has
+been temporarily deactivated due to its problematic behavior. 
 
 .. seealso:: :rfc:`1867`
 
@@ -874,8 +879,7 @@ TableSeparator or disabling that feature.
 3.6 What is currently not supported in phpMyAdmin about InnoDB?
 ---------------------------------------------------------------
 
-In Relation view, being able to choose a table in another database, or
-having more than one index column in the foreign key. In Query-by-
+In Relation view, having more than one index column in the foreign key. In Query-by-
 example (Query), automatic generation of the query LEFT JOIN from the
 foreign table.
 
@@ -995,6 +999,14 @@ the size of the largest item in any given column as the column size
 for the appropriate type. If you know you will be adding larger items
 to that column then you should manually adjust the column sizes
 accordingly. This is done for the sake of efficiency.
+
+.. _faq3_20:
+
+3.20 After upgrading, some bookmarks are gone or their content cannot be shown.
+-------------------------------------------------------------------------------
+
+At some point, the character set used to store bookmark content has changed.
+It's better to recreate your bookmark from the newer phpMyAdmin version.
 
 .. _faqmultiuser:
 
@@ -1371,7 +1383,7 @@ look for the word "upload" in this document.
 ---------------------------------------------------------
 
 Here is an example with the tables persons, towns and countries, all
-located in the database mydb. If you don't have a ``pma__relation``
+located in the database "mydb". If you don't have a ``pma__relation``
 table, create it as explained in the configuration section. Then
 create the example tables:
 
@@ -1409,8 +1421,10 @@ create the example tables:
 To setup appropriate links and display information:
 
 * on table "REL\_persons" click Structure, then Relation view
-* in Links, for "town\_code" choose "REL\_towns->code"
-* in Links, for "country\_code" choose "REL\_countries->country\_code"
+* for "town\_code", choose from dropdowns, "mydb", "REL\_towns", "code"
+  for foreign database, table and column respectively
+* for "country\_code", choose  from dropdowns, "mydb", "REL\_countries",
+  "country\_code" for foreign database, table and column respectively
 * on table "REL\_towns" click Structure, then Relation view
 * in "Choose column to display", choose "description"
 * repeat the two previous steps for table "REL\_countries"
@@ -1820,8 +1834,8 @@ t/pma/Charts#Data_formats_for_query_results_chart>`_.
 
 .. _faq6_30:
 
-6.30 Import: How can I import ESRI Shapefiles
----------------------------------------------
+6.30 Import: How can I import ESRI Shapefiles?
+----------------------------------------------
 
 An ESRI Shapefile is actually a set of several files, where .shp file
 contains geometry data and .dbf file contains data related to those

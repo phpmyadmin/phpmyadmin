@@ -86,7 +86,7 @@ class ExportMediawiki extends ExportPlugin
 
         // export table headers
         $leaf = new BoolPropertyItem();
-        $leaf->setName("caption");
+        $leaf->setName("headers");
         $leaf->setText(__('Export table headers'));
         $generalOptions->addProperty($leaf);
         //add the main group to the root group
@@ -202,7 +202,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         switch($export_mode) {
         case 'create_table':
-            $columns = PMA_DBI_get_columns($db, $table);
+            $columns = $GLOBALS['dbi']->getColumns($db, $table);
             $columns = array_values($columns);
             $row_cnt = count($columns);
 
@@ -227,7 +227,7 @@ class ExportMediawiki extends ExportPlugin
                 $output .= "! style=\"background:#ffffff\" | "
                     . $this->_exportCRLF();
                 for ($i = 0; $i < $row_cnt; ++$i) {
-                    $output .= " | " . $columns[$i]['Field']. $this->_exportCRLF();
+                    $output .= " | " . $columns[$i]['Field'] . $this->_exportCRLF();
                 }
             }
 
@@ -283,7 +283,7 @@ class ExportMediawiki extends ExportPlugin
     ) {
         // Print data comment
         $output = $this->_exportComment(
-            "Table data for ". PMA_Util::backquote($table)
+            "Table data for " . PMA_Util::backquote($table)
         );
 
         // Begin the table construction
@@ -300,7 +300,7 @@ class ExportMediawiki extends ExportPlugin
         // Add the table headers
         if ($GLOBALS['mediawiki_headers']) {
             // Get column names
-            $column_names = PMA_DBI_get_column_names($db, $table);
+            $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
 
             // Add column names as table headers
             if ( ! is_null($column_names) ) {
@@ -315,10 +315,12 @@ class ExportMediawiki extends ExportPlugin
         }
 
         // Get the table data from the database
-        $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
-        $fields_cnt = PMA_DBI_num_fields($result);
+        $result = $GLOBALS['dbi']->query(
+            $sql_query, null, PMA_DatabaseInterface::QUERY_UNBUFFERED
+        );
+        $fields_cnt = $GLOBALS['dbi']->numFields($result);
 
-        while ($row = PMA_DBI_fetch_row($result)) {
+        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $output .= "|-" . $this->_exportCRLF();
 
             // Use '|' for separating table columns

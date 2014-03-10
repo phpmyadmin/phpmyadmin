@@ -36,20 +36,24 @@ if ($num_tables < 1) {
 
 $multi_values  = '<div>';
 $multi_values .= '<a href="#"';
-$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', true); return false;">';
+$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', true);'
+    . ' return false;">';
 $multi_values .= __('Select All');
 $multi_values .= '</a>';
 $multi_values .= ' / ';
-$multi_values .= '<a href="#';
-$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', false); return false;">';
+$multi_values .= '<a href="#"';
+$multi_values .= ' onclick="setSelectOptions(\'dump\', \'table_select[]\', false);'
+    . ' return false;">';
 $multi_values .= __('Unselect All');
 $multi_values .= '</a><br />';
 
-$multi_values .= '<select name="table_select[]" id="table_select" size="10" multiple="multiple">';
+$multi_values .= '<select name="table_select[]" id="table_select" size="10"'
+    . ' multiple="multiple">';
 $multi_values .= "\n";
 
-if (!empty($selected_tbl) && empty($table_select)) {
-    $table_select = $selected_tbl;
+// when called by libraries/mult_submits.inc.php
+if (!empty($_POST['selected_tbl']) && empty($table_select)) {
+    $table_select = $_POST['selected_tbl'];
 }
 
 // Check if the selected tables are defined in $_GET
@@ -66,10 +70,12 @@ foreach ($tables as $each_table) {
         } else {
             $is_selected = '';
         }
-    } elseif (! empty($unselectall)
-        || (! empty($table_select) && !in_array($each_table['Name'], $table_select))
-    ) {
-        $is_selected = '';
+    } elseif (isset($table_select)) {
+        if (in_array($each_table['Name'], $table_select)) {
+            $is_selected = ' selected="selected"';
+        } else {
+            $is_selected = '';
+        }
     } else {
         $is_selected = ' selected="selected"';
     }
@@ -83,6 +89,6 @@ $multi_values .= "\n";
 $multi_values .= '</select></div>';
 
 $export_type = 'database';
-require_once 'libraries/display_export.lib.php';
+require_once 'libraries/display_export.inc.php';
 
 ?>

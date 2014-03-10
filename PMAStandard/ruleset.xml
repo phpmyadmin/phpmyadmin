@@ -10,5 +10,5 @@
     <exclude name="PEAR.Commenting.InlineComment" />
     <exclude name="Generic.Files.LineLength" />
   </rule>
+  <rule ref="Generic.Metrics.NestingLevel" />
 </ruleset>
-

@@ -23,21 +23,25 @@ function PMA_getColumnMap($sql_query, $view_columns)
 
     $column_map = array();
     // Select query which give results for VIEW
-    $real_source_result = PMA_DBI_try_query($sql_query);
+    $real_source_result = $GLOBALS['dbi']->tryQuery($sql_query);
 
     if ($real_source_result !== false) {
 
-        $real_source_fields_meta = PMA_DBI_get_fields_meta($real_source_result);
+        $real_source_fields_meta = $GLOBALS['dbi']->getFieldsMeta(
+            $real_source_result
+        );
 
-        if (count($real_source_fields_meta) > 0) {
+        $nbColumns = count($view_columns);
+        $nbFields = count($real_source_fields_meta);
+        if ($nbFields > 0) {
 
-            for ($i=0; $i<count($real_source_fields_meta); $i++) {
+            for ($i=0; $i < $nbFields; $i++) {
 
                 $map = array();
                 $map['table_name'] = $real_source_fields_meta[$i]->table;
                 $map['refering_column'] = $real_source_fields_meta[$i]->name;
 
-                if (count($view_columns) > 1) {
+                if ($nbColumns > 1) {
                     $map['real_column'] = $view_columns[$i];
                 }
 
@@ -75,7 +79,7 @@ function PMA_getExistingTranformationData($db)
         . ' WHERE `db_name` = \''
         . PMA_Util::sqlAddSlashes($db) . '\'';
 
-    return PMA_DBI_try_query($pma_transformation_sql);
+    return $GLOBALS['dbi']->tryQuery($pma_transformation_sql);
 
 }
 
@@ -106,7 +110,7 @@ function PMA_getNewTransformationDataSql(
     $column_count = 0;
     $add_comma = false;
 
-    while ($data_row = PMA_DBI_fetch_assoc($pma_tranformation_data)) {
+    while ($data_row = $GLOBALS['dbi']->fetchAssoc($pma_tranformation_data)) {
 
         foreach ($column_map as $column) {
 

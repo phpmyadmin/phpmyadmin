@@ -6,8 +6,8 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-require_once 'PmaSeleniumTestCase.php';
-require_once 'Helper.php';
+
+require_once 'TestBase.php';
 
 /**
  * PmaSeleniumLoginTest class
@@ -15,44 +15,33 @@ require_once 'Helper.php';
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
-class PmaSeleniumLoginTest extends PHPUnit_Extensions_SeleniumTestCase
+class PMA_SeleniumLoginTest extends PMA_SeleniumBase
 {
-    /**
-     * Setup the browser environment to run the selenium test case
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        $helper = new Helper();
-        $this->setBrowser(Helper::getBrowserString());
-        $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
-    }
-
     /**
      * Test for successful login
      *
      * @return void
+     *
+     * @group large
      */
     public function testSuccessfulLogin()
     {
-        $log = new PmaSeleniumTestCase($this);
-        $log->login(TESTSUITE_USER, TESTSUITE_PASSWORD);
-        $this->assertTrue($log->isSuccessLogin());
-        Helper::logOutIfLoggedIn($this);
+        $this->login();
+        $this->assertTrue($this->isSuccessLogin());
+        $this->logOutIfLoggedIn();
     }
 
     /**
      * Test for unsuccessful login
      *
      * @return void
+     *
+     * @group large
      */
     public function testLoginWithWrongPassword()
     {
-        $log = new PmaSeleniumTestCase($this);
-        $log->login("Admin", "Admin");
-        $this->assertTrue($log->isUnsuccessLogin());
-        Helper::logOutIfLoggedIn($this);
+        $this->login("Admin", "Admin");
+        $this->assertTrue($this->isUnsuccessLogin());
     }
 }
 ?>

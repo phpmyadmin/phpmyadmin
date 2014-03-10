@@ -8,24 +8,23 @@ http://sourceforge.net/donate/index.php?group_id=128076
 ------------------------------------------------------------
 
 Name: TCPDF
-Version: 5.9.207
-Release date: 2013-03-04
+Version: 6.0.062
+Release date: 2014-03-02
 Author:	Nicola Asuni
 
-Copyright (c) 2002-2013:
+Copyright (c) 2002-2014:
 	Nicola Asuni
 	Tecnick.com LTD
-	Manor Coach House, Church Hill
-	Aldershot, Hants, GU12 4RQ
-	UK
 	www.tecnick.com
 
 URLs:
-	http:  www.tcpdf.org
-	http:  www.sourceforge.net/projects/tcpdf
+	http://www.tcpdf.org
+	http://www.sourceforge.net/projects/tcpdf
 
 Description:
 	TCPDF is a PHP class for generating PDF files on-the-fly without requiring external extensions.
+	This library includes also a class to extract data from existing PDF documents and
+	classes to generate 1D and 2D barcodes in various formats.
 
 Main Features:
     * no external libraries are required for the basic functions;
@@ -67,8 +66,8 @@ Source Code Documentation:
 Additional Documentation:
 	http://www.tcpdf.org
 
-License
-	Copyright (C) 2002-2013  Nicola Asuni - Tecnick.com LTD
+License:
+	Copyright (C) 2002-2014  Nicola Asuni - Tecnick.com LTD
 
 	TCPDF is free software: you can redistribute it and/or modify it
 	under the terms of the GNU Lesser General Public License as
@@ -86,12 +85,27 @@ License
 
 	See LICENSE.TXT file for more information.
 
-Third party fonts
-	This library includes third party font files released with different licenses.
-	These fonts are not required by TCPDF but have been included as you convenience.
-	The original TTF font files have been renamed for compatibility with TCPDF and compressed using the gzcompress PHP function that uses the ZLIB data format (.z files).
-	To get the original distribution archives please check the information on fonts subfolders:
-	 - DejaVu fonts 2.33 (Bitstream) - Copyright, License and other info: fonts/dejavu-fonts-ttf-2.33
-	 - GNU FreeFont (GNU-GPLv3) - Copyright, License and other info: fonts/freefont-20100919
+Third party fonts:
+
+	This library may include third party font files released with different licenses.
+	
+	All the PHP files on the fonts directory are subject to the general TCPDF license (GNU-LGPLv3),
+	they do not contain any binary data but just a description of the general properties of a particular font.
+	These files can be also generated on the fly using the font utilities and TCPDF methods.
+	
+	All the original binary TTF font files have been renamed for compatibility with TCPDF and compressed using the gzcompress PHP function that uses the ZLIB data format (.z files).
+	
+	The binary files (.z) that begins with the prefix "free" have been extracted from the GNU FreeFont collection (GNU-GPLv3).
+	The binary files (.z) that begins with the prefix "pdfa" have been derived from the GNU FreeFont, so they are subject to the same license.
+	For the details of Copyright, License and other information, please check the files inside the directory fonts/freefont-20120503
+	Link : http://www.gnu.org/software/freefont/
+	
+	The binary files (.z) that begins with the prefix "dejavu" have been extracted from the DejaVu fonts 2.33 (Bitstream) collection.
+	For the details of Copyright, License and other information, please check the files inside the directory fonts/dejavu-fonts-ttf-2.33
+	Link : http://dejavu-fonts.org
+	
+	The binary files (.z) that begins with the prefix "ae" have been extracted from the Arabeyes.org collection (GNU-GPLv2).
+	Link : http://projects.arabeyes.org/
+
 
 ============================================================
