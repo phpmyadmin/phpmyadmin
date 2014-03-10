@@ -42,7 +42,7 @@ body#loginform {
 }
 
 #page_content {
-    margin: 0 0 0 .5em;
+    margin: 0 .5em;
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
