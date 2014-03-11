@@ -825,8 +825,23 @@
 		*/
 		_updateDateTime: function(dp_inst) {
 			dp_inst = this.inst || dp_inst;
+			//console.log(dp_inst.selectedYear);
+			
+			/* Initially dp_inst.currentYear, dp_inst.currentMonth and dp_inst.currentDay all are 0 
+			 * but dp_inst.selectedYear, dp_inst.selectedYear, dp_inst.selectedMonth and dp_inst.selectedDay points to current date.
+			 * In this case "new Date(0,0,0)" will yield date "Sun Dec 31 1899 00:00:00 GMT+XXXX (XXX)".
+			 * So we should handle this case manually.
+			 */
+			 var dateObj;
+			 if(dp_inst.currentYear === 0) {
+				 dateObj = new Date(dp_inst.selectedYear, dp_inst.selectedMonth, dp_inst.selectedDay);
+			 } else {
+				 dateObj = new Date(dp_inst.currentYear, dp_inst.currentMonth, dp_inst.currentDay);
+			 }
+			 
 			//var dt = $.datepicker._daylightSavingAdjust(new Date(dp_inst.selectedYear, dp_inst.selectedMonth, dp_inst.selectedDay)),
-			var dt = $.datepicker._daylightSavingAdjust(new Date(dp_inst.currentYear, dp_inst.currentMonth, dp_inst.currentDay)),
+			//var dt = $.datepicker._daylightSavingAdjust(new Date(dp_inst.currentYear, dp_inst.currentMonth, dp_inst.currentDay)),
+			var dt = $.datepicker._daylightSavingAdjust(dateObj),
 				dateFmt = $.datepicker._get(dp_inst, 'dateFormat'),
 				formatCfg = $.datepicker._getFormatConfig(dp_inst),
 				timeAvailable = dt !== null && this.timeDefined;
