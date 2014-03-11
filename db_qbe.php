@@ -21,7 +21,6 @@ $cfgRelation = PMA_getRelationsParam();
 
 $savedSearchList = array();
 $currentSearchId = null;
-$displayUpdateSearchHint = false;
 if ($cfgRelation['savedsearcheswork']) {
     include 'libraries/SavedSearches.class.php';
     $header = $response->getHeader();
@@ -35,16 +34,18 @@ if ($cfgRelation['savedsearcheswork']) {
 
     if (!empty($_REQUEST['searchId'])) {
         $savedSearch->setId($_REQUEST['searchId']);
-        $displayUpdateSearchHint = true;
     }
 
     //Action field is sent.
     if (isset($_REQUEST['action'])) {
         $savedSearch->setSearchName($_REQUEST['searchName']);
-        if ('save' === $_REQUEST['action']) {
+        if ('create' === $_REQUEST['action']) {
+            $saveResult = $savedSearch->setId(null)
+                ->setCriterias($_REQUEST)
+                ->save();
+        } elseif ('update' === $_REQUEST['action']) {
             $saveResult = $savedSearch->setCriterias($_REQUEST)
                 ->save();
-            $displayUpdateSearchHint = true;
         } elseif ('delete' === $_REQUEST['action']) {
             $deleteResult = $savedSearch->delete();
             //After deletion, reset search.
@@ -52,10 +53,16 @@ if ($cfgRelation['savedsearcheswork']) {
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($_REQUEST['db']);
             $_REQUEST = array();
-            $displayUpdateSearchHint = false;
         } elseif ('load' === $_REQUEST['action']) {
-            $loadResult = $savedSearch->load();
-            $displayUpdateSearchHint = true;
+            if (empty($_REQUEST['searchId'])) {
+                //when not loading a search, reset the object.
+                $savedSearch = new PMA_SavedSearches($GLOBALS);
+                $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
+                    ->setDbname($_REQUEST['db']);
+                $_REQUEST = array();
+            } else {
+                $loadResult = $savedSearch->load();
+            }
         }
         //Else, it's an "update query"
     }
@@ -120,15 +127,6 @@ if ($cfgRelation['designerwork']) {
         )
     );
 }
-if ($displayUpdateSearchHint) {
-    $response->addHTML(
-        PMA_Message::notice(
-            __(
-                'After saving or loading a bookmarked search, you can rename it and '
-                . 'save the new criteria.'
-            )
-        )
-    );
-}
+
 $response->addHTML($db_qbe->getSelectionForm($cfgRelation));
 ?>

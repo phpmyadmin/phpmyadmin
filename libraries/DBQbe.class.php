@@ -1476,9 +1476,13 @@ class PMA_DbQbe
             . 'value="' . $currentSearchName . '" />';
         $html_output .= '<input type="hidden" name="action" id="action" value="" />';
         $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" '
-            . 'value="' . __('Save bookmark') . '" />';
-        $html_output .= '<input type="submit" name="deleteSearch" id="deleteSearch" '
-            . 'value="' . __('Delete bookmark') . '" />';
+            . 'value="' . __('Create bookmark') . '" />';
+        if (null !== $currentSearchId) {
+            $html_output .= '<input type="submit" name="updateSearch" '
+                . 'id="updateSearch" value="' . __('Update bookmark') . '" />';
+            $html_output .= '<input type="submit" name="deleteSearch" '
+                . 'id="deleteSearch" value="' . __('Delete bookmark') . '" />';
+        }
 
         return $html_output;
     }
