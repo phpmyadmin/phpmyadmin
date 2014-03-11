@@ -469,15 +469,10 @@ AJAX.registerOnload('tbl_structure.js', function () {
         }
         col_list.sortable({
             axis: 'y',
-            containment: $("#move_columns_dialog div"),
+            containment: 'document',
             tolerance: 'pointer',
-            float:'top',
-            cursor: 'move',
-            placeholder: 'sortable-placeholder'
-            }).disableSelection();
-        
-        $("#move_columns_dialog div").css("position","relative");
-        
+            scroll:false
+            }).disableSelection(); 
         var $form = $("#move_columns_dialog form");
         $form.data("serialized-unmoved", $form.serialize());
 
