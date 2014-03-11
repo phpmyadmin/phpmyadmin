@@ -17,6 +17,8 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/config.default.php';
 
 /**
  * class PMA_DisplayChangePassword_Test
@@ -35,6 +37,8 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         //$GLOBALS
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';

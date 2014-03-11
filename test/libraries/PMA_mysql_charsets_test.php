@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/mysql_charsets.lib.php';
+require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 /**
