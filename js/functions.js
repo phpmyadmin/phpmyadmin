@@ -3655,6 +3655,7 @@ AJAX.registerOnload('functions.js', function() {
     $('#createViewDialog').find('input, select').live('keydown', function (e) {
         if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
+            $(this).blur();//as by preventing default, selection by <select> tag is also prevented in IE
             $(this).closest('.ui-dialog').find('.ui-button:first').click();
         }
     }); // end $.live()
