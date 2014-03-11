@@ -1563,6 +1563,8 @@ class PMA_DatabaseInterface
                         $GLOBALS['collation_connection'],
                         5
                     );
+                } else {
+                   $GLOBALS['collation_connection'] = $default_collation;
                 }
                 $this->query(
                     "SET collation_connection = '"
