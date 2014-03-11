@@ -370,6 +370,10 @@ Credits, in chronological order
 
   * Interface improvements 
 
+* Hugues Peccatte
+
+  * Load/save query by example (database search bookmarks)
+
 
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
