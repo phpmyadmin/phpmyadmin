@@ -13,6 +13,7 @@
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Text_Plain_Substring.class.php';
+require_once 'libraries/string.inc.php';
 
 /**
  * Tests for Text_Plain_Substring class

@@ -7,12 +7,15 @@
  */
 
 require_once 'libraries/plugins/auth/AuthenticationConfig.class.php';
+require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
+require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/Error_Handler.class.php';
+require_once 'libraries/Response.class.php';
 /**
  * tests for AuthenticationConfig class
  *
@@ -101,6 +104,11 @@ class PMA_AuthenticationConfig_Test extends PHPUnit_Framework_TestCase
                 $this->markTestSkipped('Cannot remove constant');
             }
         }
+
+        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $GLOBALS['dbi'] = $dbi;
 
         ob_start();
         $result = $this->object->authFails();

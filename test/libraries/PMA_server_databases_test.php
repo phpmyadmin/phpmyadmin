@@ -21,6 +21,8 @@ require_once 'libraries/Message.class.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlparser.lib.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/config.default.php';
 
 /**
  * PMA_ServerDatabases_Test class
@@ -44,6 +46,8 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['MaxDbList'] = 100;
         $GLOBALS['cfg']['ServerDefault'] = "server";

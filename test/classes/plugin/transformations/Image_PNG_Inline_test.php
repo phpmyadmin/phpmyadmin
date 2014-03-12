@@ -13,6 +13,8 @@
 require_once 'libraries/plugins/PluginManager.class.php';
 require_once 'libraries/plugins/transformations/Image_PNG_Inline.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/config.default.php';
 
 /**
  * Tests for Image_PNG_Inline class
@@ -35,6 +37,8 @@ class Image_PNG_Inline_Test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $this->object = new Image_PNG_Inline(new PluginManager());
     }
 

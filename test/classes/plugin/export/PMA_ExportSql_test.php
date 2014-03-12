@@ -15,8 +15,10 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/transformations.lib.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/charset_conversion.lib.php';
 require_once 'export.php';
 /**
  * tests for ExportSql class
@@ -34,6 +36,10 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
+        if (!defined("PMA_DRIZZLE")) {
+            define("PMA_DRIZZLE", false);
+        }
+
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;

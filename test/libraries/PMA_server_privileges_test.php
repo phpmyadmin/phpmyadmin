@@ -39,6 +39,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        //Constants
+        if (!defined("PMA_USR_BROWSER_AGENT")) {
+            define("PMA_USR_BROWSER_AGENT", "other");
+        }
+
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;

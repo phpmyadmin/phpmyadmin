@@ -33,6 +33,8 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         unset($_SESSION['eol']);
 
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+
         $GLOBALS['server'] = 0;
         $cf = new ConfigFile();
         $_SESSION['ConfigFile0'] = array('a', 'b', 'c');
