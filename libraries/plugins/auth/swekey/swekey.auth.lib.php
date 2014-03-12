@@ -292,7 +292,10 @@ function Swekey_login($input_name, $input_go)
             if (input_username.nextSibling == null) {
                 input_username.parentNode.appendChild(swekey_status);
             } else {
-                input_username.parentNode.insertBefore(swekey_status, input_username.nextSibling);
+                input_username.parentNode.insertBefore(
+                    swekey_status,
+                    input_username.nextSibling
+                );
             }
 
         <?php
