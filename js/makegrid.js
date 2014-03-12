@@ -1727,7 +1727,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             });
             $('html').click(function (e) {
                 // hide edit cell if the click is not fromDat edit area
-                if ($(e.target).parents().index($('.cEdit')) == -1){
+                if ($(e.target).parents().index($(g.cEdit)) == -1
+                    && ! $(e.target).parents('.ui-datepicker-header').length
+                ) {
                    g.hideEditCell();
                 }
             }).keydown(function (e) {
