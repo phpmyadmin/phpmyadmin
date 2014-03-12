@@ -48,8 +48,9 @@ if (isset($_REQUEST['send_error_report'])
                     . ' '
                     . __(
                         'If you experience any '
-                        . 'problems please submit a bug report manually.'
+                        . 'problems please submit a bug report manually on '
                     )
+                    . '<a href="https://sourceforge.net/p/phpmyadmin/bugs/new/" target="_blank">sourceforge</a>'
                     . '<br />'
                     . __('You may want to refresh the page.')
                 )
@@ -75,8 +76,9 @@ if (isset($_REQUEST['send_error_report'])
                     . ' '
                     . __(
                         'If you experience any '
-                        . 'problems please submit a bug report manually.'
+                        . 'problems please submit a bug report manually on'
                     )
+                    . '<a href="https://sourceforge.net/p/phpmyadmin/bugs/new/" target="_blank">sourceforge</a>'
                     . '<br />'
                     . __('You may want to refresh the page.')
                 )
