@@ -42,6 +42,17 @@ class PmaSeleniumImportTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->setBrowserUrl(TESTSUITE_PHPMYADMIN_HOST . TESTSUITE_PHPMYADMIN_URL);
         $this->_helper->dbConnect();
         $this->_dbname = 'pma_db_' . time();
+        
+        /**
+         * testing file upload to remote server
+         */ 
+        $this->fileDetector(function($filename) {
+            if(file_exists($filename)) {
+                return $filename;
+            } else {
+                return NULL;
+            }
+        });
     }
 
     /**
@@ -137,10 +148,10 @@ class PmaSeleniumImportTest extends PHPUnit_Extensions_Selenium2TestCase
     private function _doImport($type)
     {
         $this->byLinkText("Import")->click();
-        $ele = $this->_helper->waitForElement("byId", "input_import_file");
-        $ele->value(
-            dirname(__FILE__) . "/../test_data/" . $type . "_import.sql"
-        );
+        
+        $ele = $this->byName('import_file');
+        $this->sendKeys($ele, dirname(__FILE__) . "/../test_data/" . $type . "_import.sql");
+
         $this->byId("buttonGo")->click();
         $this->_helper->waitForElement(
             "byXPath",
