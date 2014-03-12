@@ -449,6 +449,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         // go to database page
         $this->waitForElement("byLinkText", $this->database_name)->click();
 
+        /* TODO: should wait for actual expanding of tree */
+        usleep(100);
+
         // go to table page
         $this->waitForElement(
             "byXPath",
