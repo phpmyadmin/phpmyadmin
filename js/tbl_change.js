@@ -491,10 +491,6 @@ AJAX.registerOnload('tbl_change.js', function () {
                 tabindex++;
                 $(this).attr('tabindex', tabindex);
             });
-            // Add all the required datepickers back
-            $('input.datefield, input.datetimefield').each(function () {
-                PMA_addDatepicker($(this));
-            });
         } else if (curr_rows > target_rows) {
             while (curr_rows > target_rows) {
                 $("input[id^=insert_ignore]:last")
@@ -505,6 +501,8 @@ AJAX.registerOnload('tbl_change.js', function () {
             }
         }
     });
+    // Add all the required datepickers back
+    addDateTimePicker();
 });
 
 function changeValueFieldType(elem, searchIndex)
