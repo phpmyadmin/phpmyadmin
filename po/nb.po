@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-13 14:26+0100\n"
-"PO-Revision-Date: 2014-02-11 08:37+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Norwegian Bokmål <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/nb/>\n"
+"PO-Revision-Date: 2014-03-13 18:50+0200\n"
+"Last-Translator: Erik Hepsø <hepso@hoved.org>\n"
+"Language-Team: Norwegian Bokmål "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -427,6 +427,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Det er oppdaget en feil og en feilrapport har blitt automatisk sendt basert "
+"på innstillingene dine."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
@@ -438,14 +440,16 @@ msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Det er oppdaget en feil og en feilrapport er generert, men kunne ikke "
+"sendes."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Hvis du opplever noen problemer Send en feilrapport manuelt."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Takk for at du sender inn denne rapporten."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
@@ -707,10 +711,9 @@ msgid "Back"
 msgstr "Tilbake"
 
 #: index.php:125 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin hjemmeside"
+msgstr "phpMyAdmin Demo-side"
 
 #: index.php:129
 #, php-format
@@ -719,6 +722,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Du bruker demo server. Du kan gjøre hva du vil her, men vennligst ikke endre "
+"på root, debian-sys-maint og pma -brukerne. Mer informasjon er tilgjengelig "
+"på %s."
 
 #: index.php:139
 msgid "General Settings"
@@ -770,16 +776,14 @@ msgid "Protocol version:"
 msgstr "Protokollversjon"
 
 #: index.php:278
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Bruker"
+msgstr "Bruker:"
 
 #: index.php:283
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Server-tegnsett"
+msgstr "Server-tegnsett:"
 
 #: index.php:298
 msgid "Web server"
@@ -792,10 +796,9 @@ msgid "Database client version:"
 msgstr "Databaseklientversjon"
 
 #: index.php:318
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP tillegg"
+msgstr "PHP tillegg:"
 
 #: index.php:325 js/messages.php:122 libraries/DisplayResults.class.php:1332
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
@@ -813,10 +816,9 @@ msgid "Show PHP information"
 msgstr "Vis PHP-informasjon"
 
 #: index.php:360
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Versionsinformasjon"
+msgstr "Versjonsinformasjon:"
 
 #: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
@@ -915,9 +917,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"Mappen [code]config[/code], som blir brukt av setupskriptet eksisterer "
-"fortsatt i din phpMyAdmin mappe. Du bør fjerne den så fort phpMyAdmin har "
-"blitt konfigurert."
+"Mappen [code]config[/code], som blir brukt av setup-skriptet eksisterer "
+"fortsatt i din phpMyAdmin mappe. Det anbefales å fjerne den så fort "
+"phpMyAdmin har blitt konfigurert. Ellers kan sikkerheten på din server bli "
+"kompromittert av uautoriserte personer som laster ned konfigurasjonen din."
 
 #: index.php:520
 #, php-format
@@ -952,7 +955,7 @@ msgstr "\"DROP DATABASE\"-uttrykk er avslått."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Bekreft"
 
 #: js/messages.php:36
 #, php-format
@@ -984,10 +987,10 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Denne operasjonen kan ta lang tid. Ønsker du å fortsette?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Vil du virkelig utføre \"%s\"?"
+msgstr "Vil du virkelig slette bruker-gruppen \"%s\"?"
 
 #: js/messages.php:45
 #, fuzzy, php-format
@@ -1587,7 +1590,7 @@ msgstr "Laster…"
 
 #: js/messages.php:225
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Forespørsel avbrutt!!"
 
 #: js/messages.php:226
 msgid "Processing Request"
@@ -1751,10 +1754,9 @@ msgid "Show search criteria"
 msgstr "Vis søkekriterier"
 
 #: js/messages.php:281
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Skjul søkekriterier"
+msgstr "Skjul kriterier for søk- og erstatt"
 
 #: js/messages.php:282
 #, fuzzy
@@ -1928,6 +1930,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Denne tabellen inneholder ikke en unik kolonne. Funksjoner knyttet til "
+"valgene Endring, avkrysningsruten, redigere, kopiere og slette koblinger "
+"virker kanskje ikke etter lagring."
 
 #: js/messages.php:349
 msgid "You can also edit most values<br />by double-clicking directly on them."
@@ -2017,32 +2022,30 @@ msgid "Create view"
 msgstr "Opprett view"
 
 #: js/messages.php:387
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Tjenerport"
+msgstr "Send feilrapport"
 
 #: js/messages.php:388
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Send feilrapport"
 
 #: js/messages.php:390
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"Det oppstod en alvorlig feil i JavaScript. Ønsker du å sende en feilrapport?"
 
 #: js/messages.php:392
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Endre innstillinger"
+msgstr "Endre Rapportinnstillinger"
 
 #: js/messages.php:393
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Vis åpne tabeller"
+msgstr "Vis Rapportdetaljer"
 
 #: js/messages.php:396
 msgid ""
@@ -4745,7 +4748,7 @@ msgstr "Blowfish hemmelig kode"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "Framhev valgte rader"
+msgstr "Framhev valgte rader."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4801,6 +4804,9 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
+"Bruk brukervennlig tekstbehandler for redigering av SQL-spørringer "
+"([a@http://codemirror.net/]CodeMirror[/a]) med syntaks utheving og "
+"nummererte linjer."
 
 #: libraries/config/messages.inc.php:53
 msgid "Enable CodeMirror"
@@ -4958,7 +4964,7 @@ msgstr "Vis binært innhold som heksadesimal som standard"
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Vis tjenere som en liste istedet for en nedfallsliste"
+msgstr "Vis tjenere som en liste istedet for en nedtrekksliste."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
@@ -15516,7 +15522,7 @@ msgstr ""
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "maks. samtidige tilkoblinger"
+msgstr "concurrent_insert er satt til 0"
 
 #, fuzzy
 #~| msgid ""
