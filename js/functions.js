@@ -3843,6 +3843,11 @@ AJAX.registerOnload('functions.js', function () {
     $('#createViewDialog').find('input, select').live('keydown', function (e) {
         if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
+
+            // with preventing default, selection by <select> tag
+            // was also prevented in IE
+            $(this).blur();
+
             $(this).closest('.ui-dialog').find('.ui-button:first').click();
         }
     }); // end $.live()
