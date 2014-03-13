@@ -1366,9 +1366,12 @@ class ExportSql extends ExportPlugin
                         $sql_lines[$k]
                     )) {
                         //adds auto increment value                         
-                        $increment_value = substr($sql_lines[$k], strpos($sql_lines[$k],"AUTO_INCREMENT")); 
-                        $increment_value_array = explode( ' ', $increment_value);
-                        $sql_auto_increments .= $increment_value_array[0].";";
+                        $increment_value = substr(
+                            $sql_lines[$k], 
+                            strpos($sql_lines[$k], "AUTO_INCREMENT")
+                        ); 
+                        $increment_value_array = explode(' ', $increment_value);
+                        $sql_auto_increments .= $increment_value_array[0] . ";";
 
                     }
                 }
