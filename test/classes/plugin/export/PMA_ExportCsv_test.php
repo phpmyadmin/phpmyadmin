@@ -19,6 +19,7 @@ require_once 'export.php';
  * tests for ExportCsv class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
 {
@@ -474,7 +475,6 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
      * Test for ExportCsv::exportData
      *
      * @return void
-     * @group medium
      */
     public function testExportData()
     {

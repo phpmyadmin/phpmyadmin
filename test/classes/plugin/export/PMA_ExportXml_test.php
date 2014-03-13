@@ -19,6 +19,7 @@ require_once 'export.php';
  * tests for ExportXml class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
 {

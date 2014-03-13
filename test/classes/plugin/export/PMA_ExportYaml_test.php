@@ -18,6 +18,7 @@ require_once 'export.php';
  * tests for ExportYaml class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportYaml_Test extends PHPUnit_Framework_TestCase
 {

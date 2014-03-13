@@ -18,6 +18,7 @@ require_once 'export.php';
  * tests for ExportCodegen class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportCodegen_Test extends PHPUnit_Framework_TestCase
 {

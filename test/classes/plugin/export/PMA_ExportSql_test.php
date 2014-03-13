@@ -24,6 +24,7 @@ require_once 'export.php';
  * tests for ExportSql class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 {

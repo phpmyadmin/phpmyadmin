@@ -21,6 +21,7 @@ require_once 'export.php';
  * tests for ExportTexytext class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportTexytext_Test extends PHPUnit_Framework_TestCase
 {

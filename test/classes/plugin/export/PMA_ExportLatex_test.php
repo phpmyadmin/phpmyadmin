@@ -20,6 +20,7 @@ require_once 'export.php';
  * tests for ExportLatex class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
 {
@@ -63,7 +64,6 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
      * Test for ExportLatex::setProperties
      *
      * @return void
-     * @group medium
      */
     public function testSetProperties()
     {
@@ -552,7 +552,6 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
      * Test for ExportLatex::exportData
      *
      * @return void
-     * @group medium
      */
     public function testExportData()
     {
@@ -668,7 +667,6 @@ class PMA_ExportLatex_Test extends PHPUnit_Framework_TestCase
      * Test for ExportLatex::exportStructure
      *
      * @return void
-     * @group medium
      */
     public function testExportStructure()
     {

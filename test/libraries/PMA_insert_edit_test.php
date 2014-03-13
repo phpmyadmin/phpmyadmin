@@ -29,6 +29,7 @@ require_once 'libraries/Table.class.php';
  * Tests for libraries/insert_edit.lib.php
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 {

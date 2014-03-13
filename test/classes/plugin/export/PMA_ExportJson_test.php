@@ -18,6 +18,7 @@ require_once 'export.php';
  * tests for ExportJson class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportJson_Test extends PHPUnit_Framework_TestCase
 {

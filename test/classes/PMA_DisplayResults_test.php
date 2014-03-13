@@ -89,6 +89,7 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
      * @return void
      *
      * @dataProvider providerForTestSetDisplayModeCase1
+     * @group medium
      */
     public function testSetDisplayModeCase1($the_disp_mode, $the_total, $output)
     {

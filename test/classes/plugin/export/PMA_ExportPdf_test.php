@@ -19,6 +19,7 @@ require_once 'export.php';
  * tests for ExportPdf class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportPdf_Test extends PHPUnit_Framework_TestCase
 {

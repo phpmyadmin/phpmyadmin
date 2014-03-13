@@ -28,6 +28,7 @@ require_once 'libraries/js_escape.lib.php';
  * Test for PMA_Header class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_Header_Test extends PHPUnit_Framework_TestCase
 {

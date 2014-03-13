@@ -57,6 +57,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      * Test for PMA_Theme::loadInfo
      *
      * @return void
+     * @group medium
      */
     public function testCheckImgPathNotExisted()
     {
