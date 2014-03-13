@@ -16,7 +16,6 @@ before_script:
 script:
   - ./scripts/generate-mo --quiet
   - PHPUNIT_ARGS=--debug ant phpunit lint
-  - if [[ $TRAVIS_PULL_REQUEST != "false" ]] ; then ./scripts/check-dco origin/$TRAVIS_BRANCH..FETCH_HEAD ; fi
 after_script:
   - php vendor/bin/coveralls -v
 matrix:
