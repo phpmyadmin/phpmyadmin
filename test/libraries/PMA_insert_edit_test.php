@@ -813,15 +813,17 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TextareaCols'] = 10;
         $GLOBALS['cfg']['CharTextareaRows'] = 5;
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
+        $GLOBALS['cfg']['LimitChars'] = 20;
 
         $column['is_char'] = true;
+        $column['Type'] = 'char(10)';
         $result = PMA_getTextarea(
             $column, 'a', 'b', 'd', 2, 0, 1, "abc/", 'foobar'
         );
 
         $this->assertTag(
             PMA_getTagArray(
-                '<textarea name="fieldsb" class="char" rows="5" cols="1" dir="abc/" '
+                '<textarea name="fieldsb" class="char" maxlength="10" rows="5" cols="1" dir="abc/" '
                 . 'id="field_1_3" tabindex="2">',
                 array('content' => 'foobar')
             ),
@@ -1180,10 +1182,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $column['is_blob'] = true;
         $column['is_char'] = true;
+        $column['Type'] = 'char(255)';
         $GLOBALS['cfg']['TextareaRows'] = 20;
         $GLOBALS['cfg']['TextareaCols'] = 10;
         $GLOBALS['cfg']['CharTextareaRows'] = 5;
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
+        $GLOBALS['cfg']['LimitChars'] = 100;
 
         $result = PMA_getBinaryAndBlobColumn(
             $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
@@ -1192,7 +1196,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "\na\n"
-            . '<textarea name="fieldsb" class="char" rows="5" cols="1" dir="/" '
+            . '<textarea name="fieldsb" class="char" maxlength="255" rows="5" cols="1" dir="/" '
             . 'id="field_1_3" c tabindex="3"></textarea><br /><input type="file" '
             . 'name="fields_uploadfoo[123]" class="textfield" id="field_1_3" '
             . 'size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
@@ -1320,6 +1324,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $column['len'] = 20;
         $column['is_char'] = true;
+        $column['Type'] = 'char(25)';
         $GLOBALS['cfg']['CharEditing'] = '';
         $GLOBALS['cfg']['MaxSizeForInputField'] = 30;
         $GLOBALS['cfg']['MinSizeForInputField'] = 10;
@@ -1327,6 +1332,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TextareaCols'] = 10;
         $GLOBALS['cfg']['CharTextareaRows'] = 5;
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
+        $GLOBALS['cfg']['LimitChars'] = 50;
 
         $extracted_columnspec['spec_in_brackets'] = 25;
         $result = PMA_getValueColumnForOtherDatatypes(
@@ -1336,7 +1342,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             "a\n\na\n"
-            . '<textarea name="fieldsb" class="char" rows="5" cols="1" dir="/" '
+            . '<textarea name="fieldsb" class="char" maxlength="25" rows="5" cols="1" dir="/" '
             . 'id="field_1_3" c tabindex="34">&lt;</textarea>',
             $result
         );
