@@ -236,7 +236,7 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
                 array(),
                 'Failed formatting string for rule \'Failure\'. PHP threw ' .
                 'following error: Use of undefined constant fsafdsa - ' .
-                'assumed \'fsafdsa\'',
+                'assumed \'fsafdsa\'<br />Executed code: $value = fsafdsa;',
             ),
             array(
                 array(
