@@ -63,8 +63,8 @@ AJAX.registerOnload('import.js', function () {
         var radioImport = $("#radio_import_file");
         var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strImportDialogMessage + '</div>';
 		
-        if( radioLocalImport !== '') {
-			// remote upload.					
+		// If local import enabled.
+        if(radioLocalImport.length) {
 			// TODO Remove this section when all browsers support HTML5 "required" property
 			if(! radioLocalImport.is(":checked") && ! radioImport.is(":checked")) {
 				radioImport.focus();
@@ -79,17 +79,23 @@ AJAX.registerOnload('import.js', function () {
 					$("#input_import_file").focus();					
 					PMA_ajaxShowMessage(fileMsg, false);
 					return false;
-			} else {
+			}
+			
+			if(radioLocalImport.is(":checked")) {
+				if($("#select_local_import_file").length === 0) {
+					PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> No files available on server upload directory! </div>', false);
+					return false;
+				}
+				
 				if($("#select_local_import_file").val() === '') {
 					$("#select_local_import_file").focus();
 					PMA_ajaxShowMessage(fileMsg, false);
 					return false;
 				}
-			}
+			} 
 		} else {
-			// local upload.
-			if($("#select_local_import_file").val() === '') {
-				$("#select_local_import_file").focus();
+			if($("#input_import_file").val() === '') {
+				$("#input_import_file").focus();
 				PMA_ajaxShowMessage(fileMsg, false);
 				return false;
 			}
