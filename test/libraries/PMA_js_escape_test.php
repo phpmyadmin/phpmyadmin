@@ -15,6 +15,12 @@ require_once 'libraries/Util.class.php';
 class PMA_JS_Escape_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * Test for PMA_getJsValue
+     *
+     * @param string $key      Key
+     * @param string $value    Value
+     * @param string $expected Expected output
+     *
      * @dataProvider variables
      *
      * @return void
@@ -24,15 +30,27 @@ class PMA_JS_Escape_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_getJsValue($key, $value));
         $this->assertEquals('foo = 100', PMA_getJsValue('foo', '100', false));
         $array = array('1','2','3');
-        $this->assertEquals("foo = [\"1\",\"2\",\"3\",];\n", PMA_getJsValue('foo', $array));
+        $this->assertEquals(
+            "foo = [\"1\",\"2\",\"3\",];\n",
+            PMA_getJsValue('foo', $array)
+        );
     }
 
+    /**
+     * Test for PMA_jsFormat
+     *
+     * @return void
+     */
     public function testJsFormat()
     {
         $this->assertEquals("`foo`", PMA_jsFormat('foo'));
     }
 
-
+    /**
+     * Provider for testFormat
+     *
+     * @return array
+     */
     public function variables()
     {
         return array(

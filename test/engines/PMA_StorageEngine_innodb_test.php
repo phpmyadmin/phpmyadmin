@@ -16,6 +16,11 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
+/**
+ * Tests for PMA_StorageEngine_innodb
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -49,6 +54,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getVariables
+     *
+     * @return void
      */
     public function testGetVariables()
     {
@@ -152,6 +159,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getVariablesLikePattern
+     *
+     * @return void
      */
     public function testGetVariablesLikePattern()
     {
@@ -163,6 +172,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getInfoPages
+     *
+     * @return void
      */
     public function testGetInfoPages()
     {
@@ -182,6 +193,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getPageBufferpool
+     *
+     * @return void
      */
     public function testGetPageBufferpool()
     {
@@ -268,6 +281,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getPageStatus
+     *
+     * @return void
      */
     public function testGetPageStatus()
     {
@@ -280,6 +295,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getPage
+     *
+     * @return void
      */
     public function testGetPage()
     {
@@ -295,6 +312,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getMysqlHelpPage
+     *
+     * @return void
      */
     public function testGetMysqlHelpPage()
     {
@@ -307,6 +326,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getInnodbPluginVersion
+     *
+     * @return void
      */
     public function testGetInnodbPluginVersion()
     {
@@ -319,6 +340,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for supportsFilePerTable
+     *
+     * @return void
      */
     public function testSupportsFilePerTable()
     {
@@ -330,6 +353,8 @@ class PMA_StorageEngine_Innodb_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getInnodbFileFormat
+     *
+     * @return void
      */
     public function testGetInnodbFileFormat()
     {

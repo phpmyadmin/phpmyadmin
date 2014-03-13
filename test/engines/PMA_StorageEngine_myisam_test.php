@@ -15,6 +15,11 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
+/**
+ * Tests for PMA_StorageEngine_myisam
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_StorageEngine_Myisam_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -48,6 +53,8 @@ class PMA_StorageEngine_Myisam_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getVariables
+     *
+     * @return void
      */
     public function testGetVariables()
     {

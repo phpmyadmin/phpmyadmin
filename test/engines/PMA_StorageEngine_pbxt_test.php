@@ -127,6 +127,7 @@ class PMA_StorageEngine_Pbxt_Test extends PHPUnit_Framework_TestCase
      * Test for resolveTypeSize
      *
      * @param string $formatted_size the size expression (for example 8MB)
+     * @param string $output         Expected output
      *
      * @dataProvider providerFortTestResolveTypeSize
      *

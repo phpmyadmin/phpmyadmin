@@ -11,6 +11,11 @@
 
 require_once 'libraries/zip.lib.php';
 
+/**
+ * Tests for displaing results
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Zip_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -45,6 +50,8 @@ class PMA_Zip_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for setDoWrite
+     *
+     * @return void
      */
     public function testSetDoWrite()
     {
@@ -59,6 +66,8 @@ class PMA_Zip_Test extends PHPUnit_Framework_TestCase
      * @param int $output   DOS timestamp
      *
      * @dataProvider providerForTestUnix2DosTime
+     *
+     * @return void
      */
     public function testUnix2DosTime($unixTime, $output)
     {
@@ -68,6 +77,11 @@ class PMA_Zip_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Provider for testUnix2DosTime
+     *
+     * @return array
+     */
     public function providerForTestUnix2DosTime()
     {
         return array(
@@ -84,6 +98,8 @@ class PMA_Zip_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for addFile
+     *
+     * @return void
      */
     public function testAddFile()
     {
@@ -96,6 +112,8 @@ class PMA_Zip_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for file
+     *
+     * @return void
      */
     public function testFile()
     {
