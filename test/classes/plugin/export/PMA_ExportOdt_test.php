@@ -21,6 +21,7 @@ require_once 'export.php';
  * tests for ExportOdt class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
 {
@@ -64,7 +65,6 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
      * Test for ExportOdt::setProperties
      *
      * @return void
-     * @group medium
      */
     public function testSetProperties()
     {
@@ -680,7 +680,6 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
      * Test for ExportOdt::getTableDef
      *
      * @return void
-     * @group medium
      */
     public function testGetTableDef()
     {

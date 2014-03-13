@@ -20,6 +20,7 @@ require_once 'export.php';
  * tests for ExportHtmlword class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
 {
@@ -460,7 +461,6 @@ class PMA_ExportHtmlword_Test extends PHPUnit_Framework_TestCase
      * Test for ExportHtmlword::getTableDef
      *
      * @return void
-     * @group medium
      */
     public function testGetTableDef()
     {

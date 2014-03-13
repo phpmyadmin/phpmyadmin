@@ -18,6 +18,7 @@ require_once 'export.php';
  * tests for ExportPhparray class
  *
  * @package PhpMyAdmin-test
+ * @group medium
  */
 class PMA_ExportPhparray_Test extends PHPUnit_Framework_TestCase
 {

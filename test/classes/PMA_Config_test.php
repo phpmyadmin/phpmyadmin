@@ -75,6 +75,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * Test for CheckSystem
      *
      * @return void
+     * @group medium
      */
     public function testCheckSystem()
     {
