@@ -14,6 +14,11 @@ require_once 'libraries/engines/mrg_myisam.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
+/**
+ * Tests for PMA_StorageEngine_MrgMyisam
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_StorageEngine_MrgMyisam_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -47,6 +52,8 @@ class PMA_StorageEngine_MrgMyisam_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getMysqlHelpPage
+     *
+     * @return void
      */
     public function testGetMysqlHelpPage()
     {

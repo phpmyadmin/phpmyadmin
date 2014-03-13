@@ -14,11 +14,24 @@ require_once 'libraries/url_generating.lib.php';
 
 class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 {
+
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     *
+     * @access protected
+     * @return void
+     */
     public function setUp()
     {
         unset($_COOKIE['pma_lang'], $_COOKIE['pma_collation_connection']);
     }
 
+    /**
+     * Test for PMA_URL_getCommon with old style
+     *
+     * @return void
+     */
     public function testOldStyle()
     {
         $GLOBALS['server'] = 'x';
@@ -39,6 +52,11 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_URL_getCommon('db', 'table'));
     }
 
+    /**
+     * Test for PMA_URL_getCommon with old style for DB only
+     *
+     * @return void
+     */
     public function testOldStyleDbOnly()
     {
         $GLOBALS['server'] = 'x';
@@ -58,6 +76,11 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_URL_getCommon('db'));
     }
 
+    /**
+     * Test for PMA_URL_getCommon with new style
+     *
+     * @return void
+     */
     public function testNewStyle()
     {
         $GLOBALS['server'] = 'x';
@@ -78,6 +101,11 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_URL_getCommon($params));
     }
 
+    /**
+     * Test for PMA_URL_getCommon with old style and alternate separator
+     *
+     * @return void
+     */
     public function testOldStyleWithAlternateSeparator()
     {
         $GLOBALS['server'] = 'x';
@@ -95,6 +123,11 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_URL_getCommon('db', 'table', '&'));
     }
 
+    /**
+     * Test for PMA_URL_getCommon with old style and alternate separator for DB only
+     *
+     * @return void
+     */
     public function testOldStyleWithAlternateSeparatorDbOnly()
     {
         $GLOBALS['server'] = 'x';
@@ -112,6 +145,11 @@ class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, PMA_URL_getCommon('db', '', '&'));
     }
 
+    /**
+     * Test for PMA_URL_getCommon
+     *
+     * @return void
+     */
     public function testDefault()
     {
         $GLOBALS['server'] = 'x';

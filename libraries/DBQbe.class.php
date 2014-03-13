@@ -1039,18 +1039,18 @@ class PMA_DbQbe
             $column_index++
             ) {
                 if (! empty($this->_curField[$column_index])
-                    && ! empty($_REQUEST['Or' .$row_index][$column_index])
+                    && ! empty($_REQUEST['Or' . $row_index][$column_index])
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
                         . strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
                 }
                 if (! empty($this->_curField[$column_index])
-                    && ! empty($_REQUEST['Or' .$row_index][$column_index])
+                    && ! empty($_REQUEST['Or' . $row_index][$column_index])
                 ) {
                     $qry_orwhere .= '(' . $this->_curField[$column_index]
                         .  ' '
-                        .  $_REQUEST['Or' .$row_index][$column_index]
+                        .  $_REQUEST['Or' . $row_index][$column_index]
                         .  ')';
                     $last_orwhere = $column_index;
                     $criteria_cnt++;
