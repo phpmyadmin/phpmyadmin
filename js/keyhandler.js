@@ -1,8 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
-// gloabl vars to hold Arrow Down event timeStamps
-var prevTimeStamp = 0; 
-var curTimeStamp = 0;
+// gloabl var holds the value: 0- if ctrl key is not pressed 1- if ctrl key is pressed
+var ctrlKeyHistory = 0;
 
 /**
   * Allows moving around inputs/select by Ctrl+arrows
@@ -13,16 +12,6 @@ function onKeyDownArrowsHandler(e)
 {
     e = e || window.event;
 
-    curTimeStamp = e.timeStamp;
-    if( prevTimeStamp == 0 ) {
-        prevTimeStamp = curTimeStamp;
-    }
-    else if( Math.abs(curTimeStamp-prevTimeStamp) < 150 ) {
-        // event in a very quick succession
-        return;
-    }
-    prevTimeStamp = curTimeStamp;
-    
     var o = (e.srcElement || e.target);
     if (!o) {
         return;
@@ -30,77 +19,88 @@ function onKeyDownArrowsHandler(e)
     if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") {
         return;
     }
-    if (navigator.userAgent.toLowerCase().indexOf('applewebkit/') != -1) {
-        if (e.ctrlKey || e.shiftKey || !e.altKey) {
-            return;
-        }
-    } else {
-        if (!e.ctrlKey || e.shiftKey || e.altKey) {
-            return;
-        }
-    }
+    
     if (!o.id) {
         return;
     }
 
-    var pos = o.id.split("_");
-    if (pos[0] != "field" || typeof pos[2] == "undefined") {
-        return;
-    }
+	var is_firefox = navigator.userAgent.toLowerCase().indexOf("firefox/") > -1;
 
-    var x = pos[2], y = pos[1];
+    if (e.type == "keyup"){
+		if (e.which==17)
+			ctrlKeyHistory = 0;
+		return;
+	}
+	
+	else if (e.type == "keydown"){
+		if (e.which==17)
+			ctrlKeyHistory = 1;
+	
+		if (ctrlKeyHistory==1){
+			e.preventDefault();
+			var pos = o.id.split("_");
+			if (pos[0] != "field" || typeof pos[2] == "undefined") {
+				return;
+			}
 
-    var nO = null;
+			var x = pos[2], y = pos[1];
 
-    switch (e.keyCode) {
-    case 38:
-        // up
-        y--;
-        break;
-    case 40:
-        // down
-        y++;
-        break;
-    case 37:
-        // left
-        x--;
-        break;
-    case 39:
-        // right
-        x++;
-        break;
-    default:
-        return;
-    }
+			var nO = null;
 
-    var is_firefox = navigator.userAgent.toLowerCase().indexOf("firefox/") > -1;
+			switch (e.keyCode) {
+			case 38:
+				// up
+				y--;
+				break;
+			case 40:
+				// down
+				y++;
+				break;
+			case 37:
+				// left
+				x--;
+				break;
+			case 39:
+				// right
+				x++;
+				break;
+			default:
+				return;
+			}
 
-    // restore selected index, bug #3799
-    if (is_firefox && e.type == "keyup") {
-        o.selectedIndex = window["selectedIndex_" + o.id];
-    }
+			var id = "field_" + y + "_" + x;
+			nO = document.getElementById(id);
+			if (! nO) {
+				id = "field_" + y + "_" + x + "_0";
+				nO = document.getElementById(id);
+			}
 
-    var id = "field_" + y + "_" + x;
-    nO = document.getElementById(id);
-    if (! nO) {
-        id = "field_" + y + "_" + x + "_0";
-        nO = document.getElementById(id);
-    }
+			// skip non existent fields
+			if (! nO) {
+				return;
+			}
 
-    // skip non existent fields
-    if (! nO) {
-        return;
-    }
-    if (e.type == "keydown") {
-        nO.focus();
-        if (is_firefox) {
-            window["selectedIndex_" + nO.id] = nO.selectedIndex;
-        }
-    }
-    if (nO.tagName != 'SELECT') {
-        nO.select();
-    }
-    e.returnValue = false;
+			var lvalue = o.selectedIndex;
+
+			nO.focus();
+
+			if (nO.tagName != 'SELECT') {
+				nO.select();
+			}
+			if (is_firefox) {
+				if (e.which==38 || e.which==37)
+				lvalue=lvalue+1;
+
+				else if (e.which==40 || e.which==39)
+				lvalue=lvalue-1;
+
+				o.selectedIndex=lvalue;
+				}
+
+			e.returnValue = false;
+			}
+		else return;
+		}
 }
 
 AJAX.registerTeardown('keyhandler.js', function () {
