@@ -57,6 +57,50 @@ AJAX.registerTeardown('import.js', function () {
 });
 
 AJAX.registerOnload('import.js', function () {
+	// import_file_form validation.
+	$('#import_file_form').live('submit', function (event) {        
+        var radioLocalImport = $("#radio_local_import_file");
+        var radioImport = $("#radio_import_file");
+        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strImportDialogMessage + '</div>';
+		
+        if( radioLocalImport !== '') {
+			// remote upload.					
+			// TODO Remove this section when all browsers support HTML5 "required" property
+			if(! radioLocalImport.is(":checked") && ! radioImport.is(":checked")) {
+				radioImport.focus();
+				var msg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ';
+				msg += PMA_messages.strRadioUnchecked; 
+				msg += '</div>';
+				PMA_ajaxShowMessage(msg, false);
+				return false;
+			}
+			
+			if(radioImport.is(":checked") && $("#input_import_file").val() === '') {
+					$("#input_import_file").focus();					
+					PMA_ajaxShowMessage(fileMsg, false);
+					return false;
+			} else {
+				if($("#select_local_import_file").val() === '') {
+					$("#select_local_import_file").focus();
+					PMA_ajaxShowMessage(fileMsg, false);
+					return false;
+				}
+			}
+		} else {
+			// local upload.
+			if($("#select_local_import_file").val() === '') {
+				$("#select_local_import_file").focus();
+				PMA_ajaxShowMessage(fileMsg, false);
+				return false;
+			}
+		}
+        
+        // show progress bar.
+		$("#upload_form_status").css("display", "inline");
+		$("#upload_form_status_info").css("display", "inline");
+		return;
+	});
+	
     // Initially display the options for the selected plugin
     changePluginOpts();
 
