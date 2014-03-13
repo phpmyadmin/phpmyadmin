@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-13 14:26+0100\n"
-"PO-Revision-Date: 2014-03-04 21:26+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-03-13 14:57+0200\n"
+"Last-Translator: Luis Eduardo Braschi <herrcasper@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2417,16 +2417,14 @@ msgid "Saved bookmarked search:"
 msgstr "Pesquisas salvas:"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Delete bookmark"
 msgid "Create bookmark"
-msgstr "Excluir marcador"
+msgstr "Criar marcador"
 
 #: libraries/DBQbe.class.php:1482
-#, fuzzy
 #| msgid "Save bookmark"
 msgid "Update bookmark"
-msgstr "Salvar marcador"
+msgstr "Atualizar marcador"
 
 #: libraries/DBQbe.class.php:1484
 msgid "Delete bookmark"
@@ -4445,7 +4443,7 @@ msgstr ""
 "segurança como o roubo de identidade."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4453,9 +4451,9 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Se estiver usando a autenticação por cookies e o %sarmazenamento dos cookies "
-"de login%s não for de valor 0, a %svalidação dos cookies de login%s precisa "
-"ser configurado para um valor menor ou igual a ele."
+"Se estiver usando a autenticação por [kbd]cookies[/kbd] e o %sarmazenamento "
+"dos cookies de login%s não for de valor 0, a %svalidação dos cookies de "
+"login%s precisa ser configurado para um valor menor ou igual a ele."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, fuzzy, php-format
