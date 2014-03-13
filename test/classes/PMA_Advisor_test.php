@@ -130,10 +130,10 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
         $advisor->variables['value'] = 0;
         $advisor->addRule('fired', $rule);
         if (isset($advisor->runResult['errors']) || !is_null($error)) {
-            $this->assertEquals($advisor->runResult['errors'], array($error));
+            $this->assertEquals(array($error), $advisor->runResult['errors']);
         }
         if (isset($advisor->runResult['fired']) || $expected != array()) {
-            $this->assertEquals($advisor->runResult['fired'], array($expected));
+            $this->assertEquals(array($expected), $advisor->runResult['fired']);
         }
     }
 
