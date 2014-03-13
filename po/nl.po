@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-13 14:26+0100\n"
-"PO-Revision-Date: 2014-03-04 11:38+0200\n"
+"PO-Revision-Date: 2014-03-13 17:40+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2403,28 +2402,24 @@ msgid "Submit Query"
 msgstr "Query uitvoeren"
 
 #: libraries/DBQbe.class.php:1451
-#, fuzzy
 #| msgid "Saved searches:"
 msgid "Saved bookmarked search:"
-msgstr "Opgeslagen opzoekingen :"
+msgstr "Opgeslagen bladwijzer naar een opzoeking :"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Delete search"
 msgid "Create bookmark"
-msgstr "Opzoeking verwijderen"
+msgstr "Bladwijzer aanmaken"
 
 #: libraries/DBQbe.class.php:1482
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "Toon bladwijzer"
+msgstr "Bladwijzer bijwerken"
 
 #: libraries/DBQbe.class.php:1484
-#, fuzzy
 #| msgid "Delete search"
 msgid "Delete bookmark"
-msgstr "Opzoeking verwijderen"
+msgstr "Bladwijzer verwijderen"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3134,10 +3129,9 @@ msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing information to save the search."
 msgid "Missing information to save the bookmarked search."
-msgstr "Informatie om de opzoeking op te slaan ontbreekt."
+msgstr "Informatie om de bladwijzer voor een opzoeking op te slaan ontbreekt."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -4376,7 +4370,6 @@ msgstr ""
 "ook vele andere klanten gebruik van maken."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4386,9 +4379,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"U heeft geen blowfish-geheim ingesteld en gebruikt cookie-authenticatie, een "
-"sleutel was automatisch voor u gegenereerd. Deze wordt gebruikt om cookies "
-"te versleutelen en hoeft u niet zelf te onthouden."
+"U heeft geen blowfish-geheim ingesteld en gebruikt [kbd]cookie[/kbd] "
+"authenticatie, een sleutel was automatisch voor u gegenereerd. Deze wordt "
+"gebruikt om cookies te versleutelen en hoeft u niet zelf te onthouden."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4444,7 +4437,7 @@ msgstr ""
 "iemand kan bijvoorbeeld uw identiteit misbruiken."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4452,9 +4445,9 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Als cookie-authenticatie gebruikt wordt en %sAanmeldingscookie-opslag%s niet "
-"gelijk is aan 0, dan moet %sAanmeldingscookiegeldigheid%s een waarde hebben "
-"die kleiner of gelijk is."
+"Als [kbd]cookie[/kbd] authenticatie gebruikt wordt en %sAanmeldingscookie-"
+"opslag%s niet gelijk is aan 0, dan moet %sAanmeldingscookiegeldigheid%s een "
+"waarde hebben die kleiner of gelijk is."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, fuzzy, php-format
@@ -4519,27 +4512,26 @@ msgid "Could not connect to the database server!"
 msgstr "Kan geen verbinding maken met de databank server!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Lege gebruikersnaam bij gebruik van het authenticatietype config!"
+msgstr ""
+"Lege gebruikersnaam bij gebruik van het [kbd]config[/kbd] authenticatietype!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
-"Lege signon-sessienaam wanneer u gebruik maakt van het authenticatietype "
-"signon!"
+"Lege signon-sessienaam wanneer u gebruik maakt van het [kbd]signon[/kbd] "
+"authenticatietype!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"Lege signon-URL wanneer u gebruik maakt van het authenticatietype signon!"
+"Lege signon-URL wanneer u gebruik maakt van het [kbd]signon[/kbd] "
+"authenticatietype!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -5536,7 +5528,6 @@ msgid "Delete all cookies on logout"
 msgstr "Alle cookies verwijderen bij het afmelden"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
@@ -5545,7 +5536,7 @@ msgid ""
 "kbd] authentication mode."
 msgstr ""
 "Geeft aan of de laatst gebruikte gebruikersnaam moet worden herinnerd "
-"wanneer u geen gebruik maakt van de cookie-authenticatiemethode."
+"wanneer u geen gebruik maakt van de [kbd]cookie[/kbd] authenticatiemethode."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5638,7 +5629,6 @@ msgid "Maximum tables"
 msgstr "Maximum aantal tabellen"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
@@ -5646,8 +5636,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "[kbd]cookie[/kbd] authentication."
 msgstr ""
-"Schakel de standaard waarschuwing uit als mcrypt ontbreekt voor cookie-"
-"authenticatie."
+"Schakel de standaard waarschuwing uit als mcrypt ontbreekt voor "
+"[kbd]cookie[/kbd] authenticatie."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -6416,6 +6406,10 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Zowel deze tabel als de gebruikersgroepen tabel (user groups) zijn "
+"noodzakelijk om de configureerbare menu's optie te activeren; als u een van "
+"beide leeg laat wordt deze functie uitgeschakeld, suggestie: "
+"[kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:705
 msgid "Users table"
@@ -6427,6 +6421,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Zowel deze tabel als de gebruikerstabel (users) zijn noodzakelijk om de "
+"configureerbare menu's optie te activeren; als u een van beide leeg laat "
+"wordt deze functie uitgeschakeld, suggestie: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:707
 msgid "User groups table"
@@ -6470,7 +6467,6 @@ msgid "Allow to display all the rows"
 msgstr "Toon alle rijen"
 
 #: libraries/config/messages.inc.php:716
-#, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
 #| "authentication mode because the password is hard coded in the "
@@ -6482,9 +6478,9 @@ msgid ""
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
 "Let op: Deze functie heeft niet de verwachte werking wanneer u gebruik maakt "
-"van [kbd]config[/kbd]-authenticatie, gezien uw wachtwoord dan vast in het "
+"van [kbd]config[/kbd] authenticatie, gezien uw wachtwoord dan vast in het "
 "configuratiebestand staat opgeslagen; dit beperkt echter niet de "
-"mogelijkheid om de bijbehorende SQL-opdracht handmatig uit te voeren"
+"mogelijkheid om de bijbehorende SQL-opdracht handmatig uit te voeren."
 
 #: libraries/config/messages.inc.php:717
 msgid "Show password change form"
