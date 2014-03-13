@@ -6,10 +6,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-13 14:26+0100\n"
-"PO-Revision-Date: 2014-03-04 14:25+0200\n"
+"PO-Revision-Date: 2014-03-13 16:09+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
-">\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2380,16 +2379,14 @@ msgid "Saved bookmarked search:"
 msgstr "Uložená vyhledávání:"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Delete bookmark"
 msgid "Create bookmark"
-msgstr "Odstranit uložené vyhledávání"
+msgstr "Uložit vyhledávání"
 
 #: libraries/DBQbe.class.php:1482
-#, fuzzy
 #| msgid "Save bookmark"
 msgid "Update bookmark"
-msgstr "Zobrazuji uložený dotaz"
+msgstr "Upravit uložené vyhledávání"
 
 #: libraries/DBQbe.class.php:1484
 msgid "Delete bookmark"
