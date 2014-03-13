@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-13 14:26+0100\n"
-"PO-Revision-Date: 2014-03-13 18:54+0200\n"
-"Last-Translator: Erik Hepsø <hepso@hoved.org>\n"
+"PO-Revision-Date: 2014-03-13 19:11+0200\n"
+"Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/nb/>\n"
 "Language: nb\n"
@@ -2524,7 +2524,7 @@ msgstr "Tjeneren svarer ikke."
 
 #: libraries/DatabaseInterface.class.php:2051
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Vennligst sjekk privilegiene på mappen som inneholder databasen."
 
 #: libraries/DatabaseInterface.class.php:2061
 msgid "Details…"
