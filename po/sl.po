@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-13 14:26+0100\n"
-"PO-Revision-Date: 2014-03-13 16:11+0200\n"
+"PO-Revision-Date: 2014-03-13 16:12+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
@@ -9160,7 +9160,7 @@ msgstr "Skrij/prikaži navigacijske predmete"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr "Shranjevanje \"query by example\" iskanj"
+msgstr "Shranjevanje iskanj \"query by example\""
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
