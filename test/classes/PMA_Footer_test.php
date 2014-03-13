@@ -238,6 +238,7 @@ class PMA_Footer_Test extends PHPUnit_Framework_TestCase
      * Test for displaying footer
      *
      * @return void
+     * @group medium
      */
     public function testDisplay()
     {

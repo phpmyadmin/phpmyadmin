@@ -94,6 +94,7 @@ class PMA_ServerBinlog_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getLogInfo
      *
      * @return void
+     * @group medium
      */
     public function testPMAGetLogInfo()
     {

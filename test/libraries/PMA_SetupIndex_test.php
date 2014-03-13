@@ -399,6 +399,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
      * Test for ServerConfigChecks::performConfigChecks
      *
      * @return void
+     * @group medium
      */
     public function testServerConfigChecksPerformConfigChecks()
     {
