@@ -73,6 +73,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_relationsCleanupColumn
      *
      * @return void
+     * @group medium
      */
     public function testPMARelationsCleanupColumn()
     {

@@ -105,6 +105,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getHtmlForMasterReplication
      *
      * @return void
+     * @group medium
      */
     public function testPMAGetHtmlForMasterReplication()
     {

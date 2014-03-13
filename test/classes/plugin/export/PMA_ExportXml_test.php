@@ -61,6 +61,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
      * Test for ExportXml::setProperties
      *
      * @return void
+     * @group medium
      */
     public function testSetProperties()
     {
@@ -219,6 +220,7 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
      * Test for ExportXml::exportHeader
      *
      * @return void
+     * @group medium
      */
     public function testExportHeaderWithoutDrizzle()
     {

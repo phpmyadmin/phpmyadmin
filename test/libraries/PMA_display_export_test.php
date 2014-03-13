@@ -125,6 +125,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getHtmlForExportOptions
      *
      * @return vgetUserValue
+     * @group medium
      */
     public function testPMAGetHtmlForExportOptions()
     {

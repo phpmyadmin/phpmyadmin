@@ -58,6 +58,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
      * Test for AuthenticationConfig::auth
      *
      * @return void
+     * @group medium
      */
     public function testAuth()
     {

@@ -63,6 +63,7 @@ class PMA_TableReplaceSearchTest extends PHPUnit_Framework_TestCase
      * Tests getReplacePreview() method
      *
      * @return void
+     * @group medium
      */
     public function testGetReplacePreview()
     {

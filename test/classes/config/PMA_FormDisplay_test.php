@@ -59,6 +59,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      * Test for FormDisplay::__constructor
      *
      * @return void
+     * @group medium
      */
     public function testFormDisplayContructor()
     {
@@ -72,6 +73,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      * Test for FormDisplay::registerForm
      *
      * @return void
+     * @group medium
      */
     public function testRegisterForm()
     {
@@ -117,6 +119,7 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
      * Test for FormDisplay::process
      *
      * @return void
+     * @group medium
      */
     public function testProcess()
     {

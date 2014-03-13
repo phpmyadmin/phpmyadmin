@@ -25,12 +25,18 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 99;
     }
 
+    /**
+     * @group medium
+     */
     function testGetDbLinkEmpty()
     {
         $GLOBALS['db'] = null;
         $this->assertEmpty(PMA_Util::getDbLink());
     }
 
+    /**
+     * @group medium
+     */
     function testGetDbLinkNull()
     {
         global $cfg;

@@ -66,6 +66,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      * Test for ExportSql::setProperties
      *
      * @return void
+     * @group medium
      */
     public function testSetProperties()
     {
@@ -1133,6 +1134,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      * Test for ExportSql::getTableDef
      *
      * @return void
+     * @group medium
      */
     public function testGetTableDefWithoutDrizzle()
     {
@@ -1610,6 +1612,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      * Test for ExportSql::exportStructure
      *
      * @return void
+     * @group medium
      */
     public function testExportStructure()
     {
@@ -1778,6 +1781,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      * Test for ExportSql::exportData
      *
      * @return void
+     * @group medium
      */
     public function testExportData()
     {
@@ -1909,6 +1913,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
      * Test for ExportSql::exportData
      *
      * @return void
+     * @group medium
      */
     public function testExportDataWithUpdate()
     {

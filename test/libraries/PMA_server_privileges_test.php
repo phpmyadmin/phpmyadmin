@@ -798,6 +798,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getHtmlToDisplayPrivilegesTable
      *
      * @return void
+     * @group medium
      */
     public function testPMAGetHtmlToDisplayPrivilegesTable()
     {
@@ -1177,6 +1178,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getHtmlForAddUser
      *
      * @return void
+     * @group medium
      */
     public function testPMAGetHtmlForAddUser()
     {

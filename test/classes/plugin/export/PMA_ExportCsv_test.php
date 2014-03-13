@@ -474,6 +474,7 @@ class PMA_ExportCsv_Test extends PHPUnit_Framework_TestCase
      * Test for ExportCsv::exportData
      *
      * @return void
+     * @group medium
      */
     public function testExportData()
     {

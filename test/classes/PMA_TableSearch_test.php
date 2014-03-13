@@ -114,6 +114,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
      * Test for __construct
      *
      * @return void
+     * @group medium
      */
     public function testConstruct()
     {
@@ -133,6 +134,7 @@ class PMA_TableSearch_Test extends PHPUnit_Framework_TestCase
      * Test for getSelectionForm
      *
      * @return void
+     * @group medium
      */
     public function testGetSelectionForm()
     {

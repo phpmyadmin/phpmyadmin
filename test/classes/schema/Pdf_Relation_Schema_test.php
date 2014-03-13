@@ -198,7 +198,7 @@ class PMA_Pdf_Relation_Schema_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      *
-     * @group medium
+     * @group large
      */
     public function testConstructor()
     {

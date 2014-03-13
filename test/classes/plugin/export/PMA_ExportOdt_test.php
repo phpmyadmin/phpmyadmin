@@ -64,6 +64,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
      * Test for ExportOdt::setProperties
      *
      * @return void
+     * @group medium
      */
     public function testSetProperties()
     {
@@ -679,6 +680,7 @@ class PMA_ExportOdt_Test extends PHPUnit_Framework_TestCase
      * Test for ExportOdt::getTableDef
      *
      * @return void
+     * @group medium
      */
     public function testGetTableDef()
     {
