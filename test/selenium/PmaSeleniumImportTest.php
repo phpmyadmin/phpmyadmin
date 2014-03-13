@@ -25,17 +25,6 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login();
-        
-        /**
-         * testing file upload to remote server
-         */ 
-        $this->fileDetector(function($filename) {
-            if(file_exists($filename)) {
-                return $filename;
-            } else {
-                return NULL;
-            }
-        });
     }
 
     /**
@@ -126,12 +115,15 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
      */
     private function _doImport($type)
     {
+        /* FIXME: Need to implement file upload compatible with remote Selenium */
+        $this->markTestIncomplete(
+            'File uploading not yet implemented in Selenium test'
+        );
         $this->waitForElement('byLinkText', "Import")->click();
-        
-        //to implement file upload to remote server
-        $ele = $this->byName('import_file');
-        $this->sendKeys($ele, dirname(__FILE__) . "/../test_data/" . $type . "_import.sql");
-        
+        $ele = $this->waitForElement("byId", "input_import_file");
+        $ele->value(
+            dirname(__FILE__) . "/../test_data/" . $type . "_import.sql"
+        );
         $this->byId("buttonGo")->click();
         $this->waitForElement(
             "byXPath",
