@@ -15,8 +15,8 @@ before_script:
   - composer install --dev --no-interaction
 script:
   - ./scripts/generate-mo --quiet
-  - if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then PHPUNIT_ARGS=--debug ant phpunit lint ; fi
-  - if [[ $TRAVIS_PHP_VERSION == "hhvm" ]] ; then PHPUNIT_ARGS=--debug ant phpunit-hhvm lint ; fi
+  - if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then ant phpunit lint ; fi
+  - if [[ $TRAVIS_PHP_VERSION == "hhvm" ]] ; then ant phpunit-hhvm lint ; fi
 after_script:
   - php vendor/bin/coveralls -v
 matrix:
