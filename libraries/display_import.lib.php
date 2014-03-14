@@ -58,9 +58,6 @@ function PMA_getHtmlForImportJS($upload_id)
     $html .= '      $("#buttonGo").bind("click", function() {';
     // hide form
     $html .= '        $("#upload_form_form").css("display", "none");';
-    // show progress bar
-    $html .= '        $("#upload_form_status").css("display", "inline");';
-    $html .= '        $("#upload_form_status_info").css("display", "inline");';
 
     if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
 
@@ -230,7 +227,7 @@ function PMA_getHtmlForImportOptionsFile($max_upload_size, $import_list)
         $html .= '            <ul>';
         $html .= '            <li>';
         $html .= '                <input type="radio" name="file_location" '
-            . 'id="radio_import_file" />';
+            . 'id="radio_import_file" required="required" />';
         $html .= PMA_Util::getBrowseUploadFileBlock($max_upload_size);
         $html .= '            </li>';
         $html .= '            <li>';
@@ -402,7 +399,7 @@ function PMA_getHtmlForImport(
 
     $html .= PMA_getHtmlForImportJS($upload_id);
 
-    $html .= '    <form action="import.php" method="post" '
+    $html .= '    <form id="import_file_form" action="import.php" method="post" '
         . 'enctype="multipart/form-data"';
     $html .= '        name="import"';
     if ($_SESSION[$SESSION_KEY]["handler"] != "UploadNoplugin") {
