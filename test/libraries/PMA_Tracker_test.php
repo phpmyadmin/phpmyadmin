@@ -11,6 +11,7 @@
  */
 require_once 'libraries/Tracker.class.php';
 require_once 'libraries/DatabaseInterface.class.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
