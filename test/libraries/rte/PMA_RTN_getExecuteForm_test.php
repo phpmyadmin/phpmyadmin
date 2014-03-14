@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
+
 $GLOBALS['server'] = 0;
 require_once 'libraries/Util.class.php';
 require_once 'libraries/sqlparser.lib.php';
@@ -18,8 +19,18 @@ require_once 'libraries/Tracker.class.php';
  */
 require_once 'libraries/rte/rte_routines.lib.php';
 
+/**
+ * Test for generating routine execution dialog
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setUp()
     {
         global $cfg;
@@ -34,6 +45,13 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getExecuteForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @dataProvider provider_1
      */
     public function testgetExecuteForm_1($data, $matcher)
@@ -43,6 +61,11 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_RTN_getExecuteForm($data), false);
     }
 
+    /**
+     * Data provider for testgetExecuteForm_1
+     *
+     * @return array
+     */
     public function provider_1()
     {
         $data = array(
@@ -55,12 +78,54 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
             'item_definer'              => '',
             'item_type'                 => 'PROCEDURE',
             'item_num_params'           => 6,
-            'item_param_dir'            => array(0 => 'IN',   1 => 'OUT',     2 => 'IN',       3 => 'IN',       4 => 'IN',      5 => 'IN'),
-            'item_param_name'           => array(0 => 'foo',  1 => 'foa',     2 => 'fob',      3 => 'foc',      4 => 'fod',     5 => 'foe'),
-            'item_param_type'           => array(0 => 'DATE', 1 => 'VARCHAR', 2 => 'DATETIME', 3 => 'GEOMETRY', 4 => 'ENUM',    5 => 'SET'),
-            'item_param_length'         => array(0 => '',     1 => '22',      2 => '',         3 => '',         4 => "'a','b'", 5 => "'a','b'"),
-            'item_param_opts_num'       => array(0 => '',     1 => '',        2 => '',         3 => '',         4 => '',        5 => ''),
-            'item_param_opts_text'      => array(0 => '',     1 => 'utf8',    2 => '',         3 => '',         4 => '',        5 => ''),
+            'item_param_dir'            => array(
+                0 => 'IN',
+                1 => 'OUT',
+                2 => 'IN',
+                3 => 'IN',
+                4 => 'IN',
+                5 => 'IN'
+            ),
+            'item_param_name'           => array(
+                0 => 'foo',
+                1 => 'foa',
+                2 => 'fob',
+                3 => 'foc',
+                4 => 'fod',
+                5 => 'foe'
+            ),
+            'item_param_type'           => array(
+                0 => 'DATE',
+                1 => 'VARCHAR',
+                2 => 'DATETIME',
+                3 => 'GEOMETRY',
+                4 => 'ENUM',
+                5 => 'SET'
+            ),
+            'item_param_length'         => array(
+                0 => '',
+                1 => '22',
+                2 => '',
+                3 => '',
+                4 => "'a','b'",
+                5 => "'a','b'"
+            ),
+            'item_param_opts_num'       => array(
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+                4 => '',
+                5 => ''
+            ),
+            'item_param_opts_text'      => array(
+                0 => '',
+                1 => 'utf8',
+                2 => '',
+                3 => '',
+                4 => '',
+                5 => ''
+            ),
             'item_returntype'           => '',
             'item_isdeterministic'      => '',
             'item_securitytype_definer' => '',
@@ -147,6 +212,13 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getExecuteForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @dataProvider provider_2
      */
     public function testgetExecuteForm_2($data, $matcher)
@@ -156,6 +228,11 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_RTN_getExecuteForm($data), false);
     }
 
+    /**
+     * Data provider for testgetExecuteForm_2
+     *
+     * @return array
+     */
     public function provider_2()
     {
         $data = array(
@@ -168,12 +245,54 @@ class PMA_RTN_GetExecuteForm_Test extends PHPUnit_Framework_TestCase
             'item_definer'              => '',
             'item_type'                 => 'PROCEDURE',
             'item_num_params'           => 6,
-            'item_param_dir'            => array(0 => 'IN',   1 => 'OUT',     2 => 'IN',       3 => 'IN',       4 => 'IN',      5 => 'IN'),
-            'item_param_name'           => array(0 => 'foo',  1 => 'foa',     2 => 'fob',      3 => 'foc',      4 => 'fod',     5 => 'foe'),
-            'item_param_type'           => array(0 => 'DATE', 1 => 'VARCHAR', 2 => 'DATETIME', 3 => 'GEOMETRY', 4 => 'ENUM',    5 => 'SET'),
-            'item_param_length'         => array(0 => '',     1 => '22',      2 => '',         3 => '',         4 => "'a','b'", 5 => "'a','b'"),
-            'item_param_opts_num'       => array(0 => '',     1 => '',        2 => '',         3 => '',         4 => '',        5 => ''),
-            'item_param_opts_text'      => array(0 => '',     1 => 'utf8',    2 => '',         3 => '',         4 => '',        5 => ''),
+            'item_param_dir'            => array(
+                0 => 'IN',
+                1 => 'OUT',
+                2 => 'IN',
+                3 => 'IN',
+                4 => 'IN',
+                5 => 'IN'
+            ),
+            'item_param_name'           => array(
+                0 => 'foo',
+                1 => 'foa',
+                2 => 'fob',
+                3 => 'foc',
+                4 => 'fod',
+                5 => 'foe'
+            ),
+            'item_param_type'           => array(
+                0 => 'DATE',
+                1 => 'VARCHAR',
+                2 => 'DATETIME',
+                3 => 'GEOMETRY',
+                4 => 'ENUM',
+                5 => 'SET'
+            ),
+            'item_param_length'         => array(
+                0 => '',
+                1 => '22',
+                2 => '',
+                3 => '',
+                4 => "'a','b'",
+                5 => "'a','b'"
+            ),
+            'item_param_opts_num'       => array(
+                0 => '',
+                1 => '',
+                2 => '',
+                3 => '',
+                4 => '',
+                5 => ''
+            ),
+            'item_param_opts_text'      => array(
+                0 => '',
+                1 => 'utf8',
+                2 => '',
+                3 => '',
+                4 => '',
+                5 => ''
+            ),
             'item_returntype'           => '',
             'item_isdeterministic'      => '',
             'item_securitytype_definer' => '',

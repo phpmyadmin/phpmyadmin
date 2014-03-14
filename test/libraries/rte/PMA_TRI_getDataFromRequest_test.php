@@ -11,9 +11,21 @@
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
 
+/**
+ * Test for fetching trigger data from HTTP request
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_TRI_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * Test for PMA_TRI_getDataFromRequest
+     *
+     * @param array $in  Input
+     * @param array $out Expected output
+     *
+     * @return void
+     *
      * @dataProvider provider
      */
     public function testgetDataFromRequest_empty($in, $out)
@@ -29,6 +41,11 @@ class PMA_TRI_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($out, PMA_TRI_getDataFromRequest());
     }
 
+    /**
+     * Data provider for testgetDataFromRequest_empty
+     *
+     * @return array
+     */
     public function provider()
     {
         return array(

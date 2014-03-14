@@ -12,8 +12,19 @@
  */
 require_once 'libraries/select_lang.lib.php';
 
+/**
+ * Test for PMA_langDetails from select_lang.lib.php
+ *
+ * @package PhpMyAdmin-test
+ * @group select_lang.lib-tests
+ */
 class PMA_LangDetails_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for testLangDetails
+     *
+     * @return array
+     */
     function dataProvider()
     {
         return array(
@@ -81,9 +92,9 @@ class PMA_LangDetails_Test extends PHPUnit_Framework_TestCase
             array('uz[-_]cyr|uzbek-cyrillic', 'uz-cyr', '&#1038;&#1079;&#1073;&#1077;&#1082;&#1095;&#1072;', 'uz'),
             array('zh[-_](tw|hk)|chinese traditional', 'zh-TW', '&#20013;&#25991;', 'zh_TW'),
             array(
-                'zh(?![-_](tw|hk))([-_][[:alpha:]]{2,3})?|chinese simplified', 
-                'zh', 
-                '&#20013;&#25991;', 
+                'zh(?![-_](tw|hk))([-_][[:alpha:]]{2,3})?|chinese simplified',
+                'zh',
+                '&#20013;&#25991;',
                 'zh_CN'
             ),
             array('test_lang|test_lang', 'test_lang', 'test_lang', 'test_lang')
@@ -91,6 +102,15 @@ class PMA_LangDetails_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_langDetails
+     *
+     * @param string $a Language
+     * @param string $b Language code
+     * @param string $c Language native name in html entities
+     * @param string $d Language
+     *
+     * @return void
+     *
      * @dataProvider dataProvider
      */
     function testLangDetails($a, $b, $c,$d)

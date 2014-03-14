@@ -17,28 +17,60 @@ require_once 'libraries/sqlparser.lib.php';
  */
 require_once 'libraries/rte/rte_routines.lib.php';
 
-
+/**
+ * Test for parsing of Routine parameters
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * Test for PMA_RTN_parseRoutineDefiner
+     *
+     * @param string $source Source
+     * @param array  $target Expected output
+     *
+     * @return void
+     *
      * @dataProvider definer_provider
      */
     public function test_parseDefiner($source, $target)
     {
         PMA_RTN_setGlobals();
-        $this->assertEquals($target, PMA_RTN_parseRoutineDefiner(PMA_SQP_parse($source)));
-    }
-
-    public function definer_provider()
-    {
-        return array(
-            array('CREATE PROCEDURE FOO() SELECT NULL', ''),
-            array('CREATE DEFINER=`root`@`localhost` PROCEDURE FOO() SELECT NULL', 'root@localhost'),
-            array('CREATE DEFINER=`root\\`@`localhost` PROCEDURE FOO() SELECT NULL', 'root\\@localhost'),
+        $this->assertEquals(
+            $target,
+            PMA_RTN_parseRoutineDefiner(PMA_SQP_parse($source))
         );
     }
 
     /**
+     * Data provider for test_parseDefiner
+     *
+     * @return array
+     */
+    public function definer_provider()
+    {
+        return array(
+            array('CREATE PROCEDURE FOO() SELECT NULL', ''),
+            array(
+                'CREATE DEFINER=`root`@`localhost` PROCEDURE FOO() SELECT NULL',
+                'root@localhost'
+            ),
+            array(
+                'CREATE DEFINER=`root\\`@`localhost` PROCEDURE FOO() SELECT NULL',
+                'root\\@localhost'
+            ),
+        );
+    }
+
+    /**
+     * Test for PMA_RTN_parseOneParameter
+     *
+     * @param string $source Source
+     * @param array  $target Expected output
+     *
+     * @return void
+     *
      * @dataProvider param_provider
      */
     public function test_parseOneParameter($source, $target)
@@ -47,30 +79,68 @@ class PMA_RTN_ParameterParser_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($target, PMA_RTN_parseOneParameter($source));
     }
 
+    /**
+     * Data provider for test_parseOneParameter
+     *
+     * @return array
+     */
     public function param_provider()
     {
         return array(
             array('`foo` TEXT', array('', 'foo', 'TEXT', '', '')),
             array('`foo` INT(20)', array('', 'foo', 'INT', '20', '')),
             array('DECIMAL(5,5)', array('', '', 'DECIMAL', '5,5', '')),
-            array('IN `fo``fo` INT UNSIGNED', array('IN', 'fo`fo', 'INT', '', 'UNSIGNED')),
-            array('OUT bar VARCHAR(1) CHARSET utf8', array('OUT', 'bar', 'VARCHAR', '1', 'utf8')),
-            array('`"baz\'\'` ENUM(\'a\', \'b\') CHARSET latin1', array('', '"baz\'\'', 'ENUM', '\'a\',\'b\'', 'latin1')),
-            array('INOUT `foo` DECIMAL(5,2) UNSIGNED ZEROFILL', array('INOUT', 'foo', 'DECIMAL', '5,2', 'UNSIGNED ZEROFILL')),
-            array('`foo``s func` SET(\'test\'\'esc"\',   \'more\\\'esc\')', array('', 'foo`s func', 'SET', '\'test\'\'esc"\',\'more\\\'esc\'', ''))
+            array(
+                'IN `fo``fo` INT UNSIGNED',
+                array('IN', 'fo`fo', 'INT', '', 'UNSIGNED')
+            ),
+            array(
+                'OUT bar VARCHAR(1) CHARSET utf8',
+                array('OUT', 'bar', 'VARCHAR', '1', 'utf8')
+            ),
+            array(
+                '`"baz\'\'` ENUM(\'a\', \'b\') CHARSET latin1',
+                array('', '"baz\'\'', 'ENUM', '\'a\',\'b\'', 'latin1')
+            ),
+            array(
+                'INOUT `foo` DECIMAL(5,2) UNSIGNED ZEROFILL',
+                array('INOUT', 'foo', 'DECIMAL', '5,2', 'UNSIGNED ZEROFILL')
+            ),
+            array(
+                '`foo``s func` SET(\'test\'\'esc"\',   \'more\\\'esc\')',
+                array(
+                    '', 'foo`s func', 'SET', '\'test\'\'esc"\',\'more\\\'esc\'', ''
+                )
+            )
         );
     }
 
     /**
+     * Test for PMA_RTN_parseAllParameters
+     *
+     * @param string $query  Query
+     * @param string $type   Type
+     * @param array  $target Expected output
+     *
+     * @return void
+     *
      * @depends test_parseOneParameter
      * @dataProvider query_provider
      */
     public function test_parseAllParameters($query, $type, $target)
     {
         PMA_RTN_setGlobals();
-        $this->assertEquals($target, PMA_RTN_parseAllParameters(PMA_SQP_parse($query), $type));
+        $this->assertEquals(
+            $target,
+            PMA_RTN_parseAllParameters(PMA_SQP_parse($query), $type)
+        );
     }
 
+    /**
+     * Data provider for test_parseAllParameters
+     *
+     * @return array
+     */
     public function query_provider()
     {
         return array(
