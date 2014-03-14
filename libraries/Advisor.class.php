@@ -353,8 +353,14 @@ class Advisor
 
         // Actually evaluate the code
         ob_start();
-        eval('$value = ' . $expr . ';');
-        $err = ob_get_contents();
+        try {
+            eval('$value = ' . $expr . ';');
+            $err = ob_get_contents();
+        } catch (Exception $e) {
+            // In normal operation, there is just output in the buffer,
+            // but when running under phpunit, error in eval raises exception
+            $err = $e->getMessage();
+        }
         ob_end_clean();
 
         // Error handling
