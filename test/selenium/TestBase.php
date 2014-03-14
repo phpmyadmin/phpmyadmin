@@ -239,6 +239,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             $password = $GLOBALS['TESTSUITE_PASSWORD'];
         }
         $this->url('');
+        $this->waitForElementNotPresent('byId', 'cfs-style');
         $usernameField = $this->waitForElement('byId', 'input_username');
         $usernameField->value($username);
         $passwordField = $this->byId('input_password');
