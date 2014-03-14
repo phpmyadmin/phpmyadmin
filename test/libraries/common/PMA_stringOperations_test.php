@@ -12,6 +12,12 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ * Test for several string operations
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
 {
 
@@ -29,6 +35,8 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
 
     /**
      * storing globals and session
+     *
+     * @return void
      */
     public function setUp()
     {
@@ -47,12 +55,21 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
     {
         return array(
             array('test', "t<br />\ne<br />\ns<br />\nt"),
-            array('te&nbsp;;st', "t<br />\ne<br />\n&nbsp;<br />\n;<br />\ns<br />\nt")
+            array(
+                'te&nbsp;;st',
+                "t<br />\ne<br />\n&nbsp;<br />\n;<br />\ns<br />\nt"
+            )
         );
     }
 
     /**
      * test of changing string from horizontal to vertical orientation
+     *
+     * @param string $a String
+     * @param string $e Expected output
+     *
+     * @return void
+     *
      * @dataProvider flipStringDataProvider
      */
 
@@ -76,6 +93,12 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
 
     /**
      * test of generating user dir, globals are defined
+     *
+     * @param string $a String
+     * @param string $e Expected output
+     *
+     * @return void
+     *
      * @dataProvider userDirDataProvider
      */
 
@@ -102,6 +125,12 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
 
     /**
      * replace binary contents test
+     *
+     * @param string $a String
+     * @param string $e Expected output
+     *
+     * @return void
+     *
      * @dataProvider replaceBinaryContentsDataProvider
      */
 
@@ -129,9 +158,14 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
 
     /**
      * duplicate first newline test
+     *
+     * @param string $a String
+     * @param string $e Expected output
+     *
+     * @return void
+     *
      * @dataProvider duplicateFirstNewlineDataProvider
      */
-
     public function testDuplicateFirstNewline($a, $e)
     {
         $this->assertEquals(

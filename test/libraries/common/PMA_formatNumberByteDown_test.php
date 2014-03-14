@@ -13,6 +13,12 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ * Test for format number and byte
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -27,6 +33,8 @@ class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
 
     /**
      * storing globals and session
+     *
+     * @return void
      */
     public function setUp()
     {
@@ -37,6 +45,8 @@ class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
 
     /**
      * recovering globals and session
+     *
+     * @return void
      */
     public function tearDown()
     {
@@ -66,6 +76,14 @@ class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
 
     /**
      * format number test, globals are defined
+     *
+     * @param float $a Value to format
+     * @param int   $b Sensitiveness
+     * @param int   $c Number of decimals to retain
+     * @param array $d Expected value
+     *
+     * @return void
+     *
      * @dataProvider formatNumberDataProvider
      */
     public function testFormatNumber($a, $b, $c, $d)
@@ -99,6 +117,14 @@ class PMA_FormatNumberByteDown_Test extends PHPUnit_Framework_TestCase
 
     /**
      * format byte test, globals are defined
+     *
+     * @param float $a Value to format
+     * @param int   $b Sensitiveness
+     * @param int   $c Number of decimals to retain
+     * @param array $e Expected value
+     *
+     * @return void
+     *
      * @dataProvider formatByteDownDataProvider
      */
     public function testFormatByteDown($a, $b, $c, $e)

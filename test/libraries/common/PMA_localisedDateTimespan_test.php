@@ -13,6 +13,12 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ * Test for generating localised date or timespan expression
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_LocalisedDateTimespan_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -32,6 +38,8 @@ class PMA_LocalisedDateTimespan_Test extends PHPUnit_Framework_TestCase
 
     /**
      * storing globals and session
+     *
+     * @return void
      */
     public function setUp()
     {
@@ -43,6 +51,8 @@ class PMA_LocalisedDateTimespan_Test extends PHPUnit_Framework_TestCase
 
     /**
      * recovering globals and session
+     *
+     * @return void
      */
     public function tearDown()
     {
@@ -67,6 +77,13 @@ class PMA_LocalisedDateTimespan_Test extends PHPUnit_Framework_TestCase
 
     /**
      * localised date test, globals are defined
+     *
+     * @param string $a Current timestamp
+     * @param string $b Format
+     * @param string $e Expected output
+     *
+     * @return void
+     *
      * @dataProvider localisedDateDataProvider
      */
     public function testLocalisedDate($a, $b, $e)
@@ -91,6 +108,12 @@ class PMA_LocalisedDateTimespan_Test extends PHPUnit_Framework_TestCase
 
     /**
      * localised timestamp test, globals are defined
+     *
+     * @param int    $a Timespan in seconds
+     * @param string $e Expected output
+     *
+     * @return void
+     *
      * @dataProvider timespanFormatDataProvider
      */
     public function testTimespanFormat($a, $e)

@@ -13,11 +13,19 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/sqlparser.data.php';
 
+/**
+ * Test for quoting, slashing/backslashing
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
      * sqlAddslashes test
+     *
+     * @return void
      */
     public function testAddSlashes()
     {
@@ -74,6 +82,12 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
 
     /**
      * PMA_Util::unQuote test
+     *
+     * @param string $param    String
+     * @param string $expected Expected output
+     *
+     * @return void
+     *
      * @dataProvider unQuoteProvider
      */
     public function testUnQuote($param, $expected)
@@ -100,6 +114,12 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
 
     /**
      * PMA_Util::unQuote test with chosen quote
+     *
+     * @param string $param    String
+     * @param string $expected Expected output
+     *
+     * @return void
+     *
      * @dataProvider unQuoteSelectedProvider
      */
     public function testUnQuoteSelectedChar($param, $expected)
@@ -129,6 +149,12 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
 
     /**
      * backquote test with different param $do_it (true, false)
+     *
+     * @param string $a String
+     * @param string $b Expected output
+     *
+     * @return void
+     *
      * @dataProvider backquoteDataProvider
      */
     public function testBackquote($a, $b)
@@ -160,6 +186,12 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
 
     /**
      * backquoteCompat test with different param $compatibility (NONE, MSSQL)
+     *
+     * @param string $a String
+     * @param string $b Expected output
+     *
+     * @return void
+     *
      * @dataProvider backquoteCompatDataProvider
      */
     public function testbackquoteCompat($a, $b)
@@ -179,6 +211,11 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($b, PMA_Util::backquoteCompat($a, 'MSSQL'));
     }
 
+    /**
+     * backquoteCompat test with forbidden words
+     *
+     * @return void
+     */
     public function testBackquoteForbidenWords()
     {
         global $PMA_SQPdata_forbidden_word;

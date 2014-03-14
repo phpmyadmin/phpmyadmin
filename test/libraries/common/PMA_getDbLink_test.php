@@ -15,8 +15,19 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ * Test for PMA_getDbLink_test from Util.class.php
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     function setUp()
     {
         global $cfg;
@@ -26,6 +37,10 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for getDbLink
+     *
+     * @return void
+     *
      * @group medium
      */
     function testGetDbLinkEmpty()
@@ -35,6 +50,10 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for getDbLink
+     *
+     * @return void
+     *
      * @group medium
      */
     function testGetDbLinkNull()
@@ -44,13 +63,19 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         $database = $GLOBALS['db'];
         $this->assertEquals(
             '<a href="' . $cfg['DefaultTabDatabase'] . '?db=' . $database
-            . '&amp;server=99&amp;lang=en&amp;token=token" title="Jump to database &quot;'
+            . '&amp;server=99&amp;lang=en&amp;token=token" '
+            . 'title="Jump to database &quot;'
             . htmlspecialchars($database) . '&quot;.">'
             . htmlspecialchars($database) . '</a>',
             PMA_Util::getDbLink()
         );
     }
 
+    /**
+     * Test for getDbLink
+     *
+     * @return void
+     */
     function testGetDbLink()
     {
         global $cfg;
@@ -64,6 +89,11 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getDbLink
+     *
+     * @return void
+     */
     function testGetDbLinkWithSpecialChars()
     {
         global $cfg;

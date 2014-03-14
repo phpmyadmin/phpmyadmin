@@ -12,10 +12,20 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ * Test PMA_Util::whichCrlf function
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_WhichCrlf_Test extends PHPUnit_Framework_TestCase
 {
 
     /**
+     * Test for whichCrlf
+     *
+     * @return void
+     *
      * @using runkit pecl extension
      * if not define PMA_USR_OS, then define it as Win
      * if installed runkit, then constant will not change
