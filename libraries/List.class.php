@@ -49,7 +49,8 @@ abstract class PMA_List extends ArrayObject
     public function getSingleItem()
     {
         if (count($this) === 1) {
-            return reset($this);
+            $array = (array) $this;
+            return reset($array);
         }
 
         return $this->getEmpty();
