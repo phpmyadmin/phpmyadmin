@@ -2588,10 +2588,12 @@ class PMA_Util
 
         return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
             . PMA_URL_getCommon($database) . '" title="'
-            . htmlspecialchars(sprintf(
-                __('Jump to database "%s".'),
-                $database
-            ))
+            . htmlspecialchars(
+                sprintf(
+                    __('Jump to database "%s".'),
+                    $database
+                )
+            )
             . '">' . htmlspecialchars($database) . '</a>';
     }
 
