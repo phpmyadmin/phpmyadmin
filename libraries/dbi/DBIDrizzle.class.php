@@ -52,7 +52,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      * @return PMA_DrizzleCon
      */
     private function _realConnect($drizzle, $host, $port, $uds, $user, $password,
-        $db = null, $options = DRIZZLE_CON_NONE
+        $db = null, $options = 0
     ) {
         if ($uds) {
             $con = $drizzle->addUds($uds, $user, $password, $db, $options);
