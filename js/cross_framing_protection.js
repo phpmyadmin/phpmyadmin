@@ -4,7 +4,7 @@
  */
 if (self == top) {
     var style_element = document.getElementById("cfs-style");
-    style_elemnt.parentNode.removeChild(style_element);
+    style_element.parentNode.removeChild(style_element);
 } else {
     top.location = self.location;
 }
