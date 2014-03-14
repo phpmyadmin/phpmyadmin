@@ -12,9 +12,19 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ * Test for MySQL Wildcards escaping/unescaping
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * data provider for testEscape and testUnEscape
+     *
+     * @return array
+     */
     public function escapeDataProvider()
     {
         return array(
@@ -31,6 +41,12 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
 
     /**
      * PMA_Util::escapeMysqlWildcards tests
+     *
+     * @param string $a String to escape
+     * @param string $b Expected value
+     *
+     * @return void
+     *
      * @dataProvider escapeDataProvider
      */
 
@@ -43,6 +59,12 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
 
     /**
      * PMA_Util::unescapeMysqlWildcards tests
+     *
+     * @param string $a String to escape
+     * @param string $b Expected value
+     *
+     * @return void
+     *
      * @dataProvider escapeDataProvider
      */
 

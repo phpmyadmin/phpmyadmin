@@ -12,6 +12,12 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ * Test for supporting foreign key
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_IsForeignKeySupportedTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -30,6 +36,12 @@ class PMA_IsForeignKeySupportedTest extends PHPUnit_Framework_TestCase
 
     /**
      * foreign key supported test
+     *
+     * @param string $a Engine
+     * @param bool   $e Expected Value
+     *
+     * @return void
+     *
      * @dataProvider foreignkeySupportedDataProvider
      */
     public function testForeignkeySupported($a, $e)

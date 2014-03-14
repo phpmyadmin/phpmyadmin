@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Util.class.php';
@@ -15,16 +16,35 @@ require_once 'libraries/Tracker.class.php';
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
 
+/**
+ * Test for generating trigger editor
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['cfg']['ServerDefault'] = '';
         $GLOBALS['db'] = 'pma_test';
     }
 
+
     /**
+     * Test for PMA_TRI_getEditorForm
+     *
+     * @param string $data    Data for trigger
+     * @param array  $matcher Matcher
+     *
+     * @return void
+     *
      * @dataProvider provider_add
+     * @group medium
      */
     public function testgetEditorForm_add($data, $matcher)
     {
@@ -33,6 +53,11 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_TRI_getEditorForm('add', $data), '', false);
     }
 
+    /**
+     * Provider for testgetEditorForm_add
+     *
+     * @return array
+     */
     public function provider_add()
     {
         $data = array(
@@ -122,6 +147,13 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_TRI_getEditorForm
+     *
+     * @param string $data    Data for trigger
+     * @param array  $matcher Matcher
+     *
+     * @return void
+     *
      * @dataProvider provider_edit
      * @group medium
      */
@@ -132,6 +164,11 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_TRI_getEditorForm('edit', $data), '', false);
     }
 
+    /**
+     * Provider for testgetEditorForm_edit
+     *
+     * @return array
+     */
     public function provider_edit()
     {
         $data = array(
@@ -221,6 +258,13 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_TRI_getEditorForm
+     *
+     * @param string $data    Data for trigger
+     * @param array  $matcher Matcher
+     *
+     * @return void
+     *
      * @dataProvider provider_ajax
      */
     public function testgetEditorForm_ajax($data, $matcher)
@@ -230,6 +274,11 @@ class PMA_TRI_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_TRI_getEditorForm('edit', $data), '', false);
     }
 
+    /**
+     * Provider for testgetEditorForm_ajax
+     *
+     * @return array
+     */
     public function provider_ajax()
     {
         $data = array(

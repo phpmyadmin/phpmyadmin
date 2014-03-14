@@ -19,7 +19,11 @@ require_once 'libraries/Util.class.php';
  */
 class PMA_ExtractColumnSpec_Test extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Set up
+     *
+     * @return void
+     */
     protected function setUp()
     {
         $GLOBALS['cfg']['LimitChars'] = 1000;
@@ -27,6 +31,11 @@ class PMA_ExtractColumnSpec_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test case for parsing SHOW COLUMNS output
+     *
+     * @param string $in  Column specification
+     * @param array  $out Expected value
+     *
+     * @return void
      *
      * @dataProvider provider
      */

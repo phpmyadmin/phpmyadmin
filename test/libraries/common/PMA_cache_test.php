@@ -12,6 +12,12 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ * Test for caching data in session
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_Cache_Test extends PHPUnit_Framework_TestCase
 {
 
@@ -27,6 +33,8 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
 
     /**
      * storing globals and session
+     *
+     * @return void
      */
     public function setUp()
     {
@@ -36,6 +44,8 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test if cached data is available after set
+     *
+     * @return void
      */
     public function testCacheExists()
     {
@@ -50,6 +60,8 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test if PMA_Util::cacheGet does not return data for non existing cache entries
+     *
+     * @return void
      */
     public function testCacheGet()
     {
@@ -64,6 +76,8 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test retrieval of cached data
+     *
+     * @return void
      */
     public function testCacheSetGet()
     {
@@ -78,6 +92,8 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test clearing cached values
+     *
+     * @return void
      */
     public function testCacheUnSet()
     {
@@ -93,6 +109,8 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
 
     /**
      * Test clearing user cache
+     *
+     * @return void
      */
     public function testClearUserCache()
     {

@@ -11,8 +11,18 @@
  */
 require_once 'libraries/core.lib.php';
 
+/**
+ * Tests for PMA_isValid() from libraries/core.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Data provider for testNoVarType
+     *
+     * @return array
+     */
     public static function providerNoVarTypeProvider()
     {
         return array(
@@ -31,10 +41,13 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_isValid
      *
-     * @param mixed $var
-     * @param mixed $type
-     * @param mixed $compare
+     * @param mixed $var     Variable to check
+     * @param mixed $type    Type
+     * @param mixed $compare Compared value
+     *
+     * @return void
      *
      * @dataProvider providerNoVarTypeProvider
      */
@@ -43,29 +56,54 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_isValid($var, $type, $compare));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testVarNotSetAfterTest()
     {
         PMA_isValid($var);
         $this->assertFalse(isset($var));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNotSet()
     {
         $this->assertFalse(PMA_isValid($var));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testEmptyString()
     {
         $var = '';
         $this->assertFalse(PMA_isValid($var));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNotEmptyString()
     {
         $var = '0';
         $this->assertTrue(PMA_isValid($var));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testZero()
     {
         $var = 0;
@@ -73,6 +111,11 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_isValid($var, 'int'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNullFail()
     {
         $var = null;
@@ -82,12 +125,22 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse(PMA_isValid($var, 'null'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNotSetArray()
     {
         /** @var $array undefined array */
         $this->assertFalse(PMA_isValid($array['x']));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testScalarString()
     {
         $var = 'string';
@@ -96,6 +149,11 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_isValid($var));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testScalarInt()
     {
         $var = 1;
@@ -103,6 +161,11 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_isValid($var, 'scalar'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testScalarFloat()
     {
         $var = 1.1;
@@ -111,6 +174,11 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_isValid($var, 'scalar'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testScalarBool()
     {
         $var = true;
@@ -119,54 +187,99 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
         $this->assertTrue(PMA_isValid($var, 'boolean'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNotScalarArray()
     {
         $var = array('test');
         $this->assertFalse(PMA_isValid($var, 'scalar'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNotScalarNull()
     {
         $var = null;
         $this->assertFalse(PMA_isValid($var, 'scalar'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNumericInt()
     {
         $var = 1;
         $this->assertTrue(PMA_isValid($var, 'numeric'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNumericFloat()
     {
         $var = 1.1;
         $this->assertTrue(PMA_isValid($var, 'numeric'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNumericZero()
     {
         $var = 0;
         $this->assertTrue(PMA_isValid($var, 'numeric'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNumericString()
     {
         $var = '+0.1';
         $this->assertTrue(PMA_isValid($var, 'numeric'));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testValueInArray()
     {
         $var = 'a';
         $this->assertTrue(PMA_isValid($var, array('a', 'b',)));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testValueNotInArray()
     {
         $var = 'c';
         $this->assertFalse(PMA_isValid($var, array('a', 'b',)));
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testNumericIdentical()
     {
         $var = 1;
@@ -213,6 +326,11 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * Test for PMA_isValid
+     *
+     * @return void
+     */
     public function testOtherTypes()
     {
         $var = new PMA_isValid_test();

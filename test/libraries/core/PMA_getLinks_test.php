@@ -15,12 +15,22 @@ require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     function setUp()
     {
         $GLOBALS['server'] = 99;
         $GLOBALS['cfg']['ServerDefault'] = 0;
     }
 
+    /**
+     * Test for PMA_getPHPDocLink
+     *
+     * @return void
+     */
     public function testPMA_getPHPDocLink()
     {
         $lang = _pgettext('PHP documentation language', 'en');
@@ -31,6 +41,11 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Data provider for testPMA_linkURL
+     *
+     * @return array
+     */
     public function providerLinkURL()
     {
         return array(
@@ -44,6 +59,13 @@ class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_linkURL
+     *
+     * @param string $link URL where to go
+     * @param string $url  Expected value
+     *
+     * @return void
+     *
      * @dataProvider providerLinkURL
      */
     public function testPMA_linkURL($link, $url)
