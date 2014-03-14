@@ -225,6 +225,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
      */
     public function testExportHeaderWithoutDrizzle()
     {
+        if (!defined("PMA_MYSQL_STR_VERSION")) {
+            define("PMA_MYSQL_STR_VERSION", "5.0.0");
+        }
+
         $restoreDrizzle = 'PMANORESTORE';
 
         if (PMA_DRIZZLE) {
