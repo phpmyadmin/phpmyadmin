@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
+
 $GLOBALS['server'] = 0;
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
@@ -19,8 +20,18 @@ require_once 'libraries/mysql_charsets.inc.php';
  */
 require_once 'libraries/rte/rte_routines.lib.php';
 
+/**
+ * Test for generating routine editor
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setUp()
     {
         global $cfg;
@@ -44,6 +55,14 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getParameterRow
+     *
+     * @param array $data    Data for routine
+     * @param mixed $index   Index
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @depends testgetParameterRow_empty
      * @dataProvider provider_row
      */
@@ -54,6 +73,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_RTN_getParameterRow($data, $index), false);
     }
 
+    /**
+     * Data provider for testgetParameterRow
+     *
+     * @return array
+     */
     public function provider_row()
     {
         $data = array(
@@ -147,6 +171,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getParameterRow
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @depends testgetParameterRow
      * @dataProvider provider_row_ajax
      */
@@ -157,6 +188,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_RTN_getParameterRow($data), false);
     }
 
+    /**
+     * Data provider for testgetParameterRow_ajax
+     *
+     * @return array
+     */
     public function provider_row_ajax()
     {
         $data = array(
@@ -244,6 +280,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getEditorForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @depends testgetParameterRow_ajax
      * @dataProvider provider_editor_1
      */
@@ -254,6 +297,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_RTN_getEditorForm('add', '', $data), false);
     }
 
+    /**
+     * Data provider for testgetEditorForm_1
+     *
+     * @return array
+     */
     public function provider_editor_1()
     {
         $data = array(
@@ -434,6 +482,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getEditorForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @depends testgetParameterRow_ajax
      * @dataProvider provider_editor_2
      */
@@ -444,6 +499,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $this->assertTag($matcher, PMA_RTN_getEditorForm('edit', 'change', $data), false);
     }
 
+    /**
+     * Data provider for testgetEditorForm_2
+     *
+     * @return array
+     */
     public function provider_editor_2()
     {
         $data = array(
@@ -625,6 +685,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getEditorForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @depends testgetParameterRow_ajax
      * @dataProvider provider_editor_3
      */
@@ -632,9 +699,18 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getEditorForm('edit', 'remove', $data), false);
+        $this->assertTag(
+            $matcher,
+            PMA_RTN_getEditorForm('edit', 'remove', $data),
+            false
+        );
     }
 
+    /**
+     * Data provider for testgetEditorForm_3
+     *
+     * @return array
+     */
     public function provider_editor_3()
     {
         $data = array(
@@ -813,6 +889,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getEditorForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @depends testgetParameterRow_ajax
      * @dataProvider provider_editor_4
      */
@@ -820,9 +903,18 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
-        $this->assertTag($matcher, PMA_RTN_getEditorForm('edit', 'change', $data), false);
+        $this->assertTag(
+            $matcher,
+            PMA_RTN_getEditorForm('edit', 'change', $data),
+            false
+        );
     }
 
+    /**
+     * Data provider for testgetEditorForm_4
+     *
+     * @return array
+     */
     public function provider_editor_4()
     {
         $data = array(

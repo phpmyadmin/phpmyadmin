@@ -15,8 +15,18 @@ require_once './libraries/Types.class.php';
  */
 require_once 'libraries/rte/rte_routines.lib.php';
 
+/**
+ * Test for fetching routine data from HTTP request
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_RTN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setUp()
     {
         global $cfg;
@@ -27,6 +37,13 @@ class PMA_RTN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_RTN_getDataFromRequest
+     *
+     * @param array $in  Input
+     * @param array $out Expected output
+     *
+     * @return void
+     *
      * @dataProvider provider
      */
     public function testgetDataFromRequest($in, $out)
@@ -43,6 +60,11 @@ class PMA_RTN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($out, PMA_RTN_getDataFromRequest());
     }
 
+    /**
+     * Data provider for testgetDataFromRequest
+     *
+     * @return array
+     */
     public function provider()
     {
         return array(
@@ -161,7 +183,10 @@ class PMA_RTN_GetDataFromRequest_Test extends PHPUnit_Framework_TestCase
                     'item_original_type'        => 'FUNCTION',
                     'item_param_dir'            => array(0 => '', 1 => ''),
                     'item_param_name'           => array(0 => 'bar', 1 => 'baz'),
-                    'item_param_type'           => array(0 => '<s>XSS</s>', 1 => 'TEXT'),
+                    'item_param_type'           => array(
+                        0 => '<s>XSS</s>',
+                        1 => 'TEXT'
+                    ),
                     'item_param_length'         => array(0 => '10,10', 1 => ''),
                     'item_param_opts_num'       => array(0 => 'UNSIGNED', 1 => ''),
                     'item_param_opts_text'      => array(0 => '', 1 => 'utf8'),

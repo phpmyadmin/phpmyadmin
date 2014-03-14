@@ -928,10 +928,11 @@ class PMA_NavigationTree
                         $args[] = urlencode($parent->real_name);
                     }
                     $link = vsprintf($node->links['icon'], $args);
-                    if($linkClass != '')
+                    if ($linkClass != '') {
                         $retval .= "<a class='$linkClass' href='$link'>{$node->icon}</a>";
-                    else
+                    } else {
                         $retval .= "<a href='$link'>{$node->icon}</a>";
+                    }
                 } else {
                     $retval .= "<u>{$node->icon}</u>";
                 }

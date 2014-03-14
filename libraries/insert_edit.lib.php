@@ -1176,11 +1176,9 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     // verify True_Type which does not contain the parentheses and length
     if ($column['True_Type'] === 'date') {
         $the_class .= ' datefield';
-    }            
-    else if ($column['True_Type'] === 'time') {
+    } else if ($column['True_Type'] === 'time') {
         $the_class .= ' timefield';
-    }
-    else if ($column['True_Type'] === 'datetime'
+    } else if ($column['True_Type'] === 'datetime'
         || $column['True_Type'] === 'timestamp'
     ) {
         $the_class .= ' datetimefield';

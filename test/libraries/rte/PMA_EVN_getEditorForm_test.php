@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
+
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Util.class.php';
@@ -13,8 +14,18 @@ require_once 'libraries/Util.class.php';
  */
 require_once 'libraries/rte/rte_events.lib.php';
 
+/**
+ * Test for generating event editor
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['tear_down']['server'] = false;
@@ -24,6 +35,11 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * Tear down
+     *
+     * @return void
+     */
     public function tearDown()
     {
         if ($GLOBALS['tear_down']['server']) {
@@ -33,15 +49,32 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_EVN_getEditorForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @dataProvider provider_add
      */
     public function testgetEditorForm_add($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_EVN_setGlobals();
-        $this->assertTag($matcher, PMA_EVN_getEditorForm('add', 'change', $data), '', false);
+        $this->assertTag(
+            $matcher,
+            PMA_EVN_getEditorForm('add', 'change', $data),
+            '',
+            false
+        );
     }
 
+    /**
+     * Data provider for testgetEditorForm_add
+     *
+     * @return array
+     */
     public function provider_add()
     {
         $data = array(
@@ -201,15 +234,32 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_EVN_getEditorForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @dataProvider provider_edit
      */
     public function testgetEditorForm_edit($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = false;
         PMA_EVN_setGlobals();
-        $this->assertTag($matcher, PMA_EVN_getEditorForm('edit', 'change', $data), '', false);
+        $this->assertTag(
+            $matcher,
+            PMA_EVN_getEditorForm('edit', 'change', $data),
+            '',
+            false
+        );
     }
 
+    /**
+     * Data provider for testgetEditorForm_edit
+     *
+     * @return array
+     */
     public function provider_edit()
     {
         $data = array(
@@ -369,15 +419,32 @@ class PMA_EVN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for PMA_EVN_getEditorForm
+     *
+     * @param array $data    Data for routine
+     * @param array $matcher Matcher
+     *
+     * @return void
+     *
      * @dataProvider provider_ajax
      */
     public function testgetEditorForm_ajax($data, $matcher)
     {
         $GLOBALS['is_ajax_request'] = true;
         PMA_EVN_setGlobals();
-        $this->assertTag($matcher, PMA_EVN_getEditorForm('edit', 'change', $data), '', false);
+        $this->assertTag(
+            $matcher,
+            PMA_EVN_getEditorForm('edit', 'change', $data),
+            '',
+            false
+        );
     }
 
+    /**
+     * Data provider for testgetEditorForm_ajax
+     *
+     * @return array
+     */
     public function provider_ajax()
     {
         $data = array(

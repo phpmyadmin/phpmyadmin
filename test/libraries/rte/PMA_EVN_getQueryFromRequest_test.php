@@ -21,10 +21,22 @@ require_once 'libraries/php-gettext/gettext.inc';
  */
 require_once 'libraries/rte/rte_events.lib.php';
 
-
+/**
+ * Test for generating CREATE EVENT query from HTTP request
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_EVN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
 {
     /**
+     * Test for PMA_EVN_getQueryFromRequest
+     *
+     * @param array  $request Request
+     * @param string $query   Query
+     * @param array  $num_err Error number
+     *
+     * @return void
+     *
      * @dataProvider provider
      */
     public function testgetQueryFromRequest($request, $query, $num_err)
@@ -41,6 +53,11 @@ class PMA_EVN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals($num_err, count($errors));
     }
 
+    /**
+     * Data provider for testgetQueryFromRequest
+     *
+     * @return array
+     */
     public function provider()
     {
         return array(

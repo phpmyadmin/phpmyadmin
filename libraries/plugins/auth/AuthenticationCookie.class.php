@@ -148,9 +148,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Show error message
         if (! empty($conn_error)) {
             PMA_Message::rawError($conn_error)->display();
-        }
-        elseif (isset($_GET['session_expired']) && intval($_GET['session_expired'])==1) {
-            PMA_Message::rawError(__('Your session has expired. Please log in again.'))->display();
+        } elseif (isset($_GET['session_expired'])
+            && intval($_GET['session_expired']) == 1
+        ) {
+            PMA_Message::rawError(
+                __('Your session has expired. Please log in again.')
+            )->display();
         }
 
         echo "<noscript>\n";
