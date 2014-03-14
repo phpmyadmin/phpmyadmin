@@ -552,7 +552,7 @@ class PMA_Header
         $retval .= '<meta name="robots" content="noindex,nofollow" />';
         $retval .= '<meta http-equiv="X-UA-Compatible" content="IE=Edge">';
         if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
-            $retval .= '<style>html{display: none;}</style>';
+            $retval .= '<style id="cfs-style">html{display: none;}</style>';
         }
         return $retval;
     }
