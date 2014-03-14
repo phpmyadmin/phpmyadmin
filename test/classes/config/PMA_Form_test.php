@@ -57,6 +57,7 @@ class PMA_Form_Test extends PHPUnit_Framework_TestCase
      * Test for Form::__constructor
      *
      * @return void
+     * @group medium
      */
     public function testContructor()
     {

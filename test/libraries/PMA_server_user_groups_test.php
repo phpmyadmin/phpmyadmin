@@ -39,6 +39,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
      * Tests PMA_getHtmlForUserGroupsTable() function when there are no user groups
      *
      * @return void
+     * @group medium
      */
     public function testGetHtmlForUserGroupsTableWithNoUserGroups()
     {

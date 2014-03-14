@@ -27,6 +27,7 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
      * Test for ConfigGenerator::getConfigFile
      *
      * @return void
+     * @group medium
      */
     public function testGetConfigFile()
     {
