@@ -65,8 +65,8 @@ class Advisor
     /**
      * Stores current error in run results.
      *
-     * @param string $description description of an error.
-     * @param object $exception   exception raised
+     * @param string    $description description of an error.
+     * @param Exception $exception   exception raised
      *
      * @return void
      */
@@ -174,15 +174,11 @@ class Advisor
      */
     function translate($str, $param = null)
     {
-        if (is_null($param)) {
-            return sprintf(_gettext(Advisor::escapePercent($str)));
-        } else {
-            $printf = 'sprintf("' . _gettext(Advisor::escapePercent($str)) . '",';
-            return $this->ruleExprEvaluate(
-                $printf . $param . ')',
-                strlen($printf)
-            );
+        $string = _gettext(Advisor::escapePercent($str));
+        if ( ! is_null($param)) {
+            $param = $this->ruleExprEvaluate($param);
         }
+        return sprintf($string, $param);
     }
 
     /**
@@ -318,21 +314,14 @@ class Advisor
      * Runs a code expression, replacing variable names with their respective
      * values
      *
-     * @param string $expr        expression to evaluate
-     * @param int    $ignoreUntil if > 0, it doesn't replace any variables until
-     *                            that string position, but still evaluates the
-     *                            whole expr
+     * @param string $expr expression to evaluate
      *
      * @return string result of evaluated expression
      *
      * @throws Exception
      */
-    function ruleExprEvaluate($expr, $ignoreUntil = 0)
+    function ruleExprEvaluate($expr)
     {
-        if ($ignoreUntil > 0) {
-            $exprIgnore = substr($expr, 0, $ignoreUntil);
-            $expr = substr($expr, $ignoreUntil);
-        }
         // Evaluate fired() conditions
         $expr = preg_replace_callback(
             '/fired\s*\(\s*(\'|")(.*)\1\s*\)/Ui',
@@ -345,9 +334,6 @@ class Advisor
             array($this, '_ruleExprEvaluateVariable'),
             $expr
         );
-        if ($ignoreUntil > 0) {
-            $expr = $exprIgnore . $expr;
-        }
         $value = 0;
         $err = 0;
 
@@ -403,7 +389,10 @@ class Advisor
             if (substr($line, 0, 4) == 'rule') {
                 if ($ruleLine > 0) {
                     $errors[] = sprintf(
-                        __('Invalid rule declaration on line %1$s, expected line %2$s of previous rule.'),
+                        __(
+                            'Invalid rule declaration on line %1$s, expected line '
+                            . '%2$s of previous rule.'
+                        ),
                         $i + 1,
                         $ruleSyntax[$ruleLine++]
                     );
@@ -442,7 +431,10 @@ class Advisor
                 // Non tabbed lines are not
                 if ($line[0] != "\t") {
                     $errors[] = sprintf(
-                        __('Unexpected character on line %1$s. Expected tab, but found "%2$s".'),
+                        __(
+                            'Unexpected character on line %1$s. Expected tab, but '
+                            . 'found "%2$s".'
+                        ),
                         $i + 1,
                         $line[0]
                     );
