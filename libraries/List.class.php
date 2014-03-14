@@ -42,20 +42,6 @@ abstract class PMA_List extends ArrayObject
     }
 
     /**
-     * returns item only if there is only one in the list
-     *
-     * @return PMA_List single item
-     */
-    public function getSingleItem()
-    {
-        if (count($this) === 1) {
-            return reset($this);
-        }
-
-        return $this->getEmpty();
-    }
-
-    /**
      * defines what is an empty item (0, '', false or null)
      *
      * @return mixed   an empty item
