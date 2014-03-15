@@ -7,7 +7,11 @@
  */
 
 require_once 'libraries/Util.class.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
+require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/navigation/Navigation.class.php';
 
 /**
@@ -34,6 +38,11 @@ class PMA_NavigationTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';
+        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+
+        $GLOBALS['pmaThemeImage'] = 'image';
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
     }
 
     /**

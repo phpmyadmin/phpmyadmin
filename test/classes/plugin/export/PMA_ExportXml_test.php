@@ -11,6 +11,7 @@ require_once 'libraries/DatabaseInterface.class.php';
 require_once 'libraries/Util.class.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/Table.class.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/config.default.php';
@@ -225,6 +226,10 @@ class PMA_ExportXml_Test extends PHPUnit_Framework_TestCase
      */
     public function testExportHeaderWithoutDrizzle()
     {
+        if (!defined("PMA_MYSQL_STR_VERSION")) {
+            define("PMA_MYSQL_STR_VERSION", "5.0.0");
+        }
+
         $restoreDrizzle = 'PMANORESTORE';
 
         if (PMA_DRIZZLE) {

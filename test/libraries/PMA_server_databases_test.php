@@ -77,6 +77,7 @@ class PMA_ServerDatabases_Test extends PHPUnit_Framework_TestCase
      * Test for PMA_getHtmlForDatabase
      *
      * @return void
+     * @group medium
      */
     public function testPMAGetHtmlForDatabase()
     {

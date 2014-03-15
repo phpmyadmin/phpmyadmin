@@ -19,6 +19,8 @@ require_once 'libraries/Error_Handler.class.php';
 require_once 'libraries/Response.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/database_interface.inc.php';
+require_once 'libraries/select_lang.lib.php';
 
 /**
  * tests for AuthenticationCookie class
@@ -38,6 +40,13 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
+        $GLOBALS['available_languages'] = array(
+            "en" => array("English", "US-ENGLISH"),
+            "ch" => array("Chinese", "TW-Chinese")
+        );
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
         $this->object = new AuthenticationCookie(null);
 
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
@@ -875,7 +884,11 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         // target can be "phpunit" or "ide-phpunut.php",
         // depending on testing environment
         $this->assertStringStartsWith(
-            'Location: http://phpmyadmin.net/index.php?target=',
+            'Location: http://phpmyadmin.net/index.php?',
+            $GLOBALS['header'][0]
+        );
+        $this->assertContains(
+            '&target=',
             $GLOBALS['header'][0]
         );
         $this->assertContains(
