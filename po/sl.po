@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-15 07:16-0400\n"
-"PO-Revision-Date: 2014-03-13 16:12+0200\n"
+"PO-Revision-Date: 2014-03-15 23:26+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -961,10 +961,9 @@ msgid "Missing value in the form!"
 msgstr "V obliki manjka vrednost!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "katerokoli besedo"
+msgstr "Izberite vsaj eno možnost!"
 
 #: js/messages.php:50
 msgid "Please enter a valid number!"
@@ -1493,7 +1492,7 @@ msgstr "Prosimo, izberite datoteko, ki jo želite uvoziti."
 
 #: js/messages.php:205
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Na strežniku ni na voljo nobena datoteka za uvoz!"
 
 #: js/messages.php:207
 msgid "Analyse Query"
