@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-03-09 15:45+0200\n"
+"PO-Revision-Date: 2014-03-15 15:29+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
@@ -3527,7 +3527,7 @@ msgstr "DOUBLE과 동일함. (예외: REAL_AS_FLOAT SQL모드에서는 FLOAT으�
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr ""
+msgstr "비트 필드 타입 (M), 값 하나 당 M 비트를 저장 (기본값은 1, 최대 64)"
 
 #: libraries/Types.class.php:317
 msgid ""
@@ -7010,17 +7010,17 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:33
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "자동복구모드"
 
 #: libraries/engines/myisam.lib.php:34
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
-msgstr ""
+msgstr "크래시된 MyISAM 테이블을 자동으로 복구하는 모드(서버 시작 시 --myisam-recover 옵션으로 설정)."
 
 #: libraries/engines/myisam.lib.php:37
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "정렬을 위한 임시 파일의 최대 크기"
 
 #: libraries/engines/myisam.lib.php:38
 msgid ""
@@ -7028,6 +7028,8 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"MyISAM 인덱스를 재생성할 때 사용되는 임시 파일의 최대 크기(REPAIR TABLE, ALTER TABLE 또는 LOAD DATA "
+"INFILE에 사용)."
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
@@ -7039,26 +7041,31 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"빠른 MyISAM 인덱스 생성시 사용되는 임시 파일의 크기가, 여기에 명시된 키 캐시 크기보다 클 경우 키 캐시 방식을 사용하는 것을 "
+"우선적으로 합니다."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
-msgstr ""
+msgstr "스레드  복구"
 
 #: libraries/engines/myisam.lib.php:48
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"이 값이 1보다 크면, 정령 프로세스가 복구 작업시 MyISAM 테이블 인덱스들은 병렬적으로(각 인덱스가 각자의 스레드로) 생성됩니다."
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
-msgstr ""
+msgstr "정렬 버퍼 크기"
 
 #: libraries/engines/myisam.lib.php:53
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"REPAIR TABLE시 MyISAM 인덱스들을 정렬할 때, 또는 CREATE INDEX나 ALTER TABLE시 인덱스를 생성할 때 "
+"할당되는 버퍼."
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
@@ -7068,7 +7075,7 @@ msgstr "인덱스 캐시 크기"
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
-msgstr ""
+msgstr "인덱스 캐시를 위해 할당되는 메모리의 크기. 기본값은 32MB. 이 메모리는 인덱스 페이지를 캐시하기 위해서만 사용됩니다."
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
@@ -7080,6 +7087,8 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"테이블 데이터를 캐시하기 위해 할당되는 메모리의 크기. 기본값은 32MB. 이 메모리는 핸들 데이터(.xtd)와 행 포인터(.xtr) "
+"파일의 변화를 캐시하기위해 사용됩니다."
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
@@ -7089,17 +7098,17 @@ msgstr "로그 캐시 크기"
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
-msgstr ""
+msgstr "트랜잭션 로그 데이터를 캐시하기 위해 할당되는 메모리의 크기. 기본값은 16MB."
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "Log file threshold"
-msgstr ""
+msgstr "로그 파일 스레시홀드"
 
 #: libraries/engines/pbxt.lib.php:44
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
-msgstr ""
+msgstr "롤오버 전 부터 새 로그가 생성될 때까지의 트랜잭션의 크기. 기본값은 16MB."
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Transaction buffer size"
@@ -7109,21 +7118,21 @@ msgstr "트랜잭션 버퍼 크기"
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
-msgstr ""
+msgstr "전역 트랜잭션 로그 버퍼의 크기(이 크기에 해당하는 버퍼를 2개 할당합니다). 기본값은 1MB."
 
 #: libraries/engines/pbxt.lib.php:53
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "체크포인트 빈도"
 
 #: libraries/engines/pbxt.lib.php:54
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
-msgstr ""
+msgstr "체크포인트가 수행되기 전에 트랜잭션 로그에 기록될 데이터의 양. 기본값은 24MB."
 
 #: libraries/engines/pbxt.lib.php:58
 msgid "Data log threshold"
-msgstr ""
+msgstr "데이터 로그 스레시홀드"
 
 #: libraries/engines/pbxt.lib.php:59
 msgid ""
@@ -7181,7 +7190,7 @@ msgstr "행 포인터 파일들(.xtr)의 증가량."
 
 #: libraries/engines/pbxt.lib.php:83
 msgid "Log file count"
-msgstr ""
+msgstr "로그 파일 수"
 
 #: libraries/engines/pbxt.lib.php:84
 msgid ""
