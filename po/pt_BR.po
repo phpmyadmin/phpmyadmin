@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-15 07:16-0400\n"
-"PO-Revision-Date: 2014-03-13 14:57+0200\n"
-"Last-Translator: Luis Eduardo Braschi <herrcasper@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-03-15 14:04+0200\n"
+"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -958,10 +958,9 @@ msgid "Missing value in the form!"
 msgstr "Está faltando valores no formulário!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "pelo menos uma das palavras"
+msgstr "Selecione pelo menos uma das opções!"
 
 #: js/messages.php:50
 msgid "Please enter a valid number!"
@@ -1501,7 +1500,7 @@ msgstr "Por favor, selecione o arquivo que deseja importar."
 
 #: js/messages.php:205
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Sem arquivos disponíveis no servidor para importar!"
 
 #: js/messages.php:207
 msgid "Analyse Query"
@@ -3144,13 +3143,12 @@ msgstr "Não existem tabelas recentes."
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Favor inserir um nome para esta pesquisa salva."
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing information to save the search."
 msgid "Missing information to save the bookmarked search."
-msgstr "Faltam informações para salvar a pesquisa."
+msgstr "Faltam informações para salvar a pesquisa marcada."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
