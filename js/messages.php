@@ -531,7 +531,8 @@ PMA_printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));
 PMA_printJsValue(
     "$.datepicker.regional['']['showMonthAfterYear']",
     /* l10n: Month-year order for calendar, use either "calendar-month-year"
-     * or "calendar-year-month". */
+    * or "calendar-year-month".
+    */
     (__('calendar-month-year') == 'calendar-year-month')
 );
 /* l10n: Year suffix for calendar, "none" is empty. */

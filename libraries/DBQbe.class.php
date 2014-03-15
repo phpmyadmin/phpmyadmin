@@ -1176,8 +1176,8 @@ class PMA_DbQbe
 
         list($candidate_columns, $needsort)
             = $this->_getLeftJoinColumnCandidatesBest(
-            $all_tables, $where_clause_columns, $unique_columns, $index_columns
-        );
+                $all_tables, $where_clause_columns, $unique_columns, $index_columns
+            );
 
         // If we came up with $unique_columns (very good) or $index_columns (still
         // good) as $candidate_columns we want to check if we have any 'Y' there

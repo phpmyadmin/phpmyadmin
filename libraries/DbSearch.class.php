@@ -476,7 +476,7 @@ class PMA_DbSearch
      *
      * @return string div tags
      */
-    public function _getResultDivs()
+    public function getResultDivs()
     {
         $html_output = '<!-- These two table-image and table-link elements display'
             . ' the table name in browse search results  -->';
