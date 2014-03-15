@@ -18,6 +18,11 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/Tracker.class.php';
 
+/**
+ * Tests for PMA_StorageEngine_pbxt
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_StorageEngine_Pbxt_Test extends PHPUnit_Framework_TestCase
 {
     /**

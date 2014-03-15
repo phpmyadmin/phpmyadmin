@@ -11,6 +11,11 @@
  */
 require_once 'libraries/error_report.lib.php';
 
+/**
+ * tests for PMA_prettyPrint()
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_PrettyPrint_Test extends PHPUnit_Framework_TestCase
 {
     /**

@@ -14,9 +14,19 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ * Test for PMA_Util::buildActionTitles from common.lib
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_BuildActionTitles_Test extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Set up
+     *
+     * @return void
+     */
     function setup()
     {
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
@@ -24,6 +34,11 @@ class PMA_BuildActionTitles_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = 'theme/';
     }
 
+    /**
+     * Test for buildActionTitles
+     *
+     * @return void
+     */
     function testBuildActionTitles()
     {
         $titles = array();

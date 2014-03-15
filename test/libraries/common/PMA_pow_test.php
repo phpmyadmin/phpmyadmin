@@ -12,8 +12,19 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ * Tests for PMA_Util::pow() function from Util.class.php
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_Pow_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test forpow
+     *
+     * @return void
+     */
     public function testIntOverflow()
     {
         $this->assertEquals(
@@ -22,6 +33,11 @@ class PMA_Pow_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test forpow
+     *
+     * @return void
+     */
     public function testBcpow()
     {
         if (function_exists('bcpow')) {
@@ -34,6 +50,11 @@ class PMA_Pow_Test extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * Test forpow
+     *
+     * @return void
+     */
     public function testGmppow()
     {
         if (function_exists('gmp_pow')) {
@@ -46,6 +67,11 @@ class PMA_Pow_Test extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * Test forpow
+     *
+     * @return void
+     */
     public function testNegativeExp()
     {
         $this->assertEquals(
@@ -54,6 +80,11 @@ class PMA_Pow_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test forpow
+     *
+     * @return void
+     */
     public function testNegativeExpPow()
     {
         if (function_exists('pow')) {
@@ -66,6 +97,11 @@ class PMA_Pow_Test extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * Test forpow
+     *
+     * @return void
+     */
     public function testNegativeExpBcpow()
     {
         if (function_exists('bcpow')) {
@@ -78,6 +114,11 @@ class PMA_Pow_Test extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * Test forpow
+     *
+     * @return void
+     */
     public function testNegativeExpGmppow()
     {
         if (function_exists('gmp_pow')) {

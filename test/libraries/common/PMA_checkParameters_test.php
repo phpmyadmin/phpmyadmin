@@ -17,8 +17,19 @@ require_once 'libraries/Config.class.php';
 require_once 'libraries/select_lang.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 
+/**
+ ** Test for PMA_Util::checkParameters from Util.class.php
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     function setup()
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
@@ -28,6 +39,11 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['text_dir'] = 'ltr';
     }
 
+    /**
+     * Test for checkParameters
+     *
+     * @return void
+     */
     function testCheckParameterMissing()
     {
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
@@ -40,6 +56,11 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for checkParameters
+     *
+     * @return void
+     */
     function testCheckParameter()
     {
         $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');

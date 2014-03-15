@@ -13,6 +13,11 @@ require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ * Test for PMA_getPHPDocLink, PMA_linkURL  from libraries/core.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_GetLinks_Test extends PHPUnit_Framework_TestCase
 {
     /**

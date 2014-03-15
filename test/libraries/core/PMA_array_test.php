@@ -13,6 +13,13 @@
  */
 require_once 'libraries/core.lib.php';
 
+/**
+ * Test for PMA_arrayRead(), PMA_arrayWrite(), PMA_arrayRemove(),
+ * PMA_arrayMergeRecursive(),
+ * PMA_arrayWalkRecursive() from libraries/core.lib.php
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_Array_Test extends PHPUnit_Framework_TestCase
 {
     /**

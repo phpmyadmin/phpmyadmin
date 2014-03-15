@@ -25,7 +25,7 @@ class PMA_ContainsNonPrintableAsciiTest extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    function dataProvider()
+    public function dataProvider()
     {
         return array(
             array("normal string", 0),
@@ -46,7 +46,7 @@ class PMA_ContainsNonPrintableAsciiTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider dataProvider
      */
-    function testContainsNonPrintableAscii($str, $res)
+    public function testContainsNonPrintableAscii($str, $res)
     {
         $this->assertEquals(
             $res, PMA_Util::containsNonPrintableAscii($str)

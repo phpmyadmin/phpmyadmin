@@ -16,8 +16,19 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/js_escape.lib.php';
 
+/**
+ ** Test for PMA_Util::getMessage from common.lib
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_ShowMessage_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     function setUp()
     {
         global $cfg;
@@ -28,6 +39,11 @@ class PMA_ShowMessage_Test extends PHPUnit_Framework_TestCase
         include 'libraries/config.default.php';
     }
 
+    /**
+     * Test for getMessage
+     *
+     * @return void
+     */
     function testShowMessageNotAjax()
     {
         global $cfg;

@@ -12,9 +12,19 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ ** Test for PMA_Util::unsupportedDatatypes from common.lib
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_UnsupportedDatatypes_Test extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Test for unsupportedDatatypes
+     *
+     * @return void
+     */
     function testNotSupportedDataTypes()
     {
         $no_support_types = array();

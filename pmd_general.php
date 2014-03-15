@@ -241,7 +241,7 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <input name="t_h[<?php echo $t_n_url ?>]" type="hidden" id="t_h_<?php echo $t_n_url ?>_" />
 
 <table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
-   style="position: absolute;
+    style="position: absolute;
           left: <?php
           echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700); ?>px;
           top: <?php
@@ -284,11 +284,10 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         onmouseover="Table_onover('<?php echo $t_n_url ?>',0,<?php echo (isset($_REQUEST['query'])? 1 : 0 )?> )"
         onmouseout="Table_onover('<?php echo $t_n_url ?>',1,<?php echo (isset($_REQUEST['query']) ? 1 : 0 )?>)">
         <span class='owner'>
-        <?php
-        echo $GLOBALS['PMD_OUT']["OWNER"][$i];
-        echo '.</span>';
-        echo $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
-        ?></td>
+            <?php echo $GLOBALS['PMD_OUT']["OWNER"][$i]; ?>.
+        </span>
+        <?php echo $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]; ?>
+    </td>
     <?php
     if (isset($_REQUEST['query'])) {
         echo '<td class="tab_zag"  onmouseover="Table_onover(\''

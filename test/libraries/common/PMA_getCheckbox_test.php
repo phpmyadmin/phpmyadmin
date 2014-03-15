@@ -12,8 +12,19 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ ** Test for PMA_Util::getCheckbox from Util.class.php
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for getCheckbox
+     *
+     * @return void
+     */
     function testGetCheckbox()
     {
         $name = "test_display_html_checkbox";
@@ -21,10 +32,17 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             PMA_Util::getCheckbox($name, $label, false, false),
-            '<input type="checkbox" name="' . $name . '" id="' . $name . '" /><label for="' . $name . '">' . $label . '</label>'
+            '<input type="checkbox" name="' . $name . '" id="' . $name
+            . '" /><label for="' . $name . '">' . $label
+            . '</label>'
         );
     }
 
+    /**
+     * Test for getCheckbox
+     *
+     * @return void
+     */
     function testGetCheckboxChecked()
     {
         $name = "test_display_html_checkbox";
@@ -32,10 +50,17 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             PMA_Util::getCheckbox($name, $label, true, false),
-            '<input type="checkbox" name="' . $name . '" id="' . $name . '" checked="checked" /><label for="' . $name . '">' . $label . '</label>'
+            '<input type="checkbox" name="' . $name . '" id="' . $name
+            . '" checked="checked" /><label for="' . $name . '">' . $label
+            . '</label>'
         );
     }
 
+    /**
+     * Test for getCheckbox
+     *
+     * @return void
+     */
     function testGetCheckboxOnclick()
     {
         $name = "test_display_html_checkbox";
@@ -43,10 +68,17 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             PMA_Util::getCheckbox($name, $label, false, true),
-            '<input type="checkbox" name="' . $name . '" id="' . $name . '" class="autosubmit" /><label for="' . $name . '">' . $label . '</label>'
+            '<input type="checkbox" name="' . $name . '" id="' . $name
+            . '" class="autosubmit" /><label for="' . $name . '">' . $label
+            . '</label>'
         );
     }
 
+    /**
+     * Test for getCheckbox
+     *
+     * @return void
+     */
     function testGetCheckboxCheckedOnclick()
     {
         $name = "test_display_html_checkbox";
@@ -54,7 +86,9 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             PMA_Util::getCheckbox($name, $label, true, true),
-            '<input type="checkbox" name="' . $name . '" id="' . $name . '" checked="checked" class="autosubmit" /><label for="' . $name . '">' . $label . '</label>'
+            '<input type="checkbox" name="' . $name . '" id="' . $name
+            . '" checked="checked" class="autosubmit" /><label for="' . $name
+            . '">' . $label . '</label>'
         );
     }
 }

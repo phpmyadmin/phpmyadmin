@@ -22,6 +22,11 @@ require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/sqlvalidator.class.php';
 require_once 'libraries/sqlvalidator.lib.php';
 
+/**
+ * Tests for correctness of SQL validator
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_SQLValidator_Test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -93,13 +98,33 @@ class PMA_SQLValidator_Test extends PHPUnit_Framework_TestCase
     }
 }
 
-//Mock the SOAP_Client
+/**
+ * Mock the SOAP_Client
+ *
+ * @package PhpMyAdmin-test
+ */
 class SOAP_Client
 {
+    /**
+     * Mock the SOAP_Client::call method
+     *
+     * @param string $name      Name
+     * @param array  $arguments Arguments
+     *
+     * @return mixed
+     */
     public function call($name, $arguments)
     {
         return $this->{$name}($arguments);
     }
+
+    /**
+     * Mock the SOAP_Client::openSession method
+     *
+     * @param array $args Arguments
+     *
+     * @return Session
+     */
     public function openSession($args)
     {
         $session = new Session;
@@ -111,6 +136,14 @@ class SOAP_Client
         $session->sessionKey = "sessionKey";
         return $session;
     }
+
+    /**
+     * Mock the SOAP_Client::validateSQL method
+     *
+     * @param array $args Arguments
+     *
+     * @return Session
+     */
     public function validateSQL($args)
     {
         $session = new Session;
@@ -126,7 +159,12 @@ class SOAP_Client
     }
 }
 
-//Mock return Session class
+
+/**
+ * Mock return Session class
+ *
+ * @package PhpMyAdmin-test
+ */
 class Session
 {
     var $target          = null;

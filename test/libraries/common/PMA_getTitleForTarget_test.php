@@ -13,9 +13,19 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ ** Test for PMA_Util::getTitleForTarget from common.lib
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_GetTitleForTarget_Test extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Data provider for testGetTitleForTarget
+     *
+     * @return array
+     */
     function dataProvider()
     {
         return array(
@@ -32,6 +42,13 @@ class PMA_GetTitleForTarget_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for
+     *
+     * @param string $target Target
+     * @param array  $result Expected value
+     *
+     * @return void
+     *
      * @dataProvider dataProvider
      * @return void
      */

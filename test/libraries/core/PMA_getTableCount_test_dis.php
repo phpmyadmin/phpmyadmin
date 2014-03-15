@@ -30,8 +30,19 @@ require_once 'libraries/php-gettext/gettext.inc';
 
 require_once 'config.sample.inc.php';
 
+/**
+ * Test for PMA_getTableCount_test from core.lib.php
+ * PMA_getTableCount_test returns count of tables in given db
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_GetTableCount_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
@@ -45,12 +56,16 @@ class PMA_GetTableCount_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = '';
     }
 
+    /**
+     * Test for PMA_getTableCount
+     *
+     * @return void
+     */
     function testTableCount()
     {
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
         $this->assertEquals(5, PMA_getTableCount('meddb'));
-        $this->assertTrue(true);
     }
 }
