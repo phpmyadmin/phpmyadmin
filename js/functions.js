@@ -880,7 +880,7 @@ function addDateTimePicker() {
                 showMicrosec: showMicrosec,
                 timeFormat: timeFormat,
             });
-         });
+        });
     }
 }
 

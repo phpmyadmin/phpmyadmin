@@ -629,14 +629,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             ? data.truncatableFieldValue
                             : $this_field.data('value');
 
-                        //remove decimal places if column type not supported                            
-                        if (($this_field.attr('data-decimals') == 0) && ( $this_field.attr('data-type').indexOf('time') != -1)){                          
-                            new_html = new_html.substring(0, new_html.indexOf('.'));                            
+                        //remove decimal places if column type not supported
+                        if (($this_field.attr('data-decimals') == 0) && ( $this_field.attr('data-type').indexOf('time') != -1)) {
+                            new_html = new_html.substring(0, new_html.indexOf('.'));
                         }
-                        //remove addtional decimal places 
+                        //remove addtional decimal places
                         if (($this_field.attr('data-decimals') > 0) && ( $this_field.attr('data-type').indexOf('time') != -1)){
-                            new_html = new_html.substring(0, new_html.length - (6 - $this_field.attr('data-decimals')));  
-                        }                              
+                            new_html = new_html.substring(0, new_html.length - (6 - $this_field.attr('data-decimals')));
+                        }
                         if ($this_field.is('.truncated')) {
                             if (new_html.length > g.maxTruncatedLen) {
                                 new_html = new_html.substring(0, g.maxTruncatedLen) + '...';
@@ -979,14 +979,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     // remember current datetime value in $input_field, if it is not null
                     var is_null = $td.is('.null');
-                    var current_datetime_value = !is_null ? $input_field.val() : '';                                   
+                    var current_datetime_value = !is_null ? $input_field.val() : '';
 
                     var showMillisec = false;
                     var showMicrosec = false;
                     var timeFormat = 'HH:mm:ss';
                     // check for decimal places of seconds
                     if (($td.attr('data-decimals') > 0) && ($td.attr('data-type').indexOf('time') != -1)){
-                        showMillisec = true;                       
+                        showMillisec = true;
                         timeFormat = 'HH:mm:ss.lc';
                         if ($td.attr('data-decimals') > 3) {
                             showMicrosec = true;
@@ -998,15 +998,15 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     PMA_addDatepicker($input_field, $td.attr('data-type'), {
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
-                        timeFormat: timeFormat                       
+                        timeFormat: timeFormat
                     });
 
                     $input_field.datepicker("show");
 
-                    //move ui-datepicker-div inside cEdit div                             
+                    //move ui-datepicker-div inside cEdit div
                     var datepicker_div = $('#ui-datepicker-div');
                     datepicker_div.css({'top': 0, 'left': 0, 'position': 'relative'});
-                    $('.cEdit').append(datepicker_div);                    
+                    $('.cEdit').append(datepicker_div);
 
                     var edit_area_top = $('#ui-datepicker-div').height()+32;
                     $('.edit_area').css({'top' : edit_area_top+'px', 'position': 'absolute'});
@@ -1014,7 +1014,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     if(is_null){
                         $('.edit_area').hide();
                     }
-                  
+
                     // cancel any click on the datepicker element
                     $editArea.find('> *').click(function (e) {
                         e.stopPropagation();
@@ -1043,7 +1043,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if (g.isSaving) {
                 return;
             }
-            g.isSaving = true;           
+            g.isSaving = true;
             /**
              * @var relation_fields Array containing the name/value pairs of relational fields
              */
@@ -1277,18 +1277,18 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                             });
                             // update the display of executed SQL query command
                             if (typeof data.sql_query != 'undefined') {
-                                //extract query box 
-                            	var $result_query = $($.parseHTML(data.sql_query));
-                            	var sqlOuter = $result_query.find('.sqlOuter').wrap('<p>').parent().html();
-                            	var tools = $result_query.find('.tools').wrap('<p>').parent().html();
+                                //extract query box
+                                var $result_query = $($.parseHTML(data.sql_query));
+                                var sqlOuter = $result_query.find('.sqlOuter').wrap('<p>').parent().html();
+                                var tools = $result_query.find('.tools').wrap('<p>').parent().html();
                                 // If two query box exists update query in second else add a second box
                                 if($('#result_query').find('div.sqlOuter').length>1) {
-	                               $('#result_query').children(":nth-child(4)").remove(); 
-	                               $('#result_query').children(":nth-child(4)").remove(); 
-	                               $('#result_query').append(sqlOuter+tools);
+                                   $('#result_query').children(":nth-child(4)").remove();
+                                   $('#result_query').children(":nth-child(4)").remove();
+                                   $('#result_query').append(sqlOuter+tools);
                                 }
                                 else {
-	                                $('#result_query').append(sqlOuter+tools);
+                                    $('#result_query').append(sqlOuter+tools);
                                 }
                                 PMA_highlightSQL($('#result_query'));
                             }
@@ -1730,7 +1730,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($(e.target).parents().index($(g.cEdit)) == -1
                     && ! $(e.target).parents('.ui-datepicker-header').length
                 ) {
-                   g.hideEditCell();
+                    g.hideEditCell();
                 }
             }).keydown(function (e) {
                 if (e.which == 27 && g.isCellEditActive) {
