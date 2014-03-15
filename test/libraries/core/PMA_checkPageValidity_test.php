@@ -44,14 +44,15 @@ class PMA_CheckPageValidity_Test extends PHPUnit_Framework_TestCase
      *
      * @param string     $page      Page
      * @param array|null $whiteList White list
+     * @param int        $expected  Expected value
      *
      * @return void
      *
      * @dataProvider provider
      */
-    function testGotoNowhere($page, $whiteList)
+    function testGotoNowhere($page, $whiteList, $expected)
     {
-        $this->assertFalse(PMA_checkPageValidity($page, $whiteList));
+        $this->assertTrue($expected === PMA_checkPageValidity($page, $whiteList));
     }
 
     /**
@@ -62,11 +63,11 @@ class PMA_CheckPageValidity_Test extends PHPUnit_Framework_TestCase
     public function provider()
     {
         return array(
-            array(null, null),
-            array('export.php', $this->goto_whitelist),
-            array('shell.php', $this->goto_whitelist),
-            array('index.php?sql.php&test=true', $this->goto_whitelist),
-            array('index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist),
+            array(null, null, false),
+            array('export.php', $this->goto_whitelist, true),
+            array('shell.php', $this->goto_whitelist, false),
+            array('index.php?sql.php&test=true', $this->goto_whitelist, true),
+            array('index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, true),
         );
     }
 }
