@@ -234,7 +234,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for _getResultDivs
+     * Test for getResultDivs
      *
      * @return void
      */
@@ -250,7 +250,7 @@ class PMA_DbSearch_Test extends PHPUnit_Framework_TestCase
             . ' delete form in the db search --></div><!--  toggle query box link-->'
             . '<a id="togglequerybox"></a>',
             $this->_callProtectedFunction(
-                '_getResultDivs',
+                'getResultDivs',
                 array()
             )
         );

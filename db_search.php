@@ -59,5 +59,5 @@ $response->addHTML(
     . '<br class="clearfloat" />'
 );
 $response->addHTML($db_search->getSelectionForm($url_params));
-$response->addHTML($db_search->_getResultDivs());
+$response->addHTML($db_search->getResultDivs());
 ?>
