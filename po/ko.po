@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-15 07:16-0400\n"
-"PO-Revision-Date: 2014-03-09 15:45+0200\n"
+"PO-Revision-Date: 2014-03-15 15:38+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"Language-Team: Korean "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -575,16 +575,13 @@ msgid "Output"
 msgstr "출력"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr ""
-"\"기능\"컬럼에서 \"GeomFromText\"를 선택하고 아래 문자를 복사하여 \"값\"필드"
-"에 붙여넣으십시오."
+msgstr "\"기능\"컬럼에서 \"GeomFromText\"를 선택하고 아래 문자를 복사하여 \"값\"필드에 붙여넣으십시오."
 
 #: import.php:116
 #, php-format
@@ -612,10 +609,9 @@ msgstr ""
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "파일을 읽을 수 없습니다"
+msgstr "파일을 읽을 수 없습니다!"
 
 #: import.php:418 import.php:429 import.php:450 import.php:461
 #: libraries/File.class.php:593
@@ -637,13 +633,12 @@ msgstr ""
 "대 파일 크기를 초과했을 수 있습니다. [doc@faq1-16]FAQ 1.16[/doc] 참조."
 
 #: import.php:495
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
-msgstr "문자셋 변환 라이브러리 없이 파일의 문자셋을 변환할 수 없습니다."
+msgstr "문자셋 변환 라이브러리 없이 파일의 문자셋을 변환할 수 없습니다!"
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -651,7 +646,7 @@ msgstr ""
 "가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1805
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "북마크 %s가 생성되었습니다."
@@ -942,32 +937,29 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "\"%s\"그룹을 삭제하시겠습니까?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "\"%s\"그룹을 삭제하시겠습니까?"
+msgstr "\"%s\" 검색을 삭제하겠습니까?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
 msgstr "입력 폼 안에 빠진 값이 있습니다!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "최소 한 단어"
+msgstr "하나 이상의 옵션을 선택하세요!"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "올바른  숫자를 입력하세요"
+msgstr "올바른  숫자를 입력하세요!"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Please enter a valid length"
 msgid "Please enter a valid length!"
-msgstr "올바른 길이를 입력하세요"
+msgstr "올바른 길이를 입력하세요!"
 
 #: js/messages.php:52
 msgid "Add Index"
@@ -1035,10 +1027,9 @@ msgid "Connections / Processes"
 msgstr "연결 / 프로세스"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "호환되지 않는 로컬 모니터 설정입니다."
+msgstr "호환되지 않는 로컬 모니터 설정입니다!"
 
 #: js/messages.php:79
 msgid ""
@@ -1192,10 +1183,9 @@ msgid "Add chart to grid"
 msgstr "차트에 그리드 추가"
 
 #: js/messages.php:122
-#, fuzzy
 #| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "최소 한개이상의 변수를 시리즈에 추가하십시오"
+msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 
 #: js/messages.php:124
 msgid "Resume monitor"
@@ -1273,10 +1263,10 @@ msgstr "%s 사용안함"
 
 #. l10n: %d seconds
 #: js/messages.php:143
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "long_query_time을 %d초로 설정합니다"
+msgstr "long_query_time을 %d초로 설정."
 
 #: js/messages.php:145
 msgid ""
@@ -1480,10 +1470,9 @@ msgid "Import monitor configuration"
 msgstr "모니터 설정 가져오기"
 
 #: js/messages.php:204
-#, fuzzy
 #| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "가져올 파일을 선택해 주시기 바랍니다"
+msgstr "가져올 파일을 선택하세요."
 
 #: js/messages.php:205
 msgid "No files available on server for import!"
@@ -1644,10 +1633,9 @@ msgid "Values for a new column"
 msgstr "새로운 열의 값"
 
 #: js/messages.php:263
-#, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "각각의 필드에 값을 입력하세요"
+msgstr "각각의 필드에 값을 입력하세요."
 
 #: js/messages.php:264
 #, php-format
@@ -1786,10 +1774,9 @@ msgid "Select Foreign Key"
 msgstr "외래키 선택"
 
 #: js/messages.php:324
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "기본키 혹은 유니크키를 선택하십시오."
+msgstr "기본키 혹은 유니크키를 선택하십시오!"
 
 #: js/messages.php:325 pmd_general.php:101
 msgid "Choose column to display"
@@ -1804,19 +1791,18 @@ msgstr ""
 "다. 이대로 계속 하시겠습니까?"
 
 #: js/messages.php:332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "필드 옵션 추가 "
+msgstr "컬럼 \"%s\"에 대한옵션 추가 ."
 
 #: js/messages.php:333
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d 개의 개체가 생성되었습니다"
+msgstr "%d 개의 개체가 생성되었습니다."
 
 #: js/messages.php:336
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
 msgstr "편집을 취소하려면 ESC를 누르세요."
@@ -1830,34 +1816,29 @@ msgstr ""
 "이동하기를 원합니까?"
 
 #: js/messages.php:338
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "재정렬하려면 드래그하세요."
 
 #: js/messages.php:339
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
 msgstr "정렬하려면 클릭하세요."
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "선택/해제하려면 클릭하세요."
 
 #: js/messages.php:341
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "칼럼명을 복사하려면 더블클릭하세요"
+msgstr "칼럼명을 복사하려면 더블클릭하세요."
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "칼럼보이기를 토글하려면<br />드롭다운 화살표를 클릭하세요"
+msgstr "칼럼보이기 여부를 바꾸려면<br />드롭다운 화살표를 클릭하세요."
 
 #: js/messages.php:345 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
@@ -1883,16 +1864,14 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "값을 클릭하여 바로 수정할 수 있습니다.<br />(일부 제외)"
 
 #: js/messages.php:359
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
 msgstr "링크로 이동합니다."
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "열(컬럼) 이름 복사"
+msgstr "컬럼 이름 복사."
 
 #: js/messages.php:361
 msgid "Right-click the column name to copy it to your clipboard."
@@ -1900,10 +1879,9 @@ msgstr ""
 "마우스 오른쪽버튼을 클릭하여 클립보드에 컬럼 이름을 복사할 수 있습니다."
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "데이터 행 표시"
+msgstr "데이터 행 표시."
 
 #: js/messages.php:365
 msgid "Generate password"
@@ -1930,10 +1908,9 @@ msgid "Hide Panel"
 msgstr "패널 숨기기"
 
 #: js/messages.php:375
-#, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
-msgstr "숨겨진 네비트리의 항목보기"
+msgstr "숨겨진 탐색 트리의 항목보기."
 
 #: js/messages.php:378
 msgid "The requested page was not found in the history, it may have expired."
@@ -3164,24 +3141,22 @@ msgid "Missing information to save the bookmarked search."
 msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "사용자 %s 가 이미 존재합니다!"
+msgstr "같은 이름의 엔트리가 이미 존재합니다."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "검색을 삭제하기 위한 정보가 없습니다."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "검색을 불러오기 위한 정보가 없습니다."
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "업로드된 파일을 이동하는 중에 오류가 발생하였습니다."
+msgstr "검색을 불러오는 중에 오류가 발생하였습니다."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3342,10 +3317,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "테이블 %1$s을(를) %2$s(으)로 이름을 변경하였습니다."
 
 #: libraries/Table.class.php:1477
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "테이블 UI 설정을 저장할 수 없습니다."
+msgstr "테이블 UI 설정을 저장할 수 없습니다!"
 
 #: libraries/Table.class.php:1506
 #, php-format
@@ -3595,7 +3569,7 @@ msgstr "DOUBLE과 동일함. (예외: REAL_AS_FLOAT SQL모드에서는 FLOAT으�
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr ""
+msgstr "비트 필드 타입 (M), 값 하나 당 M 비트를 저장 (기본값은 1, 최대 64)"
 
 #: libraries/Types.class.php:340
 msgid ""
@@ -3958,10 +3932,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
 #: libraries/Util.class.php:3388
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "업로드할 파일이 없습니다."
+msgstr "업로드할 파일이 없습니다!"
 
 #: libraries/Util.class.php:3413 libraries/Util.class.php:3414
 #: libraries/structure.lib.php:305
@@ -4066,10 +4039,9 @@ msgid "Check Privileges"
 msgstr "사용권한 검사"
 
 #: libraries/common.inc.php:586
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "설정 파일을 읽는데 실패했습니다."
+msgstr "설정 파일을 읽는데 실패했습니다!"
 
 #: libraries/common.inc.php:588
 msgid ""
@@ -4252,39 +4224,35 @@ msgstr "위의 것 모두 아님"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "양수가 아닙니다"
+msgstr "양수가 아닙니다!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "음수가 아닙니다"
+msgstr "0 또는 양수가 아닙니다!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "유효한 포트번호가 아닙니다."
+msgstr "유효한 포트번호가 아닙니다!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "잘못된 값"
+msgstr "잘못된 값!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "값은 %s보다 작거나 같아야 합니다."
+msgstr "값은 %s보다 작거나 같아야 합니다!"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
@@ -7522,17 +7490,17 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:33
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "자동복구모드"
 
 #: libraries/engines/myisam.lib.php:34
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
-msgstr ""
+msgstr "크래시된 MyISAM 테이블을 자동으로 복구하는 모드(서버 시작 시 --myisam-recover 옵션으로 설정)."
 
 #: libraries/engines/myisam.lib.php:37
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "정렬을 위한 임시 파일의 최대 크기"
 
 #: libraries/engines/myisam.lib.php:38
 msgid ""
@@ -7540,6 +7508,8 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"MyISAM 인덱스를 재생성할 때 사용되는 임시 파일의 최대 크기(REPAIR TABLE, ALTER TABLE 또는 LOAD DATA "
+"INFILE에 사용)."
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
@@ -7551,26 +7521,31 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"빠른 MyISAM 인덱스 생성시 사용되는 임시 파일의 크기가, 여기에 명시된 키 캐시 크기보다 클 경우 키 캐시 방식을 사용하는 것을 "
+"우선적으로 합니다."
 
 #: libraries/engines/myisam.lib.php:47
 msgid "Repair threads"
-msgstr ""
+msgstr "스레드  복구"
 
 #: libraries/engines/myisam.lib.php:48
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"이 값이 1보다 크면, 정령 프로세스가 복구 작업시 MyISAM 테이블 인덱스들은 병렬적으로(각 인덱스가 각자의 스레드로) 생성됩니다."
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
-msgstr ""
+msgstr "정렬 버퍼 크기"
 
 #: libraries/engines/myisam.lib.php:53
 msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"REPAIR TABLE시 MyISAM 인덱스들을 정렬할 때, 또는 CREATE INDEX나 ALTER TABLE시 인덱스를 생성할 때 "
+"할당되는 버퍼."
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
@@ -7580,7 +7555,7 @@ msgstr "인덱스 캐시 크기"
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
-msgstr ""
+msgstr "인덱스 캐시를 위해 할당되는 메모리의 크기. 기본값은 32MB. 이 메모리는 인덱스 페이지를 캐시하기 위해서만 사용됩니다."
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
@@ -7592,6 +7567,8 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"테이블 데이터를 캐시하기 위해 할당되는 메모리의 크기. 기본값은 32MB. 이 메모리는 핸들 데이터(.xtd)와 행 포인터(.xtr) "
+"파일의 변화를 캐시하기위해 사용됩니다."
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
@@ -7601,17 +7578,17 @@ msgstr "로그 캐시 크기"
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
-msgstr ""
+msgstr "트랜잭션 로그 데이터를 캐시하기 위해 할당되는 메모리의 크기. 기본값은 16MB."
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "Log file threshold"
-msgstr ""
+msgstr "로그 파일 스레시홀드"
 
 #: libraries/engines/pbxt.lib.php:44
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
-msgstr ""
+msgstr "롤오버 전 부터 새 로그가 생성될 때까지의 트랜잭션의 크기. 기본값은 16MB."
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Transaction buffer size"
@@ -7621,21 +7598,21 @@ msgstr "트랜잭션 버퍼 크기"
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
-msgstr ""
+msgstr "전역 트랜잭션 로그 버퍼의 크기(이 크기에 해당하는 버퍼를 2개 할당합니다). 기본값은 1MB."
 
 #: libraries/engines/pbxt.lib.php:53
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "체크포인트 빈도"
 
 #: libraries/engines/pbxt.lib.php:54
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
-msgstr ""
+msgstr "체크포인트가 수행되기 전에 트랜잭션 로그에 기록될 데이터의 양. 기본값은 24MB."
 
 #: libraries/engines/pbxt.lib.php:58
 msgid "Data log threshold"
-msgstr ""
+msgstr "데이터 로그 스레시홀드"
 
 #: libraries/engines/pbxt.lib.php:59
 msgid ""
@@ -7693,7 +7670,7 @@ msgstr "행 포인터 파일들(.xtr)의 증가량."
 
 #: libraries/engines/pbxt.lib.php:83
 msgid "Log file count"
-msgstr ""
+msgstr "로그 파일 수"
 
 #: libraries/engines/pbxt.lib.php:84
 msgid ""
