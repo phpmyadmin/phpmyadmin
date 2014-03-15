@@ -12,38 +12,44 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ ** Test for PMA_Util::extractValueFromFormattedSize from common.lib
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_ExtractValueFromFormattedSize_Test extends PHPUnit_Framework_TestCase
 {
-
-    function testExtractValueFromFormattedSizeNoFormat()
+    /**
+     * Test for extractValueFromFormattedSize
+     *
+     * @param int|string $size     Size
+     * @param int        $expected Expected value
+     *
+     * @return void
+     *
+     * @dataProvider provider
+     */
+    function testExtractValueFromFormattedSize($size, $expected)
     {
         $this->assertEquals(
-            -1,
-            PMA_Util::extractValueFromFormattedSize(100)
+            $expected,
+            PMA_Util::extractValueFromFormattedSize($size)
         );
     }
 
-    function testExtractValueFromFormattedSizeGB()
+    /**
+     * Data provider for testExtractValueFromFormattedSize
+     *
+     * @return array
+     */
+    public function provider()
     {
-        $this->assertEquals(
-            10737418240,
-            PMA_Util::extractValueFromFormattedSize("10GB")
-        );
-    }
-
-    function testExtractValueFromFormattedSizeMB()
-    {
-        $this->assertEquals(
-            15728640,
-            PMA_Util::extractValueFromFormattedSize("15MB")
-        );
-    }
-
-    function testExtractValueFromFormattedSizeK()
-    {
-        $this->assertEquals(
-            262144,
-            PMA_Util::extractValueFromFormattedSize("256K")
+        return array(
+            array(100, -1),
+            array("10GB", 10737418240),
+            array("15MB", 15728640),
+            array("256K", 262144)
         );
     }
 }

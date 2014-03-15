@@ -47,6 +47,11 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * Test for PMA_RTN_getParameterRow
+     *
+     * @return void
+     */
     public function testgetParameterRow_empty()
     {
         $GLOBALS['is_ajax_request'] = false;

@@ -13,6 +13,11 @@ require_once 'libraries/Util.class.php';
  */
 require_once 'libraries/tbl_gis_visualization.lib.php';
 
+/**
+ * Tests for PMA_GIS_modifyQuery method
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_GIS_ModifyQueryTest extends PHPUnit_Framework_TestCase
 {
     /**

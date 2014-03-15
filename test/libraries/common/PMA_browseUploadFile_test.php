@@ -13,9 +13,19 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ * Test for PMA_Util::getBrowseUploadFileBlock from common.lib
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_GetBrowseUploadFileBlock_Test extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Set up
+     *
+     * @return void
+     */
     protected function setUp()
     {
         $GLOBALS['is_upload'] = false;

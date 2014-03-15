@@ -295,6 +295,11 @@ class PMA_IsValid_Test extends PHPUnit_Framework_TestCase
         $this->assertFalse(PMA_isValid($var, 'identic', $compare));
     }
 
+    /**
+     * Data provider for testSimilarType
+     *
+     * @return array
+     */
     public function providerSimilarType()
     {
         return array(

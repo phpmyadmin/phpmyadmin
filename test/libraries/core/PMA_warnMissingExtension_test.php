@@ -19,8 +19,19 @@ require_once 'libraries/Util.class.php';
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 
+/**
+ * Test for PMA_warnMissingExtension() from libraries/core.lib.php
+ * PMA_warnMissingExtension warns or fails on missing extension.
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
@@ -41,6 +52,11 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['error_handler'] = new PMA_Error_Handler();
     }
 
+    /**
+     * Test for PMA_warnMissingExtension
+     *
+     * @return void
+     */
     function testMissingExtensionFatal()
     {
         $ext = 'php_ext';
@@ -53,6 +69,11 @@ class PMA_WarnMissingExtension_Test extends PHPUnit_Framework_TestCase
         PMA_warnMissingExtension($ext, true);
     }
 
+    /**
+     * Test for PMA_warnMissingExtension
+     *
+     * @return void
+     */
     function testMissingExtensionFatalWithExtra()
     {
         $ext = 'php_ext';

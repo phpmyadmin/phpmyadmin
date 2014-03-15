@@ -12,8 +12,19 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ ** Test for PMA_Util::getDivForSliderEffect from Util.class.php
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for getDivForSliderEffect
+     *
+     * @return void
+     */
     function testGetDivForSliderEffectTest()
     {
         global $cfg;
@@ -24,10 +35,16 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             PMA_Util::getDivForSliderEffect($id, $message),
-            '<div id="' . $id . '" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
+            '<div id="' . $id . '" class="pma_auto_slider" title="'
+            . htmlspecialchars($message) . '">'
         );
     }
 
+    /**
+     * Test for getDivForSliderEffect
+     *
+     * @return void
+     */
     function testGetDivForSliderEffectTestClosed()
     {
         global $cfg;
@@ -38,11 +55,17 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             PMA_Util::getDivForSliderEffect($id, $message),
-            '<div id="' . $id . '" style="display: none; overflow:auto;" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
+            '<div id="' . $id . '" style="display: none; overflow:auto;" '
+            . 'class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
         );
 
     }
 
+    /**
+     * Test for getDivForSliderEffect
+     *
+     * @return void
+     */
     function testGetDivForSliderEffectTestDisabled()
     {
         global $cfg;

@@ -11,6 +11,11 @@
  */
 require_once 'libraries/js_escape.lib.php';
 
+/**
+ * Test for javascript escaping.
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_EscapeJsString_Test extends PHPUnit_Framework_TestCase
 {
     /**

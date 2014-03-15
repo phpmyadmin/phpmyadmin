@@ -25,8 +25,22 @@ require_once 'libraries/Theme.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ * Test for PMA_fatalError() from libraries/core.lib.php
+ *
+ * PMA_fatalError() displays the given error message on phpMyAdmin error page in
+ * foreign language
+ * and ends script execution and closes session
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_FatalError_Test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setup()
     {
         $GLOBALS['PMA_Config'] = new PMA_Config();
@@ -44,12 +58,22 @@ class PMA_FatalError_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = '';
     }
 
+    /**
+     * Test for PMA_fatalError
+     *
+     * @return void
+     */
     public function testFatalErrorMessage()
     {
         $this->expectOutputRegex("/FatalError!/");
         PMA_fatalError("FatalError!");
     }
 
+    /**
+     * Test for PMA_fatalError
+     *
+     * @return void
+     */
     public function testFatalErrorMessageWithArgs()
     {
         $message = "Fatal error #%d in file %s.";

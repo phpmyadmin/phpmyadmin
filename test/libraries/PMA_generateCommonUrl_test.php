@@ -12,6 +12,11 @@
 require_once 'libraries/core.lib.php';
 require_once 'libraries/url_generating.lib.php';
 
+/**
+ * tests for PMA_URL_getCommon()
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_GenerateCommonURL_Test extends PHPUnit_Framework_TestCase
 {
 

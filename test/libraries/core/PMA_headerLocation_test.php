@@ -50,6 +50,11 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     protected $runkitExt;
     protected $apdExt;
 
+    /**
+     * Set up
+     *
+     * @return void
+     */
     public function setUp()
     {
         //session_start();

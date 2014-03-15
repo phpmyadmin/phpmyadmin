@@ -13,6 +13,12 @@
 require_once 'libraries/Util.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
+/**
+ ** Test for PMA_Util::getFormattedMaximumUploadSize from Util.class.php
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_GetFormattedMaximumUploadSize_Test extends PHPUnit_Framework_TestCase
 {
 

@@ -12,8 +12,19 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ ** Test for PMA_Util::getRadioFields from Util.class.php
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     */
     function testGetRadioFieldsEmpty()
     {
         $name = "test_display_radio";
@@ -25,6 +36,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     */
     function testGetRadioFields()
     {
         $name = "test_display_radio";
@@ -33,9 +49,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $out = "";
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
-            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
             $out .= ' />' . "\n";
-            $out .= '<label for="' . $html_field_id . '">' . $choice_label . '</label>';
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
             $out .= '<br />';
             $out .= "\n";
         }
@@ -46,6 +64,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     */
     function testGetRadioFieldsWithChecked()
     {
         $name = "test_display_radio";
@@ -55,12 +78,14 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $out = "";
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
-            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
             $out .= ' />' . "\n";
-            $out .= '<label for="' . $html_field_id . '">' . $choice_label . '</label>';
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
             $out .= '<br />';
             $out .= "\n";
         }
@@ -73,6 +98,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     */
     function testGetRadioFieldsWithCheckedWithClass()
     {
         $name = "test_display_radio";
@@ -84,12 +114,14 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<div class="' . $class . '">';
-            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
             $out .= ' />' . "\n";
-            $out .= '<label for="' . $html_field_id . '">' . $choice_label . '</label>';
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
             $out .= '<br />';
             $out .= '</div>';
             $out .= "\n";
@@ -103,6 +135,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     */
     function testGetRadioFieldsWithoutBR()
     {
         $name = "test_display_radio";
@@ -112,12 +149,14 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $out = "";
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
-            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
             $out .= ' />' . "\n";
-            $out .= '<label for="' . $html_field_id . '">' . $choice_label . '</label>';
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
             $out .= "\n";
         }
 
@@ -129,6 +168,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     */
     function testGetRadioFieldsEscapeLabelEscapeLabel()
     {
         $name = "test_display_radio";
@@ -138,12 +182,14 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $out = "";
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
-            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
             $out .= ' />' . "\n";
-            $out .= '<label for="' . $html_field_id . '">' . htmlspecialchars($choice_label) . '</label>';
+            $out .= '<label for="' . $html_field_id . '">'
+                . htmlspecialchars($choice_label) . '</label>';
             $out .= '<br />';
             $out .= "\n";
         }
@@ -156,6 +202,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     */
     function testGetRadioFieldsEscapeLabelNotEscapeLabel()
     {
         $name = "test_display_radio";
@@ -165,12 +216,14 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $out = "";
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
-            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
             $out .= ' />' . "\n";
-            $out .= '<label for="' . $html_field_id . '">' . $choice_label . '</label>';
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
             $out .= '<br />';
             $out .= "\n";
         }
@@ -183,6 +236,11 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     */
     function testGetRadioFieldsEscapeLabelEscapeLabelWithClass()
     {
         $name = "test_display_radio";
@@ -194,12 +252,14 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         foreach ($choices as $choice_value => $choice_label) {
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<div class="' . $class . '">';
-            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
             $out .= ' />' . "\n";
-            $out .= '<label for="' . $html_field_id . '">' . htmlspecialchars($choice_label) . '</label>';
+            $out .= '<label for="' . $html_field_id . '">'
+                . htmlspecialchars($choice_label) . '</label>';
             $out .= '<br />';
             $out .= '</div>';
             $out .= "\n";

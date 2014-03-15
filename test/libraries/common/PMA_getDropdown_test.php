@@ -12,8 +12,19 @@
  */
 require_once 'libraries/Util.class.php';
 
+/**
+ ** Test for PMA_Util::getDropdown from Util.class.php
+ *
+ * @package PhpMyAdmin-test
+ * @group common.lib-tests
+ */
 class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test for getDropdown
+     *
+     * @return void
+     */
     function testGetDropdownEmpty()
     {
         $name = "test_dropdown_name";
@@ -21,7 +32,8 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $active_choice = null;
         $id = "test_&lt;dropdown&gt;_name";
 
-        $result = '<select name="' . htmlspecialchars($name) . '" id="' . htmlspecialchars($id) . '"></select>';
+        $result = '<select name="' . htmlspecialchars($name) . '" id="'
+            . htmlspecialchars($id) . '"></select>';
 
         $this->assertEquals(
             $result,
@@ -31,6 +43,11 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getDropdown
+     *
+     * @return void
+     */
     function testGetDropdown()
     {
         $name = "&test_dropdown_name";
@@ -38,7 +55,8 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $active_choice = null;
         $id = "test_&lt;dropdown&gt;_name";
 
-        $result = '<select name="' . htmlspecialchars($name) . '" id="' . htmlspecialchars($id) . '">';
+        $result = '<select name="' . htmlspecialchars($name) . '" id="'
+            . htmlspecialchars($id) . '">';
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
             if ($one_choice_value == $active_choice) {
@@ -56,6 +74,11 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for getDropdown
+     *
+     * @return void
+     */
     function testGetDropdownWithActive()
     {
         $name = "&test_dropdown_name";
@@ -63,7 +86,8 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $active_choice = "value&_2\"";
         $id = "test_&lt;dropdown&gt;_name";
 
-        $result = '<select name="' . htmlspecialchars($name) . '" id="' . htmlspecialchars($id) . '">';
+        $result = '<select name="' . htmlspecialchars($name) . '" id="'
+            . htmlspecialchars($id) . '">';
         foreach ($choices as $one_choice_value => $one_choice_label) {
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
             if ($one_choice_value == $active_choice) {

@@ -12,6 +12,11 @@
 require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/Util.class.php';
 
+/**
+ * tests for JS variable formatting
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_JS_Escape_Test extends PHPUnit_Framework_TestCase
 {
     /**

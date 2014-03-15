@@ -172,7 +172,8 @@ function Swekey_Auth_error()
     if (file_exists($caFile)) {
         Swekey_SetCAFile($caFile);
     } elseif (! empty($caFile)
-        && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")) {
+        && (substr($_SESSION['SWEKEY']['CONF_SERVER_CHECK'], 0, 8) == "https://")
+    ) {
         return "Internal Error: CA File $caFile not found";
     }
 
