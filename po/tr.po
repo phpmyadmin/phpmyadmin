@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-03-04 15:03+0200\n"
+"PO-Revision-Date: 2014-03-15 13:35+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/4-1/tr/>\n"
 "Language: tr\n"
@@ -2493,7 +2493,7 @@ msgstr "Ayrıntılar…"
 
 #: libraries/DbSearch.class.php:98 libraries/DbSearch.class.php:402
 msgid "at least one of the words"
-msgstr "kelimelerin en azından biri"
+msgstr "kelimelerin en az birini"
 
 #: libraries/DbSearch.class.php:99 libraries/DbSearch.class.php:406
 msgid "all words"
