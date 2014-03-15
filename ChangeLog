@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 + rfe #1460 Redirect to login page after session has expired
 - bug #4316 Grid edit: can't change month on date fields
 + rfe #1501 add maxlength by field with length-spec
++ rfe #1512 Import happily doesn't do anything with no file name provided
 
 4.1.10.0 (not yet released)
 - bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit
