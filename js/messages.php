@@ -46,6 +46,7 @@ $js_messages['strConfirmDeleteQBESearch'] = __('Do you really want to delete the
 
 /* For indexes */
 $js_messages['strFormEmpty'] = __('Missing value in the form!');
+$js_messages['strRadioUnchecked'] = __('Select at least one of the options!');
 $js_messages['strEnterValidNumber'] = __('Please enter a valid number!');
 $js_messages['strEnterValidLength'] = __('Please enter a valid length!');
 $js_messages['strAddIndex'] = __('Add Index');
@@ -201,6 +202,7 @@ $js_messages['strFailedBuildingGrid'] = __('Failed building chart grid with impo
 $js_messages['strImport'] = __('Import');
 $js_messages['strImportDialogTitle'] = __('Import monitor configuration');
 $js_messages['strImportDialogMessage'] = __('Please select the file you want to import.');
+$js_messages['strNoImportFile'] = __('No files available on server for import!');
 
 $js_messages['strAnalyzeQuery'] = __('Analyse Query');
 
