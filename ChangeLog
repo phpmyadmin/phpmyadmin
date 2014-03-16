@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 - bug #4278 reCaptcha re-login requires double effort
 - bug #4324 Datepicker not showing up on insert page
 - bug #3991 Problem selecting item in select boxes with the ENTER keystroke in some browsers
+- bug #4323 QueryWindow ignores CodeMirror
 
 4.1.9.0 (2014-03-06)
 - bug #4279 CTRL + up or down moves two fields (part one)

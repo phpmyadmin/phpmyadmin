@@ -387,7 +387,12 @@ function confirmQuery(theForm1, sqlQuery1)
  */
 function checkSqlQuery(theForm)
 {
-    var sqlQuery = theForm.elements['sql_query'];
+    // get the textarea element containing the query
+    if (codemirror_editor) {
+        var sqlQuery = codemirror_editor.display.input;
+    } else {
+        var sqlQuery = theForm.elements['sql_query'];
+    }
     var isEmpty  = 1;
     var space_re = new RegExp('\\s+');
     if (typeof(theForm.elements['sql_file']) != 'undefined' &&
