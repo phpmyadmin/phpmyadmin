@@ -467,14 +467,14 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
         $html_output .= '<td class="center">--</td>' . "\n";
     } else {
         $html_output .= '<td>' . "\n";
-
-        $html_output .= '<select name="funcs' . $column_name_appendix . '"'
+		$html_output .= '<select name="funcs' . $column_name_appendix . '"'
             . ' ' . $unnullify_trigger
             . ' tabindex="' . ($tabindex + $tabindex_for_function) . '"'
             . ' id="field_' . $idindex . '_1">';
         $html_output .= PMA_Util::getFunctionsForField($column, $insert_mode) . "\n";
 
         $html_output .= '</select>' .  "\n";
+		$html_output .= PMA_getAppliSameFunctionForAllInsertions("funcs" . $column_name_appendix);
         $html_output .= '</td>' .  "\n";
     }
     return $html_output;
@@ -1401,6 +1401,25 @@ function PMA_getHTMLforGisDataTypes()
         )
         . '</span>';
 }
+
+
+
+
+/**
+ * get html for apply same function to all insert
+ *
+ * @param string $name              name of the select
+ *
+ * @return string                   an html snippet
+ */
+function PMA_getAppliSameFunctionForAllInsertions($name)
+{
+    $html_output = "<input type=\"button\" id=\"applySameFunctionToAllInsertions\" value=\"".__('All')."\" onClick=\"applyThisFunctionToAllInsertions('$name')\">";
+    return $html_output;
+}
+
+
+
 
 /**
  * get html for continue insertion form
