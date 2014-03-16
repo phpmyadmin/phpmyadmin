@@ -315,6 +315,11 @@ $js_messages['strInnerRing'] = __('Inner Ring');
 $js_messages['strOuterRing'] = __('Outer Ring');
 $js_messages['strAddPoint'] = __('Add a point');
 $js_messages['strAddInnerRing'] = __('Add an inner ring');
+$js_messages['strFunctionHint'] = __('Shift + Click on a function name to show more options.');
+$js_messages['strAll'] = __('ALL');
+$js_messages['strRemoveFunction'] = __('Remove function');
+$js_messages['strFunctionDialogMessage'] = __('Apply this function to column(s)');
+$js_messages['strCopySalt'] = __('Copy Salt');
 
 /* Designer (js/pmd/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
@@ -395,6 +400,7 @@ $js_messages['strIgnore'] = __("Ignore");
 $js_messages['strTimeOutError'] = __(
     "Your export is incomplete, due to a low execution time limit at the PHP level!"
 );
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);
