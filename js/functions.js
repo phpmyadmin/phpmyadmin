@@ -1396,6 +1396,10 @@ AJAX.registerOnload('functions.js', function () {
         bindCodeMirrorToInlineEditor();
         return false;
     });
+    
+    $("code.sql").live('click', function () {
+        $("a.inline_edit_sql").trigger('click');
+    });
 
     $("input#sql_query_edit_save").live('click', function () {
         $(".success").hide();
@@ -1516,6 +1520,8 @@ function catchKeypressesFromSqlTextboxes(event) {
         } else if ($('#sqlquery').length > 0) {
             $("#button_submit_query").trigger('click');
         }
+    } else if (event.keyCode == 27) {
+        $("#sql_query_edit_discard").trigger('click');
     }
 }
 
