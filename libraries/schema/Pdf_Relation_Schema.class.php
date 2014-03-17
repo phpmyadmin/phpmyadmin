@@ -358,6 +358,8 @@ class PMA_Schema_PDF extends PMA_PDF
     }
 }
 
+require_once './libraries/schema/TableStats.class.php';
+
 /**
  * Table preferences/statistics
  *
@@ -368,21 +370,15 @@ class PMA_Schema_PDF extends PMA_PDF
  * @package PhpMyAdmin
  * @see     PMA_Schema_PDF
  */
-class Table_Stats_Pdf
+class Table_Stats_Pdf extends TableStats
 {
     /**
      * Defines properties
      */
-    private $_tableName;
-    private $_showInfo = false;
-
     public $nb_fiels;
     public $width = 0;
     public $height;
-    public $fields = array();
     public $heightCell = 6;
-    public $x, $y;
-    public $primary = array();
     private $_ff = PMA_PDF_FONT;
 
     /**
@@ -407,34 +403,10 @@ class Table_Stats_Pdf
         $showKeys = false, $showInfo = false
     ) {
         global $pdf, $cfgRelation, $db;
-
-        $this->_tableName = $tableName;
-        $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = $GLOBALS['dbi']->tryQuery(
-            $sql, null, PMA_DatabaseInterface::QUERY_STORE
+        parent::__construct(
+            $pdf, $db, $pageNumber, $tableName, $showKeys, $showInfo
         );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $pdf->Error(sprintf(__('The %s table doesn\'t exist!'), $tableName));
-        }
-        // load fields
-        //check to see if it will load all fields or only the foreign keys
-        if ($showKeys) {
-            $indexes = PMA_Index::getFromTable($this->_tableName, $db);
-            $all_columns = array();
-            foreach ($indexes as $index) {
-                $all_columns = array_merge(
-                    $all_columns,
-                    array_flip(array_keys($index->getColumns()))
-                );
-            }
-            $this->fields = array_keys($all_columns);
-        } else {
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-                $this->fields[] = $row[0];
-            }
-        }
 
-        $this->_showInfo = $showInfo;
         $this->_setHeight();
         /*
          * setWidth must me after setHeight, because title
@@ -444,44 +416,37 @@ class Table_Stats_Pdf
         if ($sameWideWidth < $this->width) {
             $sameWideWidth = $this->width;
         }
-        $sql = 'SELECT x, y FROM '
-             . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-             . PMA_Util::backquote($cfgRelation['table_coords'])
-             . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-             . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($tableName) . '\''
-             . ' AND   pdf_page_number = ' . $pageNumber;
-        $result = PMA_queryAsControlUser(
-            $sql, false, PMA_DatabaseInterface::QUERY_STORE
+    }
+
+    /**
+     * Displays an error when the table cannot be found.
+     *
+     * @return void
+     */
+    protected function showMissingTableError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "PDF",
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $pdf->Error(
-                sprintf(
-                    __('Please configure the coordinates for table %s'),
-                    $tableName
-                )
-            );
-        }
-        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
-        $this->x = (double) $this->x;
-        $this->y = (double) $this->y;
-        /*
-         * displayfield
-         */
-        $this->displayfield = PMA_getDisplayField($db, $tableName);
-        /*
-         * index
-         */
-        $result = $GLOBALS['dbi']->query(
-            'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
-            null, PMA_DatabaseInterface::QUERY_STORE
+    }
+
+    /**
+     * Diaplays an error on missing coordinates
+     *
+     * @return void
+     */
+    protected function showMissingCoordinatesError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "PDF",
+            sprintf(
+                __('Please configure the coordinates for table %s'),
+                $this->tableName
+            )
         );
-        if ($GLOBALS['dbi']->numRows($result) > 0) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $this->primary[] = $row['Column_name'];
-                }
-            }
-        }
     }
 
     /**
@@ -493,7 +458,7 @@ class Table_Stats_Pdf
     private function _getTitle()
     {
         $ret = '';
-        if ($this->_showInfo) {
+        if ($this->showInfo) {
             $ret = sprintf('%.0fx%0.f', $this->width, $this->height);
         }
         return $ret . ' ' . $this->_tableName;

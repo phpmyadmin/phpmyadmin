@@ -263,6 +263,8 @@ class PMA_SVG extends XMLWriter
     }
 }
 
+require_once './libraries/schema/TableStats.class.php';
+
 /**
  * Table preferences/statistics
  *
@@ -273,22 +275,15 @@ class PMA_SVG extends XMLWriter
  * @name    Table_Stats_Svg
  * @see     PMA_SVG
  */
-class Table_Stats_Svg
+class Table_Stats_Svg extends TableStats
 {
     /**
      * Defines properties
      */
-
-    private $_tableName;
-    private $_showInfo = false;
-
     public $width = 0;
     public $height;
-    public $fields = array();
     public $heightCell = 0;
     public $currentCell = 0;
-    public $x, $y;
-    public $primary = array();
 
     /**
      * The "Table_Stats_Svg" constructor
@@ -317,92 +312,49 @@ class Table_Stats_Svg
         &$same_wide_width, $showKeys = false, $showInfo = false
     ) {
         global $svg, $cfgRelation, $db;
-
-        $this->_tableName = $tableName;
-        $sql = 'DESCRIBE ' . PMA_Util::backquote($tableName);
-        $result = $GLOBALS['dbi']->tryQuery(
-            $sql, null, PMA_DatabaseInterface::QUERY_STORE
+        parent::__construct(
+            $svg, $db, $pageNumber, $tableName, $showKeys, $showInfo
         );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $svg->dieSchema(
-                $pageNumber,
-                "SVG",
-                sprintf(__('The %s table doesn\'t exist!'), $tableName)
-            );
-        }
-
-        /*
-        * load fields
-        * check to see if it will load all fields or only the foreign keys
-        */
-
-        if ($showKeys) {
-            $indexes = PMA_Index::getFromTable($this->_tableName, $db);
-            $all_columns = array();
-            foreach ($indexes as $index) {
-                $all_columns = array_merge(
-                    $all_columns,
-                    array_flip(array_keys($index->getColumns()))
-                );
-            }
-            $this->fields = array_keys($all_columns);
-        } else {
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
-                $this->fields[] = $row[0];
-            }
-        }
-
-        $this->_showInfo = $showInfo;
 
         // height and width
         $this->_setHeightTable($fontSize);
-
         // setWidth must me after setHeight, because title
         // can include table height which changes table width
         $this->_setWidthTable($font, $fontSize);
         if ($same_wide_width < $this->width) {
             $same_wide_width = $this->width;
         }
+    }
 
-        // x and y
-        $sql = 'SELECT x, y FROM '
-         . PMA_Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-         . PMA_Util::backquote($cfgRelation['table_coords'])
-         . ' WHERE db_name = \'' . PMA_Util::sqlAddSlashes($db) . '\''
-         . ' AND   table_name = \'' . PMA_Util::sqlAddSlashes($tableName) . '\''
-         . ' AND   pdf_page_number = ' . $pageNumber;
-        $result = PMA_queryAsControlUser(
-            $sql, false, PMA_DatabaseInterface::QUERY_STORE
+    /**
+     * Displays an error when the table cannot be found.
+     *
+     * @return void
+     */
+    protected function showMissingTableError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "SVG",
+            sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
+    }
 
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
-            $svg->dieSchema(
-                $pageNumber,
-                "SVG",
-                sprintf(
-                    __('Please configure the coordinates for table %s'),
-                    $tableName
-                )
-            );
-        }
-        list($this->x, $this->y) = $GLOBALS['dbi']->fetchRow($result);
-        $this->x = (double) $this->x;
-        $this->y = (double) $this->y;
-        // displayfield
-        $this->displayfield = PMA_getDisplayField($db, $tableName);
-        // index
-        $result = $GLOBALS['dbi']->query(
-            'SHOW INDEX FROM ' . PMA_Util::backquote($tableName) . ';',
-            null,
-            PMA_DatabaseInterface::QUERY_STORE
+    /**
+     * Diaplays an error on missing coordinates
+     *
+     * @return void
+     */
+    protected function showMissingCoordinatesError()
+    {
+        $this->diagram->dieSchema(
+            $this->pageNumber,
+            "SVG",
+            sprintf(
+                __('Please configure the coordinates for table %s'),
+                $this->tableName
+            )
         );
-        if ($GLOBALS['dbi']->numRows($result) > 0) {
-            while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                if ($row['Key_name'] == 'PRIMARY') {
-                    $this->primary[] = $row['Column_name'];
-                }
-            }
-        }
     }
 
     /**
@@ -414,7 +366,7 @@ class Table_Stats_Svg
      */
     private function _getTitle()
     {
-        return ($this->_showInfo
+        return ($this->showInfo
             ? sprintf('%.0f', $this->width) . 'x'
             . sprintf('%.0f', $this->heightCell)
             : ''
