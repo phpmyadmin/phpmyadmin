@@ -315,6 +315,9 @@ $js_messages['strInnerRing'] = __('Inner Ring');
 $js_messages['strOuterRing'] = __('Outer Ring');
 $js_messages['strAddPoint'] = __('Add a point');
 $js_messages['strAddInnerRing'] = __('Add an inner ring');
+$js_messages['strFunctionHint'] = __('Shift + Click on function name to apply to all rows.');
+$js_messages['strYes'] = __('Yes');
+$js_messages['strCopySalt'] = __('Copy Salt');
 
 /* Designer (js/pmd/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
