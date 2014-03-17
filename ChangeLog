@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - bug #4316 Grid edit: can't change month on date fields
 + rfe #1501 add maxlength by field with length-spec
 + rfe #1512 Import happily doesn't do anything with no file name provided
++ rfe #1514 Add function to all the insert boxes automatically
 
 4.1.10.0 (not yet released)
 - bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit
