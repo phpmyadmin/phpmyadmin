@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-08-23 11:41+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Catalan <http://l10n.cihar.com/projects/phpmyadmin/master/ca/"
-">\n"
+"PO-Revision-Date: 2014-03-18 17:01+0200\n"
+"Last-Translator: Carles Mata <info@appsinet.com>\n"
+"Language-Team: Catalan <https://l10n.cihar.com/projects/phpmyadmin/4-1/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -36,10 +35,9 @@ msgstr "Comentaris de la base de dades: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Comentaris de la taula"
+msgstr "Comentaris de la taula:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -270,24 +268,21 @@ msgstr "en ús"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1353
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Creació"
+msgstr "Creació:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1358
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Darrera actualització"
+msgstr "Darrera actualització:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Darrera comprovació"
+msgstr "Darrera comprovació:"
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
@@ -420,29 +415,34 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"S'ha detectat un error i s'ha enviat automàticament un informe d'errors "
+"basat en la teva configuració."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "És possible que vulguis actualitzar la pàgina."
 
 #: error_report.php:45
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"S'ha detectat un error i generat un informe d'errors, però no s'ha pogut "
+"enviar."
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Si trobes algun problema per favor envia un informe d'errors manualment."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Gràcies per enviar aquest informe."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Desafortunadament ha fallat l'enviament."
 
 #: export.php:171
 msgid "Bad type!"
@@ -494,22 +494,20 @@ msgstr "Utilitzar OpenStreetMaps com a capa base"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
-#, fuzzy
 #| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:186
-#, fuzzy, php-format
+#, php-format
 #| msgid "Geometry"
 msgid "Geometry %d:"
-msgstr "Geometria"
+msgstr "Geometria %d:"
 
 #: gis_data_editor.php:208
-#, fuzzy
 #| msgid "Point"
 msgid "Point:"
-msgstr "Punt"
+msgstr "Punt:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:325
@@ -533,22 +531,21 @@ msgid "Add a point"
 msgstr "Afegir un punt"
 
 #: gis_data_editor.php:264
-#, fuzzy, php-format
+#, php-format
 #| msgid "Linestring"
 msgid "Linestring %d:"
-msgstr "Cadena de línies"
+msgstr "Cadena de línies %d:"
 
 #: gis_data_editor.php:267 gis_data_editor.php:343
-#, fuzzy
 #| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Cercle exterior"
+msgstr "Cercle exterior:"
 
 #: gis_data_editor.php:269 gis_data_editor.php:345
-#, fuzzy, php-format
+#, php-format
 #| msgid "Inner Ring"
 msgid "Inner ring %d:"
-msgstr "Cercle interior"
+msgstr "Cercle interior %d:"
 
 #: gis_data_editor.php:305
 msgid "Add a linestring"
@@ -559,10 +556,10 @@ msgid "Add an inner ring"
 msgstr "Afegeix un cercle interior"
 
 #: gis_data_editor.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Polygon"
 msgid "Polygon %d:"
-msgstr "Polígon"
+msgstr "Polígon %d:"
 
 #: gis_data_editor.php:386 js/messages.php:336
 msgid "Add a polygon"
@@ -709,10 +706,9 @@ msgid "Back"
 msgstr "Enrere"
 
 #: index.php:115 libraries/Footer.class.php:70
-#, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "pàgina principal de phpMyAdmin"
+msgstr "Servidor de demostració de phpMyAdmin"
 
 #: index.php:119
 #, php-format
@@ -721,6 +717,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Estàs utilitzant un servidor de demostració. Pots fer el que vulguis aquí, "
+"però sisplau no modifiquis els usuaris root, debian-sys-maint i pma. Més "
+"informació disponible a %s."
 
 #: index.php:129
 msgid "General Settings"
@@ -752,62 +751,54 @@ msgid "Server:"
 msgstr "Servidor:"
 
 #: index.php:254
-#, fuzzy
 #| msgid "Server type"
 msgid "Server type:"
-msgstr "Tipus de servidor"
+msgstr "Tipus de servidor:"
 
 #: index.php:258 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
-msgstr "Versió del servidor"
+msgstr "Versió del servidor:"
 
 #: index.php:264
-#, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Versió del protocol"
+msgstr "Versió del protocol:"
 
 #: index.php:268
-#, fuzzy
 #| msgid "User"
 msgid "User:"
-msgstr "Usuari"
+msgstr "Usuari:"
 
 #: index.php:273
-#, fuzzy
 #| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Joc de caracters del servidor"
+msgstr "Joc de caràcters del servidor:"
 
 #: index.php:287
 msgid "Web server"
 msgstr "Servidor web"
 
 #: index.php:303
-#, fuzzy
 #| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Versió del client de base de dades"
+msgstr "Versió del client de base de dades:"
 
 #: index.php:307
-#, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "Extensió PHP"
+msgstr "Extensió PHP:"
 
 #: index.php:321
 msgid "Show PHP information"
 msgstr "Mostra informació de PHP"
 
 #: index.php:344
-#, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
-msgstr "Informació de versió"
+msgstr "Informació de la versió:"
 
 #: index.php:353 libraries/Util.class.php:429 libraries/Util.class.php:496
 #: libraries/config/FormDisplay.tpl.php:148
@@ -898,7 +889,6 @@ msgstr ""
 "(blowfish_secret)."
 
 #: index.php:494
-#, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
 #| "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
@@ -909,9 +899,11 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"El directori [code]config[/code], que s'usa al procés de configuració, "
-"encara existeix dins del vostre directori de phpMyAdmin. Heu d'esborrar-ho "
-"un cop heu acabat de configurar phpMyAdmin."
+"El directori [code]config[/code], que s'utilitza al procés de configuració, "
+"encara existeix dins del teu directori de phpMyAdmin. És molt recomanable "
+"esborrar-lo un cop has acabat de configurar phpMyAdmin. D'altra manera la "
+"seguretat del teu servidor pot estar compromesa per la descàrrega de la "
+"configuració per part de persones no autoritzades."
 
 #: index.php:504
 #, php-format
@@ -947,7 +939,7 @@ msgstr "Instrucció \"DROP DATABASE\" desactivada."
 
 #: js/messages.php:35
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: js/messages.php:36
 #, php-format
@@ -979,24 +971,23 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Aquesta operació pot ser bastant llarga. Procedim igualment?"
 
 #: js/messages.php:44
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Realment vols fer \"%s\"?"
+msgstr "Realment vols esborrar el grup d'usuaris \"%s\"?"
 
 #: js/messages.php:47
 msgid "Missing value in the form!"
 msgstr "Falta un valor al formulari!"
 
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "Numero de port incorrecte"
+msgstr "Sisplau introdueix un nombre vàlid"
 
 #: js/messages.php:49
 msgid "Please enter a valid length"
-msgstr ""
+msgstr "Sisplau introdueix una llargada vàlida"
 
 #: js/messages.php:50
 msgid "Add Index"
@@ -1380,6 +1371,8 @@ msgstr "Del registre general"
 #: js/messages.php:162
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
+"No es coneix el nom de la base de dades per aquesta consulta als registres "
+"del servidor."
 
 #: js/messages.php:164
 msgid "Analysing logs"
@@ -1607,7 +1600,7 @@ msgstr "Carregar…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
-msgstr ""
+msgstr "Petició abortada!!"
 
 #: js/messages.php:231
 msgid "Processing Request"
@@ -1802,16 +1795,14 @@ msgid "Show search criteria"
 msgstr "Mostrar criteri de cerca"
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Amaga el criteri de cerca"
+msgstr "Amaga el criteri de cerca i reemplaça"
 
 #: js/messages.php:298
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Mostrar criteri de cerca"
+msgstr "Mostrar el criteri de cerca i reemplaça"
 
 #: js/messages.php:301 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -2031,10 +2022,9 @@ msgid "Hide Panel"
 msgstr "Amagar el panell"
 
 #: js/messages.php:395
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items"
-msgstr "Mostra el logo al panell de navegació"
+msgstr "Mostra els elements amagats del panell de navegació"
 
 #: js/messages.php:398
 msgid "The requested page was not found in the history, it may have expired."
@@ -2064,39 +2054,38 @@ msgid "Create view"
 msgstr "Crea una vista"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
-msgstr "Port del servidor"
+msgstr "Enviar informe d'error"
 
 #: js/messages.php:410
 msgid "Submit Error Report"
-msgstr ""
+msgstr "Introduir informe d'error"
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "S'ha produït un error en carregar l'arbre de navegació"
+msgstr ""
+"S'ha produït un error fatal de JavaScript. Vols enviar un informe d'errors?"
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "Canviar configuracions"
+msgstr "Canviar les configuracions d'informes"
 
 #: js/messages.php:415
-#, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
-msgstr "Mostra taules obertes"
+msgstr "Mostra el detall dels informes"
 
 #: js/messages.php:418
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"No s'ha completat la teva exportació, per culpa d'un límit de temps "
+"d'execució a nivell de PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:439
@@ -2396,12 +2385,12 @@ msgid "Unexpected characters on line %s."
 msgstr "Caràcters no esperats en la línia %s."
 
 #: libraries/Advisor.class.php:439
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 "Caràcter inesperat en la línia %1$s. S'esperava una tabulació, però s'ha "
-"trobat \"%2$s\""
+"trobat \"%2$s\"."
 
 #: libraries/Advisor.class.php:472
 msgid "per second"
@@ -2455,28 +2444,24 @@ msgid "Descending"
 msgstr "Descendent"
 
 #: libraries/DBQbe.class.php:364 libraries/TableSearch.class.php:1346
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Columna"
+msgstr "Columna:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Classificació"
+msgstr "Ordenació:"
 
 #: libraries/DBQbe.class.php:468
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Mostra"
+msgstr "Mostra:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Criteris"
+msgstr "Criteris:"
 
 #: libraries/DBQbe.class.php:578
 msgid "Add/Delete criteria rows"
@@ -2495,10 +2480,9 @@ msgid "Use Tables"
 msgstr "Usa Taules"
 
 #: libraries/DBQbe.class.php:655 libraries/DBQbe.class.php:763
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "O"
+msgstr "O:"
 
 #: libraries/DBQbe.class.php:659 libraries/DBQbe.class.php:748
 msgid "And:"
@@ -2513,10 +2497,9 @@ msgid "Del"
 msgstr "Sup"
 
 #: libraries/DBQbe.class.php:682
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Modificar"
+msgstr "Modificar:"
 
 #: libraries/DBQbe.class.php:743
 msgid "Ins:"
@@ -2680,10 +2663,9 @@ msgid "Number of rows:"
 msgstr "Nombre de files:"
 
 #: libraries/DisplayResults.class.php:959
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Mode"
+msgstr "Mode:"
 
 #: libraries/DisplayResults.class.php:961
 msgid "horizontal"
@@ -2806,16 +2788,16 @@ msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4926
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Mostrant registres"
+msgstr "Mostrant registres %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4938
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:4950 libraries/sql.lib.php:1647
 #, php-format
@@ -2947,10 +2929,9 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/Footer.class.php:81
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Informació de versió"
+msgstr "No es troba la informació de Git!"
 
 #: libraries/Footer.class.php:162 libraries/Footer.class.php:166
 #: libraries/Footer.class.php:169
@@ -3381,16 +3362,14 @@ msgid "Target database `%s` was not found!"
 msgstr "No s'ha trobat la base de dades destí `%s`!"
 
 #: libraries/Table.class.php:1257
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Base de dades incorrecte"
+msgstr "Base de dades incorrecte:"
 
 #: libraries/Table.class.php:1271
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Nom de taula incorrecte"
+msgstr "Nom de taula incorrecte:"
 
 #: libraries/Table.class.php:1306
 #, php-format
@@ -3520,38 +3499,33 @@ msgid "Reset zoom"
 msgstr "Reinicia l'ampliació"
 
 #: libraries/TableSearch.class.php:1343
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace with:"
-msgstr "Canvía NULL amb:"
+msgstr "Reemplaça NULL amb:"
 
 #: libraries/TableSearch.class.php:1403
 msgid "Find and replace - preview"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1407
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Columna"
+msgstr "Nombre"
 
 #: libraries/TableSearch.class.php:1408
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Posició original"
+msgstr "String original"
 
 #: libraries/TableSearch.class.php:1409
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Enllaços relacionats"
+msgstr "String reemplaçat"
 
 #: libraries/TableSearch.class.php:1433
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replicat"
+msgstr "Reemplaça"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3582,10 +3556,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "No s'ha trobat el camí de les imatges del tema %s!"
 
 #: libraries/Theme_Manager.class.php:369
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Tema"
+msgstr "Tema:"
 
 #: libraries/Types.class.php:297
 msgid ""
@@ -3934,10 +3907,9 @@ msgid "Max: %s%s"
 msgstr "Màx: %s%s"
 
 #: libraries/Util.class.php:642 libraries/sql.lib.php:434
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "Consulta SQL"
+msgstr "Consulta SQL:"
 
 #: libraries/Util.class.php:686 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -4082,10 +4054,9 @@ msgid "shared"
 msgstr "compartit"
 
 #: libraries/browse_foreigners.lib.php:43
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Cerca"
+msgstr "Cerca:"
 
 #: libraries/browse_foreigners.lib.php:63
 #: libraries/browse_foreigners.lib.php:65
@@ -4192,10 +4163,10 @@ msgstr ""
 "Nom de host invàlid pel servidor %1$s. Si us plau, reviseu la configuració."
 
 #: libraries/common.inc.php:657
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Servidor"
+msgstr "Servidor %d"
 
 #: libraries/common.inc.php:854
 msgid "Invalid authentication method set in configuration:"
@@ -4224,17 +4195,15 @@ msgstr "detectat teclat numéric"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:77
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Ins"
+msgstr "Icones"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:78
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Prova"
+msgstr "Text"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:79
@@ -4391,16 +4360,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" requereix l'extensió %s"
 
 #: libraries/config/FormDisplay.class.php:791
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "l'importació no funciona, falta la funció (%s)"
+msgstr "L'importació comprimida no funciona, perquè falta la funció (%s)."
 
 #: libraries/config/FormDisplay.class.php:797
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "l'exportació no funciona, falta la funció (%s)"
+msgstr "L'exportació comprimida no funciona perquè falta la funció (%s)."
 
 #: libraries/config/FormDisplay.class.php:807
 msgid "SQL Validator is disabled"
@@ -4478,10 +4447,9 @@ msgid "Empty phpMyAdmin control user password while using pmadb"
 msgstr "Control de contrasenya de phpMyAdmin buida al usar pmadb"
 
 #: libraries/config/Validator.class.php:447
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Valor incorrecte"
+msgstr "Valor incorrecte:"
 
 #: libraries/config/Validator.class.php:456
 #, php-format
@@ -4546,7 +4514,6 @@ msgid "Highlight pointer"
 msgstr "Resalta el punter"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
@@ -4555,7 +4522,7 @@ msgid ""
 "import operations"
 msgstr ""
 "Activa la compressió [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] per les "
-"operacions d'importació i exportació"
+"operacions d'importació"
 
 #: libraries/config/messages.inc.php:29
 msgid "Bzip2"
