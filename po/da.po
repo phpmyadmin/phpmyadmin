@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-15 07:16-0400\n"
-"PO-Revision-Date: 2014-02-05 11:06+0200\n"
-"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2014-03-18 08:29+0200\n"
+"Last-Translator: Peter Sone Koldkjær <rapelling@gmail.com>\n"
+"Language-Team: Danish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -607,6 +607,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Den uploadede fil kan ikke flyttes, da serveren har open_basedir slået til, "
+"uden adgang til %s mappen (til midlertidige)."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -941,20 +943,19 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Er du sikker på at du vil slette brugergruppen \"%s\"?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Er du sikker på at du vil slette brugergruppen \"%s\"?"
+msgstr "Er du sikker på at du vil slette søgningen \"%s\"?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
 msgstr "Ingen værdi i formularen!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "mindst et af ordene"
+msgstr "Vælg mindst én!"
 
 #: js/messages.php:50
 msgid "Please enter a valid number!"
@@ -1483,7 +1484,7 @@ msgstr "Vælg venligst filen du vil importere."
 
 #: js/messages.php:205
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Der er ingen filer tilgængelige på serveren til import!"
 
 #: js/messages.php:207
 msgid "Analyse Query"
@@ -2397,28 +2398,24 @@ msgid "Submit Query"
 msgstr "Send forespørgsel"
 
 #: libraries/DBQbe.class.php:1451
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Søg"
+msgstr "Gemte søgninger:"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "Slet relation"
+msgstr "Opret bookmark"
 
 #: libraries/DBQbe.class.php:1482
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "Viser bogmærke"
+msgstr "Opdater bogmærke"
 
 #: libraries/DBQbe.class.php:1484
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "Slet relation"
+msgstr "Slet bogmærke"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -3123,19 +3120,17 @@ msgstr "Der er ingen nye tabeller."
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Angiv venligst et navn for denne gemte søgning."
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "Manglende phpMyAdmin configuration storage tabeller"
+msgstr "Der mangler informationer for at søgningen kan gemmes."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "Brugeren %s findes i forvejen!"
+msgstr "Der findes allerede et element med dette navn."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
@@ -3146,10 +3141,9 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Fejl under flytning af uploaded fil."
+msgstr "Fejl under indlæsning af søgningen."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
