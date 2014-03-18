@@ -240,6 +240,11 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         }
         $this->url('');
         $this->waitForElementNotPresent('byId', 'cfs-style');
+
+        /* Return if already logged in */
+        if ($this->isSuccessLogin()) {
+            return;
+        }
         $usernameField = $this->waitForElement('byId', 'input_username');
         $usernameField->value($username);
         $passwordField = $this->byId('input_password');
