@@ -471,10 +471,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $this->waitForElement("byLinkText", $this->database_name)->click();
 
         /* Wait for loading and expanding tree */
-        $this->waitForElementNotPresent(
-            'byCssSelector',
-            '#pma_navigation .throbber'
-        );
         $this->waitForElement(
             'byCssSelector',
             'li.last.table'
