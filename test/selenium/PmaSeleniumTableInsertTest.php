@@ -45,8 +45,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
     public function setUpPage()
     {
         $this->login();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
-        $this->waitForElement("byLinkText", "test_table");
+        $this->navigateTable('test_table');
     }
 
     /**
