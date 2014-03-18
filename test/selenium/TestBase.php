@@ -403,6 +403,26 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
+     * Wrapper around keys method to not use it on not supported
+     * browsers.
+     *
+     * @param string $text Keys to send
+     *
+     * @return void
+     */
+    public function keys($text)
+    {
+        /**
+         * Not supported in Safari Webdriver, see
+         * http://code.google.com/p/selenium/issues/detail?id=4136
+         */
+        if ($this->getBrowser() == 'Safari') {
+            $this->markTestSkipped('Can not send keys to Safari browser.');
+        }
+        parent::keys($text);
+    }
+
+    /**
      * Type text in textarea (CodeMirror enabled)
      *
      * @param string $text Text to type
