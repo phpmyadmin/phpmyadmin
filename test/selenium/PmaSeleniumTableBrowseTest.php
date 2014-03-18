@@ -282,6 +282,8 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
      */
     public function testSearchRecords()
     {
+        $this->expandMore();
+
         $this->byLinkText("Search")->click();
         $this->waitForElement("byId", "tbl_search_form");
 

@@ -157,6 +157,8 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      */
     private function _doExport($type, $plugin)
     {
+        $this->expandMore();
+
         $this->waitForElement('byLinkText', "Export")->click();
 
         $this->waitForElement("byId", "quick_or_custom");

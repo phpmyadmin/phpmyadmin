@@ -57,6 +57,8 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
      */
     public function testAddData()
     {
+        $this->expandMore();
+
         $this->byLinkText("Insert")->click();
         $this->waitForElement("byId", "insertForm");
 
