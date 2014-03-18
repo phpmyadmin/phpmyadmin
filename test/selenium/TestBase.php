@@ -72,6 +72,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
+                'sessionStrategy' => 'shared',
                 'timeout' => 30000,
                 'desiredCapabilities' => $capabilities,
             );
@@ -81,6 +82,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
+                    'sessionStrategy' => 'shared',
                     'desiredCapabilities' => $capabilities,
                 );
                 $result[] = array(
@@ -88,6 +90,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
+                    'sessionStrategy' => 'shared',
                     'desiredCapabilities' => array_merge(
                         $capabilities,
                         array(
@@ -101,6 +104,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
+                    'sessionStrategy' => 'shared',
                     'desiredCapabilities' => array_merge(
                         $capabilities,
                         array(
