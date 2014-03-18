@@ -136,7 +136,8 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
                 'SQL',
                 array(
                     "CREATE TABLE IF NOT EXISTS `test_table`",
-                    "INSERT INTO `test_table` (`id`, `val`) VALUES\n(1, 2);"
+                    "INSERT INTO `test_table` (`id`, `val`) VALUES",
+                    "(1, 2);"
                 )
             ),
             array(
