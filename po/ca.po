@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-15 07:16-0400\n"
-"PO-Revision-Date: 2014-03-18 14:35+0200\n"
+"PO-Revision-Date: 2014-03-18 17:01+0200\n"
 "Last-Translator: Carles Mata <info@appsinet.com>\n"
 "Language-Team: Catalan "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ca/>\n"
@@ -420,7 +420,6 @@ msgid "Database Log"
 msgstr "Registre de la base de dades"
 
 #: error_report.php:33
-#, fuzzy
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -2366,12 +2365,12 @@ msgid "Unexpected characters on line %s."
 msgstr "Caràcters no esperats en la línia %s."
 
 #: libraries/Advisor.class.php:435
-#, fuzzy, php-format
+#, php-format
 #| msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
 "Caràcter inesperat en la línia %1$s. S'esperava una tabulació, però s'ha "
-"trobat \"%2$s\""
+"trobat \"%2$s\"."
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2425,28 +2424,24 @@ msgid "Descending"
 msgstr "Descendent"
 
 #: libraries/DBQbe.class.php:409 libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "Columna"
+msgstr "Columna:"
 
 #: libraries/DBQbe.class.php:455
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "Classificació"
+msgstr "Ordenació:"
 
 #: libraries/DBQbe.class.php:521
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "Mostra"
+msgstr "Mostra:"
 
 #: libraries/DBQbe.class.php:570
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "Criteris"
+msgstr "Criteris:"
 
 #: libraries/DBQbe.class.php:639
 msgid "Add/Delete criteria rows"
@@ -2465,10 +2460,9 @@ msgid "Use Tables"
 msgstr "Usa Taules"
 
 #: libraries/DBQbe.class.php:716 libraries/DBQbe.class.php:824
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "O"
+msgstr "O:"
 
 #: libraries/DBQbe.class.php:720 libraries/DBQbe.class.php:809
 msgid "And:"
@@ -2483,10 +2477,9 @@ msgid "Del"
 msgstr "Sup"
 
 #: libraries/DBQbe.class.php:743
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "Modificar"
+msgstr "Modificar:"
 
 #: libraries/DBQbe.class.php:804
 msgid "Ins:"
@@ -2674,10 +2667,9 @@ msgid "Number of rows:"
 msgstr "Nombre de files:"
 
 #: libraries/DisplayResults.class.php:962
-#, fuzzy
 #| msgid "Mode"
 msgid "Mode:"
-msgstr "Mode"
+msgstr "Mode:"
 
 #: libraries/DisplayResults.class.php:964
 msgid "horizontal"
@@ -2802,10 +2794,10 @@ msgstr ""
 "Aquesta vista té al menys aques nombre de files. Consulta %sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4979
-#, fuzzy, php-format
+#, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
-msgstr "Mostrant registres"
+msgstr "Mostrant registres %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4994
 #, php-format
@@ -2813,10 +2805,10 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4999
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "total"
+msgstr "%d total"
 
 #: libraries/DisplayResults.class.php:5011 libraries/sql.lib.php:1644
 #, fuzzy, php-format
@@ -2958,10 +2950,9 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/Footer.class.php:81
-#, fuzzy
 #| msgid "Version information"
 msgid "Git information missing!"
-msgstr "Informació de versió"
+msgstr "No es troba la informació de Git!"
 
 #: libraries/Footer.class.php:179 libraries/Footer.class.php:183
 #: libraries/Footer.class.php:186
@@ -3427,16 +3418,14 @@ msgid "Target database `%s` was not found!"
 msgstr "No s'ha trobat la base de dades destí `%s`!"
 
 #: libraries/Table.class.php:1261
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "Base de dades incorrecte"
+msgstr "Base de dades incorrecte:"
 
 #: libraries/Table.class.php:1275
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "Nom de taula incorrecte"
+msgstr "Nom de taula incorrecte:"
 
 #: libraries/Table.class.php:1310
 #, fuzzy, php-format
@@ -3573,38 +3562,33 @@ msgid "Reset zoom"
 msgstr "Reinicia l'ampliació"
 
 #: libraries/TableSearch.class.php:1342
-#, fuzzy
 #| msgid "Replace NULL with:"
 msgid "Replace with:"
-msgstr "Canvía NULL amb:"
+msgstr "Reemplaça NULL amb:"
 
 #: libraries/TableSearch.class.php:1402
 msgid "Find and replace - preview"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1406
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "Columna"
+msgstr "Nombre"
 
 #: libraries/TableSearch.class.php:1407
-#, fuzzy
 #| msgid "Original position"
 msgid "Original string"
-msgstr "Posició original"
+msgstr "String original"
 
 #: libraries/TableSearch.class.php:1408
-#, fuzzy
 #| msgid "Related Links"
 msgid "Replaced string"
-msgstr "Enllaços relacionats"
+msgstr "String reemplaçat"
 
 #: libraries/TableSearch.class.php:1432
-#, fuzzy
 #| msgid "Replicated"
 msgid "Replace"
-msgstr "Replicat"
+msgstr "Reemplaça"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3635,10 +3619,9 @@ msgid "Theme path not found for theme %s!"
 msgstr "No s'ha trobat el camí de les imatges del tema %s!"
 
 #: libraries/Theme_Manager.class.php:369
-#, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
-msgstr "Tema"
+msgstr "Tema:"
 
 #: libraries/Types.class.php:320
 msgid ""
@@ -3987,10 +3970,9 @@ msgid "Max: %s%s"
 msgstr "Màx: %s%s"
 
 #: libraries/Util.class.php:640 libraries/sql.lib.php:430
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "Consulta SQL"
+msgstr "Consulta SQL:"
 
 #: libraries/Util.class.php:684 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -4137,10 +4119,9 @@ msgid "shared"
 msgstr "compartit"
 
 #: libraries/browse_foreigners.lib.php:43
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "Cerca"
+msgstr "Cerca:"
 
 #: libraries/browse_foreigners.lib.php:69
 #: libraries/browse_foreigners.lib.php:71
@@ -4248,10 +4229,10 @@ msgstr ""
 "Nom de host invàlid pel servidor %1$s. Si us plau, reviseu la configuració."
 
 #: libraries/common.inc.php:662
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "Servidor"
+msgstr "Servidor %d"
 
 #: libraries/common.inc.php:861
 msgid "Invalid authentication method set in configuration:"
@@ -4280,17 +4261,15 @@ msgstr "detectat teclat numéric"
 
 #: libraries/config.values.php:48 libraries/config.values.php:64
 #: libraries/config.values.php:76
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "Ins"
+msgstr "Icones"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:77
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "Prova"
+msgstr "Text"
 
 #: libraries/config.values.php:50 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:78
@@ -4456,16 +4435,16 @@ msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" requereix l'extensió %s"
 
 #: libraries/config/FormDisplay.class.php:797
-#, fuzzy, php-format
+#, php-format
 #| msgid "import will not work, missing function (%s)"
 msgid "Compressed import will not work due to missing function %s."
-msgstr "l'importació no funciona, falta la funció (%s)"
+msgstr "L'importació comprimida no funciona, perquè falta la funció (%s)."
 
 #: libraries/config/FormDisplay.class.php:804
-#, fuzzy, php-format
+#, php-format
 #| msgid "export will not work, missing function (%s)"
 msgid "Compressed export will not work due to missing function %s."
-msgstr "l'exportació no funciona, falta la funció (%s)"
+msgstr "L'exportació comprimida no funciona perquè falta la funció (%s)."
 
 #: libraries/config/FormDisplay.class.php:815
 msgid "SQL Validator is disabled"
@@ -4733,10 +4712,9 @@ msgstr ""
 "storage"
 
 #: libraries/config/Validator.class.php:458
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value:"
-msgstr "Valor incorrecte"
+msgstr "Valor incorrecte:"
 
 #: libraries/config/Validator.class.php:467
 #, php-format
