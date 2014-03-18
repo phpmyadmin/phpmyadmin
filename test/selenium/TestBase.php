@@ -69,16 +69,16 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
             $result = array();
             $result[] = array(
-                'browserName' => 'chrome',
+                'browserName' => 'firefox',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
-                'sessionStrategy' => 'shared',
                 'timeout' => 30000,
+                'sessionStrategy' => 'shared',
                 'desiredCapabilities' => $capabilities,
             );
             if (!empty($GLOBALS['TESTSUITE_FULL'])) {
                 $result[] = array(
-                    'browserName' => 'firefox',
+                    'browserName' => 'chrome',
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
