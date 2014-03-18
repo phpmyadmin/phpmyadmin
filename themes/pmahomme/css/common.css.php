@@ -1328,6 +1328,8 @@ div#chartVariableSettings {
 
 table#chartGrid div.monitorChart {
     background: #EBEBEB;
+    width: 400px;
+    height: 300px;
 }
 
 div#serverstatus div.tabLinks {
