@@ -92,16 +92,12 @@ if (isset($_POST['mode'])) {
 $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
 
-?>
-<br/>
-<div>
-<?php
+echo '<br/>';
+echo '<div>';
 if (! empty($message)) {
     $message->display();
 }
-?>
-  <form name="form1" method="post" action="pmd_pdf.php">
-<?php
+echo '<form name="form1" method="post" action="pmd_pdf.php">';
 echo PMA_URL_getHiddenInputs($db);
 echo '<div>';
 echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</legend>';
@@ -144,19 +140,19 @@ echo '<label for="newpage">' . __('New page name: ') . '</label>';
 echo '<input id="newpage" type="text" name="newpage" />';
 
 echo '<p>' . __('Export/Import to scale:');
+echo '<select name="scale">';
+echo '<option value="1">1:1</option>';
+echo '<option value="2">1:2</option>';
+echo '<option value="3" selected="selected">1:3 (' . __('recommended'). ')</option>';
+echo '<option value="4">1:4</option>';
+echo '<option value="5">1:5</option>';
+echo '</select>';
+echo '</p>';
+
+echo '<input type="submit" value="' . __('Go') . '"/>';
+
+echo '</fieldset>';
+echo '</div>';
+echo '</form>';
+echo '</div>';
 ?>
-      <select name="scale">
-        <option value="1">1:1</option>
-        <option value="2">1:2</option>
-        <option value="3" selected="selected">
-            1:3 (<?php echo __('recommended'); ?>)
-        </option>
-        <option value="4">1:4</option>
-        <option value="5">1:5</option>
-      </select>
-      </p>
-      <input type="submit" value="<?php echo __('Go'); ?>"/>
-    </fieldset>
-    </div>
-  </form>
-</div>
