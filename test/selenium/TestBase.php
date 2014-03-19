@@ -69,6 +69,20 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
             $result = array();
             $result[] = array(
+                'browserName' => 'chrome',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'sessionStrategy' => 'shared',
+                'desiredCapabilities' => $capabilities,
+            );
+
+            /* Only one browser for continuous integration for speed */
+            if (empty($GLOBALS['TESTSUITE_FULL'])) {
+                return $result;
+            }
+
+            $result[] = array(
                 'browserName' => 'Safari',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
@@ -82,40 +96,30 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     )
                 )
             );
-            if (!empty($GLOBALS['TESTSUITE_FULL'])) {
-                $result[] = array(
-                    'browserName' => 'chrome',
-                    'host' => 'hub.browserstack.com',
-                    'port' => 80,
-                    'timeout' => 30000,
-                    'sessionStrategy' => 'shared',
-                    'desiredCapabilities' => $capabilities,
-                );
-                $result[] = array(
-                    'browserName' => 'firefox',
-                    'host' => 'hub.browserstack.com',
-                    'port' => 80,
-                    'timeout' => 30000,
-                    'sessionStrategy' => 'shared',
-                    'desiredCapabilities' => $capabilities,
-                );
-                /* TODO: testing is MSIE is currently broken, so disabled
-                $result[] = array(
-                    'browserName' => 'internet explorer',
-                    'host' => 'hub.browserstack.com',
-                    'port' => 80,
-                    'timeout' => 30000,
-                    'sessionStrategy' => 'shared',
-                    'desiredCapabilities' => array_merge(
-                        $capabilities,
-                        array(
-                            'os' => 'windows',
-                            'os_version' => '7',
-                        )
+            $result[] = array(
+                'browserName' => 'firefox',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'sessionStrategy' => 'shared',
+                'desiredCapabilities' => $capabilities,
+            );
+            /* TODO: testing is MSIE is currently broken, so disabled
+            $result[] = array(
+                'browserName' => 'internet explorer',
+                'host' => 'hub.browserstack.com',
+                'port' => 80,
+                'timeout' => 30000,
+                'sessionStrategy' => 'shared',
+                'desiredCapabilities' => array_merge(
+                    $capabilities,
+                    array(
+                        'os' => 'windows',
+                        'os_version' => '7',
                     )
-                );
-                */
-            }
+                )
+            );
+            */
             return $result;
         } elseif (! empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])) {
             self::$_selenium_enabled = true;
