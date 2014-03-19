@@ -26,6 +26,7 @@ class PMA_SeleniumLoginTest extends PMA_SeleniumBase
      */
     public function testSuccessfulLogin()
     {
+        $this->logOutIfLoggedIn();
         $this->login();
         $this->assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
@@ -40,6 +41,7 @@ class PMA_SeleniumLoginTest extends PMA_SeleniumBase
      */
     public function testLoginWithWrongPassword()
     {
+        $this->logOutIfLoggedIn();
         $this->login("Admin", "Admin");
         $this->assertTrue($this->isUnsuccessLogin());
     }
