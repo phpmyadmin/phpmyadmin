@@ -193,9 +193,6 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      * Test for PMA_Theme::getPath
      *
      * @return void
-     *
-     * @covers PMA_Theme::setPath
-     * @covers PMA_Theme::getPath
      */
     public function testGetSetPath()
     {
@@ -241,9 +238,6 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      * Test for PMA_Theme::getName
      *
      * @return void
-     *
-     * @covers PMA_Theme::getName
-     * @covers PMA_Theme::setName
      */
     public function testGetSetName()
     {
@@ -257,9 +251,6 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      * Test for PMA_Theme::getId
      *
      * @return void
-     *
-     * @covers PMA_Theme::getId
-     * @covers PMA_Theme::setId
      */
     public function testGetSetId()
     {
@@ -273,9 +264,6 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      * Test for PMA_Theme::getImgPath
      *
      * @return void
-     *
-     * @covers PMA_Theme::getImgPath
-     * @covers PMA_Theme::setImgPath
      */
     public function testGetSetImgPath()
     {

@@ -150,7 +150,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
-     * @covers PMA_Header::disableWarnings
      */
     public function testDisableWarnings()
     {
@@ -168,8 +167,6 @@ class PMA_Header_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      * @test
-     * @covers PMA_Header::_getWarnings
-     * @depends testDisableWarnings
      */
     public function testGetWarningsWithWarningsDisabled()
     {
