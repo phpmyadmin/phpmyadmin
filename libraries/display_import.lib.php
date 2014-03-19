@@ -471,101 +471,101 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
 
     $html .= 'var perform_upload = function () { ';
     $html .= 'new $.getJSON( ';
-    $html .= '		"' . $ajax_url . '", ';
-    $html .= '		{}, ';
-    $html .= '		function(response) { ';
-    $html .= '			finished = response.finished; ';
-    $html .= '			percent = response.percent; ';
-    $html .= '			total = response.total; ';
-    $html .= '			complete = response.complete; ';
+    $html .= '        "' . $ajax_url . '", ';
+    $html .= '        {}, ';
+    $html .= '        function(response) { ';
+    $html .= '            finished = response.finished; ';
+    $html .= '            percent = response.percent; ';
+    $html .= '            total = response.total; ';
+    $html .= '            complete = response.complete; ';
 
-    $html .= '			if (total==0 && complete==0 && percent==0) { ';
+    $html .= '            if (total==0 && complete==0 && percent==0) { ';
     $img_tag = '<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
-    $html .= '				$("#upload_form_status_info").html(\''
+    $html .= '                $("#upload_form_status_info").html(\''
         . $img_tag . ' width="16" height="16" alt="ajax clock" /> '
         . $promot_str . '\'); ';
-    $html .= '				$("#upload_form_status").css("display", "none"); ';
-    $html .= '			} else { ';
-    $html .= '				var now = new Date(); ';
-    $html .= '				now = Date.UTC( ';
-    $html .= '					now.getFullYear(), now.getMonth(), now.getDate(), ';
-    $html .= '					now.getHours(), now.getMinutes(), now.getSeconds()) ';
-    $html .= '					+ now.getMilliseconds() - 1000; ';
-    $html .= '				var statustext = $.sprintf("' . $statustext_str . '", ';
-    $html .= '					formatBytes(complete, 1, PMA_messages.strDecimalSeparator), ';
-    $html .= '					formatBytes(total, 1, PMA_messages.strDecimalSeparator) ';
-    $html .= '				); ';
+    $html .= '                $("#upload_form_status").css("display", "none"); ';
+    $html .= '            } else { ';
+    $html .= '                var now = new Date(); ';
+    $html .= '                now = Date.UTC( ';
+    $html .= '                    now.getFullYear(), now.getMonth(), now.getDate(), ';
+    $html .= '                    now.getHours(), now.getMinutes(), now.getSeconds()) ';
+    $html .= '                    + now.getMilliseconds() - 1000; ';
+    $html .= '                var statustext = $.sprintf("' . $statustext_str . '", ';
+    $html .= '                    formatBytes(complete, 1, PMA_messages.strDecimalSeparator), ';
+    $html .= '                    formatBytes(total, 1, PMA_messages.strDecimalSeparator) ';
+    $html .= '                ); ';
 
-    $html .= '				if ($("#importmain").is(":visible")) { ';
+    $html .= '                if ($("#importmain").is(":visible")) { ';
     // show progress UI
-    $html .= '					$("#importmain").hide(); ';
-    $html .= '					$("#import_form_status") ';
-    $html .= '					.html(\'<div class="upload_progress">'
+    $html .= '                    $("#importmain").hide(); ';
+    $html .= '                    $("#import_form_status") ';
+    $html .= '                    .html(\'<div class="upload_progress">'
         . '<div class="upload_progress_bar_outer"><div class="percentage">'
         . '</div><div id="status" class="upload_progress_bar_inner">'
         . '<div class="percentage"></div></div></div><div>'
         . '<img src="' . $GLOBALS['pmaThemeImage']
         . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
         . $upload_str . '</div><div id="statustext"></div></div>\') ';
-    $html .= '					.show(); ';
-    $html .= '					import_start = now; ';
-    $html .= '				} ';
-    $html .= '				else if (percent > 9 || complete > 2000000) { ';
+    $html .= '                    .show(); ';
+    $html .= '                    import_start = now; ';
+    $html .= '                } ';
+    $html .= '                else if (percent > 9 || complete > 2000000) { ';
     // calculate estimated time
-    $html .= '					var used_time = now - import_start; ';
-    $html .= '					var seconds = '
+    $html .= '                    var used_time = now - import_start; ';
+    $html .= '                    var seconds = '
         . 'parseInt(((total - complete) / complete) * used_time / 1000); ';
-    $html .= '					var speed = $.sprintf("' . $second_str . '"';
-    $html .= '					   , formatBytes(complete / used_time * 1000, 1,'
+    $html .= '                    var speed = $.sprintf("' . $second_str . '"';
+    $html .= '                       , formatBytes(complete / used_time * 1000, 1,'
         . ' PMA_messages.strDecimalSeparator)); ';
 
-    $html .= '					var minutes = parseInt(seconds / 60); ';
-    $html .= '					seconds %= 60; ';
-    $html .= '					var estimated_time; ';
-    $html .= '					if (minutes > 0) { ';
-    $html .= '						estimated_time = "' . $remaining_min . '"';
-    $html .= '						.replace("%MIN", minutes).replace("%SEC", seconds); ';
-    $html .= '					} ';
-    $html .= '					else { ';
-    $html .= '						estimated_time = "' . $remaining_second . '"';
-    $html .= '						.replace("%SEC", seconds); ';
-    $html .= '					} ';
+    $html .= '                    var minutes = parseInt(seconds / 60); ';
+    $html .= '                    seconds %= 60; ';
+    $html .= '                    var estimated_time; ';
+    $html .= '                    if (minutes > 0) { ';
+    $html .= '                        estimated_time = "' . $remaining_min . '"';
+    $html .= '                        .replace("%MIN", minutes).replace("%SEC", seconds); ';
+    $html .= '                    } ';
+    $html .= '                    else { ';
+    $html .= '                        estimated_time = "' . $remaining_second . '"';
+    $html .= '                        .replace("%SEC", seconds); ';
+    $html .= '                    } ';
 
-    $html .= '					statustext += "<br />" + speed + "<br /><br />" '
+    $html .= '                    statustext += "<br />" + speed + "<br /><br />" '
         . '+ estimated_time; ';
-    $html .= '				} ';
+    $html .= '                } ';
 
-    $html .= '				var percent_str = Math.round(percent) + "%"; ';
-    $html .= '				$("#status").animate({width: percent_str}, 150); ';
-    $html .= '				$(".percentage").text(percent_str); ';
+    $html .= '                var percent_str = Math.round(percent) + "%"; ';
+    $html .= '                $("#status").animate({width: percent_str}, 150); ';
+    $html .= '                $(".percentage").text(percent_str); ';
 
     // show percent in window title
-    $html .= '				if (original_title !== false) { ';
-    $html .= '					parent.document.title = percent_str + " - " + original_title; ';
-    $html .= '				} ';
-    $html .= '				else { ';
-    $html .= '					document.title = percent_str + " - " + original_title; ';
-    $html .= '				} ';
-    $html .= '				$("#statustext").html(statustext); ';
-    $html .= '			}  ';
+    $html .= '                if (original_title !== false) { ';
+    $html .= '                    parent.document.title = percent_str + " - " + original_title; ';
+    $html .= '                } ';
+    $html .= '                else { ';
+    $html .= '                    document.title = percent_str + " - " + original_title; ';
+    $html .= '                } ';
+    $html .= '                $("#statustext").html(statustext); ';
+    $html .= '            }  ';
 
-    $html .= '			if (finished == true) { ';
-    $html .= '				if (original_title !== false) { ';
-    $html .= '					parent.document.title = original_title; ';
-    $html .= '				} ';
-    $html .= '				else { ';
-    $html .= '					document.title = original_title; ';
-    $html .= '				} ';
-    $html .= '				$("#importmain").hide(); ';
+    $html .= '            if (finished == true) { ';
+    $html .= '                if (original_title !== false) { ';
+    $html .= '                    parent.document.title = original_title; ';
+    $html .= '                } ';
+    $html .= '                else { ';
+    $html .= '                    document.title = original_title; ';
+    $html .= '                } ';
+    $html .= '                $("#importmain").hide(); ';
     // loads the message, either success or mysql error
-    $html .= '				$("#import_form_status") ';
-    $html .= '				.html(\'<img src="' . $GLOBALS['pmaThemeImage']
+    $html .= '                $("#import_form_status") ';
+    $html .= '                .html(\'<img src="' . $GLOBALS['pmaThemeImage']
         . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
         . $processed_str . '\')';
-    $html .= '				.show(); ';
-    $html .= '				$("#import_form_status").load("import_status.php?'
+    $html .= '                .show(); ';
+    $html .= '                $("#import_form_status").load("import_status.php?'
         . 'message=true&' . $import_url . '"); ';
-    $html .= '				PMA_reloadNavigation(); ';
+    $html .= '                PMA_reloadNavigation(); ';
 
     // if finished
     $html .= '            } ';

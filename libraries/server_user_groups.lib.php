@@ -240,7 +240,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     $allowedTabs = array(
         'server' => array(),
         'db'     => array(),
-        'table'	 => array()
+        'table'  => array()
     );
     if ($userGroup != null) {
         $groupTable = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
