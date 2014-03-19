@@ -434,6 +434,44 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
+     * Wrapper around moveto method to not use it on not supported
+     * browsers.
+     *
+     * @param object $element element
+     *
+     * @return void
+     */
+    public function moveto($element)
+    {
+        /**
+         * Not supported in Safari Webdriver, see
+         * http://code.google.com/p/selenium/issues/detail?id=4136
+         */
+        if (strtolower($this->getBrowser()) == 'safari') {
+            $this->markTestSkipped('MoveTo not supported on Safari browser.');
+        }
+        parent::moveto($element);
+    }
+
+    /**
+     * Wrapper around alertText method to not use it on not supported
+     * browsers.
+     *
+     * @return void
+     */
+    public function alertText()
+    {
+        /**
+         * Not supported in Safari Webdriver, see
+         * http://code.google.com/p/selenium/issues/detail?id=4136
+         */
+        if (strtolower($this->getBrowser()) == 'safari') {
+            $this->markTestSkipped('Alerts not supported on Safari browser.');
+        }
+        parent::alertText();
+    }
+
+    /**
      * Type text in textarea (CodeMirror enabled)
      *
      * @param string $text Text to type

@@ -26,9 +26,6 @@ class PMA_SeleniumXSSTest extends PMA_SeleniumBase
      */
     public function testQueryTabWithNullValue()
     {
-        if (strtolower($this->getBrowser()) == 'safari') {
-            $this->markTestSkipped('Can not test alerts in Safari browser.');
-        }
         $this->login();
         $this->waitForElement('byLinkText', "SQL")->click();
         $this->waitForElement("byId", "queryboxf");
