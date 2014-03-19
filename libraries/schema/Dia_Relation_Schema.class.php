@@ -343,7 +343,7 @@ class Table_Stats_Dia extends TableStats
                 <dia:real val="0.10000000000000001"/>
             </dia:attribute>
             <dia:attribute name="name">
-                <dia:string>#' . $this->_tableName . '#</dia:string>
+                <dia:string>#' . $this->tableName . '#</dia:string>
             </dia:attribute>
             <dia:attribute name="comment">
                 <dia:string>##</dia:string>

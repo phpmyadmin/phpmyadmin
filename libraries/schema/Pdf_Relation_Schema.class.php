@@ -461,7 +461,7 @@ class Table_Stats_Pdf extends TableStats
         if ($this->showInfo) {
             $ret = sprintf('%.0fx%0.f', $this->width, $this->height);
         }
-        return $ret . ' ' . $this->_tableName;
+        return $ret . ' ' . $this->tableName;
     }
 
     /**
@@ -534,9 +534,9 @@ class Table_Stats_Pdf extends TableStats
             $pdf->SetFillColor(0, 0, 128);
         }
         if ($withDoc) {
-            $pdf->SetLink($pdf->PMA_links['RT'][$this->_tableName]['-'], -1);
+            $pdf->SetLink($pdf->PMA_links['RT'][$this->tableName]['-'], -1);
         } else {
-            $pdf->PMA_links['doc'][$this->_tableName]['-'] = '';
+            $pdf->PMA_links['doc'][$this->tableName]['-'] = '';
         }
 
         $pdf->cellScale(
@@ -547,7 +547,7 @@ class Table_Stats_Pdf extends TableStats
             1,
             'C',
             $setColor,
-            $pdf->PMA_links['doc'][$this->_tableName]['-']
+            $pdf->PMA_links['doc'][$this->tableName]['-']
         );
         $pdf->setXScale($this->x);
         $pdf->SetFont($this->_ff, '', $fontSize);
@@ -564,9 +564,9 @@ class Table_Stats_Pdf extends TableStats
                 }
             }
             if ($withDoc) {
-                $pdf->SetLink($pdf->PMA_links['RT'][$this->_tableName][$field], -1);
+                $pdf->SetLink($pdf->PMA_links['RT'][$this->tableName][$field], -1);
             } else {
-                $pdf->PMA_links['doc'][$this->_tableName][$field] = '';
+                $pdf->PMA_links['doc'][$this->tableName][$field] = '';
             }
 
             $pdf->cellScale(
@@ -577,7 +577,7 @@ class Table_Stats_Pdf extends TableStats
                 1,
                 'L',
                 $setColor,
-                $pdf->PMA_links['doc'][$this->_tableName][$field]
+                $pdf->PMA_links['doc'][$this->tableName][$field]
             );
             $pdf->setXScale($this->x);
             $pdf->SetFillColor(255);

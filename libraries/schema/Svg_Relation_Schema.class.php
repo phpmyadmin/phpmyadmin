@@ -370,7 +370,7 @@ class Table_Stats_Svg extends TableStats
             ? sprintf('%.0f', $this->width) . 'x'
             . sprintf('%.0f', $this->heightCell)
             : ''
-        ) . ' ' . $this->_tableName;
+        ) . ' ' . $this->tableName;
     }
 
     /**
@@ -436,7 +436,7 @@ class Table_Stats_Svg extends TableStats
     public function tableDraw($showColor)
     {
         global $svg;
-        //echo $this->_tableName.'<br />';
+        //echo $this->tableName.'<br />';
         $svg->printElement(
             'rect', $this->x, $this->y, $this->width,
             $this->heightCell, null, 'fill:red;stroke:black;'

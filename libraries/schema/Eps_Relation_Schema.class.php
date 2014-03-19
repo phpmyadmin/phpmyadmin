@@ -346,7 +346,7 @@ class Table_Stats_Eps extends TableStats
     ) {
         global $eps, $cfgRelation, $db;
         parent::__construct(
-            $esp, $db, $pageNumber, $tableName, $showKeys, $showInfo
+            $eps, $db, $pageNumber, $tableName, $showKeys, $showInfo
         );
 
         // height and width
@@ -402,7 +402,7 @@ class Table_Stats_Eps extends TableStats
         return ($this->showInfo
             ? sprintf('%.0f', $this->width) . 'x'
                 . sprintf('%.0f', $this->heightCell)
-            : '') . ' ' . $this->_tableName;
+            : '') . ' ' . $this->tableName;
     }
 
     /**
@@ -466,7 +466,7 @@ class Table_Stats_Eps extends TableStats
     public function tableDraw($showColor)
     {
         global $eps;
-        //echo $this->_tableName.'<br />';
+        //echo $this->tableName.'<br />';
         $eps->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
         $eps->showXY($this->_getTitle(), $this->x + 5, $this->y + 14);
         foreach ($this->fields as $field) {
