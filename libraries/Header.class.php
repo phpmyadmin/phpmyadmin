@@ -460,6 +460,10 @@ class PMA_Header
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         if (! defined('TESTSUITE')) {
+            $use_captcha = (
+                !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+                && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+            );
             /* Prevent against ClickJacking by disabling framing */
             if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
                 header(
@@ -467,15 +471,29 @@ class PMA_Header
                 );
             }
             header(
+                "Content-Security-Policy: default-src 'self' "
+                . ($use_captcha ? 'https://www.google.com ' : ' ')
+                . $GLOBALS['cfg']['CSPAllow'] . ';'
+                . "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+                . ($use_captcha ? 'https://www.google.com ' : ' ')
+                . ";"
+                . "img-src 'self' data: "
+                . $GLOBALS['cfg']['CSPAllow']
+                . ($https ? "" : $mapTilesUrls)
+                // for reCAPTCHA
+                . ($use_captcha ? ' https://www.google.com' : ' ')
+                . ";"
+            );
+            header(
                 "X-Content-Security-Policy: default-src 'self' "
-                . 'https://www.google.com '
+                . ($use_captcha ? 'https://www.google.com ' : ' ')
                 . $GLOBALS['cfg']['CSPAllow'] . ';'
                 . "options inline-script eval-script;"
                 . "img-src 'self' data: "
                 . $GLOBALS['cfg']['CSPAllow']
                 . ($https ? "" : $mapTilesUrls)
                 // for reCAPTCHA
-                . " https://www.google.com"
+                . ($use_captcha ? ' https://www.google.com' : ' ')
                 . ";"
             );
             if (PMA_USR_BROWSER_AGENT == 'SAFARI'
@@ -483,33 +501,33 @@ class PMA_Header
             ) {
                 header(
                     "X-WebKit-CSP: allow 'self' "
-                    . 'https://www.google.com '
+                    . ($use_captcha ? 'https://www.google.com ' : ' ')
                     . $GLOBALS['cfg']['CSPAllow'] . ';'
                     . "options inline-script eval-script;"
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
                     // for reCAPTCHA
-                    . " https://www.google.com"
+                    . ($use_captcha ? ' https://www.google.com' : ' ')
                     . ";"
                 );
             } else {
                 header(
                     "X-WebKit-CSP: default-src 'self' "
-                    . 'https://www.google.com '
+                    . ($use_captcha ? 'https://www.google.com ' : ' ')
                     . $GLOBALS['cfg']['CSPAllow'] . ';'
                     . "script-src 'self' "
-                    . 'https://www.google.com '
+                    . ($use_captcha ? 'https://www.google.com ' : ' ')
                     . $GLOBALS['cfg']['CSPAllow']
                     . " 'unsafe-inline' 'unsafe-eval';"
                     . "style-src 'self' 'unsafe-inline' "
-                    . 'https://www.google.com '
+                    . ($use_captcha ? 'https://www.google.com ' : ' ')
                     . ';'
                     . "img-src 'self' data: "
                     . $GLOBALS['cfg']['CSPAllow']
                     . ($https ? "" : $mapTilesUrls)
                     // for reCAPTCHA
-                    . " https://www.google.com"
+                    . ($use_captcha ? ' https://www.google.com' : ' ')
                     . ";"
                 );
             }
