@@ -981,6 +981,44 @@ class PMA_Table
                     unset($GLOBALS['sql_constraints_query']);
                 }
             }
+
+            // add indexes to the table
+            if (!empty($GLOBALS['sql_indexes'])
+              ) {
+                $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_indexes']);
+                $i = 0;
+
+                while ($parsed_sql[$i]['type'] != $table_delimiter) {
+                    $i++;                   
+                }
+
+                $parsed_sql[$i]['data'] = $target;
+
+                $cnt = $parsed_sql['len'] - 1;
+
+                for ($j = $i; $j < $cnt; $j++) {
+                    if ($parsed_sql[$j]['type'] == 'alpha_reservedWord'
+                        && strtoupper($parsed_sql[$j]['data']) == 'CONSTRAINT'
+                    ) {
+                        if ($parsed_sql[$j+1]['type'] == $table_delimiter) {
+                            $parsed_sql[$j+1]['data'] = '';
+                        }
+                    }
+                }
+                $GLOBALS['sql_indexes'] = PMA_SQP_format(
+                    $parsed_sql, 'query_only'
+                );
+                if ($mode == 'one_table') {
+                    $GLOBALS['dbi']->query($GLOBALS['sql_indexes']);
+                }
+                $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
+                if ($mode == 'one_table') {
+                    unset($GLOBALS['sql_indexes']);
+                    
+                }
+
+            }
+
         } else {
             $GLOBALS['sql_query'] = '';
         }
