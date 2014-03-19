@@ -3817,11 +3817,12 @@ class PMA_Util
      */
     public static function currentUserHasPrivilege($priv, $db = null, $tbl = null)
     {
-	// TRIGGER privilege was added in MySQL 5.1.6.
-	// Before MySQL 5.1.6, the SUPER privilege was required to create or drop triggers.
-	if ($priv == "TRIGGER" && PMA_MYSQL_INT_VERSION < 50160) {
-	    $priv = "SUPER";
-	}
+        // TRIGGER privilege was added in MySQL 5.1.6.
+        // Before MySQL 5.1.6, the SUPER privilege was required to create i
+        // or drop triggers.
+        if ($priv == "TRIGGER" && PMA_MYSQL_INT_VERSION < 50160) {
+            $priv = "SUPER";
+        }
 
         // Get the username for the current user in the format
         // required to use in the information schema database.
