@@ -600,7 +600,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 try {
                     var data = $('body', $('iframe#monitorConfigUpload')[0].contentWindow.document).html();
                     // Chrome wraps around '<pre style="word-wrap: break-word; white-space: pre-wrap;">' to any text content -.-
-                    json = $.secureEvalJSON(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
+                    json = $.parseJSON(data.substring(data.indexOf("{"), data.lastIndexOf("}") + 1));
                 } catch (err) {
                     alert(PMA_messages.strFailedParsingConfig);
                     $('#emptyDialog').dialog('close');
