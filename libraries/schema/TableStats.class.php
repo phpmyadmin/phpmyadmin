@@ -28,7 +28,7 @@ abstract class TableStats
     protected $showKeys;
     protected $showInfo;
 
-    public $displayField;
+    public $displayfield;
     public $fields = array();
     public $primary = array();
     public $x, $y;
@@ -148,7 +148,7 @@ abstract class TableStats
      */
     protected function loadDisplayField()
     {
-        $this->displayField = PMA_getDisplayField($this->db, $this->tableName);
+        $this->displayfield = PMA_getDisplayField($this->db, $this->tableName);
     }
 
     /**
