@@ -99,6 +99,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'sessionStrategy' => 'shared',
                     'desiredCapabilities' => $capabilities,
                 );
+                /* TODO: testing is MSIE is currently broken, so disabled
                 $result[] = array(
                     'browserName' => 'internet explorer',
                     'host' => 'hub.browserstack.com',
@@ -113,6 +114,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                         )
                     )
                 );
+                */
             }
             return $result;
         } elseif (! empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])) {
