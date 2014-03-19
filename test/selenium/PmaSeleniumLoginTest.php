@@ -28,6 +28,7 @@ class PMA_SeleniumLoginTest extends PMA_SeleniumBase
     {
         $this->logOutIfLoggedIn();
         $this->login();
+        $this->waitForElement("byXPath", "//*[@id=\"serverinfo\"]");
         $this->assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
     }
@@ -43,6 +44,7 @@ class PMA_SeleniumLoginTest extends PMA_SeleniumBase
     {
         $this->logOutIfLoggedIn();
         $this->login("Admin", "Admin");
+        $this->waitForElement("byCssSelector", "div.error");
         $this->assertTrue($this->isUnsuccessLogin());
     }
 }
