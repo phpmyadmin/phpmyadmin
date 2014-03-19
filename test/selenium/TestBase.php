@@ -69,7 +69,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
             $result = array();
             $result[] = array(
-                'browserName' => 'internet explorer',
+                'browserName' => 'Safari',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
@@ -77,8 +77,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'desiredCapabilities' => array_merge(
                     $capabilities,
                     array(
-                        'os' => 'windows',
-                        'os_version' => '7',
+                        'os' => 'OS X',
+                        'os_version' => 'Mavericks',
                     )
                 )
             );
@@ -100,7 +100,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'desiredCapabilities' => $capabilities,
                 );
                 $result[] = array(
-                    'browserName' => 'Safari',
+                    'browserName' => 'internet explorer',
                     'host' => 'hub.browserstack.com',
                     'port' => 80,
                     'timeout' => 30000,
@@ -108,8 +108,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     'desiredCapabilities' => array_merge(
                         $capabilities,
                         array(
-                            'os' => 'OS X',
-                            'os_version' => 'Mavericks',
+                            'os' => 'windows',
+                            'os_version' => '7',
                         )
                     )
                 );
