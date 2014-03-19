@@ -569,7 +569,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $('<input />', {
                 type: "hidden",
                 name: "monitorconfig",
-                value: $.toJSON(exportData)
+                value: JSON.stringify(exportData)
             })
         )
         .appendTo('body')
@@ -616,8 +616,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                 // If json ok, try applying config
                 try {
-                    window.localStorage['monitorCharts'] = $.toJSON(json.monitorCharts);
-                    window.localStorage['monitorSettings'] = $.toJSON(json.monitorSettings);
+                    window.localStorage['monitorCharts'] = JSON.stringify(json.monitorCharts);
+                    window.localStorage['monitorSettings'] = JSON.stringify(json.monitorSettings);
                     rebuildGrid();
                 } catch (err) {
                     alert(PMA_messages.strFailedBuildingGrid);
@@ -1316,7 +1316,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             ajax_request: true,
             chart_data: 1,
             type: 'chartgrid',
-            requiredData: $.toJSON(runtime.dataList)
+            requiredData: JSON.stringify(runtime.dataList)
         }, function (data) {
             var chartData;
             if (data.success === true) {
@@ -2076,8 +2076,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
 
         if (window.localStorage) {
-            window.localStorage['monitorCharts'] = $.toJSON(gridCopy);
-            window.localStorage['monitorSettings'] = $.toJSON(monitorSettings);
+            window.localStorage['monitorCharts'] = JSON.stringify(gridCopy);
+            window.localStorage['monitorSettings'] = JSON.stringify(monitorSettings);
             window.localStorage['monitorVersion'] = monitorProtocolVersion;
         }
 

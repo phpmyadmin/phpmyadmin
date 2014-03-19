@@ -46,7 +46,7 @@ $(document).ready(function(){
      $('body').css('min-width', width);
      $('.tabs_contents').css('min-width', contentWidth);
 });
- 
+
 //
 // END: Messages
 // ------------------------------------------------------------------
@@ -84,7 +84,7 @@ function ajaxValidate(parent, id, values)
         data: {
             token: parent.closest('form').find('input[name=token]').val(),
             id: id,
-            values: $.toJSON(values)
+            values: JSON.stringify(values)
         },
         success: function (response) {
             if (response === null) {
