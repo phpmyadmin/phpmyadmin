@@ -143,7 +143,8 @@ echo '<p>' . __('Export/Import to scale:');
 echo '<select name="scale">';
 echo '<option value="1">1:1</option>';
 echo '<option value="2">1:2</option>';
-echo '<option value="3" selected="selected">1:3 (' . __('recommended'). ')</option>';
+echo '<option value="3" selected="selected">1:3 ('
+    . __('recommended') . ')</option>';
 echo '<option value="4">1:4</option>';
 echo '<option value="5">1:5</option>';
 echo '</select>';
