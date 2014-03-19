@@ -477,6 +477,10 @@ class PMA_Header
                 . "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
                 . ($use_captcha ? 'https://www.google.com ' : ' ')
                 . ";"
+                . "style-src 'unsafe-inline' ".
+                . ($use_captcha ? 'https://www.google.com ' : ' ')
+                . $GLOBALS['cfg']['CSPAllow']
+                . ";"
                 . "img-src 'self' data: "
                 . $GLOBALS['cfg']['CSPAllow']
                 . ($https ? "" : $mapTilesUrls)
