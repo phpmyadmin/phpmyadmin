@@ -471,6 +471,20 @@ class PMA_Header
                 );
             }
             header(
+                "Content-Security-Policy: default-src 'self' "
+                . ($use_captcha ? 'https://www.google.com ' : ' ')
+                . $GLOBALS['cfg']['CSPAllow'] . ';'
+                . "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+                . ($use_captcha ? 'https://www.google.com ' : ' ')
+                . ";"
+                . "img-src 'self' data: "
+                . $GLOBALS['cfg']['CSPAllow']
+                . ($https ? "" : $mapTilesUrls)
+                // for reCAPTCHA
+                . ($use_captcha ? ' https://www.google.com' : ' ')
+                . ";"
+            );
+            header(
                 "X-Content-Security-Policy: default-src 'self' "
                 . ($use_captcha ? 'https://www.google.com ' : ' ')
                 . $GLOBALS['cfg']['CSPAllow'] . ';'
