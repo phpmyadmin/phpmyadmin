@@ -472,7 +472,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         if (strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
-        parent::alertText();
+        return parent::alertText();
     }
 
     /**
