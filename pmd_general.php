@@ -340,21 +340,23 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     }
         ?>)">
     <?php
-    if (isset($_REQUEST['query'])) {
-        echo '<td class="select_all">';
-        echo '<input value="' . htmlspecialchars($t_n_url)
+        if (isset($_REQUEST['query'])) {
+            echo '<td class="select_all">';
+            echo '<input value="' . htmlspecialchars($t_n_url)
             . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '"';
-        echo 'type="checkbox" id="select_' . htmlspecialchars($t_n_url) . '._'
+            echo 'type="checkbox" id="select_' . htmlspecialchars($t_n_url) . '._'
             . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '" ';
-        echo  'style="margin: 0px;" title="select_'
+            echo  'style="margin: 0px;" title="select_'
             . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '" ';
-        echo 'onclick="store_column(\''
+            echo 'onclick="store_column(\''
             . urlencode($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i]) . '\',\''
             . htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]) . '\',\''
             . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '\')"></td>';
-    }?>
-    <td width="10px" colspan="3"
-        id="<?php echo $t_n_url . "." . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
+        }?>
+        <td width="10px" colspan="3"
+        id="<?php echo $t_n_url
+             . "."
+             . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
         <div class="nowrap">
         <?php
         if (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]])) {
