@@ -43,3 +43,5 @@ phpunit.xml
 /nbproject/
 # Eclipse ide stuff
 /.pydevproject
+# Ant cache
+cache.properties
