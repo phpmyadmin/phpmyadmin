@@ -10,7 +10,7 @@ control over creating users, viewing and editing privileges for existing users,
 and removing users.
 
 Within phpMyAdmin, user management is controlled via the :guilabel:`Users` link
-from the main page. Users can be created, edited, and removed.  
+from the main page. Users can be created, edited, and removed.
 
 Creating a new user
 -------------------

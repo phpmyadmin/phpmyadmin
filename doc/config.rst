@@ -142,13 +142,13 @@ Basic settings
     preferences. If the person in charge of a multi-user installation prefers
     to disable this feature for all users, a value of ``'never'`` should be
     set, and the :config:option:`$cfg['UserprefsDisallow']` directive should
-    contain ``'SendErrorReports'`` in one of its array values. 
+    contain ``'SendErrorReports'`` in one of its array values.
 
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
     :type: boolean
     :default: false
-    
+
     Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
     and is a potential security hole allowing cross-frame scripting attacks or
     clickjacking.
@@ -1159,7 +1159,7 @@ Generic settings
     :default: false
 
     Whether to force using https while accessing phpMyAdmin.
-    
+
     .. note::
 
         In some setups (like separate SSL proxy or load balancer) you might
@@ -1602,8 +1602,8 @@ Browse mode
     :type: string
     :default: ``'icons'``
 
-    Defines whether the table navigation links contain ``'icons'``, ``'text'`` 
-    or ``'both'``. 
+    Defines whether the table navigation links contain ``'icons'``, ``'text'``
+    or ``'both'``.
 
 .. config:option:: $cfg['ShowAll']
 
@@ -1791,7 +1791,7 @@ Tabs display settings
     :type: string
     :default: ``'both'``
 
-    Defines whether the menu tabs contain ``'icons'``, ``'text'`` or ``'both'``. 
+    Defines whether the menu tabs contain ``'icons'``, ``'text'`` or ``'both'``.
 
 .. config:option:: $cfg['ActionLinksMode']
 
@@ -1800,7 +1800,7 @@ Tabs display settings
 
     If set to ``icons``, will display icons instead of text for db and table
     properties links (like :guilabel:`Browse`, :guilabel:`Select`,
-    :guilabel:`Insert`, ...). Can be set to ``'both'`` 
+    :guilabel:`Insert`, ...). Can be set to ``'both'``
     if you want icons AND text. When set to ``text``, will only show text.
 
 .. config:option:: $cfg['PropertiesNumColumns']
@@ -2018,7 +2018,7 @@ Web server settings
     Limit for length of :term:`URL` in links.  When length would be above this
     limit, it is replaced by form with button. This is required as some web
     servers (:term:`IIS`) have problems with long :term:`URL` .
- 
+
 .. config:option:: $cfg['CSPAllow']
 
     :type: string
