@@ -26,6 +26,7 @@ $drops = array(
     'db',
     'table'
 );
+
 foreach ($drops as $each_drop) {
     if (array_key_exists($each_drop, $_GET)) {
         unset($_GET[$each_drop]);
