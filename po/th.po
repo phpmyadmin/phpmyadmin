@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-11-25 15:14+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/4-1/th/>\n"
+"PO-Revision-Date: 2014-03-20 05:25+0200\n"
+"Last-Translator: Anawin Wongsadit <imonmac@hotmail.com>\n"
+"Language-Team: Thai <https://l10n.cihar.com/projects/phpmyadmin/4-1/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,9 @@ msgstr ""
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
-msgstr "ไม่สามารถเปิดไฟล์ %s ได้ เพื่อรายละเอียด กรุณาไป www.phpmyadmin.net."
+msgstr ""
+"ไฟล์ %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมกรุณาเยี่ยมชม "
+"www.phpmyadmin.net"
 
 #: db_create.php:61
 #, php-format
@@ -33,10 +35,9 @@ msgstr "หมายเหตุของฐานข้อมูล: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1348
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "หมายเหตุของตาราง"
+msgstr "หมายเหตุของตาราง:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -14212,10 +14213,10 @@ msgstr "ขนาดข้อมูลบันทึกสูงสุดขอ
 
 #: libraries/advisory_rules.txt:446
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "ขนาดไฟล์ข้อมูลบันทึก InnoDB ใหญ่เกินความจำเป็น"
 
 #: libraries/advisory_rules.txt:447
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Especially on a system with a lot of writes to InnoDB tables you should "
 #| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
@@ -14238,20 +14239,21 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
-"โดยเฉพาะอย่างยิ่ง ในระบบที่มีจำนวนมากได้เขียนไปยังตารางของ InnoDB คุณควรตั้งค่า "
-"{innodb_log_file_size} เป็น 25%% ของ{innodb_buffer_pool_size} "
-"อย่างไรก็ตามค่าเหล่านี้จะได้รับการกู้คืนเมื่อระบบฐานข้อมูลมีปัญหา โดยไม่ควรตั้งค่าสูงกว่า 256 "
-"เมกะไบต์ และอย่างไรก็ดีโปรดทราบไว้ว่าคุณไม่เพียงแค่เปลี่ยนแปลงค่าเหล่านี้ได้ "
-"แต่คุณจำเป็นต้องปิดระบบเซิร์ฟเวอร์แล้วทำการเอาไฟล์บันทึกของInnoDB ออก และตั้งค่าใหม่ในไฟล์ my."
-"cnf แล้วเริ่มต้นเซิร์ฟเวอร์อีกครั้ง เพื่อตรวจสอบไฟล์บันทึกข้อผิดพลาด "
-"หากทุกอย่างดำเนินการไปได้ด้วยดี ดู <a href=\"http://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html"
-"\">รายการบล็อก</a> นี้ได้"
+"โดยทั่วไป {innodb_log_file_size} เป็น 25%% ของ {innodb_buffer_pool_size} "
+"ก็เพียงพอแล้ว "
+"หากตั้งค่าเหล่านี้มากเกินไปจะทำให้การกู้คืนเมื่อระบบฐานข้อมูลมีปัญหาทำได้ช้"
+"าลง ดูเพิ่มได้ที่<a href=\"http://www.mysqlperformanceblog.com/2006/07/03"
+"/choosing-proper-innodb_log_file_size/\">บทความนี้</a> "
+"โดยคุณจำเป็นต้องปิดระบบเซิร์ฟเวอร์แล้วทำการเอาไฟล์บันทึกของInnoDB ออก "
+"และตั้งค่าใหม่ในไฟล์ my.cnf แล้วเริ่มต้นเซิร์ฟเวอร์อีกครั้ง "
+"เพื่อตรวจสอบไฟล์บันทึกข้อผิดพลาด หากทุกอย่างดำเนินการไปได้ด้วยดี ดู <a href="
+"\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">รายการบล็อก</a> นี้ได้"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "ขนาดข้อมูลบันทึก InnoDB ที่แท้จริงของคุณคือ %s MiB"
 
 #: libraries/advisory_rules.txt:450
 msgid "InnoDB buffer pool size"
@@ -14259,7 +14261,7 @@ msgstr "ขนาดบัฟเฟอร์ของ InnoDB"
 
 #: libraries/advisory_rules.txt:453
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "ขนาดบัฟเฟอร์  InnoDB ของคุณมีขนาดเล็ก"
+msgstr "ขนาดบัฟเฟอร์ InnoDB ของคุณมีขนาดเล็กเกินไป"
 
 # buffer pool แปลเป็น บัฟเฟอร์
 # non-InnoDB-Tables ใช้คำทับศัพท์
@@ -14279,14 +14281,16 @@ msgid ""
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
 "บัฟเฟอร์ของ InnoDB มีผลกระทบอย่างยิ่งในการปฏิบัติงานสำหรับตารางของ InnoDB "
-"กำหนดการจำส่วนที่เหลือทั้งหมดของคุณกับบัฟเฟอร์นี้ สำหรับเซิร์ฟเวอร์ฐานข้อมูลที่ใช้ InnoDB "
-"แต่เพียงผู้เดียวเป็นการเก็บโปรแกรม และมีไม่มีบริการอื่น ๆ (เช่นเว็บเซิร์ฟเวอร์) ทำงานอยู่ "
-"คุณอาจตั้งค่านี้ได้สูงถึง 80%% ของหน่วยความจำของคุณพร้อมใช้งานได้ ถ้าไม่ใช่กรณี "
-"คุณจำเป็นต้องประเมินปริมาณการใช้หน่วยความจำของบริการและ non-InnoDB-Tables อื่นๆ "
-"ของคุณอย่างระมัดระวัง และตั้งค่าตัวแปรนี้ตามลำดับ หากตั้งสูงเกินไป ระบบของคุณจะเริ่มต้นการเปลี่ยน "
-"ซึ่งลดประสิทธิภาพการทำงานอย่างมาก ดูเพิ่มเติม<a href=\"http://www."
-"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">บทความนี้</a>"
+"กำหนดการจำส่วนที่เหลือทั้งหมดของคุณกับบัฟเฟอร์นี้ "
+"สำหรับเซิร์ฟเวอร์ฐานข้อมูลที่ใช้ InnoDB แต่เพียงผู้เดียวเป็นการเก็บโปรแกรม "
+"และมีไม่มีบริการอื่น ๆ (เช่นเว็บเซิร์ฟเวอร์) ทำงานอยู่ "
+"คุณอาจตั้งค่านี้ได้สูงถึง 80%% ของหน่วยความจำของคุณพร้อมใช้งานได้ "
+"ถ้าไม่ใช่กรณี "
+"คุณจำเป็นต้องประเมินปริมาณการใช้หน่วยความจำของบริการและตารางที่ไม่ได้ใช้ "
+"InnoDB อื่นๆ ของคุณอย่างระมัดระวัง และตั้งค่าตัวแปรนี้ตามลำดับ หากตั้งสูงเกิ"
+"นไป ระบบของคุณจะเริ่มต้นการเปลี่ยน ซึ่งลดประสิทธิภาพการทำงานอย่างมาก "
+"ดูเพิ่มเติม<a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">บทความนี้</a>"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -14305,24 +14309,23 @@ msgid "MyISAM concurrent inserts"
 msgstr "MyISAM พร้อมแทรก"
 
 #: libraries/advisory_rules.txt:462
-#, fuzzy
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "เปิดใช้งานการ concurrent_insert โดยการตั้งค่าเป็น 1"
+msgstr "เปิดใช้งาน {concurrent_insert} ได้โดยตั้งค่าเป็น 1"
 
 #: libraries/advisory_rules.txt:463
-#, fuzzy
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "การตั้งค่า {concurrent_insert} เป็น 1 "
-"เพื่อลดการใช้งานระหว่างผู้อ่านและผู้เขียนสำหรับตารางที่กำหนด ดูเพิ่มเติม<a href=\"http://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">เอกสาร MySQL</a>"
+"จะช่วยลดการใช้งานระหว่างตัวอ่านและตัวเขียนสำหรับตารางที่กำหนด ดู<a href=\""
+"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">เอกสาร "
+"MySQL</a>เพิ่มเติม"
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert ตั้งค่าไว้ที่ 0"
+msgstr "concurrent_insert ถูกตั้งค่าไว้ที่ 0"
 
 #, fuzzy
 #~| msgid "\"bzipped\""
