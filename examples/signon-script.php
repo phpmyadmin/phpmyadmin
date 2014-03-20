@@ -21,7 +21,7 @@
  *
  * @return array
  */
-function getLoginCredentials($user)
+function get_login_credentials($user)
 {
     return array('root', '');
 }
