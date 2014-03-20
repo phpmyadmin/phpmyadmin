@@ -159,7 +159,7 @@ $(function () {
     });
 
     /** New index */
-    $('li.new_index a.ajax').live('click', function (event) {
+    $('#pma_navigation_tree li.new_index a.ajax').live('click', function (event) {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
