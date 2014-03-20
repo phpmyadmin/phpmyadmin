@@ -314,9 +314,7 @@ class Table_Stats_Eps extends TableStats
     /**
      * Defines properties
      */
-    public $width = 0;
     public $height;
-    public $heightCell = 0;
     public $currentCell = 0;
 
     /**
@@ -391,21 +389,6 @@ class Table_Stats_Eps extends TableStats
     }
 
     /**
-     * Returns title of the current table,
-     * title can have the dimensions/co-ordinates of the table
-     *
-     * @return string The relation/table name
-     * @access private
-     */
-    private function _getTitle()
-    {
-        return ($this->showInfo
-            ? sprintf('%.0f', $this->width) . 'x'
-                . sprintf('%.0f', $this->heightCell)
-            : '') . ' ' . $this->tableName;
-    }
-
-    /**
      * Sets the width of the table
      *
      * @param string  $font     The font name
@@ -432,7 +415,7 @@ class Table_Stats_Eps extends TableStats
          * table title is affected by the tabe width value
          */
         while ($this->width
-            < PMA_Font::getStringWidth($this->_getTitle(), $font, $fontSize)) {
+            < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)) {
             $this->width += 7;
         }
     }
@@ -468,7 +451,7 @@ class Table_Stats_Eps extends TableStats
         global $eps;
         //echo $this->tableName.'<br />';
         $eps->rect($this->x, $this->y + 12, $this->width, $this->heightCell, 1);
-        $eps->showXY($this->_getTitle(), $this->x + 5, $this->y + 14);
+        $eps->showXY($this->getTitle(), $this->x + 5, $this->y + 14);
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
             $showColor    = 'none';

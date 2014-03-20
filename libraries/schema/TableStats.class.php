@@ -33,6 +33,8 @@ abstract class TableStats
     public $primary = array();
     public $x, $y;
 
+    public $width = 0;
+    public $heightCell = 0;
 
     /**
      * Constructor
@@ -169,6 +171,21 @@ abstract class TableStats
                 }
             }
         }
+    }
+
+    /**
+     * Returns title of the current table,
+     * title can have the dimensions/co-ordinates of the table
+     *
+     * @return string title of the current table
+     */
+    protected function getTitle()
+    {
+        return ($this->showInfo
+            ? sprintf('%.0fx%0.f', $this->width, $this->heightCell)
+            : ''
+        )
+        . ' ' . $this->tableName;
     }
 }
 ?>

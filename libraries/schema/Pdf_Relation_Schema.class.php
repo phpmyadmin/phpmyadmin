@@ -376,9 +376,7 @@ class Table_Stats_Pdf extends TableStats
      * Defines properties
      */
     public $nb_fiels;
-    public $width = 0;
     public $height;
-    public $heightCell = 6;
     private $_ff = PMA_PDF_FONT;
 
     /**
@@ -407,6 +405,7 @@ class Table_Stats_Pdf extends TableStats
             $pdf, $db, $pageNumber, $tableName, $showKeys, $showInfo
         );
 
+        $this->heightCell = 6;
         $this->_setHeight();
         /*
          * setWidth must me after setHeight, because title
@@ -455,7 +454,7 @@ class Table_Stats_Pdf extends TableStats
      *
      * @return string
      */
-    private function _getTitle()
+    protected function getTitle()
     {
         $ret = '';
         if ($this->showInfo) {
@@ -490,7 +489,7 @@ class Table_Stats_Pdf extends TableStats
          * it is unknown what value must be added, because
          * table title is affected by the tabe width value
          */
-        while ($this->width < $pdf->GetStringWidth($this->_getTitle())) {
+        while ($this->width < $pdf->GetStringWidth($this->getTitle())) {
             $this->width += 5;
         }
         $pdf->SetFont($this->_ff, '', $fontSize);
@@ -542,7 +541,7 @@ class Table_Stats_Pdf extends TableStats
         $pdf->cellScale(
             $this->width,
             $this->heightCell,
-            $this->_getTitle(),
+            $this->getTitle(),
             1,
             1,
             'C',

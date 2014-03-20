@@ -280,9 +280,7 @@ class Table_Stats_Svg extends TableStats
     /**
      * Defines properties
      */
-    public $width = 0;
     public $height;
-    public $heightCell = 0;
     public $currentCell = 0;
 
     /**
@@ -358,22 +356,6 @@ class Table_Stats_Svg extends TableStats
     }
 
     /**
-     * Returns title of the current table,
-     * title can have the dimensions/co-ordinates of the table
-     *
-     * @return string title of the current table
-     * @access private
-     */
-    private function _getTitle()
-    {
-        return ($this->showInfo
-            ? sprintf('%.0f', $this->width) . 'x'
-            . sprintf('%.0f', $this->heightCell)
-            : ''
-        ) . ' ' . $this->tableName;
-    }
-
-    /**
      * Sets the width of the table
      *
      * @param string  $font     The font size
@@ -401,7 +383,7 @@ class Table_Stats_Svg extends TableStats
          * table title is affected by the tabe width value
          */
         while ($this->width
-            < PMA_Font::getStringWidth($this->_getTitle(), $font, $fontSize)
+            < PMA_Font::getStringWidth($this->getTitle(), $font, $fontSize)
         ) {
             $this->width += 7;
         }
@@ -443,7 +425,7 @@ class Table_Stats_Svg extends TableStats
         );
         $svg->printElement(
             'text', $this->x + 5, $this->y+ 14, $this->width, $this->heightCell,
-            $this->_getTitle(), 'fill:none;stroke:black;'
+            $this->getTitle(), 'fill:none;stroke:black;'
         );
         foreach ($this->fields as $field) {
             $this->currentCell += $this->heightCell;
