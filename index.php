@@ -9,12 +9,12 @@
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once 'libraries/common.inc.php';
+require_once 'libraries/common.inc.php';   
 
 /**
  * display Git revision if requested
  */
-require_once 'libraries/display_git_revision.lib.php';
+	require_once 'libraries/display_git_revision.lib.php';
 
 /**
  * pass variables to child pages
@@ -26,6 +26,7 @@ $drops = array(
     'db',
     'table'
 );
+
 foreach ($drops as $each_drop) {
     if (array_key_exists($each_drop, $_GET)) {
         unset($_GET[$each_drop]);
