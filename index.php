@@ -14,7 +14,7 @@ require_once 'libraries/common.inc.php';
 /**
  * display Git revision if requested
  */
-require_once 'libraries/display_git_revision.lib.php';
+	require_once 'libraries/display_git_revision.lib.php';
 
 /**
  * pass variables to child pages
