@@ -2,7 +2,7 @@
 
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * function for the main export logic 
+ * function for the main export logic
  *
  * @package PhpMyAdmin
  */
@@ -12,9 +12,9 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Sets a session variable upon a possible fatal error during export 
+ * Sets a session variable upon a possible fatal error during export
  *
- * @return void 
+ * @return void
  */
 function PMA_shutdownDuringExport()
 {
@@ -173,7 +173,7 @@ function PMA_exportOutputHandler($line)
 function PMA_getHtmlForDisplayedExportFooter($back_button)
 {
     /**
-     * Close the html tags and add the footers for on-screen export 
+     * Close the html tags and add the footers for on-screen export
      */
     $html = '</textarea>'
         . '    </form>'
@@ -192,9 +192,9 @@ function PMA_getHtmlForDisplayedExportFooter($back_button)
 }
 
 /**
- * Computes the memory limit for export 
+ * Computes the memory limit for export
  *
- * @return int $memory_limit the memory limit 
+ * @return int $memory_limit the memory limit
  */
 function PMA_getMemoryLimitForExport()
 {
@@ -226,7 +226,7 @@ function PMA_getMemoryLimitForExport()
 }
 
 /**
- * Return the filename and MIME type for export file 
+ * Return the filename and MIME type for export file
  *
  * @param string $export_type       type of export
  * @param string $remember_template whether to remember template
@@ -234,7 +234,7 @@ function PMA_getMemoryLimitForExport()
  * @param string $compression       compression asked
  * @param string $filename_template the filename template
  *
- * @return array the filename template and mime type 
+ * @return array the filename template and mime type
  */
 function PMA_getExportFilenameAndMimetype(
     $export_type, $remember_template, $export_plugin, $compression,
@@ -299,9 +299,9 @@ function PMA_getExportFilenameAndMimetype(
  * Open the export file
  *
  * @param string  $filename     the export filename
- * @param boolean $quick_export whether it's a quick export or not 
+ * @param boolean $quick_export whether it's a quick export or not
  *
- * @return array the full save filename, possible message and the file handle  
+ * @return array the full save filename, possible message and the file handle
  */
 function PMA_openExportFile($filename, $quick_export)
 {
@@ -446,7 +446,7 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
 }
 
 /**
- * Export at the server level 
+ * Export at the server level
  *
  * @param string $db_select       the selected databases to export
  * @param string $whatStrucOrData structure or data or both
@@ -459,7 +459,7 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
  * @param string $do_mime         whether to add MIME info
  * @param string $do_dates        whether to add dates
  *
- * @return void 
+ * @return void
  */
 function PMA_exportServer(
     $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
@@ -500,7 +500,7 @@ function PMA_exportServer(
  * @param string $do_dates        whether to add dates
  *
  * @return void
- */ 
+ */
 function PMA_exportDatabase(
     $db, $tables, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates
@@ -533,9 +533,9 @@ function PMA_exportDatabase(
         ) {
             // for a view, export a stand-in definition of the table
             // to resolve view dependencies
-            
+
             if ($is_view) {
-                
+
                 if (isset($GLOBALS['sql_create_view'])) {
                     if (! $export_plugin->exportStructure(
                         $db, $table, $crlf, $err_url,
@@ -545,9 +545,9 @@ function PMA_exportDatabase(
                         break 1;
                     }
                 }
-                
+
             } else if (isset($GLOBALS['sql_create_table'])) {
-                
+
                 if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url,
                     'create_table', $export_type,
@@ -555,9 +555,9 @@ function PMA_exportDatabase(
                 )) {
                     break 1;
                 }
-                
+
             }
-            
+
         }
         // if this is a view or a merge table, don't export data
         if (($whatStrucOrData == 'data'
@@ -586,9 +586,9 @@ function PMA_exportDatabase(
             }
         }
     }
-    
+
     if (isset($GLOBALS['sql_create_view'])) {
-        
+
         foreach ($views as $view) {
             // no data export for a view
             if ($whatStrucOrData == 'structure'
@@ -603,7 +603,7 @@ function PMA_exportDatabase(
                 }
             }
         }
-        
+
     }
 
     if (! $export_plugin->exportDBFooter($db)) {
@@ -612,7 +612,7 @@ function PMA_exportDatabase(
 }
 
 /**
- * Export at the table level 
+ * Export at the table level
  *
  * @param string $db              the database to export
  * @param string $table           the table to export
@@ -625,9 +625,9 @@ function PMA_exportDatabase(
  * @param string $do_comments     whether to add comments
  * @param string $do_mime         whether to add MIME info
  * @param string $do_dates        whether to add dates
- * @param string $allrows         whether "dump all rows" was ticked  
- * @param string $limit_to        upper limit 
- * @param string $limit_from      starting limit 
+ * @param string $allrows         whether "dump all rows" was ticked
+ * @param string $limit_to        upper limit
+ * @param string $limit_from      starting limit
  * @param string $sql_query       query for which exporting is requested
  *
  * @return void
@@ -656,9 +656,9 @@ function PMA_exportTable(
     if ($whatStrucOrData == 'structure'
         || $whatStrucOrData == 'structure_and_data'
     ) {
-        
+
         if ($is_view) {
-            
+
             if (isset($GLOBALS['sql_create_view'])) {
                 if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url,
@@ -668,9 +668,9 @@ function PMA_exportTable(
                     return;
                 }
             }
-            
+
         } else if (isset($GLOBALS['sql_create_table'])) {
-            
+
             if (! $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url,
                 'create_table', $export_type,
@@ -678,9 +678,9 @@ function PMA_exportTable(
             )) {
                 return;
             }
-            
+
         }
-        
+
     }
     // If this is an export of a single view, we have to export data;
     // for example, a PDF report

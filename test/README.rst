@@ -3,7 +3,7 @@ PhpMyAdmin test suite
 
 This directory is protected from web visitors by a .htaccess file.
 
-For more information on allowing http access to this directory see: 
+For more information on allowing http access to this directory see:
 http://httpd.apache.org/docs/current/mod/mod_authz_host.html#allow
 
 Please visit the wiki for more information on unit testing:

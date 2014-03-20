@@ -296,7 +296,7 @@ class ImportCsv extends AbstractImportCsv
                     $buffer, $ch, $i, $csv_terminated_len
                 );
                 $i += $csv_terminated_len-1;
-                
+
             }
             while ($i < $len) {
                 // Deadlock protection
@@ -652,7 +652,7 @@ class ImportCsv extends AbstractImportCsv
     }
 
     /**
-     * Read the expected column_separated_with String of length 
+     * Read the expected column_separated_with String of length
      * $csv_terminated_len from the $buffer
      * into variable $ch and return the read string $ch
      *
@@ -667,7 +667,7 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return string
      */
-    
+
     public function readCsvTerminatedString($buffer, $ch, $i, $csv_terminated_len)
     {
         for ($j = 0; $j < $csv_terminated_len - 1; $j++) {
@@ -700,5 +700,5 @@ class ImportCsv extends AbstractImportCsv
     {
         $this->_analyze = $analyze;
     }
-   
+
 }

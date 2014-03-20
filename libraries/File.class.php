@@ -512,7 +512,7 @@ class PMA_File
      * @todo    move file read part into readChunk() or getChunk()
      * @todo    add support for compression plugins
      * @access  protected
-     * @return  mixed false on error, otherwise string MIME type of 
+     * @return  mixed false on error, otherwise string MIME type of
      *                compression, none for none
      */
     protected function detectCompression()

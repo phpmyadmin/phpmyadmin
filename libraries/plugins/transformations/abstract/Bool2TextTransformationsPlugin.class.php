@@ -52,7 +52,7 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
         if (! isset($options[1])) {
             $options[1] = 'F';    // default false option
         }
- 
+
         if ($buffer == '0') {
             return $options[1];   // return false label
         }

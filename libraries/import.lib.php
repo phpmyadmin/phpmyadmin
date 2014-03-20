@@ -1313,7 +1313,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 /**
  * Stops the import on (mostly upload/file related) error
  *
- * @param PMA_Message $error_message The error message 
+ * @param PMA_Message $error_message The error message
  *
  * @return void
  * @access  public

@@ -279,19 +279,19 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             '<code> / EVENT</code><code> / TRIGGER</code> statement',
             $leaf->getText()
         );
- 
+
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
             'BoolPropertyItem',
             $leaf
         );
-        
+
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
             'BoolPropertyItem',
             $leaf
         );
-        
+
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
             'BoolPropertyItem',
@@ -1689,7 +1689,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['sql_create_trigger'] = true;
         $GLOBALS['sql_drop_table'] = true;
-        
+
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
@@ -1707,7 +1707,7 @@ class PMA_ExportSql_Test extends PHPUnit_Framework_TestCase
             "foo;\nDELIMITER //\nbarDELIMITER ;\n",
             $result
         );
-        
+
         unset($GLOBALS['sql_create_trigger']);
         unset($GLOBALS['sql_drop_table']);
 
