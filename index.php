@@ -33,7 +33,7 @@ foreach ($drops as $each_drop) {
 }
 unset($drops, $each_drop);
 
-/* 
+/*
  * Black list of all scripts to which front-end must submit data.
  * Such scripts must not be loaded on home page.
  *
@@ -324,7 +324,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             } else {
                 $php_ext_string  .= __('None');
             }
-            
+
             PMA_printListItem(
                 $php_ext_string,
                 'li_used_php_extension'

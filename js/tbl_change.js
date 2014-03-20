@@ -394,7 +394,7 @@ AJAX.registerOnload('tbl_change.js', function () {
 
                     var hashed_field = name_parts[1].match(/\[(.+)\]/)[1];
                     $this_element.attr('name', new_name);
-                    
+
                     /** If element is select[name*='funcs'], update id */
                     if ($this_element.is("select[name*='funcs']")) {
                         var this_id = $this_element.attr("id");
@@ -407,14 +407,14 @@ AJAX.registerOnload('tbl_change.js', function () {
                         $this_element.find("option").filter(function () {
                             return $(this).text() === prevSelectedValue;
                         }).attr("selected","selected");
-                        
+
                         // If salt field is there then update its id.
                         var nextSaltInput = $this_element.parent().next("td").next("td").find("input[name*='salt']");
                         if (nextSaltInput.length !== 0) {
                             nextSaltInput.attr("id", "salt_" + new_id);
                         }
                     }
-                    
+
                     // handle input text fields and textareas
                     if ($this_element.is('.textfield') || $this_element.is('.char')) {
                         // do not remove the 'value' attribute for ENUM columns
@@ -530,18 +530,18 @@ AJAX.registerOnload('tbl_change.js', function () {
     });
     // Add all the required datepickers back
     addDateTimePicker();
-    
+
     /**
      * @var $function_option_dialog object holds dialog for selected function options.
-     */ 
+     */
      var $function_option_dialog = null;
-    
+
     PMA_tooltip(
         $("select[name*='funcs']"),
         'select',
         PMA_messages.strFunctionHint
     );
-    
+
     $("select[name*='funcs']").live('click', function (event) {
         if (! event.shiftKey) {
             return false;
@@ -555,7 +555,7 @@ AJAX.registerOnload('tbl_change.js', function () {
         var targetRows = $("tr").has("input[value='" + columnName + "']");
         var salt;
         var copySalt = false;
-        
+
         if (functionName === 'AES_ENCRYPT') {
             // Dialog title.
             var title = functionName;
@@ -574,7 +574,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                 applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows);
                 $(this).dialog("close");
             };
-            
+
             // Contents of dialog.
             var dialog = "<div>" +
                         "<fieldset>" +
@@ -583,7 +583,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                         " ?" +
                         "</fieldset>" +
                         "</div>";
-                        
+
             // Show the dialog
             var width = parseInt(
                 (parseInt($('html').css('font-size'), 10) / 13) * 340,
@@ -608,7 +608,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                 }
             });
         }
-        
+
         applyFunctionToAllRows(currId, functionName, copySalt, "", targetRows);
     });
 });
@@ -644,10 +644,10 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
                 return;
             }
         } */
-        
+
         // Append the function select list.
         var targetSelectList = $(this).find("select[name*='funcs[multi_edit]']");
-        
+
         if (targetSelectList.attr("id") === currId) {
             return;
         }
@@ -665,7 +665,7 @@ function applyFunctionToAllRows(currId, functionName, copySalt, salt, targetRows
                     " id=salt_" + targetSelectList.attr("id") + " placeholder='enter Salt'>";
                 targetSelectList.parent().next("td").next("td").find("input[name*='fields']").after(new_salt_box);
             }
-            
+
             if (copySalt) {
                 $("#salt_" + targetSelectList.attr("id")).attr("value", salt);
             }

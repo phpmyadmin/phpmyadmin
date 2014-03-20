@@ -20,6 +20,6 @@ if [ ! -z "$1" ] ; then
     exit 0
 fi
 
-for x in po/*.po  ; do 
+for x in po/*.po  ; do
     compile $x
 done

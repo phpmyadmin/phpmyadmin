@@ -989,7 +989,7 @@ class PMA_Table
                 $i = 0;
 
                 while ($parsed_sql[$i]['type'] != $table_delimiter) {
-                    $i++;                   
+                    $i++;
                 }
 
                 $parsed_sql[$i]['data'] = $target;
@@ -1014,7 +1014,7 @@ class PMA_Table
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
                 if ($mode == 'one_table') {
                     unset($GLOBALS['sql_indexes']);
-                    
+
                 }
 
             }

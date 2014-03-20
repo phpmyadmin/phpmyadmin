@@ -200,7 +200,7 @@ link the MySQL extension of your choice to a MySQL client library of
 at least the same minor version since the one that is bundled with
 some PHP distributions is rather old and might cause problems see
 :ref:`faq1_17a`. `MariaDB <http://mariadb.org/>`_ is also supported
-(versions 5.1 and 5.2 were tested). 
+(versions 5.1 and 5.2 were tested).
 
 .. versionchanged:: 3.5
     Since phpMyAdmin 3.5 `Drizzle <http://www.drizzle.org/>`_ is supported.
@@ -304,7 +304,7 @@ httpd.conf, like this:
 
 .. code-block:: apache
 
-    
+
     # mod_gzip_item_include file \.php$
     # mod_gzip_item_include mime "application/x-httpd-php.*"
 
@@ -356,7 +356,7 @@ directives are used:
 
 .. code-block:: apache
 
-    
+
     SetOutputFilter PHP
     SetInputFilter PHP
 
@@ -374,7 +374,7 @@ restart Apache:
 
 .. code-block:: apache
 
-    
+
     #SetOutputFilter PHP
     #SetInputFilter PHP
 
@@ -441,7 +441,7 @@ forget to change directory name inside of it):
 
 .. code-block:: apache
 
-    
+
     RewriteEngine On
     RewriteBase /path_to_phpMyAdmin
     RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&table=$2&target=$3 [R]
@@ -459,7 +459,7 @@ following rewrite rule:
 
 .. code-block:: apache
 
-    
+
     RewriteEngine On
     RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
 
@@ -541,7 +541,7 @@ You can also disable the warning using the :config:option:`$cfg['SuhosinDisableW
 ------------------------------------------------------------------------------------------------------------------------------------
 
 Be sure that you have enabled ``SSLOptions`` and ``StdEnvVars`` in
-your Apache configuration. 
+your Apache configuration.
 
 .. seealso:: <http://httpd.apache.org/docs/2.0/mod/mod_ssl.html#ssloptions>
 
@@ -555,7 +555,7 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
 
 .. code-block:: apache
 
-    
+
     ProxyPass /mirror/foo/ http://backend.example.com/
     ProxyPassReverse /mirror/foo/ http://backend.example.com/
     ProxyPassReverseCookieDomain backend.example.com public.example.com
@@ -567,7 +567,7 @@ This is not specific to phpmyadmin, it's just the behavior of Apache.
 
 .. code-block:: apache
 
-    
+
     ProxyPass /mirror/foo/ http://backend.example.com/~user/phpmyadmin
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
     ProxyPassReverseCookiePath /%7Euser/phpmyadmin /mirror/foo
@@ -593,18 +593,18 @@ some robots accessing your installation.
 
 .. code-block:: apache
 
-    
+
     RewriteEngine on
-    
+
     # Allow only GET and POST verbs
     RewriteCond %{REQUEST_METHOD} !^(GET|POST)$ [NC,OR]
-    
+
     # Ban Typical Vulnerability Scanners and others
     # Kick out Script Kiddies
     RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget).* [NC,OR]
     RewriteCond %{HTTP_USER_AGENT} ^.*(libwww-perl|curl|wget|python|nikto|wkito|pikto|scan|acunetix).* [NC,OR]
     RewriteCond %{HTTP_USER_AGENT} ^.*(winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner).* [NC,OR]
-    
+
     # Ban Search Engines, Crawlers to your administrative panel
     # No reasons to access from bots
     # Ultimately Better than the useless robots.txt
@@ -615,7 +615,7 @@ some robots accessing your installation.
 
 .. _faq1_43:
 
-1.43 Why can't I display the structure of my table containing hundreds of columns? 
+1.43 Why can't I display the structure of my table containing hundreds of columns?
 ----------------------------------------------------------------------------------
 
 Because your PHP's ``memory_limit`` is too low; adjust it in :file:`php.ini`.
@@ -727,7 +727,7 @@ doesn't work in this configuration with port forwarding. If you enter
 -----------------------------
 
 Themes are configured with :config:option:`$cfg['ThemePath']`,
-:config:option:`$cfg['ThemeManager']` and :config:option:`$cfg['ThemeDefault']`.  
+:config:option:`$cfg['ThemeManager']` and :config:option:`$cfg['ThemeDefault']`.
 Under :config:option:`$cfg['ThemePath']`, you should not delete the
 directory ``pmahomme`` or its underlying structure, because this is the
 system theme used by phpMyAdmin. ``pmahomme`` contains all images and
@@ -801,7 +801,7 @@ If using APC, you must set ``apc.rfc1867`` to ``on`` in your :file:`php.ini`.
 If using PHP 5.4.0 or higher, you must set
 ``session.upload_progress.enabled`` to ``1`` in your :file:`php.ini`. However,
 starting from phpMyAdmin version 4.0.4, session-based upload progress has
-been temporarily deactivated due to its problematic behavior. 
+been temporarily deactivated due to its problematic behavior.
 
 .. seealso:: :rfc:`1867`
 
@@ -848,7 +848,7 @@ comments like this:
 
 .. code-block:: mysql
 
-    
+
     -- MySQL dump 8.22
     --
     -- Host: localhost Database: database
@@ -1021,7 +1021,7 @@ ISPs, multi-user installations
 Since version 2.0.3, you can setup a central copy of phpMyAdmin for all your
 users. The development of this feature was kindly sponsored by NetCologne GmbH.
 This requires a properly setup MySQL user management and phpMyAdmin
-:term:`HTTP` or cookie authentication. 
+:term:`HTTP` or cookie authentication.
 
 .. seealso:: :ref:`authentication_modes`
 
@@ -1034,8 +1034,8 @@ This depends on your system. If you're running a server which cannot be
 accessed by other people, it's sufficient to use the directory protection
 bundled with your webserver (with Apache you can use :term:`.htaccess` files,
 for example). If other people have telnet access to your server, you should use
-phpMyAdmin's :term:`HTTP` or cookie authentication features.  
-    
+phpMyAdmin's :term:`HTTP` or cookie authentication features.
+
 Suggestions:
 
 * Your :file:`config.inc.php` file should be ``chmod 660``.
@@ -1096,7 +1096,7 @@ network :term:`IP` blocks.
 
 .. code-block:: php
 
-    
+
     //block root from logging in except from the private networks
     $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
     $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
@@ -1389,15 +1389,15 @@ create the example tables:
 
 .. code-block:: mysql
 
-    
+
     CREATE TABLE REL_countries (
     country_code char(1) NOT NULL default '',
     description varchar(10) NOT NULL default '',
     PRIMARY KEY (country_code)
     ) TYPE=MyISAM;
-    
+
     INSERT INTO REL_countries VALUES ('C', 'Canada');
-    
+
     CREATE TABLE REL_persons (
     id tinyint(4) NOT NULL auto_increment,
     person_name varchar(32) NOT NULL default '',
@@ -1405,16 +1405,16 @@ create the example tables:
     country_code char(1) NOT NULL default '',
     PRIMARY KEY (id)
     ) TYPE=MyISAM;
-    
+
     INSERT INTO REL_persons VALUES (11, 'Marc', 'S', '');
     INSERT INTO REL_persons VALUES (15, 'Paul', 'S', 'C');
-    
+
     CREATE TABLE REL_towns (
     town_code varchar(5) NOT NULL default '0',
     description varchar(30) NOT NULL default '',
     PRIMARY KEY (town_code)
     ) TYPE=MyISAM;
-    
+
     INSERT INTO REL_towns VALUES ('S', 'Sherbrooke');
     INSERT INTO REL_towns VALUES ('M', 'Montréal');
 
@@ -1477,9 +1477,9 @@ schema layout. Which tables will go on which pages?
   fit the page. When initially placing tables on the page, just pick any
   coordinates -- say, 50x50. After clicking Save, you can then use the
   :ref:`wysiwyg` to position the element correctly.
-* When you'd like to look at your :term:`PDF`, first be sure to click the Save 
-  button beneath the list of tables and coordinates, to save any changes you 
-  made there. Then scroll all the way down, select the :term:`PDF` options you 
+* When you'd like to look at your :term:`PDF`, first be sure to click the Save
+  button beneath the list of tables and coordinates, to save any changes you
+  made there. Then scroll all the way down, select the :term:`PDF` options you
   want, and click Go.
 * Internet Explorer for Windows may suggest an incorrect filename when
   you try to save a generated :term:`PDF`.
@@ -1533,7 +1533,7 @@ It means "average".
 * "Enclose table and column names with backquotes" ensures that column
   and table names formed with special characters are protected.
 * "Add into comments" includes column comments, relations, and MIME
-  types set in the pmadb in the dump as :term:`SQL` comments 
+  types set in the pmadb in the dump as :term:`SQL` comments
   (*/\* xxx \*/*).
 
 **Data:**
@@ -1608,7 +1608,7 @@ transformations on them. Otherwise you could just put a comment on the
 column. Because entering your own mimetype will cause serious syntax
 checking issues and validation, this introduces a high-risk false-
 user-input situation. Instead you have to initialize mimetypes using
-functions or empty mimetype definitions. 
+functions or empty mimetype definitions.
 
 Plus, you have a whole overview of available mimetypes. Who knows all those
 mimetypes by heart so he/she can enter it at will?
@@ -1626,13 +1626,13 @@ You can now access a bookmark dropdown on each page, the query box
 appears on for that database.
 
 You can also have, inside the query, a placeholder for a variable.
-This is done by inserting into the query a SQL comment between ``/*`` and 
-``*/``. Inside the comment, the special string ``[VARIABLE]`` is used. 
+This is done by inserting into the query a SQL comment between ``/*`` and
+``*/``. Inside the comment, the special string ``[VARIABLE]`` is used.
 Be aware that the whole query minus the SQL comment must be
 valid by itself, otherwise you won't be able to store it as a bookmark.
 
-When you execute the bookmark, everything typed into the *value* 
-input box on the query box page will replace the string ``/*[VARIABLE]*/`` in 
+When you execute the bookmark, everything typed into the *value*
+input box on the query box page will replace the string ``/*[VARIABLE]*/`` in
 your stored query.
 
 Also remember, that everything else inside the ``/*[VARIABLE]*/`` string for
@@ -1642,37 +1642,37 @@ chars. So you can use:
 .. code-block:: mysql
 
     /*, [VARIABLE] AS myname */
-    
-which will be expanded to 
+
+which will be expanded to
 
 .. code-block:: mysql
 
     , VARIABLE as myname
-    
+
 in your query, where VARIABLE is the string you entered in the input box. If an
-empty string is provided, no replacements are made. 
+empty string is provided, no replacements are made.
 
 A more complex example. Say you have stored
-this query: 
+this query:
 
 .. code-block:: mysql
 
     SELECT Name, Address FROM addresses WHERE 1 /* AND Name LIKE '%[VARIABLE]%' */
-    
+
 Say, you now enter "phpMyAdmin" as the variable for the stored query, the full
-query will be: 
+query will be:
 
 .. code-block:: mysql
 
     SELECT Name, Address FROM addresses WHERE 1 AND Name LIKE '%phpMyAdmin%'
 
 You can use multiple occurrences of ``/*[VARIABLE]*/`` in a single query
-(that is, multiple occurrences of the *same* variable). 
+(that is, multiple occurrences of the *same* variable).
 
 **NOTE THE ABSENCE OF SPACES** inside the ``/**/`` construct. Any spaces
 inserted there will be later also inserted as spaces in your query and may lead
 to unexpected results especially when using the variable expansion inside of a
-"LIKE ''" expression. 
+"LIKE ''" expression.
 
 Your initial query which is going to be stored as a bookmark has to yield at
 least one result row so you can store the bookmark. You may have that to work
@@ -1689,7 +1689,7 @@ have table exported in file :file:`table.tex`):
 
 .. code-block:: latex
 
-    
+
     \documentclass{article} % or any class you want
     \usepackage{longtable}  % for displaying table
     \begin{document}        % start of document
@@ -1739,7 +1739,7 @@ public bookmark, it will be executed.
 -----------------------------------------------------------------
 
 You can use :term:`CSV` for Microsoft Excel,
-which works out of the box. 
+which works out of the box.
 
 .. versionchanged:: 3.4.5
     Since phpMyAdmin 3.4.5 support for direct export to Microsoft Excel version
@@ -1879,7 +1879,7 @@ The Zoom search feature is an alternative to table search feature. It allows
 you to explore a table by representing its data in a scatter plot. You can
 locate this feature by selecting a table and clicking the :guilabel:`Search`
 tab. One of the sub-tabs in the :guilabel:`Table Search` page is
-:guilabel:`Zoom Search`.  
+:guilabel:`Zoom Search`.
 
 Consider the table REL\_persons in :ref:`faq6_6` for
 an example. To use zoom search, two columns need to be selected, for
@@ -1887,7 +1887,7 @@ example, id and town\_code. The id values will be represented on one
 axis and town\_code values on the other axis. Each row will be
 represented as a point in a scatter plot based on its id and
 town\_code. You can include two additional search criteria apart from
-the two fields to display. 
+the two fields to display.
 
 You can choose which field should be
 displayed as label for each point. If a display column has been set
@@ -1895,7 +1895,7 @@ for the table (see :ref:`faqdisplay`), it is taken as the label unless
 you specify otherwise. You can also select the maximum number of rows
 you want to be displayed in the plot by specifing it in the 'Max rows
 to plot' field. Once you have decided over your criteria, click 'Go'
-to display the plot. 
+to display the plot.
 
 After the plot is generated, you can use the
 mousewheel to zoom in and out of the plot. In addition, panning
@@ -2003,11 +2003,11 @@ Synchronization
 
 .. _faq9_1:
 
-9.1 (withdrawn). 
+9.1 (withdrawn).
 ----------------
 
 .. _faq9_2:
 
-9.2 (withdrawn). 
+9.2 (withdrawn).
 ----------------
 

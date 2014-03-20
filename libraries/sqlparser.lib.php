@@ -1037,7 +1037,7 @@ function PMA_SQP_analyze($arr)
      *                                     |MIN|MAX|BIT_OR|BIT_AND
      * ['queryflags']['is_count'] = 1;     for the presence of SELECT COUNT
      * ['queryflags']['is_procedure'] = 1; for the presence of CALL
-     * ['queryflags']['is_subquery'] = 1;  contains a subquery 
+     * ['queryflags']['is_subquery'] = 1;  contains a subquery
      *
      * query clauses
      * -------------

@@ -36,7 +36,7 @@ OpenSUSE
 
 OpenSUSE already comes with phpMyAdmin package, just install packages from
 the `openSUSE Build Service <http://software.opensuse.org/package/phpMyAdmin>`_.
-    
+
 Ubuntu
 ------
 
@@ -53,9 +53,9 @@ install.
 
 Mandriva
 --------
-        
+
 Mandriva ships the phpMyAdmin package in their ``contrib`` branch and can be
-installed via the usual Control Center. 
+installed via the usual Control Center.
 
 Fedora
 ------
@@ -66,9 +66,9 @@ official phpMyAdmin documentation.
 
 Red Hat Enterprise Linux
 ------------------------
-        
+
 Red Hat Enterprise Linux itself and thus derivatives like CentOS don't
-ship phpMyAdmin, but the Fedora-driven repository 
+ship phpMyAdmin, but the Fedora-driven repository
 `Extra Packages for Enterprise Linux (EPEL) <http://fedoraproject.org/wiki/EPEL>`_
 is doing so, if it's
 `enabled <http://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_.
@@ -81,7 +81,7 @@ Installing on Windows
 +++++++++++++++++++++
 
 The easiest way to get phpMyAdmin on Windows is using third party products
-which include phpMyAdmin together with a database and web server such as 
+which include phpMyAdmin together with a database and web server such as
 `XAMPP <http://www.apachefriends.org/en/xampp.html>`_.
 
 You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/List_of_AMP_packages>`_.
@@ -94,7 +94,7 @@ Quick Install
 
 #. Choose an appropriate distribution kit from the phpmyadmin.net
    Downloads page. Some kits contain only the English messages, others
-   contain all languages. We'll assume you chose a kit whose name 
+   contain all languages. We'll assume you chose a kit whose name
    looks like ``phpMyAdmin-x.x.x -all-languages.tar.gz``.
 #. Untar or unzip the distribution (be sure to unzip the subdirectories):
    ``tar -xzvf phpMyAdmin_x.x.x-all-languages.tar.gz`` in your
@@ -129,10 +129,10 @@ simple configuration may look like this:
 
 .. code-block:: xml+php
 
-    
+
     <?php
     $cfg['blowfish_secret'] = 'ba17c1ec07d65003';  // use here a value of your choice
-    
+
     $i=0;
     $i++;
     $cfg['Servers'][$i]['auth_type']     = 'cookie';
@@ -142,9 +142,9 @@ Or, if you prefer to not be prompted every time you log in:
 
 .. code-block:: xml+php
 
-    
+
     <?php
-    
+
     $i=0;
     $i++;
     $cfg['Servers'][$i]['user']          = 'root';
@@ -152,7 +152,7 @@ Or, if you prefer to not be prompted every time you log in:
     $cfg['Servers'][$i]['auth_type']     = 'config';
     ?>
 
-For a full explanation of possible configuration values, see the 
+For a full explanation of possible configuration values, see the
 :ref:`config` of this document.
 
 .. index:: Setup script
@@ -169,7 +169,7 @@ Linux/Unix system you can use the following commands:
 
 .. code-block:: sh
 
-    
+
     cd phpMyAdmin
     mkdir config                        # create directory for saving
     chmod o+rw config                   # give it world writable permissions
@@ -178,7 +178,7 @@ And to edit an existing configuration, copy it over first:
 
 .. code-block:: sh
 
-    
+
     cp config.inc.php config/           # copy current configuration for editing
     chmod o+w config/config.inc.php     # give it world writable permissions
 
@@ -203,7 +203,7 @@ measure:
 
 .. code-block:: sh
 
-    
+
     mv config/config.inc.php .         # move file to current directory
     chmod o-rw config.inc.php          # remove world read and write permissions
     rm -rf config                      # remove not needed directory
@@ -235,7 +235,7 @@ options which the setup script does not provide.
    webserver or limit access by web server configuration, see
    :ref:`faq1_42`.
 
-.. index:: 
+.. index::
     single: Configuration storage
     single: phpMyAdmin configuration storage
     single: pmadb
@@ -268,16 +268,16 @@ depending on the database name.
 
 After having imported the :file:`examples/create_tables.sql` file, you
 should specify the table names in your :file:`config.inc.php` file. The
-directives used for that can be found in the :ref:`config`. 
+directives used for that can be found in the :ref:`config`.
 
-You will also need to have a controluser 
+You will also need to have a controluser
 (:config:option:`$cfg['Servers'][$i]['controluser']` and
 :config:option:`$cfg['Servers'][$i]['controlpass']` settings)
-with the proper rights to those tables. For example you can create it 
+with the proper rights to those tables. For example you can create it
 using following statement:
 
 .. code-block:: mysql
-   
+
    GRANT SELECT, INSERT, UPDATE, DELETE ON <pma_db>.* TO 'pma'@'localhost'  IDENTIFIED BY 'pmapass';
 
 .. _upgrading:
@@ -318,7 +318,7 @@ configuration file.
 
 :term:`HTTP` and cookie authentication
 modes are more secure: the MySQL login information does not need to be
-set in the phpMyAdmin configuration file (except possibly for the 
+set in the phpMyAdmin configuration file (except possibly for the
 :config:option:`$cfg['Servers'][$i]['controluser']`).
 However, keep in mind that the password travels in plain text, unless
 you are using the HTTPS protocol. In cookie mode, the password is
@@ -330,12 +330,12 @@ privileges to an ordinary user, unless you understand the impact of those
 privileges (for example, you are creating a superuser).
 For example, to grant the user *real_user* with all privileges on
 the database *user_base*:
-   
+
 .. code-block:: mysql
-   
+
    GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';
-   
-   
+
+
 What the user may now do is controlled entirely by the MySQL user management
 system. With HTTP or cookie authentication mode, you don't need to fill the
 user/password fields inside the :config:option:`$cfg['Servers']`.
@@ -347,8 +347,8 @@ HTTP authentication mode
 
 * Uses :term:`HTTP` Basic authentication
   method and allows you to log in as any valid MySQL user.
-* Is supported with most PHP configurations. For :term:`IIS` (:term:`ISAPI`) 
-  support using :term:`CGI` PHP see :ref:`faq1_32`, for using with Apache 
+* Is supported with most PHP configurations. For :term:`IIS` (:term:`ISAPI`)
+  support using :term:`CGI` PHP see :ref:`faq1_32`, for using with Apache
   :term:`CGI` see :ref:`faq1_35`.
 * See also :ref:`faq4_4` about not using the :term:`.htaccess` mechanism along with
   ':term:`HTTP`' authentication mode.
@@ -360,7 +360,7 @@ HTTP authentication mode
 Cookie authentication mode
 --------------------------
 
-* You can use this method as a replacement for the :term:`HTTP` authentication 
+* You can use this method as a replacement for the :term:`HTTP` authentication
   (for example, if you're running :term:`IIS`).
 * Obviously, the user must enable cookies in the browser, but this is
   now a requirement for all authentication modes.
@@ -427,7 +427,7 @@ Authentication is disabled by default. To enable it, add the following
 line to :file:`config.inc.php`:
 
 .. code-block:: php
-    
+
     $cfg['Servers'][$i]['auth_swekey_config'] = '/etc/swekey.conf';
 
 You then have to create the ``swekey.conf`` file that will associate
@@ -448,14 +448,14 @@ Securing your phpMyAdmin installation
 The phpMyAdmin team tries hard to make the application secure, however there
 are always ways to make your installation more secure:
 
-* remove ``setup`` directory from phpMyAdmin, you will probably not 
+* remove ``setup`` directory from phpMyAdmin, you will probably not
   use it after initial setup
 * properly choose authentication method - :ref:`cookie`
   is probably the best choice for shared hosting
-* in case you don't want all MySQL users to be able to access 
+* in case you don't want all MySQL users to be able to access
   phpMyAdmin, you can use :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` to limit them
-* consider hiding phpMyAdmin behind authentication proxy, so that 
+* consider hiding phpMyAdmin behind authentication proxy, so that
   MySQL credentials are not all users need to login
-* if you are afraid of automated attacks, enabling Captcha by 
+* if you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.

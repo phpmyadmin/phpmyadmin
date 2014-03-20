@@ -20,7 +20,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Blowfish_(cipher)>
 
-    Browser 
+    Browser
       a software application that enables a user to display and interact with text, images, and other information typically located on a web page at a website on the World Wide Web.	
 
       .. seealso:: <http://en.wikipedia.org/wiki/Web_browser>
@@ -30,7 +30,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Bzip2>
 
-    CGI 
+    CGI
       Common Gateway Interface is an important World Wide Web technology that
       enables a client web browser to request data from a program executed on
       the Web server.	
@@ -62,7 +62,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Comma-separated_values>
 
-    DB 
+    DB
       look at :term:`database`
 
     database
@@ -70,7 +70,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Database>
 
-    Engine 
+    Engine
       look at :term:`storage engines`
 
     extension
@@ -78,7 +78,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/extension>
 
-    FAQ 
+    FAQ
       Frequently Asked Questions is a list of commonly asked question and there
       answers.	
 
@@ -101,12 +101,12 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.fpdf.org/>
 
-    GD 
+    GD
       Graphics Library by Thomas Boutell and others for dynamically manipulating images.	
 
       .. seealso:: <http://www.wikipedia.org/wiki/GD_Graphics_Library>
 
-    GD2 
+    GD2
       look at :term:`gd`
 
     gzip
@@ -124,7 +124,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Hostname>
 
-    HTTP 
+    HTTP
       HyperText Transfer Protocol is the primary method used to transfer or
       convey information on the World Wide Web.	
 
@@ -138,7 +138,7 @@ From Wikipedia, the free encyclopedia
     IEC
       International Electrotechnical Commission
 
-    IIS 
+    IIS
       Internet Information Services is a set of Internet-based services for
       servers using Microsoft Windows.	
 
@@ -149,7 +149,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Index_(database)>
 
-    IP 
+    IP
       Internet Protocol is a data-oriented protocol used by source and
       destination hosts for communicating data across a packet-switched
       internetwork.	
@@ -161,19 +161,19 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/IP_Address>
 
-    IPv6 
-      IPv6 (Internet Protocol version 6) is the latest revision of the 
-      Internet Protocol (:term:`IP`), designed to deal with the 
+    IPv6
+      IPv6 (Internet Protocol version 6) is the latest revision of the
+      Internet Protocol (:term:`IP`), designed to deal with the
       long-anticipated problem of its precedessor IPv4 running out of addresses.
 
       .. seealso:: <http://www.wikipedia.org/wiki/IPv6>
 
-    ISAPI 
+    ISAPI
       Internet Server Application Programming Interface is the API of Internet Information Services (IIS).	
 
       .. seealso:: <http://www.wikipedia.org/wiki/ISAPI>
 
-    ISP 
+    ISP
       Internet service provider is a business or organization that offers users
       access to the Internet and related services.	
 
@@ -187,7 +187,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/JPEG>
 
-    JPG 
+    JPG
       look at :term:`jpeg`
 
     Key
@@ -218,7 +218,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://php.net/mcrypt>
 
-    MIME 
+    MIME
       Multipurpose Internet Mail Extensions is
       an Internet Standard for the format of e-mail.	
 
@@ -254,7 +254,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/OS_X>
 
-    PDF 
+    PDF
       Portable Document Format is a file format developed by Adobe Systems for
       representing two dimensional documents in a device independent and
       resolution independent format.	
@@ -266,7 +266,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://pear.php.net/>
 
-    PCRE 
+    PCRE
       Perl Compatible Regular Expressions is the perl-compatible regular
       expression functions for PHP	
 
@@ -324,7 +324,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Socket#Computer_sockets>
 
-    SSL 
+    SSL
       Secure Sockets Layer is a cryptographic protocol which provides secure
       communication on the Internet.	
 
@@ -353,7 +353,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Tar_(file_format)>
 
-    TCP 
+    TCP
       Transmission Control Protocol is one of the core protocols of the
       Internet protocol suite.	
 
@@ -386,7 +386,7 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://www.wikipedia.org/wiki/Webserver>
 
-    XML 
+    XML
       Extensible Markup Language is a W3C-recommended general- purpose markup
       language for creating special-purpose markup languages, capable of
       describing many different kinds of data.	

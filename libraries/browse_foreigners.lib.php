@@ -118,7 +118,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
         ) = PMA_getDescriptionAndTitle($descriptions[$indexByKeyname]);
 
         // keynames and descriptions for the right section,
-        // sorted by descriptions 
+        // sorted by descriptions
         $rightKeyname = $keys[$indexByDescription];
         list(
             $rightDescription,
@@ -169,7 +169,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
 }
 
 /**
- * Get the description (possibly truncated) and the title 
+ * Get the description (possibly truncated) and the title
  *
  * @param string $description the keyname's description
  *

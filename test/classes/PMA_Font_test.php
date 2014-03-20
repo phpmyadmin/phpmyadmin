@@ -47,7 +47,7 @@ class PMA_Font_Test extends PHPUnit_Framework_TestCase
             12,
             PMA_Font::getStringWidth("aa", "arial", "10")
         );
-     
+
         // string "i"
         $this->assertEquals(
             3,

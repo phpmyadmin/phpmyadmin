@@ -370,7 +370,7 @@ if ($import_file != 'none' && ! $error) {
     if (! empty($open_basedir)) {
 
         /**
-         * @todo make use of the config's temp dir with fallback to the 
+         * @todo make use of the config's temp dir with fallback to the
          * system's tmp dir
          */
         $tmp_subdir = sys_get_temp_dir();
@@ -387,9 +387,9 @@ if ($import_file != 'none' && ! $error) {
         } else {
 
             // If the php.ini is misconfigured (eg. there is no /tmp access defined
-            // with open_basedir), $tmp_subdir won't be writable and the user gets 
-            // a 'File could not be read!' error (at PMA_detectCompression), which 
-            // is not too meaningful. Show a meaningful error message to the user 
+            // with open_basedir), $tmp_subdir won't be writable and the user gets
+            // a 'File could not be read!' error (at PMA_detectCompression), which
+            // is not too meaningful. Show a meaningful error message to the user
             // instead.
 
             $message = PMA_Message::error(

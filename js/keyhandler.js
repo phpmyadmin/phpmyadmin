@@ -1,7 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 // gloabl vars to hold Arrow Down event timeStamps
-var prevTimeStamp = 0; 
+var prevTimeStamp = 0;
 var curTimeStamp = 0;
 
 /**
@@ -22,7 +22,7 @@ function onKeyDownArrowsHandler(e)
         return;
     }
     prevTimeStamp = curTimeStamp;
-    
+
     var o = (e.srcElement || e.target);
     if (!o) {
         return;

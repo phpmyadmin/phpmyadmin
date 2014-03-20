@@ -175,7 +175,7 @@ class PMA_NavigationHeader
 
     /**
      * Creates the code for displaying the links
-     * at the top of the navigation panel 
+     * at the top of the navigation panel
      *
      * @return string HTML code for the links
      */
