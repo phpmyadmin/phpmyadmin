@@ -82,6 +82,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 return $result;
             }
 
+            /*
             $result[] = array(
                 'browserName' => 'Safari',
                 'host' => 'hub.browserstack.com',
@@ -96,6 +97,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                     )
                 )
             );
+            */
             $result[] = array(
                 'browserName' => 'firefox',
                 'host' => 'hub.browserstack.com',
