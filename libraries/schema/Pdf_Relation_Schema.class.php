@@ -432,7 +432,7 @@ class Table_Stats_Pdf extends TableStats
     }
 
     /**
-     * Diaplays an error on missing coordinates
+     * Displays an error on missing coordinates
      *
      * @return void
      */

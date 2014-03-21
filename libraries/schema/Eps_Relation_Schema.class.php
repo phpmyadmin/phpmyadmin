@@ -372,7 +372,7 @@ class Table_Stats_Eps extends TableStats
     }
 
     /**
-     * Diaplays an error on missing coordinates
+     * Displays an error on missing coordinates
      *
      * @return void
      */

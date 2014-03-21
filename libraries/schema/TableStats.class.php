@@ -136,7 +136,7 @@ abstract class TableStats
     }
 
     /**
-     * Diaplays an error on missing coordinates
+     * Displays an error on missing coordinates
      *
      * @return void
      * @abstract

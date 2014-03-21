@@ -249,7 +249,7 @@ class Table_Stats_Dia extends TableStats
     }
 
     /**
-     * Diaplays an error on missing coordinates
+     * Displays an error on missing coordinates
      *
      * @return void
      */

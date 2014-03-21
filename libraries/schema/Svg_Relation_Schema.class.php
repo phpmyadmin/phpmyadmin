@@ -339,7 +339,7 @@ class Table_Stats_Svg extends TableStats
     }
 
     /**
-     * Diaplays an error on missing coordinates
+     * Displays an error on missing coordinates
      *
      * @return void
      */
