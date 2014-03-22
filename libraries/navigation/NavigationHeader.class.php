@@ -175,7 +175,7 @@ class PMA_NavigationHeader
 
     /**
      * Creates the code for displaying the links
-     * at the top of the navigation panel 
+     * at the top of the navigation panel
      *
      * @return string HTML code for the links
      */
@@ -303,9 +303,25 @@ class PMA_NavigationHeader
                 )
             );
             $retval .= PMA_RecentTable::getInstance()->getHtmlSelect();
+            $retval .= $this->_favourite();
             $retval .= '</form>';
             $retval .= '</div>';
             $retval .= '<!-- RECENT END -->';
+        }
+        return $retval;
+    }
+
+    /**
+     * Displays a drop-down choice of favourite tables
+     *
+     * @return string HTML code for the Favourite tables
+     */
+    private function _favourite()
+    {
+        $retval = '';
+        // display favourite tables
+        if ($GLOBALS['cfg']['NumFavouriteTables'] > 0) {
+            $retval .= PMA_FavouriteTable::getInstance()->getHtmlSelect();
         }
         return $retval;
     }

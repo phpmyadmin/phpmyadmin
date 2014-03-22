@@ -131,6 +131,7 @@ $forms['Features']['Other_core_settings'] = array(
     'MaxDbList',
     'MaxTableList',
     'NumRecentTables',
+    'NumFavouriteTables',
     'ShowHint',
     'OBGzip',
     'PersistentConnections',

@@ -3407,6 +3407,8 @@ class PMA_Util
         $titles['NoInsert']   = self::getIcon('bd_insrow.png', __('Insert'));
         $titles['Structure']  = self::getIcon('b_props.png', __('Structure'));
         $titles['Drop']       = self::getIcon('b_drop.png', __('Drop'));
+        $titles['Favourite']  = self::getIcon('b_favourite.png', __('Favourite'));
+        $titles['NoFavourite']= self::getIcon('b_no_favourite.png', __('Favourite'));
         $titles['NoDrop']     = self::getIcon('bd_drop.png', __('Drop'));
         $titles['Empty']      = self::getIcon('b_empty.png', __('Empty'));
         $titles['NoEmpty']    = self::getIcon('bd_empty.png', __('Empty'));

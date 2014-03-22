@@ -120,6 +120,20 @@ CREATE TABLE IF NOT EXISTS `pma__recent` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pma__favourite`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__favourite` (
+  `username` varchar(64) NOT NULL,
+  `tables` text NOT NULL,
+  PRIMARY KEY (`username`)
+)
+  COMMENT='Favourite tables'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pma__table_uiprefs`
 --
 
