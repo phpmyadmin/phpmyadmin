@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-15 07:16-0400\n"
-"PO-Revision-Date: 2014-03-22 11:59+0200\n"
+"PO-Revision-Date: 2014-03-22 12:30+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
 "\n"
@@ -5513,11 +5513,10 @@ msgid "Number of inserted rows"
 msgstr "입력된 행 갯수"
 
 #: libraries/config/messages.inc.php:375
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
-msgstr "SQL 쿼리 출력시 사용할 문자수"
+msgstr "둘러보기 뷰에서 숫자가 아닌 컬럼을 표시할 때 최대 문자 수."
 
 #: libraries/config/messages.inc.php:377
 msgid "Limit column characters"
@@ -5538,14 +5537,13 @@ msgid "Delete all cookies on logout"
 msgstr "로그아웃시 모든 쿠키 삭제"
 
 #: libraries/config/messages.inc.php:385
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
-msgstr "[kbd]쿠키[/kbd] 인증방식에서 쿠키를 암호화하는데 사용할 비밀 암호"
+msgstr "[kbd]쿠키[/kbd] 인증 모드에서 이전 로그인이 다시 불려질지 여부."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5567,30 +5565,27 @@ msgid "Login cookie store"
 msgstr "로그인 쿠키 저장 시간"
 
 #: libraries/config/messages.inc.php:397
-#, fuzzy
 #| msgid "Define how long (in seconds) a login cookie is valid"
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "로그인 쿠키의 유효시간을 설정 (초 단위)"
+msgstr "로그인 쿠키의 유효시간을 설정 (초 단위)."
 
 #: libraries/config/messages.inc.php:398
 msgid "Login cookie validity"
 msgstr "로그인 쿠키 유효시간"
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
 #| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "LONGTEXT 형식의 컬럼에 대해 두 배 크기의 textarea를 사용"
+msgstr "LONGTEXT 형식의 컬럼에 대해 두 배 크기의 textarea를 사용."
 
 #: libraries/config/messages.inc.php:401
 msgid "Bigger textarea for LONGTEXT"
 msgstr "LONGTEXT의 경우 더 큰 textarea를 사용"
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "SQL 쿼리 출력시 사용할 문자수"
+msgstr "SQL 쿼리 출력시 사용할 최대 문자수."
 
 #: libraries/config/messages.inc.php:404
 msgid "Maximum displayed SQL length"
@@ -5602,24 +5597,22 @@ msgid "Users cannot set a higher value"
 msgstr "사용자는 더 높은 값을 설정 할 수 없습니다"
 
 #: libraries/config/messages.inc.php:407
-#, fuzzy
 #| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of databases displayed in database list."
-msgstr "데이터베이스 목록에 표시할 데이터베이스의 최대 갯수"
+msgstr "데이터베이스 목록에 표시할 데이터베이스의 최대 갯수."
 
 #: libraries/config/messages.inc.php:408
 msgid "Maximum databases"
 msgstr "데이터베이스의 최대 갯수"
 
 #: libraries/config/messages.inc.php:410
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "탐색 트리에서 페이지 당 보여질 아이템 수"
+msgstr "탐색 트리에서 페이지 당 보여질 아이템 수."
 
 #: libraries/config/messages.inc.php:412
 msgid "Maximum items in branch"
@@ -5629,93 +5622,82 @@ msgstr ""
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
-msgstr ""
+msgstr "결과셋을 탐색할 때 보여질 행의 수. 만약 결과셋에 설정값 이상의 행이 있다면, \"이전\"과 \"다음 링크가 표시됩니다."
 
 #: libraries/config/messages.inc.php:418
 msgid "Maximum number of rows to display"
 msgstr "출력할 최대 행 갯수"
 
 #: libraries/config/messages.inc.php:420
-#, fuzzy
 #| msgid "Maximum number of databases displayed in database list"
 msgid "Maximum number of tables displayed in table list."
-msgstr "데이터베이스 목록에 표시할 데이터베이스의 최대 갯수"
+msgstr "테이블 목록에 표시할 테이블의 최대 갯수."
 
 #: libraries/config/messages.inc.php:421
 msgid "Maximum tables"
 msgstr "최대 테이블 수"
 
 #: libraries/config/messages.inc.php:423
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for [kbd]"
 "cookie[/kbd] authentication."
-msgstr "[kbd]쿠키[/kbd] 인증방식에서 쿠키를 암호화하는데 사용할 비밀 암호"
+msgstr "mcrypt가 [kbd]쿠키[/kbd] 인증에 빠져있을 경우 표시되는 기본 경고 비활성화."
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
 msgstr "mcrypt 경고"
 
 #: libraries/config/messages.inc.php:428
-#, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 #| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
-msgstr ""
-"스크립트가 사용 가능한 메모리 최댓값. 예: [kbd]32M[/kbd] ([kbd]0[/kbd] 이면 "
-"무제한)"
+msgstr "스크립트가 사용 가능한 메모리 최댓값. 예: [kbd]32M[/kbd] ([kbd]0[/kbd] 이면 무제한)."
 
 #: libraries/config/messages.inc.php:431
 msgid "Memory limit"
 msgstr "메모리 제한"
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show logo in navigation panel."
-msgstr "메뉴 패널에 로고를 보여줌"
+msgstr "탐색 패널에 로고를 보여줌."
 
 #: libraries/config/messages.inc.php:433
 msgid "Display logo"
 msgstr "로고 출력"
 
 #: libraries/config/messages.inc.php:435
-#, fuzzy
 #| msgid "URL where logo in the navigation panel will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "네비게이션 패널의 로고 클릭 시 이동할 URL"
+msgstr "탐색 패널의 로고가 가리키는 URL."
 
 #: libraries/config/messages.inc.php:436
 msgid "Logo link URL"
 msgstr "로고 링크 URL"
 
 #: libraries/config/messages.inc.php:438
-#, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 #| "([kbd]new[/kbd])"
 msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
-msgstr ""
-"링크된 페이지를 메인 창([kbd]main[/kbd])으로 열지, 새 창([kbd]new[/kbd])으로 "
-"열지 선택"
+msgstr "링크된 페이지를 메인 창([kbd]메인[/kbd])으로 열지, 새 창([kbd]새[/kbd])으로 열지 선택."
 
 #: libraries/config/messages.inc.php:441
 msgid "Logo link target"
 msgstr "로고 링크 타겟"
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
 #| msgid "Display server choice at the top of the navigation panel"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "네비게이션 패널 맨 위에 서버 선택 메뉴를 표시할지 선택"
+msgstr "네비게이션 패널 맨 위에 서버 선택 메뉴를 표시."
 
 #: libraries/config/messages.inc.php:444
 msgid "Display servers selection"
@@ -5741,24 +5723,22 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "데이터베이스 필터 박스에 표시할 최소 데이터베이스 수"
 
 #: libraries/config/messages.inc.php:455
-#, fuzzy
 #| msgid ""
 #| "Group items in the navigation tree (determined by the separator defined "
 #| "below)"
 msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)."
-msgstr "네비게이션 트리의 그룹 아이템 (아래 정의된 구분자로 구분)"
+msgstr "네비게이션 트리의 그룹 아이템 (아래 정의된 구분자로 구분)."
 
 #: libraries/config/messages.inc.php:457
 msgid "Group items in the tree"
 msgstr "트리의 그룹 아이템"
 
 #: libraries/config/messages.inc.php:459
-#, fuzzy
 #| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
-msgstr "데이터베이스를 서로 다른 트리 레벨로 구분하기 위한 문자열"
+msgstr "데이터베이스를 서로 다른 트리 레벨로 구분하기 위한 문자열."
 
 #: libraries/config/messages.inc.php:460
 msgid "Database tree separator"
@@ -11046,7 +11026,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:188
 msgid "Please note:"
-msgstr ""
+msgstr "주의사항:"
 
 #: libraries/server_status_monitor.lib.php:191
 msgid ""
@@ -11055,6 +11035,9 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"general_log를 활성화하면 서버의 부하가 5-15% 상승할 수 있습니다. 또한 주의할 점은 로그로부터 통계를 생성하는 작업은 "
+"부하가 큰 작업입니다. 그러므로, 짧은 시간대를 선택, general_log를 비활성화, 및 모니터링이 더 이상 필요하지 않는 테이블은 "
+"비우는 것을 추천합니다."
 
 #: libraries/server_status_monitor.lib.php:213
 #: libraries/server_status_monitor.lib.php:323
@@ -11062,61 +11045,54 @@ msgid "Add chart"
 msgstr "차트 추가"
 
 #: libraries/server_status_monitor.lib.php:219
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "차트 삭제"
+msgstr "프리셋 차트"
 
 #: libraries/server_status_monitor.lib.php:224
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "모든 상태 변수"
+msgstr "상태 변수"
 
 #: libraries/server_status_monitor.lib.php:227
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Select series:"
-msgstr "외래키 선택"
+msgstr "시리즈 선택:"
 
 #: libraries/server_status_monitor.lib.php:229
 msgid "Commonly monitored"
-msgstr ""
+msgstr "일반 모니터링 대상"
 
 #: libraries/server_status_monitor.lib.php:245
-#, fuzzy
 #| msgid "Invalid table name:"
 msgid "or type variable name:"
-msgstr "잘못된 테이블 이름:"
+msgstr "또는 타입 변수 이름:"
 
 #: libraries/server_status_monitor.lib.php:252
 msgid "Display as differential value"
-msgstr ""
+msgstr "차이값으로 출력"
 
 #: libraries/server_status_monitor.lib.php:256
-#, fuzzy
 #| msgid "Advisor"
 msgid "Apply a divisor"
-msgstr "시스템 분석 / 조언"
+msgstr "나누는 수 적용"
 
 #: libraries/server_status_monitor.lib.php:264
 msgid "Append unit to data values"
-msgstr ""
+msgstr "데이터 값에 단위를 덧붙임"
 
 #: libraries/server_status_monitor.lib.php:270
-#, fuzzy
 #| msgid "Add user"
 msgid "Add this series"
-msgstr "사용자 추가"
+msgstr "이 시리즈 추가"
 
 #: libraries/server_status_monitor.lib.php:272
 msgid "Clear series"
-msgstr ""
+msgstr "시리즈 없애기"
 
 #: libraries/server_status_monitor.lib.php:275
-#, fuzzy
 msgid "Series in Chart:"
-msgstr "SQL 질의"
+msgstr "차트의 시리즈:"
 
 #: libraries/server_status_monitor.lib.php:296
 msgid "Start Monitor"
@@ -11124,7 +11100,7 @@ msgstr "모니터링 시작"
 
 #: libraries/server_status_monitor.lib.php:303
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "사용방법/셋업"
 
 #: libraries/server_status_monitor.lib.php:307
 msgid "Done dragging (rearranging) charts"
@@ -11150,7 +11126,7 @@ msgstr "그래프 정렬"
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
-msgstr ""
+msgstr "차트 설정은 브라우저의 로컬 스토리지에 저장됩니다. 설정된 내용이 있다면 내보내기를 할 수 있습니다."
 
 #: libraries/server_status_monitor.lib.php:372
 msgid "Reset to default"
