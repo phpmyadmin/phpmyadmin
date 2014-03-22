@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.10.0 (not yet released)
+4.1.11.0 (not yet released)
+
+4.1.10.0 (2014-03-22)
 - bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit
 - bug #4278 reCaptcha re-login requires double effort
 - bug #4324 Datepicker not showing up on insert page
