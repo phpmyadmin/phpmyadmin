@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-03-22 11:55+0200\n"
+"PO-Revision-Date: 2014-03-22 12:29+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
@@ -10493,10 +10493,12 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
+"로그에서 쿼리를 표시하려면, 차트에서 관련된 시간대를 마우스 왼쪽 버튼으로 드래그하여 선택하세요. 시간대가 결정되면, 쿼리 그룹 테이블을 "
+"불러옵니다. 여기서 SELECT 구문을 클릭하여 추가적인 분석을 할 수 있습니다."
 
 #: libraries/server_status_monitor.lib.php:188
 msgid "Please note:"
-msgstr ""
+msgstr "주의사항:"
 
 #: libraries/server_status_monitor.lib.php:191
 msgid ""
@@ -10505,6 +10507,9 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"general_log를 활성화하면 서버의 부하가 5-15% 상승할 수 있습니다. 또한 주의할 점은 로그로부터 통계를 생성하는 작업은 "
+"부하가 큰 작업입니다. 그러므로, 짧은 시간대를 선택, general_log를 비활성화, 및 모니터링이 더 이상 필요하지 않는 테이블은 "
+"비우는 것을 추천합니다."
 
 #: libraries/server_status_monitor.lib.php:213
 #: libraries/server_status_monitor.lib.php:323
@@ -10512,61 +10517,54 @@ msgid "Add chart"
 msgstr "차트 추가"
 
 #: libraries/server_status_monitor.lib.php:219
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Preset chart"
-msgstr "차트 삭제"
+msgstr "프리셋 차트"
 
 #: libraries/server_status_monitor.lib.php:224
-#, fuzzy
 #| msgid "All status variables"
 msgid "Status variable(s)"
-msgstr "모든 상태 변수"
+msgstr "상태 변수"
 
 #: libraries/server_status_monitor.lib.php:227
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Select series:"
-msgstr "외래키 선택"
+msgstr "시리즈 선택:"
 
 #: libraries/server_status_monitor.lib.php:229
 msgid "Commonly monitored"
-msgstr ""
+msgstr "일반 모니터링 대상"
 
 #: libraries/server_status_monitor.lib.php:245
-#, fuzzy
 #| msgid "Invalid table name:"
 msgid "or type variable name:"
-msgstr "잘못된 테이블 이름:"
+msgstr "또는 타입 변수 이름:"
 
 #: libraries/server_status_monitor.lib.php:252
 msgid "Display as differential value"
-msgstr ""
+msgstr "차이값으로 출력"
 
 #: libraries/server_status_monitor.lib.php:256
-#, fuzzy
 #| msgid "Advisor"
 msgid "Apply a divisor"
-msgstr "시스템 분석 / 조언"
+msgstr "나누는 수 적용"
 
 #: libraries/server_status_monitor.lib.php:264
 msgid "Append unit to data values"
-msgstr ""
+msgstr "데이터 값에 단위를 덧붙임"
 
 #: libraries/server_status_monitor.lib.php:270
-#, fuzzy
 #| msgid "Add user"
 msgid "Add this series"
-msgstr "사용자 추가"
+msgstr "이 시리즈 추가"
 
 #: libraries/server_status_monitor.lib.php:272
 msgid "Clear series"
-msgstr ""
+msgstr "시리즈 없애기"
 
 #: libraries/server_status_monitor.lib.php:275
-#, fuzzy
 msgid "Series in Chart:"
-msgstr "SQL 질의"
+msgstr "차트의 시리즈:"
 
 #: libraries/server_status_monitor.lib.php:296
 msgid "Start Monitor"
@@ -10574,7 +10572,7 @@ msgstr "모니터링 시작"
 
 #: libraries/server_status_monitor.lib.php:303
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "사용방법/셋업"
 
 #: libraries/server_status_monitor.lib.php:307
 msgid "Done dragging (rearranging) charts"
@@ -10603,7 +10601,7 @@ msgstr "그래프 정렬"
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
-msgstr ""
+msgstr "차트 설정은 브라우저의 로컬 스토리지에 저장됩니다. 설정된 내용이 있다면 내보내기를 할 수 있습니다."
 
 #: libraries/server_status_monitor.lib.php:372
 msgid "Reset to default"
