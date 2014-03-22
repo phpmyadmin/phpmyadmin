@@ -107,6 +107,20 @@ $(function () {
         }
     });
 
+    /**
+     * Jump to favorite table
+     */
+    $('#favoriteTable').live('change', function () {
+        if (this.value !== '') {
+            var arr = jQuery.parseJSON(this.value);
+            var $form = $(this).closest('form');
+            $form.find('input[name=db]').val(arr.db);
+            $form.find('input[name=table]').val(arr.table);
+            $form.submit();
+            $(this).prop('selectedIndex', 0);
+        }
+    });
+
     /** Create a Routine, Trigger or Event */
     $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
         event.preventDefault();

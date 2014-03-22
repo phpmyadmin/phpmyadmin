@@ -181,7 +181,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     if ($server_slave_status) {
         $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
     }
-    $html_output .= '<th colspan="' . ($db_is_system_schema ? 3 : 6) . '">'
+    $html_output .= '<th colspan="' . ($db_is_system_schema ? 3 : 7) . '">'
         . __('Sum')
         . '</th>';
     $html_output .= '<th class="value tbl_rows">'
@@ -451,6 +451,7 @@ function PMA_getHtmlForStructureTableRow(
     $collation, $formatted_size, $unit, $overhead, $create_time, $update_time,
     $check_time,$is_show_stats, $ignored, $do, $colspan_for_structure
 ) {
+    global $db;
     $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even');
     $odd_row = ! $odd_row;
     $html_output .= ($table_is_view ? ' is_view' : '')
@@ -476,6 +477,10 @@ function PMA_getHtmlForStructureTableRow(
                 : '')
             . '</td>';
     }
+    //Favorite table anchor.
+    $html_output .= '<td class="center">'
+        . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
+        .'</td>';
 
     $html_output .= '<td class="center">' . $browse_table . '</td>';
     $html_output .= '<td class="center">'
@@ -747,7 +752,7 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
     if ($db_is_system_schema) {
         $action_colspan = 3;
     } else {
-        $action_colspan = 6;
+        $action_colspan = 7;
     }
 
     $html_output = '<table class="data">' . "\n"
@@ -2232,7 +2237,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
         (isset ($avg_size) ? $avg_size : ''),
         (isset ($avg_unit) ? $avg_unit : '')
     );
-    
+
     $html_output .= '</fieldset>'
         . '</div>';
 
@@ -2674,5 +2679,56 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
         null, null, null, null, $goto, $pmaThemeImage, null, null,
         null, $sql_query, null, null
     );
+}
+
+/**
+ * Function to check if a table is already in favorite list.
+ *
+ * @param string $db            current database
+ * @param string $current_table current table
+ *
+ * @return true|false
+ */
+function PMA_checkFavoriteTable($db, $current_table)
+{
+    foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']]
+    as $key => $value) {
+        if ($value['db'] == $db && $value['table'] == $current_table) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * Get HTML for favorite anchor.
+ *
+ * @param string $db            current database
+ * @param string $current_table current table
+ * @param string $titles        titles
+ *
+ * @return $html_output
+ */
+function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
+{
+    $html_output .= '<a ';
+    $html_output .= 'id="' . preg_replace('/\s+/', '', $current_table['TABLE_NAME']) . '_favorite_anchor" ';
+    $html_output .= 'class="ajax favorite_table_anchor';
+
+    // Check if current table is already in favorite list.
+    $already_favorite = PMA_checkFavoriteTable($db, $current_table['TABLE_NAME']);
+    $fav_params = array('db' => $db,
+        'ajax_request' => true,
+        'favorite_table' => $current_table['TABLE_NAME'],
+        (($already_favorite?'remove':'add') . '_favorite') => true);
+    $fav_url = 'db_structure.php' . PMA_URL_getCommon($fav_params);
+    $html_output .= '" ';
+    $html_output .= 'href="' . $fav_url
+        . '" title="' . ($already_favorite ? __("Remove from Favorites")
+        : __("Add to Favorites")) . '" >'
+        . (!$already_favorite ? $titles['NoFavorite']
+        : $titles['Favorite']) . '</a>';
+
+    return $html_output;
 }
 ?>

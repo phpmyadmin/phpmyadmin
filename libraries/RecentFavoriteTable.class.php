@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Recent table list handling
+ * Recent and Favorite table list handling
  *
  * @package PhpMyAdmin
  */
@@ -13,17 +13,17 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/Message.class.php';
 
 /**
- * Handles the recently used tables.
+ * Handles the recently used and favorite tables.
  *
  * @TODO Change the release version in table pma_recent
  * (#recent in documentation)
  *
  * @package PhpMyAdmin
  */
-class PMA_RecentTable
+class PMA_RecentFavoriteTable
 {
     /**
-     * Defines the internal PMA table which contains recent tables.
+     * Defines the internal PMA table which contains recent/favorite tables.
      *
      * @access  private
      * @var string
@@ -31,7 +31,7 @@ class PMA_RecentTable
     private $_pmaTable;
 
     /**
-     * Reference to session variable containing recently used tables.
+     * Reference to session variable containing recently used or favorite tables.
      *
      * @access public
      * @var array
@@ -39,47 +39,56 @@ class PMA_RecentTable
     public $tables;
 
     /**
-     * PMA_RecentTable instance.
+     * Defines type of action, Favorite or Recent table.
      *
-     * @var PMA_RecentTable
+     * @access public
+     * @var string
+     */
+    public $table_type;
+
+    /**
+     * PMA_RecentFavoriteTable instance.
+     *
+     * @var PMA_RecentFavoriteTable
      */
     private static $_instance;
 
     /**
-     * Creates a new instance of PMA_RecentTable
+     * Creates a new instance of PMA_RecentFavoriteTable
      */
-    public function __construct()
+    public function __construct($type)
     {
+        $this->table_type = $type;
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && strlen($GLOBALS['cfg']['Server']['recent'])
+            && strlen($GLOBALS['cfg']['Server'][$this->table_type])
         ) {
             $this->_pmaTable
                 = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-                . PMA_Util::backquote($GLOBALS['cfg']['Server']['recent']);
+                . PMA_Util::backquote($GLOBALS['cfg']['Server'][$this->table_type]);
         }
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmpval']['recent_tables'][$server_id])) {
-            $_SESSION['tmpval']['recent_tables'][$server_id]
+        if (! isset($_SESSION['tmpval'][$this->table_type . '_tables'][$server_id])) {
+            $_SESSION['tmpval'][$this->table_type . '_tables'][$server_id]
                 = isset($this->_pmaTable) ? $this->getFromDb() : array();
         }
-        $this->tables =& $_SESSION['tmpval']['recent_tables'][$server_id];
+        $this->tables =& $_SESSION['tmpval'][$this->table_type . '_tables'][$server_id];
     }
 
     /**
      * Returns class instance.
      *
-     * @return PMA_RecentTable
+     * @return PMA_RecentFavoriteTable
      */
-    public static function getInstance()
+    public static function getInstance($type)
     {
-        if (is_null(self::$_instance)) {
-            self::$_instance = new PMA_RecentTable();
+        if (is_null(self::$_instance) || $_instance->table_type != $type) {
+            self::$_instance = new PMA_RecentFavoriteTable($type);
         }
         return self::$_instance;
     }
 
     /**
-     * Returns recently used tables from phpMyAdmin database.
+     * Returns recently used tables or favorite from phpMyAdmin database.
      *
      * @return array
      */
@@ -102,7 +111,7 @@ class PMA_RecentTable
     }
 
     /**
-     * Save recent tables into phpMyAdmin database.
+     * Save recent/favorite tables into phpMyAdmin database.
      *
      * @return true|PMA_Message
      */
@@ -119,7 +128,7 @@ class PMA_RecentTable
         $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (! $success) {
-            $message = PMA_Message::error(__('Could not save recent table!'));
+            $message = PMA_Message::error(__('Could not save ' . $this->table_type . ' table!'));
             $message->addMessage('<br /><br />');
             $message->addMessage(
                 PMA_Message::rawError(
@@ -132,13 +141,13 @@ class PMA_RecentTable
     }
 
     /**
-     * Trim recent table according to the NumRecentTables configuration.
+     * Trim recent.favorite table according to the NumRecentTables/NumFavoriteTables configuration.
      *
      * @return boolean True if trimming occurred
      */
     public function trim()
     {
-        $max = max($GLOBALS['cfg']['NumRecentTables'], 0);
+        $max = max($GLOBALS['cfg']['Num' . ucfirst($this->table_type) . 'Tables'], 0);
         $trimming_occurred = count($this->tables) > $max;
         while (count($this->tables) > $max) {
             array_pop($this->tables);
@@ -158,7 +167,7 @@ class PMA_RecentTable
             $this->saveToDb();
         }
 
-        $html = '<option value="">(' . __('Recent tables') . ') ...</option>';
+        $html = '<option value="">(' . __(ucfirst($this->table_type) . ' tables') . ') ...</option>';
         if (count($this->tables)) {
             foreach ($this->tables as $table) {
                 $html .= '<option value="'
@@ -170,7 +179,7 @@ class PMA_RecentTable
             }
         } else {
             $html .= '<option value="">'
-                . __('There are no recent tables.')
+                . __('There are no ' . $this->table_type . ' tables.')
                 . '</option>';
         }
         return $html;
@@ -183,7 +192,7 @@ class PMA_RecentTable
      */
     public function getHtmlSelect()
     {
-        $html  = '<select name="selected_recent_table" id="recentTable">';
+        $html  = '<select name="selected_' . $this->table_type . '_table" id="' . $this->table_type . 'Table">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
 
@@ -191,7 +200,7 @@ class PMA_RecentTable
     }
 
     /**
-     * Add recently used tables.
+     * Add recently used or favorite tables.
      *
      * @param string $db    database name where the table is located
      * @param string $table table name
@@ -216,5 +225,28 @@ class PMA_RecentTable
         return true;
     }
 
+    /**
+     * Remove favorite tables.
+     *
+     * @param string $db    database name where the table is located
+     * @param string $table table name
+     *
+     * @return true|PMA_Message True if success, PMA_Message if not
+     */
+    public function remove($db, $table)
+    {
+        $table_arr = array();
+        $table_arr['db'] = $db;
+        $table_arr['table'] = $table;
+        foreach ($this->tables as $key => $value) {
+            if ($value['db'] == $db && $value['table'] == $table) {
+                unset($this->tables[$key]);
+            }
+        }
+        if (isset($this->_pmaTable)) {
+            return $this->saveToDb();
+        }
+        return true;
+    }
 }
 ?>
