@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-15 07:16-0400\n"
-"PO-Revision-Date: 2014-03-15 15:38+0200\n"
+"PO-Revision-Date: 2014-03-22 11:59+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
+"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
+"\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5243,10 +5243,9 @@ msgid "Authentication"
 msgstr "인증"
 
 #: libraries/config/messages.inc.php:264
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "인증설정"
+msgstr "인증 설정."
 
 #: libraries/config/messages.inc.php:265
 msgid "Server configuration"
@@ -5458,7 +5457,7 @@ msgstr "파일 내용으로 테이블 데이터 대체하기"
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
-msgstr ""
+msgstr "기본 포멧; 주의: 이 리스트는 선택된 데이터베이스와 테이블에 영향을 받습니다. 그리고 SQL에서만 가능합니다."
 
 #: libraries/config/messages.inc.php:351
 msgid "Format of imported file"
@@ -5488,10 +5487,9 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "퍼센티지값을 소수로 가져오기 (12.00%를 .12로)"
 
 #: libraries/config/messages.inc.php:364
-#, fuzzy
 #| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
-msgstr "건너뛰고 시작할 쿼리 수"
+msgstr "건너뛰고 시작할 쿼리 수."
 
 #: libraries/config/messages.inc.php:365
 msgid "Partial import: skip queries"
@@ -5506,10 +5504,9 @@ msgid "Initial state for sliders"
 msgstr "슬라이더의 초기 상태"
 
 #: libraries/config/messages.inc.php:372
-#, fuzzy
 #| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "한 번에 삽입할 행 개수"
+msgstr "한 번에 삽입할 행 개수."
 
 #: libraries/config/messages.inc.php:373
 msgid "Number of inserted rows"
@@ -11020,12 +11017,13 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"데이터베이스 서버가 테이블 로깅을 지원하지 않습니다. 이 기능은 phpMyAdmin으로 데이터베이스 로그를 분석하는데 필요합니다. 테이블 "
+"로깅은 MySQL 5.1.6 이상에서 지원합니다. 하지만, 서버 그래프 기능은 지금도 사용할 수 있습니다."
 
 #: libraries/server_status_monitor.lib.php:169
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "모니터링 정지"
+msgstr "모니터 사용 방식:"
 
 #: libraries/server_status_monitor.lib.php:172
 msgid ""
@@ -11033,6 +11031,8 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
+"웹 브라우저가 일정 시간 간격으로 차트 화면을 새로고침 합니다. '설정'에서 차트를 추가하거나, 새로고침 주기를 수정할 수 있습니다. "
+"또한 각 차트의 톱니바퀴 아이콘을 통해 차트를 제거할 수 있습니다."
 
 #: libraries/server_status_monitor.lib.php:178
 msgid ""
@@ -11041,6 +11041,8 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
+"로그에서 쿼리를 표시하려면, 차트에서 관련된 시간대를 마우스 왼쪽 버튼으로 드래그하여 선택하세요. 시간대가 결정되면, 쿼리 그룹 테이블을 "
+"불러옵니다. 여기서 SELECT 구문을 클릭하여 추가적인 분석을 할 수 있습니다."
 
 #: libraries/server_status_monitor.lib.php:188
 msgid "Please note:"
