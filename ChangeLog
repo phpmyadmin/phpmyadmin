@@ -40,7 +40,9 @@ phpMyAdmin - ChangeLog
 + rfe #1512 Import happily doesn't do anything with no file name provided
 + rfe #1514 Add function to all the insert boxes automatically
 
-4.1.10.0 (not yet released)
+4.1.11.0 (not yet released)
+
+4.1.10.0 (2014-03-22)
 - bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit
 - bug #4278 reCaptcha re-login requires double effort
 - bug #4324 Datepicker not showing up on insert page
