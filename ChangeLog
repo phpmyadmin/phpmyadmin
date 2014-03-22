@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.11.0 (not yet released)
+4.1.11.0 (2014-03-23)
 - bug #4335 reCaptcha problem (4.1.10 regression) 
 
 4.1.10.0 (2014-03-22)
