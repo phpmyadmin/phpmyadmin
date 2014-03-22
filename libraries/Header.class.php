@@ -474,7 +474,7 @@ class PMA_Header
                 "Content-Security-Policy: default-src 'self' "
                 . ($use_captcha ? 'https://www.google.com ' : ' ')
                 . $GLOBALS['cfg']['CSPAllow'] . ';'
-                . "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+                . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
                 . ($use_captcha ? 'https://www.google.com ' : ' ')
                 . ";"
                 . "style-src 'self' 'unsafe-inline' "
