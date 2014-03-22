@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-03-15 15:29+0200\n"
+"PO-Revision-Date: 2014-03-22 11:55+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
@@ -10469,12 +10469,13 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"데이터베이스 서버가 테이블 로깅을 지원하지 않습니다. 이 기능은 phpMyAdmin으로 데이터베이스 로그를 분석하는데 필요합니다. 테이블 "
+"로깅은 MySQL 5.1.6 이상에서 지원합니다. 하지만, 서버 그래프 기능은 지금도 사용할 수 있습니다."
 
 #: libraries/server_status_monitor.lib.php:169
-#, fuzzy
 #| msgid "Pause monitor"
 msgid "Using the monitor:"
-msgstr "모니터링 정지"
+msgstr "모니터 사용 방식:"
 
 #: libraries/server_status_monitor.lib.php:172
 msgid ""
@@ -10482,6 +10483,8 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
+"웹 브라우저가 일정 시간 간격으로 차트 화면을 새로고침 합니다. '설정'에서 차트를 추가하거나, 새로고침 주기를 수정할 수 있습니다. "
+"또한 각 차트의 톱니바퀴 아이콘을 통해 차트를 제거할 수 있습니다."
 
 #: libraries/server_status_monitor.lib.php:178
 msgid ""
