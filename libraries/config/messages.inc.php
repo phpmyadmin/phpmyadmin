@@ -467,6 +467,8 @@ $strConfigNavigationTreePointerEnable_desc
 $strConfigNavigationTreePointerEnable_name = __('Enable highlighting');
 $strConfigNumRecentTables_desc
     = __('Maximum number of recently used tables; set 0 to disable.');
+$strConfigNumFavoriteTables_desc
+    = __('Maximum number of favorite tables; set 0 to disable.');
 $strConfigNumRecentTables_name = __('Recently used tables');
 $strConfigRowActionLinks_desc = __('These are Edit, Copy and Delete links.');
 $strConfigRowActionLinks_name = __('Where to show the table row links');

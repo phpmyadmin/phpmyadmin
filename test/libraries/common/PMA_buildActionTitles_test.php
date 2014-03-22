@@ -44,6 +44,8 @@ class PMA_BuildActionTitles_Test extends PHPUnit_Framework_TestCase
         $titles['NoExport']   = PMA_Util::getIcon('bd_export.png', __('Export'));
         $titles['Execute']    = PMA_Util::getIcon('b_nextpage.png', __('Execute'));
         $titles['NoExecute']  = PMA_Util::getIcon('bd_nextpage.png', __('Execute'));
+        $titles['Favorite']   = PMA_Util::getIcon('b_favorite.png', __(''));
+        $titles['NoFavorite'] = PMA_Util::getIcon('b_no_favorite.png', __(''));
 
         $this->assertEquals($titles, PMA_Util::buildActionTitles());
 
