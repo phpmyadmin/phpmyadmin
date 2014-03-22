@@ -545,9 +545,27 @@ function PMA_exportDatabase(
                         break 1;
                     }
                 }
-                
+
             } else if (isset($GLOBALS['sql_create_table'])) {
-                
+
+                $table_size = $GLOBALS['maxsize'];
+                // Checking if the maximum table size constrain has been set
+                // And if that constrain is a valid number or not
+                if ($table_size !== '' && is_numeric($table_size)) {
+                    // This obtains the current table's size
+                    $query = 'SELECT data_length + index_length
+                          from information_schema.TABLES
+                          WHERE table_schema = "'.$db.'"
+                          AND table_name = "'.$table.'"';
+
+                    $size = $GLOBALS['dbi']->fetchValue($query);
+                    //Converting the size to MB
+                    $size = ($size / 1024) / 1024;
+                    if ($size > $table_size) {
+                        continue;
+                    }
+                }
+
                 if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url,
                     'create_table', $export_type,

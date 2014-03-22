@@ -54,6 +54,7 @@ if (!defined('TESTSUITE')) {
             'allrows',
             'output_format',
             'filename_template',
+            'maxsize',
             'remember_template',
             'charset_of_file',
             'compression',

@@ -654,6 +654,11 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     $html .= PMA_getHtmlForExportOptionsOutputRadio();
 
     $html .= '</ul>';
+
+    $html .= '<label for="maxsize">'
+        . __('Skip tables larger than') . '</label>';
+    $html .= '<input type = "text" name = "maxsize">MB</pre>';
+
     $html .= '</div>';
 
     return $html;
