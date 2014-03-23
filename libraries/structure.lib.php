@@ -2232,7 +2232,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
         (isset ($avg_size) ? $avg_size : ''),
         (isset ($avg_unit) ? $avg_unit : '')
     );
-    
+
     $html_output .= '</fieldset>'
         . '</div>';
 

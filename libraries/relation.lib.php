@@ -1530,4 +1530,72 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
         isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
     );
 }
+
+/**
+ * Get child table references for a table column.
+ *
+ * @param string $db        name of master table db.
+ * @param string $table     name of master table.
+ * @param string $column    name of master table column.
+ *
+ * @return array $child_references
+ */
+function PMA_getChildReferences($db, $table, $column)
+{
+    $child_references = array();
+    $i=0;
+    $rel_query = 'SELECT `column_name`,'
+                . ' `table_name`,'
+                . '`table_schema`'
+                . ' FROM `information_schema`.`key_column_usage`'
+                . ' WHERE `referenced_column_name` = \'' . PMA_Util::sqlAddSlashes($column) . '\''
+                . ' AND `referenced_table_name` = \'' . PMA_Util::sqlAddSlashes($table) . '\''
+                . ' AND `referenced_table_schema` = \'' . PMA_Util::sqlAddSlashes($db) . '\'';
+
+    $result = $GLOBALS['dbi']->tryQuery($rel_query, $GLOBALS['controllink']);
+    if ($result == true) {
+        while(($row = $GLOBALS['dbi']->fetchAssoc($result))) {
+            $child_references[$i++] = $row;
+        }
+    }
+    return $child_references;
+}
+
+/**
+ * Check child table references and foreign key for a table column.
+ *
+ * @param string $db        name of master table db.
+ * @param string $table     name of master table.
+ * @param string $column    name of master table column.
+ *
+ * @return array $status    telling about references if foreign key.
+ */
+function PMA_checkChildForeignReferences($db, $table, $column)
+{
+    $column_status = array();
+    $column_status['isEditable'] = false;
+    $column_status['isReferenced'] = false;
+    $column_status['isForeignKey'] = false;
+    $column_status['references'] = array();
+    $foreigners = PMA_getForeigners($db, $table, $column);
+    $child_references = PMA_getChildReferences($db, $table, $column);
+
+    if (sizeof($child_references, 0) > 0 || sizeof($foreigners[$column], 0) > 0) {
+        if (sizeof($child_references, 0) > 0) {
+            $column_status['isReferenced'] = true;
+            foreach ($child_references as $row => $columns) {
+                array_push($column_status['references'], PMA_Util::backquote($columns['table_schema'])
+                                          . '.' . PMA_Util::backquote($columns['table_name']) );
+            }
+        }
+
+        if (sizeof($foreigners[$column], 0) > 0) {
+            $column_status['isForeignKey'] = true;
+        }
+    } else {
+        $column_status['isEditable'] = true;
+    }
+
+    return $column_status;
+}
 ?>
