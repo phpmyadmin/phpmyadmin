@@ -663,7 +663,15 @@ class PMA_User_Schema
                 __('File doesn\'t exist')
             );
         }
+        $GLOBALS['skip_import'] = false;
         include $filename;
+        if ( $GLOBALS['skip_import']) {
+            PMA_Export_Relation_Schema::dieSchema(
+                $_POST['chpage'],
+                $export_type,
+                __('Plugin is disabled')
+            );
+        }
         $class_name = 'PMA_' . $path . '_Relation_Schema';
         $obj_schema = new $class_name();
         $obj_schema->showOutput();

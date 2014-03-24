@@ -10,6 +10,14 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Skip the plugin if TCPDF is not available.
+ */
+if (! file_exists(TCPDF_INC)) {
+    $GLOBALS['skip_import'] = true;
+    return;
+}
+
 /* Get the export interface */
 require_once 'libraries/plugins/ExportPlugin.class.php';
 /* Get the PMA_ExportPdf class */

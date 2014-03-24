@@ -10,6 +10,14 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Skip the plugin if TCPDF is not available.
+ */
+if (! file_exists(TCPDF_INC)) {
+    $GLOBALS['skip_import'] = true;
+    return;
+}
+
+/**
  * block attempts to directly run this script
  */
 if (getcwd() == dirname(__FILE__)) {
