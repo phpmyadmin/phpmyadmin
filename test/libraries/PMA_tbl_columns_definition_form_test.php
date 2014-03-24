@@ -617,7 +617,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     public function testGetHtmlForColumnName()
     {
         $result = PMA_getHtmlForColumnName(
-            2, 4, 4, array('Field' => "fieldname")
+            2, 4, 4, array('Field' => "fieldname", 'column_status' => array('isReferenced' => false, 'isForeignKey' => false))
         );
 
         $this->assertTag(
@@ -639,7 +639,7 @@ class PMA_TblColumnsDefinitionFormTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['PMA_Types'] = new PMA_Types;
         $result = PMA_getHtmlForColumnType(
-            1, 4, 3, false
+            1, 4, 3, false, array('column_status' => array('isReferenced' => false, 'isForeignKey' => false))
         );
 
         $this->assertTag(
