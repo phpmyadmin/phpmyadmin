@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 
 4.1.12.0 (not yet released)
 - bug #4334 Add event : datepicker won't open
+- bug #4338 Fix missing value error while executing SQL query
 
 4.1.11.0 (2014-03-23)
 - bug #4335 reCaptcha problem (4.1.10 regression) 
