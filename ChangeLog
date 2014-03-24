@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 + rfe #1501 add maxlength by field with length-spec
 + rfe #1512 Import happily doesn't do anything with no file name provided
 + rfe #1514 Add function to all the insert boxes automatically
++ rfe #1515 Option to skip tables larger than n
 
 4.1.12.0 (not yet released)
 - bug #4334 Add event : datepicker won't open
