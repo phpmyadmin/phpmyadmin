@@ -385,7 +385,9 @@ function checkSqlQuery(theForm)
 {
     // get the textarea element containing the query
     if (codemirror_editor) {
+        codemirror_editor.save();
         var sqlQuery = codemirror_editor.display.input;
+        sqlQuery.value = codemirror_editor.getValue();
     } else {
         var sqlQuery = theForm.elements['sql_query'];
     }
@@ -1398,6 +1400,7 @@ AJAX.registerOnload('functions.js', function () {
         //hide already existing success message
         var sql_query;
         if (codemirror_inline_editor) {
+            codemirror_inline_editor.save();
             sql_query = codemirror_inline_editor.getValue();
         } else {
             sql_query = $(this).prev().val();
