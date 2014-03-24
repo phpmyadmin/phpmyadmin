@@ -380,6 +380,9 @@ function loadChildNodes($expandElem, callback) {
             if (callback && typeof callback == 'function') {
                 callback(data);
             }
+        } else if(data.redirect_flag == "1") {
+            window.location.href += '&session_expired=1';
+            window.location.reload();
         } else {
             var $throbber = $expandElem.find('img.throbber');
             $throbber.hide();
