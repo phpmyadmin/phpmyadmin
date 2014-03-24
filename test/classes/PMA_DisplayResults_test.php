@@ -724,13 +724,21 @@ class PMA_DisplayResults_Test extends PHPUnit_Framework_TestCase
     public function dataProviderForGetSortParams()
     {
         return array(
-            array('', array('', '', '')),
+            array('', array(array(''), array(''), array(''))),
             array(
                 '`a_sales`.`customer_id` ASC',
                 array(
-                    '`a_sales`.`customer_id` ASC',
-                    '`a_sales`.`customer_id`',
-                    'ASC'
+                    array('`a_sales`.`customer_id` ASC'),
+                    array('`a_sales`.`customer_id`'),
+                    array('ASC')
+                )
+            ),
+            array(
+                '`a_sales`.`customer_id` ASC, `b_sales`.`customer_id` DESC',
+                array(
+                    array('`a_sales`.`customer_id` ASC', '`b_sales`.`customer_id` DESC'),
+                    array('`a_sales`.`customer_id`', '`b_sales`.`customer_id`'),
+                    array('ASC', 'DESC')
                 )
             ),
         );

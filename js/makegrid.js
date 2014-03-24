@@ -438,6 +438,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     text += text.length > 0 ? '<br />' : '';
                     text += g.sortHint;
                 }
+                 if (g.showRemColHint && g.strRemColHint) {
+                    text += text.length > 0 ? '<br />' : '';
+                    text += g.strRemColHint;
+                }
                 if (g.showMarkHint && g.markHint &&
                     !g.showSortHint      // we do not show mark hint, when sort hint is shown
                 ) {
@@ -1796,6 +1800,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
     // assign the hints
     g.sortHint = PMA_messages.strSortHint;
+    g.strRemColHint = PMA_messages.strRemColHint;
     g.markHint = PMA_messages.strColMarkHint;
     g.copyHint = PMA_messages.strColNameCopyHint;
 
@@ -1849,12 +1854,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
     $(t).find('th.draggable a')
         .mouseenter(function (e) {
             g.showSortHint = true;
+            g.showRemColHint = true;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
             });
         })
         .mouseleave(function (e) {
-            g.showSortHint = false;
+            g.showSortHint = false;            
+            g.showRemColHint = false;
             $(t).find("th.draggable").tooltip("option", {
                 content: g.updateHint()
             });
