@@ -79,6 +79,7 @@ if (isset($_REQUEST['submit_num_fields'])) {
     //if adding new fields, set regenerate to keep the original values
     $regenerate = 1;
 }
+
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {
         list($columnMeta, $submit_length, $submit_attribute,
@@ -133,6 +134,10 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $columnMeta, $length, $_form_params, $columnNumber
         );
     }
+    // Variable tell if current column is bound in a foreign key constraint or not.
+    $columnMeta['column_status'] = PMA_checkChildForeignReferences($_form_params['db'],
+        $_form_params['table'],
+        isset($columnMeta) ? $columnMeta['Field'] : null);
 
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
         $columnNumber, isset($columnMeta) ? $columnMeta : null, strtoupper($type),
@@ -148,7 +153,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $mime_map
     );
 } // end for
-
 $html = PMA_getHtmlForTableCreateOrAddField(
     $action, $_form_params, $content_cells, $header_cells
 );
