@@ -181,7 +181,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     if ($server_slave_status) {
         $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
     }
-    $html_output .= '<th colspan="' . ($db_is_system_schema ? 3 : 6) . '">'
+    $html_output .= '<th colspan="' . ($db_is_system_schema ? 3 : 7) . '">'
         . __('Sum')
         . '</th>';
     $html_output .= '<th class="value tbl_rows">'
@@ -484,7 +484,7 @@ function PMA_getHtmlForStructureTableRow(
     $html_output .= '<td class="center">' . $search_table . '</td>';
 
     if (! $db_is_system_schema) {
-        $html_output .= PMA_getHtmlForInsertEmptyDropActionLinks(
+        $html_output .= PMA_getHtmlForInsertEmptyDropFavouriteActionLinks(
             $tbl_url_query, $table_is_view,
             $titles, $empty_table, $current_table, $drop_query, $drop_message
         );
@@ -530,9 +530,10 @@ function PMA_getHtmlForStructureTableRow(
  *
  * @return string $html_output
  */
-function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view,
+function PMA_getHtmlForInsertEmptyDropFavouriteActionLinks($tbl_url_query, $table_is_view,
     $titles, $empty_table, $current_table, $drop_query, $drop_message
 ) {
+    global $db;
     $html_output = '<td class="insert_table center">'
         . '<a href="tbl_change.php?' . $tbl_url_query . '">'
         . $titles['Insert']
@@ -552,6 +553,23 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
         . urlencode($drop_query) . '&amp;message_to_show='
         . urlencode($drop_message) . '" >'
         . $titles['Drop'] . '</a></td>';
+    //Favourite table anchor.
+    $html_output .= '<td class="center">';
+    $html_output .= '<a ';
+    $html_output .= 'class="ajax favourite_table_anchor';
+    if ($table_is_view || $current_table['ENGINE'] == null) {
+        // this class is used in db_structure.js to display the
+        // correct confirmation message
+        $html_output .= ' view';
+    }
+
+    $already_favourite = PMA_checkFavouriteTable($db, $current_table['TABLE_NAME']);
+    $html_output .= '" ';
+    $html_output .= 'href="db_structure.php?&amp;'. PMA_URL_getCommon($db)
+        . '&amp;' . ($already_favourite?'remove':'add')  . '_favourite=1'
+        .'&amp;favourite_table=' . urlencode($current_table['TABLE_NAME'])
+        . '" >'
+        . ($already_favourite ? $titles['NoFavourite'] : $titles['Favourite']) . '</a></td>';
 
     return $html_output;
 }
@@ -747,7 +765,7 @@ function PMA_tableHeader($db_is_system_schema = false, $replication = false)
     if ($db_is_system_schema) {
         $action_colspan = 3;
     } else {
-        $action_colspan = 6;
+        $action_colspan = 7;
     }
 
     $html_output = '<table class="data">' . "\n"
@@ -2674,5 +2692,23 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
         null, null, null, null, $goto, $pmaThemeImage, null, null,
         null, $sql_query, null, null
     );
+}
+
+/**
+ * Function to check if a table is already in favourite list.
+ *
+ * @param string $db            current database
+ * @param string $table         current table
+ *
+ * @return true|false
+ */
+function PMA_checkFavouriteTable($db, $current_table)
+{
+    foreach ($_SESSION['tmpval']['favourite_tables'][$GLOBALS['server']] as $key => $value) {
+        if ($value['db'] == $db && $value['table'] == $current_table) {
+            return true;
+        }
+    }
+    return false;
 }
 ?>

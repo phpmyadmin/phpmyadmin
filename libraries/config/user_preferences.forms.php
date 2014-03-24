@@ -33,6 +33,7 @@ $forms['Features']['General'] = array(
     'MaxDbList',
     'MaxTableList',
     'NumRecentTables',
+    'NumFavouriteTables',
     'ShowHint',
     'SendErrorReports');
 $forms['Features']['Text_fields'] = array(

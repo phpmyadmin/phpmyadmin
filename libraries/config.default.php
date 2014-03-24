@@ -414,6 +414,13 @@ $cfg['Servers'][$i]['designer_coords'] = '';
 $cfg['Servers'][$i]['recent'] = '';
 
 /**
+ * table to store favourite tables
+ *   - leave blank for no favourite tables
+ *     SUGGESTED: 'pma__favourite'
+ */
+$cfg['Servers'][$i]['favourite'] = '';
+
+/**
  * table to store UI preferences for tables
  *   - leave blank for no "persistent" UI preferences
  *     SUGGESTED: 'pma__table_uiprefs'
@@ -905,6 +912,7 @@ $cfg['NavigationLogoLinkWindow'] = 'main';
  * @global integer $cfg['NumRecentTables']
  */
 $cfg['NumRecentTables'] = 10;
+$cfg['NumFavouriteTables'] = 10;
 
 /**
  * display a JavaScript table filter in the navigation panel
