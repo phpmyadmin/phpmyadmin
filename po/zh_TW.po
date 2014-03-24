@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-15 07:16-0400\n"
-"PO-Revision-Date: 2014-03-24 08:21+0200\n"
+"PO-Revision-Date: 2014-03-24 08:24+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -2343,7 +2343,7 @@ msgstr "送出查詢"
 #: libraries/DBQbe.class.php:1451
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "已使用書籤儲存的查詢："
+msgstr "已加為書籤的查詢："
 
 #: libraries/DBQbe.class.php:1479
 #| msgid "Delete bookmark"
@@ -3050,11 +3050,11 @@ msgstr "沒有最近使用的資料表。"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr "請提供一個可以作為此查詢書籤的名稱。"
+msgstr "請提供一個可以作為此查詢的書籤名稱。"
 
 #: libraries/SavedSearches.class.php:261
 msgid "Missing information to save the bookmarked search."
-msgstr "遺失可已標籤記錄查詢的資訊。"
+msgstr "遺失用來儲存加入查詢書籤的資訊。"
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
