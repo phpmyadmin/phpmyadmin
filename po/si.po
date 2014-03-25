@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 13:43+0100\n"
+"POT-Creation-Date: 2014-03-25 14:00+0100\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Sinhala <https://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -1359,7 +1359,7 @@ msgstr "විශ්ලේෂණය…"
 msgid "Explain output"
 msgstr "ප්‍රතිදානය පහදන්න"
 
-#: js/messages.php:176 js/messages.php:554
+#: js/messages.php:176 js/messages.php:555
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1729,7 +1729,7 @@ msgstr "එකිනෙකට වෙනස් තීර දෙකක් තෝ�
 msgid "Data point content"
 msgstr "ලක්ෂයට අදාල දත්ත"
 
-#: js/messages.php:307 js/messages.php:400 libraries/insert_edit.lib.php:2605
+#: js/messages.php:307 js/messages.php:401 libraries/insert_edit.lib.php:2605
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "නොසලකන්න"
@@ -1767,30 +1767,32 @@ msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
 
 #: js/messages.php:322
-#, fuzzy
-#| msgid "Copy"
-msgid "Copy Salt"
-msgstr "පිටපත් කරන්න"
+msgid "Do you want to copy encryption key?"
+msgstr ""
 
-#: js/messages.php:325
+#: js/messages.php:323
+msgid "Encryption key"
+msgstr ""
+
+#: js/messages.php:326
 msgid "Select referenced key"
 msgstr "සම්බන්දිත මූලය තෝරන්න"
 
 # ප්‍රාථමික මූලය = Primary key. Source: Glossary of Information Technology
 # Terms - ICTA
-#: js/messages.php:326
+#: js/messages.php:327
 msgid "Select Foreign Key"
 msgstr "අන්‍ය මූලය තෝරන්න"
 
-#: js/messages.php:327
+#: js/messages.php:328
 msgid "Please select the primary key or a unique key!"
 msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක් තෝරන්න!"
 
-#: js/messages.php:328 pmd_general.php:101
+#: js/messages.php:329 pmd_general.php:101
 msgid "Choose column to display"
 msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්න"
 
-#: js/messages.php:330
+#: js/messages.php:331
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1799,61 +1801,61 @@ msgstr ""
 "යන්න?"
 
 # අභිරුචිය = option. Source: Glossary of Information Technology Terms - ICTA
-#: js/messages.php:335
+#: js/messages.php:336
 #, fuzzy, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
 msgstr "ක්ෂේත්‍රයට අභිරුචියක් එක් කරන්න "
 
-#: js/messages.php:336
+#: js/messages.php:337
 #, php-format
 msgid "%d object(s) created."
 msgstr "වස්තූන් %d ක් නිමැවිණි."
 
-#: js/messages.php:339
+#: js/messages.php:340
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
 msgstr "සංස්කරණය අවලංගු කිරීමට escape ඔබන්න"
 
-#: js/messages.php:340
+#: js/messages.php:341
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "ඔබ සංස්කරණය කල දත්ත සුරැකී නැත. දත්ත සුරැකීමෙන් තොරව මෙම පිටුවෙන් ඉවත් වීමට අවශ්‍යද?"
 
-#: js/messages.php:341
+#: js/messages.php:342
 msgid "Drag to reorder."
 msgstr "අනුපිලිවෙල නැවත සකස් කිරීමට අදින්න."
 
-#: js/messages.php:342
+#: js/messages.php:343
 msgid "Click to sort."
 msgstr "අනුපිළිවෙල අනුව සැකසීමට ක්ලික් කරන්න."
 
-#: js/messages.php:343
+#: js/messages.php:344
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
-#: js/messages.php:344
+#: js/messages.php:345
 msgid "Click to mark/unmark."
 msgstr "සලකුණු කිරීමට/ ඉවත් කිරීමට ක්ලික් කරන්න."
 
-#: js/messages.php:345
+#: js/messages.php:346
 msgid "Double-click to copy column name."
 msgstr "තීර නාමය පිටපත් කිරීම සඳහා ද්වි ක්ලික් කරන්න."
 
-#: js/messages.php:347
+#: js/messages.php:348
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "තීර පෙන්වීමට/සැඟවීමට<br />ඊතලය ක්ලික් කරන්න."
 
-#: js/messages.php:349 libraries/DisplayResults.class.php:852
+#: js/messages.php:350 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
 #: libraries/browse_foreigners.lib.php:424
 #: libraries/server_privileges.lib.php:3224
 msgid "Show all"
 msgstr "සියල්ල පෙන්වන්න"
 
-#: js/messages.php:350
+#: js/messages.php:351
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1861,65 +1863,65 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: js/messages.php:355
+#: js/messages.php:356
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr "අන්තර්ගත දත්ත මත ද්විත්ව-ක්ලික් කිරීමෙන් ඔබට<br />බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල හැක."
 
-#: js/messages.php:358
+#: js/messages.php:359
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "අන්තර්ගත දත්ත මත ක්ලික් කිරීමෙන් ඔබට<br />බොහෝ තීරවල අඩංගු දත්ත වෙනස් කල හැක."
 
-#: js/messages.php:363
+#: js/messages.php:364
 msgid "Go to link."
 msgstr "සබැඳීම වෙත යන්න."
 
-#: js/messages.php:364
+#: js/messages.php:365
 msgid "Copy column name."
 msgstr "තීර නම් පිටපත් කරන්න."
 
-#: js/messages.php:365
+#: js/messages.php:366
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "පසුරු පුවරුව වෙත පිටපත් කිරීම සඳහා තීර නාමය දකුණු ක්ලික් කරන්න."
 
-#: js/messages.php:366
+#: js/messages.php:367
 msgid "Show data row(s)."
 msgstr "දත්ත පේළි(ය) පෙන්වන්න."
 
-#: js/messages.php:369
+#: js/messages.php:370
 msgid "Generate password"
 msgstr "මුරපදය උත්පාදනය කරන්න"
 
-#: js/messages.php:370 libraries/replication_gui.lib.php:869
+#: js/messages.php:371 libraries/replication_gui.lib.php:869
 msgid "Generate"
 msgstr "උත්පාදනය කරන්න"
 
-#: js/messages.php:371
+#: js/messages.php:372
 msgid "Change Password"
 msgstr "මුරපදය වෙනස් කරන්න"
 
-#: js/messages.php:374
+#: js/messages.php:375
 msgid "More"
 msgstr "තවත්"
 
-#: js/messages.php:377
+#: js/messages.php:378
 msgid "Show Panel"
 msgstr "පැනලය පෙන්වන්න"
 
-#: js/messages.php:378
+#: js/messages.php:379
 msgid "Hide Panel"
 msgstr "පැනලය සඟවන්න"
 
-#: js/messages.php:379
+#: js/messages.php:380
 #, fuzzy
 #| msgid "Show logo in navigation panel"
 msgid "Show hidden navigation tree items."
 msgstr "යාත්‍රණ පැනලයේ ලාංඡනය පෙන්වන්න"
 
-#: js/messages.php:382
+#: js/messages.php:383
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "ඔබ ඉල්ලු පිටුව ඉතිහාසයේ හමු නොවිණි, එය කල් ඉකුත් වී ඇතිවා විය හැකිය."
 
-#: js/messages.php:385 setup/lib/index.lib.php:157
+#: js/messages.php:386 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1929,307 +1931,307 @@ msgstr ""
 "අනුවාදය %s අනුවාදයයි (%s දින නිකුත් කරන ලද)."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:387
+#: js/messages.php:388
 msgid ", latest stable version:"
 msgstr ", නවතම ස්ථායි අනුවාදය:"
 
-#: js/messages.php:388
+#: js/messages.php:389
 msgid "up to date"
 msgstr "යාවත්කාලීන"
 
-#: js/messages.php:390 libraries/DisplayResults.class.php:5293
+#: js/messages.php:391 libraries/DisplayResults.class.php:5293
 #: view_create.php:178
 msgid "Create view"
 msgstr "දසුනක් සාදන්න"
 
-#: js/messages.php:393
+#: js/messages.php:394
 #, fuzzy
 #| msgid "Server port"
 msgid "Send Error Report"
 msgstr "සර්වරයේ පොර්ට්"
 
-#: js/messages.php:394
+#: js/messages.php:395
 msgid "Submit Error Report"
 msgstr ""
 
-#: js/messages.php:396
+#: js/messages.php:397
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:398
+#: js/messages.php:399
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
 msgstr "සිටුවම් වෙනස් කිරීම"
 
-#: js/messages.php:399
+#: js/messages.php:400
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
 msgstr "විවෘත වගු පෙන්වන්න"
 
-#: js/messages.php:402
+#: js/messages.php:403
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:423
+#: js/messages.php:424
 msgid "Done"
 msgstr "තෝරන්න"
 
-#: js/messages.php:427
+#: js/messages.php:428
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "පෙර"
 
-#: js/messages.php:432
+#: js/messages.php:433
 msgctxt "Next month"
 msgid "Next"
 msgstr "මීලඟ"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "Today"
 msgstr "අද දින"
 
-#: js/messages.php:439
+#: js/messages.php:440
 msgid "January"
 msgstr "ජනවාරි"
 
-#: js/messages.php:440
+#: js/messages.php:441
 msgid "February"
 msgstr "පෙබරවාරි"
 
-#: js/messages.php:441
+#: js/messages.php:442
 msgid "March"
 msgstr "මාර්තු"
 
-#: js/messages.php:442
+#: js/messages.php:443
 msgid "April"
 msgstr "අ‍ප්‍රේල්"
 
-#: js/messages.php:443
+#: js/messages.php:444
 msgid "May"
 msgstr "මැයි"
 
-#: js/messages.php:444
+#: js/messages.php:445
 msgid "June"
 msgstr "ජුනි"
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "July"
 msgstr "ජූලි"
 
-#: js/messages.php:446
+#: js/messages.php:447
 msgid "August"
 msgstr "අගෝස්තු"
 
-#: js/messages.php:447
+#: js/messages.php:448
 msgid "September"
 msgstr "සැප්තැම්බර්"
 
-#: js/messages.php:448
+#: js/messages.php:449
 msgid "October"
 msgstr "ඔක්තෝම්බර්"
 
-#: js/messages.php:449
+#: js/messages.php:450
 msgid "November"
 msgstr "නොවැම්බර්"
 
-#: js/messages.php:450
+#: js/messages.php:451
 msgid "December"
 msgstr "දෙසැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1595
+#: js/messages.php:458 libraries/Util.class.php:1595
 msgid "Jan"
 msgstr "ජනවාරි"
 
 #. l10n: Short month name
-#: js/messages.php:459 libraries/Util.class.php:1597
+#: js/messages.php:460 libraries/Util.class.php:1597
 msgid "Feb"
 msgstr "පෙබරවාරි"
 
 #. l10n: Short month name
-#: js/messages.php:461 libraries/Util.class.php:1599
+#: js/messages.php:462 libraries/Util.class.php:1599
 msgid "Mar"
 msgstr "මාර්තු"
 
 #. l10n: Short month name
-#: js/messages.php:463 libraries/Util.class.php:1601
+#: js/messages.php:464 libraries/Util.class.php:1601
 msgid "Apr"
 msgstr "අ‍ප්‍රේල්"
 
 #. l10n: Short month name
-#: js/messages.php:465 libraries/Util.class.php:1603
+#: js/messages.php:466 libraries/Util.class.php:1603
 msgctxt "Short month name"
 msgid "May"
 msgstr "මැයි"
 
 #. l10n: Short month name
-#: js/messages.php:467 libraries/Util.class.php:1605
+#: js/messages.php:468 libraries/Util.class.php:1605
 msgid "Jun"
 msgstr "ජුනි"
 
 #. l10n: Short month name
-#: js/messages.php:469 libraries/Util.class.php:1607
+#: js/messages.php:470 libraries/Util.class.php:1607
 msgid "Jul"
 msgstr "ජූලි"
 
 #. l10n: Short month name
-#: js/messages.php:471 libraries/Util.class.php:1609
+#: js/messages.php:472 libraries/Util.class.php:1609
 msgid "Aug"
 msgstr "අගෝස්තු"
 
 #. l10n: Short month name
-#: js/messages.php:473 libraries/Util.class.php:1611
+#: js/messages.php:474 libraries/Util.class.php:1611
 msgid "Sep"
 msgstr "සැප්තැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:475 libraries/Util.class.php:1613
+#: js/messages.php:476 libraries/Util.class.php:1613
 msgid "Oct"
 msgstr "ඔක්තෝම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:477 libraries/Util.class.php:1615
+#: js/messages.php:478 libraries/Util.class.php:1615
 msgid "Nov"
 msgstr "නොවැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:479 libraries/Util.class.php:1617
+#: js/messages.php:480 libraries/Util.class.php:1617
 msgid "Dec"
 msgstr "දෙසැම්බර්"
 
-#: js/messages.php:485
+#: js/messages.php:486
 msgid "Sunday"
 msgstr "ඉරිදා"
 
-#: js/messages.php:486
+#: js/messages.php:487
 msgid "Monday"
 msgstr "සඳුදා"
 
-#: js/messages.php:487
+#: js/messages.php:488
 msgid "Tuesday"
 msgstr "අඟහරු‍වදා"
 
-#: js/messages.php:488
+#: js/messages.php:489
 msgid "Wednesday"
 msgstr "බදාදා"
 
-#: js/messages.php:489
+#: js/messages.php:490
 msgid "Thursday"
 msgstr "බ්‍රහස්පතින්දා"
 
-#: js/messages.php:490
+#: js/messages.php:491
 msgid "Friday"
 msgstr "සිකුරාදා"
 
-#: js/messages.php:491
+#: js/messages.php:492
 msgid "Saturday"
 msgstr "සෙනසුරාදා"
 
 #. l10n: Short week day name
-#: js/messages.php:498
+#: js/messages.php:499
 msgid "Sun"
 msgstr "ඉරිදා"
 
 #. l10n: Short week day name
-#: js/messages.php:500 libraries/Util.class.php:1622
+#: js/messages.php:501 libraries/Util.class.php:1622
 msgid "Mon"
 msgstr "සඳුදා"
 
 #. l10n: Short week day name
-#: js/messages.php:502 libraries/Util.class.php:1624
+#: js/messages.php:503 libraries/Util.class.php:1624
 msgid "Tue"
 msgstr "අඟහ"
 
 #. l10n: Short week day name
-#: js/messages.php:504 libraries/Util.class.php:1626
+#: js/messages.php:505 libraries/Util.class.php:1626
 msgid "Wed"
 msgstr "බදාදා"
 
 #. l10n: Short week day name
-#: js/messages.php:506 libraries/Util.class.php:1628
+#: js/messages.php:507 libraries/Util.class.php:1628
 msgid "Thu"
 msgstr "බ්‍රහස්"
 
 #. l10n: Short week day name
-#: js/messages.php:508 libraries/Util.class.php:1630
+#: js/messages.php:509 libraries/Util.class.php:1630
 msgid "Fri"
 msgstr "සිකුරා"
 
 #. l10n: Short week day name
-#: js/messages.php:510 libraries/Util.class.php:1632
+#: js/messages.php:511 libraries/Util.class.php:1632
 msgid "Sat"
 msgstr "සෙනසු"
 
 #. l10n: Minimal week day name
-#: js/messages.php:517
+#: js/messages.php:518
 msgid "Su"
 msgstr "ඉරි"
 
 #. l10n: Minimal week day name
-#: js/messages.php:519
+#: js/messages.php:520
 msgid "Mo"
 msgstr "සඳු"
 
 #. l10n: Minimal week day name
-#: js/messages.php:521
+#: js/messages.php:522
 msgid "Tu"
 msgstr "අඟ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:523
+#: js/messages.php:524
 msgid "We"
 msgstr "බදා"
 
 #. l10n: Minimal week day name
-#: js/messages.php:525
+#: js/messages.php:526
 msgid "Th"
 msgstr "බ්‍රහ"
 
 #. l10n: Minimal week day name
-#: js/messages.php:527
+#: js/messages.php:528
 msgid "Fr"
 msgstr "සිකු"
 
 #. l10n: Minimal week day name
-#: js/messages.php:529
+#: js/messages.php:530
 msgid "Sa"
 msgstr "සෙන"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:533
+#: js/messages.php:534
 msgid "Wk"
 msgstr "සති"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:540
+#: js/messages.php:541
 msgid "calendar-month-year"
 msgstr "දින දර්ශන-මාස-වසර"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:543
+#: js/messages.php:544
 msgctxt "Year suffix"
 msgid "none"
 msgstr "කිසිවක් නැත"
 
-#: js/messages.php:555
+#: js/messages.php:556
 msgid "Hour"
 msgstr "පැය"
 
-#: js/messages.php:556
+#: js/messages.php:557
 msgid "Minute"
 msgstr "මිනිත්තු"
 
-#: js/messages.php:557
+#: js/messages.php:558
 msgid "Second"
 msgstr "තත්පර"
 
@@ -3526,7 +3528,7 @@ msgstr ""
 "අෂ්ට බයිට නිඛිලයකි, සලකුණ සහිත පරාසය -9,223,372,036,854,775,808 සිට "
 "9,223,372,036,854,775,807, සලකුණ රහිත පරාසය 0 සිට 18,446,744,073,709,551,615"
 
-#: libraries/Types.class.php:330 libraries/Types.class.php:779
+#: libraries/Types.class.php:330 libraries/Types.class.php:780
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -3580,12 +3582,12 @@ msgstr ""
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE සඳහා අන්වර්ථ නාමයකි"
 
-#: libraries/Types.class.php:344 libraries/Types.class.php:789
+#: libraries/Types.class.php:344 libraries/Types.class.php:790
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "දිනයකි, සහයැති පරාසය %1$s සිට %2$s"
 
-#: libraries/Types.class.php:346 libraries/Types.class.php:791
+#: libraries/Types.class.php:346 libraries/Types.class.php:792
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "දිනය සහ වේලාවේ සංයුක්තයකි, සහයැති පරාසය %1$s සිට %2$s"
@@ -3598,7 +3600,7 @@ msgstr ""
 "කාල මුද්‍රාවකි, පරාසය 1970-01-01 00:00:01 UTC සිට 2038-01-09 03:14:07 UTC, "
 "කාලරම්භයේ (1970-01-01 00:00:00 UTC) සිට ගත වූ තත්පර ගණන ලෙස ගබඩා කර ඇත"
 
-#: libraries/Types.class.php:350 libraries/Types.class.php:795
+#: libraries/Types.class.php:350 libraries/Types.class.php:796
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "වේලාවකි, පරාසය %1$s සිට %2$s"
@@ -3619,7 +3621,7 @@ msgstr ""
 "ස්ථිර-දිගැති පෙළකි (0-255, පෙරනිමි 1), සෑම විටම නියමිත දිග ලැබෙන තුරු දකුණු පසින් හිස් අවකාශ එක් "
 "කෙරේ"
 
-#: libraries/Types.class.php:356 libraries/Types.class.php:797
+#: libraries/Types.class.php:356 libraries/Types.class.php:798
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -3634,7 +3636,7 @@ msgstr ""
 "සලකුණු 255 (2^8 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන එක් බයිටයක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:360 libraries/Types.class.php:799
+#: libraries/Types.class.php:360 libraries/Types.class.php:800
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -3687,7 +3689,7 @@ msgstr ""
 "බයිට 16,777,215 (2^24 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග "
 "සඳහන් කෙරෙන බයිට තුනක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:374 libraries/Types.class.php:803
+#: libraries/Types.class.php:374 libraries/Types.class.php:804
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -3747,54 +3749,54 @@ msgstr "බහු අස්‍ර එකතුවකි"
 msgid "A collection of geometry objects of any type"
 msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතීන් එකතුවකි"
 
-#: libraries/Types.class.php:649 libraries/Types.class.php:1041
+#: libraries/Types.class.php:650 libraries/Types.class.php:1042
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "සංඛ්‍යාත්මක"
 
-#: libraries/Types.class.php:668 libraries/Types.class.php:1044
+#: libraries/Types.class.php:669 libraries/Types.class.php:1045
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "දිනය සහ වේලාව"
 
-#: libraries/Types.class.php:677 libraries/Types.class.php:1047
+#: libraries/Types.class.php:678 libraries/Types.class.php:1048
 msgctxt "string types"
 msgid "String"
 msgstr "පෙළ"
 
-#: libraries/Types.class.php:698
+#: libraries/Types.class.php:699
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "අවකාශීය"
 
-#: libraries/Types.class.php:775
+#: libraries/Types.class.php:776
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
 msgstr "සිවු බයිට නිඛිලයකි, පරාසය -2,147,483,648 සිට 2,147,483,647"
 
-#: libraries/Types.class.php:777
+#: libraries/Types.class.php:778
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
 "අෂ්ට බයිට නිඛිලයකි, පරාසය -9,223,372,036,854,775,808 සිට 9,223,372,036,854,775,807"
 
-#: libraries/Types.class.php:781
+#: libraries/Types.class.php:782
 msgid "A system's default double-precision floating-point number"
 msgstr "පද්ධතියේ පෙරනිමි ද්වී-නියත දශම සංඛ්‍යාවකි"
 
-#: libraries/Types.class.php:783
+#: libraries/Types.class.php:784
 msgid "True or false"
 msgstr "සත්‍ය හෝ අසත්‍ය"
 
-#: libraries/Types.class.php:785
+#: libraries/Types.class.php:786
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT NOT NULL AUTO_INCREMENT UNIQUE සඳහා අන්වර්ථ නාමයකි"
 
-#: libraries/Types.class.php:787
+#: libraries/Types.class.php:788
 msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr "විශ්වීය අනන්‍ය හැඳුනුමක් (UUID) ගබඩා කරයි"
 
-#: libraries/Types.class.php:793
+#: libraries/Types.class.php:794
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
@@ -3802,13 +3804,13 @@ msgstr ""
 "කාල මුද්‍රාවකි, පරාසය '0001-01-01 00:00:00' UTC සිට '9999-12-31 23:59:59' UTC; "
 "TIMESTAMP(6) හට මයික්‍රෝ තත්පර ගබඩා කල හැක"
 
-#: libraries/Types.class.php:801
+#: libraries/Types.class.php:802
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr "විචල්‍ය දිගක් (0-65,535) සහිත, සැසඳීම සඳහා ද්වීමය පරිතුලනය භාවිතා කරන පෙළකි"
 
-#: libraries/Types.class.php:805
+#: libraries/Types.class.php:806
 msgid "An enumeration, chosen from the list of defined values"
 msgstr "අර්ථදක්වන ලද අගයන් අඩංගු ලැයිස්තුවකින් තෝරාගන්නා අගයකි"
 
@@ -14318,6 +14320,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#, fuzzy
+#~| msgid "Copy"
+#~ msgid "Copy Salt"
+#~ msgstr "පිටපත් කරන්න"
 
 #~ msgid ""
 #~ "<b>One or more errors have occurred while processing your request:</b>"

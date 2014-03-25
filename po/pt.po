@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 13:43+0100\n"
+"POT-Creation-Date: 2014-03-25 14:00+0100\n"
 "PO-Revision-Date: 2014-03-21 19:11+0200\n"
 "Last-Translator: Diogo Santos <djsantost@gmail.com>\n"
 "Language-Team: Portuguese <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -1404,7 +1404,7 @@ msgstr "Em análise…"
 msgid "Explain output"
 msgstr "Explicar SQL"
 
-#: js/messages.php:176 js/messages.php:554
+#: js/messages.php:176 js/messages.php:555
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1773,7 +1773,7 @@ msgstr "Seleccione duas colunas diferentes"
 msgid "Data point content"
 msgstr "Conteúdo do ponto de dados"
 
-#: js/messages.php:307 js/messages.php:400 libraries/insert_edit.lib.php:2605
+#: js/messages.php:307 js/messages.php:401 libraries/insert_edit.lib.php:2605
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "Ignora"
@@ -1811,28 +1811,30 @@ msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
 
 #: js/messages.php:322
-#, fuzzy
-#| msgid "Copy"
-msgid "Copy Salt"
-msgstr "Copiar"
+msgid "Do you want to copy encryption key?"
+msgstr ""
 
-#: js/messages.php:325
+#: js/messages.php:323
+msgid "Encryption key"
+msgstr ""
+
+#: js/messages.php:326
 msgid "Select referenced key"
 msgstr "Seleccione chave de referencia"
 
-#: js/messages.php:326
+#: js/messages.php:327
 msgid "Select Foreign Key"
 msgstr "Seleccione Foreign Key"
 
-#: js/messages.php:327
+#: js/messages.php:328
 msgid "Please select the primary key or a unique key!"
 msgstr "Seleccione a chave primária ou uma chave única!"
 
-#: js/messages.php:328 pmd_general.php:101
+#: js/messages.php:329 pmd_general.php:101
 msgid "Choose column to display"
 msgstr "Escolha a coluna para mostrar"
 
-#: js/messages.php:330
+#: js/messages.php:331
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -1840,25 +1842,25 @@ msgstr ""
 "Não salvou as mudanças no layout. Estas serão perdidas se não as guardar. "
 "Deseja continuar?"
 
-#: js/messages.php:335
+#: js/messages.php:336
 #, fuzzy, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
 msgstr "Adicionar uma opção para a coluna "
 
-#: js/messages.php:336
+#: js/messages.php:337
 #, fuzzy, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
 msgstr "%d objecto(s) criado(s)"
 
-#: js/messages.php:339
+#: js/messages.php:340
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
 msgstr "Carregue em ESC para cancelar a edição"
 
-#: js/messages.php:340
+#: js/messages.php:341
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -1866,48 +1868,48 @@ msgstr ""
 "Editou alguns dados e estes não foram salvos. Tem certeza que quer sair "
 "desta página antes de salvar os seus dados?"
 
-#: js/messages.php:341
+#: js/messages.php:342
 #, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "Arraste para re-ordenar"
 
-#: js/messages.php:342
+#: js/messages.php:343
 #, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
 msgstr "Clique para organizar"
 
-#: js/messages.php:343
+#: js/messages.php:344
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
-#: js/messages.php:344
+#: js/messages.php:345
 #, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "Clique para marcar/desmarcar"
 
-#: js/messages.php:345
+#: js/messages.php:346
 #, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
 msgstr "Duplo-clique para copiar o nome da coluna"
 
-#: js/messages.php:347
+#: js/messages.php:348
 #, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Clique na seta<br />para alternar a visibilidade da coluna"
 
-#: js/messages.php:349 libraries/DisplayResults.class.php:852
+#: js/messages.php:350 libraries/DisplayResults.class.php:852
 #: libraries/browse_foreigners.lib.php:371
 #: libraries/browse_foreigners.lib.php:424
 #: libraries/server_privileges.lib.php:3224
 msgid "Show all"
 msgstr "Mostrar tudo"
 
-#: js/messages.php:350
+#: js/messages.php:351
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -1916,76 +1918,76 @@ msgstr ""
 "edição da tabela, checkbox, Editar, Copiar e Eliminar links podem não "
 "funcionar depois de guardar."
 
-#: js/messages.php:355
+#: js/messages.php:356
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 "Também pode editar a maioria dos valores<br />com um duplo clique no valor a "
 "alterar."
 
-#: js/messages.php:358
+#: js/messages.php:359
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 "Pode editar a maioria dos valores<br />com um duplo clique no valor a editar."
 
-#: js/messages.php:363
+#: js/messages.php:364
 #, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
 msgstr "Ir para a hiperligação"
 
-#: js/messages.php:364
+#: js/messages.php:365
 #, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
 msgstr "Copiar nome da coluna"
 
-#: js/messages.php:365
+#: js/messages.php:366
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Clique com o botão direito do rato para copiar para a área de transferência."
 
-#: js/messages.php:366
+#: js/messages.php:367
 #, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
 msgstr "Mostrar registo(s)"
 
-#: js/messages.php:369
+#: js/messages.php:370
 msgid "Generate password"
 msgstr "Gerar palavra-passe"
 
-#: js/messages.php:370 libraries/replication_gui.lib.php:869
+#: js/messages.php:371 libraries/replication_gui.lib.php:869
 msgid "Generate"
 msgstr "Gerar"
 
-#: js/messages.php:371
+#: js/messages.php:372
 msgid "Change Password"
 msgstr "Alterar a palavra-passe"
 
-#: js/messages.php:374
+#: js/messages.php:375
 msgid "More"
 msgstr "Mais"
 
-#: js/messages.php:377
+#: js/messages.php:378
 msgid "Show Panel"
 msgstr "Ver Painel"
 
-#: js/messages.php:378
+#: js/messages.php:379
 msgid "Hide Panel"
 msgstr "Esconder Painel"
 
-#: js/messages.php:379
+#: js/messages.php:380
 #, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
 msgstr "Mostrar a navegação em árvore escondida"
 
-#: js/messages.php:382
+#: js/messages.php:383
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "A página requisitada não foi encontrada no histórico, pode ter expirado."
 
-#: js/messages.php:385 setup/lib/index.lib.php:157
+#: js/messages.php:386 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -1995,43 +1997,43 @@ msgstr ""
 "actualização. A nova versão é %s, e foi lançada em %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:387
+#: js/messages.php:388
 msgid ", latest stable version:"
 msgstr ", última versão estável:"
 
-#: js/messages.php:388
+#: js/messages.php:389
 msgid "up to date"
 msgstr "até à data"
 
-#: js/messages.php:390 libraries/DisplayResults.class.php:5293
+#: js/messages.php:391 libraries/DisplayResults.class.php:5293
 #: view_create.php:178
 msgid "Create view"
 msgstr "Criar visualização"
 
-#: js/messages.php:393
+#: js/messages.php:394
 msgid "Send Error Report"
 msgstr "Enviar relatório de erro"
 
-#: js/messages.php:394
+#: js/messages.php:395
 msgid "Submit Error Report"
 msgstr "Enviar relatório de erro"
 
-#: js/messages.php:396
+#: js/messages.php:397
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Ocorreu um erro fatal de JavaScript. Pretende enviar um relatório de erro?"
 
-#: js/messages.php:398
+#: js/messages.php:399
 msgid "Change Report Settings"
 msgstr "Alterar as definições dos relatórios"
 
-#: js/messages.php:399
+#: js/messages.php:400
 msgid "Show Report Details"
 msgstr "Ver os detalhes do relatório"
 
-#: js/messages.php:402
+#: js/messages.php:403
 #, fuzzy
 #| msgid ""
 #| "Your export is incomplete, due to a low execution time limit at the PHP "
@@ -2044,259 +2046,259 @@ msgstr ""
 "do PHP"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:423
+#: js/messages.php:424
 msgid "Done"
 msgstr "Concluído"
 
-#: js/messages.php:427
+#: js/messages.php:428
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Ant"
 
-#: js/messages.php:432
+#: js/messages.php:433
 msgctxt "Next month"
 msgid "Next"
 msgstr "Próx"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "Today"
 msgstr "Hoje"
 
-#: js/messages.php:439
+#: js/messages.php:440
 msgid "January"
 msgstr "Janeiro"
 
-#: js/messages.php:440
+#: js/messages.php:441
 msgid "February"
 msgstr "Fevereiro"
 
-#: js/messages.php:441
+#: js/messages.php:442
 msgid "March"
 msgstr "Março"
 
-#: js/messages.php:442
+#: js/messages.php:443
 msgid "April"
 msgstr "Abril"
 
-#: js/messages.php:443
+#: js/messages.php:444
 msgid "May"
 msgstr "Mai"
 
-#: js/messages.php:444
+#: js/messages.php:445
 msgid "June"
 msgstr "Junho"
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "July"
 msgstr "Julho"
 
-#: js/messages.php:446
+#: js/messages.php:447
 msgid "August"
 msgstr "Agosto"
 
-#: js/messages.php:447
+#: js/messages.php:448
 msgid "September"
 msgstr "Setembro"
 
-#: js/messages.php:448
+#: js/messages.php:449
 msgid "October"
 msgstr "Outubro"
 
-#: js/messages.php:449
+#: js/messages.php:450
 msgid "November"
 msgstr "Novembro"
 
-#: js/messages.php:450
+#: js/messages.php:451
 msgid "December"
 msgstr "Dezembro"
 
 #. l10n: Short month name
-#: js/messages.php:457 libraries/Util.class.php:1595
+#: js/messages.php:458 libraries/Util.class.php:1595
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:459 libraries/Util.class.php:1597
+#: js/messages.php:460 libraries/Util.class.php:1597
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:461 libraries/Util.class.php:1599
+#: js/messages.php:462 libraries/Util.class.php:1599
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:463 libraries/Util.class.php:1601
+#: js/messages.php:464 libraries/Util.class.php:1601
 msgid "Apr"
 msgstr "Abr"
 
 #. l10n: Short month name
-#: js/messages.php:465 libraries/Util.class.php:1603
+#: js/messages.php:466 libraries/Util.class.php:1603
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maio"
 
 #. l10n: Short month name
-#: js/messages.php:467 libraries/Util.class.php:1605
+#: js/messages.php:468 libraries/Util.class.php:1605
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:469 libraries/Util.class.php:1607
+#: js/messages.php:470 libraries/Util.class.php:1607
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:471 libraries/Util.class.php:1609
+#: js/messages.php:472 libraries/Util.class.php:1609
 msgid "Aug"
 msgstr "Ago"
 
 #. l10n: Short month name
-#: js/messages.php:473 libraries/Util.class.php:1611
+#: js/messages.php:474 libraries/Util.class.php:1611
 msgid "Sep"
 msgstr "Set"
 
 #. l10n: Short month name
-#: js/messages.php:475 libraries/Util.class.php:1613
+#: js/messages.php:476 libraries/Util.class.php:1613
 msgid "Oct"
 msgstr "Out"
 
 #. l10n: Short month name
-#: js/messages.php:477 libraries/Util.class.php:1615
+#: js/messages.php:478 libraries/Util.class.php:1615
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:479 libraries/Util.class.php:1617
+#: js/messages.php:480 libraries/Util.class.php:1617
 msgid "Dec"
 msgstr "Dez"
 
-#: js/messages.php:485
+#: js/messages.php:486
 msgid "Sunday"
 msgstr "Domingo"
 
-#: js/messages.php:486
+#: js/messages.php:487
 msgid "Monday"
 msgstr "Segunda"
 
-#: js/messages.php:487
+#: js/messages.php:488
 msgid "Tuesday"
 msgstr "Terça"
 
-#: js/messages.php:488
+#: js/messages.php:489
 msgid "Wednesday"
 msgstr "Quarta"
 
-#: js/messages.php:489
+#: js/messages.php:490
 msgid "Thursday"
 msgstr "Quinta"
 
-#: js/messages.php:490
+#: js/messages.php:491
 msgid "Friday"
 msgstr "Sexta"
 
-#: js/messages.php:491
+#: js/messages.php:492
 msgid "Saturday"
 msgstr "Sábado"
 
 #. l10n: Short week day name
-#: js/messages.php:498
+#: js/messages.php:499
 msgid "Sun"
 msgstr "Domingo"
 
 #. l10n: Short week day name
-#: js/messages.php:500 libraries/Util.class.php:1622
+#: js/messages.php:501 libraries/Util.class.php:1622
 msgid "Mon"
 msgstr "Seg"
 
 #. l10n: Short week day name
-#: js/messages.php:502 libraries/Util.class.php:1624
+#: js/messages.php:503 libraries/Util.class.php:1624
 msgid "Tue"
 msgstr "Ter"
 
 #. l10n: Short week day name
-#: js/messages.php:504 libraries/Util.class.php:1626
+#: js/messages.php:505 libraries/Util.class.php:1626
 msgid "Wed"
 msgstr "Qua"
 
 #. l10n: Short week day name
-#: js/messages.php:506 libraries/Util.class.php:1628
+#: js/messages.php:507 libraries/Util.class.php:1628
 msgid "Thu"
 msgstr "Qui"
 
 #. l10n: Short week day name
-#: js/messages.php:508 libraries/Util.class.php:1630
+#: js/messages.php:509 libraries/Util.class.php:1630
 msgid "Fri"
 msgstr "Sex"
 
 #. l10n: Short week day name
-#: js/messages.php:510 libraries/Util.class.php:1632
+#: js/messages.php:511 libraries/Util.class.php:1632
 msgid "Sat"
 msgstr "Sab"
 
 #. l10n: Minimal week day name
-#: js/messages.php:517
+#: js/messages.php:518
 msgid "Su"
 msgstr "Dom"
 
 #. l10n: Minimal week day name
-#: js/messages.php:519
+#: js/messages.php:520
 msgid "Mo"
 msgstr "Seg"
 
 #. l10n: Minimal week day name
-#: js/messages.php:521
+#: js/messages.php:522
 msgid "Tu"
 msgstr "Ter"
 
 #. l10n: Minimal week day name
-#: js/messages.php:523
+#: js/messages.php:524
 msgid "We"
 msgstr "Qua"
 
 #. l10n: Minimal week day name
-#: js/messages.php:525
+#: js/messages.php:526
 msgid "Th"
 msgstr "Qui"
 
 #. l10n: Minimal week day name
-#: js/messages.php:527
+#: js/messages.php:528
 msgid "Fr"
 msgstr "Sex"
 
 #. l10n: Minimal week day name
-#: js/messages.php:529
+#: js/messages.php:530
 msgid "Sa"
 msgstr "Sáb"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:533
+#: js/messages.php:534
 msgid "Wk"
 msgstr "Sem"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:540
+#: js/messages.php:541
 msgid "calendar-month-year"
 msgstr "Calendário-mês-ano"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:543
+#: js/messages.php:544
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Nenhum"
 
-#: js/messages.php:555
+#: js/messages.php:556
 msgid "Hour"
 msgstr "Hora"
 
-#: js/messages.php:556
+#: js/messages.php:557
 msgid "Minute"
 msgstr "Minuto"
 
-#: js/messages.php:557
+#: js/messages.php:558
 msgid "Second"
 msgstr "Segundo"
 
@@ -3617,7 +3619,7 @@ msgstr ""
 "9,223,372,036,854,775,807, a gama não atribuída é de 0 a "
 "18,446,744,073,709,551,615"
 
-#: libraries/Types.class.php:330 libraries/Types.class.php:779
+#: libraries/Types.class.php:330 libraries/Types.class.php:780
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -3671,12 +3673,12 @@ msgstr ""
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Um alias para BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: libraries/Types.class.php:344 libraries/Types.class.php:789
+#: libraries/Types.class.php:344 libraries/Types.class.php:790
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Uma data, intervalo suportado é %1$s até %2$s"
 
-#: libraries/Types.class.php:346 libraries/Types.class.php:791
+#: libraries/Types.class.php:346 libraries/Types.class.php:792
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Uma combinação de data e hora, o intervalo suportado é %1$s até %2$s"
@@ -3690,7 +3692,7 @@ msgstr ""
 "2038-01-09 03:14:07 UTC, guardado como um número de segundos desde a época "
 "(1970-01-01 00:00:00 UTC)"
 
-#: libraries/Types.class.php:350 libraries/Types.class.php:795
+#: libraries/Types.class.php:350 libraries/Types.class.php:796
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Uma hora, intervalo é %1$s até %2$s"
@@ -3711,7 +3713,7 @@ msgstr ""
 "Uma string de comprimento fixo (0-255, padrão 1) que é sempre preenchida à "
 "direita com espaços até o tamanho especificado quando guardada"
 
-#: libraries/Types.class.php:356 libraries/Types.class.php:797
+#: libraries/Types.class.php:356 libraries/Types.class.php:798
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -3728,7 +3730,7 @@ msgstr ""
 "Uma coluna de texto com um comprimento máximo de 255 (2^8 - 1) caracteres, "
 "guardados com um prefixo de um byte indicando o comprimento do valor em bytes"
 
-#: libraries/Types.class.php:360 libraries/Types.class.php:799
+#: libraries/Types.class.php:360 libraries/Types.class.php:800
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -3789,7 +3791,7 @@ msgstr ""
 "bytes, armazenada com um prefixo de três bytes que indica o comprimento do "
 "valor"
 
-#: libraries/Types.class.php:374 libraries/Types.class.php:803
+#: libraries/Types.class.php:374 libraries/Types.class.php:804
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -3850,33 +3852,33 @@ msgstr "Uma coleção de polígonos"
 msgid "A collection of geometry objects of any type"
 msgstr "Uma coleção de objetos geométricos de qualquer tipo"
 
-#: libraries/Types.class.php:649 libraries/Types.class.php:1041
+#: libraries/Types.class.php:650 libraries/Types.class.php:1042
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numérico"
 
-#: libraries/Types.class.php:668 libraries/Types.class.php:1044
+#: libraries/Types.class.php:669 libraries/Types.class.php:1045
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Data e hora"
 
-#: libraries/Types.class.php:677 libraries/Types.class.php:1047
+#: libraries/Types.class.php:678 libraries/Types.class.php:1048
 msgctxt "string types"
 msgid "String"
 msgstr "Segmento"
 
-#: libraries/Types.class.php:698
+#: libraries/Types.class.php:699
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Espacial"
 
-#: libraries/Types.class.php:775
+#: libraries/Types.class.php:776
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
 msgstr ""
 "O intervalo de um número inteiro de 4-byte é entre -2,147,483,648 e "
 "2,147,483,647"
 
-#: libraries/Types.class.php:777
+#: libraries/Types.class.php:778
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
@@ -3884,23 +3886,23 @@ msgstr ""
 "O intervalo de um número inteiro de 8-byte é entre "
 "-9,223,372,036,854,775,808 e 9,223,372,036,854,775,807"
 
-#: libraries/Types.class.php:781
+#: libraries/Types.class.php:782
 msgid "A system's default double-precision floating-point number"
 msgstr "Número de dupla precisão padrão de um sistema de ponto flutuante"
 
-#: libraries/Types.class.php:783
+#: libraries/Types.class.php:784
 msgid "True or false"
 msgstr "Verdadeiro ou falso"
 
-#: libraries/Types.class.php:785
+#: libraries/Types.class.php:786
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Um alias para BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: libraries/Types.class.php:787
+#: libraries/Types.class.php:788
 msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr "Guarda um Identificador Universal Único (UUID)"
 
-#: libraries/Types.class.php:793
+#: libraries/Types.class.php:794
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
@@ -3908,7 +3910,7 @@ msgstr ""
 "O intervalo de timestamp é '0001-01-01 00:00:00' UTC e '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) e pode armazenar microssegundos"
 
-#: libraries/Types.class.php:801
+#: libraries/Types.class.php:802
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
@@ -3916,7 +3918,7 @@ msgstr ""
 "A string de comprimento variável (0-65,535), usa o agrupamento binário para "
 "todas as comparações"
 
-#: libraries/Types.class.php:805
+#: libraries/Types.class.php:806
 msgid "An enumeration, chosen from the list of defined values"
 msgstr "Uma enumeração, escolhida a partir da lista de valores definidos"
 
@@ -15034,6 +15036,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert é definido como 0"
+
+#, fuzzy
+#~| msgid "Copy"
+#~ msgid "Copy Salt"
+#~ msgstr "Copiar"
 
 #, fuzzy
 #~| msgid ""
