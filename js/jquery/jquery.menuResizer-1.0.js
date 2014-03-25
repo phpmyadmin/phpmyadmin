@@ -52,7 +52,7 @@
                 }
             });
 
-        $float_element="<div class='clearfloat'></div>";        
+        $float_element = "<div class='clearfloat'></div>";        
         $container.children('.clearfloat').detach();       
         $container.append($submenu);
         $container.append($float_element);
