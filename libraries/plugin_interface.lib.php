@@ -58,8 +58,8 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
             // (for example ._csv.php) so the following regexp
             // matches a file which does not start with a dot but ends
             // with ".php"
-            $class_type = strtoupper($plugin_type[0])
-                . strtolower(substr($plugin_type, 1));
+            $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
+                . mb_strtolower(substr($plugin_type, 1), 'UTF-8');
             if (is_file($plugins_dir . $file)
                 && preg_match(
                     '@^' . $class_type . '(.+)\.class\.php$@i',
