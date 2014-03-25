@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-25 13:43+0100\n"
-"PO-Revision-Date: 2014-03-25 08:43+0200\n"
+"PO-Revision-Date: 2014-03-25 13:49+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1845,11 +1845,10 @@ msgid "Click to sort."
 msgstr "Sıralamak için tıklayın."
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Hold shift and click to remove column from order by clause."
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
-"Sütunu maddeye göre sıradan kaldırmak için shift tuşuna basılı tutun ve "
+"Sütunu ORDER BY ibaresinden kaldırmak için shift tuşuna basılı tutun ve "
 "tıklayın."
 
 #: js/messages.php:344
@@ -10115,10 +10114,9 @@ msgid "File doesn't exist"
 msgstr "Dosya mevcut değil"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL Onaylayıcı etkisizleştirildi"
+msgstr "Eklenti etkisizleştirildi"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
