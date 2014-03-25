@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-24 13:03-0400\n"
+"POT-Creation-Date: 2014-03-25 13:43+0100\n"
 "PO-Revision-Date: 2014-03-25 02:21+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
-"\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
+">\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +33,7 @@ msgstr "Δημιουργήθηκε η βάση δεδομένων %1$s."
 msgid "Database comment:"
 msgstr "Σχόλιο βάσης:"
 
-#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1314
+#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
 msgid "Table comments:"
@@ -51,8 +51,8 @@ msgstr "Σχόλια πίνακα:"
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/schema/Pdf_Relation_Schema.class.php:1340
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
+#: libraries/schema/Pdf_Relation_Schema.class.php:1355
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
@@ -75,8 +75,8 @@ msgstr "Στήλη"
 #: libraries/rte/rte_routines.lib.php:954
 #: libraries/rte/rte_routines.lib.php:983
 #: libraries/rte/rte_routines.lib.php:1604
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
+#: libraries/schema/Pdf_Relation_Schema.class.php:1356
+#: libraries/schema/Pdf_Relation_Schema.class.php:1379
 #: libraries/server_privileges.lib.php:1843
 #: libraries/server_privileges.lib.php:1950 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1196
@@ -95,8 +95,8 @@ msgstr "Τύπος"
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:273
 #: libraries/plugins/export/ExportTexytext.class.php:373
-#: libraries/schema/Pdf_Relation_Schema.class.php:1343
-#: libraries/schema/Pdf_Relation_Schema.class.php:1366
+#: libraries/schema/Pdf_Relation_Schema.class.php:1358
+#: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/structure.lib.php:1199
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:812
@@ -111,8 +111,8 @@ msgstr "Κενό"
 #: libraries/plugins/export/ExportOdt.class.php:467
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1344
-#: libraries/schema/Pdf_Relation_Schema.class.php:1367
+#: libraries/schema/Pdf_Relation_Schema.class.php:1359
+#: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1200
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
@@ -123,8 +123,8 @@ msgstr "Προεπιλογή"
 #: libraries/plugins/export/ExportLatex.class.php:515
 #: libraries/plugins/export/ExportOdt.class.php:471
 #: libraries/plugins/export/ExportTexytext.class.php:376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1346
-#: libraries/schema/Pdf_Relation_Schema.class.php:1369
+#: libraries/schema/Pdf_Relation_Schema.class.php:1361
+#: libraries/schema/Pdf_Relation_Schema.class.php:1384
 #: libraries/tbl_printview.lib.php:477
 msgid "Links to"
 msgstr "Σύνδεση με"
@@ -136,8 +136,8 @@ msgstr "Σύνδεση με"
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
 #: libraries/plugins/export/ExportTexytext.class.php:379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#: libraries/schema/Pdf_Relation_Schema.class.php:1370
+#: libraries/schema/Pdf_Relation_Schema.class.php:1372
+#: libraries/schema/Pdf_Relation_Schema.class.php:1385
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
@@ -151,7 +151,7 @@ msgstr "Σχόλια"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1396
+#: libraries/schema/Pdf_Relation_Schema.class.php:1411
 #: libraries/server_privileges.lib.php:2180
 #: libraries/server_privileges.lib.php:2377
 #: libraries/server_privileges.lib.php:2398
@@ -177,7 +177,7 @@ msgstr "Όχι"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1412
 #: libraries/server_databases.lib.php:472
 #: libraries/server_databases.lib.php:482
 #: libraries/server_privileges.lib.php:2180
@@ -269,17 +269,17 @@ msgid "in use"
 msgstr "σε χρήση"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
-#: libraries/schema/Pdf_Relation_Schema.class.php:1319
+#: libraries/schema/Pdf_Relation_Schema.class.php:1334
 msgid "Creation:"
 msgstr "Δημιουργία:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
-#: libraries/schema/Pdf_Relation_Schema.class.php:1324
+#: libraries/schema/Pdf_Relation_Schema.class.php:1339
 msgid "Last update:"
 msgstr "Τελευταία ενημέρωση:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1109
-#: libraries/schema/Pdf_Relation_Schema.class.php:1329
+#: libraries/schema/Pdf_Relation_Schema.class.php:1344
 msgid "Last check:"
 msgstr "Tελευταίος έλεγχος:"
 
@@ -558,8 +558,8 @@ msgstr "Προσθήκη γεωμετρίας"
 #: libraries/rte/rte_triggers.lib.php:426
 #: libraries/schema/User_Schema.class.php:170
 #: libraries/schema/User_Schema.class.php:233
-#: libraries/schema/User_Schema.class.php:495
-#: libraries/schema/User_Schema.class.php:546
+#: libraries/schema/User_Schema.class.php:502
+#: libraries/schema/User_Schema.class.php:553
 #: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:688
 #: libraries/server_privileges.lib.php:1750
 #: libraries/server_privileges.lib.php:2513
@@ -584,17 +584,17 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Επιλέξτε το «GeomFromText» από τη στήλη «Function» και επικολλήστε το παρακάτω "
-"κείμενο στο πεδίο «Value»."
+"Επιλέξτε το «GeomFromText» από τη στήλη «Function» και επικολλήστε το "
+"παρακάτω κείμενο στο πεδίο «Value»."
 
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -891,8 +891,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε %"
-"sεδώ%s."
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε "
+"%sεδώ%s."
 
 #: index.php:556
 #, php-format
@@ -1798,10 +1798,10 @@ msgstr "Εξωτερικός δακτύλιος"
 
 #: js/messages.php:320
 msgid "Shift + Click on function name to apply to all rows."
-msgstr "Shift + Κλικ στο όνομα της συνάρτησης για εφαρμογή σε όλες τις γραμμές."
+msgstr ""
+"Shift + Κλικ στο όνομα της συνάρτησης για εφαρμογή σε όλες τις γραμμές."
 
 #: js/messages.php:322
-#| msgid "Copy"
 msgid "Copy Salt"
 msgstr "Αντιγραφή Αλατιού"
 
@@ -1860,7 +1860,9 @@ msgid "Click to sort."
 msgstr "Πατήστε για ταξινόμηση."
 
 #: js/messages.php:343
-msgid "Hold shift and click to remove column from order by clause."
+#, fuzzy
+#| msgid "Hold shift and click to remove column from order by clause."
+msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 "Κρατήστε το shift και πατήστε για απομάκρυνση της στήλης από την ταξινόμηση "
 "κατά clause."
@@ -2310,8 +2312,8 @@ msgstr "Μη έγκυρη χαρακτήρες στη γραμμή %s."
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε «%2"
-"$s»."
+"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε "
+"«%2$s»."
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2624,7 +2626,7 @@ msgstr "Ταξινόμηση ανά κλειδί"
 #: libraries/plugins/export/ExportMediawiki.class.php:52
 #: libraries/plugins/export/ExportOds.class.php:57
 #: libraries/plugins/export/ExportOdt.class.php:66
-#: libraries/plugins/export/ExportPdf.class.php:82
+#: libraries/plugins/export/ExportPdf.class.php:90
 #: libraries/plugins/export/ExportPhparray.class.php:49
 #: libraries/plugins/export/ExportSql.class.php:72
 #: libraries/plugins/export/ExportTexytext.class.php:51
@@ -2708,11 +2710,11 @@ msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς."
 #: libraries/DisplayResults.class.php:5038 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s."
 
 #: libraries/DisplayResults.class.php:5051
 #, php-format
@@ -3131,9 +3133,9 @@ msgstr[1] "Εισήχθηκαν %1$d γραμμές."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2474
 #: libraries/browse_foreigners.lib.php:408
-#: libraries/schema/Pdf_Relation_Schema.class.php:1165
-#: libraries/schema/Pdf_Relation_Schema.class.php:1189
-#: libraries/schema/User_Schema.class.php:434
+#: libraries/schema/Pdf_Relation_Schema.class.php:1180
+#: libraries/schema/Pdf_Relation_Schema.class.php:1204
+#: libraries/schema/User_Schema.class.php:441
 #: libraries/select_lang.lib.php:589
 msgid "Page number:"
 msgstr "Σελίδα:"
@@ -3568,21 +3570,21 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Ένας μικρός αριθμός κινητής υποδιαστολής, επιτρεπτές τιμές είναι -"
-"3.402823466E+38 έως -1.175494351E-38, 0, και 1.175494351E-38 έως 3.402823466E"
-"+38"
+"Ένας μικρός αριθμός κινητής υποδιαστολής, επιτρεπτές τιμές είναι "
+"-3.402823466E+38 έως -1.175494351E-38, 0, και 1.175494351E-38 έως "
+"3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Ένας αριθμός κινητής υποδιαστολής διπλής ακρίβειας, επιτρεπτές τιμές είναι -"
-"1.7976931348623157E+308 έως -2.2250738585072014E-308, 0, και "
+"Ένας αριθμός κινητής υποδιαστολής διπλής ακρίβειας, επιτρεπτές τιμές είναι "
+"-1.7976931348623157E+308 έως -2.2250738585072014E-308, 0, και "
 "2.2250738585072014E-308 έως 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4362,7 +4364,7 @@ msgid "Apply"
 msgstr "Εφαρμογή"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1596
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
 msgstr "Επαναφορά"
@@ -4408,8 +4410,8 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση [kbd]"
-"cookie[/kbd]. Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. "
+"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση "
+"[kbd]cookie[/kbd]. Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. "
 "Χρησιμοποιήθηκε για την κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
 
 #: libraries/config/ServerConfigChecks.class.php:379
@@ -4452,8 +4454,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"Αν η %sLogin cookie validity%s είναι μεγαλύτερη από %ssession.gc_maxlifetime%"
-"s μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας (το τρέχον session."
+"Αν η %sLogin cookie validity%s είναι μεγαλύτερη από %ssession.gc_maxlifetime"
+"%s μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας (το τρέχον session."
 "gc_maxlifetime είναι %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
@@ -4495,14 +4497,14 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Ορίζετε τον τύπο πιστοποίησης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
 "χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
 "Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή [kbd]"
-"http[/kbd]."
+"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή "
+"[kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4550,8 +4552,8 @@ msgstr ""
 #: libraries/config/Validator.class.php:322
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης [kbd]"
-"signon[/kbd]!"
+"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
+"[kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -4662,8 +4664,8 @@ msgstr "Επεξεργασία στηλών CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Χρησιμοποιήστε το φιλικό προς το χρήστη πρόγραμμα επεξεργασίας για την "
 "επεξεργασία ερωτημάτων SQL ([a@http://codemirror.net/]CodeMirror[/a]) με "
@@ -4738,8 +4740,8 @@ msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
-"Όταν μια προειδοποίηση («Είστε σίγουρος/η…») πρέπει να προβάλετε αν πρόκειται "
-"να χαθούν δεδομένα."
+"Όταν μια προειδοποίηση («Είστε σίγουρος/η…») πρέπει να προβάλετε αν "
+"πρόκειται να χαθούν δεδομένα."
 
 #: libraries/config/messages.inc.php:79
 msgid "Confirm DROP queries"
@@ -5203,8 +5205,9 @@ msgstr "Τίτλοι σελίδας"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Ορίστε το κείμενο του τίτλου στο φυλλομετρητή σας. Δείτε την "
 "[doc@cfg_TitleTable]τεκμηρίωση[/doc] για μαγικά κείμενα που μπορούν να "
@@ -5331,9 +5334,9 @@ msgid ""
 msgstr ""
 "Αν θέλετε να χρησιμοποιήσετε την υπηρεσία Εγκυροποίησης SQL, πρέπει να "
 "γνωρίζετε ότι [strong]όλες οι δηλώσεις SQL αποθηκεύονται ανώνυμα για "
-"στατιστικούς λόγους[/strong].[br][em][a@http://sqlvalidator.mimer.com/]"
-"Εγκυροποιητής SQL Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright Database "
-"Technology. Με επιφύλαξη παντός δικαιώματος.[/em]"
+"στατιστικούς λόγους[/strong].[br][em][a@http://sqlvalidator.mimer."
+"com/]Εγκυροποιητής SQL Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright "
+"Database Technology. Με επιφύλαξη παντός δικαιώματος.[/em]"
 
 #: libraries/config/messages.inc.php:302
 msgid "Startup"
@@ -5371,12 +5374,12 @@ msgid "Choose how you want tabs to work."
 msgstr "Επιλέξτε πως θα λειτουργούν οι καρτέλες."
 
 #: libraries/config/messages.inc.php:312
-#: libraries/schema/User_Schema.class.php:422
+#: libraries/schema/User_Schema.class.php:426
 msgid "Display relational schema"
 msgstr "Προβολή σχεσιακού σχήματος"
 
 #: libraries/config/messages.inc.php:314
-#: libraries/schema/User_Schema.class.php:492
+#: libraries/schema/User_Schema.class.php:499
 msgid "Paper size"
 msgstr "Μέγεθος χαρτιού"
 
@@ -5646,8 +5649,8 @@ msgstr "Μέγιστος αριθμός πινάκων"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Απενεργοποιήση της προεπιλεγμένης προειδοποιησης που εμφανίζεται αν το "
 "mcrypt λείπει για την πιστοποίηση [kbd]cookie[/kbd]."
@@ -5661,8 +5664,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. [kbd]32M"
-"[/kbd] ([kbd]0[/kbd] για απεριόριστη)."
+"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. "
+"[kbd]32M[/kbd] ([kbd]0[/kbd] για απεριόριστη)."
 
 #: libraries/config/messages.inc.php:431
 msgid "Memory limit"
@@ -6047,8 +6050,8 @@ msgstr "Πίνακας σελιδοδεικτών"
 
 #: libraries/config/messages.inc.php:566
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Αφήστε κενό για να μη υπάρχουν σχόλια/τύποι mime στις στήλες, προτείνεται: "
 "[kbd]pma_column_info[/kbd]."
@@ -6123,8 +6126,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή, προτείνεται: [kbd]"
-"pma_designer_coords[/kbd]."
+"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή, προτείνεται: "
+"[kbd]pma_designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:596
 msgid "Designer table"
@@ -6143,8 +6146,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL, προτείνεται: [kbd]"
-"pma_history[/kbd]."
+"Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL, προτείνεται: "
+"[kbd]pma_history[/kbd]."
 
 #: libraries/config/messages.inc.php:604
 msgid "SQL query history table"
@@ -6208,8 +6211,8 @@ msgstr "Κωδικός πρόσβασης για ρυθμισμένη επικύ
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:627
 msgid "PDF schema: pages table"
@@ -6254,8 +6257,8 @@ msgstr "Πρόσφατα χρησιμοποιημένος πίνακας"
 
 #: libraries/config/messages.inc.php:643
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/"
 "pma/relation]συνδέσμων-συσχετίσεων[/a], προτείνεται: [kbd]pma__relation[/"
@@ -6267,8 +6270,8 @@ msgstr "Πίνακας συσχετίσεων"
 
 #: libraries/config/messages.inc.php:649
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Δείτε τους [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
 "επικύρωσης[/a] για ένα παράδειγμα."
@@ -6304,8 +6307,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: [kbd]"
-"pma__table_coords[/kbd]."
+"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:662
 msgid "PDF schema: table coordinates"
@@ -6383,8 +6386,8 @@ msgstr "Δηλώσεις προς παρακολούθηση"
 
 #: libraries/config/messages.inc.php:692
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL , προτείνεται: "
 "[kbd]pma__tracking[/kbd]."
@@ -6407,11 +6410,11 @@ msgstr "Αυτόματη δημιουργία εκδόσεων"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
-"pma__userconfig[/kbd]."
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: "
+"[kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:703
 msgid "User preferences storage table"
@@ -6476,7 +6479,8 @@ msgstr "Φιλοχρηστικό όνομα διακομιστή"
 
 #: libraries/config/messages.inc.php:714
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "Αν θα εμφανίζεται στο χρήστη ένα κουμπί «εμφάνιση όλων (των εγγραφών)»."
+msgstr ""
+"Αν θα εμφανίζεται στο χρήστη ένα κουμπί «εμφάνιση όλων (των εγγραφών)»."
 
 #: libraries/config/messages.inc.php:715
 msgid "Allow to display all the rows"
@@ -6660,8 +6664,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ (προεπιλογή:[kbd]"
-"anonymous[/kbd])."
+"Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ (προεπιλογή:"
+"[kbd]anonymous[/kbd])."
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -6796,7 +6800,8 @@ msgstr ""
 "Το url του διακομιστή για χρήση όταν λαμβάνονται οι πληροφορίες για την "
 "τελευταία έκδοση του phpMyAdmin ή όταν υποβάλλονται αναφορές σφάλματος. Το "
 "χρειάζεστε αν ο διακομιστής που έχει εγκατασταθεί το phpMyAdmin δεν έχει "
-"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: «όνομαδιακομιστή:αριθμόςθύρας»."
+"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: «όνομαδιακομιστή:"
+"αριθμόςθύρας»."
 
 #: libraries/config/messages.inc.php:781
 msgid "Proxy url"
@@ -6830,8 +6835,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]"
-"ZIP[/a] για λειτουργίες εισαγωγής και εξαγωγής."
+"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/"
+"ZIP_(file_format)]ZIP[/a] για λειτουργίες εισαγωγής και εξαγωγής."
 
 #: libraries/config/messages.inc.php:788
 msgid "ZIP"
@@ -7125,8 +7130,8 @@ msgstr ", το @TABLE@ θα γίνει το όνομα του πίνακα"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -7647,11 +7652,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην %"
-"sΙστοσελίδα του PrimeBase XT%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
+"%sΙστοσελίδα του PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:156
 msgid "Related Links"
@@ -8430,8 +8435,8 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
@@ -8726,11 +8731,11 @@ msgstr "Εξαγωγή ονομάτων πινάκων"
 msgid "Export table headers"
 msgstr "Εξαγωγή κεφαλίδων πίνακα"
 
-#: libraries/plugins/export/ExportPdf.class.php:97
+#: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Δημιουργεί μια αναφορά με τα δεδομένα ενός πίνακα)"
 
-#: libraries/plugins/export/ExportPdf.class.php:102
+#: libraries/plugins/export/ExportPdf.class.php:110
 msgid "Report title:"
 msgstr "Τίτλος αναφοράς:"
 
@@ -9057,8 +9062,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
-"Μετατρέπει Δυαδικές τιμές σε κείμενο (Προεπιλογή «T» και «F»). Η πρώτη επιλογή "
-"είναι για το ΑΛΗΘΕΣ, η δεύτερη για το ΨΕΥΔΕΣ. Nonzero=true."
+"Μετατρέπει Δυαδικές τιμές σε κείμενο (Προεπιλογή «T» και «F»). Η πρώτη "
+"επιλογή είναι για το ΑΛΗΘΕΣ, η δεύτερη για το ΨΕΥΔΕΣ. Nonzero=true."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -9077,8 +9082,8 @@ msgstr ""
 "επιλογή για να ορίσετε μια μορφή ημερομηνίας-ώρας. Η τρίτη επιλογή ορίζει αν "
 "θέλετε να δείτε την τοπική ή την παγκόσμια ώρα (χρήση «local» ή «utc» "
 "αντίστοιχα). Σύμφωνα με αυτό, η μορφή της ημερομηνίας έχει διαφορετική τιμή "
-"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP και "
-"για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
+"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP "
+"και για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -9683,7 +9688,8 @@ msgstr "Το συμβάν %1$s έχει αλλαχτεί."
 msgid "Event %1$s has been created."
 msgstr "Το συμβάν %1$s έχει δημιουργηθεί."
 
-#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
+#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
+#: libraries/rte/rte_triggers.lib.php:150
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 "Ένα ή περισσότερα σφάλματα έλαβαν χώρα κατά την προώθηση του αιτήματός σας:"
@@ -9819,12 +9825,6 @@ msgstr "Η ρουτίνα %1$s έχει αλλαχτεί."
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Η ρουτίνα %1$s έχει δημιουργηθεί."
-
-#: libraries/rte/rte_routines.lib.php:378
-msgid "<b>One or more errors have occurred while processing your request:</b>"
-msgstr ""
-"<b>Ένα ή περισσότερα σφάλματα έλαβαν χώρα κατά την προώθηση του αιτήματός "
-"σας:</b>"
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
@@ -10061,7 +10061,7 @@ msgstr "Δεν υπάρχουν συμβάντα για εμφάνιση."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:370
-#: libraries/schema/Pdf_Relation_Schema.class.php:423
+#: libraries/schema/Pdf_Relation_Schema.class.php:438
 #: libraries/schema/Svg_Relation_Schema.class.php:337
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -10069,14 +10069,14 @@ msgstr "Ο πίνακας «%s» δεν υπάρχει!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:262
 #: libraries/schema/Eps_Relation_Schema.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:453
 #: libraries/schema/Svg_Relation_Schema.class.php:352
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Παρακαλώ ορίστε τις συντεταγμένες για τον πίνακα %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:708
-#: libraries/schema/Pdf_Relation_Schema.class.php:829
+#: libraries/schema/Pdf_Relation_Schema.class.php:844
 #: libraries/schema/Svg_Relation_Schema.class.php:679
 #, php-format
 msgid "Schema of the %s database - Page %s"
@@ -10090,24 +10090,24 @@ msgstr "Αυτή η σελίδα δεν περιέχει κανένα πίνακ
 msgid "SCHEMA ERROR: "
 msgstr "ΣΦΑΛΜΑ ΣΧΗΜΑΤΟΣ: "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:851
-#: libraries/schema/Pdf_Relation_Schema.class.php:1194
+#: libraries/schema/Pdf_Relation_Schema.class.php:866
+#: libraries/schema/Pdf_Relation_Schema.class.php:1209
 msgid "Relational schema"
 msgstr "Σχεσιακό σχήμα"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1157
+#: libraries/schema/Pdf_Relation_Schema.class.php:1172
 msgid "Table of contents"
 msgstr "Πίνακας περιεχομένων"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/schema/Pdf_Relation_Schema.class.php:1365
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
+#: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/structure.lib.php:1198
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Attributes"
 msgstr "Χαρακτηριστικά"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1345
-#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1360
+#: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/structure.lib.php:1201 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Πρόσθετα"
@@ -10148,47 +10148,47 @@ msgstr "Επιλογή Πινάκων"
 msgid "Column names"
 msgstr "Ονόματα στηλών"
 
-#: libraries/schema/User_Schema.class.php:431
+#: libraries/schema/User_Schema.class.php:438
 msgid "Select Export Relational Type"
 msgstr "Επιλογή Τύπου Συσχέτισης Εξαγωγής"
 
-#: libraries/schema/User_Schema.class.php:455
+#: libraries/schema/User_Schema.class.php:462
 msgid "Show grid"
 msgstr "Εμφάνιση πλέγματος"
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:465
 msgid "Show color"
 msgstr "Εμφάνιση χρωμάτων"
 
-#: libraries/schema/User_Schema.class.php:463
+#: libraries/schema/User_Schema.class.php:470
 msgid "Show dimension of tables"
 msgstr "Εμφάνιση διαστάσεων πινάκων"
 
-#: libraries/schema/User_Schema.class.php:468
+#: libraries/schema/User_Schema.class.php:475
 msgid "Same width for all tables"
 msgstr "Ίδιο πλάτος για όλους τους πίνακες"
 
-#: libraries/schema/User_Schema.class.php:472 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:479 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr "Περιληπτικός πίνακας δεδομένων"
 
-#: libraries/schema/User_Schema.class.php:474
+#: libraries/schema/User_Schema.class.php:481
 msgid "Only show keys"
 msgstr "Μόνο ερφάνιση κλειδιών"
 
-#: libraries/schema/User_Schema.class.php:476
+#: libraries/schema/User_Schema.class.php:483
 msgid "Landscape"
 msgstr "Οριζόντια διάταξη"
 
-#: libraries/schema/User_Schema.class.php:477
+#: libraries/schema/User_Schema.class.php:484
 msgid "Portrait"
 msgstr "Κάθετη διάταξη"
 
-#: libraries/schema/User_Schema.class.php:479
+#: libraries/schema/User_Schema.class.php:486
 msgid "Orientation"
 msgstr "Προσανατολισμός"
 
-#: libraries/schema/User_Schema.class.php:539
+#: libraries/schema/User_Schema.class.php:546
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -10196,13 +10196,19 @@ msgstr ""
 "Η τρέχουσα σελίδα έχει αναφορές σε πίνακες που δεν υπάρχουν πια. Θέλετε να "
 "διαγραφούν αυτές οι αναφορές;"
 
-#: libraries/schema/User_Schema.class.php:565
+#: libraries/schema/User_Schema.class.php:572
 msgid "Toggle scratchboard"
 msgstr "Εναλλαγή πίνακα σχεδιασμού"
 
-#: libraries/schema/User_Schema.class.php:663
+#: libraries/schema/User_Schema.class.php:670
 msgid "File doesn't exist"
 msgstr "Το αρχείο δεν υπάρχει"
+
+#: libraries/schema/User_Schema.class.php:679
+#, fuzzy
+#| msgid "SQL Validator is disabled"
+msgid "Plugin is disabled"
+msgstr "Ο Εγκυροποιητής SQL είναι απενεργοποιημένος"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
@@ -10813,8 +10819,8 @@ msgstr "Επισκόπηση χρηστών"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -11000,8 +11006,8 @@ msgid ""
 msgstr ""
 "Η Εποπτεία phpMyAdmin μπορεί να σας βοηθήσει να βελτιστοποιήσετε τη ρύθμιση "
 "του διακομιστή και να καταγράφει χρονοβόρα ερωτήματα. Για το τελευταίο θα "
-"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει το "
-"slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
+"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει "
+"το slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
 "παράγει πολλά δεδομένα και αυξάνει τη χρήση πόρων του διακομιστή μέχρι και "
 "15%."
 
@@ -13173,9 +13179,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
-"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [doc@setup_script]"
-"τεκμηρίωση[/doc]. Διαφορετικά, θα μπορείτε μόνο να τον λάβετε ή να τον "
-"προβάλετε."
+"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην "
+"[doc@setup_script]τεκμηρίωση[/doc]. Διαφορετικά, θα μπορείτε μόνο να τον "
+"λάβετε ή να τον προβάλετε."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -13192,8 +13198,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@%s]"
-"αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
+"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@"
+"%s]αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
 
 #: setup/frames/index.inc.php:89
 msgid "Insecure connection"
@@ -13720,8 +13726,8 @@ msgid ""
 msgstr ""
 "Η λανθάνουσα μνήμη ερωτήματος είναι γνωστό ότι βελτιώνει σημαντικά την "
 "απόδοση, αν ρυθμιστεί σωστά. Ενεργοποιήστε τη ορίζοντας το "
-"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε «ΟΝ». "
-"<b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
+"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε "
+"«ΟΝ». <b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
 
 #: libraries/advisory_rules.txt:158
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -13802,8 +13808,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Η τρέχουσα αναλογία της ελεύθερης λανθάνουσας μνήμης ερωτήματος προς τη "
 "συνολική λανθάνουσα μνήμη ερωτήματος είναι %s%%. Πρέπει να είναι περισσότερο "
@@ -13880,8 +13886,8 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Ο βαθμός απομακρυσμένων ερωτημάτων προς τα εισερχόμενα ερωτήματα είναι %s%%. "
-"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: 0,1%"
-"%)"
+"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: "
+"0,1%%)"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache max size"
@@ -13965,8 +13971,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "Το %s%% όλων των ταξινομήσεων προκαλεί προσωρινούς πίνακες, αυτή η τιμή "
 "πρέπει να είναι κάτω από 10%%."
@@ -14534,8 +14540,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από 1%"
-"%"
+"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από "
+"1%%"
 
 #: libraries/advisory_rules.txt:406
 msgid "Rate of aborted connections"
@@ -14754,6 +14760,12 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
+#~ msgid ""
+#~ "<b>One or more errors have occurred while processing your request:</b>"
+#~ msgstr ""
+#~ "<b>Ένα ή περισσότερα σφάλματα έλαβαν χώρα κατά την προώθηση του αιτήματός "
+#~ "σας:</b>"
+
 #~| msgid ""
 #~| "After saving or loading a search, you can rename it and save the new "
 #~| "criteria."
@@ -14768,15 +14780,15 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Αποθήκευση αναζήτησης"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Αφήστε το κενό για απενεργοποίηση του χαρακτηριστικού προσαρμόσιμων "
 #~ "μενού, προτείνεται: [kbd]pma__users[/kbd]."
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Αφήστε το κενό για απενεργοποίηση του χαρακτηριστικού προσαρμόσιμων "
 #~ "μενού, προτείνεται: [kbd]pma__usergroups[/kbd]."
@@ -14898,12 +14910,13 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Ενεργοποίηση αναφορών σφάλματος javascript"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Περισσότερες πληροφορίες στο [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] και στο [a@http://bugs.mysql.com/19588]"
-#~ "MySQL Bugs[/a]"
+#~ "bugs/2606/]PMA bug tracker[/a] και στο [a@http://bugs.mysql."
+#~ "com/19588]MySQL Bugs[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Απενεργοποίηση χρήσης του INFORMATION_SCHEMA"
@@ -15267,9 +15280,9 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Όταν οριστεί αυτό σε [kbd]nested[/kbd], η ετικέτα του ονόματος του πίνακα "
 #~ "χρησιμοποιείτε μόνο για το χώρισμα/μάζεμα των πινάκων σύμφωνα με την "
@@ -15472,8 +15485,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων %"
-#~ "s;"
+#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων "
+#~ "%s;"
 
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Άγνωστο σφάλμα κατά την αποστολή αρχείου."

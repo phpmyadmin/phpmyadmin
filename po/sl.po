@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-24 13:03-0400\n"
+"POT-Creation-Date: 2014-03-25 13:43+0100\n"
 "PO-Revision-Date: 2014-03-15 23:26+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
 "sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -34,7 +34,7 @@ msgstr "Zbirka podatkov %1$s je ustvarjena."
 msgid "Database comment:"
 msgstr "Pripomba zbirke podatkov:"
 
-#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1314
+#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
 msgid "Table comments:"
@@ -52,8 +52,8 @@ msgstr "Pripombe tabele:"
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/schema/Pdf_Relation_Schema.class.php:1340
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
+#: libraries/schema/Pdf_Relation_Schema.class.php:1355
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
@@ -76,8 +76,8 @@ msgstr "Stolpec"
 #: libraries/rte/rte_routines.lib.php:954
 #: libraries/rte/rte_routines.lib.php:983
 #: libraries/rte/rte_routines.lib.php:1604
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
+#: libraries/schema/Pdf_Relation_Schema.class.php:1356
+#: libraries/schema/Pdf_Relation_Schema.class.php:1379
 #: libraries/server_privileges.lib.php:1843
 #: libraries/server_privileges.lib.php:1950 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1196
@@ -96,8 +96,8 @@ msgstr "Vrsta"
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:273
 #: libraries/plugins/export/ExportTexytext.class.php:373
-#: libraries/schema/Pdf_Relation_Schema.class.php:1343
-#: libraries/schema/Pdf_Relation_Schema.class.php:1366
+#: libraries/schema/Pdf_Relation_Schema.class.php:1358
+#: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/structure.lib.php:1199
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:812
@@ -112,8 +112,8 @@ msgstr "Null"
 #: libraries/plugins/export/ExportOdt.class.php:467
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1344
-#: libraries/schema/Pdf_Relation_Schema.class.php:1367
+#: libraries/schema/Pdf_Relation_Schema.class.php:1359
+#: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1200
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
@@ -124,8 +124,8 @@ msgstr "Privzeto"
 #: libraries/plugins/export/ExportLatex.class.php:515
 #: libraries/plugins/export/ExportOdt.class.php:471
 #: libraries/plugins/export/ExportTexytext.class.php:376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1346
-#: libraries/schema/Pdf_Relation_Schema.class.php:1369
+#: libraries/schema/Pdf_Relation_Schema.class.php:1361
+#: libraries/schema/Pdf_Relation_Schema.class.php:1384
 #: libraries/tbl_printview.lib.php:477
 msgid "Links to"
 msgstr "Povezave z"
@@ -137,8 +137,8 @@ msgstr "Povezave z"
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
 #: libraries/plugins/export/ExportTexytext.class.php:379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#: libraries/schema/Pdf_Relation_Schema.class.php:1370
+#: libraries/schema/Pdf_Relation_Schema.class.php:1372
+#: libraries/schema/Pdf_Relation_Schema.class.php:1385
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
@@ -152,7 +152,7 @@ msgstr "Pripombe"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1396
+#: libraries/schema/Pdf_Relation_Schema.class.php:1411
 #: libraries/server_privileges.lib.php:2180
 #: libraries/server_privileges.lib.php:2377
 #: libraries/server_privileges.lib.php:2398
@@ -178,7 +178,7 @@ msgstr "Ne"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1412
 #: libraries/server_databases.lib.php:472
 #: libraries/server_databases.lib.php:482
 #: libraries/server_privileges.lib.php:2180
@@ -270,17 +270,17 @@ msgid "in use"
 msgstr "v uporabi"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
-#: libraries/schema/Pdf_Relation_Schema.class.php:1319
+#: libraries/schema/Pdf_Relation_Schema.class.php:1334
 msgid "Creation:"
 msgstr "Ustvarjeno:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
-#: libraries/schema/Pdf_Relation_Schema.class.php:1324
+#: libraries/schema/Pdf_Relation_Schema.class.php:1339
 msgid "Last update:"
 msgstr "Zadnjič posodobljeno:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1109
-#: libraries/schema/Pdf_Relation_Schema.class.php:1329
+#: libraries/schema/Pdf_Relation_Schema.class.php:1344
 msgid "Last check:"
 msgstr "Zadnjič pregledano:"
 
@@ -560,8 +560,8 @@ msgstr "Dodaj geometrijo"
 #: libraries/rte/rte_triggers.lib.php:426
 #: libraries/schema/User_Schema.class.php:170
 #: libraries/schema/User_Schema.class.php:233
-#: libraries/schema/User_Schema.class.php:495
-#: libraries/schema/User_Schema.class.php:546
+#: libraries/schema/User_Schema.class.php:502
+#: libraries/schema/User_Schema.class.php:553
 #: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:688
 #: libraries/server_privileges.lib.php:1750
 #: libraries/server_privileges.lib.php:2513
@@ -592,11 +592,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v %"
-"sdokumentaciji%s ogledate načine, kako obiti omejitev."
+"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
+"%sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -1846,7 +1846,7 @@ msgid "Click to sort."
 msgstr "Kliknite za razvrščanje."
 
 #: js/messages.php:343
-msgid "Hold shift and click to remove column from order by clause."
+msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
 #: js/messages.php:344
@@ -2294,8 +2294,8 @@ msgstr "Nepričakovani znaki v vrstici %s."
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
-"Nepričakovan znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel »%2"
-"$s«."
+"Nepričakovan znak v vrstici %1$s. Pričakoval sem tabulator, vendar našel "
+"»%2$s«."
 
 #: libraries/Advisor.class.php:470
 msgid "per second"
@@ -2611,7 +2611,7 @@ msgstr "Uredi po ključu"
 #: libraries/plugins/export/ExportMediawiki.class.php:52
 #: libraries/plugins/export/ExportOds.class.php:57
 #: libraries/plugins/export/ExportOdt.class.php:66
-#: libraries/plugins/export/ExportPdf.class.php:82
+#: libraries/plugins/export/ExportPdf.class.php:90
 #: libraries/plugins/export/ExportPhparray.class.php:49
 #: libraries/plugins/export/ExportSql.class.php:72
 #: libraries/plugins/export/ExportTexytext.class.php:51
@@ -2695,8 +2695,8 @@ msgstr "Poizvedbo SQL sem uspešno izvedel."
 #: libraries/DisplayResults.class.php:5038 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
 #: libraries/DisplayResults.class.php:5051
@@ -3119,9 +3119,9 @@ msgstr[3] "Vstavil sem %1$d vrstic."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2474
 #: libraries/browse_foreigners.lib.php:408
-#: libraries/schema/Pdf_Relation_Schema.class.php:1165
-#: libraries/schema/Pdf_Relation_Schema.class.php:1189
-#: libraries/schema/User_Schema.class.php:434
+#: libraries/schema/Pdf_Relation_Schema.class.php:1180
+#: libraries/schema/Pdf_Relation_Schema.class.php:1204
+#: libraries/schema/User_Schema.class.php:441
 #: libraries/select_lang.lib.php:589
 msgid "Page number:"
 msgstr "Številka strani:"
@@ -3335,8 +3335,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Čiščenje nastavitev uporabniškega vmesnika tabel je spodletelo (glej $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Čiščenje nastavitev uporabniškega vmesnika tabel je spodletelo (glej "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1695
 #, php-format
@@ -3551,20 +3551,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Majhno število z decimalno vejico; dovoljene so vrednosti od -3,402823466E"
 "+38 do -1,175494351E-38, 0 in od 1,175494351E-38 do 3,402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od -"
-"1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
+"Število z decimalno vejico z natančnostjo double; dovoljene so vrednosti od "
+"-1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4336,7 +4336,7 @@ msgid "Apply"
 msgstr "Uveljavi"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1596
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
 msgstr "Ponastavi"
@@ -4419,8 +4419,8 @@ msgid ""
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
 "%sVeljavnost prijavnega piškotka%s večja od %ssession.gc_maxlifetime%s lahko "
-"povzroči naključno razvrednotenje seje (session.gc_maxlifetime je trenutno %"
-"d)."
+"povzroči naključno razvrednotenje seje (session.gc_maxlifetime je trenutno "
+"%d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4461,8 +4461,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Nastavili ste vrsto overovitve [kbd]config[/kbd] in vključili uporabniško "
 "ime in geslo za samodejno prijavo, kar ni zaželena možnost za gostitelje "
@@ -4555,8 +4555,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Omogočitev tega dovoljuje strani, ki se nahaja na drugačni domeni, "
-"vključitev phpMyAdmina v okvirju, kar predstavlja morebitno [strong]"
-"varnostno luknjo[/strong], saj dovoljuje skriptne napade z okvirji (XSS)."
+"vključitev phpMyAdmina v okvirju, kar predstavlja morebitno "
+"[strong]varnostno luknjo[/strong], saj dovoljuje skriptne napade z okvirji "
+"(XSS)."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4572,8 +4573,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Skrivno geslo, ki se uporabi pri šifriranju piškotkov v overovitvi [kbd]"
-"cookie[/kbd]."
+"Skrivno geslo, ki se uporabi pri šifriranju piškotkov v overovitvi "
+"[kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4614,8 +4615,8 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Določa, katera vrsta urejevalnih kontrolnikov naj se uporablja za stolpce "
-"CHAR in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, [kbd]"
-"textarea[/kbd] – omogoča nove vrstice v stolpcu."
+"CHAR in VARCHAR; [kbd]input[/kbd] – omogoča omejevanje dolžine vnosa, "
+"[kbd]textarea[/kbd] – omogoča nove vrstice v stolpcu."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4623,8 +4624,8 @@ msgstr "Urejanje stolpcev CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Uporabi uporabniku prijazen urejevalnik za urejanje poizvedb SQL ([a@http://"
 "codemirror.net/]CodeMirror[/a]) z obarvanjem skladnje in številkami vrstic."
@@ -5164,8 +5165,9 @@ msgstr "Naslovi strani"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Določite besedilo naslovne vrstice brskalnika. Oglejte si "
 "[doc@cfg_TitleTable]dokumentacijo[/doc] za čarobne nize, ki jih lahko "
@@ -5290,10 +5292,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Če želite uporabljati storitev Preverjalnika SQL, se zavedajte, da [strong]"
-"so vse izjave SQL brezimno shranjene v statistične namene[/strong].[br][em]"
-"[a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 "
-"Upright Database Technology. Vse pravice pridržane.[/em]"
+"Če želite uporabljati storitev Preverjalnika SQL, se zavedajte, da "
+"[strong]so vse izjave SQL brezimno shranjene v statistične namene[/strong]."
+"[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
+"2002 Upright Database Technology. Vse pravice pridržane.[/em]"
 
 #: libraries/config/messages.inc.php:302
 msgid "Startup"
@@ -5331,12 +5333,12 @@ msgid "Choose how you want tabs to work."
 msgstr "Določite, kako želite, da delujejo zavihki."
 
 #: libraries/config/messages.inc.php:312
-#: libraries/schema/User_Schema.class.php:422
+#: libraries/schema/User_Schema.class.php:426
 msgid "Display relational schema"
 msgstr "Prikaži relacijsko shemo"
 
 #: libraries/config/messages.inc.php:314
-#: libraries/schema/User_Schema.class.php:492
+#: libraries/schema/User_Schema.class.php:499
 msgid "Paper size"
 msgstr "Velikost papirja"
 
@@ -5507,8 +5509,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Določi, ali se naj prejšnji prijavni podatki v načinu overovitve [kbd]cookie"
-"[/kbd] prikličejo ali ne."
+"Določi, ali se naj prejšnji prijavni podatki v načinu overovitve "
+"[kbd]cookie[/kbd] prikličejo ali ne."
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5602,8 +5604,8 @@ msgstr "Največ tabel"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Onemogoči privzeto opozorilo, ki se prikaže, če mcrypt manjka za overitev "
 "[kbd]cookie[/kbd]."
@@ -5994,11 +5996,11 @@ msgstr "Tabela zaznamkov"
 
 #: libraries/config/messages.inc.php:566
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite pripomb/vrst MIME stolpcev; predlagano: [kbd]"
-"pma__column_info[/kbd]."
+"Pustite prazno, če ne želite pripomb/vrst MIME stolpcev; predlagano: "
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:569
 msgid "Column information table"
@@ -6068,8 +6070,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: [kbd]"
-"pma__designer_coords[/kbd]."
+"Pustite prazno, če ne želite podpore Oblikovalnika; predlagano: "
+"[kbd]pma__designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:596
 msgid "Designer table"
@@ -6153,8 +6155,8 @@ msgstr "Geslo za overovitev config"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore sheme PDF; predlagano: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Pustite prazno, če ne želite podpore sheme PDF; predlagano: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:627
 msgid "PDF schema: pages table"
@@ -6199,8 +6201,8 @@ msgstr "Nedavno uporabljena tabela"
 
 #: libraries/config/messages.inc.php:643
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Pustite prazno, če ne želite podpore [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relacijskih povezav[/a]; priporočeno: [kbd]pma__relation[/kbd]."
@@ -6211,8 +6213,8 @@ msgstr "Relacijska tabela"
 
 #: libraries/config/messages.inc.php:649
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Oglejte si [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]vrste "
 "overovitev[/a] za primer."
@@ -6247,8 +6249,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore sheme PDF; predlagano: [kbd]"
-"pma__table_coords[/kbd]."
+"Pustite prazno, če ne želite podpore sheme PDF; predlagano: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:662
 msgid "PDF schema: table coordinates"
@@ -6326,11 +6328,11 @@ msgstr "Izjave za sledenje"
 
 #: libraries/config/messages.inc.php:692
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: [kbd]"
-"pma__tracking[/kbd]."
+"Pustite prazno, če ne želite podpore sledenja poizvedb SQL; predlagano: "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:695
 msgid "SQL query tracking table"
@@ -6349,8 +6351,8 @@ msgstr "Samodejno ustvari različice"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Pustite prazno, če ne želite hranjenja uporabnikovih nastavitev v zbirki "
 "podatkov; predlagano: [kbd]pma__userconfig[/kbd]."
@@ -6516,8 +6518,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Prikaže povezavo do podatkov [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]."
+"Prikaže povezavo do podatkov [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:734
 msgid "Show phpinfo() link"
@@ -6595,8 +6597,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Če imate uporabniško ime po meri, ga določite tukaj (privzeto [kbd]anonymous"
-"[/kbd])."
+"Če imate uporabniško ime po meri, ga določite tukaj (privzeto "
+"[kbd]anonymous[/kbd])."
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -7051,8 +7053,8 @@ msgstr ", @TABLE@ bo postalo ime tabele"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Vrednost je prevedena z uporabo %1$sstrftime%2$s, tako da lahko uporabljate "
 "nize za zapis časa. Dodatno bo prišlo še do naslednjih pretvorb: %3$s. "
@@ -7566,8 +7568,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentacijo in nadaljnje informacije o PBXT lahko najdete na %sDomači "
 "strani PrimeBase XT%s."
@@ -8352,8 +8354,8 @@ msgstr "Dobrodošli v %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Najverjetneje niste ustvarili konfiguracijske datoteke. Morda želite "
 "uporabiti %1$snastavitveni skript%2$s, da jo ustvarite."
@@ -8643,11 +8645,11 @@ msgstr "Izvozi imena tabel"
 msgid "Export table headers"
 msgstr "Izvozi glave tabel"
 
-#: libraries/plugins/export/ExportPdf.class.php:97
+#: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Ustvari poročilo, ki vsebuje podatke ene tabele)"
 
-#: libraries/plugins/export/ExportPdf.class.php:102
+#: libraries/plugins/export/ExportPdf.class.php:110
 msgid "Report title:"
 msgstr "Naslov poročila:"
 
@@ -8748,8 +8750,8 @@ msgid ""
 "(7,8,9)</code>"
 msgstr ""
 "vključi več vrstic v vsaki izjavi <code>INSERT</code><br /> &nbsp; &nbsp; "
-"&nbsp; Primer: <code>INSERT INTO ime_tabele VALUES (1,2,3), (4,5,6), (7,8,9)"
-"</code>"
+"&nbsp; Primer: <code>INSERT INTO ime_tabele VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:410
 msgid ""
@@ -9584,7 +9586,8 @@ msgstr "Dogodek %1$s je bil spremenjen."
 msgid "Event %1$s has been created."
 msgstr "Dogodek %1$s je ustvarjen."
 
-#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
+#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
+#: libraries/rte/rte_triggers.lib.php:150
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:"
 
@@ -9719,10 +9722,6 @@ msgstr "Rutina %1$s je bila spremenjena."
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutina %1$s je bila ustvarjena."
-
-#: libraries/rte/rte_routines.lib.php:378
-msgid "<b>One or more errors have occurred while processing your request:</b>"
-msgstr "<b>Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:</b>"
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
@@ -9958,7 +9957,7 @@ msgstr "Ni dogodkov za prikaz."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:370
-#: libraries/schema/Pdf_Relation_Schema.class.php:423
+#: libraries/schema/Pdf_Relation_Schema.class.php:438
 #: libraries/schema/Svg_Relation_Schema.class.php:337
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -9966,14 +9965,14 @@ msgstr "Tabela %s ne obstaja!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:262
 #: libraries/schema/Eps_Relation_Schema.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:453
 #: libraries/schema/Svg_Relation_Schema.class.php:352
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Prosimo, konfigurirajte koordinate za tabelo %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:708
-#: libraries/schema/Pdf_Relation_Schema.class.php:829
+#: libraries/schema/Pdf_Relation_Schema.class.php:844
 #: libraries/schema/Svg_Relation_Schema.class.php:679
 #, php-format
 msgid "Schema of the %s database - Page %s"
@@ -9987,24 +9986,24 @@ msgstr "Stran ne vsebuje nobenih tabel!"
 msgid "SCHEMA ERROR: "
 msgstr "NAPAKA SHEME: "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:851
-#: libraries/schema/Pdf_Relation_Schema.class.php:1194
+#: libraries/schema/Pdf_Relation_Schema.class.php:866
+#: libraries/schema/Pdf_Relation_Schema.class.php:1209
 msgid "Relational schema"
 msgstr "Relacijska shema"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1157
+#: libraries/schema/Pdf_Relation_Schema.class.php:1172
 msgid "Table of contents"
 msgstr "Vsebina"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/schema/Pdf_Relation_Schema.class.php:1365
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
+#: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/structure.lib.php:1198
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Attributes"
 msgstr "Atributi"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1345
-#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1360
+#: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/structure.lib.php:1201 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Dodatno"
@@ -10045,47 +10044,47 @@ msgstr "Izberi tabele"
 msgid "Column names"
 msgstr "Imena stolpcev"
 
-#: libraries/schema/User_Schema.class.php:431
+#: libraries/schema/User_Schema.class.php:438
 msgid "Select Export Relational Type"
 msgstr "Izberite relacijsko vrsto izvoza"
 
-#: libraries/schema/User_Schema.class.php:455
+#: libraries/schema/User_Schema.class.php:462
 msgid "Show grid"
 msgstr "Pokaži mrežo"
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:465
 msgid "Show color"
 msgstr "Pokaži barvo"
 
-#: libraries/schema/User_Schema.class.php:463
+#: libraries/schema/User_Schema.class.php:470
 msgid "Show dimension of tables"
 msgstr "Pokaži dimenzije tabel"
 
-#: libraries/schema/User_Schema.class.php:468
+#: libraries/schema/User_Schema.class.php:475
 msgid "Same width for all tables"
 msgstr "Enaka širina za vse tabele"
 
-#: libraries/schema/User_Schema.class.php:472 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:479 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr "Slovar podatkov"
 
-#: libraries/schema/User_Schema.class.php:474
+#: libraries/schema/User_Schema.class.php:481
 msgid "Only show keys"
 msgstr "Prikaži samo ključe"
 
-#: libraries/schema/User_Schema.class.php:476
+#: libraries/schema/User_Schema.class.php:483
 msgid "Landscape"
 msgstr "Ležeče"
 
-#: libraries/schema/User_Schema.class.php:477
+#: libraries/schema/User_Schema.class.php:484
 msgid "Portrait"
 msgstr "Pokončno"
 
-#: libraries/schema/User_Schema.class.php:479
+#: libraries/schema/User_Schema.class.php:486
 msgid "Orientation"
 msgstr "Usmerjenost"
 
-#: libraries/schema/User_Schema.class.php:539
+#: libraries/schema/User_Schema.class.php:546
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -10093,13 +10092,19 @@ msgstr ""
 "Trenutna stran vsebuje sklice na tabele, ki ne obstajajo več. Ali želite "
 "izbrisati te sklice?"
 
-#: libraries/schema/User_Schema.class.php:565
+#: libraries/schema/User_Schema.class.php:572
 msgid "Toggle scratchboard"
 msgstr "Preklopi odložišče (scratchboard)"
 
-#: libraries/schema/User_Schema.class.php:663
+#: libraries/schema/User_Schema.class.php:670
 msgid "File doesn't exist"
 msgstr "Datoteka ne obstaja"
+
+#: libraries/schema/User_Schema.class.php:679
+#, fuzzy
+#| msgid "SQL Validator is disabled"
+msgid "Plugin is disabled"
+msgstr "Preverjalnik SQL je onemogočen"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
@@ -10706,8 +10711,8 @@ msgstr "Pregled uporabnikov"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Obvestilo: phpMyAdmin dobi podatke o uporabnikovih privilegijih iz tabel "
 "privilegijev MySQL. Vsebina teh tabel se lahko razlikuje od privilegijev, ki "
@@ -13012,9 +13017,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosimo, da na spletnem strežniku ustvarite zapisljivo mapo [em]config[/em] "
-"v najvišjem nivoju mape phpMyAdmina, kot opisuje [doc@setup_script]"
-"dokumentacija[/doc]. V nasprotnem primeru jo boste lahko samo prenesli ali "
-"jo prikazali."
+"v najvišjem nivoju mape phpMyAdmina, kot opisuje "
+"[doc@setup_script]dokumentacija[/doc]. V nasprotnem primeru jo boste lahko "
+"samo prenesli ali jo prikazali."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -13156,8 +13161,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Uporabljate nadležno različico, zaženite [kbd]tecnoba odstrani[/kbd] :-)[br]"
-"Najnovejša stabilna različica je %s, izdana %s."
+"Uporabljate nadležno različico, zaženite [kbd]tecnoba odstrani[/kbd] :-)"
+"[br]Najnovejša stabilna različica je %s, izdana %s."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
@@ -13626,8 +13631,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Trenutni delež prostega pomnilnika predpomnilnika poizvedb je v primerjavi s "
 "skupnim pomnilnikom predpomnilnima poizvedb %s %%. Moral bi biti nad 80 %%"
@@ -13782,8 +13787,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s %% vseh razvrščanj povzroča začasne tabele; vrednost bi morala biti nižja "
 "od 10 %%."
@@ -14538,6 +14543,11 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavljeno na 0"
 
+#~ msgid ""
+#~ "<b>One or more errors have occurred while processing your request:</b>"
+#~ msgstr ""
+#~ "<b>Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:</b>"
+
 #~| msgid ""
 #~| "After saving or loading a search, you can rename it and save the new "
 #~| "criteria."
@@ -14552,15 +14562,15 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ msgstr "Shrani iskanje"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Pustite prazno, da onemogočite zmožnost nastavljivih menijev; predlagano: "
 #~ "[kbd]pma__users[/kbd]."
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Pustite prazno, da onemogočite zmožnost nastavljivih menijev; predlagano: "
 #~ "[kbd]pma__usergroups[/kbd]."
@@ -14667,8 +14677,8 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ "For a list of available transformation options and their MIME type "
 #~ "transformations, click on %stransformation descriptions%s"
 #~ msgstr ""
-#~ "Za seznam razpoložljivih možnosti pretvorbe in vrst MIME kliknite na %"
-#~ "sopise transformacij%s"
+#~ "Za seznam razpoložljivih možnosti pretvorbe in vrst MIME kliknite na "
+#~ "%sopise transformacij%s"
 
 #~ msgid ""
 #~ "Uncheck this to prevent the sending of error reports for javascript errors"
@@ -14679,12 +14689,13 @@ msgstr "concurrent_insert je nastavljeno na 0"
 #~ msgstr "Omogoči poročanje o napakah v JavaScriptu"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
-#~ "Več informacij na [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "sledilniku hroščev PMA[/a] in[a@http://bugs.mysql.com/19588]hroščih MySQL"
-#~ "[/a]"
+#~ "Več informacij na [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]sledilniku hroščev PMA[/a] in[a@http://bugs.mysql."
+#~ "com/19588]hroščih MySQL[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Onemogoči uporabo INFORMATION_SCHEMA"
@@ -15038,14 +15049,14 @@ msgstr "concurrent_insert je nastavljeno na 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Ko je nastavljeno na [kbd]nested[/kbd], je pridevek imena tabele "
-#~ "uporabljen samo za razdružitev/združitev tabel v skladu z določilom $cfg"
-#~ "['LeftFrameTableSeparator'], zato je samo mapa imenovana kot pridevek, "
-#~ "sama imena tabel pa ostanejo nespremenjena"
+#~ "uporabljen samo za razdružitev/združitev tabel v skladu z določilom "
+#~ "$cfg['LeftFrameTableSeparator'], zato je samo mapa imenovana kot "
+#~ "pridevek, sama imena tabel pa ostanejo nespremenjena"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Prikaži pripombo tabele namesto njenega imena"

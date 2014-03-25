@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-24 13:03-0400\n"
+"POT-Creation-Date: 2014-03-25 13:43+0100\n"
 "PO-Revision-Date: 2014-01-20 11:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -36,7 +36,7 @@ msgstr "ڈیٹا بیس %1$s بنا دیا گیا ہے۔"
 msgid "Database comment:"
 msgstr "کوائفیہ تبصرہ:"
 
-#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1314
+#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
 msgid "Table comments:"
@@ -54,8 +54,8 @@ msgstr "جدول تبصرات:"
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/schema/Pdf_Relation_Schema.class.php:1340
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
+#: libraries/schema/Pdf_Relation_Schema.class.php:1355
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
@@ -78,8 +78,8 @@ msgstr "کالم"
 #: libraries/rte/rte_routines.lib.php:954
 #: libraries/rte/rte_routines.lib.php:983
 #: libraries/rte/rte_routines.lib.php:1604
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
+#: libraries/schema/Pdf_Relation_Schema.class.php:1356
+#: libraries/schema/Pdf_Relation_Schema.class.php:1379
 #: libraries/server_privileges.lib.php:1843
 #: libraries/server_privileges.lib.php:1950 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1196
@@ -98,8 +98,8 @@ msgstr "قِسم"
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:273
 #: libraries/plugins/export/ExportTexytext.class.php:373
-#: libraries/schema/Pdf_Relation_Schema.class.php:1343
-#: libraries/schema/Pdf_Relation_Schema.class.php:1366
+#: libraries/schema/Pdf_Relation_Schema.class.php:1358
+#: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/structure.lib.php:1199
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:812
@@ -114,8 +114,8 @@ msgstr "خالی"
 #: libraries/plugins/export/ExportOdt.class.php:467
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1344
-#: libraries/schema/Pdf_Relation_Schema.class.php:1367
+#: libraries/schema/Pdf_Relation_Schema.class.php:1359
+#: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1200
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
@@ -126,8 +126,8 @@ msgstr "طے شدہ"
 #: libraries/plugins/export/ExportLatex.class.php:515
 #: libraries/plugins/export/ExportOdt.class.php:471
 #: libraries/plugins/export/ExportTexytext.class.php:376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1346
-#: libraries/schema/Pdf_Relation_Schema.class.php:1369
+#: libraries/schema/Pdf_Relation_Schema.class.php:1361
+#: libraries/schema/Pdf_Relation_Schema.class.php:1384
 #: libraries/tbl_printview.lib.php:477
 msgid "Links to"
 msgstr "ربط بطرف"
@@ -139,8 +139,8 @@ msgstr "ربط بطرف"
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
 #: libraries/plugins/export/ExportTexytext.class.php:379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#: libraries/schema/Pdf_Relation_Schema.class.php:1370
+#: libraries/schema/Pdf_Relation_Schema.class.php:1372
+#: libraries/schema/Pdf_Relation_Schema.class.php:1385
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
@@ -154,7 +154,7 @@ msgstr "تبصرات"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1396
+#: libraries/schema/Pdf_Relation_Schema.class.php:1411
 #: libraries/server_privileges.lib.php:2180
 #: libraries/server_privileges.lib.php:2377
 #: libraries/server_privileges.lib.php:2398
@@ -180,7 +180,7 @@ msgstr "نہیں"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1412
 #: libraries/server_databases.lib.php:472
 #: libraries/server_databases.lib.php:482
 #: libraries/server_privileges.lib.php:2180
@@ -238,8 +238,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"phpMyAdmin کی تشکیل زخیرہ بند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے %share%"
-"s دبائیں۔"
+"phpMyAdmin کی تشکیل زخیرہ بند کر دی گئی ہے۔ اس بارے میں جاننے کے لیے %share"
+"%s دبائیں۔"
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:768
@@ -275,19 +275,19 @@ msgid "in use"
 msgstr "استعمال میں ہے"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
-#: libraries/schema/Pdf_Relation_Schema.class.php:1319
+#: libraries/schema/Pdf_Relation_Schema.class.php:1334
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "بنائیں"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
-#: libraries/schema/Pdf_Relation_Schema.class.php:1324
+#: libraries/schema/Pdf_Relation_Schema.class.php:1339
 msgid "Last update:"
 msgstr "آخری تازہ کاری:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1109
-#: libraries/schema/Pdf_Relation_Schema.class.php:1329
+#: libraries/schema/Pdf_Relation_Schema.class.php:1344
 msgid "Last check:"
 msgstr "آخری پڑتال:"
 
@@ -566,8 +566,8 @@ msgstr "جیومیٹری شامل کریں"
 #: libraries/rte/rte_triggers.lib.php:426
 #: libraries/schema/User_Schema.class.php:170
 #: libraries/schema/User_Schema.class.php:233
-#: libraries/schema/User_Schema.class.php:495
-#: libraries/schema/User_Schema.class.php:546
+#: libraries/schema/User_Schema.class.php:502
+#: libraries/schema/User_Schema.class.php:553
 #: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:688
 #: libraries/server_privileges.lib.php:1750
 #: libraries/server_privileges.lib.php:2513
@@ -602,14 +602,14 @@ msgstr ""
 #: import.php:116
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے %"
-"sdocumentation%s دیکھیں۔"
+"آپ نے بڑی مسل اپ لوڈ کرنے کی کوشش کی ہے۔ اس حد کے بارے جاننے کے لیے "
+"%sdocumentation%s دیکھیں۔"
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -650,8 +650,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "درآمد کے لیے کوئی کوائف نہیں ملا۔ ممکن ہے کہ مسل نام بھیجا نہ گیا ہو یا مسل "
-"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ دیکھیں[doc@faq1-"
-"16]عمومی سوالات 1.16[/doc]."
+"حجم مقررہ حد سے تجاوز کر گیا ہو جو آپ کی PHP تشکیل میں ہے۔ "
+"دیکھیں[doc@faq1-16]عمومی سوالات 1.16[/doc]."
 
 #: import.php:495
 #, fuzzy
@@ -1910,7 +1910,7 @@ msgid "Click to sort."
 msgstr "انتخاب کے لیے کلک کریں"
 
 #: js/messages.php:343
-msgid "Hold shift and click to remove column from order by clause."
+msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
 #: js/messages.php:344
@@ -2014,8 +2014,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ %"
-"s, جاری کیا گیا %s."
+"phpMyAdmin کا ایک نیا نسخہ دستیاب ہے اور آپ ضرور تازہ کاری کریں۔ نیا نسخہ "
+"%s, جاری کیا گیا %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:387
@@ -2725,7 +2725,7 @@ msgstr ""
 #: libraries/plugins/export/ExportMediawiki.class.php:52
 #: libraries/plugins/export/ExportOds.class.php:57
 #: libraries/plugins/export/ExportOdt.class.php:66
-#: libraries/plugins/export/ExportPdf.class.php:82
+#: libraries/plugins/export/ExportPdf.class.php:90
 #: libraries/plugins/export/ExportPhparray.class.php:49
 #: libraries/plugins/export/ExportSql.class.php:72
 #: libraries/plugins/export/ExportTexytext.class.php:51
@@ -2816,8 +2816,8 @@ msgstr "آپ کی SQL طلب کامیابی سے چلائی جاچکی ہے۔"
 #: libraries/DisplayResults.class.php:5038 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "اس جدول نقل میں اتنے کم از کم صفیں ہیں۔ حوالہ کے لیے %sdocumentation%s."
 
@@ -3244,9 +3244,9 @@ msgstr[1] "%1$d صفیں داخل ہوئیں۔"
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2474
 #: libraries/browse_foreigners.lib.php:408
-#: libraries/schema/Pdf_Relation_Schema.class.php:1165
-#: libraries/schema/Pdf_Relation_Schema.class.php:1189
-#: libraries/schema/User_Schema.class.php:434
+#: libraries/schema/Pdf_Relation_Schema.class.php:1180
+#: libraries/schema/Pdf_Relation_Schema.class.php:1204
+#: libraries/schema/User_Schema.class.php:441
 #: libraries/select_lang.lib.php:589
 msgid "Page number:"
 msgstr "صفحہ نمبر:"
@@ -3700,14 +3700,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4469,7 +4469,7 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1596
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
 msgstr "دوبارہ سیٹ کریں"
@@ -4567,8 +4567,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4724,8 +4724,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4741,8 +4741,8 @@ msgstr "CHAR کالم تدوین"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5358,8 +5358,9 @@ msgstr "صفحہ عنوانات"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "براؤزر عنوان بار متن  لکھیں۔ حوالہ کے لیے[doc@cfg_TitleTable]documentation[/"
 "doc] خاص قدریں حاصل کرنے کے لیے میجک سٹرنگ۔"
@@ -5440,8 +5441,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"اضافی خواص تک رسائی کے لیے phpMyAdmin تشکیلات ذخیرہ کو تشکیل کریں، دیکھیں"
-"[doc@linked-tables]phpMyAdmin تشکیل ذخیرہ[/doc] دستاویزات میں"
+"اضافی خواص تک رسائی کے لیے phpMyAdmin تشکیلات ذخیرہ کو تشکیل کریں، "
+"دیکھیں[doc@linked-tables]phpMyAdmin تشکیل ذخیرہ[/doc] دستاویزات میں"
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -5554,14 +5555,14 @@ msgid "Choose how you want tabs to work."
 msgstr "جداول کے طریقہ کام چنیں"
 
 #: libraries/config/messages.inc.php:312
-#: libraries/schema/User_Schema.class.php:422
+#: libraries/schema/User_Schema.class.php:426
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display relational schema"
 msgstr "دکھائیں PDF schema"
 
 #: libraries/config/messages.inc.php:314
-#: libraries/schema/User_Schema.class.php:492
+#: libraries/schema/User_Schema.class.php:499
 msgid "Paper size"
 msgstr "صفحے کا ناپ"
 
@@ -5864,8 +5865,8 @@ msgstr "زیادہ سے زیادہ جداول"
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "اگر کوکی توثیق کے لیے mcrypt موجود نہ ہونے کی تنبیہ غیر فعال کرنے کے لیے طے "
 "شدہ تنبیہ کو غیرفعال کریں"
@@ -6348,11 +6349,11 @@ msgstr "جدول نشان کریں"
 #: libraries/config/messages.inc.php:566
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "کالم تبصرہ/mime اقسام کے لیے خالی چھوڑیں, مجوزہ: [kbd]pma_column_info[/kbd]"
 
@@ -6388,8 +6389,8 @@ msgstr "صارف پاس ورڈ کنٹرول"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6435,8 +6436,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:596
 msgid "Designer table"
@@ -6455,8 +6456,8 @@ msgstr "کوائفیے چھپائیں"
 #: libraries/config/messages.inc.php:601
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6530,8 +6531,8 @@ msgstr ""
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:627
 msgid "PDF schema: pages table"
@@ -6582,8 +6583,8 @@ msgstr "صارف نام یاد کریں"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 #| "a] support, suggested: [kbd]pma_bookmark[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "نہیں کے لیے خالی چھوڑیں[a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
 "a] معاونت، مجوزہ[kbd]pma_bookmark[/kbd]"
@@ -6594,8 +6595,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:649
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:652
@@ -6633,8 +6634,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:662
 msgid "PDF schema: table coordinates"
@@ -6649,8 +6650,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:667
 msgid "Display columns table"
@@ -6664,8 +6665,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:672
 msgid "UI preferences table"
@@ -6712,11 +6713,11 @@ msgstr ""
 #: libraries/config/messages.inc.php:692
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "SQL طلب لاگ معاونت نہ کرنے کے لیے خالی چھوڑیں , مجوزہ: [kbd]pma_history[/kbd]"
 
@@ -6739,11 +6740,11 @@ msgstr ""
 #| msgid ""
 #| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:703
 msgid "User preferences storage table"
@@ -6781,8 +6782,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-"pma_designer_coords[/kbd]"
+"اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:709
 msgid "Hidden navigation items table"
@@ -7434,8 +7435,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7898,8 +7899,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8724,8 +8725,8 @@ msgstr "%s میں خوش آمدید"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "آپ نے شاید تشکیل مسل نہیں بنایا۔ آپ ہوسکتا ہے کہ  %1$ssetup script%2$s کو "
 "استعمال کرتے ہوئے بنانا چاہتے ہیں۔"
@@ -9042,11 +9043,11 @@ msgstr "غلط جدول نام"
 msgid "Export table headers"
 msgstr "برآمد طریقہ"
 
-#: libraries/plugins/export/ExportPdf.class.php:97
+#: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
 msgstr ""
 
-#: libraries/plugins/export/ExportPdf.class.php:102
+#: libraries/plugins/export/ExportPdf.class.php:110
 msgid "Report title:"
 msgstr ""
 
@@ -9917,7 +9918,8 @@ msgstr "Table %s has been dropped"
 msgid "Event %1$s has been created."
 msgstr "کوائفیہ $1%s بن گئی ہے۔"
 
-#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
+#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
+#: libraries/rte/rte_triggers.lib.php:150
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
@@ -10067,10 +10069,6 @@ msgstr "Table %s has been dropped"
 #| msgid "Database %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "کوائفیہ $1%s بن گئی ہے۔"
-
-#: libraries/rte/rte_routines.lib.php:378
-msgid "<b>One or more errors have occurred while processing your request:</b>"
-msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:446
 #, fuzzy
@@ -10353,7 +10351,7 @@ msgstr "اپ لوڈ کرنے کے لیے کوئی مسل نہیں ہے"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:370
-#: libraries/schema/Pdf_Relation_Schema.class.php:423
+#: libraries/schema/Pdf_Relation_Schema.class.php:438
 #: libraries/schema/Svg_Relation_Schema.class.php:337
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -10361,14 +10359,14 @@ msgstr ""
 
 #: libraries/schema/Dia_Relation_Schema.class.php:262
 #: libraries/schema/Eps_Relation_Schema.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:453
 #: libraries/schema/Svg_Relation_Schema.class.php:352
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr ""
 
 #: libraries/schema/Eps_Relation_Schema.class.php:708
-#: libraries/schema/Pdf_Relation_Schema.class.php:829
+#: libraries/schema/Pdf_Relation_Schema.class.php:844
 #: libraries/schema/Svg_Relation_Schema.class.php:679
 #, php-format
 msgid "Schema of the %s database - Page %s"
@@ -10382,24 +10380,24 @@ msgstr ""
 msgid "SCHEMA ERROR: "
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:851
-#: libraries/schema/Pdf_Relation_Schema.class.php:1194
+#: libraries/schema/Pdf_Relation_Schema.class.php:866
+#: libraries/schema/Pdf_Relation_Schema.class.php:1209
 msgid "Relational schema"
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1157
+#: libraries/schema/Pdf_Relation_Schema.class.php:1172
 msgid "Table of contents"
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/schema/Pdf_Relation_Schema.class.php:1365
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
+#: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/structure.lib.php:1198
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Attributes"
 msgstr ""
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1345
-#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1360
+#: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/structure.lib.php:1201 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr ""
@@ -10444,61 +10442,67 @@ msgstr ""
 msgid "Column names"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:431
+#: libraries/schema/User_Schema.class.php:438
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:455
+#: libraries/schema/User_Schema.class.php:462
 msgid "Show grid"
 msgstr "گرِڈ دکھائیں"
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:465
 msgid "Show color"
 msgstr "کلر دکھائیں"
 
-#: libraries/schema/User_Schema.class.php:463
+#: libraries/schema/User_Schema.class.php:470
 msgid "Show dimension of tables"
 msgstr "ٹیبلز کی جسامت دیکھیں"
 
-#: libraries/schema/User_Schema.class.php:468
+#: libraries/schema/User_Schema.class.php:475
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:472 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:479 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr "کوائف لغت"
 
-#: libraries/schema/User_Schema.class.php:474
+#: libraries/schema/User_Schema.class.php:481
 msgid "Only show keys"
 msgstr "صرف کیز دیکھیں"
 
-#: libraries/schema/User_Schema.class.php:476
+#: libraries/schema/User_Schema.class.php:483
 msgid "Landscape"
 msgstr "لینڈسکیپ"
 
-#: libraries/schema/User_Schema.class.php:477
+#: libraries/schema/User_Schema.class.php:484
 msgid "Portrait"
 msgstr "پورٹریٹ"
 
-#: libraries/schema/User_Schema.class.php:479
+#: libraries/schema/User_Schema.class.php:486
 #, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
 msgstr "تخلیق"
 
-#: libraries/schema/User_Schema.class.php:539
+#: libraries/schema/User_Schema.class.php:546
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:565
+#: libraries/schema/User_Schema.class.php:572
 msgid "Toggle scratchboard"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:663
+#: libraries/schema/User_Schema.class.php:670
 msgid "File doesn't exist"
 msgstr ""
+
+#: libraries/schema/User_Schema.class.php:679
+#, fuzzy
+#| msgid "SQL Validator is disabled"
+msgid "Plugin is disabled"
+msgstr "SQL توثیق کار غیرفعال ہے"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
@@ -11092,8 +11096,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3954
@@ -13968,8 +13972,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14102,8 +14106,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14794,21 +14798,21 @@ msgstr ""
 #~| msgid ""
 #~| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
-#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-#~ "pma_designer_coords[/kbd]"
+#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+#~ "[kbd]pma_designer_coords[/kbd]"
 
 #, fuzzy
 #~| msgid ""
 #~| "ve blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
-#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: [kbd]"
-#~ "pma_designer_coords[/kbd]"
+#~ "اگر ڈیزائنر کی معاونت نہیں کرسکتے تو کالی چھوڑ دیں, مجوزہ: "
+#~ "[kbd]pma_designer_coords[/kbd]"
 
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "آپ کی SQL طلب کامیابی سے چلائی جاچکی ہے۔"
@@ -14885,8 +14889,9 @@ msgstr ""
 #~ msgstr "PHP کی قسم جو اسعتمال کی جائے"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "مزید معلومات یہاں موجود ہے [a@https://sourceforge.net/p/phpmyadmin/"
 #~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "

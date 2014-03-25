@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-24 13:03-0400\n"
+"POT-Creation-Date: 2014-03-25 13:43+0100\n"
 "PO-Revision-Date: 2014-03-19 23:07+0200\n"
 "Last-Translator: Peter Sone Koldkjær <rapelling@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
 ">\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -32,7 +32,7 @@ msgstr "Database %1$s er oprettet."
 msgid "Database comment:"
 msgstr "Databasekommentar:"
 
-#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1314
+#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
 msgid "Table comments:"
@@ -50,8 +50,8 @@ msgstr "Tabelkommentarer:"
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/schema/Pdf_Relation_Schema.class.php:1340
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
+#: libraries/schema/Pdf_Relation_Schema.class.php:1355
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
@@ -74,8 +74,8 @@ msgstr "Kolonnenavn"
 #: libraries/rte/rte_routines.lib.php:954
 #: libraries/rte/rte_routines.lib.php:983
 #: libraries/rte/rte_routines.lib.php:1604
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
+#: libraries/schema/Pdf_Relation_Schema.class.php:1356
+#: libraries/schema/Pdf_Relation_Schema.class.php:1379
 #: libraries/server_privileges.lib.php:1843
 #: libraries/server_privileges.lib.php:1950 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1196
@@ -94,8 +94,8 @@ msgstr "Datatype"
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:273
 #: libraries/plugins/export/ExportTexytext.class.php:373
-#: libraries/schema/Pdf_Relation_Schema.class.php:1343
-#: libraries/schema/Pdf_Relation_Schema.class.php:1366
+#: libraries/schema/Pdf_Relation_Schema.class.php:1358
+#: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/structure.lib.php:1199
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:812
@@ -110,8 +110,8 @@ msgstr "Nulværdi"
 #: libraries/plugins/export/ExportOdt.class.php:467
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1344
-#: libraries/schema/Pdf_Relation_Schema.class.php:1367
+#: libraries/schema/Pdf_Relation_Schema.class.php:1359
+#: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1200
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
@@ -122,8 +122,8 @@ msgstr "Standardværdi"
 #: libraries/plugins/export/ExportLatex.class.php:515
 #: libraries/plugins/export/ExportOdt.class.php:471
 #: libraries/plugins/export/ExportTexytext.class.php:376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1346
-#: libraries/schema/Pdf_Relation_Schema.class.php:1369
+#: libraries/schema/Pdf_Relation_Schema.class.php:1361
+#: libraries/schema/Pdf_Relation_Schema.class.php:1384
 #: libraries/tbl_printview.lib.php:477
 msgid "Links to"
 msgstr "Linker til"
@@ -135,8 +135,8 @@ msgstr "Linker til"
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
 #: libraries/plugins/export/ExportTexytext.class.php:379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#: libraries/schema/Pdf_Relation_Schema.class.php:1370
+#: libraries/schema/Pdf_Relation_Schema.class.php:1372
+#: libraries/schema/Pdf_Relation_Schema.class.php:1385
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
@@ -150,7 +150,7 @@ msgstr "Kommentarer"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1396
+#: libraries/schema/Pdf_Relation_Schema.class.php:1411
 #: libraries/server_privileges.lib.php:2180
 #: libraries/server_privileges.lib.php:2377
 #: libraries/server_privileges.lib.php:2398
@@ -176,7 +176,7 @@ msgstr "Nej"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1412
 #: libraries/server_databases.lib.php:472
 #: libraries/server_databases.lib.php:482
 #: libraries/server_privileges.lib.php:2180
@@ -267,17 +267,17 @@ msgid "in use"
 msgstr "i brug"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
-#: libraries/schema/Pdf_Relation_Schema.class.php:1319
+#: libraries/schema/Pdf_Relation_Schema.class.php:1334
 msgid "Creation:"
 msgstr "Oprettelse:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
-#: libraries/schema/Pdf_Relation_Schema.class.php:1324
+#: libraries/schema/Pdf_Relation_Schema.class.php:1339
 msgid "Last update:"
 msgstr "Seneste opdatering:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1109
-#: libraries/schema/Pdf_Relation_Schema.class.php:1329
+#: libraries/schema/Pdf_Relation_Schema.class.php:1344
 msgid "Last check:"
 msgstr "Seneste tjek:"
 
@@ -555,8 +555,8 @@ msgstr "Tilføj geometri"
 #: libraries/rte/rte_triggers.lib.php:426
 #: libraries/schema/User_Schema.class.php:170
 #: libraries/schema/User_Schema.class.php:233
-#: libraries/schema/User_Schema.class.php:495
-#: libraries/schema/User_Schema.class.php:546
+#: libraries/schema/User_Schema.class.php:502
+#: libraries/schema/User_Schema.class.php:553
 #: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:688
 #: libraries/server_privileges.lib.php:1750
 #: libraries/server_privileges.lib.php:2513
@@ -587,8 +587,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Du har sandsynligvis forsøgt at overføre en fil som er for stor. Se venligst "
 "%sdokumentationen%s for måder at omgå denne begrænsning."
@@ -881,8 +881,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin configuration storage er ikke fuldstændigt konfigureret; nogle "
-"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik %"
-"sher%s."
+"udvidede funktioner er blevet deaktiverede. For at finde ud af hvorfor klik "
+"%sher%s."
 
 #: index.php:556
 #, php-format
@@ -1842,7 +1842,7 @@ msgid "Click to sort."
 msgstr "Klik for at sortere."
 
 #: js/messages.php:343
-msgid "Hold shift and click to remove column from order by clause."
+msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
 #: js/messages.php:344
@@ -2602,7 +2602,7 @@ msgstr "Sorteringsnøgle"
 #: libraries/plugins/export/ExportMediawiki.class.php:52
 #: libraries/plugins/export/ExportOds.class.php:57
 #: libraries/plugins/export/ExportOdt.class.php:66
-#: libraries/plugins/export/ExportPdf.class.php:82
+#: libraries/plugins/export/ExportPdf.class.php:90
 #: libraries/plugins/export/ExportPhparray.class.php:49
 #: libraries/plugins/export/ExportSql.class.php:72
 #: libraries/plugins/export/ExportTexytext.class.php:51
@@ -2686,8 +2686,8 @@ msgstr "Din SQL-forespørgsel blev udført korrekt."
 #: libraries/DisplayResults.class.php:5038 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Viewet har som minimum dette antal rækker. Se venligst %sdokumentationen%s."
 
@@ -3105,9 +3105,9 @@ msgstr[1] "%1$d rækker sat ind."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2474
 #: libraries/browse_foreigners.lib.php:408
-#: libraries/schema/Pdf_Relation_Schema.class.php:1165
-#: libraries/schema/Pdf_Relation_Schema.class.php:1189
-#: libraries/schema/User_Schema.class.php:434
+#: libraries/schema/Pdf_Relation_Schema.class.php:1180
+#: libraries/schema/Pdf_Relation_Schema.class.php:1204
+#: libraries/schema/User_Schema.class.php:441
 #: libraries/select_lang.lib.php:589
 msgid "Page number:"
 msgstr "Side nummer:"
@@ -3539,20 +3539,20 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Et lille, flydende decimaltal. Tilladte værdier er -3.402823466E+38 til -"
-"1.175494351E-38, 0, samt 1.175494351E-38 til 3.402823466E+38"
+"Et lille, flydende decimaltal. Tilladte værdier er -3.402823466E+38 til "
+"-1.175494351E-38, 0, samt 1.175494351E-38 til 3.402823466E+38"
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Et dobbeltpræcisions, flydende decimaltal. Tilladte værdier er -"
-"1.7976931348623157E+308 til -2.2250738585072014E-308, 0, samt "
+"Et dobbeltpræcisions, flydende decimaltal. Tilladte værdier er "
+"-1.7976931348623157E+308 til -2.2250738585072014E-308, 0, samt "
 "2.2250738585072014E-308 til 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:336
@@ -4328,7 +4328,7 @@ msgid "Apply"
 msgstr "Anvend"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1596
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
 msgstr "Nulstil"
@@ -4444,10 +4444,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Hvis du føler at det er nødvendigt, benyt da yderligere sikring - %"
-"sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-baseret "
-"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
-"mange tusinde brugere."
+"Hvis du føler at det er nødvendigt, benyt da yderligere sikring - "
+"%sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-"
+"baseret beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en "
+"udbyder med mange tusinde brugere."
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4455,14 +4455,14 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
 "produktionssystemer. Enhver som kender eller gætter din phpMyAdmin URL kan "
-"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt %"
-"sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"direkte få adgang til dit phpMyAdmin panel for denne server. Sæt "
+"%sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4554,9 +4554,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Aktivering indebærer, at en side, som ligger på et andet domæne, har adgang "
-"til at kalde phpMyAdmin fra en ramme. Det er en potentiel [strong]"
-"sikkerhedsrisiko[/strong], fordi det åbner op for cross-frame scripting "
-"angreb"
+"til at kalde phpMyAdmin fra en ramme. Det er en potentiel "
+"[strong]sikkerhedsrisiko[/strong], fordi det åbner op for cross-frame "
+"scripting angreb"
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4612,8 +4612,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4633,8 +4633,8 @@ msgstr "Redigering af CHAR-kolonner"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Brug en brugervenlig redigering til redigering af SQL-forespørgsler, "
 "([a@http://codemirror.net/]CodeMirror[/a]) med fremhævelse af syntaks og "
@@ -5075,8 +5075,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Sorteringsrækkefølge for elementer i valgboks med fremmede nøgler; [kbd]"
-"content[/kbd] er de refererede data, [kbd]id[/kbd] er nøglens værdi"
+"Sorteringsrækkefølge for elementer i valgboks med fremmede nøgler; "
+"[kbd]content[/kbd] er de refererede data, [kbd]id[/kbd] er nøglens værdi"
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
@@ -5245,8 +5245,9 @@ msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Angiv browserens tekst i titelbaren. Se [doc@cfg_TitleTable]dokumentationen[/"
 "doc] for tekststrenge der indeholder særlige værdier."
@@ -5391,10 +5392,10 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Hvis du ønsker at bruge servicen SQL Validator, skal du huske på, at [strong]"
-"alle SQL forespørgsler lagres anonymt til statistiske formål[/strong].[br]"
-"[em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright "
-"2002 Upright Database Technology. All rights reserved.[/em]"
+"Hvis du ønsker at bruge servicen SQL Validator, skal du huske på, at "
+"[strong]alle SQL forespørgsler lagres anonymt til statistiske formål[/"
+"strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
+"Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 
 #: libraries/config/messages.inc.php:302
 msgid "Startup"
@@ -5441,12 +5442,12 @@ msgid "Choose how you want tabs to work."
 msgstr "Vælg hvordan du ønsker at fanerne skal fungere"
 
 #: libraries/config/messages.inc.php:312
-#: libraries/schema/User_Schema.class.php:422
+#: libraries/schema/User_Schema.class.php:426
 msgid "Display relational schema"
 msgstr "Vis relationel skema"
 
 #: libraries/config/messages.inc.php:314
-#: libraries/schema/User_Schema.class.php:492
+#: libraries/schema/User_Schema.class.php:499
 msgid "Paper size"
 msgstr "Papirstørrelse"
 
@@ -5754,8 +5755,8 @@ msgstr "Maksimalt antal tabeller"
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Deaktiver standardadvarslen som vises, hvis mcrypt mangler til cookie-"
 "godkendelse."
@@ -5809,8 +5810,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt ([kbd]"
-"new[/kbd])"
+"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt "
+"([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:441
 msgid "Logo link target"
@@ -6229,14 +6230,14 @@ msgstr "Bogmærketabel"
 #: libraries/config/messages.inc.php:566
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: [kbd]"
-"pma_column_info[/kbd]"
+"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: "
+"[kbd]pma_column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:569
 msgid "Column information table"
@@ -6270,8 +6271,8 @@ msgstr "Adgangskode for kontrolbruger"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6322,14 +6323,14 @@ msgstr "Kontrolport"
 #: libraries/config/messages.inc.php:593
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#| "[/kbd]"
+#| "Leave blank for no Designer support, suggested: "
+#| "[kbd]pma__designer_coords[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Efterlades tom for at undlade Designer-understøttelse, forslag: [kbd]"
-"pma_designer_coords[/kbd]"
+"Efterlades tom for at undlade Designer-understøttelse, forslag: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:596
 msgid "Designer table"
@@ -6348,8 +6349,8 @@ msgstr "Skjul databaser"
 #: libraries/config/messages.inc.php:601
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma__history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6432,8 +6433,8 @@ msgstr "Adgangskode for config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:627
 msgid "PDF schema: pages table"
@@ -6491,8 +6492,8 @@ msgstr "Senest benyttede tabel"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
 "net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]"
@@ -6507,8 +6508,8 @@ msgstr "Relationstabel"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/"
 "a] for et eksempel"
@@ -6550,8 +6551,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_table_coords[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:662
 msgid "PDF schema: table coordinates"
@@ -6637,11 +6638,11 @@ msgstr "Forespørgsler, der skal spores"
 #: libraries/config/messages.inc.php:692
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af sporing på SQL-forspørgsler, "
 "forslag: [kbd]pma_tracking[/kbd]"
@@ -6664,11 +6665,11 @@ msgstr "Opret versioner automatisk"
 #: libraries/config/messages.inc.php:702
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade lagring af bruger-præferencer i database, "
 "forslag: [kbd]pma_userconfig[/kbd]"
@@ -6958,8 +6959,8 @@ msgstr "Aktivér SQL Validator"
 #: libraries/config/messages.inc.php:753
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#| "[/kbd])"
+#| "If you have a custom username, specify it here (defaults to "
+#| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
@@ -7470,8 +7471,8 @@ msgstr ", @TABLE@ vil blive tabelnavnet"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Denne værdi fortolkes via %1$sstrftime%2$s, så du kan bruge tidsformatterede "
 "strenge. Ydermere vil følgende transformationer foregå: %3$s. Anden tekst "
@@ -7978,8 +7979,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentation og yderligere information om PBXT kan findes på %sPrimeBase XT "
 "hjemmeside%s."
@@ -8770,8 +8771,8 @@ msgstr "Velkommen til %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Sandsynlig årsag til dette er at du ikke har oprettet en konfigurationsfil. "
 "Du kan bruge %1$sopsætningsscriptet%2$s til at oprette en."
@@ -9064,11 +9065,11 @@ msgstr "Eksportér tabelnavne"
 msgid "Export table headers"
 msgstr "Eksportér tabel-hoveder"
 
-#: libraries/plugins/export/ExportPdf.class.php:97
+#: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Genererer en rapport indeholdende dataene fra en enkelt tabel)"
 
-#: libraries/plugins/export/ExportPdf.class.php:102
+#: libraries/plugins/export/ExportPdf.class.php:110
 msgid "Report title:"
 msgstr "Rapporttitel:"
 
@@ -10017,7 +10018,8 @@ msgstr "Hændelse \"%1$s\" er blevet ændret."
 msgid "Event %1$s has been created."
 msgstr "Hændelse %1$s er oprettet."
 
-#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
+#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
+#: libraries/rte/rte_triggers.lib.php:150
 #, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
@@ -10159,10 +10161,6 @@ msgstr "Rutine \"%1$s\" er blevet ændret."
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutine %1$s er oprettet."
-
-#: libraries/rte/rte_routines.lib.php:378
-msgid "<b>One or more errors have occurred while processing your request:</b>"
-msgstr "<b>Der er opstået fejl under behandling af anmodningen:</b>"
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
@@ -10406,7 +10404,7 @@ msgstr "Der er ingen hændelser at vise."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:370
-#: libraries/schema/Pdf_Relation_Schema.class.php:423
+#: libraries/schema/Pdf_Relation_Schema.class.php:438
 #: libraries/schema/Svg_Relation_Schema.class.php:337
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -10414,14 +10412,14 @@ msgstr "Tabellen \"%s\" findes ikke!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:262
 #: libraries/schema/Eps_Relation_Schema.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:453
 #: libraries/schema/Svg_Relation_Schema.class.php:352
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Konfigurer venligst koordinaterne for tabel %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:708
-#: libraries/schema/Pdf_Relation_Schema.class.php:829
+#: libraries/schema/Pdf_Relation_Schema.class.php:844
 #: libraries/schema/Svg_Relation_Schema.class.php:679
 #, php-format
 msgid "Schema of the %s database - Page %s"
@@ -10435,24 +10433,24 @@ msgstr "Denne side indeholder ingen tabeller!"
 msgid "SCHEMA ERROR: "
 msgstr "SCHEMA ERROR: "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:851
-#: libraries/schema/Pdf_Relation_Schema.class.php:1194
+#: libraries/schema/Pdf_Relation_Schema.class.php:866
+#: libraries/schema/Pdf_Relation_Schema.class.php:1209
 msgid "Relational schema"
 msgstr "Relationel skematik"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1157
+#: libraries/schema/Pdf_Relation_Schema.class.php:1172
 msgid "Table of contents"
 msgstr "Indholdsfortegnelse"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/schema/Pdf_Relation_Schema.class.php:1365
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
+#: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/structure.lib.php:1198
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Attributes"
 msgstr "Attributter"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1345
-#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1360
+#: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/structure.lib.php:1201 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Ekstra"
@@ -10493,47 +10491,47 @@ msgstr "Vælg tabeller"
 msgid "Column names"
 msgstr "Kolonnenavne"
 
-#: libraries/schema/User_Schema.class.php:431
+#: libraries/schema/User_Schema.class.php:438
 msgid "Select Export Relational Type"
 msgstr "Vælg Export Relational Type"
 
-#: libraries/schema/User_Schema.class.php:455
+#: libraries/schema/User_Schema.class.php:462
 msgid "Show grid"
 msgstr "Vis gitter"
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:465
 msgid "Show color"
 msgstr "Vis farve"
 
-#: libraries/schema/User_Schema.class.php:463
+#: libraries/schema/User_Schema.class.php:470
 msgid "Show dimension of tables"
 msgstr "Vis tabellernes dimensioner"
 
-#: libraries/schema/User_Schema.class.php:468
+#: libraries/schema/User_Schema.class.php:475
 msgid "Same width for all tables"
 msgstr "Samme bredde for alle tabeller"
 
-#: libraries/schema/User_Schema.class.php:472 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:479 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr "Data Dictionary"
 
-#: libraries/schema/User_Schema.class.php:474
+#: libraries/schema/User_Schema.class.php:481
 msgid "Only show keys"
 msgstr "Vis kun nøgler"
 
-#: libraries/schema/User_Schema.class.php:476
+#: libraries/schema/User_Schema.class.php:483
 msgid "Landscape"
 msgstr "Liggende"
 
-#: libraries/schema/User_Schema.class.php:477
+#: libraries/schema/User_Schema.class.php:484
 msgid "Portrait"
 msgstr "Stående"
 
-#: libraries/schema/User_Schema.class.php:479
+#: libraries/schema/User_Schema.class.php:486
 msgid "Orientation"
 msgstr "Orientering"
 
-#: libraries/schema/User_Schema.class.php:539
+#: libraries/schema/User_Schema.class.php:546
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -10541,13 +10539,19 @@ msgstr ""
 "Nuværende side har referencer til tabeller der ikke længere eksisterer. Vil "
 "du slette disse referencer?"
 
-#: libraries/schema/User_Schema.class.php:565
+#: libraries/schema/User_Schema.class.php:572
 msgid "Toggle scratchboard"
 msgstr "Tegnebræt til/fra"
 
-#: libraries/schema/User_Schema.class.php:663
+#: libraries/schema/User_Schema.class.php:670
 msgid "File doesn't exist"
 msgstr "Filen eksisterer ikke"
+
+#: libraries/schema/User_Schema.class.php:679
+#, fuzzy
+#| msgid "SQL Validator is disabled"
+msgid "Plugin is disabled"
+msgstr "SQL Validator er deaktiveret"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
@@ -11160,14 +11164,14 @@ msgstr "Oversigt over brugere"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Bemærk: phpMyAdmin henter brugernes privilegier direkte fra MySQLs "
 "privilegietabeller. Indholdet af disse tabeller kan være forskelligt fra "
 "privilegierne serveren i øjeblikket bruger hvis der er lavet manuelle "
-"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne%"
-"s før du fortsætter."
+"ændringer i den. Hvis dette er tilfældet, bør du %sgenindlæse privilegierne"
+"%s før du fortsætter."
 
 #: libraries/server_privileges.lib.php:3954
 msgid "The selected user was not found in the privilege table."
@@ -14100,8 +14104,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Det aktuelle forhold mellem ledig og total forespørgselsmellemlager er %s%%. "
 "Det bør være over 80%%"
@@ -14255,8 +14259,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% af alle sorteringer bruger midlertidige tabeller. Denne værdi bør være "
 "mindre end 10%%."
@@ -15006,24 +15010,28 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
 
+#~ msgid ""
+#~ "<b>One or more errors have occurred while processing your request:</b>"
+#~ msgstr "<b>Der er opstået fejl under behandling af anmodningen:</b>"
+
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~| "pma__users[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: "
+#~| "[kbd]pma__users[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 #~ "forslag: [kbd]pma_users[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~| "pma__usergroups[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: "
+#~| "[kbd]pma__usergroups[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 #~ "forslag: [kbd]pma__usergroups[/kbd]"
@@ -15145,11 +15153,13 @@ msgstr "concurrent_insert er sat til 0"
 #~ msgstr "Aktivér rapportering for javascript-fejl"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
-#~ "Mere information om [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "Mere information om [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Deaktiver brug af INFORMATION_SCHEMA"
@@ -15484,13 +15494,13 @@ msgstr "concurrent_insert er sat til 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Når denne sættes til [kbd]nested[/kbd] bruges alias for tabelnavnet kun "
-#~ "til at splitte/samle tabellerne i henhold til direktivet $cfg"
-#~ "['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
+#~ "til at splitte/samle tabellerne i henhold til direktivet "
+#~ "$cfg['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
 #~ "tabelnavnet selv forbliver uændret"
 
 #~ msgid "Display table comment instead of its name"

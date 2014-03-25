@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-24 13:03-0400\n"
+"POT-Creation-Date: 2014-03-25 13:43+0100\n"
 "PO-Revision-Date: 2014-03-15 10:29+0200\n"
 "Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/master/"
 "bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -33,7 +33,7 @@ msgstr "БД %1$s беше създадена."
 msgid "Database comment:"
 msgstr "Коментар към БД:"
 
-#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1314
+#: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
 msgid "Table comments:"
@@ -51,8 +51,8 @@ msgstr "Коментари към таблицата:"
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/schema/Pdf_Relation_Schema.class.php:1340
-#: libraries/schema/Pdf_Relation_Schema.class.php:1363
+#: libraries/schema/Pdf_Relation_Schema.class.php:1355
+#: libraries/schema/Pdf_Relation_Schema.class.php:1378
 #: libraries/tbl_columns_definition_form.lib.php:567
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
@@ -75,8 +75,8 @@ msgstr "Kолона"
 #: libraries/rte/rte_routines.lib.php:954
 #: libraries/rte/rte_routines.lib.php:983
 #: libraries/rte/rte_routines.lib.php:1604
-#: libraries/schema/Pdf_Relation_Schema.class.php:1341
-#: libraries/schema/Pdf_Relation_Schema.class.php:1364
+#: libraries/schema/Pdf_Relation_Schema.class.php:1356
+#: libraries/schema/Pdf_Relation_Schema.class.php:1379
 #: libraries/server_privileges.lib.php:1843
 #: libraries/server_privileges.lib.php:1950 libraries/structure.lib.php:776
 #: libraries/structure.lib.php:1196
@@ -95,8 +95,8 @@ msgstr "Тип"
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:273
 #: libraries/plugins/export/ExportTexytext.class.php:373
-#: libraries/schema/Pdf_Relation_Schema.class.php:1343
-#: libraries/schema/Pdf_Relation_Schema.class.php:1366
+#: libraries/schema/Pdf_Relation_Schema.class.php:1358
+#: libraries/schema/Pdf_Relation_Schema.class.php:1381
 #: libraries/structure.lib.php:1199
 #: libraries/tbl_columns_definition_form.lib.php:297
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:812
@@ -111,8 +111,8 @@ msgstr "Празно"
 #: libraries/plugins/export/ExportOdt.class.php:467
 #: libraries/plugins/export/ExportTexytext.class.php:274
 #: libraries/plugins/export/ExportTexytext.class.php:374
-#: libraries/schema/Pdf_Relation_Schema.class.php:1344
-#: libraries/schema/Pdf_Relation_Schema.class.php:1367
+#: libraries/schema/Pdf_Relation_Schema.class.php:1359
+#: libraries/schema/Pdf_Relation_Schema.class.php:1382
 #: libraries/structure.lib.php:210 libraries/structure.lib.php:1200
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
@@ -123,8 +123,8 @@ msgstr "По подразбиране"
 #: libraries/plugins/export/ExportLatex.class.php:515
 #: libraries/plugins/export/ExportOdt.class.php:471
 #: libraries/plugins/export/ExportTexytext.class.php:376
-#: libraries/schema/Pdf_Relation_Schema.class.php:1346
-#: libraries/schema/Pdf_Relation_Schema.class.php:1369
+#: libraries/schema/Pdf_Relation_Schema.class.php:1361
+#: libraries/schema/Pdf_Relation_Schema.class.php:1384
 #: libraries/tbl_printview.lib.php:477
 msgid "Links to"
 msgstr "Свързана към"
@@ -136,8 +136,8 @@ msgstr "Свързана към"
 #: libraries/plugins/export/ExportLatex.class.php:518
 #: libraries/plugins/export/ExportOdt.class.php:476
 #: libraries/plugins/export/ExportTexytext.class.php:379
-#: libraries/schema/Pdf_Relation_Schema.class.php:1357
-#: libraries/schema/Pdf_Relation_Schema.class.php:1370
+#: libraries/schema/Pdf_Relation_Schema.class.php:1372
+#: libraries/schema/Pdf_Relation_Schema.class.php:1385
 #: libraries/tbl_columns_definition_form.lib.php:307
 #: libraries/tbl_printview.lib.php:479
 msgid "Comments"
@@ -151,7 +151,7 @@ msgstr "Коментари"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1396
+#: libraries/schema/Pdf_Relation_Schema.class.php:1411
 #: libraries/server_privileges.lib.php:2180
 #: libraries/server_privileges.lib.php:2377
 #: libraries/server_privileges.lib.php:2398
@@ -177,7 +177,7 @@ msgstr "Не"
 #: libraries/plugins/export/ExportLatex.class.php:589
 #: libraries/plugins/export/ExportOdt.class.php:725
 #: libraries/plugins/export/ExportTexytext.class.php:568
-#: libraries/schema/Pdf_Relation_Schema.class.php:1397
+#: libraries/schema/Pdf_Relation_Schema.class.php:1412
 #: libraries/server_databases.lib.php:472
 #: libraries/server_databases.lib.php:482
 #: libraries/server_privileges.lib.php:2180
@@ -269,17 +269,17 @@ msgid "in use"
 msgstr "ползва се в момента"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
-#: libraries/schema/Pdf_Relation_Schema.class.php:1319
+#: libraries/schema/Pdf_Relation_Schema.class.php:1334
 msgid "Creation:"
 msgstr "Създаване:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
-#: libraries/schema/Pdf_Relation_Schema.class.php:1324
+#: libraries/schema/Pdf_Relation_Schema.class.php:1339
 msgid "Last update:"
 msgstr "Последно обновяване:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1109
-#: libraries/schema/Pdf_Relation_Schema.class.php:1329
+#: libraries/schema/Pdf_Relation_Schema.class.php:1344
 msgid "Last check:"
 msgstr "Последна проверка:"
 
@@ -556,8 +556,8 @@ msgstr "Добави геометрия"
 #: libraries/rte/rte_triggers.lib.php:426
 #: libraries/schema/User_Schema.class.php:170
 #: libraries/schema/User_Schema.class.php:233
-#: libraries/schema/User_Schema.class.php:495
-#: libraries/schema/User_Schema.class.php:546
+#: libraries/schema/User_Schema.class.php:502
+#: libraries/schema/User_Schema.class.php:553
 #: libraries/server_bin_log.lib.php:61 libraries/server_privileges.lib.php:688
 #: libraries/server_privileges.lib.php:1750
 #: libraries/server_privileges.lib.php:2513
@@ -588,8 +588,8 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Вероятно сте направили опит да качите твърде голям файл. Моля, обърнете се "
 "към %sдокументацията%s за да намерите начин да избегнете това ограничение."
@@ -631,8 +631,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Не бяха получени данни за импорт. Или не е изпратен файл, или файлът е бил "
-"по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ 1.16"
-"[/doc]."
+"по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
+"1.16[/doc]."
 
 #: import.php:495
 msgid ""
@@ -1856,7 +1856,7 @@ msgid "Click to sort."
 msgstr "Щракване за сортиране"
 
 #: js/messages.php:343
-msgid "Hold shift and click to remove column from order by clause."
+msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
 #: js/messages.php:344
@@ -2670,7 +2670,7 @@ msgstr "Сортиране по ключ"
 #: libraries/plugins/export/ExportMediawiki.class.php:52
 #: libraries/plugins/export/ExportOds.class.php:57
 #: libraries/plugins/export/ExportOdt.class.php:66
-#: libraries/plugins/export/ExportPdf.class.php:82
+#: libraries/plugins/export/ExportPdf.class.php:90
 #: libraries/plugins/export/ExportPhparray.class.php:49
 #: libraries/plugins/export/ExportSql.class.php:72
 #: libraries/plugins/export/ExportTexytext.class.php:51
@@ -2760,8 +2760,8 @@ msgstr "SQL заявката беше изпълнена успешно"
 #: libraries/DisplayResults.class.php:5038 libraries/structure.lib.php:653
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "Този изглед има поне толкова реда. Погледнете %sдокументацията%s."
 
 #: libraries/DisplayResults.class.php:5051
@@ -3188,9 +3188,9 @@ msgstr[1] "%1$d реда добавени."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2474
 #: libraries/browse_foreigners.lib.php:408
-#: libraries/schema/Pdf_Relation_Schema.class.php:1165
-#: libraries/schema/Pdf_Relation_Schema.class.php:1189
-#: libraries/schema/User_Schema.class.php:434
+#: libraries/schema/Pdf_Relation_Schema.class.php:1180
+#: libraries/schema/Pdf_Relation_Schema.class.php:1204
+#: libraries/schema/User_Schema.class.php:441
 #: libraries/select_lang.lib.php:589
 msgid "Page number:"
 msgstr "Страница:"
@@ -3631,14 +3631,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4393,7 +4393,7 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1596
-#: libraries/schema/User_Schema.class.php:567 prefs_manage.php:335
+#: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
 #: prefs_manage.php:342
 msgid "Reset"
 msgstr "Изчистване"
@@ -4491,8 +4491,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4661,16 +4661,16 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
 "Определя какъв вид полета за редакция да бъдат използвани за колони тип CHAR "
-"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, [kbd]textarea"
-"[/kbd] - позволява вмъкването на нови редове"
+"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, "
+"[kbd]textarea[/kbd] - позволява вмъкването на нови редове"
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4682,8 +4682,8 @@ msgstr "Редакция на CHAR колони"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Използване на удобен за потребителя редактор за писане на SQL заявките "
 "([a@http://codemirror.net/]CodeMirror[/a]) със синтактично оцветяване и "
@@ -5308,11 +5308,13 @@ msgstr "Заглавие в браузъра"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Настройте заглавието в браузъра. Прочетете [doc@cfg_TitleTable]документацията"
-"[/doc] за магическите низове и техните стойности."
+"Настройте заглавието в браузъра. Прочетете "
+"[doc@cfg_TitleTable]документацията[/doc] за магическите низове и техните "
+"стойности."
 
 #: libraries/config/messages.inc.php:255
 #: libraries/navigation/NavigationHeader.class.php:219
@@ -5489,12 +5491,12 @@ msgid "Choose how you want tabs to work."
 msgstr "Изберете поведението на разделите"
 
 #: libraries/config/messages.inc.php:312
-#: libraries/schema/User_Schema.class.php:422
+#: libraries/schema/User_Schema.class.php:426
 msgid "Display relational schema"
 msgstr "Показване схема на релациите"
 
 #: libraries/config/messages.inc.php:314
-#: libraries/schema/User_Schema.class.php:492
+#: libraries/schema/User_Schema.class.php:499
 msgid "Paper size"
 msgstr "Размер на хартията"
 
@@ -5766,8 +5768,8 @@ msgstr ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
@@ -6201,8 +6203,8 @@ msgstr "Таблица за белязки"
 
 #: libraries/config/messages.inc.php:566
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:569
@@ -6235,8 +6237,8 @@ msgstr "Парола на контролен потребител"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6410,8 +6412,8 @@ msgstr "Последно отваряна таблица"
 
 #: libraries/config/messages.inc.php:643
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:647
@@ -6424,11 +6426,11 @@ msgstr "Таблица за връзка"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
-"За примери посетете [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"видове удостоверяване[/a]"
+"За примери посетете [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]видове удостоверяване[/a]"
 
 #: libraries/config/messages.inc.php:652
 msgid "Signon session name"
@@ -6535,8 +6537,8 @@ msgstr "Изрази, които да бъдат проследявани"
 
 #: libraries/config/messages.inc.php:692
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:695
@@ -6555,8 +6557,8 @@ msgstr "Автоматично създаване на версии"
 
 #: libraries/config/messages.inc.php:702
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:703
@@ -6736,8 +6738,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Показва връзка към изхода на [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Показва връзка към изхода на [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:734
 msgid "Show phpinfo() link"
@@ -6826,14 +6828,14 @@ msgstr "Включване на SQL валидатора"
 #: libraries/config/messages.inc.php:753
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#| "[/kbd])"
+#| "If you have a custom username, specify it here (defaults to "
+#| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Ако имате отделно потребителско име, въведете го тук (по подразбиране е [kbd]"
-"anonymous[/kbd])"
+"Ако имате отделно потребителско име, въведете го тук (по подразбиране е "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -7300,8 +7302,8 @@ msgstr ", @TABLE@ ще стане името на таблицата"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7755,8 +7757,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8589,8 +8591,8 @@ msgstr "Добре дошли в %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Изглежда не се създали конфигурационен файл. Вероятно ще искате да "
 "използвате %1$sскрипта за настройки%2$s, за да го създадете."
@@ -8900,11 +8902,11 @@ msgstr "Експорт имена на таблици"
 msgid "Export table headers"
 msgstr "Експортиране заглавки на таблици"
 
-#: libraries/plugins/export/ExportPdf.class.php:97
+#: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
 msgstr "(Генерира доклад съдържащ данните в определена таблица)"
 
-#: libraries/plugins/export/ExportPdf.class.php:102
+#: libraries/plugins/export/ExportPdf.class.php:110
 msgid "Report title:"
 msgstr "Заглавие на доклада:"
 
@@ -9033,8 +9035,8 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 "Съхраняване на полета от вида TIMESTAMP в UTC формат<i>(позволява полетата "
-"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови пояси)"
-"</i>"
+"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови "
+"пояси)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1233
 msgid "Constraints for dumped tables"
@@ -9272,10 +9274,10 @@ msgstr ""
 "Text_Plain_External.class.php и да изредите програмите, на които позволявате "
 "да бъдат стартирани. Първата опция тогава е номера на програмата, която "
 "бихте искали да използвате, а втората са параметрите ѝ. Ако третият "
-"параметър е установен на 1, ще конвертира изхода използвайки htmlspecialchars"
-"() (По подразбиране е 1). Ако четвъртият параметър е установен на 1 това ще "
-"предотврати спренос на нов ред и целият изход ще бъде показан на един ред "
-"(По подразбиране е 1)."
+"параметър е установен на 1, ще конвертира изхода използвайки "
+"htmlspecialchars() (По подразбиране е 1). Ако четвъртият параметър е "
+"установен на 1 това ще предотврати спренос на нов ред и целият изход ще бъде "
+"показан на един ред (По подразбиране е 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9838,7 +9840,8 @@ msgstr "Събитието %1$s беше променено."
 msgid "Event %1$s has been created."
 msgstr "Събитието %1$s беше създадено."
 
-#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_triggers.lib.php:150
+#: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
+#: libraries/rte/rte_triggers.lib.php:150
 #, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occured while processing your request:</b>"
@@ -9980,13 +9983,6 @@ msgstr "Процедурата%1$s беше променена."
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Процедура %1$s беше създадена."
-
-#: libraries/rte/rte_routines.lib.php:378
-#, fuzzy
-#| msgid ""
-#| "<b>One or more errors have occured while processing your request:</b>"
-msgid "<b>One or more errors have occurred while processing your request:</b>"
-msgstr "<b>Една или повече грешки възникнаха при обработка на заявката:</b>"
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
@@ -10230,7 +10226,7 @@ msgstr "Няма събития."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:247
 #: libraries/schema/Eps_Relation_Schema.class.php:370
-#: libraries/schema/Pdf_Relation_Schema.class.php:423
+#: libraries/schema/Pdf_Relation_Schema.class.php:438
 #: libraries/schema/Svg_Relation_Schema.class.php:337
 #, php-format
 msgid "The %s table doesn't exist!"
@@ -10238,14 +10234,14 @@ msgstr "Таблицата %s не съществува!"
 
 #: libraries/schema/Dia_Relation_Schema.class.php:262
 #: libraries/schema/Eps_Relation_Schema.class.php:385
-#: libraries/schema/Pdf_Relation_Schema.class.php:438
+#: libraries/schema/Pdf_Relation_Schema.class.php:453
 #: libraries/schema/Svg_Relation_Schema.class.php:352
 #, php-format
 msgid "Please configure the coordinates for table %s"
 msgstr "Моля конфигурирайте координатите за таблица %s"
 
 #: libraries/schema/Eps_Relation_Schema.class.php:708
-#: libraries/schema/Pdf_Relation_Schema.class.php:829
+#: libraries/schema/Pdf_Relation_Schema.class.php:844
 #: libraries/schema/Svg_Relation_Schema.class.php:679
 #, php-format
 msgid "Schema of the %s database - Page %s"
@@ -10259,24 +10255,24 @@ msgstr "Тази страница не съдържа таблици!"
 msgid "SCHEMA ERROR: "
 msgstr "ГРЕШКА В СХЕМАТА: "
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:851
-#: libraries/schema/Pdf_Relation_Schema.class.php:1194
+#: libraries/schema/Pdf_Relation_Schema.class.php:866
+#: libraries/schema/Pdf_Relation_Schema.class.php:1209
 msgid "Relational schema"
 msgstr "Релационна схема"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1157
+#: libraries/schema/Pdf_Relation_Schema.class.php:1172
 msgid "Table of contents"
 msgstr "Съдържание"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1342
-#: libraries/schema/Pdf_Relation_Schema.class.php:1365
+#: libraries/schema/Pdf_Relation_Schema.class.php:1357
+#: libraries/schema/Pdf_Relation_Schema.class.php:1380
 #: libraries/structure.lib.php:1198
 #: libraries/tbl_columns_definition_form.lib.php:296
 msgid "Attributes"
 msgstr "Атрибути"
 
-#: libraries/schema/Pdf_Relation_Schema.class.php:1345
-#: libraries/schema/Pdf_Relation_Schema.class.php:1368
+#: libraries/schema/Pdf_Relation_Schema.class.php:1360
+#: libraries/schema/Pdf_Relation_Schema.class.php:1383
 #: libraries/structure.lib.php:1201 libraries/tbl_tracking.lib.php:814
 msgid "Extra"
 msgstr "Допълнително"
@@ -10317,47 +10313,47 @@ msgstr "Избор на таблици"
 msgid "Column names"
 msgstr "Име на колона"
 
-#: libraries/schema/User_Schema.class.php:431
+#: libraries/schema/User_Schema.class.php:438
 msgid "Select Export Relational Type"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:455
+#: libraries/schema/User_Schema.class.php:462
 msgid "Show grid"
 msgstr "Мрежата видима"
 
-#: libraries/schema/User_Schema.class.php:458
+#: libraries/schema/User_Schema.class.php:465
 msgid "Show color"
 msgstr "Показване свят"
 
-#: libraries/schema/User_Schema.class.php:463
+#: libraries/schema/User_Schema.class.php:470
 msgid "Show dimension of tables"
 msgstr "Размери на таблиците видими"
 
-#: libraries/schema/User_Schema.class.php:468
+#: libraries/schema/User_Schema.class.php:475
 msgid "Same width for all tables"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:472 libraries/structure.lib.php:379
+#: libraries/schema/User_Schema.class.php:479 libraries/structure.lib.php:379
 msgid "Data Dictionary"
 msgstr "Речник на данните"
 
-#: libraries/schema/User_Schema.class.php:474
+#: libraries/schema/User_Schema.class.php:481
 msgid "Only show keys"
 msgstr "Само ключовете видими"
 
-#: libraries/schema/User_Schema.class.php:476
+#: libraries/schema/User_Schema.class.php:483
 msgid "Landscape"
 msgstr "Пейзажно"
 
-#: libraries/schema/User_Schema.class.php:477
+#: libraries/schema/User_Schema.class.php:484
 msgid "Portrait"
 msgstr "Портретно"
 
-#: libraries/schema/User_Schema.class.php:479
+#: libraries/schema/User_Schema.class.php:486
 msgid "Orientation"
 msgstr "Посока"
 
-#: libraries/schema/User_Schema.class.php:539
+#: libraries/schema/User_Schema.class.php:546
 msgid ""
 "The current page has references to tables that no longer exist. Would you "
 "like to delete those references?"
@@ -10365,13 +10361,19 @@ msgstr ""
 "Текущата Страница има Референции към Таблици които вече не съществуват. "
 "Желаете ли да изтриете тези Референции?"
 
-#: libraries/schema/User_Schema.class.php:565
+#: libraries/schema/User_Schema.class.php:572
 msgid "Toggle scratchboard"
 msgstr ""
 
-#: libraries/schema/User_Schema.class.php:663
+#: libraries/schema/User_Schema.class.php:670
 msgid "File doesn't exist"
 msgstr "Файлът не съществува"
+
+#: libraries/schema/User_Schema.class.php:679
+#, fuzzy
+#| msgid "SQL Validator is disabled"
+msgid "Plugin is disabled"
+msgstr "SQL валидаторът е изключен"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
@@ -10993,8 +10995,8 @@ msgstr "Преглед потребители"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Забележка: phpMyAdmin взема потребителските права директно от таблицата с "
 "правата на MySQL. Съдържанието на тази таблица може да се различава от "
@@ -12243,8 +12245,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "SQL валидаторът не може да бъде инициализиран. Моля проверете дали са "
-"инсталирани необходимите PHP разширения, както е описано в %sдокументацията%"
-"s."
+"инсталирани необходимите PHP разширения, както е описано в %sдокументацията"
+"%s."
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
@@ -13178,8 +13180,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез %"
-"sскрипта за настройки%s."
+"Имате достъп до още настройки, модифицирайки config.inc.php, примерно чрез "
+"%sскрипта за настройки%s."
 
 #: prefs_manage.php:311
 msgid "Save to browser's storage"
@@ -13816,8 +13818,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13936,8 +13938,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% от всички сортировки се изпълняват с временни таблици, тази стойност "
 "трябва да бъде под 10%%."
@@ -14627,6 +14629,13 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
 
+#, fuzzy
+#~| msgid ""
+#~| "<b>One or more errors have occured while processing your request:</b>"
+#~ msgid ""
+#~ "<b>One or more errors have occurred while processing your request:</b>"
+#~ msgstr "<b>Една или повече грешки възникнаха при обработка на заявката:</b>"
+
 #~ msgid "Your SQL query has been executed successfully"
 #~ msgstr "SQL заявката беше изпълнена успешно"
 
@@ -14720,8 +14729,9 @@ msgstr "concurrent_insert e 0"
 #~ "по MIME тип натиснете на %sописания на трансформацията%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Допълнителна информация в [a@https://sourceforge.net/p/phpmyadmin/"
 #~ "bugs/2606/]системата за проследяване на дефекти на PMA[/a] и [a@http://"
