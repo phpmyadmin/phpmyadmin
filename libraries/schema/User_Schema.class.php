@@ -419,12 +419,19 @@ class PMA_User_Schema
             $htmlString .= PMA_Util::getImage('b_views.png');
         }
 
+        /*
+         * TODO: This list should be generated dynamically based on list of
+         * available plugins.
+         */
         $htmlString .= __('Display relational schema')
             . ':'
             . '</legend>'
-            . '<select name="export_type" id="export_type">'
-            . '<option value="pdf" selected="selected">PDF</option>'
-            . '<option value="svg">SVG</option>'
+            . '<select name="export_type" id="export_type">';
+        if (file_exists(TCPDF_INC)) {
+            $htmlString .= '<option value="pdf" selected="selected">PDF</option>';
+        }
+        $htmlString .=
+            '<option value="svg">SVG</option>'
             . '<option value="dia">DIA</option>'
             . '<option value="eps">EPS</option>'
             . '</select>'
@@ -663,7 +670,15 @@ class PMA_User_Schema
                 __('File doesn\'t exist')
             );
         }
+        $GLOBALS['skip_import'] = false;
         include $filename;
+        if ( $GLOBALS['skip_import']) {
+            PMA_Export_Relation_Schema::dieSchema(
+                $_POST['chpage'],
+                $export_type,
+                __('Plugin is disabled')
+            );
+        }
         $class_name = 'PMA_' . $path . '_Relation_Schema';
         $obj_schema = new $class_name();
         $obj_schema->showOutput();
