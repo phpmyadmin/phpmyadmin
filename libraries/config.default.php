@@ -651,6 +651,13 @@ $cfg['MaxDbList'] = 100;
 $cfg['MaxTableList'] = 250;
 
 /**
+ * Disables the possibility of database expansion
+ *
+ * @global boolean $cfg['DisableDatabaseExpansion']
+ */
+$cfg['DisableDatabaseExpansion'] = false;
+
+/**
  * whether to show hint or not
  *
  * @global boolean $cfg['ShowHint']
