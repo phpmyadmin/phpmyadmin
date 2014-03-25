@@ -319,7 +319,8 @@ $js_messages['strAddPoint'] = __('Add a point');
 $js_messages['strAddInnerRing'] = __('Add an inner ring');
 $js_messages['strFunctionHint'] = __('Shift + Click on function name to apply to all rows.');
 $js_messages['strYes'] = __('Yes');
-$js_messages['strCopySalt'] = __('Copy Salt');
+$js_messages['strCopyEncryptionKey'] = __('Do you want to copy encryption key?');
+$js_messages['strEncryptionKey'] = __('Encryption key');
 
 /* Designer (js/pmd/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
