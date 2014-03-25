@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-25 14:00+0100\n"
-"PO-Revision-Date: 2014-03-25 02:21+0200\n"
+"PO-Revision-Date: 2014-03-25 17:42+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1802,14 +1802,13 @@ msgstr ""
 "Shift + Κλικ στο όνομα της συνάρτησης για εφαρμογή σε όλες τις γραμμές."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Θέλετε να εισάγετε τις υπόλοιπες ρυθμίσεις;"
+msgstr "Θέλετε να αντιγράψετε κλειδί κρυπτογράφησης;"
 
 #: js/messages.php:323
 msgid "Encryption key"
-msgstr ""
+msgstr "Κλειδί κρυπτογράφησης"
 
 #: js/messages.php:326
 msgid "Select referenced key"
@@ -1866,12 +1865,11 @@ msgid "Click to sort."
 msgstr "Πατήστε για ταξινόμηση."
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Hold shift and click to remove column from order by clause."
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
-"Κρατήστε το shift και πατήστε για απομάκρυνση της στήλης από την ταξινόμηση "
-"κατά clause."
+"Κρατήστε το shift και πατήστε για απομάκρυνση της στήλης από την ΤΑΞΙΝΟΜΗΣΗ "
+"ΚΑΤΑ όρο."
 
 #: js/messages.php:345
 msgid "Click to mark/unmark."
@@ -10211,10 +10209,9 @@ msgid "File doesn't exist"
 msgstr "Το αρχείο δεν υπάρχει"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "Ο Εγκυροποιητής SQL είναι απενεργοποιημένος"
+msgstr "Το πρόσθετο είναι απενεργοποιημένο"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
