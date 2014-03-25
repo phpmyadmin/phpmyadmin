@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-24 13:03-0400\n"
-"PO-Revision-Date: 2014-03-15 13:36+0200\n"
+"PO-Revision-Date: 2014-03-25 08:43+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -1784,13 +1784,12 @@ msgstr "Dış Halka"
 
 #: js/messages.php:320
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "Tüm satırlara uygulamak için işlev adının üzerine Shift + Tıklayın."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Copy"
 msgid "Copy Salt"
-msgstr "Kopyala"
+msgstr "Salt Kopyala"
 
 #: js/messages.php:325
 msgid "Select referenced key"
@@ -1849,6 +1848,8 @@ msgstr "Sıralamak için tıklayın."
 #: js/messages.php:343
 msgid "Hold shift and click to remove column from order by clause."
 msgstr ""
+"Sütunu maddeye göre sıradan kaldırmak için shift tuşuna basılı tutun ve "
+"tıklayın."
 
 #: js/messages.php:344
 msgid "Click to mark/unmark."
@@ -7101,7 +7102,7 @@ msgstr "Çıktıyı dosyaya kaydet"
 
 #: libraries/display_export.lib.php:663
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Şundan büyük tabloları atla"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
