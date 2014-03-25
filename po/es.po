@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-25 14:00+0100\n"
-"PO-Revision-Date: 2014-03-24 21:40+0200\n"
+"PO-Revision-Date: 2014-03-25 16:02+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1803,14 +1803,13 @@ msgstr ""
 "todas las filas."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "¿Desea importar las configuraciones restantes?"
+msgstr "¿Desea copiar la llave de cifrado?"
 
 #: js/messages.php:323
 msgid "Encryption key"
-msgstr ""
+msgstr "Llave de cifrado"
 
 #: js/messages.php:326
 msgid "Select referenced key"
@@ -1867,12 +1866,11 @@ msgid "Click to sort."
 msgstr "Pulsar para ordenar."
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Hold shift and click to remove column from order by clause."
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 "Presion shift al pulsar la columna para eliminarla de la cláusula de "
-"ordenación."
+"ordenación («ORDER BY»)."
 
 #: js/messages.php:345
 msgid "Click to mark/unmark."
@@ -10245,10 +10243,9 @@ msgid "File doesn't exist"
 msgstr "El archivo no existe"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "El validador de SQL está desactivado"
+msgstr "El plugin está desactivado"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
