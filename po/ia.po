@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-03-17 09:48+0200\n"
+"PO-Revision-Date: 2014-03-25 11:53+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -6777,7 +6777,7 @@ msgstr ""
 #: libraries/display_export.lib.php:376 libraries/display_export.lib.php:411
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
-msgstr ""
+msgstr "Salveguarda sur servitor in le directorio <b>%s</b>"
 
 #: libraries/display_export.lib.php:441
 msgid "File name template:"
@@ -6885,6 +6885,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Le nomine de un file comprimite debe terminar in "
+"<b>.[format].[compression]</b>. Exemplo:<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:225
 msgid "File to Import:"
@@ -7869,7 +7871,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:675
 msgid "Move table to (database<b>.</b>table):"
-msgstr ""
+msgstr "Move le tabella in (database<b>.</b>table):"
 
 #: libraries/operations.lib.php:786
 msgid "Table options"
@@ -7889,7 +7891,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1007
 msgid "Copy table to (database<b>.</b>table):"
-msgstr ""
+msgstr "Copia le tabella in (database<b>.</b>table):"
 
 #: libraries/operations.lib.php:1062
 msgid "Switch to copied table"
@@ -8488,15 +8490,15 @@ msgstr ""
 #: libraries/plugins/import/ImportMediawiki.class.php:303
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr ""
+msgstr "Invalide formato de ingresso de mediawiki al rango: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr ""
+msgstr "Importa percentage como valores decimal <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:95
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Importa numerario <i>(ex. $5.00 to 5.00)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:173
 #: libraries/plugins/import/ImportXml.class.php:132
@@ -8540,7 +8542,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportSql.class.php:83
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
+msgstr "Non usa <code>AUTO_INCREMENT</code> pro valores de zero"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -8721,7 +8723,7 @@ msgstr ""
 #: libraries/relation.lib.php:289
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
-msgstr ""
+msgstr "Crea le tabella necessari con <code>examples/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:295
 msgid "Create a pma user and give access to these tables."
@@ -9090,6 +9092,7 @@ msgstr ""
 #: libraries/rte/rte_triggers.lib.php:147
 msgid "<b>One or more errors have occurred while processing your request:</b>"
 msgstr ""
+"<b>Uno o plure de errores ha occurrite quando on processava tu requesta:</b>"
 
 #: libraries/rte/rte_events.lib.php:228
 msgid "Edit event"
