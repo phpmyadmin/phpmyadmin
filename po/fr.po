@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-25 14:00+0100\n"
-"PO-Revision-Date: 2014-03-25 11:27+0200\n"
+"PO-Revision-Date: 2014-03-25 17:53+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1792,14 +1792,13 @@ msgid "Shift + Click on function name to apply to all rows."
 msgstr "Maj + clic sur le nom de la fonction à appliquer à toutes les lignes."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Voulez-vous importer les autres paramètres ?"
+msgstr "Voulez-vous copier la clé de cryptage ?"
 
 #: js/messages.php:323
 msgid "Encryption key"
-msgstr ""
+msgstr "Clé de cryptage"
 
 #: js/messages.php:326
 msgid "Select referenced key"
@@ -1856,7 +1855,6 @@ msgid "Click to sort."
 msgstr "Cliquer pour trier."
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Hold shift and click to remove column from order by clause."
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
@@ -10180,10 +10178,9 @@ msgid "File doesn't exist"
 msgstr "Le fichier n'existe pas"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "Le validateur SQL est désactivé"
+msgstr "Le plug-in est désactivé"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
