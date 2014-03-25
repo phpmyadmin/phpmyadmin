@@ -419,12 +419,19 @@ class PMA_User_Schema
             $htmlString .= PMA_Util::getImage('b_views.png');
         }
 
+        /*
+         * TODO: This list should be generated dynamically based on list of
+         * available plugins.
+         */
         $htmlString .= __('Display relational schema')
             . ':'
             . '</legend>'
-            . '<select name="export_type" id="export_type">'
-            . '<option value="pdf" selected="selected">PDF</option>'
-            . '<option value="svg">SVG</option>'
+            . '<select name="export_type" id="export_type">';
+        if (file_exists(TCPDF_INC)) {
+            $htmlString .= '<option value="pdf" selected="selected">PDF</option>';
+        }
+        $htmlString .=
+            '<option value="svg">SVG</option>'
             . '<option value="dia">DIA</option>'
             . '<option value="eps">EPS</option>'
             . '</select>'
