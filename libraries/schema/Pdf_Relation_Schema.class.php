@@ -9,6 +9,21 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Skip the plugin if TCPDF is not available.
+ */
+if (! file_exists(TCPDF_INC)) {
+    $GLOBALS['skip_import'] = true;
+    return;
+}
+
+/**
+ * block attempts to directly run this script
+ */
+if (getcwd() == dirname(__FILE__)) {
+    die('Attack stopped');
+}
+
 require_once 'Export_Relation_Schema.class.php';
 require_once './libraries/PDF.class.php';
 
