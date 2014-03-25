@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-25 14:00+0100\n"
-"PO-Revision-Date: 2014-03-15 23:26+0200\n"
+"PO-Revision-Date: 2014-03-25 22:53+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -1783,17 +1783,16 @@ msgstr "Zunanji obroč"
 
 #: js/messages.php:320
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "Shift + klik na ime funkcije, da jo uveljavite na vseh vrsticah."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Ali želite uvoziti preostale nastavitve?"
+msgstr "Ali želite kopirati šifrirni ključ?"
 
 #: js/messages.php:323
 msgid "Encryption key"
-msgstr ""
+msgstr "Šifrirni ključ"
 
 #: js/messages.php:326
 msgid "Select referenced key"
@@ -1852,6 +1851,8 @@ msgstr "Kliknite za razvrščanje."
 #: js/messages.php:344
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
+"Držite dvigalko (shift) in kliknite, da odstranite stolpec iz stavka ORDER "
+"BY."
 
 #: js/messages.php:345
 msgid "Click to mark/unmark."
@@ -7096,7 +7097,7 @@ msgstr "Shrani izhod v datoteko"
 
 #: libraries/display_export.lib.php:663
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Preskoči tabele, večje od"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -10105,10 +10106,9 @@ msgid "File doesn't exist"
 msgstr "Datoteka ne obstaja"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "Preverjalnik SQL je onemogočen"
+msgstr "Vtičnik je onemogočen"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
