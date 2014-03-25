@@ -193,6 +193,7 @@ class PMA_Types_MySQL_Test extends PHPUnit_Framework_TestCase
             array(
                 'CHAR',
                 array(
+                    'AES_DECRYPT',
                     'AES_ENCRYPT',
                     'BIN',
                     'CHAR',

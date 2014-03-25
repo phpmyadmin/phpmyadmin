@@ -2215,7 +2215,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
         && in_array($multi_edit_funcs[$key], $func_optional_param))
     ) {
         if (isset($multi_edit_salt[$key])
-            && ($multi_edit_funcs[$key] == "AES_ENCRYPT")
+            && ($multi_edit_funcs[$key] == "AES_ENCRYPT" || $multi_edit_funcs[$key] == "AES_DECRYPT")
         ) {
             return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                    . PMA_Util::sqlAddSlashes($multi_edit_salt[$key]) . "')";

@@ -475,6 +475,7 @@ class PMA_Types_MySQL extends PMA_Types
         switch ($class) {
         case 'CHAR':
             return array(
+                'AES_DECRYPT',
                 'AES_ENCRYPT',
                 'BIN',
                 'CHAR',
