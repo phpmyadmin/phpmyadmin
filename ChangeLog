@@ -45,6 +45,7 @@ phpMyAdmin - ChangeLog
 - bug #4334 Add event : datepicker won't open
 - bug #4338 Fix missing value error while executing SQL query
 - TCPDF library is now optional dependency
+- bug #4326 Cannot find the import plugins which start with uppercase 'I'
 
 4.1.11.0 (2014-03-23)
 - bug #4335 reCaptcha problem (4.1.10 regression) 
