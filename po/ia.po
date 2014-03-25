@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-24 13:03-0400\n"
-"PO-Revision-Date: 2014-03-17 09:52+0200\n"
+"PO-Revision-Date: 2014-03-25 11:53+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -1806,10 +1806,9 @@ msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Copy"
 msgid "Copy Salt"
-msgstr "Copia"
+msgstr "Copia Salt"
 
 #: js/messages.php:325
 msgid "Select referenced key"
@@ -6397,6 +6396,10 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Ambe iste tabella e le tabella del gruppo de usator es requirite per "
+"habilitar le characteristica del menu configurabile, si\n"
+"on lassa un de lor vacue on dishabilitara iste characteristica, suggerite "
+"[kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:705
 msgid "Users table"
@@ -6408,6 +6411,10 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Ambe iste tabella e le tabella de usatores es requirite per habilitar le "
+"characteristica del menu configurabile, si\n"
+"on lassa un de lor vacue on dishabilitara iste characteristica, suggerite "
+"[kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:707
 msgid "User groups table"
@@ -6453,6 +6460,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
+"Pro favor tu nota que habilitar isto non ha alcun effecto con  le modo de "
+"authentication [kbd]config[/kbd] proque le contrasigno es codificate "
+"fortemente in le file de configuration; isto non limita le habilitate de "
+"executar directemente le mesme commando."
 
 #: libraries/config/messages.inc.php:717
 msgid "Show password change form"
@@ -6529,6 +6540,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
+"Monstra ligamine a exito "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] ."
 
 #: libraries/config/messages.inc.php:734
 msgid "Show phpinfo() link"
@@ -6590,6 +6603,8 @@ msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed."
 msgstr ""
+"[strong]Attention:[/strong] require que le extension de  PHP SOAP o PEAR "
+"SOAP es installate."
 
 #: libraries/config/messages.inc.php:752
 msgid "Enable SQL Validator"
@@ -6600,6 +6615,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
+"Si tu ha un nomine de usator personalisate, tu specifica lo hic (predefinite "
+"es a  [kbd]anonymous[/kbd])."
 
 #: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -7009,7 +7026,7 @@ msgstr ""
 #: libraries/display_export.lib.php:376 libraries/display_export.lib.php:411
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
-msgstr ""
+msgstr "Salveguarda sur servitor in le directorio <b>%s</b>"
 
 #: libraries/display_export.lib.php:441
 msgid "File name template:"
@@ -7121,6 +7138,8 @@ msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
+"Le nomine de un file comprimite debe terminar in "
+"<b>.[format].[compression]</b>. Exemplo:<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:222
 msgid "File to Import:"
@@ -7604,7 +7623,7 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:658
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr ""
+msgstr "Per su longitudine,<br /> iste columna poterea non esser modificabile."
 
 #: libraries/insert_edit.lib.php:1106
 msgid "Binary - do not edit"
@@ -8129,7 +8148,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:675
 msgid "Move table to (database<b>.</b>table):"
-msgstr ""
+msgstr "Move le tabella in (database<b>.</b>table):"
 
 #: libraries/operations.lib.php:786
 msgid "Table options"
@@ -8149,7 +8168,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1008
 msgid "Copy table to (database<b>.</b>table):"
-msgstr ""
+msgstr "Copia le tabella in (database<b>.</b>table):"
 
 #: libraries/operations.lib.php:1063
 msgid "Switch to copied table"
@@ -8766,15 +8785,15 @@ msgstr ""
 #: libraries/plugins/import/ImportMediawiki.class.php:303
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr ""
+msgstr "Invalide formato de ingresso de mediawiki al rango: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr ""
+msgstr "Importa percentage como valores decimal <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:95
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Importa numerario <i>(ex. $5.00 to 5.00)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:173
 #: libraries/plugins/import/ImportXml.class.php:132
@@ -8818,7 +8837,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportSql.class.php:83
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
+msgstr "Non usa <code>AUTO_INCREMENT</code> pro valores de zero"
 
 #: libraries/plugins/import/ImportXml.class.php:54
 msgid "XML"
@@ -9010,7 +9029,7 @@ msgstr ""
 #: libraries/relation.lib.php:300
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
-msgstr ""
+msgstr "Crea le tabella necessari con <code>examples/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:306
 msgid "Create a pma user and give access to these tables."
@@ -9507,6 +9526,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:378
 msgid "<b>One or more errors have occurred while processing your request:</b>"
 msgstr ""
+"<b>Uno o plure de errores ha occurrite quando on processava tu requesta:</b>"
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
