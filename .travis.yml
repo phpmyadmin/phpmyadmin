@@ -37,6 +37,7 @@ after_script:
 matrix:
   allow_failures:
     - php: hhvm
+      env: PHPUNIT_ARGS="--exclude-group selenium"
   fast_finish: true
   include:
     - php: 5.5
