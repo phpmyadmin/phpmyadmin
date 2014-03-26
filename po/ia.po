@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 11:59+0100\n"
-"PO-Revision-Date: 2014-03-25 14:39+0200\n"
+"PO-Revision-Date: 2014-03-26 14:08+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3321,10 +3321,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Iste servitor MySQL non supporta lemotor de immagazinage %s."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "stato de tabella incognite: "
+msgstr "Stato de tabella incognite:"
 
 #: libraries/Table.class.php:792
 #, php-format
@@ -9903,10 +9902,9 @@ msgid "File doesn't exist"
 msgstr ""
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "Le validator SQL es dishabilitate"
+msgstr "Plugin es dishabilitate"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
