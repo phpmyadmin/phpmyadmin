@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-02-27 11:35+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -3314,7 +3314,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Tento MySQL server nepodporuje úložný systém %s."
 
 #: libraries/Table.class.php:385
-msgid "unknown table status: "
+#, fuzzy
+#| msgid "unknown table status: "
+msgid "Unknown table status:"
 msgstr "neznámy stav tabuľky: "
 
 #: libraries/Table.class.php:792
@@ -10168,9 +10170,11 @@ msgid "Execution results of routine %s"
 msgstr "Výsledky spustenia rutiny %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+#, fuzzy, php-format
+#| msgid "%d row affected by the last statement inside the procedure"
+#| msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "Posledným príkazom v procedúre bol ovplyvnený %d riadok"
 msgstr[1] "Posledným príkazom v procedúre boli ovplyvnené %d riadky"
 msgstr[2] "Posledným príkazom v procedúre bolo ovplyvnených %d riadkov"

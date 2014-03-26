@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-02-03 17:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Russian <http://l10n.cihar.com/projects/phpmyadmin/master/ru/"
@@ -3393,7 +3393,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Данный сервер MySQL не поддерживает тип таблиц %s."
 
 #: libraries/Table.class.php:385
-msgid "unknown table status: "
+#, fuzzy
+#| msgid "unknown table status: "
+msgid "Unknown table status:"
 msgstr "Неизвестный статус таблицы: "
 
 #: libraries/Table.class.php:792
@@ -10542,9 +10544,11 @@ msgid "Execution results of routine %s"
 msgstr "Результаты выполнения процедуры %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+#, fuzzy, php-format
+#| msgid "%d row affected by the last statement inside the procedure"
+#| msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "Последним выражением в процедуре была затронута %d строка"
 msgstr[1] "Последним выражением в процедуре были затронуты %d строки"
 msgstr[2] "Последним выражением в процедуре было затронуто %d строк"

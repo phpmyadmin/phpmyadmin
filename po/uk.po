@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-03-24 15:28+0200\n"
 "Last-Translator: Bohdan <bohdan009@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -3301,7 +3301,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Цей MySQL сервер не підтримує %s кодування."
 
 #: libraries/Table.class.php:385
-msgid "unknown table status: "
+#, fuzzy
+#| msgid "unknown table status: "
+msgid "Unknown table status:"
 msgstr "невідомий статус таблиці: "
 
 #: libraries/Table.class.php:792
@@ -10059,9 +10061,11 @@ msgid "Execution results of routine %s"
 msgstr "Результати виконання порядку %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+#, fuzzy, php-format
+#| msgid "%d row affected by the last statement inside the procedure"
+#| msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "Останнім виразом у процедурі була задіяно %d рядок"
 msgstr[1] "Останнім виразом у процедурі були задіяні %d рядки"
 msgstr[2] "Останнім виразом у процедурі було задіяно %d рядків"

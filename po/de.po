@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-02-27 11:30+0200\n"
 "Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/"
@@ -3389,7 +3389,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Dieser MySQL-Server unterstützt %s nicht."
 
 #: libraries/Table.class.php:385
-msgid "unknown table status: "
+#, fuzzy
+#| msgid "unknown table status: "
+msgid "Unknown table status:"
 msgstr "Unbekannter Tabellenstatus: "
 
 # source != search / Source != Suche
@@ -10405,9 +10407,11 @@ msgid "Execution results of routine %s"
 msgstr "Ergebnisse der ausgeführten Prozedur %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+#, fuzzy, php-format
+#| msgid "%d row affected by the last statement inside the procedure"
+#| msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 "%d Datensatz betroffen aufgrund des letzten Befehls innerhalb der Prozedur"
 msgstr[1] ""

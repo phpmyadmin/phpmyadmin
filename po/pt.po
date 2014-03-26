@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-03-21 19:11+0200\n"
 "Last-Translator: Diogo Santos <djsantost@gmail.com>\n"
 "Language-Team: Portuguese <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -3369,7 +3369,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Este servidor MySQL não suporta o mecanismo de armazenamento %s."
 
 #: libraries/Table.class.php:385
-msgid "unknown table status: "
+#, fuzzy
+#| msgid "unknown table status: "
+msgid "Unknown table status:"
 msgstr "Estado da tabela desconhecido: "
 
 #: libraries/Table.class.php:792
@@ -10293,8 +10295,8 @@ msgstr "Permite criar novas tabelas."
 
 #: libraries/rte/rte_routines.lib.php:1475
 #, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
 

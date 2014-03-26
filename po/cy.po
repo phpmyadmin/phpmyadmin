@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-02-02 13:50+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <http://l10n.cihar.com/projects/phpmyadmin/master/cy/>\n"
@@ -3512,8 +3512,10 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Dyw'r gweinydd MySQL hwn ddim yn cynnal y peiriant storio %s."
 
 #: libraries/Table.class.php:385
-msgid "unknown table status: "
-msgstr ""
+#, fuzzy
+#| msgid "No tables"
+msgid "Unknown table status:"
+msgstr "Dim tablau"
 
 #: libraries/Table.class.php:792
 #, fuzzy, php-format
@@ -10034,8 +10036,8 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1475
 #, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
 

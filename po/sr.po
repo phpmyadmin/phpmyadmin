@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-02-03 16:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian <http://l10n.cihar.com/projects/phpmyadmin/master/sr/"
@@ -3593,7 +3593,7 @@ msgstr "Овај MySQL сервер не подржава %s погон скла
 #: libraries/Table.class.php:385
 #, fuzzy
 #| msgid "Show slave status"
-msgid "unknown table status: "
+msgid "Unknown table status:"
 msgstr "Прикажи статус подређених сервера"
 
 #: libraries/Table.class.php:792
@@ -10260,8 +10260,8 @@ msgstr "Дозвољава извршавање сачуваних рутина.
 
 #: libraries/rte/rte_routines.lib.php:1475
 #, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""

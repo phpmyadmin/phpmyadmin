@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/master/hi/"
@@ -3414,7 +3414,7 @@ msgstr "यह MySQL सर्वर %s भंडारण इंजन का �
 #: libraries/Table.class.php:385
 #, fuzzy
 #| msgid "Show master status"
-msgid "unknown table status: "
+msgid "Unknown table status:"
 msgstr "मास्टर अवस्था"
 
 #: libraries/Table.class.php:792
@@ -10184,8 +10184,8 @@ msgstr "संग्रहीत दिनचर्या को क्रिय
 
 #: libraries/rte/rte_routines.lib.php:1475
 #, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
 

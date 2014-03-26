@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-25 14:00+0100\n"
+"POT-Creation-Date: 2014-03-26 11:59+0100\n"
 "PO-Revision-Date: 2014-03-26 10:02+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
-"\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1798,7 +1798,6 @@ msgid "Shift + Click on function name to apply to all rows."
 msgstr "Shift + klik op de naam van de functie om toe te passen op alle rijen."
 
 #: js/messages.php:322
-#| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
 msgstr "Wilt u de encryptiesleutel kopiëren?"
 
@@ -3306,7 +3305,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Deze MySQL-server ondersteund de %s opslag-engine niet."
 
 #: libraries/Table.class.php:385
-msgid "unknown table status: "
+#, fuzzy
+#| msgid "unknown table status: "
+msgid "Unknown table status:"
 msgstr "onbekende tabelstatus: "
 
 #: libraries/Table.class.php:792
@@ -9897,9 +9898,11 @@ msgid "Execution results of routine %s"
 msgstr "Resultaten van uitgevoerde routine %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, php-format
-msgid "%d row affected by the last statement inside the procedure"
-msgid_plural "%d rows affected by the last statement inside the procedure"
+#, fuzzy, php-format
+#| msgid "%d row affected by the last statement inside the procedure"
+#| msgid_plural "%d rows affected by the last statement inside the procedure"
+msgid "%d row affected by the last statement inside the procedure."
+msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d regel beïnvloed door het laatste statement in de procedure"
 msgstr[1] "%d regels beïnvloed door het laatste statement in de procedure"
 
@@ -10184,7 +10187,6 @@ msgid "File doesn't exist"
 msgstr "Bestand bestaat niet"
 
 #: libraries/schema/User_Schema.class.php:679
-#| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
 msgstr "Plugin is uitgeschakeld"
 
