@@ -791,6 +791,12 @@ class PMA_DisplayResults
         $table_navigation_html .= '</form>'
             . '</td>'
             . '<td class="navigation_separator"></td>'
+            . '<td>'
+            . '<span>' . __('Filter rows') . ':</span>'
+            . '<input type="text" class="filter_rows" placeholder="'
+            . __('Search this table') . '">'
+            . '</td>'
+            . '<td class="navigation_separator"></td>'
             . '</tr>'
             . '</table>';
 
