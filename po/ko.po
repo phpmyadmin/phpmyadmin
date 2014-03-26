@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-03-22 12:29+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2014-03-26 11:53+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -2337,8 +2337,7 @@ msgstr "이미 존재하고 있는 환경설정 파일 (%s) 을 읽을 수 없�
 
 #: libraries/Config.class.php:1181
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
-"설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다."
+msgstr "설정 파일에 잘못된 권한이 지정되어있습니다. 익명 쓰기 권한이면 안됩니다!"
 
 #: libraries/Config.class.php:1758
 msgid "Font size"
@@ -3254,12 +3253,12 @@ msgstr "알 수 없는 테이블 상태: "
 #: libraries/Table.class.php:806
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr "원본 데이터베이스 '%s'를 찾을 수 없습니다."
+msgstr "원본 데이터베이스 '%s'를 찾을 수 없습니다!"
 
 #: libraries/Table.class.php:814
 #, php-format
 msgid "Target database `%s` was not found!"
-msgstr "목표 데이터베이스 '%s'를 찾을 수 없습니다."
+msgstr "목표 데이터베이스 '%s'를 찾을 수 없습니다!"
 
 #: libraries/Table.class.php:1257
 msgid "Invalid database:"
