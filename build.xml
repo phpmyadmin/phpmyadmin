@@ -137,7 +137,7 @@
 
  <target name="lint" description="Perform syntax check of sourcecode files">
   <apply executable="php" failonerror="true">
-   <arg value="--syntax-check --file" />
+   <arg value="-l" />
 
    <fileset dir="${basedir}">
     <include name="libraries/**/*.php" />
