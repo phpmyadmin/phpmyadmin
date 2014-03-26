@@ -33,8 +33,9 @@ before_script:
     pear channel-discover pear.phpunit.de ;
     pear install phpunit/PHPUnit_Selenium ;
 
-    fi ;
     composer install --dev --no-interaction ;
+
+    fi ;
 
     if [[ ! -z "$SELENIUM" ]] ; then
 
