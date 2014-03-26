@@ -22,17 +22,30 @@ before_install:
 before_script:
   - if [[ -z "$LINT" ]] ; then
     if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
-    git clone git://github.com/zenovich/runkit.git && cd runkit && phpize && ./configure && make && make install && cd .. ;
+
+    git clone --depth=1 git://github.com/zenovich/runkit.git ;
+    cd runkit ;
+    phpize ;
+    ./configure ;
+    make ;
+    make install ;
+    cd .. ;
+
     phpenv config-add test/travis.php.ini ;
+
     pear channel-discover pear.phpunit.de ;
     pear install phpunit/PHPUnit_Selenium ;
+
     fi ;
     composer install --dev --no-interaction ;
+
     if [[ ! -z "$SELENIUM" ]] ; then
+
     php --server 127.0.0.1:$TRAVIS_BUILD_NUMBER &
     wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip ;
     unzip BrowserStackLocal-linux-x64.zip ;
     ./BrowserStackLocal -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TRAVIS_BUILD_NUMBER,0 &
+
     fi ;
     fi
 script:
