@@ -1,3 +1,8 @@
+# The Travis setup:
+# - run testsuite for every PHP version
+# - run lint for every PHP version
+# - run Selenium for single PHP version
+
 language: php
 php:
   - "5.5"
