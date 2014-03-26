@@ -129,6 +129,12 @@
   </apply>
  </target>
 
+ <target name="locales" description="Generate locales">
+   <exec executable="./scripts/generate-mo">
+     <arg line="--quiet" />
+   </exec>
+ </target>
+
  <target name="lint" description="Perform syntax check of sourcecode files">
   <apply executable="php" failonerror="true">
    <arg value="-l" />
@@ -143,5 +149,5 @@
   </apply>
  </target>
 
- <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb,lint,jshint"/>
+ <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb,lint,jshint,locales"/>
 </project>

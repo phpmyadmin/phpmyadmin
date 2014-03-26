@@ -54,8 +54,7 @@ script:
     ant phpunit ;
     fi ;
     else
-    ./scripts/generate-mo --quiet ;
-    ant lint ;
+    ant lint locales ;
     fi
 after_script:
   - php vendor/bin/coveralls -v
