@@ -130,8 +130,7 @@
  </target>
 
  <target name="lint" description="Perform syntax check of sourcecode files">
-  <mkdir dir="${basedir}/build"/>
-  <apply executable="php" failonerror="true" logError="true" output="${basedir}/build/php-lint.log">
+  <apply executable="php" failonerror="true">
    <arg value="-l" />
 
    <fileset dir="${basedir}">
