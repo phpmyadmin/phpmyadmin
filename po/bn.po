@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-02-24 07:36+0200\n"
+"PO-Revision-Date: 2014-03-26 11:43+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/4-1/bn/>\n"
 "Language: bn\n"
@@ -35,7 +35,7 @@ msgstr "ডাটাবেইজের মন্তব্য: "
 #: libraries/tbl_printview.lib.php:579
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "টেবিলের মন্তব্য সমূহ"
+msgstr "টেবিলের মন্তব্য সমূহ:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -505,7 +505,7 @@ msgstr "জ্যামিতি %d:"
 #: gis_data_editor.php:208
 #| msgid "Point"
 msgid "Point:"
-msgstr "পয়েন্ট"
+msgstr "পয়েন্ট:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:291
 #: gis_data_editor.php:364 js/messages.php:325
