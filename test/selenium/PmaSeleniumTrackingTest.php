@@ -14,6 +14,7 @@ require_once 'TestBase.php';
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
+ * @group      selenium
  */
 class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 {
