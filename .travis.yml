@@ -32,7 +32,7 @@ before_script:
     php --server 127.0.0.1:$TRAVIS_BUILD_NUMBER &
     wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip ;
     unzip BrowserStackLocal-linux-x64.zip ;
-    ./BrowserStackLocal -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TRAVIS_BUILD_NUMBER,0 ;
+    ./BrowserStackLocal -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TRAVIS_BUILD_NUMBER,0 &
     fi ;
     fi
 script:
