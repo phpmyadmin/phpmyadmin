@@ -817,9 +817,10 @@ class PMA_NavigationTree
             if (count($parents)) {
                 $parentName = $parents[0]->real_name;
             }
+            // if node name itself is in sterile, then allow
             if ($node->is_group
                 || (! in_array($parentName, $sterile) && ! $node->isNew)
-                || (in_array($node->real_name, $sterile))    //if node name itself is in sterile, then allow
+                || (in_array($node->real_name, $sterile))
             ) {
                 $loaded = '';
                 if ($node->is_group) {
@@ -874,9 +875,9 @@ class PMA_NavigationTree
                     }
                 }
 
-                if(!$GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion'])
+                if (! $GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion']) {
                     $retval .= "<a class='expander$loaded$container'";
-                else {
+                } else {
                     $retval .= "<a";
                     $icon = "";
                 }
@@ -934,7 +935,8 @@ class PMA_NavigationTree
                     }
                     $link = vsprintf($node->links['icon'], $args);
                     if ($linkClass != '') {
-                        $retval .= "<a class='$linkClass' href='$link'>{$node->icon}</a>";
+                        $retval .= "<a class='$linkClass' href='$link'>";
+                        $retval .= "{$node->icon}</a>";
                     } else {
                         $retval .= "<a href='$link'>{$node->icon}</a>";
                     }
@@ -1054,8 +1056,8 @@ class PMA_NavigationTree
             $retval .= '<li class="fast_filter db_fast_filter">';
             $retval .= '<form class="ajax fast_filter">';
             $retval .= PMA_getHiddenFields($url_params);
-            $retval .= '<input class="searchClause" type="text" name="searchClause"';
-            $retval .= ' accesskey="q"';
+            $retval .= '<input class="searchClause" type="text"';
+            $retval .= ' name="searchClause" accesskey="q"';
             // allow html5 placeholder attribute
             $placeholder_key = 'value';
             if (PMA_USR_BROWSER_AGENT !== 'IE'
@@ -1090,7 +1092,8 @@ class PMA_NavigationTree
             $retval .= "<li class='fast_filter'>";
             $retval .= "<form class='ajax fast_filter'>";
             $retval .= PMA_getHiddenFields($url_params);
-            $retval .= "<input class='searchClause' type='text' name='searchClause2'";
+            $retval .= "<input class='searchClause' type='text'";
+            $retval .= " name='searchClause2'";
             // allow html5 placeholder attribute
             $placeholder_key = 'value';
             if (PMA_USR_BROWSER_AGENT !== 'IE'
