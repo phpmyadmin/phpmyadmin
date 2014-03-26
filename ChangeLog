@@ -41,6 +41,7 @@ phpMyAdmin - ChangeLog
 + rfe #1514 Add function to all the insert boxes automatically
 + rfe #1515 Option to skip tables larger than n
 + rfe #1486 Possibility of disabling database expansion
++ rfe #1476 Favourite tables select box
 
 4.1.12.0 (not yet released)
 - bug #4334 Add event : datepicker won't open
