@@ -70,6 +70,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation #serverChoice,
 #pma_navigation #navipanellinks,
 #pma_navigation #recentTableList,
+#pma_navigation #favoriteTableList,
 #pma_navigation #databaseList,
 #pma_navigation div.pageselector.dbselector {
     text-align: center;
@@ -77,7 +78,12 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     border: 0;
 }
 
-#pma_navigation #recentTableList select,
+#pma_navigation #recentTable,
+#pma_navigation #favoriteTable {
+    width: 200px;
+}
+
+#pma_navigation #favoriteTableList select,
 #pma_navigation #serverChoice select
  {
     width: 80%;

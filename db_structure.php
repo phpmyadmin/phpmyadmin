@@ -41,6 +41,7 @@ if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
         $_POST['message'] = PMA_Message::success();
     }
 }
+
 require 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_structure.php';
 
@@ -132,12 +133,14 @@ $overhead_size  = (double) 0;
 $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
-
+// Instance of PMA_FavoriteTable class.
+$fav_instance = PMA_FavoriteTable::getInstance();
 foreach ($tables as $keyname => $current_table) {
     // Get valid statistics whatever is the table type
 
     $drop_query = '';
     $drop_message = '';
+    $already_favorite = false;
     $overhead = '';
 
     $table_is_view = false;
@@ -251,6 +254,24 @@ foreach ($tables as $keyname => $current_table) {
     list($do, $ignored) = PMA_getServerSlaveStatus(
         $server_slave_status, $truename
     );
+    // Handle favorite table list. ----START----
+    $already_favorite = PMA_checkFavoriteTable($db, $current_table['TABLE_NAME']);
+
+    if (isset($_REQUEST['remove_favorite'])) {
+        if ($already_favorite) {
+            // If already in favorite list, remove it.
+            $favorite_table = $_REQUEST['favorite_table'];
+            $fav_instance->remove($db, $favorite_table);
+        }
+    }
+
+    if (isset($_REQUEST['add_favorite'])) {
+        if (!$already_favorite) {
+            // Otherwise add to favorite list.
+            $favorite_table = $_REQUEST['favorite_table'];
+            $fav_instance->add($db, $favorite_table);
+        }
+    } // Handle favorite table list. ----ENDS----
 
     list($html_output, $odd_row) = PMA_getHtmlForStructureTableRow(
         $i, $odd_row, $table_is_view, $current_table,

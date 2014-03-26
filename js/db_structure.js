@@ -382,4 +382,18 @@ AJAX.registerOnload('db_structure.js', function () {
         return false;
     }); //end Calculate Real End for InnoDB
 
+    PMA_tooltip(
+        $("select[name*='funcs']"),
+        'select',
+        PMA_messages.strFunctionHint
+    );
+    // Add tooltip to favorite icons.
+    $(".favorite_table_anchor").each(function () {
+        PMA_tooltip(
+            $(this),
+            'a',
+            $(this).attr("title")
+        );
+    });
+
 }); // end $()
