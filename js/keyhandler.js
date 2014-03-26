@@ -97,7 +97,7 @@ function onKeyDownArrowsHandler(e)
     if (is_firefox) {
         var ffcheck = 0;
         var ffversion;
-        for (ffversion = 3 ; ffversion < 24 ; ffversion++) {
+        for (ffversion = 3 ; ffversion < 25 ; ffversion++) {
             var is_firefox_v_24 = navigator.userAgent.toLowerCase().indexOf('firefox/'+ffversion) > -1;
             if (is_firefox_v_24) {
                 ffcheck = 1;
