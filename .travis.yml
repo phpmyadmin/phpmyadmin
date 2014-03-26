@@ -17,13 +17,13 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq ant
 before_script:
-  - if [[ $TRAVIS_PHP_VERSION != "hhvm" -a -z "$LINT" ]] ; then
+  - if [[ -z "$LINT" ]] ; then
+    if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
     git clone git://github.com/zenovich/runkit.git && cd runkit && phpize && ./configure && make && make install && cd .. ;
     phpenv config-add test/travis.php.ini ;
     pear channel-discover pear.phpunit.de ;
     pear install phpunit/PHPUnit_Selenium ;
     fi
-  - if [[ -z "$LINT" ]] ; then
     composer install --dev --no-interaction ;
     fi
 script:
