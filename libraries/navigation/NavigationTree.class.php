@@ -874,7 +874,7 @@ class PMA_NavigationTree
                     }
                 }
 
-                if(!$GLOBALS['cfg']['DisableDatabaseExpansion'])
+                if(!$GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion'])
                     $retval .= "<a class='expander$loaded$container'";
                 else {
                     $retval .= "<a";

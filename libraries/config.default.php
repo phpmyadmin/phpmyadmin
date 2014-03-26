@@ -651,13 +651,6 @@ $cfg['MaxDbList'] = 100;
 $cfg['MaxTableList'] = 250;
 
 /**
- * Disables the possibility of database expansion
- *
- * @global boolean $cfg['DisableDatabaseExpansion']
- */
-$cfg['DisableDatabaseExpansion'] = false;
-
-/**
  * whether to show hint or not
  *
  * @global boolean $cfg['ShowHint']
@@ -957,6 +950,12 @@ $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
  */
 $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 
+/**
+ * Disables the possibility of database expansion
+ *
+ * @global boolean $cfg['DisableDatabaseExpansion']
+ */
+$cfg['NavigationTreeDisableDatabaseExpansion'] = false;
 
 /*******************************************************************************
  * In the main panel, at startup...
