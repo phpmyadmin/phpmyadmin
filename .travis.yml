@@ -13,6 +13,9 @@ env:
   matrix:
     - PHPUNIT_ARGS="--exclude-group selenium"
     - LINT="yes"
+  global:
+    - secure: "CiFhtg+3xf6BGnSldT4phpr+7DhaPxQkLLqR4uhuqRIcb3XnZxsA9FXhWLaheUiH9wXVfF0C5Cqa73X4U2uBsfFn3fDetQwsoFdG+bqcF35LAXRK3/aowygLKHg2KjdeM2g4EQKw1T8x2CMhv+IizB8tYnVlaRgb1C5b2xl6zqI="
+    - secure: "IBrkNMP60iafuSXloV96bSG4IqOXKH4I44oDdHEN2as7jxLMX4z/EzPUdTS/zfmBkQOE1j12DUXOOVEPl1usiLuS6MMEHUeLDR5cajtGDgDHYbKTtTB49kqXDJzU2mBvCvqOKKtuXFhX2uz9Riq+cylOoBRRauXo6RRvjw9IrfM="
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq ant
@@ -25,9 +28,16 @@ before_script:
     pear install phpunit/PHPUnit_Selenium ;
     fi ;
     composer install --dev --no-interaction ;
+    if [[ ! -z "$SELENIUM" ]] then
+    php --server 127.0.0.1:$TRAVIS_BUILD_NUMBER &
+    wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip ;
+    unzip BrowserStackLocal-linux-x64.zip ;
+    ./BrowserStackLocal -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TRAVIS_BUILD_NUMBER,0 ;
+    fi ;
     fi
 script:
   - if [[ -z "$LINT" ]] ; then
+    export TESTSUITE_URL="http://127.0.0.1:$TRAVIS_BUILD_NUMBER" ;
     if [[ $TRAVIS_PHP_VERSION == "hhvm" ]] ; then
     ant phpunit-hhvm ;
     else
@@ -46,4 +56,4 @@ matrix:
   fast_finish: true
   include:
     - php: 5.5
-      env: PHPUNIT_ARGS="--group selenium"
+      env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
