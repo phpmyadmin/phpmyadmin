@@ -6,9 +6,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2014-01-20 11:16+0200\n"
+"PO-Revision-Date: 2014-03-26 11:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/4-1/cs/>\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/4-1/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3108,25 +3108,25 @@ msgstr "Chyba"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Ovlivněn %1$d řádek."
-msgstr[1] "Ovlivněny %1$d řádky."
-msgstr[2] "Ovlivněno %1$d řádek."
+msgstr[0] "Byl ovlivněn %1$d řádek."
+msgstr[1] "Byly ovlivněny %1$d řádky."
+msgstr[2] "Bylo ovlivněno %1$d řádků."
 
 #: libraries/Message.class.php:273
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "Smazán %1$d řádek."
-msgstr[1] "Smazány %1$d řádky."
-msgstr[2] "Smazáno %1$d řádek."
+msgstr[0] "Byl smazán %1$d řádek."
+msgstr[1] "Byly smazány %1$d řádky."
+msgstr[2] "Bylo smazáno %1$d řádků."
 
 #: libraries/Message.class.php:292
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "Vložen %1$d řádek."
-msgstr[1] "Vloženy %1$d řádky."
-msgstr[2] "Vloženo %1$d řádek."
+msgstr[0] "Byl vložen %1$d řádek."
+msgstr[1] "Byly vloženy %1$d řádky."
+msgstr[2] "Bylo vloženo %1$d řádků."
 
 #: libraries/PDF.class.php:70 libraries/Util.class.php:2475
 #: libraries/browse_foreigners.lib.php:393
@@ -9526,7 +9526,7 @@ msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
 msgstr[0] "Posledním příkazem v proceduře byla ovlivněna %d řádka"
 msgstr[1] "Posledním příkazem v proceduře byly ovlivněny %d řádky"
-msgstr[2] "Posledním příkazem v proceduře bylo ovlivněno %d řádek"
+msgstr[2] "Posledním příkazem v proceduře bylo ovlivněno %d řádků"
 
 #: libraries/rte/rte_routines.lib.php:1528
 #: libraries/rte/rte_routines.lib.php:1536
@@ -11394,7 +11394,7 @@ msgstr "Počet řazení, které byly omezeny rozsahem."
 
 #: libraries/server_status_variables.lib.php:727
 msgid "The number of sorted rows."
-msgstr "Počet řazených řádek."
+msgstr "Počet seřazených řádek."
 
 #: libraries/server_status_variables.lib.php:730
 msgid "The number of sorts that were done by scanning the table."
