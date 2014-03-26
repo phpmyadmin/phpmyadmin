@@ -1925,7 +1925,7 @@ class PMA_DisplayResults
         $sort_expression, $sort_expression_nodirection, 
         $sort_tbl, $name_to_use_in_sort, $sort_direction, $fields_meta,
         $column_index
-    ){ 
+    ) { 
         $sort_order = "";
         // Check if the current column is in the order by clause
         $is_in_sort = $this->_isInSorted(
@@ -1933,28 +1933,31 @@ class PMA_DisplayResults
             $sort_tbl, $name_to_use_in_sort
         ); 
         $current_name = $name_to_use_in_sort; 
-        if ($sort_expression_nodirection[0] == '' || !$is_in_sort){
-            $special_index = $sort_expression_nodirection[0] == '' ? 0 : count($sort_expression_nodirection);
-            $sort_expression_nodirection[$special_index] =  
-            PMA_Util::backquote(
-                $current_name
-            ); 
+        if ($sort_expression_nodirection[0] == '' || !$is_in_sort) {
+            $special_index = $sort_expression_nodirection[0] == '' 
+                ? 0 
+                : count($sort_expression_nodirection);
+            $sort_expression_nodirection[$special_index]
+                = PMA_Util::backquote(
+                    $current_name
+                ); 
             $sort_direction[$special_index] = (preg_match(
-                    '@time|date@i',
-                    $fields_meta->type
-                )) ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+                '@time|date@i',
+                $fields_meta->type
+            )) ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
          
         }
         $sort_expression_nodirection = array_filter($sort_expression_nodirection);  
-        foreach ($sort_expression_nodirection as $index=>$expression){  
-            // check if this is the first clause, if it is then we have to add "order by"  
+        foreach ($sort_expression_nodirection as $index=>$expression) {  
+            // check if this is the first clause,
+            // if it is then we have to add "order by"  
             $is_first_clause = ($index == 0); 
             $name_to_use_in_sort = $expression; 
             $sort_tbl_new = $sort_tbl;
             // Test to detect if the column name is a standard name
             // Standard name has the table name prefixed to the column name
             $is_standard_name = false;
-            if (strpos($name_to_use_in_sort, '.') !== false){
+            if (strpos($name_to_use_in_sort, '.') !== false) {
                 $matches = explode('.', $name_to_use_in_sort);
                 // Matches[0] has the table name 
                 // Matches[1] has the column name
@@ -1980,8 +1983,8 @@ class PMA_DisplayResults
             } else {
                 $sort_order .=  $query_head  . $sort_tbl_new . "."
                   . PMA_Util::backquote(
-                        $name_to_use_in_sort
-                    ) .  ' ' ; 
+                      $name_to_use_in_sort
+                  ) .  ' ' ; 
             }   
 
             // For a special case where the code generates two dots between
@@ -1989,13 +1992,12 @@ class PMA_DisplayResults
             $sort_order = preg_replace("/\.\./", ".", $sort_order);
             // Incase the current column name is in the order by clause
             // We need to generate the arrow button and related html  
-            if($current_name == $name_to_use_in_sort && $is_in_sort){
+            if ($current_name == $name_to_use_in_sort && $is_in_sort) {
                 list($sort_order, $order_img) = $this->_getSortingUrlParams(
                     $is_in_sort, $sort_direction, $fields_meta,
                     $sort_order, $column_index, $sort_tbl_new, $index
                 );                 
-            }
-            else{
+            } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
             }
             // Separte columns by a comma
@@ -2033,8 +2035,7 @@ class PMA_DisplayResults
             if (strpos($clause,'.') !== false) {
                 $fragments = explode('.', $clause);
                 $clause2 = $fragments[0] . "." . str_replace('`', ``, $fragments[1]);
-            }
-            else {
+            } else {
                 $clause2 = $sort_tbl . str_replace('`', ``, $clause);
             }    
             if ($clause2 === $sort_tbl . $name_to_use_in_sort) {
@@ -4640,7 +4641,7 @@ class PMA_DisplayResults
 
 
         // 1.4 Prepares display of first and last value of the sorted column
-        for ( $i = 0; $i < $number_of_columns; $i++ ){
+        for ( $i = 0; $i < $number_of_columns; $i++ ) {
             $sorted_column_message = $this->_getSortedColumnMessage(
                 $dt_result, $sort_expression_nodirection[$i]
             );
