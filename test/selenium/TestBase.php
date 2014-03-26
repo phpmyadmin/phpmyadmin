@@ -188,7 +188,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         $result = $this->dbQuery('SELECT COUNT(*) FROM mysql.user');
         if ($result !== false) {
-            $result::free();
+            $result->free();
             return true;
         }
         return false;
