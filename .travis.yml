@@ -4,6 +4,9 @@ php:
   - "5.4"
   - "5.3"
   - hhvm
+env:
+  matrix:
+    PHPUNIT_ARGS="--exclude-group selenium"
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq ant
