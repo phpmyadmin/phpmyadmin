@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 11:59+0100\n"
-"PO-Revision-Date: 2014-03-26 14:57+0200\n"
+"PO-Revision-Date: 2014-03-26 15:00+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
@@ -9954,13 +9954,13 @@ msgid "Execution results of routine %s"
 msgstr "Resultados de la ejecución de la rutina %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d fila afectada por la última sentencia del procedimiento"
-msgstr[1] "%d filas afectadas por la última sentencia del procedimiento"
+msgstr[0] "%d fila afectada por la última sentencia del procedimiento."
+msgstr[1] "%d filas afectadas por la última sentencia del procedimiento."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
