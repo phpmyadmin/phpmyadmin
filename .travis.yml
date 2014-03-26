@@ -6,8 +6,8 @@ php:
   - hhvm
 env:
   matrix:
-    PHPUNIT_ARGS="--exclude-group selenium"
-    LINT="yes"
+    - PHPUNIT_ARGS="--exclude-group selenium"
+    - LINT="yes"
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq ant
