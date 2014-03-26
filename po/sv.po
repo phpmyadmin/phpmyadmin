@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-26 11:59+0100\n"
+"POT-Creation-Date: 2014-03-26 16:29+0100\n"
 "PO-Revision-Date: 2014-03-17 18:25+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
@@ -236,7 +236,7 @@ msgstr ""
 "Konfigurationsschemat för phpMyAdmin har avaktiverats. %sVisa orsaken%s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
-#: libraries/Menu.class.php:235 libraries/config/messages.inc.php:768
+#: libraries/Menu.class.php:235 libraries/config/messages.inc.php:772
 #: libraries/plugins/export/ExportXml.class.php:467
 #: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:361
 #: libraries/schema/User_Schema.class.php:305
@@ -311,7 +311,7 @@ msgid "Tracked tables"
 msgstr "Spårade tabeller"
 
 #: db_tracking.php:80 libraries/Menu.class.php:212
-#: libraries/config/messages.inc.php:762
+#: libraries/config/messages.inc.php:766
 #: libraries/plugins/export/ExportHtmlword.class.php:158
 #: libraries/plugins/export/ExportOdt.class.php:203
 #: libraries/plugins/export/ExportTexytext.class.php:142
@@ -1657,7 +1657,7 @@ msgstr "Visa frågerutan"
 #: js/messages.php:272 libraries/DisplayResults.class.php:3431
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1208 libraries/Util.class.php:3415
-#: libraries/Util.class.php:3416 libraries/config/messages.inc.php:744
+#: libraries/Util.class.php:3416 libraries/config/messages.inc.php:748
 #: libraries/schema/User_Schema.class.php:223
 #: libraries/server_user_groups.lib.php:119
 #: libraries/server_variables.lib.php:154 setup/frames/index.inc.php:178
@@ -2914,7 +2914,7 @@ msgstr ""
 "bort."
 
 #: libraries/Menu.class.php:195 libraries/ServerStatusData.class.php:366
-#: libraries/config/messages.inc.php:766
+#: libraries/config/messages.inc.php:770
 msgid "Server"
 msgstr "Server"
 
@@ -2928,11 +2928,11 @@ msgstr "Vy"
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:401
 #: libraries/Util.class.php:3185 libraries/Util.class.php:3192
 #: libraries/Util.class.php:3410 libraries/Util.class.php:4139
-#: libraries/Util.class.php:4155 libraries/config/setup.forms.php:302
-#: libraries/config/setup.forms.php:342 libraries/config/setup.forms.php:368
-#: libraries/config/user_preferences.forms.php:200
-#: libraries/config/user_preferences.forms.php:240
-#: libraries/config/user_preferences.forms.php:266
+#: libraries/Util.class.php:4155 libraries/config/setup.forms.php:303
+#: libraries/config/setup.forms.php:343 libraries/config/setup.forms.php:369
+#: libraries/config/user_preferences.forms.php:201
+#: libraries/config/user_preferences.forms.php:241
+#: libraries/config/user_preferences.forms.php:267
 #: libraries/import.lib.php:1265
 #: libraries/navigation/Nodes/Node_Table.class.php:36
 #: libraries/server_privileges.lib.php:976
@@ -3846,7 +3846,7 @@ msgstr "MySQL sa: "
 msgid "Failed to connect to SQL validator!"
 msgstr "Lyckades inte ansluta till SQL-validerare!"
 
-#: libraries/Util.class.php:1177 libraries/config/messages.inc.php:745
+#: libraries/Util.class.php:1177 libraries/config/messages.inc.php:749
 msgid "Explain SQL"
 msgstr "Förklara SQL-kod"
 
@@ -3858,11 +3858,11 @@ msgstr "Utan SQL-förklaring"
 msgid "Without PHP Code"
 msgstr "Utan PHP-kod"
 
-#: libraries/Util.class.php:1225 libraries/config/messages.inc.php:747
+#: libraries/Util.class.php:1225 libraries/config/messages.inc.php:751
 msgid "Create PHP Code"
 msgstr "Skapa PHP-kod"
 
-#: libraries/Util.class.php:1251 libraries/config/messages.inc.php:746
+#: libraries/Util.class.php:1251 libraries/config/messages.inc.php:750
 #: libraries/server_status_variables.lib.php:42
 msgid "Refresh"
 msgstr "Uppdatera"
@@ -3871,7 +3871,7 @@ msgstr "Uppdatera"
 msgid "Skip Validate SQL"
 msgstr "Hoppa över SQL-validering"
 
-#: libraries/Util.class.php:1264 libraries/config/messages.inc.php:749
+#: libraries/Util.class.php:1264 libraries/config/messages.inc.php:753
 msgid "Validate SQL"
 msgstr "Validera SQL-kod"
 
@@ -3996,13 +3996,13 @@ msgstr ""
 "fönstret, eller så är din webbläsares säkerhetsinställningar konfigurerade "
 "för att blockera flerfönster uppdateringar."
 
-#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:314
-#: libraries/config/setup.forms.php:350 libraries/config/setup.forms.php:373
-#: libraries/config/setup.forms.php:378
-#: libraries/config/user_preferences.forms.php:212
-#: libraries/config/user_preferences.forms.php:248
-#: libraries/config/user_preferences.forms.php:271
-#: libraries/config/user_preferences.forms.php:276
+#: libraries/build_html_for_db.lib.php:37 libraries/config/setup.forms.php:315
+#: libraries/config/setup.forms.php:351 libraries/config/setup.forms.php:374
+#: libraries/config/setup.forms.php:379
+#: libraries/config/user_preferences.forms.php:213
+#: libraries/config/user_preferences.forms.php:249
+#: libraries/config/user_preferences.forms.php:272
+#: libraries/config/user_preferences.forms.php:277
 #: libraries/server_privileges.lib.php:975 libraries/structure.lib.php:2190
 #: libraries/tbl_printview.lib.php:303
 msgid "Data"
@@ -4305,7 +4305,7 @@ msgid "Set value: %s"
 msgstr "Ange värde: %s"
 
 #: libraries/config/FormDisplay.tpl.php:313
-#: libraries/config/messages.inc.php:538
+#: libraries/config/messages.inc.php:542
 msgid "Restore default value"
 msgstr "Återställ standardvärde"
 
@@ -5057,10 +5057,10 @@ msgstr "Anpassa utforskningsläge."
 msgid "Customize default options."
 msgstr "Anpassa förvalda alternativ."
 
-#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:248
-#: libraries/config/setup.forms.php:325
-#: libraries/config/user_preferences.forms.php:148
-#: libraries/config/user_preferences.forms.php:223
+#: libraries/config/messages.inc.php:213 libraries/config/setup.forms.php:249
+#: libraries/config/setup.forms.php:326
+#: libraries/config/user_preferences.forms.php:149
+#: libraries/config/user_preferences.forms.php:224
 msgid "CSV"
 msgstr "CSV"
 
@@ -5563,7 +5563,7 @@ msgid "Maximum displayed SQL length"
 msgstr "Maximal visad SQL-längd"
 
 #: libraries/config/messages.inc.php:405 libraries/config/messages.inc.php:419
-#: libraries/config/messages.inc.php:519
+#: libraries/config/messages.inc.php:523
 msgid "Users cannot set a higher value"
 msgstr "Användare kan inte ange ett högre värde"
 
@@ -5730,47 +5730,57 @@ msgid "Enable highlighting"
 msgstr "Aktivera framhävning"
 
 #: libraries/config/messages.inc.php:469
+msgid "Whether to disable the possibility of database expansion or not."
+msgstr ""
+
+#: libraries/config/messages.inc.php:471
+#, fuzzy
+#| msgid "Display databases as a list"
+msgid "Disable database expansion"
+msgstr "Visa databaser som en lista"
+
+#: libraries/config/messages.inc.php:473
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att avaktivera."
 
-#: libraries/config/messages.inc.php:470
+#: libraries/config/messages.inc.php:474
 msgid "Recently used tables"
 msgstr "Nyligen använda tabeller"
 
-#: libraries/config/messages.inc.php:471
+#: libraries/config/messages.inc.php:475
 msgid "These are Edit, Copy and Delete links."
 msgstr "Dessa är länkar till Redigera, Kopiera och Radera."
 
-#: libraries/config/messages.inc.php:472
+#: libraries/config/messages.inc.php:476
 msgid "Where to show the table row links"
 msgstr "Var länkarna i tabellraden visas"
 
-#: libraries/config/messages.inc.php:474
+#: libraries/config/messages.inc.php:478
 msgid "Use natural order for sorting table and database names."
 msgstr "Använd naturlig ordning vid sortering av tabell- och databasnamn."
 
-#: libraries/config/messages.inc.php:475
+#: libraries/config/messages.inc.php:479
 msgid "Natural order"
 msgstr "Naturlig ordning"
 
-#: libraries/config/messages.inc.php:476 libraries/config/messages.inc.php:507
-#: libraries/config/messages.inc.php:509
+#: libraries/config/messages.inc.php:480 libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:513
 msgid "Use only icons, only text or both."
 msgstr "Använd enbart ikoner, endast text eller både och."
 
-#: libraries/config/messages.inc.php:477
+#: libraries/config/messages.inc.php:481
 msgid "Table navigation bar"
 msgstr "Tabellbaserat navigeringsfält"
 
-#: libraries/config/messages.inc.php:479
+#: libraries/config/messages.inc.php:483
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "Använd GZip utmatningsbuffer för ökad hastighet i HTTP-överföringar."
 
-#: libraries/config/messages.inc.php:480
+#: libraries/config/messages.inc.php:484
 msgid "GZip output buffering"
 msgstr "GZip Utmatningsbuffer"
 
-#: libraries/config/messages.inc.php:482
+#: libraries/config/messages.inc.php:486
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -5778,19 +5788,19 @@ msgstr ""
 "[kbd]SMART[/kbd] - dvs fallande ordning för kolumner av typen TIME, DATE, "
 "DATETIME och TIMESTAMP, stigande ordning annars."
 
-#: libraries/config/messages.inc.php:485
+#: libraries/config/messages.inc.php:489
 msgid "Default sorting order"
 msgstr "Förvald sorteringsordning"
 
-#: libraries/config/messages.inc.php:487
+#: libraries/config/messages.inc.php:491
 msgid "Use persistent connections to MySQL databases."
 msgstr "Använd bestående anslutningar till MySQL-databaser."
 
-#: libraries/config/messages.inc.php:488
+#: libraries/config/messages.inc.php:492
 msgid "Persistent connections"
 msgstr "Bestående anslutningar"
 
-#: libraries/config/messages.inc.php:490
+#: libraries/config/messages.inc.php:494
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the database details "
@@ -5805,11 +5815,11 @@ msgstr ""
 "någon av de nödvändiga tabellerna för phpMyAdmin Configuration Storage inte "
 "kunde hittas"
 
-#: libraries/config/messages.inc.php:495
+#: libraries/config/messages.inc.php:499
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
 
-#: libraries/config/messages.inc.php:497
+#: libraries/config/messages.inc.php:501
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected."
@@ -5817,11 +5827,11 @@ msgstr ""
 "Inaktivera standardvarningen som visas om en skillnad mellan MySQL-"
 "biblioteket och servern upptäcks."
 
-#: libraries/config/messages.inc.php:501
+#: libraries/config/messages.inc.php:505
 msgid "Server/library difference warning"
 msgstr "Varning för skillnad server/bibliotek"
 
-#: libraries/config/messages.inc.php:503
+#: libraries/config/messages.inc.php:507
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -5829,27 +5839,27 @@ msgstr ""
 "Inaktivera standardvarningen som visas på sidan Struktur om kolumnnamn i en "
 "tabell är reserverade MySQL-ord."
 
-#: libraries/config/messages.inc.php:506
+#: libraries/config/messages.inc.php:510
 msgid "MySQL reserved word warning"
 msgstr "Varning för reserverat MySQL-ord"
 
-#: libraries/config/messages.inc.php:508
+#: libraries/config/messages.inc.php:512
 msgid "How to display the menu tabs"
 msgstr "Hur att visa menyflikarna"
 
-#: libraries/config/messages.inc.php:510
+#: libraries/config/messages.inc.php:514
 msgid "How to display various action links"
 msgstr "Hur man visar olika åtgärdslänkar"
 
-#: libraries/config/messages.inc.php:511
+#: libraries/config/messages.inc.php:515
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Tillåt ej redigering av BLOB- och BINARY-kolumner."
 
-#: libraries/config/messages.inc.php:512
+#: libraries/config/messages.inc.php:516
 msgid "Protect binary columns"
 msgstr "Skydda binära kolumner"
 
-#: libraries/config/messages.inc.php:514
+#: libraries/config/messages.inc.php:518
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -5859,119 +5869,119 @@ msgstr ""
 "konfigurationslagring). Om inakiverad, så används JS-rutiner för att visa "
 "frågehistorik (förloras när fönstret stängs)."
 
-#: libraries/config/messages.inc.php:518
+#: libraries/config/messages.inc.php:522
 msgid "Permanent query history"
 msgstr "Permanent frågehistorik"
 
-#: libraries/config/messages.inc.php:520
+#: libraries/config/messages.inc.php:524
 msgid "How many queries are kept in history."
 msgstr "Antal frågor som sparas i historiken."
 
-#: libraries/config/messages.inc.php:521
+#: libraries/config/messages.inc.php:525
 msgid "Query history length"
 msgstr "Längd på frågehistorik"
 
-#: libraries/config/messages.inc.php:523
+#: libraries/config/messages.inc.php:527
 msgid "Tab displayed when opening a new query window."
 msgstr "Flik som visas när man öppnar ett nytt frågefönster."
 
-#: libraries/config/messages.inc.php:524
+#: libraries/config/messages.inc.php:528
 msgid "Default query window tab"
 msgstr "Förvald frågefönsterflik"
 
-#: libraries/config/messages.inc.php:525
+#: libraries/config/messages.inc.php:529
 msgid "Query window height (in pixels)."
 msgstr "Höjd på frågefönster (i pixlar)."
 
-#: libraries/config/messages.inc.php:526
+#: libraries/config/messages.inc.php:530
 msgid "Query window height"
 msgstr "Höjd på frågefönster"
 
-#: libraries/config/messages.inc.php:527
+#: libraries/config/messages.inc.php:531
 msgid "Query window width (in pixels)."
 msgstr "Bredd på frågefönster (i pixlar)."
 
-#: libraries/config/messages.inc.php:528
+#: libraries/config/messages.inc.php:532
 msgid "Query window width"
 msgstr "Bredd på frågefönster"
 
-#: libraries/config/messages.inc.php:530
+#: libraries/config/messages.inc.php:534
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Välj vilka funktioner som kommer användas för konvertering av "
 "teckenuppsättning."
 
-#: libraries/config/messages.inc.php:531
+#: libraries/config/messages.inc.php:535
 msgid "Recoding engine"
 msgstr "Omvandlingsmotor"
 
-#: libraries/config/messages.inc.php:533
+#: libraries/config/messages.inc.php:537
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Vid bläddring i tabeller är sorteringen av varje tabell ihågkommen."
 
-#: libraries/config/messages.inc.php:534
+#: libraries/config/messages.inc.php:538
 msgid "Remember table's sorting"
 msgstr "Kom ihåg tabellens sortering"
 
-#: libraries/config/messages.inc.php:536
+#: libraries/config/messages.inc.php:540
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Upprepa rubrik varje X celler, [kbd]0[/kbd] avaktiverar den här funktionen."
 
-#: libraries/config/messages.inc.php:537
+#: libraries/config/messages.inc.php:541
 msgid "Repeat headers"
 msgstr "Reparera rubriker"
 
-#: libraries/config/messages.inc.php:539
+#: libraries/config/messages.inc.php:543
 msgid "Grid editing: trigger action"
 msgstr "Rutnäts-redigering: utlösningsåtgärd"
 
-#: libraries/config/messages.inc.php:540
+#: libraries/config/messages.inc.php:544
 msgid "Grid editing: save all edited cells at once"
 msgstr "Rutnäts-redigering: spara alla redigerade celler omedelbart"
 
-#: libraries/config/messages.inc.php:541
+#: libraries/config/messages.inc.php:545
 msgid "Directory where exports can be saved on server."
 msgstr "Katalog där exporter kan sparas på servern."
 
-#: libraries/config/messages.inc.php:542
+#: libraries/config/messages.inc.php:546
 msgid "Save directory"
 msgstr "Sparningskatalog"
 
-#: libraries/config/messages.inc.php:543
+#: libraries/config/messages.inc.php:547
 msgid "Leave blank if not used."
 msgstr "Lämna tomt om den inte används."
 
-#: libraries/config/messages.inc.php:544
+#: libraries/config/messages.inc.php:548
 msgid "Host authorization order"
 msgstr "Host auktorisation för"
 
-#: libraries/config/messages.inc.php:545
+#: libraries/config/messages.inc.php:549
 msgid "Leave blank for defaults."
 msgstr "Lämna blankt för standardvärden."
 
-#: libraries/config/messages.inc.php:546
+#: libraries/config/messages.inc.php:550
 msgid "Host authorization rules"
 msgstr "Behörighetsregler för host"
 
-#: libraries/config/messages.inc.php:547
+#: libraries/config/messages.inc.php:551
 msgid "Allow logins without a password"
 msgstr "Tillåt inloggning utan lösenord"
 
-#: libraries/config/messages.inc.php:548
+#: libraries/config/messages.inc.php:552
 msgid "Allow root login"
 msgstr "Tillåt root-inloggning"
 
-#: libraries/config/messages.inc.php:550
+#: libraries/config/messages.inc.php:554
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "Namn på HTTP Basic Auth Realm att visa när man gör HTTP Auth."
 
-#: libraries/config/messages.inc.php:551
+#: libraries/config/messages.inc.php:555
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: libraries/config/messages.inc.php:553
+#: libraries/config/messages.inc.php:557
 msgid ""
 "The path for the config file for [a@http://swekey.com]SweKey hardware "
 "authentication[/a] (not located in your document root; suggested: /etc/"
@@ -5981,19 +5991,19 @@ msgstr ""
 "hårdvaruautentisering[/a] (inte placerad i din dokumentrotkatalog; förslag: /"
 "etc/swekey.conf)."
 
-#: libraries/config/messages.inc.php:557
+#: libraries/config/messages.inc.php:561
 msgid "SweKey config file"
 msgstr "SweKey konfigurationsfil"
 
-#: libraries/config/messages.inc.php:558
+#: libraries/config/messages.inc.php:562
 msgid "Authentication method to use."
 msgstr "Autentiseringsmetod att använda."
 
-#: libraries/config/messages.inc.php:559 setup/frames/index.inc.php:162
+#: libraries/config/messages.inc.php:563 setup/frames/index.inc.php:162
 msgid "Authentication type"
 msgstr "Autentiseringstyp"
 
-#: libraries/config/messages.inc.php:561
+#: libraries/config/messages.inc.php:565
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
@@ -6001,11 +6011,11 @@ msgstr ""
 "Lämna tomt för att stänga av [a@http://wiki.phpmyadmin.net/pma/"
 "bookmark]bokmärken[/a], förslag: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/config/messages.inc.php:564
+#: libraries/config/messages.inc.php:568
 msgid "Bookmark table"
 msgstr "Tabell för bokmärken"
 
-#: libraries/config/messages.inc.php:566
+#: libraries/config/messages.inc.php:570
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -6013,31 +6023,31 @@ msgstr ""
 "Lämna tomt för att stänga av kolumnkommentarer/mime-typer, förslag: "
 "[kbd]pma__column_info[/kbd]."
 
-#: libraries/config/messages.inc.php:569
+#: libraries/config/messages.inc.php:573
 msgid "Column information table"
 msgstr "Tabell för kolumninformation"
 
-#: libraries/config/messages.inc.php:570
+#: libraries/config/messages.inc.php:574
 msgid "Compress connection to MySQL server."
 msgstr "Komprimera anslutning till MySQL-servern."
 
-#: libraries/config/messages.inc.php:571
+#: libraries/config/messages.inc.php:575
 msgid "Compress connection"
 msgstr "Komprimera anslutning"
 
-#: libraries/config/messages.inc.php:573
+#: libraries/config/messages.inc.php:577
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
 msgstr "Hur ansluta till servern, behåll [kbd]tcp[/kbd] om du är osäker."
 
-#: libraries/config/messages.inc.php:574
+#: libraries/config/messages.inc.php:578
 msgid "Connection type"
 msgstr "Anslutningstyp"
 
-#: libraries/config/messages.inc.php:575
+#: libraries/config/messages.inc.php:579
 msgid "Control user password"
 msgstr "Lösenord för kontrollanvändare"
 
-#: libraries/config/messages.inc.php:577
+#: libraries/config/messages.inc.php:581
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6046,11 +6056,11 @@ msgstr ""
 "information tillgänglig på [a@http://wiki.phpmyadmin.net/pma/"
 "controluser]wiki[/a]."
 
-#: libraries/config/messages.inc.php:580
+#: libraries/config/messages.inc.php:584
 msgid "Control user"
 msgstr "Kontrollanvändare"
 
-#: libraries/config/messages.inc.php:582
+#: libraries/config/messages.inc.php:586
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -6058,11 +6068,11 @@ msgstr ""
 "En alternativ värd för att hålla konfigurationslagring, lämna tomt för att "
 "använda den aktuella värden."
 
-#: libraries/config/messages.inc.php:585
+#: libraries/config/messages.inc.php:589
 msgid "Control host"
 msgstr "Kontrollvärd"
 
-#: libraries/config/messages.inc.php:587
+#: libraries/config/messages.inc.php:591
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -6072,11 +6082,11 @@ msgstr ""
 "konfigurationslagring; lämna tomt för att använda standardporten, eller den "
 "redan definierade porten, om controlhost motsvarar host."
 
-#: libraries/config/messages.inc.php:591
+#: libraries/config/messages.inc.php:595
 msgid "Control port"
 msgstr "Kontrollport"
 
-#: libraries/config/messages.inc.php:593
+#: libraries/config/messages.inc.php:597
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
@@ -6084,19 +6094,19 @@ msgstr ""
 "Lämna tomt för avstängt Designer-stöd, förslag: [kbd]pma__designer_coords[/"
 "kbd]."
 
-#: libraries/config/messages.inc.php:596
+#: libraries/config/messages.inc.php:600
 msgid "Designer table"
 msgstr "Tabell för Designer"
 
-#: libraries/config/messages.inc.php:598
+#: libraries/config/messages.inc.php:602
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Dölj databaser som matchar reguljärt uttryck (PCRE)."
 
-#: libraries/config/messages.inc.php:599
+#: libraries/config/messages.inc.php:603
 msgid "Hide databases"
 msgstr "Dölj databaser"
 
-#: libraries/config/messages.inc.php:601
+#: libraries/config/messages.inc.php:605
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6104,23 +6114,23 @@ msgstr ""
 "Lämna blankt för att stänga av stöd för SQL-frågehistorik, förslag: "
 "[kbd]pma__history[/kbd]."
 
-#: libraries/config/messages.inc.php:604
+#: libraries/config/messages.inc.php:608
 msgid "SQL query history table"
 msgstr "Tabell för SQL-frågehistorik"
 
-#: libraries/config/messages.inc.php:605
+#: libraries/config/messages.inc.php:609
 msgid "Hostname where MySQL server is running."
 msgstr "Värdnamn där MySQL-servern körs."
 
-#: libraries/config/messages.inc.php:606
+#: libraries/config/messages.inc.php:610
 msgid "Server hostname"
 msgstr "Serverns värdnamn"
 
-#: libraries/config/messages.inc.php:607
+#: libraries/config/messages.inc.php:611
 msgid "Logout URL"
 msgstr "URL för utloggning"
 
-#: libraries/config/messages.inc.php:609
+#: libraries/config/messages.inc.php:613
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -6128,19 +6138,19 @@ msgstr ""
 "Begränsar antalet tabellpreferenser som lagras i databasen, de äldsta "
 "posterna tas bort automatiskt."
 
-#: libraries/config/messages.inc.php:613
+#: libraries/config/messages.inc.php:617
 msgid "Maximal number of table preferences to store"
 msgstr "Maximalt antal tabellinställningar att spara"
 
-#: libraries/config/messages.inc.php:614
+#: libraries/config/messages.inc.php:618
 msgid "Try to connect without password."
 msgstr "Försök ansluta utan lösenord."
 
-#: libraries/config/messages.inc.php:615
+#: libraries/config/messages.inc.php:619
 msgid "Connect without password"
 msgstr "Anslut utan lösenord"
 
-#: libraries/config/messages.inc.php:617
+#: libraries/config/messages.inc.php:621
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -6150,30 +6160,30 @@ msgstr ""
 "använda deras ordagranna betydelse, dvs använd [kbd] 'my\\_db\"[/kbd] och "
 "inte [kbd]'my_db\"[/kbd]."
 
-#: libraries/config/messages.inc.php:621
+#: libraries/config/messages.inc.php:625
 msgid "Show only listed databases"
 msgstr "Visa endast listade databaser"
 
-#: libraries/config/messages.inc.php:622 libraries/config/messages.inc.php:710
+#: libraries/config/messages.inc.php:626 libraries/config/messages.inc.php:714
 msgid "Leave empty if not using config auth."
 msgstr "Lämna tomt om inte config auth används."
 
-#: libraries/config/messages.inc.php:623
+#: libraries/config/messages.inc.php:627
 msgid "Password for config auth"
 msgstr "Lösenord för config auth"
 
-#: libraries/config/messages.inc.php:625
+#: libraries/config/messages.inc.php:629
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Lämna blankt för att stänga av stöd för PDF-schema, förslag: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: libraries/config/messages.inc.php:627
+#: libraries/config/messages.inc.php:631
 msgid "PDF schema: pages table"
 msgstr "PDF-schema: Tabell för sidor"
 
-#: libraries/config/messages.inc.php:629
+#: libraries/config/messages.inc.php:633
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [a@http://wiki."
 "phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave blank for "
@@ -6183,20 +6193,20 @@ msgstr ""
 "[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] för komplett information. "
 "Lämna tomt för inget stöd. Förslag: [kbd]phpmyadmin[/kbd]."
 
-#: libraries/config/messages.inc.php:633
+#: libraries/config/messages.inc.php:637
 #: libraries/display_create_database.lib.php:31
 msgid "Database name"
 msgstr "Databasnamn"
 
-#: libraries/config/messages.inc.php:635
+#: libraries/config/messages.inc.php:639
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr "Port som MySQL-servern lyssnar på, lämna blankt för standardport."
 
-#: libraries/config/messages.inc.php:636
+#: libraries/config/messages.inc.php:640
 msgid "Server port"
 msgstr "Serverport"
 
-#: libraries/config/messages.inc.php:638
+#: libraries/config/messages.inc.php:642
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -6204,11 +6214,11 @@ msgstr ""
 "Lämna tomt för att stänga av \"ihållande\" nyligen använda tabeller över "
 "sessioner, förslag: [kbd]pma__recent[/kbd]."
 
-#: libraries/config/messages.inc.php:641
+#: libraries/config/messages.inc.php:645
 msgid "Recently used table"
 msgstr "Nyligen använd tabell"
 
-#: libraries/config/messages.inc.php:643
+#: libraries/config/messages.inc.php:647
 msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
@@ -6216,11 +6226,11 @@ msgstr ""
 "Lämna tomt för avstängt stöd för [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relationslänkar[/a], förslag: [kbd]pma__relation[/kbd]."
 
-#: libraries/config/messages.inc.php:647
+#: libraries/config/messages.inc.php:651
 msgid "Relation table"
 msgstr "Relationstabell"
 
-#: libraries/config/messages.inc.php:649
+#: libraries/config/messages.inc.php:653
 msgid ""
 "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 "types[/a] for an example."
@@ -6228,31 +6238,31 @@ msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
 "a] för ett exempel."
 
-#: libraries/config/messages.inc.php:652
+#: libraries/config/messages.inc.php:656
 msgid "Signon session name"
 msgstr "Signon sessionsnamn"
 
-#: libraries/config/messages.inc.php:653
+#: libraries/config/messages.inc.php:657
 msgid "Signon URL"
 msgstr "Inloggnings-URL"
 
-#: libraries/config/messages.inc.php:655
+#: libraries/config/messages.inc.php:659
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "Sockel som MySQL-servern lyssnar på, lämna tomt för standardsocket."
 
-#: libraries/config/messages.inc.php:656
+#: libraries/config/messages.inc.php:660
 msgid "Server socket"
 msgstr "Server socket"
 
-#: libraries/config/messages.inc.php:657
+#: libraries/config/messages.inc.php:661
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Aktivera SSL för anslutning till MySQL-servern."
 
-#: libraries/config/messages.inc.php:658
+#: libraries/config/messages.inc.php:662
 msgid "Use SSL"
 msgstr "Använd SSL"
 
-#: libraries/config/messages.inc.php:660
+#: libraries/config/messages.inc.php:664
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -6260,11 +6270,11 @@ msgstr ""
 "Lämna tomt för avstängt stöd för PDF-schema, förslag: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: libraries/config/messages.inc.php:662
+#: libraries/config/messages.inc.php:666
 msgid "PDF schema: table coordinates"
 msgstr "PDF-schema: tabellkoordinater"
 
-#: libraries/config/messages.inc.php:664
+#: libraries/config/messages.inc.php:668
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -6272,11 +6282,11 @@ msgstr ""
 "Tabell för att beskriva visningskolumnerna, lämna tomt för avstängt stöd; "
 "förslag: [kbd]pma__table_info[/kbd]."
 
-#: libraries/config/messages.inc.php:667
+#: libraries/config/messages.inc.php:671
 msgid "Display columns table"
 msgstr "Visa tabellkolumner"
 
-#: libraries/config/messages.inc.php:669
+#: libraries/config/messages.inc.php:673
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -6285,11 +6295,11 @@ msgstr ""
 "användargränssnittspreferenser som sparas över sessioner, förslag: "
 "[kbd]pma__table_uiprefs[/kbd]."
 
-#: libraries/config/messages.inc.php:672
+#: libraries/config/messages.inc.php:676
 msgid "UI preferences table"
 msgstr "Tabell för inställningar av användargränssnittet"
 
-#: libraries/config/messages.inc.php:674
+#: libraries/config/messages.inc.php:678
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -6297,11 +6307,11 @@ msgstr ""
 "Om DROP DATABASE IF EXISTS-kommando skall läggas till som första raden i "
 "loggen när man skapar en databas."
 
-#: libraries/config/messages.inc.php:677
+#: libraries/config/messages.inc.php:681
 msgid "Add DROP DATABASE"
 msgstr "Lägg till DROP DATABASE"
 
-#: libraries/config/messages.inc.php:679
+#: libraries/config/messages.inc.php:683
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -6309,11 +6319,11 @@ msgstr ""
 "Om DROP TABLE IF EXISTS-kommando skall läggas till som första raden i loggen "
 "när man skapar en tabell."
 
-#: libraries/config/messages.inc.php:682
+#: libraries/config/messages.inc.php:686
 msgid "Add DROP TABLE"
 msgstr "Lägg till DROP TABLE"
 
-#: libraries/config/messages.inc.php:684
+#: libraries/config/messages.inc.php:688
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -6321,21 +6331,21 @@ msgstr ""
 "Om DROP VIEW IF EXISTS-kommando skall läggas till som första raden i loggen "
 "när man skapar en vy."
 
-#: libraries/config/messages.inc.php:687
+#: libraries/config/messages.inc.php:691
 msgid "Add DROP VIEW"
 msgstr "Lägg till DROP VIEW"
 
-#: libraries/config/messages.inc.php:689
+#: libraries/config/messages.inc.php:693
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Definierar lista med påståenden vilken auto-creation använder för nya "
 "versioner."
 
-#: libraries/config/messages.inc.php:690
+#: libraries/config/messages.inc.php:694
 msgid "Statements to track"
 msgstr "Kommandon att spåra"
 
-#: libraries/config/messages.inc.php:692
+#: libraries/config/messages.inc.php:696
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -6343,11 +6353,11 @@ msgstr ""
 "Lämna tomt för avstängt stöd för SQL-frågespårning, förslag: "
 "[kbd]pma__tracking[/kbd]."
 
-#: libraries/config/messages.inc.php:695
+#: libraries/config/messages.inc.php:699
 msgid "SQL query tracking table"
 msgstr "SQL-frågespårningstabell"
 
-#: libraries/config/messages.inc.php:697
+#: libraries/config/messages.inc.php:701
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -6355,11 +6365,11 @@ msgstr ""
 "Huruvida spårningsmekanismen skapar versioner för tabeller och vyer "
 "automatiskt."
 
-#: libraries/config/messages.inc.php:701
+#: libraries/config/messages.inc.php:705
 msgid "Automatically create versions"
 msgstr "Skapa versioner automatiskt"
 
-#: libraries/config/messages.inc.php:702
+#: libraries/config/messages.inc.php:706
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -6367,11 +6377,11 @@ msgstr ""
 "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 "förslag: [kbd]pma__userconfig[/kbd]."
 
-#: libraries/config/messages.inc.php:703
+#: libraries/config/messages.inc.php:707
 msgid "User preferences storage table"
 msgstr "Användarinställningar för lagringstabell"
 
-#: libraries/config/messages.inc.php:704
+#: libraries/config/messages.inc.php:708
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -6381,11 +6391,11 @@ msgstr ""
 "funktionen anpassningsbara menyer; om en av dem lämnas tom inaktiveras "
 "funktionen, förslag: [kbd]pma__users[/kbd]."
 
-#: libraries/config/messages.inc.php:705
+#: libraries/config/messages.inc.php:709
 msgid "Users table"
 msgstr "Användartabell"
 
-#: libraries/config/messages.inc.php:706
+#: libraries/config/messages.inc.php:710
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -6395,11 +6405,11 @@ msgstr ""
 "anpassningsbara menyer; om en av dem lämnas tom inaktiveras funktionen, "
 "förslag: [kbd]pma__usergroups[/kbd]."
 
-#: libraries/config/messages.inc.php:707
+#: libraries/config/messages.inc.php:711
 msgid "User groups table"
 msgstr "Användargruppstabell"
 
-#: libraries/config/messages.inc.php:708
+#: libraries/config/messages.inc.php:712
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -6407,15 +6417,15 @@ msgstr ""
 "Lämna tomt för att stänga av funktionen att dölja och visa "
 "navigationsobjekt, förslag: [kbd]pma__navigationhiding[/kbd]."
 
-#: libraries/config/messages.inc.php:709
+#: libraries/config/messages.inc.php:713
 msgid "Hidden navigation items table"
 msgstr "Tabell för dolda navigationsobjekt"
 
-#: libraries/config/messages.inc.php:711
+#: libraries/config/messages.inc.php:715
 msgid "User for config auth"
 msgstr "Användare för config auth"
 
-#: libraries/config/messages.inc.php:712
+#: libraries/config/messages.inc.php:716
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -6423,19 +6433,19 @@ msgstr ""
 "En användarvänlig beskrivning av denna server. Lämna tomt för att visa "
 "värdnamnet istället."
 
-#: libraries/config/messages.inc.php:713
+#: libraries/config/messages.inc.php:717
 msgid "Verbose name of this server"
 msgstr "Beskrivande namn för denna server"
 
-#: libraries/config/messages.inc.php:714
+#: libraries/config/messages.inc.php:718
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "Ifall en användare ska få se en \"visa alla (rader)\"-knapp."
 
-#: libraries/config/messages.inc.php:715
+#: libraries/config/messages.inc.php:719
 msgid "Allow to display all the rows"
 msgstr "Tillåt att visa alla rader"
 
-#: libraries/config/messages.inc.php:716
+#: libraries/config/messages.inc.php:720
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -6445,47 +6455,47 @@ msgstr ""
 "autentisering eftersom lösenordet är hårdkodat i konfigurationsfilen; detta "
 "begränsar inte möjligheten att utföra samma kommando direkt."
 
-#: libraries/config/messages.inc.php:717
+#: libraries/config/messages.inc.php:721
 msgid "Show password change form"
 msgstr "Visa ändra lösenord-formulär"
 
-#: libraries/config/messages.inc.php:718
+#: libraries/config/messages.inc.php:722
 msgid "Show create database form"
 msgstr "Visa skapa databas-formulär"
 
-#: libraries/config/messages.inc.php:719
+#: libraries/config/messages.inc.php:723
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Visa eller dölj en kolumn som visar tidsstämpeln för skapandet av samtliga "
 "tabeller."
 
-#: libraries/config/messages.inc.php:720
+#: libraries/config/messages.inc.php:724
 msgid "Show Creation timestamp"
 msgstr "Visa tidsstämpel för skapande"
 
-#: libraries/config/messages.inc.php:721
+#: libraries/config/messages.inc.php:725
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Visa eller dölj en kolumn som visar tidsstämpeln Senaste uppdatering för "
 "alla tabeller."
 
-#: libraries/config/messages.inc.php:722
+#: libraries/config/messages.inc.php:726
 msgid "Show Last update timestamp"
 msgstr "Visa tidstämpeln Senaste uppdatering"
 
-#: libraries/config/messages.inc.php:723
+#: libraries/config/messages.inc.php:727
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Visa eller dölj en kolumn som visar tidsstämpeln Senaste kontroll för alla "
 "tabeller."
 
-#: libraries/config/messages.inc.php:724
+#: libraries/config/messages.inc.php:728
 msgid "Show Last check timestamp"
 msgstr "Visa tidstämpeln Senaste kontroll"
 
-#: libraries/config/messages.inc.php:725
+#: libraries/config/messages.inc.php:729
 msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table."
@@ -6493,37 +6503,37 @@ msgstr ""
 "Definierar om typ display riktning alternativet visas när du bläddrar i en "
 "tabell."
 
-#: libraries/config/messages.inc.php:726
+#: libraries/config/messages.inc.php:730
 msgid "Show display direction"
 msgstr "Visa visnings riktning"
 
-#: libraries/config/messages.inc.php:727
+#: libraries/config/messages.inc.php:731
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr "Anger om typ-fält först bör visas i ändra/infoga-läge."
 
-#: libraries/config/messages.inc.php:728
+#: libraries/config/messages.inc.php:732
 msgid "Show field types"
 msgstr "Visa fälttyper"
 
-#: libraries/config/messages.inc.php:729
+#: libraries/config/messages.inc.php:733
 msgid "Display the function fields in edit/insert mode."
 msgstr "Visa funktionsfälten i ändra/infoga-läge."
 
-#: libraries/config/messages.inc.php:730
+#: libraries/config/messages.inc.php:734
 msgid "Show function fields"
 msgstr "Visa funktionsfält"
 
-#: libraries/config/messages.inc.php:731
+#: libraries/config/messages.inc.php:735
 msgid "Whether to show hint or not."
 msgstr "Om du vill visa tips eller inte."
 
-#: libraries/config/messages.inc.php:732
+#: libraries/config/messages.inc.php:736
 msgid "Show hint"
 msgstr "Visa tips"
 
-#: libraries/config/messages.inc.php:733
+#: libraries/config/messages.inc.php:737
 msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
@@ -6531,56 +6541,56 @@ msgstr ""
 "Visar länk till resultatet av [a@http://php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]."
 
-#: libraries/config/messages.inc.php:734
+#: libraries/config/messages.inc.php:738
 msgid "Show phpinfo() link"
 msgstr "Visa phpinfo()-länk"
 
-#: libraries/config/messages.inc.php:735
+#: libraries/config/messages.inc.php:739
 msgid "Show detailed MySQL server information"
 msgstr "Visa detaljerad MySQL-serverinformation"
 
-#: libraries/config/messages.inc.php:736
+#: libraries/config/messages.inc.php:740
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Anger om SQL-frågor som genereras av phpMyAdmin ska visas."
 
-#: libraries/config/messages.inc.php:737
+#: libraries/config/messages.inc.php:741
 msgid "Show SQL queries"
 msgstr "Visa SQL-frågor"
 
-#: libraries/config/messages.inc.php:738
+#: libraries/config/messages.inc.php:742
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "Anger om frågerutan ska stanna på skärmen efter den skickats."
 
-#: libraries/config/messages.inc.php:739 libraries/sql_query_form.lib.php:370
+#: libraries/config/messages.inc.php:743 libraries/sql_query_form.lib.php:370
 msgid "Retain query box"
 msgstr "Behåll frågerutan"
 
-#: libraries/config/messages.inc.php:740
+#: libraries/config/messages.inc.php:744
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr "Tillåt visning av databas- och tabellstatistik (t.ex. av utrymme)."
 
-#: libraries/config/messages.inc.php:741
+#: libraries/config/messages.inc.php:745
 msgid "Show statistics"
 msgstr "Visa statistik"
 
-#: libraries/config/messages.inc.php:742
+#: libraries/config/messages.inc.php:746
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Markera använda tabeller och gör det möjligt att visa databaser med låsta "
 "tabeller."
 
-#: libraries/config/messages.inc.php:743
+#: libraries/config/messages.inc.php:747
 msgid "Skip locked tables"
 msgstr "Hoppa över låsta tabeller"
 
-#: libraries/config/messages.inc.php:748
+#: libraries/config/messages.inc.php:752
 msgid "Requires SQL Validator to be enabled."
 msgstr "Kräver att SQL Validator är aktiverad."
 
-#: libraries/config/messages.inc.php:750 libraries/replication_gui.lib.php:400
+#: libraries/config/messages.inc.php:754 libraries/replication_gui.lib.php:400
 #: libraries/replication_gui.lib.php:837 libraries/replication_gui.lib.php:853
 #: libraries/server_privileges.lib.php:1457
 #: libraries/server_privileges.lib.php:1485
@@ -6588,7 +6598,7 @@ msgstr "Kräver att SQL Validator är aktiverad."
 msgid "Password"
 msgstr "Lösenord"
 
-#: libraries/config/messages.inc.php:751
+#: libraries/config/messages.inc.php:755
 msgid ""
 "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 "installed."
@@ -6596,11 +6606,11 @@ msgstr ""
 "[strong]Varning:[/strong] kräver PHP SOAP-tillägget eller installation av "
 "PEAR SOAP."
 
-#: libraries/config/messages.inc.php:752
+#: libraries/config/messages.inc.php:756
 msgid "Enable SQL Validator"
 msgstr "Aktivera SQL Validator"
 
-#: libraries/config/messages.inc.php:753
+#: libraries/config/messages.inc.php:757
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
@@ -6608,20 +6618,20 @@ msgstr ""
 "Om du har ett eget användarnamn, ange det här (standardnamn är "
 "[kbd]anonymous[/kbd])."
 
-#: libraries/config/messages.inc.php:754 libraries/tbl_tracking.lib.php:578
+#: libraries/config/messages.inc.php:758 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
 msgid "Username"
 msgstr "Användarnamn"
 
-#: libraries/config/messages.inc.php:755
+#: libraries/config/messages.inc.php:759
 msgid "A warning is displayed on the main page if Suhosin is detected."
 msgstr "En varning visas på huvudsidan om Suhosin upptäcks."
 
-#: libraries/config/messages.inc.php:756
+#: libraries/config/messages.inc.php:760
 msgid "Suhosin warning"
 msgstr "Suhosin-varning"
 
-#: libraries/config/messages.inc.php:757
+#: libraries/config/messages.inc.php:761
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
@@ -6629,11 +6639,11 @@ msgstr ""
 "Textareans storlek (kolumner) i redigeringsläge, detta värde kommer betonas "
 "för SQL-frågetextfält (* 2) och för frågefönster (* 1,25)."
 
-#: libraries/config/messages.inc.php:758
+#: libraries/config/messages.inc.php:762
 msgid "Textarea columns"
 msgstr "Textarea kolumner"
 
-#: libraries/config/messages.inc.php:759
+#: libraries/config/messages.inc.php:763
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2) and for query window (*1.25)."
@@ -6641,31 +6651,31 @@ msgstr ""
 "Textareans storlek (rader) i redigeringsläge, detta värde kommer betonas för "
 "SQL-frågetextfält (* 2) och för frågefönster (* 1,25)."
 
-#: libraries/config/messages.inc.php:760
+#: libraries/config/messages.inc.php:764
 msgid "Textarea rows"
 msgstr "Textarea rader"
 
-#: libraries/config/messages.inc.php:761
+#: libraries/config/messages.inc.php:765
 msgid "Title of browser window when a database is selected."
 msgstr "Titel på webbläsarfönstret när en databas är vald."
 
-#: libraries/config/messages.inc.php:763
+#: libraries/config/messages.inc.php:767
 msgid "Title of browser window when nothing is selected."
 msgstr "Titel på webbläsarfönstret när ingenting är markerat."
 
-#: libraries/config/messages.inc.php:764
+#: libraries/config/messages.inc.php:768
 msgid "Default title"
 msgstr "Standardtitel"
 
-#: libraries/config/messages.inc.php:765
+#: libraries/config/messages.inc.php:769
 msgid "Title of browser window when a server is selected."
 msgstr "Titel på webbläsarfönstret när en server är vald."
 
-#: libraries/config/messages.inc.php:767
+#: libraries/config/messages.inc.php:771
 msgid "Title of browser window when a table is selected."
 msgstr "Titel på webbläsarfönstret när en tabell är markerad."
 
-#: libraries/config/messages.inc.php:769
+#: libraries/config/messages.inc.php:773
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6677,27 +6687,27 @@ msgstr ""
 "som kommer från proxyservern 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/"
 "kbd]."
 
-#: libraries/config/messages.inc.php:770
+#: libraries/config/messages.inc.php:774
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Lista med betrodda proxies för IP allow/deny"
 
-#: libraries/config/messages.inc.php:771
+#: libraries/config/messages.inc.php:775
 msgid "Directory on server where you can upload files for import."
 msgstr "Katalog på servern där du kan ladda upp filer för import."
 
-#: libraries/config/messages.inc.php:772
+#: libraries/config/messages.inc.php:776
 msgid "Upload directory"
 msgstr "Uppladdningskatalog"
 
-#: libraries/config/messages.inc.php:773
+#: libraries/config/messages.inc.php:777
 msgid "Allow for searching inside the entire database."
 msgstr "Tillåt sökning i hela databasen."
 
-#: libraries/config/messages.inc.php:774
+#: libraries/config/messages.inc.php:778
 msgid "Use database search"
 msgstr "Använd databassökning"
 
-#: libraries/config/messages.inc.php:775
+#: libraries/config/messages.inc.php:779
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -6705,26 +6715,26 @@ msgstr ""
 "När det är avstängt, kan användare inte ange något av alternativen nedan, "
 "oberoende av kryssrutan till höger."
 
-#: libraries/config/messages.inc.php:776
+#: libraries/config/messages.inc.php:780
 msgid "Enable the Developer tab in settings"
 msgstr "Aktivera fliken Utvecklare i inställningar"
 
-#: libraries/config/messages.inc.php:777 setup/frames/index.inc.php:312
+#: libraries/config/messages.inc.php:781 setup/frames/index.inc.php:312
 msgid "Check for latest version"
 msgstr "Sök efter senaste version"
 
-#: libraries/config/messages.inc.php:778
+#: libraries/config/messages.inc.php:782
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "Aktivera kontroll efter senaste version på phpMyAdmins hemsida."
 
-#: libraries/config/messages.inc.php:779 setup/lib/index.lib.php:117
+#: libraries/config/messages.inc.php:783 setup/lib/index.lib.php:117
 #: setup/lib/index.lib.php:131 setup/lib/index.lib.php:144
 #: setup/lib/index.lib.php:156 setup/lib/index.lib.php:164
 #: setup/lib/index.lib.php:171
 msgid "Version check"
 msgstr "Versionskontroll"
 
-#: libraries/config/messages.inc.php:780
+#: libraries/config/messages.inc.php:784
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6736,11 +6746,11 @@ msgstr ""
 "behöver denna om servern där phpMyAdmin är installerat inte har direkt "
 "tillgång till Internet. Formatet är: \"värdnamn:portnummer\"."
 
-#: libraries/config/messages.inc.php:781
+#: libraries/config/messages.inc.php:785
 msgid "Proxy url"
 msgstr "Proxy-url"
 
-#: libraries/config/messages.inc.php:782
+#: libraries/config/messages.inc.php:786
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -6750,19 +6760,19 @@ msgstr ""
 "Om ett användarnamn anges kommer grundläggande autentisering ske. Inga andra "
 "typer av autentisering stöds för närvarande."
 
-#: libraries/config/messages.inc.php:783
+#: libraries/config/messages.inc.php:787
 msgid "Proxy username"
 msgstr "Proxyanvändarnamn"
 
-#: libraries/config/messages.inc.php:784
+#: libraries/config/messages.inc.php:788
 msgid "The password for authenticating with the proxy."
 msgstr "Lösenordet för autentisering med proxy."
 
-#: libraries/config/messages.inc.php:785
+#: libraries/config/messages.inc.php:789
 msgid "Proxy password"
 msgstr "Proxylösenord"
 
-#: libraries/config/messages.inc.php:787
+#: libraries/config/messages.inc.php:791
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
@@ -6770,31 +6780,31 @@ msgstr ""
 "Aktivera [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a]-"
 "komprimering för import- och exportoperationer."
 
-#: libraries/config/messages.inc.php:788
+#: libraries/config/messages.inc.php:792
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/config/messages.inc.php:789
+#: libraries/config/messages.inc.php:793
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "Ange din publika nyckel till reCaptcha-tjänsten för din domän."
 
-#: libraries/config/messages.inc.php:790
+#: libraries/config/messages.inc.php:794
 msgid "Public key for reCaptcha"
 msgstr "Publik nyckel för reCaptcha"
 
-#: libraries/config/messages.inc.php:791
+#: libraries/config/messages.inc.php:795
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "Ange din privata nyckel för din domäns reCaptcha-tjänst."
 
-#: libraries/config/messages.inc.php:792
+#: libraries/config/messages.inc.php:796
 msgid "Private key for reCaptcha"
 msgstr "Privat nyckel för reCaptcha"
 
-#: libraries/config/messages.inc.php:794
+#: libraries/config/messages.inc.php:798
 msgid "Choose the default action when sending error reports."
 msgstr "Välj standardhandling vid sändande av felrapporter."
 
-#: libraries/config/messages.inc.php:795
+#: libraries/config/messages.inc.php:799
 msgid "Send error reports"
 msgstr "Skicka felrapporter"
 
@@ -6814,44 +6824,44 @@ msgstr "HTTP-autentisering"
 msgid "Signon authentication"
 msgstr "Signon-autentisering"
 
-#: libraries/config/setup.forms.php:256
-#: libraries/config/user_preferences.forms.php:156
+#: libraries/config/setup.forms.php:257
+#: libraries/config/user_preferences.forms.php:157
 msgid "CSV using LOAD DATA"
 msgstr "CSV med LOAD DATA"
 
-#: libraries/config/setup.forms.php:265 libraries/config/setup.forms.php:362
-#: libraries/config/user_preferences.forms.php:164
-#: libraries/config/user_preferences.forms.php:260
+#: libraries/config/setup.forms.php:266 libraries/config/setup.forms.php:363
+#: libraries/config/user_preferences.forms.php:165
+#: libraries/config/user_preferences.forms.php:261
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenDocument-kalkylblad"
 
-#: libraries/config/setup.forms.php:272
-#: libraries/config/user_preferences.forms.php:171
+#: libraries/config/setup.forms.php:273
+#: libraries/config/user_preferences.forms.php:172
 msgid "Quick"
 msgstr "Snabb"
 
-#: libraries/config/setup.forms.php:276
-#: libraries/config/user_preferences.forms.php:175
+#: libraries/config/setup.forms.php:277
+#: libraries/config/user_preferences.forms.php:176
 msgid "Custom"
 msgstr "Anpassad"
 
-#: libraries/config/setup.forms.php:298
-#: libraries/config/user_preferences.forms.php:196
+#: libraries/config/setup.forms.php:299
+#: libraries/config/user_preferences.forms.php:197
 msgid "Database export options"
 msgstr "Exportalternativ för databas"
 
-#: libraries/config/setup.forms.php:334
-#: libraries/config/user_preferences.forms.php:232
+#: libraries/config/setup.forms.php:335
+#: libraries/config/user_preferences.forms.php:233
 msgid "CSV for MS Excel"
 msgstr "CSV för MS Excel"
 
-#: libraries/config/setup.forms.php:357
-#: libraries/config/user_preferences.forms.php:255
+#: libraries/config/setup.forms.php:358
+#: libraries/config/user_preferences.forms.php:256
 msgid "Microsoft Word 2000"
 msgstr "Microsoft Word 2000"
 
-#: libraries/config/setup.forms.php:366
-#: libraries/config/user_preferences.forms.php:264
+#: libraries/config/setup.forms.php:367
+#: libraries/config/user_preferences.forms.php:265
 msgid "OpenDocument Text"
 msgstr "OpenDocument-text"
 
@@ -8045,20 +8055,20 @@ msgid_plural "%s other results found"
 msgstr[0] "%s annat resultat hittat"
 msgstr[1] "%s andra resultat hittade"
 
-#: libraries/navigation/NavigationTree.class.php:841
+#: libraries/navigation/NavigationTree.class.php:842
 msgid "Expand/Collapse"
 msgstr "Expandera/Vik ihop"
 
-#: libraries/navigation/NavigationTree.class.php:1062
+#: libraries/navigation/NavigationTree.class.php:1069
 msgid "Filter databases by name or regex"
 msgstr "Filtrera databaser efter namn eller regex"
 
-#: libraries/navigation/NavigationTree.class.php:1064
-#: libraries/navigation/NavigationTree.class.php:1098
+#: libraries/navigation/NavigationTree.class.php:1071
+#: libraries/navigation/NavigationTree.class.php:1106
 msgid "Clear fast filter"
 msgstr "Rensa snabbfilter"
 
-#: libraries/navigation/NavigationTree.class.php:1097
+#: libraries/navigation/NavigationTree.class.php:1105
 msgid "Filter by name or regex"
 msgstr "Filtrera efter namn eller regex"
 
@@ -14963,9 +14973,6 @@ msgstr "concurrent_insert är satt till 0"
 
 #~ msgid "Show database listing as a list instead of a drop down."
 #~ msgstr "Visa databas som en lista i stället för en drop-down"
-
-#~ msgid "Display databases as a list"
-#~ msgstr "Visa databaser som en lista"
 
 #~ msgid "Display databases in a tree"
 #~ msgstr "Visa databaser i ett träd"
