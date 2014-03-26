@@ -382,7 +382,7 @@ class PMA_Table
         if (!array_key_exists($info, PMA_Table::$cache[$db][$table])) {
             if (! $disable_error) {
                 trigger_error(
-                    __('unknown table status: ') . $info,
+                    __('Unknown table status:') . ' ' . $info,
                     E_USER_WARNING
                 );
             }
