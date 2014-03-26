@@ -467,7 +467,8 @@ $strConfigNavigationTreePointerEnable_desc
 $strConfigNavigationTreePointerEnable_name = __('Enable highlighting');
 $strConfigNavigationTreeDisableDatabaseExpansion_desc
     = __('Whether to disable the possibility of database expansion or not.');
-$strConfigNavigationTreeDisableDatabaseExpansion_name = __('Disable database expansion');
+$strConfigNavigationTreeDisableDatabaseExpansion_name
+    = __('Disable database expansion');
 $strConfigNumRecentTables_desc
     = __('Maximum number of recently used tables; set 0 to disable.');
 $strConfigNumRecentTables_name = __('Recently used tables');
