@@ -950,6 +950,12 @@ $cfg['NavigationTreeDisplayDbFilterMinimum'] = 30;
  */
 $cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 
+/**
+ * Disables the possibility of database expansion
+ *
+ * @global boolean $cfg['DisableDatabaseExpansion']
+ */
+$cfg['NavigationTreeDisableDatabaseExpansion'] = false;
 
 /*******************************************************************************
  * In the main panel, at startup...

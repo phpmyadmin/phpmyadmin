@@ -874,7 +874,12 @@ class PMA_NavigationTree
                     }
                 }
 
-                $retval .= "<a class='expander$loaded$container'";
+                if(!$GLOBALS['cfg']['NavigationTreeDisableDatabaseExpansion'])
+                    $retval .= "<a class='expander$loaded$container'";
+                else {
+                    $retval .= "<a";
+                    $icon = "";
+                }
                 $retval .= " href='#'>";
                 $retval .= "<span class='hide aPath'>";
                 $retval .= $paths['aPath'];

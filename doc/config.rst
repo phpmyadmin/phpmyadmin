@@ -1505,6 +1505,13 @@ Navigation panel setup
     * ``tbl_change.php``
     * ``sql.php``
 
+.. config:option:: $cfg['NavigationTreeDisableDatabaseExpansion']
+
+    :type: boolean
+    :default: false
+
+    Whether or not to disable the possibility of databases expansion in the navigation panel
+
 Main panel
 ----------
 
