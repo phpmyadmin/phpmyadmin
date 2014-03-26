@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 11:59+0100\n"
-"PO-Revision-Date: 2014-03-25 14:58+0200\n"
+"PO-Revision-Date: 2014-03-26 12:23+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3285,10 +3285,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Bu MySQL sunucusu %s depolama motorunu desteklemez."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "bilinmeyen tablo durumu: "
+msgstr "Bilinmeyen tablo durumu:"
 
 #: libraries/Table.class.php:792
 #, php-format
@@ -9833,12 +9832,12 @@ msgid "Execution results of routine %s"
 msgstr "%s yordamı yürütme sonuçları"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "İşlemin içindeki son ifade tarafından %d satır etkilendi"
+msgstr[0] "İşlemin içindeki son ifade tarafından %d satır etkilendi."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
