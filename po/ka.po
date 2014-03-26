@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.6-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-01-19 08:19-0500\n"
-"PO-Revision-Date: 2013-08-23 11:34+0200\n"
+"PO-Revision-Date: 2014-03-26 11:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Georgian <http://l10n.cihar.com/projects/phpmyadmin/master/ka/"
-">\n"
+"Language-Team: Georgian <https://l10n.cihar.com/projects/phpmyadmin/4-1/ka/>"
+"\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -284,10 +284,9 @@ msgstr "უკანასკნელი განახლება"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1363
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Last check"
+msgstr ""
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
@@ -331,9 +330,8 @@ msgid "Database"
 msgstr "მონაცემთა ბაზა"
 
 #: db_tracking.php:82
-#, fuzzy
 msgid "Last version"
-msgstr "Create relation"
+msgstr ""
 
 #: db_tracking.php:83 libraries/tbl_tracking.lib.php:198
 msgid "Created"
