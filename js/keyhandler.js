@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
-// gloabl vars that holds: 0- if ctrl key is not pressed 1- if ctrl key is pressed
+// global var that holds: 0- if ctrl key is not pressed 1- if ctrl key is pressed
 var ctrlKeyHistory = 0;
 
 /**
@@ -95,23 +95,30 @@ function onKeyDownArrowsHandler(e)
     nO.focus();
 
     if (is_firefox) {
-        var ffversion = '24';
-        var is_firefox_v_24 = navigator.userAgent.toLowerCase().indexOf('firefox/'+ffversion) > -1;
-        if (is_firefox_v_24) {
+        var ffcheck = 0;
+        var ffversion;
+        for (ffversion = 3 ; ffversion < 24 ; ffversion++) {
+            var is_firefox_v_24 = navigator.userAgent.toLowerCase().indexOf('firefox/'+ffversion) > -1;
+            if (is_firefox_v_24) {
+                ffcheck = 1;
+                break;
+            }
+        }
+        if (ffcheck == 1) {
             if (e.which == 38 || e.which == 37) {
-            nOvalue++;
+                nOvalue++;
             }
             else if (e.which == 40 || e.which == 39) {
-            nOvalue--;
+                nOvalue--;
             }
             nO.selectedIndex=nOvalue;
         }
         else {
             if (e.which == 38 || e.which == 37) {
-            lvalue++;
+                lvalue++;
             }
             else if (e.which == 40 || e.which == 39) {
-            lvalue--;
+                lvalue--;
             }
             o.selectedIndex=lvalue;
         }
