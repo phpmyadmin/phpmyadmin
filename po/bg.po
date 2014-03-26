@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-25 14:00+0100\n"
-"PO-Revision-Date: 2014-03-15 10:29+0200\n"
-"Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
-"Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"bg/>\n"
+"PO-Revision-Date: 2014-03-26 11:54+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Bulgarian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13118,7 +13118,7 @@ msgstr "FOREIGN KEY релация е добавена"
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
-msgstr "Грешка: Релацията е изключена."
+msgstr "Грешка: Релацията е изключена!"
 
 #: pmd_relation_new.php:104
 msgid "Internal relation added"
