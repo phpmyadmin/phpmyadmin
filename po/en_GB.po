@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-25 14:00+0100\n"
-"PO-Revision-Date: 2014-02-11 08:37+0200\n"
+"PO-Revision-Date: 2014-03-26 11:45+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: English (United Kingdom) <http://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"Language-Team: English (United Kingdom) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -220,16 +220,16 @@ msgid "The database name is empty!"
 msgstr "The database name is empty!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s"
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Database %1$s has been renamed to %2$s"
+msgstr "Database %1$s has been renamed to %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s"
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Database %1$s has been copied to %2$s"
+msgstr "Database %1$s has been copied to %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -295,10 +295,9 @@ msgstr[0] "%s table"
 msgstr[1] "%s tables"
 
 #: db_qbe.php:102
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "You have to choose at least one column to display"
+msgstr "You have to choose at least one column to display!"
 
 #: db_qbe.php:123
 #, php-format
@@ -584,7 +583,6 @@ msgid "Output"
 msgstr "Output"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -593,7 +591,7 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-"below into the \"Value\" field"
+"below into the \"Value\" field."
 
 #: import.php:116
 #, php-format
@@ -618,13 +616,14 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Uploaded file cannot be moved, because the server has open_basedir enabled "
+"without access to the %s directory (for temporary files)."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "File could not be read"
+msgstr "File could not be read!"
 
 #: import.php:418 import.php:429 import.php:450 import.php:461
 #: libraries/File.class.php:593
@@ -647,24 +646,23 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:495
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
-"Cannot convert file's character set without character set conversion library"
+"Cannot convert file's character set without character set conversion library!"
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Could not load import plug-ins, please check your installation!"
 
 #: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1805
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Bookmark %s created"
+msgstr "Bookmark %s created."
 
 #: import.php:577
 #, php-format
@@ -957,26 +955,24 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Do you really want to delete user group \"%s\"?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Do you really want to delete user group \"%s\"?"
+msgstr "Do you really want to delete the search \"%s\"?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
 msgstr "Missing value in the form!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "at least one of the words"
+msgstr "Select at least one of the options!"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Please enter a valid number"
+msgstr "Please enter a valid number!"
 
 #: js/messages.php:51
 #, fuzzy
