@@ -42,7 +42,7 @@ before_script:
     php --server 127.0.0.1:8000 &
     wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip ;
     unzip BrowserStackLocal-linux-x64.zip ;
-    ./BrowserStackLocal -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 &
+    ./BrowserStackLocal -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 &
 
     fi ;
     fi

@@ -67,6 +67,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
                 'browserstack.debug' => false,
                 'browserstack.local' => $build_local,
+                'browserstack.localIdentifier' => $build_id,
                 'project' => 'phpMyAdmin',
                 'build' => $build_id,
             );
