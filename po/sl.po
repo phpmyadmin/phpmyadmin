@@ -5,16 +5,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 17:07-0400\n"
-"PO-Revision-Date: 2014-03-25 22:53+0200\n"
+"PO-Revision-Date: 2014-03-27 01:02+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%"
-"100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -2799,28 +2799,24 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Preveč sporočil o napakah; nekatera zato niso prikazana."
 
 #: libraries/FavoriteTable.class.php:120
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "Ne morem shraniti nedavne tabele!"
+msgstr "Ne morem shraniti priljubljene tabele!"
 
 #: libraries/FavoriteTable.class.php:150
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove favorite table!"
-msgstr "Ne morem shraniti nedavne tabele!"
+msgstr "Ne morem odstraniti priljubljene tabele!"
 
 #: libraries/FavoriteTable.class.php:189
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Spremenljivke"
+msgstr "Priljubljene tabele"
 
 #: libraries/FavoriteTable.class.php:201
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "Ni nobenih nedavnih tabel."
+msgstr "Ni nobenih priljubljenih tabel."
 
 #: libraries/File.class.php:239
 msgid "File was not an uploaded file."
@@ -3323,10 +3319,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ta strežnik MySQL ne podpira skladiščnega pogona %s."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "neznano stanje tabele: "
+msgstr "Neznano stanje tabele:"
 
 #: libraries/Table.class.php:792
 #, php-format
@@ -5755,13 +5750,12 @@ msgstr "Omogoči poudarjanje"
 
 #: libraries/config/messages.inc.php:469
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Ali naj bo možnost razširitve zbirke podatkov onemogočena ali ne."
 
 #: libraries/config/messages.inc.php:471
-#, fuzzy
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "Prikaži zbirke podatkov kot seznam"
+msgstr "Onemogoči razširitev zbirke podatkov"
 
 #: libraries/config/messages.inc.php:473
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -5769,11 +5763,9 @@ msgstr ""
 "Največje število nedavno uporabljenih tabel; določite 0 za onemogočitev."
 
 #: libraries/config/messages.inc.php:475
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr ""
-"Največje število nedavno uporabljenih tabel; določite 0 za onemogočitev."
+msgstr "Največje število priljubljenih tabel; določite 0 za onemogočitev."
 
 #: libraries/config/messages.inc.php:476
 msgid "Recently used tables"
@@ -9858,15 +9850,15 @@ msgid "Execution results of routine %s"
 msgstr "Rezultati izvedbe rutine %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "Zadnja izjava znotraj procedure je spremenila %d vrstico"
-msgstr[1] "Zadnja izjava znotraj procedure je spremenila %d vrstici"
-msgstr[2] "Zadnja izjava znotraj procedure je spremenila %d vrstice"
-msgstr[3] "Zadnja izjava znotraj procedure je spremenila %d vrstic"
+msgstr[0] "Zadnja izjava znotraj procedure je spremenila %d vrstico."
+msgstr[1] "Zadnja izjava znotraj procedure je spremenila %d vrstici."
+msgstr[2] "Zadnja izjava znotraj procedure je spremenila %d vrstice."
+msgstr[3] "Zadnja izjava znotraj procedure je spremenila %d vrstic."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -12140,16 +12132,14 @@ msgid "Check tables having overhead"
 msgstr "Preveri prekoračene"
 
 #: libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Odstrani grafikon"
+msgstr "Odstrani iz Priljubljenih"
 
 #: libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Dodaj serijo"
+msgstr "Dodaj med Priljubljene"
 
 #: libraries/structure.lib.php:869
 msgid "Sort"
