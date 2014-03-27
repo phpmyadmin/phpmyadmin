@@ -139,6 +139,19 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
+     * Sets session with setting URL to workaround phpunit-selenium issue
+     * https://github.com/sebastianbergmann/phpunit-selenium/issues/295
+     *
+     * @return session object
+     */
+    public function prepareSession()
+    {
+        $result = parent::prerareSession();
+        $this->url('');
+        return $result;
+    }
+
+    /**
      * Configures the selenium and database link.
      *
      * @return void
@@ -159,7 +172,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
         parent::setUp();
         $this->setBrowserUrl($GLOBALS['TESTSUITE_URL']);
-        $this->url('');
         $this->_mysqli = new mysqli(
             $GLOBALS['TESTSUITE_SERVER'],
             $GLOBALS['TESTSUITE_USER'],
