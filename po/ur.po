@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 17:07-0400\n"
-"PO-Revision-Date: 2014-01-20 11:19+0200\n"
+"PO-Revision-Date: 2014-03-27 15:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Urdu <http://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
+"Language-Team: Urdu <https://l10n.cihar.com/projects/phpmyadmin/master/ur/>\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -317,7 +317,7 @@ msgstr "بصری تعمیر کنندہ"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "‏‏رسائی ممکن نہیں"
+msgstr "‏‏رسائی ممکن نہیں!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -4719,7 +4719,7 @@ msgstr "بلوفش خفیہ کاری"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "منتخب صفیں نمایاں کریں"
+msgstr "منتخب صفیں نمایاں کریں۔"
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4924,7 +4924,7 @@ msgstr "ثنائی مشمولات کو بطور HEX طے شدہ دکھائیں"
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "سرور فہرست کو ڈراپ ڈاؤن کی بجائے لڑی میں دکھائیں"
+msgstr "سرور فہرست کو ڈراپ ڈاؤن کی بجائے لڑی میں دکھائیں۔"
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
