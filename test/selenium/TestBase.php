@@ -53,17 +53,20 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             /* BrowserStack integration */
             self::$_selenium_enabled = true;
 
+            $build_local = false;
             $build_id = 'Manual';
             if (getenv('BUILD_TAG')) {
                 $build_id = getenv('BUILD_TAG');
             } elseif (getenv('TRAVIS_JOB_NUMBER')) {
                 $build_id = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
+                $build_local = true;
             }
 
             $capabilities = array(
                 'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
                 'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
                 'browserstack.debug' => false,
+                'browserstack.local' => $build_local,
                 'project' => 'phpMyAdmin',
                 'build' => $build_id,
             );
