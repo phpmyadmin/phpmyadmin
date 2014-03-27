@@ -249,6 +249,7 @@ class gettext_reader {
    * @return string translated string (or original, if not found)
    */
   function translate($string) {
+    if(!$string) return '';
     if ($this->short_circuit)
       return $string;
     $this->load_tables();
