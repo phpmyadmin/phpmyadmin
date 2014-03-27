@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-27 15:36+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-03-27 22:11+0200\n"
+"Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/4-1/bg/>"
 "\n"
 "Language: bg\n"
@@ -1748,16 +1748,14 @@ msgid "Show search criteria"
 msgstr "Показване критерий за търсене"
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "Скриване критерий за търсене"
+msgstr "Скриване параметрите за търсене и заместване"
 
 #: js/messages.php:298
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "Показване критерий за търсене"
+msgstr "Показване параметрите за търсене и заместване"
 
 #: js/messages.php:301 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -10347,17 +10345,18 @@ msgstr "Специфични за колоната права"
 
 #: libraries/server_privileges.lib.php:2785
 msgid "Add privileges on the following database:"
-msgstr "Добавяне на права върху ДБ:"
+msgstr "Добавяне на права върху БД:"
 
 #: libraries/server_privileges.lib.php:2812
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
+"Ако искате да използвате в името символите '_' (долна черта) и '%' (процент) "
+"е необходимо да поставите пред тях символът '\\' (обратна наклонена черта)."
 
 #: libraries/server_privileges.lib.php:2830
-#, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Добавяне на права към следната таблица"
+msgstr "Добавяне на права към следната таблица:"
 
 #: libraries/server_privileges.lib.php:3074
 msgid "Remove selected users"
