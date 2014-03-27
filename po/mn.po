@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 17:07-0400\n"
-"PO-Revision-Date: 2014-02-03 17:00+0200\n"
+"PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"mn/>\n"
+"Language-Team: Mongolian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/mn/>\n"
+"Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: mn\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -5174,7 +5174,7 @@ msgstr "Үргэлжилсэн хүснэгтийн гарчиг"
 
 #: libraries/config/messages.inc.php:137 libraries/config/messages.inc.php:144
 msgid "Label key"
-msgstr "Label key"
+msgstr ""
 
 #: libraries/config/messages.inc.php:138 libraries/config/messages.inc.php:151
 #: libraries/config/messages.inc.php:184
