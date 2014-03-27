@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 17:07-0400\n"
-"PO-Revision-Date: 2014-03-25 17:53+0200\n"
+"PO-Revision-Date: 2014-03-27 18:02+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2810,28 +2810,24 @@ msgstr ""
 "Les messages d'erreur sont trop nombreux, certains ne sont pas affichés."
 
 #: libraries/FavoriteTable.class.php:120
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "Impossible de sauvegarder l'historique des tables récentes !"
+msgstr "Impossible de sauvegarder la table préférée !"
 
 #: libraries/FavoriteTable.class.php:150
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove favorite table!"
-msgstr "Impossible de sauvegarder l'historique des tables récentes !"
+msgstr "Impossible de supprimer la table préférée !"
 
 #: libraries/FavoriteTable.class.php:189
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Variables"
+msgstr "Tables préférées"
 
 #: libraries/FavoriteTable.class.php:201
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "Il n'y a pas de tables récentes."
+msgstr "Il n'y a pas de tables préférées."
 
 #: libraries/File.class.php:239
 msgid "File was not an uploaded file."
@@ -3332,10 +3328,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ce serveur MySQL ne supporte pas le moteur de stockage %s."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "Statut de table incorrect : "
+msgstr "État de la table inconnu :"
 
 #: libraries/Table.class.php:792
 #, php-format
@@ -5781,22 +5776,21 @@ msgstr "Active la surbrillance"
 #: libraries/config/messages.inc.php:469
 msgid "Whether to disable the possibility of database expansion or not."
 msgstr ""
+"S'il faut désactiver la possibilité d'expansion de la base de données ou non."
 
 #: libraries/config/messages.inc.php:471
-#, fuzzy
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "Affiche les bases de données sous forme de liste"
+msgstr "Désactiver l'expansion de la base de données"
 
 #: libraries/config/messages.inc.php:473
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Nombre maximum de tables récentes; mettre 0 pour désactiver."
 
 #: libraries/config/messages.inc.php:475
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "Nombre maximum de tables récentes; mettre 0 pour désactiver."
+msgstr "Le nombre maximum de tables préférées; définir à 0 pour désactiver."
 
 #: libraries/config/messages.inc.php:476
 msgid "Recently used tables"
@@ -9928,13 +9922,13 @@ msgid "Execution results of routine %s"
 msgstr "Résultats de l'exécution de la procédure %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d ligne a été affectée par le dernier énoncé de la procédure"
-msgstr[1] "%d lignes ont été affectées par le dernier énoncé de la procédure"
+msgstr[0] "%d ligne a été affectée par le dernier énoncé de la procédure."
+msgstr[1] "%d lignes ont été affectées par le dernier énoncé de la procédure."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -12232,16 +12226,14 @@ msgid "Check tables having overhead"
 msgstr "Cocher tables avec pertes"
 
 #: libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Supprimer le graphique"
+msgstr "Supprimer des tables préférées"
 
 #: libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Ajouter cette série"
+msgstr "Ajouter aux tables préférées"
 
 #: libraries/structure.lib.php:869
 msgid "Sort"
