@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-26 11:43+0200\n"
+"PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/4-1/bn/>\n"
 "Language: bn\n"
@@ -7477,11 +7477,11 @@ msgstr "প্রথাগত চাইনিজ"
 
 #: libraries/mysql_charsets.lib.php:159 libraries/mysql_charsets.lib.php:346
 msgid "case-insensitive"
-msgstr "case-insensitive"
+msgstr ""
 
 #: libraries/mysql_charsets.lib.php:162 libraries/mysql_charsets.lib.php:348
 msgid "case-sensitive"
-msgstr "case-sensitive"
+msgstr ""
 
 #: libraries/mysql_charsets.lib.php:165
 msgid "Croatian"
