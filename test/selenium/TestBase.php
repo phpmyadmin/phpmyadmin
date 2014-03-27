@@ -146,7 +146,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function prepareSession()
     {
-        $result = parent::prerareSession();
+        $result = parent::prepareSession();
         $this->url('');
         return $result;
     }
