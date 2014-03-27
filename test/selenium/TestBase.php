@@ -159,7 +159,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
         parent::setUp();
         $this->setBrowserUrl($GLOBALS['TESTSUITE_URL']);
-        $this->url('');
         $this->_mysqli = new mysqli(
             $GLOBALS['TESTSUITE_SERVER'],
             $GLOBALS['TESTSUITE_USER'],
