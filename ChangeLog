@@ -42,6 +42,7 @@ phpMyAdmin - ChangeLog
 + rfe #1515 Option to skip tables larger than n
 + rfe #1486 Possibility of disabling database expansion
 + rfe #1476 Favourite tables select box
++ rfe #420  $cfg['CharEditing']='textarea' for structure edit
 
 4.1.13.0 (not yet released)
 
