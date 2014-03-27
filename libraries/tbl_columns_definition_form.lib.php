@@ -1100,12 +1100,21 @@ function PMA_getHtmlForColumnDefault($columnNumber, $ci, $ci_offset, $type_upper
     }
     $html .= '</select>';
     $html .= '<br />';
-    $html .= '<input type="text"'
-        . ' name="field_default_value[' . $columnNumber . ']" size="12"'
-        . ' value="' . (isset($columnMeta['DefaultValue'])
-            ? htmlspecialchars($columnMeta['DefaultValue'])
-            : '') . '"'
-        . ' class="textfield default_value" />';
+
+    $value = isset($columnMeta['DefaultValue']) ? htmlspecialchars($columnMeta['DefaultValue']) : '';
+    if($GLOBALS['cfg']['CharEditing'] == 'textarea') {
+        $html .= '<textarea'
+            . ' name="field_default_value[' . $columnNumber . ']" cols="15"'
+            . ' class="textfield default_value">'
+            . $value
+            . '</textarea>';
+    }
+    else {
+        $html .= '<input type="text"'
+            . ' name="field_default_value[' . $columnNumber . ']" size="12"'
+            . ' value="' . $value . '"'
+            . ' class="textfield default_value" />';
+    }
 
     return $html;
 }
