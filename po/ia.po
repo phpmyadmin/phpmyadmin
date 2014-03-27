@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 17:07-0400\n"
-"PO-Revision-Date: 2014-03-26 14:53+0200\n"
+"PO-Revision-Date: 2014-03-27 09:45+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2826,28 +2826,24 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Nimie messages de error, alcun de illos non essera monstrate."
 
 #: libraries/FavoriteTable.class.php:120
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "Il non pote salveguardar le tabella recente!"
+msgstr "Il non pote salveguardar le tabella favorite!"
 
 #: libraries/FavoriteTable.class.php:150
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove favorite table!"
-msgstr "Il non pote salveguardar le tabella recente!"
+msgstr "Il non pote remover le tabella favorite!"
 
 #: libraries/FavoriteTable.class.php:189
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Variabiles"
+msgstr "Tabellas favorite"
 
 #: libraries/FavoriteTable.class.php:201
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "Il non ha tabellas recente."
+msgstr "Il non ha tabellas favorite."
 
 #: libraries/File.class.php:239
 msgid "File was not an uploaded file."
@@ -5809,20 +5805,18 @@ msgid "Whether to disable the possibility of database expansion or not."
 msgstr ""
 
 #: libraries/config/messages.inc.php:471
-#, fuzzy
 #| msgid "Database operations"
 msgid "Disable database expansion"
-msgstr "Operationes de base de datos"
+msgstr "Dishabilita expansion de base de datos"
 
 #: libraries/config/messages.inc.php:473
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Maxime numero de tabellas usate de recente;pone 0 pro dishabilitar lo."
 
 #: libraries/config/messages.inc.php:475
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "Maxime numero de tabellas usate de recente;pone 0 pro dishabilitar lo."
+msgstr "Maxime numero de tabellas favorite; pone 0 pro dishabilitar lo."
 
 #: libraries/config/messages.inc.php:476
 msgid "Recently used tables"
@@ -7213,6 +7207,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
+"Permitte le interruption de un importation quando le script releva que il es "
+"proxime al limite de expiration. <i> (Isto poterea esser un bon modo de "
+"importar grande files, totevia il pote interrumper transactiones.) </i>"
 
 #: libraries/display_import.lib.php:299
 msgid ""
@@ -11733,10 +11730,9 @@ msgid "Check tables having overhead"
 msgstr ""
 
 #: libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Remove graphico"
+msgstr "Remove ex favoritos"
 
 #: libraries/structure.lib.php:495
 msgid "Add to Favorites"
