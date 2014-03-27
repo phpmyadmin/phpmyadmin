@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2013-11-14 10:57+0200\n"
-"Last-Translator: yondonjamts rentsendorj <yontkoo@yahoo.com>\n"
-"Language-Team: Mongolian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"mn/>\n"
+"PO-Revision-Date: 2014-03-27 15:10+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Mongolian <https://l10n.cihar.com/projects/phpmyadmin/4-1/mn/>"
+"\n"
 "Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5013,7 +5013,7 @@ msgstr "Үргэлжилсэн хүснэгтийн гарчиг"
 
 #: libraries/config/messages.inc.php:96 libraries/config/messages.inc.php:102
 msgid "Label key"
-msgstr "Label key"
+msgstr ""
 
 #: libraries/config/messages.inc.php:97 libraries/config/messages.inc.php:109
 #: libraries/config/messages.inc.php:134
