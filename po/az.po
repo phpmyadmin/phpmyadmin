@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2013-08-23 11:33+0200\n"
+"PO-Revision-Date: 2014-03-27 15:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Azerbaijani <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.7-dev\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -2601,7 +2601,7 @@ msgstr "Sorğunu Yenile"
 
 #: libraries/DBQbe.class.php:620
 msgid "Use Tables"
-msgstr "Use Tables"
+msgstr ""
 
 #: libraries/DBQbe.class.php:655 libraries/DBQbe.class.php:763
 #, fuzzy
@@ -7621,7 +7621,7 @@ msgstr ""
 #: libraries/insert_edit.lib.php:460 libraries/mysql_charsets.lib.php:137
 #: libraries/mysql_charsets.lib.php:339
 msgid "Binary"
-msgstr "Binary"
+msgstr ""
 
 #: libraries/insert_edit.lib.php:656
 #, fuzzy
@@ -7755,7 +7755,7 @@ msgstr "Aşağıdakı sorğunu icra etdirmekten eminsiniz "
 
 #: libraries/mysql_charsets.lib.php:33
 msgid "Charset"
-msgstr "Charset"
+msgstr ""
 
 #: libraries/mysql_charsets.lib.php:149
 msgid "Bulgarian"
@@ -8334,7 +8334,7 @@ msgstr "Elaqe qura bilmirem: yalnış quruluş."
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
-msgstr "%s - e Xoş Gelmişsiniz!"
+msgstr "%s - e Xoş Gelmişsiniz"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
@@ -9118,7 +9118,7 @@ msgstr "Müveffeqiyyetle"
 
 #: libraries/relation.lib.php:99
 msgid "Enabled"
-msgstr "Enabled"
+msgstr ""
 
 #: libraries/relation.lib.php:106 libraries/relation.lib.php:124
 msgid "General relation features"
@@ -9140,7 +9140,7 @@ msgstr "Sütun Qısa İzahatını Deyişdir"
 #: libraries/tbl_columns_definition_form.lib.php:318
 #: transformation_overview.php:39
 msgid "Browser transformation"
-msgstr "Browser transformation"
+msgstr ""
 
 #: libraries/relation.lib.php:175
 msgid ""
@@ -9470,7 +9470,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:866
 #: libraries/server_privileges.lib.php:1472
 msgid "Re-type"
-msgstr "Re-type"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:870
 #, fuzzy
@@ -10085,7 +10085,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:462
 msgid "Show grid"
-msgstr "Show grid"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:465
 msgid "Show color"
@@ -10626,7 +10626,7 @@ msgstr "Selahiyyetleri Deyişdir"
 
 #: libraries/server_privileges.lib.php:2205
 msgid "Revoke"
-msgstr "Revoke"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:2248
 #, fuzzy
@@ -11793,7 +11793,7 @@ msgstr "Qlobal deyer"
 
 #: libraries/sql.lib.php:425
 msgid "SQL result"
-msgstr "SQL result"
+msgstr ""
 
 #: libraries/sql.lib.php:433
 #, fuzzy
@@ -13001,7 +13001,7 @@ msgstr "Faylları import et"
 
 #: querywindow.php:77
 msgid "All"
-msgstr "All"
+msgstr ""
 
 #: querywindow.php:154
 #, fuzzy
