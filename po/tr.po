@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 17:07-0400\n"
-"PO-Revision-Date: 2014-03-26 12:23+0200\n"
+"PO-Revision-Date: 2014-03-27 07:32+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2796,28 +2796,24 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Çok fazla hata mesajı, bazıları görüntülenmedi."
 
 #: libraries/FavoriteTable.class.php:120
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "Son tablo kaydedilemedi!"
+msgstr "Sık kullanılan tablo kaydedilemedi!"
 
 #: libraries/FavoriteTable.class.php:150
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove favorite table!"
-msgstr "Son tablo kaydedilemedi!"
+msgstr "Sık kullanılan tablo kaydedilemedi!"
 
 #: libraries/FavoriteTable.class.php:189
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Değişkenler"
+msgstr "Sık kullanılan tablolar"
 
 #: libraries/FavoriteTable.class.php:201
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "Son tablolar yok."
+msgstr "Sık kullanılan tablolar yok."
 
 #: libraries/File.class.php:239
 msgid "File was not an uploaded file."
@@ -5751,12 +5747,12 @@ msgstr "Vurgulamalar etkin"
 #: libraries/config/messages.inc.php:469
 msgid "Whether to disable the possibility of database expansion or not."
 msgstr ""
+"Veritabanı genişleme olanağının etkisizleştirilip etkisizleştirilmeyeceği."
 
 #: libraries/config/messages.inc.php:471
-#, fuzzy
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "Veritabanlarını liste olarak görüntüle"
+msgstr "Veritabanı genişlemesini etkisizleştir"
 
 #: libraries/config/messages.inc.php:473
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -5764,11 +5760,10 @@ msgstr ""
 "En fazla son kullanılan tablo sayısıdır; etkisizleştirmek için 0'a ayarlayın."
 
 #: libraries/config/messages.inc.php:475
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr ""
-"En fazla son kullanılan tablo sayısıdır; etkisizleştirmek için 0'a ayarlayın."
+"En fazla sık kullanılan tablo sayısıdır; etkisizleştirmek için 0'a ayarlayın."
 
 #: libraries/config/messages.inc.php:476
 msgid "Recently used tables"
@@ -12143,16 +12138,14 @@ msgid "Check tables having overhead"
 msgstr "Ek yükü olan tabloları kontrol et"
 
 #: libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Çizelgeyi kaldır"
+msgstr "Sık Kullanılanlardan kaldır"
 
 #: libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Bu diziyi ekle"
+msgstr "Sık Kullanılanlara ekle"
 
 #: libraries/structure.lib.php:869
 msgid "Sort"
