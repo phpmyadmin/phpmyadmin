@@ -155,7 +155,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         $result = parent::prepareSession();
         $this->url('');
-        $this->waitForElementNotPresent('byId', 'cfs-style');
         return $result;
     }
 
