@@ -43,7 +43,9 @@ phpMyAdmin - ChangeLog
 + rfe #1486 Possibility of disabling database expansion
 + rfe #1476 Favourite tables select box
 
-4.1.12.0 (not yet released)
+4.1.13.0 (not yet released)
+
+4.1.12.0 (2014-03-27)
 - bug #4334 Add event : datepicker won't open
 - bug #4338 Fix missing value error while executing SQL query
 - TCPDF library is now optional dependency
