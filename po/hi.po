@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-02-20 07:51+0200\n"
+"PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/4-1/hi/>\n"
 "Language: hi\n"
@@ -6974,11 +6974,11 @@ msgstr "संपीड़न"
 
 #: libraries/display_export.lib.php:577
 msgid "zipped"
-msgstr "zipped"
+msgstr ""
 
 #: libraries/display_export.lib.php:584
 msgid "gzipped"
-msgstr "gzipped"
+msgstr ""
 
 #: libraries/display_export.lib.php:611
 msgid "View output as text"
