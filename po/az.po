@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 17:07-0400\n"
-"PO-Revision-Date: 2014-03-26 11:46+0200\n"
+"PO-Revision-Date: 2014-03-27 15:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Azerbaijani <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/az/>\n"
+"Language-Team: Azerbaijani "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/az/>\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: az\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2542,7 +2542,7 @@ msgstr "Sorğunu Yenile"
 
 #: libraries/DBQbe.class.php:681
 msgid "Use Tables"
-msgstr "Use Tables"
+msgstr ""
 
 #: libraries/DBQbe.class.php:716 libraries/DBQbe.class.php:824
 #, fuzzy
@@ -7845,7 +7845,7 @@ msgstr ""
 #: libraries/insert_edit.lib.php:462 libraries/mysql_charsets.lib.php:151
 #: libraries/mysql_charsets.lib.php:353
 msgid "Binary"
-msgstr "Binary"
+msgstr ""
 
 #: libraries/insert_edit.lib.php:658
 #, fuzzy
@@ -7979,7 +7979,7 @@ msgstr "Aşağıdakı sorğunu icra etdirmekten eminsiniz "
 
 #: libraries/mysql_charsets.lib.php:47
 msgid "Charset"
-msgstr "Charset"
+msgstr ""
 
 #: libraries/mysql_charsets.lib.php:163
 msgid "Bulgarian"
@@ -8558,7 +8558,7 @@ msgstr "Elaqe qura bilmirem: yalnış quruluş."
 #: libraries/plugins/auth/AuthenticationHttp.class.php:74
 #, php-format
 msgid "Welcome to %s"
-msgstr "%s - e Xoş Gelmişsiniz!"
+msgstr "%s - e Xoş Gelmişsiniz"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
@@ -9375,7 +9375,7 @@ msgstr "Müveffeqiyyetle"
 
 #: libraries/relation.lib.php:99
 msgid "Enabled"
-msgstr "Enabled"
+msgstr ""
 
 #: libraries/relation.lib.php:106 libraries/relation.lib.php:124
 msgid "General relation features"
@@ -9397,7 +9397,7 @@ msgstr "Sütun Qısa İzahatını Deyişdir"
 #: libraries/tbl_columns_definition_form.lib.php:321
 #: transformation_overview.php:39
 msgid "Browser transformation"
-msgstr "Browser transformation"
+msgstr ""
 
 #: libraries/relation.lib.php:175
 msgid ""
@@ -9728,7 +9728,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:861
 #: libraries/server_privileges.lib.php:1498
 msgid "Re-type"
-msgstr "Re-type"
+msgstr ""
 
 #: libraries/replication_gui.lib.php:865
 #, fuzzy
@@ -10343,7 +10343,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:462
 msgid "Show grid"
-msgstr "Show grid"
+msgstr ""
 
 #: libraries/schema/User_Schema.class.php:465
 msgid "Show color"
@@ -10903,7 +10903,7 @@ msgstr "Selahiyyetleri Deyişdir"
 
 #: libraries/server_privileges.lib.php:2257
 msgid "Revoke"
-msgstr "Revoke"
+msgstr ""
 
 #: libraries/server_privileges.lib.php:2300
 #, fuzzy
@@ -12070,7 +12070,7 @@ msgstr "Qlobal deyer"
 
 #: libraries/sql.lib.php:420
 msgid "SQL result"
-msgstr "SQL result"
+msgstr ""
 
 #: libraries/sql.lib.php:428
 #, fuzzy
@@ -13298,7 +13298,7 @@ msgstr "Faylları import et"
 
 #: querywindow.php:77
 msgid "All"
-msgstr "All"
+msgstr ""
 
 #: querywindow.php:154
 #, fuzzy
