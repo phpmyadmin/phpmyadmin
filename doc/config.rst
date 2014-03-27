@@ -2274,7 +2274,8 @@ Text fields
     :default: ``'input'``
 
     Defines which type of editing controls should be used for CHAR and
-    VARCHAR columns. Possible values are:
+    VARCHAR columns. Applies to data editing and also to the default values
+    in structure editing. Possible values are:
 
     * input - this allows to limit size of text to size of columns in MySQL,
       but has problems with newlines in columns
