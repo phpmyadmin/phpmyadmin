@@ -16,8 +16,6 @@ env:
   global:
     - secure: "CiFhtg+3xf6BGnSldT4phpr+7DhaPxQkLLqR4uhuqRIcb3XnZxsA9FXhWLaheUiH9wXVfF0C5Cqa73X4U2uBsfFn3fDetQwsoFdG+bqcF35LAXRK3/aowygLKHg2KjdeM2g4EQKw1T8x2CMhv+IizB8tYnVlaRgb1C5b2xl6zqI="
     - secure: "IBrkNMP60iafuSXloV96bSG4IqOXKH4I44oDdHEN2as7jxLMX4z/EzPUdTS/zfmBkQOE1j12DUXOOVEPl1usiLuS6MMEHUeLDR5cajtGDgDHYbKTtTB49kqXDJzU2mBvCvqOKKtuXFhX2uz9Riq+cylOoBRRauXo6RRvjw9IrfM="
-    - TESTSUITE_USER=pmatest
-    - secure: "CRwTeaUu1jrCazk9H8QSbS1LedEHFeO48vEVjklScElHYrUUKIU8I8mYbY36iSDN96RTHhwEFwLfTpdci6qqhdgFZHopoFcFXni4cL+fHg5AfPcA/w0Pbq2yCVLpwwKg5+uTB6y8r2CUArQIkJH+LMxGwSGmmxY2b5XGtEasSaQ="
 before_script:
   - if [[ -z "$LINT" ]] ; then
     if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
