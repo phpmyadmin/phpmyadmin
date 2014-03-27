@@ -53,6 +53,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             /* BrowserStack integration */
             self::$_selenium_enabled = true;
 
+            $strategy = 'shared';
             $build_local = false;
             $build_id = 'Manual';
             if (getenv('BUILD_TAG')) {
@@ -60,12 +61,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             } elseif (getenv('TRAVIS_JOB_NUMBER')) {
                 $build_id = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
                 $build_local = true;
+                $strategy = 'isolated';
             }
 
             $capabilities = array(
                 'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
                 'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
-                'browserstack.debug' => true,
+                'browserstack.debug' => false,
                 'project' => 'phpMyAdmin',
                 'build' => $build_id,
             );
@@ -73,6 +75,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             if ($build_local) {
                 $capabilities['browserstack.local'] = $build_local;
                 $capabilities['browserstack.localIdentifier'] = $build_id;
+                $capabilities['browserstack.debug'] = true;
             }
 
             $result = array();
@@ -81,7 +84,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
-                'sessionStrategy' => 'shared',
+                'sessionStrategy' => $strategy,
                 'desiredCapabilities' => $capabilities,
             );
 
@@ -96,7 +99,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
-                'sessionStrategy' => 'shared',
+                'sessionStrategy' => $strategy,
                 'desiredCapabilities' => array_merge(
                     $capabilities,
                     array(
@@ -111,7 +114,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
-                'sessionStrategy' => 'shared',
+                'sessionStrategy' => $strategy,
                 'desiredCapabilities' => $capabilities,
             );
             /* TODO: testing is MSIE is currently broken, so disabled
@@ -120,7 +123,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
-                'sessionStrategy' => 'shared',
+                'sessionStrategy' => $strategy,
                 'desiredCapabilities' => array_merge(
                     $capabilities,
                     array(
