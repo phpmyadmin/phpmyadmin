@@ -14,7 +14,6 @@ env:
     - PHPUNIT_ARGS="--exclude-group selenium"
     - LINT="yes"
   global:
-    # BrowserStack key:
     - secure: "egsTbEIm3PZTapjFdk/VYqnRT5jr83OBVWQ2J0BskFslELI4EAeyivrgM5HwDiCNb1KTaXw0ywTM9KIw6T1omaqJWRfUTu4suFPpd5LW+QiylVXMVHcCqRjOYncrSpqSDCSDy35s1OHdURea0JVRV8epjY410F38gHfBfem+FWE="
     - TESTSUITE_BROWSERSTACK_USER=michaliha
     - TESTSUITE_USER=root
