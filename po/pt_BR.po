@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-26 20:41+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-03-28 10:58+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2960,7 +2960,7 @@ msgstr "Comentário"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "A chave primária foi deletada"
+msgstr "A chave primária foi deletada."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -4579,7 +4579,7 @@ msgstr "Não foi possível conectar ao servidor de banco de dados!"
 #: libraries/config/Validator.class.php:306
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Nome de usuário vazio ao utilizar a [bkd]configuração[/bkd] por método de "
+"Nome de usuário vazio ao utilizar a [kbd]configuração[/kbd] por método de "
 "autenticação!"
 
 #: libraries/config/Validator.class.php:313
@@ -4587,7 +4587,7 @@ msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
-"Nome da sessão de signon vazio quando usado [bkd]signon[/bkd] como método de "
+"Nome da sessão de signon vazio quando usado [kbd]signon[/kbd] como método de "
 "autenticação!"
 
 #: libraries/config/Validator.class.php:322
@@ -10617,7 +10617,7 @@ msgid ""
 "hostname."
 msgstr ""
 "Uma conta já existe com o mesmo nome de usuário, mas possivelmente com um "
-"nome de servidor diferente. "
+"nome de servidor diferente."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"
