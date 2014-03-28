@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-27 16:35+0200\n"
+"PO-Revision-Date: 2014-03-28 13:03+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/"
-">\n"
+"Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2946,7 +2946,7 @@ msgstr "Opmerking"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "De primaire sleutel is vervallen"
+msgstr "De primaire sleutel werd verwijderd."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -8387,7 +8387,7 @@ msgstr "Optimaliseer tabel"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Tabel %s is geschoond"
+msgstr "Tabel %s is leeggemaakt."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -12204,7 +12204,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabel %s is leeg gemaakt"
+msgstr "Tabel %s is leeggemaakt."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12257,7 +12257,7 @@ msgstr "Geen"
 #: libraries/structure.lib.php:1363
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Kolom %s is verwijderd"
+msgstr "Kolom %s is verwijderd."
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
 #: libraries/structure.lib.php:2102
@@ -12354,12 +12354,12 @@ msgstr "Volgende automatische indexwaarde"
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Een index is toegevoegd aan %s"
+msgstr "Een index is toegevoegd aan %s."
 
 #: libraries/structure.lib.php:1989
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Een primaire sleutel is toegevoegd aan %s"
+msgstr "Een primaire sleutel is toegevoegd aan %s."
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
 msgid "Distinct values"
@@ -12397,7 +12397,7 @@ msgstr "Effectief"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Tabel %1$s is bijgewerkt"
+msgstr "Tabel %1$s is succesvol bijgewerkt."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -12836,7 +12836,7 @@ msgstr "Uw instellingen beheren"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Configuratie werd opgeslagen"
+msgstr "De configuratie werd opgeslagen."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12991,13 +12991,12 @@ msgstr "Actieve opties"
 # Wat doet "%1$s" hier?
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "De pagina werd aangemaakt"
+msgstr "De pagina werd aangemaakt."
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Het aanmaken van de pagina is mislukt"
+msgstr "Het aanmaken van de pagina is mislukt!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -13032,26 +13031,23 @@ msgid "Error: relation already exists."
 msgstr "Fout: relatie bestaat reeds."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Fout: relatie niet toegevoegd."
+msgstr "Fout: relatie kon niet toegevoegd worden!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "De relatie FOREIGN KEY is toegevoegd"
+msgstr "FOREIGN KEY relatie werd toegevoegd."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Fout: relatiefuncties zijn uitgeschakeld!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Interne relatie toegevoegd"
+msgstr "Interne relatie werd toegevoegd."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14122,10 +14118,9 @@ msgstr ""
 "moeten zijn dan 1 keer per uur"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size ten opzichte van max_heap_table_size"
+msgstr "tmp_table_size en max_heap_table_size zijn verschillend"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
