@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
 "PO-Revision-Date: 2014-03-28 10:58+0200\n"
-"Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
+"Last-Translator: Marcello Romani <marcello.romani@libero.it>\n"
 "Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/4-1/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -3213,9 +3213,8 @@ msgid "Delayed inserts"
 msgstr "Inserimento ritardato"
 
 #: libraries/ServerStatusData.class.php:197
-#, fuzzy
 msgid "Key cache"
-msgstr "Key cache"
+msgstr "Cache delle chiavi"
 
 #: libraries/ServerStatusData.class.php:198
 #, fuzzy
