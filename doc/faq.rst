@@ -1920,6 +1920,28 @@ next to the column name, when the tooltip tells you to do so. This
 will show you an input box with the column name. You may right-click
 the column name within this input box to copy it to your clipboard.
 
+.. _faq6_34:
+
+6.34 How can I use the Favorite Tables feature?
+---------------------------------------------------------
+
+Favorite Tables feature is very much similar to Recent Tables feature.
+It allows you to add a shortcut for the frequently used tables of any
+database in the navigation panel . You can easily navigate to any table
+in the list by simply choosing it from the list. These tables are stored
+temporarily in your session if you have not configured your
+`phpMyAdmin Configuration Storage`. Otherwise these entries are permanent.
+
+To add a table to Favorite list simply click on the `Gray` star in front
+of a table name in the list of tables of a Database and wait until it
+turns to `Yellow`.
+To remove a table from list, simply click on the `Yellow` star and
+wait until it turns `Gray` again.
+
+Using :config:option:`$cfg['NumFavoriteTables']` in your :file:`config.inc.php`
+file, you can define the  maximum number of favorite tables shown in the
+navigation panel. Its default value is `10`.
+
 .. _faqproject:
 
 phpMyAdmin project

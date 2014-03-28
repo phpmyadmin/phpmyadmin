@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Favorite table list handling
+ * Recent and Favorite table list handling
  *
  * @package PhpMyAdmin
  */
@@ -13,15 +13,17 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/Message.class.php';
 
 /**
- * Handles the favorite tables list.
+ * Handles the recently used and favorite tables.
  *
+ * @TODO Change the release version in table pma_recent
+ * (#recent in documentation)
  *
  * @package PhpMyAdmin
  */
-class PMA_FavoriteTable
+class PMA_RecentFavoriteTable
 {
     /**
-     * Defines the internal PMA table which contains favorite tables.
+     * Defines the internal PMA table which contains recent/favorite tables.
      *
      * @access  private
      * @var string
@@ -29,7 +31,7 @@ class PMA_FavoriteTable
     private $_pmaTable;
 
     /**
-     * Reference to session variable containing favorite used tables.
+     * Reference to session variable containing recently used or favorite tables.
      *
      * @access public
      * @var array
@@ -37,53 +39,62 @@ class PMA_FavoriteTable
     public $tables;
 
     /**
-     * PMA_FavoriteTable instance.
+     * Defines type of action, Favorite or Recent table.
      *
-     * @var PMA_FavoriteTable
+     * @access public
+     * @var string
+     */
+    public $table_type;
+
+    /**
+     * PMA_RecentFavoriteTable instance.
+     *
+     * @var PMA_RecentFavoriteTable
      */
     private static $_instance;
 
     /**
-     * Creates a new instance of PMA_FavoriteTable
+     * Creates a new instance of PMA_RecentFavoriteTable
      */
-    public function __construct()
+    public function __construct($type)
     {
+        $this->table_type = $type;
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
-            && strlen($GLOBALS['cfg']['Server']['favorite'])
+            && strlen($GLOBALS['cfg']['Server'][$this->table_type])
         ) {
             $this->_pmaTable
                 = PMA_Util::backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-                . PMA_Util::backquote($GLOBALS['cfg']['Server']['favorite']);
+                . PMA_Util::backquote($GLOBALS['cfg']['Server'][$this->table_type]);
         }
         $server_id = $GLOBALS['server'];
-        if (! isset($_SESSION['tmpval']['favorite_tables'][$server_id])) {
-            $_SESSION['tmpval']['favorite_tables'][$server_id]
+        if (! isset($_SESSION['tmpval'][$this->table_type . '_tables'][$server_id])) {
+            $_SESSION['tmpval'][$this->table_type . '_tables'][$server_id]
                 = isset($this->_pmaTable) ? $this->getFromDb() : array();
         }
-        $this->tables =& $_SESSION['tmpval']['favorite_tables'][$server_id];
+        $this->tables =& $_SESSION['tmpval'][$this->table_type . '_tables'][$server_id];
     }
 
     /**
      * Returns class instance.
      *
-     * @return PMA_FavoriteTable
+     * @return PMA_RecentFavoriteTable
      */
-    public static function getInstance()
+    public static function getInstance($type)
     {
-        if (is_null(self::$_instance)) {
-            self::$_instance = new PMA_FavoriteTable();
+        if (is_null(self::$_instance) || $_instance->table_type != $type) {
+            self::$_instance = new PMA_RecentFavoriteTable($type);
         }
         return self::$_instance;
     }
 
     /**
-     * Returns favorite tables from phpMyAdmin database.
+     * Returns recently used tables or favorite from phpMyAdmin database.
      *
      * @return array
      */
     public function getFromDb()
     {
-        // Read from phpMyAdmin database, if favorite tables are not in session
+        // Read from phpMyAdmin database, if recent tables is not in session
         $sql_query
             = " SELECT `tables` FROM " . $this->_pmaTable .
             " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'";
@@ -100,7 +111,7 @@ class PMA_FavoriteTable
     }
 
     /**
-     * Save favorite tables into phpMyAdmin database.
+     * Save recent/favorite tables into phpMyAdmin database.
      *
      * @return true|PMA_Message
      */
@@ -117,7 +128,7 @@ class PMA_FavoriteTable
         $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
 
         if (! $success) {
-            $message = PMA_Message::error(__('Could not save favorite table!'));
+            $message = PMA_Message::error(__('Could not save ' . $this->table_type . ' table!'));
             $message->addMessage('<br /><br />');
             $message->addMessage(
                 PMA_Message::rawError(
@@ -130,43 +141,13 @@ class PMA_FavoriteTable
     }
 
     /**
-     * Remove favorite tables from phpMyAdmin database.
-     *
-     * @return true|PMA_Message
-     */
-    public function removeFromDb()
-    {
-        $username = $GLOBALS['cfg']['Server']['user'];
-        $sql_query
-            = " REPLACE INTO " . $this->_pmaTable . " (`username`, `tables`)" .
-                " VALUES ('" . $username . "', '"
-                . PMA_Util::sqlAddSlashes(
-                    json_encode($this->tables)
-                ) . "')";
-
-        $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
-
-        if (! $success) {
-            $message = PMA_Message::error(__('Could not remove favorite table!'));
-            $message->addMessage('<br /><br />');
-            $message->addMessage(
-                PMA_Message::rawError(
-                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
-                )
-            );
-            return $message;
-        }
-        return true;
-    }
-
-    /**
-     * Trim favorite table according to the NumFavoriteTables configuration.
+     * Trim recent.favorite table according to the NumRecentTables/NumFavoriteTables configuration.
      *
      * @return boolean True if trimming occurred
      */
     public function trim()
     {
-        $max = max($GLOBALS['cfg']['NumFavoriteTables'], 0);
+        $max = max($GLOBALS['cfg']['Num' . ucfirst($this->table_type) . 'Tables'], 0);
         $trimming_occurred = count($this->tables) > $max;
         while (count($this->tables) > $max) {
             array_pop($this->tables);
@@ -186,7 +167,7 @@ class PMA_FavoriteTable
             $this->saveToDb();
         }
 
-        $html = '<option value="">(' . __('Favorite tables') . ') ...</option>';
+        $html = '<option value="">(' . __(ucfirst($this->table_type) . ' tables') . ') ...</option>';
         if (count($this->tables)) {
             foreach ($this->tables as $table) {
                 $html .= '<option value="'
@@ -198,7 +179,7 @@ class PMA_FavoriteTable
             }
         } else {
             $html .= '<option value="">'
-                . __('There are no favorite tables.')
+                . __('There are no ' . $this->table_type . ' tables.')
                 . '</option>';
         }
         return $html;
@@ -211,7 +192,7 @@ class PMA_FavoriteTable
      */
     public function getHtmlSelect()
     {
-        $html  = '<select name="selected_favorite_table" id="favoriteTable">';
+        $html  = '<select name="selected_' . $this->table_type . '_table" id="' . $this->table_type . 'Table">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
 
@@ -219,7 +200,7 @@ class PMA_FavoriteTable
     }
 
     /**
-     * Add favorite tables.
+     * Add recently used or favorite tables.
      *
      * @param string $db    database name where the table is located
      * @param string $table table name
@@ -263,7 +244,7 @@ class PMA_FavoriteTable
             }
         }
         if (isset($this->_pmaTable)) {
-            return $this->removeFromDb();
+            return $this->saveToDb();
         }
         return true;
     }
