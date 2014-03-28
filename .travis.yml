@@ -15,7 +15,7 @@ env:
     - LINT="yes"
   global:
     # BrowserStack key:
-    - secure: "hwfXo/2UMLuCZrMU/mbsdfYXQ6CvFI8WMH0IHqsdig5Q1mYrIr1TDM47gwOPVzlZDwxVD51vuwxxUepet/XFt/41J4mL3R10vGf6HGuh1OQIOoAvANLiEPSsxaB7PtF9S9RBe90We4TOWaHHoUfdCD/Uv+xwyWDxD6FQRQKHD4w="
+    - secure: "egsTbEIm3PZTapjFdk/VYqnRT5jr83OBVWQ2J0BskFslELI4EAeyivrgM5HwDiCNb1KTaXw0ywTM9KIw6T1omaqJWRfUTu4suFPpd5LW+QiylVXMVHcCqRjOYncrSpqSDCSDy35s1OHdURea0JVRV8epjY410F38gHfBfem+FWE="
     - TESTSUITE_BROWSERSTACK_USER=michaliha
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
