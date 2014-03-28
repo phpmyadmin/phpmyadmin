@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-28 11:04+0200\n"
+"PO-Revision-Date: 2014-03-28 13:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <https://l10n.cihar.com/projects/phpmyadmin/master/cy/>"
 "\n"
@@ -3647,7 +3647,7 @@ msgstr ""
 #: libraries/TableSearch.class.php:820 libraries/insert_edit.lib.php:1229
 #: libraries/server_privileges.lib.php:438
 msgid "Or"
-msgstr "Or"
+msgstr ""
 
 #: libraries/TableSearch.class.php:821
 msgid "Add search conditions (body of the \"where\" clause):"
