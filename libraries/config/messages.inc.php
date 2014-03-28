@@ -474,6 +474,7 @@ $strConfigNumRecentTables_desc
 $strConfigNumFavoriteTables_desc
     = __('Maximum number of favorite tables; set 0 to disable.');
 $strConfigNumRecentTables_name = __('Recently used tables');
+$strConfigNumFavoriteTables_name = __('Favorite tables');
 $strConfigRowActionLinks_desc = __('These are Edit, Copy and Delete links.');
 $strConfigRowActionLinks_name = __('Where to show the table row links');
 $strConfigNaturalOrder_desc

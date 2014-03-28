@@ -56,12 +56,12 @@ if (! empty($_REQUEST['target'])
 /**
  * Check if it is an ajax request to reload the recent tables list.
  */
-require_once 'libraries/RecentTable.class.php';
+require_once 'libraries/RecentFavoriteTable.class.php';
 if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
     $response = PMA_Response::getInstance();
     $response->addJSON(
         'options',
-        PMA_RecentTable::getInstance()->getHtmlSelectOption()
+        PMA_RecentFavoriteTable::getInstance('recent')->getHtmlSelectOption()
     );
     exit;
 }
