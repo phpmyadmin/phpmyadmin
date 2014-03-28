@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-26 11:51+0200\n"
+"PO-Revision-Date: 2014-03-28 10:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/4-1/cs/>\n"
 "Language: cs\n"
@@ -12514,7 +12514,7 @@ msgstr "doporučené"
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
-msgstr "Chyba: relace již existuje."
+msgstr "Chyba: Relace již existuje."
 
 #: pmd_relation_new.php:79 pmd_relation_new.php:102
 msgid "Error: Relation not added."
