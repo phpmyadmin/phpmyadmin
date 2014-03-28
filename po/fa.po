@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-02-02 09:55+0200\n"
+"PO-Revision-Date: 2014-03-28 09:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/4-1/fa/>\n"
+"Language-Team: Persian <https://l10n.cihar.com/projects/phpmyadmin/4-1/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -835,7 +835,7 @@ msgid ""
 msgstr ""
 "شما ویژگی ایجاد استرینگ بیش از حد مجاز را در تنظیمات پی اچ پی فعال کرده اید. "
 "این خاصیت با ویرایشگر اصلی پی اچ پی سازگاری ندارد و ممکن است باعث از بین "
-"رفتن برخی از اطلاعات گردد."
+"رفتن برخی از اطلاعات گردد!"
 
 #: index.php:458
 msgid ""
@@ -2972,7 +2972,7 @@ msgstr "كليد اصلي حذف گرديد"
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "فهرست %s حذف گرديد"
+msgstr "فهرست %s حذف گرديد."
 
 #: libraries/Index.class.php:738
 #, php-format
@@ -3947,7 +3947,7 @@ msgstr "انتخاب از مسیر آپلود در سرور <b>%s</b>:"
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1235
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست"
+msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست."
 
 #: libraries/Util.class.php:3387
 msgid "There are no files to upload"
@@ -8115,7 +8115,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:271
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "در %s گذشته هیچ فعالیتی نداشته اید؛ لطفا دوباره وارد شوید"
+msgstr "در %s گذشته هیچ فعالیتی نداشته اید؛ لطفا دوباره وارد شوید."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:698
 #: libraries/plugins/auth/AuthenticationCookie.class.php:700
@@ -8139,7 +8139,7 @@ msgstr "فایل %s دارای کلید id نمی باشد"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:185
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:205
 msgid "Hardware authentication failed!"
-msgstr "ورود سخنت افزاری نا موفق بود"
+msgstr "ورود سخنت افزاری نا موفق بود!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
@@ -10146,7 +10146,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1629
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "شما امتيازات %s را ابطال كرديد"
+msgstr "شما امتيازات %s را ابطال كرديد."
 
 #: libraries/server_privileges.lib.php:1687
 msgid "Database for user"
