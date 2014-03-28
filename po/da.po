@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-19 23:07+0200\n"
-"Last-Translator: Peter Sone Koldkjær <rapelling@gmail.com>\n"
-"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
-">\n"
+"PO-Revision-Date: 2014-03-28 11:06+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
+"\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2934,7 +2934,7 @@ msgstr "Kommentar"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Primærnøglen er slettet"
+msgstr "Primærnøglen er slettet."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -4622,7 +4622,7 @@ msgstr "Blowfish hemmelighed"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "Fremhæv valgte rækker"
+msgstr "Fremhæv valgte rækker."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4833,7 +4833,7 @@ msgstr "Som standard vises binært indhold som HEX"
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Vis servere på en liste i stedet for i en valgboks"
+msgstr "Vis servere på en liste i stedet for i en valgboks."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
@@ -8757,7 +8757,7 @@ msgstr "Optimer tabel"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Tabel %s er blevet flushet"
+msgstr "Tabel %s er blevet flushet."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -12572,7 +12572,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabel %s blev tømt"
+msgstr "Tabel %s blev tømt."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12627,7 +12627,7 @@ msgstr "Ingen"
 #: libraries/structure.lib.php:1363
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Kolonne %s er slettet"
+msgstr "Kolonne %s er slettet."
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
 #: libraries/structure.lib.php:2102
@@ -12724,12 +12724,12 @@ msgstr "Næste autoindeks"
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Der er tilføjet et indeks til %s"
+msgstr "Der er tilføjet et indeks til %s."
 
 #: libraries/structure.lib.php:1989
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "En primær nøgle er blevet tilføjet til %s"
+msgstr "En primær nøgle er blevet tilføjet til %s."
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
 msgid "Distinct values"
@@ -12767,7 +12767,7 @@ msgstr "Effektiv"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Tabel %1$s er blevet ændret"
+msgstr "Tabel %1$s er blevet ændret."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -13198,7 +13198,7 @@ msgstr "Administrer dine indstillinger"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Konfigurationen er gemt"
+msgstr "Konfigurationen er gemt."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -13350,7 +13350,7 @@ msgstr "Aktive indstillinger"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Side er blevet oprettet"
+msgstr "Side er blevet oprettet."
 
 #: pmd_pdf.php:56
 #, fuzzy
