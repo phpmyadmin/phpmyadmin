@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-28 10:52+0200\n"
+"PO-Revision-Date: 2014-03-28 10:58+0200\n"
 "Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
 "Language-Team: Italian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
@@ -2974,7 +2974,7 @@ msgstr "Apri una nuova finestra di PhpMyAdmin"
 
 #: libraries/Header.class.php:404
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Clicca sulla barra per scorrere fino all'inizio della pagina"
 
 #: libraries/Header.class.php:684
 #: libraries/plugins/auth/AuthenticationCookie.class.php:161
@@ -3294,7 +3294,6 @@ msgid "SQL query"
 msgstr "Query SQL"
 
 #: libraries/ServerStatusData.class.php:191
-#, fuzzy
 msgid "Handler"
 msgstr "Handler"
 
