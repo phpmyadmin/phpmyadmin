@@ -103,7 +103,7 @@ if (PMA_Util::isForeignKeySupported($type_T1)
         if (PMA_queryAsControlUser($q, false, PMA_DatabaseInterface::QUERY_STORE)) {
             PMD_Return_new(1, __('Internal relation has been added.'));
         } else {
-            PMD_Return_new(0, __('Error: Relation could not be added.'));
+            PMD_Return_new(0, __('Error: Relation could not be added!'));
         }
     }
 }
