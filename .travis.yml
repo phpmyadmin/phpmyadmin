@@ -14,12 +14,12 @@ env:
     - PHPUNIT_ARGS="--exclude-group selenium"
     - LINT="yes"
   global:
-    - secure: "CiFhtg+3xf6BGnSldT4phpr+7DhaPxQkLLqR4uhuqRIcb3XnZxsA9FXhWLaheUiH9wXVfF0C5Cqa73X4U2uBsfFn3fDetQwsoFdG+bqcF35LAXRK3/aowygLKHg2KjdeM2g4EQKw1T8x2CMhv+IizB8tYnVlaRgb1C5b2xl6zqI="
-    - secure: "IBrkNMP60iafuSXloV96bSG4IqOXKH4I44oDdHEN2as7jxLMX4z/EzPUdTS/zfmBkQOE1j12DUXOOVEPl1usiLuS6MMEHUeLDR5cajtGDgDHYbKTtTB49kqXDJzU2mBvCvqOKKtuXFhX2uz9Riq+cylOoBRRauXo6RRvjw9IrfM="
+    # BrowserStack key:
+    - secure: "hwfXo/2UMLuCZrMU/mbsdfYXQ6CvFI8WMH0IHqsdig5Q1mYrIr1TDM47gwOPVzlZDwxVD51vuwxxUepet/XFt/41J4mL3R10vGf6HGuh1OQIOoAvANLiEPSsxaB7PtF9S9RBe90We4TOWaHHoUfdCD/Uv+xwyWDxD6FQRQKHD4w="
+    - TESTSUITE_BROWSERSTACK_USER=michaliha
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
 before_script:
-  - mysql -uroot -e 'SET PASSWORD = PASSWORD("root")'
   - if [[ -z "$LINT" ]] ; then
     if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
 
@@ -45,6 +45,9 @@ before_script:
     php --server 127.0.0.1:8000 &
     wget http://www.browserstack.com/BrowserStackTunnel.jar ;
     java -jar BrowserStackTunnel.jar -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 &
+
+    mysql -uroot < examples/create_tables.sql ;
+    mysql -uroot -e 'SET PASSWORD = PASSWORD("root")' ;
 
     fi ;
     fi
