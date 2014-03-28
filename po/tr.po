@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-27 07:32+0200\n"
+"PO-Revision-Date: 2014-03-28 10:29+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12882,10 +12882,9 @@ msgid "Page has been created."
 msgstr "Sayfa oluşturuldu"
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Sayfa oluşturma başarısız"
+msgstr "Sayfa oluşturma başarısız oldu!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -12920,16 +12919,14 @@ msgid "Error: relation already exists."
 msgstr "Hata: bağlantı zaten var."
 
 #: pmd_relation_new.php:80
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Hata: Bağlantı eklenmedi."
+msgstr "Hata: Bağlantı eklenemedi!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "FOREIGN KEY bağlantısı eklendi"
+msgstr "FOREIGN KEY bağlantısı eklendi."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
