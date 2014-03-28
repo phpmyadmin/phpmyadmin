@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-15 13:35+0200\n"
+"PO-Revision-Date: 2014-03-28 10:47+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/4-1/tr/>\n"
 "Language: tr\n"
@@ -12017,7 +12017,7 @@ msgstr "Etkili"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "Tablo %1$s başarılı olarak değiştirldi"
+msgstr "%1$s tablosu başarılı olarak değiştirildi"
 
 #: libraries/structure.lib.php:2444 libraries/tbl_tracking.lib.php:920
 #: libraries/tbl_tracking.lib.php:950
