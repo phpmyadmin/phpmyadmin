@@ -3418,8 +3418,9 @@ class PMA_Util
         $titles['NoExport']   = self::getIcon('bd_export.png', __('Export'));
         $titles['Execute']    = self::getIcon('b_nextpage.png', __('Execute'));
         $titles['NoExecute']  = self::getIcon('bd_nextpage.png', __('Execute'));
-        $titles['Favorite']  = self::getIcon('b_favorite.png', __('Remove from Favorites'));
-        $titles['NoFavorite']= self::getIcon('b_no_favorite.png', __('Add to Favorites'));
+        // For Favorite/NoFavorite, we need icon only.
+        $titles['Favorite']  = self::getIcon('b_favorite.png', '');
+        $titles['NoFavorite']= self::getIcon('b_no_favorite.png', '');
 
         return $titles;
     }
