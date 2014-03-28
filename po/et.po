@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-28 11:53+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-03-28 15:04+0200\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
@@ -12759,10 +12759,9 @@ msgid "Page has been created."
 msgstr "Leht on loodud"
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Lehe loomine ebaõnnestus"
+msgstr "Lehe loomine ebaõnnestus!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -12797,26 +12796,23 @@ msgid "Error: relation already exists."
 msgstr "Viga: seos on juba olemas."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Viga: Seost ei lisatud."
+msgstr "Viga: Seost ei saanud lisada!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "FOREIGN KEY seos on lisatud"
+msgstr "FOREIGN KEY seos on lisatud."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Viga: Seoste omadused on keelatud!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Sisemine seos on loodud"
+msgstr "Sisemine seos on loodud."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13864,10 +13860,9 @@ msgstr ""
 "olema alla 1"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size vs. max_heap_table_size"
+msgstr "Erinevad tmp_table_size and max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
