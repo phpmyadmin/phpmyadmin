@@ -28,6 +28,7 @@ AJAX.registerTeardown('db_structure.js', function () {
     $("a.drop_table_anchor.ajax").die('click');
     $('a.drop_tracking_anchor.ajax').die('click');
     $('#real_end_input').die('click');
+    $("a.favorite_table_anchor.ajax").die('click');
 });
 
 /**
@@ -393,6 +394,32 @@ AJAX.registerOnload('db_structure.js', function () {
             $(this),
             'a',
             $(this).attr("title")
+        );
+    });
+
+    // Add/Remove favorite table using Ajax.
+    $(".favorite_table_anchor").live("click", function (event) {
+        event.preventDefault();
+        var anchor_id = $(this).attr("id");
+        $.get(
+            $(this).attr('href'),
+            function (data) {
+                if (data.success === true) {
+                    if (data.changes) {
+                        $('#favoriteTable').html(data.options);
+                        $('#' + anchor_id).parent().html(data.anchor);
+                        PMA_tooltip(
+                            $('#' + anchor_id),
+                            'a',
+                            $('#' + anchor_id).attr("title")
+                        );
+                    } else {
+                        PMA_ajaxShowMessage(data.message);
+                    }
+                } else {
+                    PMA_ajaxShowMessage(data.message);
+                }
+            }
         );
     });
 

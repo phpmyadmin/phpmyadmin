@@ -16,6 +16,61 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/structure.lib.php';
 
+// Add/Remove favorite tables using Ajax request.
+if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
+    global $db;
+    $changes = true;
+    $msg = '';
+    $titles = PMA_Util::buildActionTitles();
+    $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
+    $favorite_table = $_REQUEST['favorite_table'];
+    $already_favorite = PMA_checkFavoriteTable($db, $favorite_table);
+
+    if (isset($_REQUEST['remove_favorite'])) {
+        if ($already_favorite) {
+            // If already in favorite list, remove it.
+            $fav_instance->remove($db, $favorite_table);
+        }
+    } elseif (isset($_REQUEST['add_favorite'])) {
+        if (!$already_favorite) {
+            if (count($fav_instance->tables) == $GLOBALS['cfg']['NumFavoriteTables']) {
+                $changes = false;
+                $msg = '<div class="error"><img src="themes/dot.gif" '
+                    . 'title="" alt="" class="icon ic_s_error" />'
+                    . __("Favorite List is full!")
+                    . '</div>';
+            } else {
+                // Otherwise add to favorite list.
+                $fav_instance->add($db, $favorite_table);
+            }
+        }
+    } else {
+
+    }
+
+    $ajax_response = PMA_Response::getInstance();
+    $ajax_response->addJSON(
+        'changes',
+        $changes
+    );
+    if ($changes) {
+        $ajax_response->addJSON(
+            'options',
+            PMA_RecentFavoriteTable::getInstance('favorite')->getHtmlSelectOption()
+        );
+        $ajax_response->addJSON(
+            'anchor',
+            PMA_getHtmlForFavoriteAnchor($db, array('TABLE_NAME' => $favorite_table), $titles)
+        );
+    } else {
+        $ajax_response->addJSON(
+            'message',
+            $msg
+        );
+    }
+    exit;
+}
+
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
@@ -133,8 +188,8 @@ $overhead_size  = (double) 0;
 $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
-// Instance of PMA_FavoriteTable class.
-$fav_instance = PMA_FavoriteTable::getInstance();
+// Instance of PMA_RecentFavoriteTable class.
+$fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
 foreach ($tables as $keyname => $current_table) {
     // Get valid statistics whatever is the table type
 
