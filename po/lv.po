@@ -1,18 +1,17 @@
 #
-#: libraries/Util.class.php:3421 libraries/Util.class.php:3422
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-26 17:07-0400\n"
+"POT-Creation-Date: 2014-03-28 10:00+0100\n"
 "PO-Revision-Date: 2014-02-03 16:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/master/lv/"
 ">\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lv\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -592,11 +591,11 @@ msgstr ""
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Visticamāk Jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Skaties %"
-"sdocumentation%s, lai atrastu risinājumu šai problēmai."
+"Visticamāk Jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Skaties "
+"%sdocumentation%s, lai atrastu risinājumu šai problēmai."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -2788,8 +2787,8 @@ msgstr "Jūsu SQL vaicājums tika veiksmīgi izpildīts"
 #: libraries/DisplayResults.class.php:5039 libraries/structure.lib.php:671
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5052
@@ -3697,14 +3696,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4074,6 +4073,17 @@ msgstr "Iztukšot"
 #: libraries/Util.class.php:3419 libraries/Util.class.php:3420
 msgid "Execute"
 msgstr ""
+
+#: libraries/Util.class.php:3421 libraries/structure.lib.php:495
+#, fuzzy
+#| msgid "Remove chart"
+msgid "Remove from Favorites"
+msgstr "Noņemt diagrammu"
+
+#: libraries/Util.class.php:3422 libraries/structure.lib.php:495
+#, fuzzy
+msgid "Add to Favorites"
+msgstr "Pievienot jaunu lietotāju"
 
 #: libraries/Util.class.php:3970
 msgid "Print"
@@ -4568,8 +4578,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4705,8 +4715,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5286,8 +5296,9 @@ msgstr "Lapas numurs:"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
@@ -5711,8 +5722,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:423
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
@@ -6106,8 +6117,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:572
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:575
@@ -6300,8 +6311,8 @@ msgstr "Analizēt tabulu"
 
 #: libraries/config/messages.inc.php:649
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:653
@@ -6311,8 +6322,8 @@ msgstr "Restaurēt tabulu"
 
 #: libraries/config/messages.inc.php:655
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:658
@@ -6418,8 +6429,8 @@ msgstr "Parametrs"
 
 #: libraries/config/messages.inc.php:698
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:701
@@ -6439,8 +6450,8 @@ msgstr "Servera versija"
 
 #: libraries/config/messages.inc.php:708
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:709
@@ -7141,8 +7152,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7609,8 +7620,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8449,8 +8460,8 @@ msgstr "Laipni lūgti %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -10949,13 +10960,13 @@ msgstr "Lietotāju pārskats"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Piezīme: phpMyAdmin saņem lietotāju privilēģijas pa taisno no MySQL "
 "privilēģiju tabilām. Šo tabulu saturs var atšķirties no privilēģijām, ko "
-"lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams %"
-"spārlādēt privilēģijas%s pirms Jūs turpināt."
+"lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams "
+"%spārlādēt privilēģijas%s pirms Jūs turpināt."
 
 #: libraries/server_privileges.lib.php:3954
 msgid "The selected user was not found in the privilege table."
@@ -12253,17 +12264,6 @@ msgstr "Aizvietot tabulas datus ar datiem no faila"
 msgid "Check tables having overhead"
 msgstr "Iezīmēt tabulas ar pārtēriņu"
 
-#: libraries/structure.lib.php:495
-#, fuzzy
-#| msgid "Remove chart"
-msgid "Remove from Favorites"
-msgstr "Noņemt diagrammu"
-
-#: libraries/structure.lib.php:495
-#, fuzzy
-msgid "Add to Favorites"
-msgstr "Pievienot jaunu lietotāju"
-
 #: libraries/structure.lib.php:869
 msgid "Sort"
 msgstr "Kārtošana"
@@ -13099,8 +13099,9 @@ msgid "Page has been created."
 msgstr "Tabula %s tika izdzēsta"
 
 #: pmd_pdf.php:56
-msgid "Page creation failed"
-msgstr ""
+#, fuzzy
+msgid "Page creation has failed!"
+msgstr "MySQL konekcijas kārtošana"
 
 #: pmd_pdf.php:114
 #, fuzzy
@@ -13146,13 +13147,17 @@ msgstr ""
 msgid "Error: relation already exists."
 msgstr ""
 
-#: pmd_relation_new.php:80 pmd_relation_new.php:106
-msgid "Error: Relation not added."
-msgstr ""
+#: pmd_relation_new.php:80
+#, fuzzy
+#| msgid "File could not be read"
+msgid "Error: Relation could not be added!"
+msgstr "Nevar nolasīt failu"
 
 #: pmd_relation_new.php:81
-msgid "FOREIGN KEY relation added"
-msgstr ""
+#, fuzzy
+#| msgid "Modifications have been saved"
+msgid "FOREIGN KEY relation has been added."
+msgstr "Labojumi tika saglabāti"
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
@@ -13160,8 +13165,12 @@ msgstr ""
 
 #: pmd_relation_new.php:104
 #, fuzzy
-msgid "Internal relation added"
+msgid "Internal relation has been added."
 msgstr "Iekšējās relācijas"
+
+#: pmd_relation_new.php:106
+msgid "Error: Relation could not be added."
+msgstr ""
 
 #: pmd_relation_upd.php:67
 #, fuzzy
@@ -13887,8 +13896,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14016,8 +14025,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14146,7 +14155,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:262
-msgid "tmp_table_size vs. max_heap_table_size"
+msgid "Different tmp_table_size and max_heap_table_size"
 msgstr ""
 
 #: libraries/advisory_rules.txt:265
@@ -14981,10 +14990,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "All hosts"
 #~ msgstr "Jebkurš hosts"
-
-#, fuzzy
-#~ msgid "PBMS connection failed:"
-#~ msgstr "MySQL konekcijas kārtošana"
 
 #, fuzzy
 #~ msgctxt "Create none database for user"

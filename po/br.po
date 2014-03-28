@@ -3,20 +3,19 @@
 # This file is distributed under the same license as the phpMyAdmin package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: libraries/Util.class.php:3421 libraries/Util.class.php:3422
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-26 17:07-0400\n"
+"POT-Creation-Date: 2014-03-28 10:00+0100\n"
 "PO-Revision-Date: 2014-03-26 11:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Breton <https://l10n.cihar.com/projects/phpmyadmin/master/br/"
 ">\n"
+"Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: br\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -607,14 +606,14 @@ msgstr ""
 #: import.php:116
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an %"
-"steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
+"Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an "
+"%steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -2795,11 +2794,11 @@ msgstr "Sevenet eo bet ho reked SQL ervat"
 #: libraries/DisplayResults.class.php:5039 libraries/structure.lib.php:671
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an %"
-"steulioù titouriñ%s."
+"Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an "
+"%steulioù titouriñ%s."
 
 #: libraries/DisplayResults.class.php:5052
 #, php-format
@@ -3699,14 +3698,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4075,6 +4074,18 @@ msgstr "Goullonderiñ"
 #: libraries/Util.class.php:3419 libraries/Util.class.php:3420
 msgid "Execute"
 msgstr "Seveniñ"
+
+#: libraries/Util.class.php:3421 libraries/structure.lib.php:495
+#, fuzzy
+#| msgid "Remove chart"
+msgid "Remove from Favorites"
+msgstr "Dilemel ar grafik"
+
+#: libraries/Util.class.php:3422 libraries/structure.lib.php:495
+#, fuzzy
+#| msgid "Add user"
+msgid "Add to Favorites"
+msgstr "Ouzhpennañ un implijer"
 
 #: libraries/Util.class.php:3970
 msgid "Print"
@@ -4568,8 +4579,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4667,8 +4678,8 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Gweredekaat kement-mañ a aotre ur bajenn zo en un domani disheñvel da "
-"c'hervel phpMyAdmin e diabarzh ur framm, ar pezh a ya d'ober un [strong]"
-"toull surentez[/strong] posupl evit tagadennoù skript etre frammoù"
+"c'hervel phpMyAdmin e diabarzh ur framm, ar pezh a ya d'ober un "
+"[strong]toull surentez[/strong] posupl evit tagadennoù skript etre frammoù"
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4688,8 +4699,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre [kbd]cookie"
-"[/kbd]"
+"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4733,16 +4744,16 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
 "Spisaat peseurt doare kontrolloù kemmañ a zleer ober ganto evit ar bannoù "
-"CHAR ha VARCHAR; [kbd]input[/kbd] - a dalvez da grennañ ar vent, [kbd]"
-"textarea[/kbd] - a aotren lakaat linennoù nevez er bannoù"
+"CHAR ha VARCHAR; [kbd]input[/kbd] - a dalvez da grennañ ar vent, "
+"[kbd]textarea[/kbd] - a aotren lakaat linennoù nevez er bannoù"
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4750,8 +4761,8 @@ msgstr "Kemmañ ar bannoù CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5199,8 +5210,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Urzh renkañ evit an elfennoù en ur voest desachañ alc'hwezioù estren; [kbd]"
-"content[/kbd] zo evit an roadenn a zaveer dezhi, [kbd]id[/kbd] zo evit "
+"Urzh renkañ evit an elfennoù en ur voest desachañ alc'hwezioù estren; "
+"[kbd]content[/kbd] zo evit an roadenn a zaveer dezhi, [kbd]id[/kbd] zo evit "
 "talvout an alc'hwez"
 
 #: libraries/config/messages.inc.php:205
@@ -5372,8 +5383,9 @@ msgstr "Titloù pajennoù"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  "
 "[doc@cfg_TitleTable]teuliadur[/doc] evit an neudennadoù hud a c'haller ober "
@@ -5764,8 +5776,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre [kbd]cookie"
-"[/kbd]"
+"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:388
 msgid "Recall user name"
@@ -5854,11 +5866,11 @@ msgstr ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
-"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre [kbd]cookie"
-"[/kbd]"
+"Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
+"[kbd]cookie[/kbd]"
 
 #: libraries/config/messages.inc.php:426
 msgid "mcrypt warning"
@@ -6251,8 +6263,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:572
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:575
@@ -6430,8 +6442,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:649
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:653
@@ -6440,8 +6452,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:655
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:658
@@ -6540,8 +6552,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:698
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:701
@@ -6560,8 +6572,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:708
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:709
@@ -7230,8 +7242,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7693,8 +7705,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8507,11 +8519,11 @@ msgstr "Degemer mat e %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar %"
-"1$sskript kefluniañ%2$s da sevel unan."
+"Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout ar "
+"%1$sskript kefluniañ%2$s da sevel unan."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
 msgid ""
@@ -10843,8 +10855,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3954
@@ -12107,18 +12119,6 @@ msgstr "Eilañ an daolenn enni ur rakger"
 msgid "Check tables having overhead"
 msgstr "Askañ an taolennoù gant dilerc'hioù"
 
-#: libraries/structure.lib.php:495
-#, fuzzy
-#| msgid "Remove chart"
-msgid "Remove from Favorites"
-msgstr "Dilemel ar grafik"
-
-#: libraries/structure.lib.php:495
-#, fuzzy
-#| msgid "Add user"
-msgid "Add to Favorites"
-msgstr "Ouzhpennañ un implijer"
-
 #: libraries/structure.lib.php:869
 msgid "Sort"
 msgstr "Urzhiañ"
@@ -12887,8 +12887,10 @@ msgid "Page has been created."
 msgstr ""
 
 #: pmd_pdf.php:56
-msgid "Page creation failed"
-msgstr ""
+#, fuzzy
+#| msgid "PBMS connection failed:"
+msgid "Page creation has failed!"
+msgstr "C'hwitet eo bet ar gevreadenn PBMS :"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -12926,12 +12928,14 @@ msgstr ""
 msgid "Error: relation already exists."
 msgstr ""
 
-#: pmd_relation_new.php:80 pmd_relation_new.php:106
-msgid "Error: Relation not added."
-msgstr ""
+#: pmd_relation_new.php:80
+#, fuzzy
+#| msgid "File could not be read"
+msgid "Error: Relation could not be added!"
+msgstr "N'haller ket lenn ar restr"
 
 #: pmd_relation_new.php:81
-msgid "FOREIGN KEY relation added"
+msgid "FOREIGN KEY relation has been added."
 msgstr ""
 
 #: pmd_relation_new.php:85
@@ -12939,7 +12943,13 @@ msgid "Error: Relational features are disabled!"
 msgstr ""
 
 #: pmd_relation_new.php:104
-msgid "Internal relation added"
+#, fuzzy
+#| msgid "The bookmark has been deleted."
+msgid "Internal relation has been added."
+msgstr "Diverket eo bet ar sined."
+
+#: pmd_relation_new.php:106
+msgid "Error: Relation could not be added."
 msgstr ""
 
 #: pmd_relation_upd.php:67
@@ -13668,8 +13678,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13802,8 +13812,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -13938,7 +13948,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:262
-msgid "tmp_table_size vs. max_heap_table_size"
+msgid "Different tmp_table_size and max_heap_table_size"
 msgstr ""
 
 #: libraries/advisory_rules.txt:265
@@ -14723,9 +14733,6 @@ msgstr ""
 
 #~ msgid "PBMS error"
 #~ msgstr "Fazi PBMS"
-
-#~ msgid "PBMS connection failed:"
-#~ msgstr "C'hwitet eo bet ar gevreadenn PBMS :"
 
 #~ msgid "PBMS get BLOB info failed:"
 #~ msgstr "C'hwitet eo bet moned PBMS ouzh an titouroù BLOB :"
