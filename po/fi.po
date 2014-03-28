@@ -220,13 +220,13 @@ msgstr "Tietokannan nimi on tyhjä!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Tietokannan %1$s nimi on nyt %2$s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Tietokanta %1$s on kopioitu tietokantaan %2$s"
 
@@ -2725,7 +2725,7 @@ msgstr "Hyvin tunnettu ohjelmakoodi"
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Rivi on poistettu"
 
@@ -2746,7 +2746,7 @@ msgstr "Saattaa olla summittainen. Katso [doc@faq3-11]FAQ 3.11[/doc]"
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-kyselyn suoritus onnistui"
 
@@ -3008,7 +3008,7 @@ msgid "Comment"
 msgstr "Kommentti"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Perusavain on poistettu"
 
 #: libraries/Index.class.php:610
@@ -8820,7 +8820,7 @@ msgstr "Optimoi taulu"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Taulun %s välimuisti on tyhjennetty"
 
 #: libraries/operations.lib.php:1202
@@ -10231,7 +10231,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "Taulu %s on poistettu"
 
@@ -10388,7 +10388,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Taulu %s on poistettu"
 
@@ -10528,7 +10528,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Taulu %s on poistettu"
 
@@ -11313,7 +11313,7 @@ msgstr "Valtuudet (GRANT)"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "Näkymä %s on poistettu"
 
@@ -12906,7 +12906,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Taulu %s on tyhjennetty"
 
 #: libraries/structure.lib.php:92
@@ -12920,13 +12920,13 @@ msgstr "Seuranta ei ole käytössä."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Näkymä %s on poistettu"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Taulu %s on poistettu"
 
@@ -12975,8 +12975,8 @@ msgstr "Ei mitään"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "Taulu %s on poistettu"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -13084,12 +13084,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Sarakkeelle %s on lisätty indeksi"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Sarakkeelle %s on luotu perusavain"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -13133,7 +13133,7 @@ msgstr "Pätevä"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Taulun %1$s muuttaminen onnistui."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13651,7 +13651,7 @@ msgstr "Muut ydinasetukset"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Muutokset tallennettu"
 
 #: libraries/user_preferences.inc.php:66
@@ -13819,7 +13819,7 @@ msgstr "Taulun valinnat"
 
 #: pmd_pdf.php:53
 #, fuzzy
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Taulu %1$s on luotu."
 
 #: pmd_pdf.php:56
@@ -15537,9 +15537,6 @@ msgstr "concurrent_insert on asetettu 0"
 #~ "Jätä tyhjäksi, jos haluat poistaa käytöstä muunneltavat valikot "
 #~ "ominaisuuden, oletusarvo: [kbd]pma_history[/kbd]"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "SQL-kyselyn suoritus onnistui"
-
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Ei voi yhdistää Drizzle palvelimeen"
 
@@ -15905,7 +15902,7 @@ msgstr "concurrent_insert on asetettu 0"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "Valitut kohdetaulut on yhtenäistetty lähdetaulujen kanssa."
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "Kohdetietokanta on yhtenäistetty lähdetietokannan kanssa"
 
 #, fuzzy

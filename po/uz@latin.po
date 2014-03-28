@@ -222,13 +222,13 @@ msgstr "Ma`lumotlar bazasi nomi bo‘sh!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s"
+#| msgid "Database %s has been renamed to %s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "`\"%s\"` ma`lumotlar bazasining nomi `\"%s\"` deb o‘zgartirildi."
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %s has been copied to %s"
+#| msgid "Database %s has been copied to %s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "\"%s\" ma`lumotlar bazasidan \"%s\" ga nusxa ko‘chirildi."
 
@@ -3021,7 +3021,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Yozuv o‘chirildi"
 
@@ -3042,7 +3042,7 @@ msgstr "Taxminiy bo‘lishi mumkin. [doc@faq3-11]\"FAQ 3.11\"[/doc]ga qarang"
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL so‘rovi muvaffaqiyatli bajarildi"
 
@@ -3309,7 +3309,7 @@ msgid "Comment"
 msgstr "Izoh"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Birlamchi kalit o‘chirildi"
 
 #: libraries/Index.class.php:610
@@ -3738,7 +3738,7 @@ msgstr "%1$s jadvalini %2$s deb qayta nomlashda xatolik"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "`\"%s\"` jadvalining nomi `\"%s\"` deb o‘zgartirildi."
 
@@ -9376,7 +9376,7 @@ msgstr "Jadvalni optimallashtirish"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "\"%s\" jadvali keshi yangilandi"
 
 #: libraries/operations.lib.php:1202
@@ -10845,7 +10845,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "\"%s\" jadvali o‘chirildi"
 
@@ -11002,7 +11002,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "\"%s\" jadvali o‘chirildi"
 
@@ -11141,7 +11141,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "\"%s\" jadvali o‘chirildi"
 
@@ -11949,7 +11949,7 @@ msgstr "GRANT"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "\"%s\" namoyishi o‘chirildi"
 
@@ -13545,7 +13545,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "\"%s\" jadvali tozalandi"
 
 #: libraries/structure.lib.php:92
@@ -13559,13 +13559,13 @@ msgstr "Kuzatish faol emas."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "\"%s\" namoyishi o‘chirildi"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "\"%s\" jadvali o‘chirildi"
 
@@ -13620,8 +13620,8 @@ msgstr "Yo‘q"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "\"%s\" jadvali o‘chirildi"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -13729,12 +13729,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "\"%s\" uchun indeks qo‘shildi"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "\"%s\" ga birlamchi kalit qo‘shildi"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -13778,7 +13778,7 @@ msgstr "Effektivlik"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "%1$s jadvali muvaffaqiyatli o‘zgartirildi"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -14301,7 +14301,7 @@ msgstr "Boshqa sozlanishlar"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "O‘zgaririshlar saqlandi"
 
 #: libraries/user_preferences.inc.php:66
@@ -14472,7 +14472,7 @@ msgid "Active options"
 msgstr "Jadval parametrlari"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Sahifa tuzildi"
 
 #: pmd_pdf.php:56
@@ -16186,9 +16186,6 @@ msgstr "Maksimal ulanishlar soni "
 #~ "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh "
 #~ "qoldiring, asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "SQL so‘rovi muvaffaqiyatli bajarildi"
-
 #, fuzzy
 #~| msgid "Could not connect to MySQL server"
 #~ msgid "Could not connect to Drizzle server"
@@ -16582,7 +16579,7 @@ msgstr "Maksimal ulanishlar soni "
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "Tanlangan jadvallar manba jadvallar bilan sinxronizatsiya qilindi."
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "Nishon baza manba baza bilan sinxronizatsiya qilindi"
 
 #, fuzzy

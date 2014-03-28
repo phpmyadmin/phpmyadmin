@@ -223,13 +223,13 @@ msgstr "إسم قاعدة البيانات خالي!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى  %2$s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "تم نسخ قاعدة البيانات من %1$s إلى %2$s"
 
@@ -2744,7 +2744,7 @@ msgstr "ثنائي معروف جيّداً"
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "لقد تمّ حذف الصّف"
 
@@ -2765,7 +2765,7 @@ msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأ
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "تم تنفيذ إستعلام SQL  بنجاح"
 
@@ -3024,7 +3024,7 @@ msgid "Comment"
 msgstr "تعليق"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "لقد تم حذف المفتاح الأساسي"
 
 #: libraries/Index.class.php:610
@@ -8382,7 +8382,7 @@ msgstr "تحسين الجدول"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "لقد تم إعادة تحميل الجدول %s  بنجاح"
 
 #: libraries/operations.lib.php:1202
@@ -10794,7 +10794,7 @@ msgstr "منح"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "User has been added."
 msgstr "لقد تم حذف الصف"
 
@@ -12240,7 +12240,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "تم إفراغ محتويات الجدول %s"
 
 #: libraries/structure.lib.php:92
@@ -12254,13 +12254,13 @@ msgstr "التتبع غير نشط."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "تم إزالة %s  من العرض"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "تم إزالة الجدول %s"
 
@@ -12307,7 +12307,7 @@ msgstr "لا شيء"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "تم حذف العمود %s"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12413,12 +12413,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "تم إضافة الفهرس في %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "تم إضافة المفتاح الأساسي في %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12460,7 +12460,7 @@ msgstr "فعال"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr ""
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12955,7 +12955,7 @@ msgstr "المزايا العامّة للرابط"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "تمت التعديلات"
 
 #: libraries/user_preferences.inc.php:66
@@ -13123,7 +13123,7 @@ msgid "Active options"
 msgstr "خيارات الجدول"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr ""
 
 #: pmd_pdf.php:56
@@ -14739,9 +14739,6 @@ msgstr ""
 #~ "<b>One or more errors have occurred while processing your request:</b>"
 #~ msgstr "<b>حصل خطأ أثناء معالجة طلبك: </b>"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "تم تنفيذ إستعلام SQL  بنجاح"
-
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "استغرق الاستعلام %01.4f ثانية"
 
@@ -15419,7 +15416,7 @@ msgstr ""
 #~ msgid "Fields"
 #~ msgstr "عدد الحقول"
 
-#~ msgid "Field %s has been dropped"
+#~ msgid "Field %s has been dropped."
 #~ msgstr "حقل محذوف %s"
 
 #~ msgid "See image/jpeg: inline"

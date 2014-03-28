@@ -2703,7 +2703,7 @@ msgstr "Well Known Binary"
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "The row has been deleted"
 
@@ -2724,7 +2724,7 @@ msgstr "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "Your SQL query has been executed successfully"
 
@@ -2982,7 +2982,7 @@ msgid "Comment"
 msgstr "Comment"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "The primary key has been dropped"
 
 #: libraries/Index.class.php:610
@@ -8834,7 +8834,7 @@ msgstr "Optimise table"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Table %s has been flushed"
 
 #: libraries/operations.lib.php:1202
@@ -12645,7 +12645,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Table %s has been emptied"
 
 #: libraries/structure.lib.php:92
@@ -12659,13 +12659,13 @@ msgstr "Tracking is not active."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "View %s has been dropped"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Table %s has been dropped"
 
@@ -12712,7 +12712,7 @@ msgstr "None"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Column %s has been dropped"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12809,12 +12809,12 @@ msgstr "Next autoindex"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "An index has been added on %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "A primary key has been added on %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12852,7 +12852,7 @@ msgstr "Effective"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Table %1$s has been altered successfully"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13285,7 +13285,7 @@ msgid "Manage your settings"
 msgstr "Manage your settings"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Configuration has been saved"
 
 #: libraries/user_preferences.inc.php:66
@@ -13437,7 +13437,7 @@ msgid "Active options"
 msgstr "Active options"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Page has been created"
 
 #: pmd_pdf.php:56
@@ -15171,9 +15171,6 @@ msgstr "concurrent_insert is set to 0"
 #~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
 #~ "pma__usergroups[/kbd]"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Your SQL query has been executed successfully"
-
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM or SET data too long?"
 
@@ -15547,7 +15544,7 @@ msgstr "concurrent_insert is set to 0"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "Selected target tables have been synchronised with source tables."
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "Target database has been synchronised with source database"
 
 #~ msgid "Executed queries"

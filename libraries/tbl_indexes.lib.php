@@ -53,7 +53,7 @@ function PMA_handleCreateOrEditIndex($db, $table, $index)
     if (! $error) {
         $GLOBALS['dbi']->query($sql_query);
         $message = PMA_Message::success(
-            __('Table %1$s has been altered successfully')
+            __('Table %1$s has been altered successfully.')
         );
         $message->addParam($table);
 

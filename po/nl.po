@@ -2950,7 +2950,7 @@ msgid "Comment"
 msgstr "Opmerking"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "De primaire sleutel is vervallen"
 
 #: libraries/Index.class.php:610
@@ -8382,7 +8382,7 @@ msgstr "Optimaliseer tabel"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Tabel %s is geschoond"
 
 #: libraries/operations.lib.php:1202
@@ -12199,7 +12199,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Tabel %s is leeg gemaakt"
 
 #: libraries/structure.lib.php:92
@@ -12262,7 +12262,7 @@ msgstr "Geen"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Kolom %s is verwijderd"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12359,12 +12359,12 @@ msgstr "Volgende automatische indexwaarde"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Een index is toegevoegd aan %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Een primaire sleutel is toegevoegd aan %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12402,7 +12402,7 @@ msgstr "Effectief"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s is bijgewerkt"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12841,7 +12841,7 @@ msgid "Manage your settings"
 msgstr "Uw instellingen beheren"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Configuratie werd opgeslagen"
 
 #: libraries/user_preferences.inc.php:66
@@ -12996,7 +12996,7 @@ msgstr "Actieve opties"
 # steeds.
 # Wat doet "%1$s" hier?
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "De pagina werd aangemaakt"
 
 #: pmd_pdf.php:56
@@ -14778,9 +14778,6 @@ msgstr "concurrent_insert is ingesteld op 0"
 #~ "Laat dit veld leeg om configureerbare menu's uit te schakelen, suggestie: "
 #~ "[kbd]pma__usergroups[/kbd]."
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Uw SQL-query is succesvol uitgevoerd"
-
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM- of SET-gegevens te lang?"
 
@@ -15183,7 +15180,7 @@ msgstr "concurrent_insert is ingesteld op 0"
 #~ msgstr ""
 #~ "De geselecteerde tabellen zijn gesynchroniseerd met de brontabellen."
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "De bestemmingsdatabank werd gesynchroniseerd met de brondatabank"
 
 #~ msgid "Executed queries"

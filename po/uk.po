@@ -2943,7 +2943,7 @@ msgid "Comment"
 msgstr "Коментар"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Первинний ключ було знищено"
 
 #: libraries/Index.class.php:610
@@ -8534,7 +8534,7 @@ msgstr "Оптимізувати таблицю"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Було очищено кеш таблиці %s"
 
 #: libraries/operations.lib.php:1202
@@ -12362,7 +12362,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Таблицю %s було очищено"
 
 #: libraries/structure.lib.php:92
@@ -12376,13 +12376,13 @@ msgstr "Трекінг не активний."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Подання %s було знищено"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Таблицю %s було знищено"
 
@@ -12429,7 +12429,7 @@ msgstr "Немає"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Стовпчик %s було знищено"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12526,12 +12526,12 @@ msgstr "Наступний автоіндекс"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Було додано індекс для %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Було додано первинний ключ до %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12569,7 +12569,7 @@ msgstr "Ефективність"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Таблицю %1$s було успішно змінено"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13002,7 +13002,7 @@ msgid "Manage your settings"
 msgstr "Керування налаштуваннями"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Конфігурація була збережена"
 
 #: libraries/user_preferences.inc.php:66
@@ -13154,7 +13154,7 @@ msgid "Active options"
 msgstr "Активовані опції"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Сторінка була створена"
 
 #: pmd_pdf.php:56
@@ -14898,9 +14898,6 @@ msgstr "concurrent_insert встановлений у 0"
 #~ msgstr ""
 #~ "Залиште порожнім, щоб вимкнути функцію налаштовуваних меню, пропонується: "
 #~ "[kbd]pma_userconfig[/kbd]"
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Ваш SQL-запит було успішно виконано"
 
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "Багато даних ENUM чи SET?"

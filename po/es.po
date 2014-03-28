@@ -2967,7 +2967,7 @@ msgid "Comment"
 msgstr "Comentario"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "La clave primaria ha sido eliminada"
 
 #: libraries/Index.class.php:610
@@ -8430,7 +8430,7 @@ msgstr "Optimizar la tabla"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Se ha vaciado el caché de la tabla %s"
 
 #: libraries/operations.lib.php:1202
@@ -12268,7 +12268,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Se ha vaciado la tabla %s"
 
 #: libraries/structure.lib.php:92
@@ -12331,7 +12331,7 @@ msgstr "Ninguna"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Se ha eliminado la columna %s"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12428,12 +12428,12 @@ msgstr "Índice automático siguiente"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Se añadió un índice en %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Se agregó una clave primaria en %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12471,7 +12471,7 @@ msgstr "Efectivo/a"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Los cambios en la Tabla %1$s se hicieron exitosamente"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12906,7 +12906,7 @@ msgid "Manage your settings"
 msgstr "Administrar tu configuración"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Se guardó la configuración"
 
 #: libraries/user_preferences.inc.php:66
@@ -13059,7 +13059,7 @@ msgid "Active options"
 msgstr "Opciones activas"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Se creó la página"
 
 #: pmd_pdf.php:56
@@ -14852,9 +14852,6 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ msgstr ""
 #~ "Deje en blanco para desactivar la funcionalidad de menús configurables, "
 #~ "valor sugerido: [kbd]pma__usergroups[/kbd]."
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Su consulta se ejecutó con éxito"
 
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "¿Datos ENUM o SET demasiado largos?"

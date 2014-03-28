@@ -2732,7 +2732,7 @@ msgstr "空間データをバイナリで表示"
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "行を削除しました"
 
@@ -2753,7 +2753,7 @@ msgstr "正確な数字とは限りません。[doc@faq3-11]FAQ 3.11[/doc] を�
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました"
 
@@ -3016,7 +3016,7 @@ msgid "Comment"
 msgstr "コメント"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "主キーを削除しました"
 
 #: libraries/Index.class.php:610
@@ -8985,7 +8985,7 @@ msgstr "テーブルを最適化する"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "テーブル %s をフラッシュしました"
 
 #: libraries/operations.lib.php:1202
@@ -12885,7 +12885,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "テーブル %s を空にしました"
 
 #: libraries/structure.lib.php:92
@@ -12899,13 +12899,13 @@ msgstr "SQL コマンドの追跡は非アクティブです。"
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "ビュー %s を破棄しました"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "テーブル %s を削除しました"
 
@@ -12952,7 +12952,7 @@ msgstr "なし"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "カラム %s を削除しました"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -13051,12 +13051,12 @@ msgstr "次の自動付番"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "%s にインデックスを追加しました"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "%s に主キーを追加しました"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -13094,7 +13094,7 @@ msgstr "有効"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "テーブル %1$s は正常に変更されました"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13556,7 +13556,7 @@ msgid "Manage your settings"
 msgstr "ユーザ環境設定の管理"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "設定を保存しました"
 
 #: libraries/user_preferences.inc.php:66
@@ -13711,7 +13711,7 @@ msgid "Active options"
 msgstr "アクティブオプション"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "ページが作成されました"
 
 #: pmd_pdf.php:56
@@ -15553,9 +15553,6 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ "データベースにユーザ設定の保存しない場合は空欄にします。[kbd]"
 #~ "pma_userconfig[/kbd] としておくのがいいでしょう。"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "SQL は正常に実行されました"
-
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM もしくは SET データが長いので、？"
 
@@ -15925,7 +15922,7 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "選択された対象先のテーブルは、元のテーブルと同期されています。"
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "対象先のデータベースが、元のデータベースと同期されています。"
 
 #~ msgid "Executed queries"
@@ -16742,7 +16739,7 @@ msgstr "concurrent_insert は 0 に設定されています。"
 #~ msgid "Fields"
 #~ msgstr "フィールド"
 
-#~ msgid "Field %s has been dropped"
+#~ msgid "Field %s has been dropped."
 #~ msgstr "フィールド %s を削除しました"
 
 #~ msgid "See image/jpeg: inline"

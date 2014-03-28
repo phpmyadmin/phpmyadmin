@@ -66,7 +66,7 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         $empty_table .= '&amp;message_to_show='
             . urlencode(
                 sprintf(
-                    __('Table %s has been emptied'),
+                    __('Table %s has been emptied.'),
                     htmlspecialchars($current_table['TABLE_NAME'])
                 )
             )
@@ -1360,7 +1360,7 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_system_schema,
             . '&amp;dropped_column=' . urlencode($row['Field'])
             . '&amp;message_to_show=' . urlencode(
                 sprintf(
-                    __('Column %s has been dropped'),
+                    __('Column %s has been dropped.'),
                     htmlspecialchars($row['Field'])
                 )
             ) . '" >'
@@ -1918,7 +1918,7 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
             . '&amp;message_to_show='
             . urlencode(
                 sprintf(
-                    __('An index has been added on %s'),
+                    __('An index has been added on %s.'),
                     htmlspecialchars($row['Field'])
                 )
             )
@@ -1986,7 +1986,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         ($primary && $primary->hasColumn($field_name)),
         true, $url_query, $primary,
         'ADD PRIMARY KEY',
-        __('A primary key has been added on %s'),
+        __('A primary key has been added on %s.'),
         'Primary', $titles, $row, true
     );
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
@@ -1994,13 +1994,13 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         'add_unique unique nowrap',
         isset($columns_with_unique_index[$field_name]),
         false, $url_query, $primary, 'ADD UNIQUE',
-        __('An index has been added on %s'),
+        __('An index has been added on %s.'),
         'Unique', $titles, $row, false
     );
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
         $type, $tbl_storage_engine,
         'add_index index nowrap', false, false, $url_query,
-        $primary, 'ADD INDEX', __('An index has been added on %s'),
+        $primary, 'ADD INDEX', __('An index has been added on %s.'),
         'Index', $titles, $row, false
     );
     if (!PMA_DRIZZLE) {
@@ -2015,7 +2015,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
                 || 'MYISAM' != $tbl_storage_engine
             ),
             false, $url_query, $primary, 'ADD SPATIAL',
-            __('An index has been added on %s'), 'Spatial',
+            __('An index has been added on %s.'), 'Spatial',
             $titles, $row, false
         );
 
@@ -2412,7 +2412,7 @@ function PMA_updateColumns($db, $table)
     $response = PMA_Response::getInstance();
     if ($result !== false) {
         $message = PMA_Message::success(
-            __('Table %1$s has been altered successfully')
+            __('Table %1$s has been altered successfully.')
         );
         $message->addParam($table);
 

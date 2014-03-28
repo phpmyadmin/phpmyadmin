@@ -2871,7 +2871,7 @@ msgid "Comment"
 msgstr "說明"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "已刪除主鍵(Primary key)"
 
 #: libraries/Index.class.php:610
@@ -8009,7 +8009,7 @@ msgstr "最佳化資料表"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "已更新資料表 %s"
 
 #: libraries/operations.lib.php:1202
@@ -11618,7 +11618,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "已清空表 %s"
 
 #: libraries/structure.lib.php:92
@@ -11683,7 +11683,7 @@ msgstr "無"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "已刪除欄位 %s"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -11780,12 +11780,12 @@ msgstr "下個自動索引"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "已將 %s 設爲索引"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "已將 %s 設爲主鍵(Primary key)"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -11823,7 +11823,7 @@ msgstr "有效"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改資料表 %1$s"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12245,7 +12245,7 @@ msgid "Manage your settings"
 msgstr "管理您的設定"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "已儲存設定"
 
 #: libraries/user_preferences.inc.php:66
@@ -12394,7 +12394,7 @@ msgid "Active options"
 msgstr "目前選項"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "已建立頁面"
 
 #: pmd_pdf.php:56
@@ -14007,9 +14007,6 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ "pma__usergroups[/kbd]."
 #~ msgstr "空白為停用選單設定功能，建議值：[kbd]pma__usergroups[/kbd]。"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "您的 SQL 語法已順利執行"
-
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM 或 SET 資料過長？"
 
@@ -14389,7 +14386,7 @@ msgstr "concurrent_insert 目前設定為 0"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "選中的資料表已根據來源資料表同步"
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "已根據來源資料庫同步目標資料庫"
 
 #, fuzzy

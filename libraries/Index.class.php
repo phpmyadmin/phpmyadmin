@@ -598,7 +598,7 @@ class PMA_Index
                         . PMA_Util::backquote($table)
                         . ' DROP PRIMARY KEY;';
                     $this_params['message_to_show']
-                        = __('The primary key has been dropped');
+                        = __('The primary key has been dropped.');
                     $js_msg = PMA_jsFormat(
                         'ALTER TABLE ' . $table . ' DROP PRIMARY KEY'
                     );

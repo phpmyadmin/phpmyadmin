@@ -224,13 +224,13 @@ msgstr "డేటాబేస్ పేరు ఖాళీగా ఉన్నద
 # మొదటి అనువాదము
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s డేటాబేసును %2$s గా పేరుమార్చడమైంది"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %s has been copied to %s"
+#| msgid "Database %s has been copied to %s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "%s డేటాబేస్ %s డేటాబేస్ కు కాపీ అయింది"
 
@@ -663,7 +663,7 @@ msgstr ""
 # మొదటి అనువాదము
 #: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1805
 #, fuzzy, php-format
-#| msgid "Page has been created"
+#| msgid "Page has been created."
 msgid "Bookmark %s has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
@@ -2814,7 +2814,7 @@ msgstr ""
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "మీ SQL క్వెరీ విజయవంతంగా నిర్వహించబడింది"
 
@@ -3068,7 +3068,7 @@ msgid "Comment"
 msgstr "వ్యాఖ్య"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr ""
 
 #: libraries/Index.class.php:610
@@ -3492,7 +3492,7 @@ msgstr "మరిన్ని అమరికలు"
 # మొదటి అనువాదము
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Page has been created"
+#| msgid "Page has been created."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "పుటను సృష్టించడమైనది"
 
@@ -8263,7 +8263,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr ""
 
 #: libraries/operations.lib.php:1202
@@ -9510,7 +9510,7 @@ msgstr "%s డేటాబేస్ తుడిచివేయడమైనద�
 # మొదటి అనువాదము
 #: libraries/rte/rte_events.lib.php:164
 #, fuzzy, php-format
-#| msgid "Page has been created"
+#| msgid "Page has been created."
 msgid "Event %1$s has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
@@ -9660,7 +9660,7 @@ msgstr "%s డేటాబేస్ తుడిచివేయడమైనద�
 # మొదటి అనువాదము
 #: libraries/rte/rte_routines.lib.php:365
 #, fuzzy, php-format
-#| msgid "Page has been created"
+#| msgid "Page has been created."
 msgid "Routine %1$s has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
@@ -9793,7 +9793,7 @@ msgstr "%s డేటాబేస్ తుడిచివేయడమైనద�
 # మొదటి అనువాదము
 #: libraries/rte/rte_triggers.lib.php:136
 #, fuzzy, php-format
-#| msgid "Page has been created"
+#| msgid "Page has been created."
 msgid "Trigger %1$s has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
@@ -11910,7 +11910,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr ""
 
 #: libraries/structure.lib.php:92
@@ -11982,7 +11982,7 @@ msgstr "ఏమీలేదు"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr ""
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12095,12 +12095,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr ""
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr ""
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12140,7 +12140,7 @@ msgstr ""
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr ""
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12607,7 +12607,7 @@ msgstr "ప్రాధమిక అమరికలు"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Server configuration"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "సేవకి స్వరూపణం"
 
 #: libraries/user_preferences.inc.php:66
@@ -12769,7 +12769,7 @@ msgstr "క్రియాశీల ఎంపికలు"
 
 # మొదటి అనువాదము
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "పుటను సృష్టించడమైనది"
 
 # మొదటి అనువాదము
@@ -14348,9 +14348,6 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "మీ SQL క్వెరీ విజయవంతంగా నిర్వహించబడింది"
 
 # మొదటి అనువాదము
 #, fuzzy

@@ -2924,7 +2924,7 @@ msgid "Comment"
 msgstr "ටීකාව"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "ප්‍රාථමික මූලය හලන ලදි"
 
 #: libraries/Index.class.php:610
@@ -8359,7 +8359,7 @@ msgstr "වගුව ප්‍රශස්තගත කරන්න"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr ""
 
 #: libraries/operations.lib.php:1202
@@ -11997,7 +11997,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "%s වගුව හිස් කරන ලදි"
 
 #: libraries/structure.lib.php:92
@@ -12062,7 +12062,7 @@ msgstr "කිසිවක් නැත"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "%s තීරුව හලන ලදි"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12159,12 +12159,12 @@ msgstr "මීළඟ ක්‍රමාංකය"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "%s සඳහා සූචියක් එක්කරන ලදි"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "%s ට ප්‍රාථමික මූලයක් එක් කරන ලදි"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12202,7 +12202,7 @@ msgstr "එලදායී"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12632,7 +12632,7 @@ msgid "Manage your settings"
 msgstr "සිටුවම් පරිපාලනය"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "වෙනස් කිරීම් සුරකින ලදි"
 
 #: libraries/user_preferences.inc.php:66
@@ -12783,7 +12783,7 @@ msgid "Active options"
 msgstr "සක්‍රිය විකල්ප"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "පිටුව සාදන ලදි"
 
 #: pmd_pdf.php:56
@@ -14408,9 +14408,6 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ "භාවිතා කරන්නාගේ අභිරුචි දත්තගබඩාවේ ගබඩා කිරීමේ විශේෂාංගය අනවශ්‍ය නම් හිස්ව තබන්න; යෝජිත: "
 #~ "[kbd]pma__userconfig[/kbd]"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "ඔබගේ SQL විමසුම සාර්ථකව ක්‍රියාවට නංවන ලදි"
-
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Drizzle සේවාදායකය වෙත සම්බන්ධ විය නොහැකි විය"
 
@@ -14760,7 +14757,7 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "ඉලක්ක ලෙස තෝරාගත් වගු මූලාශ්‍ර වගු සමඟ සමමුහුර්ත කර ඇත."
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "ඉලක්ක දත්තගබඩා මූලාශ්‍ර දත්තගබඩා සමඟ සමමුහුර්ත කර ඇත"
 
 #~ msgid "Executed queries"

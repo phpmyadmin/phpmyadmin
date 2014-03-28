@@ -222,13 +222,13 @@ msgstr "Өгөгдлийн сангийн нэр хоосон!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s өгөгдлийн сангийн нэр %2$s боллоо"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s өгөгдлийн сан %2$s руу хуулагдлаа"
 
@@ -2921,7 +2921,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Мөр устгагдсан"
 
@@ -2940,7 +2940,7 @@ msgstr ""
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "Таны SQL-асуулт амжилттай ажиллав"
 
@@ -3197,7 +3197,7 @@ msgid "Comment"
 msgstr ""
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Үндсэн түлхүүр устгагдлаа"
 
 #: libraries/Index.class.php:610
@@ -3623,7 +3623,7 @@ msgstr "Ерөнхий хамаатай онцлог"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Хүснэгт %s-ын нэр %s болж өөрчлөгдлөө"
 
@@ -8587,7 +8587,7 @@ msgstr "Хүснэгтийг зүгшрүүлэх"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Хүснэгт %s нь flushed боллоо"
 
 #: libraries/operations.lib.php:1202
@@ -9949,13 +9949,13 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
 #: libraries/rte/rte_events.lib.php:164
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been created."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
@@ -10102,13 +10102,13 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
 #: libraries/rte/rte_routines.lib.php:365
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been created."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
@@ -10238,13 +10238,13 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
 #: libraries/rte/rte_triggers.lib.php:136
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been created."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
@@ -11011,7 +11011,7 @@ msgstr "Хандив"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "Харц %s нь устгагдсан"
 
@@ -12481,7 +12481,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Хүснэгт %s нь хоослогдлоо"
 
 #: libraries/structure.lib.php:92
@@ -12495,13 +12495,13 @@ msgstr ""
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Харц %s нь устгагдсан"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
@@ -12554,8 +12554,8 @@ msgstr "Байхгүй"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "Хүснэгт %s нь устгагдлаа"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12663,12 +12663,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "%s-д индекс нэмэгдсэн байна"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "%s-д үндсэн түлхүүр нэмэгдлээ"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12712,7 +12712,7 @@ msgstr "Эффекттэй"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr ""
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13206,7 +13206,7 @@ msgstr "Ерөнхий хамаатай онцлог"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Өөрчлөлт хадгалагдав"
 
 #: libraries/user_preferences.inc.php:66
@@ -13376,7 +13376,7 @@ msgid "Active options"
 msgstr "Хүснэгтийн сонголтууд"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr ""
 
 #: pmd_pdf.php:56
@@ -15030,9 +15030,6 @@ msgstr "ХИ. давхацсан холболтууд"
 #~ msgid "Copy Salt"
 #~ msgstr "Хуулах"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Таны SQL-асуулт амжилттай ажиллав"
-
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Асуулт нь %01.4f сек авлаа"
 
@@ -15636,7 +15633,7 @@ msgstr "ХИ. давхацсан холболтууд"
 #~ msgid "Fields"
 #~ msgstr "Талбарууд"
 
-#~ msgid "Field %s has been dropped"
+#~ msgid "Field %s has been dropped."
 #~ msgstr "Талбар %s устгагдсан"
 
 #~ msgid "See image/jpeg: inline"

@@ -222,13 +222,13 @@ msgstr "Biremlek iseme buş!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s"
+#| msgid "Database %s has been renamed to %s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "\"%s\" biremlege \"%s\" itep ataldı"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s"
+#| msgid "Database %s has been renamed to %s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "\"%s\" biremlege \"%s\" itep ataldı"
 
@@ -2918,7 +2918,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Bu yazma salınğan buldı"
 
@@ -2939,7 +2939,7 @@ msgstr "Törle buluı bar. [doc@faq3-11]YBS 3.11[/doc] qarísı"
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-sorawıñ uñışlı eşkärtelde"
 
@@ -3195,7 +3195,7 @@ msgid "Comment"
 msgstr "Açıqlama"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Töp açqıç beterelde"
 
 #: libraries/Index.class.php:610
@@ -3620,7 +3620,7 @@ msgstr "%1$s atlı tüşämä adın %2$s itep üzgärtep bulmadı"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "\"%s\" tüşämäse \"%s\" itep ataldı"
 
@@ -8576,7 +8576,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "\"%s\" atlı tüşämä awdarıldı"
 
 #: libraries/operations.lib.php:1202
@@ -9934,7 +9934,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "\"%s\" atlı tüşämä beterelde"
 
@@ -10086,7 +10086,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "\"%s\" atlı tüşämä beterelde"
 
@@ -10218,7 +10218,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "\"%s\" atlı tüşämä beterelde"
 
@@ -10985,7 +10985,7 @@ msgstr "Xoquq"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "\"%s\" atlı Qaraş beterelgän buldı"
 
@@ -12417,7 +12417,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "\"%s\" atlı tüşämä buşatıldı"
 
 #: libraries/structure.lib.php:92
@@ -12431,13 +12431,13 @@ msgstr ""
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "\"%s\" atlı Qaraş beterelgän buldı"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "\"%s\" atlı tüşämä beterelde"
 
@@ -12490,8 +12490,8 @@ msgstr "Buş"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "\"%s\" atlı tüşämä beterelde"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12599,12 +12599,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "\"%s\" öçen ber açqıç qorıldı"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "\"%s\" öçen töp açqıç qorıldı"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12643,7 +12643,7 @@ msgstr "Uñışlı"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, fuzzy, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Saylanğan qullanuçını beterü uñışlı uzdı."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13135,7 +13135,7 @@ msgstr "Bäyläneşlär buyınça töp mömkinleklär"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Üzgärtülär saqlandı"
 
 #: libraries/user_preferences.inc.php:66
@@ -13305,7 +13305,7 @@ msgstr "Tüşämä köyläneşe"
 
 #: pmd_pdf.php:53
 #, fuzzy
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "\"%s\" atlı tüşämä beterelde"
 
 #: pmd_pdf.php:56
@@ -14940,9 +14940,6 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "SQL-sorawıñ uñışlı eşkärtelde"
 
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Soraw eşkärtü %01.4f sek aldı"

@@ -337,7 +337,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                 'goto' => 'tbl_structure.php',
                 'reload' => '1',
                 'message_to_show' => sprintf(
-                    __('Table %s has been emptied'),
+                    __('Table %s has been emptied.'),
                     htmlspecialchars($table)
                 ),
             )

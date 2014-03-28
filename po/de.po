@@ -225,7 +225,7 @@ msgstr "Datenbank %1$s wurde in %2$s umbenannt."
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Datenbank %1$s wurde nach %2$s kopiert"
 
@@ -3030,7 +3030,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Der Primärschlüssel wurde gelöscht"
 
 #: libraries/Index.class.php:610
@@ -8849,7 +8849,7 @@ msgstr "Optimiere Tabelle"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr ""
 "Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert"
 
@@ -12760,7 +12760,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Die Tabelle %s wurde geleert"
 
 #: libraries/structure.lib.php:92
@@ -12774,13 +12774,13 @@ msgstr "Tracking ist nicht aktiviert."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Die Ansicht %s wurde gelöscht"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Die Tabelle %s wurde gelöscht"
 
@@ -12827,7 +12827,7 @@ msgstr "kein(e)"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Spalte %s wurde gelöscht"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12924,12 +12924,12 @@ msgstr "Nächster Autoindex"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Ein Index wurde in %s erzeugt"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Ein Primärschlüssel wurde in %s erzeugt"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12967,7 +12967,7 @@ msgstr "Effektiv"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Die Tabelle %1$s wurde erfolgreich geändert"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13405,7 +13405,7 @@ msgid "Manage your settings"
 msgstr "Deine Einstellungen verwalten"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Die Konfiguration wurde gespeichert"
 
 #: libraries/user_preferences.inc.php:66
@@ -13558,7 +13558,7 @@ msgid "Active options"
 msgstr "Aktive Optionen"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Seite wurde erstellt"
 
 #: pmd_pdf.php:56
@@ -15359,9 +15359,6 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ "Leer lassen, um die Benutzereinstellungen nicht in der Datenbank zu "
 #~ "speichern, Vorschlag: [kbd]pma__userconfig[/kbd]"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Ihr SQL-Befehl wurde erfolgreich ausgeführt"
-
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM oder SET Daten zu lang?"
 
@@ -15749,7 +15746,7 @@ msgstr "concurrent_insert ist auf 0 gesetzt"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "Ausgewählte Ziel-Tabellen wurden mit Quell-Tabellen abgeglichen."
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "Ziel-Tabelle wurde mit Quell-Tabelle abgeglichen"
 
 #~ msgid "Executed queries"

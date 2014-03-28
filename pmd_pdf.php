@@ -50,10 +50,10 @@ if (isset($_POST['mode'])) {
     if ('create_export' == $_POST['mode']) {
         $pdf_page_number = PMA_REL_createPage($_POST['newpage'], $cfgRelation, $db);
         if ($pdf_page_number > 0) {
-            $message = PMA_Message::success(__('Page has been created'));
+            $message = PMA_Message::success(__('Page has been created.'));
             $_POST['mode'] = 'export';
         } else {
-            $message = PMA_Message::error(__('Page creation failed'));
+            $message = PMA_Message::error(__('Page creation has failed!'));
         }
     } else {
         $pdf_page_number = $_POST['pdf_page_number'];

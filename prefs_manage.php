@@ -294,7 +294,7 @@ if (file_exists('setup/index.php')) {
             <div class="click-hide-message group-cnt" style="display:none">
                 <?php
 PMA_Message::rawSuccess(
-    __('Configuration has been saved')
+    __('Configuration has been saved.')
 )->display();
 echo '</div>'
     . '<form class="group-cnt prefs-form disableAjax" name="prefs_export"'

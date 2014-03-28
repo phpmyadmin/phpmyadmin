@@ -2935,7 +2935,7 @@ msgid "Comment"
 msgstr "Yorum"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Birincil anahtar kaldırıldı"
 
 #: libraries/Index.class.php:610
@@ -8328,7 +8328,7 @@ msgstr "Tabloyu uyarla"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "%s tablosu temizlendi"
 
 #: libraries/operations.lib.php:1202
@@ -12095,7 +12095,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "%s tablosu boşaltıldı"
 
 #: libraries/structure.lib.php:92
@@ -12158,7 +12158,7 @@ msgstr "Yok"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Sütun %s kaldırıldı"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12255,12 +12255,12 @@ msgstr "Sonraki otoindeks"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "%s üzerinde bir indeks eklendi"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "%s üzerinde birincil anahtar eklendi"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12298,7 +12298,7 @@ msgstr "Etkili"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Tablo %1$s başarılı olarak değiştirldi"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12734,7 +12734,7 @@ msgid "Manage your settings"
 msgstr "Ayarlarınızı yönetin"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Yapılandırma kaydedildi"
 
 #: libraries/user_preferences.inc.php:66
@@ -12886,7 +12886,7 @@ msgid "Active options"
 msgstr "Aktif seçenekler"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Sayfa oluşturuldu"
 
 #: pmd_pdf.php:56
@@ -14628,9 +14628,6 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "Yapılandırılabilir menüler özelliğini etkisizleştirmek için boş bırakın, "
 #~ "önerilen: [kbd]pma__usergroups[/kbd]."
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "SQL sorgunuz başarılı olarak çalıştırıldı"
-
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM ya da SET verisi çok mu uzun?"
 
@@ -15035,7 +15032,7 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "Seçili hedef tablolar kaynak tablolar ile eşitlendi."
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "Hedef veritabanı kaynak veritabanı ile eşitlendi"
 
 #~ msgid "Executed queries"

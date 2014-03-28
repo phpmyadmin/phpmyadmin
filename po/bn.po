@@ -218,13 +218,13 @@ msgstr "ডাটাবেইজের নাম দেওয়া হয় না�
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "ডাটাবেইজ %1$s এর  নতুন নামকরণ %2$s হয়েছে"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "ডাটাবেইজ %1$s টি  %2$s এ অনুলিপি হয়েছে"
 
@@ -2938,7 +2938,7 @@ msgid "Comment"
 msgstr "মন্তব্য"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "প্রাথমিক কী মুছা হয়েছে"
 
 #: libraries/Index.class.php:610
@@ -8246,7 +8246,7 @@ msgstr "টেবিল সর্বোচ্চ কার্যপযোগী 
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "%s টেবিলটি ফ্লাশ করা হয়েছে"
 
 #: libraries/operations.lib.php:1202
@@ -11937,7 +11937,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "টেবিল %s খালি করা হয়েছে"
 
 #: libraries/structure.lib.php:92
@@ -12002,7 +12002,7 @@ msgstr "কিছু না"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "স্বম্ভ %s মুছা হয়েছে"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12099,12 +12099,12 @@ msgstr "পরবর্তী অটোইনডেক্স"
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "%s এ একটি ইনডেক্স যোগ করা হয়েছে"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "%s একটি প্রাইমারি কী যোগ করা হয়েছে"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12142,7 +12142,7 @@ msgstr "কার্যকর"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12568,7 +12568,7 @@ msgid "Manage your settings"
 msgstr "আপনার সেটিংস রক্ষণাবেক্ষণ করুন"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "কনফিগারেশন সংরক্ষন করা হয়েছে"
 
 #: libraries/user_preferences.inc.php:66
@@ -12720,7 +12720,7 @@ msgid "Active options"
 msgstr "কার্যকর অপশনসমূহ"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "পাতা তৈরী করা হয়েছে"
 
 #: pmd_pdf.php:56
@@ -14382,9 +14382,6 @@ msgstr "concurrent_insert এর জন্য ০ নির্ধারন ক�
 #~ msgstr ""
 #~ "ব্যবহারকারীর নির্ধারন (preferences) ডাটাবেইজে মজুদ করতে না চাইলে খালি রাখুন, "
 #~ "দেখুন:[kbd]pma_userconfig[/kbd]।"
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে"
 
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM বা SET তথ্য অনেক বড়?"

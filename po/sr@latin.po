@@ -223,13 +223,13 @@ msgstr "Ime baze nije zadato!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Baza %1$s je preimenovana u %2$s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza %1$s je iskopirana u %2$s"
 
@@ -2786,7 +2786,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Red je obrisan"
 
@@ -2807,7 +2807,7 @@ msgstr "Može biti približno. Vidite [doc@faq3-11]FAQ 3.11[/doc]"
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "Vaš SQL upit je uspešno izvršen"
 
@@ -3072,7 +3072,7 @@ msgid "Comment"
 msgstr "Komentar"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Primarni ključ je obrisan"
 
 #: libraries/Index.class.php:610
@@ -3495,7 +3495,7 @@ msgstr "Greška pri preimenovanju tabele %1$s u %2$s"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabeli %s promenjeno ime u %s"
 
@@ -8589,7 +8589,7 @@ msgstr "Optimizuj tabelu"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Tabela %s je osvežena"
 
 #: libraries/operations.lib.php:1202
@@ -12392,7 +12392,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Tabela %s je ispražnjena"
 
 #: libraries/structure.lib.php:92
@@ -12406,13 +12406,13 @@ msgstr "Praćenje nije aktivno."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Pogled %s je odbačen"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Tabela %s je odbačena"
 
@@ -12459,7 +12459,7 @@ msgstr "Ništa"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Kolona %s je obrisana"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12560,12 +12560,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Ključ je upravo dodat %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Primarni ključ je upravo dodat %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12605,7 +12605,7 @@ msgstr "Efektivne"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Tabela %1$s je uspešno izmenjena"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13062,7 +13062,7 @@ msgid "Manage your settings"
 msgstr "Upravljanje podešavanjima"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Konfiguracija je sačuvana"
 
 #: libraries/user_preferences.inc.php:66
@@ -13212,7 +13212,7 @@ msgid "Active options"
 msgstr "Aktivne opcije"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Strana je kreirana"
 
 #: pmd_pdf.php:56
@@ -14788,9 +14788,6 @@ msgstr "concurrent_insert je postavljeno na 0"
 #~ msgid "Copy Salt"
 #~ msgstr "Kopiraj"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Vaš SQL upit je uspešno izvršen"
-
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Upit je trajao %01.4f sekundi"
 
@@ -15039,7 +15036,7 @@ msgstr "concurrent_insert je postavljeno na 0"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "Izabrane odredišne tabele su sinhronizovane sa izvornim tabelama."
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "Odredišna baza je sinhronizovana sa izvornom bazom"
 
 #~ msgid "Executed queries"

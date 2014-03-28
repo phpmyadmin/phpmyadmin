@@ -1192,7 +1192,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
         'sql_query' => 'FLUSH TABLE '
             . PMA_Util::backquote($GLOBALS['table']),
         'message_to_show' => sprintf(
-            __('Table %s has been flushed'),
+            __('Table %s has been flushed.'),
             htmlspecialchars($GLOBALS['table'])
         ),
         'reload' => 1,

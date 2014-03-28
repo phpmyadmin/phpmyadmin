@@ -226,7 +226,7 @@ msgstr "Baza de date %1$s a fost redenumită în %2$s ."
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza de date %1$s a fost copiată la %2$s"
 
@@ -2832,7 +2832,7 @@ msgstr "Binar Bine Cunoscut"
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Linia a fost ștearsă"
 
@@ -2853,7 +2853,7 @@ msgstr "Poate fi aproximativ. Vezi [doc@faq3-11]FAQ 3.11[/doc]"
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "Comanda dumneavoastră SQL a fost executată cu succes"
 
@@ -3117,7 +3117,7 @@ msgid "Comment"
 msgstr "Comentariu"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Cheia primară a fost aruncată"
 
 #: libraries/Index.class.php:610
@@ -3544,7 +3544,7 @@ msgstr "Eroare la redenumirea tabelului din %1$s în %2$s"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabelului %s a fost redenumit în %s"
 
@@ -9140,7 +9140,7 @@ msgstr "Optimizare tabel"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Tabelul %s a fost curățat"
 
 #: libraries/operations.lib.php:1202
@@ -10837,7 +10837,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Tabelul %s a fost aruncat"
 
@@ -11620,7 +11620,7 @@ msgstr "Permite"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "Vizualizarea %s a fost eliminată"
 
@@ -13081,7 +13081,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Tabelul %s a fost golit"
 
 #: libraries/structure.lib.php:92
@@ -13095,13 +13095,13 @@ msgstr "Monitorizarea nu este activată."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Vizualizarea %s a fost eliminată"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Tabelul %s a fost aruncat"
 
@@ -13150,8 +13150,8 @@ msgstr "Nici unul/una"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "Tabelul %s a fost aruncat"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -13259,12 +13259,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "A fost adăugat un index la %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "A fost adăugată o cheie primară la %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -13304,7 +13304,7 @@ msgstr "Efectiv"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Tabelul %1$s a fost alterat cu succes"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13783,7 +13783,7 @@ msgstr "Facilități generale"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Modificările au fost salvate"
 
 #: libraries/user_preferences.inc.php:66
@@ -13942,7 +13942,7 @@ msgid "Active options"
 msgstr "Opțiuni tabel"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Pagina a fost creată"
 
 #: pmd_pdf.php:56
@@ -15695,9 +15695,6 @@ msgstr "concurrent_insert este setat cu 0"
 #~ msgstr ""
 #~ "Lăsați necompletat dacă nu doriți stocarea preferințelor utilizatorilor "
 #~ "în baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Comanda dumneavoastră SQL a fost executată cu succes"
 
 #~ msgid "Could not connect to Drizzle server"
 #~ msgstr "Conexiunea la server-ul Drizzle a eșuat"

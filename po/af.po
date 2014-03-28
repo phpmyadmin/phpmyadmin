@@ -222,13 +222,13 @@ msgstr "Die databasis naam is leeg!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databasis %1$s se naam is verander na %2$s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databasis %1$s is gekopieer na %2$s"
 
@@ -2834,7 +2834,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Die ry is verwyder"
 
@@ -2852,10 +2852,8 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
-#, fuzzy
-#| msgid "Your SQL query has been executed successfully"
 msgid "Your SQL query has been executed successfully."
-msgstr "Jou SQL-navraag is suksesvol uitgevoer"
+msgstr "Jou SQL-navraag is suksesvol uitgevoer."
 
 #: libraries/DisplayResults.class.php:5039 libraries/structure.lib.php:671
 #, php-format
@@ -3108,7 +3106,7 @@ msgid "Comment"
 msgstr "Kommentaar"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Die primere sleutel is verwyder"
 
 #: libraries/Index.class.php:610
@@ -3526,7 +3524,7 @@ msgstr "Bediener weergawe"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %s is vernoem na %s"
 
@@ -8346,7 +8344,7 @@ msgstr "Optimaliseer tabel"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Tabel %s is geflush"
 
 #: libraries/operations.lib.php:1202
@@ -9610,7 +9608,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "Tabel %s is verwyder"
 
@@ -9755,7 +9753,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Tabel %s is verwyder"
 
@@ -9880,7 +9878,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Tabel %s is verwyder"
 
@@ -12015,7 +12013,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Tabel %s is leeg gemaak"
 
 #: libraries/structure.lib.php:92
@@ -12034,7 +12032,7 @@ msgstr "Veld %s is verwyder"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Tabel %s is verwyder"
 
@@ -12085,8 +12083,8 @@ msgstr "Geen"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "Tabel %s is verwyder"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12191,12 +12189,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "'n Indeks is bygevoeg op %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "'n primere sleutel is bygevoeg op %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12234,7 +12232,7 @@ msgstr "Effektief"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr ""
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12716,7 +12714,7 @@ msgstr "Algemene verwantskap funksies"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Veranderinge is gestoor"
 
 #: libraries/user_preferences.inc.php:66
@@ -12881,7 +12879,7 @@ msgstr "Aksie"
 
 #: pmd_pdf.php:53
 #, fuzzy
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Tabel %s is verwyder"
 
 #: pmd_pdf.php:56
@@ -14443,9 +14441,6 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr ""
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Jou SQL-navraag is suksesvol uitgevoer"
-
 #, fuzzy
 #~ msgid "Reloading Privileges"
 #~ msgstr "Geen Regte"
@@ -14928,7 +14923,7 @@ msgstr ""
 #~ msgid "Fields"
 #~ msgstr "Velde"
 
-#~ msgid "Field %s has been dropped"
+#~ msgid "Field %s has been dropped."
 #~ msgstr "Veld %s is verwyder"
 
 #~ msgid "and"

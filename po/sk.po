@@ -2955,7 +2955,7 @@ msgid "Comment"
 msgstr "Komentár"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Primárny kľúč bol zrušený"
 
 #: libraries/Index.class.php:610
@@ -8726,7 +8726,7 @@ msgstr "Optimalizovať tabuľku"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Tabuľka %s bola vyprázdnená"
 
 #: libraries/operations.lib.php:1202
@@ -12444,7 +12444,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Tabuľka %s bola vyprázdená"
 
 #: libraries/structure.lib.php:92
@@ -12458,13 +12458,13 @@ msgstr "Sledovanie nie je aktívne."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Pohľad %s bol odstránený"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Tabuľka %s bola odstránená"
 
@@ -12511,7 +12511,7 @@ msgstr "Žiadny"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Stĺpec %s bol odstránený"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12608,12 +12608,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Bol pridaný index pre %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Bol pridaný primárny kľúč pre %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12651,7 +12651,7 @@ msgstr "Efektívny"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Tabuľka %1$s bola úspešné upravená"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13079,7 +13079,7 @@ msgid "Manage your settings"
 msgstr "Spravovať svoje nastavenia"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Nastavenia boli uložené"
 
 #: libraries/user_preferences.inc.php:66
@@ -13229,7 +13229,7 @@ msgid "Active options"
 msgstr "Zapnuté parametre"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Stránka bola vytvorená"
 
 #: pmd_pdf.php:56
@@ -14775,9 +14775,6 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ msgstr ""
 #~ "Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení "
 #~ "v databáze. Odporúčaná hodnota: [kbd]pma__userconfig[/kbd]"
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "SQL dopyt bol úspešne vykonaný"
 
 #~ msgid "Get more editing space"
 #~ msgstr "Získať viac miesta pre úpravy"

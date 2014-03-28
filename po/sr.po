@@ -221,13 +221,13 @@ msgstr "Име базе није задато!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s"
+#| msgid "Database %s has been renamed to %s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "База %s је преименована у %s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %s has been copied to %s"
+#| msgid "Database %s has been copied to %s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "База %s је прекопирана у %s"
 
@@ -2942,7 +2942,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Ред је обрисан"
 
@@ -2963,7 +2963,7 @@ msgstr "Може бити приближно. Видите [doc@faq3-11]FAQ 3.11
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL упит је успешно извршен"
 
@@ -3227,7 +3227,7 @@ msgid "Comment"
 msgstr "Коментари"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Примарни кључ је обрисан"
 
 #: libraries/Index.class.php:610
@@ -3651,7 +3651,7 @@ msgstr "Грешка при преименовању табеле %1$s у %2$s"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табели %s промењено име у %s"
 
@@ -8649,7 +8649,7 @@ msgstr "Оптимизуј табелу"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Табела %s је освежена"
 
 #: libraries/operations.lib.php:1202
@@ -10032,7 +10032,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "Табела %s је одбачена"
 
@@ -10183,7 +10183,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Табела %s је одбачена"
 
@@ -10323,7 +10323,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Табела %s је одбачена"
 
@@ -11098,7 +11098,7 @@ msgstr "Омогући"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "Поглед %s је одбачен"
 
@@ -12641,7 +12641,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Табела %s је испражњена"
 
 #: libraries/structure.lib.php:92
@@ -12655,13 +12655,13 @@ msgstr ""
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Поглед %s је одбачен"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Табела %s је одбачена"
 
@@ -12714,8 +12714,8 @@ msgstr "нема"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "Табела %s је одбачена"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12823,12 +12823,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Кључ је управо додат %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Примарни кључ је управо додат %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12872,7 +12872,7 @@ msgstr "Ефективне"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, fuzzy, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Изабрани корисници су успешно обрисани."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13366,7 +13366,7 @@ msgstr "Опште особине релација"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Измене су сачуване"
 
 #: libraries/user_preferences.inc.php:66
@@ -13536,7 +13536,7 @@ msgstr "Опције табеле"
 
 #: pmd_pdf.php:53
 #, fuzzy
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Табела %s је одбачена"
 
 #: pmd_pdf.php:56
@@ -15198,9 +15198,6 @@ msgstr "макс. истовремених веза"
 #~| msgid "Copy"
 #~ msgid "Copy Salt"
 #~ msgstr "Копирај"
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Ваш SQL упит је успешно извршен"
 
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Упит је трајао %01.4f секунди"

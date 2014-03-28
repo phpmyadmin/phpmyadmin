@@ -220,13 +220,13 @@ msgstr "Mungon emri i databazës!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databazës %1$s i është ndryshuar emri në %2$s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databaza %1$s është kopjuar tek %2$s"
 
@@ -2725,7 +2725,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "rreshti u fshi"
 
@@ -2744,7 +2744,7 @@ msgstr ""
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "Query SQL u zbatua me sukses"
 
@@ -3003,7 +3003,7 @@ msgid "Comment"
 msgstr "Komente"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Kyçi primar u eleminua"
 
 #: libraries/Index.class.php:610
@@ -3424,7 +3424,7 @@ msgstr "Versioni i MySQL"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabela %s u riemërtua %s"
 
@@ -8312,7 +8312,7 @@ msgstr "Optimizo tabelën"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Tabela %s u rifreskua"
 
 #: libraries/operations.lib.php:1202
@@ -9672,7 +9672,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "Tabela %s u eleminua"
 
@@ -9821,7 +9821,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Tabela %s u eleminua"
 
@@ -9951,7 +9951,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Tabela %s u eleminua"
 
@@ -10721,7 +10721,7 @@ msgstr "Dhënie"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "Paraqitja %s u eleminua"
 
@@ -12150,7 +12150,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Tabela %s u zbraz"
 
 #: libraries/structure.lib.php:92
@@ -12164,13 +12164,13 @@ msgstr "Gjurmimi nuk është aktiv."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Paraqitja %s u eleminua"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Tabela %s u eleminua"
 
@@ -12218,8 +12218,8 @@ msgstr "Asnjë lloj"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "Tabela %s u eleminua"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12324,12 +12324,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Një tregues u shtua tek %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Një kyç primar u shtua tek %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12368,7 +12368,7 @@ msgstr "Efektiv"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, fuzzy, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Përdoruesit e zgjedhur u hoqën me sukses."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12864,7 +12864,7 @@ msgstr "Karakteristikat e përgjithshme të relacionit"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Ndryshimet u ruajtën"
 
 #: libraries/user_preferences.inc.php:66
@@ -13032,7 +13032,7 @@ msgstr "Opcione për tabelën"
 
 #: pmd_pdf.php:53
 #, fuzzy
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Tabela %s u eleminua"
 
 #: pmd_pdf.php:56
@@ -14618,9 +14618,6 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Query SQL u zbatua me sukses"
 
 #~ msgid "Query took %01.4f sec"
 #~ msgstr "Query ka zgjatur %01.4f sec"

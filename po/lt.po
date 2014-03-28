@@ -223,13 +223,13 @@ msgstr "Nenurodytas duomenų bazės vardas!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Duomenų bazė %1$s pervadinta į %2$s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Duomenų bazė %1$s buvo nukopijuota į %2$s"
 
@@ -2790,7 +2790,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Eilutė buvo ištrinta"
 
@@ -2811,7 +2811,7 @@ msgstr "Gali būti apytikslis. Žiūrėkite [doc@faq3-11]DUK 3.11[/doc]"
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "Jūsų SQL užklausa sėkmingai įvykdyta"
 
@@ -3072,7 +3072,7 @@ msgid "Comment"
 msgstr "Komentaras"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Panaikintas pirminis raktas"
 
 #: libraries/Index.class.php:610
@@ -3496,7 +3496,7 @@ msgstr "Klaida pervadinant lentelę iš %1$s į %2$s"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Lentelė %s pervadinta į %s"
 
@@ -8853,7 +8853,7 @@ msgstr "Optimizuoti"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Lentelės buferis  %s išvalytas"
 
 #: libraries/operations.lib.php:1202
@@ -10390,7 +10390,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Column %s has been dropped"
+#| msgid "Column %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Stulpelis %s panaikintas"
 
@@ -12670,7 +12670,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Lentelės reikšmės %s ištuštintos"
 
 #: libraries/structure.lib.php:92
@@ -12684,13 +12684,13 @@ msgstr "Sekimas yra neaktyvus."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Rodinys %s buvo panaikintas"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Lentelė %s panaikinta"
 
@@ -12737,7 +12737,7 @@ msgstr "Jokio"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "Stulpelis %s panaikintas"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12838,12 +12838,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Indeksas sukurtas %s stulpeliui"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Stulpeliui %s sukurtas PIRMINIS raktas"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12883,7 +12883,7 @@ msgstr "Efektyvus"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "Lentelė %1$s sėkmingai pakeista"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -13363,7 +13363,7 @@ msgid "Manage your settings"
 msgstr "Keiskite savo nustatymus"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Konfigūracija išsaugota"
 
 #: libraries/user_preferences.inc.php:66
@@ -13522,7 +13522,7 @@ msgid "Active options"
 msgstr ""
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Puslapis sukurtas"
 
 #: pmd_pdf.php:56
@@ -15215,9 +15215,6 @@ msgstr "MyISAM concurrent įterpimai"
 #~ msgstr ""
 #~ "Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: [kbd]"
 #~ "pma_designer_coords[/kbd]"
-
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Jūsų SQL užklausa sėkmingai įvykdyta"
 
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM arba SET duomenys per ilgi?"

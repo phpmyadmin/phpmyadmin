@@ -223,13 +223,13 @@ msgstr "Tiada nama pangkalan data!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Pangkalan data %1$s telah ditukarnama ke %2$s"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Pengkalan data %1$s telah disalin ke %2$s"
 
@@ -2847,7 +2847,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Baris telah dipadam"
 
@@ -2866,7 +2866,7 @@ msgstr ""
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "Kueri-SQL anda telah dilaksanakan dengan jaya"
 
@@ -3121,7 +3121,7 @@ msgid "Comment"
 msgstr "Komen"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "Kekunci utama telah digugurkan"
 
 #: libraries/Index.class.php:610
@@ -3538,7 +3538,7 @@ msgstr "Versi Pelayan"
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Jadual %s telah ditukarnama ke %s"
 
@@ -8382,7 +8382,7 @@ msgstr "Optimakan jadual"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "Jadual %s telah dibuangkan"
 
 #: libraries/operations.lib.php:1202
@@ -9662,7 +9662,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "Jadual %s telah digugurkan"
 
@@ -9808,7 +9808,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Jadual %s telah digugurkan"
 
@@ -9934,7 +9934,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Jadual %s telah digugurkan"
 
@@ -12082,7 +12082,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "Jadual %s telah dikosongkan"
 
 #: libraries/structure.lib.php:92
@@ -12096,13 +12096,13 @@ msgstr "Pengesan tidak aktif."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Medan %s telah digugurkan"
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Jadual %s telah digugurkan"
 
@@ -12153,8 +12153,8 @@ msgstr "Tiada"
 
 #: libraries/structure.lib.php:1363
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
-msgid "Column %s has been dropped"
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
 msgstr "Jadual %s telah digugurkan"
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12259,12 +12259,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "Indeks telah ditambah pada %s"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "Kekunci utama telah ditambah pada %s"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12304,7 +12304,7 @@ msgstr "Berkesan"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr ""
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12788,7 +12788,7 @@ msgstr "Ciri-ciri hubungan am"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "Pengubahsuaian telah disimpan"
 
 #: libraries/user_preferences.inc.php:66
@@ -12953,7 +12953,7 @@ msgstr "Aksi"
 
 #: pmd_pdf.php:53
 #, fuzzy
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "Jadual %s telah digugurkan"
 
 #: pmd_pdf.php:56
@@ -14517,9 +14517,6 @@ msgstr ""
 msgid "concurrent_insert is set to 0"
 msgstr ""
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "Kueri-SQL anda telah dilaksanakan dengan jaya"
-
 #, fuzzy
 #~ msgid "Reloading Privileges"
 #~ msgstr "Tiada Privilej"
@@ -15029,7 +15026,7 @@ msgstr ""
 #~ msgid "Fields"
 #~ msgstr "Medan"
 
-#~ msgid "Field %s has been dropped"
+#~ msgid "Field %s has been dropped."
 #~ msgstr "Medan %s telah digugurkan"
 
 #~ msgid "and"

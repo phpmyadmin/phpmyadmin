@@ -220,13 +220,13 @@ msgstr "डेटाबेस का नाम खाली है!"
 
 #: db_operations.php:130
 #, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s"
+#| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "डेटाबेस  %1$s का नाम बदल कर %2$s रखा गया है"
 
 #: db_operations.php:136
 #, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s"
+#| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "डेटाबेस %1$s से %2$s में नकल किया गया है"
 
@@ -2768,7 +2768,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:3477
 #: libraries/DisplayResults.class.php:3493
 #, fuzzy
-#| msgid "The row has been deleted"
+#| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "रौ को डिलीट कर दिया"
 
@@ -2789,7 +2789,7 @@ msgstr "शायद अनुमानित हैं. [doc@faq3-11]FAQ 3.11[/
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
 #, fuzzy
-#| msgid "Your SQL query has been executed successfully"
+#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
 msgstr "आपकी SQL कुएरी सफलता के साथ पूरी की गई है"
 
@@ -3050,7 +3050,7 @@ msgid "Comment"
 msgstr "टिप्पणी"
 
 #: libraries/Index.class.php:601
-msgid "The primary key has been dropped"
+msgid "The primary key has been dropped."
 msgstr "प्राथमिक कुंजी गिरा दी गयी है"
 
 #: libraries/Index.class.php:610
@@ -3474,7 +3474,7 @@ msgstr "टेबल का नाम %1$s से %2$s में बदलने
 
 #: libraries/Table.class.php:1367
 #, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s"
+#| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "टेबल %s का नाम बदल कर %s रखा गया है."
 
@@ -8662,7 +8662,7 @@ msgstr "टेबल को अनुकूलित करें"
 
 #: libraries/operations.lib.php:1195
 #, php-format
-msgid "Table %s has been flushed"
+msgid "Table %s has been flushed."
 msgstr "टेबल %s को flush किया"
 
 #: libraries/operations.lib.php:1202
@@ -9955,7 +9955,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:144
 #, fuzzy, php-format
-#| msgid "Column %s has been dropped"
+#| msgid "Column %s has been dropped."
 msgid "Event %1$s has been modified."
 msgstr "टेबल %s को रद्द किया गया है."
 
@@ -10110,7 +10110,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:344
 #, fuzzy, php-format
-#| msgid "Column %s has been dropped"
+#| msgid "Column %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "टेबल %s को रद्द किया गया है."
 
@@ -10250,7 +10250,7 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:116
 #, fuzzy, php-format
-#| msgid "Column %s has been dropped"
+#| msgid "Column %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "टेबल %s को रद्द किया गया है."
 
@@ -11026,7 +11026,7 @@ msgstr "अनुदान"
 
 #: libraries/server_privileges.lib.php:1889
 #, fuzzy
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "User has been added."
 msgstr "द्रश्य %s रद्द दिया गया है."
 
@@ -12455,7 +12455,7 @@ msgstr ""
 
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
-msgid "Table %s has been emptied"
+msgid "Table %s has been emptied."
 msgstr "टेबल %s को खाली किया गया है."
 
 #: libraries/structure.lib.php:92
@@ -12469,13 +12469,13 @@ msgstr "ट्रैकिंग सक्रिय नहीं है."
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
 #, fuzzy, php-format
-#| msgid "View %s has been dropped"
+#| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "द्रश्य %s रद्द किया गया है."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
-#| msgid "Table %s has been dropped"
+#| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "टेबल %s को रद्द किया गया है."
 
@@ -12522,7 +12522,7 @@ msgstr "कोई नहीं"
 
 #: libraries/structure.lib.php:1363
 #, php-format
-msgid "Column %s has been dropped"
+msgid "Column %s has been dropped."
 msgstr "टेबल %s को रद्द किया गया है."
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
@@ -12628,12 +12628,12 @@ msgstr ""
 #: libraries/structure.lib.php:1921 libraries/structure.lib.php:1997
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
-msgid "An index has been added on %s"
+msgid "An index has been added on %s."
 msgstr "%s पर एक सूचकांक जोड़ा गया है"
 
 #: libraries/structure.lib.php:1989
 #, php-format
-msgid "A primary key has been added on %s"
+msgid "A primary key has been added on %s."
 msgstr "%s  पर एक प्राईमरी की जड़ी गयी है"
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
@@ -12675,7 +12675,7 @@ msgstr "वास्तविक"
 #: libraries/structure.lib.php:2415 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
-msgid "Table %1$s has been altered successfully"
+msgid "Table %1$s has been altered successfully."
 msgstr "%1$s टेबल को सफलतापूर्वक बदल दिया गया है"
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
@@ -12687,7 +12687,7 @@ msgstr "त्रुटियों को इकट्ठा करें"
 
 #: libraries/structure.lib.php:2565
 #, fuzzy
-#| msgid "Table %1$s has been altered successfully"
+#| msgid "Table %1$s has been altered successfully."
 msgid "The columns have been moved successfully."
 msgstr "%1$s टेबल को सफलतापूर्वक बदल दिया गया है"
 
@@ -13178,7 +13178,7 @@ msgstr "सेटिंग्स प्रबंधक"
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 #, fuzzy
 #| msgid "Modifications have been saved"
-msgid "Configuration has been saved"
+msgid "Configuration has been saved."
 msgstr "विन्यास को बचाया गया है"
 
 #: libraries/user_preferences.inc.php:66
@@ -13346,7 +13346,7 @@ msgid "Active options"
 msgstr "सक्रिय विकल्प"
 
 #: pmd_pdf.php:53
-msgid "Page has been created"
+msgid "Page has been created."
 msgstr "पेज बना दिया गया है"
 
 #: pmd_pdf.php:56
@@ -15023,9 +15023,6 @@ msgstr "समवर्ती डालना 0 पर सेट है"
 #~ msgstr ""
 #~ "कोई डिजाइनर समर्थन के लिए खाली छोड़ दें, सुझाव [kbd]pma_designer_coords[/kbd]"
 
-#~ msgid "Your SQL query has been executed successfully"
-#~ msgstr "आपकी SQL कुएरी सफलता के साथ पूरी की गई है"
-
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM या SET डेटा बहुत लंबा है?"
 
@@ -15340,7 +15337,7 @@ msgstr "समवर्ती डालना 0 पर सेट है"
 #~ msgid "Selected target tables have been synchronized with source tables."
 #~ msgstr "चयनित लक्ष्य टेबल स्रोत टेबल के साथ सिंक्रनाइज़ किया जा चूका है"
 
-#~ msgid "Target database has been synchronized with source database"
+#~ msgid "Target database has been synchronized with source database."
 #~ msgstr "लक्ष्य डेटाबेस स्रोत डेटाबेस के साथ सिंक्रनाइज़ किया जा चूका है"
 
 #, fuzzy
