@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-28 15:04+0200\n"
+"PO-Revision-Date: 2014-03-28 15:11+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
@@ -2909,7 +2909,7 @@ msgstr "Kommentaar"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Primaarvõti on kustutatud"
+msgstr "Primaarvõti on kustutatud."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -8247,7 +8247,7 @@ msgstr "Optimeeri tabelit"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "%s tabel on puhastatud"
+msgstr "Tabeli %s välismälu on tühjendatud."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -11981,7 +11981,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "%s tabel on tühjendatud"
+msgstr "Tabel %s on tühjendatud."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12034,7 +12034,7 @@ msgstr "Puudub"
 #: libraries/structure.lib.php:1363
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "%s veerg on kustutatud"
+msgstr "Veerg %s on kustutatud."
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
 #: libraries/structure.lib.php:2102
@@ -12131,12 +12131,12 @@ msgstr "Järgmine automaatne indeks"
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Indeks on lisatud kohas %s"
+msgstr "Veerule %s lisati index."
 
 #: libraries/structure.lib.php:1989
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Primaarvõti on lisatud kohas %s"
+msgstr "Tabelile %s lisati primaarvõti."
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
 msgid "Distinct values"
@@ -12174,7 +12174,7 @@ msgstr "Efektiivne"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "%1$s tabel on edukalt muudetud"
+msgstr "Tabeli %1$s muutmine õnnestus."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -12604,7 +12604,7 @@ msgstr "Halda oma sätteid"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Seadistus on salvestatud"
+msgstr "Seadistus on salvestatud."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12756,7 +12756,7 @@ msgstr "Aktiivsed valikud"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Leht on loodud"
+msgstr "Leht on loodud."
 
 #: pmd_pdf.php:56
 #| msgid "Page creation failed"
