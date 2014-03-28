@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-02-10 19:23+0200\n"
-"Last-Translator: Porta Shqipe <info@portashqipe.com>\n"
-"Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/master/sq/"
-">\n"
+"PO-Revision-Date: 2014-03-28 11:05+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Albanian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3003,7 +3003,7 @@ msgstr "Komente"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Kyçi primar u eleminua"
+msgstr "Kyçi primar u eleminua."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -8324,7 +8324,7 @@ msgstr "Optimizo tabelën"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Tabela %s u rifreskua"
+msgstr "Tabela %s u rifreskua."
 
 #: libraries/operations.lib.php:1202
 #, fuzzy
@@ -12162,7 +12162,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabela %s u zbraz"
+msgstr "Tabela %s u zbraz."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12325,12 +12325,12 @@ msgstr ""
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Një tregues u shtua tek %s"
+msgstr "Një tregues u shtua tek %s."
 
 #: libraries/structure.lib.php:1989
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Një kyç primar u shtua tek %s"
+msgstr "Një kyç primar u shtua tek %s."
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
 #, fuzzy
