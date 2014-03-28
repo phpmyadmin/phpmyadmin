@@ -20,6 +20,7 @@ env:
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
 before_script:
+  - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')" ;
   - if [[ -z "$LINT" ]] ; then
     if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
 
@@ -46,8 +47,7 @@ before_script:
     wget http://www.browserstack.com/BrowserStackTunnel.jar ;
     java -jar BrowserStackTunnel.jar -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 &
 
-    mysql -uroot < examples/create_tables.sql ;
-    mysql -uroot -e 'SET PASSWORD = PASSWORD("root")' ;
+    mysql -uroot -p$TESTSUITE_PASSWORD < examples/create_tables.sql ;
 
     fi ;
     fi
