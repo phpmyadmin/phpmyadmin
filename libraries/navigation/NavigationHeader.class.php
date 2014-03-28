@@ -289,8 +289,8 @@ class PMA_NavigationHeader
     private function _recent()
     {
         $retval = '';
-        // display recently used tables
-        if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
+        // display recently used or favorite tables
+        if ($GLOBALS['cfg']['NumRecentTables'] > 0 || $GLOBALS['cfg']['NumFavoriteTables'] > 0) {
             $retval .= '<!-- RECENT START -->';
             $retval .= '<div id="recentTableList">';
             $retval .= '<form method="post" ';
@@ -302,8 +302,12 @@ class PMA_NavigationHeader
                     'server' => $GLOBALS['server']
                 )
             );
-            $retval .= PMA_RecentTable::getInstance()->getHtmlSelect();
-            $retval .= $this->_favorite();
+            if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
+                $retval .= PMA_RecentFavoriteTable::getInstance('recent')->getHtmlSelect();
+            }
+            if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
+                $retval .= $this->_favorite();
+            }
             $retval .= '</form>';
             $retval .= '</div>';
             $retval .= '<!-- RECENT END -->';
@@ -321,7 +325,7 @@ class PMA_NavigationHeader
         $retval = '';
         // display favorite tables
         if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-            $retval .= PMA_FavoriteTable::getInstance()->getHtmlSelect();
+            $retval .= PMA_RecentFavoriteTable::getInstance('favorite')->getHtmlSelect();
         }
         return $retval;
     }
