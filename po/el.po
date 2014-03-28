@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-26 19:27+0200\n"
+"PO-Revision-Date: 2014-03-28 20:22+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2813,28 +2813,24 @@ msgid "Too many error messages, some are not displayed."
 msgstr "Πολλά μηνύματα σφάλματος, ορισμένα δεν εμφανίζονται."
 
 #: libraries/FavoriteTable.class.php:120
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "Αδύνατη η αποθήκευση πρόσφατου πίνακα!"
+msgstr "Αδύνατη η αποθήκευση αγαπημένου πίνακα!"
 
 #: libraries/FavoriteTable.class.php:150
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not remove favorite table!"
-msgstr "Αδύνατη η αποθήκευση πρόσφατου πίνακα!"
+msgstr "Αδύνατη η απομάκρυνση αγαπημένου πίνακα!"
 
 #: libraries/FavoriteTable.class.php:189
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Μεταβλητές"
+msgstr "Αγαπημένοι πίνακες"
 
 #: libraries/FavoriteTable.class.php:201
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "Δεν υπάρχουν πρόσφατοι πίνακες."
+msgstr "Δεν υπάρχουν αγαπημένοι πίνακες."
 
 #: libraries/File.class.php:239
 msgid "File was not an uploaded file."
@@ -2960,7 +2956,7 @@ msgstr "Σχόλιο"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Το πρωτεύον κλειδί διεγράφη"
+msgstr "Το πρωτεύον κλειδί διεγράφη."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -4016,16 +4012,14 @@ msgid "Execute"
 msgstr "Εκτέλεση"
 
 #: libraries/Util.class.php:3421 libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Απομάκρυνση διαγράμματος"
+msgstr "Απομάκρυνση από τα Αγαπημένα"
 
 #: libraries/Util.class.php:3422 libraries/structure.lib.php:495
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Προσθήκη αυτής της σειράς"
+msgstr "Προσθήκη στα Αγαπημένα"
 
 #: libraries/Util.class.php:3970
 msgid "Print"
@@ -5808,7 +5802,7 @@ msgstr "Ενεργοποίηση επισήμανσης"
 
 #: libraries/config/messages.inc.php:469
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Αν θα απενεργοποιηθεί η πιθανότητα επέκτασης της βάσης δεδομένων ή όχι."
 
 #: libraries/config/messages.inc.php:471
 msgid "Disable database expansion"
@@ -5821,12 +5815,9 @@ msgstr ""
 "απενεργοποιήση."
 
 #: libraries/config/messages.inc.php:475
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr ""
-"Μέγιστος αριθμός πρόσφατα χρησιμοποιημένων πινάκων. ορίστε το σε 0 για "
-"απενεργοποιήση."
+msgstr "Μέγιστος αριθμός αγαπημένων πινάκων. ορίστε το σε 0 για απενεργοποιήση."
 
 #: libraries/config/messages.inc.php:476
 msgid "Recently used tables"
@@ -8416,7 +8407,7 @@ msgstr "Βελτιστοποίηση πίνακα"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Ο πίνακας %s εκκαθαρίστηκε"
+msgstr "Ο πίνακας %s εκκαθαρίστηκε."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -12258,7 +12249,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Ο πίνακας %s άδειασε"
+msgstr "Ο πίνακας %s άδειασε."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12311,7 +12302,7 @@ msgstr "Καμία"
 #: libraries/structure.lib.php:1363
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Η στήλη %s διεγράφη"
+msgstr "Η στήλη %s διεγράφη."
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
 #: libraries/structure.lib.php:2102
@@ -12408,12 +12399,12 @@ msgstr "Επόμενη αυτόματη αρίθμηση"
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Ένα ευρετήριο προστέθηκε στο %s"
+msgstr "Ένα ευρετήριο προστέθηκε στο %s."
 
 #: libraries/structure.lib.php:1989
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Ένα πρωτεύον κλειδί προστέθηκε στο %s"
+msgstr "Ένα πρωτεύον κλειδί προστέθηκε στο %s."
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
 msgid "Distinct values"
@@ -12451,7 +12442,7 @@ msgstr "Αποτελεσματικός"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς"
+msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -12886,7 +12877,7 @@ msgstr "Διαχειριστείτε τις ρυθμίσεις σας"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Οι ρυθμίσεις αποθηκεύτηκαν"
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -13038,13 +13029,12 @@ msgstr "Ενεργές επιλογές"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Η σελίδα δημιουργήθηκε"
+msgstr "Η σελίδα δημιουργήθηκε."
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Η δημιουργία σελίδας απέτυχε"
+msgstr "Η δημιουργία σελίδας έχει αποτύχει!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -13079,26 +13069,23 @@ msgid "Error: relation already exists."
 msgstr "Σφάλμα: η συσχέτιση υπαρχει ήδη."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Σφάλμα: Δεν προστέθηκε η συσχέτιση."
+msgstr "Σφάλμα: Δεν μπόρεσε να προστεθεί η συσχέτιση!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "Προστέθηκε η συσχέτιση FOREIGN KEY"
+msgstr "Έχει προστεθεί η συσχέτιση FOREIGN KEY."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Σφάλμα: Τα χαρακτηριστικά συσχέτισης είναι απεπεργοποιημένα!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Η εσωτερική συσχέτιση προστέθηκε"
+msgstr "Η εσωτερική συσχέτιση έχει προστεθεί."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14184,10 +14171,9 @@ msgstr ""
 "1 ανά ώρα"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size εναντίον max_heap_table_size"
+msgstr "Διαφορετικά tmp_table_size και max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
