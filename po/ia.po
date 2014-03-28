@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-27 09:45+0200\n"
-"Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"PO-Revision-Date: 2014-03-28 13:25+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2962,7 +2962,7 @@ msgstr "Commento"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Le clave primari ha essite delite"
+msgstr "Le clave primari ha essite delite."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -12448,7 +12448,7 @@ msgstr "Optiones active"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Pagina ha essite create"
+msgstr "Pagina ha essite create."
 
 #: pmd_pdf.php:56
 #, fuzzy
