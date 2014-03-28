@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-28 10:58+0200\n"
+"PO-Revision-Date: 2014-03-28 10:59+0200\n"
 "Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
 "Language-Team: Italian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
@@ -3314,14 +3314,12 @@ msgid "Delayed inserts"
 msgstr "Inserimento ritardato"
 
 #: libraries/ServerStatusData.class.php:197
-#, fuzzy
 msgid "Key cache"
-msgstr "Key cache"
+msgstr "Cache delle chiavi"
 
 #: libraries/ServerStatusData.class.php:198
-#, fuzzy
 msgid "Joins"
-msgstr "Joins"
+msgstr "Join"
 
 #: libraries/ServerStatusData.class.php:200
 msgid "Sorting"
