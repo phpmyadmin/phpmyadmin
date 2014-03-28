@@ -107,6 +107,8 @@ function PMA_getAvailableMIMEtypes()
     sort($filestack);
 
     foreach ($filestack as $file) {
+        if(!preg_match('|._*|', $file)){
+        	// File is a OSX-generated ._ file, ignore it.
         if (preg_match('|^.*_.*_.*\.class\.php$|', $file)) {
             // File contains transformation functions.
             $parts = explode('_', str_replace('.class.php', '', $file));
@@ -124,6 +126,7 @@ function PMA_getAvailableMIMEtypes()
                 $stack['mimetype'][$mimetype] = $mimetype;
                 $stack['empty_mimetype'][$mimetype] = $mimetype;
             }
+        }
         }
     }
 
