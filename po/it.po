@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-28 10:51+0200\n"
+"PO-Revision-Date: 2014-03-28 10:52+0200\n"
 "Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
 "Language-Team: Italian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
@@ -2961,7 +2961,7 @@ msgstr "Impossibile leggere dal file (dopo lo spostamento) caricato."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "È in esecuzione la revisione Git %1$s dal ramo %2$s."
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
