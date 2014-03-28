@@ -14,8 +14,8 @@ env:
     - PHPUNIT_ARGS="--exclude-group selenium"
     - LINT="yes"
   global:
-    - secure: "egsTbEIm3PZTapjFdk/VYqnRT5jr83OBVWQ2J0BskFslELI4EAeyivrgM5HwDiCNb1KTaXw0ywTM9KIw6T1omaqJWRfUTu4suFPpd5LW+QiylVXMVHcCqRjOYncrSpqSDCSDy35s1OHdURea0JVRV8epjY410F38gHfBfem+FWE="
-    - TESTSUITE_BROWSERSTACK_USER=michaliha
+    - secure: "D24AZRWfuIYuA42eI5Rlg+6W0U1c+X33e6XqNMDzjl7KmhIqZaplOU++mKQLcx5+uIjZ4h7oJi8jIo/gmU8wHC4q+qKbL4xKIqx1AgNDwr6Upc9IBRnlfmXiwM2uxZGn5y0LdH5xM4FzBiN3Giff9hbnIdMJKvVudKVZNlHnzr8="
+    - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
 before_script:
