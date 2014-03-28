@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-26 17:07-0400\n"
-"PO-Revision-Date: 2014-02-02 09:55+0200\n"
+"PO-Revision-Date: 2014-03-28 09:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
-">\n"
+"Language-Team: Persian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -310,7 +310,7 @@ msgstr "به %svisual builder%s بروید"
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr "دسترسي مجاز نيست"
+msgstr "دسترسي مجاز نيست!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -836,7 +836,7 @@ msgid ""
 msgstr ""
 "شما ویژگی ایجاد استرینگ بیش از حد مجاز را در تنظیمات پی اچ پی فعال کرده اید. "
 "این خاصیت با ویرایشگر اصلی پی اچ پی سازگاری ندارد و ممکن است باعث از بین "
-"رفتن برخی از اطلاعات گردد."
+"رفتن برخی از اطلاعات گردد!"
 
 #: index.php:460
 msgid ""
@@ -3029,7 +3029,7 @@ msgstr "كليد اصلي حذف گرديد"
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "فهرست %s حذف گرديد"
+msgstr "فهرست %s حذف گرديد."
 
 #: libraries/Index.class.php:739
 #, php-format
@@ -4044,7 +4044,7 @@ msgstr "انتخاب از مسیر آپلود در سرور <b>%s</b>:"
 #: libraries/Util.class.php:3377 libraries/insert_edit.lib.php:1226
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست"
+msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست."
 
 #: libraries/Util.class.php:3388
 #, fuzzy
@@ -8453,7 +8453,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationSignon.class.php:273
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "در %s گذشته هیچ فعالیتی نداشته اید؛ لطفا دوباره وارد شوید"
+msgstr "در %s گذشته هیچ فعالیتی نداشته اید؛ لطفا دوباره وارد شوید."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:686
 #: libraries/plugins/auth/AuthenticationCookie.class.php:688
@@ -8477,7 +8477,7 @@ msgstr "فایل %s دارای کلید id نمی باشد"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:195
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:216
 msgid "Hardware authentication failed!"
-msgstr "ورود سخنت افزاری نا موفق بود"
+msgstr "ورود سخنت افزاری نا موفق بود!"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:203
 msgid "No valid authentication key plugged"
@@ -10533,7 +10533,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1657
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "شما امتيازات %s را ابطال كرديد"
+msgstr "شما امتيازات %s را ابطال كرديد."
 
 #: libraries/server_privileges.lib.php:1707
 #: libraries/server_privileges.lib.php:1910
