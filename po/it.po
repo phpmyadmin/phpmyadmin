@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
 "PO-Revision-Date: 2014-03-28 10:52+0200\n"
-"Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
+"Last-Translator: Marcello Romani <marcello.romani@libero.it>\n"
 "Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/4-1/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -2908,7 +2908,7 @@ msgstr "Apri una nuova finestra di PhpMyAdmin"
 
 #: libraries/Header.class.php:403
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Clicca sulla barra per scorrere fino all'inizio della pagina"
 
 #: libraries/Header.class.php:683
 #: libraries/plugins/auth/AuthenticationCookie.class.php:178
