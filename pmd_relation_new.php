@@ -77,8 +77,8 @@ if (PMA_Util::isForeignKeySupported($type_T1)
         }
         $upd_query .= ';';
         $GLOBALS['dbi']->tryQuery($upd_query)
-        || PMD_Return_new(0, __('Error: Relation not added.'));
-        PMD_Return_new(1, __('FOREIGN KEY relation added'));
+        || PMD_Return_new(0, __('Error: Relation could not be added!'));
+        PMD_Return_new(1, __('FOREIGN KEY relation has been added.'));
     }
 } else { // internal (pmadb) relation
     if ($GLOBALS['cfgRelation']['relwork'] == false) {
@@ -101,9 +101,9 @@ if (PMA_Util::isForeignKeySupported($type_T1)
             . '\'' . PMA_Util::sqlAddSlashes($F1) . '\')';
 
         if (PMA_queryAsControlUser($q, false, PMA_DatabaseInterface::QUERY_STORE)) {
-            PMD_Return_new(1, __('Internal relation added'));
+            PMD_Return_new(1, __('Internal relation has been added.'));
         } else {
-            PMD_Return_new(0, __('Error: Relation not added.'));
+            PMD_Return_new(0, __('Error: Relation could not be added.'));
         }
     }
 }
