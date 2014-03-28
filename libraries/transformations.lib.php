@@ -108,7 +108,7 @@ function PMA_getAvailableMIMEtypes()
 
     foreach ($filestack as $file) {
         if(!preg_match('|._*|', $file)){
-        	// File is a OSX-generated ._ file, ignore it.
+            // File is a OSX-generated ._ file, ignore it.
         if (preg_match('|^.*_.*_.*\.class\.php$|', $file)) {
             // File contains transformation functions.
             $parts = explode('_', str_replace('.class.php', '', $file));
