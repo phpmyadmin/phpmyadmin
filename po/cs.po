@@ -10443,9 +10443,9 @@ msgstr "Použít textové pole"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
-"Přístupové údaje pro tohoto uživatele již existují (možná pro jiný počítač). "
+"Přístupové údaje pro tohoto uživatele již existují (možná pro jiný počítač)."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

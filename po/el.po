@@ -10631,10 +10631,10 @@ msgstr "Χρησιμοποιήστε το πεδίο κειμένου"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Ένας λογαριασμός με το ίδιο όνομα χρήστη υπάρχει ήδη αλλά πιθανά διαφορετικό "
-"φιλοξενητή. "
+"φιλοξενητή."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

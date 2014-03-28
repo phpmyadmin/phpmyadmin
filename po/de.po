@@ -11147,10 +11147,10 @@ msgstr "Textfeld verwenden"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Es besteht schon ein Konto mit dem gleichen Benutzernamen, aber eventuell "
-"anderem Hostnamen. "
+"anderem Hostnamen."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

@@ -10661,10 +10661,10 @@ msgstr "Use el campo de texto"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Ya existe una cuenta con el mismo nombre de usuario pero posiblemente un "
-"nombre de servidor diferente. "
+"nombre de servidor diferente."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

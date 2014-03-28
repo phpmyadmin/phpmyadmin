@@ -10659,7 +10659,7 @@ msgstr "ใช้ช่องใส่ข้อความ (text field)"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1470

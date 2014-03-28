@@ -10986,10 +10986,10 @@ msgstr "Brug tekstfelt"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Der findes allerede en konto med samme brugernavn, men muligvis med et andet "
-"værtsnavn. "
+"værtsnavn."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

@@ -10599,7 +10599,7 @@ msgstr "Usar campo texto"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Uma conta já existe com o mesmo nome de usuário, mas possivelmente com um "
 "nome de servidor diferente. "

@@ -10149,8 +10149,8 @@ msgstr "使用文字方塊"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
-msgstr "已存在與此帳號相同的使用者名稱，但可能使用不同的主機名稱。 "
+"hostname."
+msgstr "已存在與此帳號相同的使用者名稱，但可能使用不同的主機名稱。"
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

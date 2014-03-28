@@ -10605,10 +10605,10 @@ msgstr "Tekstveld gebruiken"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Er bestaat al een account met dezelfde gebruikersnaam maar mogelijk met een "
-"andere hostnaam. "
+"andere hostnaam."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

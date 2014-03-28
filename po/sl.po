@@ -10523,10 +10523,10 @@ msgstr "Uporabi besedilno polje"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Račun z enakim uporabniškim imenom že obstaja, vendar ima morda drugačnega "
-"gostitelja. "
+"gostitelja."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

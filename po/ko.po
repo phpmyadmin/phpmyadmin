@@ -10618,7 +10618,7 @@ msgstr "텍스트 입력 필드를 사용"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:1470

@@ -10605,10 +10605,10 @@ msgstr "Entrez une valeur"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Un compte existe déjà avec le même nom d'utilisateur, mais éventuellement un "
-"nom d'hôte différent. "
+"nom d'hôte différent."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"

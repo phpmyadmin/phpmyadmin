@@ -10435,7 +10435,7 @@ msgstr "Kasuta tekstivälja"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Sama nimega kasutaja konto on on juba olemas, kuid ilmselt teise hosti "
 "nimega. "

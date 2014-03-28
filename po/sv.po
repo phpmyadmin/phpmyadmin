@@ -10520,7 +10520,7 @@ msgstr "Använd textfältet"
 #: libraries/server_privileges.lib.php:1322
 msgid ""
 "An account already exists with the same username but possibly a different "
-"hostname. "
+"hostname."
 msgstr ""
 "Ett konto existerar redan med samma användarnamn men möjligen ett annat "
 "värdnamn. "
