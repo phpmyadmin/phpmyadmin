@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-02-27 11:33+0200\n"
+"PO-Revision-Date: 2014-03-28 09:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/4-1/ar/>\n"
 "Language: ar\n"
@@ -8812,7 +8812,7 @@ msgstr "تحويل المتصفح"
 #: libraries/relation.lib.php:175
 msgid ""
 "Please see the documentation on how to update your column_comments table."
-msgstr "رجاء راجع التوثيق لكيفية تحديث جدول column_comments"
+msgstr "رجاء راجع التوثيق لكيفية تحديث جدول column_comments."
 
 #: libraries/relation.lib.php:185 libraries/sql_query_form.lib.php:404
 msgid "Bookmarked SQL query"
@@ -10234,7 +10234,7 @@ msgstr "تم تغيير كلمة المرور لـ %s بنجاح."
 #: libraries/server_privileges.lib.php:1629
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "لقد أبطلت الامتيازات لـ %s"
+msgstr "لقد أبطلت الامتيازات لـ %s."
 
 #: libraries/server_privileges.lib.php:1687
 msgid "Database for user"
