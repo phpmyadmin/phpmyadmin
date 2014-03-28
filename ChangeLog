@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 + rfe #1486 Possibility of disabling database expansion
 + rfe #1476 Favourite tables select box
 + rfe #420  $cfg['CharEditing']='textarea' for structure edit
++ rfe #1329 Avoid editing of fields which are part of relation
 
 4.1.13.0 (not yet released)
 - bug #4279 CTRL + up or down moves 2 fields
