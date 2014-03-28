@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-27 03:24+0200\n"
+"PO-Revision-Date: 2014-03-28 13:51+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13057,10 +13057,9 @@ msgid "Page has been created."
 msgstr "Se creó la página"
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Falló la creación de la página"
+msgstr "¡Falló la creación de la página!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -13095,26 +13094,23 @@ msgid "Error: relation already exists."
 msgstr "Error: la relación ya existe."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Error: no se añadió la relación."
+msgstr "Error: ¡no se añadió la relación!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "Se añadió una relación CLAVE FORÁNEA"
+msgstr "Se añadió una relación CLAVE FORÁNEA."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Error: ¡Las funcionalidades relacionales están desactivadas!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Se añadió la relación interna"
+msgstr "Se añadió la relación interna."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14192,10 +14188,9 @@ msgstr ""
 "ser menor a 1 por hora"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "«tmp_table_size» vs. «max_heap_table_size»"
+msgstr "«tmp_table_size» y «max_heap_table_size» diferentes"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
