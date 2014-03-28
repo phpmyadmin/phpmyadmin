@@ -10,8 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/Scripts.class.php';
-require_once 'libraries/RecentTable.class.php';
-require_once 'libraries/FavoriteTable.class.php';
+require_once 'libraries/RecentFavoriteTable.class.php';
 require_once 'libraries/Menu.class.php';
 require_once 'libraries/navigation/Navigation.class.php';
 require_once 'libraries/url_generating.lib.php';
@@ -703,7 +702,7 @@ class PMA_Header
             && strlen($table)
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
+            $tmp_result = PMA_RecentFavoriteTable::getInstance('recent')->add($db, $table);
             if ($tmp_result === true) {
                 $params  = array('ajax_request' => true, 'recent_table' => true);
                 $url     = 'index.php' . PMA_URL_getCommon($params);
