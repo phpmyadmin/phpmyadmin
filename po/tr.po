@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-28 10:29+0200\n"
+"PO-Revision-Date: 2014-03-28 10:31+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -12933,16 +12933,14 @@ msgid "Error: Relational features are disabled!"
 msgstr "Hata: Bağlantılı özellikler etkisizleştirildi!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Dahili bağlantı eklendi"
+msgstr "Dahili bağlantı eklendi."
 
 #: pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added."
-msgstr "Hata: Bağlantı eklenmedi."
+msgstr "Hata: Bağlantı eklenemedi."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13988,10 +13986,9 @@ msgstr ""
 "olmalıdır"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size 'a karşı max_heap_table_size"
+msgstr "tmp_table_size ve max_heap_table_size farklı"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
