@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
 "PO-Revision-Date: 2014-03-28 10:51+0200\n"
-"Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
+"Last-Translator: Marcello Romani <marcello.romani@libero.it>\n"
 "Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/4-1/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -2765,10 +2765,10 @@ msgid "Showing rows %1s - %2s"
 msgstr "Mostro le righe %1s - %2s"
 
 #: libraries/DisplayResults.class.php:4941
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "totale"
+msgstr "%d del totale"
 
 #: libraries/DisplayResults.class.php:4953 libraries/sql.lib.php:1647
 #, php-format
