@@ -259,7 +259,7 @@ rule 'Rate of reading next table row'
 	Rate of reading next table row: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 # temp tables
-rule 'tmp_table_size vs. max_heap_table_size'
+rule 'Different tmp_table_size and max_heap_table_size'
 	tmp_table_size - max_heap_table_size
 	value !=0
 	{tmp_table_size} and {max_heap_table_size} are not the same.
