@@ -562,9 +562,20 @@ function PMA_getColumnMetaForDefault($columnMeta, $isDefault)
  */
 function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
 {
-    $html = '<input id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
+    $title = '';
+    $title .= (isset($columnMeta['column_status'])
+        && $columnMeta['column_status']['isReferenced']) ? __('Referenced by ')
+        . implode(",", $columnMeta['column_status']['references']) . "." : '';
+    $title .= (!empty($title) && isset($columnMeta['column_status'])
+        && $columnMeta['column_status']['isForeignKey']) ? "\n" : '';
+    $title .= (isset($columnMeta['column_status'])
+        && $columnMeta['column_status']['isForeignKey']) ? __('Is a Foreign Key.') : '';
+    $title .= (empty($title)) ? __('Column') : '';
+    $html = '<input' . (isset($columnMeta['column_status'])
+        && !$columnMeta['column_status']['isEditable']?' disabled="disabled" ':' ')
+        . 'id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
         . '"' . ' type="text" name="field_name[' . $columnNumber . ']"'
-        . ' maxlength="64" class="textfield" title="' . __('Column') . '"'
+        . ' maxlength="64" class="textfield" title="' . $title . '"'
         . ' size="10"'
         . ' value="'
         . (isset($columnMeta['Field'])
@@ -584,11 +595,14 @@ function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
  *
  * @return string
  */
-function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset, $type_upper)
+function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset,
+    $type_upper, $columnMeta)
 {
     $select_id = 'field_' . $columnNumber . '_' . ($ci - $ci_offset);
-    $html = '<select class="column_type" name="field_type[' .
-        $columnNumber . ']"' . ' id="' . $select_id . '">';
+    $html = '<select' . (isset($columnMeta['column_status'])
+        && !$columnMeta['column_status']['isEditable']?' disabled="disabled" ':' ')
+        . 'class="column_type" name="field_type['
+        . $columnNumber . ']"' . ' id="' . $select_id . '">';
     $html .= PMA_Util::getSupportedDatatypes(true, $type_upper);
     $html .= '    </select>';
 
@@ -1165,7 +1179,7 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 
     // column type
     $content_cell[$ci] = PMA_getHtmlForColumnType(
-        $columnNumber, $ci, $ci_offset, $type_upper
+        $columnNumber, $ci, $ci_offset, $type_upper, isset($columnMeta) ? $columnMeta : null
     );
     $ci++;
 
