@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-28 10:59+0200\n"
+"PO-Revision-Date: 2014-03-28 11:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -12248,7 +12248,7 @@ msgstr "Nenhum wrap (padrão: none)"
 #: libraries/structure.lib.php:1363
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "A coluna %s foi eliminada"
+msgstr "A coluna %s foi eliminada."
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
 #: libraries/structure.lib.php:2102
@@ -12345,12 +12345,12 @@ msgstr "Próximo auto-índice"
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Um índice foi adicionado a %s"
+msgstr "Um índice foi adicionado a %s."
 
 #: libraries/structure.lib.php:1989
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Uma chave primária foi adicionada a %s"
+msgstr "Uma chave primária foi adicionada a %s."
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
 msgid "Distinct values"
@@ -12388,7 +12388,7 @@ msgstr "Efetivo"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "A tabela %1$s foi alterada com sucesso"
+msgstr "A tabela %1$s foi alterada com sucesso."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -12819,7 +12819,7 @@ msgstr "Gerencie suas configurações"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "A configuração foi salva"
+msgstr "A configuração foi salva."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12971,7 +12971,7 @@ msgstr "Opções ativas"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "A página foi criada"
+msgstr "A página foi criada."
 
 #: pmd_pdf.php:56
 #, fuzzy
