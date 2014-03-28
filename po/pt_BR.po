@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-26 20:41+0200\n"
-"Last-Translator: Helder Santana <helder.bs.santana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-03-28 11:00+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2960,7 +2960,7 @@ msgstr "Comentário"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "A chave primária foi deletada"
+msgstr "A chave primária foi deletada."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -4579,7 +4579,7 @@ msgstr "Não foi possível conectar ao servidor de banco de dados!"
 #: libraries/config/Validator.class.php:306
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Nome de usuário vazio ao utilizar a [bkd]configuração[/bkd] por método de "
+"Nome de usuário vazio ao utilizar a [kbd]configuração[/kbd] por método de "
 "autenticação!"
 
 #: libraries/config/Validator.class.php:313
@@ -4587,7 +4587,7 @@ msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
-"Nome da sessão de signon vazio quando usado [bkd]signon[/bkd] como método de "
+"Nome da sessão de signon vazio quando usado [kbd]signon[/kbd] como método de "
 "autenticação!"
 
 #: libraries/config/Validator.class.php:322
@@ -8407,7 +8407,7 @@ msgstr "Otimizar tabela"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "A tabela %s foi limpa"
+msgstr "A tabela %s foi limpa."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -10617,7 +10617,7 @@ msgid ""
 "hostname."
 msgstr ""
 "Uma conta já existe com o mesmo nome de usuário, mas possivelmente com um "
-"nome de servidor diferente. "
+"nome de servidor diferente."
 
 #: libraries/server_privileges.lib.php:1470
 msgid "Do not change the password"
@@ -12195,7 +12195,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "A tabela %s foi esvaziada"
+msgstr "A tabela %s foi esvaziada."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12248,7 +12248,7 @@ msgstr "Nenhum wrap (padrão: none)"
 #: libraries/structure.lib.php:1363
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "A coluna %s foi eliminada"
+msgstr "A coluna %s foi eliminada."
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
 #: libraries/structure.lib.php:2102
@@ -12345,12 +12345,12 @@ msgstr "Próximo auto-índice"
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Um índice foi adicionado a %s"
+msgstr "Um índice foi adicionado a %s."
 
 #: libraries/structure.lib.php:1989
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Uma chave primária foi adicionada a %s"
+msgstr "Uma chave primária foi adicionada a %s."
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
 msgid "Distinct values"
@@ -12388,7 +12388,7 @@ msgstr "Efetivo"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "A tabela %1$s foi alterada com sucesso"
+msgstr "A tabela %1$s foi alterada com sucesso."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -12819,7 +12819,7 @@ msgstr "Gerencie suas configurações"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "A configuração foi salva"
+msgstr "A configuração foi salva."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12971,7 +12971,7 @@ msgstr "Opções ativas"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "A página foi criada"
+msgstr "A página foi criada."
 
 #: pmd_pdf.php:56
 #, fuzzy

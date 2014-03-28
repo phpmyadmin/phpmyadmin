@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-02-27 11:31+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/master/it/"
-">\n"
+"PO-Revision-Date: 2014-03-28 10:59+0200\n"
+"Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
+"Language-Team: Italian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2797,10 +2797,10 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5072
-#, fuzzy, php-format
+#, php-format
 #| msgid "total"
 msgid "%d total"
-msgstr "totale"
+msgstr "%d del totale"
 
 #: libraries/DisplayResults.class.php:5084 libraries/sql.lib.php:1644
 #, fuzzy, php-format
@@ -2961,7 +2961,7 @@ msgstr "Impossibile leggere dal file (dopo lo spostamento) caricato."
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "È in esecuzione la revisione Git %1$s dal ramo %2$s."
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
@@ -2974,7 +2974,7 @@ msgstr "Apri una nuova finestra di PhpMyAdmin"
 
 #: libraries/Header.class.php:404
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Clicca sulla barra per scorrere fino all'inizio della pagina"
 
 #: libraries/Header.class.php:684
 #: libraries/plugins/auth/AuthenticationCookie.class.php:161
@@ -3294,7 +3294,6 @@ msgid "SQL query"
 msgstr "Query SQL"
 
 #: libraries/ServerStatusData.class.php:191
-#, fuzzy
 msgid "Handler"
 msgstr "Handler"
 
@@ -3315,14 +3314,12 @@ msgid "Delayed inserts"
 msgstr "Inserimento ritardato"
 
 #: libraries/ServerStatusData.class.php:197
-#, fuzzy
 msgid "Key cache"
-msgstr "Key cache"
+msgstr "Cache delle chiavi"
 
 #: libraries/ServerStatusData.class.php:198
-#, fuzzy
 msgid "Joins"
-msgstr "Joins"
+msgstr "Join"
 
 #: libraries/ServerStatusData.class.php:200
 msgid "Sorting"

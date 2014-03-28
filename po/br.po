@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-26 11:46+0200\n"
+"PO-Revision-Date: 2014-03-28 11:07+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Breton <https://l10n.cihar.com/projects/phpmyadmin/master/br/"
-">\n"
+"Language-Team: Breton <https://l10n.cihar.com/projects/phpmyadmin/master/br/>"
+"\n"
 "Language: br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3049,7 +3049,7 @@ msgstr "Evezhiadenn"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Diverket eo bet an alc'hwez kentidik"
+msgstr "Diverket eo bet an alc'hwez kentidik."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -4708,7 +4708,7 @@ msgstr "Kevrin Blow fish"
 
 #: libraries/config/messages.inc.php:33
 msgid "Highlight selected rows."
-msgstr "Lakaat al linennoù dibabet da skediñ"
+msgstr "Lakaat al linennoù dibabet da skediñ."
 
 #: libraries/config/messages.inc.php:34
 msgid "Row marker"
@@ -4914,7 +4914,7 @@ msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù) dre ziouer"
 
 #: libraries/config/messages.inc.php:95
 msgid "Show server listing as a list instead of a drop down."
-msgstr "Diskouez roll ar servijerioù e-lec'h ur roll desachañ"
+msgstr "Diskouez roll ar servijerioù e-lec'h ur roll desachañ."
 
 #: libraries/config/messages.inc.php:96
 msgid "Display servers as a list"
@@ -12076,7 +12076,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Goullonderet eo bet an daolenn %s"
+msgstr "Goullonderet eo bet an daolenn %s."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
