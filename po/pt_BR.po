@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-28 10:58+0200\n"
+"PO-Revision-Date: 2014-03-28 10:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
@@ -8407,7 +8407,7 @@ msgstr "Otimizar tabela"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "A tabela %s foi limpa"
+msgstr "A tabela %s foi limpa."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -12195,7 +12195,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "A tabela %s foi esvaziada"
+msgstr "A tabela %s foi esvaziada."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
