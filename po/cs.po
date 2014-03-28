@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:00+0100\n"
-"PO-Revision-Date: 2014-03-27 11:10+0200\n"
+"PO-Revision-Date: 2014-03-28 10:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
-">\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2915,7 +2915,7 @@ msgstr "Komentář"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Primární klíč byl odstraněn"
+msgstr "Primární klíč byl odstraněn."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -8255,7 +8255,7 @@ msgstr "Optimalizovat tabulku"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Vyrovnávací paměť pro tabulku %s byla vyprázdněna"
+msgstr "Vyrovnávací paměť pro tabulku %s byla vyprázdněna."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -11984,7 +11984,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabulka %s byla vyprázdněna"
+msgstr "Tabulka %s byla vyprázdněna."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12037,7 +12037,7 @@ msgstr "Žádná"
 #: libraries/structure.lib.php:1363
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Pole %s byla odstraněno"
+msgstr "Pole %s bylo odstraněno."
 
 #: libraries/structure.lib.php:1417 libraries/structure.lib.php:2092
 #: libraries/structure.lib.php:2102
@@ -12134,12 +12134,12 @@ msgstr "Další automatický klíč"
 #: libraries/structure.lib.php:2003 libraries/structure.lib.php:2018
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Na poli %s byl vytvořen klíč"
+msgstr "Na poli %s byl vytvořen klíč."
 
 #: libraries/structure.lib.php:1989
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "V tabulce %s byl vytvořen primární klíč"
+msgstr "Na poli %s byl vytvořen primární klíč."
 
 #: libraries/structure.lib.php:2041 libraries/structure.lib.php:2112
 msgid "Distinct values"
@@ -12177,7 +12177,7 @@ msgstr "Efektivní"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Tabulka %1$s byla úspěšně změněna"
+msgstr "Tabulka %1$s byla úspěšně změněna."
 
 #: libraries/structure.lib.php:2464 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -12607,7 +12607,7 @@ msgstr "Spravujte svoje nastavení"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Nastavení bylo uloženo"
+msgstr "Nastavení bylo uloženo."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12759,13 +12759,12 @@ msgstr "Zapnuté parametry"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Stránka byla vytvořena"
+msgstr "Stránka byla vytvořena."
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Vytvoření stránky selhalo"
+msgstr "Vytvoření stránky selhalo!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -12797,35 +12796,31 @@ msgstr "doporučené"
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
-msgstr "Chyba: relace již existuje."
+msgstr "Chyba: Relace již existuje."
 
 #: pmd_relation_new.php:80
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Chyba: relace nebyla přidána."
+msgstr "Chyba: Relace nemohla být přidána!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "Relace FOREIGN KEY byla vytvořena"
+msgstr "Relace FOREIGN KEY byla vytvořena."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Chyba: Funkce relací jsou vypnuté!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Interní relace vytvořena"
+msgstr "Interní relace byla vytvořena."
 
 #: pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added."
-msgstr "Chyba: relace nebyla přidána."
+msgstr "Chyba: Relace nebyla přidána."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13861,10 +13856,9 @@ msgstr ""
 "1 za hodinu"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size a max_heap_table_size"
+msgstr "Rozdílné tmp_table_size a max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
