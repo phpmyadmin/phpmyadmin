@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-28 11:03+0200\n"
+"PO-Revision-Date: 2014-03-28 13:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Polish <https://l10n.cihar.com/projects/phpmyadmin/master/pl/>"
 "\n"
@@ -9060,7 +9060,7 @@ msgstr "Tabela %s została przeładowana."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
-msgstr "Flush the table (FLUSH)"
+msgstr ""
 
 #: libraries/operations.lib.php:1247 view_operations.php:127
 msgid "Delete data or table"
