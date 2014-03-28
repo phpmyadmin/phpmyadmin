@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-27 15:10+0200\n"
+"PO-Revision-Date: 2014-03-28 09:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hindi <https://l10n.cihar.com/projects/phpmyadmin/4-1/hi/>\n"
 "Language: hi\n"
@@ -2995,7 +2995,7 @@ msgstr "प्राथमिक कुंजी गिरा दी गयी �
 #: libraries/Index.class.php:610
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "सूचकांक %s गिरा दिया गया है"
+msgstr "सूचकांक %s गिरा दिया गया है."
 
 #: libraries/Index.class.php:738
 #, php-format
@@ -3177,8 +3177,8 @@ msgstr[1] "बहुवचन%1$d पंक्तिया प्रभावि
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "एकवचन %1$d पंक्ति नष्ट"
-msgstr[1] "बहुवचन %1$d पंक्तिया नष्ट"
+msgstr[0] "एकवचन %1$d पंक्ति नष्ट."
+msgstr[1] "बहुवचन %1$d पंक्तिया नष्ट."
 
 #: libraries/Message.class.php:292
 #, php-format
@@ -3978,7 +3978,7 @@ msgstr "अपने वेब सर्वर की अपलोड डिर�
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1235
 #: libraries/sql_query_form.lib.php:487
 msgid "The directory you set for upload work cannot be reached."
-msgstr "आपकी अपलोड दिरेक्टोरी तक पहुंचा नहीं जा सकता"
+msgstr "आपकी अपलोड दिरेक्टोरी तक पहुंचा नहीं जा सकता."
 
 #: libraries/Util.class.php:3387
 msgid "There are no files to upload"
@@ -4102,7 +4102,7 @@ msgstr ""
 #: libraries/common.inc.php:591
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी |"
+msgstr "%1$s से मूलभूत विन्यास लोड नहीं की जा सकी।"
 
 #: libraries/common.inc.php:598
 #, fuzzy
@@ -4353,7 +4353,7 @@ msgstr "अधिकतम %s"
 
 #: libraries/config/FormDisplay.tpl.php:216
 msgid "This setting is disabled, it will not be applied to your configuration."
-msgstr "यह सेटिंग अक्षम है, यह आपके विन्यास में लागू नहीं की जा सकेगी"
+msgstr "यह सेटिंग अक्षम है, यह आपके विन्यास में लागू नहीं की जा सकेगी."
 
 #: libraries/config/FormDisplay.tpl.php:308
 #, php-format
@@ -4653,7 +4653,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:63
 msgid "Disable multi table maintenance"
-msgstr "कई टेबल के रखरखाव को अक्षम करे।"
+msgstr "कई टेबल के रखरखाव को अक्षम करे"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
@@ -5189,9 +5189,9 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"यदि आप SQL Validator सेवा का उपयोग करना चाहते हैं, तुम्हें पता होना चाहिए कि सभी SQL "
-"बयान गुमनाम सांख्यिकीय प्रयोजनों के लिए ईमानदार डेटाबेस तकनीक जमा हो जाना चाहिए, "
-"कॉपीराइट 2002 . सभी अधिकार सुरक्षित."
+"यदि आप SQL Validator सेवा का उपयोग करना चाहते हैं, तुम्हें पता होना चाहिए कि "
+"सभी SQL बयान गुमनाम सांख्यिकीय प्रयोजनों के लिए ईमानदार डेटाबेस तकनीक जमा हो "
+"जाना चाहिए, कॉपीराइट 2002 । सभी अधिकार सुरक्षित।"
 
 #: libraries/config/messages.inc.php:222
 msgid "Startup"
@@ -5387,8 +5387,9 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"अगर TRUE, लोगौत सभी सर्वर की कुकी हटा देगा| अगर FALSE, लोगौत सिर्फ वर्तमान सर्वर से "
-"होगा| इसे FALSE रखने से सर्वर लोगौत भूल सकते हैं, जब आप ज्यादा सर्वर से कनेक्ट हों"
+"अगर TRUE, लोगौत सभी सर्वर की कुकी हटा देगा| अगर FALSE, लोगौत सिर्फ वर्तमान "
+"सर्वर से होगा| इसे FALSE रखने से सर्वर लोगौत भूल सकते हैं, जब आप ज्यादा सर्"
+"वर से कनेक्ट हों।"
 
 #: libraries/config/messages.inc.php:278
 msgid "Delete all cookies on logout"
@@ -6228,8 +6229,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"क्या DROP VIEW IF EXISTS बयान पहली लाइन की तरह जोड़े जायेगा, जब एक दृश्य का लोग बन "
-"रहा है"
+"क्या DROP VIEW IF EXISTS बयान पहली लाइन की तरह जोड़े जायेगा, जब एक दृश्य का लो"
+"ग बन रहा है।"
 
 #: libraries/config/messages.inc.php:446
 msgid "Add DROP VIEW"
@@ -6337,7 +6338,7 @@ msgstr "विन्यास प्राधिकरण के लिए य�
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
-msgstr "इस सर्वर का विवरण, होस्ट नाम दिखने के लिए खाली छोडें"
+msgstr "इस सर्वर का विवरण, होस्ट नाम दिखने के लिए खाली छोडें।"
 
 #: libraries/config/messages.inc.php:464
 msgid "Verbose name of this server"
@@ -6756,7 +6757,7 @@ msgstr "दस्तावेज़ खोलें"
 #: libraries/core.lib.php:287
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "%s विस्तार गायब है. कृपया अपने PHP विन्यास की जाँच करें"
+msgstr "%s विस्तार गायब है. कृपया अपने PHP विन्यास की जाँच करें।"
 
 #: libraries/core.lib.php:446
 msgid "possible deep recursion attack"
@@ -7017,7 +7018,7 @@ msgstr "%s संस्करण बनायें %s.%s"
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
-msgstr "फाइल अपलोड की जा रही है, कृपया धीरज रखें"
+msgstr "फाइल अपलोड की जा रही है, कृपया धीरज रखें।"
 
 #: libraries/display_import.lib.php:111
 msgid "Importing into the current server"
@@ -7050,7 +7051,7 @@ msgstr "आयात करने के लिए फ़ाइल"
 
 #: libraries/display_import.lib.php:248
 msgid "File uploads are not allowed on this server."
-msgstr "इस सर्वर पर फाइल अपलोड की अनुमति नहीं है"
+msgstr "इस सर्वर पर फाइल अपलोड की अनुमति नहीं है।"
 
 #: libraries/display_import.lib.php:272
 msgid "Partial Import:"
@@ -7068,8 +7069,9 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब एक रुकावट के आयात की "
-"अनुमति दें. यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन, लेकिन यह लेनदेन तोड़ सकता है."
+"यदि स्क्रिप्ट पता लगाए की वो PHP मध्यांतर सीमा के करीब है तब एक रुकावट के आया"
+"त की अनुमति दें. यह बड़ी फाइल के आयात के लिए अच्छा है लेकिन, लेकिन यह लेनदेन "
+"तोड़ सकता है।"
 
 #: libraries/display_import.lib.php:303
 msgid ""
@@ -7114,7 +7116,7 @@ msgstr ""
 
 #: libraries/display_import.lib.php:462
 msgid "The file is being processed, please be patient."
-msgstr "फाइल संसाधित की जा रही है, कृपया धीरज रखें"
+msgstr "फाइल संसाधित की जा रही है, कृपया धीरज रखें।"
 
 #: libraries/display_select_lang.lib.php:56
 #: libraries/display_select_lang.lib.php:57 setup/frames/index.inc.php:94
@@ -7131,7 +7133,7 @@ msgstr "डेटा घर निर्देशिका"
 
 #: libraries/engines/innodb.lib.php:29
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr "सभी InnoDB फ़ाइलों के लिए निर्देशिका का सामान्य हिस्सा"
+msgstr "सभी InnoDB फ़ाइलों के लिए निर्देशिका का सामान्य हिस्सा।"
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Data files"
@@ -7447,7 +7449,7 @@ msgstr "स्वतः संस्करण बनाना"
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1642
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL ने एक खाली परिणाम सेट लोताया"
+msgstr "MySQL ने एक खाली परिणाम सेट लोताया।"
 
 #: libraries/import.lib.php:1197
 msgid ""
@@ -8207,7 +8209,7 @@ msgstr "इस प्रारूप के कोई विकल्प नह�
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:73
 msgid "Cannot connect: invalid settings."
-msgstr "अमान्य सेटिंग्स: कनेक्ट नहीं कर सकते हैं"
+msgstr "अमान्य सेटिंग्स: कनेक्ट नहीं कर सकते हैं।"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:86
 #: libraries/plugins/auth/AuthenticationCookie.class.php:166
@@ -8296,7 +8298,7 @@ msgstr "MySQL सर्वर में प्रवेश नहीं कर �
 
 #: libraries/plugins/auth/AuthenticationHttp.class.php:79
 msgid "Wrong username/password. Access denied."
-msgstr "यूसरनेम/पासवर्ड गलत है।  प्रवेश निषेध"
+msgstr "यूसरनेम/पासवर्ड गलत है।  प्रवेश निषेध।"
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:107
 #, fuzzy
@@ -8316,7 +8318,7 @@ msgstr "हार्डवेयर प्रमाणीकरण असफल"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:192
 msgid "No valid authentication key plugged"
-msgstr "कोई वैध प्रमाणीकरण कुंजी नहीं पाई गई."
+msgstr "कोई वैध प्रमाणीकरण कुंजी नहीं पाई गई।"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:225
 msgid "Authenticating…"
@@ -9048,7 +9050,7 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:46
 msgid "This server is configured as master in a replication process."
-msgstr "यह सर्वर किसी प्रतिकृति प्रक्रिया में मास्टर की तरह कॉन्फ़िगर है"
+msgstr "यह सर्वर किसी प्रतिकृति प्रक्रिया में मास्टर की तरह कॉन्फ़िगर है।"
 
 #: libraries/replication_gui.lib.php:54
 msgid "Show connected slaves"
@@ -9360,12 +9362,13 @@ msgstr "अज्ञात त्रुटि"
 #: libraries/replication_gui.lib.php:976
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "%s मास्टर से कनेक्ट करने मैं असमर्थ"
+msgstr "%s मास्टर से कनेक्ट करने मैं असमर्थ।"
 
 #: libraries/replication_gui.lib.php:987
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr "मास्टर की लोग स्तिथि पढने मैं असमर्थ, मास्टर पर संभव विशेषाधिकार समस्या"
+msgstr ""
+"मास्टर की लोग स्तिथि पढने मैं असमर्थ, मास्टर पर संभव विशेषाधिकार समस्या।"
 
 #: libraries/replication_gui.lib.php:1005
 msgid "Unable to change master"
@@ -10130,44 +10133,44 @@ msgstr "अक्षम"
 
 #: libraries/server_privileges.lib.php:167 server_privileges.php:113
 msgid "No privileges."
-msgstr "कोई प्रिविलेज नहीं"
+msgstr "कोई प्रिविलेज नहीं।"
 
 #: libraries/server_privileges.lib.php:176 server_privileges.php:59
 msgid "Includes all privileges except GRANT."
-msgstr "ेेोीाेेGRANT के अतिरिक्त सभी इंजन शामिल"
+msgstr "ेेोीाेेGRANT के अतिरिक्त सभी इंजन शामिल।"
 
 #: libraries/server_privileges.lib.php:249
 #: libraries/server_privileges.lib.php:861
 #: libraries/server_privileges.lib.php:1037 server_privileges.php:102
 msgid "Allows reading data."
-msgstr "डाटा पढने की अनुमति देता है"
+msgstr "डाटा पढने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:254
 #: libraries/server_privileges.lib.php:866
 #: libraries/server_privileges.lib.php:1038 server_privileges.php:78
 msgid "Allows inserting and replacing data."
-msgstr "डेटा डालने और हटाने की अनुमति देता है"
+msgstr "डेटा डालने और हटाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:259
 #: libraries/server_privileges.lib.php:871
 #: libraries/server_privileges.lib.php:1039 server_privileges.php:112
 msgid "Allows changing data."
-msgstr "डेटा को बदलने की अनुमति देता है"
+msgstr "डेटा को बदलने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:264
 #: libraries/server_privileges.lib.php:1040 server_privileges.php:68
 msgid "Allows deleting data."
-msgstr "डेटा को हटाने की अनुमति देता है"
+msgstr "डेटा को हटाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:269
 #: libraries/server_privileges.lib.php:1066 server_privileges.php:62
 msgid "Allows creating new databases and tables."
-msgstr "नया डेटाबेस और टेबल बनाने की अनुमति देता है"
+msgstr "नया डेटाबेस और टेबल बनाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:274
 #: libraries/server_privileges.lib.php:1078 server_privileges.php:69
 msgid "Allows dropping databases and tables."
-msgstr "डेटाबेस और टेबल को हटाने की अनुमति देता है"
+msgstr "डेटाबेस और टेबल को हटाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:279
 #: libraries/server_privileges.lib.php:1162 server_privileges.php:96
@@ -10177,7 +10180,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:284
 #: libraries/server_privileges.lib.php:1166 server_privileges.php:105
 msgid "Allows shutting down the server."
-msgstr "सर्वर बन्द करने की अनुमति देता है"
+msgstr "सर्वर बन्द करने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:289
 #: libraries/server_privileges.lib.php:1158 server_privileges.php:93
@@ -10187,28 +10190,28 @@ msgstr "सभी यूसरओं प्रक्रियाओं को �
 #: libraries/server_privileges.lib.php:294
 #: libraries/server_privileges.lib.php:1046 server_privileges.php:73
 msgid "Allows importing data from and exporting data into files."
-msgstr "डेटा फ़ाइलों में आयात और निर्यात करने की अनुमति देता है"
+msgstr "डेटा फ़ाइलों में आयात और निर्यात करने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:299
 #: libraries/server_privileges.lib.php:876
 #: libraries/server_privileges.lib.php:1179 server_privileges.php:94
 msgid "Has no effect in this MySQL version."
-msgstr "इस MySQL संस्करण में कोई प्रभाव नहीं है"
+msgstr "इस MySQL संस्करण में कोई प्रभाव नहीं है।"
 
 #: libraries/server_privileges.lib.php:304
 #: libraries/server_privileges.lib.php:1074 server_privileges.php:77
 msgid "Allows creating and dropping indexes."
-msgstr "सूचक बनाने और हटाने की अनुमति देता है"
+msgstr "सूचक बनाने और हटाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:309
 #: libraries/server_privileges.lib.php:1072 server_privileges.php:60
 msgid "Allows altering the structure of existing tables."
-msgstr "मौजूदा टेबल की संरचना में फेरबदल की अनुमति देता है"
+msgstr "मौजूदा टेबल की संरचना में फेरबदल की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:314
 #: libraries/server_privileges.lib.php:1170 server_privileges.php:103
 msgid "Gives access to the complete list of databases."
-msgstr "डेटाबेस की पूरी सूची तक पहुंचा देता है"
+msgstr "डेटाबेस की पूरी सूची तक पहुंचा देता है।"
 
 #: libraries/server_privileges.lib.php:320
 #: libraries/server_privileges.lib.php:1150 server_privileges.php:107
@@ -10221,7 +10224,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:328
 #: libraries/server_privileges.lib.php:1084 server_privileges.php:65
 msgid "Allows creating temporary tables."
-msgstr "नया अस्थायी टेबल बनाने की अनुमति देता है"
+msgstr "नया अस्थायी टेबल बनाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:333
 #: libraries/server_privileges.lib.php:1175 server_privileges.php:79
@@ -10236,14 +10239,15 @@ msgstr ""
 #: libraries/server_privileges.lib.php:343
 #: libraries/server_privileges.lib.php:1184 server_privileges.php:99
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "सर्वर सेटिंग्स को पुन: लोड और सर्वर के कैश निस्तब्धता की अनुमति देता है"
+msgstr ""
+"सर्वर सेटिंग्स को पुन: लोड और सर्वर के कैश निस्तब्धता की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:348
 #: libraries/server_privileges.lib.php:364
 #: libraries/server_privileges.lib.php:1104
 #: libraries/server_privileges.lib.php:1111 server_privileges.php:67
 msgid "Allows creating new views."
-msgstr "नए दृश्य बनाने की अनुमति देता है"
+msgstr "नए दृश्य बनाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:353
 #: libraries/server_privileges.lib.php:1118 server_privileges.php:71
@@ -10264,22 +10268,22 @@ msgstr ""
 #: libraries/server_privileges.lib.php:380
 #: libraries/server_privileges.lib.php:1092 server_privileges.php:63
 msgid "Allows creating stored routines."
-msgstr "नया नियमित कार्यक्रम बनाने की अनुमति देता है"
+msgstr "नया नियमित कार्यक्रम बनाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:385
 #: libraries/server_privileges.lib.php:1096 server_privileges.php:61
 msgid "Allows altering and dropping stored routines."
-msgstr "संग्रहित routines की फेरबदल और छोड़ने की अनुमति देता है"
+msgstr "संग्रहित routines की फेरबदल और छोड़ने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:1192 server_privileges.php:66
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "यूसर खातों बनाने, गिराना और नाम बदलने की अनुमति देता है"
+msgstr "यूसर खातों बनाने, गिराना और नाम बदलने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:395
 #: libraries/server_privileges.lib.php:1098 server_privileges.php:72
 msgid "Allows executing stored routines."
-msgstr "संग्रहीत दिनचर्या को क्रियान्वित करने की अनुमति देता है"
+msgstr "संग्रहीत दिनचर्या को क्रियान्वित करने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:443
 #: libraries/server_privileges.lib.php:444
@@ -10324,7 +10328,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:766
 #: libraries/server_privileges.lib.php:774 server_privileges.php:91
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr "यूसर के समकालिक कनेक्शन की संख्या सिमित है"
+msgstr "यूसर के समकालिक कनेक्शन की संख्या सिमित है।"
 
 #: libraries/server_privileges.lib.php:827
 #: libraries/server_privileges.lib.php:1002
@@ -10355,11 +10359,11 @@ msgstr "केवल डाटाबेस के प्रिविलेज"
 
 #: libraries/server_privileges.lib.php:1067 server_privileges.php:64
 msgid "Allows creating new tables."
-msgstr "नया टेबल बनाने की अनुमति देता है"
+msgstr "नया टेबल बनाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:1079 server_privileges.php:70
 msgid "Allows dropping tables."
-msgstr "टेबल को हटाने की अनुमति देता है"
+msgstr "टेबल को हटाने की अनुमति देता है।"
 
 #: libraries/server_privileges.lib.php:1141 server_privileges.php:75
 msgid ""
@@ -10389,12 +10393,12 @@ msgstr "पासवर्ड मत बदलिये"
 #: libraries/server_privileges.lib.php:1587
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr "%s का पासवर्ड सफलतापूर्वक बदल गया"
+msgstr "%s का पासवर्ड सफलतापूर्वक बदल गया।"
 
 #: libraries/server_privileges.lib.php:1629
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "आपने %s के privileges वापस ले लिया"
+msgstr "आपने %s के privileges वापस ले लिया."
 
 #: libraries/server_privileges.lib.php:1687
 msgid "Database for user"
@@ -10402,11 +10406,11 @@ msgstr "यूसर के लिए डेटाबेस"
 
 #: libraries/server_privileges.lib.php:1691
 msgid "Create database with same name and grant all privileges."
-msgstr "एक ही नाम के साथ डेटाबेस बनाएँ और सभी विशेषाधिकारों को अनुदान"
+msgstr "एक ही नाम के साथ डेटाबेस बनाएँ और सभी विशेषाधिकारों को अनुदान।"
 
 #: libraries/server_privileges.lib.php:1697
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "वाइल्डकार्ड नाम (यूसरनाम\\_%) पर सभी विशेषाधिकार अनुदान"
+msgstr "वाइल्डकार्ड नाम (यूसरनाम\\_%) पर सभी विशेषाधिकार अनुदान।"
 
 #: libraries/server_privileges.lib.php:1706
 #, php-format
@@ -10494,11 +10498,11 @@ msgstr "सर्वर को संपादित करें"
 
 #: libraries/server_privileges.lib.php:2423
 msgid "… keep the old one."
-msgstr "… पुराने रखना"
+msgstr "… पुराने रखना।"
 
 #: libraries/server_privileges.lib.php:2424
 msgid "… delete the old one from the user tables."
-msgstr "पुराने यूसर को टेबल से हटाना"
+msgstr "… पुराने यूसर को टेबल से हटाना।"
 
 #: libraries/server_privileges.lib.php:2426
 msgid ""
@@ -10545,7 +10549,7 @@ msgstr "चयनित यूसर हटायें"
 
 #: libraries/server_privileges.lib.php:3080
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "यूसर से सभी सक्रिय विशेषाधिकार रद्द करने और उन्हें बाद में हटा"
+msgstr "यूसर से सभी सक्रिय विशेषाधिकार रद्द करने और उन्हें बाद में हटा।"
 
 #: libraries/server_privileges.lib.php:3088
 #: libraries/server_privileges.lib.php:3094
@@ -10577,7 +10581,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:3419
 msgid "The privileges were reloaded successfully."
-msgstr "चयनित यूसर को सफलतापूर्वक हटा दिया गया है"
+msgstr "चयनित यूसर को सफलतापूर्वक हटा दिया गया है।"
 
 #: libraries/server_privileges.lib.php:3501
 #, php-format
@@ -10617,7 +10621,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:4107
 msgid "You have added a new user."
-msgstr "आपने नया यूसर बना लिया"
+msgstr "आपने नया यूसर बना लिया।"
 
 #: libraries/server_status.lib.php:56
 #, php-format
@@ -11012,7 +11016,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:341
 msgid "The number of transactions that used the temporary binary log cache."
-msgstr "लेनदेन की संख्या जिन्होंने अस्थायी द्विआधारी लॉग कैश का प्रयोग किया"
+msgstr "लेनदेन की संख्या जिन्होंने अस्थायी द्विआधारी लॉग कैश का प्रयोग किया।"
 
 #: libraries/server_status_variables.lib.php:344
 msgid ""
@@ -11029,7 +11033,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:355
 msgid "How many temporary files mysqld has created."
-msgstr "mysqld ने कितनी अस्थायी फ़ाइलें बनायीं"
+msgstr "mysqld ने कितनी अस्थायी फ़ाइलें बनायीं।"
 
 #: libraries/server_status_variables.lib.php:358
 msgid ""
@@ -11871,7 +11875,7 @@ msgstr "टेबल %s को खाली किया गया है."
 
 #: libraries/structure.lib.php:91
 msgid "Tracking is active."
-msgstr "ट्रैकिंग सक्रिय है"
+msgstr "ट्रैकिंग सक्रिय है।"
 
 #: libraries/structure.lib.php:98
 msgid "Tracking is not active."
@@ -12526,15 +12530,15 @@ msgstr ""
 
 #: libraries/tbl_tracking.lib.php:971
 msgid "Comment out these two lines if you do not need them."
-msgstr "इन दो लाइन को टिप्पणी बना दें अगर आपको इनकी आवश्यकता नहीं है"
+msgstr "इन दो लाइन को टिप्पणी बना दें अगर आपको इनकी आवश्यकता नहीं है।"
 
 #: libraries/tbl_tracking.lib.php:981
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "SQL कथन निर्यात. कृपया दुम्प को या तो कॉपी करें य फिर क्रियान्वित करें"
+msgstr "SQL कथन निर्यात. कृपया दुम्प को या तो कॉपी करें य फिर क्रियान्वित करें।"
 
 #: libraries/tbl_tracking.lib.php:1009
 msgid "SQL statements executed."
-msgstr "SQL कथन चलाएँ"
+msgstr "SQL कथन चलाएँ।"
 
 #: libraries/tbl_tracking.lib.php:1027
 #, php-format
@@ -12807,7 +12811,7 @@ msgstr "रिश्ते को नष्ट कर दिया"
 
 #: pmd_save_pos.php:75
 msgid "Error saving coordinates for Designer."
-msgstr "डिजाइनर के लिए निर्देशांक बचाने में त्रुटि आ रही है"
+msgstr "डिजाइनर के लिए निर्देशांक बचाने में त्रुटि आ रही है।"
 
 #: prefs_forms.php:86
 msgid "Cannot save settings, submitted form contains errors"
@@ -12819,7 +12823,7 @@ msgstr "विन्यास आयात नहीं किया जा स�
 
 #: prefs_manage.php:114
 msgid "Configuration contains incorrect data for some fields."
-msgstr "विन्यास में कुछ क्षेत्रों के लिए ग़लत डेटा है"
+msgstr "विन्यास में कुछ क्षेत्रों के लिए ग़लत डेटा है।"
 
 #: prefs_manage.php:133
 msgid "Do you want to import remaining settings?"
@@ -12839,7 +12843,7 @@ msgstr "ब्राउज़र के भंडारण से आयात"
 
 #: prefs_manage.php:248
 msgid "Settings will be imported from your browser's local storage."
-msgstr "सेटिंग्स को अपने ब्राउजर के स्थानीय भंडारण से आयात किया जाएगा"
+msgstr "सेटिंग्स को अपने ब्राउजर के स्थानीय भंडारण से आयात किया जाएगा।"
 
 #: prefs_manage.php:254
 msgid "You have no saved settings!"
@@ -12866,7 +12870,7 @@ msgstr "ब्राउज़र के भंडारण में बचा�
 
 #: prefs_manage.php:305
 msgid "Settings will be saved in your browser's local storage."
-msgstr "सेटिंग्स को आपके ब्राउजर के स्थानीय भंडारण में सहेज लिया जाएगा"
+msgstr "सेटिंग्स को आपके ब्राउजर के स्थानीय भंडारण में सहेज लिया जाएगा।"
 
 #: prefs_manage.php:307
 msgid "Existing settings will be overwritten!"
@@ -12874,7 +12878,8 @@ msgstr "मौजूदा सेटिंग्स अधिलेखित ह
 
 #: prefs_manage.php:324
 msgid "You can reset all your settings and restore them to default values."
-msgstr "आप अपने सभी सेटिंग्स रीसेट और उन मूलभूत मूल्यों को पुनर्स्थापित कर सकते हैं"
+msgstr ""
+"आप अपने सभी सेटिंग्स रीसेट और उन मूलभूत मूल्यों को पुनर्स्थापित कर सकते हैं।"
 
 #: querywindow.php:64
 msgid "Import files"
@@ -13174,11 +13179,11 @@ msgstr "प्रदर्शन कारणों के लिए mysqli क�
 
 #: setup/lib/index.lib.php:376
 msgid "You allow for connecting to the server without a password."
-msgstr "पासवर्ड के बिना सर्वर से कनेक्ट करने के लिए अनुमति"
+msgstr "पासवर्ड के बिना सर्वर से कनेक्ट करने के लिए अनुमति."
 
 #: setup/lib/index.lib.php:400
 msgid "Key is too short, it should have at least 8 characters."
-msgstr "कुंजी बहुत छोटा है, इसमें कम से कम 8 वर्ण होने चाहिए"
+msgstr "कुंजी बहुत छोटा है, इसमें कम से कम 8 वर्ण होने चाहिए."
 
 #: setup/lib/index.lib.php:407
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -13207,7 +13212,7 @@ msgstr ""
 #: tbl_create.php:30 tbl_get_field.php:25
 #, php-format
 msgid "'%s' database does not exist."
-msgstr "'%s' डेटाबेस मौजूद नहीं है"
+msgstr "'%s' डेटाबेस मौजूद नहीं है।"
 
 #: tbl_create.php:40
 #, php-format
