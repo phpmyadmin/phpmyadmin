@@ -55,6 +55,8 @@ class PMA_RecentFavoriteTable
 
     /**
      * Creates a new instance of PMA_RecentFavoriteTable
+     *
+     * @param string $type the table type
      */
     public function __construct($type)
     {
@@ -76,6 +78,8 @@ class PMA_RecentFavoriteTable
 
     /**
      * Returns class instance.
+     *
+     * @param string $type the table type
      *
      * @return PMA_RecentFavoriteTable
      */
@@ -134,13 +138,13 @@ class PMA_RecentFavoriteTable
         if (! $success) {
             $error_msg = '';
             switch ($this->table_type) {
-                case 'recent':
-                    $error_msg = __('Could not save recent table!');
-                    break;
+            case 'recent':
+                $error_msg = __('Could not save recent table!');
+                break;
 
-                case 'favorite':
-                    $error_msg = __('Could not save favorite table!');
-                    break;
+            case 'favorite':
+                $error_msg = __('Could not save favorite table!');
+                break;
             }
             $message = PMA_Message::error($error_msg);
             $message->addMessage('<br /><br />');
@@ -155,13 +159,16 @@ class PMA_RecentFavoriteTable
     }
 
     /**
-     * Trim recent.favorite table according to the NumRecentTables/NumFavoriteTables configuration.
+     * Trim recent.favorite table according to the
+     * NumRecentTables/NumFavoriteTables configuration.
      *
      * @return boolean True if trimming occurred
      */
     public function trim()
     {
-        $max = max($GLOBALS['cfg']['Num' . ucfirst($this->table_type) . 'Tables'], 0);
+        $max = max(
+            $GLOBALS['cfg']['Num' . ucfirst($this->table_type) . 'Tables'], 0
+        );
         $trimming_occurred = count($this->tables) > $max;
         while (count($this->tables) > $max) {
             array_pop($this->tables);
@@ -184,15 +191,15 @@ class PMA_RecentFavoriteTable
         $first_option = '';
         $last_option = '';
         switch ($this->table_type) {
-            case 'recent':
-                $first_option = __("Recent tables");
-                $last_option = __("There are no recent tables.");
-                break;
+        case 'recent':
+            $first_option = __("Recent tables");
+            $last_option = __("There are no recent tables.");
+            break;
 
-            case 'favorite':
-                $first_option = __("Favorite tables");
-                $last_option = __("There are no favorite tables.");
-                break;
+        case 'favorite':
+            $first_option = __("Favorite tables");
+            $last_option = __("There are no favorite tables.");
+            break;
         }
         $html = '<option value="">(' . $first_option . ') ...</option>';
         if (count($this->tables)) {
@@ -219,7 +226,8 @@ class PMA_RecentFavoriteTable
      */
     public function getHtmlSelect()
     {
-        $html  = '<select name="selected_' . $this->table_type . '_table" id="' . $this->table_type . 'Table">';
+        $html  = '<select name="selected_' . $this->table_type
+            . '_table" id="' . $this->table_type . 'Table">';
         $html .= $this->getHtmlSelectOption();
         $html .= '</select>';
 
