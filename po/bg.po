@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-27 22:11+0200\n"
 "Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -13153,7 +13153,7 @@ msgstr "препоръчително"
 msgid "Error: relation already exists."
 msgstr "Грешка: Релацията вече съществува."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -13174,12 +13174,6 @@ msgstr "Грешка: Релацията е изключена!"
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Добавена е вътрешна релация"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Грешка: Релацията не е добавена."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14689,6 +14683,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Грешка: Релацията не е добавена."
 
 #, fuzzy
 #~| msgid "Copy"

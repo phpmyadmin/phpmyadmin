@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-02-02 13:51+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Finnish <http://l10n.cihar.com/projects/phpmyadmin/master/fi/"
@@ -13870,7 +13870,7 @@ msgstr "suositus"
 msgid "Error: relation already exists."
 msgstr "Virhe: relaatio on jo olemassa."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -13891,12 +13891,6 @@ msgstr "Virhe: Relaatio ominaisuudet ovat poissa käytöstä!"
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Sisäinen relaatio luotu"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Virhe: Relaatiota ei luotu."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -15523,6 +15517,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert on asetettu 0"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Virhe: Relaatiota ei luotu."
 
 #, fuzzy
 #~| msgid "Copy"

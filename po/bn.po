@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -12770,7 +12770,7 @@ msgstr "পরামর্শ"
 msgid "Error: relation already exists."
 msgstr "ভুল: সর্ম্পক পূর্ব থেকেই তৈরী আছে।"
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -12791,12 +12791,6 @@ msgstr "ভুল: সর্ম্পক তৈরী অকার্যকর �
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "আভ্যন্তরীন সম্পর্ক যোগ করা হয়েছে"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14370,6 +14364,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert এর জন্য ০ নির্ধারন করা হয়েছে"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "ভুল: সর্ম্পক যোগ করা হয়নি"
 
 #, fuzzy
 #~| msgid "Copy"

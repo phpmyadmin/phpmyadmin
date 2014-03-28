@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-28 10:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>"
-"\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
+">\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12762,7 +12762,6 @@ msgid "Page has been created."
 msgstr "Stránka byla vytvořena."
 
 #: pmd_pdf.php:56
-#| msgid "Page creation failed"
 msgid "Page creation has failed!"
 msgstr "Vytvoření stránky selhalo!"
 
@@ -12798,13 +12797,11 @@ msgstr "doporučené"
 msgid "Error: relation already exists."
 msgstr "Chyba: Relace již existuje."
 
-#: pmd_relation_new.php:80
-#| msgid "Error: Relation not added."
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 msgid "Error: Relation could not be added!"
 msgstr "Chyba: Relace nemohla být přidána!"
 
 #: pmd_relation_new.php:81
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
 msgstr "Relace FOREIGN KEY byla vytvořena."
 
@@ -12813,14 +12810,8 @@ msgid "Error: Relational features are disabled!"
 msgstr "Chyba: Funkce relací jsou vypnuté!"
 
 #: pmd_relation_new.php:104
-#| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Interní relace byla vytvořena."
-
-#: pmd_relation_new.php:106
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Chyba: Relace nebyla přidána."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13856,7 +13847,6 @@ msgstr ""
 "1 za hodinu"
 
 #: libraries/advisory_rules.txt:262
-#| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
 msgstr "Rozdílné tmp_table_size a max_heap_table_size"
 
@@ -14462,6 +14452,10 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Chyba: Relace nebyla přidána."
 
 #, fuzzy
 #~| msgid "Copy"

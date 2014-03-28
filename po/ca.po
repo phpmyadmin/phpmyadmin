@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-18 17:01+0200\n"
 "Last-Translator: Carles Mata <info@appsinet.com>\n"
 "Language-Team: Catalan <https://l10n.cihar.com/projects/phpmyadmin/master/ca/"
@@ -13824,7 +13824,7 @@ msgstr "recomanat"
 msgid "Error: relation already exists."
 msgstr "Error: la relació ja existeix."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -13847,12 +13847,6 @@ msgstr "Error: La relació no s'ha afegit."
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Afegida relació interna"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Error: La relació no s'ha afegit."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -15569,6 +15563,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "{concurrent_insert} està establert a 0"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Error: La relació no s'ha afegit."
 
 #, fuzzy
 #~| msgid "Copy"

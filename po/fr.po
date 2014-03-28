@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-27 18:02+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
@@ -13002,7 +13002,7 @@ msgstr "recommandé"
 msgid "Error: relation already exists."
 msgstr "Erreur: relation déjà existante."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -13023,12 +13023,6 @@ msgstr "Erreur : fonctionnalités relationnelles désactivées !"
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Relation interne ajoutée"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Erreur: relation non ajoutée."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14716,6 +14710,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Erreur: relation non ajoutée."
 
 #~ msgid "Copy Salt"
 #~ msgstr "Copier le salage"

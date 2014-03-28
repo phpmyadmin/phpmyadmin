@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-26 11:45+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.cihar.com/projects/"
@@ -13485,7 +13485,7 @@ msgstr "recommended"
 msgid "Error: relation already exists."
 msgstr "Error: relation already exists."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -13506,12 +13506,6 @@ msgstr "Error: Relational features are disabled!"
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Internal relation added"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Error: Relation not added."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -15152,6 +15146,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is set to 0"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Error: Relation not added."
 
 #, fuzzy
 #~| msgid "Copy"

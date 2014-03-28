@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Sinhala <https://l10n.cihar.com/projects/phpmyadmin/master/si/"
@@ -12826,7 +12826,7 @@ msgstr ""
 msgid "Error: relation already exists."
 msgstr ""
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "File could not be read!"
 msgid "Error: Relation could not be added!"
@@ -12847,10 +12847,6 @@ msgstr ""
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "අභ්‍යන්තර සබඳතා එක් කරන ලදි"
-
-#: pmd_relation_new.php:106
-msgid "Error: Relation could not be added."
-msgstr ""
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"

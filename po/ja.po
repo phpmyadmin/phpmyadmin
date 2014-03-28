@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-02-14 13:01+0200\n"
 "Last-Translator: Yuki Shira <shirayuking@gmail.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -13763,7 +13763,7 @@ msgstr "推奨"
 msgid "Error: relation already exists."
 msgstr "エラー: リレーションはすでに存在しています。"
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -13784,12 +13784,6 @@ msgstr "エラー: リレーション機能は無効になっています!"
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "内部リレーションを追加しました"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "エラー: リレーションを追加できませんでした。"
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -15535,6 +15529,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています。"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "エラー: リレーションを追加できませんでした。"
 
 #, fuzzy
 #~| msgid "Copy"

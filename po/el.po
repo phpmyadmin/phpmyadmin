@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-26 19:27+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
@@ -13078,7 +13078,7 @@ msgstr "προτείνεται"
 msgid "Error: relation already exists."
 msgstr "Σφάλμα: η συσχέτιση υπαρχει ήδη."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -13099,12 +13099,6 @@ msgstr "Σφάλμα: Τα χαρακτηριστικά συσχέτισης ε�
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Η εσωτερική συσχέτιση προστέθηκε"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Σφάλμα: Δεν προστέθηκε η συσχέτιση."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14828,6 +14822,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Σφάλμα: Δεν προστέθηκε η συσχέτιση."
 
 #~ msgid "Copy Salt"
 #~ msgstr "Αντιγραφή Αλατιού"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-27 09:45+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
@@ -12488,7 +12488,7 @@ msgstr "recommendate"
 msgid "Error: relation already exists."
 msgstr "Error: le relation ja existe."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -12509,12 +12509,6 @@ msgstr "Error: characteristicas relational es dishabilitate!"
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Relation interne addite"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Error: relation non addite."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13935,6 +13929,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Error: relation non addite."
 
 #~ msgid "Copy Salt"
 #~ msgstr "Copia Salt"

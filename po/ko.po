@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-03-26 11:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -12970,7 +12970,7 @@ msgstr "추천"
 msgid "Error: relation already exists."
 msgstr "오류: 릴레이션이 이미 존재함."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -12991,12 +12991,6 @@ msgstr "오류: 릴레이션 기능이 비활성화 되어 있음!"
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "내부 릴레이션이 추가됨"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "오류: 릴레이션이 추가되지 않음."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -14551,6 +14545,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "오류: 릴레이션이 추가되지 않음."
 
 #, fuzzy
 #~| msgid "Copy"

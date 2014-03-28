@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-02-27 11:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -13573,7 +13573,7 @@ msgstr "rekomenduojame"
 msgid "Error: relation already exists."
 msgstr "Klaida: toks sąryšis jau yra."
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
@@ -13596,12 +13596,6 @@ msgstr "Klaida: Sąryšis neįdėtas."
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
 msgstr "Vidinis sąryšis įdėtas"
-
-#: pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
-msgid "Error: Relation could not be added."
-msgstr "Klaida: Sąryšis neįdėtas."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -15198,6 +15192,11 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "MyISAM concurrent įterpimai"
+
+#, fuzzy
+#~| msgid "Error: Relation not added."
+#~ msgid "Error: Relation could not be added."
+#~ msgstr "Klaida: Sąryšis neįdėtas."
 
 #, fuzzy
 #~| msgid "Copy"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-28 10:00+0100\n"
+"POT-Creation-Date: 2014-03-28 10:29+0100\n"
 "PO-Revision-Date: 2014-02-27 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Malayalam <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -12157,7 +12157,7 @@ msgstr ""
 msgid "Error: relation already exists."
 msgstr ""
 
-#: pmd_relation_new.php:80
+#: pmd_relation_new.php:80 pmd_relation_new.php:106
 msgid "Error: Relation could not be added!"
 msgstr ""
 
@@ -12174,10 +12174,6 @@ msgstr ""
 #| msgid "Database %1$s has been created."
 msgid "Internal relation has been added."
 msgstr "വിവരശേഖരം(ങ്ങൾ) %1$s സൃഷ്ടിച്ചിരിക്കുന്നു."
-
-#: pmd_relation_new.php:106
-msgid "Error: Relation could not be added."
-msgstr ""
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
