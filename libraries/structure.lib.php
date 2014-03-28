@@ -478,22 +478,9 @@ function PMA_getHtmlForStructureTableRow(
             . '</td>';
     }
     //Favorite table anchor.
-    $html_output .= '<td class="center">';
-    $html_output .= '<a ';
-    $html_output .= 'class="ajax favorite_table_anchor';
-    if ($table_is_view || $current_table['ENGINE'] == null) {
-        // this class is used in db_structure.js to display the
-        // correct confirmation message
-        $html_output .= ' view';
-    }
-    // Check if current table is already in favorite list.
-    $already_favorite = PMA_checkFavoriteTable($db, $current_table['TABLE_NAME']);
-    $html_output .= '" ';
-    $html_output .= 'href="db_structure.php?&amp;'. PMA_URL_getCommon($db)
-        . '&amp;' . ($already_favorite?'remove':'add')  . '_favorite=1'
-        .'&amp;favorite_table=' . urlencode($current_table['TABLE_NAME'])
-        . '" title="' . ($already_favorite ? __("Remove from Favorites") : __("Add to Favorites")) . '" >'
-        . (!$already_favorite ? $titles['NoFavorite'] : $titles['Favorite']) . '</a></td>';
+    $html_output .= '<td class="center">'
+        . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
+        .'</td>';
 
     $html_output .= '<td class="center">' . $browse_table . '</td>';
     $html_output .= '<td class="center">'
@@ -2710,5 +2697,37 @@ function PMA_checkFavoriteTable($db, $current_table)
         }
     }
     return false;
+}
+
+/**
+ * Get HTML for favorite anchor.
+ *
+ * @param string $db            current database
+ * @param string $current_table current table
+ * @param string $titles        titles
+ *
+ * @return $html_output
+ */
+function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
+{
+    $html_output  = '<a ';
+    $html_output .= 'id="' . preg_replace('/\s+/', '', $current_table['TABLE_NAME']) . '_favorite_anchor" ';
+    $html_output .= 'class="ajax favorite_table_anchor';
+
+    // Check if current table is already in favorite list.
+    $already_favorite = PMA_checkFavoriteTable($db, $current_table['TABLE_NAME']);
+    $fav_params = array('db' => $db,
+        'ajax_request' => true,
+        'favorite_table' => $current_table['TABLE_NAME'],
+        (($already_favorite?'remove':'add') . '_favorite') => true);
+    $fav_url = 'db_structure.php' . PMA_URL_getCommon($fav_params);
+    $html_output .= '" ';
+    $html_output .= 'href="' . $fav_url
+        . '" title="' . ($already_favorite ? __("Remove from Favorites")
+        : __("Add to Favorites")) . '" >'
+        . (!$already_favorite ? $titles['NoFavorite']
+        : $titles['Favorite']) . '</a>';
+
+    return $html_output;
 }
 ?>
