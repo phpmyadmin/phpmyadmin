@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-28 13:34+0200\n"
+"PO-Revision-Date: 2014-03-28 14:07+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -1504,7 +1504,7 @@ msgstr "Pro favor selige le file que tu vole importar."
 
 #: js/messages.php:205
 msgid "No files available on server for import!"
-msgstr "Nulle files disponibule sur le servitor pro importar!"
+msgstr "Nulle files disponibile sur le servitor pro importar!"
 
 #: js/messages.php:207
 msgid "Analyse Query"
@@ -1516,7 +1516,7 @@ msgstr "Systema de advisor"
 
 #: js/messages.php:212
 msgid "Possible performance issues"
-msgstr "Prossibile problemas de prestationes"
+msgstr "Possibile problemas de prestationes"
 
 #: js/messages.php:213
 msgid "Issue"
@@ -6439,7 +6439,7 @@ msgid ""
 msgstr ""
 "Ambe iste tabella e le tabella del gruppo de usator es requirite per "
 "habilitar le characteristica del menu configurabile, si\n"
-"on lassa un de lor vacue on dishabilitara iste characteristica, suggerite "
+"on lassa un de lor vacue on dishabilitara iste characteristica, suggerite: "
 "[kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:711
@@ -6454,7 +6454,7 @@ msgid ""
 msgstr ""
 "Ambe iste tabella e le tabella de usatores es requirite per habilitar le "
 "characteristica del menu configurabile, si\n"
-"on lassa un de lor vacue on dishabilitara iste characteristica, suggerite "
+"on lassa un de lor vacue on dishabilitara iste characteristica, suggerite: "
 "[kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:713
@@ -8657,6 +8657,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Incorpora nomine de tabella e columna con virgulettas <i> (Protege le "
+"nomines de columna e tabella con characteres special o parolas clave) </i>"
 
 #: libraries/plugins/export/ExportSql.class.php:339
 msgid "Data creation options"
@@ -8669,24 +8671,24 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:349
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "In loco de declarationes <code>INSERT</code>, usa:"
 
 #: libraries/plugins/export/ExportSql.class.php:355
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "Declarationes <code>INSERT DELAYED</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:366
 #: libraries/plugins/export/ExportSql.class.php:396
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "Declarationes <code>INSERT IGNORE</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:379
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Function de usar quando on discarga (dumping) datos:"
 
 #: libraries/plugins/export/ExportSql.class.php:392
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Le syntaxe quando on inserta datos:"
 
 #: libraries/plugins/export/ExportSql.class.php:400
 msgid ""
@@ -8694,6 +8696,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"include nomines de columna in cata declaration <code>INSERT</code>  <br /> "
+"&nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
+"VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:405
 msgid ""
@@ -8701,30 +8706,42 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"inserta multiple rangos in cata declaration <code>INSERT</code> <br /> &nbsp;"
+" &nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:410
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"ambes le de cuje super <br /> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT "
+"INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:415
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"necun de le cuje super above<br /> &nbsp; &nbsp; &nbsp; Exemplo: <code>"
+"INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:434
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Exeque le dump de columnas binari in notation hexadecimal <i> (pro exemplo, "
+"\"abc\" deveni 0x616263) </i>"
 
 #: libraries/plugins/export/ExportSql.class.php:447
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Exeque le dump de columnas de TIMESTAMP in UTC <i> (il habilita que columnas "
+"de TIMESTAMP pote esser discargate via dump e recargate inter servitores in "
+"differente fusos horari) </i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1233
 msgid "Constraints for dumped tables"
@@ -8752,32 +8769,32 @@ msgstr "AUTO_INCREMENT pro tabella"
 
 #: libraries/plugins/export/ExportSql.class.php:1540
 msgid "MIME TYPES FOR TABLE"
-msgstr ""
+msgstr "MIME TYPES FOR TABLE"
 
 #: libraries/plugins/export/ExportSql.class.php:1565
 msgid "RELATIONS FOR TABLE"
-msgstr ""
+msgstr "RELATIONS FOR TABLE"
 
 #: libraries/plugins/export/ExportSql.class.php:1694
 #, php-format
 msgid "Structure for view %s exported as a table"
-msgstr ""
+msgstr "Structura pro vider %s exportate como un tabella"
 
 #: libraries/plugins/export/ExportSql.class.php:1782
 msgid "Error reading data:"
-msgstr ""
+msgstr "Il habeva un error quando on legeva datos:"
 
 #: libraries/plugins/export/ExportXml.class.php:102
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Optiones de creation de objecto (omnes es recommendate)"
 
 #: libraries/plugins/export/ExportXml.class.php:137
 msgid "Export contents"
-msgstr ""
+msgstr "Exporta contentos"
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
 msgid "Table:"
-msgstr "Tabula:"
+msgstr "Tabella:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -8785,6 +8802,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"Le prime rango del file contine le nomines de columna de tabella <i> (si "
+"iste option non es marcate, le prime rango devenira parte del datos) </i>"
 
 #: libraries/plugins/import/ImportCsv.class.php:72
 msgid ""
@@ -8792,11 +8811,14 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Si le datos in cata rango del file non es in le mesme ordine que in le base "
+"de datos, tu specifica hic le nomines de columna correspondente. Nomines de "
+"columna debe esser separate per virgulas e non includite in citationes."
 
 #: libraries/plugins/import/ImportCsv.class.php:81
 #: libraries/plugins/import/ImportLdi.class.php:68
 msgid "Column names: "
-msgstr ""
+msgstr "Nomines de columna: "
 
 #: libraries/plugins/import/ImportCsv.class.php:133
 #: libraries/plugins/import/ImportCsv.class.php:148
@@ -8804,7 +8826,7 @@ msgstr ""
 #: libraries/plugins/import/ImportCsv.class.php:162
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "Parametro invalide per le importation de CSV: %s"
 
 #: libraries/plugins/import/ImportCsv.class.php:213
 #, php-format
