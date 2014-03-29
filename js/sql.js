@@ -396,6 +396,39 @@ AJAX.registerOnload('sql.js', function () {
             PMA_init_slider();
         }); // end $.post()
     }); //end displayOptionsForm handler
+
+    // Filter row handling. --STARTS--
+    var $target_table = $("#table_results");
+    var $header_cells = $target_table.find("th[class*='column_heading']");
+    var target_columns = Array();
+    // To handle colspan=4.
+    var dummy_th = ($(".edit_row_anchor").length !== 0 ?
+        '<th class="hide dummy_th"></th><th class="hide dummy_th"></th><th class="hide dummy_th"></th>' : '');
+    // Headings of columns to be considered for searching.
+    var col_heading = '';
+    // Stores table comment, if any, to match table heading.
+    var $tblcomment = '';
+    // Selecting columns that will be considered for filtering and searching.
+    $header_cells.each(function () {
+        $tblcomment = $(this).find("span[class*='tblcomment']");
+        col_heading = ($tblcomment.length !== 0) ?
+            $.trim($(this).attr("data-column") + "\n" + $tblcomment.text())
+            : $(this).attr("data-column");
+        target_columns.push(col_heading);
+    });
+
+    var $filter_row_fields = $(".filter_rows");
+    $filter_row_fields.keyup(function () {
+        var phrase = $(this).val();
+        // Set same value to both Filter rows fields.
+        $filter_row_fields.val(phrase);
+        // Handle colspan.
+        $target_table.find("thead > tr").prepend(dummy_th);
+        $.uiTableFilter($target_table, phrase, target_columns);
+        $target_table.find("th.dummy_th").remove();
+    });
+    // Filter row handling. --ENDS--
+
 }); // end $()
 
 /**
