@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-28 10:29+0100\n"
-"PO-Revision-Date: 2014-03-29 12:38+0200\n"
+"PO-Revision-Date: 2014-03-29 12:41+0200\n"
 "Last-Translator: Magnus Vinsjevik <odevinsj@gmail.com>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/nb/>\n"
@@ -433,7 +433,7 @@ msgstr ""
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
 msgid "You may want to refresh the page."
-msgstr "Det kan være lurt å oppdatere siden"
+msgstr "Det kan være lurt å oppdatere siden."
 
 #: error_report.php:45
 msgid ""
@@ -452,7 +452,7 @@ msgstr "Takk for at du sender inn denne rapporten."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "Beklager, innsendingen mislyktes."
 
 #: export.php:179
 msgid "Bad type!"
