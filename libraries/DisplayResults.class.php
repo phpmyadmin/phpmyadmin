@@ -1995,8 +1995,7 @@ class PMA_DisplayResults
             // We need to generate the arrow button and related html  
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
                 list($sort_order, $order_img) = $this->_getSortingUrlParams(
-                    $is_in_sort, $sort_direction, $fields_meta,
-                    $sort_order, $column_index, $sort_tbl_new, $index
+                    $sort_direction, $sort_order, $column_index, $index
                 );                 
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
@@ -2089,9 +2088,7 @@ class PMA_DisplayResults
     /**
      * Get sort url paramaeters - sort order and order image
      *
-     * @param boolean $is_in_sort     the column sorted or not
      * @param array   $sort_direction the sort direction
-     * @param array   $fields_meta    set of field properties
      * @param array   $sort_order     the sorting order
      * @param integer $column_index   the index of the column
      * @param integer $index          the index of sort direction array.
@@ -2100,10 +2097,10 @@ class PMA_DisplayResults
      *
      * @access  private
      *
-     * @see     _getTableHeaders()
+     * @see     makeURL()
      */
     private function _getSortingUrlParams(
-        $is_in_sort, $sort_direction, $fields_meta, $sort_order, $column_index, $sort_tbl, $index
+        $sort_direction, $sort_order, $column_index, $index
     ) {
 
         $index2 = $index + 1;
