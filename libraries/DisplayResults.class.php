@@ -1829,8 +1829,6 @@ class PMA_DisplayResults
      * @param boolean $col_visib                   column is visible(false)
      *        array                                column isn't visible(string array)
      * @param string  $col_visib_j                 element of $col_visib array
-     * @param boolean $condition_field             whether the column is a part of
-     *                                             the where clause
      *
      * @return  array   2 element array - $order_link, $sorted_header_html
      *
@@ -1841,8 +1839,7 @@ class PMA_DisplayResults
     private function _getOrderLinkAndSortedHeaderHtml(
         $fields_meta, $sort_expression, $sort_expression_nodirection,
         $column_index, $unsorted_sql_query, $session_max_rows, $direction,
-        $comments, $sort_direction, $directionCondition, $col_visib,
-        $col_visib_j, $condition_field, $is_last_field
+        $comments, $sort_direction, $directionCondition, $col_visib, $col_visib_j
     ) {
 
         $sorted_header_html = '';
@@ -1895,7 +1892,7 @@ class PMA_DisplayResults
         );
 
         $sorted_header_html .= $this->_getDraggableClassForSortableColumns(
-            $col_visib, $col_visib_j, $condition_field, $direction,
+            $col_visib, $col_visib_j, $direction,
             $fields_meta, $order_link, $comments
         );
 
@@ -2201,14 +2198,13 @@ class PMA_DisplayResults
     /**
      * Prepare columns to draggable effect for sortable columns
      *
-     * @param boolean $col_visib       the column is visible (false)
-     *        array                    the column is not visible (string array)
-     * @param string  $col_visib_j     element of $col_visib array
-     * @param boolean $condition_field whether to add CSS class condition
-     * @param string  $direction       the display direction
-     * @param array   $fields_meta     set of field properties
-     * @param string  $order_link      the order link
-     * @param string  $comments        the comment for the column
+     * @param boolean $col_visib   the column is visible (false)
+     *        array                the column is not visible (string array)
+     * @param string  $col_visib_j element of $col_visib array
+     * @param string  $direction   the display direction
+     * @param array   $fields_meta set of field properties
+     * @param string  $order_link  the order link
+     * @param string  $comments    the comment for the column
      *
      * @return  string  $draggable_html     html content
      *
@@ -2217,7 +2213,7 @@ class PMA_DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getDraggableClassForSortableColumns(
-        $col_visib, $col_visib_j, $condition_field, $direction, $fields_meta,
+        $col_visib, $col_visib_j, $direction, $fields_meta,
         $order_link, $comments
     ) {
 
@@ -2227,10 +2223,6 @@ class PMA_DisplayResults
 
         if ($col_visib && !$col_visib_j) {
             $th_class[] = 'hide';
-        }
-
-        if ($condition_field) {
-            $th_class[] = 'condition';
         }
 
         $th_class[] = 'column_heading';
