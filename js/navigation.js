@@ -117,8 +117,8 @@ $(function () {
             $form.find('input[name=db]').val(arr.db);
             $form.find('input[name=table]').val(arr.table);
             $form.submit();
-            $(this).prop('selectedIndex', 0);
         }
+        $(this).prop('selectedIndex', 0);
     });
 
     /** Create a Routine, Trigger or Event */
