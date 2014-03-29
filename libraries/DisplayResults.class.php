@@ -1864,10 +1864,9 @@ class PMA_DisplayResults
 
         // Generates the orderby clause part of the query which is part 
         // of URL
-        list($sort_order, $order_img) = $this->makeUrl(
-            $sort_expression, $sort_expression_nodirection, 
-            $sort_tbl, $name_to_use_in_sort, $sort_direction, $fields_meta,
-            $column_index
+        list($sort_order, $order_img) = $this->_makeUrl(
+            $sort_expression, $sort_expression_nodirection, $sort_tbl,
+            $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
         );
 
         if (preg_match(
@@ -1921,9 +1920,9 @@ class PMA_DisplayResults
      *
      * @access  private
      *
-     * @see     _getTableHeaders()
+     * @see     _getOrderLinkAndSortedHeaderHtml()
      */
-    private function makeURL(
+    private function _makeUrl(
         $sort_expression, $sort_expression_nodirection, $sort_tbl,
         $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
     ) { 
@@ -2097,7 +2096,7 @@ class PMA_DisplayResults
      *
      * @access  private
      *
-     * @see     makeURL()
+     * @see     _makeUrl()
      */
     private function _getSortingUrlParams(
         $sort_direction, $sort_order, $column_index, $index
