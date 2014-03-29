@@ -402,7 +402,7 @@ $js_messages['strTimeOutError'] = __(
 );
 
 $js_messages['strTooManyInputs'] = __(
-    "Warning: a form of the page as more than %d fields and could not being "
+    "Warning: a form on this page has more than %d fields and could not be "
     . "processed."
 );
 
