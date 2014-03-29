@@ -10,19 +10,27 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
+$formset_id = filter_input(INPUT_GET, 'formset');
+
 $separator = PMA_URL_getArgSeparator('html');
 echo '<ul>';
-echo '<li><a href="index.php">' . __('Overview') . '</a></li>';
-echo '<li><a href="?page=form' . $separator . 'formset=Features">'
-    . __('Features') . '</a></li>';
-echo '<li><a href="?page=form' . $separator . 'formset=Sql_queries">'
-    . __('SQL queries') . '</a></li>';
-echo '<li><a href="?page=form' . $separator . 'formset=Navi_panel">'
-    . __('Navigation panel') . '</a></li>';
-echo '<li><a href="?page=form' . $separator . 'formset=Main_panel">'
-    . __('Main panel') . '</a></li>';
-echo '<li><a href="?page=form' . $separator . 'formset=Import">'
-    . __('Import') . '</a></li>';
-echo '<li><a href="?page=form' . $separator . 'formset=Export">'
-    . __('Export') . '</a></li>';
+echo '<li><a href="index.php"'
+    . ($formset_id === null ? ' class="active' : '')
+    .'">' . __('Overview') . '</a></li>';
+
+$formsets = array(
+    'Features'    => __('Features'),
+    'Sql_queries' => __('SQL queries'),
+    'Navi_panel'  => __('Navigation panel'),
+    'Main_panel'  => __('Main panel'),
+    'Import'      => __('Import'),
+    'Export'      => __('Export')
+);
+
+foreach ($formsets as $formset => $label) {
+    echo '<li><a href="?page=form' . $separator . 'formset=' . $formset . '" '
+        . ($formset_id === $formset ? ' class="active' : '')
+        .'">' . $label . '</a></li>';
+}
+
 echo '</ul>';

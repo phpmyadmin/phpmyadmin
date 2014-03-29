@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 + rfe #1476 Favourite tables select box
 + rfe #420  $cfg['CharEditing']='textarea' for structure edit
 + rfe #1329 Avoid editing of fields which are part of relation
++ rfe       [interface] Highlight active left menu item in setup
 
 4.1.13.0 (not yet released)
 - bug #4279 CTRL + up or down moves 2 fields
@@ -56,7 +57,7 @@ phpMyAdmin - ChangeLog
 - bug #4326 Cannot find the import plugins which start with uppercase 'I'
 
 4.1.11.0 (2014-03-23)
-- bug #4335 reCaptcha problem (4.1.10 regression) 
+- bug #4335 reCaptcha problem (4.1.10 regression)
 
 4.1.10.0 (2014-03-22)
 - bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit

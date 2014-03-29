@@ -73,7 +73,7 @@ h1 {
     zoom: 1; /* IE fix */
 }
 
-#menu li a:hover, #menu li a:active {
+#menu li a:hover, #menu li a:active, #menu li a.active {
     background-color: #e4e4e4;
 }
 
