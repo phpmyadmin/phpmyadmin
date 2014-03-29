@@ -4109,3 +4109,23 @@ function PMA_formatDateTime(date, seconds) {
         }
     );
 }
+
+/**
+ * Check than forms have less fields than max allowed by PHP.
+ */
+function checkNumberOfFields() {
+    if (typeof maxInputVars === 'undefined') {
+        return false;
+    }
+    $('form').each(function() {
+        var nbInputs = $(this).find(':input').length;
+        if (nbInputs > maxInputVars) {
+            var warning = $.sprintf(PMA_messages.strTooManyInputs, maxInputVars);
+            PMA_ajaxShowMessage(warning);
+            return false;
+        }
+        return true;
+    });
+
+    return true;
+}
