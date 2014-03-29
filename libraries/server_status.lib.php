@@ -167,7 +167,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
         )
     );
     $retval .= '</td>';
-    $retval .= '<td class="value"><?php echo';
+    $retval .= '<td class="value">';
     $retval .= implode(
         ' ',
         PMA_Util::formatByteDown(
