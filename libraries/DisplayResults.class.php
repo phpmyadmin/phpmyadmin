@@ -1829,8 +1829,6 @@ class PMA_DisplayResults
      * @param boolean $col_visib                   column is visible(false)
      *        array                                column isn't visible(string array)
      * @param string  $col_visib_j                 element of $col_visib array
-     * @param boolean $condition_field             whether the column is a part of
-     *                                             the where clause
      *
      * @return  array   2 element array - $order_link, $sorted_header_html
      *
@@ -1841,8 +1839,7 @@ class PMA_DisplayResults
     private function _getOrderLinkAndSortedHeaderHtml(
         $fields_meta, $sort_expression, $sort_expression_nodirection,
         $column_index, $unsorted_sql_query, $session_max_rows, $direction,
-        $comments, $sort_direction, $directionCondition, $col_visib,
-        $col_visib_j, $condition_field, $is_last_field
+        $comments, $sort_direction, $directionCondition, $col_visib, $col_visib_j
     ) {
 
         $sorted_header_html = '';
@@ -1864,10 +1861,9 @@ class PMA_DisplayResults
 
         // Generates the orderby clause part of the query which is part 
         // of URL
-        list($sort_order, $order_img) = $this->makeUrl(
-            $sort_expression, $sort_expression_nodirection, 
-            $sort_tbl, $name_to_use_in_sort, $sort_direction, $fields_meta,
-            $column_index
+        list($sort_order, $order_img) = $this->_makeUrl(
+            $sort_expression, $sort_expression_nodirection, $sort_tbl,
+            $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
         );
 
         if (preg_match(
@@ -1896,7 +1892,7 @@ class PMA_DisplayResults
         );
 
         $sorted_header_html .= $this->_getDraggableClassForSortableColumns(
-            $col_visib, $col_visib_j, $condition_field, $direction,
+            $col_visib, $col_visib_j, $direction,
             $fields_meta, $order_link, $comments
         );
 
@@ -1907,24 +1903,25 @@ class PMA_DisplayResults
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @param array   $fields_meta                 set of field properties
      * @param array   $sort_expression             sort expression
      * @param array   $sort_expression_nodirection sort expression without direction
-     * @param array   $sort_direction              sort direction 
-     * @param string  $name_to_use_in_sort         The current column under consideration 
-     * @param string  $sort_tbl                    The name of the table to which the 
-     *                                             current column belongs to                                   
-     * @param integer $column_index                The index number to the current column
+     * @param string  $sort_tbl                    The name of the table to which
+     *                                             the current column belongs to
+     * @param string  $name_to_use_in_sort         The current column under
+     *                                             consideration
+     * @param array   $sort_direction              sort direction
+     * @param array   $fields_meta                 set of field properties
+     * @param integer $column_index                The index number to current column
+     *
      * @return  array   2 element array - $order_link, $sorted_header_html
      *
      * @access  private
      *
-     * @see     _getTableHeaders()
+     * @see     _getOrderLinkAndSortedHeaderHtml()
      */
-    private function makeURL(
-        $sort_expression, $sort_expression_nodirection, 
-        $sort_tbl, $name_to_use_in_sort, $sort_direction, $fields_meta,
-        $column_index
+    private function _makeUrl(
+        $sort_expression, $sort_expression_nodirection, $sort_tbl,
+        $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
     ) { 
         $sort_order = "";
         // Check if the current column is in the order by clause
@@ -1970,8 +1967,8 @@ class PMA_DisplayResults
             // $name_to_use_in_sort might contain a space due to
             // formatting of function expressions like "COUNT(name )"
             // so we remove the space in this situation
-            $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);            
-            $name_to_use_in_sort = str_replace('`','',$name_to_use_in_sort);
+            $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);
+            $name_to_use_in_sort = str_replace('`', '', $name_to_use_in_sort);
 
             // If this the first column name in the order by clause add
             // order by clause to the  column name
@@ -1994,8 +1991,7 @@ class PMA_DisplayResults
             // We need to generate the arrow button and related html  
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
                 list($sort_order, $order_img) = $this->_getSortingUrlParams(
-                    $is_in_sort, $sort_direction, $fields_meta,
-                    $sort_order, $column_index, $sort_tbl_new, $index
+                    $sort_direction, $sort_order, $column_index, $index
                 );                 
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
@@ -2006,7 +2002,7 @@ class PMA_DisplayResults
         }
         // remove the comma from the last column name in the newly
         // constructed clause
-        $sort_order = substr($sort_order,0,strlen($sort_order)-2);  
+        $sort_order = substr($sort_order, 0, strlen($sort_order)-2);  
         return array($sort_order, $order_img);
     }
 
@@ -2032,7 +2028,7 @@ class PMA_DisplayResults
         $index_in_expression = 0;
         
         foreach ($sort_expression_nodirection as $index => $clause) {
-            if (strpos($clause,'.') !== false) {
+            if (strpos($clause, '.') !== false) {
                 $fragments = explode('.', $clause);
                 $clause2 = $fragments[0] . "." . str_replace('`', ``, $fragments[1]);
             } else {
@@ -2062,7 +2058,8 @@ class PMA_DisplayResults
                 $new_sort_expression_nodirection = $sort_tbl
                     . $sort_expression_nodirection[$index_in_expression];
             } else {
-                $new_sort_expression_nodirection = $sort_expression_nodirection[$index_in_expression];
+                $new_sort_expression_nodirection
+                    = $sort_expression_nodirection[$index_in_expression];
             }
 
             //Back quotes are removed in next comparison, so remove them from value
@@ -2087,24 +2084,23 @@ class PMA_DisplayResults
     /**
      * Get sort url paramaeters - sort order and order image
      *
-     * @param boolean $is_in_sort     the column sorted or not
      * @param array   $sort_direction the sort direction
-     * @param array   $fields_meta    set of field properties
      * @param array   $sort_order     the sorting order
      * @param integer $column_index   the index of the column
+     * @param integer $index          the index of sort direction array.
      *
-     * @return  array                       2 element array - $sort_order, $order_img
+     * @return  array                 2 element array - $sort_order, $order_img
      *
      * @access  private
      *
-     * @see     _getTableHeaders()
+     * @see     _makeUrl()
      */
     private function _getSortingUrlParams(
-        $is_in_sort, $sort_direction, $fields_meta, $sort_order, $column_index, $sort_tbl, $index
-    ) {  
+        $sort_direction, $sort_order, $column_index, $index
+    ) {
 
-         $index2 = $index + 1;
-         if (strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) { 
+        $index2 = $index + 1;
+        if (strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
             
             $sort_number = "<small>".$index2."</small>";
             $sort_order .= ' ASC';
@@ -2202,14 +2198,13 @@ class PMA_DisplayResults
     /**
      * Prepare columns to draggable effect for sortable columns
      *
-     * @param boolean $col_visib       the column is visible (false)
-     *        array                    the column is not visible (string array)
-     * @param string  $col_visib_j     element of $col_visib array
-     * @param boolean $condition_field whether to add CSS class condition
-     * @param string  $direction       the display direction
-     * @param array   $fields_meta     set of field properties
-     * @param string  $order_link      the order link
-     * @param string  $comments        the comment for the column
+     * @param boolean $col_visib   the column is visible (false)
+     *        array                the column is not visible (string array)
+     * @param string  $col_visib_j element of $col_visib array
+     * @param string  $direction   the display direction
+     * @param array   $fields_meta set of field properties
+     * @param string  $order_link  the order link
+     * @param string  $comments    the comment for the column
      *
      * @return  string  $draggable_html     html content
      *
@@ -2218,7 +2213,7 @@ class PMA_DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getDraggableClassForSortableColumns(
-        $col_visib, $col_visib_j, $condition_field, $direction, $fields_meta,
+        $col_visib, $col_visib_j, $direction, $fields_meta,
         $order_link, $comments
     ) {
 
@@ -2228,10 +2223,6 @@ class PMA_DisplayResults
 
         if ($col_visib && !$col_visib_j) {
             $th_class[] = 'hide';
-        }
-
-        if ($condition_field) {
-            $th_class[] = 'condition';
         }
 
         $th_class[] = 'column_heading';
@@ -4636,8 +4627,10 @@ class PMA_DisplayResults
         // 1.3 Find the sort expression
         // we need $sort_expression and $sort_expression_nodirection
         // even if there are many table references
-        list($sort_expression, $sort_expression_nodirection, $sort_direction,$number_of_columns)
-            = $this->_getSortParams($analyzed_sql[0]['order_by_clause']);
+        list(
+            $sort_expression, $sort_expression_nodirection,
+            $sort_direction,$number_of_columns
+        ) = $this->_getSortParams($analyzed_sql[0]['order_by_clause']);
 
 
         // 1.4 Prepares display of first and last value of the sorted column
@@ -4845,16 +4838,19 @@ class PMA_DisplayResults
                  * Get rid of ASC|DESC
                  */
                 preg_match(
-                    '@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression[$index], $matches
+                    '@(.*)([[:space:]]*(ASC|DESC))@si',
+                    $sort_expression[$index], $matches
                 );
 
                 $sort_expression_nodirection[$index] = isset($matches[1])
                     ? trim($matches[1])
                     : $sort_expression[$index]; 
-                $sort_direction[$index] = isset($matches[2]) ? trim($matches[2]) : ''; 
+                $sort_direction[$index]
+                    = isset($matches[2]) ? trim($matches[2]) : ''; 
             }
         } else {
-            $sort_expression[0] = $sort_expression_nodirection[0] = $sort_direction[0] = '';
+            $sort_expression[0] = $sort_expression_nodirection[0]
+                = $sort_direction[0] = '';
         }
 
         return array($sort_expression, $sort_expression_nodirection,
