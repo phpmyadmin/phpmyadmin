@@ -333,7 +333,7 @@ class ServerConfigChecks
                     'notice',
                     'blowfish_secret_created',
                     PMA_lang(PMA_langName('blowfish_secret')),
-                    $sBlowfishSecretMsg
+                    PMA_lang($sBlowfishSecretMsg)
                 );
             } else {
                 $blowfishWarnings = array();
