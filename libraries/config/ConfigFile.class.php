@@ -410,7 +410,7 @@ class ConfigFile
         }
 
         $path = 'Servers/' . $server;
-        $dsn = $this->getValue("$path/extension") . '://';
+        $dsn = 'mysqli://';
         if ($this->getValue("$path/auth_type") == 'config') {
             $dsn .= $this->getValue("$path/user");
             if (! $this->getValue("$path/nopassword")) {
