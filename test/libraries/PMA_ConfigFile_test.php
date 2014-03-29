@@ -497,7 +497,6 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             array(
                 'Servers' => array(
                     1 => array(
-                        "extension" => "mysqli",
                         "auth_type" => "config",
                         "user" => "testUser",
                         "connect_type" => "tcp",
@@ -516,7 +515,6 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             array(
                 'Servers' => array(
                     1 => array(
-                        "extension" => "mysql",
                         "auth_type" => "config",
                         "user" => "testUser",
                         "connect_type" => "socket",
@@ -529,7 +527,7 @@ class PMA_ConfigFile_Test extends PHPUnit_Framework_TestCase
             )
         );
         $this->assertEquals(
-            "mysql://testUser@123",
+            "mysqli://testUser@123",
             $this->object->getServerDSN(1)
         );
     }
