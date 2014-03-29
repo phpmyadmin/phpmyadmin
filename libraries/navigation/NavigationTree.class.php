@@ -952,7 +952,7 @@ class PMA_NavigationTree
                 }
                 $link = vsprintf($node->links['text'], $args);
                 if ($node->type == Node::CONTAINER) {
-                    $retval .= "<a class='hover_show_full' href='$link'>";
+                    $retval .= "&nbsp;<a class='hover_show_full' href='$link'>";
                     $retval .= htmlspecialchars($node->name);
                     $retval .= "</a>";
                 } else {
@@ -961,7 +961,7 @@ class PMA_NavigationTree
                     $retval .= "</a>";
                 }
             } else {
-                $retval .= "{$node->name}";
+                $retval .= "&nbsp;{$node->name}";
             }
             if ($node->type == Node::CONTAINER) {
                 $retval .= "</i>";
