@@ -1385,7 +1385,8 @@ textarea#partitiondefinition {
 }
 
 #list_server {
-    list-style-image: none;
+    list-style-type: none;
+    padding: 0;
 }
 
 /**
