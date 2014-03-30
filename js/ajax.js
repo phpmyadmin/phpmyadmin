@@ -291,6 +291,7 @@ var AJAX = {
                         "<div id='page_content'>" + data.message + "</div>"
                     );
                     PMA_highlightSQL($('#page_content'));
+                    checkNumberOfFields();
                 }
 
                 if (data._selflink) {

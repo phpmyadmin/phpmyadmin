@@ -402,6 +402,12 @@ $js_messages['strIgnore'] = __("Ignore");
 $js_messages['strTimeOutError'] = __(
     "Your export is incomplete, due to a low execution time limit at the PHP level!"
 );
+
+$js_messages['strTooManyInputs'] = __(
+    "Warning: a form on this page has more than %d fields and could not be "
+    . "processed."
+);
+
 echo "var PMA_messages = new Array();\n";
 foreach ($js_messages as $name => $js_message) {
     PMA_printJsValue("PMA_messages['" . $name . "']", $js_message);
@@ -418,6 +424,9 @@ echo "var pmaThemeImage = '" . $GLOBALS['pmaThemeImage'] . "';\n";
 echo "var pmaversion = '" . PMA_VERSION . "';\n";
 
 echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
+
+//Max input vars allowed by PHP.
+echo 'var maxInputVars = ' . ini_get('max_input_vars') . ';';
 
 echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */
