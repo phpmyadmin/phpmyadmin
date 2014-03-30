@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-30 09:45-0400\n"
-"PO-Revision-Date: 2014-03-28 14:41+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"PO-Revision-Date: 2014-03-30 22:39+0200\n"
+"Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12015,7 +12015,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:160
 msgid "Table name"
-msgstr ""
+msgstr "Nomine de tabella"
 
 #: libraries/tbl_columns_definition_form.lib.php:281
 msgid ""
@@ -12033,7 +12033,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:310
 msgid "Move column"
-msgstr ""
+msgstr "Move columna"
 
 #: libraries/tbl_columns_definition_form.lib.php:318
 msgid "List of available transformations and their options"
@@ -12041,7 +12041,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:323
 msgid "Transformation options"
-msgstr ""
+msgstr "Optiones de transformation"
 
 #: libraries/tbl_columns_definition_form.lib.php:326
 msgid ""
@@ -12052,25 +12052,23 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:567
-#, fuzzy
 #| msgid "Select referenced key"
 msgid "Referenced by "
-msgstr "Selige clave de referentia"
+msgstr "Referentiate per "
 
 #: libraries/tbl_columns_definition_form.lib.php:572
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a Foreign Key."
-msgstr "Selige clave estranie"
+msgstr "Es un clave estranie."
 
 #: libraries/tbl_columns_definition_form.lib.php:759
 msgid "first"
-msgstr ""
+msgstr "prime"
 
 #: libraries/tbl_columns_definition_form.lib.php:768
 #, php-format
 msgid "after %s"
-msgstr ""
+msgstr "post %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1057
 msgid "Edit ENUM/SET values"
@@ -12096,15 +12094,15 @@ msgstr ""
 
 #: libraries/tbl_gis_visualization.lib.php:205
 msgid "Label column"
-msgstr ""
+msgstr "Etiquetta columna"
 
 #: libraries/tbl_gis_visualization.lib.php:205
 msgid "Spatial column"
-msgstr ""
+msgstr "Columna spatial"
 
 #: libraries/tbl_gis_visualization.lib.php:212
 msgid "-- None --"
-msgstr ""
+msgstr "-- Necun --"
 
 #: libraries/tbl_gis_visualization.lib.php:269
 msgid "Display GIS Visualization"
@@ -12116,12 +12114,12 @@ msgstr ""
 
 #: libraries/tbl_gis_visualization.lib.php:308
 msgid "File name"
-msgstr ""
+msgstr "Nomine de file"
 
 #: libraries/tbl_gis_visualization.lib.php:324 setup/frames/config.inc.php:41
 #: setup/frames/index.inc.php:275
 msgid "Download"
-msgstr ""
+msgstr "Discarga"
 
 #: libraries/tbl_indexes.lib.php:113
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -12137,7 +12135,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:259
 msgid "Index name:"
-msgstr ""
+msgstr "Nomine de indice:"
 
 #: libraries/tbl_indexes.lib.php:263
 msgid ""
@@ -12146,15 +12144,15 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:282
 msgid "Comment:"
-msgstr ""
+msgstr "Commento:"
 
 #: libraries/tbl_indexes.lib.php:297
 msgid "Index type:"
-msgstr ""
+msgstr "Typo de indice:"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
-msgstr "Monstra tabulas:"
+msgstr "Monstra tabellas:"
 
 #: libraries/tbl_printview.lib.php:173
 msgid "Row Statistics:"
