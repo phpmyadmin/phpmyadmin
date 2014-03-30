@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-30 09:45-0400\n"
-"PO-Revision-Date: 2014-03-28 13:11+0200\n"
+"PO-Revision-Date: 2014-03-30 22:55+0200\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -312,7 +312,7 @@ msgstr "Dostop zavrnjen!"
 
 #: db_structure.php:40
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Seznam Priljubljenih je poln!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -2004,6 +2004,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Opozorilo: obrazec na strani vsebuje več kot %d polj. Od potrditvi bodo "
+"nekatera polja morda prezrta zaradi PHP-jeve nastavitve max_input_vars."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:434
@@ -12438,16 +12440,14 @@ msgstr ""
 "'\\\\xyz' ali 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.lib.php:567
-#, fuzzy
 #| msgid "Select referenced key"
 msgid "Referenced by "
-msgstr "Izberite referenčni ključ"
+msgstr "Nanj se sklicuje "
 
 #: libraries/tbl_columns_definition_form.lib.php:572
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a Foreign Key."
-msgstr "Izberite tuji ključ"
+msgstr "Je tuji ključ."
 
 #: libraries/tbl_columns_definition_form.lib.php:759
 msgid "first"
