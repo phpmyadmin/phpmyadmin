@@ -791,6 +791,12 @@ class PMA_DisplayResults
         $table_navigation_html .= '</form>'
             . '</td>'
             . '<td class="navigation_separator"></td>'
+            . '<td>'
+            . '<span>' . __('Filter rows') . ':</span>'
+            . '<input type="text" class="filter_rows" placeholder="'
+            . __('Search this table') . '">'
+            . '</td>'
+            . '<td class="navigation_separator"></td>'
             . '</tr>'
             . '</table>';
 
@@ -1835,7 +1841,7 @@ class PMA_DisplayResults
      * @access  private
      *
      * @see     _getTableHeaders()
-     */    
+     */
     private function _getOrderLinkAndSortedHeaderHtml(
         $fields_meta, $sort_expression, $sort_expression_nodirection,
         $column_index, $unsorted_sql_query, $session_max_rows, $direction,
@@ -1859,7 +1865,7 @@ class PMA_DisplayResults
 
         $name_to_use_in_sort = $fields_meta->name;
 
-        // Generates the orderby clause part of the query which is part 
+        // Generates the orderby clause part of the query which is part
         // of URL
         list($sort_order, $order_img) = $this->_makeUrl(
             $sort_expression, $sort_expression_nodirection, $sort_tbl,
@@ -1922,48 +1928,48 @@ class PMA_DisplayResults
     private function _makeUrl(
         $sort_expression, $sort_expression_nodirection, $sort_tbl,
         $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
-    ) { 
+    ) {
         $sort_order = "";
         // Check if the current column is in the order by clause
         $is_in_sort = $this->_isInSorted(
             $sort_expression, $sort_expression_nodirection,
             $sort_tbl, $name_to_use_in_sort
-        ); 
-        $current_name = $name_to_use_in_sort; 
+        );
+        $current_name = $name_to_use_in_sort;
         if ($sort_expression_nodirection[0] == '' || !$is_in_sort) {
-            $special_index = $sort_expression_nodirection[0] == '' 
-                ? 0 
+            $special_index = $sort_expression_nodirection[0] == ''
+                ? 0
                 : count($sort_expression_nodirection);
             $sort_expression_nodirection[$special_index]
                 = PMA_Util::backquote(
                     $current_name
-                ); 
+                );
             $sort_direction[$special_index] = (preg_match(
                 '@time|date@i',
                 $fields_meta->type
             )) ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
-         
+
         }
-        $sort_expression_nodirection = array_filter($sort_expression_nodirection);  
-        foreach ($sort_expression_nodirection as $index=>$expression) {  
+        $sort_expression_nodirection = array_filter($sort_expression_nodirection);
+        foreach ($sort_expression_nodirection as $index=>$expression) {
             // check if this is the first clause,
-            // if it is then we have to add "order by"  
-            $is_first_clause = ($index == 0); 
-            $name_to_use_in_sort = $expression; 
+            // if it is then we have to add "order by"
+            $is_first_clause = ($index == 0);
+            $name_to_use_in_sort = $expression;
             $sort_tbl_new = $sort_tbl;
             // Test to detect if the column name is a standard name
             // Standard name has the table name prefixed to the column name
             $is_standard_name = false;
             if (strpos($name_to_use_in_sort, '.') !== false) {
                 $matches = explode('.', $name_to_use_in_sort);
-                // Matches[0] has the table name 
+                // Matches[0] has the table name
                 // Matches[1] has the column name
-                $name_to_use_in_sort = $matches[1]; 
-                $sort_tbl_new = $matches[0]; 
+                $name_to_use_in_sort = $matches[1];
+                $sort_tbl_new = $matches[0];
                 $is_standard_name = true;
-            }          
-            
-            
+            }
+
+
             // $name_to_use_in_sort might contain a space due to
             // formatting of function expressions like "COUNT(name )"
             // so we remove the space in this situation
@@ -1972,8 +1978,8 @@ class PMA_DisplayResults
 
             // If this the first column name in the order by clause add
             // order by clause to the  column name
-            $query_head = $is_first_clause ? "\nORDER BY " : "";    
-            $tbl = $is_standard_name ? $sort_tbl_new : $sort_tbl;          
+            $query_head = $is_first_clause ? "\nORDER BY " : "";
+            $tbl = $is_standard_name ? $sort_tbl_new : $sort_tbl;
             // Again a check to see if the given column is a aggregate column
             if (strpos($name_to_use_in_sort, '(') !== false) {
                 $sort_order .=  $query_head  . $name_to_use_in_sort . ' ' ;
@@ -1981,28 +1987,28 @@ class PMA_DisplayResults
                 $sort_order .=  $query_head  . $sort_tbl_new . "."
                   . PMA_Util::backquote(
                       $name_to_use_in_sort
-                  ) .  ' ' ; 
-            }   
+                  ) .  ' ' ;
+            }
 
             // For a special case where the code generates two dots between
             // column name and table name.
             $sort_order = preg_replace("/\.\./", ".", $sort_order);
             // Incase the current column name is in the order by clause
-            // We need to generate the arrow button and related html  
+            // We need to generate the arrow button and related html
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
                 list($sort_order, $order_img) = $this->_getSortingUrlParams(
                     $sort_direction, $sort_order, $column_index, $index
-                );                 
+                );
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
             }
             // Separte columns by a comma
-            $sort_order .= ", "; 
-            unset($name_to_use_in_sort); 
+            $sort_order .= ", ";
+            unset($name_to_use_in_sort);
         }
         // remove the comma from the last column name in the newly
         // constructed clause
-        $sort_order = substr($sort_order, 0, strlen($sort_order)-2);  
+        $sort_order = substr($sort_order, 0, strlen($sort_order)-2);
         return array($sort_order, $order_img);
     }
 
@@ -2024,20 +2030,20 @@ class PMA_DisplayResults
         $sort_expression, $sort_expression_nodirection, $sort_tbl,
         $name_to_use_in_sort
     ) {
-        
+
         $index_in_expression = 0;
-        
+
         foreach ($sort_expression_nodirection as $index => $clause) {
             if (strpos($clause, '.') !== false) {
                 $fragments = explode('.', $clause);
                 $clause2 = $fragments[0] . "." . str_replace('`', ``, $fragments[1]);
             } else {
                 $clause2 = $sort_tbl . str_replace('`', ``, $clause);
-            }    
+            }
             if ($clause2 === $sort_tbl . $name_to_use_in_sort) {
-                $index_in_expression = $index; 
+                $index_in_expression = $index;
                 break;
-            } 
+            }
         }
         if (empty($sort_expression[$index_in_expression])) {
             $is_in_sort = false;
@@ -2101,7 +2107,7 @@ class PMA_DisplayResults
 
         $index2 = $index + 1;
         if (strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
-            
+
             $sort_number = "<small>".$index2."</small>";
             $sort_order .= ' ASC';
             $order_img   = ' ' . PMA_Util::getImage(
@@ -2112,7 +2118,7 @@ class PMA_DisplayResults
             $order_img  .= ' ' . PMA_Util::getImage(
                 's_asc.png', __('Ascending'),
                 array('class' => "soimg$column_index hide", 'title' => '')
-            ) . $sort_number; 
+            ) . $sort_number;
 
         } else {
 
@@ -2126,7 +2132,7 @@ class PMA_DisplayResults
             $order_img  .=  ' ' . PMA_Util::getImage(
                 's_desc.png', __('Descending'),
                 array('class' => "soimg$column_index hide", 'title' => '')
-            ) . $sort_number; 
+            ) . $sort_number;
 
         }
 
@@ -2154,7 +2160,7 @@ class PMA_DisplayResults
         $order_img, $col_index, $direction, $fields_meta, $order_url
     ) {
 
-        $order_link_params = array(); 
+        $order_link_params = array();
         if (isset($order_img) && ($order_img != '')) {
             if (strstr($order_img, 'asc')) {
                 $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
@@ -4821,15 +4827,15 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _getSortParams($order_by_clause)
-    {   
+    {
 
-        if (! empty($order_by_clause)) { 
+        if (! empty($order_by_clause)) {
             // Each order by clause is assumed to be delimited by a comma
             // A typical order by clause would be order by column1 asc, column2 desc
             // The following line counts the number of columns in order by clause
             $matches = explode(',', $order_by_clause);
             // Iterate over each column in order by clause
-            foreach ($matches as $index=>$order_by_clause2) { 
+            foreach ($matches as $index=>$order_by_clause2) {
 
                 $sort_expression[$index] = trim(
                     str_replace('  ', ' ', $order_by_clause2)
@@ -4844,9 +4850,9 @@ class PMA_DisplayResults
 
                 $sort_expression_nodirection[$index] = isset($matches[1])
                     ? trim($matches[1])
-                    : $sort_expression[$index]; 
+                    : $sort_expression[$index];
                 $sort_direction[$index]
-                    = isset($matches[2]) ? trim($matches[2]) : ''; 
+                    = isset($matches[2]) ? trim($matches[2]) : '';
             }
         } else {
             $sort_expression[0] = $sort_expression_nodirection[0]
@@ -4856,7 +4862,7 @@ class PMA_DisplayResults
         return array($sort_expression, $sort_expression_nodirection,
             $sort_direction
         );
-        
+
     } // end of the '_getSortParams()' function
 
 
