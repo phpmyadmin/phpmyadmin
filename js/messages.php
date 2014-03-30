@@ -404,8 +404,9 @@ $js_messages['strTimeOutError'] = __(
 );
 
 $js_messages['strTooManyInputs'] = __(
-    "Warning: a form on this page has more than %d fields and could not be "
-    . "processed."
+    "Warning: a form on this page has more than %d fields. On submission, "
+    . "some of the fields might be ignored, due to PHP's "
+    . "max_input_vars configuration."
 );
 
 echo "var PMA_messages = new Array();\n";
