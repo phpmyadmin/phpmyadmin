@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-30 09:45-0400\n"
-"PO-Revision-Date: 2014-03-28 10:28+0200\n"
+"PO-Revision-Date: 2014-03-31 10:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
-">\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -312,7 +312,7 @@ msgstr "Přístup odepřen!"
 
 #: db_structure.php:40
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Seznam oblíbených je plný!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
