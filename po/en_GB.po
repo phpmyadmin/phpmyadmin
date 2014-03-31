@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-03-28 11:03+0200\n"
+"PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: English (United Kingdom) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"Language-Team: English (United Kingdom) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13457,7 +13457,7 @@ msgstr "Active options"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Page has been created"
+msgstr "Page has been created."
 
 #: pmd_pdf.php:56
 #, fuzzy
