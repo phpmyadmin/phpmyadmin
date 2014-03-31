@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-03-30 22:39+0200\n"
+"PO-Revision-Date: 2014-03-31 12:41+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -313,7 +313,7 @@ msgstr "Accesso negate!"
 
 #: db_structure.php:40
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Lista de favoritos es complete!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -8684,11 +8684,11 @@ msgstr "Declarationes <code>INSERT IGNORE</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:379
 msgid "Function to use when dumping data:"
-msgstr "Function de usar quando on discarga (dumping) datos:"
+msgstr "Function de usar quando on face discargamento (dumping) de datos:"
 
 #: libraries/plugins/export/ExportSql.class.php:392
 msgid "Syntax to use when inserting data:"
-msgstr "Le syntaxe quando on inserta datos:"
+msgstr "Le syntaxe de usar quando on inserta datos:"
 
 #: libraries/plugins/export/ExportSql.class.php:400
 msgid ""
@@ -12053,13 +12053,12 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:569
-#, fuzzy, php-format
+#, php-format
 #| msgid "Referenced by "
 msgid "Referenced by %s."
-msgstr "Referentiate per "
+msgstr "Referentiate per %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
 #| msgid "Is a Foreign Key."
 msgid "Is a foreign key."
 msgstr "Es un clave estranie."
