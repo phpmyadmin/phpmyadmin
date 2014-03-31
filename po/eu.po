@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-02-03 16:59+0200\n"
+"PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Basque <http://l10n.cihar.com/projects/phpmyadmin/master/eu/"
-">\n"
+"Language-Team: Basque <https://l10n.cihar.com/projects/phpmyadmin/master/eu/>"
+"\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3128,7 +3128,7 @@ msgstr "Iruzkinak"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Lehen mailako gakoa ezabatu da"
+msgstr "Lehen mailako gakoa ezabatu da."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -8461,7 +8461,7 @@ msgstr "Taula optimizatu"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "%s taularen cachea hustu egin da"
+msgstr "%s taularen cachea hustu egin da."
 
 #: libraries/operations.lib.php:1202
 #, fuzzy
@@ -12287,7 +12287,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "%s taula hustu egin da"
+msgstr "%s taula hustu egin da."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12453,12 +12453,12 @@ msgstr ""
 #: libraries/structure.lib.php:1990 libraries/structure.lib.php:2005
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Indize bat gehitu gehitu zaio %s-(r)i"
+msgstr "Indize bat gehitu gehitu zaio %s-(r)i."
 
 #: libraries/structure.lib.php:1976
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Lehen mailako gakoa gehitu zaio %s-(r)i"
+msgstr "Lehen mailako gakoa gehitu zaio %s-(r)i."
 
 #: libraries/structure.lib.php:2028 libraries/structure.lib.php:2099
 #, fuzzy
