@@ -2570,7 +2570,7 @@ msgstr "Satırları süz"
 #: libraries/DisplayResults.class.php:797
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Bu tabloyu ara"
+msgstr "Bu tabloda ara"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2482
 #: libraries/Util.class.php:2486
