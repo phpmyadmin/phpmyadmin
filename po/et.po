@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-03-31 08:54+0200\n"
+"PO-Revision-Date: 2014-03-31 12:55+0200\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://l10n.cihar.com/projects/phpmyadmin/master/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12333,13 +12333,12 @@ msgstr ""
 "kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.lib.php:569
-#, fuzzy, php-format
+#, php-format
 #| msgid "Referenced by "
 msgid "Referenced by %s."
-msgstr "Osutatud "
+msgstr "Osutab %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
 #| msgid "Is a Foreign Key."
 msgid "Is a foreign key."
 msgstr "On välisvõti."
