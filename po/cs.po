@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-03-31 10:15+0200\n"
+"PO-Revision-Date: 2014-03-31 10:28+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
-">\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1985,6 +1985,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Varování: Formulář na této stránce má více než %d polí. Při jeho odeslání "
+"mohou být kvůli nastavení PHP max_input_vars některá z nich ignorována."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:434
@@ -12334,16 +12336,15 @@ msgstr ""
 "\\xyz' nebo 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.lib.php:569
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "Zvolte odkazovaný klíč"
+msgstr "Odkazováno v %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Zvolte cizí klíč"
+msgstr "Jedná se o cizí klíč."
 
 #: libraries/tbl_columns_definition_form.lib.php:768
 msgid "first"
