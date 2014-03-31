@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-31 10:24+0200\n"
+"POT-Creation-Date: 2014-03-31 10:19-0400\n"
 "PO-Revision-Date: 2014-03-27 15:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <https://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
-"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -551,7 +551,7 @@ msgid "Add geometry"
 msgstr "เพิ่มเรขาคณิต"
 
 #: gis_data_editor.php:404 js/messages.php:222
-#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1695
+#: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1701
 #: libraries/TableSearch.class.php:1229 libraries/browse_foreigners.lib.php:51
 #: libraries/core.lib.php:572 libraries/display_change_password.lib.php:100
 #: libraries/display_create_table.lib.php:71
@@ -605,8 +605,8 @@ msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชั
 #: import.php:116
 #, php-format
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้"
@@ -786,7 +786,7 @@ msgstr "รุ่นไคลเอนต์ฐานข้อมูล"
 msgid "PHP extension:"
 msgstr "ส่วนขยาย PHP"
 
-#: index.php:325 js/messages.php:123 libraries/DisplayResults.class.php:1332
+#: index.php:325 js/messages.php:123 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:571
 #: libraries/plugins/export/ExportSql.class.php:1759
@@ -916,7 +916,7 @@ msgid ""
 "issues."
 msgstr ""
 
-#: js/messages.php:29 libraries/import.lib.php:122 sql.php:139
+#: js/messages.php:29 libraries/import.lib.php:122 sql.php:140
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
@@ -1684,7 +1684,7 @@ msgstr "ซ่อนช่องใส่คำค้น SQL"
 msgid "Show query box"
 msgstr "แสดงช่องคำค้น SQL"
 
-#: js/messages.php:272 libraries/DisplayResults.class.php:3423
+#: js/messages.php:272 libraries/DisplayResults.class.php:3429
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1208 libraries/Util.class.php:3415
 #: libraries/Util.class.php:3416 libraries/config/messages.inc.php:751
@@ -1773,7 +1773,7 @@ msgstr "สารบัญ"
 msgid "Ignore"
 msgstr "ข้าม"
 
-#: js/messages.php:308 libraries/DisplayResults.class.php:3426
+#: js/messages.php:308 libraries/DisplayResults.class.php:3432
 msgid "Copy"
 msgstr "คัดลอก"
 
@@ -1789,7 +1789,7 @@ msgstr "แถวข้อความ"
 msgid "Polygon"
 msgstr "รูปหลายเหลี่ยม"
 
-#: js/messages.php:315 libraries/DisplayResults.class.php:1679
+#: js/messages.php:315 libraries/DisplayResults.class.php:1685
 msgid "Geometry"
 msgstr "เรขาคณิต"
 
@@ -1895,7 +1895,7 @@ msgstr "ดับเบิลคลิกเพื่อคัดลอกชื
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "กดเพื่อเลือก <br />เพื่อดูสดมภ์"
 
-#: js/messages.php:350 libraries/DisplayResults.class.php:852
+#: js/messages.php:350 libraries/DisplayResults.class.php:858
 #: libraries/browse_foreigners.lib.php:371
 #: libraries/browse_foreigners.lib.php:424
 #: libraries/server_privileges.lib.php:3224
@@ -1996,7 +1996,7 @@ msgstr ", รุ่นเสถียรล่าสุด:"
 msgid "up to date"
 msgstr "ล่าสุด"
 
-#: js/messages.php:391 libraries/DisplayResults.class.php:5290
+#: js/messages.php:391 libraries/DisplayResults.class.php:5296
 #: view_create.php:178
 msgid "Create view"
 msgstr "สร้างมุมมอง"
@@ -2377,18 +2377,18 @@ msgstr "สิทธิสำหรับไฟล์ตั้งค่าไม
 msgid "Font size"
 msgstr "ขนาดตัวอักษร"
 
-#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1316
-#: libraries/DisplayResults.class.php:2113
-#: libraries/DisplayResults.class.php:2122 libraries/TableSearch.class.php:851
+#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1322
+#: libraries/DisplayResults.class.php:2119
+#: libraries/DisplayResults.class.php:2128 libraries/TableSearch.class.php:851
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:450
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
 msgid "Ascending"
 msgstr "น้อยไปมาก"
 
-#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1328
-#: libraries/DisplayResults.class.php:2108
-#: libraries/DisplayResults.class.php:2127 libraries/TableSearch.class.php:852
+#: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1334
+#: libraries/DisplayResults.class.php:2114
+#: libraries/DisplayResults.class.php:2133 libraries/TableSearch.class.php:852
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:447
 #: libraries/structure.lib.php:870 libraries/structure.lib.php:887
@@ -2568,8 +2568,8 @@ msgstr "เปิดดู"
 msgid "Delete the matches for the %s table?"
 msgstr "ลบตรงกับที่ตาราง %s  หรือไม่?"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3494
-#: libraries/DisplayResults.class.php:5157
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3500
+#: libraries/DisplayResults.class.php:5163
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2615,13 +2615,25 @@ msgstr "บันทึกข้อมูลที่แก้ไข"
 msgid "Restore column order"
 msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 
-#: libraries/DisplayResults.class.php:818 libraries/Util.class.php:2482
+#: libraries/DisplayResults.class.php:795
+#, fuzzy
+#| msgid "Filters"
+msgid "Filter rows"
+msgstr "ตัวกรอง"
+
+#: libraries/DisplayResults.class.php:797
+#, fuzzy
+#| msgid "Search in database"
+msgid "Search this table"
+msgstr "ค้นหาในฐานข้อมูล"
+
+#: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2482
 #: libraries/Util.class.php:2486
 msgctxt "First page"
 msgid "Begin"
 msgstr "เริ่มต้น"
 
-#: libraries/DisplayResults.class.php:821 libraries/Util.class.php:2484
+#: libraries/DisplayResults.class.php:827 libraries/Util.class.php:2484
 #: libraries/Util.class.php:2487 libraries/server_bin_log.lib.php:170
 #: libraries/server_bin_log.lib.php:172
 #, fuzzy
@@ -2630,49 +2642,49 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: libraries/DisplayResults.class.php:878 libraries/Util.class.php:2519
+#: libraries/DisplayResults.class.php:884 libraries/Util.class.php:2519
 #: libraries/Util.class.php:2522 libraries/server_bin_log.lib.php:204
 #: libraries/server_bin_log.lib.php:206
 msgctxt "Next page"
 msgid "Next"
 msgstr "ถัดไป"
 
-#: libraries/DisplayResults.class.php:907 libraries/Util.class.php:2520
+#: libraries/DisplayResults.class.php:913 libraries/Util.class.php:2520
 #: libraries/Util.class.php:2523
 msgctxt "Last page"
 msgid "End"
 msgstr "สุดท้าย"
 
-#: libraries/DisplayResults.class.php:954 libraries/display_export.lib.php:322
+#: libraries/DisplayResults.class.php:960 libraries/display_export.lib.php:322
 #: libraries/tbl_chart.lib.php:238
 #, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of rows:"
 msgstr "ระเบียนต่อหน้า"
 
-#: libraries/DisplayResults.class.php:962
+#: libraries/DisplayResults.class.php:968
 #, fuzzy
 #| msgid "Mon"
 msgid "Mode:"
 msgstr "จ."
 
-#: libraries/DisplayResults.class.php:964
+#: libraries/DisplayResults.class.php:970
 msgid "horizontal"
 msgstr "แนวนอน"
 
-#: libraries/DisplayResults.class.php:965
+#: libraries/DisplayResults.class.php:971
 msgid "horizontal (rotated headers)"
 msgstr "แนวนอน (หมุนหัวเรื่อง)"
 
-#: libraries/DisplayResults.class.php:966
+#: libraries/DisplayResults.class.php:972
 msgid "vertical"
 msgstr "แนวตั้ง"
 
-#: libraries/DisplayResults.class.php:1274
+#: libraries/DisplayResults.class.php:1280
 msgid "Sort by key"
 msgstr "เรียงโดยคีย์"
 
-#: libraries/DisplayResults.class.php:1615 libraries/TableSearch.class.php:793
+#: libraries/DisplayResults.class.php:1621 libraries/TableSearch.class.php:793
 #: libraries/import.lib.php:1233 libraries/import.lib.php:1265
 #: libraries/plugins/export/ExportCodegen.class.php:90
 #: libraries/plugins/export/ExportCsv.class.php:51
@@ -2699,76 +2711,76 @@ msgstr "เรียงโดยคีย์"
 msgid "Options"
 msgstr "ตัวเลือก"
 
-#: libraries/DisplayResults.class.php:1621
-#: libraries/DisplayResults.class.php:1728
+#: libraries/DisplayResults.class.php:1627
+#: libraries/DisplayResults.class.php:1734
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "ข้อความบางส่วน"
 
-#: libraries/DisplayResults.class.php:1622
-#: libraries/DisplayResults.class.php:1732
+#: libraries/DisplayResults.class.php:1628
+#: libraries/DisplayResults.class.php:1738
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "ทั้งข้อความ"
 
-#: libraries/DisplayResults.class.php:1637
+#: libraries/DisplayResults.class.php:1643
 #, fuzzy
 msgid "Relational key"
 msgstr "รีเลชันแนล สกีมา"
 
-#: libraries/DisplayResults.class.php:1638
+#: libraries/DisplayResults.class.php:1644
 #, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
 msgstr "รีเลชันแนล สกีมา"
 
-#: libraries/DisplayResults.class.php:1650
+#: libraries/DisplayResults.class.php:1656
 msgid "Show binary contents"
 msgstr "แสดงเนื้อหาไบนารี"
 
-#: libraries/DisplayResults.class.php:1655
+#: libraries/DisplayResults.class.php:1661
 msgid "Show BLOB contents"
 msgstr "แสดงเนื้อหา BLOB"
 
-#: libraries/DisplayResults.class.php:1660
+#: libraries/DisplayResults.class.php:1666
 #: libraries/config/messages.inc.php:93
 msgid "Show binary contents as HEX"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:1671
+#: libraries/DisplayResults.class.php:1677
 #, fuzzy
 msgid "Hide browser transformation"
 msgstr "การแปลงที่เรียกใช้ได้"
 
-#: libraries/DisplayResults.class.php:1680
+#: libraries/DisplayResults.class.php:1686
 msgid "Well Known Text"
 msgstr "ข้อความที่รู้จักกันดี"
 
-#: libraries/DisplayResults.class.php:1681
+#: libraries/DisplayResults.class.php:1687
 msgid "Well Known Binary"
 msgstr "ไบนารีที่รู้จักกันดี"
 
-#: libraries/DisplayResults.class.php:3468
-#: libraries/DisplayResults.class.php:3484
+#: libraries/DisplayResults.class.php:3474
+#: libraries/DisplayResults.class.php:3490
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "ลบเรียบร้อยแล้ว"
 
-#: libraries/DisplayResults.class.php:3520
-#: libraries/DisplayResults.class.php:5157 libraries/server_status.lib.php:518
+#: libraries/DisplayResults.class.php:3526
+#: libraries/DisplayResults.class.php:5163 libraries/server_status.lib.php:518
 msgid "Kill"
 msgstr "ฆ่าทิ้ง"
 
-#: libraries/DisplayResults.class.php:4604 libraries/structure.lib.php:776
+#: libraries/DisplayResults.class.php:4610 libraries/structure.lib.php:776
 #, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4660 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4666 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
@@ -2778,38 +2790,38 @@ msgstr "มีข้อผิดพลาดระหว่างการอั
 msgid "Your SQL query has been executed successfully."
 msgstr "ทำคำค้นเสร็จเรียบร้อยแล้ว"
 
-#: libraries/DisplayResults.class.php:5035 libraries/structure.lib.php:658
+#: libraries/DisplayResults.class.php:5041 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr "การแสดงผลนี้ จะแสดงเพียงจำนวนข้อมูลนี้เท่านั้น ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
 
-#: libraries/DisplayResults.class.php:5048
+#: libraries/DisplayResults.class.php:5054
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "แสดงแถว"
 
-#: libraries/DisplayResults.class.php:5063
+#: libraries/DisplayResults.class.php:5069
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5068
+#: libraries/DisplayResults.class.php:5074
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "ทั้งหมด"
 
-#: libraries/DisplayResults.class.php:5080 libraries/sql.lib.php:1644
+#: libraries/DisplayResults.class.php:5086 libraries/sql.lib.php:1644
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "คำค้นใช้เวลา %01.4f วินาที"
 
-#: libraries/DisplayResults.class.php:5164
-#: libraries/DisplayResults.class.php:5170 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5170
+#: libraries/DisplayResults.class.php:5176 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2982
@@ -2819,8 +2831,8 @@ msgstr "คำค้นใช้เวลา %01.4f วินาที"
 msgid "With selected:"
 msgstr "ทำกับที่เลือก:"
 
-#: libraries/DisplayResults.class.php:5168
-#: libraries/DisplayResults.class.php:5169
+#: libraries/DisplayResults.class.php:5174
+#: libraries/DisplayResults.class.php:5175
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1010
@@ -2833,13 +2845,13 @@ msgstr "ทำกับที่เลือก:"
 msgid "Check All"
 msgstr "เลือกทั้งหมด"
 
-#: libraries/DisplayResults.class.php:5174 libraries/structure.lib.php:1395
+#: libraries/DisplayResults.class.php:5180 libraries/structure.lib.php:1395
 #: libraries/structure.lib.php:2073 querywindow.php:85
 msgid "Change"
 msgstr "เปลี่ยน"
 
-#: libraries/DisplayResults.class.php:5187
-#: libraries/DisplayResults.class.php:5458 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5193
+#: libraries/DisplayResults.class.php:5464 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3417 libraries/Util.class.php:3418
 #: libraries/Util.class.php:4131 libraries/Util.class.php:4146
@@ -2852,31 +2864,31 @@ msgstr "เปลี่ยน"
 msgid "Export"
 msgstr "ส่งออก"
 
-#: libraries/DisplayResults.class.php:5346
+#: libraries/DisplayResults.class.php:5352
 msgid "Query results operations"
 msgstr "การดำเนินงานผลแบบสอบถาม"
 
-#: libraries/DisplayResults.class.php:5382 libraries/Header.class.php:343
+#: libraries/DisplayResults.class.php:5388 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1518
 msgid "Print view"
 msgstr "แสดง"
 
-#: libraries/DisplayResults.class.php:5400
+#: libraries/DisplayResults.class.php:5406
 msgid "Print view (with full texts)"
 msgstr "มุมมองเหมือนพิมพ์ (ข้อความแบบเต็ม)"
 
-#: libraries/DisplayResults.class.php:5471 libraries/tbl_chart.lib.php:294
+#: libraries/DisplayResults.class.php:5477 libraries/tbl_chart.lib.php:294
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "แสดงสกีมาของ PDF"
 
-#: libraries/DisplayResults.class.php:5496
+#: libraries/DisplayResults.class.php:5502
 msgid "Visualize GIS data"
 msgstr "แสดงภาพของข้อมูล GIS"
 
-#: libraries/DisplayResults.class.php:5716
+#: libraries/DisplayResults.class.php:5722
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -3686,14 +3698,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4569,8 +4581,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4719,8 +4731,8 @@ msgstr "แก้ไขคอลัมน์ CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5308,9 +5320,8 @@ msgstr "หมายเลขหน้า:"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
@@ -5737,8 +5748,8 @@ msgstr "ตารางสูงสุด"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for "
-"[kbd]cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
+"cookie[/kbd] authentication."
 msgstr ""
 
 #: libraries/config/messages.inc.php:426
@@ -6132,8 +6143,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:573
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:576
@@ -6326,8 +6337,8 @@ msgstr "วิเคราะห์ตาราง"
 
 #: libraries/config/messages.inc.php:650
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:654
@@ -6341,11 +6352,11 @@ msgstr "ซ่อมแซมตาราง"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
-"ดูตัวอย่าง [a@http://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]ประเภทของการรับรองความถูกต้อง[/a]"
+"ดูตัวอย่าง [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
+"ประเภทของการรับรองความถูกต้อง[/a]"
 
 #: libraries/config/messages.inc.php:659
 msgid "Signon session name"
@@ -6449,8 +6460,8 @@ msgstr "คำสั่ง"
 
 #: libraries/config/messages.inc.php:699
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:702
@@ -6469,8 +6480,8 @@ msgstr "สร้างเวอร์ชั่นโดยอัตโนมั
 
 #: libraries/config/messages.inc.php:709
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:710
@@ -7170,8 +7181,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:510
@@ -7633,8 +7644,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8462,8 +8473,8 @@ msgstr "%s ยินดีต้อนรับ"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "﻿คุณคงไม่ได้สร้างแฟ้มการกำหนดค่า คุณอาจต้องการใช้ %1$ssetup script%2$s "
 "เพื่อสร้างอย่างใดอย่างหนึ่ง"
@@ -10900,8 +10911,8 @@ msgstr "ข้อมูลทั่วไปของผู้ใช้"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3955
@@ -13836,8 +13847,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13969,8 +13980,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -14665,8 +14676,8 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"คุณกำลังใช้ %s%% ของหน่วยความจำของคุณสำหรับการบัฟเฟอร์ InnoDB ถ้าคุณกำลังกำหนดน้อยกว่า "
-"60%% อย่างไรก็ตาม ที่นี้อาจไม่สมบูรณ์เพียงพอสำหรับระบบของคุณ ถ้าคุณไม่มีตาราง InnoDB "
+"คุณกำลังใช้ %s%% ของหน่วยความจำของคุณสำหรับการบัฟเฟอร์ InnoDB ถ้าคุณกำลังกำหนดน้อยกว่า 60%"
+"% อย่างไรก็ตาม ที่นี้อาจไม่สมบูรณ์เพียงพอสำหรับระบบของคุณ ถ้าคุณไม่มีตาราง InnoDB "
 "มากหรือบริการอื่นๆ ที่ทำงานบนเครื่องเดียวกัน"
 
 #: libraries/advisory_rules.txt:459
@@ -15202,8 +15213,8 @@ msgstr "concurrent_insert ถูกตั้งค่าไว้ที่ 0"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere"
-#~ "%s"
+#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere%"
+#~ "s"
 
 #~ msgid "No tables"
 #~ msgstr "ไม่มีตาราง"
