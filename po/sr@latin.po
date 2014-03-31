@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-03-28 11:03+0200\n"
+"PO-Revision-Date: 2014-03-31 14:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Serbian (latin) <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/sr%40latin/>\n"
+"Language-Team: Serbian (latin) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sr%40latin/>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -13233,7 +13233,7 @@ msgstr "Aktivne opcije"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Strana je kreirana"
+msgstr "Strana je kreirana."
 
 #: pmd_pdf.php:56
 #, fuzzy
