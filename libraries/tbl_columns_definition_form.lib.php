@@ -563,14 +563,23 @@ function PMA_getColumnMetaForDefault($columnMeta, $isDefault)
 function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
 {
     $title = '';
-    $title .= (isset($columnMeta['column_status'])
-        && $columnMeta['column_status']['isReferenced']) ? __('Referenced by ')
-        . implode(",", $columnMeta['column_status']['references']) . "." : '';
-    $title .= (!empty($title) && isset($columnMeta['column_status'])
-        && $columnMeta['column_status']['isForeignKey']) ? "\n" : '';
-    $title .= (isset($columnMeta['column_status'])
-        && $columnMeta['column_status']['isForeignKey']) ? __('Is a Foreign Key.') : '';
-    $title .= (empty($title)) ? __('Column') : '';
+    if (isset($columnMeta['column_status'])) {
+        if ($columnMeta['column_status']['isReferenced']) {
+            $title .= sprintf(
+                 __('Referenced by %s.'),
+                implode(",", $columnMeta['column_status']['references'])
+            );
+        }
+        if ($columnMeta['column_status']['isForeignKey']) {
+            if (!empty($title)) {
+                $title .= "\n";
+            }
+            $title .=  __('Is a foreign key.');
+        }
+    }
+    if (empty($title)) {
+        $title = __('Column');
+    }
     $html = '<input' . (isset($columnMeta['column_status'])
         && !$columnMeta['column_status']['isEditable']?' disabled="disabled" ':' ')
         . 'id="field_' . $columnNumber . '_' . ($ci - $ci_offset)
