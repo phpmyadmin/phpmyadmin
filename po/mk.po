@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-02-03 17:00+0200\n"
+"PO-Revision-Date: 2014-03-31 14:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Macedonian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"mk/>\n"
+"Language-Team: Macedonian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12594,12 +12594,12 @@ msgstr ""
 #: libraries/structure.lib.php:1990 libraries/structure.lib.php:2005
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Клучот е додаден %s"
+msgstr "Клучот е додаден %s."
 
 #: libraries/structure.lib.php:1976
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Примарниот клуч %s е додаден"
+msgstr "Примарниот клуч %s е додаден."
 
 #: libraries/structure.lib.php:2028 libraries/structure.lib.php:2099
 #, fuzzy
