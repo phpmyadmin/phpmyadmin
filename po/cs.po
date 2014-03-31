@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:19-0400\n"
-"PO-Revision-Date: 2014-03-31 10:28+0200\n"
+"PO-Revision-Date: 2014-03-31 17:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
-">\n"
+"Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/>"
+"\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2546,16 +2546,14 @@ msgid "Restore column order"
 msgstr "Obnovit pořadí sloupců"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "Filtry"
+msgstr "Filtrovat řádky"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Vyhledávání v databázi"
+msgstr "Vyhledávání v této tabulce"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2482
 #: libraries/Util.class.php:2486
