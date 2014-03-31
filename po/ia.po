@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-28 14:41+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-03-31 11:40+0200\n"
+"Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
 "Language: ia\n"
@@ -8360,11 +8360,11 @@ msgstr "Declarationes <code>INSERT IGNORE</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:351
 msgid "Function to use when dumping data:"
-msgstr "Function de usar quando on discarga (dumping) datos:"
+msgstr "Function de usar quando on face discargamento (dumping) de datos:"
 
 #: libraries/plugins/export/ExportSql.class.php:364
 msgid "Syntax to use when inserting data:"
-msgstr "Le syntaxe quando on inserta datos:"
+msgstr "Le syntaxe de usar quando on inserta datos:"
 
 #: libraries/plugins/export/ExportSql.class.php:372
 msgid ""
@@ -11643,7 +11643,7 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:160
 msgid "Table name"
-msgstr ""
+msgstr "Nomine de tabella"
 
 #: libraries/tbl_columns_definition_form.lib.php:281
 msgid ""
@@ -11661,11 +11661,11 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:310
 msgid "Move column"
-msgstr ""
+msgstr "Move columna"
 
 #: libraries/tbl_columns_definition_form.lib.php:320
 msgid "Transformation options"
-msgstr ""
+msgstr "Optiones de transformation"
 
 #: libraries/tbl_columns_definition_form.lib.php:323
 msgid ""
@@ -11677,12 +11677,12 @@ msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:742
 msgid "first"
-msgstr ""
+msgstr "prime"
 
 #: libraries/tbl_columns_definition_form.lib.php:751
 #, php-format
 msgid "after %s"
-msgstr ""
+msgstr "post %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1039
 msgid "ENUM or SET data too long?"
@@ -11712,15 +11712,15 @@ msgstr ""
 
 #: libraries/tbl_gis_visualization.lib.php:205
 msgid "Label column"
-msgstr ""
+msgstr "Etiquetta columna"
 
 #: libraries/tbl_gis_visualization.lib.php:205
 msgid "Spatial column"
-msgstr ""
+msgstr "Columna spatial"
 
 #: libraries/tbl_gis_visualization.lib.php:212
 msgid "-- None --"
-msgstr ""
+msgstr "-- Necun --"
 
 #: libraries/tbl_gis_visualization.lib.php:269
 msgid "Display GIS Visualization"
@@ -11732,12 +11732,12 @@ msgstr ""
 
 #: libraries/tbl_gis_visualization.lib.php:308
 msgid "File name"
-msgstr ""
+msgstr "Nomine de file"
 
 #: libraries/tbl_gis_visualization.lib.php:324 setup/frames/config.inc.php:41
 #: setup/frames/index.inc.php:273
 msgid "Download"
-msgstr ""
+msgstr "Discarga"
 
 #: libraries/tbl_indexes.lib.php:114
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -11753,7 +11753,7 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:260
 msgid "Index name:"
-msgstr ""
+msgstr "Nomine de indice:"
 
 #: libraries/tbl_indexes.lib.php:264
 msgid ""
@@ -11762,15 +11762,15 @@ msgstr ""
 
 #: libraries/tbl_indexes.lib.php:283
 msgid "Comment:"
-msgstr ""
+msgstr "Commento:"
 
 #: libraries/tbl_indexes.lib.php:298
 msgid "Index type:"
-msgstr ""
+msgstr "Typo de indice:"
 
 #: libraries/tbl_printview.lib.php:30
 msgid "Showing tables:"
-msgstr "Monstra tabulas:"
+msgstr "Monstra tabellas:"
 
 #: libraries/tbl_printview.lib.php:174
 msgid "Row Statistics:"
