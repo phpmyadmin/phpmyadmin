@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-02-27 11:30+0200\n"
-"Last-Translator: Patrik Kernstock <patschimail@gmail.com>\n"
-"Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2014-03-31 14:24+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3017,7 +3017,7 @@ msgstr "Kommentar"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Der Primärschlüssel wurde gelöscht"
+msgstr "Der Primärschlüssel wurde gelöscht."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -8858,7 +8858,7 @@ msgstr "Optimiere Tabelle"
 #, php-format
 msgid "Table %s has been flushed."
 msgstr ""
-"Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert"
+"Die Tabelle %s wurde geschlossen und zwischengespeicherte Daten gespeichert."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -12768,7 +12768,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Die Tabelle %s wurde geleert"
+msgstr "Die Tabelle %s wurde geleert."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12823,7 +12823,7 @@ msgstr "kein(e)"
 #: libraries/structure.lib.php:1350
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Spalte %s wurde gelöscht"
+msgstr "Spalte %s wurde gelöscht."
 
 #: libraries/structure.lib.php:1404 libraries/structure.lib.php:2079
 #: libraries/structure.lib.php:2089
@@ -12920,12 +12920,12 @@ msgstr "Nächster Autoindex"
 #: libraries/structure.lib.php:1990 libraries/structure.lib.php:2005
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Ein Index wurde in %s erzeugt"
+msgstr "Ein Index wurde in %s erzeugt."
 
 #: libraries/structure.lib.php:1976
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Ein Primärschlüssel wurde in %s erzeugt"
+msgstr "Ein Primärschlüssel wurde in %s erzeugt."
 
 #: libraries/structure.lib.php:2028 libraries/structure.lib.php:2099
 msgid "Distinct values"
@@ -12963,7 +12963,7 @@ msgstr "Effektiv"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Die Tabelle %1$s wurde erfolgreich geändert"
+msgstr "Die Tabelle %1$s wurde erfolgreich geändert."
 
 #: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -13425,7 +13425,7 @@ msgstr "Deine Einstellungen verwalten"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Die Konfiguration wurde gespeichert"
+msgstr "Die Konfiguration wurde gespeichert."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -13578,7 +13578,7 @@ msgstr "Aktive Optionen"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Seite wurde erstellt"
+msgstr "Seite wurde erstellt."
 
 #: pmd_pdf.php:56
 #, fuzzy
