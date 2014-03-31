@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-30 09:45-0400\n"
+"POT-Creation-Date: 2014-03-31 10:24+0200\n"
 "PO-Revision-Date: 2014-03-27 22:11+0200\n"
 "Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -53,7 +53,7 @@ msgstr "Коментари към таблицата:"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1355
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
-#: libraries/tbl_columns_definition_form.lib.php:573
+#: libraries/tbl_columns_definition_form.lib.php:581
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
@@ -635,8 +635,8 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Не бяха получени данни за импорт. Или не е изпратен файл, или файлът е бил "
-"по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ 1.16"
-"[/doc]."
+"по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
+"1.16[/doc]."
 
 #: import.php:495
 msgid ""
@@ -769,7 +769,7 @@ msgstr "PHP разширение:"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:701 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
 msgid "None"
 msgstr "Няма"
 
@@ -4516,8 +4516,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4686,16 +4686,16 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
 "Определя какъв вид полета за редакция да бъдат използвани за колони тип CHAR "
-"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, [kbd]textarea"
-"[/kbd] - позволява вмъкването на нови редове"
+"и VARCHAR:[kbd]input[/kbd] - позволява ограничаване по дължина, "
+"[kbd]textarea[/kbd] - позволява вмъкването на нови редове"
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4707,8 +4707,8 @@ msgstr "Редакция на CHAR колони"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Използване на удобен за потребителя редактор за писане на SQL заявките "
 "([a@http://codemirror.net/]CodeMirror[/a]) със синтактично оцветяване и "
@@ -5333,11 +5333,13 @@ msgstr "Заглавие в браузъра"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Настройте заглавието в браузъра. Прочетете [doc@cfg_TitleTable]документацията"
-"[/doc] за магическите низове и техните стойности."
+"Настройте заглавието в браузъра. Прочетете "
+"[doc@cfg_TitleTable]документацията[/doc] за магическите низове и техните "
+"стойности."
 
 #: libraries/config/messages.inc.php:255
 #: libraries/navigation/NavigationHeader.class.php:219
@@ -5791,8 +5793,8 @@ msgstr ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Скрива предупреждението за липсващ mcrypt при удостоверяване с бисквитки"
 
@@ -6242,8 +6244,8 @@ msgstr "Таблица за белязки"
 
 #: libraries/config/messages.inc.php:573
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:576
@@ -6276,8 +6278,8 @@ msgstr "Парола на контролен потребител"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6451,8 +6453,8 @@ msgstr "Последно отваряна таблица"
 
 #: libraries/config/messages.inc.php:650
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:654
@@ -6465,11 +6467,11 @@ msgstr "Таблица за връзка"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
-"За примери посетете [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"видове удостоверяване[/a]"
+"За примери посетете [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]видове удостоверяване[/a]"
 
 #: libraries/config/messages.inc.php:659
 msgid "Signon session name"
@@ -6576,8 +6578,8 @@ msgstr "Изрази, които да бъдат проследявани"
 
 #: libraries/config/messages.inc.php:699
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:702
@@ -6596,8 +6598,8 @@ msgstr "Автоматично създаване на версии"
 
 #: libraries/config/messages.inc.php:709
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:710
@@ -6777,8 +6779,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Показва връзка към изхода на [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Показва връзка към изхода на [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:741
 msgid "Show phpinfo() link"
@@ -6867,14 +6869,14 @@ msgstr "Включване на SQL валидатора"
 #: libraries/config/messages.inc.php:760
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#| "[/kbd])"
+#| "If you have a custom username, specify it here (defaults to "
+#| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Ако имате отделно потребителско име, въведете го тук (по подразбиране е [kbd]"
-"anonymous[/kbd])"
+"Ако имате отделно потребителско име, въведете го тук (по подразбиране е "
+"[kbd]anonymous[/kbd])"
 
 #: libraries/config/messages.inc.php:761 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -9074,8 +9076,8 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 "Съхраняване на полета от вида TIMESTAMP в UTC формат<i>(позволява полетата "
-"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови пояси)"
-"</i>"
+"TIMESTAMP да бъдат експортирани и четени от сървъри в различни часови "
+"пояси)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:1233
 msgid "Constraints for dumped tables"
@@ -9313,10 +9315,10 @@ msgstr ""
 "Text_Plain_External.class.php и да изредите програмите, на които позволявате "
 "да бъдат стартирани. Първата опция тогава е номера на програмата, която "
 "бихте искали да използвате, а втората са параметрите ѝ. Ако третият "
-"параметър е установен на 1, ще конвертира изхода използвайки htmlspecialchars"
-"() (По подразбиране е 1). Ако четвъртият параметър е установен на 1 това ще "
-"предотврати спренос на нов ред и целият изход ще бъде показан на един ред "
-"(По подразбиране е 1)."
+"параметър е установен на 1, ще конвертира изхода използвайки "
+"htmlspecialchars() (По подразбиране е 1). Ако четвъртият параметър е "
+"установен на 1 това ще предотврати спренос на нов ред и целият изход ще бъде "
+"показан на един ред (По подразбиране е 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -12658,37 +12660,37 @@ msgstr ""
 "поставете пред тях допълнителна обратно наклонена черта (например '\\\\xyz' "
 "или 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:567
-#, fuzzy
+#: libraries/tbl_columns_definition_form.lib.php:569
+#, fuzzy, php-format
 #| msgid "Select referenced key"
-msgid "Referenced by "
+msgid "Referenced by %s."
 msgstr "Изберете посочвания ключ"
 
-#: libraries/tbl_columns_definition_form.lib.php:572
+#: libraries/tbl_columns_definition_form.lib.php:577
 #, fuzzy
 #| msgid "Select Foreign Key"
-msgid "Is a Foreign Key."
+msgid "Is a foreign key."
 msgstr "Избор външен ключ"
 
-#: libraries/tbl_columns_definition_form.lib.php:759
+#: libraries/tbl_columns_definition_form.lib.php:768
 msgid "first"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:768
+#: libraries/tbl_columns_definition_form.lib.php:777
 #, php-format
 msgid "after %s"
 msgstr "след %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1057
+#: libraries/tbl_columns_definition_form.lib.php:1066
 msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1082
+#: libraries/tbl_columns_definition_form.lib.php:1091
 msgctxt "for default"
 msgid "None"
 msgstr "Няма"
 
-#: libraries/tbl_columns_definition_form.lib.php:1083
+#: libraries/tbl_columns_definition_form.lib.php:1092
 msgid "As defined:"
 msgstr "Дефиниран като:"
 
@@ -14809,8 +14811,9 @@ msgstr "concurrent_insert e 0"
 #~ "по MIME тип натиснете на %sописания на трансформацията%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Допълнителна информация в [a@https://sourceforge.net/p/phpmyadmin/"
 #~ "bugs/2606/]системата за проследяване на дефекти на PMA[/a] и [a@http://"

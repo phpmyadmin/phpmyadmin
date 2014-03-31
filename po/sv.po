@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-30 09:45-0400\n"
+"POT-Creation-Date: 2014-03-31 10:24+0200\n"
 "PO-Revision-Date: 2014-03-28 11:53+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
@@ -53,7 +53,7 @@ msgstr "Tabellkommentarer:"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1355
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
-#: libraries/tbl_columns_definition_form.lib.php:573
+#: libraries/tbl_columns_definition_form.lib.php:581
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
@@ -765,7 +765,7 @@ msgstr "PHP-tillägg:"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:701 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
 msgid "None"
 msgstr "Inget"
 
@@ -3349,8 +3349,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Misslyckades med att rensa gränssnittsinställningar för tabell (se $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Misslyckades med att rensa gränssnittsinställningar för tabell (se "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1695
 #, php-format
@@ -4486,8 +4486,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Du valde [kbd]config[/kbd]-autentisering och inkluderade användarnamn och "
 "lösenord för autoinloggning, vilket inte är en önskvärd inställning för "
@@ -4657,8 +4657,8 @@ msgstr "Redigera CHAR-kolumn"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Använd användarvänlig editor för att redigera SQL-frågor ([a@http://"
 "codemirror.net/]CodeMirror[/a]) med syntaxmarkering och radnummer."
@@ -5198,8 +5198,9 @@ msgstr "Sidtitlar"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Ange webbläsarens namnlisttext. Se [doc@cfg_TitleTable]dokumentationen[/doc] "
 "för magiska strängar som kan användas för att få speciella värden."
@@ -5640,8 +5641,8 @@ msgstr "Maximalt antal tabeller"
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Inaktivera standardvarning vilken visas om mcrypt saknas för cookie-"
 "autentisering."
@@ -6043,8 +6044,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lämna tomt för att stänga av [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"bokmärken[/a], förslag: [kbd]pma_bookmark[/kbd]"
+"Lämna tomt för att stänga av [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]bokmärken[/a], förslag: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:571
 msgid "Bookmark table"
@@ -6052,11 +6053,11 @@ msgstr "Tabell för bokmärken"
 
 #: libraries/config/messages.inc.php:573
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Lämna tomt för att stänga av kolumnkommentarer/mime-typer, förslag: [kbd]"
-"pma__column_info[/kbd]."
+"Lämna tomt för att stänga av kolumnkommentarer/mime-typer, förslag: "
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:576
 msgid "Column information table"
@@ -6088,8 +6089,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "En speciell MySQL-användare konfigurerad med begränsade rättigheter, mer "
-"information tillgänglig på [a@http://wiki.phpmyadmin.net/pma/controluser]wiki"
-"[/a]."
+"information tillgänglig på [a@http://wiki.phpmyadmin.net/pma/"
+"controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:587
 msgid "Control user"
@@ -6146,8 +6147,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Lämna blankt för att stänga av stöd för SQL-frågehistorik, förslag: [kbd]"
-"pma__history[/kbd]."
+"Lämna blankt för att stänga av stöd för SQL-frågehistorik, förslag: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:611
 msgid "SQL query history table"
@@ -6211,8 +6212,8 @@ msgstr "Lösenord för config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Lämna blankt för att stänga av stöd för PDF-schema, förslag: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Lämna blankt för att stänga av stöd för PDF-schema, förslag: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:634
 msgid "PDF schema: pages table"
@@ -6255,11 +6256,11 @@ msgstr "Nyligen använd tabell"
 
 #: libraries/config/messages.inc.php:650
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Lämna tomt för avstängt stöd för [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relationslänkar[/a], förslag: [kbd]pma__relation[/kbd]."
+"Lämna tomt för avstängt stöd för [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relationslänkar[/a], förslag: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:654
 msgid "Relation table"
@@ -6267,8 +6268,8 @@ msgstr "Relationstabell"
 
 #: libraries/config/messages.inc.php:656
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
 "a] för ett exempel."
@@ -6302,8 +6303,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Lämna tomt för avstängt stöd för PDF-schema, förslag: [kbd]pma__table_coords"
-"[/kbd]."
+"Lämna tomt för avstängt stöd för PDF-schema, förslag: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:669
 msgid "PDF schema: table coordinates"
@@ -6327,8 +6328,8 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Lämna tomt för att stänga av \"ihållande\" tabellers "
-"användargränssnittspreferenser som sparas över sessioner, förslag: [kbd]"
-"pma__table_uiprefs[/kbd]."
+"användargränssnittspreferenser som sparas över sessioner, förslag: "
+"[kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:679
 msgid "UI preferences table"
@@ -6382,11 +6383,11 @@ msgstr "Kommandon att spåra"
 
 #: libraries/config/messages.inc.php:699
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Lämna tomt för avstängt stöd för SQL-frågespårning, förslag: [kbd]"
-"pma__tracking[/kbd]."
+"Lämna tomt för avstängt stöd för SQL-frågespårning, förslag: "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:702
 msgid "SQL query tracking table"
@@ -6406,8 +6407,8 @@ msgstr "Skapa versioner automatiskt"
 
 #: libraries/config/messages.inc.php:709
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 "förslag: [kbd]pma__userconfig[/kbd]."
@@ -6573,8 +6574,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Visar länk till resultatet av [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]."
+"Visar länk till resultatet av [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:741
 msgid "Show phpinfo() link"
@@ -6650,8 +6651,8 @@ msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Om du har ett eget användarnamn, ange det här (standardnamn är [kbd]anonymous"
-"[/kbd])."
+"Om du har ett eget användarnamn, ange det här (standardnamn är "
+"[kbd]anonymous[/kbd])."
 
 #: libraries/config/messages.inc.php:761 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -8819,8 +8820,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Dumpa binära kolumner i hexadecimal notation <i>(t.ex. \"abc\" blir 0x616263)"
-"</i>"
+"Dumpa binära kolumner i hexadecimal notation <i>(t.ex. \"abc\" blir "
+"0x616263)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:447
 msgid ""
@@ -12442,37 +12443,37 @@ msgstr ""
 "enkelcitat (\"'\") i värdena, skriv ett bakåtstreck före tecknet (t.ex. '\\"
 "\\xyz' eller 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:567
-#, fuzzy
+#: libraries/tbl_columns_definition_form.lib.php:569
+#, fuzzy, php-format
 #| msgid "Select referenced key"
-msgid "Referenced by "
+msgid "Referenced by %s."
 msgstr "Välj refererad nyckel"
 
-#: libraries/tbl_columns_definition_form.lib.php:572
+#: libraries/tbl_columns_definition_form.lib.php:577
 #, fuzzy
 #| msgid "Select Foreign Key"
-msgid "Is a Foreign Key."
+msgid "Is a foreign key."
 msgstr "Välj främmande nyckel"
 
-#: libraries/tbl_columns_definition_form.lib.php:759
+#: libraries/tbl_columns_definition_form.lib.php:768
 msgid "first"
 msgstr "först"
 
-#: libraries/tbl_columns_definition_form.lib.php:768
+#: libraries/tbl_columns_definition_form.lib.php:777
 #, php-format
 msgid "after %s"
 msgstr "efter %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1057
+#: libraries/tbl_columns_definition_form.lib.php:1066
 msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1082
+#: libraries/tbl_columns_definition_form.lib.php:1091
 msgctxt "for default"
 msgid "None"
 msgstr "Inget"
 
-#: libraries/tbl_columns_definition_form.lib.php:1083
+#: libraries/tbl_columns_definition_form.lib.php:1092
 msgid "As defined:"
 msgstr "Som definierat:"
 
@@ -14620,22 +14621,22 @@ msgstr "concurrent_insert är satt till 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 #~ "förslag: [kbd]pma__userconfig[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 #~ "förslag: [kbd]pma__userconfig[/kbd]"
@@ -14740,8 +14741,9 @@ msgstr "concurrent_insert är satt till 0"
 #~ "typomvandlingar, klicka på %somvandlingsbeskrivningar%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Mer information på [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 #~ "bug tracker[/a] och [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -15071,14 +15073,14 @@ msgstr "concurrent_insert är satt till 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "När detta är satt till [kbd]nested[/kbd], används tabellens alias endast "
-#~ "för att dela/stapla tabellerna enligt direktivet $cfg"
-#~ "['LeftFrameTableSeparator'] , så endast mappen kallas för detta alias, "
-#~ "tabellnamnet självt förblir oförändrat"
+#~ "för att dela/stapla tabellerna enligt direktivet "
+#~ "$cfg['LeftFrameTableSeparator'] , så endast mappen kallas för detta "
+#~ "alias, tabellnamnet självt förblir oförändrat"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Visa tabellkommentar istället för dess namn"
@@ -15581,9 +15583,10 @@ msgstr "concurrent_insert är satt till 0"
 #~ msgstr ""
 #~ "phpMyAdmin kunde inte läsa din konfigurationsfil!<br />Detta kan inträffa "
 #~ "om PHP hittar ett fel i den eller om PHP inte hittar filen.<br />Anropa "
-#~ "konfigurationsfilen direkt mha länken nedan och läs PHP:s felmeddelande"
-#~ "(n) som du erhåller. I de flesta fall saknas ett citationstecken eller "
-#~ "ett semikolon någonstans.<br />Om du får en tom sida är allt OK."
+#~ "konfigurationsfilen direkt mha länken nedan och läs PHP:s "
+#~ "felmeddelande(n) som du erhåller. I de flesta fall saknas ett "
+#~ "citationstecken eller ett semikolon någonstans.<br />Om du får en tom "
+#~ "sida är allt OK."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Tar bort Händelse"

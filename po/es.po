@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-30 09:45-0400\n"
+"POT-Creation-Date: 2014-03-31 10:24+0200\n"
 "PO-Revision-Date: 2014-03-30 18:34+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +53,7 @@ msgstr "Comentarios de la tabla:"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1355
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
-#: libraries/tbl_columns_definition_form.lib.php:573
+#: libraries/tbl_columns_definition_form.lib.php:581
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
@@ -775,7 +775,7 @@ msgstr "extensión PHP:"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:701 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
 msgid "None"
 msgstr "Ninguna"
 
@@ -3392,8 +3392,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Falló la limpieza de las preferencia de interfaz de tablas (ver $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Falló la limpieza de las preferencia de interfaz de tablas (ver "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1695
 #, php-format
@@ -4545,15 +4545,15 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Usted definió el tipo de autenticación [kbd]config[/kbd] e incluyó nombre de "
 "usuario y contraseña para iniciar sesión en forma automática, lo que no es "
 "una opción deseable para servidores públicos. Cualquiera que conozca o "
 "adivine su URL de phpMyAdmin puede acceder directamente a su consola de "
-"phpMyAdmin. Cambie al %stipo de autenticación%s a [kbd]cookie[/kbd] o [kbd]"
-"http[/kbd]."
+"phpMyAdmin. Cambie al %stipo de autenticación%s a [kbd]cookie[/kbd] o "
+"[kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4646,8 +4646,8 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Habilitar esto permite que una página en un dominio distinto llame a "
-"phpMyAdmin dentro de un frame, y es un potencial [strong]agujero de seguridad"
-"[/strong] que permite ataques de cross-frame scripting (XSS)."
+"phpMyAdmin dentro de un frame, y es un potencial [strong]agujero de "
+"seguridad[/strong] que permite ataques de cross-frame scripting (XSS)."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4704,8 +4704,8 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Define qué tipo de control de edición se debe usar para los campos CHAR y "
-"VARCHAR; [kbd]input[/kbd] - permite limitar la longitud del input, [kbd]"
-"textarea[/kbd] - permite líneas nuevas en los campos."
+"VARCHAR; [kbd]input[/kbd] - permite limitar la longitud del input, "
+"[kbd]textarea[/kbd] - permite líneas nuevas en los campos."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4713,8 +4713,8 @@ msgstr "Edición de columnas CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Utilizar el editor SQL ([a@http://codemirror.net/]CodeMirror[/a]) con "
 "resaltado de sintáxis y números de línea."
@@ -5262,8 +5262,9 @@ msgstr "Títulos de página"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Especificar el texto de la barra de título del navegador. Consulte la "
 "[doc@cfg_TitleTable]documentación[/doc] para ver las palabras mágicas que "
@@ -5388,8 +5389,8 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
-"Si quiere usar el servicio de Validación de SQL, debería saber que [strong]"
-"todas las sentencias SQL son almacenadas de forma anónima para uso "
+"Si quiere usar el servicio de Validación de SQL, debería saber que "
+"[strong]todas las sentencias SQL son almacenadas de forma anónima para uso "
 "estadístico[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
 "Validator[/a], Copyright 2002 Upright Database Technology.Todos los derechos "
 "reservados.[/em]"
@@ -5705,8 +5706,8 @@ msgstr "Número máximo de tablas"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Desactivar advertencia predeterminada que se muestra si no se encuentra "
 "mcrypt para el método de autenticación [kbd]cookie[/kbd]."
@@ -6118,11 +6119,11 @@ msgstr "Agregar tabla a favoritos"
 
 #: libraries/config/messages.inc.php:573
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Dejar en blanco para evitar comentarios/tipos MIME en celdas, sugerido: [kbd]"
-"pma__column_info[/kbd]."
+"Dejar en blanco para evitar comentarios/tipos MIME en celdas, sugerido: "
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:576
 msgid "Column information table"
@@ -6193,8 +6194,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Dejar en blanco para evitar el soporte de diseñador, sugerido: [kbd]"
-"pma__designer_coords[/kbd]."
+"Dejar en blanco para evitar el soporte de diseñador, sugerido: "
+"[kbd]pma__designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:603
 msgid "Designer table"
@@ -6280,8 +6281,8 @@ msgstr "Contraseña para config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Dejar en blanco para evitar soporte para esquema en PDF, sugerido: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Dejar en blanco para evitar soporte para esquema en PDF, sugerido: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:634
 msgid "PDF schema: pages table"
@@ -6295,8 +6296,8 @@ msgid ""
 msgstr ""
 "Base de datos usada para relaciones, favoritos, y características de los "
 "PDF. Ver [a@http://wiki.cihar.com/pma/pmadb]pmadb[/a] para información "
-"completa. Deje en blanco para que no exita soporte. Predeterminado: [kbd]"
-"phpmyadmin[/kbd]."
+"completa. Deje en blanco para que no exita soporte. Predeterminado: "
+"[kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:640
 #: libraries/display_create_database.lib.php:31
@@ -6327,8 +6328,8 @@ msgstr "Tabla recientemente utilizada"
 
 #: libraries/config/messages.inc.php:650
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Deje en blanco para no dar soporte [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a], de manera predeterminada: [kbd]pma__relation[/"
@@ -6340,8 +6341,8 @@ msgstr "Tabla de relaciones"
 
 #: libraries/config/messages.inc.php:656
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Ver [a@http://wiki.cihar.com/pma/auth_types#signon]tipos de autenticación[/"
 "a] para conocer un ejemplo."
@@ -6377,8 +6378,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Dejar en blanco para evitar soporte de esquema en PDF, sugerido: [kbd]"
-"pma__table_coords[/kbd]."
+"Dejar en blanco para evitar soporte de esquema en PDF, sugerido: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:669
 msgid "PDF schema: table coordinates"
@@ -6457,8 +6458,8 @@ msgstr "Sentencias a hacer seguimiento"
 
 #: libraries/config/messages.inc.php:699
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Deje en blanco para eliminar soporte de seguimiento de consultas SQL, valor "
 "sugerido: [kbd]pma__tracking[/kbd]."
@@ -6481,8 +6482,8 @@ msgstr "Crear versiones automáticamente"
 
 #: libraries/config/messages.inc.php:709
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Deje en blanco para evitar el almacenamiento de preferencias en la base de "
 "datos, valor sugerido: [kbd]pma__userconfig[/kbd]."
@@ -6649,8 +6650,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Mostrar enlace a salida de [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]."
+"Mostrar enlace a salida de [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:741
 msgid "Show phpinfo() link"
@@ -6898,8 +6899,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Habilite la compresión [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP"
-"[/a] para las operaciones de importación y exportación."
+"Habilite la compresión [a@http://en.wikipedia.org/wiki/"
+"ZIP_(file_format)]ZIP[/a] para las operaciones de importación y exportación."
 
 #: libraries/config/messages.inc.php:795
 msgid "ZIP"
@@ -9005,8 +9006,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
-"La primer línea del archivo contiene los nombres de columna de la tabla <i>"
-"(si no está activado la primera línea será parte de los datos)</i>"
+"La primer línea del archivo contiene los nombres de columna de la tabla "
+"<i>(si no está activado la primera línea será parte de los datos)</i>"
 
 #: libraries/plugins/import/ImportCsv.class.php:72
 msgid ""
@@ -9069,8 +9070,8 @@ msgstr "El formato de los datos mediawiki no es válido en la línea: <br />%s."
 #: libraries/plugins/import/ImportOds.class.php:89
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Importar porcentakes como decimales propios <i>(por ejemplo: 12.00% como .12)"
-"</i>"
+"Importar porcentakes como decimales propios <i>(por ejemplo: 12.00% "
+"como .12)</i>"
 
 #: libraries/plugins/import/ImportOds.class.php:95
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -9161,8 +9162,8 @@ msgstr ""
 "opción es para especificar un formato de fecha/hora diferente. La tercera "
 "opción determina si desea ver la fecha local o UTC (utilice las cadenas "
 "«local» o «utc»). Según esta configuración, el formato de la fecha tendrá un "
-"valor diferente - para «local» mire la documentación de la función strftime"
-"() de PHP y para «utc» la de la función gmdate()."
+"valor diferente - para «local» mire la documentación de la función "
+"strftime() de PHP y para «utc» la de la función gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -9206,8 +9207,9 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Miestra el contenido de la columna como es, sin pasarlo por htmlspecialchars"
-"(). Esto quiere decir que se asume que la columna contiene HTML válido."
+"Miestra el contenido de la columna como es, sin pasarlo por "
+"htmlspecialchars(). Esto quiere decir que se asume que la columna contiene "
+"HTML válido."
 
 #: libraries/plugins/transformations/abstract/HexTransformationsPlugin.class.php:31
 msgid ""
@@ -12623,37 +12625,39 @@ msgstr ""
 "invertida (\"\\\") o comilla sencilla (\"'\") entre esos valores, añada una "
 "barra invertida (por ejemplo '\\\\xyz' o 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:567
-#| msgid "Select referenced key"
-msgid "Referenced by "
+#: libraries/tbl_columns_definition_form.lib.php:569
+#, fuzzy, php-format
+#| msgid "Referenced by "
+msgid "Referenced by %s."
 msgstr "Referenciado por "
 
-#: libraries/tbl_columns_definition_form.lib.php:572
-#| msgid "Select Foreign Key"
-msgid "Is a Foreign Key."
+#: libraries/tbl_columns_definition_form.lib.php:577
+#, fuzzy
+#| msgid "Is a Foreign Key."
+msgid "Is a foreign key."
 msgstr "Es una clave foránea."
 
-#: libraries/tbl_columns_definition_form.lib.php:759
+#: libraries/tbl_columns_definition_form.lib.php:768
 msgid "first"
 msgstr "primera"
 
-#: libraries/tbl_columns_definition_form.lib.php:768
+#: libraries/tbl_columns_definition_form.lib.php:777
 #, php-format
 msgid "after %s"
 msgstr "después de %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1057
+#: libraries/tbl_columns_definition_form.lib.php:1066
 msgid "Edit ENUM/SET values"
 msgstr "Editar valores ENUM/SET"
 
 # Corresponds to NONE option for default value of a TIMESTAMP field
-#: libraries/tbl_columns_definition_form.lib.php:1082
+#: libraries/tbl_columns_definition_form.lib.php:1091
 msgctxt "for default"
 msgid "None"
 msgstr "Ninguno"
 
 # Corresponds to user-defined option for default value of a TIMESTAMP field
-#: libraries/tbl_columns_definition_form.lib.php:1083
+#: libraries/tbl_columns_definition_form.lib.php:1092
 msgid "As defined:"
 msgstr "Personalizado:"
 
@@ -14864,15 +14868,15 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ msgstr "Guardar búsqueda"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Deje en blanco para desactivar la funcionalidad de menús configurables, "
 #~ "valor sugerido: [kbd]pma__users[/kbd]."
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Deje en blanco para desactivar la funcionalidad de menús configurables, "
 #~ "valor sugerido: [kbd]pma__usergroups[/kbd]."
@@ -14986,8 +14990,9 @@ msgstr "«concurrent_insert» está definido como 0"
 #~ msgstr "Activar reportes de error en javascript"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Más información en [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 #~ "bug tracker[/a] y [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"

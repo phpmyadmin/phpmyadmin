@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-30 09:45-0400\n"
+"POT-Creation-Date: 2014-03-31 10:24+0200\n"
 "PO-Revision-Date: 2014-03-30 19:43+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
-"\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +53,7 @@ msgstr "Commentaires sur la table : "
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1355
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
-#: libraries/tbl_columns_definition_form.lib.php:573
+#: libraries/tbl_columns_definition_form.lib.php:581
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
@@ -773,7 +773,7 @@ msgstr "Extension PHP : "
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:701 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
 msgid "None"
 msgstr "Aucune"
 
@@ -2863,8 +2863,8 @@ msgstr "Erreur inconnue durant le téléchargement."
 #: libraries/File.class.php:476
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1-11]FAQ 1.11"
-"[/doc]."
+"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1-11]FAQ "
+"1.11[/doc]."
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -3375,8 +3375,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Echec lors de la tentative de vidage de la table UI Préférences (voir $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Echec lors de la tentative de vidage de la table UI Préférences (voir "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1695
 #, php-format
@@ -4519,8 +4519,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
@@ -4669,9 +4669,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; [kbd]input"
-"[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet la saisie "
-"de sauts de lignes."
+"Déterminer la méthode d'édition pour les colonnes CHAR et VARCHAR; "
+"[kbd]input[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet "
+"la saisie de sauts de lignes."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4679,8 +4679,8 @@ msgstr "Édition des colonnes CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Utiliser un éditeur convivial pour les requêtes SQL ([a@http://codemirror."
 "net/]CodeMirror[/a]) avec coloration syntaxique et numérotation des lignes."
@@ -5224,8 +5224,9 @@ msgstr "Titres de page"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Spécifier le texte de la barre de titre du navigateur. Se référer à la "
 "[doc@cfg_TitleTable]documentation[/doc] pour les chaînes magiques pouvant "
@@ -5660,8 +5661,8 @@ msgstr "Nombre maximum de tables"
 
 #: libraries/config/messages.inc.php:423
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Désactive l'avertissement par défaut qui est affiché si mcrypt est manquant "
 "pour l'authentification par [kbd]cookie[/kbd]."
@@ -6038,9 +6039,9 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)."
 msgstr ""
-"Le chemin du fichier de configuration pour [a@http://swekey.com]"
-"l'authentification matérielle Swekey[/a] (ne pas placer sous la racine des "
-"documents; suggestion : /etc/swekey.conf)."
+"Le chemin du fichier de configuration pour [a@http://swekey."
+"com]l'authentification matérielle Swekey[/a] (ne pas placer sous la racine "
+"des documents; suggestion : /etc/swekey.conf)."
 
 #: libraries/config/messages.inc.php:564
 msgid "SweKey config file"
@@ -6068,8 +6069,8 @@ msgstr "Table pour signets"
 
 #: libraries/config/messages.inc.php:573
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Laisser vider pour désactiver les commentaires sur les colonnes et les types "
 "MIME; suggestion : [kbd]pma__column_info[/kbd]."
@@ -6274,8 +6275,8 @@ msgstr "Table récemment utilisée"
 
 #: libraries/config/messages.inc.php:650
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Laisser vider pour désactiver le support [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relationnel[/a], suggestion : [kbd]pma__relation[/kbd]."
@@ -6286,11 +6287,11 @@ msgstr "Table relationnelle"
 
 #: libraries/config/messages.inc.php:656
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
-"Voir [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] pour un exemple."
+"Voir [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] pour un exemple."
 
 #: libraries/config/messages.inc.php:659
 msgid "Signon session name"
@@ -6401,11 +6402,11 @@ msgstr "Énoncés à suivre"
 
 #: libraries/config/messages.inc.php:699
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Laisser vide pour désactiver le suivi des changements SQL; suggestion : [kbd]"
-"pma__tracking[/kbd]."
+"Laisser vide pour désactiver le suivi des changements SQL; suggestion : "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:702
 msgid "SQL query tracking table"
@@ -6425,11 +6426,11 @@ msgstr "Création automatique de versions"
 
 #: libraries/config/messages.inc.php:709
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"Laisser vide pour désactiver les préférences utilisateur; suggestion : [kbd]"
-"pma__config[/kbd]."
+"Laisser vide pour désactiver les préférences utilisateur; suggestion : "
+"[kbd]pma__config[/kbd]."
 
 #: libraries/config/messages.inc.php:710
 msgid "User preferences storage table"
@@ -6469,8 +6470,8 @@ msgid ""
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
 "Laisser vide pour désactiver la fonctionnalité qui permet de cacher et "
-"d'afficher les éléments de navigation; suggestion : [kbd]"
-"pma__navigationhiding[/kbd]."
+"d'afficher les éléments de navigation; suggestion : "
+"[kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:716
 msgid "Hidden navigation items table"
@@ -7265,8 +7266,8 @@ msgid ""
 msgstr ""
 "Permettre l'interruption de l'importation si la limite de temps configurée "
 "dans PHP est sur le point d'être atteinte. <i>(Ceci pourrait aider à "
-"importer des fichiers volumineux, au détriment du respect des transactions.)"
-"</i>"
+"importer des fichiers volumineux, au détriment du respect des "
+"transactions.)</i>"
 
 #: libraries/display_import.lib.php:299
 msgid ""
@@ -8797,8 +8798,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Entourer les noms des tables et des colonnes par des guillemets obliques <i>"
-"(Protège les noms de tables et de colonnes comportant des caractères "
+"Entourer les noms des tables et des colonnes par des guillemets obliques "
+"<i>(Protège les noms de tables et de colonnes comportant des caractères "
 "spéciaux ou des mots réservés)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:339
@@ -12534,35 +12535,37 @@ msgstr ""
 "une apostrophe (\"'\") parmi ces valeurs, faites-le précéder du caractère "
 "d'échappement, par exemple '\\\\xyz' or 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:567
-#| msgid "Select referenced key"
-msgid "Referenced by "
+#: libraries/tbl_columns_definition_form.lib.php:569
+#, fuzzy, php-format
+#| msgid "Referenced by "
+msgid "Referenced by %s."
 msgstr "Référencé par "
 
-#: libraries/tbl_columns_definition_form.lib.php:572
-#| msgid "Select Foreign Key"
-msgid "Is a Foreign Key."
+#: libraries/tbl_columns_definition_form.lib.php:577
+#, fuzzy
+#| msgid "Is a Foreign Key."
+msgid "Is a foreign key."
 msgstr "Est une clé étrangère."
 
-#: libraries/tbl_columns_definition_form.lib.php:759
+#: libraries/tbl_columns_definition_form.lib.php:768
 msgid "first"
 msgstr "en premier"
 
-#: libraries/tbl_columns_definition_form.lib.php:768
+#: libraries/tbl_columns_definition_form.lib.php:777
 #, php-format
 msgid "after %s"
 msgstr "après %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1057
+#: libraries/tbl_columns_definition_form.lib.php:1066
 msgid "Edit ENUM/SET values"
 msgstr "Modifier les valeurs ENUM/SET"
 
-#: libraries/tbl_columns_definition_form.lib.php:1082
+#: libraries/tbl_columns_definition_form.lib.php:1091
 msgctxt "for default"
 msgid "None"
 msgstr "Aucune"
 
-#: libraries/tbl_columns_definition_form.lib.php:1083
+#: libraries/tbl_columns_definition_form.lib.php:1092
 msgid "As defined:"
 msgstr "Tel que défini : "
 
@@ -14752,18 +14755,18 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ msgstr "Sauvegarder la recherche"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
-#~ "Laisser vide pour désactiver les menus configurables; suggestion : [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Laisser vide pour désactiver les menus configurables; suggestion : "
+#~ "[kbd]pma__users[/kbd]."
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
-#~ "Laisser vide pour désactiver les menus configurables; suggestion : [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Laisser vide pour désactiver les menus configurables; suggestion : "
+#~ "[kbd]pma__usergroups[/kbd]."
 
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "Données trop longues pour ENUM ou SET ?"
@@ -14875,8 +14878,9 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 #~ msgstr "Activer les rapports d'erreurs JavaScript"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Voir [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]ce bogue "
 #~ "phpMyAdmin[/a] et [a@http://bugs.mysql.com/19588]ce bogue MySQL[/a]"
@@ -15238,9 +15242,9 @@ msgstr "Le paramètre concurrent_insert a une valeur de 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Si défini à [kbd]nested[/kbd], l'alias du nom de table ne sert qu'à "
 #~ "subdiviser les tables selon $cfg['LeftFrameTableSeparator']"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-03-30 09:45-0400\n"
+"POT-Creation-Date: 2014-03-31 10:24+0200\n"
 "PO-Revision-Date: 2014-03-07 20:36+0200\n"
 "Last-Translator: Cristi Bondarenco <office@cristib.ro>\n"
 "Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -54,7 +54,7 @@ msgstr "Comentarii tabel:"
 #: libraries/plugins/export/ExportTexytext.class.php:434
 #: libraries/schema/Pdf_Relation_Schema.class.php:1355
 #: libraries/schema/Pdf_Relation_Schema.class.php:1378
-#: libraries/tbl_columns_definition_form.lib.php:573
+#: libraries/tbl_columns_definition_form.lib.php:581
 #: libraries/tbl_indexes.lib.php:315 libraries/tbl_printview.lib.php:472
 #: libraries/tbl_relation.lib.php:328 libraries/tbl_relation.lib.php:416
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
@@ -650,8 +650,8 @@ msgid ""
 msgstr ""
 "Nicio informație nu a fost recepționată pentru import. Fie nu a fost trimis "
 "niciun fișier, fie dimensiunea fișierului a depășit dimensiunea maximă "
-"permisă de configurația PHP-ului dumneavoastră. Vedeți [doc@faq1-16]FAQ 1.16"
-"[/doc]."
+"permisă de configurația PHP-ului dumneavoastră. Vedeți [doc@faq1-16]FAQ "
+"1.16[/doc]."
 
 #: import.php:495
 #, fuzzy
@@ -800,7 +800,7 @@ msgstr "Extensie PHP"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:701 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
 msgid "None"
 msgstr "Niciunul"
 
@@ -4694,8 +4694,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4856,8 +4856,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4873,8 +4873,8 @@ msgstr "Editare coloane CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5513,8 +5513,9 @@ msgstr "Titluri de pagini"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Specificați textul din bara de titlu a browser-ului. Consultați "
 "[doc@cfg_TitleTable] documentația [/doc] pentru siruri de caractere magice "
@@ -6038,8 +6039,8 @@ msgstr "Numărul maxim de tabele"
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication"
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Dezactivează avertismentul implicit care este afișat dacă mcrypt lipsește "
 "pentru autentificarea prin cookie-uri"
@@ -6518,9 +6519,9 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)."
 msgstr ""
-"Calea către fișierul de configurare pentru [a@http://swekey.com]"
-"autentificarea hardware SweKey [/a] (ce nu se află în rădăcină; sugestie: /"
-"etc/swekey.conf)"
+"Calea către fișierul de configurare pentru [a@http://swekey."
+"com]autentificarea hardware SweKey [/a] (ce nu se află în rădăcină; "
+"sugestie: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:564
 msgid "SweKey config file"
@@ -6555,11 +6556,11 @@ msgstr "Tabelul de bookmark-uri"
 #: libraries/config/messages.inc.php:573
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma_column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma_column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Lăsați necompletat dacă nu doriți comentarii pentru coloane/mime types, "
 "sugestie: [kbd]pma_column_info[/kbd]"
@@ -6599,8 +6600,8 @@ msgstr "Parola pentru control user"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6662,8 +6663,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Lăsați necompletat dacă nu doriți suport pentru Designeri, sugestie: [kbd]"
-"pma_designer_coords[/kbd]"
+"Lăsați necompletat dacă nu doriți suport pentru Designeri, sugestie: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:603
 msgid "Designer table"
@@ -6682,8 +6683,8 @@ msgstr "Ascunde baze de date"
 #: libraries/config/messages.inc.php:608
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6774,8 +6775,8 @@ msgstr "Parola pentru „config auth”"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Lăsați necompletat dacă nu doriți suport PDF schema, sugesti: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Lăsați necompletat dacă nu doriți suport PDF schema, sugesti: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:634
 #, fuzzy
@@ -6795,8 +6796,8 @@ msgid ""
 msgstr ""
 "Bază de date folosită pentru relații, bookmarks și proprietăți PDF. Vedeți "
 "[a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] pentru informații "
-"complete. Lăsați necompletat dacă nu doriți suport. Sugestie: [kbd]phpmyadmin"
-"[/kbd]"
+"complete. Lăsați necompletat dacă nu doriți suport. Sugestie: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:640
 #: libraries/display_create_database.lib.php:31
@@ -6837,8 +6838,8 @@ msgstr "Tabel folosit recent"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Lăsați necompletat dacă nu doriți suport [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relation-links[/a], sugestie: [kbd]pma_relation[/kbd]"
@@ -6854,11 +6855,11 @@ msgstr "Tabel relațional"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
-"Vezi [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] pentru un exemplu"
+"Vezi [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] pentru un exemplu"
 
 #: libraries/config/messages.inc.php:659
 #, fuzzy
@@ -6894,8 +6895,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Lăsați necompletat dacă nu doriți suport PDF schema, sugestie: [kbd]"
-"pma_table_coords[/kbd]"
+"Lăsați necompletat dacă nu doriți suport PDF schema, sugestie: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:669
 msgid "PDF schema: table coordinates"
@@ -6929,8 +6930,8 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Lăsați necompletat dacă nu doriți suport \"persistent\" pentru preferințele "
-"Interfeței cu Utilizatorul ale tabelului peste sesiuni, sugestie: [kbd]"
-"pma_table_uiprefs[/kbd]"
+"Interfeței cu Utilizatorul ale tabelului peste sesiuni, sugestie: "
+"[kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:679
 msgid "UI preferences table"
@@ -6985,11 +6986,11 @@ msgstr "Declarații de urmărit"
 #: libraries/config/messages.inc.php:699
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma_tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma_tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Lăsați necompletat dacă nu doriți suport pentru urmărirea interogărilor SQL, "
 "sugestie: [kbd]pma_tracking[/kbd]"
@@ -7016,11 +7017,11 @@ msgstr "Regim de recuperare automată"
 #: libraries/config/messages.inc.php:709
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Lăsați necompletat dacă nu doriți stocarea preferințelor utilizatorilor în "
 "baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
@@ -7058,8 +7059,8 @@ msgstr "Utilizare tabel gazde"
 #: libraries/config/messages.inc.php:715
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma_userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -7312,14 +7313,14 @@ msgstr "Activati Validatorul SQL"
 #: libraries/config/messages.inc.php:760
 #, fuzzy
 #| msgid ""
-#| "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#| "[/kbd])"
+#| "If you have a custom username, specify it here (defaults to "
+#| "[kbd]anonymous[/kbd])"
 msgid ""
 "If you have a custom username, specify it here (defaults to [kbd]anonymous[/"
 "kbd])."
 msgstr ""
-"Dacă aveți un nume de utilizator, specificați-l aici ( default este [kbd]"
-"anonymous[/kbd] )"
+"Dacă aveți un nume de utilizator, specificați-l aici ( default este "
+"[kbd]anonymous[/kbd] )"
 
 #: libraries/config/messages.inc.php:761 libraries/tbl_tracking.lib.php:578
 #: libraries/tbl_tracking.lib.php:676
@@ -7520,8 +7521,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Activați compresia în format [a@http://en.wikipedia.org/wiki/ZIP_"
-"(file_format)]ZIP[/a] pentru operațiile de import și export"
+"Activați compresia în format [a@http://en.wikipedia.org/wiki/"
+"ZIP_(file_format)]ZIP[/a] pentru operațiile de import și export"
 
 #: libraries/config/messages.inc.php:795
 msgid "ZIP"
@@ -10350,9 +10351,9 @@ msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
-"Asigurați-vă că aveți un id al server-ului unic în fișierul de configurare"
-"(my.cnf). Dacă nu, vă rugăm să adăugați următoarea linie în secțiunea "
-"[mysqld]:"
+"Asigurați-vă că aveți un id al server-ului unic în fișierul de "
+"configurare(my.cnf). Dacă nu, vă rugăm să adăugați următoarea linie în "
+"secțiunea [mysqld]:"
 
 #: libraries/replication_gui.lib.php:383 libraries/replication_gui.lib.php:767
 #: libraries/server_privileges.lib.php:1264
@@ -13484,40 +13485,40 @@ msgstr ""
 "sau apostrof  (\"'\") in aceste valori, introduceți backslash-uri (ex. '\\"
 "\\xyz' sau 'a\\'b')."
 
-#: libraries/tbl_columns_definition_form.lib.php:567
-#, fuzzy
+#: libraries/tbl_columns_definition_form.lib.php:569
+#, fuzzy, php-format
 #| msgid "Select referenced key"
-msgid "Referenced by "
+msgid "Referenced by %s."
 msgstr "Alegere cheie referențiată"
 
-#: libraries/tbl_columns_definition_form.lib.php:572
+#: libraries/tbl_columns_definition_form.lib.php:577
 #, fuzzy
 #| msgid "Select Foreign Key"
-msgid "Is a Foreign Key."
+msgid "Is a foreign key."
 msgstr "Alegeți cheia străină"
 
-#: libraries/tbl_columns_definition_form.lib.php:759
+#: libraries/tbl_columns_definition_form.lib.php:768
 msgid "first"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:768
+#: libraries/tbl_columns_definition_form.lib.php:777
 #, fuzzy, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "După %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1057
+#: libraries/tbl_columns_definition_form.lib.php:1066
 msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1082
+#: libraries/tbl_columns_definition_form.lib.php:1091
 #, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Nici unul(a)"
 
-#: libraries/tbl_columns_definition_form.lib.php:1083
+#: libraries/tbl_columns_definition_form.lib.php:1092
 msgid "As defined:"
 msgstr "Conform definiției:"
 
@@ -15711,22 +15712,22 @@ msgstr "concurrent_insert este setat cu 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma_userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma_userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Lăsați necompletat dacă nu doriți stocarea preferințelor utilizatorilor "
 #~ "în baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma_userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma_userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Lăsați necompletat dacă nu doriți stocarea preferințelor utilizatorilor "
 #~ "în baza de date, sugestie: [kbd]pma_userconfig[/kbd]"
@@ -15814,8 +15815,9 @@ msgstr "concurrent_insert este setat cu 0"
 #~ "MIME-type, apăsați pe %stransformation descriptions%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Mai multe informații pe [a@https://sourceforge.net/p/phpmyadmin/"
 #~ "bugs/2606/]PMA bug tracker[/a] și pe [a@http://bugs.mysql.com/19588]MySQL "
@@ -16103,14 +16105,14 @@ msgstr "concurrent_insert este setat cu 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Când setați [kbd]nested[/kbd], alias-ul numelui tabelului este folosit "
-#~ "doar pentru a împărți/grupa tabelele conform directivei $cfg"
-#~ "['LeftFrameTableSeparator'], astfel încât doar numele folder-ului va fi "
-#~ "ca alias-ul, numele tabelului rămânând neschimbat"
+#~ "doar pentru a împărți/grupa tabelele conform directivei "
+#~ "$cfg['LeftFrameTableSeparator'], astfel încât doar numele folder-ului va "
+#~ "fi ca alias-ul, numele tabelului rămânând neschimbat"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Afișează comentariul tabelului în loc de numele acestuia"
