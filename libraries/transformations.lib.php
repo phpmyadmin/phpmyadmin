@@ -107,7 +107,7 @@ function PMA_getAvailableMIMEtypes()
     sort($filestack);
 
     foreach ($filestack as $file) {
-        if (preg_match('|^.*_.*_.*\.class\.php$|', $file)) {
+        if (preg_match('|^[^.].*_.*_.*\.class\.php$|', $file)) {
             // File contains transformation functions.
             $parts = explode('_', str_replace('.class.php', '', $file));
             $mimetype = $parts[0] . "/" . $parts[1];
@@ -115,7 +115,7 @@ function PMA_getAvailableMIMEtypes()
             $stack['transformation'][] = $mimetype . ': ' . $parts[2];
             $stack['transformation_file'][] = $file;
 
-        } elseif (preg_match('|^.*\.class.php$|', $file)) {
+        } elseif (preg_match('|^[^.].*\.class.php$|', $file)) {
             // File is a plain mimetype, no functions.
             $base = str_replace('.class.php', '', $file);
 
