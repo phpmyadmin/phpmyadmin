@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-02-02 13:50+0200\n"
+"PO-Revision-Date: 2014-03-31 14:23+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Bosnian <http://l10n.cihar.com/projects/phpmyadmin/master/bs/"
-">\n"
+"Language-Team: Bosnian "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/bs/>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -3131,7 +3131,7 @@ msgstr "Komentari"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Primarni ključ je obrisan"
+msgstr "Primarni ključ je obrisan."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -8466,7 +8466,7 @@ msgstr "Optimiziraj tabelu"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Tabela %s je osvežena"
+msgstr "Tabela %s je osvežena."
 
 #: libraries/operations.lib.php:1202
 #, fuzzy
@@ -12268,7 +12268,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabela %s je ispražnjena"
+msgstr "Tabela %s je ispražnjena."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12434,12 +12434,12 @@ msgstr ""
 #: libraries/structure.lib.php:1990 libraries/structure.lib.php:2005
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Ključ je upravo dodan %s"
+msgstr "Ključ je upravo dodan %s."
 
 #: libraries/structure.lib.php:1976
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Osnovni ključ je upravo dodan %s"
+msgstr "Osnovni ključ je upravo dodan %s."
 
 #: libraries/structure.lib.php:2028 libraries/structure.lib.php:2099
 #, fuzzy
