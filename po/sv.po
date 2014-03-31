@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-03-28 11:53+0200\n"
+"PO-Revision-Date: 2014-03-31 14:16+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"Language-Team: Swedish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12240,12 +12240,12 @@ msgstr "Nästa autoindex"
 #: libraries/structure.lib.php:1990 libraries/structure.lib.php:2005
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Ett index har lagts till för %s"
+msgstr "Ett index har lagts till för %s."
 
 #: libraries/structure.lib.php:1976
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "En primär nyckel har lagts till för %s"
+msgstr "En primär nyckel har lagts till för %s."
 
 #: libraries/structure.lib.php:2028 libraries/structure.lib.php:2099
 msgid "Distinct values"
