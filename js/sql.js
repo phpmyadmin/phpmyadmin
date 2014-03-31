@@ -84,6 +84,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('th.column_heading.pointer').die('hover');
     $('th.column_heading.marker').die('click');
     $(window).unbind('scroll');
+    $(".filter_rows").die("keyup");
 });
 
 /**
@@ -396,6 +397,30 @@ AJAX.registerOnload('sql.js', function () {
             PMA_init_slider();
         }); // end $.post()
     }); //end displayOptionsForm handler
+
+    // Filter row handling. --STARTS--
+    $(".filter_rows").live("keyup", function () {
+        var $target_table = $("#table_results");
+        var $header_cells = $target_table.find("th[data-column]");
+        var target_columns = Array();
+        // To handle colspan=4, in case of edit,copy etc options.
+        var dummy_th = ($(".edit_row_anchor").length !== 0 ?
+            '<th class="hide dummy_th"></th><th class="hide dummy_th"></th><th class="hide dummy_th"></th>'
+            : '');
+        // Selecting columns that will be considered for filtering and searching.
+        $header_cells.each(function () {
+            target_columns.push($.trim($(this).text()));
+        });
+
+        var phrase = $(this).val();
+        // Set same value to both Filter rows fields.
+        $(".filter_rows").val(phrase);
+        // Handle colspan.
+        $target_table.find("thead > tr").prepend(dummy_th);
+        $.uiTableFilter($target_table, phrase, target_columns);
+        $target_table.find("th.dummy_th").remove();
+    });
+    // Filter row handling. --ENDS--
 }); // end $()
 
 /**
