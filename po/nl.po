@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-03-31 14:01+0200\n"
+"PO-Revision-Date: 2014-03-31 14:10+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <https://l10n.cihar.com/projects/phpmyadmin/master/nl/>"
 "\n"
@@ -309,7 +309,7 @@ msgstr "Toegang geweigerd!"
 
 #: db_structure.php:40
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "De lijst met favorieten is vol!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -1609,7 +1609,7 @@ msgstr "Karakterset aanpassen"
 
 #: js/messages.php:245 libraries/mult_submits.lib.php:432
 msgid "Foreign key check:"
-msgstr "Controle op vreemde sleutels:"
+msgstr "Controle op externe sleutels:"
 
 #: js/messages.php:246 libraries/mult_submits.lib.php:445
 msgid "(Enabled)"
@@ -1815,7 +1815,7 @@ msgstr "Selecteer de gerefereerde sleutel"
 
 #: js/messages.php:327
 msgid "Select Foreign Key"
-msgstr "Selecteer vreemde sleutel"
+msgstr "Selecteer externe sleutel"
 
 #: js/messages.php:328
 msgid "Please select the primary key or a unique key!"
@@ -3453,7 +3453,7 @@ msgstr "Maximum aantal af te drukken regels"
 #: libraries/TableSearch.class.php:930 libraries/TableSearch.class.php:1249
 #: libraries/sql.lib.php:372 tbl_change.php:144
 msgid "Browse foreign values"
-msgstr "Bekijk vreemde waarden"
+msgstr "Bekijk externe waarden"
 
 #: libraries/TableSearch.class.php:1029
 msgid "Additional search criteria"
@@ -5023,7 +5023,7 @@ msgstr "Gebruik vertraagde inserts"
 #: libraries/config/messages.inc.php:169
 #: libraries/plugins/export/ExportSql.class.php:142
 msgid "Disable foreign key checks"
-msgstr "Controle op vreemde sleutels uitschakelen"
+msgstr "Controle op externe sleutels uitschakelen"
 
 #: libraries/config/messages.inc.php:170
 #: libraries/plugins/export/ExportSql.class.php:155
@@ -5084,13 +5084,13 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Sorteer volgorde van elementen in een vreemdesleutel-afrolmenu; "
+"Sorteer volgorde van elementen in een externe sleutel-afrolmenu; "
 "[kbd]content[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de "
 "sleutelwaarde."
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
-msgstr "Vreemdesleutel-afrolmenu sortering"
+msgstr "Externe sleutel-afrolmenu sortering"
 
 #: libraries/config/messages.inc.php:207
 msgid "A dropdown will be used if fewer items are present."
@@ -5098,7 +5098,7 @@ msgstr "Een afrolmenu wordt gebruikt indien er minder items beschikbaar zijn."
 
 #: libraries/config/messages.inc.php:208
 msgid "Foreign key limit"
-msgstr "Vreemdesleutel limiet"
+msgstr "Externe sleutel limiet"
 
 #: libraries/config/messages.inc.php:209
 msgid "Browse mode"
@@ -8691,7 +8691,7 @@ msgstr "Labelsleutel:"
 #: libraries/plugins/export/ExportOdt.class.php:103
 #: libraries/plugins/export/ExportSql.class.php:115
 msgid "Display foreign key relationships"
-msgstr "Toon vreemde sleutel relaties"
+msgstr "Toon externe sleutel relaties"
 
 #: libraries/plugins/export/ExportLatex.class.php:142
 #: libraries/plugins/export/ExportOdt.class.php:108
@@ -12562,10 +12562,9 @@ msgid "Referenced by %s."
 msgstr "Gerefereerd door %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Selecteer vreemde sleutel"
+msgstr "Is een externe sleutel."
 
 #: libraries/tbl_columns_definition_form.lib.php:768
 msgid "first"
@@ -12689,7 +12688,7 @@ msgstr ""
 
 #: libraries/tbl_relation.lib.php:433
 msgid "Foreign key constraint"
-msgstr "Beperking voor vreemde sleutel"
+msgstr "Beperking voor externe sleutel"
 
 #: libraries/tbl_relation.lib.php:553
 msgid "Constraint name"
@@ -12703,7 +12702,7 @@ msgstr "Geen index gedefinieerd! Maak hieronder er een aan"
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
-"Fout bij het maken van vreemde sleutel naar %1$s (controleer gegevenstypen)"
+"Fout bij het maken van externe sleutel naar %1$s (controleer gegevenstypen)"
 
 #: libraries/tbl_tracking.lib.php:60
 #, php-format
