@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:24+0200\n"
-"PO-Revision-Date: 2014-02-27 11:35+0200\n"
+"PO-Revision-Date: 2014-03-31 14:25+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/"
-">\n"
+"Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/>"
+"\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2942,7 +2942,7 @@ msgstr "Komentár"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Primárny kľúč bol zrušený"
+msgstr "Primárny kľúč bol zrušený."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -8733,7 +8733,7 @@ msgstr "Optimalizovať tabuľku"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Tabuľka %s bola vyprázdnená"
+msgstr "Tabuľka %s bola vyprázdnená."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -12451,7 +12451,7 @@ msgstr ""
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabuľka %s bola vyprázdená"
+msgstr "Tabuľka %s bola vyprázdená."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12506,7 +12506,7 @@ msgstr "Žiadny"
 #: libraries/structure.lib.php:1350
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Stĺpec %s bol odstránený"
+msgstr "Stĺpec %s bol odstránený."
 
 #: libraries/structure.lib.php:1404 libraries/structure.lib.php:2079
 #: libraries/structure.lib.php:2089
@@ -12603,12 +12603,12 @@ msgstr ""
 #: libraries/structure.lib.php:1990 libraries/structure.lib.php:2005
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Bol pridaný index pre %s"
+msgstr "Bol pridaný index pre %s."
 
 #: libraries/structure.lib.php:1976
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Bol pridaný primárny kľúč pre %s"
+msgstr "Bol pridaný primárny kľúč pre %s."
 
 #: libraries/structure.lib.php:2028 libraries/structure.lib.php:2099
 msgid "Distinct values"
@@ -12646,7 +12646,7 @@ msgstr "Efektívny"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Tabuľka %1$s bola úspešné upravená"
+msgstr "Tabuľka %1$s bola úspešné upravená."
 
 #: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -13098,7 +13098,7 @@ msgstr "Spravovať svoje nastavenia"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Nastavenia boli uložené"
+msgstr "Nastavenia boli uložené."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -13248,7 +13248,7 @@ msgstr "Zapnuté parametre"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Stránka bola vytvorená"
+msgstr "Stránka bola vytvorená."
 
 #: pmd_pdf.php:56
 #, fuzzy
