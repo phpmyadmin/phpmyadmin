@@ -1557,7 +1557,7 @@ function PMA_getChildReferences($db, $table, $column)
 
     $result = $GLOBALS['dbi']->tryQuery($rel_query, $GLOBALS['controllink']);
     if ($result == true) {
-        while(($row = $GLOBALS['dbi']->fetchAssoc($result))) {
+        while (($row = $GLOBALS['dbi']->fetchAssoc($result))) {
             $child_references[$i++] = $row;
         }
     }
@@ -1587,9 +1587,11 @@ function PMA_checkChildForeignReferences($db, $table, $column)
         if (sizeof($child_references, 0) > 0) {
             $column_status['isReferenced'] = true;
             foreach ($child_references as $row => $columns) {
-                array_push($column_status['references'],
+                array_push(
+                    $column_status['references'],
                     PMA_Util::backquote($columns['table_schema'])
-                    . '.' . PMA_Util::backquote($columns['table_name']));
+                    . '.' . PMA_Util::backquote($columns['table_name'])
+                );
             }
         }
 
