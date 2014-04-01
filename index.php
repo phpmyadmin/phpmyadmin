@@ -117,6 +117,8 @@ if ($server > 0) {
 }
 
 echo '<div id="maincontainer">' . "\n";
+// Anchor for favorite tables synchronization.
+echo PMA_RecentFavoriteTable::getInstance('favorite')->_getHtmlSyncFavoriteTables();
 echo '<div id="main_pane_left">';
 if ($server > 0 || count($cfg['Servers']) > 1
 ) {
