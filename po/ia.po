@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:19-0400\n"
-"PO-Revision-Date: 2014-03-31 12:41+0200\n"
+"PO-Revision-Date: 2014-04-01 10:29+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2590,16 +2590,14 @@ msgid "Restore column order"
 msgstr "Restabili ordine de columna"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filter"
 msgid "Filter rows"
-msgstr "Filtra"
+msgstr "Filtra rangos"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Cerca in le base de datos"
+msgstr "Cerca in iste tabella"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2482
 #: libraries/Util.class.php:2486
