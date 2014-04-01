@@ -18,11 +18,35 @@ require_once 'libraries/structure.lib.php';
 
 // Add/Remove favorite tables using Ajax request.
 if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
+    $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
+    // Request for Synchronization of favorite tables.
+    if (isset($_REQUEST['sync_favorite_tables'])) {
+        $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
+
+        if (empty($fav_instance->tables)) {
+            foreach ($favorite_tables as $key => $value) {
+                $fav_instance->add($value['db'], $value['table']);
+            }
+        }
+
+        $ajax_response = PMA_Response::getInstance();
+        $ajax_response->addJSON(
+            'favorite_tables',
+            json_encode($fav_instance->tables)
+        );
+        $ajax_response->addJSON(
+            'options',
+            $fav_instance->getHtmlSelectOption()
+        );
+        $server_id = $GLOBALS['server'];
+        // Set flag when localStorage and pmadb(if present) are in sync.
+        $_SESSION['tmpval']['favorites_synced'][$server_id] = true;
+        exit;
+    }
     global $db;
     $changes = true;
     $msg = '';
     $titles = PMA_Util::buildActionTitles();
-    $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
     $favorite_table = $_REQUEST['favorite_table'];
     $already_favorite = PMA_checkFavoriteTable($db, $favorite_table);
 
@@ -55,8 +79,12 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
     );
     if ($changes) {
         $ajax_response->addJSON(
+            'favorite_tables',
+            json_encode($fav_instance->tables)
+        );
+        $ajax_response->addJSON(
             'options',
-            PMA_RecentFavoriteTable::getInstance('favorite')->getHtmlSelectOption()
+            $fav_instance->getHtmlSelectOption()
         );
         $ajax_response->addJSON(
             'anchor',

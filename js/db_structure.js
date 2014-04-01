@@ -413,6 +413,8 @@ AJAX.registerOnload('db_structure.js', function () {
                             'a',
                             $('#' + anchor_id).attr("title")
                         );
+                        // Update localStorage.
+                        window.localStorage['favorite_tables'] = data.favorite_tables;
                     } else {
                         PMA_ajaxShowMessage(data.message);
                     }
@@ -422,5 +424,4 @@ AJAX.registerOnload('db_structure.js', function () {
             }
         );
     });
-
 }); // end $()
