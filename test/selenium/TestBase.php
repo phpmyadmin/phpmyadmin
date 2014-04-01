@@ -157,7 +157,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     public function prepareSession()
     {
         $result = parent::prepareSession();
-        $this->url('');
+        if (! empty($GLOBALS['TESTSUITE_SELENIUM_COVERAGE'])) {
+            $this->coverageScriptUrl = $GLOBALS['TESTSUITE_SELENIUM_COVERAGE'];
+            $this->url($this->coverageScriptUrl);
+        } else {
+            $this->url('');
+        }
         return $result;
     }
 
