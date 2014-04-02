@@ -55,6 +55,10 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
         $this->login();
         $this->waitForElement('byLinkText', $this->database_name)->click();
         $this->waitForElement(
+            'byCssSelector',
+            'li.last.table'
+        );
+        $this->waitForElement(
             "byXPath", "//a[contains(., 'test_table')]"
         );
     }
