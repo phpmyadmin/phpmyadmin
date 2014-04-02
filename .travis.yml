@@ -35,15 +35,13 @@ before_script:
     phpenv config-add test/travis.php.ini ;
 
     pear channel-discover pear.phpunit.de ;
-    pear -v install phpunit/PHPUnit_Selenium ;
+    pear install phpunit/PHPUnit_Selenium ;
 
     composer install --dev --no-interaction ;
 
     fi ;
 
     if [[ ! -z "$SELENIUM" ]] ; then
-
-    find ~/.phpenv ;
 
     ln -s ~/.phpenv/versions/$(phpenv version-name)/pear/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php . ;
 
