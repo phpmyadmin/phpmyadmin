@@ -401,26 +401,34 @@ AJAX.registerOnload('db_structure.js', function () {
     $(".favorite_table_anchor").live("click", function (event) {
         event.preventDefault();
         var anchor_id = $(this).attr("id");
-        $.get(
-            $(this).attr('href'),
-            function (data) {
-                if (data.success === true) {
-                    if (data.changes) {
-                        $('#favoriteTable').html(data.options);
-                        $('#' + anchor_id).parent().html(data.anchor);
-                        PMA_tooltip(
-                            $('#' + anchor_id),
-                            'a',
-                            $('#' + anchor_id).attr("title")
-                        );
-                    } else {
-                        PMA_ajaxShowMessage(data.message);
+        $.ajax({
+            url: $(this).attr('href'),
+            cache: false,
+            type: 'POST',
+            data: {
+                favorite_tables: (window.localStorage['favorite_tables']
+                    !== undefined)
+                    ? window.localStorage['favorite_tables']
+                    : ''
+            },
+            success: function (data) {
+                if (data.changes) {
+                    $('#favoriteTable').html(data.options);
+                    $('#' + anchor_id).parent().html(data.anchor);
+                    PMA_tooltip(
+                        $('#' + anchor_id),
+                        'a',
+                        $('#' + anchor_id).attr("title")
+                    );
+                    // Update localStorage.
+                    if (window.localStorage !== undefined) {
+                        window.localStorage['favorite_tables']
+                            = data.favorite_tables;
                     }
                 } else {
                     PMA_ajaxShowMessage(data.message);
                 }
             }
-        );
+        });
     });
-
 }); // end $()
