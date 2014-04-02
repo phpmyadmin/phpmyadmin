@@ -46,6 +46,7 @@ phpMyAdmin - ChangeLog
 + rfe #1329 Avoid editing of fields which are part of relation
 + rfe       [interface] Highlight active left menu item in setup
 + rfe       Filter on-screen rows during Browse
+  Removed support for SQL Validator (SOAP service no longer offered)
 
 4.1.13.0 (not yet released)
 - bug #4279 CTRL + up or down moves 2 fields
