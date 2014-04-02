@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-27 22:11+0200\n"
-"Last-Translator: Pl <plamen_mbx@yahoo.com>\n"
+"PO-Revision-Date: 2014-04-02 11:55+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bulgarian <https://l10n.cihar.com/projects/phpmyadmin/4-1/bg/>"
 "\n"
 "Language: bg\n"
@@ -430,7 +430,7 @@ msgstr ""
 
 #: error_report.php:50 error_report.php:77
 msgid "If you experience any problems please submit a bug report manually."
-msgstr "Ако срещате каквито и да е проблеми, докладвайте ръчно за проблем"
+msgstr "Ако срещате каквито и да е проблеми, докладвайте ръчно за проблем."
 
 #: error_report.php:63 error_report.php:72
 msgid "Thank you for submitting this report."
