@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-05 07:16+0200\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
-"Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
-"phpmyadmin/4-1/zh_TW/>\n"
+"PO-Revision-Date: 2014-04-02 12:00+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Traditional Chinese "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2315,7 +2315,7 @@ msgstr "無法讀取已存在的設定檔 %s。"
 
 #: libraries/Config.class.php:1191
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr "設定檔權限錯誤，其他人不應擁有寫入權。"
+msgstr "設定檔權限錯誤，其他人不應擁有寫入權！"
 
 #: libraries/Config.class.php:1768
 msgid "Font size"
@@ -2412,7 +2412,7 @@ msgstr "送出查詢"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "伺服器沒有回應（或者是伺服器的 socket 沒有被正確的設定）"
+msgstr "伺服器沒有回應（或者是伺服器的 socket 沒有被正確的設定）。"
 
 #: libraries/DatabaseInterface.class.php:1998
 msgid "The server is not responding."
@@ -3968,7 +3968,7 @@ msgstr "無法讀取預設設定: %1$s"
 msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
-msgstr "必須在您的設定檔案中設定 [code]$cfg['PmaAbsoluteUri'][/code]。"
+msgstr "必須在您的設定檔案中設定 [code]$cfg['PmaAbsoluteUri'][/code]！"
 
 #: libraries/common.inc.php:631
 #, php-format
@@ -8409,7 +8409,7 @@ msgstr ""
 #: libraries/plugins/import/ImportShp.class.php:148
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr "在匯入 ESRI Shapefile 時發生錯誤: 「%s」"
+msgstr "在匯入 ESRI Shapefile 時發生錯誤: 「%s」。"
 
 #: libraries/plugins/import/ImportShp.class.php:204
 msgid ""
