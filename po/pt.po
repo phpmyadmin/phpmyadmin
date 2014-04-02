@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-21 19:11+0200\n"
-"Last-Translator: Diogo Santos <djsantost@gmail.com>\n"
-"Language-Team: Portuguese <https://l10n.cihar.com/projects/phpmyadmin/4-1/pt/"
-">\n"
+"PO-Revision-Date: 2014-04-02 11:56+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Portuguese "
+"<https://l10n.cihar.com/projects/phpmyadmin/4-1/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1392,7 +1392,7 @@ msgstr "Saltar para a tabela de registos"
 
 #: js/messages.php:172
 msgid "No data found"
-msgstr "Dados não encontrados."
+msgstr "Dados não encontrados"
 
 #: js/messages.php:173
 msgid "Log analysed, but no data found in this time span."
