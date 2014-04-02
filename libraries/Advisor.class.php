@@ -176,9 +176,11 @@ class Advisor
     {
         $string = _gettext(Advisor::escapePercent($str));
         if ( ! is_null($param)) {
-            $param = $this->ruleExprEvaluate($param);
+            $params = $this->ruleExprEvaluate('array('. $param . ')');
+        } else {
+            $params = array();
         }
-        return sprintf($string, $param);
+        return vsprintf($string, $params);
     }
 
     /**

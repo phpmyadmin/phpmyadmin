@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - bug #4336 List server css style wrong
 - bug #4345 Privileges editor shows databases with underscore backslash-escaped
 - bug       Missing value on the Status > Server page
+- bug #4347 Fixed PHP Parse error in Advisor
 
 4.1.12.0 (2014-03-27)
 - bug #4334 Add event : datepicker won't open
