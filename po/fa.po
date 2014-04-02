@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-28 09:26+0200\n"
+"PO-Revision-Date: 2014-04-02 12:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <https://l10n.cihar.com/projects/phpmyadmin/4-1/fa/>\n"
 "Language: fa\n"
@@ -898,7 +898,7 @@ msgstr ""
 
 #: js/messages.php:29 libraries/import.lib.php:118 sql.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "عبارت \"DROP DATABASE\" غیر فعال است"
+msgstr "عبارت \"DROP DATABASE\" غیر فعال است."
 
 #: js/messages.php:35
 msgid "Confirm"
@@ -2852,7 +2852,7 @@ msgstr "فایل آپلود شده نبود."
 
 #: libraries/File.class.php:279
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "فایل آپلود شده بیش از upload_max_size قرار دستور در فایل php.ini اجرا"
+msgstr "فایل آپلود شده بیش از upload_max_size قرار دستور در فایل php.ini اجرا."
 
 #: libraries/File.class.php:282
 msgid ""
