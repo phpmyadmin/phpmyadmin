@@ -511,7 +511,7 @@ function ADVISOR_timespanFormat($seconds)
  */
 function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
 {
-    return PMA_Util::formatByteDown($value, $limes, $comma);
+    return implode(' ', PMA_Util::formatByteDown($value, $limes, $comma));
 }
 
 ?>
