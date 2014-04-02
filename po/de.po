@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-31 10:19-0400\n"
-"PO-Revision-Date: 2014-03-31 14:24+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2014-04-02 12:24+0200\n"
+"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
+"Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/>"
+"\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -223,10 +223,10 @@ msgid "Database %1$s has been renamed to %2$s."
 msgstr "Datenbank %1$s wurde in %2$s umbenannt."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Datenbank %1$s wurde nach %2$s kopiert"
+msgstr "Datenbank %1$s wurde nach %2$s kopiert."
 
 #: db_operations.php:260
 #, php-format
@@ -292,10 +292,9 @@ msgstr[0] "%s Tabelle"
 msgstr[1] "%s Tabellen"
 
 #: db_qbe.php:102
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Bitte wählen Sie mindestens eine anzuzeigende Spalte"
+msgstr "Bitte wählen Sie mindestens eine anzuzeigende Spalte!"
 
 #: db_qbe.php:123
 #, php-format
@@ -312,7 +311,7 @@ msgstr "Zugriff verweigert!"
 
 #: db_structure.php:40
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Favoriten-Liste ist voll!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -587,7 +586,6 @@ msgid "Output"
 msgstr "Ausgabe"
 
 #: gis_data_editor.php:410
-#, fuzzy
 #| msgid ""
 #| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 #| "below into the \"Value\" field"
@@ -596,7 +594,7 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 "Wählen Sie \"GeomFromText\" aus der Spalte \"Funktion\" und kopieren Sie den "
-"Text unten in das Feld \"Wert\""
+"Text unten in das Feld \"Wert\"."
 
 #: import.php:116
 #, php-format
@@ -621,13 +619,15 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Die hochgeladene Datei kann nicht verschoben werden, weil auf dem Server "
+"open_basedir aktiviert ist ohne Zugriff auf das Verzeichnis %s (für "
+"temporäre Dateien)."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Die Datei konnte nicht gelesen werden"
+msgstr "Datei konnte nicht gelesen werden!"
 
 #: import.php:418 import.php:429 import.php:450 import.php:461
 #: libraries/File.class.php:593
@@ -651,7 +651,6 @@ msgstr ""
 "Konfiguration überschritten. Siehe [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:495
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
@@ -659,7 +658,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Die Zeichen-Kodierung der Datei kann nicht ohne eine Zeichen-"
-"Kodierungsbibliothek konvertiert werden"
+"Kodierungsbibliothek konvertiert werden!"
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -668,10 +667,10 @@ msgstr ""
 "phpMyAdmin-Installation!"
 
 #: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1805
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Bookmark %s wurde gespeichert"
+msgstr "Lesezeichen %s wurde erstellt."
 
 #: import.php:577
 #, php-format
@@ -972,21 +971,19 @@ msgstr ""
 "Möchten Sie die wirklich die Benutzergruppe \"%s\" unwiderruflich löschen?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr ""
-"Möchten Sie die wirklich die Benutzergruppe \"%s\" unwiderruflich löschen?"
+msgstr "Möchten Sie die wirklich die Suchanfrage \"%s\" unwiderruflich löschen?"
 
 #: js/messages.php:48
 msgid "Missing value in the form!"
 msgstr "Das Formular ist leer!"
 
 #: js/messages.php:49
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "mindestens eines der Wörter"
+msgstr "Wählen Sie mindestens eine der Optionen!"
 
 #: js/messages.php:50
 msgid "Please enter a valid number!"
@@ -1062,10 +1059,9 @@ msgid "Connections / Processes"
 msgstr "Verbindungen / Prozesse"
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Die lokale Bildschirmkonfiguration ist nicht kompatibel"
+msgstr "Die lokale Bildschirmkonfiguration ist nicht kompatibel!"
 
 #: js/messages.php:79
 msgid ""
@@ -1301,10 +1297,10 @@ msgstr "Deaktiviere %s"
 
 #. l10n: %d seconds
 #: js/messages.php:143
-#, fuzzy, php-format
+#, php-format
 #| msgid "Set long_query_time to %ds"
 msgid "Set long_query_time to %d seconds."
-msgstr "Setze long_query_time auf %ds"
+msgstr "Setze long_query_time auf %d Sekunden."
 
 #: js/messages.php:145
 msgid ""
@@ -1524,7 +1520,7 @@ msgstr "Bitte wählen Sie die Datei, die Sie importieren möchten."
 
 #: js/messages.php:205
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Keine Dateien zum Importieren auf dem Server verfügbar!"
 
 #: js/messages.php:207
 msgid "Analyse Query"
@@ -1828,16 +1824,17 @@ msgstr "Ankreis"
 #: js/messages.php:320
 msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
+"Umschalt + Klicken Sie auf den Funktionsnamen, um ihn auf alle Zeilen "
+"anzuwenden."
 
 #: js/messages.php:322
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Sollen die restlichen Einstellungen importiert werden?"
+msgstr "Soll der Verschlüsselungs-Schlüssel importiert werden?"
 
 #: js/messages.php:323
 msgid "Encryption key"
-msgstr ""
+msgstr "Verschlüsselungs-Schlüssel"
 
 #: js/messages.php:326
 msgid "Select referenced key"
@@ -1864,22 +1861,21 @@ msgstr ""
 "wenn Sie nicht speichern. Möchten Sie fortfahren?"
 
 #: js/messages.php:336
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Option hinzufügen zu Spalte "
+msgstr "Option hinzufügen zu Spalte \"%s\"."
 
 #: js/messages.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d Objekt(e) erstellt"
+msgstr "%d Objekt(e) erstellt."
 
 #: js/messages.php:340
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Drücken Sie ESC um das Bearbeiten abzubrechen"
+msgstr "Drücken Sie ESC, um das Bearbeiten abzubrechen."
 
 #: js/messages.php:341
 msgid ""
@@ -1890,40 +1886,37 @@ msgstr ""
 "Sie diese Seite ohne zu speichern verlassen möchten?"
 
 #: js/messages.php:342
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Zur Umsortierung ziehen"
+msgstr "Zur Umsortierung ziehen."
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Zum Sortieren klicken"
+msgstr "Zum Sortieren klicken."
 
 #: js/messages.php:344
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
+"Halten Sie Umschalt gedrückt und klicken Sie, um die Spalte von ORDER BY zu "
+"entfernen."
 
 #: js/messages.php:345
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Klicken zum aus- bzw. abwählen"
+msgstr "Klicken zum Aus- bzw. Abwählen."
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Doppelklicken um den Spaltennamen zu kopieren"
+msgstr "Doppelklicken, um den Spaltennamen zu kopieren."
 
 #: js/messages.php:348
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Den Pfeil des Aufklappsmenüs anklicken<br />um die Sichtbarkeit der Spalte "
-"umzustellen"
+"umzustellen."
 
 #: js/messages.php:350 libraries/DisplayResults.class.php:858
 #: libraries/browse_foreigners.lib.php:371
@@ -1954,16 +1947,14 @@ msgstr ""
 "Sie können die meisten Werte auch bearbeiten,<br />indem Sie darauf klicken."
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "Gehe zur Verknüpfung"
+msgstr "Gehe zur Verknüpfung."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "Spaltennamen kopieren"
+msgstr "Spaltennamen kopieren."
 
 #: js/messages.php:366
 msgid "Right-click the column name to copy it to your clipboard."
@@ -1971,10 +1962,9 @@ msgstr ""
 "Klicken Sie auf den Spaltennamen, um ihn in die Zwischenablage zu kopieren."
 
 #: js/messages.php:367
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Zeige Daten Zeile(n)"
+msgstr "Zeige Daten-Zeile(n)."
 
 #: js/messages.php:370
 msgid "Generate password"
@@ -2001,10 +1991,9 @@ msgid "Hide Panel"
 msgstr "Panel ausblenden"
 
 #: js/messages.php:380
-#, fuzzy
 #| msgid "Show hidden navigation tree items"
 msgid "Show hidden navigation tree items."
-msgstr "Zeige versteckte Navigationselemente"
+msgstr "Zeige versteckte Navigationselemente."
 
 #: js/messages.php:383
 msgid "The requested page was not found in the history, it may have expired."
@@ -2060,7 +2049,6 @@ msgid "Show Report Details"
 msgstr "Berichtdetails anzeigen"
 
 #: js/messages.php:403
-#, fuzzy
 #| msgid ""
 #| "Your export is incomplete, due to a low execution time limit at the PHP "
 #| "level"
@@ -2069,7 +2057,7 @@ msgid ""
 "level!"
 msgstr ""
 "Ihr Export ist unvollständig, wegen eines niedrigen Ausführungszeit-Limits "
-"in PHP"
+"in PHP!"
 
 #: js/messages.php:407
 #, php-format
@@ -2077,6 +2065,9 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Warnung: Ein Formular auf dieser Seite hat mehr als %d Felder. Beim Absenden "
+"werden einige der Felder möglicherweise ignoriert, wegen der PHP-"
+"Konfiguration max_input_vars."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:434
@@ -2505,28 +2496,24 @@ msgid "Submit Query"
 msgstr "SQL-Befehl ausführen"
 
 #: libraries/DBQbe.class.php:1451
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "Suche"
+msgstr "Suchanfrage mit Lesezeichen gespeichert:"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "Verknüpfung löschen"
+msgstr "Lesezeichen erstellen"
 
 #: libraries/DBQbe.class.php:1482
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "Bookmark wird angezeigt"
+msgstr "Lesezeichen aktualisieren"
 
 #: libraries/DBQbe.class.php:1484
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "Verknüpfung löschen"
+msgstr "Lesezeichen löschen"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -2644,16 +2631,14 @@ msgid "Restore column order"
 msgstr "Spalten-Anordnung wiederherstellen"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "Filter"
+msgstr "Zeilen filtern"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Durchsuche die Datenbank"
+msgstr "Diese Tabelle durchsuchen"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2482
 #: libraries/Util.class.php:2486
@@ -3240,69 +3225,61 @@ msgid "Error while creating PDF:"
 msgstr "Fehler beim Erstellen der PDF Datei:"
 
 #: libraries/RecentFavoriteTable.class.php:142
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
-msgstr "Konnte die letzte Tabelle nicht speichern"
+msgstr "Konnte die letzte Tabelle nicht speichern!"
 
 #: libraries/RecentFavoriteTable.class.php:146
-#, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
-msgstr "Konnte die letzte Tabelle nicht speichern"
+msgstr "Konnte die Favoriten-Tabelle nicht speichern!"
 
 #: libraries/RecentFavoriteTable.class.php:195
 msgid "Recent tables"
 msgstr "Letzte Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:196
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
-msgstr "Es gibt keine letzten Tabellen"
+msgstr "Es gibt keine letzten Tabellen."
 
 #: libraries/RecentFavoriteTable.class.php:200
 #: libraries/config/messages.inc.php:477
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Variablen"
+msgstr "Favoriten-Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:201
-#, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no favorite tables."
-msgstr "Es gibt keine letzten Tabellen"
+msgstr "Es gibt keine Favoriten-Tabellen."
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Bitte geben Sie einen Namen für diese Lesezeichen-Suchanfrage an."
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen"
+msgstr "Fehlende Information, um die Suchanfrage als Lesezeichen zu speichern."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
-#, fuzzy
 #| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "Der Benutzer %s existiert bereits!"
+msgstr "Ein Eintrag mit diesem Namen existiert bereits."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Fehlende Information, um die Suchanfrage zu löschen."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Fehlende Information, um die Suchanfrage zu laden."
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Fehler beim Verschieben der hochgeladenen Datei."
+msgstr "Fehler beim Laden der Suchanfrage."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3434,7 +3411,7 @@ msgstr "Dieser MySQL-Server unterstützt %s nicht."
 #, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "Unbekannter Tabellenstatus: "
+msgstr "Unbekannter Tabellenstatus:"
 
 # source != search / Source != Suche
 #: libraries/Table.class.php:792
@@ -3466,10 +3443,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabelle %1$s wurde in %2$s umbenannt."
 
 #: libraries/Table.class.php:1515
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "Konnte die UI Einstellungen der Tabelle nicht speichern"
+msgstr "Konnte die Darstellungs-Einstellungen der Tabelle nicht speichern!"
 
 #: libraries/Table.class.php:1544
 #, php-format
@@ -4103,10 +4079,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Auf das festgelegte Upload-Verzeichnis kann nicht zugegriffen werden."
 
 #: libraries/Util.class.php:3388
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Es sind keine Dateien zum Upload vorhanden"
+msgstr "Es sind keine Dateien zum Hochladen vorhanden!"
 
 #: libraries/Util.class.php:3413 libraries/Util.class.php:3414
 #: libraries/structure.lib.php:305
@@ -4212,10 +4187,9 @@ msgid "Check Privileges"
 msgstr "Rechte überprüfen"
 
 #: libraries/common.inc.php:586
-#, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "Fehler beim Lesen der Konfigurationsdatei"
+msgstr "Fehler beim Lesen der Konfigurationsdatei!"
 
 #: libraries/common.inc.php:588
 msgid ""
@@ -4401,39 +4375,35 @@ msgstr "Keines der Obigen"
 
 #: libraries/config/FormDisplay.class.php:96
 #: libraries/config/Validator.class.php:550
-#, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "Keine positive Nummer"
+msgstr "Keine positive Zahl!"
 
 #: libraries/config/FormDisplay.class.php:97
 #: libraries/config/Validator.class.php:572
-#, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "Keine nicht-negative Nummer"
+msgstr "Keine nicht-negative Zahl!"
 
 #: libraries/config/FormDisplay.class.php:98
 #: libraries/config/Validator.class.php:528
-#, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "Keine gültige Portnummer"
+msgstr "Keine gültige Portnummer!"
 
 #: libraries/config/FormDisplay.class.php:99
 #: libraries/config/FormDisplay.class.php:608
 #: libraries/config/Validator.class.php:590
-#, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Ungültiger Wert"
+msgstr "Ungültiger Wert!"
 
 #: libraries/config/FormDisplay.class.php:100
 #: libraries/config/Validator.class.php:606
-#, fuzzy, php-format
+#, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "Wert muss gleich oder kleiner als %s sein"
+msgstr "Wert muss gleich oder kleiner als %s sein!"
 
 #: libraries/config/FormDisplay.class.php:570
 #, php-format
