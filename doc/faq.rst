@@ -1916,8 +1916,13 @@ Favorite Tables feature is very much similar to Recent Tables feature.
 It allows you to add a shortcut for the frequently used tables of any
 database in the navigation panel . You can easily navigate to any table
 in the list by simply choosing it from the list. These tables are stored
-temporarily in your session if you have not configured your
-`phpMyAdmin Configuration Storage`. Otherwise these entries are permanent.
+in your browser's local storage if you have not configured your
+`phpMyAdmin Configuration Storage`. Otherwise these entries are stored in
+`phpMyAdmin Configuration Storage`.
+
+IMPORTANT: In absence of `phpMyAdmin Configuration Storage`, your Favorite
+tables may be different in different browsers based on your different
+selections in them.
 
 To add a table to Favorite list simply click on the `Gray` star in front
 of a table name in the list of tables of a Database and wait until it

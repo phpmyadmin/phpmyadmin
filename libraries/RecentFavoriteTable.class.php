@@ -283,5 +283,27 @@ class PMA_RecentFavoriteTable
         }
         return true;
     }
+
+    /**
+     * Generate Html for sync Favorite tables anchor. (from localStorage to pmadb)
+     *
+     * @return string
+     */
+    public function _getHtmlSyncFavoriteTables()
+    {
+        $retval = '';
+        $server_id = $GLOBALS['server'];
+        // Not to show this once list is synchronized.
+        $is_synced = isset($_SESSION['tmpval']['favorites_synced'][$server_id]) ?
+            true : false;
+        if (!$is_synced) {
+            $params  = array('ajax_request' => true, 'favorite_table' => true,
+                'sync_favorite_tables' => true);
+            $url     = 'db_structure.php' . PMA_URL_getCommon($params);
+            $retval  = '<a class="hide" id="sync_favorite_tables"';
+            $retval .= ' href="' . $url . '"></a>';
+        }
+        return $retval;
+    }
 }
 ?>

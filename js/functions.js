@@ -3256,6 +3256,7 @@ AJAX.registerTeardown('functions.js', function () {
     $('#pageselector').die('change');
     $('a.formLinkSubmit').die('click');
     $('#update_recent_tables').unbind('ready');
+    $('#sync_favorite_tables').unbind('ready');
 });
 /**
  * Vertical pointer
@@ -3360,6 +3361,28 @@ AJAX.registerOnload('functions.js', function () {
         );
     }
 
+    // Sync favorite tables from localStorage to pmadb.
+    if ($('#sync_favorite_tables').length) {
+        $.ajax({
+            url: $('#sync_favorite_tables').attr("href"),
+            cache: false,
+            type: 'POST',
+            data: {
+                favorite_tables: (window.localStorage['favorite_tables']
+                    !== undefined)
+                    ? window.localStorage['favorite_tables']
+                    : ''
+            },
+            success: function (data) {
+                // Update localStorage.
+                if (window.localStorage !== undefined) {
+                    window.localStorage['favorite_tables']
+                        = data.favorite_tables;
+                }
+                $('#favoriteTable').html(data.options);
+            }
+        });
+    }
 }); // end of $()
 
 
