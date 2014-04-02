@@ -312,13 +312,6 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <http://dev.mysql.com/doc/en/storage-engines.html>
 
-    SOAP
-      Simple Object Access Protocol is a protocol specification for exchanging
-      structured information in the implementation of Web Services in computer
-      networks.
-
-      .. seealso:: <http://en.wikipedia.org/wiki/SOAP>
-
     socket
       a form of inter-process communication.	
 

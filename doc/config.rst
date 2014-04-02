@@ -2369,15 +2369,6 @@ SQL query box settings
     Whether to display a link to wrap a query in PHP code in any SQL Query
     box.
 
-.. config:option:: $cfg['SQLQuery']['Validate']
-
-    :type: boolean
-    :default: false
-
-    Whether to display a link to validate a query in any SQL Query box.
-
-    .. seealso:: :config:option:`$cfg['SQLValidator']`
-
 .. config:option:: $cfg['SQLQuery']['Refresh']
 
     :type: boolean
@@ -2706,42 +2697,6 @@ Default queries
     Default queries that will be displayed in query boxes when user didn't
     specify any. You can use standard :ref:`faq6_27`.
 
-SQL validator settings
-----------------------
-
-.. config:option:: $cfg['SQLValidator']
-
-    :type: array
-    :default: array(...)
-
-
-
-.. config:option:: $cfg['SQLValidator']['use']
-
-    :type: boolean
-    :default: false
-
-    phpMyAdmin now supports use of the `Mimer SQL Validator
-    <http://developer.mimer.com/validator/index.htm>`_ service, as originally
-    published on `Slashdot
-    <http://developers.slashdot.org/article.pl?sid=02/02/19/1720246>`_. For
-    help in setting up your system to use the service, see the
-    :ref:`faqsqlvalidator`.
-
-.. config:option:: $cfg['SQLValidator']['username']
-
-    :type: string
-    :default: ``''``
-
-.. config:option:: $cfg['SQLValidator']['password']
-
-    :type: string
-    :default: ``''``
-
-    The SOAP service allows you to log in with ``anonymous`` and any password,
-    so we use those by default. Instead, if you have an account with them, you
-    can put your login details here, and it will be used in place of the
-    anonymous login.
 
 MySQL settings
 --------------

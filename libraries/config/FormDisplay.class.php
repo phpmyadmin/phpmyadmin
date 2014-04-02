@@ -809,21 +809,6 @@ class FormDisplay
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
         }
-        if ($system_path == 'SQLQuery/Validate'
-            && ! $GLOBALS['cfg']['SQLValidator']['use']
-        ) {
-            $opts['comment'] = __('SQL Validator is disabled');
-            $opts['comment_warning'] = true;
-        }
-        if ($system_path == 'SQLValidator/use') {
-            if (!class_exists('SOAPClient')) {
-                @include_once 'SOAP/Client.php';
-                if (!class_exists('SOAP_Client')) {
-                    $opts['comment'] = __('SOAP extension not found');
-                    $opts['comment_warning'] = true;
-                }
-            }
-        }
         if (!defined('PMA_SETUP')) {
             if (($system_path == 'MaxDbList' || $system_path == 'MaxTableList'
                 || $system_path == 'QueryHistoryMax')

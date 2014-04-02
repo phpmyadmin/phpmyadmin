@@ -291,14 +291,6 @@ $strConfigForm_Sql_box_desc = __('Customize links shown in SQL Query boxes.');
 $strConfigForm_Sql_desc = __('Customize default options.');
 $strConfigForm_Sql_queries = __('SQL queries');
 $strConfigForm_Sql_queries_desc = __('SQL queries settings.');
-$strConfigForm_Sql_validator = __('SQL Validator');
-$strConfigForm_Sql_validator_desc = __(
-    'If you wish to use the SQL Validator service, you should be aware that '
-    . '[strong]all SQL statements are stored anonymously for statistical '
-    . 'purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL '
-    . 'Validator[/a], Copyright 2002 Upright Database Technology. All rights '
-    . 'reserved.[/em]'
-);
 $strConfigForm_Startup = __('Startup');
 $strConfigForm_Startup_desc = __('Customize startup page.');
 $strConfigForm_DbStructure = __('Database structure');
@@ -752,13 +744,6 @@ $strConfigSQLQuery_Edit_name = __('Edit');
 $strConfigSQLQuery_Explain_name = __('Explain SQL');
 $strConfigSQLQuery_Refresh_name = __('Refresh');
 $strConfigSQLQuery_ShowAsPHP_name = __('Create PHP Code');
-$strConfigSQLQuery_Validate_desc = __('Requires SQL Validator to be enabled.');
-$strConfigSQLQuery_Validate_name = __('Validate SQL');
-$strConfigSQLValidator_password_name = __('Password');
-$strConfigSQLValidator_use_desc = __('[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be installed.');
-$strConfigSQLValidator_use_name = __('Enable SQL Validator');
-$strConfigSQLValidator_username_desc = __('If you have a custom username, specify it here (defaults to [kbd]anonymous[/kbd]).');
-$strConfigSQLValidator_username_name = __('Username');
 $strConfigSuhosinDisableWarning_desc = __('A warning is displayed on the main page if Suhosin is detected.');
 $strConfigSuhosinDisableWarning_name = __('Suhosin warning');
 $strConfigTextareaCols_desc = __('Textarea size (columns) in edit mode, this value will be emphasized for SQL query textareas (*2) and for query window (*1.25).');

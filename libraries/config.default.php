@@ -2719,13 +2719,6 @@ $cfg['SQLQuery']['Explain'] = true;
 $cfg['SQLQuery']['ShowAsPHP'] = true;
 
 /**
- * Validate a query (see $cfg['SQLValidator'] as well)
- *
- * @global boolean $cfg['SQLQuery']['Validate']
- */
-$cfg['SQLQuery']['Validate'] = false;
-
-/**
  * Refresh the results page
  *
  * @global boolean $cfg['SQLQuery']['Refresh']
@@ -2823,38 +2816,6 @@ $cfg['DisableMultiTableMaintenance'] = false;
  * @global string $cfg['SendErrorReports']
  */
 $cfg['SendErrorReports'] = 'ask';
-
-/*******************************************************************************
- * If you wish to use the SQL Validator service, you should be aware of the
- * following:
- * All SQL statements are stored anonymously for statistical purposes.
- * Mimer SQL Validator, Copyright 2002 Upright Database Technology.
- * All rights reserved.
- *
- * @global array $cfg['SQLValidator']
- */
-$cfg['SQLValidator'] = array();
-
-/**
- * Make the SQL Validator available
- *
- * @global boolean $cfg['SQLValidator']['use']
- */
-$cfg['SQLValidator']['use'] = false;
-
-/**
- * If you have a custom username, specify it here (defaults to anonymous)
- *
- * @global string $cfg['SQLValidator']['username']
- */
-$cfg['SQLValidator']['username'] = '';
-
-/**
- * Password for username
- *
- * @global string $cfg['SQLValidator']['password']
- */
-$cfg['SQLValidator']['password'] = '';
 
 
 /*******************************************************************************
