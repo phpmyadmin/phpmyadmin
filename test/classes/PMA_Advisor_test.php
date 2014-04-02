@@ -212,6 +212,22 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
             ),
             array(
                 array(
+                    'justification' => '%s% %d foo | value, value',
+                    'name' => 'Double',
+                    'issue' => 'issue',
+                    'recommendation' => 'Recommend'
+                ),
+                array(
+                    'justification' => '0% 0 foo',
+                    'id' => 'Double',
+                    'name' => 'Double',
+                    'issue' => 'issue',
+                    'recommendation' => 'Recommend'
+                ),
+                null,
+            ),
+            array(
+                array(
                     'justification' => '"\'foo',
                     'name' => 'Quotes',
                     'issue' => 'issue',
@@ -236,7 +252,7 @@ class Advisor_Test extends PHPUnit_Framework_TestCase
                 array(),
                 'Failed formatting string for rule \'Failure\'. PHP threw ' .
                 'following error: Use of undefined constant fsafdsa - ' .
-                'assumed \'fsafdsa\'<br />Executed code: $value = fsafdsa;',
+                'assumed \'fsafdsa\'<br />Executed code: $value = array(fsafdsa);',
             ),
             array(
                 array(
