@@ -2537,7 +2537,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
             )
         )
         . '">'
-        . htmlspecialchars(stripslashes($dbname)) . ': '
+        . htmlspecialchars($dbname) . ': '
         . PMA_Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabDatabase']
         )
@@ -2692,7 +2692,7 @@ function PMA_getHtmlForUserRights($db_rights, $dbname,
             $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                 . '<td>'
                 . htmlspecialchars(
-                    (! strlen($dbname)) ? stripslashes($row['Db']) : $row['Table_name']
+                    (! strlen($dbname)) ? $row['Db'] : $row['Table_name']
                 )
                 . '</td>' . "\n"
                 . '<td><code>' . "\n"
@@ -2799,7 +2799,7 @@ function PMA_getHtmlForAllTableSpecificRights(
     // table body
     // get data
 
-    // we also want privileges for this user not in table `db` but in other table
+    // we also want privielgs for this user not in table `db` but in other table
     $tables = $GLOBALS['dbi']->fetchResult('SHOW TABLES FROM `mysql`;');
 
     /**
@@ -3785,14 +3785,13 @@ function PMA_getHtmlHeaderForUserProperties(
                         'tablename' => '',
                     )
                 )
-                . '">' . htmlspecialchars(stripslashes($dbname))
+                . '">' . htmlspecialchars($dbname)
                 . '</a></i>';
 
             $html_output .= ' - ' . __('Table')
                 . ' <i>' . htmlspecialchars($tablename) . '</i>';
         } else {
-            $html_output .= ' <i>' . htmlspecialchars(stripslashes($dbname))
-                . '</i>';
+            $html_output .= ' <i>' . htmlspecialchars($dbname) . '</i>';
         }
 
     } else {
