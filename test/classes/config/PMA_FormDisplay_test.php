@@ -511,24 +511,6 @@ class PMA_FormDisplay_Test extends PHPUnit_Framework_TestCase
             $opts['comment_warning']
         );
 
-        // SQLValidate
-
-        $GLOBALS['cfg']['SQLValidator']['use'] = false;
-
-        $method->invokeArgs(
-            $this->object,
-            array('SQLQuery/Validate', &$opts)
-        );
-
-        $this->assertEquals(
-            "SQL Validator is disabled",
-            $opts['comment']
-        );
-
-        $this->assertTrue(
-            $opts['comment_warning']
-        );
-
         if (defined('PMA_SETUP')) {
             runkit_constant_remove('PMA_SETUP');
         }
