@@ -77,7 +77,6 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Edit',
     'SQLQuery/Explain',
     'SQLQuery/ShowAsPHP',
-    'SQLQuery/Validate',
     'SQLQuery/Refresh');
 $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationDisplayLogo',

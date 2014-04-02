@@ -1562,21 +1562,8 @@ work with it, nor delete it.
 
 .. _faqsqlvalidator:
 
-6.14 How do I set up the SQL Validator?
----------------------------------------
-
-To use SQL Validator, you need PHP with :term:`XML`, :term:`PCRE` and
-:term:`PEAR` support. In addition you need a :term:`SOAP` support, either as a
-PHP extension or as a PEAR SOAP module.
-
-To install :term:`PEAR` :term:`SOAP` module, run :command:`pear install
-Net_Socket Net_URL HTTP_Request Mail_Mime Net_DIME SOAP` to get the necessary
-:term:`PEAR` modules for usage.
-
-If you use the Validator, you should be aware that any :term:`SQL` statement
-you submit will be stored anonymously (database/table/column names, strings,
-numbers replaced with generic values). The Mimer :term:`SQL` Validator itself,
-is © 2001 Upright Database Technology. We utilize it as free SOAP service.
+6.14 (withdrawn).
+-----------------
 
 .. _faq6_15:
 

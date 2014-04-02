@@ -164,12 +164,7 @@ $forms['Sql_queries']['Sql_box'] = array('SQLQuery' => array(
     'Edit',
     'Explain',
     'ShowAsPHP',
-    'Validate',
     'Refresh'));
-$forms['Sql_queries']['Sql_validator'] = array('SQLValidator' => array(
-    'use',
-    'username',
-    'password'));
 $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationDisplayLogo',
     'NavigationLogoLink',

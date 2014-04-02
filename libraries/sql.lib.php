@@ -1490,7 +1490,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
     $db, $table, $find_real_end, $sql_query_for_bookmark, $extra_data
 ) {
     // Only if we ask to see the php code
-    if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
+    if (isset($GLOBALS['show_as_php'])) {
         $result = null;
         $num_rows = 0;
         $unlim_num_rows = 0;
@@ -1631,8 +1631,6 @@ function PMA_getMessageForNoRowsReturned($message_to_show, $analyzed_sql_results
     } elseif (isset($GLOBALS['show_as_php'])) {
         /* User disable showing as PHP, query is only displayed */
         $message = PMA_Message::notice(__('Showing SQL query'));
-    } elseif (! empty($GLOBALS['validatequery'])) {
-        $message = PMA_Message::notice(__('Validated SQL'));
     } else {
         $message = PMA_Message::success(
             __('MySQL returned an empty result set (i.e. zero rows).')

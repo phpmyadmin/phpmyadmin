@@ -1026,11 +1026,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         include_once './libraries/sqlparser.lib.php';
 
         /**
-         * SQL Validator interface code
-         */
-        include_once './libraries/sqlvalidator.lib.php';
-
-        /**
          * the PMA_List_Database class
          */
         include_once './libraries/PMA.php';

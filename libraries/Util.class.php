@@ -1127,14 +1127,6 @@ class PMA_Util
 
             if (! empty($GLOBALS['show_as_php'])) {
                 $query_base = '$sql  = "' . $query_base;
-            } elseif (! empty($GLOBALS['validatequery'])) {
-                try {
-                    $query_base = PMA_validateSQL($query_base);
-                } catch (Exception $e) {
-                    $retval .= PMA_Message::error(
-                        __('Failed to connect to SQL validator!')
-                    )->getDisplay();
-                }
             } elseif (isset($query_base)) {
                 $query_base = self::formatSql($query_base);
             }
@@ -1167,11 +1159,6 @@ class PMA_Util
             $is_select = preg_match('@^SELECT[[:space:]]+@i', $sql_query);
             if (! empty($cfg['SQLQuery']['Explain']) && ! $query_too_big) {
                 $explain_params = $url_params;
-                // Detect if we are validating as well
-                // To preserve the validate uRL data
-                if (! empty($GLOBALS['validatequery'])) {
-                    $explain_params['validatequery'] = 1;
-                }
                 if ($is_select) {
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $_message = __('Explain SQL');
@@ -1253,30 +1240,7 @@ class PMA_Util
                 $refresh_link = '';
             } //refresh
 
-            if (! empty($cfg['SQLValidator']['use'])
-                && ! empty($cfg['SQLQuery']['Validate'])
-            ) {
-                $validate_params = $url_params;
-                if (! empty($GLOBALS['validatequery'])) {
-                    $validate_message = __('Skip Validate SQL');
-                } else {
-                    $validate_params['validatequery'] = 1;
-                    $validate_message = __('Validate SQL');
-                }
-
-                $validate_link = 'import.php'
-                    . PMA_URL_getCommon($validate_params);
-                $validate_link = ' ['
-                    . self::linkOrButton($validate_link, $validate_message) . ']';
-            } else {
-                $validate_link = '';
-            } //validator
-
-            if (! empty($GLOBALS['validatequery'])) {
-                $retval .= '<div class="sqlvalidate">';
-            } else {
-                $retval .= '<div class="sqlOuter">';
-            }
+            $retval .= '<div class="sqlOuter">';
             if ($query_too_big) {
                 $retval .= $shortened_query_base;
             } else {
@@ -1322,7 +1286,7 @@ class PMA_Util
                 $inline_edit_link = '';
             }
             $retval .= $inline_edit_link . $edit_link . $explain_link . $php_link
-                . $refresh_link . $validate_link;
+                . $refresh_link;
             $retval .= '</div>';
         }
 
