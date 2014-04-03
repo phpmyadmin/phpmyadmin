@@ -35,9 +35,17 @@ AJAX.registerOnload('db_operations.js', function () {
     $("#rename_db_form.ajax").live('submit', function (event) {
         event.preventDefault();
 
+        var old_db_name = PMA_commonParams.get('db');
+        var new_db_name = $('#new_db_name').val();
+
+        if (new_db_name == old_db_name) {
+            PMA_ajaxShowMessage(PMA_messages.strDropDatabaseStrongWarning);
+            return false;
+        }
+
         var $form = $(this);
 
-        var question = escapeHtml('CREATE DATABASE ' + $('#new_db_name').val() + ' / DROP DATABASE ' + PMA_commonParams.get('db'));
+        var question = escapeHtml('CREATE DATABASE ' + new_db_name + ' / DROP DATABASE ' + old_db_name);
 
         PMA_prepareForAjaxRequest($form);
 
