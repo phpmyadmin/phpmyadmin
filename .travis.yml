@@ -43,10 +43,10 @@ before_script:
 
     if [[ ! -z "$SELENIUM" ]] ; then
 
-    ln -s ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit/phpunit/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php . ;
+    ln -s ~/.phpenv/versions/$(phpenv version-name)/pear/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php . ;
 
-    echo auto_prepend_file = ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit/phpunit/PHPUnit/Extensions/SeleniumCommon/prepend.php  >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ;
-    echo auto_append_file = ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit/phpunit/PHPUnit/Extensions/SeleniumCommon/append.php  >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ;
+    echo auto_prepend_file = ~/.phpenv/versions/$(phpenv version-name)/pear/PHPUnit/Extensions/SeleniumCommon/prepend.php  >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ;
+    echo auto_append_file = ~/.phpenv/versions/$(phpenv version-name)/pear/PHPUnit/Extensions/SeleniumCommon/append.php  >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ;
 
     php --server 127.0.0.1:8000 &
     wget http://www.browserstack.com/BrowserStackTunnel.jar ;
