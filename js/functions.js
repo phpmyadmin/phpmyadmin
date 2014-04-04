@@ -3355,7 +3355,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#update_recent_tables').attr('href'),
             function (data) {
                 if (data.success === true) {
-                    $('#recentTable').html(data.options);
+                    $('#pma_recent_list').html(data.list);
                 }
             }
         );
@@ -3379,7 +3379,7 @@ AJAX.registerOnload('functions.js', function () {
                     window.localStorage['favorite_tables']
                         = data.favorite_tables;
                 }
-                $('#favoriteTable').html(data.options);
+                $('#pma_favorite_list').html(data.list);
             }
         });
     }
