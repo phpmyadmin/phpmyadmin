@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-02 06:39-0400\n"
+"POT-Creation-Date: 2014-04-04 05:39-0400\n"
 "PO-Revision-Date: 2014-03-31 13:14+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
@@ -198,7 +198,7 @@ msgstr "Oui"
 msgid "View dump (schema) of database"
 msgstr "Voir une exportation (schéma) de la base de données"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:124
+#: db_export.php:33 db_printview.php:41 db_structure.php:160
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Aucune table n'a été trouvée dans cette base."
@@ -307,7 +307,7 @@ msgstr "Passer au %smode visuel%s"
 msgid "Access denied!"
 msgstr "Accès refusé !"
 
-#: db_structure.php:40
+#: db_structure.php:67
 msgid "Favorite List is full!"
 msgstr "La liste des tables favorites est pleine !"
 
@@ -688,11 +688,11 @@ msgstr ""
 msgid "Back"
 msgstr "Retour"
 
-#: index.php:125 libraries/Footer.class.php:70
+#: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "Serveur de démonstration phpMyAdmin"
 
-#: index.php:129
+#: index.php:131
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -703,70 +703,70 @@ msgstr ""
 "voulez, mais s'il vous plaît, ne changez pas les utilisateurs root, debian-"
 "sys-maint et pma. Plus d'informations sont disponibles à %s."
 
-#: index.php:139
+#: index.php:141
 msgid "General Settings"
 msgstr "Paramètres généraux"
 
-#: index.php:167 libraries/display_change_password.lib.php:51
+#: index.php:169 libraries/display_change_password.lib.php:51
 #: libraries/display_change_password.lib.php:52 user_password.php:233
 msgid "Change password"
 msgstr "Modifier le mot de passe"
 
-#: index.php:183
+#: index.php:185
 msgid "Server connection collation"
 msgstr "Interclassement pour la connexion au serveur"
 
-#: index.php:206
+#: index.php:208
 msgid "Appearance Settings"
 msgstr "Paramètres d'affichage"
 
-#: index.php:236 prefs_manage.php:279
+#: index.php:238 prefs_manage.php:279
 msgid "More settings"
 msgstr "Plus de paramètres"
 
-#: index.php:257
+#: index.php:259
 msgid "Database server"
 msgstr "Serveur de base de données"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Server:"
 msgstr "Serveur : "
 
-#: index.php:264
+#: index.php:266
 msgid "Server type:"
 msgstr "Type de serveur : "
 
-#: index.php:268 libraries/plugins/export/ExportLatex.class.php:225
+#: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
 msgstr "Version du serveur : "
 
-#: index.php:274
+#: index.php:276
 msgid "Protocol version:"
 msgstr "Version du protocole : "
 
-#: index.php:278
+#: index.php:280
 msgid "User:"
 msgstr "Utilisateur : "
 
-#: index.php:283
+#: index.php:285
 msgid "Server charset:"
 msgstr "Jeu de caractères du serveur : "
 
-#: index.php:298
+#: index.php:300
 msgid "Web server"
 msgstr "Serveur web"
 
-#: index.php:314
+#: index.php:316
 msgid "Database client version:"
 msgstr "Version du client de base de données : "
 
-#: index.php:318
+#: index.php:320
 msgid "PHP extension:"
 msgstr "Extension PHP : "
 
-#: index.php:325 js/messages.php:123 libraries/DisplayResults.class.php:1338
+#: index.php:327 js/messages.php:123 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:571
 #: libraries/plugins/export/ExportSql.class.php:1759
@@ -777,15 +777,15 @@ msgstr "Extension PHP : "
 msgid "None"
 msgstr "Aucune"
 
-#: index.php:337
+#: index.php:339
 msgid "Show PHP information"
 msgstr "Afficher les informations relatives à PHP"
 
-#: index.php:360
+#: index.php:362
 msgid "Version information:"
 msgstr "Version : "
 
-#: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:371 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:244
@@ -793,27 +793,27 @@ msgstr "Version : "
 msgid "Documentation"
 msgstr "Documentation"
 
-#: index.php:376
+#: index.php:378
 msgid "Wiki"
 msgstr "Wiki"
 
-#: index.php:385
+#: index.php:387
 msgid "Official Homepage"
 msgstr "Site officiel"
 
-#: index.php:392
+#: index.php:394
 msgid "Contribute"
 msgstr "Contribuer"
 
-#: index.php:399
+#: index.php:401
 msgid "Get support"
 msgstr "Obtenir de l'aide"
 
-#: index.php:406
+#: index.php:408
 msgid "List of changes"
 msgstr "Liste des changements"
 
-#: index.php:428
+#: index.php:430
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -825,7 +825,7 @@ msgstr ""
 "serveur MySQL est donc ouvert aux intrusions, et vous devriez corriger ce "
 "problème de sécurité."
 
-#: index.php:445
+#: index.php:447
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -835,7 +835,7 @@ msgstr ""
 "option est incompatible avec phpMyAdmin et peut nuire au traitement des "
 "données !"
 
-#: index.php:460
+#: index.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -846,7 +846,7 @@ msgstr ""
 "phpMyAdmin est incapable de gérer correctement les caractères et il peut en "
 "résulter des problèmes."
 
-#: index.php:475
+#: index.php:477
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -858,7 +858,7 @@ msgstr ""
 "petite que la durée du cookie configurée dans phpMyAdmin; donc, votre "
 "session de travail expirera plus tôt."
 
-#: index.php:487
+#: index.php:489
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -867,13 +867,13 @@ msgstr ""
 "LoginCookieValidity; donc, votre session de travail expirera plus tôt que la "
 "valeur configurée dans phpMyAdmin."
 
-#: index.php:499
+#: index.php:501
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Vous devez ajouter dans le fichier de configuration une phrase de passe "
 "secrète (blowfish_secret)."
 
-#: index.php:510
+#: index.php:512
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -886,7 +886,7 @@ msgstr ""
 "serveur peut être compromise par le téléchargement de votre configuration "
 "par des personnes non autorisées."
 
-#: index.php:520
+#: index.php:522
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -896,7 +896,7 @@ msgstr ""
 "certaines fonctionnalités ont été désactivée. Pour en connaître la raison, "
 "cliquez %sici%s."
 
-#: index.php:556
+#: index.php:558
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -905,7 +905,7 @@ msgstr ""
 "La version de votre bibliothèque MySQL (%s) de PHP diffère de la version de "
 "votre serveur MySQL (%s). Ceci peut occasionner un comportement imprévisible."
 
-#: index.php:580
+#: index.php:582
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12859,7 +12859,9 @@ msgid "Toggle relation lines"
 msgstr "Basculement des lignes de relations"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-msgid "Import/Export coordinates for PDF schema"
+#, fuzzy
+#| msgid "Import/Export coordinates for PDF schema"
+msgid "Import/Export coordinates for relational schema"
 msgstr "Importer/Exporter les coordonnées pour le schéma PDF"
 
 #: pmd_general.php:155

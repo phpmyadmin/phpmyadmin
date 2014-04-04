@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-02 06:39-0400\n"
+"POT-Creation-Date: 2014-04-04 05:39-0400\n"
 "PO-Revision-Date: 2014-02-02 13:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek <http://l10n.cihar.com/projects/phpmyadmin/master/uz/>\n"
@@ -197,7 +197,7 @@ msgstr "Ҳа"
 msgid "View dump (schema) of database"
 msgstr "Маълумотлар базаси дампини (схемасини) намойиш этиш"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:124
+#: db_export.php:33 db_printview.php:41 db_structure.php:160
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Маълумотлар базасида биронта ҳам жадвал мавжуд эмас."
@@ -309,7 +309,7 @@ msgstr "%sсўровларнинг визуал таркибига%s ўтиш"
 msgid "Access denied!"
 msgstr "Рухсат берилмади!"
 
-#: db_structure.php:40
+#: db_structure.php:67
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -703,13 +703,13 @@ msgstr ""
 msgid "Back"
 msgstr "Орқага"
 
-#: index.php:125 libraries/Footer.class.php:70
+#: index.php:127 libraries/Footer.class.php:70
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin сайти"
 
-#: index.php:129
+#: index.php:131
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -717,52 +717,52 @@ msgid ""
 "at %s."
 msgstr ""
 
-#: index.php:139
+#: index.php:141
 #, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
 msgstr "Алоқаларнинг асосий имкониятлари"
 
-#: index.php:167 libraries/display_change_password.lib.php:51
+#: index.php:169 libraries/display_change_password.lib.php:51
 #: libraries/display_change_password.lib.php:52 user_password.php:233
 msgid "Change password"
 msgstr "Паролни ўзгартириш"
 
-#: index.php:183
+#: index.php:185
 #, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "MySQL билан уланишни чоғиштириш"
 
-#: index.php:206
+#: index.php:208
 #, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance Settings"
 msgstr "Бошқа созланишлар"
 
-#: index.php:236 prefs_manage.php:279
+#: index.php:238 prefs_manage.php:279
 #, fuzzy
 #| msgid "settings"
 msgid "More settings"
 msgstr "танловлар"
 
-#: index.php:257
+#: index.php:259
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
 msgstr "Фойдаланувчи учун маълумотлар базаси"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Server:"
 msgstr "Сервер:"
 
-#: index.php:264
+#: index.php:266
 #, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
 msgstr "Сервер порти"
 
-#: index.php:268 libraries/plugins/export/ExportLatex.class.php:225
+#: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:198
 #, fuzzy
@@ -770,41 +770,41 @@ msgstr "Сервер порти"
 msgid "Server version:"
 msgstr "Сервер версияси"
 
-#: index.php:274
+#: index.php:276
 #, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
 msgstr "Протокол версияси"
 
-#: index.php:278
+#: index.php:280
 #, fuzzy
 #| msgid "User"
 msgid "User:"
 msgstr "Фойдаланувчи"
 
-#: index.php:283
+#: index.php:285
 #, fuzzy
 #| msgid "Server socket"
 msgid "Server charset:"
 msgstr "Сервер сокети"
 
-#: index.php:298
+#: index.php:300
 msgid "Web server"
 msgstr "Веб сервер"
 
-#: index.php:314
+#: index.php:316
 #, fuzzy
 #| msgid "Use light version"
 msgid "Database client version:"
 msgstr "Енгил версиядан фойдаланиш"
 
-#: index.php:318
+#: index.php:320
 #, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
 msgstr "PHP кенгайтмаси"
 
-#: index.php:325 js/messages.php:123 libraries/DisplayResults.class.php:1338
+#: index.php:327 js/messages.php:123 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:571
 #: libraries/plugins/export/ExportSql.class.php:1759
@@ -815,17 +815,17 @@ msgstr "PHP кенгайтмаси"
 msgid "None"
 msgstr "Йўқ"
 
-#: index.php:337
+#: index.php:339
 msgid "Show PHP information"
 msgstr "PHP ҳақида маълумотни кўрсатиш"
 
-#: index.php:360
+#: index.php:362
 #, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
 msgstr "Версия ҳақида маълумот"
 
-#: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:371 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:244
@@ -833,31 +833,31 @@ msgstr "Версия ҳақида маълумот"
 msgid "Documentation"
 msgstr "Документация"
 
-#: index.php:376
+#: index.php:378
 msgid "Wiki"
 msgstr "Вики"
 
-#: index.php:385
+#: index.php:387
 msgid "Official Homepage"
 msgstr "phpMyAdmin расмий веб-саҳифаси"
 
-#: index.php:392
+#: index.php:394
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Атрибутлар"
 
-#: index.php:399
+#: index.php:401
 msgid "Get support"
 msgstr ""
 
-#: index.php:406
+#: index.php:408
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Ўзгариш йўқ"
 
-#: index.php:428
+#: index.php:430
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -869,7 +869,7 @@ msgstr ""
 "созланган MySQL сервери хавфсизлик жиҳатидан анча заиф ҳисобланади, шунинг "
 "учун \"root\" суперфойдаланувчисига парол ўрнатиш қатъиян тавсия этилади."
 
-#: index.php:445
+#: index.php:447
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -879,7 +879,7 @@ msgstr ""
 "func_overload параметри ёқилган. Маълумот йўқолиши олдини олиш учун, ушбу "
 "параметр ўчирилиши керак!"
 
-#: index.php:460
+#: index.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -890,7 +890,7 @@ msgstr ""
 "маълумот йўқолишига олиб келиши мумкин. PHP \"mbstring\" кенгайтмасини "
 "ўрнатиш қатъий тавсия этилади."
 
-#: index.php:475
+#: index.php:477
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -903,7 +903,7 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: index.php:487
+#: index.php:489
 #, fuzzy
 #| msgid ""
 #| "r PHP parameter [a@http://php.net/manual/en/session.configuration.#ini."
@@ -920,13 +920,13 @@ msgstr ""
 "давомийлигидан кичикроқ, шунинг учун логин сессиянгиз phpMyAdmin дастурида "
 "конфигурация қилганингиздан тезроқ тугайди."
 
-#: index.php:499
+#: index.php:501
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-аутентификация ишлатилганда, конфигурацион файлдаги $cfg"
 "[\"blowfish_secret\"] директиваси қийматини ўрнатиб парол белгилаш керак."
 
-#: index.php:510
+#: index.php:512
 #, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
@@ -942,7 +942,7 @@ msgstr ""
 "каталоги ҳалиям мавжуд. phpMyAdmin муваффақиятли ўрнатилгандан кейин, уни "
 "ўчириш тавсия этилади."
 
-#: index.php:520
+#: index.php:522
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -954,7 +954,7 @@ msgstr ""
 "Алоқадор жадваллар билан ишлаш учун қўшимча имкониятлар мавжуд эмас. "
 "Сабабларини аниқлаш учун %sбу ерга%s босинг."
 
-#: index.php:556
+#: index.php:558
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -963,7 +963,7 @@ msgstr ""
 "MySQL-клиент версияси (\"%s\") ўрнатилган MySQL-сервер  версияси(\"%s\")дан "
 "фарқ қилмоқда. Бу ҳолат нохуш оқибатларга олиб келиши мумкин."
 
-#: index.php:580
+#: index.php:582
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -14250,7 +14250,9 @@ msgid "Toggle relation lines"
 msgstr "Алоқани танлаш учун расмда кўрсатилганикаби уланиш нуқтасига босинг:"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-msgid "Import/Export coordinates for PDF schema"
+#, fuzzy
+#| msgid "Import/Export coordinates for PDF schema"
+msgid "Import/Export coordinates for relational schema"
 msgstr "PDF-схемага/схемадан жадвал координаталарини импорт/экспорт қилиш"
 
 #: pmd_general.php:155

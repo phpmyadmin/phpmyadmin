@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-02 06:39-0400\n"
+"POT-Creation-Date: 2014-04-04 05:39-0400\n"
 "PO-Revision-Date: 2014-03-27 15:10+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bengali <https://l10n.cihar.com/projects/phpmyadmin/master/bn/"
@@ -196,7 +196,7 @@ msgstr "হ্যাঁ"
 msgid "View dump (schema) of database"
 msgstr "ডাটাবেজ(গঠন)স্তুপ দেখাও"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:124
+#: db_export.php:33 db_printview.php:41 db_structure.php:160
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "ডাটাবেইজে কোন টেবিল নাই।"
@@ -309,7 +309,7 @@ msgstr "দেখে তৈরীর %svisual builder%s যাও"
 msgid "Access denied!"
 msgstr "প্রবেশ করা যাচ্ছে না"
 
-#: db_structure.php:40
+#: db_structure.php:67
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -687,11 +687,11 @@ msgstr ""
 msgid "Back"
 msgstr "পিছনে"
 
-#: index.php:125 libraries/Footer.class.php:70
+#: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "পিএইছপিমাইএডমিন ডেমো সার্ভার"
 
-#: index.php:129
+#: index.php:131
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -701,70 +701,70 @@ msgstr ""
 "আপনি একটি ডেমো সার্ভার ব্যবহার করছেন। আপনি সবকিছুই করতে পারবেন কিন্ত অনুগ্রহ করে "
 "রুট পরিবর্তন করবেন না, debian এবং pma ব্যবহারকারী। আরও তথ্য জন্য %s এ আছে।"
 
-#: index.php:139
+#: index.php:141
 msgid "General Settings"
 msgstr "সাধারন সেটিংস"
 
-#: index.php:167 libraries/display_change_password.lib.php:51
+#: index.php:169 libraries/display_change_password.lib.php:51
 #: libraries/display_change_password.lib.php:52 user_password.php:233
 msgid "Change password"
 msgstr "পাসওয়ার্ড পরিবর্তন"
 
-#: index.php:183
+#: index.php:185
 msgid "Server connection collation"
 msgstr "সার্ভার সংযোগে ব্যবহৃত ভাষা"
 
-#: index.php:206
+#: index.php:208
 msgid "Appearance Settings"
 msgstr "আপিয়ারেন্স সেটিংস"
 
-#: index.php:236 prefs_manage.php:279
+#: index.php:238 prefs_manage.php:279
 msgid "More settings"
 msgstr "আরো সেটিংস"
 
-#: index.php:257
+#: index.php:259
 msgid "Database server"
 msgstr "ডাটাবেইজ সার্ভার"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Server:"
 msgstr "সার্ভার:"
 
-#: index.php:264
+#: index.php:266
 msgid "Server type:"
 msgstr "সার্ভারের ধরন:"
 
-#: index.php:268 libraries/plugins/export/ExportLatex.class.php:225
+#: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
 msgstr "সার্ভার সংস্করন:"
 
-#: index.php:274
+#: index.php:276
 msgid "Protocol version:"
 msgstr "সংযোগ বিধি সংস্করন:"
 
-#: index.php:278
+#: index.php:280
 msgid "User:"
 msgstr "ব্যবহারকারী:"
 
-#: index.php:283
+#: index.php:285
 msgid "Server charset:"
 msgstr "সার্ভারের বর্ণসম্ভার:"
 
-#: index.php:298
+#: index.php:300
 msgid "Web server"
 msgstr "ওয়েব র্সাভার"
 
-#: index.php:314
+#: index.php:316
 msgid "Database client version:"
 msgstr "ডাটাবেইজ সংযোজক সংস্করন:"
 
-#: index.php:318
+#: index.php:320
 msgid "PHP extension:"
 msgstr "পিএইছপি সংযোজক:"
 
-#: index.php:325 js/messages.php:123 libraries/DisplayResults.class.php:1338
+#: index.php:327 js/messages.php:123 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:571
 #: libraries/plugins/export/ExportSql.class.php:1759
@@ -775,15 +775,15 @@ msgstr "পিএইছপি সংযোজক:"
 msgid "None"
 msgstr "কিছু না"
 
-#: index.php:337
+#: index.php:339
 msgid "Show PHP information"
 msgstr "পিএইছপির তথ্যাবলী দেখাও"
 
-#: index.php:360
+#: index.php:362
 msgid "Version information:"
 msgstr "সংস্করন সম্পর্কিত তথ্য:"
 
-#: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:371 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:244
@@ -791,27 +791,27 @@ msgstr "সংস্করন সম্পর্কিত তথ্য:"
 msgid "Documentation"
 msgstr "সহায়িকা"
 
-#: index.php:376
+#: index.php:378
 msgid "Wiki"
 msgstr "উইকি"
 
-#: index.php:385
+#: index.php:387
 msgid "Official Homepage"
 msgstr "দাপ্তরিক প্রধানপাতা"
 
-#: index.php:392
+#: index.php:394
 msgid "Contribute"
 msgstr "সহায়তা করুন"
 
-#: index.php:399
+#: index.php:401
 msgid "Get support"
 msgstr "সাহায্য নিন"
 
-#: index.php:406
+#: index.php:408
 msgid "List of changes"
 msgstr "পরিবর্তনের তালিকা"
 
-#: index.php:428
+#: index.php:430
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -822,7 +822,7 @@ msgstr ""
 "স্বাভাবিক ভাবেই শুন্য আছে এবং বিপদজনক। কোন অবাঞ্চিত বিষয় প্রতিহত করার জন্য প্রধান "
 "ব্যবহারকারীর জন্য একটি পাসওর্য়াড দিন।"
 
-#: index.php:445
+#: index.php:447
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -831,7 +831,7 @@ msgstr ""
 "আপনার পিএইছপির জন্য mbstring.func_overload ফাংশনটি ব্যবহার করা হচ্ছে। এটা  "
 "phpMyAdmin এর সঙ্গে সামঞ্জস্যপূর্ণ নয় এবং কিছু তথ্য নষ্ট করতে পারে!"
 
-#: index.php:460
+#: index.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -841,7 +841,7 @@ msgstr ""
 "করছেন। mbstring সংযোজক ছাড়া phpMyAdmin শব্দকে সঠিকভাবে খন্ড করতে পারবে না যা "
 "অপ্রত্যাশিত ফল দিতে পারে।"
 
-#: index.php:475
+#: index.php:477
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -852,7 +852,7 @@ msgstr ""
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] মান phpMyAdmin এর "
 "কুকির থেকে কম স্থায়ী, এ জন্য আপনার লগইনের কার্যকাল দ্রুত শেষ হয়ে যাবে।"
 
-#: index.php:487
+#: index.php:489
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -860,11 +860,11 @@ msgstr ""
 "লগইন কুকি phpMyAdmin কুকির চাইতে কম সময় কার্যকর থাকবে এই জন্য আপনার লগইন সময় "
 "তাড়াতাড়ি শেষ হয়ে যাবে।"
 
-#: index.php:499
+#: index.php:501
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "কনফিগারেশন ফাইলে একটি নিরাপত্তাবাক্য (blowfish_secret) দিতে হবে।"
 
-#: index.php:510
+#: index.php:512
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -874,7 +874,7 @@ msgstr ""
 "সেটআপে ব্যবহৃত ডিরেক্টরী [code]config[/code] এখনো রয়েছে। এটা অবশ্যই মুছে ফেলা "
 "প্রয়োজন।"
 
-#: index.php:520
+#: index.php:522
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -883,7 +883,7 @@ msgstr ""
 "কনফিগারেশন মজুদ ব্যবস্থা (phpMyAdmin)সর্ম্পূণভাবে সম্পন্ন হয়নি, কিছু উন্নত বিষয় "
 "অকার্যকর রয়েছে। কেন জানতে ক্লীক করুন %shere%s।"
 
-#: index.php:556
+#: index.php:558
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -892,7 +892,7 @@ msgstr ""
 "আপনার পিএইছপি মাইএসকিউএল লাইব্রেরী সংস্করন %s মাইএসকিউএল সার্ভার %s থেকে ভিন্ন "
 "যা কিছু অপ্রত্যাশিত ফলাফল দিতে পারে।"
 
-#: index.php:580
+#: index.php:582
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12620,7 +12620,9 @@ msgid "Toggle relation lines"
 msgstr "সর্ম্পক রেখা টোগল"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-msgid "Import/Export coordinates for PDF schema"
+#, fuzzy
+#| msgid "Import/Export coordinates for PDF schema"
+msgid "Import/Export coordinates for relational schema"
 msgstr "PDF আকৃতির কোঅর্ডিনেস আমদানি/রফতানী"
 
 #: pmd_general.php:155

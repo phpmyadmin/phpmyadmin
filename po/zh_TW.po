@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-02 06:39-0400\n"
+"POT-Creation-Date: 2014-04-04 05:39-0400\n"
 "PO-Revision-Date: 2014-04-02 12:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
@@ -196,7 +196,7 @@ msgstr "是"
 msgid "View dump (schema) of database"
 msgstr "檢視資料庫結構的匯出資料"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:124
+#: db_export.php:33 db_printview.php:41 db_structure.php:160
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "資料庫中沒有任何資料表。"
@@ -302,7 +302,7 @@ msgstr "切換至 %sVisual Builder%s"
 msgid "Access denied!"
 msgstr "拒絕存取！"
 
-#: db_structure.php:40
+#: db_structure.php:67
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -667,11 +667,11 @@ msgstr ""
 msgid "Back"
 msgstr "返回"
 
-#: index.php:125 libraries/Footer.class.php:70
+#: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin 展示伺服器"
 
-#: index.php:129
+#: index.php:131
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -681,70 +681,70 @@ msgstr ""
 "您正在使用展示主機，您可以在此做任何事情，但請勿更改 root、debian-sys-maint "
 "及 pma 使用者。這兒有更多的資訊 %s。"
 
-#: index.php:139
+#: index.php:141
 msgid "General Settings"
 msgstr "一般設定"
 
-#: index.php:167 libraries/display_change_password.lib.php:51
+#: index.php:169 libraries/display_change_password.lib.php:51
 #: libraries/display_change_password.lib.php:52 user_password.php:233
 msgid "Change password"
 msgstr "修改密碼"
 
-#: index.php:183
+#: index.php:185
 msgid "Server connection collation"
 msgstr "伺服器連線編碼與排序"
 
-#: index.php:206
+#: index.php:208
 msgid "Appearance Settings"
 msgstr "外觀設定"
 
-#: index.php:236 prefs_manage.php:279
+#: index.php:238 prefs_manage.php:279
 msgid "More settings"
 msgstr "更多設定"
 
-#: index.php:257
+#: index.php:259
 msgid "Database server"
 msgstr "資料庫伺服器"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Server:"
 msgstr "伺服器:"
 
-#: index.php:264
+#: index.php:266
 msgid "Server type:"
 msgstr "伺服器類別:"
 
-#: index.php:268 libraries/plugins/export/ExportLatex.class.php:225
+#: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
 msgstr "伺服器版本:"
 
-#: index.php:274
+#: index.php:276
 msgid "Protocol version:"
 msgstr "協定版本:"
 
-#: index.php:278
+#: index.php:280
 msgid "User:"
 msgstr "使用者:"
 
-#: index.php:283
+#: index.php:285
 msgid "Server charset:"
 msgstr "伺服器字元集:"
 
-#: index.php:298
+#: index.php:300
 msgid "Web server"
 msgstr "網頁伺服器"
 
-#: index.php:314
+#: index.php:316
 msgid "Database client version:"
 msgstr "資料庫用戶端版本:"
 
-#: index.php:318
+#: index.php:320
 msgid "PHP extension:"
 msgstr "PHP 擴充套件:"
 
-#: index.php:325 js/messages.php:123 libraries/DisplayResults.class.php:1338
+#: index.php:327 js/messages.php:123 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:571
 #: libraries/plugins/export/ExportSql.class.php:1759
@@ -755,15 +755,15 @@ msgstr "PHP 擴充套件:"
 msgid "None"
 msgstr "無"
 
-#: index.php:337
+#: index.php:339
 msgid "Show PHP information"
 msgstr "顯示 PHP 資訊"
 
-#: index.php:360
+#: index.php:362
 msgid "Version information:"
 msgstr "版本資訊:"
 
-#: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:371 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:244
@@ -771,27 +771,27 @@ msgstr "版本資訊:"
 msgid "Documentation"
 msgstr "說明文件"
 
-#: index.php:376
+#: index.php:378
 msgid "Wiki"
 msgstr "維基百科"
 
-#: index.php:385
+#: index.php:387
 msgid "Official Homepage"
 msgstr "官方首頁"
 
-#: index.php:392
+#: index.php:394
 msgid "Contribute"
 msgstr "貢獻"
 
-#: index.php:399
+#: index.php:401
 msgid "Get support"
 msgstr "技術支援"
 
-#: index.php:406
+#: index.php:408
 msgid "List of changes"
 msgstr "版本沿革"
 
-#: index.php:428
+#: index.php:430
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -802,7 +802,7 @@ msgstr ""
 "號。若您繼續使用預設 MySQL 管理帳號執行伺服器，可能會導致伺服器被入侵，強烈建"
 "議您設定管理者帳號 'root' 的密碼以避免這個安全性的漏洞。"
 
-#: index.php:445
+#: index.php:447
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -811,7 +811,7 @@ msgstr ""
 "您已啟用了 PHP 設定中的 mbstring.func_overload。此選項與 phpMyAdmin 不相容，"
 "可能會導致一些資料損壞！"
 
-#: index.php:460
+#: index.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -821,7 +821,7 @@ msgstr ""
 "有 mbstring 擴充套件 phpMyAdmin 將無法正確分割字串，這可能造成意料之外的錯"
 "誤。"
 
-#: index.php:475
+#: index.php:477
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -833,7 +833,7 @@ msgstr ""
 "短於您在 phpMyAdmin 中設定的 Cookies 有效期間，因此您的登入連線有效期間將會比"
 "您在 phpMyAdmin 中設定的時間要更短。"
 
-#: index.php:487
+#: index.php:489
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -841,11 +841,11 @@ msgstr ""
 "phpMyAdmin 中所設定的登入 cookie 儲存時間小於 cookie 有效期間，因此您的登入連"
 "線有效期間將會比您在 phpMyAdmin 中設定的時間要更短。"
 
-#: index.php:499
+#: index.php:501
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "設定檔案需要設定一組加密密碼 (blowfish_secret)。"
 
-#: index.php:510
+#: index.php:512
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -856,7 +856,7 @@ msgstr ""
 "完成之後移除該資料夾，否則會有未經授權的人下載你的設定檔而對伺服器安全性造成"
 "威脅。"
 
-#: index.php:520
+#: index.php:522
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -865,7 +865,7 @@ msgstr ""
 "尚未設定 phpMyAdmin 資料庫，某些進階功能將無法使用。請點選 %s此處%s 取得詳細"
 "資訊。"
 
-#: index.php:556
+#: index.php:558
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -874,7 +874,7 @@ msgstr ""
 "您的 PHP MySQL 函式庫版本 %s 與您的 MySQL 伺服器版本 %s 不同，這可能造成一些"
 "無法預期的問題。"
 
-#: index.php:580
+#: index.php:582
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12295,7 +12295,9 @@ msgid "Toggle relation lines"
 msgstr "請點選關聯行"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-msgid "Import/Export coordinates for PDF schema"
+#, fuzzy
+#| msgid "Import/Export coordinates for PDF schema"
+msgid "Import/Export coordinates for relational schema"
 msgstr "爲 PDF 大綱(Schema)匯入/匯出座標"
 
 #: pmd_general.php:155

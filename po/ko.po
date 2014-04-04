@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-02 06:39-0400\n"
+"POT-Creation-Date: 2014-04-04 05:39-0400\n"
 "PO-Revision-Date: 2014-04-02 12:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -198,7 +198,7 @@ msgstr "예"
 msgid "View dump (schema) of database"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:124
+#: db_export.php:33 db_printview.php:41 db_structure.php:160
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
@@ -306,7 +306,7 @@ msgstr "%s비주얼 쿼리 빌더%s로 전환"
 msgid "Access denied!"
 msgstr "접근이 거부되었습니다!"
 
-#: db_structure.php:40
+#: db_structure.php:67
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -676,11 +676,11 @@ msgstr ""
 msgid "Back"
 msgstr "뒤로"
 
-#: index.php:125 libraries/Footer.class.php:70
+#: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin 데모 서버"
 
-#: index.php:129
+#: index.php:131
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -690,70 +690,70 @@ msgstr ""
 "데모서버를 사용중입니다. 뭐든지 할 수있으나 root, debian-sys-maint, pma사용자"
 "는 변경하지 마세요. 추가정보는 %s에서 있습니다."
 
-#: index.php:139
+#: index.php:141
 msgid "General Settings"
 msgstr "일반 설정"
 
-#: index.php:167 libraries/display_change_password.lib.php:51
+#: index.php:169 libraries/display_change_password.lib.php:51
 #: libraries/display_change_password.lib.php:52 user_password.php:233
 msgid "Change password"
 msgstr "암호 변경"
 
-#: index.php:183
+#: index.php:185
 msgid "Server connection collation"
 msgstr "서버 연결 콜레이션(언어)"
 
-#: index.php:206
+#: index.php:208
 msgid "Appearance Settings"
 msgstr "외관 설정"
 
-#: index.php:236 prefs_manage.php:279
+#: index.php:238 prefs_manage.php:279
 msgid "More settings"
 msgstr "자세한 설정"
 
-#: index.php:257
+#: index.php:259
 msgid "Database server"
 msgstr "데이터베이스 서버"
 
-#: index.php:260 libraries/plugins/auth/AuthenticationCookie.class.php:190
+#: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Server:"
 msgstr "서버:"
 
-#: index.php:264
+#: index.php:266
 msgid "Server type:"
 msgstr "서버 타입:"
 
-#: index.php:268 libraries/plugins/export/ExportLatex.class.php:225
+#: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:198
 msgid "Server version:"
 msgstr "서버 버전:"
 
-#: index.php:274
+#: index.php:276
 msgid "Protocol version:"
 msgstr "제품 버전:"
 
-#: index.php:278
+#: index.php:280
 msgid "User:"
 msgstr "사용자:"
 
-#: index.php:283
+#: index.php:285
 msgid "Server charset:"
 msgstr "서버 문자셋:"
 
-#: index.php:298
+#: index.php:300
 msgid "Web server"
 msgstr "웹서버"
 
-#: index.php:314
+#: index.php:316
 msgid "Database client version:"
 msgstr "데이터베이스 클라이언트 버전:"
 
-#: index.php:318
+#: index.php:320
 msgid "PHP extension:"
 msgstr "PHP 확장:"
 
-#: index.php:325 js/messages.php:123 libraries/DisplayResults.class.php:1338
+#: index.php:327 js/messages.php:123 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:571
 #: libraries/plugins/export/ExportSql.class.php:1759
@@ -764,15 +764,15 @@ msgstr "PHP 확장:"
 msgid "None"
 msgstr "없음"
 
-#: index.php:337
+#: index.php:339
 msgid "Show PHP information"
 msgstr "PHP 정보 보기"
 
-#: index.php:360
+#: index.php:362
 msgid "Version information:"
 msgstr "버전 정보:"
 
-#: index.php:369 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:371 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:244
@@ -780,27 +780,27 @@ msgstr "버전 정보:"
 msgid "Documentation"
 msgstr "문서"
 
-#: index.php:376
+#: index.php:378
 msgid "Wiki"
 msgstr "위키"
 
-#: index.php:385
+#: index.php:387
 msgid "Official Homepage"
 msgstr "phpMyAdmin 공식 홈"
 
-#: index.php:392
+#: index.php:394
 msgid "Contribute"
 msgstr "기여"
 
-#: index.php:399
+#: index.php:401
 msgid "Get support"
 msgstr "지원 받기"
 
-#: index.php:406
+#: index.php:408
 msgid "List of changes"
 msgstr "변경 목록"
 
-#: index.php:428
+#: index.php:430
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -811,7 +811,7 @@ msgstr ""
 "가 작동한다면 누구나 침입할 수 있으므로, 'root'유저에 암호를 설정하여 이 보"
 "안 취약점을 수정하시기 바랍니다."
 
-#: index.php:445
+#: index.php:447
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -820,7 +820,7 @@ msgstr ""
 "PHP 설정에서 mbstring.func_overload를 활성화해야합니다. 이 옵션은 phpMyAdmin"
 "와 호환되지 않고 일부 데이터가 손상될 수 있습니다!"
 
-#: index.php:460
+#: index.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -830,7 +830,7 @@ msgstr ""
 "니다. mbstring PHP extension 이 없다면 phpMyAdmin 에서 문자열을 정확하게 나"
 "눌 수 없으며 이로 인해 예상하지 못한 결과가 발생 할 수 있습니다."
 
-#: index.php:475
+#: index.php:477
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -842,7 +842,7 @@ msgstr ""
 "cookie 유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설정값보다 빨리 "
 "만료됩니다."
 
-#: index.php:487
+#: index.php:489
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -850,11 +850,11 @@ msgstr ""
 "로그인 쿠키의 저장 시간이 phpMyAdmin에서 설정한 쿠키 유효 시간보다 짧게 설정"
 "되어 있어, 로그인이 설정한 것보다 일찍 만료됩니다."
 
-#: index.php:499
+#: index.php:501
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "이제 설정 파일은 암호화 문자열(blowfish_scret) 을 필요로 합니다."
 
-#: index.php:510
+#: index.php:512
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -865,7 +865,7 @@ msgstr ""
 "도 존재합니다. phpMyAdmin 설정 완료후 꼭 삭제하세요. 그렇지 않으며 보안에 취"
 "약해 집니다."
 
-#: index.php:520
+#: index.php:522
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -874,7 +874,7 @@ msgstr ""
 "phpMyAdmin 설정 스토리지가 완전히 설정되지 않아, 일부 확장 기능들이 비활성화 "
 "된 상태입니다. 원인을 확인하려면 %s여기%s를 클릭하세요."
 
-#: index.php:556
+#: index.php:558
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -883,7 +883,7 @@ msgstr ""
 "PHP MySQL 라이브버리 버전(%s) 과 MySQL server version(%s) 이 다릅니다. 이것"
 "은 예상하지 못한 문제를 야기할 수 있습니다."
 
-#: index.php:580
+#: index.php:582
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12772,8 +12772,10 @@ msgid "Toggle relation lines"
 msgstr ""
 
 #: pmd_general.php:146 pmd_pdf.php:103
-msgid "Import/Export coordinates for PDF schema"
-msgstr ""
+#, fuzzy
+#| msgid "Edit or export relational schema"
+msgid "Import/Export coordinates for relational schema"
+msgstr "관계 스키마를 수정 또는 내보내기"
 
 #: pmd_general.php:155
 #, fuzzy
