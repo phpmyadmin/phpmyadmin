@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-04 05:39-0400\n"
-"PO-Revision-Date: 2014-03-31 13:14+0200\n"
+"PO-Revision-Date: 2014-04-04 12:25+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"Language-Team: French <https://l10n.cihar.com/projects/phpmyadmin/master/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2576,16 +2576,14 @@ msgid "Restore column order"
 msgstr "Restaurer l'ordre des colonnes"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "Filtres"
+msgstr "Filtrer les lignes"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Effectuer une nouvelle recherche dans la base de données"
+msgstr "Chercher dans cette table"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -12859,10 +12857,9 @@ msgid "Toggle relation lines"
 msgstr "Basculement des lignes de relations"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-#, fuzzy
 #| msgid "Import/Export coordinates for PDF schema"
 msgid "Import/Export coordinates for relational schema"
-msgstr "Importer/Exporter les coordonnées pour le schéma PDF"
+msgstr "Importer/Exporter les coordonnées pour le schéma relationnel"
 
 #: pmd_general.php:155
 msgid "Build Query"
