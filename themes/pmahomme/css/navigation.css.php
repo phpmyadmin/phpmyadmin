@@ -18,7 +18,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation {
     width: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
-    overflow: hidden;
     position: fixed;
     top: 0;
     <?php echo $left; ?>: 0;
@@ -26,6 +25,10 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     background: url(./themes/pmahomme/img/left_nav_bg.png) repeat-y right 0% <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     z-index: 800;
+}
+
+#pma_navigation_header {
+    overflow: hidden;
 }
 
 #pma_navigation_content {
@@ -97,7 +100,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /* Navigation tree*/
 #pma_navigation_tree {
     margin: 0;
-    margin-<?php echo $left; ?>: 10px;
+    margin-<?php echo $left; ?>: 5px;
+    overflow: hidden;
     color: #444;
     height: 74%;
     position: relative;
@@ -109,45 +113,45 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     position: absolute;
     height: 100%;
 }
-#pma_navigation_tree a {
+#pma_navigation_tree_content a {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
-#pma_navigation_tree a:hover {
+#pma_navigation_tree_content a:hover {
     text-decoration: underline;
 }
-#pma_navigation_tree li.activePointer {
+#pma_navigation_tree_content li.activePointer {
     color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
 }
-#pma_navigation_tree li.selected {
+#pma_navigation_tree_content li.selected {
     color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
 }
-#pma_navigation_tree li .dbItemControls {
+#pma_navigation_tree_content li .dbItemControls {
     padding-left: 4px;
 }
-#pma_navigation_tree li .navItemControls {
+#pma_navigation_tree_content li .navItemControls {
     display: none;
     padding-left: 4px;
 }
-#pma_navigation_tree li.activePointer .navItemControls {
+#pma_navigation_tree_content li.activePointer .navItemControls {
     display: inline;
     opacity: 0.5;
 }
-#pma_navigation_tree li.activePointer .navItemControls:hover {
+#pma_navigation_tree_content li.activePointer .navItemControls:hover {
     display: inline;
     opacity: 1.0;
 }
-#pma_navigation_tree ul {
+#pma_navigation_tree_content ul {
     clear: both;
     padding: 0;
     list-style-type: none;
     margin: 0;
 }
-#pma_navigation_tree ul ul {
+#pma_navigation_tree_content ul ul {
     position: relative;
 }
-#pma_navigation_tree li {
+#pma_navigation_tree_content li {
     white-space: nowrap;
     padding-bottom: 4px;
     clear: both;
@@ -155,13 +159,13 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
 }
-#pma_navigation_tree img {
+#pma_navigation_tree_content img {
     margin: 0;
 }
-#pma_navigation_tree i {
+#pma_navigation_tree_content i {
     display: block;
 }
-#pma_navigation_tree div.block {
+#pma_navigation_tree_content div.block {
     position: relative;
     width: 1.5em;
     height: 1.5em;
@@ -169,8 +173,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     min-height: 16px;
     float: <?php echo $left; ?>;
 }
-#pma_navigation_tree div.block i,
-#pma_navigation_tree div.block b {
+#pma_navigation_tree_content div.block i,
+#pma_navigation_tree_content div.block b {
     width: 1.5em;
     height: 1.7em;
     min-width: 16px;
@@ -180,52 +184,52 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     <?php echo $left; ?>: 0.75em;
     z-index: 0;
 }
-#pma_navigation_tree div.block i { /* Top and right segments for the tree element connections */
+#pma_navigation_tree_content div.block i { /* Top and right segments for the tree element connections */
     display: block;
     border-<?php echo $left; ?>: 1px solid #666;
     border-bottom: 1px solid #666;
 }
-#pma_navigation_tree div.block i.first { /* Removes top segment */
+#pma_navigation_tree_content div.block i.first { /* Removes top segment */
     border-<?php echo $left; ?>: 0;
 }
-#pma_navigation_tree div.block b { /* Bottom segment for the tree element connections */
+#pma_navigation_tree_content div.block b { /* Bottom segment for the tree element connections */
     display: block;
     height: 0.75em;
     bottom: 0;
     <?php echo $left; ?>: 0.75em;
     border-<?php echo $left; ?>: 1px solid #666;
 }
-#pma_navigation_tree div.block a,
-#pma_navigation_tree div.block u {
+#pma_navigation_tree_content div.block a,
+#pma_navigation_tree_content div.block u {
     position: absolute;
     <?php echo $left; ?>: 50%;
     top: 50%;
     z-index: 10;
 }
-#pma_navigation_tree div.block img {
+#pma_navigation_tree_content div.block img {
     position: relative;
     top: -0.6em;
     <?php echo $left; ?>: 0;
     margin-<?php echo $left; ?>: -7px;
 }
-#pma_navigation_tree div.throbber img {
+#pma_navigation_tree_content div.throbber img {
     top: 2px;
     <?php echo $left; ?>: 2px;
 }
-#pma_navigation_tree li.last > ul {
+#pma_navigation_tree_content li.last > ul {
     background: none;
 }
-#pma_navigation_tree li > a, #pma_navigation_tree li > i {
+#pma_navigation_tree_content li > a, #pma_navigation_tree_content li > i {
     line-height: 1.5em;
     height: 1.5em;
     padding-<?php echo $left; ?>: 0.3em;
 }
-#pma_navigation_tree .list_container {
+#pma_navigation_tree_content .list_container {
     border-<?php echo $left; ?>: 1px solid #666;
     margin-<?php echo $left; ?>: 0.75em;
     padding-<?php echo $left; ?>: 0.75em;
 }
-#pma_navigation_tree .last > .list_container {
+#pma_navigation_tree_content .last > .list_container {
     border-<?php echo $left; ?>: 0 solid #666;
 }
 
@@ -299,4 +303,57 @@ li.fast_filter.db_fast_filter {
     text-shadow: 0px 1px 0px #fff;
     filter: dropshadow(color=#fff, offx=0, offy=1);
     border: 1px solid #888;
+}
+
+/* Quick warp links */
+#pma_quick_warp {
+    margin-top: 5px;
+    margin-<?php echo $left; ?>: 2px;
+    position: relative;
+}
+#pma_quick_warp .drop_list {
+    float: <?php echo $left; ?>;
+    margin-<?php echo $left; ?>: 3px;
+    padding: 2px 0;
+}
+#pma_quick_warp .drop_button{
+    padding: 0 .3em;
+    border: 1px solid #ddd;
+    border-radius: .3em;
+    background: #f2f2f2;
+    cursor: pointer;
+}
+#pma_quick_warp .drop_list:hover .drop_button {
+    background: #fff;
+}
+#pma_quick_warp .drop_list ul {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: .3em;
+    border-top-<?php echo $right; ?>-radius: 0;
+    border-bottom-<?php echo $right; ?>-radius: 0;
+    box-shadow: 0 0 5px #ccc;
+    top: 100%;
+    <?php echo $left; ?>: 3px;
+    <?php echo $right; ?>: 0;
+    display: none;
+    z-index: 802;
+}
+#pma_quick_warp .drop_list:hover ul{
+    display: block;
+}
+#pma_quick_warp .drop_list li {
+    padding: 2px .3em;
+}
+#pma_quick_warp .drop_list li img {
+    vertical-align: sub;
+}
+#pma_quick_warp .drop_list li:hover {
+    background: #f2f2f2;
 }

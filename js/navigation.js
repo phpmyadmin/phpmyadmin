@@ -94,33 +94,6 @@ $(function () {
         }
     );
 
-    /**
-     * Jump to recent table
-     */
-    $('#recentTable').live('change', function () {
-        if (this.value !== '') {
-            var arr = jQuery.parseJSON(this.value);
-            var $form = $(this).closest('form');
-            $form.find('input[name=db]').val(arr.db);
-            $form.find('input[name=table]').val(arr.table);
-            $form.submit();
-        }
-    });
-
-    /**
-     * Jump to favorite table
-     */
-    $('#favoriteTable').live('change', function () {
-        if (this.value !== '') {
-            var arr = jQuery.parseJSON(this.value);
-            var $form = $(this).closest('form');
-            $form.find('input[name=db]').val(arr.db);
-            $form.find('input[name=table]').val(arr.table);
-            $form.submit();
-        }
-        $(this).prop('selectedIndex', 0);
-    });
-
     /** Create a Routine, Trigger or Event */
     $('li.new_procedure a.ajax, li.new_function a.ajax').live('click', function (event) {
         event.preventDefault();
@@ -257,6 +230,49 @@ $(function () {
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error);
+                }
+            }
+        });
+    });
+
+    // Add/Remove favorite table using Ajax.
+    $(".favorite_table_anchor").live("click", function (event) {
+        event.preventDefault();
+        $self = $(this);
+        var anchor_id = $self.attr("id");
+        if($self.attr('favtargetn') != null)
+            if($('a[favtargets="' + $self.attr('favtargetn') + '"]').length > 0)
+            {
+                $('a[favtargets="' + $self.attr('favtargetn') + '"]').trigger('click');
+                return;
+            }
+
+        $.ajax({
+            url: $self.attr('href'),
+            cache: false,
+            type: 'POST',
+            data: {
+                favorite_tables: (window.localStorage['favorite_tables']
+                    !== undefined)
+                    ? window.localStorage['favorite_tables']
+                    : ''
+            },
+            success: function (data) {
+                if (data.changes) {
+                    $('#pma_favorite_list').html(data.list);
+                    $('#' + anchor_id).parent().html(data.anchor);
+                    PMA_tooltip(
+                        $('#' + anchor_id),
+                        'a',
+                        $('#' + anchor_id).attr("title")
+                    );
+                    // Update localStorage.
+                    if (window.localStorage !== undefined) {
+                        window.localStorage['favorite_tables']
+                            = data.favorite_tables;
+                    }
+                } else {
+                    PMA_ajaxShowMessage(data.message);
                 }
             }
         });
@@ -436,7 +452,7 @@ function PMA_showCurrentNavigation() {
             }
         }
     }
-    PMA_showFullName($('#pma_navigation_tree_content'));
+    PMA_showFullName($('#pma_navigation_tree'));
 
     function handleTableOrDb(table, $dbItem) {
         if (table) {
@@ -872,17 +888,7 @@ var ResizeHandler = function () {
             $nav_header = $("#pma_navigation_header"),
             $nav_tree_content = $("#pma_navigation_tree_content");
         $nav_tree.height($nav.height() - $nav_header.height());
-        if ($nav_tree_content.length > 0) {
-            $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
-            $nav_tree.css({
-                'overflow': 'hidden'
-            });
-        } else {
-            $nav_tree.css({
-                'overflow': 'hidden',
-                'overflow-y': 'auto'
-            });
-        }
+        $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
     };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {
