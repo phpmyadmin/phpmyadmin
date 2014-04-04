@@ -313,14 +313,14 @@ echo '</div>'
     . '<div id="opts_export_local_storage" class="prefsmanage_opts disabled">'
     . '<span class="localStorage-supported">'
     . __('Settings will be saved in your browser\'s local storage.')
-    . '<span class="localStorage-exists">'
-    . '<br /><b>' . __('Existing settings will be overwritten!') . '</b>'
+    . '<div class="localStorage-exists">'
+    . '<b>' . __('Existing settings will be overwritten!') . '</b>'
+    . '</div>'
     . '</span>'
-    . '</span>'
-    . '<div class="localStorage-unsupported">'
-    . PMA_Message::notice(
-        __('This feature is not supported by your web browser')
-    )->display();
+    . '<div class="localStorage-unsupported">';
+PMA_Message::notice(
+    __('This feature is not supported by your web browser')
+)->display();
 ?>
                     </div>
                 </div>
