@@ -143,7 +143,7 @@ echo '</div>';
     <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
     <a href="#" onclick="PDF_save(); return false" class="M_butt ajax">
         <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/pdf.png'); ?>" alt="key"
-            width="20" height="20" title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" />
+            width="20" height="20" title="<?php echo __('Import/Export coordinates for relational schema'); ?>" />
     </a>
 <?php
 if (isset($_REQUEST['query'])) {

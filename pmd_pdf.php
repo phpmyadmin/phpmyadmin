@@ -100,7 +100,7 @@ if (! empty($message)) {
 echo '<form name="form1" method="post" action="pmd_pdf.php">';
 echo PMA_URL_getHiddenInputs($db);
 echo '<div>';
-echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</legend>';
+echo '<fieldset><legend>' . __('Import/Export coordinates for relational schema') . '</legend>';
 
 $choices = array();
 
