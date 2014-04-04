@@ -161,6 +161,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         )->click();
         $this->waitForElement("byId", "insertForm");
 
+        /* TODO: this occassionally fails, so there is probably something wrong */
         $this->assertEquals(
             "2",
             $this->byId("field_1_3")->value()
