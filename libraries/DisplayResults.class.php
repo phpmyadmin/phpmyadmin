@@ -2906,7 +2906,7 @@ class PMA_DisplayResults
 
             // Check whether the field needs to display with syntax highlighting
 
-            if ($this->_isNeedToSyntaxHighlight($meta->name)
+            if (! empty($this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->nam)])
                 && (trim($row[$i]) != '')
             ) {
                 $row[$i] = PMA_Util::formatSql($row[$i]);
@@ -2938,7 +2938,7 @@ class PMA_DisplayResults
             include_once 'libraries/special_schema_links.lib.php';
 
             if (isset($GLOBALS['special_schema_links'])
-                && ($this->_isFieldNeedToLink(strtolower($meta->name)))
+                && (! empty($GLOBALS['special_schema_links'][strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)]))
             ) {
 
                 $linking_url = $this->_getSpecialLinkUrl(
@@ -3145,37 +3145,6 @@ class PMA_DisplayResults
         $this->__set('vertical_display', $vertical_display);
 
     } // end of the '_gatherLinksForLaterOutputs()' function
-
-
-    /**
-     * Check whether any field is marked as need to syntax highlight
-     *
-     * @param string $field field to check
-     *
-     * @return boolean
-     */
-    private function _isNeedToSyntaxHighlight($field)
-    {
-        if (! empty($this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($field)])) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Check whether the field needs to be link
-     *
-     * @param string $field field to check
-     *
-     * @return boolean
-     */
-    private function _isFieldNeedToLink($field)
-    {
-        if (! empty($GLOBALS['special_schema_links'][strtolower($this->__get('db'))][strtolower($this->__get('table'))][$field])) {
-            return true;
-        }
-        return false;
-    }
 
 
     /**
@@ -3822,7 +3791,7 @@ class PMA_DisplayResults
                 $limitChars = $GLOBALS['cfg']['LimitChars'];
                 if (($GLOBALS['PMA_String']->strlen($column) > $limitChars)
                     && ($_SESSION['tmpval']['pftext'] == self::DISPLAY_PARTIAL_TEXT)
-                    && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
+                    && empty($this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower(strtolower($meta->name))])
                 ) {
                     $column = $GLOBALS['PMA_String']->substr(
                         $column, 0, $GLOBALS['cfg']['LimitChars']
