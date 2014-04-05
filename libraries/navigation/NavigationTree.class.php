@@ -154,6 +154,9 @@ class PMA_NavigationTree
     {
         $retval = 0;
         if (! empty($GLOBALS['db'])) {
+            /*
+             * @todo describe a scenario where this code is executed
+             */
             $query  = "SELECT (COUNT(`SCHEMA_NAME`) DIV %d) * %d ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
             $query .= "WHERE `SCHEMA_NAME` < '%s' ";
