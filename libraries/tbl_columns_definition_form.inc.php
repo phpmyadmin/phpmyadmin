@@ -135,9 +135,11 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         );
     }
     // Variable tell if current column is bound in a foreign key constraint or not.
-    $columnMeta['column_status'] = PMA_checkChildForeignReferences($_form_params['db'],
+    $columnMeta['column_status'] = PMA_checkChildForeignReferences(
+        $_form_params['db'],
         $_form_params['table'],
-        isset($columnMeta) ? $columnMeta['Field'] : null);
+        isset($columnMeta) ? $columnMeta['Field'] : null
+    );
 
     $content_cells[$columnNumber] = PMA_getHtmlForColumnAttributes(
         $columnNumber, isset($columnMeta) ? $columnMeta : null, strtoupper($type),

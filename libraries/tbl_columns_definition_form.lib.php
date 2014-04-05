@@ -566,7 +566,7 @@ function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
     if (isset($columnMeta['column_status'])) {
         if ($columnMeta['column_status']['isReferenced']) {
             $title .= sprintf(
-                 __('Referenced by %s.'),
+                __('Referenced by %s.'),
                 implode(",", $columnMeta['column_status']['references'])
             );
         }
@@ -605,8 +605,8 @@ function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
  * @return string
  */
 function PMA_getHtmlForColumnType($columnNumber, $ci, $ci_offset,
-    $type_upper, $columnMeta)
-{
+    $type_upper, $columnMeta
+) {
     $select_id = 'field_' . $columnNumber . '_' . ($ci - $ci_offset);
     $html = '<select' . (isset($columnMeta['column_status'])
         && !$columnMeta['column_status']['isEditable']?' disabled="disabled" ':' ')
