@@ -1,0 +1,104 @@
+phpMyAdmin - Readme
+===================
+
+Version 4.1.12
+
+A set of PHP-scripts to manage MySQL over the web.
+
+http://www.phpmyadmin.net/
+
+Copyright
+---------
+
+Copyright (C) 1998-2000
+    Tobias Ratschiller <tobias_at_ratschiller.com>
+
+Copyright (C) 2001-2014
+    Marc Delisle <marc_at_infomarc.info>
+    Olivier Müller <om_at_omnis.ch>
+    Robin Johnson <robbat2_at_users.sourceforge.net>
+    Alexander M. Turek <me_at_derrabus.de>
+    Michal Čihař <michal_at_cihar.com>
+    Garvin Hicking <me_at_supergarv.de>
+    Michael Keck <mkkeck_at_users.sourceforge.net>
+    Sebastian Mendel <cybot_tm_at_users.sourceforge.net>
+    [check documentation for more details]
+
+License
+-------
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License version 2, as published by the
+Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Third party licenses
+--------------------
+
+phpMyAdmin includes several third party libraries which come under their
+respective licenses.
+
+jQuery's license, which is where we got the files under js/jquery/ is
+(MIT|GPL), a copy of each license is available in this repository (GPL
+is available as LICENSE, MIT as js/jquery/MIT-LICENSE.txt).
+
+TCPDF which is located under libraries/tcpdf is released under GPL
+version 3 and the license is available as libraries/tcpdf/LICENSE.TXT.
+
+DejaVu fonts which are located under libraries/tcpdf/fonts/ and their
+license is documented in
+libraries/tcpdf/fonts/dejavu-fonts-ttf-2.33/LICENSE.
+
+PHP-gettext which is located under libraries/php-gettext/ is released
+under GPL version 2 license which is available in the LICENSE file.
+
+Requirements
+------------
+
+* PHP 5.3 or later
+* MySQL 5.0 or later
+* a web-browser (doh!)
+
+Summary
+-------
+
+phpMyAdmin is intended to handle the administration of MySQL over the web.
+For a summary of features, please see the documentation in the doc folder.
+
+Download
+--------
+
+You can get the newest version at http://www.phpmyadmin.net/.
+
+More Information
+----------------
+
+Please see the documentation in the doc folder.
+
+Support
+-------
+
+See reference about support forums under http://www.phpmyadmin.net/
+
+
+Enjoy!
+------
+
+The phpMyAdmin Devel team
+
+
+PS:
+
+Please, don't send us emails with question like "How do I compile PHP with
+MySQL-support". We just don't have the time to be your free help desk.
+
+Please send your questions to the appropriate mailing lists / forums.  Before
+contacting us, please read the documentation (especially the FAQ part).
+

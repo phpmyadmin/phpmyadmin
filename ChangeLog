@@ -1,0 +1,112 @@
+phpMyAdmin - ChangeLog
+======================
+
+4.1.12.0 (2014-03-27)
+- bug #4334 Add event : datepicker won't open
+- bug #4338 Fix missing value error while executing SQL query
+- TCPDF library is now optional dependency
+- bug #4326 Cannot find the import plugins which start with uppercase 'I'
+
+4.1.11.0 (2014-03-23)
+- bug #4335 reCaptcha problem (4.1.10 regression) 
+
+4.1.10.0 (2014-03-22)
+- bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit
+- bug #4278 reCaptcha re-login requires double effort
+- bug #4324 Datepicker not showing up on insert page
+- bug #3991 Problem selecting item in select boxes with the ENTER keystroke in some browsers
+- bug #4323 QueryWindow ignores CodeMirror
+- bug       None of the live charts shown on "Status -> Monitor" (Chrome) 
+
+4.1.9.0 (2014-03-06)
+- bug #4279 CTRL + up or down moves two fields (part one)
+- bug #4294 output as text radio clickable for "OpenDocument Text" export 
+- bug #4297 DROP DATABASE tick box in export no longer works
+- bug #4291 Unable to export comments in OpenDocument text format
+- bug #4299 Deletion even when the user says "No" to the confirmation message
+- bug #4303 "New" link in navi panel is shown even if no privileges
+- bug #4302 Some params are being omitted from microhistory
+- bug #4298 Missing validation on Import CSV: "Columns enclosed with" and "Columns escaped with"
+- bug #4040 Fatal error while resetting settings
+- bug #4305 JS error when editing procedure from nav panel
+- bug #4308 Edit routine form submitting when pressing enter
+- bug #4307 Nav: "Columns" won't expand with specific schema
+
+4.1.8.0 (2014-02-22)
+- bug #4276 Login loop on session expiry
+- bug #4249 Incorrect number of result rows for SQL with subqueries
+- bug #4275 Broken Link to php extension manual
+- bug #4053 List of procedures is not displayed after executing with Enter
+- bug #4081 Setup page content shifted to the right edge of its tabs
+- bug #4284 Reordering a column erases comments for other columns
+- bug #4286 Open "Browse" in a new tab
+- bug #4287 Printview - Always one column too much
+- bug #4288 Expand database (+ icon) after timeout doesn't do anything
+- bug #4285 Fixed CSS for setup
+- Fixed altering table to DOUBLE/FLOAT field
+- bug #4292 Success message and failure message being shown together
+- bug #4293 opening new tab (using selflink) for import.php based actions
+            results in error and logout 
+
+4.1.7.0 (2014-02-09)
+- bug #4245 initial Browse query does not match sorting order
+- bug #4250 Notice on export page
+- bug #4253 "New" text in navigation frame acts like a database
+- bug #4262 Cannot define a column with fractional seconds
+- bug #4265 Missing datepicker icon for DATETIME(length)
+- bug #4257 Hide fractional seconds when applicable
+- bug #4264 Uncheck "Ignore" while inserting, upon leaving a textarea
+- bug #4260 reCaptcha is ignoring language settings
+- bug #4259 reCaptcha sound session expired problem
+- bug #4263 Japanese character encoding not working properly when exporting
+- bug #4269 Notice on table relation page
+- bug #4270 Bad text-color for table comments
+- bug #4272 Incorrect tabindex
+- bug #4271 Query by example and the second criteria line
+- bug #4242 Wildcard-containing only_db failure in sidebar
+
+4.1.6.0 (2014-01-26)
+- bug #4232 User not found after creating the user
+- bug #4241 Confusing dialog when trying to create an already existing user
+- bug #4239 Missing LIMIT clause for some queries
+- rfe #1489 Do not show create icon when user has no privileges
+- bug #4218 Chrome behavior with date fields
+- bug #3579 NOW() function incorrectly selected (regression)
+- bug #4244 Advisor complaints about MariaDB 10.x is version less than 5.1
+- bug #3889 When login fails and error display is active, login data is
+displayed (regression)
+- bug #4247 open_basedir warnings on export page
+- bug #4013 AJAX request waiting until version info is retrieved
+- bug #4248 js error when changing number of columns in status monitor
+
+4.1.5.0 (2014-01-17)
+- bug #3780 Allow aborting loading pages
+- bug #4223 Database list: Create database misses collation column
+- bug #4224 Empty table names when a table is "inuse"
+- bug #4225 Partition maintenance broken
+- bug #4219 Table list (left panel) does not reload when table renamed
+- bug #4230 "in use" displayed for all views in database print view
+- bug #4226 Notice: Undefined index: pma_config_loading
+- bug #4221 Bzip2 export cannot be directly imported (so withdraw bz2 export)
+- bug #4204 Reloading user privileges hides user groups submenu
+- bug #4231 DATE columns quick edit decrement by one day
+
+4.1.4.0 (2014-01-07)
+- bug #3840 (additional fix) When exporting to gzip format, the data is compressed 2 times
+- bug #4209 Missing compression in one case
+- bug #4208 Can't browse tables after sorting on columns with fieldnames that have a '-'
+- bug #4184 Switch to wrong page after adding an index
+- bug #3885 Additional fix for this bug
+- bug #4212 Table "disappears" if it has the same name as its tablegroup
+- bug #4213 Datetime Quick Edit decrements by one day
+- bug #4217 Current value not highlighted when browsing foreign values
+- bug #4220 Incorrect key values in foreign key browser
+- bug #4215 MariaDB 5.5: error in Drizzle detection
+
+         --- Older ChangeLogs can be found on our project website ---
+                     http://www.phpmyadmin.net/old-stuff/ChangeLogs/
+
+# vim: et ts=4 sw=4 sts=4
+# vim: ft=changelog fenc=utf-8
+# vim: fde=getline(v\:lnum-1)=~'^\\s*$'&&getline(v\:lnum)=~'\\S'?'>1'\:1&&v\:lnum>4&&getline(v\:lnum)!~'^#'
+# vim: fdn=1 fdm=expr

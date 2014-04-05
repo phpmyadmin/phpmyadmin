@@ -1,0 +1,46 @@
+<?php
+// vim: expandtab sw=4 ts=4 sts=4:
+/**
+ * This file contains the basic structure for a specific MIME Type and Subtype
+ * transformations class.
+ * For instructions, read the documentation
+ *
+ * @package    PhpMyAdmin-Transformations
+ * @subpackage [TransformationName]
+ */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
+/* Get the [TransformationName] transformations interface */
+require_once 'abstract/[TransformationName]TransformationsPlugin.class.php';
+
+/**
+ * Handles the [TransformationName] transformation for [MIMEType] - [MIMESubtype]
+ *
+ * @package PhpMyAdmin
+ */
+class [MIMEType]_[MIMESubtype]_[TransformationName]
+    extends [TransformationName]TransformationsPlugin
+{
+    /**
+     * Gets the plugin`s MIME type
+     *
+     * @return string
+     */
+    public static function getMIMEType()
+    {
+        return "[MIMEType]";
+    }
+
+    /**
+     * Gets the plugin`s MIME subtype
+     *
+     * @return string
+     */
+    public static function getMIMESubtype()
+    {
+        return "[MIMESubtype]";
+    }
+}
+?>
