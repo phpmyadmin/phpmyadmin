@@ -424,7 +424,9 @@ echo "var pmaversion = '" . PMA_VERSION . "';\n";
 echo "var mysql_doc_template = '" . PMA_Util::getMySQLDocuURL('%s') . "';\n";
 
 //Max input vars allowed by PHP.
-echo 'var maxInputVars = ' . ini_get('max_input_vars') . ';';
+$maxInputVars = ini_get('max_input_vars');
+echo 'var maxInputVars = ' . (false === $maxInputVars ? 'false' : $maxInputVars)
+    . ';';
 
 echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */
