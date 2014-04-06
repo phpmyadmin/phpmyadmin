@@ -2001,7 +2001,6 @@ class PMA_DisplayResults
                 );
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
-                $order_img = '';
             }
             // Separate columns by a comma
             $sort_order .= ", ";
@@ -2010,6 +2009,9 @@ class PMA_DisplayResults
         // remove the comma from the last column name in the newly
         // constructed clause
         $sort_order = substr($sort_order, 0, strlen($sort_order)-2);
+        if (empty($order_img)) {
+            $order_img = '';
+        }
         return array($sort_order, $order_img);
     }
 
