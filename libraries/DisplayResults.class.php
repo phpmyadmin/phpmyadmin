@@ -2001,8 +2001,9 @@ class PMA_DisplayResults
                 );
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
+                $order_img = '';
             }
-            // Separte columns by a comma
+            // Separate columns by a comma
             $sort_order .= ", ";
             unset($name_to_use_in_sort);
         }
@@ -2906,7 +2907,7 @@ class PMA_DisplayResults
 
             // Check whether the field needs to display with syntax highlighting
 
-            if (! empty($this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->nam)])
+            if (! empty($this->transformation_info[strtolower($this->__get('db'))][strtolower($this->__get('table'))][strtolower($meta->name)])
                 && (trim($row[$i]) != '')
             ) {
                 $row[$i] = PMA_Util::formatSql($row[$i]);
