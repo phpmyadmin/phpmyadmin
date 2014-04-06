@@ -4143,6 +4143,9 @@ function checkNumberOfFields() {
     if (typeof maxInputVars === 'undefined') {
         return false;
     }
+    if (false === maxInputVars) {
+        return false;
+    }
     $('form').each(function() {
         var nbInputs = $(this).find(':input').length;
         if (nbInputs > maxInputVars) {
