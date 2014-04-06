@@ -519,8 +519,10 @@ EOT;
         $profiling_table .= '<div id="profilingchart" style="display:none;">';
         $profiling_table .= '</div>';
         $profiling_table .= '<script type="text/javascript">';
+        $profiling_table .= "AJAX.registerOnload('sql.js', function () {";
         $profiling_table .= 'makeProfilingChart();';
         $profiling_table .= 'initProfilingTables();';
+        $profiling_table .= '});';
         $profiling_table .= '</script>';
         $profiling_table .= '</fieldset>' . "\n";
     } else {
