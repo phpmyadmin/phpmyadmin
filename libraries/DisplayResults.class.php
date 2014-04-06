@@ -4609,8 +4609,9 @@ class PMA_DisplayResults
 
         $number_of_columns = count($sort_expression_nodirection);
         // 1.4 Prepares display of first and last value of the sorted column
+        $sorted_column_message = '';
         for ( $i = 0; $i < $number_of_columns; $i++ ) {
-            $sorted_column_message = $this->_getSortedColumnMessage(
+            $sorted_column_message .= $this->_getSortedColumnMessage(
                 $dt_result, $sort_expression_nodirection[$i]
             );
         }
