@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-02 12:00+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-04-06 11:19+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -10188,21 +10188,21 @@ msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?
 #: libraries/server_privileges.lib.php:2426
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr ""
+msgstr "... 이전 버전의 모든 활성화된 권한을 취소한 후 이전 버전을 삭제합니다."
 
 #: libraries/server_privileges.lib.php:2430
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr ""
+msgstr "... 사용자 테이블로부터 이전 것을 삭제하고, 권한 정보를 새로고침 합니다."
 
 #: libraries/server_privileges.lib.php:2444
 msgid "Change Login Information / Copy User"
-msgstr ""
+msgstr "로그인 정보 변경 / 사용자 복사"
 
 #: libraries/server_privileges.lib.php:2450
 msgid "Create a new user with the same privileges and …"
-msgstr ""
+msgstr "새로운 사용자를 동일한 권한으로 생성하고 …"
 
 #: libraries/server_privileges.lib.php:2730
 msgid "Column-specific privileges"
@@ -10210,15 +10210,15 @@ msgstr "열(칼럼)에 관한 권한"
 
 #: libraries/server_privileges.lib.php:2785
 msgid "Add privileges on the following database:"
-msgstr ""
+msgstr "다음 데이터베이스에 대한 권한 추가:"
 
 #: libraries/server_privileges.lib.php:2812
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
+msgstr "%와 _는 와일드카드입니다. 일반 문자처럼 사용하려면 \\를 앞에 붙이세요."
 
 #: libraries/server_privileges.lib.php:2830
 msgid "Add privileges on the following table:"
-msgstr ""
+msgstr "다음 테이블에 대한 권한 추가:"
 
 #: libraries/server_privileges.lib.php:3074
 msgid "Remove selected users"
@@ -10236,7 +10236,7 @@ msgstr "사용자명과 같은 이름의 데이터베이스를 삭제합니다."
 
 #: libraries/server_privileges.lib.php:3231
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "삭제할 사용자를 선택하세요!"
 
 #: libraries/server_privileges.lib.php:3234
 msgid "Reloading the privileges"
@@ -10266,16 +10266,15 @@ msgid "The user %s already exists!"
 msgstr "사용자 %s 가 이미 존재합니다!"
 
 #: libraries/server_privileges.lib.php:3646
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "사용권한"
+msgstr "%s에 대한 권한"
 
 #: libraries/server_privileges.lib.php:3700
-#, fuzzy
 #| msgid "Privileges"
 msgid "Edit Privileges:"
-msgstr "사용권한"
+msgstr "권한 수정:"
 
 #: libraries/server_privileges.lib.php:3761 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -10289,6 +10288,8 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
+"주의: phpMyAdmin은 사용자의 권한 정보를 MySQL의 privilege 테이블에서 가져옵니다. 만약 수동으로 서버의 권한 정보를 "
+"수정하였다면, 서버의 정보와 맞지 않을 수 있습니다. 이 경우, %sreload the privileges%s를 먼저 수행하세요."
 
 #: libraries/server_privileges.lib.php:3886
 msgid "The selected user was not found in the privilege table."
@@ -10312,7 +10313,7 @@ msgstr "이 MySQL 서버는 %1$s 동안 구동되었습니다. 구동 시작날�
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr ""
+msgstr "이 MySQL 서버는 <b>리플리케이션</b> 작업시 <b>마스터</b>와 <b>슬레이브</b>로 동작합니다."
 
 #: libraries/server_status.lib.php:84
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
@@ -12673,10 +12674,12 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"Git 버전을 사용하고 있습니다. [kbd]git pull[/kbd]을 실행하세요 :-)[br]최신 안정 버전은 %s이며 %s에 "
+"공개되었습니다."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "더 최신의 안정 버전이 없음"
 
 #: setup/lib/index.lib.php:218
 #, php-format
@@ -12866,10 +12869,9 @@ msgid "Available MIME types"
 msgstr "사용가능한 MIME 형식"
 
 #: transformation_overview.php:35
-#, fuzzy
 #| msgid "Version information"
 msgid "Available transformations"
-msgstr "버전 정보"
+msgstr "이용 가능한 변환 기능"
 
 #: transformation_overview.php:40
 msgctxt "for MIME transformation"
@@ -12920,10 +12922,9 @@ msgid "The uptime is only %s"
 msgstr "업타임이 %s 밖에 되지 않습니다"
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "질의"
+msgstr "질문 수가 1,000 미만"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
