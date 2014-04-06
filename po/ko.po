@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-04 05:39-0400\n"
-"PO-Revision-Date: 2014-04-02 12:00+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2014-04-06 11:23+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
+"\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -308,7 +308,7 @@ msgstr "접근이 거부되었습니다!"
 
 #: db_structure.php:67
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "즐겨찾기 목록이 가득 찼습니다!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -1967,6 +1967,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"경고: 현재 페이지의 폼 필드는 %d개가 넘습니다. 폼이 전송될 때 PHP의 max_input_vars 설정에 의해 일부 필드가 손실될 "
+"수 있습니다."
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:434
@@ -2520,16 +2522,14 @@ msgid "Restore column order"
 msgstr "컬럼(열) 순서 복구"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "검색어"
+msgstr "행 필터링"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "데이터베이스 검색"
+msgstr "현재 테이블 검색"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -2690,7 +2690,7 @@ msgstr "%1s - %2s행 표시 중"
 #: libraries/DisplayResults.class.php:5069
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "총 %1$d개 중 현재 쿼리에 %2$d개"
 
 #: libraries/DisplayResults.class.php:5074
 #, php-format
@@ -3130,13 +3130,12 @@ msgstr "즐겨찾기 테이블이 없습니다."
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "즐겨찾기될 검색에 대한 이름을 입력하세요."
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
+msgstr "즐겨찾기될 검색을 저장할 정보가 없습니다."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -3281,10 +3280,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "이 MySQL 서버는 %s 스토리지 엔진을 지원하지 않습니다."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "알 수 없는 테이블 상태: "
+msgstr "알 수 없는 테이블 상태:"
 
 #: libraries/Table.class.php:792
 #, php-format
@@ -4405,19 +4403,17 @@ msgid ""
 msgstr ""
 
 #: libraries/config/Validator.class.php:238
-#, fuzzy
 #| msgid "Could not initialize Drizzle connection library"
 msgid "Could not initialize Drizzle connection library!"
-msgstr "Drizzle 연결 라이브러리를 초기화할 수 없습니다"
+msgstr "Drizzle 연결 라이브러리를 초기화할 수 없습니다!"
 
 #: libraries/config/Validator.class.php:247
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to Drizzle server"
 msgid "Could not connect to the database server!"
-msgstr "Drizzle 서버에 접속할 수 없습니다."
+msgstr "데이터베이스 서버에 접속할 수 없습니다!"
 
 #: libraries/config/Validator.class.php:306
 #, fuzzy
@@ -5052,30 +5048,27 @@ msgid "Developer"
 msgstr "개발자"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "phpMyAdmin 개발자를 위한 설정"
+msgstr "phpMyAdmin 개발자를 위한 설정."
 
 #: libraries/config/messages.inc.php:217
 msgid "Edit mode"
 msgstr "편집 모드"
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "편집모드 사용자화"
+msgstr "편집모드 사용자화."
 
 #: libraries/config/messages.inc.php:220
 msgid "Export defaults"
 msgstr "기본설정 내보내기"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "기본 내보내기 옵션 사용자화"
+msgstr "기본 내보내기 옵션 사용자화."
 
 #: libraries/config/messages.inc.php:222 libraries/config/messages.inc.php:283
 #: setup/frames/menu.inc.php:22
@@ -5087,20 +5080,18 @@ msgid "General"
 msgstr "일반"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "일반적인 옵션 설정"
+msgstr "일반적인 옵션 설정."
 
 #: libraries/config/messages.inc.php:226
 msgid "Import defaults"
 msgstr "가져오기 기본값"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "기본 가져오기 옵션 사용자화"
+msgstr "기본 가져오기 옵션 사용자화."
 
 #: libraries/config/messages.inc.php:228
 msgid "Import / export"
@@ -10668,21 +10659,21 @@ msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?
 #: libraries/server_privileges.lib.php:2478
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr ""
+msgstr "... 이전 버전의 모든 활성화된 권한을 취소한 후 이전 버전을 삭제합니다."
 
 #: libraries/server_privileges.lib.php:2482
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr ""
+msgstr "... 사용자 테이블로부터 이전 것을 삭제하고, 권한 정보를 새로고침 합니다."
 
 #: libraries/server_privileges.lib.php:2496
 msgid "Change Login Information / Copy User"
-msgstr ""
+msgstr "로그인 정보 변경 / 사용자 복사"
 
 #: libraries/server_privileges.lib.php:2502
 msgid "Create a new user with the same privileges and …"
-msgstr ""
+msgstr "새로운 사용자를 동일한 권한으로 생성하고 …"
 
 #: libraries/server_privileges.lib.php:2787
 msgid "Column-specific privileges"
@@ -10690,15 +10681,15 @@ msgstr "열(칼럼)에 관한 권한"
 
 #: libraries/server_privileges.lib.php:2842
 msgid "Add privileges on the following database:"
-msgstr ""
+msgstr "다음 데이터베이스에 대한 권한 추가:"
 
 #: libraries/server_privileges.lib.php:2869
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
+msgstr "%와 _는 와일드카드입니다. 일반 문자처럼 사용하려면 \\를 앞에 붙이세요."
 
 #: libraries/server_privileges.lib.php:2887
 msgid "Add privileges on the following table:"
-msgstr ""
+msgstr "다음 테이블에 대한 권한 추가:"
 
 #: libraries/server_privileges.lib.php:3131
 msgid "Remove selected users"
@@ -10716,7 +10707,7 @@ msgstr "사용자명과 같은 이름의 데이터베이스를 삭제합니다."
 
 #: libraries/server_privileges.lib.php:3291
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "삭제할 사용자를 선택하세요!"
 
 #: libraries/server_privileges.lib.php:3294
 msgid "Reloading the privileges"
@@ -10746,16 +10737,15 @@ msgid "The user %s already exists!"
 msgstr "사용자 %s 가 이미 존재합니다!"
 
 #: libraries/server_privileges.lib.php:3705
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "사용권한"
+msgstr "%s에 대한 권한"
 
 #: libraries/server_privileges.lib.php:3759
-#, fuzzy
 #| msgid "Privileges"
 msgid "Edit Privileges:"
-msgstr "사용권한"
+msgstr "권한 수정:"
 
 #: libraries/server_privileges.lib.php:3820 libraries/server_users.lib.php:25
 msgid "Users overview"
@@ -10769,6 +10759,8 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
+"주의: phpMyAdmin은 사용자의 권한 정보를 MySQL의 privilege 테이블에서 가져옵니다. 만약 수동으로 서버의 권한 정보를 "
+"수정하였다면, 서버의 정보와 맞지 않을 수 있습니다. 이 경우, %sreload the privileges%s를 먼저 수행하세요."
 
 #: libraries/server_privileges.lib.php:3954
 msgid "The selected user was not found in the privilege table."
@@ -10792,7 +10784,7 @@ msgstr "이 MySQL 서버는 %1$s 동안 구동되었습니다. 구동 시작날�
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
-msgstr ""
+msgstr "이 MySQL 서버는 <b>리플리케이션</b> 작업시 <b>마스터</b>와 <b>슬레이브</b>로 동작합니다."
 
 #: libraries/server_status.lib.php:84
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
@@ -13189,10 +13181,12 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"Git 버전을 사용하고 있습니다. [kbd]git pull[/kbd]을 실행하세요 :-)[br]최신 안정 버전은 %s이며 %s에 "
+"공개되었습니다."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
-msgstr ""
+msgstr "더 최신의 안정 버전이 없음"
 
 #: setup/validate.php:22
 msgid "Wrong data"
@@ -13267,10 +13261,9 @@ msgid "Available MIME types"
 msgstr "사용가능한 MIME 형식"
 
 #: transformation_overview.php:35
-#, fuzzy
 #| msgid "Version information"
 msgid "Available transformations"
-msgstr "버전 정보"
+msgstr "이용 가능한 변환 기능"
 
 #: transformation_overview.php:40
 msgctxt "for MIME transformation"
@@ -13278,10 +13271,10 @@ msgid "Description"
 msgstr "설명"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "추적 보고서"
+msgstr "당신을 %s로 데려감."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
@@ -13327,10 +13320,9 @@ msgid "The uptime is only %s"
 msgstr "업타임이 %s 밖에 되지 않습니다"
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 #| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "질의"
+msgstr "질문 수가 1,000 미만"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
