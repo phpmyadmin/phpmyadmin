@@ -1115,7 +1115,7 @@ msgstr "Кешированная память"
 
 #: js/messages.php:92
 msgid "Buffered memory"
-msgstr "Беферизованная память"
+msgstr "Буферизованная память"
 
 #: js/messages.php:93
 msgid "Free memory"
