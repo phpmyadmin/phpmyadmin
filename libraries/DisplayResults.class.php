@@ -4604,10 +4604,10 @@ class PMA_DisplayResults
         // even if there are many table references
         list(
             $sort_expression, $sort_expression_nodirection,
-            $sort_direction,$number_of_columns
+            $sort_direction
         ) = $this->_getSortParams($analyzed_sql[0]['order_by_clause']);
 
-
+        $number_of_columns = count($sort_expression_nodirection);
         // 1.4 Prepares display of first and last value of the sorted column
         for ( $i = 0; $i < $number_of_columns; $i++ ) {
             $sorted_column_message = $this->_getSortedColumnMessage(
