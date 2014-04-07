@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-04 05:39-0400\n"
-"PO-Revision-Date: 2014-04-06 22:39+0200\n"
-"Last-Translator: Crisley nunes de souza <br.crisley@googlemail.com>\n"
+"PO-Revision-Date: 2014-04-07 05:05+0200\n"
+"Last-Translator: Luis Eduardo Braschi <herrcasper@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -615,6 +615,9 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Arquivo enviado não pode ser movido porque o servidor tem a opção "
+"open_basedir habilitada sem acesso ao diretório %s (para arquivos "
+"temporários)."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -10174,7 +10177,7 @@ msgstr "Arquivo não existe"
 #: libraries/schema/User_Schema.class.php:679
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "Plugin SQL esta desativado"
+msgstr "Plugin está desativado"
 
 #: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
 #: libraries/select_lang.lib.php:614
