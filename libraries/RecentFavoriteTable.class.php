@@ -289,7 +289,7 @@ class PMA_RecentFavoriteTable
      *
      * @return string
      */
-    public function _getHtmlSyncFavoriteTables()
+    public function getHtmlSyncFavoriteTables()
     {
         $retval = '';
         $server_id = $GLOBALS['server'];
