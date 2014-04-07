@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4347 Fixed PHP Parse error in Advisor
 - bug #4350 Deleting the DB if it is renamed by the same name
 - bug #4353 makeProfilingChart is not defined
+- bug #4355 Precision specifier for DOUBLE type is truncated
 
 4.1.12.0 (2014-03-27)
 - bug #4334 Add event : datepicker won't open
