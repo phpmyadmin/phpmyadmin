@@ -25,7 +25,8 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
     // Request for Synchronization of favorite tables.
     if (isset($_REQUEST['sync_favorite_tables'])) {
         if (empty($fav_instance->tables)
-            && isset($favorite_tables[$user])) {
+            && isset($favorite_tables[$user])
+        ) {
             foreach ($favorite_tables[$user] as $key => $value) {
                 $fav_instance->add($value['db'], $value['table']);
             }
@@ -96,7 +97,9 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
         );
         $ajax_response->addJSON(
             'anchor',
-            PMA_getHtmlForFavoriteAnchor($db, array('TABLE_NAME' => $favorite_table), $titles)
+            PMA_getHtmlForFavoriteAnchor(
+                $db, array('TABLE_NAME' => $favorite_table), $titles
+            )
         );
     } else {
         $ajax_response->addJSON(
