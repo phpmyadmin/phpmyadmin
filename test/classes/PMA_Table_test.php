@@ -506,7 +506,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
             $field_primary, $move_to
         );
         $this->assertEquals(
-            "`PMA_name` DOUBLE PMA_attribute NULL DEFAULT '12' "
+            "`PMA_name` DOUBLE(12) PMA_attribute NULL DEFAULT '12' "
             . "AUTO_INCREMENT COMMENT 'PMA_comment' FIRST",
             $query
         );
