@@ -185,7 +185,7 @@ class PMA_RecentFavoriteTable
     {
         $html = '';
         if (count($this->tables)) {
-            if($this->table_type == 'recent')
+            if ($this->table_type == 'recent') {
                 foreach ($this->tables as $table) {
                     $html .= '<li>';
                     $html .= '<a href="sql.php?server=' . $GLOBALS['server']
@@ -195,8 +195,7 @@ class PMA_RecentFavoriteTable
                           . '">`' . $table['db'] . '`.`' . $table['table'] . '`</a>';
                     $html .= '</li>';
                 }
-            else
-            {
+            } else {
                 foreach ($this->tables as $table) {
                     $html .= '<li>';
 
@@ -205,7 +204,8 @@ class PMA_RecentFavoriteTable
                         'ajax_request' => true,
                         'favorite_table' => $table['table'],
                         'remove_favorite' => true);
-                    $fav_rm_url = 'db_structure.php' . PMA_URL_getCommon($fav_params);
+                    $fav_rm_url = 'db_structure.php'
+                        . PMA_URL_getCommon($fav_params);
                     $html .= 'href="' . $fav_rm_url
                         . '" title="' . __("Remove from Favorites")
                         . '" favtargetn="' . $table['db'] . "." . $table['table']
@@ -239,11 +239,12 @@ class PMA_RecentFavoriteTable
     public function getHtml()
     {
         $html  = '<div class="drop_list">';
-        if($this->table_type == 'recent') {
-            $html .= '<span class="drop_button">' . __('Recent') . '</span><ul id="pma_recent_list">';
-        }
-        else {
-            $html .= '<span class="drop_button">' . __('Favorite') . '</span><ul id="pma_favorite_list">';
+        if ($this->table_type == 'recent') {
+            $html .= '<span class="drop_button">'
+                . __('Recent') . '</span><ul id="pma_recent_list">';
+        } else {
+            $html .= '<span class="drop_button">'
+                . __('Favorite') . '</span><ul id="pma_favorite_list">';
         }
         $html .= $this->getHtmlList();
         $html .= '</ul></div>';
