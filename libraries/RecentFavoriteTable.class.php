@@ -196,6 +196,7 @@ class PMA_RecentFavoriteTable
                     $html .= '</li>';
                 }
             else
+            {
                 foreach ($this->tables as $table) {
                     $html .= '<li>';
 
@@ -209,7 +210,7 @@ class PMA_RecentFavoriteTable
                         . '" title="' . __("Remove from Favorites")
                         . '" favtargetn="' . $table['db'] . "." . $table['table']
                         . '" >'
-                        . PMA_Util::getIcon('b_favorite.png', __(''))
+                        . PMA_Util::getIcon('b_favorite.png')
                         . '</a>';
 
                     $html .= '<a href="sql.php?server=' . $GLOBALS['server']
@@ -219,6 +220,7 @@ class PMA_RecentFavoriteTable
                           . '">`' . $table['db'] . '`.`' . $table['table'] . '`</a>';
                     $html .= '</li>';
                 }
+            }
         } else {
             $html .= '<li >'
                   . ($this->table_type == 'recent'
@@ -238,10 +240,10 @@ class PMA_RecentFavoriteTable
     {
         $html  = '<div class="drop_list">';
         if($this->table_type == 'recent') {
-            $html .= '<span class="drop_button">' . __('Recents') . '</span><ul id="pma_recent_list">';
+            $html .= '<span class="drop_button">' . __('Recent') . '</span><ul id="pma_recent_list">';
         }
         else {
-            $html .= '<span class="drop_button">' . __('Favorites') . '</span><ul id="pma_favorite_list">';
+            $html .= '<span class="drop_button">' . __('Favorite') . '</span><ul id="pma_favorite_list">';
         }
         $html .= $this->getHtmlList();
         $html .= '</ul></div>';
