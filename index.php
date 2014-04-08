@@ -304,12 +304,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
 
         if ($server > 0) {
             $client_version_str = $GLOBALS['dbi']->getClientInfo();
-            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)
-                && in_array(
-                    $GLOBALS['cfg']['Server']['extension'],
-                    array('mysql', 'mysqli')
-                )
-            ) {
+            if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)) {
                 $client_version_str = 'libmysql - ' . $client_version_str;
             }
             PMA_printListItem(
@@ -317,15 +312,14 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
                 'li_mysql_client_version'
             );
 
-            $php_ext_string = __('PHP extension:') . ' '
-                . $GLOBALS['cfg']['Server']['extension'] . ' ';
-            if (!empty($GLOBALS['cfg']['Server']['extension'])) {
-                $php_ext_string  .= PMA_Util::showPHPDocu(
-                    'book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'
-                );
+            $php_ext_string = __('PHP extension:') . ' ';
+            if (PMA_DatabaseInterface::checkDbExtension('mysqli')) {
+                $extension = 'mysqli';
             } else {
-                $php_ext_string  .= __('None');
+                $extension = 'mysql';
             }
+            $php_ext_string  .= $extension . ' '
+                . PMA_Util::showPHPDocu( 'book.' . $extension . '.php');
 
             PMA_printListItem(
                 $php_ext_string,
