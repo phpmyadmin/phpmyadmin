@@ -39,8 +39,8 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
             json_encode($favorite_tables)
         );
         $ajax_response->addJSON(
-            'options',
-            $fav_instance->getHtmlSelectOption()
+            'list',
+            $fav_instance->getHtmlList()
         );
         $server_id = $GLOBALS['server'];
         // Set flag when localStorage and pmadb(if present) are in sync.
@@ -92,8 +92,8 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
             json_encode($favorite_tables)
         );
         $ajax_response->addJSON(
-            'options',
-            $fav_instance->getHtmlSelectOption()
+            'list',
+            $fav_instance->getHtmlList()
         );
         $ajax_response->addJSON(
             'anchor',

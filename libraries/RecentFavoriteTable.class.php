@@ -177,60 +177,76 @@ class PMA_RecentFavoriteTable
     }
 
     /**
-     * Return options for HTML select.
+     * Return HTML ul.
      *
      * @return string
      */
-    public function getHtmlSelectOption()
+    public function getHtmlList()
     {
-        // trim and save, in case where the configuration is changed
-        if ($this->trim() && isset($this->_pmaTable)) {
-            $this->saveToDb();
-        }
-
-        $first_option = '';
-        $last_option = '';
-        switch ($this->table_type) {
-        case 'recent':
-            $first_option = __("Recent tables");
-            $last_option = __("There are no recent tables.");
-            break;
-
-        case 'favorite':
-            $first_option = __("Favorite tables");
-            $last_option = __("There are no favorite tables.");
-            break;
-        }
-        $html = '<option value="">(' . $first_option . ') ...</option>';
+        $html = '';
         if (count($this->tables)) {
-            foreach ($this->tables as $table) {
-                $html .= '<option value="'
-                    . htmlspecialchars(json_encode($table)) . '">'
-                    . htmlspecialchars(
-                        '`' . $table['db'] . '`.`' . $table['table'] . '`'
-                    )
-                    . '</option>';
+            if($this->table_type == 'recent')
+                foreach ($this->tables as $table) {
+                    $html .= '<li>';
+                    $html .= '<a href="sql.php?server=' . $GLOBALS['server']
+                          . '&db=' . $table['db']
+                          . '&table=' . $table['table']
+                          . '&token=' . $_SESSION[' PMA_token ']
+                          . '">`' . $table['db'] . '`.`' . $table['table'] . '`</a>';
+                    $html .= '</li>';
+                }
+            else
+            {
+                foreach ($this->tables as $table) {
+                    $html .= '<li>';
+
+                    $html .= '<a class="ajax favorite_table_anchor"';
+                    $fav_params = array('db' => $table['db'],
+                        'ajax_request' => true,
+                        'favorite_table' => $table['table'],
+                        'remove_favorite' => true);
+                    $fav_rm_url = 'db_structure.php' . PMA_URL_getCommon($fav_params);
+                    $html .= 'href="' . $fav_rm_url
+                        . '" title="' . __("Remove from Favorites")
+                        . '" favtargetn="' . $table['db'] . "." . $table['table']
+                        . '" >'
+                        . PMA_Util::getIcon('b_favorite.png')
+                        . '</a>';
+
+                    $html .= '<a href="sql.php?server=' . $GLOBALS['server']
+                          . '&db=' . $table['db']
+                          . '&table=' . $table['table']
+                          . '&token=' . $_SESSION[' PMA_token ']
+                          . '">`' . $table['db'] . '`.`' . $table['table'] . '`</a>';
+                    $html .= '</li>';
+                }
             }
         } else {
-            $html .= '<option value="">'
-                . $last_option
-                . '</option>';
+            $html .= '<li >'
+                  . ($this->table_type == 'recent'
+                    ?__('There are no recent tables.')
+                    :__('There are no favorite tables.'))
+                  . '</li>';
         }
         return $html;
     }
 
     /**
-     * Return HTML select.
+     * Return HTML.
      *
      * @return string
      */
-    public function getHtmlSelect()
+    public function getHtml()
     {
-        $html  = '<select name="selected_' . $this->table_type
-            . '_table" id="' . $this->table_type . 'Table">';
-        $html .= $this->getHtmlSelectOption();
-        $html .= '</select>';
-
+        $html  = '<div class="drop_list">';
+        if($this->table_type == 'recent') {
+            $html .= '<span class="drop_button">' . __('Recent') . '</span><ul id="pma_recent_list">';
+        }
+        else {
+            $html .= '<span class="drop_button">' . __('Favorite') . '</span><ul id="pma_favorite_list">';
+        }
+        $html .= $this->getHtmlList();
+        $html .= '</ul></div>';
         return $html;
     }
 
