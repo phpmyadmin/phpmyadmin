@@ -3217,7 +3217,7 @@ msgstr "Tablas favoritas"
 #: libraries/RecentFavoriteTable.class.php:249
 #| msgid "Favorite tables"
 msgid "Favorites"
-msgstr "Favoritos"
+msgstr "Favoritas"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
