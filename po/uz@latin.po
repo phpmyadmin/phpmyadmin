@@ -3,15 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-04 05:39-0400\n"
+"POT-Creation-Date: 2014-04-09 08:31-0400\n"
 "PO-Revision-Date: 2014-02-03 16:59+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/uz%40latin/>\n"
-"Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uz@latin\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -200,7 +200,7 @@ msgstr "Ha"
 msgid "View dump (schema) of database"
 msgstr "Ma`lumotlar bazasi dampini (sxemasini) namoyish etish"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:160
+#: db_export.php:33 db_printview.php:41 db_structure.php:163
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Ma`lumotlar bazasida bironta ham jadval mavjud emas."
@@ -324,7 +324,7 @@ msgstr "Nusxa olingan jadvalga o‘tish"
 msgid "Access denied!"
 msgstr "Ruxsat berilmadi!"
 
-#: db_structure.php:67
+#: db_structure.php:68
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -621,11 +621,11 @@ msgstr ""
 #: import.php:116
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to %"
+#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Ehtimol, yuklanayotgan fayl hajmi juda katta. Bu muammoni yechishning "
 "usullari %sdokumentatsiyada%s keltirilgan."
@@ -684,7 +684,7 @@ msgstr ""
 "Import modullari mavjud emas! O‘rnatilgan phpMyAdmin nusxasining libraries/"
 "export katalogini tekshiring!"
 
-#: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1803
+#: import.php:568 libraries/sql.lib.php:1024 libraries/sql.lib.php:1805
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -808,72 +808,61 @@ msgstr "Server soketi"
 msgid "Web server"
 msgstr "Veb server"
 
-#: index.php:316
+#: index.php:311
 #, fuzzy
 #| msgid "Use light version"
 msgid "Database client version:"
 msgstr "Yengil versiyadan foydalanish"
 
-#: index.php:320
+#: index.php:315
 #, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
 msgstr "PHP kengaytmasi"
 
-#: index.php:327 js/messages.php:123 libraries/DisplayResults.class.php:1338
-#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
-#: libraries/display_export.lib.php:571
-#: libraries/plugins/export/ExportSql.class.php:1759
-#: libraries/server_privileges.lib.php:2684
-#: libraries/server_status.lib.php:523
-#: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
-msgid "None"
-msgstr "Yo‘q"
-
-#: index.php:339
+#: index.php:333
 msgid "Show PHP information"
 msgstr "PHP haqida ma`lumotni ko‘rsatish"
 
-#: index.php:362
+#: index.php:356
 #, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
 msgstr "Versiya haqida ma`lumot"
 
-#: index.php:371 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:365 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
-#: libraries/navigation/NavigationHeader.class.php:244
+#: libraries/navigation/NavigationHeader.class.php:243
 #: libraries/relation.lib.php:92 libraries/server_variables.lib.php:162
 msgid "Documentation"
 msgstr "Dokumentatsiya"
 
-#: index.php:378
+#: index.php:372
 msgid "Wiki"
 msgstr "Viki"
 
-#: index.php:387
+#: index.php:381
 msgid "Official Homepage"
 msgstr "phpMyAdmin rasmiy veb-sahifasi"
 
-#: index.php:394
+#: index.php:388
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Atributlar"
 
-#: index.php:401
+#: index.php:395
 msgid "Get support"
 msgstr ""
 
-#: index.php:408
+#: index.php:402
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "O‘zgarish yo‘q"
 
-#: index.php:430
+#: index.php:424
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -886,7 +875,7 @@ msgstr ""
 "shuning uchun \"root\" superfoydalanuvchisiga parol o‘rnatish qat`iyan "
 "tavsiya etiladi."
 
-#: index.php:447
+#: index.php:441
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -896,7 +885,7 @@ msgstr ""
 "func_overload parametri yoqilgan. Ma`lumot yo‘qolishi oldini olish uchun, "
 "ushbu parametr o‘chirilishi kerak!"
 
-#: index.php:462
+#: index.php:456
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -907,7 +896,7 @@ msgstr ""
 "navbatida ma`lumot yo‘qolishiga olib kelishi mumkin. PHP \"mbstring\" "
 "kengaytmasini o‘rnatish qat`iy tavsiya etiladi."
 
-#: index.php:477
+#: index.php:471
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -920,7 +909,7 @@ msgstr ""
 "davomiyligidan kichikroq, shuning uchun login sessiyangiz phpMyAdmin "
 "dasturida konfiguratsiya qilganingizdan tezroq tugaydi."
 
-#: index.php:489
+#: index.php:483
 #, fuzzy
 #| msgid ""
 #| "r PHP parameter [a@http://php.net/manual/en/session.configuration.#ini."
@@ -937,13 +926,13 @@ msgstr ""
 "davomiyligidan kichikroq, shuning uchun login sessiyangiz phpMyAdmin "
 "dasturida konfiguratsiya qilganingizdan tezroq tugaydi."
 
-#: index.php:501
+#: index.php:495
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-autentifikatsiya ishlatilganda, konfiguratsion fayldagi $cfg"
 "[\"blowfish_secret\"] direktivasi qiymatini o‘rnatib parol belgilash kerak."
 
-#: index.php:512
+#: index.php:506
 #, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
@@ -959,7 +948,7 @@ msgstr ""
 "katalogi haliyam mavjud. phpMyAdmin muvaffaqiyatli o‘rnatilgandan keyin, uni "
 "o‘chirish tavsiya etiladi."
 
-#: index.php:522
+#: index.php:516
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -971,7 +960,7 @@ msgstr ""
 "Aloqador jadvallar bilan ishlash uchun qo‘shimcha imkoniyatlar mavjud emas. "
 "Sabablarini aniqlash uchun %sbu yerga%s bosing."
 
-#: index.php:558
+#: index.php:552
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -980,7 +969,7 @@ msgstr ""
 "MySQL-kliyent versiyasi (\"%s\") o‘rnatilgan MySQL-server  versiyasi(\"%s\")"
 "dan farq qilmoqda. Bu holat noxush oqibatlarga olib kelishi mumkin."
 
-#: index.php:582
+#: index.php:576
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1327,6 +1316,17 @@ msgstr "To‘rga bog‘lab qo‘yish"
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
+#: js/messages.php:123 libraries/DisplayResults.class.php:1338
+#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
+#: libraries/display_export.lib.php:571
+#: libraries/plugins/export/ExportSql.class.php:1759
+#: libraries/server_privileges.lib.php:2684
+#: libraries/server_status.lib.php:523
+#: libraries/server_status_monitor.lib.php:278
+#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
+msgid "None"
+msgstr "Yo‘q"
+
 #: js/messages.php:124
 msgid "Resume monitor"
 msgstr ""
@@ -1520,7 +1520,7 @@ msgstr "Tahlil"
 msgid "Explain output"
 msgstr "So‘rov tahlili"
 
-#: js/messages.php:176 js/messages.php:565
+#: js/messages.php:176 js/messages.php:567
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1700,7 +1700,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Bekor qilish"
 
-#: js/messages.php:226 libraries/navigation/NavigationHeader.class.php:55
+#: js/messages.php:226 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:164
 #, fuzzy
 #| msgid "Load"
@@ -1865,7 +1865,7 @@ msgstr "SQL so‘rovlari qutisi"
 msgid "Show query box"
 msgstr "SQL so‘rovlari qutisi"
 
-#: js/messages.php:272 libraries/DisplayResults.class.php:3429
+#: js/messages.php:272 libraries/DisplayResults.class.php:3401
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1195 libraries/Util.class.php:3379
 #: libraries/Util.class.php:3380 libraries/config/messages.inc.php:743
@@ -1959,7 +1959,7 @@ msgstr "Ma`lumotlar fayli ko‘rsatgichi hajmi"
 msgid "Ignore"
 msgstr "E`tibor bermaslik"
 
-#: js/messages.php:308 libraries/DisplayResults.class.php:3432
+#: js/messages.php:308 libraries/DisplayResults.class.php:3404
 msgid "Copy"
 msgstr ""
 
@@ -2189,7 +2189,7 @@ msgstr "Oxirgi versiyani tekshirish"
 msgid "up to date"
 msgstr "Ushbu bazaga o‘tish"
 
-#: js/messages.php:391 libraries/DisplayResults.class.php:5296
+#: js/messages.php:391 libraries/DisplayResults.class.php:5269
 #: view_create.php:178
 #, fuzzy
 #| msgid "Create version"
@@ -2238,20 +2238,20 @@ msgid ""
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:434
+#: js/messages.php:436
 #, fuzzy
 #| msgid "Donate"
 msgid "Done"
 msgstr "Sadaqa"
 
-#: js/messages.php:438
+#: js/messages.php:440
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Orqaga"
 
-#: js/messages.php:443
+#: js/messages.php:445
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2259,96 +2259,96 @@ msgid "Next"
 msgstr "Keyingi"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:446
+#: js/messages.php:448
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Jami"
 
-#: js/messages.php:450
+#: js/messages.php:452
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Ikkilik"
 
-#: js/messages.php:451
+#: js/messages.php:453
 msgid "February"
 msgstr ""
 
-#: js/messages.php:452
+#: js/messages.php:454
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Mar"
 
-#: js/messages.php:453
+#: js/messages.php:455
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Apr"
 
-#: js/messages.php:454
+#: js/messages.php:456
 msgid "May"
 msgstr "May"
 
-#: js/messages.php:455
+#: js/messages.php:457
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Iyun"
 
-#: js/messages.php:456
+#: js/messages.php:458
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Iyul"
 
-#: js/messages.php:457
+#: js/messages.php:459
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Avg"
 
-#: js/messages.php:458
+#: js/messages.php:460
 msgid "September"
 msgstr ""
 
-#: js/messages.php:459
+#: js/messages.php:461
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Okt"
 
-#: js/messages.php:460
+#: js/messages.php:462
 msgid "November"
 msgstr ""
 
-#: js/messages.php:461
+#: js/messages.php:463
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:468 libraries/Util.class.php:1559
+#: js/messages.php:470 libraries/Util.class.php:1559
 msgid "Jan"
 msgstr "Yanv"
 
 #. l10n: Short month name
-#: js/messages.php:470 libraries/Util.class.php:1561
+#: js/messages.php:472 libraries/Util.class.php:1561
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:472 libraries/Util.class.php:1563
+#: js/messages.php:474 libraries/Util.class.php:1563
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:474 libraries/Util.class.php:1565
+#: js/messages.php:476 libraries/Util.class.php:1565
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:476 libraries/Util.class.php:1567
+#: js/messages.php:478 libraries/Util.class.php:1567
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2356,78 +2356,78 @@ msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:478 libraries/Util.class.php:1569
+#: js/messages.php:480 libraries/Util.class.php:1569
 msgid "Jun"
 msgstr "Iyun"
 
 #. l10n: Short month name
-#: js/messages.php:480 libraries/Util.class.php:1571
+#: js/messages.php:482 libraries/Util.class.php:1571
 msgid "Jul"
 msgstr "Iyul"
 
 #. l10n: Short month name
-#: js/messages.php:482 libraries/Util.class.php:1573
+#: js/messages.php:484 libraries/Util.class.php:1573
 msgid "Aug"
 msgstr "Avg"
 
 #. l10n: Short month name
-#: js/messages.php:484 libraries/Util.class.php:1575
+#: js/messages.php:486 libraries/Util.class.php:1575
 msgid "Sep"
 msgstr "Sen"
 
 #. l10n: Short month name
-#: js/messages.php:486 libraries/Util.class.php:1577
+#: js/messages.php:488 libraries/Util.class.php:1577
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:488 libraries/Util.class.php:1579
+#: js/messages.php:490 libraries/Util.class.php:1579
 msgid "Nov"
 msgstr "Noya"
 
 #. l10n: Short month name
-#: js/messages.php:490 libraries/Util.class.php:1581
+#: js/messages.php:492 libraries/Util.class.php:1581
 msgid "Dec"
 msgstr "Dek"
 
-#: js/messages.php:496
+#: js/messages.php:498
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Yaksh"
 
-#: js/messages.php:497
+#: js/messages.php:499
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Dush"
 
-#: js/messages.php:498
+#: js/messages.php:500
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Sesh"
 
-#: js/messages.php:499
+#: js/messages.php:501
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:500
+#: js/messages.php:502
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:501
+#: js/messages.php:503
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Jum"
 
-#: js/messages.php:502
+#: js/messages.php:504
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:509
+#: js/messages.php:511
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2435,86 +2435,86 @@ msgid "Sun"
 msgstr "Yaksh"
 
 #. l10n: Short week day name
-#: js/messages.php:511 libraries/Util.class.php:1586
+#: js/messages.php:513 libraries/Util.class.php:1586
 msgid "Mon"
 msgstr "Dush"
 
 #. l10n: Short week day name
-#: js/messages.php:513 libraries/Util.class.php:1588
+#: js/messages.php:515 libraries/Util.class.php:1588
 msgid "Tue"
 msgstr "Sesh"
 
 #. l10n: Short week day name
-#: js/messages.php:515 libraries/Util.class.php:1590
+#: js/messages.php:517 libraries/Util.class.php:1590
 msgid "Wed"
 msgstr "Chor"
 
 #. l10n: Short week day name
-#: js/messages.php:517 libraries/Util.class.php:1592
+#: js/messages.php:519 libraries/Util.class.php:1592
 msgid "Thu"
 msgstr "Pay"
 
 #. l10n: Short week day name
-#: js/messages.php:519 libraries/Util.class.php:1594
+#: js/messages.php:521 libraries/Util.class.php:1594
 msgid "Fri"
 msgstr "Jum"
 
 #. l10n: Short week day name
-#: js/messages.php:521 libraries/Util.class.php:1596
+#: js/messages.php:523 libraries/Util.class.php:1596
 msgid "Sat"
 msgstr "Shan"
 
 #. l10n: Minimal week day name
-#: js/messages.php:528
+#: js/messages.php:530
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Yaksh"
 
 #. l10n: Minimal week day name
-#: js/messages.php:530
+#: js/messages.php:532
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Dush"
 
 #. l10n: Minimal week day name
-#: js/messages.php:532
+#: js/messages.php:534
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Sesh"
 
 #. l10n: Minimal week day name
-#: js/messages.php:534
+#: js/messages.php:536
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Chor"
 
 #. l10n: Minimal week day name
-#: js/messages.php:536
+#: js/messages.php:538
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Pay"
 
 #. l10n: Minimal week day name
-#: js/messages.php:538
+#: js/messages.php:540
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Jum"
 
 #. l10n: Minimal week day name
-#: js/messages.php:540
+#: js/messages.php:542
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Shan"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:544
+#: js/messages.php:546
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
@@ -2523,29 +2523,29 @@ msgstr "Viki"
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:551
+#: js/messages.php:553
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:554
+#: js/messages.php:556
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Yo‘q"
 
-#: js/messages.php:566
+#: js/messages.php:568
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:567
+#: js/messages.php:569
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "ishlatilmoqda"
 
-#: js/messages.php:568
+#: js/messages.php:570
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2632,8 +2632,8 @@ msgid "Font size"
 msgstr "Shrift o‘lchami"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1322
-#: libraries/DisplayResults.class.php:2119
-#: libraries/DisplayResults.class.php:2128 libraries/TableSearch.class.php:851
+#: libraries/DisplayResults.class.php:2122
+#: libraries/DisplayResults.class.php:2131 libraries/TableSearch.class.php:851
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:450
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2641,8 +2641,8 @@ msgid "Ascending"
 msgstr "O‘sish tartibida"
 
 #: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1334
-#: libraries/DisplayResults.class.php:2114
-#: libraries/DisplayResults.class.php:2133 libraries/TableSearch.class.php:852
+#: libraries/DisplayResults.class.php:2117
+#: libraries/DisplayResults.class.php:2136 libraries/TableSearch.class.php:852
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:447
 #: libraries/structure.lib.php:870 libraries/structure.lib.php:887
@@ -2831,8 +2831,8 @@ msgstr "Ko‘rib chiqish"
 msgid "Delete the matches for the %s table?"
 msgstr "Ushbu jadval uchun kuzatuv ma’lumotlari o‘chirish"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3500
-#: libraries/DisplayResults.class.php:5163
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3472
+#: libraries/DisplayResults.class.php:5136
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -3039,25 +3039,25 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3474
-#: libraries/DisplayResults.class.php:3490
+#: libraries/DisplayResults.class.php:3446
+#: libraries/DisplayResults.class.php:3462
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Yozuv o‘chirildi"
 
-#: libraries/DisplayResults.class.php:3526
-#: libraries/DisplayResults.class.php:5163 libraries/server_status.lib.php:518
+#: libraries/DisplayResults.class.php:3498
+#: libraries/DisplayResults.class.php:5136 libraries/server_status.lib.php:518
 msgid "Kill"
 msgstr "Tugatish"
 
-#: libraries/DisplayResults.class.php:4610 libraries/structure.lib.php:776
+#: libraries/DisplayResults.class.php:4582 libraries/structure.lib.php:776
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Taxminiy bo‘lishi mumkin. [doc@faq3-11]\"FAQ 3.11\"[/doc]ga qarang"
 
-#: libraries/DisplayResults.class.php:4666 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4639 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
@@ -3067,40 +3067,40 @@ msgstr "Taxminiy bo‘lishi mumkin. [doc@faq3-11]\"FAQ 3.11\"[/doc]ga qarang"
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL so‘rovi muvaffaqiyatli bajarildi"
 
-#: libraries/DisplayResults.class.php:5041 libraries/structure.lib.php:658
+#: libraries/DisplayResults.class.php:5014 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 "Ushbu namoyish kamida ko‘rsatilgan miqdorda qatorlarga ega. Batafsil "
 "ma`lumot uchun %sdokumentatsiyaga%s qarang."
 
-#: libraries/DisplayResults.class.php:5054
+#: libraries/DisplayResults.class.php:5027
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Yozuvlarni ko‘rsatish"
 
-#: libraries/DisplayResults.class.php:5069
+#: libraries/DisplayResults.class.php:5042
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5074
+#: libraries/DisplayResults.class.php:5047
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "jami"
 
-#: libraries/DisplayResults.class.php:5086 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5059 libraries/sql.lib.php:1644
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "So‘rov %01.4f sekund vaqt oldi"
 
-#: libraries/DisplayResults.class.php:5170
-#: libraries/DisplayResults.class.php:5176 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5143
+#: libraries/DisplayResults.class.php:5149 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2982
@@ -3110,8 +3110,8 @@ msgstr "So‘rov %01.4f sekund vaqt oldi"
 msgid "With selected:"
 msgstr "Belgilanganlarni:"
 
-#: libraries/DisplayResults.class.php:5174
-#: libraries/DisplayResults.class.php:5175
+#: libraries/DisplayResults.class.php:5147
+#: libraries/DisplayResults.class.php:5148
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1010
@@ -3124,13 +3124,13 @@ msgstr "Belgilanganlarni:"
 msgid "Check All"
 msgstr "Barchasini belgilash"
 
-#: libraries/DisplayResults.class.php:5180 libraries/structure.lib.php:1395
+#: libraries/DisplayResults.class.php:5153 libraries/structure.lib.php:1395
 #: libraries/structure.lib.php:2073 querywindow.php:85
 msgid "Change"
 msgstr "O‘zgartirish"
 
-#: libraries/DisplayResults.class.php:5193
-#: libraries/DisplayResults.class.php:5464 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5166
+#: libraries/DisplayResults.class.php:5437 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3381 libraries/Util.class.php:3382
 #: libraries/Util.class.php:4095 libraries/Util.class.php:4110
@@ -3143,31 +3143,31 @@ msgstr "O‘zgartirish"
 msgid "Export"
 msgstr "Eksport"
 
-#: libraries/DisplayResults.class.php:5352
+#: libraries/DisplayResults.class.php:5325
 msgid "Query results operations"
 msgstr "So‘rov natijalarini ishlatish"
 
-#: libraries/DisplayResults.class.php:5388 libraries/Header.class.php:343
+#: libraries/DisplayResults.class.php:5361 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1518
 msgid "Print view"
 msgstr "Chop etish versiyasi"
 
-#: libraries/DisplayResults.class.php:5406
+#: libraries/DisplayResults.class.php:5379
 msgid "Print view (with full texts)"
 msgstr "Chop etish versiyasi (to‘la)"
 
-#: libraries/DisplayResults.class.php:5477 libraries/tbl_chart.lib.php:294
+#: libraries/DisplayResults.class.php:5450 libraries/tbl_chart.lib.php:294
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "PDF-sxemani ko‘rsatish"
 
-#: libraries/DisplayResults.class.php:5502
+#: libraries/DisplayResults.class.php:5475
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5722
+#: libraries/DisplayResults.class.php:5695
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -3534,30 +3534,49 @@ msgstr "Konfiguratsiyani yuklab yoki saqlab bo‘lmadi"
 msgid "Could not save favorite table!"
 msgstr "Konfiguratsiyani yuklab yoki saqlab bo‘lmadi"
 
-#: libraries/RecentFavoriteTable.class.php:195
+#: libraries/RecentFavoriteTable.class.php:210
+#: libraries/structure.lib.php:2726
 #, fuzzy
-#| msgid "Count tables"
-msgid "Recent tables"
-msgstr "Jadvallarni sanash"
+#| msgid "Rename database to"
+msgid "Remove from Favorites"
+msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 
-#: libraries/RecentFavoriteTable.class.php:196
+#: libraries/RecentFavoriteTable.class.php:227
 #, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables."
 msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
 
-#: libraries/RecentFavoriteTable.class.php:200
+#: libraries/RecentFavoriteTable.class.php:228
+#, fuzzy
+#| msgid "There are no configured servers"
+msgid "There are no favorite tables."
+msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
+
+#: libraries/RecentFavoriteTable.class.php:243
+#, fuzzy
+#| msgid "Count tables"
+msgid "Recent tables"
+msgstr "Jadvallarni sanash"
+
+#: libraries/RecentFavoriteTable.class.php:245
+#, fuzzy
+#| msgid "Reset"
+msgid "Recent"
+msgstr "Tozalash"
+
+#: libraries/RecentFavoriteTable.class.php:247
 #: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "O‘zgaruvchilar"
 
-#: libraries/RecentFavoriteTable.class.php:201
+#: libraries/RecentFavoriteTable.class.php:249
 #, fuzzy
-#| msgid "There are no configured servers"
-msgid "There are no favorite tables."
-msgstr "Bironta ham konfiguratsiyalangan server mavjud emas"
+#| msgid "Variables"
+msgid "Favorites"
+msgstr "O‘zgaruvchilar"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -3722,56 +3741,56 @@ msgstr "Ushbu MySQL serveri \"%s\" turdagi jadvallar bilan ishlay olmaydi."
 msgid "Unknown table status:"
 msgstr "Replikatsiya serveri ahvoli haqida ma`lumot"
 
-#: libraries/Table.class.php:792
+#: libraries/Table.class.php:796
 #, fuzzy, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
 msgstr "Manba baza"
 
-#: libraries/Table.class.php:800
+#: libraries/Table.class.php:804
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
 msgstr "\"%s\" mavzusi topilmadi!"
 
-#: libraries/Table.class.php:1299
+#: libraries/Table.class.php:1303
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Noto‘g‘ri ma`lumotlar bazasi"
 
-#: libraries/Table.class.php:1313
+#: libraries/Table.class.php:1317
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Jadval nomi noto‘g‘ri"
 
-#: libraries/Table.class.php:1348
+#: libraries/Table.class.php:1352
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "%1$s jadvalini %2$s deb qayta nomlashda xatolik"
 
-#: libraries/Table.class.php:1367
+#: libraries/Table.class.php:1371
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "`\"%s\"` jadvalining nomi `\"%s\"` deb o‘zgartirildi."
 
-#: libraries/Table.class.php:1515
+#: libraries/Table.class.php:1519
 #, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save table UI preferences!"
 msgstr "Konfiguratsiyani yuklab yoki saqlab bo‘lmadi"
 
-#: libraries/Table.class.php:1544
+#: libraries/Table.class.php:1548
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1695
+#: libraries/Table.class.php:1699
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3995,14 +4014,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4954,9 +4973,9 @@ msgstr ""
 "real xostlar uchun tavsiya etilmaydi. Serverdagi phpMyAdmin turgan katalog "
 "adresini bilgan yoki taxmin qilgan har kim ushbu dasturga bemalol kirib, "
 "serverdagi ma`lumotlar bazalari bilan istalgan operatsiyalarni amalga "
-"oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http"
-"[/kbd] deb belgilash tavsiya etiladi."
+"oshirishi mumkin. Server [a@?page=servers&amp;mode=edit&amp;id=%1"
+"$d#tab_Server]autentifikatsiya usuli[/a]ni [kbd]cookie[/kbd] yoki [kbd]http[/"
+"kbd] deb belgilash tavsiya etiladi."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, fuzzy, php-format
@@ -5804,7 +5823,7 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
-#: libraries/navigation/NavigationHeader.class.php:219
+#: libraries/navigation/NavigationHeader.class.php:218
 msgid "Query window"
 msgstr "So‘rovlar oynasi"
 
@@ -7002,8 +7021,8 @@ msgstr "\"config\" autentifikatsiya usuli paroli"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
-"[kbd]\"pma_pdf_pages\"[/kbd]"
+"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: [kbd]"
+"\"pma_pdf_pages\"[/kbd]"
 
 #: libraries/config/messages.inc.php:626
 msgid "PDF schema: pages table"
@@ -7022,8 +7041,8 @@ msgid ""
 msgstr ""
 "Aloqalar, xatcho‘plar va PDF imkoniyatlari uchun ishlatiladigan baza.  "
 "Batafsil ma`lumot uchun [a@http://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/a]"
-"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
-"[kbd]\"phpmyadmin\"[/kbd]"
+"ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: [kbd]"
+"\"phpmyadmin\"[/kbd]"
 
 #: libraries/config/messages.inc.php:632
 #: libraries/display_create_database.lib.php:31
@@ -7127,8 +7146,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
-"[kbd]\"pma_table_coords\"[/kbd]"
+"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: [kbd]"
+"\"pma_table_coords\"[/kbd]"
 
 #: libraries/config/messages.inc.php:661
 msgid "PDF schema: table coordinates"
@@ -7999,12 +8018,12 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid ""
 #| "s value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "matting strings. Additionally the following transformations will pen: "
-#| "%3$s. Other text will be kept as is."
+#| "matting strings. Additionally the following transformations will pen: %3"
+#| "$s. Other text will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Qiymat %1$sstrftime%2$s funksiyasi bilan qayta ishlangan, shuning uchun "
 "hozirgi vaqt va sanani qo‘yish mumkin. Qo‘shimcha ravishda quyidagilar "
@@ -8544,8 +8563,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -8604,7 +8623,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Damp \"%s\" faylida saqlandi."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1636
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1638
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bo‘sh natija berdi (ya`ni nolta satr)."
@@ -8744,11 +8763,11 @@ msgstr ""
 "Maydonlararo o‘tish uchun TAB tugmasi yoki CTRL+strelka tugmalaridan "
 "foydalaning"
 
-#: libraries/insert_edit.lib.php:1975 libraries/sql.lib.php:1633
+#: libraries/insert_edit.lib.php:1975 libraries/sql.lib.php:1635
 msgid "Showing SQL query"
 msgstr "SQL-so‘rovni ko‘rsatish"
 
-#: libraries/insert_edit.lib.php:2000 libraries/sql.lib.php:1613
+#: libraries/insert_edit.lib.php:2000 libraries/sql.lib.php:1615
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiritilgan qator identifikatori: %1$d"
@@ -9036,48 +9055,48 @@ msgstr "Jadvallar"
 msgid "Views:"
 msgstr "Namoyish"
 
-#: libraries/navigation/NavigationHeader.class.php:193
+#: libraries/navigation/NavigationHeader.class.php:192
 msgid "Home"
 msgstr "Bosh sahifa"
 
-#: libraries/navigation/NavigationHeader.class.php:206
+#: libraries/navigation/NavigationHeader.class.php:205
 msgid "Log out"
 msgstr "Chiqish"
 
-#: libraries/navigation/NavigationHeader.class.php:229
+#: libraries/navigation/NavigationHeader.class.php:228
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin dokumentatsiyasi"
 
-#: libraries/navigation/NavigationHeader.class.php:253
+#: libraries/navigation/NavigationHeader.class.php:252
 #, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
 msgstr "Navigatsiya oynasini qayta yuklash"
 
-#: libraries/navigation/NavigationTree.class.php:731
+#: libraries/navigation/NavigationTree.class.php:736
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 
-#: libraries/navigation/NavigationTree.class.php:842
+#: libraries/navigation/NavigationTree.class.php:847
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1069
+#: libraries/navigation/NavigationTree.class.php:1074
 #, fuzzy
 #| msgid "table name"
 msgid "Filter databases by name or regex"
 msgstr "jadval nomi"
 
-#: libraries/navigation/NavigationTree.class.php:1071
-#: libraries/navigation/NavigationTree.class.php:1106
+#: libraries/navigation/NavigationTree.class.php:1076
+#: libraries/navigation/NavigationTree.class.php:1111
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Fayl kabi saqlash"
 
-#: libraries/navigation/NavigationTree.class.php:1105
+#: libraries/navigation/NavigationTree.class.php:1110
 #, fuzzy
 #| msgid "table name"
 msgid "Filter by name or regex"
@@ -9403,8 +9422,8 @@ msgstr "\"%s\" dasturiga xush kelibsiz"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Ehtimol, konfiguratsiya fayli tuzilmagan. Uni tuzish uchun %1$sso‘rnatish "
 "ssenariysidan%2$s foydalanishingiz mumkin."
@@ -12079,8 +12098,8 @@ msgstr "Foydalanuvchilar hisobini ko‘rib chiqish"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "IZOH: phpMyAdmin foydalanuvchilar privilegiyalari haqidagi ma`lumotlarni "
 "to‘g‘ridan-to‘g‘ri MySQL privilegiyalari jadvalidan oladi. Ushbu jadvaldagi "
@@ -13337,42 +13356,42 @@ msgstr "Yopish"
 msgid "ø Time"
 msgstr "Vaqt"
 
-#: libraries/sql.lib.php:763 libraries/sql.lib.php:783
+#: libraries/sql.lib.php:765 libraries/sql.lib.php:785
 msgid "Bookmark this SQL query"
 msgstr "Ushbu SQL so‘roviga xatcho‘p tuzish"
 
-#: libraries/sql.lib.php:767
+#: libraries/sql.lib.php:769
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "Xatcho‘p belgisi"
 
-#: libraries/sql.lib.php:775 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Barcha foydalanuvchilarga ruxsat berish"
 
-#: libraries/sql.lib.php:1026
+#: libraries/sql.lib.php:1028
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "\"%s\" xatcho‘pi tuzildi"
 
-#: libraries/sql.lib.php:1182
+#: libraries/sql.lib.php:1184
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1630
+#: libraries/sql.lib.php:1632
 msgid "Showing as PHP code"
 msgstr "PHP-kod sifatida ko‘rsatish"
 
-#: libraries/sql.lib.php:1913
+#: libraries/sql.lib.php:1915
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
 
-#: libraries/sql.lib.php:1950
+#: libraries/sql.lib.php:1952
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "`\"%s\"` jadvalidagi indekslarda muammo mavjud"
@@ -13723,12 +13742,6 @@ msgstr "Belgilangan foydalanuvchilar muvaffaqiyatli o‘chirildi."
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
-
-#: libraries/structure.lib.php:2726
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Remove from Favorites"
-msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 
 #: libraries/structure.lib.php:2727
 #, fuzzy
@@ -15265,8 +15278,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -15401,8 +15414,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
@@ -16161,8 +16174,8 @@ msgstr "Maksimal ulanishlar soni "
 #~ "%s."
 #~ msgstr ""
 #~ "SQL sintaksisini tekshirib bo‘lmadi. PHP uchun zarur kengaytmalar "
-#~ "o‘rnatilganligini tekshiring, batafsil ma`lumot uchun %sdokumentatsiyaga"
-#~ "%s qarang."
+#~ "o‘rnatilganligini tekshiring, batafsil ma`lumot uchun %sdokumentatsiyaga%"
+#~ "s qarang."
 
 #, fuzzy
 #~| msgid "Cannot load or save configuration"
@@ -16316,9 +16329,9 @@ msgstr "Maksimal ulanishlar soni "
 #~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
 #~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
 #~ msgstr ""
-#~ "Ko‘proq ma`lumot uchun [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]\"PMA bug tracker\"[/a] va [a@http://bugs.mysql."
-#~ "com/19588]\"MySQL Bugs\"[/a]larga qarang"
+#~ "Ko‘proq ma`lumot uchun [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
+#~ "\"PMA bug tracker\"[/a] va [a@http://bugs.mysql.com/19588]\"MySQL Bugs\"[/"
+#~ "a]larga qarang"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "INFORMATION_SCHEMA ishlatishni o‘chirish"

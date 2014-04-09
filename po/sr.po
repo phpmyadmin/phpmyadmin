@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-04 05:39-0400\n"
+"POT-Creation-Date: 2014-04-09 08:31-0400\n"
 "PO-Revision-Date: 2014-03-28 11:07+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian <https://l10n.cihar.com/projects/phpmyadmin/master/sr/"
 ">\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
 #: changelog.php:36 license.php:28
@@ -199,7 +199,7 @@ msgstr "Да"
 msgid "View dump (schema) of database"
 msgstr "Прикажи садржај (схему) базе"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:160
+#: db_export.php:33 db_printview.php:41 db_structure.php:163
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Табеле нису пронађене у бази."
@@ -324,7 +324,7 @@ msgstr "Пређи на копирану табелу"
 msgid "Access denied!"
 msgstr "Приступ одбијен!"
 
-#: db_structure.php:67
+#: db_structure.php:68
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -627,14 +627,14 @@ msgstr ""
 #: import.php:116
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to %"
+#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to "
-"%sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to %"
+"sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Вероватно сте покушали да увезете превелику датотеку. Молимо погледајте "
-"%sдокументацију%s за начине превазилажења овог ограничења."
+"Вероватно сте покушали да увезете превелику датотеку. Молимо погледајте %"
+"sдокументацију%s за начине превазилажења овог ограничења."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
@@ -687,7 +687,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Не могу да учитам додатке за увоз, молим проверите своју инсталацију!"
 
-#: import.php:568 libraries/sql.lib.php:1022 libraries/sql.lib.php:1803
+#: import.php:568 libraries/sql.lib.php:1024 libraries/sql.lib.php:1805
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -805,70 +805,59 @@ msgstr "Избор сервера"
 msgid "Web server"
 msgstr ""
 
-#: index.php:316
+#: index.php:311
 #, fuzzy
 msgid "Database client version:"
 msgstr "Верзија MySQL клијента"
 
-#: index.php:320
+#: index.php:315
 #, fuzzy
 msgid "PHP extension:"
 msgstr "верзија PHP-a"
 
-#: index.php:327 js/messages.php:123 libraries/DisplayResults.class.php:1338
-#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
-#: libraries/display_export.lib.php:571
-#: libraries/plugins/export/ExportSql.class.php:1759
-#: libraries/server_privileges.lib.php:2684
-#: libraries/server_status.lib.php:523
-#: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
-msgid "None"
-msgstr "нема"
-
-#: index.php:339
+#: index.php:333
 msgid "Show PHP information"
 msgstr "Прикажи информације о PHP-у"
 
-#: index.php:362
+#: index.php:356
 #, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
 msgstr "Информације о верзији"
 
-#: index.php:371 libraries/Util.class.php:429 libraries/Util.class.php:494
+#: index.php:365 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
 #: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
-#: libraries/navigation/NavigationHeader.class.php:244
+#: libraries/navigation/NavigationHeader.class.php:243
 #: libraries/relation.lib.php:92 libraries/server_variables.lib.php:162
 msgid "Documentation"
 msgstr "Документација"
 
-#: index.php:378
+#: index.php:372
 msgid "Wiki"
 msgstr ""
 
-#: index.php:387
+#: index.php:381
 msgid "Official Homepage"
 msgstr "phpMyAdmin веб сајт"
 
-#: index.php:394
+#: index.php:388
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Атрибути"
 
-#: index.php:401
+#: index.php:395
 msgid "Get support"
 msgstr ""
 
-#: index.php:408
+#: index.php:402
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "Нема измена"
 
-#: index.php:430
+#: index.php:424
 msgid ""
 "Your configuration file contains settings (root with no password) that "
 "correspond to the default MySQL privileged account. Your MySQL server is "
@@ -880,7 +869,7 @@ msgstr ""
 "овим подешавањима, отворен је за упаде, и заиста треба да исправите овај "
 "сигурносни ризик."
 
-#: index.php:447
+#: index.php:441
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -889,7 +878,7 @@ msgstr ""
 "У PHP подешавањима Вам је укључена mbstring.func_overload опција. Ова опција "
 "је некомпатибилна са phpMyAdmin и може довести до грешака у неким подацима!"
 
-#: index.php:462
+#: index.php:456
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -899,7 +888,7 @@ msgstr ""
 "скуп знакова. Без екстензије mbstring phpMyAdmin не може исправно да "
 "раздваја стрингове и то може довести до неочекиваних резултата."
 
-#: index.php:477
+#: index.php:471
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
@@ -907,17 +896,17 @@ msgid ""
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:489
+#: index.php:483
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: index.php:501
+#: index.php:495
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "Конфигурациона датотека захтева тајну лозинку (blowfish_secret)."
 
-#: index.php:512
+#: index.php:506
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -925,7 +914,7 @@ msgid ""
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
 
-#: index.php:522
+#: index.php:516
 #, fuzzy, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
@@ -937,7 +926,7 @@ msgstr ""
 "Додатне могућности за рад са повезаним табелама су искључене. Да бисте "
 "сазнали зашто, кликните %sовде%s."
 
-#: index.php:558
+#: index.php:552
 #, php-format
 msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
@@ -946,7 +935,7 @@ msgstr ""
 "Верзија ваше PHP MySQL библиотеке %s се разликује од верзије вашег MySQL "
 "сервера %s. Ово може довести до непредвидљивог понашања."
 
-#: index.php:582
+#: index.php:576
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -1288,6 +1277,17 @@ msgstr "Држи се мреже"
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
+#: js/messages.php:123 libraries/DisplayResults.class.php:1338
+#: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
+#: libraries/display_export.lib.php:571
+#: libraries/plugins/export/ExportSql.class.php:1759
+#: libraries/server_privileges.lib.php:2684
+#: libraries/server_status.lib.php:523
+#: libraries/server_status_monitor.lib.php:278
+#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
+msgid "None"
+msgstr "нема"
+
 #: js/messages.php:124
 msgid "Resume monitor"
 msgstr ""
@@ -1475,7 +1475,7 @@ msgstr ""
 msgid "Explain output"
 msgstr "Објасни SQL"
 
-#: js/messages.php:176 js/messages.php:565
+#: js/messages.php:176 js/messages.php:567
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1650,7 +1650,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Откажи"
 
-#: js/messages.php:226 libraries/navigation/NavigationHeader.class.php:55
+#: js/messages.php:226 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:164
 #, fuzzy
 msgid "Loading…"
@@ -1809,7 +1809,7 @@ msgstr "SQL упит"
 msgid "Show query box"
 msgstr "SQL упит"
 
-#: js/messages.php:272 libraries/DisplayResults.class.php:3429
+#: js/messages.php:272 libraries/DisplayResults.class.php:3401
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1195 libraries/Util.class.php:3379
 #: libraries/Util.class.php:3380 libraries/config/messages.inc.php:743
@@ -1899,7 +1899,7 @@ msgstr "Величина показивача података"
 msgid "Ignore"
 msgstr "Игнориши"
 
-#: js/messages.php:308 libraries/DisplayResults.class.php:3432
+#: js/messages.php:308 libraries/DisplayResults.class.php:3404
 msgid "Copy"
 msgstr "Копирај"
 
@@ -2120,7 +2120,7 @@ msgstr "Направи релацију"
 msgid "up to date"
 msgstr "База не постоји"
 
-#: js/messages.php:391 libraries/DisplayResults.class.php:5296
+#: js/messages.php:391 libraries/DisplayResults.class.php:5269
 #: view_create.php:178
 #, fuzzy
 msgid "Create view"
@@ -2167,19 +2167,19 @@ msgid ""
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:434
+#: js/messages.php:436
 #, fuzzy
 msgid "Done"
 msgstr "Подаци"
 
-#: js/messages.php:438
+#: js/messages.php:440
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Претходна"
 
-#: js/messages.php:443
+#: js/messages.php:445
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2187,96 +2187,96 @@ msgid "Next"
 msgstr "Следећи"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:446
+#: js/messages.php:448
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Укупно"
 
-#: js/messages.php:450
+#: js/messages.php:452
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Бинарни"
 
-#: js/messages.php:451
+#: js/messages.php:453
 msgid "February"
 msgstr ""
 
-#: js/messages.php:452
+#: js/messages.php:454
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "мар"
 
-#: js/messages.php:453
+#: js/messages.php:455
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "апр"
 
-#: js/messages.php:454
+#: js/messages.php:456
 msgid "May"
 msgstr "мај"
 
-#: js/messages.php:455
+#: js/messages.php:457
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "јун"
 
-#: js/messages.php:456
+#: js/messages.php:458
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "јул"
 
-#: js/messages.php:457
+#: js/messages.php:459
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "авг"
 
-#: js/messages.php:458
+#: js/messages.php:460
 msgid "September"
 msgstr ""
 
-#: js/messages.php:459
+#: js/messages.php:461
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "окт"
 
-#: js/messages.php:460
+#: js/messages.php:462
 msgid "November"
 msgstr ""
 
-#: js/messages.php:461
+#: js/messages.php:463
 msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:468 libraries/Util.class.php:1559
+#: js/messages.php:470 libraries/Util.class.php:1559
 msgid "Jan"
 msgstr "јан"
 
 #. l10n: Short month name
-#: js/messages.php:470 libraries/Util.class.php:1561
+#: js/messages.php:472 libraries/Util.class.php:1561
 msgid "Feb"
 msgstr "феб"
 
 #. l10n: Short month name
-#: js/messages.php:472 libraries/Util.class.php:1563
+#: js/messages.php:474 libraries/Util.class.php:1563
 msgid "Mar"
 msgstr "мар"
 
 #. l10n: Short month name
-#: js/messages.php:474 libraries/Util.class.php:1565
+#: js/messages.php:476 libraries/Util.class.php:1565
 msgid "Apr"
 msgstr "апр"
 
 #. l10n: Short month name
-#: js/messages.php:476 libraries/Util.class.php:1567
+#: js/messages.php:478 libraries/Util.class.php:1567
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2284,78 +2284,78 @@ msgid "May"
 msgstr "мај"
 
 #. l10n: Short month name
-#: js/messages.php:478 libraries/Util.class.php:1569
+#: js/messages.php:480 libraries/Util.class.php:1569
 msgid "Jun"
 msgstr "јун"
 
 #. l10n: Short month name
-#: js/messages.php:480 libraries/Util.class.php:1571
+#: js/messages.php:482 libraries/Util.class.php:1571
 msgid "Jul"
 msgstr "јул"
 
 #. l10n: Short month name
-#: js/messages.php:482 libraries/Util.class.php:1573
+#: js/messages.php:484 libraries/Util.class.php:1573
 msgid "Aug"
 msgstr "авг"
 
 #. l10n: Short month name
-#: js/messages.php:484 libraries/Util.class.php:1575
+#: js/messages.php:486 libraries/Util.class.php:1575
 msgid "Sep"
 msgstr "сеп"
 
 #. l10n: Short month name
-#: js/messages.php:486 libraries/Util.class.php:1577
+#: js/messages.php:488 libraries/Util.class.php:1577
 msgid "Oct"
 msgstr "окт"
 
 #. l10n: Short month name
-#: js/messages.php:488 libraries/Util.class.php:1579
+#: js/messages.php:490 libraries/Util.class.php:1579
 msgid "Nov"
 msgstr "нов"
 
 #. l10n: Short month name
-#: js/messages.php:490 libraries/Util.class.php:1581
+#: js/messages.php:492 libraries/Util.class.php:1581
 msgid "Dec"
 msgstr "дец"
 
-#: js/messages.php:496
+#: js/messages.php:498
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Нед"
 
-#: js/messages.php:497
+#: js/messages.php:499
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Пон"
 
-#: js/messages.php:498
+#: js/messages.php:500
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Уто"
 
-#: js/messages.php:499
+#: js/messages.php:501
 msgid "Wednesday"
 msgstr ""
 
-#: js/messages.php:500
+#: js/messages.php:502
 msgid "Thursday"
 msgstr ""
 
-#: js/messages.php:501
+#: js/messages.php:503
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Пет"
 
-#: js/messages.php:502
+#: js/messages.php:504
 msgid "Saturday"
 msgstr ""
 
 #. l10n: Short week day name
-#: js/messages.php:509
+#: js/messages.php:511
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2363,115 +2363,115 @@ msgid "Sun"
 msgstr "Нед"
 
 #. l10n: Short week day name
-#: js/messages.php:511 libraries/Util.class.php:1586
+#: js/messages.php:513 libraries/Util.class.php:1586
 msgid "Mon"
 msgstr "Пон"
 
 #. l10n: Short week day name
-#: js/messages.php:513 libraries/Util.class.php:1588
+#: js/messages.php:515 libraries/Util.class.php:1588
 msgid "Tue"
 msgstr "Уто"
 
 #. l10n: Short week day name
-#: js/messages.php:515 libraries/Util.class.php:1590
+#: js/messages.php:517 libraries/Util.class.php:1590
 msgid "Wed"
 msgstr "Сре"
 
 #. l10n: Short week day name
-#: js/messages.php:517 libraries/Util.class.php:1592
+#: js/messages.php:519 libraries/Util.class.php:1592
 msgid "Thu"
 msgstr "Чет"
 
 #. l10n: Short week day name
-#: js/messages.php:519 libraries/Util.class.php:1594
+#: js/messages.php:521 libraries/Util.class.php:1594
 msgid "Fri"
 msgstr "Пет"
 
 #. l10n: Short week day name
-#: js/messages.php:521 libraries/Util.class.php:1596
+#: js/messages.php:523 libraries/Util.class.php:1596
 msgid "Sat"
 msgstr "Суб"
 
 #. l10n: Minimal week day name
-#: js/messages.php:528
+#: js/messages.php:530
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Нед"
 
 #. l10n: Minimal week day name
-#: js/messages.php:530
+#: js/messages.php:532
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Пон"
 
 #. l10n: Minimal week day name
-#: js/messages.php:532
+#: js/messages.php:534
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Уто"
 
 #. l10n: Minimal week day name
-#: js/messages.php:534
+#: js/messages.php:536
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Сре"
 
 #. l10n: Minimal week day name
-#: js/messages.php:536
+#: js/messages.php:538
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Чет"
 
 #. l10n: Minimal week day name
-#: js/messages.php:538
+#: js/messages.php:540
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Пет"
 
 #. l10n: Minimal week day name
-#: js/messages.php:540
+#: js/messages.php:542
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Суб"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:544
+#: js/messages.php:546
 msgid "Wk"
 msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:551
+#: js/messages.php:553
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:554
+#: js/messages.php:556
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "нема"
 
-#: js/messages.php:566
+#: js/messages.php:568
 msgid "Hour"
 msgstr ""
 
-#: js/messages.php:567
+#: js/messages.php:569
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "се користи"
 
-#: js/messages.php:568
+#: js/messages.php:570
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -2556,8 +2556,8 @@ msgid "Font size"
 msgstr "Величина фонта"
 
 #: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:1322
-#: libraries/DisplayResults.class.php:2119
-#: libraries/DisplayResults.class.php:2128 libraries/TableSearch.class.php:851
+#: libraries/DisplayResults.class.php:2122
+#: libraries/DisplayResults.class.php:2131 libraries/TableSearch.class.php:851
 #: libraries/operations.lib.php:643 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:450
 #: libraries/structure.lib.php:865 libraries/structure.lib.php:882
@@ -2565,8 +2565,8 @@ msgid "Ascending"
 msgstr "Растући"
 
 #: libraries/DBQbe.class.php:394 libraries/DisplayResults.class.php:1334
-#: libraries/DisplayResults.class.php:2114
-#: libraries/DisplayResults.class.php:2133 libraries/TableSearch.class.php:852
+#: libraries/DisplayResults.class.php:2117
+#: libraries/DisplayResults.class.php:2136 libraries/TableSearch.class.php:852
 #: libraries/operations.lib.php:646 libraries/server_databases.lib.php:309
 #: libraries/server_databases.lib.php:337 libraries/server_status.lib.php:447
 #: libraries/structure.lib.php:870 libraries/structure.lib.php:887
@@ -2753,8 +2753,8 @@ msgstr "Преглед"
 msgid "Delete the matches for the %s table?"
 msgstr "Приказ података табеле"
 
-#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3500
-#: libraries/DisplayResults.class.php:5163
+#: libraries/DbSearch.class.php:361 libraries/DisplayResults.class.php:3472
+#: libraries/DisplayResults.class.php:5136
 #: libraries/schema/User_Schema.class.php:224
 #: libraries/schema/User_Schema.class.php:306
 #: libraries/schema/User_Schema.class.php:359
@@ -2960,25 +2960,25 @@ msgstr ""
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:3474
-#: libraries/DisplayResults.class.php:3490
+#: libraries/DisplayResults.class.php:3446
+#: libraries/DisplayResults.class.php:3462
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Ред је обрисан"
 
-#: libraries/DisplayResults.class.php:3526
-#: libraries/DisplayResults.class.php:5163 libraries/server_status.lib.php:518
+#: libraries/DisplayResults.class.php:3498
+#: libraries/DisplayResults.class.php:5136 libraries/server_status.lib.php:518
 msgid "Kill"
 msgstr "Обустави"
 
-#: libraries/DisplayResults.class.php:4610 libraries/structure.lib.php:776
+#: libraries/DisplayResults.class.php:4582 libraries/structure.lib.php:776
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Може бити приближно. Видите [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: libraries/DisplayResults.class.php:4666 libraries/Message.class.php:180
+#: libraries/DisplayResults.class.php:4639 libraries/Message.class.php:180
 #: libraries/rte/rte_routines.lib.php:1467
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
@@ -2988,38 +2988,38 @@ msgstr "Може бити приближно. Видите [doc@faq3-11]FAQ 3.11
 msgid "Your SQL query has been executed successfully."
 msgstr "Ваш SQL упит је успешно извршен"
 
-#: libraries/DisplayResults.class.php:5041 libraries/structure.lib.php:658
+#: libraries/DisplayResults.class.php:5014 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5054
+#: libraries/DisplayResults.class.php:5027
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Приказ записа"
 
-#: libraries/DisplayResults.class.php:5069
+#: libraries/DisplayResults.class.php:5042
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5074
+#: libraries/DisplayResults.class.php:5047
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "укупно"
 
-#: libraries/DisplayResults.class.php:5086 libraries/sql.lib.php:1642
+#: libraries/DisplayResults.class.php:5059 libraries/sql.lib.php:1644
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Упит је трајао %01.4f секунди"
 
-#: libraries/DisplayResults.class.php:5170
-#: libraries/DisplayResults.class.php:5176 libraries/mult_submits.inc.php:46
+#: libraries/DisplayResults.class.php:5143
+#: libraries/DisplayResults.class.php:5149 libraries/mult_submits.inc.php:46
 #: libraries/server_databases.lib.php:141
 #: libraries/server_databases.lib.php:145
 #: libraries/server_privileges.lib.php:2982
@@ -3029,8 +3029,8 @@ msgstr "Упит је трајао %01.4f секунди"
 msgid "With selected:"
 msgstr "Означено:"
 
-#: libraries/DisplayResults.class.php:5174
-#: libraries/DisplayResults.class.php:5175
+#: libraries/DisplayResults.class.php:5147
+#: libraries/DisplayResults.class.php:5148
 #: libraries/server_databases.lib.php:143
 #: libraries/server_databases.lib.php:144
 #: libraries/server_privileges.lib.php:1010
@@ -3043,13 +3043,13 @@ msgstr "Означено:"
 msgid "Check All"
 msgstr "Означи све"
 
-#: libraries/DisplayResults.class.php:5180 libraries/structure.lib.php:1395
+#: libraries/DisplayResults.class.php:5153 libraries/structure.lib.php:1395
 #: libraries/structure.lib.php:2073 querywindow.php:85
 msgid "Change"
 msgstr "Промени"
 
-#: libraries/DisplayResults.class.php:5193
-#: libraries/DisplayResults.class.php:5464 libraries/Menu.class.php:324
+#: libraries/DisplayResults.class.php:5166
+#: libraries/DisplayResults.class.php:5437 libraries/Menu.class.php:324
 #: libraries/Menu.class.php:422 libraries/Menu.class.php:541
 #: libraries/Util.class.php:3381 libraries/Util.class.php:3382
 #: libraries/Util.class.php:4095 libraries/Util.class.php:4110
@@ -3062,31 +3062,31 @@ msgstr "Промени"
 msgid "Export"
 msgstr "Извоз"
 
-#: libraries/DisplayResults.class.php:5352
+#: libraries/DisplayResults.class.php:5325
 msgid "Query results operations"
 msgstr "Операције на резултатима упита"
 
-#: libraries/DisplayResults.class.php:5388 libraries/Header.class.php:343
+#: libraries/DisplayResults.class.php:5361 libraries/Header.class.php:343
 #: libraries/structure.lib.php:299 libraries/structure.lib.php:362
 #: libraries/structure.lib.php:1518
 msgid "Print view"
 msgstr "За штампу"
 
-#: libraries/DisplayResults.class.php:5406
+#: libraries/DisplayResults.class.php:5379
 msgid "Print view (with full texts)"
 msgstr "Поглед за штампу (са пуним текстом)"
 
-#: libraries/DisplayResults.class.php:5477 libraries/tbl_chart.lib.php:294
+#: libraries/DisplayResults.class.php:5450 libraries/tbl_chart.lib.php:294
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Прикажи PDF схему"
 
-#: libraries/DisplayResults.class.php:5502
+#: libraries/DisplayResults.class.php:5475
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/DisplayResults.class.php:5722
+#: libraries/DisplayResults.class.php:5695
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -3453,27 +3453,46 @@ msgstr "Не могу да учитам подразумевану конфиг�
 msgid "Could not save favorite table!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/RecentFavoriteTable.class.php:195
+#: libraries/RecentFavoriteTable.class.php:210
+#: libraries/structure.lib.php:2726
 #, fuzzy
-msgid "Recent tables"
-msgstr "Нема табела"
+#| msgid "Remove database"
+msgid "Remove from Favorites"
+msgstr "Уклони базу"
 
-#: libraries/RecentFavoriteTable.class.php:196
+#: libraries/RecentFavoriteTable.class.php:227
 #, fuzzy
 msgid "There are no recent tables."
 msgstr "Провери табелу"
 
-#: libraries/RecentFavoriteTable.class.php:200
+#: libraries/RecentFavoriteTable.class.php:228
+#, fuzzy
+msgid "There are no favorite tables."
+msgstr "Провери табелу"
+
+#: libraries/RecentFavoriteTable.class.php:243
+#, fuzzy
+msgid "Recent tables"
+msgstr "Нема табела"
+
+#: libraries/RecentFavoriteTable.class.php:245
+#, fuzzy
+#| msgid "Reset"
+msgid "Recent"
+msgstr "Поништи"
+
+#: libraries/RecentFavoriteTable.class.php:247
 #: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "Променљиве"
 
-#: libraries/RecentFavoriteTable.class.php:201
+#: libraries/RecentFavoriteTable.class.php:249
 #, fuzzy
-msgid "There are no favorite tables."
-msgstr "Провери табелу"
+#| msgid "Variables"
+msgid "Favorites"
+msgstr "Променљиве"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -3636,55 +3655,55 @@ msgstr "Овај MySQL сервер не подржава %s погон скла
 msgid "Unknown table status:"
 msgstr "Прикажи статус подређених сервера"
 
-#: libraries/Table.class.php:792
+#: libraries/Table.class.php:796
 #, fuzzy, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Претраживање базе"
 
-#: libraries/Table.class.php:800
+#: libraries/Table.class.php:804
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
 msgstr "Није пронађена тема %s!"
 
-#: libraries/Table.class.php:1299
+#: libraries/Table.class.php:1303
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Неисправна база података"
 
-#: libraries/Table.class.php:1313
+#: libraries/Table.class.php:1317
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Неисправан назив табеле"
 
-#: libraries/Table.class.php:1348
+#: libraries/Table.class.php:1352
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Грешка при преименовању табеле %1$s у %2$s"
 
-#: libraries/Table.class.php:1367
+#: libraries/Table.class.php:1371
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табели %s промењено име у %s"
 
-#: libraries/Table.class.php:1515
+#: libraries/Table.class.php:1519
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: libraries/Table.class.php:1544
+#: libraries/Table.class.php:1548
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1695
+#: libraries/Table.class.php:1699
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3904,14 +3923,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -5495,7 +5514,7 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
-#: libraries/navigation/NavigationHeader.class.php:219
+#: libraries/navigation/NavigationHeader.class.php:218
 msgid "Query window"
 msgstr "Прозор за упите"
 
@@ -7334,8 +7353,8 @@ msgstr ""
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ова вредност се тумачи коришћењем %1$sstrftime%2$s, тако да можете да "
 "користите стрингове за форматирање времена. Такође ће се десити и следеће "
@@ -7837,8 +7856,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7897,7 +7916,7 @@ msgid "Dump has been saved to file %s."
 msgstr "Садржај базе је сачуван у датотеку %s."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1636
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1638
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL је вратио празан резултат (нула редова)."
@@ -8025,11 +8044,11 @@ msgstr ""
 "Користите TAB тастер за померање од поља до поља, или CTRL+стрелице за "
 "слободно померање"
 
-#: libraries/insert_edit.lib.php:1975 libraries/sql.lib.php:1633
+#: libraries/insert_edit.lib.php:1975 libraries/sql.lib.php:1635
 msgid "Showing SQL query"
 msgstr "Приказ као SQL упит"
 
-#: libraries/insert_edit.lib.php:2000 libraries/sql.lib.php:1613
+#: libraries/insert_edit.lib.php:2000 libraries/sql.lib.php:1615
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -8316,24 +8335,24 @@ msgstr "Табеле"
 msgid "Views:"
 msgstr "Поглед"
 
-#: libraries/navigation/NavigationHeader.class.php:193
+#: libraries/navigation/NavigationHeader.class.php:192
 msgid "Home"
 msgstr "Почетна страна"
 
-#: libraries/navigation/NavigationHeader.class.php:206
+#: libraries/navigation/NavigationHeader.class.php:205
 msgid "Log out"
 msgstr "Одјављивање"
 
-#: libraries/navigation/NavigationHeader.class.php:229
+#: libraries/navigation/NavigationHeader.class.php:228
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin документација"
 
-#: libraries/navigation/NavigationHeader.class.php:253
+#: libraries/navigation/NavigationHeader.class.php:252
 #, fuzzy
 msgid "Reload navigation panel"
 msgstr "Опције за извоз базе"
 
-#: libraries/navigation/NavigationTree.class.php:731
+#: libraries/navigation/NavigationTree.class.php:736
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
@@ -8341,24 +8360,24 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/navigation/NavigationTree.class.php:842
+#: libraries/navigation/NavigationTree.class.php:847
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1069
+#: libraries/navigation/NavigationTree.class.php:1074
 #, fuzzy
 #| msgid "table name"
 msgid "Filter databases by name or regex"
 msgstr "назив табеле"
 
-#: libraries/navigation/NavigationTree.class.php:1071
-#: libraries/navigation/NavigationTree.class.php:1106
+#: libraries/navigation/NavigationTree.class.php:1076
+#: libraries/navigation/NavigationTree.class.php:1111
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Сачувај као датотеку"
 
-#: libraries/navigation/NavigationTree.class.php:1105
+#: libraries/navigation/NavigationTree.class.php:1110
 #, fuzzy
 #| msgid "table name"
 msgid "Filter by name or regex"
@@ -8680,8 +8699,8 @@ msgstr "Добродошли на %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 "Вероватан разлог за ово је да нисте направили конфигурациону датотеку. "
 "Можете користити %1$sскрипт за инсталацију%2$s да бисте је направили."
@@ -11223,8 +11242,8 @@ msgstr "Преглед корисника"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Напомена: phpMyAdmin узима привилегије корисника директно из MySQL табела "
 "привилегија. Садржај ове табеле може се разликовати од привилегија које "
@@ -12436,42 +12455,42 @@ msgstr ""
 msgid "ø Time"
 msgstr "Време"
 
-#: libraries/sql.lib.php:763 libraries/sql.lib.php:783
+#: libraries/sql.lib.php:765 libraries/sql.lib.php:785
 msgid "Bookmark this SQL query"
 msgstr "Запамти SQL-упит"
 
-#: libraries/sql.lib.php:767
+#: libraries/sql.lib.php:769
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "Назив"
 
-#: libraries/sql.lib.php:775 libraries/sql_query_form.lib.php:326
+#: libraries/sql.lib.php:777 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
 msgstr "Дозволи сваком кориснику да приступа овом упамћеном упиту"
 
-#: libraries/sql.lib.php:1026
+#: libraries/sql.lib.php:1028
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "Направљен маркер %s"
 
-#: libraries/sql.lib.php:1182
+#: libraries/sql.lib.php:1184
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1630
+#: libraries/sql.lib.php:1632
 msgid "Showing as PHP code"
 msgstr "Приказ као PHP код"
 
-#: libraries/sql.lib.php:1913
+#: libraries/sql.lib.php:1915
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
 
-#: libraries/sql.lib.php:1950
+#: libraries/sql.lib.php:1952
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Проблем при индексирању табеле `%s`"
@@ -12821,12 +12840,6 @@ msgstr "Изабрани корисници су успешно обрисани
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
-
-#: libraries/structure.lib.php:2726
-#, fuzzy
-#| msgid "Remove database"
-msgid "Remove from Favorites"
-msgstr "Уклони базу"
 
 #: libraries/structure.lib.php:2727
 #, fuzzy
@@ -14303,8 +14316,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -14438,8 +14451,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
