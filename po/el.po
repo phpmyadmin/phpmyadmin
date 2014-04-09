@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-09 08:31-0400\n"
-"PO-Revision-Date: 2014-04-04 22:03+0200\n"
+"PO-Revision-Date: 2014-04-09 16:29+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
-">\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
+"\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -3194,10 +3194,9 @@ msgid "Recent tables"
 msgstr "Πρόσφατοι πίνακες"
 
 #: libraries/RecentFavoriteTable.class.php:245
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Επαναφορά"
+msgstr "Πρόσφατα"
 
 #: libraries/RecentFavoriteTable.class.php:247
 #: libraries/config/messages.inc.php:469
@@ -3205,10 +3204,9 @@ msgid "Favorite tables"
 msgstr "Αγαπημένοι πίνακες"
 
 #: libraries/RecentFavoriteTable.class.php:249
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites"
-msgstr "Αγαπημένοι πίνακες"
+msgstr "Αγαπημένοι"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
