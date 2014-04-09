@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-31 11:40+0200\n"
+"PO-Revision-Date: 2014-04-09 17:00+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -5676,15 +5676,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:343
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "Aviso de parola reservate de MySQL"
 
 #: libraries/config/messages.inc.php:345
 msgid "How to display the menu tabs"
-msgstr ""
+msgstr "Como monstrar le schedas de menu"
 
 #: libraries/config/messages.inc.php:347
 msgid "How to display various action links"
-msgstr ""
+msgstr "Comom monstrar varie ligamines de action"
 
 #: libraries/config/messages.inc.php:348
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -5692,7 +5692,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:349
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Protege columnas binari"
 
 #: libraries/config/messages.inc.php:350
 msgid ""
@@ -5703,7 +5703,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:351
 msgid "Permanent query history"
-msgstr ""
+msgstr "Historia permanente de query"
 
 #: libraries/config/messages.inc.php:353
 msgid "How many queries are kept in history"
@@ -5711,7 +5711,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:354
 msgid "Query history length"
-msgstr ""
+msgstr "Longitude de historia de query"
 
 #: libraries/config/messages.inc.php:355
 msgid "Tab displayed when opening a new query window"
@@ -5719,7 +5719,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:356
 msgid "Default query window tab"
-msgstr ""
+msgstr "Scheda predefinite de fenestra de query"
 
 #: libraries/config/messages.inc.php:357
 msgid "Query window height (in pixels)"
@@ -5727,7 +5727,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:358
 msgid "Query window height"
-msgstr ""
+msgstr "Altessa de fenestra de query"
 
 #: libraries/config/messages.inc.php:359
 msgid "Query window width (in pixels)"
@@ -5735,7 +5735,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:360
 msgid "Query window width"
-msgstr ""
+msgstr "Largessa de fenestra de query"
 
 #: libraries/config/messages.inc.php:361
 msgid "Select which functions will be used for character set conversion"
@@ -5751,7 +5751,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:364
 msgid "Remember table's sorting"
-msgstr ""
+msgstr "Memora ordine de tabellas"
 
 #: libraries/config/messages.inc.php:365
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
@@ -5759,7 +5759,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:366
 msgid "Repeat headers"
-msgstr ""
+msgstr "Repite capites"
 
 #: libraries/config/messages.inc.php:368
 msgid "Grid editing: trigger action"
