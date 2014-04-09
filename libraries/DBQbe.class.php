@@ -1450,7 +1450,7 @@ class PMA_DbQbe
     {
         $html_output = __('Saved bookmarked search:');
         $html_output .= ' <select name="searchId" id="searchId">';
-        $html_output .= '<option value="">New bookmark</option>';
+        $html_output .= '<option value="">' . __('New bookmark') . '</option>';
 
         $currentSearch = $this->_getCurrentSearch();
         $currentSearchId = null;
