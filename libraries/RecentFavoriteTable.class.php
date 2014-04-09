@@ -244,7 +244,7 @@ class PMA_RecentFavoriteTable
                 . __('Recent') . '</span><ul id="pma_recent_list">';
         } else {
             $html .= '<span class="drop_button">'
-                . __('Favorite') . '</span><ul id="pma_favorite_list">';
+                . __('Favorites') . '</span><ul id="pma_favorite_list">';
         }
         $html .= $this->getHtmlList();
         $html .= '</ul></div>';
