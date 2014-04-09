@@ -577,7 +577,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         // go to table page
         $this->waitForElement(
             "byXPath",
-            "//*[@id='pma_navigation_tree']//a[contains(., '$table')]"
+            "//*[@id='pma_navigation_tree_content']//a[contains(., '$table')]"
         )->click();
 
         // Wait for it to load
