@@ -240,10 +240,12 @@ class PMA_RecentFavoriteTable
     {
         $html  = '<div class="drop_list">';
         if ($this->table_type == 'recent') {
-            $html .= '<span class="drop_button">'
+            $html .= '<span title="' . __('Recent tables')
+                . '" class="drop_button">'
                 . __('Recent') . '</span><ul id="pma_recent_list">';
         } else {
-            $html .= '<span class="drop_button">'
+            $html .= '<span title="' . __('Favorite tables')
+                . '" class="drop_button">'
                 . __('Favorites') . '</span><ul id="pma_favorite_list">';
         }
         $html .= $this->getHtmlList();
