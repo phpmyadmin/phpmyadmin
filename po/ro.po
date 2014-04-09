@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 08:31-0400\n"
+"POT-Creation-Date: 2014-04-09 14:59-0400\n"
 "PO-Revision-Date: 2014-03-31 14:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Romanian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2559,6 +2559,12 @@ msgstr "Trimite comanda"
 #| msgid "Search"
 msgid "Saved bookmarked search:"
 msgstr "Caută"
+
+#: libraries/DBQbe.class.php:1453
+#, fuzzy
+#| msgid "Delete relation"
+msgid "New bookmark"
+msgstr "Șterge relația"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy

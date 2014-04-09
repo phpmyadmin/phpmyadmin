@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 08:31-0400\n"
+"POT-Creation-Date: 2014-04-09 14:59-0400\n"
 "PO-Revision-Date: 2014-04-02 12:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Persian <https://l10n.cihar.com/projects/phpmyadmin/master/fa/"
@@ -2493,6 +2493,12 @@ msgstr "ثبت کوئری"
 #| msgid "Search"
 msgid "Saved bookmarked search:"
 msgstr "جستجو"
+
+#: libraries/DBQbe.class.php:1453
+#, fuzzy
+#| msgid "Delete relation"
+msgid "New bookmark"
+msgstr "حذف رابطه"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy

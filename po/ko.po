@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 08:31-0400\n"
+"POT-Creation-Date: 2014-04-09 14:59-0400\n"
 "PO-Revision-Date: 2014-04-06 11:23+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
@@ -2397,6 +2397,12 @@ msgstr "질의 실행"
 #: libraries/DBQbe.class.php:1451
 msgid "Saved bookmarked search:"
 msgstr "저장된 북마크 검색:"
+
+#: libraries/DBQbe.class.php:1453
+#, fuzzy
+#| msgid "Create bookmark"
+msgid "New bookmark"
+msgstr "북마크 생성"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"

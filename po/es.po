@@ -1,17 +1,17 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 08:31-0400\n"
+"POT-Creation-Date: 2014-04-09 14:59-0400\n"
 "PO-Revision-Date: 2014-04-09 17:58+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone+weblate@gmail.com>\n"
-"Language-Team: Spanish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
-"Language: es\n"
+"Language-Team: Spanish <https://l10n.cihar.com/projects/phpmyadmin/master/es/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -2462,6 +2462,12 @@ msgstr "Ejecutar la consulta"
 msgid "Saved bookmarked search:"
 msgstr "Búsquedas favoritas guardadas:"
 
+#: libraries/DBQbe.class.php:1453
+#, fuzzy
+#| msgid "Create bookmark"
+msgid "New bookmark"
+msgstr "Crear favorito"
+
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"
 msgstr "Crear favorito"
@@ -3205,7 +3211,6 @@ msgid "Recent tables"
 msgstr "Tablas recientes"
 
 #: libraries/RecentFavoriteTable.class.php:245
-#| msgid "Reset"
 msgid "Recent"
 msgstr "Reciente"
 
@@ -3215,7 +3220,6 @@ msgid "Favorite tables"
 msgstr "Tablas favoritas"
 
 #: libraries/RecentFavoriteTable.class.php:249
-#| msgid "Favorite tables"
 msgid "Favorites"
 msgstr "Favoritas"
 

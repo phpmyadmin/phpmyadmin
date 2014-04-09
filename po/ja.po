@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 08:31-0400\n"
+"POT-Creation-Date: 2014-04-09 14:59-0400\n"
 "PO-Revision-Date: 2014-02-14 13:01+0200\n"
 "Last-Translator: Yuki Shira <shirayuking@gmail.com>\n"
 "Language-Team: Japanese <http://l10n.cihar.com/projects/phpmyadmin/master/ja/"
@@ -2483,6 +2483,12 @@ msgstr "クエリを実行する"
 #| msgid "Search"
 msgid "Saved bookmarked search:"
 msgstr "検索"
+
+#: libraries/DBQbe.class.php:1453
+#, fuzzy
+#| msgid "Delete relation"
+msgid "New bookmark"
+msgstr "リレーションを削除"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy

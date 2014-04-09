@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 08:31-0400\n"
+"POT-Creation-Date: 2014-04-09 14:59-0400\n"
 "PO-Revision-Date: 2014-04-07 05:15+0200\n"
 "Last-Translator: Luis Eduardo Braschi <herrcasper@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
@@ -2459,6 +2459,12 @@ msgstr "Enviar query"
 #| msgid "Saved searches:"
 msgid "Saved bookmarked search:"
 msgstr "Pesquisas salvas:"
+
+#: libraries/DBQbe.class.php:1453
+#, fuzzy
+#| msgid "Create bookmark"
+msgid "New bookmark"
+msgstr "Criar marcador"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"

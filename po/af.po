@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 08:31-0400\n"
+"POT-Creation-Date: 2014-04-09 14:59-0400\n"
 "PO-Revision-Date: 2014-03-28 11:05+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Afrikaans <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -2558,6 +2558,12 @@ msgstr "Doen Navraag"
 #, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
+msgstr "Soek"
+
+#: libraries/DBQbe.class.php:1453
+#, fuzzy
+#| msgid "Search"
+msgid "New bookmark"
 msgstr "Soek"
 
 #: libraries/DBQbe.class.php:1479

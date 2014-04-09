@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-dev\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 08:31-0400\n"
+"POT-Creation-Date: 2014-04-09 14:59-0400\n"
 "PO-Revision-Date: 2014-04-03 21:32+0200\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
 "Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/"
@@ -2426,6 +2426,12 @@ msgstr "Odošli dopyt"
 #| msgid "Search"
 msgid "Saved bookmarked search:"
 msgstr "Hľadať"
+
+#: libraries/DBQbe.class.php:1453
+#, fuzzy
+#| msgid "Delete relation"
+msgid "New bookmark"
+msgstr "Vytvoriť záložku"
 
 #: libraries/DBQbe.class.php:1479
 #, fuzzy
