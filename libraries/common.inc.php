@@ -247,17 +247,14 @@ if (isset($_POST['usesubform'])) {
 // end check if a subform is submitted
 
 /**
- * This setting was removed in PHP 5.4. But at this point PMA_PHP_INT_VERSION
- * is not yet defined so we use another way to find out the PHP version.
+ * This setting was removed in PHP 5.4, but get_magic_quotes_gpc
+ * always returns False since then.
  */
-if (version_compare(phpversion(), '5.4', 'lt')) {
-    // remove quotes added by PHP
-    if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
-        PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
-        PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
-        PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
-        PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
-    }
+if (get_magic_quotes_gpc()) {
+    PMA_arrayWalkRecursive($_GET, 'stripslashes', true);
+    PMA_arrayWalkRecursive($_POST, 'stripslashes', true);
+    PMA_arrayWalkRecursive($_COOKIE, 'stripslashes', true);
+    PMA_arrayWalkRecursive($_REQUEST, 'stripslashes', true);
 }
 
 /**
