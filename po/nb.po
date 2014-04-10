@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-29 12:41+0200\n"
-"Last-Translator: Magnus Vinsjevik <odevinsj@gmail.com>\n"
+"PO-Revision-Date: 2014-04-10 17:54+0200\n"
+"Last-Translator: Kai-Ove Finvold <translate@okai.no>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/nb/>\n"
 "Language: nb\n"
@@ -36,10 +36,9 @@ msgstr "Database kommentar: "
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1356
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:579
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Tabellkommentarer"
+msgstr "Tabellkommentarer:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1282
@@ -269,24 +268,21 @@ msgstr "i bruk"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1042
 #: libraries/schema/Pdf_Relation_Schema.class.php:1361
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "Opprettet"
+msgstr "Opprettet:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1055
 #: libraries/schema/Pdf_Relation_Schema.class.php:1366
-#, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
-msgstr "Sist oppdatert"
+msgstr "Sist oppdatert:"
 
 #: db_printview.php:137 libraries/plugins/export/ExportSql.class.php:1068
 #: libraries/schema/Pdf_Relation_Schema.class.php:1371
-#, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
-msgstr "Sist kontrollert"
+msgstr "Sist sjekket:"
 
 #: db_printview.php:151 libraries/structure.lib.php:176
 #, php-format
