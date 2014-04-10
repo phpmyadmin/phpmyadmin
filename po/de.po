@@ -13283,7 +13283,7 @@ msgstr "Version %1$s wurde erstellt, Tracking von %2$s ist aktiviert."
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
-msgstr "Deine Einstellungen verwalten"
+msgstr "Einstellungen verwalten"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
