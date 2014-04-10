@@ -4528,7 +4528,7 @@ class PMA_DisplayResults
         if (($is_display['nav_bar'] == '1') && isset($pos_next)) {
 
             $message = $this->_setMessageInformation(
-                $sorted_column_message, $analyzed_sql[0]['limit_clause'],
+                $sorted_column_message, $analyzed_sql,
                 $total, $pos_next, $pre_count, $after_count
             );
 
@@ -4869,11 +4869,16 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _setMessageInformation(
-        $sorted_column_message, $limit_clause, $total,
+        $sorted_column_message, $analyzed_sql, $total,
         $pos_next, $pre_count, $after_count
     ) {
 
-        $unlim_num_rows = $this->__get('unlim_num_rows'); // To use in isset()
+        $limit_clause = $analyzed_sql[0]['limit_clause'];
+        if (! empty($analyzed_sql[0]['group_by_clause'])) {
+            $unlim_num_rows = $this->__get('num_rows'); // To use in isset()
+        } else {
+            $unlim_num_rows = $this->__get('unlim_num_rows');
+        }
 
         if (isset($unlim_num_rows) && ($unlim_num_rows != $total)) {
             $selectstring = ', ' . $unlim_num_rows . ' ' . __('in query');
