@@ -220,7 +220,7 @@ function toggle_quick_or_custom()
 var time_out;
 function check_time_out(time_limit)
 {
-    if(typeof time_limit === 'undefined' || time_limit === 0) {
+    if (typeof time_limit === 'undefined' || time_limit === 0) {
         return true;
     }
     //margin of one second to avoid race condition to set/access session variable
