@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-06 11:19+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2014-04-10 16:07+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -7396,11 +7396,11 @@ msgstr "복사할 테이블에 접두사 추가:"
 
 #: libraries/mult_submits.lib.php:336
 msgid "From"
-msgstr "From"
+msgstr ""
 
 #: libraries/mult_submits.lib.php:342
 msgid "To"
-msgstr "To"
+msgstr ""
 
 #: libraries/mult_submits.lib.php:351 libraries/mult_submits.lib.php:384
 #: libraries/sql_query_form.lib.php:424
@@ -8681,7 +8681,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:89
 msgid "not OK"
-msgstr "not OK"
+msgstr ""
 
 #: libraries/relation.lib.php:96
 msgctxt "Correctly working"
