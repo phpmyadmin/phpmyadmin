@@ -442,8 +442,9 @@ function PMA_arrayMergeRecursive()
  */
 function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
 {
-    static $walked_keys = array();
     static $recursive_counter = 0;
+    $walked_keys = array();
+
     if (++$recursive_counter > 1000) {
         PMA_fatalError(__('possible deep recursion attack'));
     }
@@ -451,6 +452,7 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
         if (isset($walked_keys[$key])) {
             continue;
         }
+        $walked_keys[$key] = true;
 
         if (is_array($value)) {
             PMA_arrayWalkRecursive($array[$key], $function, $apply_to_keys_also);
@@ -464,8 +466,6 @@ function PMA_arrayWalkRecursive(&$array, $function, $apply_to_keys_also = false)
                 $array[$new_key] = $array[$key];
                 unset($array[$key]);
                 $walked_keys[$new_key] = true;
-            } else {
-                $walked_keys[$key] = true;
             }
         }
     }
