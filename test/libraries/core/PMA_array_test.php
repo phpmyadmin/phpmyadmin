@@ -375,6 +375,7 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
             'k\\ey2'=>array('s\\\\key1'=>'sval\\1', 's\\k\\ey2'=>'s\\v\\al2'),
             'key3'=>'val3'
         );
+        $second = $arr;
         $target = array(
             "key1"=>'v\\al1',
             'key2'=>array('s\\key1'=>'sval1', 'skey2'=>'sval2'),
@@ -383,6 +384,8 @@ class PMA_Array_Test extends PHPUnit_Framework_TestCase
 
         PMA_arrayWalkRecursive($arr, 'stripslashes', true);
         $this->assertEquals($arr, $target);
+        PMA_arrayWalkRecursive($second, 'stripslashes', true);
+        $this->assertEquals($second, $target);
     }
 
     /**
