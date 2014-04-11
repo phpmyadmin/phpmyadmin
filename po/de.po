@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-02-27 11:30+0200\n"
+"PO-Revision-Date: 2014-04-11 07:49+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/4-1/de/>\n"
 "Language: de\n"
@@ -12595,7 +12595,7 @@ msgstr "Version %1$s wurde erstellt, Tracking von %2$s ist aktiviert."
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
-msgstr "Deine Einstellungen verwalten"
+msgstr "Einstellungen verwalten"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:291
 msgid "Configuration has been saved"
