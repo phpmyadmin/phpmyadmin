@@ -59,6 +59,7 @@ phpMyAdmin - ChangeLog
 - bug #4355 Precision specifier for DOUBLE type is truncated
 - bug #4346 Incorrect "Export incomplete" message
 - bug #4359 Notices on create table page 
+- bug #4356 GROUPed selects show number of rows as if not grouped
 
 4.1.12.0 (2014-03-27)
 - bug #4334 Add event : datepicker won't open
