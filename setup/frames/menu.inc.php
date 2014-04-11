@@ -16,7 +16,7 @@ $separator = PMA_URL_getArgSeparator('html');
 echo '<ul>';
 echo '<li><a href="index.php"'
     . ($formset_id === null ? ' class="active' : '')
-    .'">' . __('Overview') . '</a></li>';
+    . '">' . __('Overview') . '</a></li>';
 
 $formsets = array(
     'Features'    => __('Features'),
@@ -30,7 +30,7 @@ $formsets = array(
 foreach ($formsets as $formset => $label) {
     echo '<li><a href="?page=form' . $separator . 'formset=' . $formset . '" '
         . ($formset_id === $formset ? ' class="active' : '')
-        .'">' . $label . '</a></li>';
+        . '">' . $label . '</a></li>';
 }
 
 echo '</ul>';

@@ -480,7 +480,7 @@ function PMA_getHtmlForStructureTableRow(
     //Favorite table anchor.
     $html_output .= '<td class="center">'
         . PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
-        .'</td>';
+        . '</td>';
 
     $html_output .= '<td class="center">' . $browse_table . '</td>';
     $html_output .= '<td class="center">'

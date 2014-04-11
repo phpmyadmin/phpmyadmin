@@ -2111,7 +2111,7 @@ class PMA_DisplayResults
         $index2 = $index + 1;
         if (strtoupper(trim($sort_direction[$index])) ==  self::DESCENDING_SORT_DIR) {
 
-            $sort_number = "<small>".$index2."</small>";
+            $sort_number = "<small>" . $index2 . "</small>";
             $sort_order .= ' ASC';
             $order_img   = ' ' . PMA_Util::getImage(
                 's_desc.png', __('Descending'),
@@ -2125,7 +2125,7 @@ class PMA_DisplayResults
 
         } else {
 
-            $sort_number = "<small>".$index2."</small>";
+            $sort_number = "<small>" . $index2 . "</small>";
             $sort_order .= ' DESC';
             $order_img   = ' ' . PMA_Util::getImage(
                 's_asc.png', __('Ascending'),
