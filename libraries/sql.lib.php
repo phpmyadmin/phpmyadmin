@@ -876,8 +876,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && ! $table_name
         && (empty($analyzed_sql_results['analyzed_sql'][0]['where_clause'])
         || $analyzed_sql_results['analyzed_sql'][0]['where_clause'] == '1 ')
-        && (empty($analyzed_sql_results['analyzed_sql'][0]['group_by_clause'])
-        || $analyzed_sql_results['analyzed_sql'][0]['group_by_clause'] == '1 ')
+        && empty($analyzed_sql_results['analyzed_sql'][0]['group_by_clause'])
         && ! isset($find_real_end)
         && !$analyzed_sql_results['is_subquery']
     ) {
