@@ -885,7 +885,7 @@ function addDateTimePicker() {
             PMA_addDatepicker($(this), $(this).parent().attr('data-type'), {
                 showMillisec: showMillisec,
                 showMicrosec: showMicrosec,
-                timeFormat: timeFormat,
+                timeFormat: timeFormat
             });
         });
     }
