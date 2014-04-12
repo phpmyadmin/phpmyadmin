@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-10 16:07+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-04-12 14:02+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -8305,32 +8305,33 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:100
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr ""
+"추가적인 커스텀 헤더 코멘트(\\n"
+"으로 줄바꿈):"
 
 #: libraries/plugins/export/ExportSql.class.php:107
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
-msgstr ""
+msgstr "데이터베이스의 생성일, 마지막 업데이트, 마지막 체크에 대한 타임스탬프 포함"
 
 #: libraries/plugins/export/ExportSql.class.php:170
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
-msgstr ""
+msgstr "호환성을 최대화 할 수 있는 데이터베이스 시스템 또는 예전 버전의 MySQL 서버:"
 
 #: libraries/plugins/export/ExportSql.class.php:191
 #: libraries/plugins/export/ExportSql.class.php:234
 #: libraries/plugins/export/ExportSql.class.php:257
 #: libraries/plugins/export/ExportSql.class.php:265
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "명세"
+msgstr "%s 구문 추가"
 
 #: libraries/plugins/export/ExportSql.class.php:227
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "명세"
+msgstr "구문 추가:"
 
 #: libraries/plugins/export/ExportSql.class.php:295
 msgid ""
@@ -11101,21 +11102,21 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:675
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "쿼리 캐시의 총 블럭 수."
 
 #: libraries/server_status_variables.lib.php:678
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
+msgstr "Failsafe 리플리케이션 상태 (아직 구현 안 됨)."
 
 #: libraries/server_status_variables.lib.php:681
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
-msgstr ""
+msgstr "인덱스를 사용하지 않은 조인의 수. 이 값이 0이 아니라면 테이블의 인덱스들을 주의 깊게 체크하세요."
 
 #: libraries/server_status_variables.lib.php:685
 msgid "The number of joins that used a range search on a reference table."
-msgstr ""
+msgstr "레퍼런스 테이블의 레인지 검색에 사용된 조인의 수."
 
 #: libraries/server_status_variables.lib.php:688
 msgid ""
@@ -12689,6 +12690,9 @@ msgid ""
 "proxies list%s. However, IP-based protection may not be reliable if your IP "
 "belongs to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"이 %soption%s은 무차별 대입 공격으로 MySQL 서버에 로그인 할 수 있는 취약점이 있으므로 비활성화 되어야 합니다. 만약 이 "
+"기능이 필요하다면, %strusted proxies list%s 옵션을 사용하세요. 하지만 IP 기반의 방어는 당신의 IP 주소가 "
+"수천명이 함께쓰는 ISP 대역에 있을 경우 안전하지 않습니다."
 
 #: setup/lib/index.lib.php:225
 msgid ""
@@ -12703,12 +12707,14 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sBzip2 compression and decompression%s는 (%s) 기능이 필요한데, 이 기능은 이 시스템이서는 사용할 수 "
+"없습니다."
 
 #: setup/lib/index.lib.php:232
 msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
-msgstr ""
+msgstr "이 값은, 이 디렉토리가 외부에서 접속할 수 없도록, 이 서버의 다른 사용자가 읽거나 쓸 수 없도록 이중으로 체크되어야 합니다."
 
 #: setup/lib/index.lib.php:233
 #, php-format
@@ -12721,6 +12727,8 @@ msgid ""
 "%sGZip compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
+"%sGZip compression and decompression%s은 (%s) 기능이 필요한데, 이 기능은 이 시스템이서는 사용할 수 "
+"없습니다."
 
 #: setup/lib/index.lib.php:246
 #, php-format
