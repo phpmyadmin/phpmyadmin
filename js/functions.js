@@ -3871,17 +3871,19 @@ AJAX.registerOnload('functions.js', function () {
      * Attach Ajax event handlers for input fields in the editor
      * and used to submit the Ajax request when the ENTER key is pressed.
      */
-    $('#createViewDialog').find('input, select').live('keydown', function (e) {
-        if (e.which === 13) { // 13 is the ENTER key
-            e.preventDefault();
+    if ($('#createViewDialog').length !== 0) {
+        $('#createViewDialog').find('input, select').live('keydown', function (e) {
+            if (e.which === 13) { // 13 is the ENTER key
+                e.preventDefault();
 
-            // with preventing default, selection by <select> tag
-            // was also prevented in IE
-            $(this).blur();
+                // with preventing default, selection by <select> tag
+                // was also prevented in IE
+                $(this).blur();
 
-            $(this).closest('.ui-dialog').find('.ui-button:first').click();
-        }
-    }); // end $.live()
+                $(this).closest('.ui-dialog').find('.ui-button:first').click();
+            }
+        }); // end $.live()
+    }
 
     var $elm = $('textarea[name="view[as]"]');
     if ($elm.length > 0) {
