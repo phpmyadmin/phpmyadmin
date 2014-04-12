@@ -60,6 +60,7 @@ phpMyAdmin - ChangeLog
 - bug #4346 Incorrect "Export incomplete" message
 - bug #4359 Notices on create table page 
 - bug #4356 GROUPed selects show number of rows as if not grouped
+- bug #4357 JS Form submitted on "enter" even if focus is inside a select field 
 
 4.1.12.0 (2014-03-27)
 - bug #4334 Add event : datepicker won't open
