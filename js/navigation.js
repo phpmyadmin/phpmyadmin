@@ -155,16 +155,6 @@ $(function () {
         indexEditorDialog(url, title);
     });
 
-    /** Edit index */
-    $('li.index a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var url = $(this).attr('href').substr(
-            $(this).attr('href').indexOf('?') + 1
-        ) + '&ajax_request=true';
-        var title = PMA_messages.strEditIndex;
-        indexEditorDialog(url, title);
-    });
-
     /** New view */
     $('li.new_view a.ajax').live('click', function (event) {
         event.preventDefault();
