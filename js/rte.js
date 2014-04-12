@@ -751,8 +751,6 @@ RTE.ROUTINE = {
 
 /**
  * Attach Ajax event handlers for the Routines, Triggers and Events editor
- *
- * FIXME: submit on ENTER keypress in dialog
  */
 $(function () {
     /**
