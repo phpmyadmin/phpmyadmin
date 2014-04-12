@@ -1986,7 +1986,7 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     );
     $html_output .= PMA_getHtmlForActionRowInStructureTable(
         $type, $tbl_storage_engine,
-        'add_index index nowrap', false, false, $url_query,
+        'add_index nowrap', false, false, $url_query,
         $primary, 'ADD INDEX', __('An index has been added on %s.'),
         'Index', $titles, $row, false
     );
