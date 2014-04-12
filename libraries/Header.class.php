@@ -476,6 +476,7 @@ class PMA_Header
                 . $GLOBALS['cfg']['CSPAllow'] . ';'
                 . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
                 . ($use_captcha ? 'https://www.google.com ' : ' ')
+                . $GLOBALS['cfg']['CSPAllow'] . ';'
                 . ";"
                 . "style-src 'self' 'unsafe-inline' "
                 . ($use_captcha ? 'https://www.google.com ' : ' ')
