@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-13 15:08+0200\n"
-"Last-Translator: Павло <f_koala@ua.fm>\n"
+"PO-Revision-Date: 2014-04-13 15:17+0200\n"
+"Last-Translator: Andriy Bandura <andriykopanytsia@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.cihar.com/projects/phpmyadmin/4-1/uk/>"
 "\n"
 "Language: uk\n"
@@ -441,7 +441,7 @@ msgstr "Спасибі за звіт."
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr ""
+msgstr "На жаль, надсилання провалилося."
 
 #: export.php:174
 msgid "Bad type!"
@@ -709,6 +709,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Ви знаходитесь на демо-сервері. Можете робити тут усе, що завгодно, але, "
+"будь ласка, не змінюйте користувачів root, debian-sys-maint і pma. Додаткова "
+"інформація доступна на %s."
 
 #: index.php:139
 msgid "General Settings"
@@ -1339,7 +1342,7 @@ msgstr "Із загального журналу"
 
 #: js/messages.php:162
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "Ім'я бази даних для цього запиту не присутнє в журналі сервера."
 
 #: js/messages.php:164
 msgid "Analysing logs"
@@ -2028,6 +2031,7 @@ msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"Трапилася фатальна помилка JavaScript. Ви хочете відіслати звіт про неї?"
 
 #: js/messages.php:414
 msgid "Change Report Settings"
@@ -2041,6 +2045,7 @@ msgstr "Показати подробиці звіту"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP level"
 msgstr ""
+"Експорту буде неповним через низьке обмеження часу виконання на рівні PHP"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:439
@@ -2450,7 +2455,7 @@ msgstr "Змінити:"
 
 #: libraries/DBQbe.class.php:743
 msgid "Ins:"
-msgstr ""
+msgstr "Вставити:"
 
 #: libraries/DBQbe.class.php:758
 msgid "Del:"
@@ -2871,7 +2876,7 @@ msgstr "Неможливо прочитати (перемістити) відв�
 #: libraries/Footer.class.php:74
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "Запущена Git ревізія %1$s з гілки %2$s."
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
@@ -3525,24 +3530,34 @@ msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"Чотирибайтове ціле число, діапазон чисел зі знаком від -2,147,483,648 до "
+"2,147,483,647, діапазон чисел без знаку від 0 до 4,294,967,295"
 
 #: libraries/Types.class.php:305
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Восьми-байтове ціле число, діапазон чисел зі знаком від -9 223 372 036 854 "
+"775 808 до 9 223 372 036 854 775 807, діапазон чисел без знака від 0 до 18 "
+"446 744 073 709 551 615"
 
 #: libraries/Types.class.php:307 libraries/Types.class.php:714
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Число з плаваючою крапкою (M, D) - максимальна кількість цілих чисел (M) не "
+"повинна перевищувати 65 (типово 10), максимальна кількість десяткових (D) не "
+"повинна перевищувати 30 (типово 0)"
 
 #: libraries/Types.class.php:309
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Мале число з плаваючою крапкою, допустимі значення від-3.402823466E+38 "
+"до-1.175494351E-38, 0, і від 1.175494351E-38 до 3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -3550,28 +3565,35 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Число з плаваючою крапкою подвійної точності, допустимі значення "
+"від-1.7976931348623157E+308 до-2.2250738585072014E-308, 0, і від "
+"2.2250738585072014E-308 до 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Синонім для DOUBLE (виняток: у режимі REAL_AS_FLOAT SQL буде синонім для "
+"FLOAT)"
 
 #: libraries/Types.class.php:315
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
-msgstr ""
+msgstr "Тип поля-біт (M), збереже M біт для значення (типово 1, максимум 64)"
 
 #: libraries/Types.class.php:317
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Синонім для TINYINT(1), значення нуля передбачає false, ненульові значення "
+"припускають true"
 
 #: libraries/Types.class.php:319
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Псевдонім для BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:321 libraries/Types.class.php:724
 #, php-format
