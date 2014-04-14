@@ -1202,12 +1202,10 @@ class PMA_NavigationTree
     private function _quickWarp()
     {
         $retval  = '<div id="pma_quick_warp">';
-        if ($GLOBALS['cfg']['NumRecentTables'] > 0)
-        {
+        if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
             $retval .= PMA_RecentFavoriteTable::getInstance('recent')->getHtml();
         }
-        if ($GLOBALS['cfg']['NumFavoriteTables'] > 0)
-        {
+        if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
             $retval .= PMA_RecentFavoriteTable::getInstance('favorite')->getHtml();
         }
         $retval .= '<div class="clearfloat"></div>';
