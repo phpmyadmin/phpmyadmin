@@ -2685,7 +2685,7 @@ function PMA_displayTableBrowseForSelectedColumns($db, $table, $goto,
  * Function to check if a table is already in favorite list.
  *
  * @param string $db            current database
- * @param string $table         current table
+ * @param string $current_table current table
  *
  * @return true|false
  */
@@ -2711,7 +2711,9 @@ function PMA_checkFavoriteTable($db, $current_table)
 function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
 {
     $html_output  = '<a ';
-    $html_output .= 'id="' . preg_replace('/\s+/', '', $current_table['TABLE_NAME']) . '_favorite_anchor" ';
+    $html_output .= 'id="' . preg_replace(
+        '/\s+/', '', $current_table['TABLE_NAME']
+    ) . '_favorite_anchor" ';
     $html_output .= 'class="ajax favorite_table_anchor';
 
     // Check if current table is already in favorite list.
