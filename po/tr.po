@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-09 14:59-0400\n"
-"PO-Revision-Date: 2014-04-12 21:33+0200\n"
+"PO-Revision-Date: 2014-04-14 06:56+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -9134,7 +9134,7 @@ msgstr "TAMAM"
 
 #: libraries/relation.lib.php:99
 msgid "Enabled"
-msgstr "Etkin"
+msgstr "Etkinleştirildi"
 
 #: libraries/relation.lib.php:106 libraries/relation.lib.php:124
 msgid "General relation features"
@@ -9142,7 +9142,7 @@ msgstr "Genel bağlantı özellikleri"
 
 #: libraries/relation.lib.php:135
 msgid "Display Features"
-msgstr "Özellikleri göster"
+msgstr "Özellikleri görüntüleme"
 
 #: libraries/relation.lib.php:152
 msgid "Creation of PDFs"
@@ -9150,7 +9150,7 @@ msgstr "PDF'lerin oluşturulması"
 
 #: libraries/relation.lib.php:163
 msgid "Displaying Column Comments"
-msgstr "Sütun Yorumları gösteriliyor"
+msgstr "Sütun Yorumlarını görüntüleme"
 
 #: libraries/relation.lib.php:169
 #: libraries/tbl_columns_definition_form.lib.php:321
@@ -9167,7 +9167,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:185 libraries/sql_query_form.lib.php:404
 msgid "Bookmarked SQL query"
-msgstr "SQL sorgusu işaretlendi"
+msgstr "İşaretlenmiş SQL sorgusu"
 
 #: libraries/relation.lib.php:196 querywindow.php:70
 msgid "SQL history"
@@ -9195,7 +9195,7 @@ msgstr "Rehber öğelerini gizle/göster"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
-msgstr "Örnekle Sorgulama aramaları kaydediliyor"
+msgstr "Örnekle Sorgulama aramalarını kaydetme"
 
 #: libraries/relation.lib.php:296
 msgid "Quick steps to setup advanced features:"
@@ -9209,7 +9209,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:306
 msgid "Create a pma user and give access to these tables."
-msgstr "Pma kullanıcısı oluştur ve bu tablolara erişim verin."
+msgstr "Pma kullanıcısı oluşturun ve bu tablolara erişim verin."
 
 #: libraries/relation.lib.php:311
 msgid ""
