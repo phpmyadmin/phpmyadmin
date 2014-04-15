@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-12 21:33+0200\n"
+"PO-Revision-Date: 2014-04-14 06:56+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/4-1/tr/>\n"
 "Language: tr\n"
@@ -8921,7 +8921,7 @@ msgstr "TAMAM"
 
 #: libraries/relation.lib.php:99
 msgid "Enabled"
-msgstr "Etkin"
+msgstr "Etkinleştirildi"
 
 #: libraries/relation.lib.php:106 libraries/relation.lib.php:124
 msgid "General relation features"
@@ -8929,7 +8929,7 @@ msgstr "Genel bağlantı özellikleri"
 
 #: libraries/relation.lib.php:135
 msgid "Display Features"
-msgstr "Özellikleri göster"
+msgstr "Özellikleri görüntüleme"
 
 #: libraries/relation.lib.php:152
 msgid "Creation of PDFs"
@@ -8937,7 +8937,7 @@ msgstr "PDF'lerin oluşturulması"
 
 #: libraries/relation.lib.php:163
 msgid "Displaying Column Comments"
-msgstr "Sütun Yorumları gösteriliyor"
+msgstr "Sütun Yorumlarını görüntüleme"
 
 #: libraries/relation.lib.php:169
 #: libraries/tbl_columns_definition_form.lib.php:318
@@ -8954,7 +8954,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:185 libraries/sql_query_form.lib.php:404
 msgid "Bookmarked SQL query"
-msgstr "SQL sorgusu işaretlendi"
+msgstr "İşaretlenmiş SQL sorgusu"
 
 #: libraries/relation.lib.php:196 querywindow.php:70
 msgid "SQL history"
@@ -8992,7 +8992,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:295
 msgid "Create a pma user and give access to these tables."
-msgstr "Pma kullanıcısı oluştur ve bu tablolara erişim verin."
+msgstr "Pma kullanıcısı oluşturun ve bu tablolara erişim verin."
 
 #: libraries/relation.lib.php:300
 msgid ""
