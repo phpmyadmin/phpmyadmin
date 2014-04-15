@@ -895,6 +895,16 @@ class PMA_Tracker
             $suffix  = explode('(', $prefix[1]);
             $result['tablename'] = self::getTableName($suffix[0]);
         }
+        
+        // Parse REPLACE INTO statement
+        if (! isset($result['identifier'])
+            && substr($query, 0, 12) == 'REPLACE INTO'
+        ) {
+            $result['identifier'] = 'REPLACE';
+            $prefix  = explode('REPLACE INTO', $query);
+            $suffix  = explode('(', $prefix[1]);
+            $result['tablename'] = self::getTableName($suffix[0]);
+        }
 
         // Parse DELETE statement
         if (! isset($result['identifier'])
