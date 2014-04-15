@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 - bug #4352 Settings > Manage: incorrect messages 
 
 4.1.14.0 (not yet released)
+- bug #4365 Creating bookmark with multiple queries not working
 
 4.1.13.0 (2014-04-13)
 - bug #4279 CTRL + up or down moves 2 fields
