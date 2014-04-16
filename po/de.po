@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-09 14:59-0400\n"
-"PO-Revision-Date: 2014-04-02 12:24+0200\n"
-"Last-Translator: Ann + J.M. <phpMyAdmin@ZweiSteinSoft.de>\n"
-"Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2014-04-16 12:27+0200\n"
+"Last-Translator: Purodha Blissenbach <publi@web.de>\n"
+"Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/>"
+"\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -3390,7 +3390,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Dieser MySQL-Server unterstützt %s nicht."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
 msgstr "Unbekannter Tabellenstatus:"
@@ -4466,7 +4465,6 @@ msgstr ""
 "eingeschlossen, verbunden sind."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4476,10 +4474,10 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Sie hatten keinen Blowfish-Schlüssel angegeben, aber Cookie-"
-"Authentifizierung aktiviert, deshalb wurde ein Schlüssel automatisch "
-"erzeugt. Er wird zum Verschlüsseln der Cookies verwendet und muss nicht "
-"gemerkt werden."
+"Sie hatten keinen Blowfish-Schlüssel angegeben, aber die [kbd]Cookie[/kbd]-"
+"Authentifizierung aktiviert. Deshalb wurde ein Schlüssel automatisch "
+"erzeugt. Er wird zum Verschlüsseln der Cookies verwendet, sie müssen ihn "
+"sich nicht merken."
 
 #: libraries/config/ServerConfigChecks.class.php:379
 #, php-format
@@ -4536,7 +4534,7 @@ msgstr ""
 "z.B. durch Leute, die sich als Sie ausgeben."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, %"
 #| "sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4544,9 +4542,9 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Falls Sie Cookie-Authentifizierung verwenden und der %sLogincookiespeicher%s "
-"ungleich 0 ist, muss die %sLogincookie-Gültigkeit%s auf den gleichen oder "
-"einen niedrigeren Wert gesetzt sein."
+"Falls Sie die [kbd]Cookie[/kbd]-Authentifizierung verwenden und der "
+"%sLogincookiespeicher%s ungleich 0 ist, muss die %sLogincookie-Gültigkeit%s "
+"auf den gleichen oder einen niedrigeren Wert gesetzt sein."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, fuzzy, php-format
@@ -4608,30 +4606,32 @@ msgstr "Konnte Drizzle-Verbindungsbibliothek nicht initialisieren!"
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Es konnte keine Verbindung zu Ziel-Datenbank hergestellt werden"
+msgstr "Es konnte keine Verbindung zu Ziel-Datenbankserver hergestellt werden."
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Leerer Benutzername, obwohl config-Authentisierung verwendet wird!"
+msgstr ""
+"Leerer Benutzername, obwohl die [kbd]config[/kbd]-Authentisierung verwendet "
+"wird!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Leerer Sessionname, obwohl signon-Authentisierung verwendet wird!"
+msgstr ""
+"Leerer Sessionname, obwohl die [kbd]signon[/kbd]-Authentisierung verwendet "
+"wird!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Leere signon-URL, obwohl signon-Authentisierung verwendet wird!"
+msgstr ""
+"Leere signon-URL, obwohl die [kbd]signon[/kbd]-Authentisierung verwendet "
+"wird!"
 
 #: libraries/config/Validator.class.php:369
 #, fuzzy
@@ -5255,10 +5255,9 @@ msgid "Navigation panel"
 msgstr "Navigationspanel"
 
 #: libraries/config/messages.inc.php:236
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "Aussehen des Navigationspanels anpassen"
+msgstr "Aussehen des Navigationspanels anpassen."
 
 #: libraries/config/messages.inc.php:237 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
@@ -5266,16 +5265,14 @@ msgid "Servers"
 msgstr "Server"
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "Anzeigeoptionen für Server"
+msgstr "Anzeigeoptionen für Server."
 
 #: libraries/config/messages.inc.php:240
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "Anzeigeoptionen für Tabellen"
+msgstr "Anzeigeoptionen für Tabellen."
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:25
 msgid "Main panel"
@@ -5290,10 +5287,9 @@ msgid "Other core settings"
 msgstr "Sonstige Einstellungen"
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "Einstellungen welche in keine andere Kategorie passten"
+msgstr "Einstellungen welche in keine andere Kategorie passten."
 
 #: libraries/config/messages.inc.php:249
 msgid "Page titles"
@@ -5321,7 +5317,6 @@ msgid "Security"
 msgstr "Sicherheit"
 
 #: libraries/config/messages.inc.php:259
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
@@ -5329,8 +5324,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
-"Beachten Sie, dass phMyAdmin nur ein Userinterface ist und in keinster Weise "
-"die Möglichkeiten von MySQL limitiert"
+"Beachten Sie, dass phMyAdmin nur eine Bedienoberfläche ist und die "
+"Möglichkeiten von MySQL nicht einschränkt."
 
 #: libraries/config/messages.inc.php:262
 msgid "Basic settings"
@@ -5341,17 +5336,15 @@ msgid "Authentication"
 msgstr "Authentifizierung"
 
 #: libraries/config/messages.inc.php:264
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "Authentifizierungseinstellungen"
+msgstr "Authentifizierungseinstellungen."
 
 #: libraries/config/messages.inc.php:265
 msgid "Server configuration"
 msgstr "Serverkonfiguration"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
@@ -5359,14 +5352,13 @@ msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr ""
-"Erweiterte Serverkonfiguration, ändern Sie diese Einstellungen nur wenn Sie "
-"wissen was Sie tun"
+"Erweiterte Serverkonfiguration, ändern Sie diese Einstellungen nur, wenn Sie "
+"wissen was Sie tun."
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "Geben Sie die Verbindungsparameter für den Server ein"
+msgstr "Geben Sie die Verbindungsparameter für den Server ein."
 
 #: libraries/config/messages.inc.php:271
 msgid "Configuration storage"
@@ -5431,10 +5423,9 @@ msgid "Customize links shown in SQL Query boxes."
 msgstr "Angezeigte Links in SQL-Querybox ändern"
 
 #: libraries/config/messages.inc.php:293
-#, fuzzy
 #| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "Einstellungen für SQL-Abfragen"
+msgstr "Einstellungen für SQL-Abfragen."
 
 #: libraries/config/messages.inc.php:294
 msgid "Startup"
@@ -5451,14 +5442,13 @@ msgid "Database structure"
 msgstr "Datenbank-Struktur"
 
 #: libraries/config/messages.inc.php:298
-#, fuzzy
 #| msgid ""
 #| "Choose which details to show in the database structure (list of tables)"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 "Wählen Sie aus, welche Details in der Datenbankstrukturansicht (Liste der "
-"Tabellen) angezeigt werden sollen"
+"Tabellen) angezeigt werden sollen."
 
 #: libraries/config/messages.inc.php:299
 msgid "Table structure"
@@ -5475,10 +5465,9 @@ msgid "Tabs"
 msgstr "Tabs"
 
 #: libraries/config/messages.inc.php:303
-#, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "Wählen Sie wie die Tabs funktionieren sollen"
+msgstr "Wählen Sie wie die Tabs funktionieren sollen."
 
 #: libraries/config/messages.inc.php:304
 #: libraries/schema/User_Schema.class.php:426
@@ -5495,10 +5484,9 @@ msgid "Text fields"
 msgstr "Textfelder"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "Texteingabefelder anpassen"
+msgstr "Texteingabefelder anpassen."
 
 #: libraries/config/messages.inc.php:310
 msgid "Texy! text"
@@ -5519,7 +5507,6 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Unterdrückung einiger phpMyAdmin Warnhinweise"
 
 #: libraries/config/messages.inc.php:316
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations"
@@ -5528,7 +5515,7 @@ msgid ""
 "and export operations."
 msgstr ""
 "[a@http://de.wikipedia.org/wiki/Gzip]GZip[/a]-Kompression für Import- und "
-"Exportoperationen aktiviren"
+"Exportoperationen aktiviren."
 
 #: libraries/config/messages.inc.php:319
 msgid "GZip"
