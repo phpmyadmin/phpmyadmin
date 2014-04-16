@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-alpha1\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-alpha2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-09 14:59-0400\n"
+"POT-Creation-Date: 2014-04-16 12:57+0200\n"
 "PO-Revision-Date: 2013-11-25 15:29+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uighur <http://l10n.cihar.com/projects/phpmyadmin/master/ug/"
 ">\n"
+"Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ug\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -238,8 +238,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن %"
-"sبۇ يەرنى كۆرۈڭ%s."
+"ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن "
+"%sبۇ يەرنى كۆرۈڭ%s."
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:760
@@ -565,13 +565,14 @@ msgstr "مەجبۇرى قوشۇش"
 #: libraries/TableSearch.class.php:1229 libraries/browse_foreigners.lib.php:51
 #: libraries/core.lib.php:572 libraries/display_change_password.lib.php:100
 #: libraries/display_create_table.lib.php:71
-#: libraries/display_export.lib.php:294 libraries/display_import.lib.php:367
-#: libraries/index.lib.php:40 libraries/insert_edit.lib.php:1594
-#: libraries/insert_edit.lib.php:1629 libraries/operations.lib.php:39
-#: libraries/operations.lib.php:82 libraries/operations.lib.php:210
-#: libraries/operations.lib.php:254 libraries/operations.lib.php:650
-#: libraries/operations.lib.php:703 libraries/operations.lib.php:752
-#: libraries/operations.lib.php:1067 libraries/operations.lib.php:1344
+#: libraries/display_export.lib.php:295 libraries/display_export.lib.php:301
+#: libraries/display_import.lib.php:367 libraries/index.lib.php:40
+#: libraries/insert_edit.lib.php:1594 libraries/insert_edit.lib.php:1629
+#: libraries/operations.lib.php:39 libraries/operations.lib.php:82
+#: libraries/operations.lib.php:210 libraries/operations.lib.php:254
+#: libraries/operations.lib.php:650 libraries/operations.lib.php:703
+#: libraries/operations.lib.php:752 libraries/operations.lib.php:1067
+#: libraries/operations.lib.php:1344
 #: libraries/plugins/auth/AuthenticationCookie.class.php:277
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:297
 #: libraries/replication_gui.lib.php:434 libraries/replication_gui.lib.php:877
@@ -611,11 +612,11 @@ msgstr ""
 #: import.php:116
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "سىز يوللىماقچى بولغان ھۆججەت بەك چوڭكەن، %sياردەم%s ھۆججىتىدىن ھەل قىلىش "
 "چارىسىنى كۆرۈڭ."
@@ -666,7 +667,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "قىستۇرمىلار كىرگۈزىشكە ئامالسىز، قاچىلانمىنى تەكشۈرۈپ بىقىڭ!"
 
-#: import.php:568 libraries/sql.lib.php:1024 libraries/sql.lib.php:1805
+#: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1806
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -802,7 +803,7 @@ msgstr ""
 
 #: index.php:365 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
-#: libraries/display_export.lib.php:461 libraries/engines/pbxt.lib.php:117
+#: libraries/display_export.lib.php:469 libraries/engines/pbxt.lib.php:117
 #: libraries/navigation/NavigationHeader.class.php:243
 #: libraries/relation.lib.php:92 libraries/server_variables.lib.php:162
 msgid "Documentation"
@@ -885,8 +886,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن %"
-"sبۇ يەرنى كۆرۈڭ%s."
+"ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن "
+"%sبۇ يەرنى كۆرۈڭ%s."
 
 #: index.php:552
 #, php-format
@@ -1169,7 +1170,7 @@ msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:109 libraries/Util.class.php:1350
-#: libraries/display_export.lib.php:664
+#: libraries/display_export.lib.php:672
 #: libraries/server_status_monitor.lib.php:260
 msgid "MiB"
 msgstr "MB"
@@ -1229,7 +1230,7 @@ msgstr ""
 
 #: js/messages.php:123 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
-#: libraries/display_export.lib.php:571
+#: libraries/display_export.lib.php:579
 #: libraries/plugins/export/ExportSql.class.php:1759
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
@@ -2752,7 +2753,7 @@ msgctxt "Last page"
 msgid "End"
 msgstr "ئاخىرقىسى"
 
-#: libraries/DisplayResults.class.php:960 libraries/display_export.lib.php:322
+#: libraries/DisplayResults.class.php:960 libraries/display_export.lib.php:330
 #: libraries/tbl_chart.lib.php:238
 #, fuzzy
 #| msgid "Number of columns"
@@ -2884,8 +2885,8 @@ msgstr "SQL بۇيرىقى غەلبىلىك بىجىرىلدى"
 #: libraries/DisplayResults.class.php:5014 libraries/structure.lib.php:658
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "بۇ كۆرسەتمە كامىدا ئىگە بولغان سەپ، %sھۆججەت%s."
 
 #: libraries/DisplayResults.class.php:5027
@@ -2904,7 +2905,7 @@ msgstr ""
 msgid "%d total"
 msgstr "ئۇمۇمىي"
 
-#: libraries/DisplayResults.class.php:5059 libraries/sql.lib.php:1644
+#: libraries/DisplayResults.class.php:5059 libraries/sql.lib.php:1645
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
@@ -3055,7 +3056,7 @@ msgstr ""
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.class.php:683
+#: libraries/Header.class.php:684
 #: libraries/plugins/auth/AuthenticationCookie.class.php:161
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
@@ -3329,7 +3330,7 @@ msgid "Could not save favorite table!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
 #: libraries/RecentFavoriteTable.class.php:210
-#: libraries/structure.lib.php:2726
+#: libraries/structure.lib.php:2728
 #, fuzzy
 #| msgid "Remove database"
 msgid "Remove from Favorites"
@@ -3793,14 +3794,14 @@ msgstr ""
 
 #: libraries/Types.class.php:332
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:334
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4258,24 +4259,24 @@ msgstr ""
 msgid "Check Privileges"
 msgstr ""
 
-#: libraries/common.inc.php:586
+#: libraries/common.inc.php:583
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Failed to read configuration file!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: libraries/common.inc.php:588
+#: libraries/common.inc.php:585
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:595
+#: libraries/common.inc.php:592
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: libraries/common.inc.php:602
+#: libraries/common.inc.php:599
 #, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
@@ -4285,44 +4286,44 @@ msgid ""
 "configuration file!"
 msgstr "<code>$cfg['PmaAbsoluteUri']</code> نى تەڭشەڭ !تەڭشەك ھۆججىتى ئىچىدىكى"
 
-#: libraries/common.inc.php:635
+#: libraries/common.inc.php:632
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "ئۈنۈمسىز مۇلازىمىتېر :%s"
 
-#: libraries/common.inc.php:646
+#: libraries/common.inc.php:643
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "مۇلازىمىتېر %1$s ئۈنۈمسىز. تەڭشەك ھۆجقىتىنى تەشۈرۈڭ."
 
-#: libraries/common.inc.php:662
+#: libraries/common.inc.php:659
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "مۇلازىمىتېر"
 
-#: libraries/common.inc.php:861
+#: libraries/common.inc.php:858
 msgid "Invalid authentication method set in configuration:"
 msgstr "تەڭشەك ھۆجىتى ئىچىدىكى دەلىللەش ئۇسۇلى ئۈنۈمسىز:"
 
-#: libraries/common.inc.php:1004
+#: libraries/common.inc.php:1001
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s %s ياكى ئۇنىڭدىنمۇ يۇقىرى نەشىرگە كۆتۈتىڭ."
 
-#: libraries/common.inc.php:1085
+#: libraries/common.inc.php:1082
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:1117
+#: libraries/common.inc.php:1114
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:1124
+#: libraries/common.inc.php:1121
 msgid "possible exploit"
 msgstr ""
 
-#: libraries/common.inc.php:1133
+#: libraries/common.inc.php:1130
 msgid "numeric key detected"
 msgstr ""
 
@@ -4634,8 +4635,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4776,8 +4777,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5089,7 +5090,7 @@ msgid "Save on server"
 msgstr ""
 
 #: libraries/config/messages.inc.php:156 libraries/config/messages.inc.php:159
-#: libraries/display_export.lib.php:387 libraries/display_export.lib.php:422
+#: libraries/display_export.lib.php:395 libraries/display_export.lib.php:430
 msgid "Overwrite existing file(s)"
 msgstr "مەۋجۇت ھۆججەت ئۈستىدىن يېزىش"
 
@@ -5338,8 +5339,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
@@ -5738,8 +5740,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:415
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 
 #: libraries/config/messages.inc.php:418
@@ -6123,8 +6125,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:565
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:568
@@ -6306,8 +6308,8 @@ msgstr "جەدۋەل تەھلىلى"
 
 #: libraries/config/messages.inc.php:642
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:646
@@ -6316,8 +6318,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:648
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:651
@@ -6416,8 +6418,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:691
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:694
@@ -6436,8 +6438,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:701
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:702
@@ -6878,7 +6880,7 @@ msgstr "OpenOffice ھۆججىتى"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s كېڭەيتىلمە كەمكەن، PHP تەڭشەك ھۆججىتىنى تەكشۈرۈپ چىقىڭ."
 
-#: libraries/core.lib.php:448
+#: libraries/core.lib.php:449
 msgid "possible deep recursion attack"
 msgstr ""
 
@@ -7048,100 +7050,100 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr ""
 
-#: libraries/display_export.lib.php:311 libraries/sql.lib.php:434
+#: libraries/display_export.lib.php:319 libraries/sql.lib.php:434
 #, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
 msgstr "سەپ سانى"
 
-#: libraries/display_export.lib.php:319
+#: libraries/display_export.lib.php:327
 msgid "Dump some row(s)"
 msgstr ""
 
-#: libraries/display_export.lib.php:334
+#: libraries/display_export.lib.php:342
 msgid "Row to begin at:"
 msgstr ""
 
-#: libraries/display_export.lib.php:351
+#: libraries/display_export.lib.php:359
 msgid "Dump all rows"
 msgstr ""
 
-#: libraries/display_export.lib.php:367 libraries/display_export.lib.php:626
+#: libraries/display_export.lib.php:375 libraries/display_export.lib.php:634
 msgid "Output:"
 msgstr ""
 
-#: libraries/display_export.lib.php:376 libraries/display_export.lib.php:411
+#: libraries/display_export.lib.php:384 libraries/display_export.lib.php:419
 #, fuzzy, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "مۇلازىمىتېرنىڭ  %s مۇندەرىجىسىدە ساقلاش"
 
-#: libraries/display_export.lib.php:441
+#: libraries/display_export.lib.php:449
 #, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
 msgstr "ھۆججەت ئېتى ئەندىزىسى"
 
-#: libraries/display_export.lib.php:443
+#: libraries/display_export.lib.php:451
 msgid "@SERVER@ will become the server name"
 msgstr ""
 
-#: libraries/display_export.lib.php:445
+#: libraries/display_export.lib.php:453
 msgid ", @DATABASE@ will become the database name"
 msgstr ""
 
-#: libraries/display_export.lib.php:447
+#: libraries/display_export.lib.php:455
 msgid ", @TABLE@ will become the table name"
 msgstr ""
 
-#: libraries/display_export.lib.php:453
+#: libraries/display_export.lib.php:461
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
-#: libraries/display_export.lib.php:510
+#: libraries/display_export.lib.php:518
 msgid "use this for future exports"
 msgstr ""
 
-#: libraries/display_export.lib.php:525 libraries/display_import.lib.php:179
+#: libraries/display_export.lib.php:533 libraries/display_import.lib.php:179
 #: libraries/display_import.lib.php:194 libraries/sql_query_form.lib.php:504
 msgid "Character set of the file:"
 msgstr "ھۆججەتنىڭ ھەرىپ-بەلگە توپلىمى"
 
-#: libraries/display_export.lib.php:569
+#: libraries/display_export.lib.php:577
 #, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
 msgstr "پىرىسلاش"
 
-#: libraries/display_export.lib.php:577
+#: libraries/display_export.lib.php:585
 #, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zipپىرىسلاش"
 
-#: libraries/display_export.lib.php:584
+#: libraries/display_export.lib.php:592
 #, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "gzipپىرىسلاش"
 
-#: libraries/display_export.lib.php:611
+#: libraries/display_export.lib.php:619
 #, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
-#: libraries/display_export.lib.php:636
+#: libraries/display_export.lib.php:644
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
-#: libraries/display_export.lib.php:663
+#: libraries/display_export.lib.php:671
 msgid "Skip tables larger than"
 msgstr ""
 
@@ -7573,8 +7575,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:149
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:156
@@ -7631,7 +7633,7 @@ msgid "Dump has been saved to file %s."
 msgstr "%s ھۆججىتىدە ساقلاندى."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
-#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1638
+#: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1639
 #: tbl_get_field.php:43
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
@@ -7753,11 +7755,11 @@ msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:1975 libraries/sql.lib.php:1635
+#: libraries/insert_edit.lib.php:1975 libraries/sql.lib.php:1636
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/insert_edit.lib.php:2000 libraries/sql.lib.php:1615
+#: libraries/insert_edit.lib.php:2000 libraries/sql.lib.php:1616
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -8394,8 +8396,8 @@ msgstr "%s خۇش كەلدىڭىز"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:122
@@ -10781,8 +10783,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3954
@@ -11873,28 +11875,28 @@ msgstr "ئاچقۇچلۇق ئېمزا"
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/sql.lib.php:1028
+#: libraries/sql.lib.php:1029
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "قۇرۇلغان خەتكۈچ %s"
 
-#: libraries/sql.lib.php:1184
+#: libraries/sql.lib.php:1185
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1632
+#: libraries/sql.lib.php:1633
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/sql.lib.php:1915
+#: libraries/sql.lib.php:1916
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available."
 msgstr ""
 
-#: libraries/sql.lib.php:1952
+#: libraries/sql.lib.php:1953
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -12214,7 +12216,7 @@ msgstr "ساندان %s ئۆچۈرۈلدى."
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
-#: libraries/structure.lib.php:2727
+#: libraries/structure.lib.php:2729
 #, fuzzy
 #| msgid "Routines"
 msgid "Add to Favorites"
@@ -13650,8 +13652,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:179
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
@@ -13782,8 +13784,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:216
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
