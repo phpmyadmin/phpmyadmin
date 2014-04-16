@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-alpha2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-16 12:57+0200\n"
-"PO-Revision-Date: 2014-04-16 13:21+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-04-16 17:05+0200\n"
+"Last-Translator: Purodha Blissenbach <publi@web.de>\n"
 "Language-Team: Colognian "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ksh/>\n"
 "Language: ksh\n"
@@ -29,7 +29,7 @@ msgstr ""
 #: db_create.php:61
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "Di Dahtebangk %1$s wood aanjelaat."
 
 #: db_datadict.php:52 libraries/operations.lib.php:32
 msgid "Database comment:"
@@ -61,7 +61,7 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:544 libraries/tbl_tracking.lib.php:809
 #: libraries/tbl_tracking.lib.php:896
 msgid "Column"
-msgstr ""
+msgstr "Kolonn"
 
 #: db_datadict.php:169 db_printview.php:49 libraries/Index.class.php:564
 #: libraries/TableSearch.class.php:186 libraries/insert_edit.lib.php:245
@@ -86,7 +86,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:473 libraries/tbl_tracking.lib.php:810
 #: libraries/tbl_tracking.lib.php:893
 msgid "Type"
-msgstr ""
+msgstr "Zoot"
 
 #: db_datadict.php:170 libraries/Index.class.php:570
 #: libraries/TableSearch.class.php:1282 libraries/insert_edit.lib.php:1622
@@ -104,7 +104,7 @@ msgstr ""
 #: libraries/tbl_printview.lib.php:474 libraries/tbl_tracking.lib.php:812
 #: libraries/tbl_tracking.lib.php:899
 msgid "Null"
-msgstr ""
+msgstr "Null"
 
 #: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:287
 #: libraries/plugins/export/ExportHtmlword.class.php:402
@@ -119,7 +119,7 @@ msgstr ""
 #: libraries/tbl_columns_definition_form.lib.php:288
 #: libraries/tbl_printview.lib.php:475 libraries/tbl_tracking.lib.php:813
 msgid "Default"
-msgstr ""
+msgstr "Schtandatt"
 
 #: db_datadict.php:173 libraries/plugins/export/ExportHtmlword.class.php:406
 #: libraries/plugins/export/ExportLatex.class.php:515
@@ -129,7 +129,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1384
 #: libraries/tbl_printview.lib.php:477
 msgid "Links to"
-msgstr ""
+msgstr "Verlengk noh"
 
 #: db_datadict.php:175 db_printview.php:53
 #: libraries/config/messages.inc.php:134 libraries/config/messages.inc.php:150
@@ -165,7 +165,7 @@ msgstr ""
 #: libraries/tbl_tracking.lib.php:931 libraries/tbl_tracking.lib.php:936
 #: libraries/user_preferences.lib.php:296 prefs_manage.php:138
 msgid "No"
-msgstr ""
+msgstr "Nä"
 
 #: db_datadict.php:240 js/messages.php:321 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
@@ -194,7 +194,7 @@ msgstr ""
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
 msgid "Yes"
-msgstr ""
+msgstr "Joh"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
@@ -208,16 +208,16 @@ msgstr ""
 #: db_export.php:41 libraries/DbSearch.class.php:444
 #: libraries/display_export.lib.php:42
 msgid "Select All"
-msgstr ""
+msgstr "Alle ußwähle"
 
 #: db_export.php:47 libraries/DbSearch.class.php:448
 #: libraries/display_export.lib.php:48
 msgid "Unselect All"
-msgstr ""
+msgstr "Alle nit mieh ußwähle"
 
 #: db_operations.php:45 tbl_create.php:21
 msgid "The database name is empty!"
-msgstr ""
+msgstr "Kein Name för di Dahtebangk!"
 
 #: db_operations.php:130
 #, php-format
@@ -249,24 +249,24 @@ msgstr ""
 #: libraries/tbl_relation.lib.php:311 libraries/tbl_relation.lib.php:527
 #: libraries/tbl_tracking.lib.php:196
 msgid "Table"
-msgstr ""
+msgstr "Tabäll"
 
 #: db_printview.php:48 libraries/build_html_for_db.lib.php:32
 #: libraries/import.lib.php:191 libraries/structure.lib.php:773
 #: libraries/structure.lib.php:1744 libraries/structure.lib.php:1935
 #: libraries/tbl_printview.lib.php:193
 msgid "Rows"
-msgstr ""
+msgstr "Reije"
 
 #: db_printview.php:51 libraries/structure.lib.php:792
 #: libraries/tbl_indexes.lib.php:316
 msgid "Size"
-msgstr ""
+msgstr "Ömfang"
 
 #: db_printview.php:98 libraries/plugins/export/ExportSql.class.php:1157
 #: libraries/structure.lib.php:736
 msgid "in use"
-msgstr ""
+msgstr "weed jebruch"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
 #: libraries/schema/Pdf_Relation_Schema.class.php:1334
@@ -287,12 +287,12 @@ msgstr ""
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ein Tabäll"
+msgstr[1] "%s Tabälle"
 
 #: db_qbe.php:102
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "Do moß winnischsdens ein Kolonn zom Aanzeije ußsöhke!"
 
 #: db_qbe.php:123
 #, php-format
@@ -305,7 +305,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationHttp.class.php:69
 #: libraries/plugins/auth/AuthenticationSignon.class.php:270
 msgid "Access denied!"
-msgstr ""
+msgstr "Zohjang afjelehnt!"
 
 #: db_structure.php:68
 msgid "Favorite List is full!"
@@ -329,7 +329,7 @@ msgstr ""
 #: libraries/server_status.lib.php:349 libraries/tbl_relation.lib.php:288
 #: libraries/tbl_relation.lib.php:477 libraries/tbl_tracking.lib.php:195
 msgid "Database"
-msgstr ""
+msgstr "Dahtebangk"
 
 #: db_tracking.php:82
 msgid "Last version"
@@ -337,7 +337,7 @@ msgstr ""
 
 #: db_tracking.php:83 libraries/tbl_tracking.lib.php:198
 msgid "Created"
-msgstr ""
+msgstr "Aanjelaat"
 
 #: db_tracking.php:84 libraries/tbl_tracking.lib.php:199
 msgid "Updated"
@@ -377,21 +377,21 @@ msgstr ""
 #: libraries/structure.lib.php:1399 libraries/structure.lib.php:2075
 #: libraries/structure.lib.php:2077
 msgid "Drop"
-msgstr ""
+msgstr "Falle lohße"
 
 #: db_tracking.php:120 libraries/tbl_tracking.lib.php:210
 #: libraries/tbl_tracking.lib.php:312
 msgid "active"
-msgstr ""
+msgstr "aktief"
 
 #: db_tracking.php:122 libraries/tbl_tracking.lib.php:212
 #: libraries/tbl_tracking.lib.php:314
 msgid "not active"
-msgstr ""
+msgstr "nit aktief"
 
 #: db_tracking.php:143
 msgid "Versions"
-msgstr ""
+msgstr "Väsjohne"
 
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:353
@@ -477,28 +477,28 @@ msgstr ""
 
 #: gis_data_editor.php:208
 msgid "Point:"
-msgstr ""
+msgstr "Pungk:"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
 #: gis_data_editor.php:365 js/messages.php:309
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
 #: gis_data_editor.php:371 js/messages.php:310
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
 #: js/messages.php:312
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Pungk %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
 #: js/messages.php:318
 msgid "Add a point"
-msgstr ""
+msgstr "Donn ene Pungk derbei"
 
 #: gis_data_editor.php:264
 #, php-format
