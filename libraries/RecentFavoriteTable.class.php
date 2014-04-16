@@ -183,6 +183,13 @@ class PMA_RecentFavoriteTable
      */
     public function getHtmlList()
     {
+        // Remove Recent/Favorite tables that don't exist.
+        foreach ($this->tables as $tbl) {
+            if (! $GLOBALS['dbi']->getColumns($tbl['db'], $tbl['table'])) {
+                $this->remove($tbl['db'], $tbl['table']);
+            }
+        }
+
         $html = '';
         if (count($this->tables)) {
             if ($this->table_type == 'recent') {
@@ -263,6 +270,11 @@ class PMA_RecentFavoriteTable
      */
     public function add($db, $table)
     {
+        // If table doesnot exist, do not add.
+        if (! $GLOBALS['dbi']->getColumns($db, $table)) {
+            return true;
+        }
+
         $table_arr = array();
         $table_arr['db'] = $db;
         $table_arr['table'] = $table;
