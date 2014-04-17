@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-12 14:02+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"PO-Revision-Date: 2014-04-17 05:23+0200\n"
+"Last-Translator: Jun-seong Lee <acu.pe.kr@gmail.com>\n"
 "Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-1/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -4300,15 +4300,15 @@ msgstr "사인온 인증 방식의 세션 이름이 비어있습니다."
 
 #: libraries/config/Validator.class.php:310
 msgid "Empty signon URL while using signon authentication method"
-msgstr ""
+msgstr "signon 인증 방식을 사용한다면 signon URL을 비워 두세요"
 
 #: libraries/config/Validator.class.php:358
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr ""
+msgstr "pmadb를 사용한다면 phpMyAdmin 컨트롤 유저를 비우세요"
 
 #: libraries/config/Validator.class.php:363
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
+msgstr "pmadb를 사용한다면 phpMyAdmin 컨트롤 유저의 비밀번호를 비우세요"
 
 #: libraries/config/Validator.class.php:447
 msgid "Incorrect value:"
@@ -5177,13 +5177,10 @@ msgid "Replace table data with file"
 msgstr "파일 내용으로 테이블 데이터 대체하기"
 
 #: libraries/config/messages.inc.php:254
-#, fuzzy
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
-msgstr ""
-"기본 형식; 이 목록은 위치(데이터베이스, 테이블)에 의존하며, SQL만 이용할 수 "
-"있음을 유의하십시오."
+msgstr "기본 형식; 이 목록은 위치(데이터베이스, 테이블)에 기반하며, SQL만이 사용 가능함을 유의하십시오"
 
 #: libraries/config/messages.inc.php:255
 msgid "Format of imported file"
@@ -5263,7 +5260,7 @@ msgstr "로그아웃시 모든 쿠키 삭제"
 msgid ""
 "Define whether the previous login should be recalled or not in cookie "
 "authentication mode"
-msgstr ""
+msgstr "쿠키 인증 모드에서 기존 로그인 정보를 다시 불러올 지 여부를 정의하세요"
 
 #: libraries/config/messages.inc.php:280
 msgid "Recall user name"
@@ -5328,7 +5325,7 @@ msgstr "탐색 트리에서 페이지 당 보여질 아이템 수"
 
 #: libraries/config/messages.inc.php:293
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "브렌치 당 최대 아이템 갯수"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -5555,7 +5552,7 @@ msgstr "서버/라이브러리 차이점 경고"
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words"
-msgstr ""
+msgstr "열 이름이 MySQL 예약어일 경우에도 구조 페이지에 경고를 표시하지 않습니다"
 
 #: libraries/config/messages.inc.php:343
 msgid "MySQL reserved word warning"
@@ -5567,7 +5564,7 @@ msgstr "메뉴탭 보여주기 방식"
 
 #: libraries/config/messages.inc.php:347
 msgid "How to display various action links"
-msgstr ""
+msgstr "여러 기능 링크를 표시하는 방법"
 
 #: libraries/config/messages.inc.php:348
 msgid "Disallow BLOB and BINARY columns from editing"
@@ -5583,10 +5580,12 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"DB-기반 쿼리 기록이 필요한 경우 활성화하세요 (phpMyAdmin 설정 공간이 필요합니다). 비활성화 할 경우, 쿼리 기록으로 JS-"
+"routines가 사용됩니다 (창을 닫을 경우 소멸됩니다)."
 
 #: libraries/config/messages.inc.php:351
 msgid "Permanent query history"
-msgstr ""
+msgstr "영구적 쿼리 기록"
 
 #: libraries/config/messages.inc.php:353
 msgid "How many queries are kept in history"
@@ -5598,7 +5597,7 @@ msgstr "쿼리 기록 길이"
 
 #: libraries/config/messages.inc.php:355
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "새 쿼리 창을 열 때 탭이 보입니다"
 
 #: libraries/config/messages.inc.php:356
 msgid "Default query window tab"
@@ -5647,11 +5646,11 @@ msgstr "반복 헤더"
 
 #: libraries/config/messages.inc.php:368
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "격자판 수정: 트리거 동작"
 
 #: libraries/config/messages.inc.php:369
 msgid "Grid editing: save all edited cells at once"
-msgstr ""
+msgstr "격자판 수정: 수정된 칸들이 한 번에 저장됨"
 
 #: libraries/config/messages.inc.php:370
 msgid "Directory where exports can be saved on server"
@@ -5699,6 +5698,8 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)"
 msgstr ""
+"[a@http://swekey.com]SweKey hardware authentication[/a]에 관한 설정 파일의 경로 (문서 "
+"최상단에 위치해 있지 않음; 추천 경로: /etc/swekey.conf)"
 
 #: libraries/config/messages.inc.php:381
 msgid "SweKey config file"
@@ -5717,6 +5718,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]북마크[/a] 지원이 필요 없는 경우 비워두세요, 추천: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:385
 msgid "Bookmark table"
