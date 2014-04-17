@@ -170,7 +170,7 @@ var AJAX = {
             }
         });
         //trigger confirm dialog
-        if (flag && confirm("Are you sure you want to navigate away from this page? \nPress OK to continue or Cancel to stay on the current page.") == false){
+        if (event.type === 'click' && flag && confirm("Are you sure you want to navigate away from this page? \nPress OK to continue or Cancel to stay on the current page.") == false){
 	    return false;
         }
 
