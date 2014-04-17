@@ -163,15 +163,14 @@ var AJAX = {
         
         //sometime we accidently click on a url,refresh button or back button
         //operation to confirm if user want to leave page in such cases
-        var bool = false;
+        var flag = false;
         $("input[type='text']").each(function(index){
-            if($(this).val().length > 0)
-            {
-                bool = true;
+            if($(this).val().length > 0) {
+                flag = true;
             }
         });
         //trigger confirm dialog
-        if (bool && confirm("Are you sure you want to navigate away from this page? \nPress OK to continue or Cancel to stay on the current page.") == false){
+        if (flag && confirm("Are you sure you want to navigate away from this page? \nPress OK to continue or Cancel to stay on the current page.") == false){
 	    return false;
         }
 
