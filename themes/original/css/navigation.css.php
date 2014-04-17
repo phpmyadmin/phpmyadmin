@@ -345,15 +345,24 @@ li.fast_filter.db_fast_filter {
     display: none;
     z-index: 802;
 }
-#pma_quick_warp .drop_list:hover ul{
+#pma_quick_warp .drop_list:hover ul {
     display: block;
 }
 #pma_quick_warp .drop_list li {
-    padding: 2px .3em;
+    white-space: nowrap;
 }
 #pma_quick_warp .drop_list li img {
     vertical-align: sub;
 }
 #pma_quick_warp .drop_list li:hover {
     background: #f2f2f2;
+}
+#pma_quick_warp .drop_list a {
+    display: block;
+    padding: .1em .3em;
+}
+#pma_quick_warp .drop_list a.favorite_table_anchor {
+    clear: left;
+    float: left;
+    padding: .1em .3em 0;
 }

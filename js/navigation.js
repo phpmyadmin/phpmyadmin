@@ -240,10 +240,10 @@ $(function () {
         event.preventDefault();
         $self = $(this);
         var anchor_id = $self.attr("id");
-        if($self.attr('favtargetn') != null)
-            if($('a[favtargets="' + $self.attr('favtargetn') + '"]').length > 0)
+        if($self.data("favtargetn") != null)
+            if($('a[data-favtargets="' + $self.data("favtargetn") + '"]').length > 0)
             {
-                $('a[favtargets="' + $self.attr('favtargetn') + '"]').trigger('click');
+                $('a[data-favtargets="' + $self.data("favtargetn") + '"]').trigger('click');
                 return;
             }
 

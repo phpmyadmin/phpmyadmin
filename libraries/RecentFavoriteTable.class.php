@@ -215,7 +215,7 @@ class PMA_RecentFavoriteTable
                         . PMA_URL_getCommon($fav_params);
                     $html .= 'href="' . $fav_rm_url
                         . '" title="' . __("Remove from Favorites")
-                        . '" favtargetn="' . $table['db'] . "." . $table['table']
+                        . '" data-favtargetn="' . $table['db'] . "." . $table['table']
                         . '" >'
                         . PMA_Util::getIcon('b_favorite.png')
                         . '</a>';
