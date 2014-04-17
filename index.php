@@ -319,7 +319,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
                 $extension = 'mysql';
             }
             $php_ext_string  .= $extension . ' '
-                . PMA_Util::showPHPDocu( 'book.' . $extension . '.php');
+                . PMA_Util::showPHPDocu('book.' . $extension . '.php');
 
             PMA_printListItem(
                 $php_ext_string,
