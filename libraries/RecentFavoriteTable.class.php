@@ -41,24 +41,26 @@ class PMA_RecentFavoriteTable
     /**
      * Defines type of action, Favorite or Recent table.
      *
-     * @access public
+     * @access private
      * @var string
      */
-    public $table_type;
+    private $table_type;
 
     /**
-     * PMA_RecentFavoriteTable instance.
+     * PMA_RecentFavoriteTable instances.
      *
-     * @var PMA_RecentFavoriteTable
+     * @access private
+     * @var array
      */
-    private static $_instance;
+    private static $_instances = array();
 
     /**
      * Creates a new instance of PMA_RecentFavoriteTable
      *
+     * @access private
      * @param string $type the table type
      */
-    public function __construct($type)
+    private function __construct($type)
     {
         $this->table_type = $type;
         if (strlen($GLOBALS['cfg']['Server']['pmadb'])
@@ -85,14 +87,10 @@ class PMA_RecentFavoriteTable
      */
     public static function getInstance($type)
     {
-        if (is_null(self::$_instance)) {
-            self::$_instance = new PMA_RecentFavoriteTable($type);
-        } else {
-            if (self::$_instance->table_type != $type) {
-                self::$_instance = new PMA_RecentFavoriteTable($type);
-            }
+        if (! array_key_exists($type, self::$_instances)) {
+            self::$_instances[$type] = new PMA_RecentFavoriteTable($type);
         }
-        return self::$_instance;
+        return self::$_instances[$type];
     }
 
     /**
