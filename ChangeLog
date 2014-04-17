@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 + rfe       Filter on-screen rows during Browse
   Removed support for SQL Validator (SOAP service no longer offered)
 - bug #4352 Settings > Manage: incorrect messages 
+- bug #4337 "More" in Actions area doesn't collapse to fit available space
 
 4.1.14.0 (not yet released)
 - bug #4365 Creating bookmark with multiple queries not working
