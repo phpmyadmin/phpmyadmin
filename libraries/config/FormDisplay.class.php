@@ -620,12 +620,7 @@ class FormDisplay
                         ? $_POST[$key]
                         : explode("\n", $_POST[$key]);
                     $_POST[$key] = array();
-                    foreach ($post_values as $v) {
-                        $v = trim($v);
-                        if ($v !== '') {
-                            $_POST[$key][] = $v;
-                        }
-                    }
+                    $this->_fillPostArrayParameters($post_values, $key);
                     break;
                 }
 
@@ -816,6 +811,24 @@ class FormDisplay
                 $opts['comment'] = sprintf(
                     __('maximum %s'), $GLOBALS['cfg'][$system_path]
                 );
+            }
+        }
+    }
+
+    /**
+     * Copy items of an array to $_POST variable
+     *
+     * @param array  $post_values List of parameters
+     * @param string $key         Array key
+     *
+     * @return void
+     */
+    private function _fillPostArrayParameters($post_values, $key)
+    {
+        foreach ($post_values as $v) {
+            $v = trim($v);
+            if ($v !== '') {
+                $_POST[$key][] = $v;
             }
         }
     }
