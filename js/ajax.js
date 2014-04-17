@@ -163,18 +163,18 @@ var AJAX = {
         
         //sometime we accidently click on a url,refresh button or back button
         //operation to confirm if user want to leave page in such cases
-		var bool = false;
-		$("input[type='text']").each(function(index){
+        var bool = false;
+        $("input[type='text']").each(function(index){
             if($(this).val().length > 0)
             {
                 bool = true;
-            }   
+            }
         });
         //trigger confirm dialog
-		if (bool && confirm("Are you sure you want to navigate away from this page? \nPress OK to continue or Cancel to stay on the current page.") == false){
-			return false;
-    	}
-    		
+        if (bool && confirm("Are you sure you want to navigate away from this page? \nPress OK to continue or Cancel to stay on the current page.") == false){
+	    return false;
+        }
+
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already
