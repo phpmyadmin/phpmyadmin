@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-alpha2\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-16 12:57+0200\n"
-"PO-Revision-Date: 2014-04-12 14:02+0200\n"
-"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2014-04-17 05:23+0200\n"
+"Last-Translator: Jun-seong Lee <acu.pe.kr@gmail.com>\n"
+"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
+"\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5570,7 +5570,7 @@ msgstr "탐색 트리에서 페이지 당 보여질 아이템 수."
 
 #: libraries/config/messages.inc.php:404
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "브렌치 당 최대 아이템 갯수"
 
 #: libraries/config/messages.inc.php:406
 msgid ""
@@ -5842,7 +5842,7 @@ msgstr "메뉴탭 보여주기 방식"
 
 #: libraries/config/messages.inc.php:509
 msgid "How to display various action links"
-msgstr ""
+msgstr "여러 기능 링크를 표시하는 방법"
 
 #: libraries/config/messages.inc.php:510
 #, fuzzy
@@ -5860,10 +5860,12 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"DB-기반 쿼리 기록이 필요한 경우 활성화하세요 (phpMyAdmin 설정 공간이 필요합니다). 비활성화 할 경우, 쿼리 기록으로 JS-"
+"routines가 사용됩니다 (창을 닫을 경우 소멸됩니다)."
 
 #: libraries/config/messages.inc.php:517
 msgid "Permanent query history"
-msgstr ""
+msgstr "영구적 쿼리 기록"
 
 #: libraries/config/messages.inc.php:519
 msgid "How many queries are kept in history."
@@ -5938,11 +5940,11 @@ msgstr "반복 헤더"
 
 #: libraries/config/messages.inc.php:538
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "격자판 수정: 트리거 동작"
 
 #: libraries/config/messages.inc.php:539
 msgid "Grid editing: save all edited cells at once"
-msgstr ""
+msgstr "격자판 수정: 수정된 칸들이 한 번에 저장됨"
 
 #: libraries/config/messages.inc.php:540
 msgid "Directory where exports can be saved on server."
@@ -6016,6 +6018,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
+"[a@http://wiki.phpmyadmin.net/pma/bookmark]북마크[/a] 지원이 필요 없는 경우 비워두세요, 추천: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:563
 msgid "Bookmark table"
