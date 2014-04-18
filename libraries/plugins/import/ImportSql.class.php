@@ -279,7 +279,7 @@ class ImportSql extends ImportPlugin
                             // We hit end of string => unclosed quote,
                             // but we handle it as end of query
                             list($endq, $i)
-                                = $this->_getEndQuoteAndPos($len, $endq, $i);
+                                = $this->getEndQuoteAndPos($len, $endq, $i);
                             $found_delimiter = false;
                             break;
                         }
@@ -452,7 +452,7 @@ class ImportSql extends ImportPlugin
      *
      * @return array End quote, position
      */
-    private function _getEndQuoteAndPos($len, $endq, $position)
+    protected function getEndQuoteAndPos($len, $endq, $position)
     {
         if ($GLOBALS['finished']) {
             $endq = true;
