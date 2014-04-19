@@ -163,14 +163,14 @@ var AJAX = {
 
         //sometime we accidently click on a url,refresh button or back button
         //operation to confirm if user want to leave page in such cases
-        var flag = false;
-        $("input[type='text']").each(function(index){
+        var foundFieldNotEmpty = false;
+        $("input[type='text']:visible").each(function(index){
             if($(this).val().length > 0) {
-                flag = true;
+                foundFieldNotEmpty = true;
             }
         });
         //trigger confirm dialog
-        if (event.type === 'click' && flag && confirm(PMA_messages['strConfirmNavigation']) === false) {
+        if (event.type === 'click' && foundFieldNotEmpty && confirm(PMA_messages['strConfirmNavigation']) === false) {
             return false;
         }
 
