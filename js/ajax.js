@@ -164,7 +164,7 @@ var AJAX = {
         //sometime we accidently click on a url,refresh button or back button
         //operation to confirm if user want to leave page in such cases
         var foundFieldNotEmpty = false;
-        $("input[type='text']").each(function(index){
+        $("input[type='text']:visible").each(function(index){
             if ($(this).val().length > 0) {
                 foundFieldNotEmpty = true;
             }
