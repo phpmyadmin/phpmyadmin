@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-03-05 11:28+0200\n"
-"Last-Translator: Sutha Seng <suthaseng@gmail.com>\n"
-"Language-Team: Central Khmer <https://l10n.cihar.com/projects/phpmyadmin/"
-"master/km/>\n"
+"PO-Revision-Date: 2014-04-19 18:59+0200\n"
+"Last-Translator: Sovichet Tep <sovichet.tep@gmail.com>\n"
+"Language-Team: Central Khmer "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/km/>\n"
 "Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,7 +311,7 @@ msgstr "ចូល​មិន​បាន!"
 
 #: db_structure.php:68
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "បញ្ជី​ការ​ពេញ​ចិត្ត​គឺ​ពេញ​ហើយ!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -2340,22 +2340,19 @@ msgid "Saved bookmarked search:"
 msgstr ""
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "New bookmark"
-msgstr "កំពុង​បង្ហាញ​ចំណាំ"
+msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Create bookmark"
-msgstr "កំពុង​បង្ហាញ​ចំណាំ"
+msgstr "បង្កើត​ចំណាំ"
 
 #: libraries/DBQbe.class.php:1482
-#, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "កំពុង​បង្ហាញ​ចំណាំ"
+msgstr "ធ្វើ​បច្ចុប្បន្នភាព​ចំណាំ"
 
 #: libraries/DBQbe.class.php:1484
 msgid "Delete bookmark"
@@ -2473,10 +2470,9 @@ msgid "Restore column order"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filter"
 msgid "Filter rows"
-msgstr "ត្រង"
+msgstr "ត្រង​ជួរ​ដេក"
 
 #: libraries/DisplayResults.class.php:797
 msgid "Search this table"
@@ -3078,23 +3074,20 @@ msgid "Recent tables"
 msgstr ""
 
 #: libraries/RecentFavoriteTable.class.php:252
-#, fuzzy
 #| msgid "Recommendation"
 msgid "Recent"
-msgstr "ការ​ណែនាំ"
+msgstr "ថ្មីៗ"
 
 #: libraries/RecentFavoriteTable.class.php:254
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 #| msgid "Tracked tables"
 msgid "Favorite tables"
-msgstr "តារាង​ដែល​តាមដាន"
+msgstr "តារាង​ដែល​ពេញ​ចិត្ត"
 
 #: libraries/RecentFavoriteTable.class.php:256
-#, fuzzy
 #| msgid "Tracked tables"
 msgid "Favorites"
-msgstr "តារាង​ដែល​តាមដាន"
+msgstr "ដែល​ពេញ​ចិត្ត"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -12018,10 +12011,9 @@ msgid "Error: relation already exists."
 msgstr ""
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "File could not be read!"
 msgid "Error: Relation could not be added!"
-msgstr "មិន​អាច​អាន​ឯកសារ​បាន!"
+msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
 #: pmd_relation_new.php:81
 msgid "FOREIGN KEY relation has been added."
@@ -13441,7 +13433,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:462
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "បើក {concurrent_insert} ដោយ​ការ​កំណត់​វា​ទៅ 1"
 
 #: libraries/advisory_rules.txt:463
 msgid ""
@@ -13452,7 +13444,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:464
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert ត្រូវវ​បាន​កំណត់​ទៅ 0"
 
 #~ msgid ""
 #~ "After saving or loading a bookmarked search, you can rename it and save "
