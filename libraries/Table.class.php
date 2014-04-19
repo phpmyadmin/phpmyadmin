@@ -444,10 +444,14 @@ class PMA_Table
 
         // allow the possibility of a length for TIME, DATETIME and TIMESTAMP
         // (will work on MySQL >= 5.6.4)
+        //
+        // MySQL permits a non-standard syntax for FLOAT and DOUBLE,
+        // see http://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
+        //
         if ($length != ''
             && ! preg_match(
                 '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|DOUBLE|FLOAT|UUID)$@i',
+                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i',
                 $type
             )
         ) {

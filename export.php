@@ -26,7 +26,7 @@ if (!defined('TESTSUITE')) {
         if (isset($_SESSION['pma_export_error'])) {
             $err = $_SESSION['pma_export_error'];
             unset($_SESSION['pma_export_error']);
-            echo $err;
+            echo "timeout";
         } else {
             echo "success";
         }

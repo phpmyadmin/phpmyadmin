@@ -1,6 +1,19 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.1.13.0 (2014-04-13)
+- bug #4279 CTRL + up or down moves 2 fields
+- bug #4336 List server css style wrong
+- bug       Missing value on the Status > Server page
+- bug #4347 Fixed PHP Parse error in Advisor
+- bug #4350 Deleting the DB if it is renamed by the same name
+- bug #4353 makeProfilingChart is not defined
+- bug #4355 Precision specifier for DOUBLE type is truncated
+- bug #4346 Incorrect "Export incomplete" message
+- bug #4359 Notices on create table page 
+- bug #4356 GROUPed selects show number of rows as if not grouped
+- bug #4357 JS Form submitted on "enter" even if focus is inside a select field 
+
 4.1.12.0 (2014-03-27)
 - bug #4334 Add event : datepicker won't open
 - bug #4338 Fix missing value error while executing SQL query

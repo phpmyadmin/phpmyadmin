@@ -519,8 +519,10 @@ EOT;
         $profiling_table .= '<div id="profilingchart" style="display:none;">';
         $profiling_table .= '</div>';
         $profiling_table .= '<script type="text/javascript">';
+        $profiling_table .= "AJAX.registerOnload('sql.js', function () {";
         $profiling_table .= 'makeProfilingChart();';
         $profiling_table .= 'initProfilingTables();';
+        $profiling_table .= '});';
         $profiling_table .= '</script>';
         $profiling_table .= '</fieldset>' . "\n";
     } else {
@@ -874,6 +876,7 @@ function PMA_isJustBrowsing($analyzed_sql_results, $find_real_end)
         && ! $table_name
         && (empty($analyzed_sql_results['analyzed_sql'][0]['where_clause'])
         || $analyzed_sql_results['analyzed_sql'][0]['where_clause'] == '1 ')
+        && empty($analyzed_sql_results['analyzed_sql'][0]['group_by_clause'])
         && ! isset($find_real_end)
         && !$analyzed_sql_results['is_subquery']
     ) {

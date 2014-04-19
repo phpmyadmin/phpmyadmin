@@ -291,7 +291,15 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
         __('SQL compatibility mode'), 'mysql', '50027', '14515'
     );
     global $cfg;
-    $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" onclick="check_time_out('.$cfg['ExecTimeLimit'].')"/>';
+    if ($cfg['ExecTimeLimit'] > 0) {
+        $html .= '<input type="submit" value="' . __('Go')
+            . '" id="buttonGo" onclick="check_time_out('
+            . $cfg['ExecTimeLimit'] . ')"/>';
+    } else {
+        // if the time limit set is zero, then time out won't occur
+        // So no need to check for time out.
+        $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" />';
+    }
     $html .= '</div>';
 
     return $html;
