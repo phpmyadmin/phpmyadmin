@@ -160,6 +160,20 @@ var AJAX = {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
+
+        //sometime we accidently click on a url,refresh button or back button
+        //operation to confirm if user want to leave page in such cases
+        var foundFieldNotEmpty = false;
+        $("input[type='text']").each(function(index){
+            if ($(this).val().length > 0) {
+                foundFieldNotEmpty = true;
+            }
+        });
+        //trigger confirm dialog
+        if (event.type === 'click' && foundFieldNotEmpty && confirm(PMA_messages['strConfirmNavigation']) === false) {
+            return false;
+        }
+
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already

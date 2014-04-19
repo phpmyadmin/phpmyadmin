@@ -987,8 +987,7 @@ class PMA_Table
             }
 
             // add indexes to the table
-            if (!empty($GLOBALS['sql_indexes'])
-              ) {
+            if (!empty($GLOBALS['sql_indexes'])) {
                 $parsed_sql =  PMA_SQP_parse($GLOBALS['sql_indexes']);
                 $i = 0;
 

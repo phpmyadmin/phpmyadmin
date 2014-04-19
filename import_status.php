@@ -17,8 +17,13 @@
  * Until this is fixed, we need to load the default session to load the data,
  * export the upload progress information from there,
  * and re-import after switching to our session.
+ *
+ * However, since https://github.com/phpmyadmin/phpmyadmin/commit/063a2d99
+ * we have deactivated this feature, so the corresponding code is now 
+ * commented out.
  */
 
+/*
 if (version_compare(PHP_VERSION, '5.4.0', '>=')
     && ini_get('session.upload_progress.enabled')
 ) {
@@ -40,12 +45,14 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
     session_name('phpMyAdmin');
     session_id($_COOKIE['phpMyAdmin']);
 }
+ */
 
 define('PMA_MINIMUM_COMMON', 1);
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/display_import_ajax.lib.php';
 
+/*
 if (defined('SESSIONUPLOAD')) {
     // write sessionupload back into the loaded PMA session
 
@@ -63,6 +70,7 @@ if (defined('SESSIONUPLOAD')) {
         }
     }
 }
+ */
 
 // AJAX requests can't be cached!
 PMA_noCacheHeader();

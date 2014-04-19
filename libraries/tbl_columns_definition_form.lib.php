@@ -601,6 +601,7 @@ function PMA_getHtmlForColumnName($columnNumber, $ci, $ci_offset, $columnMeta)
  * @param int    $ci           cell index
  * @param int    $ci_offset    cell index offset
  * @param string $type_upper   type inuppercase
+ * @param array  $columnMeta   meta data
  *
  * @return string
  */

@@ -278,10 +278,8 @@ class ImportSql extends ImportPlugin
                         } elseif ($pos === false) { // No quote? Too short string
                             // We hit end of string => unclosed quote,
                             // but we handle it as end of query
-                            if ($GLOBALS['finished']) {
-                                $endq = true;
-                                $i = $len - 1;
-                            }
+                            list($endq, $i)
+                                = $this->getEndQuoteAndPos($len, $endq, $i);
                             $found_delimiter = false;
                             break;
                         }
@@ -443,5 +441,23 @@ class ImportSql extends ImportPlugin
         // Commit any possible data in buffers
         PMA_importRunQuery('', substr($buffer, 0, $len), false, $sql_data);
         PMA_importRunQuery('', '', false, $sql_data);
+    }
+
+    /**
+     * Get end quote and position
+     *
+     * @param int  $len      Length
+     * @param bool $endq     End quote
+     * @param int  $position Position
+     *
+     * @return array End quote, position
+     */
+    protected function getEndQuoteAndPos($len, $endq, $position)
+    {
+        if ($GLOBALS['finished']) {
+            $endq = true;
+            $position = $len - 1;
+        }
+        return array($endq, $position);
     }
 }

@@ -220,25 +220,7 @@ class ImportOds extends ImportPlugin
                         $num_iterations = $num_repeat ? $num_repeat : 1;
 
                         for ($k = 0; $k < $num_iterations; $k++) {
-                            if ($_REQUEST['ods_recognize_percentages']
-                                && ! strcmp(
-                                    'percentage',
-                                    $cell_attrs['value-type']
-                                )
-                            ) {
-                                $value = (double)$cell_attrs['value'];
-                            } elseif ($_REQUEST['ods_recognize_currency']
-                                && !strcmp('currency', $cell_attrs['value-type'])
-                            ) {
-                                $value = (double)$cell_attrs['value'];
-                            } else {
-                                /* We need to concatenate all paragraphs */
-                                $values = array();
-                                foreach ($text as $paragraph) {
-                                    $values[] = (string)$paragraph;
-                                }
-                                $value = implode("\n", $values);
-                            }
+                            $value = $this->getValue($cell_attrs, $text);
                             if (! $col_names_in_first_row) {
                                 $tempRow[] = $value;
                             } else {
@@ -416,5 +398,39 @@ class ImportOds extends ImportPlugin
 
         /* Commit any possible data in buffers */
         PMA_importRunQuery();
+    }
+
+    /**
+     * Get value
+     *
+     * @param array $cell_attrs Cell attributes
+     * @param array $text       Texts
+     *
+     * @return float|string
+     */
+    protected function getValue($cell_attrs, $text)
+    {
+        if ($_REQUEST['ods_recognize_percentages']
+            && !strcmp(
+                'percentage',
+                $cell_attrs['value-type']
+            )
+        ) {
+            $value = (double)$cell_attrs['value'];
+            return $value;
+        } elseif ($_REQUEST['ods_recognize_currency']
+            && !strcmp('currency', $cell_attrs['value-type'])
+        ) {
+            $value = (double)$cell_attrs['value'];
+            return $value;
+        } else {
+            /* We need to concatenate all paragraphs */
+            $values = array();
+            foreach ($text as $paragraph) {
+                $values[] = (string)$paragraph;
+            }
+            $value = implode("\n", $values);
+            return $value;
+        }
     }
 }

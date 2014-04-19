@@ -2727,7 +2727,7 @@ function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
     $html_output .= 'href="' . $fav_url
         . '" title="' . ($already_favorite ? __("Remove from Favorites")
         : __("Add to Favorites"))
-        . '" favtargets="' . $db . "." . $current_table['TABLE_NAME']
+        . '" data-favtargets="' . $db . "." . $current_table['TABLE_NAME']
         . '" >'
         . (!$already_favorite ? $titles['NoFavorite']
         : $titles['Favorite']) . '</a>';

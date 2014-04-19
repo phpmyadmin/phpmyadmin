@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.2.0-alpha2\n"
+"Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-16 12:57+0200\n"
+"POT-Creation-Date: 2014-04-19 07:58-0400\n"
 "PO-Revision-Date: 2014-03-28 11:02+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Croatian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -144,7 +144,7 @@ msgstr "Povezano s"
 msgid "Comments"
 msgstr "Komentari"
 
-#: db_datadict.php:240 js/messages.php:242 libraries/Index.class.php:435
+#: db_datadict.php:240 js/messages.php:243 libraries/Index.class.php:435
 #: libraries/Index.class.php:474 libraries/Index.class.php:884
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.lib.php:455
 #: libraries/mult_submits.lib.php:456
@@ -166,7 +166,7 @@ msgstr "Komentari"
 msgid "No"
 msgstr "Ne"
 
-#: db_datadict.php:240 js/messages.php:321 libraries/Index.class.php:436
+#: db_datadict.php:240 js/messages.php:322 libraries/Index.class.php:436
 #: libraries/Index.class.php:473 libraries/Index.class.php:884
 #: libraries/config/FormDisplay.tpl.php:257 libraries/mult_submits.inc.php:80
 #: libraries/mult_submits.inc.php:159 libraries/mult_submits.lib.php:352
@@ -355,7 +355,7 @@ msgstr "Kreirano"
 msgid "Updated"
 msgstr "Ažurirano"
 
-#: db_tracking.php:85 js/messages.php:175 libraries/Menu.class.php:516
+#: db_tracking.php:85 js/messages.php:176 libraries/Menu.class.php:516
 #: libraries/Util.class.php:4093 libraries/rte/rte_events.lib.php:432
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:361
 #: libraries/tbl_tracking.lib.php:200
@@ -496,23 +496,23 @@ msgid "Point:"
 msgstr "Točka"
 
 #: gis_data_editor.php:209 gis_data_editor.php:236 gis_data_editor.php:292
-#: gis_data_editor.php:365 js/messages.php:309
+#: gis_data_editor.php:365 js/messages.php:310
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:212 gis_data_editor.php:240 gis_data_editor.php:296
-#: gis_data_editor.php:371 js/messages.php:310
+#: gis_data_editor.php:371 js/messages.php:311
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:234 gis_data_editor.php:290 gis_data_editor.php:363
-#: js/messages.php:312
+#: js/messages.php:313
 #, php-format
 msgid "Point %d"
 msgstr "Točka %d"
 
 #: gis_data_editor.php:247 gis_data_editor.php:303 gis_data_editor.php:381
-#: js/messages.php:318
+#: js/messages.php:319
 msgid "Add a point"
 msgstr "Dodaj točku"
 
@@ -538,7 +538,7 @@ msgstr "Unutarnji Prsten"
 msgid "Add a linestring"
 msgstr "Dodaj novu liniju niza znakova"
 
-#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:319
+#: gis_data_editor.php:307 gis_data_editor.php:386 js/messages.php:320
 msgid "Add an inner ring"
 msgstr "Dodaj unutarnji prsten"
 
@@ -556,7 +556,7 @@ msgstr "Dodaj poligon"
 msgid "Add geometry"
 msgstr "Dodaj geometriju"
 
-#: gis_data_editor.php:404 js/messages.php:222
+#: gis_data_editor.php:404 js/messages.php:223
 #: libraries/DbSearch.class.php:465 libraries/DisplayResults.class.php:1701
 #: libraries/TableSearch.class.php:1229 libraries/browse_foreigners.lib.php:51
 #: libraries/core.lib.php:572 libraries/display_change_password.lib.php:100
@@ -702,7 +702,7 @@ msgstr ""
 "znači da phpMyAdmin neće biti u mogućnosti završiti ovaj uvoz sve dok ne "
 "povećate vremenska ograničenja unutar php."
 
-#: import_status.php:87 libraries/Util.class.php:733
+#: import_status.php:95 libraries/Util.class.php:733
 #: libraries/export.lib.php:438
 #: libraries/schema/Export_Relation_Schema.class.php:248 user_password.php:239
 msgid "Back"
@@ -983,103 +983,109 @@ msgstr "Želite li zaista  "
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Želite li zaista  "
 
-#: js/messages.php:48
+#: js/messages.php:46
+msgid ""
+"Are you sure you want to navigate away from this page? Press OK to continue "
+"or Cancel to stay on the current page."
+msgstr ""
+
+#: js/messages.php:49
 msgid "Missing value in the form!"
 msgstr "U obrascu nedostaje vrijednost!"
 
-#: js/messages.php:49
+#: js/messages.php:50
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
 msgstr "najmanje jedna riječ"
 
-#: js/messages.php:50
+#: js/messages.php:51
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
 msgstr "Netočan broj porta"
 
-#: js/messages.php:51
+#: js/messages.php:52
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
 msgstr "Netočan broj porta"
 
-#: js/messages.php:52
+#: js/messages.php:53
 msgid "Add Index"
 msgstr "Dodaj Indeks"
 
-#: js/messages.php:53
+#: js/messages.php:54
 msgid "Edit Index"
 msgstr "Uredi indeks"
 
-#: js/messages.php:54 libraries/tbl_indexes.lib.php:394
+#: js/messages.php:55 libraries/tbl_indexes.lib.php:394
 #, fuzzy, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s) to index"
 msgstr "Dodaj %s polja"
 
 #. l10n: Default label for the y-Axis of Charts
-#: js/messages.php:58 libraries/tbl_chart.lib.php:216
+#: js/messages.php:59 libraries/tbl_chart.lib.php:216
 #, fuzzy
 #| msgid "Value"
 msgid "Y Values"
 msgstr "Vrijednost"
 
-#: js/messages.php:61
+#: js/messages.php:62
 msgid "The host name is empty!"
 msgstr "Ime domaćina je prazno!"
 
-#: js/messages.php:62
+#: js/messages.php:63
 msgid "The user name is empty!"
 msgstr "Korisničko ime je prazno!"
 
-#: js/messages.php:63 libraries/server_privileges.lib.php:1581
+#: js/messages.php:64 libraries/server_privileges.lib.php:1581
 #: user_password.php:110
 msgid "The password is empty!"
 msgstr "Lozinka je prazna!"
 
-#: js/messages.php:64 libraries/server_privileges.lib.php:1579
+#: js/messages.php:65 libraries/server_privileges.lib.php:1579
 #: user_password.php:113
 msgid "The passwords aren't the same!"
 msgstr "Lozinke se ne podudaraju!"
 
-#: js/messages.php:65
+#: js/messages.php:66
 msgid "Removing Selected Users"
 msgstr "Ukloni odabrane korisnike"
 
-#: js/messages.php:66 js/messages.php:121 libraries/tbl_tracking.lib.php:354
+#: js/messages.php:67 js/messages.php:122 libraries/tbl_tracking.lib.php:354
 #: libraries/tbl_tracking.lib.php:759
 msgid "Close"
 msgstr "Zatvori"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:69 libraries/ServerStatusData.class.php:205
+#: js/messages.php:70 libraries/ServerStatusData.class.php:205
 #: libraries/server_status_queries.lib.php:145
 msgid "Other"
 msgstr "Ostalo"
 
 #. l10n: Thousands separator
-#: js/messages.php:71 libraries/Util.class.php:1402
+#: js/messages.php:72 libraries/Util.class.php:1402
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:73 libraries/Util.class.php:1404
+#: js/messages.php:74 libraries/Util.class.php:1404
 msgid "."
 msgstr "."
 
-#: js/messages.php:75
+#: js/messages.php:76
 msgid "Connections / Processes"
 msgstr "Veze/Procesi"
 
-#: js/messages.php:78
+#: js/messages.php:79
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible!"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: js/messages.php:79
+#: js/messages.php:80
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -1087,217 +1093,217 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 
-#: js/messages.php:81
+#: js/messages.php:82
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Pohrana upita"
 
-#: js/messages.php:82
+#: js/messages.php:83
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Pohrana upita"
 
-#: js/messages.php:83
+#: js/messages.php:84
 #, fuzzy
 #| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Pohrana upita"
 
-#: js/messages.php:85
+#: js/messages.php:86
 msgid "System CPU Usage"
 msgstr "Korištenje CPU-a"
 
-#: js/messages.php:86
+#: js/messages.php:87
 msgid "System memory"
 msgstr "Sistemska memorija"
 
-#: js/messages.php:87
+#: js/messages.php:88
 msgid "System swap"
 msgstr ""
 
-#: js/messages.php:89
+#: js/messages.php:90
 msgid "Average load"
 msgstr "Prosječno učitavanje"
 
-#: js/messages.php:90
+#: js/messages.php:91
 #, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
 msgstr "Najveći broj datoteka zapisnika"
 
-#: js/messages.php:91
+#: js/messages.php:92
 msgid "Cached memory"
 msgstr "Keširana memorija"
 
-#: js/messages.php:92
+#: js/messages.php:93
 #, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Međuspremnik"
 
-#: js/messages.php:93
+#: js/messages.php:94
 msgid "Free memory"
 msgstr "Slobodna memorija"
 
-#: js/messages.php:94
+#: js/messages.php:95
 msgid "Used memory"
 msgstr "Zauzeta memorija"
 
-#: js/messages.php:96
+#: js/messages.php:97
 #, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
 msgstr "Ukupno"
 
-#: js/messages.php:97
+#: js/messages.php:98
 msgid "Cached Swap"
 msgstr ""
 
-#: js/messages.php:98
+#: js/messages.php:99
 msgid "Used Swap"
 msgstr ""
 
-#: js/messages.php:99
+#: js/messages.php:100
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Slobodne stranice"
 
-#: js/messages.php:101
+#: js/messages.php:102
 msgid "Bytes sent"
 msgstr ""
 
-#: js/messages.php:102
+#: js/messages.php:103
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
 msgstr "Primljeno"
 
-#: js/messages.php:103 libraries/server_status.lib.php:220
+#: js/messages.php:104 libraries/server_status.lib.php:220
 msgid "Connections"
 msgstr "Veze"
 
-#: js/messages.php:104 libraries/server_status.lib.php:412
+#: js/messages.php:105 libraries/server_status.lib.php:412
 msgid "Processes"
 msgstr "Procesi"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:107 libraries/Util.class.php:1346
+#: js/messages.php:108 libraries/Util.class.php:1346
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:108 libraries/Util.class.php:1348
+#: js/messages.php:109 libraries/Util.class.php:1348
 #: libraries/server_status_monitor.lib.php:259
 msgid "KiB"
 msgstr "kB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:109 libraries/Util.class.php:1350
+#: js/messages.php:110 libraries/Util.class.php:1350
 #: libraries/display_export.lib.php:672
 #: libraries/server_status_monitor.lib.php:260
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:110 libraries/Util.class.php:1352
+#: js/messages.php:111 libraries/Util.class.php:1352
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:111 libraries/Util.class.php:1354
+#: js/messages.php:112 libraries/Util.class.php:1354
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:112 libraries/Util.class.php:1356
+#: js/messages.php:113 libraries/Util.class.php:1356
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:113 libraries/Util.class.php:1358
+#: js/messages.php:114 libraries/Util.class.php:1358
 msgid "EiB"
 msgstr "EB"
 
-#: js/messages.php:114
+#: js/messages.php:115
 #, fuzzy, php-format
 #| msgid "%s table(s)"
 msgid "%d table(s)"
 msgstr "%s tablica"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: js/messages.php:117
+#: js/messages.php:118
 #, fuzzy
 msgid "Questions"
 msgstr "Perzijski"
 
-#: js/messages.php:118 libraries/server_status.lib.php:129
+#: js/messages.php:119 libraries/server_status.lib.php:129
 msgid "Traffic"
 msgstr "Promet"
 
-#: js/messages.php:119 libraries/Menu.class.php:549
+#: js/messages.php:120 libraries/Menu.class.php:549
 #: libraries/Util.class.php:4097 libraries/server_status_monitor.lib.php:299
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
 msgstr "Opće osobine relacija"
 
-#: js/messages.php:120
+#: js/messages.php:121
 #, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "Poravnaj s mrežom"
 
-#: js/messages.php:122
+#: js/messages.php:123
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
-#: js/messages.php:123 libraries/DisplayResults.class.php:1338
+#: js/messages.php:124 libraries/DisplayResults.class.php:1338
 #: libraries/TableSearch.class.php:880 libraries/TableSearch.class.php:1039
 #: libraries/display_export.lib.php:579
 #: libraries/plugins/export/ExportSql.class.php:1759
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:710 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
 msgid "None"
 msgstr "bez kompresije"
 
-#: js/messages.php:124
+#: js/messages.php:125
 msgid "Resume monitor"
 msgstr ""
 
-#: js/messages.php:125
+#: js/messages.php:126
 msgid "Pause monitor"
 msgstr ""
 
-#: js/messages.php:127
+#: js/messages.php:128
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: js/messages.php:128
+#: js/messages.php:129
 msgid "general_log is enabled."
 msgstr "general_log je omogućen."
 
-#: js/messages.php:129
+#: js/messages.php:130
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log je omogućen."
 
-#: js/messages.php:130
+#: js/messages.php:131
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log and general_log su onemogućeni."
 
-#: js/messages.php:131
+#: js/messages.php:132
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: js/messages.php:132
+#: js/messages.php:133
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: js/messages.php:133
+#: js/messages.php:134
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -1305,156 +1311,156 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: js/messages.php:134
+#: js/messages.php:135
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: js/messages.php:135
+#: js/messages.php:136
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: js/messages.php:137
+#: js/messages.php:138
 #, fuzzy, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Spremi kao datoteku"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: js/messages.php:139
+#: js/messages.php:140
 #, fuzzy, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Omogućeno"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: js/messages.php:141
+#: js/messages.php:142
 #, fuzzy, php-format
 #| msgid "Disable"
 msgid "Disable %s"
 msgstr "Onemogućeno"
 
 #. l10n: %d seconds
-#: js/messages.php:143
+#: js/messages.php:144
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Set long_query_time to %d seconds."
 msgstr "Upit je trajao %01.4f sek"
 
-#: js/messages.php:145
+#: js/messages.php:146
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: js/messages.php:148
+#: js/messages.php:149
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
 msgstr "Opće osobine relacija"
 
-#: js/messages.php:149
+#: js/messages.php:150
 #, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
 msgstr "Opće osobine relacija"
 
-#: js/messages.php:151 libraries/server_status_monitor.lib.php:216
+#: js/messages.php:152 libraries/server_status_monitor.lib.php:216
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart Title"
 msgstr "Naslov izvještaja"
 
 #. l10n: As in differential values
-#: js/messages.php:153
+#: js/messages.php:154
 msgid "Differential"
 msgstr "Diferencijalni"
 
-#: js/messages.php:154
+#: js/messages.php:155
 #, php-format
 msgid "Divided by %s"
 msgstr ""
 
-#: js/messages.php:155
+#: js/messages.php:156
 msgid "Unit"
 msgstr "Jedinica"
 
-#: js/messages.php:157
+#: js/messages.php:158
 msgid "From slow log"
 msgstr ""
 
-#: js/messages.php:158
+#: js/messages.php:159
 msgid "From general log"
 msgstr ""
 
-#: js/messages.php:160
+#: js/messages.php:161
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
-#: js/messages.php:162
+#: js/messages.php:163
 #, fuzzy
 msgid "Analysing logs"
 msgstr "Lokalno"
 
-#: js/messages.php:163
+#: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
-#: js/messages.php:164
+#: js/messages.php:165
 #, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Pročitaj zahtjeve"
 
-#: js/messages.php:165
+#: js/messages.php:166
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: js/messages.php:166
+#: js/messages.php:167
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: js/messages.php:167
+#: js/messages.php:168
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
 
-#: js/messages.php:169
+#: js/messages.php:170
 #, fuzzy
 msgid "Jump to Log table"
 msgstr "Nema baza podataka"
 
-#: js/messages.php:170
+#: js/messages.php:171
 #, fuzzy
 #| msgid "No databases"
 msgid "No data found"
 msgstr "Nema baza podataka"
 
-#: js/messages.php:171
+#: js/messages.php:172
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
-#: js/messages.php:173
+#: js/messages.php:174
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing…"
 msgstr "Analiziraj"
 
-#: js/messages.php:174
+#: js/messages.php:175
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Objasni SQL"
 
-#: js/messages.php:176 js/messages.php:567
+#: js/messages.php:177 js/messages.php:568
 #: libraries/plugins/export/ExportHtmlword.class.php:486
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:437
@@ -1463,98 +1469,98 @@ msgstr "Objasni SQL"
 msgid "Time"
 msgstr "Vrijeme"
 
-#: js/messages.php:177
+#: js/messages.php:178
 #, fuzzy
 #| msgid "Total"
 msgid "Total time:"
 msgstr "Ukupno"
 
-#: js/messages.php:178
+#: js/messages.php:179
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Izrada profila"
 
-#: js/messages.php:179
+#: js/messages.php:180
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tablica"
 
-#: js/messages.php:180
+#: js/messages.php:181
 #, fuzzy
 #| msgid "Charset"
 msgid "Chart"
 msgstr "Tablica znakova"
 
 #. l10n: A collection of available filters
-#: js/messages.php:183
+#: js/messages.php:184
 #, fuzzy
 msgid "Log table filter options"
 msgstr "Opcije izvoza baze podataka"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:185
+#: js/messages.php:186
 #, fuzzy
 msgid "Filter"
 msgstr "Datoteke"
 
-#: js/messages.php:186
+#: js/messages.php:187
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: js/messages.php:187
+#: js/messages.php:188
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: js/messages.php:188
+#: js/messages.php:189
 #, fuzzy
 msgid "Sum of grouped rows:"
 msgstr "Broj presloženih redaka."
 
-#: js/messages.php:189
+#: js/messages.php:190
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
 msgstr "Ukupno"
 
-#: js/messages.php:191
+#: js/messages.php:192
 #, fuzzy
 msgid "Loading logs"
 msgstr "Lokalno"
 
-#: js/messages.php:192
+#: js/messages.php:193
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:193
+#: js/messages.php:194
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:194
+#: js/messages.php:195
 #, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
 msgstr "Osvježi"
 
-#: js/messages.php:196
+#: js/messages.php:197
 msgid "Affected rows:"
 msgstr ""
 
-#: js/messages.php:199
+#: js/messages.php:200
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: js/messages.php:201
+#: js/messages.php:202
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: js/messages.php:202 libraries/Menu.class.php:332
+#: js/messages.php:203 libraries/Menu.class.php:332
 #: libraries/Menu.class.php:431 libraries/Menu.class.php:545
 #: libraries/Util.class.php:4096 libraries/Util.class.php:4111
 #: libraries/Util.class.php:4127 libraries/config/messages.inc.php:225
@@ -1564,234 +1570,234 @@ msgstr ""
 msgid "Import"
 msgstr "Uvoz"
 
-#: js/messages.php:203
+#: js/messages.php:204
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: js/messages.php:204
+#: js/messages.php:205
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import."
 msgstr "Odaberite primarni ključ ili jedinstveni ključ"
 
-#: js/messages.php:205
+#: js/messages.php:206
 msgid "No files available on server for import!"
 msgstr ""
 
-#: js/messages.php:207
+#: js/messages.php:208
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Ažuriraj upit"
 
-#: js/messages.php:211
+#: js/messages.php:212
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:212
+#: js/messages.php:213
 msgid "Possible performance issues"
 msgstr ""
 
-#: js/messages.php:213
+#: js/messages.php:214
 msgid "Issue"
 msgstr ""
 
-#: js/messages.php:214
+#: js/messages.php:215
 #, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Dokumentacija"
 
-#: js/messages.php:215
+#: js/messages.php:216
 #, fuzzy
 #| msgid "Details…"
 msgid "Rule details"
 msgstr "Detalji…"
 
-#: js/messages.php:216
+#: js/messages.php:217
 #, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
 msgstr "Dokumentacija"
 
-#: js/messages.php:217
+#: js/messages.php:218
 msgid "Used variable / formula"
 msgstr ""
 
-#: js/messages.php:218
+#: js/messages.php:219
 msgid "Test"
 msgstr "Test"
 
-#: js/messages.php:223 libraries/server_variables.lib.php:159
+#: js/messages.php:224 libraries/server_variables.lib.php:159
 #: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
 #: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
 #: pmd_general.php:880 pmd_general.php:913
 msgid "Cancel"
 msgstr "Odustani"
 
-#: js/messages.php:226 libraries/navigation/NavigationHeader.class.php:54
+#: js/messages.php:227 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:164
 #, fuzzy
 msgid "Loading…"
 msgstr "Lokalno"
 
-#: js/messages.php:227
+#: js/messages.php:228
 msgid "Request Aborted!!"
 msgstr ""
 
-#: js/messages.php:228
+#: js/messages.php:229
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing Request"
 msgstr "Procesi"
 
-#: js/messages.php:229
+#: js/messages.php:230
 msgid "Error in Processing Request"
 msgstr "Greška pri procesiranju zahtjeva"
 
-#: js/messages.php:230
+#: js/messages.php:231
 #, php-format
 msgid "Error code: %s"
 msgstr ""
 
-#: js/messages.php:231
+#: js/messages.php:232
 #, php-format
 msgid "Error text: %s"
 msgstr ""
 
-#: js/messages.php:232 libraries/db_common.inc.php:58
+#: js/messages.php:233 libraries/db_common.inc.php:58
 #: libraries/db_table_exists.lib.php:28 libraries/server_databases.lib.php:458
 msgid "No databases selected."
 msgstr "Nema odabrane baze podataka."
 
-#: js/messages.php:233
+#: js/messages.php:234
 msgid "Dropping Column"
 msgstr "Brisanje stupca"
 
-#: js/messages.php:234
+#: js/messages.php:235
 msgid "Adding Primary Key"
 msgstr "Dodavanje primarnog ključa"
 
-#: js/messages.php:235 pmd_general.php:467 pmd_general.php:633
+#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
 #: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
 #: pmd_general.php:878
 msgid "OK"
 msgstr "U redu"
 
-#: js/messages.php:236
+#: js/messages.php:237
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: js/messages.php:239
+#: js/messages.php:240
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Preimenuj bazu podataka u"
 
-#: js/messages.php:240
+#: js/messages.php:241
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Kopiraj bazu podataka u"
 
-#: js/messages.php:241
+#: js/messages.php:242
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Tablica znakova"
 
-#: js/messages.php:245 libraries/mult_submits.lib.php:432
+#: js/messages.php:246 libraries/mult_submits.lib.php:432
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
 msgstr "Onemogući provjere stranih znakova"
 
-#: js/messages.php:246 libraries/mult_submits.lib.php:445
+#: js/messages.php:247 libraries/mult_submits.lib.php:445
 #, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
 msgstr "Omogućeno"
 
-#: js/messages.php:247 libraries/mult_submits.lib.php:445
+#: js/messages.php:248 libraries/mult_submits.lib.php:445
 #, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
 msgstr "Onemogućeno"
 
-#: js/messages.php:250
+#: js/messages.php:251
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Traži"
 
-#: js/messages.php:251
+#: js/messages.php:252
 #, fuzzy
 msgid "Hide search results"
 msgstr "SQL upit"
 
-#: js/messages.php:252
+#: js/messages.php:253
 #, fuzzy
 msgid "Show search results"
 msgstr "SQL upit"
 
-#: js/messages.php:253
+#: js/messages.php:254
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Pretraživanje"
 
-#: js/messages.php:254
+#: js/messages.php:255
 #, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "Brisanje %s"
 
-#: js/messages.php:257
+#: js/messages.php:258
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: js/messages.php:260 libraries/rte/rte_routines.lib.php:805
+#: js/messages.php:261 libraries/rte/rte_routines.lib.php:805
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET uređivač"
 
-#: js/messages.php:261
+#: js/messages.php:262
 #, php-format
 msgid "Values for column %s"
 msgstr "Vrijednosti za stupac %s"
 
-#: js/messages.php:262
+#: js/messages.php:263
 msgid "Values for a new column"
 msgstr "Vrijednosti za novi stupac"
 
-#: js/messages.php:263
+#: js/messages.php:264
 #, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
 msgstr "Unesite svaku vrijednost u drugo polje"
 
-#: js/messages.php:264
+#: js/messages.php:265
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "Dodaj novog korisnika"
 
-#: js/messages.php:267
+#: js/messages.php:268
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
-#: js/messages.php:270
+#: js/messages.php:271
 #, fuzzy
 msgid "Hide query box"
 msgstr "SQL upit"
 
-#: js/messages.php:271
+#: js/messages.php:272
 #, fuzzy
 msgid "Show query box"
 msgstr "SQL upit"
 
-#: js/messages.php:272 libraries/DisplayResults.class.php:3401
+#: js/messages.php:273 libraries/DisplayResults.class.php:3401
 #: libraries/Index.class.php:593 libraries/Util.class.php:665
 #: libraries/Util.class.php:1195 libraries/Util.class.php:3379
 #: libraries/Util.class.php:3380 libraries/config/messages.inc.php:743
@@ -1801,13 +1807,13 @@ msgstr "SQL upit"
 msgid "Edit"
 msgstr "Uređivanje"
 
-#: js/messages.php:273 libraries/DisplayResults.class.php:764
+#: js/messages.php:274 libraries/DisplayResults.class.php:764
 #: libraries/DisplayResults.class.php:772
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nije valjani broj retka."
 
-#: js/messages.php:276 libraries/insert_edit.lib.php:1507
+#: js/messages.php:277 libraries/insert_edit.lib.php:1507
 #: libraries/schema/User_Schema.class.php:390
 #: libraries/server_variables.lib.php:157
 #: libraries/tbl_columns_definition_form.lib.php:141
@@ -1816,275 +1822,275 @@ msgstr "%d nije valjani broj retka."
 msgid "Save"
 msgstr "Spremi"
 
-#: js/messages.php:279
+#: js/messages.php:280
 #, fuzzy
 msgid "Hide search criteria"
 msgstr "SQL upit"
 
-#: js/messages.php:280
+#: js/messages.php:281
 #, fuzzy
 msgid "Show search criteria"
 msgstr "SQL upit"
 
-#: js/messages.php:283
+#: js/messages.php:284
 #, fuzzy
 msgid "Hide find and replace criteria"
 msgstr "SQL upit"
 
-#: js/messages.php:284
+#: js/messages.php:285
 #, fuzzy
 msgid "Show find and replace criteria"
 msgstr "SQL upit"
 
-#: js/messages.php:288
+#: js/messages.php:289
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:290
+#: js/messages.php:291
 msgid "Hovering over a point will show its label."
 msgstr "Ako zadržite pokazivača miša iznad točke biti će prikazan natpis."
 
-#: js/messages.php:292
+#: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: js/messages.php:294
+#: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: js/messages.php:296
+#: js/messages.php:297
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:298
+#: js/messages.php:299
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:300
+#: js/messages.php:301
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
 msgstr "Dodaj/Izbriši stupce polja"
 
-#: js/messages.php:302
+#: js/messages.php:303
 msgid "Select two different columns"
 msgstr "Odaberite dva različita stupca"
 
-#: js/messages.php:304
+#: js/messages.php:305
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Veličina pokazatelja podataka"
 
-#: js/messages.php:307 js/messages.php:401 libraries/insert_edit.lib.php:2605
+#: js/messages.php:308 js/messages.php:402 libraries/insert_edit.lib.php:2605
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
 msgid "Ignore"
 msgstr "Ignoriraj"
 
-#: js/messages.php:308 libraries/DisplayResults.class.php:3404
+#: js/messages.php:309 libraries/DisplayResults.class.php:3404
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: js/messages.php:311
+#: js/messages.php:312
 msgid "Point"
 msgstr "Točka"
 
-#: js/messages.php:313
+#: js/messages.php:314
 msgid "Linestring"
 msgstr "Linija teksta"
 
-#: js/messages.php:314
+#: js/messages.php:315
 msgid "Polygon"
 msgstr "Poligon"
 
-#: js/messages.php:315 libraries/DisplayResults.class.php:1685
+#: js/messages.php:316 libraries/DisplayResults.class.php:1685
 msgid "Geometry"
 msgstr "Geometrija"
 
-#: js/messages.php:316
+#: js/messages.php:317
 msgid "Inner Ring"
 msgstr "Unutarnji Prsten"
 
-#: js/messages.php:317
+#: js/messages.php:318
 msgid "Outer Ring"
 msgstr "Vanjski Prsten"
 
-#: js/messages.php:320
+#: js/messages.php:321
 msgid "Shift + Click on function name to apply to all rows."
 msgstr ""
 
-#: js/messages.php:322
+#: js/messages.php:323
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: js/messages.php:323
+#: js/messages.php:324
 msgid "Encryption key"
 msgstr ""
 
-#: js/messages.php:326
+#: js/messages.php:327
 msgid "Select referenced key"
 msgstr "Odaberite referentni ključ"
 
-#: js/messages.php:327
+#: js/messages.php:328
 msgid "Select Foreign Key"
 msgstr "Odaberite strani ključ"
 
-#: js/messages.php:328
+#: js/messages.php:329
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "Odaberite primarni ključ ili jedinstveni ključ"
 
-#: js/messages.php:329 pmd_general.php:101
+#: js/messages.php:330 pmd_general.php:101
 #, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Odaberi polje za prikaz"
 
-#: js/messages.php:331
+#: js/messages.php:332
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:336
+#: js/messages.php:337
 #, fuzzy, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
 msgstr "Dodaj opciju stupcu "
 
-#: js/messages.php:337
+#: js/messages.php:338
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:340
+#: js/messages.php:341
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:341
+#: js/messages.php:342
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:342
+#: js/messages.php:343
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:343
+#: js/messages.php:344
 #, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
 msgstr "Kliknite za sortiranje"
 
-#: js/messages.php:344
+#: js/messages.php:345
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
-#: js/messages.php:345
+#: js/messages.php:346
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:346
+#: js/messages.php:347
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Nazivi stupaca"
 
-#: js/messages.php:348
+#: js/messages.php:349
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:350 libraries/DisplayResults.class.php:858
+#: js/messages.php:351 libraries/DisplayResults.class.php:858
 #: libraries/browse_foreigners.lib.php:371
 #: libraries/browse_foreigners.lib.php:424
 #: libraries/server_privileges.lib.php:3224
 msgid "Show all"
 msgstr "Prikaži sve"
 
-#: js/messages.php:351
+#: js/messages.php:352
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:356
+#: js/messages.php:357
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:359
+#: js/messages.php:360
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:364
+#: js/messages.php:365
 #, fuzzy
 msgid "Go to link."
 msgstr "Nema baza podataka"
 
-#: js/messages.php:365
+#: js/messages.php:366
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name."
 msgstr "Nazivi stupaca"
 
-#: js/messages.php:366
+#: js/messages.php:367
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:367
+#: js/messages.php:368
 #, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)."
 msgstr "Ažuriraj redak"
 
-#: js/messages.php:370
+#: js/messages.php:371
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generiraj lozinku"
 
-#: js/messages.php:371 libraries/replication_gui.lib.php:869
+#: js/messages.php:372 libraries/replication_gui.lib.php:869
 msgid "Generate"
 msgstr "Generiraj"
 
-#: js/messages.php:372
+#: js/messages.php:373
 #, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Promijeni lozinku"
 
-#: js/messages.php:375
+#: js/messages.php:376
 #, fuzzy
 #| msgid "Mon"
 msgid "More"
 msgstr "Pon"
 
-#: js/messages.php:378
+#: js/messages.php:379
 #, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
 msgstr "Prikaži sve"
 
-#: js/messages.php:379
+#: js/messages.php:380
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide Panel"
 msgstr "Indeksi"
 
-#: js/messages.php:380
+#: js/messages.php:381
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items."
 msgstr "Prikaži logo u lijevom okviru"
 
-#: js/messages.php:383
+#: js/messages.php:384
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Odabrani korisnik nije pronađen u tablici privilegija."
 
-#: js/messages.php:386 setup/lib/index.lib.php:157
+#: js/messages.php:387 setup/lib/index.lib.php:157
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2094,56 +2100,56 @@ msgstr ""
 "Najnovija verzija je %s objavljena na %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:388
+#: js/messages.php:389
 #, fuzzy
 msgid ", latest stable version:"
 msgstr "Izradi relaciju"
 
-#: js/messages.php:389
+#: js/messages.php:390
 #, fuzzy
 msgid "up to date"
 msgstr "Nema baza podataka"
 
-#: js/messages.php:391 libraries/DisplayResults.class.php:5269
+#: js/messages.php:392 libraries/DisplayResults.class.php:5269
 #: view_create.php:178
 #, fuzzy
 msgid "Create view"
 msgstr "Izradi relaciju"
 
-#: js/messages.php:394
+#: js/messages.php:395
 #, fuzzy
 msgid "Send Error Report"
 msgstr "ID poslužitelja"
 
-#: js/messages.php:395
+#: js/messages.php:396
 msgid "Submit Error Report"
 msgstr ""
 
-#: js/messages.php:397
+#: js/messages.php:398
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:399
+#: js/messages.php:400
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change Report Settings"
 msgstr "Opće osobine relacija"
 
-#: js/messages.php:400
+#: js/messages.php:401
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show Report Details"
 msgstr "Prikaži otvorene tablice"
 
-#: js/messages.php:403
+#: js/messages.php:404
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:407
+#: js/messages.php:408
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2151,19 +2157,19 @@ msgid ""
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:436
+#: js/messages.php:437
 #, fuzzy
 msgid "Done"
 msgstr "Podaci"
 
-#: js/messages.php:440
+#: js/messages.php:441
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prethodni"
 
-#: js/messages.php:445
+#: js/messages.php:446
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2171,96 +2177,96 @@ msgid "Next"
 msgstr "Sljedeće"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:448
+#: js/messages.php:449
 #, fuzzy
 #| msgid "Total"
 msgid "Today"
 msgstr "Ukupno"
 
-#: js/messages.php:452
+#: js/messages.php:453
 #, fuzzy
 #| msgid "Binary"
 msgid "January"
 msgstr "Binarno"
 
-#: js/messages.php:453
+#: js/messages.php:454
 msgid "February"
 msgstr "Veljača"
 
-#: js/messages.php:454
+#: js/messages.php:455
 #, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "Ožu"
 
-#: js/messages.php:455
+#: js/messages.php:456
 #, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "Tra"
 
-#: js/messages.php:456
+#: js/messages.php:457
 msgid "May"
 msgstr "Svi"
 
-#: js/messages.php:457
+#: js/messages.php:458
 #, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "Lip"
 
-#: js/messages.php:458
+#: js/messages.php:459
 #, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "Srp"
 
-#: js/messages.php:459
+#: js/messages.php:460
 #, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "Kol"
 
-#: js/messages.php:460
+#: js/messages.php:461
 msgid "September"
 msgstr "Rujan"
 
-#: js/messages.php:461
+#: js/messages.php:462
 #, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "Lis"
 
-#: js/messages.php:462
+#: js/messages.php:463
 msgid "November"
 msgstr "Studeno"
 
-#: js/messages.php:463
+#: js/messages.php:464
 msgid "December"
 msgstr "Prosinac"
 
 #. l10n: Short month name
-#: js/messages.php:470 libraries/Util.class.php:1559
+#: js/messages.php:471 libraries/Util.class.php:1559
 msgid "Jan"
 msgstr "Sij"
 
 #. l10n: Short month name
-#: js/messages.php:472 libraries/Util.class.php:1561
+#: js/messages.php:473 libraries/Util.class.php:1561
 msgid "Feb"
 msgstr "Velj"
 
 #. l10n: Short month name
-#: js/messages.php:474 libraries/Util.class.php:1563
+#: js/messages.php:475 libraries/Util.class.php:1563
 msgid "Mar"
 msgstr "Ožu"
 
 #. l10n: Short month name
-#: js/messages.php:476 libraries/Util.class.php:1565
+#: js/messages.php:477 libraries/Util.class.php:1565
 msgid "Apr"
 msgstr "Tra"
 
 #. l10n: Short month name
-#: js/messages.php:478 libraries/Util.class.php:1567
+#: js/messages.php:479 libraries/Util.class.php:1567
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -2268,78 +2274,78 @@ msgid "May"
 msgstr "Svi"
 
 #. l10n: Short month name
-#: js/messages.php:480 libraries/Util.class.php:1569
+#: js/messages.php:481 libraries/Util.class.php:1569
 msgid "Jun"
 msgstr "Lip"
 
 #. l10n: Short month name
-#: js/messages.php:482 libraries/Util.class.php:1571
+#: js/messages.php:483 libraries/Util.class.php:1571
 msgid "Jul"
 msgstr "Srp"
 
 #. l10n: Short month name
-#: js/messages.php:484 libraries/Util.class.php:1573
+#: js/messages.php:485 libraries/Util.class.php:1573
 msgid "Aug"
 msgstr "Kol"
 
 #. l10n: Short month name
-#: js/messages.php:486 libraries/Util.class.php:1575
+#: js/messages.php:487 libraries/Util.class.php:1575
 msgid "Sep"
 msgstr "Ruj"
 
 #. l10n: Short month name
-#: js/messages.php:488 libraries/Util.class.php:1577
+#: js/messages.php:489 libraries/Util.class.php:1577
 msgid "Oct"
 msgstr "Lis"
 
 #. l10n: Short month name
-#: js/messages.php:490 libraries/Util.class.php:1579
+#: js/messages.php:491 libraries/Util.class.php:1579
 msgid "Nov"
 msgstr "Stu"
 
 #. l10n: Short month name
-#: js/messages.php:492 libraries/Util.class.php:1581
+#: js/messages.php:493 libraries/Util.class.php:1581
 msgid "Dec"
 msgstr "Pro"
 
-#: js/messages.php:498
+#: js/messages.php:499
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "Ned"
 
-#: js/messages.php:499
+#: js/messages.php:500
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "Pon"
 
-#: js/messages.php:500
+#: js/messages.php:501
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "Uto"
 
-#: js/messages.php:501
+#: js/messages.php:502
 msgid "Wednesday"
 msgstr "Srijeda"
 
-#: js/messages.php:502
+#: js/messages.php:503
 msgid "Thursday"
 msgstr "ČEtvrtak"
 
-#: js/messages.php:503
+#: js/messages.php:504
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "Pet"
 
-#: js/messages.php:504
+#: js/messages.php:505
 msgid "Saturday"
 msgstr "Subota"
 
 #. l10n: Short week day name
-#: js/messages.php:511
+#: js/messages.php:512
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2347,86 +2353,86 @@ msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name
-#: js/messages.php:513 libraries/Util.class.php:1586
+#: js/messages.php:514 libraries/Util.class.php:1586
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name
-#: js/messages.php:515 libraries/Util.class.php:1588
+#: js/messages.php:516 libraries/Util.class.php:1588
 msgid "Tue"
 msgstr "Uto"
 
 #. l10n: Short week day name
-#: js/messages.php:517 libraries/Util.class.php:1590
+#: js/messages.php:518 libraries/Util.class.php:1590
 msgid "Wed"
 msgstr "Sri"
 
 #. l10n: Short week day name
-#: js/messages.php:519 libraries/Util.class.php:1592
+#: js/messages.php:520 libraries/Util.class.php:1592
 msgid "Thu"
 msgstr "Čet"
 
 #. l10n: Short week day name
-#: js/messages.php:521 libraries/Util.class.php:1594
+#: js/messages.php:522 libraries/Util.class.php:1594
 msgid "Fri"
 msgstr "Pet"
 
 #. l10n: Short week day name
-#: js/messages.php:523 libraries/Util.class.php:1596
+#: js/messages.php:524 libraries/Util.class.php:1596
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
-#: js/messages.php:530
+#: js/messages.php:531
 #, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Ned"
 
 #. l10n: Minimal week day name
-#: js/messages.php:532
+#: js/messages.php:533
 #, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Pon"
 
 #. l10n: Minimal week day name
-#: js/messages.php:534
+#: js/messages.php:535
 #, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Uto"
 
 #. l10n: Minimal week day name
-#: js/messages.php:536
+#: js/messages.php:537
 #, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Sri"
 
 #. l10n: Minimal week day name
-#: js/messages.php:538
+#: js/messages.php:539
 #, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Čet"
 
 #. l10n: Minimal week day name
-#: js/messages.php:540
+#: js/messages.php:541
 #, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Pet"
 
 #. l10n: Minimal week day name
-#: js/messages.php:542
+#: js/messages.php:543
 #, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "Sub"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:546
+#: js/messages.php:547
 #, fuzzy
 #| msgid "Wiki"
 msgid "Wk"
@@ -2435,29 +2441,29 @@ msgstr "Wiki"
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:553
+#: js/messages.php:554
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:556
+#: js/messages.php:557
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "bez kompresije"
 
-#: js/messages.php:568
+#: js/messages.php:569
 msgid "Hour"
 msgstr "Sat"
 
-#: js/messages.php:569
+#: js/messages.php:570
 #, fuzzy
 #| msgid "in use"
 msgid "Minute"
 msgstr "u upotrebi"
 
-#: js/messages.php:570
+#: js/messages.php:571
 #, fuzzy
 #| msgid "per second"
 msgid "Second"
@@ -3416,7 +3422,7 @@ msgstr[1] "Umetnuto redaka: %1$d."
 #: libraries/schema/Pdf_Relation_Schema.class.php:1180
 #: libraries/schema/Pdf_Relation_Schema.class.php:1204
 #: libraries/schema/User_Schema.class.php:441
-#: libraries/select_lang.lib.php:589
+#: libraries/select_lang.lib.php:591
 msgid "Page number:"
 msgstr "Broj stranice:"
 
@@ -3438,42 +3444,42 @@ msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 msgid "Could not save favorite table!"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/RecentFavoriteTable.class.php:210
+#: libraries/RecentFavoriteTable.class.php:217
 #: libraries/structure.lib.php:2728
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Remove from Favorites"
 msgstr "Preimenuj bazu podataka u"
 
-#: libraries/RecentFavoriteTable.class.php:227
+#: libraries/RecentFavoriteTable.class.php:234
 #, fuzzy
 msgid "There are no recent tables."
 msgstr "Provjeri tablicu"
 
-#: libraries/RecentFavoriteTable.class.php:228
+#: libraries/RecentFavoriteTable.class.php:235
 #, fuzzy
 msgid "There are no favorite tables."
 msgstr "Provjeri tablicu"
 
-#: libraries/RecentFavoriteTable.class.php:243
+#: libraries/RecentFavoriteTable.class.php:250
 #, fuzzy
 msgid "Recent tables"
 msgstr "Nema tablica"
 
-#: libraries/RecentFavoriteTable.class.php:245
+#: libraries/RecentFavoriteTable.class.php:252
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "Povrat"
 
-#: libraries/RecentFavoriteTable.class.php:247
+#: libraries/RecentFavoriteTable.class.php:254
 #: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "Varijable"
 
-#: libraries/RecentFavoriteTable.class.php:249
+#: libraries/RecentFavoriteTable.class.php:256
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
@@ -3651,44 +3657,44 @@ msgstr "Traži u bazi podataka"
 msgid "Target database `%s` was not found!"
 msgstr "Tema %s nije pronađena!"
 
-#: libraries/Table.class.php:1303
+#: libraries/Table.class.php:1302
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Neispravna baza podataka"
 
-#: libraries/Table.class.php:1317
+#: libraries/Table.class.php:1316
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Neispravan naziv tablice"
 
-#: libraries/Table.class.php:1352
+#: libraries/Table.class.php:1351
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Pogreška tijekom preimenovanja tablice %1$s u %2$s"
 
-#: libraries/Table.class.php:1371
+#: libraries/Table.class.php:1370
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tablica %s preimenovana je u %s"
 
-#: libraries/Table.class.php:1519
+#: libraries/Table.class.php:1518
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Nije moguće učitati zadanu konfiguraciju iz: \"%1$s\""
 
-#: libraries/Table.class.php:1548
+#: libraries/Table.class.php:1547
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1699
+#: libraries/Table.class.php:1698
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -4623,32 +4629,32 @@ msgstr ""
 msgid "Missing data for %s"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:763
-#: libraries/config/FormDisplay.class.php:769
-#: libraries/config/FormDisplay.class.php:776
+#: libraries/config/FormDisplay.class.php:758
+#: libraries/config/FormDisplay.class.php:764
+#: libraries/config/FormDisplay.class.php:771
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "Varijabla"
 
-#: libraries/config/FormDisplay.class.php:765
-#: libraries/config/FormDisplay.class.php:771
-#: libraries/config/FormDisplay.class.php:778
+#: libraries/config/FormDisplay.class.php:760
+#: libraries/config/FormDisplay.class.php:766
+#: libraries/config/FormDisplay.class.php:773
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:797
+#: libraries/config/FormDisplay.class.php:792
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:804
+#: libraries/config/FormDisplay.class.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
-#: libraries/config/FormDisplay.class.php:817
+#: libraries/config/FormDisplay.class.php:812
 #, php-format
 msgid "maximum %s"
 msgstr "maksimum %s"
@@ -4774,8 +4780,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
-"[kbd]http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
+"http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4915,8 +4921,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
-"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
+"CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5505,9 +5511,8 @@ msgstr "Broj stranice:"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
@@ -5935,8 +5940,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:415
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for "
-"[kbd]cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
+"cookie[/kbd] authentication."
 msgstr ""
 
 #: libraries/config/messages.inc.php:418
@@ -6345,8 +6350,8 @@ msgstr "Zabilježi tablicu"
 
 #: libraries/config/messages.inc.php:565
 msgid ""
-"Leave blank for no column comments/mime types, suggested: "
-"[kbd]pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: [kbd]"
+"pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:568
@@ -6539,8 +6544,8 @@ msgstr "Analiziraj tablicu"
 
 #: libraries/config/messages.inc.php:642
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
-"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
+"[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:646
@@ -6550,8 +6555,8 @@ msgstr "Popravi tablicu"
 
 #: libraries/config/messages.inc.php:648
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-"types[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
+"[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:651
@@ -6657,8 +6662,8 @@ msgstr "Izjave"
 
 #: libraries/config/messages.inc.php:691
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
+"[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:694
@@ -6679,8 +6684,8 @@ msgstr "Rad s automatskim povratom"
 
 #: libraries/config/messages.inc.php:701
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: [kbd]"
+"pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:702
@@ -10679,8 +10684,8 @@ msgstr "Tablica \"%s\" ne postoji!"
 msgid "Plugin is disabled"
 msgstr "SQL Validator je isključen"
 
-#: libraries/select_lang.lib.php:596 libraries/select_lang.lib.php:605
-#: libraries/select_lang.lib.php:614
+#: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
+#: libraries/select_lang.lib.php:616
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Nepoznati jezik: %1$s."
@@ -13108,28 +13113,28 @@ msgstr "Odaberite referentni ključ"
 msgid "Is a foreign key."
 msgstr "Odaberite strani ključ"
 
-#: libraries/tbl_columns_definition_form.lib.php:768
+#: libraries/tbl_columns_definition_form.lib.php:769
 msgid "first"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:777
+#: libraries/tbl_columns_definition_form.lib.php:778
 #, fuzzy, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "Poslije %s"
 
-#: libraries/tbl_columns_definition_form.lib.php:1066
+#: libraries/tbl_columns_definition_form.lib.php:1067
 msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: libraries/tbl_columns_definition_form.lib.php:1091
+#: libraries/tbl_columns_definition_form.lib.php:1092
 #, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "bez kompresije"
 
-#: libraries/tbl_columns_definition_form.lib.php:1092
+#: libraries/tbl_columns_definition_form.lib.php:1093
 msgid "As defined:"
 msgstr "Kako je definirano:"
 
