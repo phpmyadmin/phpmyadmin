@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-04-17 05:23+0200\n"
-"Last-Translator: Jun-seong Lee <acu.pe.kr@gmail.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"PO-Revision-Date: 2014-04-19 15:09+0200\n"
+"Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
+"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
+"\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4387,6 +4387,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
+"%ssession.gc_maxlifetime%s보다 큰 %sLogin cookie validity%s은 불규칙적으로 세션 파기를 유발할 "
+"수 있습니다(현재 session.gc_maxlifetime은 %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4394,6 +4396,8 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%sLogin cookie validity%s은 1800초(30분) 이하로 설정되어야 합니다.. 1800 초과시 인증 속이기 등의 보안 "
+"위험에 노출될 수 있습니다."
 
 #: libraries/config/ServerConfigChecks.class.php:416
 #, php-format
@@ -4401,6 +4405,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"[kbd]쿠키[/kbd] 인증을 사용하면서 %sLogin cookie store%s가 0이 아니라면, %sLogin cookie "
+"validity%s은 그 값 이하의 값을 가져야합니다."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, php-format
@@ -4410,6 +4416,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
+"만약 이것이 필요하다고 느낀다면, 추가적인 보안 설정을 하세요 - %shost authentication%s 설정과 %strusted "
+"proxies list%s. 하지만 IP 기반 보안은, 당신이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 "
+"않습니다."
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4420,6 +4429,9 @@ msgid ""
 "phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
 "http[/kbd]."
 msgstr ""
+"[kbd]config[/kbd] 권한 타입 설정에 자동 로그인을 위해 사용자명과 암호를 포함했습니다. 이 설정은 실서비스용으로는 권장하지 "
+"않습니다. 누군가가 phpMyAdmin이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. %"
+"sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4433,7 +4445,7 @@ msgstr "%sZip 압축%s을 하기 위한 함수 %s가 현재 시스템에서 사�
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr ""
+msgstr "%sZip decompression%s 기능은 (%s) 기능이 필요한데, 현재 시스템에서 사용할수 없습니다."
 
 #: libraries/config/Validator.class.php:238
 msgid "Could not initialize Drizzle connection library!"
@@ -4447,24 +4459,21 @@ msgid "Could not connect to the database server!"
 msgstr "데이터베이스 서버에 접속할 수 없습니다!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
+msgstr "[kbd]config[/kbd] 권한 기능을 사용하지만 사용자명이 빈 값입니다!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
+msgstr "[kbd]signon[/kbd] 권한 기능을 사용하지만 signon 세션 이름이 빈 값입니다!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Can not find signon authentication script:"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "접근관련 인증 스크립트를 찾을수 없습니다:"
+msgstr "[kbd]signon[/kbd] 권한 기능을 사용하지만 signon URL 값이 빈 값입니다!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -4487,21 +4496,17 @@ msgid "Incorrect IP address: %s"
 msgstr "잘못된 IP 주소: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
-msgstr ""
-"활성화 할 경우, 사용자는 모든 MySQL 서버에 쿠키 인증을 이용하는 로그인 폼을 "
-"사용하여 입장할 수 있습니다."
+msgstr "활성화 할 경우, 사용자는 모든 MySQL 서버에 쿠키 인증을 이용하는 로그인 폼을 사용하여 입장할 수 있습니다."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
 msgstr "아무 MySQL 서버에 로그인 허용"
 
 #: libraries/config/messages.inc.php:21
-#, fuzzy
 #| msgid ""
 #| "Enabling this allows a page located on a different domain to call "
 #| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
@@ -4511,9 +4516,8 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
-"활성화 할 경우, 다른 도메인에 위치한 페이지에서 phpMyAdmin을 프레임 안쪽에 로"
-"드하는 것을 허용하게 되며, 이는 크로스 프레임 스크립팅 공격 [strong]보안 취약"
-"점[/strong]을 허용할 가능성을 가집니다."
+"활성화 할 경우, 다른 도메인에 위치한 페이지에서 phpMyAdmin을 프레임 안쪽에 로드하는 것을 허용하게 되며, 이는 크로스 프레임 "
+"스크립팅(XSS) 공격 [strong]보안 취약점[/strong]을 허용할 가능성을 가집니다."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4524,14 +4528,13 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "일반 사용자에게 \"데이터베이스 삭제(drop)\" 링크를 제공"
 
 #: libraries/config/messages.inc.php:29
-#, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 #| "authentication"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
-msgstr "[kbd]쿠키[/kbd] 인증방식에서 쿠키를 암호화하는데 사용할 비밀 암호"
+msgstr "[kbd]쿠키[/kbd] 인증방식에서 쿠키를 암호화하는데 사용할 비밀 키."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4546,26 +4549,22 @@ msgid "Row marker"
 msgstr "열(row) 마커"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "마우스 커서 위치의 행 포인트 하이라이트"
+msgstr "마우스 커서 위치의 행 포인트 하이라이트."
 
 #: libraries/config/messages.inc.php:36
 msgid "Highlight pointer"
 msgstr "포인터 하이라이트"
 
 #: libraries/config/messages.inc.php:38
-#, fuzzy
 #| msgid ""
 #| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 #| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations."
-msgstr ""
-"가져오기와 내보내기 작업시 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압"
-"축을 활성화합니다."
+msgstr "가져오기 작업시 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압축을 활성화합니다."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -8805,6 +8804,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"모든 <code>INSERT</code> 구문에 컬럼 이름을 포함<br />&nbsp; &nbsp; &nbsp;예: <code>"
+"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:405
 msgid ""
@@ -8812,18 +8813,24 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"모든 <code>INSERT</code> 구문에 여러개의 행을 삽입<br />&nbsp; &nbsp; &nbsp; 예:<code>"
+"INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:410
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"위의 것 둘 다<br /> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name "
+"(col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:415
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"위의 것 둘 다 안 함<br /> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name VALUES "
+"(1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:434
 msgid ""
@@ -14459,6 +14466,12 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"InnoDB 버퍼 풀은 InnoDB 테이블의 성능에 심각한 영향을 줍니다. 남은 메모리 전체를 이 버퍼에 할당하십시오. 이 서버에 "
+"InnoDB를 스토리지 엔진으로만 사용하고, 다른 서비스(예: 웹 서버)가 없다면, 이 값을 사용가능한 메모리의 80%% 정도로 높게 "
+"설정하는 것도 괜찮습니다. 그런 상황이 아니라면, 다른 서비스 및 InnoDB가 아닌 테이블들의 메모리 사용량을 신중히 가늠하여 이 값을 "
+"설정하세요. 만약 이 값을 너무 높게 설정하면, 시스템은 스와핑을 하게 되고, 성능이 급격하게 떨어집니다. <a href=\""
+"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">이 글</a> 또한 참고하세요"
 
 #: libraries/advisory_rules.txt:455
 #, php-format
@@ -14468,6 +14481,8 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"현재, InnoDB 버퍼 풀에 할당된 메모리의 %s%%를 사용하고 있습니다. 60%%이하를 할당했다면 이 규칙이 실행됩니다. 단, "
+"InnoDB 테이블이 많이 없거나, 다른 서비스가 현재 서버에 실행중일 경우에는 이 값이 매우 적절할 수 있습니다."
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
