@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-04-20 19:14+0200\n"
+"PO-Revision-Date: 2014-04-20 19:15+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/ia/>\n"
@@ -6105,7 +6105,7 @@ msgstr "Comprime connexion a servitor MySQL."
 
 #: libraries/config/messages.inc.php:570
 msgid "Compress connection"
-msgstr ""
+msgstr "Comprime connexion"
 
 #: libraries/config/messages.inc.php:572
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
@@ -6113,11 +6113,11 @@ msgstr "Como connecter al servitor, mantene [kbd]tcp[/kbd] si non secur."
 
 #: libraries/config/messages.inc.php:573
 msgid "Connection type"
-msgstr ""
+msgstr "Typo de connexion"
 
 #: libraries/config/messages.inc.php:574
 msgid "Control user password"
-msgstr ""
+msgstr "Contrasigno de usator de controlo"
 
 #: libraries/config/messages.inc.php:576
 msgid ""
@@ -6130,7 +6130,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:579
 msgid "Control user"
-msgstr ""
+msgstr "Usator de controlo"
 
 #: libraries/config/messages.inc.php:581
 msgid ""
