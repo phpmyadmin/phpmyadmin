@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-20 23:14+0200\n"
+"PO-Revision-Date: 2014-04-20 23:20+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -944,10 +944,10 @@ msgid "Edit Index"
 msgstr "தொகுப்புக்குறி மாற்று"
 
 #: js/messages.php:52 libraries/tbl_indexes.lib.php:394
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s) to index"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "%s நெடுவரிசை(களை) தொகுப்புக்குறியில் சேர்க்க"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:56 libraries/tbl_chart.lib.php:188
