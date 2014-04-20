@@ -22,16 +22,20 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
     $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
     // Required to keep each user's preferences seperate.
     $user = sha1($GLOBALS['cfg']['Server']['user']);
+
     // Request for Synchronization of favorite tables.
     if (isset($_REQUEST['sync_favorite_tables'])) {
-        if (empty($fav_instance->tables)
+
+        $fav_instance_tables = $fav_instance->getTables();
+
+        if (empty($fav_instance_tables)
             && isset($favorite_tables[$user])
         ) {
             foreach ($favorite_tables[$user] as $key => $value) {
                 $fav_instance->add($value['db'], $value['table']);
             }
         }
-        $favorite_tables[$user] = $fav_instance->tables;
+        $favorite_tables[$user] = $fav_instance->getTables();
 
         $ajax_response = PMA_Response::getInstance();
         $ajax_response->addJSON(
@@ -61,7 +65,7 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
         }
     } elseif (isset($_REQUEST['add_favorite'])) {
         if (!$already_favorite) {
-            if (count($fav_instance->tables) == $GLOBALS['cfg']['NumFavoriteTables']) {
+            if (count($fav_instance->getTables()) == $GLOBALS['cfg']['NumFavoriteTables']) {
                 $changes = false;
                 $msg = '<div class="error"><img src="themes/dot.gif" '
                     . 'title="" alt="" class="icon ic_s_error" />'
@@ -76,7 +80,7 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
 
     }
 
-    $favorite_tables[$user] = $fav_instance->tables;
+    $favorite_tables[$user] = $fav_instance->getTables();
     $ajax_response = PMA_Response::getInstance();
     $ajax_response->addJSON(
         'changes',
