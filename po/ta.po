@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-20 22:23+0200\n"
+"PO-Revision-Date: 2014-04-20 22:27+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -361,7 +361,7 @@ msgstr "காண்பி"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "இந்த அட்டவணைக்கான கண்காணிப்பு தரவை நீக்கு"
 
 #: db_tracking.php:103 libraries/Index.class.php:627
 #: libraries/Util.class.php:3410 libraries/Util.class.php:3411
