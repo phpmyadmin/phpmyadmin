@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-20 21:38+0200\n"
+"PO-Revision-Date: 2014-04-20 21:49+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -720,10 +720,9 @@ msgid "Server:"
 msgstr "சேவையன்:"
 
 #: index.php:264
-#, fuzzy
 #| msgid "Server"
 msgid "Server type:"
-msgstr "சேவையன்"
+msgstr "வழங்கி வகை:"
 
 #: index.php:268 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:631
