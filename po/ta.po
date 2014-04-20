@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-20 21:04+0200\n"
+"PO-Revision-Date: 2014-04-20 21:36+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -698,10 +698,9 @@ msgid "Change password"
 msgstr ""
 
 #: index.php:183
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Server connection collation"
-msgstr "பாதுகாப்பற்ற இணைப்பு"
+msgstr "சேவையக இணைப்பு குறிமுறை அடுக்குவரிசை"
 
 #: index.php:206
 msgid "Appearance Settings"
