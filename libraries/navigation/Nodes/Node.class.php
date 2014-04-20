@@ -360,11 +360,49 @@ class Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
-        $query  = "SELECT `SCHEMA_NAME` ";
+        /*$query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
         $query .= $this->_getWhereClause($searchClause);
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
-        $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
+        $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";*/
+
+        $query  = "SELECT `SCHEMA_NAME` ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
+        $query .= " (";
+        $query .= "     select DB_first_level ";
+        $query .= "     from ( ";
+        $query .= "         SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
+        $query .= "DB_first_level ";
+        $query .= "         FROM INFORMATION_SCHEMA.SCHEMATA ";
+        $query .= $this->_getWhereClause($searchClause);
+        $query .= "     ) t ";
+        $query .= "     ORDER BY DB_first_level ASC ";
+        $query .= "     LIMIT $pos, {$GLOBALS['cfg']['FirstLevelNavigationItems']}";
+        $query .= " ) t2 ";
+        $query .= "where 1 = locate(concat(DB_first_level, ";
+        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}'), ";
+        $query .= "concat(SCHEMA_NAME, ";
+        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}')) ";
+        $query .= "order by SCHEMA_NAME ASC";
+        /*echo $query;
+
+        SELECT `SCHEMA_NAME`
+        FROM `INFORMATION_SCHEMA`.`SCHEMATA`,
+            (
+                select DB_first_level
+                from (
+                    SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level
+                    FROM INFORMATION_SCHEMA.SCHEMATA
+                    WHERE TRUE
+                ) t
+                ORDER BY DB_first_level ASC
+                LIMIT 0, 5
+            ) t2
+        where 1 = locate(concat(DB_first_level, '_'), concat(SCHEMA_NAME, '_'))
+        order by SCHEMA_NAME ASC
+        */
+
         return $GLOBALS['dbi']->fetchResult($query);
     }
 

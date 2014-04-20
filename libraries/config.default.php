@@ -848,6 +848,13 @@ $cfg['Error_Handler']['display'] = false;
  */
 
 /**
+ * maximum number of items displayed on first level in navigation panel
+ *
+ * @global integer $cfg['FirstLevelNavigationItems']
+ */
+$cfg['FirstLevelNavigationItems'] = 25;
+
+/**
  * maximum number of items displayed in navigation panel
  *
  * @global integer $cfg['MaxNavigationItems']

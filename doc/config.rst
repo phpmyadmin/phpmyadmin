@@ -1374,6 +1374,14 @@ Cookie authentication options
 Navigation panel setup
 ----------------------
 
+.. config:option:: $cfg['FirstLevelNavigationItems']
+
+    :type: integer
+    :default: 25
+
+    The number of items that can be displayed on each page of the first level
+    of navigation tree.
+
 .. config:option:: $cfg['MaxNavigationItems']
 
     :type: integer

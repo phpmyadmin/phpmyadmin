@@ -211,6 +211,7 @@ $cfg_db['_validators'] = array(
     'CharTextareaRows' => 'validatePositiveNumber',
     'ExecTimeLimit' => 'validateNonNegativeNumber',
     'Export/sql_max_query_size' => 'validatePositiveNumber',
+    'FirstLevelNavigationItems' => 'validatePositiveNumber',
     'ForeignKeyMaxLimit' => 'validatePositiveNumber',
     'Import/csv_enclosed' => array(array('validateByRegex', '/^.?$/')),
     'Import/csv_escaped' => array(array('validateByRegex', '/^.$/')),

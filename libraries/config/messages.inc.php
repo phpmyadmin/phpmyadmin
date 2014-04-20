@@ -398,6 +398,11 @@ $strConfigMaxDbList_cmt = __('Users cannot set a higher value');
 $strConfigMaxDbList_desc
     = __('Maximum number of databases displayed in database list.');
 $strConfigMaxDbList_name = __('Maximum databases');
+$strConfigFirstLevelNavigationItems_desc = __(
+    'The number of items that can be displayed on each page on first level of the  '
+    . 'navigation tree.'
+);
+$strConfigFirstLevelNavigationItems_name = __('Maximum items on first level');
 $strConfigMaxNavigationItems_desc = __(
     'The number of items that can be displayed on each page of the navigation tree.'
 );
