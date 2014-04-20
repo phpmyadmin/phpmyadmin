@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-20 22:28+0200\n"
+"PO-Revision-Date: 2014-04-20 23:10+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -393,11 +393,11 @@ msgstr "கண்காணிப்பு அறிக்கை"
 #: db_tracking.php:149 libraries/tbl_tracking.lib.php:241
 #: libraries/tbl_tracking.lib.php:680
 msgid "Structure snapshot"
-msgstr ""
+msgstr "கட்டமைப்பு நிகழ்காப்புப்பிரதி"
 
 #: db_tracking.php:203
 msgid "Untracked tables"
-msgstr ""
+msgstr "கண்காணிக்கபடாத அட்டவணைகள்"
 
 #: db_tracking.php:222 libraries/structure.lib.php:1540
 msgid "Track table"
@@ -412,6 +412,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"ஓர் பிழைநிகழ்வு கண்டுபிடிக்கப்பட்டது மேலும் உங்கள் அமைப்புகளின் அடிப்படையில் "
+"ஒரு தன்னிச்சை பிழையறிக்கை அளிக்கப்பட்டது."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
@@ -449,28 +451,30 @@ msgstr "தேர்ந்தெடுக்கப்பட்ட தரவே�
 
 #: export.php:253
 msgid "Bad parameters!"
-msgstr ""
+msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
 #: export.php:370 export.php:401 export.php:981
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "கோப்பை சேமிக்குமளவு இடமில்லை %s."
 
 #: export.php:540
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"வழங்கியில் கோப்பு %s முன்னரே உள்ளது, கோப்பின் பெயர் மாற்றுக அல்லது "
+"மேலெழுதும்படி குறிக்க."
 
 #: export.php:549 export.php:558
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "வழங்கிக்கு கோப்பு %s சேமிக்க அனுமதி இல்லை."
 
 #: export.php:987
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "தரவு %s கோப்பாக சேமிக்கப்பட்டுள்ளது."
 
 #: file_echo.php:22
 #| msgid "Index type:"
@@ -480,11 +484,11 @@ msgstr "தகா சுட்டு வகை"
 #: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" நெடுவரிசையின் மதிப்பு"
 
 #: gis_data_editor.php:141 libraries/tbl_gis_visualization.lib.php:242
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "கீழடுக்காக OpenStreetMaps பயன்படுத்தவும்"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
