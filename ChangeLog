@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.1.14.0 (not yet released)
 - bug #4365 Creating bookmark with multiple queries not working
+- bug #4372 Changing browser transformation results in unnecessary table rebuild
 
 4.1.13.0 (2014-04-13)
 - bug #4279 CTRL + up or down moves 2 fields
