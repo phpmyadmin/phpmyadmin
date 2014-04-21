@@ -2475,20 +2475,6 @@ function PMA_updateColumns($db, $table)
                 );
             }
         }
-
-        $response->addHTML(
-            PMA_Util::getMessage($message, $sql_query, 'success')
-        );
-    } else {
-        // An error happened while inserting/updating a table definition
-        $response->isSuccess(false);
-        $response->addJSON(
-            'message',
-            PMA_Message::rawError(
-                __('Query error') . ':<br />' . $GLOBALS['dbi']->getError()
-            )
-        );
-        $regenerate = true;
     }
     return $regenerate;
 }
