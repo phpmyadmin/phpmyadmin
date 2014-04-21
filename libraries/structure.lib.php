@@ -2395,31 +2395,8 @@ function PMA_updateColumns($db, $table)
         }
     } // end for
 
-<<<<<<< HEAD
-    // Builds the primary keys statements and updates the table
-    $key_query = '';
-    /**
-     * this is a little bit more complex
-     *
-     * @todo if someone selects A_I when altering a column we need to check:
-     *  - no other column with A_I
-     *  - the column has an index, if not create one
-     *
-    if (count($key_fields)) {
-        $fields = array();
-        foreach ($key_fields as $each_field) {
-            if (isset($_REQUEST['field_name'][$each_field])
-                && strlen($_REQUEST['field_name'][$each_field])
-            ) {
-                $fields[] = PMA_Util::backquote(
-                    $_REQUEST['field_name'][$each_field]
-                );
-            }
-        } // end for
-        $key_query = ', ADD KEY (' . implode(', ', $fields) . ') ';
-    }
-     */
-=======
+    $response = PMA_Response::getInstance();
+
     if (count($changes) > 0) {
         // Builds the primary keys statements and updates the table
         $key_query = '';
@@ -2431,7 +2408,6 @@ function PMA_updateColumns($db, $table)
          *  - the column has an index, if not create one
          *
          */
->>>>>>> db6ec58
 
         // To allow replication, we first select the db to use
         // and then run queries on this db.
@@ -2448,7 +2424,6 @@ function PMA_updateColumns($db, $table)
         $sql_query .= ';';
         $result    = $GLOBALS['dbi']->tryQuery($sql_query);
 
-        $response = PMA_Response::getInstance();
         if ($result !== false) {
             $message = PMA_Message::success(
                 __('Table %1$s has been altered successfully')
@@ -2469,16 +2444,7 @@ function PMA_updateColumns($db, $table)
         }
     }
 
-<<<<<<< HEAD
-    $response = PMA_Response::getInstance();
-    if ($result !== false) {
-        $message = PMA_Message::success(
-            __('Table %1$s has been altered successfully.')
-        );
-        $message->addParam($table);
-=======
     include_once 'libraries/transformations.lib.php';
->>>>>>> db6ec58
 
     // update field names in relation
     if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
@@ -2509,7 +2475,6 @@ function PMA_updateColumns($db, $table)
                 );
             }
         }
-<<<<<<< HEAD
 
         $response->addHTML(
             PMA_Util::getMessage($message, $sql_query, 'success')
@@ -2524,8 +2489,6 @@ function PMA_updateColumns($db, $table)
             )
         );
         $regenerate = true;
-=======
->>>>>>> db6ec58
     }
     return $regenerate;
 }
