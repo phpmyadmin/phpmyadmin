@@ -76,8 +76,6 @@ if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
                 $fav_instance->add($db, $favorite_table);
             }
         }
-    } else {
-
     }
 
     $favorite_tables[$user] = $fav_instance->getTables();
