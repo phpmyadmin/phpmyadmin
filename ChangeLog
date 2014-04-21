@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - bug #4365 Creating bookmark with multiple queries not working
 - bug #4375 Group two DB, one's name is the prefix of the other one
 - bug #4376 [interface] Login fields show in separate line
+- bug #4372 Changing browser transformation results in unnecessary table rebuild
 
 4.1.13.0 (2014-04-13)
 - bug #4279 CTRL + up or down moves 2 fields
