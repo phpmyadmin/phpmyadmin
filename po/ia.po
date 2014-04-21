@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-09 17:00+0200\n"
+"PO-Revision-Date: 2014-04-20 19:15+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -5743,7 +5743,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:362
 msgid "Recoding engine"
-msgstr ""
+msgstr "Motor de recodificar"
 
 #: libraries/config/messages.inc.php:363
 msgid "When browsing tables, the sorting of each table is remembered"
@@ -5763,11 +5763,11 @@ msgstr "Repite capites"
 
 #: libraries/config/messages.inc.php:368
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Action discatenante modifica de grillia"
 
 #: libraries/config/messages.inc.php:369
 msgid "Grid editing: save all edited cells at once"
-msgstr ""
+msgstr "Modification de grillia: salveguarda omne cellas modificate in un vice"
 
 #: libraries/config/messages.inc.php:370
 msgid "Directory where exports can be saved on server"
@@ -5775,7 +5775,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:371
 msgid "Save directory"
-msgstr ""
+msgstr "Salveguarda dossier"
 
 #: libraries/config/messages.inc.php:372
 msgid "Leave blank if not used"
@@ -5783,7 +5783,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:373
 msgid "Host authorization order"
-msgstr ""
+msgstr "Ordine de autorisation o permission de hospite"
 
 #: libraries/config/messages.inc.php:374
 msgid "Leave blank for defaults"
@@ -5791,15 +5791,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:375
 msgid "Host authorization rules"
-msgstr ""
+msgstr "Regulas de autorisation o permission de hospite"
 
 #: libraries/config/messages.inc.php:376
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Permitte accessos sin un contrasigno"
 
 #: libraries/config/messages.inc.php:377
 msgid "Allow root login"
-msgstr ""
+msgstr "Permitte accesso de nivello root (radice)"
 
 #: libraries/config/messages.inc.php:378
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
@@ -5818,7 +5818,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:381
 msgid "SweKey config file"
-msgstr ""
+msgstr "File de configuration de SweKey"
 
 #: libraries/config/messages.inc.php:382
 msgid "Authentication method to use"
@@ -5826,7 +5826,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:383 setup/frames/index.inc.php:160
 msgid "Authentication type"
-msgstr ""
+msgstr "Typo de authentication"
 
 #: libraries/config/messages.inc.php:384
 msgid ""
@@ -5838,7 +5838,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:385
 msgid "Bookmark table"
-msgstr ""
+msgstr "Tabella de marcatores de libro"
 
 #: libraries/config/messages.inc.php:386
 msgid ""
@@ -5848,7 +5848,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:387
 msgid "Column information table"
-msgstr ""
+msgstr "Tabella de information de columna"
 
 #: libraries/config/messages.inc.php:388
 msgid "Compress connection to MySQL server"
@@ -5856,7 +5856,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:389
 msgid "Compress connection"
-msgstr ""
+msgstr "Comprime connexion"
 
 #: libraries/config/messages.inc.php:390
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
@@ -5864,11 +5864,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:391
 msgid "Connection type"
-msgstr ""
+msgstr "Typo de connexion"
 
 #: libraries/config/messages.inc.php:392
 msgid "Control user password"
-msgstr ""
+msgstr "Contrasigno de usator de controlo"
 
 #: libraries/config/messages.inc.php:393
 msgid ""
@@ -5878,7 +5878,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:394
 msgid "Control user"
-msgstr ""
+msgstr "Usator de controlo"
 
 #: libraries/config/messages.inc.php:395
 msgid ""
