@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-04-20 18:54+0200\n"
+"PO-Revision-Date: 2014-04-21 09:04+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: db_tracking.php:75
 msgid "Tracked tables"
-msgstr ""
+msgstr "கவனிக்கப்படும் அட்டவணைகள்"
 
 #: db_tracking.php:80 libraries/Menu.class.php:212
 #: libraries/config/messages.inc.php:754
@@ -374,7 +374,7 @@ msgstr "காண்பி"
 
 #: db_tracking.php:99 js/messages.php:40
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "இந்த அட்டவணைக்கான கண்காணிப்பு தரவை நீக்கு"
 
 #: db_tracking.php:103 libraries/Index.class.php:627
 #: libraries/Util.class.php:3375 libraries/Util.class.php:3376
@@ -401,16 +401,16 @@ msgstr "பதிப்புக்கள்"
 #: db_tracking.php:146 libraries/tbl_tracking.lib.php:234
 #: libraries/tbl_tracking.lib.php:353
 msgid "Tracking report"
-msgstr ""
+msgstr "கண்காணிப்பு அறிக்கை"
 
 #: db_tracking.php:149 libraries/tbl_tracking.lib.php:242
 #: libraries/tbl_tracking.lib.php:758
 msgid "Structure snapshot"
-msgstr ""
+msgstr "கட்டமைப்பு நிகழ்காப்புப்பிரதி"
 
 #: db_tracking.php:203
 msgid "Untracked tables"
-msgstr ""
+msgstr "கண்காணிக்கபடாத அட்டவணைகள்"
 
 #: db_tracking.php:222 libraries/structure.lib.php:1550
 msgid "Track table"
@@ -425,6 +425,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"ஓர் பிழைநிகழ்வு கண்டுபிடிக்கப்பட்டது மேலும் உங்கள் அமைப்புகளின் அடிப்படையில் "
+"ஒரு தன்னிச்சை பிழையறிக்கை அளிக்கப்பட்டது."
 
 #: error_report.php:37 error_report.php:54 error_report.php:65
 #: error_report.php:81
@@ -454,11 +456,11 @@ msgstr "துரதிருஷ்டவசமாக சமர்பிப்�
 
 #: export.php:179
 msgid "Bad type!"
-msgstr "கெட்ட வகை!"
+msgstr "தகா வகை!"
 
 #: export.php:240
 msgid "Bad parameters!"
-msgstr ""
+msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
 #: file_echo.php:22
 #| msgid "Index type:"
@@ -468,21 +470,21 @@ msgstr "தகா சுட்டு வகை"
 #: gis_data_editor.php:113
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "\"%s\" நெடுவரிசையின் மதிப்பு"
 
 #: gis_data_editor.php:141 libraries/tbl_gis_visualization.lib.php:242
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "கீழடுக்காக OpenStreetMaps பயன்படுத்தவும்"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:163
 msgid "SRID:"
-msgstr "SRID:"
+msgstr "இகுமுகு:"
 
 #: gis_data_editor.php:186
 #, php-format
 msgid "Geometry %d:"
-msgstr "கேத்திர கணிதம் %d:"
+msgstr "வடிவளவு %d:"
 
 #: gis_data_editor.php:208
 msgid "Point:"
@@ -696,10 +698,9 @@ msgid "Change password"
 msgstr ""
 
 #: index.php:185
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Server connection collation"
-msgstr "பாதுகாப்பற்ற இணைப்பு"
+msgstr "சேவையக இணைப்பு குறிமுறை அடுக்குவரிசை"
 
 #: index.php:208
 msgid "Appearance Settings"
@@ -710,56 +711,49 @@ msgid "More settings"
 msgstr ""
 
 #: index.php:259
-#, fuzzy
 #| msgid "Databases"
 msgid "Database server"
-msgstr "தரவுத்தளங்கள்"
+msgstr "தரவுத்தள வழங்கி"
 
 #: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Server:"
 msgstr "சேவையன்:"
 
 #: index.php:266
-#, fuzzy
 #| msgid "Server"
 msgid "Server type:"
-msgstr "சேவையன்"
+msgstr "வழங்கி வகை:"
 
 #: index.php:270 libraries/plugins/export/ExportLatex.class.php:225
 #: libraries/plugins/export/ExportSql.class.php:659
 #: libraries/plugins/export/ExportXml.class.php:198
-#, fuzzy
 #| msgid "Show versions"
 msgid "Server version:"
-msgstr "பதிப்புகளை காட்டு"
+msgstr "வழங்கி பதிப்பு:"
 
 #: index.php:276
-#, fuzzy
 #| msgid "Create version"
 msgid "Protocol version:"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "நெறிமுறை பதிப்பு:"
 
 #: index.php:280
-#, fuzzy
 #| msgid "Usage"
 msgid "User:"
-msgstr "பாவனையளவு"
+msgstr "பயனர்:"
 
 #: index.php:285
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Server charset:"
-msgstr "வரைபடத்தை நீக்கு"
+msgstr "வழங்கி குறிமுறை:"
 
 #: index.php:300
 msgid "Web server"
 msgstr ""
 
 #: index.php:311
-#, fuzzy
 #| msgid "Database comment:"
 msgid "Database client version:"
-msgstr "தரவுத்தள கருத்துரை"
+msgstr "தரவுத்தள பயனர் நிரல் பதிப்பு:"
 
 #: index.php:315
 msgid "PHP extension:"
@@ -942,22 +936,20 @@ msgid "Please enter a valid length!"
 msgstr ""
 
 #: js/messages.php:53
-#, fuzzy
 #| msgid "Indexes"
 msgid "Add Index"
-msgstr "சுட்டுகள்"
+msgstr "தொகுப்புக்குறி சேர்க்க"
 
 #: js/messages.php:54
-#, fuzzy
 #| msgid "Edit view"
 msgid "Edit Index"
-msgstr "தொகுப்பு பார்வை"
+msgstr "தொகுப்புக்குறி மாற்று"
 
 #: js/messages.php:55 libraries/tbl_indexes.lib.php:394
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s) to index"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "%s நெடுவரிசை(களை) தொகுப்புக்குறியில் சேர்க்க"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:59 libraries/tbl_chart.lib.php:216
@@ -1142,11 +1134,11 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:115
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s அட்டவணை"
+msgstr "%d அட்டவணை(கள்)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:118
@@ -1280,10 +1272,10 @@ msgid "Differential"
 msgstr "வேற்றுமை"
 
 #: js/messages.php:155
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "வகுக்கப்பட்ட %s"
+msgstr "%s ஆல் பிரிக்கப்பட்டது"
 
 #: js/messages.php:156
 msgid "Unit"
@@ -1302,10 +1294,9 @@ msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
 #: js/messages.php:163
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "பதிகைகள் ஏற்றப்படுகின்றது"
+msgstr "பதிகைகளை பகுத்தாராய்கிறது"
 
 #: js/messages.php:164
 msgid "Analysing & loading logs. This may take a while."
@@ -7358,23 +7349,25 @@ msgstr ""
 #: libraries/export.lib.php:364
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "கோப்பை சேமிக்குமளவு இடமில்லை %s."
 
 #: libraries/export.lib.php:321
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"வழங்கியில் கோப்பு %s முன்னரே உள்ளது, கோப்பின் பெயரை மாற்றுக அல்லது "
+"மேலெழுதும்படி குறிக்க."
 
 #: libraries/export.lib.php:329 libraries/export.lib.php:337
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "வழங்கிக்கு கோப்பு %s சேமிக்க அனுமதி இல்லை."
 
 #: libraries/export.lib.php:370
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "தரவு %s கோப்பாக சேமிக்கப்பட்டுள்ளது."
 
 #: libraries/import.lib.php:200 libraries/insert_edit.lib.php:124
 #: libraries/rte/rte_routines.lib.php:1487 libraries/sql.lib.php:1639
