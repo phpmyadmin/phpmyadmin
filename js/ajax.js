@@ -17,6 +17,10 @@ var AJAX = {
      */
     xhr: null,
     /**
+     * @var bool, tells if user input was altered before this event was called
+     */
+    isInputAltered: false,
+    /**
      * @var function Callback to execute after a successful request
      *               Used by PMA_commonFunctions from common.js
      */
@@ -129,6 +133,19 @@ var AJAX = {
         }
     },
     /**
+     * Registers a keyup function when changes are made in input field
+     * @param event for the trigged function
+     * 
+     * @return void
+     */
+    inputAltered: function(event) {
+        if(event.target.value.length !== 0) {
+            AJAX.isInputAltered = true;
+        } else {
+            AJAX.isInputAltered = false;
+        }
+    },
+    /**
      * Event handler for clicks on links and form submissions
      *
      * @param object e Event data
@@ -160,6 +177,16 @@ var AJAX = {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
+        
+        //sometime we accidently click on a url,refresh button or back button
+        //operation to confirm if user want to leave page in such cases
+        //trigger confirm dialog
+        if (event.type === 'click' && AJAX.isInputAltered && confirm(PMA_messages['strConfirmNavigation']) === false) {
+            return false;
+        }
+        //reset the flag for confirm navigation
+        AJAX.isInputAltered = false;
+        
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already
@@ -855,6 +882,12 @@ $(function () {
  */
 $('a').live('click', AJAX.requestHandler);
 $('form').live('submit', AJAX.requestHandler);
+
+/**
+ * Attach event listener to events when user modify visible
+ * Input fields to make changes in forms
+ */
+$('#page_content').live("keyup", "input[type='text']:visible", AJAX.inputAltered);
 
 /**
  * Gracefully handle fatal server errors
