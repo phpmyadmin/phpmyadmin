@@ -130,7 +130,7 @@
  </target>
 
  <target name="locales" description="Generate locales">
-   <exec executable="./scripts/generate-mo">
+   <exec executable="./scripts/generate-mo" failonerror="true">
      <arg line="--quiet" />
    </exec>
  </target>
