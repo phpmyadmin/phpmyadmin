@@ -395,9 +395,14 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        $query  = "SELECT COUNT(*) ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $query = "select COUNT(*) ";
+        $query .= "from ( ";
+        $query .= " SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+        $query .= " '{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
+        $query .= " DB_first_level ";
+        $query .= " FROM INFORMATION_SCHEMA.SCHEMATA ";
         $query .= $this->_getWhereClause($searchClause);
+        $query .= ") t ";
         $retval = (int)$GLOBALS['dbi']->fetchValue($query);
         return $retval;
     }

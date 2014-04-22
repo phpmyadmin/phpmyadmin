@@ -157,15 +157,20 @@ class PMA_NavigationTree
             /*
              * @todo describe a scenario where this code is executed
              */
-            $query  = "SELECT (COUNT(`SCHEMA_NAME`) DIV %d) * %d ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-            $query .= "WHERE `SCHEMA_NAME` < '%s' ";
-            $query .= "ORDER BY `SCHEMA_NAME` ASC";
+            $query  = "SELECT (COUNT(DB_first_level) DIV %d) * %d ";
+            $query .= "from ( ";
+            $query .= " SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+            $query .= " '{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
+            $query .= " DB_first_level ";
+            $query .= " FROM INFORMATION_SCHEMA.SCHEMATA ";
+            $query .= " WHERE `SCHEMA_NAME` < '%s' ";
+            $query .= ") t ";
+
             $retval = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
-                    (int)$GLOBALS['cfg']['MaxNavigationItems'],
-                    (int)$GLOBALS['cfg']['MaxNavigationItems'],
+                    (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
+                    (int)$GLOBALS['cfg']['FirstLevelNavigationItems'],
                     PMA_Util::sqlAddSlashes($GLOBALS['db'])
                 )
             );
@@ -1145,7 +1150,7 @@ class PMA_NavigationTree
                  array('server' => $GLOBALS['server']),
                  'navigation.php',
                  'frame_navigation',
-                 $GLOBALS['cfg']['MaxNavigationItems'],
+                 $GLOBALS['cfg']['FirstLevelNavigationItems'],
                  'pos',
                  array('dbselector')
              );
@@ -1177,7 +1182,7 @@ class PMA_NavigationTree
                 $_url_params,
                 'navigation.php',
                 'frame_navigation',
-                $GLOBALS['cfg']['MaxNavigationItems'],
+                $GLOBALS['cfg']['FirstLevelNavigationItems'],
                 'pos' . $level . '_value'
             );
         }
