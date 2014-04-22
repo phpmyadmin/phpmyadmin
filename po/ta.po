@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 23:26+0200\n"
+"PO-Revision-Date: 2014-04-22 23:27+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -3412,10 +3412,9 @@ msgid "Count"
 msgstr "எண்ணிக்கை"
 
 #: libraries/TableSearch.class.php:1408
-#, fuzzy
 #| msgid "Action"
 msgid "Original string"
-msgstr "செயல்"
+msgstr "மெய் சரம்"
 
 #: libraries/TableSearch.class.php:1409
 #, fuzzy
