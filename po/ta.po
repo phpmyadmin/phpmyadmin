@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 23:11+0200\n"
+"PO-Revision-Date: 2014-04-22 23:12+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -2575,10 +2575,9 @@ msgid "Number of rows:"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:959
-#, fuzzy
 #| msgid "Mon"
 msgid "Mode:"
-msgstr "திங்கள்"
+msgstr "பயன்முறை:"
 
 #: libraries/DisplayResults.class.php:961
 msgid "horizontal"
