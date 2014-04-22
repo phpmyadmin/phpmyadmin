@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 16:33+0200\n"
+"PO-Revision-Date: 2014-04-22 22:50+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1928,10 +1928,9 @@ msgid "More"
 msgstr "மேலும்"
 
 #: js/messages.php:393
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "அனைத்தையும் காட்டு"
+msgstr "பலகத்தை காட்டு"
 
 #: js/messages.php:394
 #, fuzzy
