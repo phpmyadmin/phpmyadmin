@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 16:03+0200\n"
+"PO-Revision-Date: 2014-04-22 16:08+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1752,7 +1752,7 @@ msgstr "மெய்நிலைக்கு வர மீள்அணுக்�
 
 #: js/messages.php:311
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "ஒரு தரவுவரிசையை பார்க்கவும் திருத்தவும் அதன் தரவுபுள்ளியை சொடுக்கவும்."
 
 #: js/messages.php:313
 msgid "The plot can be resized by dragging it along the bottom right corner."
