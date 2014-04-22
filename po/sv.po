@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-04-10 16:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2014-04-22 11:48+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -308,7 +308,7 @@ msgstr "Åtkomst nekad!"
 
 #: db_structure.php:68
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Favoritlistan är full!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -611,6 +611,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Skickad fil kan inte flyttas eftersom servern har open_basedir aktiverat "
+"utan åtkomst till katalogen %s (för temporära filer)."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -646,7 +648,8 @@ msgstr ""
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Kunde inte läsa in tillägg för import, kontrollera din installation!"
+msgstr ""
+"Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
 #: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1806
 #, php-format
@@ -941,6 +944,8 @@ msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
+"Är du säker att du vill navigera bort från den här sidan? Klicka OK för att "
+"fortsätta eller Avbryt för att stanna på den nuvarande sidan."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1778,17 +1783,16 @@ msgstr "Yttre ringen"
 
 #: js/messages.php:321
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "Shift + klicka på funktionsnamnet för att verkställa för alla rader."
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Vill du importera återstående inställningar?"
+msgstr "Vill du kopiera krypteringsnyckeln?"
 
 #: js/messages.php:324
 msgid "Encryption key"
-msgstr ""
+msgstr "Krypteringsnyckel"
 
 #: js/messages.php:327
 msgid "Select referenced key"
@@ -2420,16 +2424,14 @@ msgid "Submit Query"
 msgstr "Skicka fråga"
 
 #: libraries/DBQbe.class.php:1451
-#, fuzzy
 #| msgid "Saved searches:"
 msgid "Saved bookmarked search:"
-msgstr "Sparade sökningar:"
+msgstr "Sparade bokmärkta sökningar:"
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "New bookmark"
-msgstr "Skapa bokmärke"
+msgstr "Nytt bokmärke"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"
@@ -2563,10 +2565,9 @@ msgid "Filter rows"
 msgstr "Filter"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Sök i databas"
+msgstr "Sök i denna tabell"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -2933,7 +2934,7 @@ msgstr "Kommentar"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Den primära nyckeln har tagits bort"
+msgstr "Den primära nyckeln har tagits bort."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -3148,27 +3149,24 @@ msgid "Could not save recent table!"
 msgstr "Kunde inte spara den senaste tabellen!"
 
 #: libraries/RecentFavoriteTable.class.php:146
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "Kunde inte spara den senaste tabellen!"
+msgstr "Kunde inte spara favorittabell!"
 
 #: libraries/RecentFavoriteTable.class.php:217
 #: libraries/structure.lib.php:2728
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Ta bort diagram"
+msgstr "Ta bort från favoriter"
 
 #: libraries/RecentFavoriteTable.class.php:234
 msgid "There are no recent tables."
 msgstr "Det finns inga nya tabeller."
 
 #: libraries/RecentFavoriteTable.class.php:235
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "Det finns inga nya tabeller."
+msgstr "Det finns inga favorittabeller."
 
 #: libraries/RecentFavoriteTable.class.php:250
 msgid "Recent tables"
@@ -3182,26 +3180,23 @@ msgstr "Återställ"
 
 #: libraries/RecentFavoriteTable.class.php:254
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Variabler"
+msgstr "Favorittabeller"
 
 #: libraries/RecentFavoriteTable.class.php:256
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
-msgstr "Variabler"
+msgstr "Favoriter"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
 msgstr "Ange ett namn för denna bokmärkta sökning."
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing information to save the search."
 msgid "Missing information to save the bookmarked search."
-msgstr "Saknar information för att spara sökningen."
+msgstr "Saknar information för att spara den bokmärkta sökningen."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -3213,13 +3208,12 @@ msgstr "Saknar information för att ta bort sökningen."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Saknar information för att läsa in sökningen."
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Fel vid flytt av uppladdad fil."
+msgstr "Fel då sökningen lästes in."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3350,10 +3344,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "okänd tabellstatus: "
+msgstr "Okänd tabellstatus:"
 
 #: libraries/Table.class.php:796
 #, php-format
@@ -3989,7 +3982,7 @@ msgstr "Gå igenom din dator:"
 #: libraries/Util.class.php:3312
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Välj katalog att ladda upp till från web-server listningen <b>%s</b>:"
+msgstr "Välj från webbserverns uppladdningskatalog <b>%s</b>:"
 
 #: libraries/Util.class.php:3341 libraries/insert_edit.lib.php:1226
 #: libraries/sql_query_form.lib.php:487
@@ -4118,7 +4111,7 @@ msgstr ""
 #: libraries/common.inc.php:592
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "Kunde inte ladda standardkonfiguration från: %1$s"
+msgstr "Kunde inte läsa in standardkonfiguration från: %1$s"
 
 #: libraries/common.inc.php:599
 msgid ""
@@ -4369,7 +4362,7 @@ msgstr "Tillåt användare att anpassa detta värde"
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
-msgstr "Applicera"
+msgstr "Verkställ"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1596
 #: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
@@ -4408,7 +4401,6 @@ msgstr ""
 "inklusive dig, är anslutna till."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
 #| "authentication, so a key was automatically generated for you. It is used "
@@ -4418,7 +4410,7 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Du hade inte blowfish-säkerhet angivet och hade aktiverat cookie-"
+"Du hade inte blowfish-säkerhet angivet och hade aktiverat [kbd]cookie[/kbd]-"
 "autentisering, så en nyckel genererades automatiskt åt dig. Den används för "
 "att kryptera cookies; du behöver inte komma ihåg den."
 
@@ -4474,7 +4466,7 @@ msgstr ""
 "identitetsstöld."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
 #| "%sLogin cookie validity%s must be set to a value less or equal to it."
@@ -4482,12 +4474,12 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Om du använder cookie-autentisering och %sLogin cookie store%s inte är 0, "
-"måste %sLogin cookie validity%s sättas till ett värde mindre eller lika med "
-"den."
+"Om du använder [kbd]cookie[/kbd] -autentisering och %sLogin cookie store%s "
+"inte är 0, måste %sLogin cookie validity%s sättas till ett värde mindre "
+"eller lika med den."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - "
 #| "%shost authentication%s settings and %strusted proxies list%s. However, "
@@ -4499,9 +4491,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Om du känner att det är nödvändigt, använd extra skyddsinställningar - "
-"%shost autentisering%s-inställningar  och %strusted proxies listan%s. Dock "
-"kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP som "
+"Om du känner att det är nödvändigt, använd extra skyddsinställningar - %"
+"shost authentication%s-inställningar  och %strusted proxies list%s. Dock kan "
+"IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP som "
 "tusentals användare, inklusive dig, är anslutna till."
 
 #: libraries/config/ServerConfigChecks.class.php:431
@@ -4549,24 +4541,23 @@ msgid "Could not connect to the database server!"
 msgstr "Kunde inte ansluta till databasservern!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
 #| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Tomt användarnamn vid användning av config-autentisering!"
+msgstr "Tomt användarnamn vid användning av [kbd]config[/kbd]-autentisering!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
 #| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Tomt sessionsnamn för signon vid användning av signon-autentisering!"
+msgstr ""
+"Tomt sessionsnamn för signon vid användning av "
+"[kbd]signon[/kbd]-autentisering!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Tom URL för signon vid användning av signon-autentisering!"
+msgstr "Tom URL för signon vid användning av [kbd]signon[/kbd]-autentisering!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -4740,8 +4731,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Komprimera gzip-exporter i farten utan att det behövs mycket minne; om du "
-"får problem med skapade gzip-filer avaktivera funktionen."
+"Komprimera gzip-exporter i farten utan att det behövs mycket minne; "
+"inaktivera funktionen om du får problem med skapade gzip-filer."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -5544,7 +5535,6 @@ msgid "Delete all cookies on logout"
 msgstr "Radera alla cookies vid utloggning"
 
 #: libraries/config/messages.inc.php:377
-#, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
 #| "authentication mode."
@@ -5553,7 +5543,7 @@ msgid ""
 "kbd] authentication mode."
 msgstr ""
 "Ange om den tidigare inloggningen ska återkallas eller inte vid "
-"autentiseringsläge med cookies."
+"[kbd]cookie[/kbd]-autentiseringsläge."
 
 #: libraries/config/messages.inc.php:380
 msgid "Recall user name"
@@ -5643,7 +5633,6 @@ msgid "Maximum tables"
 msgstr "Maximalt antal tabeller"
 
 #: libraries/config/messages.inc.php:415
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
@@ -5651,8 +5640,8 @@ msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for [kbd]"
 "cookie[/kbd] authentication."
 msgstr ""
-"Inaktivera standardvarning vilken visas om mcrypt saknas för cookie-"
-"autentisering."
+"Inaktivera standardvarning vilken visas om mcrypt saknas för "
+"[kbd]cookie[/kbd]-autentisering."
 
 #: libraries/config/messages.inc.php:418
 msgid "mcrypt warning"
@@ -5768,23 +5757,21 @@ msgstr "Aktivera framhävning"
 
 #: libraries/config/messages.inc.php:461
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Huruvida möjligheten för databasexpansion ska inaktiveras eller inte."
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "Visa databaser som en lista"
+msgstr "Inaktivera databasexpansion"
 
 #: libraries/config/messages.inc.php:465
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att avaktivera."
+msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att inaktivera."
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att avaktivera."
+msgstr "Maximalt antal favorittabeller, ange 0 för att inaktivera."
 
 #: libraries/config/messages.inc.php:468
 msgid "Recently used tables"
@@ -6570,7 +6557,7 @@ msgstr "Visa funktionsfält"
 
 #: libraries/config/messages.inc.php:730
 msgid "Whether to show hint or not."
-msgstr "Om du vill visa tips eller inte."
+msgstr "Huruvida tips ska visas eller inte."
 
 #: libraries/config/messages.inc.php:731
 msgid "Show hint"
@@ -6974,7 +6961,8 @@ msgstr "Antal kolumner"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Kunde inte ladda export-tillägg. Kontrollera din installation!"
+msgstr ""
+"Kunde inte läsa in insticksprogram för export. Kontrollera din installation!"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
@@ -7114,7 +7102,7 @@ msgstr "Spara utdata till en fil"
 
 #: libraries/display_export.lib.php:671
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Hoppa över tabeller större än"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -8297,7 +8285,7 @@ msgstr "Optimera tabell"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Tabellen %s har rensats"
+msgstr "Tabellen %s har rensats."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -8908,7 +8896,7 @@ msgstr "Ogiltigt antal kolumner i CSV-indata på rad %d."
 
 #: libraries/plugins/import/ImportLdi.class.php:112
 msgid "This plugin does not support compressed imports!"
-msgstr "Detta tillägg stöder inte komprimerade importer!"
+msgstr "Detta insticksprogram stöder inte komprimerade importer!"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
@@ -8990,6 +8978,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Konverterar Booleska värden till text (standardvärden 'T' och 'F'). Första "
+"valet står för SANT, det andra för FALSKT. Nollskilt värde=sant."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -9037,15 +9027,15 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"ENDAST LINUX: Startar en extern applikation och sänder kolumndata via "
+"ENDAST LINUX: Startar en extern applikation och sänder den kolumndata via "
 "standard in. Returnerar standard ut från applikationen. Standard är Tidy, "
 "för att pretty-print HTML-kod. Av säkerhetsskäl måste du manuellt redigera "
 "filen libraries/plugins/transformationer/Text_Plain_External.class.php och "
-"lista de verktyg du vill göra tillgängliga. Den första optionen är antalet "
-"program du vill använda och den andra optionen är parametrarna för "
-"programmet. Den tredje optionen, om den är 1, kommer omvandla utdata via "
-"htmlspecialchars() (Default 1). Den fjärde optionen, om 1, kommer förhindra "
-"radbrytning och se till att utskriften sker på en rad (Default 1)."
+"lista de verktyg du vill göra tillgängliga. Den första flaggan är antalet "
+"program du vill använda och den andra flaggan är parametrarna för "
+"programmet. Den tredje flaggan, om den är 1, kommer omvandla utdata via "
+"htmlspecialchars() (Standard 1). Den fjärde flaggan, om 1, kommer förhindra "
+"radbrytning och se till att utskriften sker på en rad (Standard 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9834,13 +9824,13 @@ msgid "Execution results of routine %s"
 msgstr "Exekveringsresultat av rutin %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d rad berörs av det sista uttrycket inom proceduren"
-msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren"
+msgstr[0] "%d rad berörs av det sista uttrycket inom proceduren."
+msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -10125,10 +10115,9 @@ msgid "File doesn't exist"
 msgstr "Filen finns inte"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL-validerare är inaktiverad"
+msgstr "Insticksprogrammet är inaktiverat"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -12055,7 +12044,7 @@ msgstr "Okänd interpunktion i sträng"
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabellen %s har tömts"
+msgstr "Tabellen %s har tömts."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12108,7 +12097,7 @@ msgstr "Inget"
 #: libraries/structure.lib.php:1350
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Kolumnen %s har tagits bort"
+msgstr "Kolumnen %s har tagits bort."
 
 #: libraries/structure.lib.php:1404 libraries/structure.lib.php:2079
 #: libraries/structure.lib.php:2089
@@ -12248,7 +12237,7 @@ msgstr "Effektiv"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Tabellen %1$s har ändrats"
+msgstr "Tabellen %1$s har ändrats."
 
 #: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -12265,10 +12254,9 @@ msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
 
 #: libraries/structure.lib.php:2729
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "Lägg till denna serie"
+msgstr "Lägg till i favoriter"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -12283,7 +12271,7 @@ msgstr "Kolumn"
 #: libraries/tbl_chart.lib.php:45
 msgctxt "Chart type"
 msgid "Line"
-msgstr "Rad"
+msgstr "Linjediagram"
 
 #: libraries/tbl_chart.lib.php:47
 msgctxt "Chart type"
@@ -12293,7 +12281,7 @@ msgstr "Spline"
 #: libraries/tbl_chart.lib.php:50
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Ytdiagram"
 
 #: libraries/tbl_chart.lib.php:53
 msgctxt "Chart type"
@@ -12308,7 +12296,7 @@ msgstr "Tidslinje"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Sambandsdiagram"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
@@ -12409,10 +12397,9 @@ msgid "Referenced by %s."
 msgstr "Välj refererad nyckel"
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Välj främmande nyckel"
+msgstr "Är en främmande nyckel."
 
 #: libraries/tbl_columns_definition_form.lib.php:769
 msgid "first"
@@ -12701,7 +12688,7 @@ msgstr "Hantera dina inställningar"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Konfigurationen har sparats"
+msgstr "Konfigurationen har sparats."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12794,10 +12781,9 @@ msgid "Toggle relation lines"
 msgstr "Växla mellan relaterade linjer"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-#, fuzzy
 #| msgid "Import/Export coordinates for PDF schema"
 msgid "Import/Export coordinates for relational schema"
-msgstr "Importera/exportera koordinater för PDF-schema"
+msgstr "Importera/exportera koordinater för relationellt schema"
 
 #: pmd_general.php:155
 msgid "Build Query"
@@ -12855,13 +12841,12 @@ msgstr "Aktiva alternativ"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Sidan har skapats"
+msgstr "Sidan har skapats."
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Sidan gick inte att skapa"
+msgstr "Kunde inte skapa sida!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -12896,26 +12881,23 @@ msgid "Error: relation already exists."
 msgstr "Fel: Relation finns redan."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Fel: Relation inte tillagd."
+msgstr "Fel: Relationen kunde inte läggas till!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "FOREIGN KEY-relation tillagd"
+msgstr "FOREIGN KEY-relation har lagts till."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Fel: Relationella funktioner är inaktiverade!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Intern relation tillagd"
+msgstr "Intern relation har lagts till."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13046,7 +13028,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
-msgstr "Kan inte ladda eller spara konfiguration"
+msgstr "Kan inte läsa in eller spara konfiguration"
 
 #: setup/frames/index.inc.php:56
 msgid ""
@@ -13134,7 +13116,7 @@ msgstr "Visa"
 
 #: setup/frames/index.inc.php:284
 msgid "Load"
-msgstr "Ladda"
+msgstr "Läs in"
 
 #: setup/frames/index.inc.php:307
 msgid "phpMyAdmin homepage"
@@ -13961,10 +13943,9 @@ msgstr ""
 "per timme"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size jämfört med max_heap_table_size"
+msgstr "tmp_table_size och max_heap_table_size är olika"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
