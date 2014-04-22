@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 23:05+0200\n"
+"PO-Revision-Date: 2014-04-22 23:08+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -2476,13 +2476,13 @@ msgstr[0] "<b>மொத்தம்:</b> <i>%s</i> பொருத்தம்"
 msgstr[1] "<b>மொத்த:</b> <i>%s</i> பொருத்தங்கள்"
 
 #: libraries/DbSearch.class.php:335
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s அட்டவணையில் பொருந்தியவை <i>%s</i>"
-msgstr[1] "%s அட்டவணையில் பொருந்தியவைகள் <i>%s</i>"
+msgstr[0] "%1$s அட்டவணையில் பொருந்தியவை <strong>%2$s </strong>"
+msgstr[1] "%1$s அட்டவணையில் பொருந்தியவைகள் <strong>%2$s </strong>"
 
 #: libraries/DbSearch.class.php:350 libraries/Menu.class.php:295
 #: libraries/Util.class.php:3188 libraries/Util.class.php:3403
