@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 15:55+0200\n"
+"PO-Revision-Date: 2014-04-22 15:58+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1744,7 +1744,7 @@ msgstr "ஒவ்வொரு புள்ளியின் மேற்ச�
 
 #: js/messages.php:307
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "அணுக்கதிற்கு, வரைபடத்தின் ஒரு பகுதியை சுட்டியால் தெரிவுசெய்க."
 
 #: js/messages.php:309
 msgid "Click reset zoom button to come back to original state."
