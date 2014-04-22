@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 16:14+0200\n"
+"PO-Revision-Date: 2014-04-22 16:15+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1768,10 +1768,9 @@ msgid "Select two different columns"
 msgstr "இரு வெவ்வேறு நெடுவரிசைகளை தேர்ந்தெடுக்கவும்"
 
 #: js/messages.php:319
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Query results"
-msgstr "தேடல் முடிவுகளை மறை"
+msgstr "தேடல் முடிவுகள்"
 
 #: js/messages.php:320
 msgid "Data point content"
