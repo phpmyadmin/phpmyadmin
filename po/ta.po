@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 07:37+0200\n"
+"PO-Revision-Date: 2014-04-22 07:40+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1395,10 +1395,9 @@ msgstr "தொடர்கள்"
 
 #. l10n: A collection of available filters
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "பதிகை அட்டவணை வடிகட்டி விருப்பதெரிவுகள்"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:189
