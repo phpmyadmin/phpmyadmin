@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 23:14+0200\n"
+"PO-Revision-Date: 2014-04-22 23:15+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -3038,10 +3038,9 @@ msgid "Databases"
 msgstr "தரவுத்தளங்கள்"
 
 #: libraries/Menu.class.php:531 libraries/Util.class.php:4119
-#, fuzzy
 #| msgid "Usage"
 msgid "Users"
-msgstr "பாவனையளவு"
+msgstr "பயனர்கள்"
 
 #: libraries/Menu.class.php:558 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4123 libraries/server_common.lib.php:36
