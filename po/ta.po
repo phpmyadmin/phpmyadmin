@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 10:00+0200\n"
+"PO-Revision-Date: 2014-04-22 10:27+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1655,10 +1655,10 @@ msgid "Enter each value in a separate field"
 msgstr ""
 
 #: js/messages.php:275
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add a new User"
 msgid "Add %d value(s)"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "%d மதிப்பு(களை) சேர்க்க"
 
 #: js/messages.php:278
 msgid ""
