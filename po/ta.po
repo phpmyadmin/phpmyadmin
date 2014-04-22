@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 07:22+0200\n"
+"PO-Revision-Date: 2014-04-22 07:26+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1363,10 +1363,9 @@ msgid "Time"
 msgstr ""
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "மொத்த:"
+msgstr "மொத்த நேரம்:"
 
 #: js/messages.php:180
 #, fuzzy
