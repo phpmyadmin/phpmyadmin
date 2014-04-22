@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 07:47+0200\n"
+"PO-Revision-Date: 2014-04-22 09:55+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1603,10 +1603,9 @@ msgid "Foreign key check:"
 msgstr ""
 
 #: js/messages.php:257 libraries/mult_submits.lib.php:432
-#, fuzzy
 #| msgid "Enable %s"
 msgid "(Enabled)"
-msgstr "இயலச்செய் %s"
+msgstr "இயலசெய்யப்பட்டது"
 
 #: js/messages.php:258 libraries/mult_submits.lib.php:432
 #, fuzzy
