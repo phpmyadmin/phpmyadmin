@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 22:55+0200\n"
+"PO-Revision-Date: 2014-04-22 22:59+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1982,10 +1982,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "அமைப்புக்களை மாற்று"
+msgstr "அறிக்கை அமைப்புக்களை மாற்றுக"
 
 #: js/messages.php:415
 msgid "Show Report Details"
@@ -2029,7 +2028,6 @@ msgid "March"
 msgstr "மார்ச்"
 
 #: js/messages.php:458
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "ஏப்ரல்"
@@ -2055,7 +2053,6 @@ msgid "September"
 msgstr "செப்டம்பர்"
 
 #: js/messages.php:464
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "அக்டோபர்"
@@ -2090,11 +2087,10 @@ msgstr "சித்திரை"
 
 #. l10n: Short month name
 #: js/messages.php:481 libraries/Util.class.php:1605
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
-msgstr "வைகாசி"
+msgstr "மே"
 
 #. l10n: Short month name
 #: js/messages.php:483 libraries/Util.class.php:1607
@@ -2132,7 +2128,6 @@ msgid "Dec"
 msgstr "மார்கழி"
 
 #: js/messages.php:501
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "ஞாயிறு"
