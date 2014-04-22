@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-04-22 10:34+0200\n"
+"PO-Revision-Date: 2014-04-22 11:00+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -452,7 +452,7 @@ msgstr "இந்த அறிக்கை சமர்ப்பிக்கு�
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr "துரதிருஷ்டவசமாக சமர்பிப்பு தோல்வியுற்றது."
+msgstr "எதிர்பாரா வகையில் தரவேற்றம் தோல்வியுற்றது."
 
 #: export.php:179
 msgid "Bad type!"
@@ -1679,10 +1679,9 @@ msgid "Hide find and replace criteria"
 msgstr "தேடிமாற்று நிபந்தனையை மறை"
 
 #: js/messages.php:285
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "தேடுதல் கட்டளை விதியை காண்பி"
+msgstr "தேடிமாற்று நிபந்தனையை காண்பி"
 
 #: js/messages.php:289
 msgid "Each point represents a data row."
@@ -3458,7 +3457,7 @@ msgstr "தேடு"
 
 #: libraries/TableSearch.class.php:212
 msgid "Zoom Search"
-msgstr "பொரித்தாக்கி தேடு"
+msgstr "அணுக்க தேடல்"
 
 #: libraries/TableSearch.class.php:217 libraries/TableSearch.class.php:1216
 msgid "Find and Replace"
