@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-04-21 09:04+0200\n"
+"PO-Revision-Date: 2014-04-22 10:30+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -1303,10 +1303,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Cancel"
 msgid "Cancel request"
-msgstr "விலக்கு"
+msgstr "கோரிக்கையை விலக்கு"
 
 #: js/messages.php:166
 msgid ""
@@ -1331,20 +1330,18 @@ msgid "Jump to Log table"
 msgstr ""
 
 #: js/messages.php:171
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "தரவு இல்லை"
+msgstr "தரவை காணவில்லை"
 
 #: js/messages.php:172
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing…"
-msgstr "ஆரய்தல்"
+msgstr "ஆராயப்படுகிறது…"
 
 #: js/messages.php:175
 msgid "Explain output"
@@ -1360,36 +1357,31 @@ msgid "Time"
 msgstr ""
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "மொத்த:"
+msgstr "மொத்த நேரம்:"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Hide search results"
 msgid "Profiling results"
-msgstr "தேடல் முடிவுகளை மறை"
+msgstr "முடிவுகள் குறிவகையிடப்படுகிறது"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "அட்டவணை"
 
 #: js/messages.php:181
-#, fuzzy
 #| msgid "Chart Title"
 msgid "Chart"
-msgstr "வரைபடத் தலைப்பு"
+msgstr "விளக்கப்படம்"
 
 #. l10n: A collection of available filters
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Table options"
 msgid "Log table filter options"
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "பதிகை அட்டவணை வடிகட்டி விருப்பதெரிவுகள்"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:186
@@ -1491,10 +1483,9 @@ msgid "Rule details"
 msgstr "ஆளுகை விபரங்கள்"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Action"
 msgid "Justification"
-msgstr "செயல்"
+msgstr "சமச்சீராக்கம்"
 
 #: js/messages.php:218
 msgid "Used variable / formula"
@@ -1513,10 +1504,9 @@ msgstr "விலக்கு"
 
 #: js/messages.php:227 libraries/navigation/NavigationHeader.class.php:54
 #: libraries/server_status_monitor.lib.php:164
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading…"
-msgstr "ஏற்றப்படுகிறது"
+msgstr "ஏற்றப்படுகிறது…"
 
 #: js/messages.php:228
 msgid "Request Aborted!!"
@@ -1580,16 +1570,14 @@ msgid "Foreign key check:"
 msgstr ""
 
 #: js/messages.php:247 libraries/mult_submits.lib.php:445
-#, fuzzy
 #| msgid "Enable %s"
 msgid "(Enabled)"
-msgstr "இயலச்செய் %s"
+msgstr "(இயலசெய்யப்பட்டது)"
 
 #: js/messages.php:248 libraries/mult_submits.lib.php:445
-#, fuzzy
 #| msgid "Disable %s"
 msgid "(Disabled)"
-msgstr "முடக்கு %s"
+msgstr "(முடக்கப்பட்டது)"
 
 #: js/messages.php:251
 msgid "Searching"
@@ -1620,10 +1608,10 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: js/messages.php:262
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add/Delete columns"
 msgid "Values for column %s"
-msgstr "நெடுவரிசைகள்  சேர்க்க/ நீக்க"
+msgstr "நெடுவரிசை %sகான மதிப்பு.கள்"
 
 #: js/messages.php:263
 msgid "Values for a new column"
@@ -1634,10 +1622,10 @@ msgid "Enter each value in a separate field."
 msgstr ""
 
 #: js/messages.php:265
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add a new User"
 msgid "Add %d value(s)"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "%d மதிப்பு(களை) சேர்க்க"
 
 #: js/messages.php:268
 msgid ""
@@ -1686,10 +1674,9 @@ msgid "Show search criteria"
 msgstr "தேடுதல் கட்டளை விதியை காண்பி"
 
 #: js/messages.php:284
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "தேடுதல் கட்டளை விதியை மறை"
+msgstr "தேடிமாற்று நிபந்தனையை மறை"
 
 #: js/messages.php:285
 #, fuzzy
