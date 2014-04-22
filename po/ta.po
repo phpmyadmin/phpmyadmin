@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 23:03+0200\n"
+"PO-Revision-Date: 2014-04-22 23:05+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -2360,22 +2360,19 @@ msgid "Column:"
 msgstr "நெடுவரிசை:"
 
 #: libraries/DBQbe.class.php:406
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "வரிசைப்படுத்து"
+msgstr "வரிசைப்படுத்து:"
 
 #: libraries/DBQbe.class.php:468
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "காண்பி"
+msgstr "காண்பி:"
 
 #: libraries/DBQbe.class.php:513
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "தேர்வளவை"
+msgstr "தேர்வளவை:"
 
 #: libraries/DBQbe.class.php:578
 msgid "Add/Delete criteria rows"
@@ -2394,10 +2391,9 @@ msgid "Use Tables"
 msgstr "அட்டவணைகளை பயன்படுத்துக"
 
 #: libraries/DBQbe.class.php:655 libraries/DBQbe.class.php:763
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "அல்லது"
+msgstr "அல்லது:"
 
 #: libraries/DBQbe.class.php:659 libraries/DBQbe.class.php:748
 msgid "And:"
@@ -2412,10 +2408,9 @@ msgid "Del"
 msgstr "அழி"
 
 #: libraries/DBQbe.class.php:682
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "மாற்று"
+msgstr "மாற்று:"
 
 #: libraries/DBQbe.class.php:743
 msgid "Ins:"
