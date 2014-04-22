@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 07:41+0200\n"
+"PO-Revision-Date: 2014-04-22 07:43+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1516,10 +1516,9 @@ msgstr "விலக்கு"
 
 #: js/messages.php:229 libraries/navigation/NavigationHeader.class.php:55
 #: libraries/server_status_monitor.lib.php:164
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading…"
-msgstr "ஏற்றப்படுகிறது"
+msgstr "ஏற்றப்படுகிறது…"
 
 #: js/messages.php:230
 msgid "Request Aborted!!"
