@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 10:27+0200\n"
+"PO-Revision-Date: 2014-04-22 10:53+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -439,7 +439,7 @@ msgstr "இந்த அறிக்கை சமர்ப்பிக்கு�
 
 #: error_report.php:74
 msgid "Unfortunately the submission failed."
-msgstr "துரதிருஷ்டவசமாக சமர்பிப்பு தோல்வியுற்றது."
+msgstr "எதிர்பாரா வகையில் தரவேற்றம் தோல்வியுற்றது."
 
 #: export.php:174
 msgid "Bad type!"
@@ -1721,16 +1721,14 @@ msgid "Show search criteria"
 msgstr "தேடுதல் கட்டளை விதியை காண்பி"
 
 #: js/messages.php:297
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "தேடுதல் கட்டளை விதியை மறை"
+msgstr "தேடிமாற்று நிபந்தனையை மறை"
 
 #: js/messages.php:298
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "தேடுதல் கட்டளை விதியை காண்பி"
+msgstr "தேடிமாற்று நிபந்தனையை காண்பி"
 
 #: js/messages.php:301 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
