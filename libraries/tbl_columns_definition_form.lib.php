@@ -512,7 +512,7 @@ function PMA_handleRegeneration($columnNumber, $submit_fulltext, $comments_map,
 }
 
 /**
- * Function to get row data for $columnMeta set
+ * Function to update default value info in $columnMeta and get this array 
  *
  * @param array $columnMeta column meta
  * @param bool  $isDefault  whether the row value is default
