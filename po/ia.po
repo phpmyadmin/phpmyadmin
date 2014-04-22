@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-20 19:15+0200\n"
+"PO-Revision-Date: 2014-04-22 17:21+0200\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/ia/>\n"
@@ -5700,6 +5700,10 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Habilita, si tu vole, le chronologia de query basate sur le DB (il require "
+"le immagazinage de configuration de phpMyAdmin). Si dishabilitate, isto "
+"utilisa functiones JS pro monstrar le chronologia de query (perdite quando "
+"on claude le fenestra)."
 
 #: libraries/config/messages.inc.php:351
 msgid "Permanent query history"
@@ -5807,7 +5811,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:379
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Sphera HTTP"
 
 #: libraries/config/messages.inc.php:380
 msgid ""
