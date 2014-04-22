@@ -13,13 +13,17 @@ compile() {
     fi
     mkdir -p locale/$lang/LC_MESSAGES
     msgfmt $stats --check -o locale/$lang/LC_MESSAGES/phpmyadmin.mo $1
+    return $?
 }
 
 if [ ! -z "$1" ] ; then
     compile po/$1.po
-    exit 0
+    exit $?
 fi
 
 for x in po/*.po  ; do
     compile $x
+    if [ $? != 0 ] ; then
+        return $?
+    fi
 done
