@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-21 09:04+0200\n"
+"PO-Revision-Date: 2014-04-22 07:17+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1309,10 +1309,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Cancel"
 msgid "Cancel request"
-msgstr "விலக்கு"
+msgstr "கோரிக்கையை விலக்கு"
 
 #: js/messages.php:167
 msgid ""
