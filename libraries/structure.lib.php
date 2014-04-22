@@ -2309,11 +2309,11 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
 }
 
 /**
- * Verifies if some elements of a column have changed 
+ * Verifies if some elements of a column have changed
  *
  * @param integer $i column index in the request
  *
- * @return boolean $alterTableNeeded true if we need to generate ALTER TABLE 
+ * @return boolean $alterTableNeeded true if we need to generate ALTER TABLE
  *
  */
 function PMA_columnNeedsAlterTable($i)
@@ -2426,7 +2426,7 @@ function PMA_updateColumns($db, $table)
 
         if ($result !== false) {
             $message = PMA_Message::success(
-                __('Table %1$s has been altered successfully')
+                __('Table %1$s has been altered successfully.')
             );
             $message->addParam($table);
 
