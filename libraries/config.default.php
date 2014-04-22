@@ -848,7 +848,7 @@ $cfg['Error_Handler']['display'] = false;
  */
 
 /**
- * maximum number of items displayed on first level in navigation panel
+ * maximum number of first level databases displayed in navigation panel
  *
  * @global integer $cfg['FirstLevelNavigationItems']
  */

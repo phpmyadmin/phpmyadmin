@@ -1379,7 +1379,7 @@ Navigation panel setup
     :type: integer
     :default: 25
 
-    The number of items that can be displayed on each page of the first level
+    The number of first level databases that can be displayed on each page
     of navigation tree.
 
 .. config:option:: $cfg['MaxNavigationItems']
@@ -1387,8 +1387,8 @@ Navigation panel setup
     :type: integer
     :default: 250
 
-    The number of items that can be displayed on each page of the
-    navigation tree.
+    The number of items (tables, columns, indexes) that can be displayed on each
+    page of the navigation tree.
 
 .. config:option:: $cfg['NavigationTreeEnableGrouping']
 
