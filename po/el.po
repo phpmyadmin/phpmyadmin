@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
 "PO-Revision-Date: 2014-04-20 13:21+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/>"
-"\n"
+"Language-Team: Greek <https://l10n.cihar.com/projects/phpmyadmin/master/el/"
+">\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -187,7 +187,7 @@ msgstr "Όχι"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -198,7 +198,7 @@ msgstr "Ναι"
 msgid "View dump (schema) of database"
 msgstr "Εμφάνιση σκαριφήματος (σχήματος) της βάσης δεδομένων"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων."
@@ -307,7 +307,7 @@ msgstr "Αλλαγή στον %sεικονικός μάστορας%s"
 msgid "Access denied!"
 msgstr "Άρνηση πρόσβασης!"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
 msgstr "Η Λίστα Αγαπημένων είναι πλήρης!"
 
@@ -1210,7 +1210,7 @@ msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στι
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "Καμία"
 
@@ -1554,9 +1554,9 @@ msgid "Test"
 msgstr "Έλεγχος"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "Άκυρο"
 
@@ -1600,9 +1600,9 @@ msgstr "Διαγραφή Στήλης"
 msgid "Adding Primary Key"
 msgstr "Προσθήκη Πρωτεύοντος Κλειδιού"
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr "Εντάξει"
 
@@ -2556,7 +2556,7 @@ msgstr "Διαγραφή παρόμοιων αποτελεσμάτων για τ
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Διαγραφή"
@@ -3181,41 +3181,41 @@ msgstr "Σελίδα:"
 msgid "Error while creating PDF:"
 msgstr "Σφάλμα κατά τη δημιουργία του PDF:"
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 msgid "Could not save recent table!"
 msgstr "Αδύνατη η αποθήκευση πρόσφατου πίνακα!"
 
-#: libraries/RecentFavoriteTable.class.php:146
+#: libraries/RecentFavoriteTable.class.php:154
 msgid "Could not save favorite table!"
 msgstr "Αδύνατη η αποθήκευση αγαπημένου πίνακα!"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 msgid "Remove from Favorites"
 msgstr "Απομάκρυνση από τα Αγαπημένα"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "Δεν υπάρχουν πρόσφατοι πίνακες."
 
-#: libraries/RecentFavoriteTable.class.php:235
+#: libraries/RecentFavoriteTable.class.php:243
 msgid "There are no favorite tables."
 msgstr "Δεν υπάρχουν αγαπημένοι πίνακες."
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "Πρόσφατοι πίνακες"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 msgid "Recent"
 msgstr "Πρόσφατα"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
 msgid "Favorite tables"
 msgstr "Αγαπημένοι πίνακες"
 
-#: libraries/RecentFavoriteTable.class.php:256
+#: libraries/RecentFavoriteTable.class.php:264
 msgid "Favorites"
 msgstr "Αγαπημένοι"
 
@@ -3436,17 +3436,17 @@ msgstr ""
 msgid "Function"
 msgstr "Συνάρτηση"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr "Τελεστής"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "Τιμή"
 
@@ -4453,8 +4453,8 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση [kbd]"
-"cookie[/kbd]. Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. "
+"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση "
+"[kbd]cookie[/kbd]. Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. "
 "Χρησιμοποιήθηκε για την κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
 
 #: libraries/config/ServerConfigChecks.class.php:379
@@ -4540,14 +4540,14 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Ορίζετε τον τύπο πιστοποίησης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
 "χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
 "Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή [kbd]"
-"http[/kbd]."
+"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή "
+"[kbd]http[/kbd]."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4595,8 +4595,8 @@ msgstr ""
 #: libraries/config/Validator.class.php:322
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης [kbd]"
-"signon[/kbd]!"
+"Άδειασμα διεύθυνση URL σύνδεσης ενώ χρησιμοποιείτε μέθοδο επικύρωσης "
+"[kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -4707,8 +4707,8 @@ msgstr "Επεξεργασία στηλών CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Χρησιμοποιήστε το φιλικό προς το χρήστη πρόγραμμα επεξεργασίας για την "
 "επεξεργασία ερωτημάτων SQL ([a@http://codemirror.net/]CodeMirror[/a]) με "
@@ -5248,8 +5248,9 @@ msgstr "Τίτλοι σελίδας"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Ορίστε το κείμενο του τίτλου στο φυλλομετρητή σας. Δείτε την "
 "[doc@cfg_TitleTable]τεκμηρίωση[/doc] για μαγικά κείμενα που μπορούν να "
@@ -5674,8 +5675,8 @@ msgstr "Μέγιστος αριθμός πινάκων"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Απενεργοποιήση της προεπιλεγμένης προειδοποιησης που εμφανίζεται αν το "
 "mcrypt λείπει για την πιστοποίηση [kbd]cookie[/kbd]."
@@ -5689,8 +5690,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)."
 msgstr ""
-"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. [kbd]32M"
-"[/kbd] ([kbd]0[/kbd] για απεριόριστη)."
+"Ο αριθμός των bytes που επιτρέπεται να δεσμευσει ένας κώδικας, π.χ. "
+"[kbd]32M[/kbd] ([kbd]0[/kbd] για απεριόριστη)."
 
 #: libraries/config/messages.inc.php:423
 msgid "Memory limit"
@@ -6089,8 +6090,8 @@ msgstr "Πίνακας σελιδοδεικτών"
 
 #: libraries/config/messages.inc.php:565
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Αφήστε κενό για να μη υπάρχουν σχόλια/τύποι mime στις στήλες, προτείνεται: "
 "[kbd]pma_column_info[/kbd]."
@@ -6165,8 +6166,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή, προτείνεται: [kbd]"
-"pma_designer_coords[/kbd]."
+"Αφήστε το κενό για καμία υποστήριξη Σχεδιαστή, προτείνεται: "
+"[kbd]pma_designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:595
 msgid "Designer table"
@@ -6185,8 +6186,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL, προτείνεται: [kbd]"
-"pma_history[/kbd]."
+"Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL, προτείνεται: "
+"[kbd]pma_history[/kbd]."
 
 #: libraries/config/messages.inc.php:603
 msgid "SQL query history table"
@@ -6250,8 +6251,8 @@ msgstr "Κωδικός πρόσβασης για ρυθμισμένη επικύ
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Αφήστε το κενό για μη υποστήριξη σχεδίου PDF, προτείνεται: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:626
 msgid "PDF schema: pages table"
@@ -6296,8 +6297,8 @@ msgstr "Πρόσφατα χρησιμοποιημένος πίνακας"
 
 #: libraries/config/messages.inc.php:642
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Αφήστε το κενό για να μην υπάρχει υποστήριξη [a@http://wiki.phpmyadmin.net/"
 "pma/relation]συνδέσμων-συσχετίσεων[/a], προτείνεται: [kbd]pma__relation[/"
@@ -6309,8 +6310,8 @@ msgstr "Πίνακας συσχετίσεων"
 
 #: libraries/config/messages.inc.php:648
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Δείτε τους [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]τύπους "
 "επικύρωσης[/a] για ένα παράδειγμα."
@@ -6346,8 +6347,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: [kbd]"
-"pma__table_coords[/kbd]."
+"Αφήστε το κενό για να μην υποστηρίζεται σχέδιο PDF. Προτείνεται: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:661
 msgid "PDF schema: table coordinates"
@@ -6425,8 +6426,8 @@ msgstr "Δηλώσεις προς παρακολούθηση"
 
 #: libraries/config/messages.inc.php:691
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Αφήστε το κενό για μη υποστήριξη ιστορικού ερωτημάτων SQL , προτείνεται: "
 "[kbd]pma__tracking[/kbd]."
@@ -6449,11 +6450,11 @@ msgstr "Αυτόματη δημιουργία εκδόσεων"
 
 #: libraries/config/messages.inc.php:701
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: [kbd]"
-"pma__userconfig[/kbd]."
+"Αφήστε το κενό για μη αποθήκευση των ρυθμίσεων χρήστη, προτείνεται: "
+"[kbd]pma__userconfig[/kbd]."
 
 #: libraries/config/messages.inc.php:702
 msgid "User preferences storage table"
@@ -6837,8 +6838,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]"
-"ZIP[/a] για λειτουργίες εισαγωγής και εξαγωγής."
+"Ενεργοποίηση της συμπίεσης [a@http://en.wikipedia.org/wiki/"
+"ZIP_(file_format)]ZIP[/a] για λειτουργίες εισαγωγής και εξαγωγής."
 
 #: libraries/config/messages.inc.php:780
 msgid "ZIP"
@@ -8121,27 +8122,27 @@ msgstr "Τεκμηρίωση phpMyAdmin"
 msgid "Reload navigation panel"
 msgstr "Επαναφόρτωση πίνακα πλοήγησης"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s άλλο αποτέλεσμα βρέθηκε"
 msgstr[1] "%s άλλα αποτελέσματα βρέθηκαν"
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr "Ανάπτυξη/Σύμπτηξη"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 msgid "Filter databases by name or regex"
 msgstr "Φιλτράρισμα βάσεων δεδομενων κατά όνομα ή κανονική έκφραση"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 msgid "Clear fast filter"
 msgstr "Εκκαθάριση γρήγορου φίλτρου"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 msgid "Filter by name or regex"
 msgstr "Φιλτράρισμα κατά όνομα ή κανονική έκφραση"
 
@@ -12390,27 +12391,27 @@ msgstr "Χρήση χώρου"
 msgid "Effective"
 msgstr "Αποτελεσματικός"
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς."
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "Σφάλμα ερωτήματος"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 msgid "The columns have been moved successfully."
 msgstr "Οι στήλες μετακινήθηκαν επιτυχώς."
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Το όνομα στήλης «%s» είναι μια δεσμευμένη λέξη-κλειδί MySQL."
 
-#: libraries/structure.lib.php:2729
+#: libraries/structure.lib.php:2752
 msgid "Add to Favorites"
 msgstr "Προσθήκη στα Αγαπημένα"
 
@@ -12902,7 +12903,7 @@ msgstr "Έξοδος από πλήρη οθόνη"
 msgid "Save position"
 msgstr "Αποθήκευση θέσης"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "Δημιουργία συσχέτισης"
 
@@ -12962,37 +12963,37 @@ msgstr "Απόκρυψη/Εμφάνιση Πινάκων χωρίς συσχέτ
 msgid "Number of tables:"
 msgstr "Αριθμός πινάκων:"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "Διαγραφή συσχέτισης"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 msgid "Relation operator"
 msgstr "Λειτουργός συσχέτισης"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 msgid "Except"
 msgstr "Εξαίρεση"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 msgid "subquery"
 msgstr "υποερώτημα"
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 msgid "Rename to"
 msgstr "Μετονομασία σε"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 msgid "New name"
 msgstr "Νέο όνομα"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 msgid "Aggregate"
 msgstr "Άθροιση"
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 msgid "Active options"
 msgstr "Ενεργές επιλογές"
 
@@ -13192,9 +13193,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
-"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [doc@setup_script]"
-"τεκμηρίωση[/doc]. Διαφορετικά, θα μπορείτε μόνο να τον λάβετε ή να τον "
-"προβάλετε."
+"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην "
+"[doc@setup_script]τεκμηρίωση[/doc]. Διαφορετικά, θα μπορείτε μόνο να τον "
+"λάβετε ή να τον προβάλετε."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -13211,8 +13212,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@%s]"
-"αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
+"Αν ο διακομιστής σας έχει ρυθμιστεί να δέχεται αιτήσεις HTTPS πατήστε [a@"
+"%s]αυτόν τον σύνδεσμο[/a] για χρήση ασφαλούς σύνδεσης."
 
 #: setup/frames/index.inc.php:89
 msgid "Insecure connection"
@@ -14793,15 +14794,16 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "Αν θέλετε να χρησιμοποιήσετε την υπηρεσία Εγκυροποίησης SQL, πρέπει να "
 #~ "γνωρίζετε ότι [strong]όλες οι δηλώσεις SQL αποθηκεύονται ανώνυμα για "
-#~ "στατιστικούς λόγους[/strong].[br][em][a@http://sqlvalidator.mimer.com/]"
-#~ "Εγκυροποιητής SQL Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright Database "
-#~ "Technology. Με επιφύλαξη παντός δικαιώματος.[/em]"
+#~ "στατιστικούς λόγους[/strong].[br][em][a@http://sqlvalidator.mimer."
+#~ "com/]Εγκυροποιητής SQL Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright "
+#~ "Database Technology. Με επιφύλαξη παντός δικαιώματος.[/em]"
 
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "Απαιτεί την ενεργοποίηση του Εγκυροποιητή SQL."
@@ -14817,11 +14819,11 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Ενεργοποίηση του Εγκυροποιητή SQL"
 
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
-#~ "Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ (προεπιλογή:[kbd]"
-#~ "anonymous[/kbd])."
+#~ "Αν έχετε ένα προσαρμοσμένο όνομα χρήστη, ορίστε το εδώ (προεπιλογή:"
+#~ "[kbd]anonymous[/kbd])."
 
 #~ msgid "Validated SQL"
 #~ msgstr "Επικυρωμένη SQL"
@@ -14866,15 +14868,15 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Αποθήκευση αναζήτησης"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Αφήστε το κενό για απενεργοποίηση του χαρακτηριστικού προσαρμόσιμων "
 #~ "μενού, προτείνεται: [kbd]pma__users[/kbd]."
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Αφήστε το κενό για απενεργοποίηση του χαρακτηριστικού προσαρμόσιμων "
 #~ "μενού, προτείνεται: [kbd]pma__usergroups[/kbd]."
@@ -14990,12 +14992,13 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Ενεργοποίηση αναφορών σφάλματος javascript"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Περισσότερες πληροφορίες στο [a@https://sourceforge.net/p/phpmyadmin/"
-#~ "bugs/2606/]PMA bug tracker[/a] και στο [a@http://bugs.mysql.com/19588]"
-#~ "MySQL Bugs[/a]"
+#~ "bugs/2606/]PMA bug tracker[/a] και στο [a@http://bugs.mysql."
+#~ "com/19588]MySQL Bugs[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Απενεργοποίηση χρήσης του INFORMATION_SCHEMA"
@@ -15356,9 +15359,9 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Όταν οριστεί αυτό σε [kbd]nested[/kbd], η ετικέτα του ονόματος του πίνακα "
 #~ "χρησιμοποιείτε μόνο για το χώρισμα/μάζεμα των πινάκων σύμφωνα με την "

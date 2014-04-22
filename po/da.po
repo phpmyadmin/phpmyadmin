@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
 "PO-Revision-Date: 2014-04-16 04:26+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/"
@@ -186,7 +186,7 @@ msgstr "Nej"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -197,7 +197,7 @@ msgstr "Ja"
 msgid "View dump (schema) of database"
 msgstr "Vis dump (skema) af database"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Ingen tabeller fundet i databasen."
@@ -305,7 +305,7 @@ msgstr "Skift til %svisuel konstruktør%s"
 msgid "Access denied!"
 msgstr "Adgang nægtet!"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
 msgstr "Favoritliste er fyldt!"
 
@@ -1196,7 +1196,7 @@ msgstr "Tilføj mindst en variabel til serien!"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "Ingen"
 
@@ -1533,9 +1533,9 @@ msgid "Test"
 msgstr "Test"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1579,9 +1579,9 @@ msgstr "Sletter kolonne"
 msgid "Adding Primary Key"
 msgstr "Tilføjer primær nøgle"
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr "OK"
 
@@ -2529,7 +2529,7 @@ msgstr "Slet sammenfald for %s tabellen?"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Slet"
@@ -3150,41 +3150,41 @@ msgstr "Side nummer:"
 msgid "Error while creating PDF:"
 msgstr "Fejl ved oprettelse af PDF:"
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 msgid "Could not save recent table!"
 msgstr "Kunne ikke gemme seneste tabel!"
 
-#: libraries/RecentFavoriteTable.class.php:146
+#: libraries/RecentFavoriteTable.class.php:154
 msgid "Could not save favorite table!"
 msgstr "Kunne ikke gemme favorit tabel!"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 msgid "Remove from Favorites"
 msgstr "Fjern fra Favoritter"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "Der er ingen nye tabeller."
 
-#: libraries/RecentFavoriteTable.class.php:235
+#: libraries/RecentFavoriteTable.class.php:243
 msgid "There are no favorite tables."
 msgstr "Der er ingen favorit tabeller."
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "Seneste tabeller"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 msgid "Recent"
 msgstr "Seneste"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
 msgid "Favorite tables"
 msgstr "Favorit tabeller"
 
-#: libraries/RecentFavoriteTable.class.php:256
+#: libraries/RecentFavoriteTable.class.php:264
 msgid "Favorites"
 msgstr "Favoritter"
 
@@ -3403,17 +3403,17 @@ msgstr ""
 msgid "Function"
 msgstr "Funktion"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr "Operatør"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "Værdi"
 
@@ -4495,8 +4495,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
@@ -4647,8 +4647,8 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Definerer typen af redigeringskontroller som skal anvendes i CHAR og VARCHAR "
-"kolonner. [kbd]input[/kbd] - tillader begrænsning i længden af input, [kbd]"
-"textarea[/kbd] - tillader linjeskift i kolonner."
+"kolonner. [kbd]input[/kbd] - tillader begrænsning i længden af input, "
+"[kbd]textarea[/kbd] - tillader linjeskift i kolonner."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4656,8 +4656,8 @@ msgstr "Redigering af CHAR-kolonner"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Brug et brugervenligt tekstredigereingsprogram til at redigere SQL-"
 "forespørgsler, ([a@http://codemirror.net/]CodeMirror[/a]) med fremhævelse af "
@@ -5200,8 +5200,9 @@ msgstr "Sidetitler"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Angiv browserens tekst i titelbaren. Se [doc@cfg_TitleTable]dokumentationen[/"
 "doc] for tekststrenge der indeholder særlige værdier."
@@ -5617,8 +5618,8 @@ msgstr "Maksimalt antal tabeller"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Deaktiver standardadvarslen som vises, hvis mcrypt mangler til [kbd]cookie[/"
 "kbd] godkendelse."
@@ -5660,8 +5661,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
-"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt ([kbd]"
-"new[/kbd])."
+"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt "
+"([kbd]new[/kbd])."
 
 #: libraries/config/messages.inc.php:433
 msgid "Logo link target"
@@ -6020,11 +6021,11 @@ msgstr "Bogmærketabel"
 
 #: libraries/config/messages.inc.php:565
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: [kbd]"
-"pma_column_info[/kbd]."
+"Efterlades tom for ingen kolonnekommentar-/mime-typer, forslag: "
+"[kbd]pma_column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:568
 msgid "Column information table"
@@ -6101,14 +6102,14 @@ msgstr "Kontrolport"
 #: libraries/config/messages.inc.php:592
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#| "[/kbd]"
+#| "Leave blank for no Designer support, suggested: "
+#| "[kbd]pma__designer_coords[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Efterlades tom for at undlade Designer-understøttelse, forslag: [kbd]"
-"pma_designer_coords[/kbd]"
+"Efterlades tom for at undlade Designer-understøttelse, forslag: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:595
 msgid "Designer table"
@@ -6127,8 +6128,8 @@ msgstr "Skjul databaser"
 #: libraries/config/messages.inc.php:600
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma__history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6211,8 +6212,8 @@ msgstr "Adgangskode for config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:626
 msgid "PDF schema: pages table"
@@ -6270,8 +6271,8 @@ msgstr "Senest benyttede tabel"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af [a@http://wiki.phpmyadmin."
 "net/pma/relation]relation-links[/a], forslag: [kbd]pma_relation[/kbd]"
@@ -6286,8 +6287,8 @@ msgstr "Relationstabel"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types[/"
 "a] for et eksempel"
@@ -6329,8 +6330,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: [kbd]"
-"pma_table_coords[/kbd]"
+"Efterlades tom for at undlade understøttelse af PDF-skematik, forslag: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:661
 msgid "PDF schema: table coordinates"
@@ -6416,11 +6417,11 @@ msgstr "Forespørgsler, der skal spores"
 #: libraries/config/messages.inc.php:691
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade understøttelse af sporing på SQL-forspørgsler, "
 "forslag: [kbd]pma_tracking[/kbd]"
@@ -6443,11 +6444,11 @@ msgstr "Opret versioner automatisk"
 #: libraries/config/messages.inc.php:701
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Efterlades tom for at undlade lagring af bruger-præferencer i database, "
 "forslag: [kbd]pma_userconfig[/kbd]"
@@ -8185,27 +8186,27 @@ msgstr "phpMyAdmin dokumentation"
 msgid "Reload navigation panel"
 msgstr "Genindlæs navigationspanel"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "Fandt %s andet resultat"
 msgstr[1] "Fandt %s andre resultater"
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr "Fold ud/sammen"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 msgid "Filter databases by name or regex"
 msgstr "Filtrér databaser efter navn eller regex"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 msgid "Clear fast filter"
 msgstr "Ryd hurtig-filter"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 msgid "Filter by name or regex"
 msgstr "Filtrér efter navn eller regex"
 
@@ -12430,27 +12431,27 @@ msgstr "Pladsforbrug"
 msgid "Effective"
 msgstr "Effektiv"
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s er blevet ændret."
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "Forespørgselsfejl"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 msgid "The columns have been moved successfully."
 msgstr "Flytning af kolonnen er blevet fuldført."
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Kolonnenavnet '%s' er et nøgleord, der er reserveret af MySQL."
 
-#: libraries/structure.lib.php:2729
+#: libraries/structure.lib.php:2752
 #, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
@@ -12943,7 +12944,7 @@ msgstr "Afslut fuldskærmsvisning"
 msgid "Save position"
 msgstr "Gem position"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "Opret relation"
 
@@ -13005,37 +13006,37 @@ msgstr "Skjul/Vis tabeller uden relation"
 msgid "Number of tables:"
 msgstr "Antal tabeller:"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "Slet relation"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 msgid "Relation operator"
 msgstr "Relationsoperator"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 msgid "Except"
 msgstr "Undtagen"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 msgid "subquery"
 msgstr "underforespørgsel"
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 msgid "Rename to"
 msgstr "Omdøb til"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 msgid "New name"
 msgstr "Nyt navn"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 msgid "Aggregate"
 msgstr "Sammenstil"
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 msgid "Active options"
 msgstr "Aktive indstillinger"
 
@@ -14792,9 +14793,10 @@ msgstr "concurrent_insert er sat til 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "Hvis du ønsker at bruge servicen SQL Validator, skal du huske på, at "
 #~ "[strong]alle SQL forespørgsler lagres anonymt til statistiske formål[/"
@@ -14822,14 +14824,14 @@ msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to [kbd]"
-#~| "anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to "
+#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
-#~ "Hvis du har dit eger brugernavn, så angiv det her (standard [kbd]anonymous"
-#~ "[/kbd])"
+#~ "Hvis du har dit eger brugernavn, så angiv det her (standard "
+#~ "[kbd]anonymous[/kbd])"
 
 #~ msgid "Validated SQL"
 #~ msgstr "Valideret SQL"
@@ -14863,22 +14865,22 @@ msgstr "concurrent_insert er sat til 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~| "pma__users[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: "
+#~| "[kbd]pma__users[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 #~ "forslag: [kbd]pma_users[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~| "pma__usergroups[/kbd]"
+#~| "Leave blank to disable configurable menus feature, suggested: "
+#~| "[kbd]pma__usergroups[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Efterlades tom for at deaktivere muligheden for konfigurérbare menuer, "
 #~ "forslag: [kbd]pma__usergroups[/kbd]"
@@ -14994,11 +14996,13 @@ msgstr "concurrent_insert er sat til 0"
 #~ msgstr "Aktivér rapportering for javascript-fejl"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
-#~ "Mere information om [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "Mere information om [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] og [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Deaktiver brug af INFORMATION_SCHEMA"
@@ -15330,13 +15334,13 @@ msgstr "concurrent_insert er sat til 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Når denne sættes til [kbd]nested[/kbd] bruges alias for tabelnavnet kun "
-#~ "til at splitte/samle tabellerne i henhold til direktivet $cfg"
-#~ "['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
+#~ "til at splitte/samle tabellerne i henhold til direktivet "
+#~ "$cfg['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
 #~ "tabelnavnet selv forbliver uændret"
 
 #~ msgid "Display table comment instead of its name"

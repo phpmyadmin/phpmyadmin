@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
 "PO-Revision-Date: 2014-03-31 14:24+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Galician <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -187,7 +187,7 @@ msgstr "Non"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -198,7 +198,7 @@ msgstr "Si"
 msgid "View dump (schema) of database"
 msgstr "Ver o envorcado (esquema) da base de datos"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Non foi posíbel atopar ningunha táboa na base de datos."
@@ -311,7 +311,7 @@ msgstr "Cambiar ao %sconstrutor visual%s"
 msgid "Access denied!"
 msgstr "Denegouse o acceso!"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -1224,7 +1224,7 @@ msgstr "Engada ao menos unha variábel á serie"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "Ningunha"
 
@@ -1566,9 +1566,9 @@ msgid "Test"
 msgstr "Proba"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1612,9 +1612,9 @@ msgstr "A eliminar a columna"
 msgid "Adding Primary Key"
 msgstr "A engadir unha chave primaria"
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr "OK"
 
@@ -2603,7 +2603,7 @@ msgstr "Eliminar as coincidencias para a táboa %s?"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Eliminar"
@@ -2953,8 +2953,8 @@ msgstr "Produciuse un erro descoñecido ao enviar o ficheiro."
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Produciuse un erro ao mover o ficheiro enviado. Consulte a [doc@faq1-11]"
-"Pregunta frecuente 1.11[/doc]"
+"Produciuse un erro ao mover o ficheiro enviado. Consulte a "
+"[doc@faq1-11]Pregunta frecuente 1.11[/doc]"
 
 #: libraries/File.class.php:494
 msgid "Error while moving uploaded file."
@@ -3250,55 +3250,55 @@ msgstr "Número de páxina:"
 msgid "Error while creating PDF:"
 msgstr "Produciuse un erro ao crear o PDF:"
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
 msgstr "Non foi posíbel gravar a táboa recente"
 
-#: libraries/RecentFavoriteTable.class.php:146
+#: libraries/RecentFavoriteTable.class.php:154
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
 msgstr "Non foi posíbel gravar a táboa recente"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
 msgstr "Eliminar a gráfica"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 #, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
 msgstr "Non hai táboas recentes"
 
-#: libraries/RecentFavoriteTable.class.php:235
+#: libraries/RecentFavoriteTable.class.php:243
 #, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no favorite tables."
 msgstr "Non hai táboas recentes"
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "Táboas recentes"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "Reiniciar"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "Variábeis"
 
-#: libraries/RecentFavoriteTable.class.php:256
+#: libraries/RecentFavoriteTable.class.php:264
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
@@ -3509,8 +3509,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Produciuse un erro ao limpar as preferencias de IU da táboa (vexa $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Produciuse un erro ao limpar as preferencias de IU da táboa (vexa "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1698
 #, php-format
@@ -3530,17 +3530,17 @@ msgstr ""
 msgid "Function"
 msgstr "Función"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr "Operador"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "Valor"
 
@@ -4657,8 +4657,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Configurou o tipo de configuración [kbd]config[/kbd] e incluíu o nome de "
 "usuario e o contrasinal para o rexistro automático, o que non é unha opción "
@@ -4783,9 +4783,9 @@ msgid ""
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 "Activar isto permite que unha páxina situada nun dominio diferente poida "
-"chamar o phpMyAdmin desde dentro dunha moldura, o que constitúe un [strong]"
-"furado de seguranza[/strong] potencial que permitiría ataques con scripts "
-"entre molduras"
+"chamar o phpMyAdmin desde dentro dunha moldura, o que constitúe un "
+"[strong]furado de seguranza[/strong] potencial que permitiría ataques con "
+"scripts entre molduras"
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4850,8 +4850,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4871,8 +4871,8 @@ msgstr "Edición de columnas CHAR"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Empregue un editor amigábel para editar as consultas de SQL ([a@http://"
 "codemirror.net/]CodeMirror[/a]) con realce da sintaxe e números de liña"
@@ -5314,8 +5314,9 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Ordenación dos elementos dun menú despregábel de chaves alleas;  [kbd]content"
-"[/kbd] son os datos referenciados, [kbd]id[/kbd] é o valor da chave"
+"Ordenación dos elementos dun menú despregábel de chaves alleas;  "
+"[kbd]content[/kbd] son os datos referenciados, [kbd]id[/kbd] é o valor da "
+"chave"
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
@@ -5484,8 +5485,9 @@ msgstr "Títulos de páxina"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Indique o texto da barra do título do navegador. Consulte a  "
 "[doc@cfg_TitleTable]documentación[/doc] para coñecer as cadeas máximas que "
@@ -5978,8 +5980,8 @@ msgstr "Táboas máximas"
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Desactive o aviso por omisión que aparece se falta mcrypt para a "
 "autenticación mediante cookies."
@@ -6479,11 +6481,11 @@ msgstr "Táboa de marcadores"
 #: libraries/config/messages.inc.php:565
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Déixeo en branco se non quere comentarios/tipos mime das columnas; suxírese: "
 "[kbd]pma__column_info[/kbd]"
@@ -6521,15 +6523,15 @@ msgstr "Contrasinal do usuario de control"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "Un usuario especial de MySQL configurado con permisos limitados; hai máis "
-"información dispoñíbel no [a@http://wiki.phpmyadmin.net/pma/controluser]wiki"
-"[/a]"
+"información dispoñíbel no [a@http://wiki.phpmyadmin.net/pma/"
+"controluser]wiki[/a]"
 
 #: libraries/config/messages.inc.php:579
 msgid "Control user"
@@ -6573,14 +6575,14 @@ msgstr "Porto de control"
 #: libraries/config/messages.inc.php:592
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#| "[/kbd]"
+#| "Leave blank for no Designer support, suggested: "
+#| "[kbd]pma__designer_coords[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Déixeo en branco se non quere empregar Designer; por omisión: [kbd]"
-"pma__designer_coords[/kbd]"
+"Déixeo en branco se non quere empregar Designer; por omisión: "
+"[kbd]pma__designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:595
 msgid "Designer table"
@@ -6599,8 +6601,8 @@ msgstr "Agochar as bases de datos"
 #: libraries/config/messages.inc.php:600
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma__history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6704,8 +6706,8 @@ msgid ""
 msgstr ""
 "Base de datos empregada para relacións, marcadores e funcionalidades PDF. "
 "Vexa [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] para a información "
-"completa. Déixeo en branco se non lle interesan. Por omisión: [kbd]phpmyadmin"
-"[/kbd]"
+"completa. Déixeo en branco se non lle interesan. Por omisión: "
+"[kbd]phpmyadmin[/kbd]"
 
 #: libraries/config/messages.inc.php:632
 #: libraries/display_create_database.lib.php:31
@@ -6746,11 +6748,11 @@ msgstr "Táboa usada recentemente"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Déixeo en branco se non quere [a@http://wiki.phpmyadmin.net/pma/relation]"
-"ligazóns de relación[/a]; suxírese: [kbd]pma__relation[/kbd]"
+"Déixeo en branco se non quere [a@http://wiki.phpmyadmin.net/pma/"
+"relation]ligazóns de relación[/a]; suxírese: [kbd]pma__relation[/kbd]"
 
 #: libraries/config/messages.inc.php:646
 msgid "Relation table"
@@ -6762,8 +6764,8 @@ msgstr "Táboa de relacións"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Vexa os [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]tipos de "
 "autenticación[/a] se quere un exemplo"
@@ -6807,8 +6809,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Déixeo en branco se non quere PDF schema; por omisión: [kbd]pma__table_coords"
-"[/kbd]"
+"Déixeo en branco se non quere PDF schema; por omisión: "
+"[kbd]pma__table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:661
 msgid "PDF schema: table coordinates"
@@ -6895,11 +6897,11 @@ msgstr "Instrucións que seguir"
 #: libraries/config/messages.inc.php:691
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Déixeo en branco se non quere a funcionalidade de seguimento das consultas "
 "de SQL; valor suxerido: [kbd]pma_tracking[/kbd]"
@@ -6923,11 +6925,11 @@ msgstr "Crear versions automaticamente"
 #: libraries/config/messages.inc.php:701
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Déixeo en branco se non quere almacenar as preferencias na base de datos; "
 "suxerido: [kbd]pma__userconfig[/kbd]"
@@ -6965,8 +6967,8 @@ msgstr "Empregar a táboa Host"
 #: libraries/config/messages.inc.php:707
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -7129,8 +7131,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Mostra unha ligazón á saída de [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Mostra unha ligazón á saída de [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:733
 msgid "Show phpinfo() link"
@@ -7278,8 +7280,8 @@ msgid ""
 msgstr ""
 "Escriba os proxies como [kbd]IP: cabezallo HTTP de confianza[/kbd]. O "
 "exemplo seguinte especifica que o phpMyAdmin debería confiar nun cabezallo "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente do proxy 1.2.3.4:[br][kbd]"
-"1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente do proxy 1.2.3.4:[br]"
+"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
 #: libraries/config/messages.inc.php:762
 msgid "List of trusted proxies for IP allow/deny"
@@ -8709,31 +8711,31 @@ msgstr "Documentación do phpMyAdmin"
 msgid "Reload navigation panel"
 msgstr "Recargar a moldura de navegación"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "atopouse %s resultado máis"
 msgstr[1] "atopáronse outros %s resultados"
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 #, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
 msgstr "filtrar as bases de dato polo nome"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 #, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "Limpar o filtro rápido"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 #, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
@@ -9391,9 +9393,9 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Encerrar os nomes das táboas e das columnas entre aspas invertidas <i>"
-"(Protexe os nomes das columnas e as táboas formadas con caracteres especiais "
-"ou palabras chave)</i>"
+"Encerrar os nomes das táboas e das columnas entre aspas invertidas "
+"<i>(Protexe os nomes das columnas e as táboas formadas con caracteres "
+"especiais ou palabras chave)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:339
 msgid "Data creation options"
@@ -13055,27 +13057,27 @@ msgstr "Uso do espazo"
 msgid "Effective"
 msgstr "Efectivo"
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Alterouse a táboa %1$s sen problemas."
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "Hai un erro na consulta"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 msgid "The columns have been moved successfully."
 msgstr "Movéronse as columnas satisfactoriamente."
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "O nome de columna «%s» é unha palabra chave reservada do MySQL."
 
-#: libraries/structure.lib.php:2729
+#: libraries/structure.lib.php:2752
 #, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
@@ -13573,7 +13575,7 @@ msgstr "Saír da pantalla completa"
 msgid "Save position"
 msgstr "Gardar a posición"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "Crear unha relación"
 
@@ -13635,37 +13637,37 @@ msgstr "Agochar/Mostrar as táboas sen relación"
 msgid "Number of tables:"
 msgstr "Número de táboas:"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "Eliminar a relación"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 msgid "Relation operator"
 msgstr "Operador de relación"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 msgid "Except"
 msgstr "Excepto"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 msgid "subquery"
 msgstr "subconsulta"
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 msgid "Rename to"
 msgstr "Renomear como"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 msgid "New name"
 msgstr "Novo nome"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 msgid "Aggregate"
 msgstr "Agregar"
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 msgid "Active options"
 msgstr "Opcións activas"
 
@@ -15459,14 +15461,15 @@ msgstr "concurrent_insert está definido como 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "Se desexa empregar o servizo do validador de SQL ha de te ren conta que "
 #~ "[strong]todas as instrucións de SQL se almacenan de maneira anónima con "
-#~ "finalidade estatística[/strong].[br][em][a@http://sqlválidator.mimer.com/]"
-#~ "Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
+#~ "finalidade estatística[/strong].[br][em][a@http://sqlválidator.mimer."
+#~ "com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
 #~ "Todos os dereitos reservados.[/em]"
 
 #, fuzzy
@@ -15490,11 +15493,11 @@ msgstr "concurrent_insert está definido como 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to [kbd]"
-#~| "anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to "
+#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
 #~ "Se dispón dun nome de usuario personalizado, indíqueo aquí (por omisión é "
 #~ "[kbd]anonymous[/kbd])"
@@ -15534,22 +15537,22 @@ msgstr "concurrent_insert está definido como 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Déixeo en branco se non quere almacenar as preferencias na base de datos; "
 #~ "suxerido: [kbd]pma__userconfig[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Déixeo en branco se non quere almacenar as preferencias na base de datos; "
 #~ "suxerido: [kbd]pma__userconfig[/kbd]"
@@ -15654,12 +15657,13 @@ msgstr "concurrent_insert está definido como 0"
 #~ "transformacións de tipos MIME, prema %sdescricións das transformacións%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
-#~ "Máis información no [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "Seguidor de erros de PMA[/a] e en [a@http://bugs.mysql.com/19588]Erros do "
-#~ "MySQL[/a]"
+#~ "Máis información no [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]Seguidor de erros de PMA[/a] e en [a@http://bugs.mysql."
+#~ "com/19588]Erros do MySQL[/a]"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Desactivar o uso de INFORMATION_SCHEMA"
@@ -15990,9 +15994,9 @@ msgstr "concurrent_insert está definido como 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Cando isto se configura como [kbd]aniñado[/kbd], o alcume do nome da "
 #~ "táboa só se emprega para partir/aniñar as táboas de acordo coa directiva "

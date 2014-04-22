@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
 "PO-Revision-Date: 2014-04-19 15:09+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/>"
-"\n"
+"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -187,7 +187,7 @@ msgstr "아니오"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -198,7 +198,7 @@ msgstr "예"
 msgid "View dump (schema) of database"
 msgstr "데이터베이스의 덤프(스키마) 데이터 보기"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
@@ -306,7 +306,7 @@ msgstr "%s비주얼 쿼리 빌더%s로 전환"
 msgid "Access denied!"
 msgstr "접근이 거부되었습니다!"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
 msgstr "즐겨찾기 목록이 가득 찼습니다!"
 
@@ -1183,7 +1183,7 @@ msgstr "하나 이상의 변수를 시리즈에 추가하십시오!"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "없음"
 
@@ -1514,9 +1514,9 @@ msgid "Test"
 msgstr "테스트"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "취소"
 
@@ -1560,9 +1560,9 @@ msgstr "열을 삭제하고 있습니다"
 msgid "Adding Primary Key"
 msgstr "기본 키를 추가하고 있습니다"
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr "확인"
 
@@ -2495,7 +2495,7 @@ msgstr "테이블 %s에 대하여 일치하는 것들을 삭제 하겠습니까?
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "삭제"
@@ -3112,41 +3112,41 @@ msgstr "페이지 번호:"
 msgid "Error while creating PDF:"
 msgstr "PDF 생성 실패:"
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 msgid "Could not save recent table!"
 msgstr "최근 테이블을 저장할 수 없습니다!"
 
-#: libraries/RecentFavoriteTable.class.php:146
+#: libraries/RecentFavoriteTable.class.php:154
 msgid "Could not save favorite table!"
 msgstr "즐겨찾기 테이블을 저장할 수 없습니다!"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 msgid "Remove from Favorites"
 msgstr "즐겨찾기에서 삭제"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "최근 테이블이 없습니다."
 
-#: libraries/RecentFavoriteTable.class.php:235
+#: libraries/RecentFavoriteTable.class.php:243
 msgid "There are no favorite tables."
 msgstr "즐겨찾기 테이블이 없습니다."
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "최근 테이블"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 msgid "Recent"
 msgstr "최근"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
 msgid "Favorite tables"
 msgstr "즐겨찾기 테이블"
 
-#: libraries/RecentFavoriteTable.class.php:256
+#: libraries/RecentFavoriteTable.class.php:264
 msgid "Favorites"
 msgstr "즐겨찾기"
 
@@ -3363,17 +3363,17 @@ msgstr ""
 msgid "Function"
 msgstr "함수"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr "연산자"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "값"
 
@@ -4387,8 +4387,8 @@ msgid ""
 "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may cause "
 "random session invalidation (currently session.gc_maxlifetime is %d)."
 msgstr ""
-"%ssession.gc_maxlifetime%s보다 큰 %sLogin cookie validity%s은 불규칙적으로 세션 파기를 유발할 "
-"수 있습니다(현재 session.gc_maxlifetime은 %d)."
+"%ssession.gc_maxlifetime%s보다 큰 %sLogin cookie validity%s은 불규칙적으로 세"
+"션 파기를 유발할 수 있습니다(현재 session.gc_maxlifetime은 %d)."
 
 #: libraries/config/ServerConfigChecks.class.php:410
 #, php-format
@@ -4396,8 +4396,8 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
-"%sLogin cookie validity%s은 1800초(30분) 이하로 설정되어야 합니다.. 1800 초과시 인증 속이기 등의 보안 "
-"위험에 노출될 수 있습니다."
+"%sLogin cookie validity%s은 1800초(30분) 이하로 설정되어야 합니다.. 1800 초과"
+"시 인증 속이기 등의 보안 위험에 노출될 수 있습니다."
 
 #: libraries/config/ServerConfigChecks.class.php:416
 #, php-format
@@ -4405,8 +4405,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"[kbd]쿠키[/kbd] 인증을 사용하면서 %sLogin cookie store%s가 0이 아니라면, %sLogin cookie "
-"validity%s은 그 값 이하의 값을 가져야합니다."
+"[kbd]쿠키[/kbd] 인증을 사용하면서 %sLogin cookie store%s가 0이 아니라면, "
+"%sLogin cookie validity%s은 그 값 이하의 값을 가져야합니다."
 
 #: libraries/config/ServerConfigChecks.class.php:423
 #, php-format
@@ -4416,9 +4416,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"만약 이것이 필요하다고 느낀다면, 추가적인 보안 설정을 하세요 - %shost authentication%s 설정과 %strusted "
-"proxies list%s. 하지만 IP 기반 보안은, 당신이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 "
-"않습니다."
+"만약 이것이 필요하다고 느낀다면, 추가적인 보안 설정을 하세요 - %shost "
+"authentication%s 설정과 %strusted proxies list%s. 하지만 IP 기반 보안은, 당신"
+"이 수천명의 사용자와 함께 쓰는 IP 대역을 사용할경우 그다지 안전하지 않습니다."
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4426,12 +4426,13 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
-"[kbd]config[/kbd] 권한 타입 설정에 자동 로그인을 위해 사용자명과 암호를 포함했습니다. 이 설정은 실서비스용으로는 권장하지 "
-"않습니다. 누군가가 phpMyAdmin이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. %"
-"sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
+"[kbd]config[/kbd] 권한 타입 설정에 자동 로그인을 위해 사용자명과 암호를 포함"
+"했습니다. 이 설정은 실서비스용으로는 권장하지 않습니다. 누군가가 phpMyAdmin"
+"이 설치된 주소를 추측하고 접속하여 phpMyAdmin 패널을 건드릴 수 있습니다. "
+"%sauthentication type%s을 [kbd]cookie[/kbd]나 [kbd]http[/kbd]로 설정하세요."
 
 #: libraries/config/ServerConfigChecks.class.php:437
 #, php-format
@@ -4445,7 +4446,9 @@ msgstr "%sZip 압축%s을 하기 위한 함수 %s가 현재 시스템에서 사�
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
-msgstr "%sZip decompression%s 기능은 (%s) 기능이 필요한데, 현재 시스템에서 사용할수 없습니다."
+msgstr ""
+"%sZip decompression%s 기능은 (%s) 기능이 필요한데, 현재 시스템에서 사용할수 "
+"없습니다."
 
 #: libraries/config/Validator.class.php:238
 msgid "Could not initialize Drizzle connection library!"
@@ -4459,19 +4462,17 @@ msgid "Could not connect to the database server!"
 msgstr "데이터베이스 서버에 접속할 수 없습니다!"
 
 #: libraries/config/Validator.class.php:306
-#| msgid "Can not find signon authentication script:"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr "[kbd]config[/kbd] 권한 기능을 사용하지만 사용자명이 빈 값입니다!"
 
 #: libraries/config/Validator.class.php:313
-#| msgid "Can not find signon authentication script:"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "[kbd]signon[/kbd] 권한 기능을 사용하지만 signon 세션 이름이 빈 값입니다!"
+msgstr ""
+"[kbd]signon[/kbd] 권한 기능을 사용하지만 signon 세션 이름이 빈 값입니다!"
 
 #: libraries/config/Validator.class.php:322
-#| msgid "Can not find signon authentication script:"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "[kbd]signon[/kbd] 권한 기능을 사용하지만 signon URL 값이 빈 값입니다!"
 
@@ -4496,28 +4497,25 @@ msgid "Incorrect IP address: %s"
 msgstr "잘못된 IP 주소: %s"
 
 #: libraries/config/messages.inc.php:18
-#| msgid ""
-#| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
-msgstr "활성화 할 경우, 사용자는 모든 MySQL 서버에 쿠키 인증을 이용하는 로그인 폼을 사용하여 입장할 수 있습니다."
+msgstr ""
+"활성화 할 경우, 사용자는 모든 MySQL 서버에 쿠키 인증을 이용하는 로그인 폼을 "
+"사용하여 입장할 수 있습니다."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
 msgstr "아무 MySQL 서버에 로그인 허용"
 
 #: libraries/config/messages.inc.php:21
-#| msgid ""
-#| "Enabling this allows a page located on a different domain to call "
-#| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
-#| "strong] allowing cross-frame scripting attacks"
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
-"활성화 할 경우, 다른 도메인에 위치한 페이지에서 phpMyAdmin을 프레임 안쪽에 로드하는 것을 허용하게 되며, 이는 크로스 프레임 "
-"스크립팅(XSS) 공격 [strong]보안 취약점[/strong]을 허용할 가능성을 가집니다."
+"활성화 할 경우, 다른 도메인에 위치한 페이지에서 phpMyAdmin을 프레임 안쪽에 로"
+"드하는 것을 허용하게 되며, 이는 크로스 프레임 스크립팅(XSS) 공격 [strong]보"
+"안 취약점[/strong]을 허용할 가능성을 가집니다."
 
 #: libraries/config/messages.inc.php:25
 msgid "Allow third party framing"
@@ -4528,9 +4526,6 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "일반 사용자에게 \"데이터베이스 삭제(drop)\" 링크를 제공"
 
 #: libraries/config/messages.inc.php:29
-#| msgid ""
-#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-#| "authentication"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -4549,7 +4544,6 @@ msgid "Row marker"
 msgstr "열(row) 마커"
 
 #: libraries/config/messages.inc.php:35
-#| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
 msgstr "마우스 커서 위치의 행 포인트 하이라이트."
 
@@ -4558,13 +4552,12 @@ msgid "Highlight pointer"
 msgstr "포인터 하이라이트"
 
 #: libraries/config/messages.inc.php:38
-#| msgid ""
-#| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import operations."
-msgstr "가져오기 작업시 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압축을 활성화합니다."
+msgstr ""
+"가져오기 작업시 [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] 압축을 활성화"
+"합니다."
 
 #: libraries/config/messages.inc.php:41
 msgid "Bzip2"
@@ -4574,8 +4567,8 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -4594,8 +4587,8 @@ msgstr "CHAR 컬럼 편집"
 #| "Use user-friendly editor for editing SQL queries ([a@http://codemirror."
 #| "net/]CodeMirror[/a]) with syntax highlighting and line numbers"
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "사용하기 쉬운 편집기([a@http://codemirror.net/]CodeMirror[/a], 문법 강조 및 "
 "줄 번호 지원)로 SQL 쿼리를 편집"
@@ -5189,8 +5182,9 @@ msgstr "페이지 제목"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "브라우저의 타이틀바 텍스트를 지정합니다. 특수한 값을 얻기 위해 사용가능한 매"
 "직 문자열들에 대한 내용은 [doc@cfg_TitleTable]문서[/doc]를 참조하십시오."
@@ -5598,8 +5592,8 @@ msgstr "최대 테이블 수"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "mcrypt가 [kbd]쿠키[/kbd] 인증에 빠져있을 경우 표시되는 기본 경고 비활성화."
 
@@ -6036,8 +6030,8 @@ msgstr "테이블 즐겨찾기"
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
 
@@ -6126,14 +6120,14 @@ msgstr "데이터베이스 숨기기"
 #: libraries/config/messages.inc.php:600
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]"
-"pma__tracking[/kbd]"
+"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: "
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:603
 msgid "SQL query history table"
@@ -6243,14 +6237,14 @@ msgstr "서버 포트"
 #: libraries/config/messages.inc.php:637
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
-"데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: [kbd]"
-"pma__userconfig[/kbd]"
+"데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: "
+"[kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:640
 msgid "Recently used table"
@@ -6259,14 +6253,14 @@ msgstr "최근에 사용한 테이블"
 #: libraries/config/messages.inc.php:642
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]"
-"pma__tracking[/kbd]"
+"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: "
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:646
 msgid "Relation table"
@@ -6274,8 +6268,8 @@ msgstr "연관된 테이블"
 
 #: libraries/config/messages.inc.php:648
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:651
@@ -6339,14 +6333,14 @@ msgstr "열 목록 표시"
 #: libraries/config/messages.inc.php:668
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: [kbd]"
-"pma__userconfig[/kbd]"
+"데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: "
+"[kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:671
 msgid "UI preferences table"
@@ -6397,14 +6391,14 @@ msgstr "문장 추적"
 #: libraries/config/messages.inc.php:691
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
-"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: [kbd]"
-"pma__tracking[/kbd]"
+"SQL 쿼리 추적 기능을 사용하지 않으려면 빈 칸으로 비워두세요. 권장: "
+"[kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:694
 msgid "SQL query tracking table"
@@ -6423,14 +6417,14 @@ msgstr "버전 자동생성"
 #: libraries/config/messages.inc.php:701
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: [kbd]"
-"pma__userconfig[/kbd]"
+"데이터베이스에 사용자 설정 스토리지를 두지 않으려면 비워둠, 추천: "
+"[kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:702
 msgid "User preferences storage table"
@@ -6820,8 +6814,8 @@ msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] compression "
 "for import and export operations."
 msgstr ""
-"가져오기와 내보내기 작업들에 대해 [a@http://en.wikipedia.org/wiki/ZIP_"
-"(file_format)]ZIP[/a] compression 가능하게 함"
+"가져오기와 내보내기 작업들에 대해 [a@http://en.wikipedia.org/wiki/"
+"ZIP_(file_format)]ZIP[/a] compression 가능하게 함"
 
 #: libraries/config/messages.inc.php:780
 msgid "ZIP"
@@ -8073,28 +8067,28 @@ msgstr "phpMyAdmin 설명서"
 msgid "Reload navigation panel"
 msgstr "내비게이션 패널 새로고침"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s 개의 결과가 발견됨"
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr "펼치기/접기"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 msgid "Filter databases by name or regex"
 msgstr "데이터베이스 이름 또는 정규식으로 필터링"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "파일로 저장"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 msgid "Filter by name or regex"
 msgstr "이름 또는 정규식으로 필터링"
 
@@ -8804,8 +8798,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"모든 <code>INSERT</code> 구문에 컬럼 이름을 포함<br />&nbsp; &nbsp; &nbsp;예: <code>"
-"INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
+"모든 <code>INSERT</code> 구문에 컬럼 이름을 포함<br />&nbsp; &nbsp; &nbsp;"
+"예: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:405
 msgid ""
@@ -8813,8 +8807,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"모든 <code>INSERT</code> 구문에 여러개의 행을 삽입<br />&nbsp; &nbsp; &nbsp; 예:<code>"
-"INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"모든 <code>INSERT</code> 구문에 여러개의 행을 삽입<br />&nbsp; &nbsp; &nbsp; "
+"예:<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:410
 msgid ""
@@ -8829,8 +8823,8 @@ msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"위의 것 둘 다 안 함<br /> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO tbl_name VALUES "
-"(1,2,3)</code>"
+"위의 것 둘 다 안 함<br /> &nbsp; &nbsp; &nbsp; 예: <code>INSERT INTO "
+"tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:434
 msgid ""
@@ -12225,27 +12219,27 @@ msgstr "공간 사용량"
 msgid "Effective"
 msgstr "실제량"
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "질의 오류"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 msgid "The columns have been moved successfully."
 msgstr "컬럼을 이동했습니다."
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
-#: libraries/structure.lib.php:2729
+#: libraries/structure.lib.php:2752
 #, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
@@ -12760,7 +12754,7 @@ msgstr "전체 화면으로부터 나가기"
 msgid "Save position"
 msgstr "위치 저장"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "관계 생성"
 
@@ -12830,47 +12824,47 @@ msgstr ""
 msgid "Number of tables:"
 msgstr "행 갯수:"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "관계(relation) 삭제"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 #, fuzzy
 #| msgid "Relational key"
 msgid "Relation operator"
 msgstr "관계키"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "내보내기"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 msgid "subquery"
 msgstr "서브쿼리"
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 #, fuzzy
 #| msgid "Keyname"
 msgid "Rename to"
 msgstr "키 이름"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 #, fuzzy
 #| msgid "Keyname"
 msgid "New name"
 msgstr "키 이름"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "만들기 "
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 #, fuzzy
 #| msgid "Action"
 msgid "Active options"
@@ -14466,11 +14460,13 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"InnoDB 버퍼 풀은 InnoDB 테이블의 성능에 심각한 영향을 줍니다. 남은 메모리 전체를 이 버퍼에 할당하십시오. 이 서버에 "
-"InnoDB를 스토리지 엔진으로만 사용하고, 다른 서비스(예: 웹 서버)가 없다면, 이 값을 사용가능한 메모리의 80%% 정도로 높게 "
-"설정하는 것도 괜찮습니다. 그런 상황이 아니라면, 다른 서비스 및 InnoDB가 아닌 테이블들의 메모리 사용량을 신중히 가늠하여 이 값을 "
-"설정하세요. 만약 이 값을 너무 높게 설정하면, 시스템은 스와핑을 하게 되고, 성능이 급격하게 떨어집니다. <a href=\""
-"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"InnoDB 버퍼 풀은 InnoDB 테이블의 성능에 심각한 영향을 줍니다. 남은 메모리 전"
+"체를 이 버퍼에 할당하십시오. 이 서버에 InnoDB를 스토리지 엔진으로만 사용하"
+"고, 다른 서비스(예: 웹 서버)가 없다면, 이 값을 사용가능한 메모리의 80%% 정도"
+"로 높게 설정하는 것도 괜찮습니다. 그런 상황이 아니라면, 다른 서비스 및 InnoDB"
+"가 아닌 테이블들의 메모리 사용량을 신중히 가늠하여 이 값을 설정하세요. 만약 "
+"이 값을 너무 높게 설정하면, 시스템은 스와핑을 하게 되고, 성능이 급격하게 떨어"
+"집니다. <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">이 글</a> 또한 참고하세요"
 
 #: libraries/advisory_rules.txt:455
@@ -14481,8 +14477,9 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"현재, InnoDB 버퍼 풀에 할당된 메모리의 %s%%를 사용하고 있습니다. 60%%이하를 할당했다면 이 규칙이 실행됩니다. 단, "
-"InnoDB 테이블이 많이 없거나, 다른 서비스가 현재 서버에 실행중일 경우에는 이 값이 매우 적절할 수 있습니다."
+"현재, InnoDB 버퍼 풀에 할당된 메모리의 %s%%를 사용하고 있습니다. 60%%이하를 "
+"할당했다면 이 규칙이 실행됩니다. 단, InnoDB 테이블이 많이 없거나, 다른 서비스"
+"가 현재 서버에 실행중일 경우에는 이 값이 매우 적절할 수 있습니다."
 
 #: libraries/advisory_rules.txt:459
 msgid "MyISAM concurrent inserts"
@@ -14526,9 +14523,10 @@ msgstr "concurrent_insert가 0으로 설정되었습니다"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "SQL 유효성 검사 서비스를 사용할 시 참고사항: [strong]모든 SQL 구문은 통계"
 #~ "상의 목적으로 익멱으로 저장됩니다.[/strong][br][em][a@http://sqlvalidator."
@@ -14581,8 +14579,8 @@ msgstr "concurrent_insert가 0으로 설정되었습니다"
 #~| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #~| "kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/"
 #~ "kbd]"
@@ -14592,8 +14590,8 @@ msgstr "concurrent_insert가 0으로 설정되었습니다"
 #~| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #~| "kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/"
 #~ "kbd]"

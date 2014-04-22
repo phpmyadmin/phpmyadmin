@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
 "PO-Revision-Date: 2014-03-28 13:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <https://l10n.cihar.com/projects/phpmyadmin/master/cy/"
@@ -192,7 +192,7 @@ msgstr "Na"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -203,7 +203,7 @@ msgstr "Ie"
 msgid "View dump (schema) of database"
 msgstr "Dangos dadlwythiad (sgema) y gronfa ddata"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
@@ -322,7 +322,7 @@ msgstr "Newid i %sadeiladwr gweledol%s"
 msgid "Access denied!"
 msgstr "Mynediad wedi'i wrthod!"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -1264,7 +1264,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "Dim"
 
@@ -1633,9 +1633,9 @@ msgid "Test"
 msgstr ""
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "Diddymu"
 
@@ -1683,9 +1683,9 @@ msgstr ""
 msgid "Adding Primary Key"
 msgstr ""
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr ""
 
@@ -2711,7 +2711,7 @@ msgstr "Dileu'r cydweddau ar gyfer tabl %s?"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Dileu"
@@ -3373,57 +3373,57 @@ msgstr "Rhif tudalen:"
 msgid "Error while creating PDF:"
 msgstr ""
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "Could not save recent table!"
 msgstr "Taenlen Open Document"
 
-#: libraries/RecentFavoriteTable.class.php:146
+#: libraries/RecentFavoriteTable.class.php:154
 #, fuzzy
 #| msgid "Open Document Spreadsheet"
 msgid "Could not save favorite table!"
 msgstr "Taenlen Open Document"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 #, fuzzy
 #| msgid "Remove database"
 msgid "Remove from Favorites"
 msgstr "Tynnwch y gronfa ddata"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 #, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables."
 msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 
-#: libraries/RecentFavoriteTable.class.php:235
+#: libraries/RecentFavoriteTable.class.php:243
 #, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no favorite tables."
 msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 #, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
 msgstr "Cyfrifwch y tablau"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "Ailosod"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "Newidynnau"
 
-#: libraries/RecentFavoriteTable.class.php:256
+#: libraries/RecentFavoriteTable.class.php:264
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
@@ -3653,17 +3653,17 @@ msgstr ""
 msgid "Function"
 msgstr "Swyddogaeth"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr ""
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "Gwerth"
 
@@ -4711,8 +4711,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:437
@@ -4857,8 +4857,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5457,8 +5457,9 @@ msgstr "Enw'r dudalen"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:255
@@ -5873,8 +5874,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:415
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 
 #: libraries/config/messages.inc.php:418
@@ -6262,8 +6263,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:565
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:568
@@ -6464,8 +6465,8 @@ msgstr "Dadansoddi tabl"
 
 #: libraries/config/messages.inc.php:642
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:646
@@ -6474,8 +6475,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:648
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 
 #: libraries/config/messages.inc.php:651
@@ -6574,8 +6575,8 @@ msgstr "Datganiadau i'w tracio"
 
 #: libraries/config/messages.inc.php:691
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:694
@@ -6594,8 +6595,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:701
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 
 #: libraries/config/messages.inc.php:702
@@ -6754,8 +6755,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Dangos cysylltiad i allbwn [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]"
+"Dangos cysylltiad i allbwn [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:733
 msgid "Show phpinfo() link"
@@ -8241,31 +8242,31 @@ msgstr "Dogfennaeth phpMyAdmin"
 msgid "Reload navigation panel"
 msgstr "Ffrâm llywio"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 #, fuzzy
 #| msgid "table name"
 msgid "Filter databases by name or regex"
 msgstr "enw tabl"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Cadw fel ffeil"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 #, fuzzy
 #| msgid "table name"
 msgid "Filter by name or regex"
@@ -12427,31 +12428,31 @@ msgstr ""
 msgid "Effective"
 msgstr ""
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr ""
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 #, fuzzy
 #| msgid "Query"
 msgid "Query error"
 msgstr "Ymholiad"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 #, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "The columns have been moved successfully."
 msgstr "Cafodd cronfa ddata %s ei gollwng."
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
-#: libraries/structure.lib.php:2729
+#: libraries/structure.lib.php:2752
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add to Favorites"
@@ -12990,7 +12991,7 @@ msgstr ""
 msgid "Save position"
 msgstr "Cadw safle"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "Crëwch berthynas"
 
@@ -13058,49 +13059,49 @@ msgstr "Cuddio/Dangos Tablau heb berthynas"
 msgid "Number of tables:"
 msgstr "Nifer y tablau"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "Dilëwch berthynas"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Perthynas wedi'i ddileu"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "Allforio"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "mewn ymholiad"
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 #, fuzzy
 #| msgid "Rename view to"
 msgid "Rename to"
 msgstr "Ailenwch golwg i"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 #, fuzzy
 #| msgid "Page name"
 msgid "New name"
 msgstr "Enw'r dudalen"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "Creu"
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 #, fuzzy
 #| msgid "Actions"
 msgid "Active options"

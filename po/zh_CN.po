@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
 "PO-Revision-Date: 2014-04-02 11:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Simplified Chinese <https://l10n.cihar.com/projects/"
@@ -185,7 +185,7 @@ msgstr "否"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -196,7 +196,7 @@ msgstr "是"
 msgid "View dump (schema) of database"
 msgstr "查看数据库的转储（大纲）"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
@@ -302,7 +302,7 @@ msgstr "切换到%s可视化查询生成器%s"
 msgid "Access denied!"
 msgstr "访问被拒绝！"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -1168,7 +1168,7 @@ msgstr "请至少添加一个数据！"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "无"
 
@@ -1492,9 +1492,9 @@ msgid "Test"
 msgstr "检验"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "取消"
 
@@ -1538,9 +1538,9 @@ msgstr "正在删除字段"
 msgid "Adding Primary Key"
 msgstr "正在添加主键"
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr "确定"
 
@@ -2471,7 +2471,7 @@ msgstr "删除在 %s 表中找到的所有记录吗？"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "删除"
@@ -3087,51 +3087,51 @@ msgstr "页码："
 msgid "Error while creating PDF:"
 msgstr "创建 PDF 时发生错误："
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 msgid "Could not save recent table!"
 msgstr "无法保存最近使用的表！"
 
-#: libraries/RecentFavoriteTable.class.php:146
+#: libraries/RecentFavoriteTable.class.php:154
 #, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
 msgstr "无法保存最近使用的表！"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
 msgstr "删除图表"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "没有最近使用的表。"
 
-#: libraries/RecentFavoriteTable.class.php:235
+#: libraries/RecentFavoriteTable.class.php:243
 #, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
 msgstr "没有最近使用的表。"
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "最近使用的表"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "重置"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "变量"
 
-#: libraries/RecentFavoriteTable.class.php:256
+#: libraries/RecentFavoriteTable.class.php:264
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
@@ -3354,17 +3354,17 @@ msgstr ""
 msgid "Function"
 msgstr "函数"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr "运算符"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "值"
 
@@ -3795,8 +3795,8 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
-"时间戳，范围从‘0001-01-01 00:00:00’UTC 到‘9999-12-31 23:59:59’UTC；TIMESTAMP"
-"(6) 可以存储微秒"
+"时间戳，范围从‘0001-01-01 00:00:00’UTC 到‘9999-12-31 23:59:59’UTC；"
+"TIMESTAMP(6) 可以存储微秒"
 
 #: libraries/Types.class.php:802
 msgid ""
@@ -4404,8 +4404,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "您设置了 [kbd]config[/kbd] 认证方式，且为了能够自动登录而保存了用户名和密码，"
 "但在常用主机上不建议这样设置。如果有人知道 phpMyAdmin 的地址，他们就能够进入 "
@@ -4555,8 +4555,8 @@ msgstr "编辑 CHAR 类型字段"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "使用带有语法高亮及行号显示的人性化编辑器来编辑 SQL 语句（[a@http://"
 "codemirror.net/]CodeMirror[/a]）。"
@@ -5157,8 +5157,9 @@ msgstr "页面标题"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "设置浏览器标题栏所显示的文字。参见[doc@cfg_TitleTable]文档[/doc]中关于可以取"
 "得特殊值的魔术字符串。"
@@ -5235,8 +5236,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"设置 phpMyAdmin 高级功能以获得更多功能，参见文档 [doc@linked-tables]"
-"phpMyAdmin 高级功能[/doc]"
+"设置 phpMyAdmin 高级功能以获得更多功能，参见文档 [doc@linked-"
+"tables]phpMyAdmin 高级功能[/doc]"
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -5632,8 +5633,8 @@ msgstr "最大表数量"
 #| "Disable the default warning that is displayed if mcrypt is missing for "
 #| "cookie authentication."
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr "在使用 cookie 认证时不显示缺少 mcrypt 的警告。"
 
 #: libraries/config/messages.inc.php:418
@@ -6103,11 +6104,11 @@ msgstr "书签表"
 #: libraries/config/messages.inc.php:565
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: [kbd]"
-#| "pma__column_info[/kbd]"
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma__column_info[/kbd]"
 
 #: libraries/config/messages.inc.php:568
@@ -6142,8 +6143,8 @@ msgstr "控制用户的密码"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6187,8 +6188,8 @@ msgstr "控制端口"
 #: libraries/config/messages.inc.php:592
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords"
-#| "[/kbd]"
+#| "Leave blank for no Designer support, suggested: "
+#| "[kbd]pma__designer_coords[/kbd]"
 msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
@@ -6211,8 +6212,8 @@ msgstr "隐藏数据库"
 #: libraries/config/messages.inc.php:600
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma__history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma__history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -6345,8 +6346,8 @@ msgstr "最近使用的表"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma__relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "不使用[a@http://wiki.phpmyadmin.net/pma/relation]关系链接 (外链，英文)[/a]功"
 "能请留空，推荐: [kbd]pma__relation[/kbd]"
@@ -6361,8 +6362,8 @@ msgstr "关系表"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "参见[a@http://wiki.phpmyadmin.net/pma/auth_types#signon]认证方式 (外链，英文)"
 "[/a]中的例子"
@@ -6478,11 +6479,11 @@ msgstr "要追踪的命令"
 #: libraries/config/messages.inc.php:691
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: [kbd]"
-#| "pma__tracking[/kbd]"
+#| "Leave blank for no SQL query tracking support, suggested: "
+#| "[kbd]pma__tracking[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr "不使用 SQL 查询追踪功能请留空，推荐: [kbd]pma__tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:694
@@ -6502,11 +6503,11 @@ msgstr "自动创建版本"
 #: libraries/config/messages.inc.php:701
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:702
@@ -6538,8 +6539,8 @@ msgstr "用户组表"
 #: libraries/config/messages.inc.php:707
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#| "pma__userconfig[/kbd]"
+#| "Leave blank for no user preferences storage in database, suggested: "
+#| "[kbd]pma__userconfig[/kbd]"
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -7323,8 +7324,8 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be a good way to import large "
 "files, however it can break transactions.)</i>"
 msgstr ""
-"在导入时脚本若检测到可能需要花费很长时间（接近PHP超时的限定）则允许中断。<i>"
-"(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
+"在导入时脚本若检测到可能需要花费很长时间（接近PHP超时的限定）则允许中断。"
+"<i>(尽管这会中断事务，但在导入大文件时是个很好的方法。)</i>"
 
 #: libraries/display_import.lib.php:299
 msgid ""
@@ -8163,30 +8164,30 @@ msgstr "phpMyAdmin 文档"
 msgid "Reload navigation panel"
 msgstr "刷新导航框架"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "找到 %s 条其他结果"
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 #, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
 msgstr "根据名称筛选数据库"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 #, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "清除快速筛选数据"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 #, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
@@ -12383,27 +12384,27 @@ msgstr "已用空间"
 msgid "Effective"
 msgstr "有效"
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改表 %1$s"
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "查询错误"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 msgid "The columns have been moved successfully."
 msgstr "已成功移动字段。"
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "列名 '%s' 是一个MySQL 保留关键字。"
 
-#: libraries/structure.lib.php:2729
+#: libraries/structure.lib.php:2752
 #, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
@@ -12901,7 +12902,7 @@ msgstr "退出全屏"
 msgid "Save position"
 msgstr "保存位置"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "创建关系"
 
@@ -12965,37 +12966,37 @@ msgstr "隐藏/显示没有关联的表"
 msgid "Number of tables:"
 msgstr "数据表数量"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "删除关系"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 msgid "Relation operator"
 msgstr "关系运算符"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 msgid "Except"
 msgstr "EXCEPT"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 msgid "subquery"
 msgstr "子查询"
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 msgid "Rename to"
 msgstr "改名为"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 msgid "New name"
 msgstr "新名称"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 msgid "Aggregate"
 msgstr "聚合"
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 msgid "Active options"
 msgstr "当前选项"
 
@@ -14607,9 +14608,10 @@ msgstr "concurrent_insert 被设为 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "若您想使用 SQL 校验服务，请注意[strong]所有 SQL 语句将出于统计目的而被匿名"
 #~ "存储[/strong]。[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL 校验器"
@@ -14634,11 +14636,11 @@ msgstr "concurrent_insert 被设为 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to [kbd]"
-#~| "anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to "
+#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
 #~ "如果你有自己的用户名，请在这里输入 (默认为 [kbd]anonymous (匿名)[/kbd])"
 
@@ -14677,20 +14679,20 @@ msgstr "concurrent_insert 被设为 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]"
 
 #~ msgid "ENUM or SET data too long?"
@@ -14785,8 +14787,9 @@ msgstr "concurrent_insert 被设为 0"
 #~ msgstr "要获得可用转换选项的列表及对应的 MIME 类型转换，请点击%s转换说明%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "参见 [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA 缺陷 (bug) 跟"
 #~ "踪系统 (外链，英文)[/a] 和 [a@http://bugs.mysql.com/19588]MySQL 缺陷 "
@@ -15114,13 +15117,13 @@ msgstr "concurrent_insert 被设为 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "当设为 [kbd]nested[/kbd] 时，数据表的别名仅根据 $cfg"
-#~ "['LeftFrameTableSeparator'] 作分割/层叠用，所有只有目录的名字像别名，数据"
-#~ "表自己的名字并不改变"
+#~ "当设为 [kbd]nested[/kbd] 时，数据表的别名仅根据 "
+#~ "$cfg['LeftFrameTableSeparator'] 作分割/层叠用，所有只有目录的名字像别名，"
+#~ "数据表自己的名字并不改变"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "显示表备注而不显示表名"

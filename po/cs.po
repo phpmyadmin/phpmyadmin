@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
 "PO-Revision-Date: 2014-04-10 09:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://l10n.cihar.com/projects/phpmyadmin/master/cs/"
@@ -189,7 +189,7 @@ msgstr "Ne"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -200,7 +200,7 @@ msgstr "Ano"
 msgid "View dump (schema) of database"
 msgstr "Zobrazit výpis (schéma) databáze"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "V databázi nebyly nalezeny žádné tabulky."
@@ -310,7 +310,7 @@ msgstr "Přepnout na %svizuálního návrháře%s"
 msgid "Access denied!"
 msgstr "Přístup odepřen!"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
 msgstr "Seznam oblíbených je plný!"
 
@@ -1194,7 +1194,7 @@ msgstr "Prosím přidejte do série alespoň jednu hodnotu!"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "Žádná"
 
@@ -1531,9 +1531,9 @@ msgid "Test"
 msgstr "Kontrola"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -1577,9 +1577,9 @@ msgstr "Odstraňuji sloupec"
 msgid "Adding Primary Key"
 msgstr "Přidávám primární klíč"
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr "OK"
 
@@ -2519,7 +2519,7 @@ msgstr "Odstranit nalezené záznamy z tabulky %s?"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Odstranit"
@@ -3144,41 +3144,41 @@ msgstr "Strana číslo:"
 msgid "Error while creating PDF:"
 msgstr "Chyba při vytváření PDF:"
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 msgid "Could not save recent table!"
 msgstr "Nepodařilo se uložit nedávnou tabulku!"
 
-#: libraries/RecentFavoriteTable.class.php:146
+#: libraries/RecentFavoriteTable.class.php:154
 msgid "Could not save favorite table!"
 msgstr "Nepodařilo se uložit oblíbenou tabulku!"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 msgid "Remove from Favorites"
 msgstr "Odstranit z oblíbených"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "Nebyly nalezeny žádné nedávné tabulky."
 
-#: libraries/RecentFavoriteTable.class.php:235
+#: libraries/RecentFavoriteTable.class.php:243
 msgid "There are no favorite tables."
 msgstr "Nebyly nalezeny žádné oblíbené tabulky."
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "Nedávné tabulky"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 msgid "Recent"
 msgstr "Nedávné"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
 msgid "Favorite tables"
 msgstr "Oblíbené tabulky"
 
-#: libraries/RecentFavoriteTable.class.php:256
+#: libraries/RecentFavoriteTable.class.php:264
 msgid "Favorites"
 msgstr "Oblíbené"
 
@@ -3394,17 +3394,17 @@ msgstr ""
 msgid "Function"
 msgstr "Funkce"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "Hodnota"
 
@@ -4093,8 +4093,8 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"V konfiguračním souboru musí být nastaven parametr [code]$cfg"
-"['PmaAbsoluteUri'][/code]!"
+"V konfiguračním souboru musí být nastaven parametr "
+"[code]$cfg['PmaAbsoluteUri'][/code]!"
 
 #: libraries/common.inc.php:632
 #, php-format
@@ -4465,8 +4465,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Nastavil jste typ přihlašování [kbd]config[/kbd] a zadal jste uživatelské "
 "jméno a heslo pro automatické přihlášení, což není doporučená volba pro "
@@ -4577,8 +4577,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Tajné heslo používané pro šifrování cookies při přihlašování pomocí [kbd]"
-"cookie[/kbd]."
+"Tajné heslo používané pro šifrování cookies při přihlašování pomocí "
+"[kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:32
 msgid "Blowfish secret"
@@ -4619,8 +4619,8 @@ msgid ""
 "kbd] - allows newlines in columns."
 msgstr ""
 "Definuje, který typ ovládacích prvků má být použit při úpravách polí typu "
-"CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, [kbd]"
-"textarea[/kbd] - umožní použít odřádkování."
+"CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, "
+"[kbd]textarea[/kbd] - umožní použít odřádkování."
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4628,8 +4628,8 @@ msgstr "Úprava polí typu CHAR"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Použít uživatelsky přívětivý editor pro úpravu SQL dotazů ([a@http://"
 "codemirror.net/]CodeMirror[/a]) se zvýrazněním syntaxe a čísly řádek."
@@ -5167,8 +5167,9 @@ msgstr "Jména stránek"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Zadejte titulek který zobrazí prohlížeč. V [doc@cfg_TitleTable]dokumentaci[/"
 "doc] naleznete jaké proměnné můžete použít."
@@ -5584,8 +5585,8 @@ msgstr "Nejvyšší počet zobrazených tabulek"
 
 #: libraries/config/messages.inc.php:415
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Vypne varování o chybějícím rozšíření mcrypt při použití přihlašování přes "
 "[kbd]cookie[/kbd]."
@@ -5985,8 +5986,8 @@ msgstr "Tabulka záložek"
 
 #: libraries/config/messages.inc.php:565
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
 "Nechte prázdné pro žádné komentáře či mime typy polí, výchozí nastavení: "
 "[kbd]pma__column_info[/kbd]."
@@ -6057,8 +6058,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Nechte prázdné pro vypnutí návrháře, doporučené nastavení: [kbd]"
-"pma__designer_coords[/kbd]."
+"Nechte prázdné pro vypnutí návrháře, doporučené nastavení: "
+"[kbd]pma__designer_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:595
 msgid "Designer table"
@@ -6156,8 +6157,8 @@ msgid ""
 msgstr ""
 "Databáze používaná pro relace, záložky a PDF stránky. Více informací "
 "naleznete na [a@http://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Pokud "
-"ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: [kbd]"
-"phpmyadmin[/kbd]."
+"ponecháte prázdné, budou tyto funkce vypnuté. Doporučená hodnota: "
+"[kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:632
 #: libraries/display_create_database.lib.php:31
@@ -6187,8 +6188,8 @@ msgstr "Naposledy použité tabulky"
 
 #: libraries/config/messages.inc.php:642
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro [a@http://wiki.phpmyadmin.net/pma/"
 "relation]relace[/a], doporučené nastavení: [kbd]pma__relation[/kbd]."
@@ -6199,11 +6200,11 @@ msgstr "Tabulka s relacemi"
 
 #: libraries/config/messages.inc.php:648
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
-"Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"authentication types[/a]."
+"Příklad můžete nalézt na [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]authentication types[/a]."
 
 #: libraries/config/messages.inc.php:651
 msgid "Signon session name"
@@ -6313,8 +6314,8 @@ msgstr "Sledované příkazy"
 
 #: libraries/config/messages.inc.php:691
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro sledování SQL dotazů, doporučené "
 "nastavení: [kbd]pma__tracking[/kbd]."
@@ -6336,8 +6337,8 @@ msgstr "Automaticky vytvářet verze"
 
 #: libraries/config/messages.inc.php:701
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Nechte prázdné pro vypnutí podpory pro uživatelské nastavení v databázi, "
 "doporučené nastavení: [kbd]pma__userconfig[/kbd]."
@@ -6502,8 +6503,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Zobrazí link na výstup funkce [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]."
+"Zobrazí link na výstup funkce [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:733
 msgid "Show phpinfo() link"
@@ -7972,7 +7973,7 @@ msgstr "Dokumentace phpMyAdmina"
 msgid "Reload navigation panel"
 msgstr "Znovu nahrát navigační panel"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
@@ -7980,20 +7981,20 @@ msgstr[0] "nalezen %s další výsledek"
 msgstr[1] "nalezeny %s další výsledky"
 msgstr[2] "nalezeno %s dalších výsledků"
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr "Rozbalit/sbalit"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 msgid "Filter databases by name or regex"
 msgstr "Filtrovat databáze podle jména nebo regexu"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 msgid "Clear fast filter"
 msgstr "Vymazat filtr"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 msgid "Filter by name or regex"
 msgstr "Filtrovat položky podle jména nebo regexu"
 
@@ -12129,27 +12130,27 @@ msgstr "Využití místa"
 msgid "Effective"
 msgstr "Efektivní"
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabulka %1$s byla úspěšně změněna."
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "Chyba dotazu"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 msgid "The columns have been moved successfully."
 msgstr "Vybraná pole byla úspěšně přesunuta."
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Název pole \"%s\" je rezervovaným klíčovým slovem MySQL."
 
-#: libraries/structure.lib.php:2729
+#: libraries/structure.lib.php:2752
 msgid "Add to Favorites"
 msgstr "Přidat do oblíbených"
 
@@ -12636,7 +12637,7 @@ msgstr "Ukončit režim na celou obrazovku"
 msgid "Save position"
 msgstr "Uložit rozmístění"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "Vytvořit relaci"
 
@@ -12696,37 +12697,37 @@ msgstr "Skrýt/Zobrazit tabulky bez relací"
 msgid "Number of tables:"
 msgstr "Počet tabulek:"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "Odstranit relaci"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 msgid "Relation operator"
 msgstr "Relační operátor"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 msgid "Except"
 msgstr "Kromě"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 msgid "subquery"
 msgstr "poddotaz"
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 msgid "Rename to"
 msgstr "Přejmenovat na"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 msgid "New name"
 msgstr "Nové jméno"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 msgid "Aggregate"
 msgstr "Sloučit"
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 msgid "Active options"
 msgstr "Zapnuté parametry"
 
@@ -12922,8 +12923,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosím, vytvořte adresář [em]config[/em] zapisovatelný pro web server v "
-"kořenovém adresáři phpMyAdmina, jak je popsáno v [doc@setup_script]"
-"dokumentaci[/doc]. Jinak budete moci nastavení pouze stáhnout nebo zobrazit."
+"kořenovém adresáři phpMyAdmina, jak je popsáno v "
+"[doc@setup_script]dokumentaci[/doc]. Jinak budete moci nastavení pouze "
+"stáhnout nebo zobrazit."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -13065,8 +13067,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
-"Používáte verzi z Gitu, pro aktualizaci spusťte [kbd]git pull[/kbd] :-)[br]"
-"Poslední stabilní verze je %s a byla vydána %s."
+"Používáte verzi z Gitu, pro aktualizaci spusťte [kbd]git pull[/kbd] :-)"
+"[br]Poslední stabilní verze je %s a byla vydána %s."
 
 #: setup/lib/index.lib.php:172
 msgid "No newer stable version is available"
@@ -14445,14 +14447,15 @@ msgstr "concurrent_insert je nastaveno na 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "Pokud si přejete používat službu kontrolování SQL, je potřeba si "
 #~ "uvědomit, že [strong]všechny SQL dotazy jsou anonymně ukládány pro "
-#~ "statistické účely[/strong].[br][em][a@http://sqlvalidator.mimer.com/]"
-#~ "Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
+#~ "statistické účely[/strong].[br][em][a@http://sqlvalidator.mimer."
+#~ "com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
 #~ "Všechna práva vyhrazena.[/em]"
 
 #~ msgid "Requires SQL Validator to be enabled."
@@ -14469,8 +14472,8 @@ msgstr "concurrent_insert je nastaveno na 0"
 #~ msgstr "Povolit kontrolování SQL"
 
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
 #~ "Pokud máte vlastní uživatelské jméno, zadejte ho zde (jinak se použije "
 #~ "[kbd]anonymous[/kbd])."
@@ -14512,15 +14515,15 @@ msgstr "concurrent_insert je nastaveno na 0"
 #~ msgstr "Uložit vyhledávání"
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Nechte prázdné pro vypnutí podpory pro nastavitelné menu, doporučené "
 #~ "nastavení: [kbd]pma__users[/kbd]."
 
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Nechte prázdné pro vypnutí podpory pro nastavitelné menu, doporučené "
 #~ "nastavení: [kbd]pma__usergroups[/kbd]."
@@ -14632,8 +14635,9 @@ msgstr "concurrent_insert je nastaveno na 0"
 #~ msgstr "Zapnout hlášení chyb v javascriptu"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Více informací v [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 #~ "bug trackeru[/a] a [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -14972,9 +14976,9 @@ msgstr "concurrent_insert je nastaveno na 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "Při nastavení na [kbd]nested[/kbd], bude komentář použit pro zanoření a "
 #~ "rozdělení podle nastavení $cfg['LeftFrameTableSeparator']. Takže komentář "
