@@ -135,7 +135,7 @@ var AJAX = {
     /**
      * Registers a keyup function when changes are made in input field
      * @param event for the trigged function
-     * 
+     *
      * @return void
      */
     inputAltered: function(event) {
