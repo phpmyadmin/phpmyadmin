@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-03-28 09:22+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/master/ar/"
-">\n"
+"PO-Revision-Date: 2014-04-22 09:59+0200\n"
+"Last-Translator: Nabil Kadimi <nabil@kadimi.com>\n"
+"Language-Team: Arabic <https://l10n.cihar.com/projects/phpmyadmin/master/ar/>"
+"\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,8 +22,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"الملف %s غير متوفر على هذا النظام، الرجاء مراجعة www.phpmyadmin.net للمزيد "
-"من المعلومات."
+"الملف %s غير متوفر في هذا النظام، المرجو مراجعة www.phpmyadmin.net للمزيد من "
+"المعلومات."
 
 #: db_create.php:61
 #, php-format
@@ -37,10 +37,9 @@ msgstr "ملاحظة قاعدة البيانات:"
 #: db_datadict.php:159 libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_columns_definition_form.lib.php:70
 #: libraries/tbl_printview.lib.php:578
-#, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
-msgstr "تعليقات الجدول"
+msgstr "تعليقات الجدول:"
 
 #: db_datadict.php:168 libraries/Index.class.php:567
 #: libraries/TableSearch.class.php:185 libraries/TableSearch.class.php:1281
@@ -221,10 +220,10 @@ msgid "The database name is empty!"
 msgstr "إسم قاعدة البيانات خالي!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى  %2$s"
+msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى %2$s."
 
 #: db_operations.php:136
 #, fuzzy, php-format
@@ -275,10 +274,9 @@ msgstr "قيد الإستعمال"
 
 #: db_printview.php:119 libraries/plugins/export/ExportSql.class.php:1083
 #: libraries/schema/Pdf_Relation_Schema.class.php:1334
-#, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
-msgstr "الإنشاء"
+msgstr "الإنشاء:"
 
 #: db_printview.php:128 libraries/plugins/export/ExportSql.class.php:1096
 #: libraries/schema/Pdf_Relation_Schema.class.php:1339
