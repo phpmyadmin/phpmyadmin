@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-22 07:43+0200\n"
+"PO-Revision-Date: 2014-04-22 07:47+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -1582,10 +1582,9 @@ msgid "Changing Charset"
 msgstr "எழுத்துத்தொகுதி மாற்றப்படுகின்றது"
 
 #: js/messages.php:247
-#, fuzzy
 #| msgid "You have added a new user."
 msgid "Table must have at least one column"
-msgstr "நீங்கள் புதிய பயனாளரை சேர்த்துள்ளீர்கள்"
+msgstr "அட்டவணையில் குறைந்தது ஒரு பத்தியாவது வேண்டும்"
 
 #: js/messages.php:253
 msgid "Insert Table"
