@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-23 15:30+0200\n"
+"PO-Revision-Date: 2014-04-23 16:13+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -5690,8 +5690,8 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"開啟使用資料庫保存查詢歷史記錄 (需要開啟 phpMyAdmin 進階功能)。如果未開啟上述"
-"功能，將採用 Javascript 來保存查詢歷史記錄 (只會保留至瀏覽器關閉為止)。"
+"若您想要透過資料庫查詢記錄查詢歷史記錄 (需要使用 phpMyAdmin 設定儲存空間)，請開啟此功能。若不使用，將會採用 Javascript "
+"來保存查詢歷史記錄 (只會保留至瀏覽器關閉為止)。"
 
 #: libraries/config/messages.inc.php:517
 msgid "Permanent query history"
@@ -5881,7 +5881,7 @@ msgstr "控制使用者"
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
-msgstr "儲存設定檔的備用主機，留空以使用預先定義的主機。"
+msgstr "設定儲存空間的備用主機位置，若不修改備用主機位置則留空。"
 
 #: libraries/config/messages.inc.php:584
 msgid "Control host"
@@ -5892,7 +5892,7 @@ msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
-msgstr "儲存設定檔的備用連接埠，留空以使用預先定義的連接埠。"
+msgstr "設定儲存空間的備用主機位置埠號，若使用預設值或不修改設定則留空。"
 
 #: libraries/config/messages.inc.php:590
 msgid "Control port"
@@ -10357,7 +10357,7 @@ msgstr "您已新增了一個新使用者。"
 #: libraries/server_status.lib.php:56
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "啟動後的網路流量: %s"
+msgstr "自啟動後的累計網路流量: %s"
 
 #: libraries/server_status.lib.php:69
 #, php-format
@@ -10651,7 +10651,7 @@ msgstr "還原預設值"
 #: libraries/server_status_queries.lib.php:33
 #, php-format
 msgid "Questions since startup: %s"
-msgstr "自啟動以來的查詢次數: %s"
+msgstr "自啟動後的累計查詢次數: %s"
 
 #: libraries/server_status_queries.lib.php:44
 msgid "per hour:"
@@ -10783,8 +10783,8 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"如果知道一個資料表的名稱，MySQL 伺服器可以詢問 NDB 叢集儲存引擎，這被稱爲“發"
-"現”Handler_discovery 表示一個資料表被發現的次數。"
+"在已知資料表名稱的情況下，MySQL 伺服器可以詢問 NDB 叢集儲存引擎該資料表是否存在。這個動作稱作 \"探索(Discovery)\"。 "
+"Handler_discover 參數指的是資料表被探索到的次數。"
 
 #: libraries/server_status_variables.lib.php:389
 msgid ""
@@ -10792,32 +10792,27 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"讀取一個索引入口點的次數。如果該值很大，說明您的伺服器執行了很多完整索引掃"
-"描。例如，假設欄位 col1 已經建立了索引，然後執行 SELECT col1 FROM foo。"
+"第一筆索引資料被讀取的次數。若這個值很大，說明您的伺服器執行了很多完整索引掃描，如以下例子: 欄位 col1 已經建立了索引，然後執行 SELECT "
+"col1 FROM foo。"
 
 #: libraries/server_status_variables.lib.php:395
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
-msgstr ""
-"根據索引讀取行的請求數。如果該值很大，說明您的查詢和表都建立了很好的索引。"
+msgstr "透過索引查詢到資料列的請求次數。若這個值很大，說明您的查詢條件和資料表都有正確的索引。"
 
 #: libraries/server_status_variables.lib.php:400
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
-msgstr ""
-"根據索引順序讀取下一行的請求數。如果您在查詢一個已索引的欄位且限制了範圍，或"
-"進行完整表掃描，該值將會不斷增長。"
+msgstr "查詢下一筆索引資料的請求次數。若您的查詢條件使用了索引的欄位做一段區間範圍的查詢，或者您進行了索引的掃描，會使這個值不斷增加。"
 
 #: libraries/server_status_variables.lib.php:405
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
-msgstr ""
-"根據索引順序讀取上一行的請求數。這種讀取方式通常用於最佳化帶有 ORDER BY … "
-"DESC 的查詢。"
+msgstr "查詢上一筆索引資料的請求次數。這種讀取方式通常用於最佳化有關 ORDER BY … DESC 的查詢。"
 
 #: libraries/server_status_variables.lib.php:409
 msgid ""
@@ -10826,8 +10821,7 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
-"根據固定位置讀取行的請求數。如果您執行很多需要排序的查詢，該值會很高。您可能"
-"有很多需要完整表掃描的查詢，或者您使用了不正確的索引用來多表查詢。"
+"使用固定位置讀取資料列的請求次數。如果您執行很多需要排序的查詢，該值會很高。您可能有很多需要完整表掃描的查詢，或者您使用了不正確的索引用來多表查詢。"
 
 #: libraries/server_status_variables.lib.php:416
 msgid ""
@@ -10836,17 +10830,16 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"請求由資料檔案中讀取下一列(Row)的數量，此值會因掃描資料表的數量增加而增加。一"
-"般情況下這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已建立索"
-"引的欄位。"
+"查詢資料檔下一筆資料列的請求次數。此值會因掃描資料表的次數增加而增加。一般情況下這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已建立索引的欄"
+"位。"
 
 #: libraries/server_status_variables.lib.php:423
 msgid "The number of internal ROLLBACK statements."
-msgstr "內部回滾 (ROLLBACK) 指令數。"
+msgstr "使用內部還原 (ROLLBACK) 敘述句的次數。"
 
 #: libraries/server_status_variables.lib.php:426
 msgid "The number of requests to update a row in a table."
-msgstr "資料表中更新行的請求數。"
+msgstr "資料表中更新資料列的請求次數。"
 
 #: libraries/server_status_variables.lib.php:429
 msgid "The number of requests to insert a row in a table."
@@ -12219,8 +12212,7 @@ msgstr "已儲存設定值。"
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
-msgstr ""
-"您的偏好設定僅作用於本次連線。永久儲存需要開啟 %sphpMyAdmin 進階功能%s。"
+msgstr "您的偏好設定僅作用於本次連線。永久儲存需要開啟 %sphpMyAdmin 設定儲存空間%s。"
 
 #: libraries/user_preferences.lib.php:129
 msgid "Could not save configuration"
