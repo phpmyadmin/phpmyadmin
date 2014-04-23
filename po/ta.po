@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 10:44+0200\n"
+"PO-Revision-Date: 2014-04-23 10:48+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -5156,10 +5156,9 @@ msgid "Partial import: skip queries"
 msgstr ""
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்க்க"
+msgstr "சுழிய மதிப்புகளுக்கு AUTO_INCREMENT(தன்னிலைகூட்டு) பயன்படுத்த வேண்டாம்"
 
 #: libraries/config/messages.inc.php:272
 msgid "Initial state for sliders"
