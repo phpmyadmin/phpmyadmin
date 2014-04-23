@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 07:06+0200\n"
+"PO-Revision-Date: 2014-04-23 07:21+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -3529,10 +3529,10 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:321 libraries/Types.class.php:724
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "ஒரு நாளுக்கான வீச்சு, %1$s லிருந்து %2$s"
 
 #: libraries/Types.class.php:323 libraries/Types.class.php:726
 #, php-format
