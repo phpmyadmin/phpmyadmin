@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 07:21+0200\n"
+"PO-Revision-Date: 2014-04-23 07:22+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -3546,10 +3546,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:327 libraries/Types.class.php:730
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "A time, range is %1$s to %2$s"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "ஒர் நேரத்துக்கான, வீச்சு %1$s லிருந்து %2$s"
 
 #: libraries/Types.class.php:329
 msgid ""
