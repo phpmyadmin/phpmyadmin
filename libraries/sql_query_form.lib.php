@@ -271,6 +271,8 @@ function PMA_getHtmlForSqlQueryFormInsert(
             . ' class="button sqlbutton" />';
         $html .= '<input type="button" value="DELETE" id="delete"'
             . ' class="button sqlbutton" />';
+        $html .= '<input type="button" value="Remove grave ( &#768; )" id="removegrave"'
+            . ' class="button sqlbutton" />';
     }
     $html .= '<input type="button" value="' . __('Clear') . '" id="clear"'
         . ' class="button sqlbutton" />';
