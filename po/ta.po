@@ -5020,10 +5020,9 @@ msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:226
-#, fuzzy
 #| msgid "Databases"
 msgid "Table structure"
-msgstr "தரவுத்தளங்கள்"
+msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
 
 #: libraries/config/messages.inc.php:227
 msgid "Settings for the table structure (list of columns)"
