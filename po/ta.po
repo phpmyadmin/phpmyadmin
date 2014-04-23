@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 07:23+0200\n"
+"PO-Revision-Date: 2014-04-23 07:24+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -3680,11 +3680,10 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:645 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "புதிய சுட்டை உருவாக்கு"
+msgstr "நாள் மற்றும் நேரம்"
 
 #: libraries/Types.class.php:654 libraries/Types.class.php:982
 msgctxt "string types"
