@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 10:55+0200\n"
+"PO-Revision-Date: 2014-04-23 10:59+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -6398,10 +6398,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:363
 #: libraries/config/user_preferences.forms.php:261
-#, fuzzy
 #| msgid "Documentation"
 msgid "OpenDocument Text"
-msgstr "ஆவணச்சான்று"
+msgstr "ஆவணச்சான்று->கட்டற்றஆவண உரை"
 
 #: libraries/core.lib.php:287
 #, php-format
