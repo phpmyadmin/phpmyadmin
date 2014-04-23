@@ -301,9 +301,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         echo 'onmouseout="Table_onover(\'' . htmlspecialchars($t_n_url) . '\',1,1)">';
     }
     ?>
-</tr>
-</thead>
-<tbody id="id_tbody_<?php echo $t_n_url ?>"
+    </tr>
+    </thead>
+    <tbody id="id_tbody_<?php echo $t_n_url ?>"
     <?php
     if (isset($tab_pos[$t_n]) && empty($tab_pos[$t_n]["V"])) {
         echo 'style="display: none;"';
@@ -318,22 +318,20 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
         $j < $id_cnt;
         $j++
     ) {
+        echo '<tr id="id_tr_'
+            . $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '.'
+            . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '"';
+        if ($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) {
+            echo ' class="tab_field_3" ';
+        } else {
+            echo ' class="tab_field" ';
+        }
         ?>
-<tr id="id_tr_<?php
-        echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '.'
-            . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>"
-        <?php
-    if ($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) {
-        echo ' class="tab_field_3" ';
-    } else {
-        echo ' class="tab_field" ';
-    }
-        ?>
-    onmouseover="old_class = this.className; this.className = 'tab_field_2';"
-    onmouseout="this.className = old_class;"
-    onmousedown="Click_field('<?php
-    echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . "','"
-        . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . "',";
+        onmouseover="old_class = this.className; this.className = 'tab_field_2';"
+        onmouseout="this.className = old_class;"
+        onmousedown="Click_field('<?php
+        echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . "','"
+            . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . "',";
         $tmpColumn = $t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j];
         if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
             echo (isset($tables_pk_or_unique_keys[$tmpColumn]) ? 1 : 0);
