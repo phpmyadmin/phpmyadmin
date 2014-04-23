@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-22 11:00+0200\n"
+"PO-Revision-Date: 2014-04-23 11:25+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
-"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
-">\n"
+"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1652,41 +1652,40 @@ msgstr "தேடிமாற்று நிபந்தனையை காண�
 
 #: js/messages.php:289
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "ஒவ்வொரு புள்ளியும் ஒரு தரவு வரிசையை குறிக்கிறது."
 
 #: js/messages.php:291
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "ஒவ்வொரு புள்ளியின் மேற்செல்லும் போதும் அதற்கான சிட்டை தெரியும்."
 
 #: js/messages.php:293
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "அணுக்கதிற்கு, வரைபடத்தின் ஒரு பகுதியை சுட்டியால் தெரிவுசெய்க."
 
 #: js/messages.php:295
 msgid "Click reset zoom button to come back to original state."
-msgstr ""
+msgstr "மெய்நிலைக்கு வர மீள்அணுக்கம் பொத்தானை சொடுக்கவும்."
 
 #: js/messages.php:297
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "ஒரு தரவுவரிசையை பார்க்கவும் திருத்தவும் அதன் தரவுபுள்ளியை சொடுக்கவும்."
 
 #: js/messages.php:299
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr ""
+msgstr "வரைவின் வலது கீழ் மூலையில் அழுத்தி இழுப்பதன் மூலம் அளவை மாற்றலாம்."
 
 #: js/messages.php:301
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "நெடுவரிசைகள்  சேர்க்க/ நீக்க"
+msgstr "இரு நெடுவரிசைகளை தேர்ந்தெடுக்கவும்"
 
 #: js/messages.php:303
 msgid "Select two different columns"
-msgstr ""
+msgstr "இரு வெவ்வேறு நெடுவரிசைகளை தேர்ந்தெடுக்கவும்"
 
 #: js/messages.php:305
 msgid "Data point content"
-msgstr ""
+msgstr "தரவுப்புள்ளி உள்ளடக்கம்"
 
 #: js/messages.php:308 js/messages.php:402 libraries/insert_edit.lib.php:2605
 #: libraries/tbl_indexes.lib.php:333 libraries/tbl_indexes.lib.php:369
@@ -1695,7 +1694,7 @@ msgstr "புறக்கணி"
 
 #: js/messages.php:309 libraries/DisplayResults.class.php:3404
 msgid "Copy"
-msgstr "நகல்"
+msgstr "படியெடு"
 
 #: js/messages.php:312
 msgid "Point"
@@ -1703,7 +1702,7 @@ msgstr "புள்ளி"
 
 #: js/messages.php:314
 msgid "Linestring"
-msgstr ""
+msgstr "கோட்டு சரம்"
 
 #: js/messages.php:315
 msgid "Polygon"
@@ -1862,16 +1861,14 @@ msgid "More"
 msgstr "மேலும்"
 
 #: js/messages.php:379
-#, fuzzy
 #| msgid "Show all"
 msgid "Show Panel"
-msgstr "அனைத்தையும் காட்டு"
+msgstr "பலகத்தை காட்டு"
 
 #: js/messages.php:380
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide Panel"
-msgstr "சுட்டுகளை மறை"
+msgstr "பலகத்தை மறை"
 
 #: js/messages.php:381
 #, fuzzy
@@ -1892,14 +1889,13 @@ msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:389
-#, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
-msgstr "புதிய பதிப்பை பார்வையிடவும்"
+msgstr ", புதிய நிலைப்பதிப்பு:"
 
 #: js/messages.php:390
 msgid "up to date"
-msgstr ""
+msgstr "இன்றுவரை"
 
 #: js/messages.php:392 libraries/DisplayResults.class.php:5269
 #: view_create.php:178
@@ -1921,10 +1917,9 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:400
-#, fuzzy
 #| msgid "Change settings"
 msgid "Change Report Settings"
-msgstr "அமைப்புக்களை மாற்று"
+msgstr "அறிக்கை அமைப்புக்களை மாற்றுக"
 
 #: js/messages.php:401
 msgid "Show Report Details"
@@ -1976,7 +1971,6 @@ msgid "March"
 msgstr "மார்ச்"
 
 #: js/messages.php:456
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "ஏப்ரல்"
@@ -2002,7 +1996,6 @@ msgid "September"
 msgstr "செப்டம்பர்"
 
 #: js/messages.php:462
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "அக்டோபர்"
@@ -2037,11 +2030,10 @@ msgstr "சித்திரை"
 
 #. l10n: Short month name
 #: js/messages.php:479 libraries/Util.class.php:1567
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
-msgstr "வைகாசி"
+msgstr "மே"
 
 #. l10n: Short month name
 #: js/messages.php:481 libraries/Util.class.php:1569
@@ -2079,19 +2071,16 @@ msgid "Dec"
 msgstr "மார்கழி"
 
 #: js/messages.php:499
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "ஞாயிறு"
 
 #: js/messages.php:500
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "திங்கள்"
 
 #: js/messages.php:501
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "செவ்வாய்"
@@ -2105,7 +2094,6 @@ msgid "Thursday"
 msgstr "வியாழன்"
 
 #: js/messages.php:504
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "வெள்ளி"
@@ -2116,11 +2104,10 @@ msgstr "சனி"
 
 #. l10n: Short week day name
 #: js/messages.php:512
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
-msgstr "ஞாயி"
+msgstr "ஞாயிறு"
 
 #. l10n: Short week day name
 #: js/messages.php:514 libraries/Util.class.php:1586
@@ -2201,7 +2188,6 @@ msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:557
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
@@ -2315,28 +2301,24 @@ msgid "Descending"
 msgstr "இறங்குவரிசை"
 
 #: libraries/DBQbe.class.php:409 libraries/TableSearch.class.php:1345
-#, fuzzy
 #| msgid "Column"
 msgid "Column:"
-msgstr "நிரல்"
+msgstr "நெடுவரிசை:"
 
 #: libraries/DBQbe.class.php:455
-#, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
-msgstr "வரிசைப்படுத்து"
+msgstr "வரிசைப்படுத்து:"
 
 #: libraries/DBQbe.class.php:521
-#, fuzzy
 #| msgid "Show"
 msgid "Show:"
-msgstr "காண்பி"
+msgstr "காண்பி:"
 
 #: libraries/DBQbe.class.php:570
-#, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
-msgstr "தேர்வளவை"
+msgstr "தேர்வளவை:"
 
 #: libraries/DBQbe.class.php:639
 msgid "Add/Delete criteria rows"
@@ -2355,10 +2337,9 @@ msgid "Use Tables"
 msgstr "அட்டவணைகளை பயன்படுத்துக"
 
 #: libraries/DBQbe.class.php:716 libraries/DBQbe.class.php:824
-#, fuzzy
 #| msgid "Or"
 msgid "Or:"
-msgstr "அல்லது"
+msgstr "அல்லது:"
 
 #: libraries/DBQbe.class.php:720 libraries/DBQbe.class.php:809
 msgid "And:"
@@ -2373,10 +2354,9 @@ msgid "Del"
 msgstr "அழி"
 
 #: libraries/DBQbe.class.php:743
-#, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
-msgstr "மாற்று"
+msgstr "மாற்று:"
 
 #: libraries/DBQbe.class.php:804
 msgid "Ins:"
@@ -2472,13 +2452,13 @@ msgstr[0] "<b>மொத்தம்:</b> <i>%s</i> பொருத்தம்"
 msgstr[1] "<b>மொத்த:</b> <i>%s</i> பொருத்தங்கள்"
 
 #: libraries/DbSearch.class.php:335
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s அட்டவணையில் பொருந்தியவை <i>%s</i>"
-msgstr[1] "%s அட்டவணையில் பொருந்தியவைகள் <i>%s</i>"
+msgstr[0] "%1$s அட்டவணையில் பொருந்தியவை <strong>%2$s </strong>"
+msgstr[1] "%1$s அட்டவணையில் பொருந்தியவைகள் <strong>%2$s </strong>"
 
 #: libraries/DbSearch.class.php:350 libraries/Menu.class.php:295
 #: libraries/Util.class.php:3153 libraries/Util.class.php:3368
@@ -2535,10 +2515,9 @@ msgid "Save edited data"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:747
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
+msgstr "நெடுவரிசையின் வரிசையை மீட்டமை"
 
 #: libraries/DisplayResults.class.php:795
 #, fuzzy
@@ -2584,10 +2563,9 @@ msgid "Number of rows:"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:968
-#, fuzzy
 #| msgid "Mon"
 msgid "Mode:"
-msgstr "திங்கள்"
+msgstr "பயன்முறை:"
 
 #: libraries/DisplayResults.class.php:970
 msgid "horizontal"
@@ -2719,11 +2697,11 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5047
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d total"
-msgstr "%s அட்டவணை"
+msgstr "%d மொத்தம்"
 
 #: libraries/DisplayResults.class.php:5059 libraries/sql.lib.php:1645
 #, php-format
@@ -2789,10 +2767,9 @@ msgid "Print view (with full texts)"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5450 libraries/tbl_chart.lib.php:294
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Display chart"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "விளக்கப்படத்தை காட்டுக"
 
 #: libraries/DisplayResults.class.php:5475
 msgid "Visualize GIS data"
@@ -3060,10 +3037,9 @@ msgid "Databases"
 msgstr "தரவுத்தளங்கள்"
 
 #: libraries/Menu.class.php:531 libraries/Util.class.php:4094
-#, fuzzy
 #| msgid "Usage"
 msgid "Users"
-msgstr "பாவனையளவு"
+msgstr "பயனர்கள்"
 
 #: libraries/Menu.class.php:558 libraries/ServerStatusData.class.php:194
 #: libraries/Util.class.php:4098 libraries/server_common.lib.php:36
@@ -3353,16 +3329,14 @@ msgid "Target database `%s` was not found!"
 msgstr ""
 
 #: libraries/Table.class.php:1302
-#, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
-msgstr "தகுதியற்ற தரவுத்தளம்"
+msgstr "செல்லாத தரவுத்தளம்:"
 
 #: libraries/Table.class.php:1316
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
-msgstr "தகுதியற்ற அட்டவணைப் பெயர்"
+msgstr "செல்லாத அட்டவணைப் பெயர்:"
 
 #: libraries/Table.class.php:1351
 #, fuzzy, php-format
@@ -3371,10 +3345,10 @@ msgid "Failed to rename table %1$s to %2$s!"
 msgstr "பதிப்பை உருவாக்கு"
 
 #: libraries/Table.class.php:1370
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "%s தரவுத்தளமானது %s ஆக பெயர் மாற்றப்பட்டது"
+msgstr "%1$s அட்டவணையானது %2$s ஆக பெயர் மாற்றப்பட்டது."
 
 #: libraries/Table.class.php:1518
 msgid "Could not save table UI preferences!"
@@ -3417,10 +3391,9 @@ msgid "Value"
 msgstr ""
 
 #: libraries/TableSearch.class.php:205
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "தேடு"
+msgstr "அட்டவணை தேடல்"
 
 #: libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -3493,38 +3466,33 @@ msgid "Reset zoom"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1342
-#, fuzzy
 #| msgid "Repair"
 msgid "Replace with:"
-msgstr "திருத்து"
+msgstr "ஆல் பதிலிடல்:"
 
 #: libraries/TableSearch.class.php:1402
 msgid "Find and replace - preview"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1406
-#, fuzzy
 #| msgid "Column"
 msgid "Count"
-msgstr "நிரல்"
+msgstr "எண்ணிக்கை"
 
 #: libraries/TableSearch.class.php:1407
-#, fuzzy
 #| msgid "Action"
 msgid "Original string"
-msgstr "செயல்"
+msgstr "மெய் சரம்"
 
 #: libraries/TableSearch.class.php:1408
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Replaced string"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "பதிலிடப்பட்ட சரம்"
 
 #: libraries/TableSearch.class.php:1432
-#, fuzzy
 #| msgid "Repair"
 msgid "Replace"
-msgstr "திருத்து"
+msgstr "பதிலிடு"
 
 #: libraries/Theme.class.php:170
 #, php-format
@@ -3629,10 +3597,10 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:344 libraries/Types.class.php:790
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "ஒரு நாளுக்கான வீச்சு, %1$s லிருந்து %2$s"
 
 #: libraries/Types.class.php:346 libraries/Types.class.php:792
 #, php-format
@@ -3646,10 +3614,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:350 libraries/Types.class.php:796
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "A time, range is %1$s to %2$s"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "ஒர் நேரத்துக்கான, வீச்சு %1$s லிருந்து %2$s"
 
 #: libraries/Types.class.php:352
 msgid ""
@@ -3754,10 +3722,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:388
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "ஒரு பல்கோணியை சேர்"
+msgstr "ஒரு பல்கோணி"
 
 #: libraries/Types.class.php:390
 msgid "A collection of points"
@@ -3781,11 +3748,10 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:669 libraries/Types.class.php:1045
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "புதிய சுட்டை உருவாக்கு"
+msgstr "நாள் மற்றும் நேரம்"
 
 #: libraries/Types.class.php:678 libraries/Types.class.php:1048
 msgctxt "string types"
@@ -3793,11 +3759,10 @@ msgid "String"
 msgstr ""
 
 #: libraries/Types.class.php:699
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
+msgstr "வெளி சார்பு"
 
 #: libraries/Types.class.php:776
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3847,10 +3812,9 @@ msgid "Max: %s%s"
 msgstr ""
 
 #: libraries/Util.class.php:640 libraries/sql.lib.php:430
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL வினவல்"
+msgstr "SQL வினவல்:"
 
 #: libraries/Util.class.php:684 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3984,10 +3948,9 @@ msgid "shared"
 msgstr "பகிரப்பட்டது"
 
 #: libraries/browse_foreigners.lib.php:43
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "தேடு"
+msgstr "தேடு:"
 
 #: libraries/browse_foreigners.lib.php:69
 #: libraries/browse_foreigners.lib.php:71
@@ -4088,10 +4051,10 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
 #: libraries/common.inc.php:659
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "சேவையன்"
+msgstr "வழங்கி %d"
 
 #: libraries/common.inc.php:858
 msgid "Invalid authentication method set in configuration:"
@@ -4120,17 +4083,15 @@ msgstr ""
 
 #: libraries/config.values.php:48 libraries/config.values.php:64
 #: libraries/config.values.php:76
-#, fuzzy
 #| msgid "Ins"
 msgid "Icons"
-msgstr "துணைநிரல்கள்"
+msgstr "முகவுருக்கள்"
 
 #: libraries/config.values.php:49 libraries/config.values.php:65
 #: libraries/config.values.php:77
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "சோதனை"
+msgstr "உரை"
 
 #: libraries/config.values.php:50 libraries/config.values.php:58
 #: libraries/config.values.php:66 libraries/config.values.php:78
@@ -4670,10 +4631,9 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "தரவுத்தளங்கள்"
 
 #: libraries/config/messages.inc.php:91
-#, fuzzy
 #| msgid "Databases"
 msgid "Hide table structure actions"
-msgstr "தரவுத்தளங்கள்"
+msgstr "தரவுதள வடிவமைப்பு நடவடிக்கைகளை மறை"
 
 #: libraries/config/messages.inc.php:92
 msgid "Show binary contents as HEX by default."
@@ -4706,10 +4666,9 @@ msgid "Edit in window"
 msgstr ""
 
 #: libraries/config/messages.inc.php:104
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Display errors"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "பிழைகளைக் காட்டுக"
 
 #: libraries/config/messages.inc.php:106
 msgid ""
@@ -4896,10 +4855,9 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:170
 #: libraries/plugins/export/ExportSql.class.php:155
-#, fuzzy
 #| msgid "Export"
 msgid "Export views as tables"
-msgstr "ஏற்றுமதி"
+msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:173
 #: libraries/config/messages.inc.php:174 libraries/config/messages.inc.php:175
@@ -5074,10 +5032,9 @@ msgid "Tables display options."
 msgstr "அட்டவணை தெரிவுகள்"
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:25
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Main panel"
-msgstr "சுட்டுகளை மறை"
+msgstr "முதன்மை பலகம்"
 
 #: libraries/config/messages.inc.php:242
 msgid "Microsoft Office"
@@ -5126,10 +5083,9 @@ msgid "Basic settings"
 msgstr ""
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid "Action"
 msgid "Authentication"
-msgstr "செயல்"
+msgstr "உறுதிப்படுத்தல்"
 
 #: libraries/config/messages.inc.php:264
 #, fuzzy
@@ -5218,10 +5174,9 @@ msgid "Customize startup page."
 msgstr ""
 
 #: libraries/config/messages.inc.php:296
-#, fuzzy
 #| msgid "Databases"
 msgid "Database structure"
-msgstr "தரவுத்தளங்கள்"
+msgstr "தரவுத்தளக் கட்டமைப்பு"
 
 #: libraries/config/messages.inc.php:298
 msgid ""
@@ -5229,10 +5184,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:299
-#, fuzzy
 #| msgid "Databases"
 msgid "Table structure"
-msgstr "தரவுத்தளங்கள்"
+msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
 
 #: libraries/config/messages.inc.php:301
 msgid "Settings for the table structure (list of columns)."
@@ -5257,10 +5211,9 @@ msgid "Paper size"
 msgstr ""
 
 #: libraries/config/messages.inc.php:308
-#, fuzzy
 #| msgid "Add new field"
 msgid "Text fields"
-msgstr "புதிய களத்தை சேர்க்க"
+msgstr "உரை கலம்"
 
 #: libraries/config/messages.inc.php:309
 #, fuzzy
@@ -5277,10 +5230,9 @@ msgid "Customize default options"
 msgstr ""
 
 #: libraries/config/messages.inc.php:312
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
-msgstr "எச்சரிக்கை"
+msgstr "எச்சரிக்கைகள்"
 
 #: libraries/config/messages.inc.php:314
 msgid "Disable some of the warnings shown by phpMyAdmin."
@@ -5374,10 +5326,9 @@ msgid "Partial import: skip queries"
 msgstr ""
 
 #: libraries/config/messages.inc.php:360
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்க்க"
+msgstr "சுழிய மதிப்புகளுக்கு AUTO_INCREMENT(தன்னிலைகூட்டு) பயன்படுத்த வேண்டாம்"
 
 #: libraries/config/messages.inc.php:363
 msgid "Initial state for sliders"
@@ -5654,10 +5605,9 @@ msgid "Use only icons, only text or both."
 msgstr ""
 
 #: libraries/config/messages.inc.php:476
-#, fuzzy
 #| msgid "Table options"
 msgid "Table navigation bar"
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
 
 #: libraries/config/messages.inc.php:478
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
@@ -6202,10 +6152,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:704
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Users table"
-msgstr "அட்டவணைகளை பயன்படுத்துக"
+msgstr "பயனர் அட்டவணை"
 
 #: libraries/config/messages.inc.php:705
 msgid ""
@@ -6356,10 +6305,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:738 libraries/sql_query_form.lib.php:370
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "வினவல் பெட்டியை மறை"
+msgstr "வினவல் பெட்டியை வைத்திருக்க"
 
 #: libraries/config/messages.inc.php:739
 msgid "Allow to display database and table statistics (eg. space usage)."
@@ -6393,10 +6341,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:750
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
+msgstr "உரைக்கட்ட நெடுவரிசைகள்"
 
 #: libraries/config/messages.inc.php:751
 msgid ""
@@ -6501,20 +6448,18 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:775
-#, fuzzy
 #| msgid "Username:"
 msgid "Proxy username"
-msgstr "பயனாளர்:"
+msgstr "பயனாளர்:->பதிலி பயனர் பெயர்"
 
 #: libraries/config/messages.inc.php:776
 msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/config/messages.inc.php:777
-#, fuzzy
 #| msgid "Password:"
 msgid "Proxy password"
-msgstr "கடவுச்சொல்"
+msgstr "பதிலி கடவுச்சொல்"
 
 #: libraries/config/messages.inc.php:779
 msgid ""
@@ -6604,10 +6549,9 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:363
 #: libraries/config/user_preferences.forms.php:265
-#, fuzzy
 #| msgid "Documentation"
 msgid "OpenDocument Text"
-msgstr "ஆவணச்சான்று"
+msgstr "ஆவணச்சான்று->கட்டற்றஆவண உரை"
 
 #: libraries/core.lib.php:287
 #, php-format
@@ -6658,16 +6602,14 @@ msgstr "கடவுச்சொல்:"
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1494
-#, fuzzy
 #| msgid "Index type:"
 msgid "Re-type:"
-msgstr "சுட்டு வகை"
+msgstr "மீண்டும் உள்ளிடு:"
 
 #: libraries/display_change_password.lib.php:80
-#, fuzzy
 #| msgid "Password:"
 msgid "Password Hashing:"
-msgstr "கடவுச்சொல்"
+msgstr "கடவுச்சொல் கூளமாக்கள்:"
 
 #: libraries/display_change_password.lib.php:93
 msgid "MySQL 4.0 compatible"
@@ -6682,10 +6624,9 @@ msgid "Create"
 msgstr ""
 
 #: libraries/display_create_database.lib.php:51
-#, fuzzy
 #| msgid "Create Table"
 msgid "Create database:"
-msgstr "அட்டவணையை உருவாக்கு"
+msgstr "தரவுத்தளம் உருவாக்கு:"
 
 #: libraries/display_create_database.lib.php:61
 #: libraries/server_privileges.lib.php:3857 server_privileges.php:130
@@ -6866,16 +6807,16 @@ msgid "Git revision:"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:67
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "committed on %1$s by %2$s"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "%1$s அன்று %2$s ஆல் உறுதியளிக்கப்பட்டது"
 
 #: libraries/display_git_revision.lib.php:75
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "authored on %1$s by %2$s"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "%1$s அன்று %2$s ஆல் இயற்றப்பட்டது"
 
 #: libraries/display_import.lib.php:71
 msgid ""
@@ -7348,10 +7289,10 @@ msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
 #: libraries/import.lib.php:1236
-#, fuzzy, php-format
+#, php-format
 #| msgid "Copy database to"
 msgid "Go to database: %s"
-msgstr "தரவுத்தளத்தை பிரதிசெய்"
+msgstr "தரவுத்தளம்: %s க்கு செல்க"
 
 #: libraries/import.lib.php:1242 libraries/import.lib.php:1283
 #, php-format
@@ -7468,22 +7409,19 @@ msgid "No change"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:331
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Replace table prefix:"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "அட்டவணை முன்னொட்டை பதிலிடு:"
 
 #: libraries/mult_submits.lib.php:333
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Copy table with prefix:"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "அட்டவணையை முன்னொட்டுடன் படியெடு:"
 
 #: libraries/mult_submits.lib.php:338
-#, fuzzy
 #| msgid "Fri"
 msgid "From"
-msgstr "வெள்ளி"
+msgstr "இதிலிருந்து"
 
 #: libraries/mult_submits.lib.php:344
 msgid "To"
@@ -7495,10 +7433,9 @@ msgid "Submit"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:373
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Add table prefix:"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "அட்டவணையின் முன்னொட்டு சேர்க்க:"
 
 #: libraries/mult_submits.lib.php:376
 msgid "Add prefix"
@@ -7704,10 +7641,9 @@ msgid "Events:"
 msgstr ""
 
 #: libraries/navigation/Navigation.class.php:171
-#, fuzzy
 #| msgid "Connections"
 msgid "Functions:"
-msgstr "இணைப்புகள்"
+msgstr "செயல்குழுக்கள்:"
 
 #: libraries/navigation/Navigation.class.php:172
 #, fuzzy
