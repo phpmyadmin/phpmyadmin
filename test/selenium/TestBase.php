@@ -58,6 +58,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             $build_id = 'Manual';
             if (getenv('BUILD_TAG')) {
                 $build_id = getenv('BUILD_TAG');
+                $strategy = 'isolated';
             } elseif (getenv('TRAVIS_JOB_NUMBER')) {
                 $build_id = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
                 $build_local = true;

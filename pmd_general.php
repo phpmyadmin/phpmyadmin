@@ -234,12 +234,15 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     $t_n = $GLOBALS['PMD']["TABLE_NAME"][$i];
     $t_n_url = $GLOBALS['PMD_URL']["TABLE_NAME"][$i];
 
-    ?>
-<input name="t_x[<?php echo $t_n_url ?>]" type="hidden" id="t_x_<?php echo $t_n_url ?>_" />
-<input name="t_y[<?php echo $t_n_url ?>]" type="hidden" id="t_y_<?php echo $t_n_url ?>_" />
-<input name="t_v[<?php echo $t_n_url ?>]" type="hidden" id="t_v_<?php echo $t_n_url ?>_" />
-<input name="t_h[<?php echo $t_n_url ?>]" type="hidden" id="t_h_<?php echo $t_n_url ?>_" />
-
+    echo '<input name="t_x[' . $t_n_url . ']" type="hidden" id="t_x_'
+        . $t_n_url . '_" />'
+        . '<input name="t_y[' . $t_n_url . ']" type="hidden" id="t_y_'
+        . $t_n_url . '_" />'
+        . '<input name="t_v[' . $t_n_url . ']" type="hidden" id="t_v_'
+        . $t_n_url . '_" />'
+        . '<input name="t_h[' . $t_n_url . ']" type="hidden" id="t_h_'
+        . $t_n_url . '_" />';
+?>
 <table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
     style="position: absolute;
           left: <?php
@@ -331,13 +334,14 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
     onmousedown="Click_field('<?php
     echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . "','"
         . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . "',";
-    if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
-        echo (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
-    } else {
-        // if foreign keys are supported, it's not necessary that the
-        // index is a primary key
-        echo (isset($tables_all_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
-    }
+        $tmpColumn = $t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j];
+        if (!PMA_Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+            echo (isset($tables_pk_or_unique_keys[$tmpColumn]) ? 1 : 0);
+        } else {
+            // if foreign keys are supported, it's not necessary that the
+            // index is a primary key
+            echo (isset($tables_all_keys[$tmpColumn]) ? 1 : 0);
+        }
         ?>)">
     <?php
         if (isset($_REQUEST['query'])) {

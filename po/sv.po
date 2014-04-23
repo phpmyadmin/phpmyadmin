@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
-"PO-Revision-Date: 2014-04-10 16:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
+"PO-Revision-Date: 2014-04-22 11:48+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/master/sv/"
 ">\n"
 "Language: sv\n"
@@ -187,7 +187,7 @@ msgstr "Nej"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -198,7 +198,7 @@ msgstr "Ja"
 msgid "View dump (schema) of database"
 msgstr "Visa dump (schema) av databasen"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Inga tabeller funna i databasen."
@@ -306,9 +306,9 @@ msgstr "Växla till %sgrafisk modellerare%s"
 msgid "Access denied!"
 msgstr "Åtkomst nekad!"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "Favoritlistan är full!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -611,6 +611,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"Skickad fil kan inte flyttas eftersom servern har open_basedir aktiverat "
+"utan åtkomst till katalogen %s (för temporära filer)."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
@@ -646,7 +648,8 @@ msgstr ""
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Kunde inte läsa in tillägg för import, kontrollera din installation!"
+msgstr ""
+"Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
 #: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1806
 #, php-format
@@ -941,6 +944,8 @@ msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
+"Är du säker att du vill navigera bort från den här sidan? Klicka OK för att "
+"fortsätta eller Avbryt för att stanna på den nuvarande sidan."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1191,7 +1196,7 @@ msgstr "Lägg till minst en variabel till serien!"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "Inget"
 
@@ -1525,9 +1530,9 @@ msgid "Test"
 msgstr "Test"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -1571,9 +1576,9 @@ msgstr "Tar bort kolumn"
 msgid "Adding Primary Key"
 msgstr "Lägger till primär nyckel"
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr "OK"
 
@@ -1778,17 +1783,15 @@ msgstr "Yttre ringen"
 
 #: js/messages.php:321
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "Shift + klicka på funktionsnamnet för att verkställa för alla rader."
 
 #: js/messages.php:323
-#, fuzzy
-#| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "Vill du importera återstående inställningar?"
+msgstr "Vill du kopiera krypteringsnyckeln?"
 
 #: js/messages.php:324
 msgid "Encryption key"
-msgstr ""
+msgstr "Krypteringsnyckel"
 
 #: js/messages.php:327
 msgid "Select referenced key"
@@ -2420,16 +2423,12 @@ msgid "Submit Query"
 msgstr "Skicka fråga"
 
 #: libraries/DBQbe.class.php:1451
-#, fuzzy
-#| msgid "Saved searches:"
 msgid "Saved bookmarked search:"
-msgstr "Sparade sökningar:"
+msgstr "Sparade bokmärkta sökningar:"
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
-#| msgid "Create bookmark"
 msgid "New bookmark"
-msgstr "Skapa bokmärke"
+msgstr "Nytt bokmärke"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"
@@ -2519,7 +2518,7 @@ msgstr "Ta bort resultat som matchar %s tabellen?"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Radera"
@@ -2563,10 +2562,8 @@ msgid "Filter rows"
 msgstr "Filter"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this table"
-msgstr "Sök i databas"
+msgstr "Sök i denna tabell"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -2933,7 +2930,7 @@ msgstr "Kommentar"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "Den primära nyckeln har tagits bort"
+msgstr "Den primära nyckeln har tagits bort."
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -3143,65 +3140,53 @@ msgstr "Sida nummer:"
 msgid "Error while creating PDF:"
 msgstr "Fel vid skapande av PDF:"
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 msgid "Could not save recent table!"
 msgstr "Kunde inte spara den senaste tabellen!"
 
-#: libraries/RecentFavoriteTable.class.php:146
-#, fuzzy
-#| msgid "Could not save recent table!"
+#: libraries/RecentFavoriteTable.class.php:154
 msgid "Could not save favorite table!"
-msgstr "Kunde inte spara den senaste tabellen!"
+msgstr "Kunde inte spara favorittabell!"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
-#, fuzzy
-#| msgid "Remove chart"
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 msgid "Remove from Favorites"
-msgstr "Ta bort diagram"
+msgstr "Ta bort från favoriter"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "Det finns inga nya tabeller."
 
-#: libraries/RecentFavoriteTable.class.php:235
-#, fuzzy
-#| msgid "There are no recent tables."
+#: libraries/RecentFavoriteTable.class.php:243
 msgid "There are no favorite tables."
-msgstr "Det finns inga nya tabeller."
+msgstr "Det finns inga favorittabeller."
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "De senaste tabellerna"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "Återställ"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Variabler"
+msgstr "Favorittabeller"
 
-#: libraries/RecentFavoriteTable.class.php:256
-#, fuzzy
-#| msgid "Variables"
+#: libraries/RecentFavoriteTable.class.php:264
 msgid "Favorites"
-msgstr "Variabler"
+msgstr "Favoriter"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
 msgstr "Ange ett namn för denna bokmärkta sökning."
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
-#| msgid "Missing information to save the search."
 msgid "Missing information to save the bookmarked search."
-msgstr "Saknar information för att spara sökningen."
+msgstr "Saknar information för att spara den bokmärkta sökningen."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -3213,13 +3198,11 @@ msgstr "Saknar information för att ta bort sökningen."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Saknar information för att läsa in sökningen."
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
-#| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Fel vid flytt av uppladdad fil."
+msgstr "Fel då sökningen lästes in."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3350,10 +3333,8 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denna MySQL-server stödjer inte lagringsmotorn %s."
 
 #: libraries/Table.class.php:385
-#, fuzzy
-#| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "okänd tabellstatus: "
+msgstr "Okänd tabellstatus:"
 
 #: libraries/Table.class.php:796
 #, php-format
@@ -3393,8 +3374,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Misslyckades med att rensa gränssnittsinställningar för tabell (se $cfg"
-"['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Misslyckades med att rensa gränssnittsinställningar för tabell (se "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1698
 #, php-format
@@ -3414,17 +3395,17 @@ msgstr ""
 msgid "Function"
 msgstr "Funktion"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr "Aktör"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "Värde"
 
@@ -3989,7 +3970,7 @@ msgstr "Gå igenom din dator:"
 #: libraries/Util.class.php:3312
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Välj katalog att ladda upp till från web-server listningen <b>%s</b>:"
+msgstr "Välj från webbserverns uppladdningskatalog <b>%s</b>:"
 
 #: libraries/Util.class.php:3341 libraries/insert_edit.lib.php:1226
 #: libraries/sql_query_form.lib.php:487
@@ -4118,7 +4099,7 @@ msgstr ""
 #: libraries/common.inc.php:592
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "Kunde inte ladda standardkonfiguration från: %1$s"
+msgstr "Kunde inte läsa in standardkonfiguration från: %1$s"
 
 #: libraries/common.inc.php:599
 msgid ""
@@ -4369,7 +4350,7 @@ msgstr "Tillåt användare att anpassa detta värde"
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
-msgstr "Applicera"
+msgstr "Verkställ"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1596
 #: libraries/schema/User_Schema.class.php:574 prefs_manage.php:335
@@ -4408,17 +4389,12 @@ msgstr ""
 "inklusive dig, är anslutna till."
 
 #: libraries/config/ServerConfigChecks.class.php:378
-#, fuzzy
-#| msgid ""
-#| "You didn't have blowfish secret set and have enabled cookie "
-#| "authentication, so a key was automatically generated for you. It is used "
-#| "to encrypt cookies; you don't need to remember it."
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Du hade inte blowfish-säkerhet angivet och hade aktiverat cookie-"
+"Du hade inte blowfish-säkerhet angivet och hade aktiverat [kbd]cookie[/kbd]-"
 "autentisering, så en nyckel genererades automatiskt åt dig. Den används för "
 "att kryptera cookies; du behöver inte komma ihåg den."
 
@@ -4474,25 +4450,17 @@ msgstr ""
 "identitetsstöld."
 
 #: libraries/config/ServerConfigChecks.class.php:416
-#, fuzzy, php-format
-#| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Om du använder cookie-autentisering och %sLogin cookie store%s inte är 0, "
-"måste %sLogin cookie validity%s sättas till ett värde mindre eller lika med "
-"den."
+"Om du använder [kbd]cookie[/kbd] -autentisering och %sLogin cookie store%s "
+"inte är 0, måste %sLogin cookie validity%s sättas till ett värde mindre "
+"eller lika med den."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
@@ -4500,7 +4468,7 @@ msgid ""
 "of users, including you, are connected to."
 msgstr ""
 "Om du känner att det är nödvändigt, använd extra skyddsinställningar - "
-"%shost autentisering%s-inställningar  och %strusted proxies listan%s. Dock "
+"%shost authentication%s-inställningar  och %strusted proxies list%s. Dock "
 "kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP som "
 "tusentals användare, inklusive dig, är anslutna till."
 
@@ -4510,8 +4478,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Du valde [kbd]config[/kbd]-autentisering och inkluderade användarnamn och "
 "lösenord för autoinloggning, vilket inte är en önskvärd inställning för "
@@ -4549,24 +4517,20 @@ msgid "Could not connect to the database server!"
 msgstr "Kunde inte ansluta till databasservern!"
 
 #: libraries/config/Validator.class.php:306
-#, fuzzy
-#| msgid "Empty username while using config authentication method!"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Tomt användarnamn vid användning av config-autentisering!"
+msgstr "Tomt användarnamn vid användning av [kbd]config[/kbd]-autentisering!"
 
 #: libraries/config/Validator.class.php:313
-#, fuzzy
-#| msgid "Empty signon session name while using signon authentication method!"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Tomt sessionsnamn för signon vid användning av signon-autentisering!"
+msgstr ""
+"Tomt sessionsnamn för signon vid användning av [kbd]signon[/kbd]-"
+"autentisering!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
-#| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Tom URL för signon vid användning av signon-autentisering!"
+msgstr "Tom URL för signon vid användning av [kbd]signon[/kbd]-autentisering!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
@@ -4681,8 +4645,8 @@ msgstr "Redigera CHAR-kolumn"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 "Använd användarvänlig editor för att redigera SQL-frågor ([a@http://"
 "codemirror.net/]CodeMirror[/a]) med syntaxmarkering och radnummer."
@@ -4740,8 +4704,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Komprimera gzip-exporter i farten utan att det behövs mycket minne; om du "
-"får problem med skapade gzip-filer avaktivera funktionen."
+"Komprimera gzip-exporter i farten utan att det behövs mycket minne; "
+"inaktivera funktionen om du får problem med skapade gzip-filer."
 
 #: libraries/config/messages.inc.php:73
 msgid "Compress on the fly"
@@ -5222,8 +5186,9 @@ msgstr "Sidtitlar"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Ange webbläsarens namnlisttext. Se [doc@cfg_TitleTable]dokumentationen[/doc] "
 "för magiska strängar som kan användas för att få speciella värden."
@@ -5544,16 +5509,12 @@ msgid "Delete all cookies on logout"
 msgstr "Radera alla cookies vid utloggning"
 
 #: libraries/config/messages.inc.php:377
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode."
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Ange om den tidigare inloggningen ska återkallas eller inte vid "
-"autentiseringsläge med cookies."
+"Ange om den tidigare inloggningen ska återkallas eller inte vid [kbd]cookie[/"
+"kbd]-autentiseringsläge."
 
 #: libraries/config/messages.inc.php:380
 msgid "Recall user name"
@@ -5643,16 +5604,12 @@ msgid "Maximum tables"
 msgstr "Maximalt antal tabeller"
 
 #: libraries/config/messages.inc.php:415
-#, fuzzy
-#| msgid ""
-#| "Disable the default warning that is displayed if mcrypt is missing for "
-#| "cookie authentication."
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
-"Inaktivera standardvarning vilken visas om mcrypt saknas för cookie-"
-"autentisering."
+"Inaktivera standardvarning vilken visas om mcrypt saknas för [kbd]cookie[/"
+"kbd]-autentisering."
 
 #: libraries/config/messages.inc.php:418
 msgid "mcrypt warning"
@@ -5768,23 +5725,19 @@ msgstr "Aktivera framhävning"
 
 #: libraries/config/messages.inc.php:461
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "Huruvida möjligheten för databasexpansion ska inaktiveras eller inte."
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
-#| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "Visa databaser som en lista"
+msgstr "Inaktivera databasexpansion"
 
 #: libraries/config/messages.inc.php:465
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att avaktivera."
+msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att inaktivera."
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
-#| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "Maximalt antal nyligen använda tabeller, ange 0 för att avaktivera."
+msgstr "Maximalt antal favorittabeller, ange 0 för att inaktivera."
 
 #: libraries/config/messages.inc.php:468
 msgid "Recently used tables"
@@ -6051,8 +6004,8 @@ msgid ""
 "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/bookmark]bookmark[/a] "
 "support, suggested: [kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lämna tomt för att stänga av [a@http://wiki.phpmyadmin.net/pma/bookmark]"
-"bokmärken[/a], förslag: [kbd]pma_bookmark[/kbd]"
+"Lämna tomt för att stänga av [a@http://wiki.phpmyadmin.net/pma/"
+"bookmark]bokmärken[/a], förslag: [kbd]pma_bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:563
 msgid "Bookmark table"
@@ -6060,11 +6013,11 @@ msgstr "Tabell för bokmärken"
 
 #: libraries/config/messages.inc.php:565
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Lämna tomt för att stänga av kolumnkommentarer/mime-typer, förslag: [kbd]"
-"pma__column_info[/kbd]."
+"Lämna tomt för att stänga av kolumnkommentarer/mime-typer, förslag: "
+"[kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:568
 msgid "Column information table"
@@ -6096,8 +6049,8 @@ msgid ""
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
 "En speciell MySQL-användare konfigurerad med begränsade rättigheter, mer "
-"information tillgänglig på [a@http://wiki.phpmyadmin.net/pma/controluser]wiki"
-"[/a]."
+"information tillgänglig på [a@http://wiki.phpmyadmin.net/pma/"
+"controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:579
 msgid "Control user"
@@ -6154,8 +6107,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Lämna blankt för att stänga av stöd för SQL-frågehistorik, förslag: [kbd]"
-"pma__history[/kbd]."
+"Lämna blankt för att stänga av stöd för SQL-frågehistorik, förslag: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/config/messages.inc.php:603
 msgid "SQL query history table"
@@ -6219,8 +6172,8 @@ msgstr "Lösenord för config auth"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Lämna blankt för att stänga av stöd för PDF-schema, förslag: [kbd]"
-"pma__pdf_pages[/kbd]."
+"Lämna blankt för att stänga av stöd för PDF-schema, förslag: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:626
 msgid "PDF schema: pages table"
@@ -6263,11 +6216,11 @@ msgstr "Nyligen använd tabell"
 
 #: libraries/config/messages.inc.php:642
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
-"Lämna tomt för avstängt stöd för [a@http://wiki.phpmyadmin.net/pma/relation]"
-"relationslänkar[/a], förslag: [kbd]pma__relation[/kbd]."
+"Lämna tomt för avstängt stöd för [a@http://wiki.phpmyadmin.net/pma/"
+"relation]relationslänkar[/a], förslag: [kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:646
 msgid "Relation table"
@@ -6275,8 +6228,8 @@ msgstr "Relationstabell"
 
 #: libraries/config/messages.inc.php:648
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
 "Se [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
 "a] för ett exempel."
@@ -6310,8 +6263,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Lämna tomt för avstängt stöd för PDF-schema, förslag: [kbd]pma__table_coords"
-"[/kbd]."
+"Lämna tomt för avstängt stöd för PDF-schema, förslag: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:661
 msgid "PDF schema: table coordinates"
@@ -6335,8 +6288,8 @@ msgid ""
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "Lämna tomt för att stänga av \"ihållande\" tabellers "
-"användargränssnittspreferenser som sparas över sessioner, förslag: [kbd]"
-"pma__table_uiprefs[/kbd]."
+"användargränssnittspreferenser som sparas över sessioner, förslag: "
+"[kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:671
 msgid "UI preferences table"
@@ -6390,11 +6343,11 @@ msgstr "Kommandon att spåra"
 
 #: libraries/config/messages.inc.php:691
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Lämna tomt för avstängt stöd för SQL-frågespårning, förslag: [kbd]"
-"pma__tracking[/kbd]."
+"Lämna tomt för avstängt stöd för SQL-frågespårning, förslag: "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/config/messages.inc.php:694
 msgid "SQL query tracking table"
@@ -6414,8 +6367,8 @@ msgstr "Skapa versioner automatiskt"
 
 #: libraries/config/messages.inc.php:701
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
 "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 "förslag: [kbd]pma__userconfig[/kbd]."
@@ -6570,7 +6523,7 @@ msgstr "Visa funktionsfält"
 
 #: libraries/config/messages.inc.php:730
 msgid "Whether to show hint or not."
-msgstr "Om du vill visa tips eller inte."
+msgstr "Huruvida tips ska visas eller inte."
 
 #: libraries/config/messages.inc.php:731
 msgid "Show hint"
@@ -6581,8 +6534,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Visar länk till resultatet av [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a]."
+"Visar länk till resultatet av [a@http://php.net/manual/function.phpinfo."
+"php]phpinfo()[/a]."
 
 #: libraries/config/messages.inc.php:733
 msgid "Show phpinfo() link"
@@ -6974,7 +6927,8 @@ msgstr "Antal kolumner"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Kunde inte ladda export-tillägg. Kontrollera din installation!"
+msgstr ""
+"Kunde inte läsa in insticksprogram för export. Kontrollera din installation!"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
@@ -7114,7 +7068,7 @@ msgstr "Spara utdata till en fil"
 
 #: libraries/display_export.lib.php:671
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "Hoppa över tabeller större än"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -8054,27 +8008,27 @@ msgstr "phpMyAdmin-dokumentation"
 msgid "Reload navigation panel"
 msgstr "Ladda om navigeringspanel"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
 msgstr[0] "%s annat resultat hittat"
 msgstr[1] "%s andra resultat hittade"
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr "Expandera/Vik ihop"
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 msgid "Filter databases by name or regex"
 msgstr "Filtrera databaser efter namn eller regex"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 msgid "Clear fast filter"
 msgstr "Rensa snabbfilter"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 msgid "Filter by name or regex"
 msgstr "Filtrera efter namn eller regex"
 
@@ -8297,7 +8251,7 @@ msgstr "Optimera tabell"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Tabellen %s har rensats"
+msgstr "Tabellen %s har rensats."
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -8790,8 +8744,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Dumpa binära kolumner i hexadecimal notation <i>(t.ex. \"abc\" blir 0x616263)"
-"</i>"
+"Dumpa binära kolumner i hexadecimal notation <i>(t.ex. \"abc\" blir "
+"0x616263)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:447
 msgid ""
@@ -8908,7 +8862,7 @@ msgstr "Ogiltigt antal kolumner i CSV-indata på rad %d."
 
 #: libraries/plugins/import/ImportLdi.class.php:112
 msgid "This plugin does not support compressed imports!"
-msgstr "Detta tillägg stöder inte komprimerade importer!"
+msgstr "Detta insticksprogram stöder inte komprimerade importer!"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
@@ -8990,6 +8944,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"Konverterar Booleska värden till text (standardvärden 'T' och 'F'). Första "
+"valet står för SANT, det andra för FALSKT. Nollskilt värde=sant."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -9037,15 +8993,15 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"ENDAST LINUX: Startar en extern applikation och sänder kolumndata via "
+"ENDAST LINUX: Startar en extern applikation och sänder den kolumndata via "
 "standard in. Returnerar standard ut från applikationen. Standard är Tidy, "
 "för att pretty-print HTML-kod. Av säkerhetsskäl måste du manuellt redigera "
 "filen libraries/plugins/transformationer/Text_Plain_External.class.php och "
-"lista de verktyg du vill göra tillgängliga. Den första optionen är antalet "
-"program du vill använda och den andra optionen är parametrarna för "
-"programmet. Den tredje optionen, om den är 1, kommer omvandla utdata via "
-"htmlspecialchars() (Default 1). Den fjärde optionen, om 1, kommer förhindra "
-"radbrytning och se till att utskriften sker på en rad (Default 1)."
+"lista de verktyg du vill göra tillgängliga. Den första flaggan är antalet "
+"program du vill använda och den andra flaggan är parametrarna för "
+"programmet. Den tredje flaggan, om den är 1, kommer omvandla utdata via "
+"htmlspecialchars() (Standard 1). Den fjärde flaggan, om 1, kommer förhindra "
+"radbrytning och se till att utskriften sker på en rad (Standard 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9834,13 +9790,11 @@ msgid "Execution results of routine %s"
 msgstr "Exekveringsresultat av rutin %s"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, fuzzy, php-format
-#| msgid "%d row affected by the last statement inside the procedure"
-#| msgid_plural "%d rows affected by the last statement inside the procedure"
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d rad berörs av det sista uttrycket inom proceduren"
-msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren"
+msgstr[0] "%d rad berörs av det sista uttrycket inom proceduren."
+msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren."
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -10125,10 +10079,8 @@ msgid "File doesn't exist"
 msgstr "Filen finns inte"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
-#| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL-validerare är inaktiverad"
+msgstr "Insticksprogrammet är inaktiverat"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -12055,7 +12007,7 @@ msgstr "Okänd interpunktion i sträng"
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabellen %s har tömts"
+msgstr "Tabellen %s har tömts."
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -12108,7 +12060,7 @@ msgstr "Inget"
 #: libraries/structure.lib.php:1350
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Kolumnen %s har tagits bort"
+msgstr "Kolumnen %s har tagits bort."
 
 #: libraries/structure.lib.php:1404 libraries/structure.lib.php:2079
 #: libraries/structure.lib.php:2089
@@ -12244,31 +12196,29 @@ msgstr "Använt utrymme"
 msgid "Effective"
 msgstr "Effektiv"
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "Tabellen %1$s har ändrats"
+msgstr "Tabellen %1$s har ändrats."
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "Sökningsfel"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 msgid "The columns have been moved successfully."
 msgstr "Kolumnerna har flyttats framgångsrikt."
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "Kolumnnamnet '%s' är ett reserverat nyckelord i MySQL."
 
-#: libraries/structure.lib.php:2729
-#, fuzzy
-#| msgid "Add this series"
+#: libraries/structure.lib.php:2752
 msgid "Add to Favorites"
-msgstr "Lägg till denna serie"
+msgstr "Lägg till i favoriter"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -12283,7 +12233,7 @@ msgstr "Kolumn"
 #: libraries/tbl_chart.lib.php:45
 msgctxt "Chart type"
 msgid "Line"
-msgstr "Rad"
+msgstr "Linjediagram"
 
 #: libraries/tbl_chart.lib.php:47
 msgctxt "Chart type"
@@ -12293,7 +12243,7 @@ msgstr "Spline"
 #: libraries/tbl_chart.lib.php:50
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Ytdiagram"
 
 #: libraries/tbl_chart.lib.php:53
 msgctxt "Chart type"
@@ -12308,7 +12258,7 @@ msgstr "Tidslinje"
 #: libraries/tbl_chart.lib.php:64
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Sambandsdiagram"
 
 #: libraries/tbl_chart.lib.php:82
 msgid "Stacked"
@@ -12409,10 +12359,8 @@ msgid "Referenced by %s."
 msgstr "Välj refererad nyckel"
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Välj främmande nyckel"
+msgstr "Är en främmande nyckel."
 
 #: libraries/tbl_columns_definition_form.lib.php:769
 msgid "first"
@@ -12701,7 +12649,7 @@ msgstr "Hantera dina inställningar"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "Konfigurationen har sparats"
+msgstr "Konfigurationen har sparats."
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12757,7 +12705,7 @@ msgstr "Avsluta helskärmsläge"
 msgid "Save position"
 msgstr "Spara position"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "Skapa relation"
 
@@ -12794,10 +12742,8 @@ msgid "Toggle relation lines"
 msgstr "Växla mellan relaterade linjer"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-#, fuzzy
-#| msgid "Import/Export coordinates for PDF schema"
 msgid "Import/Export coordinates for relational schema"
-msgstr "Importera/exportera koordinater för PDF-schema"
+msgstr "Importera/exportera koordinater för relationellt schema"
 
 #: pmd_general.php:155
 msgid "Build Query"
@@ -12819,49 +12765,47 @@ msgstr "Dölj/visa tabeller utan relationer"
 msgid "Number of tables:"
 msgstr "Antal tabeller:"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "Ta bort relation"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 msgid "Relation operator"
 msgstr "Relationsoperator"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 msgid "Except"
 msgstr "Förutom"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 msgid "subquery"
 msgstr "underfråga"
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 msgid "Rename to"
 msgstr "Byt namn till"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 msgid "New name"
 msgstr "Nytt namn"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 msgid "Aggregate"
 msgstr "Aggregera"
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 msgid "Active options"
 msgstr "Aktiva alternativ"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "Sidan har skapats"
+msgstr "Sidan har skapats."
 
 #: pmd_pdf.php:56
-#, fuzzy
-#| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Sidan gick inte att skapa"
+msgstr "Kunde inte skapa sida!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -12896,26 +12840,20 @@ msgid "Error: relation already exists."
 msgstr "Fel: Relation finns redan."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Fel: Relation inte tillagd."
+msgstr "Fel: Relationen kunde inte läggas till!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
-#| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "FOREIGN KEY-relation tillagd"
+msgstr "FOREIGN KEY-relation har lagts till."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Fel: Relationella funktioner är inaktiverade!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Intern relation tillagd"
+msgstr "Intern relation har lagts till."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13046,7 +12984,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
-msgstr "Kan inte ladda eller spara konfiguration"
+msgstr "Kan inte läsa in eller spara konfiguration"
 
 #: setup/frames/index.inc.php:56
 msgid ""
@@ -13134,7 +13072,7 @@ msgstr "Visa"
 
 #: setup/frames/index.inc.php:284
 msgid "Load"
-msgstr "Ladda"
+msgstr "Läs in"
 
 #: setup/frames/index.inc.php:307
 msgid "phpMyAdmin homepage"
@@ -13961,10 +13899,8 @@ msgstr ""
 "per timme"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
-#| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size jämfört med max_heap_table_size"
+msgstr "tmp_table_size och max_heap_table_size är olika"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
@@ -14580,9 +14516,10 @@ msgstr "concurrent_insert är satt till 0"
 
 #~ msgid ""
 #~ "If you wish to use the SQL Validator service, you should be aware that "
-#~ "[strong]all SQL statements are stored anonymously for statistical purposes"
-#~ "[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/"
-#~ "a], Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
 #~ msgstr ""
 #~ "Om du vill använda tjänsten SQL Validator bör du vara medveten om att "
 #~ "[strong]alla SQL-satser lagras anonymt för statistiska ändamål[/strong]."
@@ -14604,11 +14541,11 @@ msgstr "concurrent_insert är satt till 0"
 #~ msgstr "Aktivera SQL Validator"
 
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
-#~ "Om du har ett eget användarnamn, ange det här (standardnamn är [kbd]"
-#~ "anonymous[/kbd])."
+#~ "Om du har ett eget användarnamn, ange det här (standardnamn är "
+#~ "[kbd]anonymous[/kbd])."
 
 #~ msgid "Validated SQL"
 #~ msgstr "Validerad SQL-kod"
@@ -14647,22 +14584,22 @@ msgstr "concurrent_insert är satt till 0"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
 #~ "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 #~ "förslag: [kbd]pma__userconfig[/kbd]"
 
 #, fuzzy
 #~| msgid ""
-#~| "Leave blank for no user preferences storage in database, suggested: [kbd]"
-#~| "pma__userconfig[/kbd]"
+#~| "Leave blank for no user preferences storage in database, suggested: "
+#~| "[kbd]pma__userconfig[/kbd]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
 #~ "Lämna tomt för att stänga av lagring av användarpreferenser i databasen, "
 #~ "förslag: [kbd]pma__userconfig[/kbd]"
@@ -14767,8 +14704,9 @@ msgstr "concurrent_insert är satt till 0"
 #~ "typomvandlingar, klicka på %somvandlingsbeskrivningar%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
 #~ "Mer information på [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
 #~ "bug tracker[/a] och [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -15098,14 +15036,14 @@ msgstr "concurrent_insert är satt till 0"
 
 #~ msgid ""
 #~ "When setting this to [kbd]nested[/kbd], the alias of the table name is "
-#~ "only used to split/nest the tables according to the $cfg"
-#~ "['LeftFrameTableSeparator'] directive, so only the folder is called like "
-#~ "the alias, the table name itself stays unchanged"
+#~ "only used to split/nest the tables according to the "
+#~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
+#~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
 #~ "När detta är satt till [kbd]nested[/kbd], används tabellens alias endast "
-#~ "för att dela/stapla tabellerna enligt direktivet $cfg"
-#~ "['LeftFrameTableSeparator'] , så endast mappen kallas för detta alias, "
-#~ "tabellnamnet självt förblir oförändrat"
+#~ "för att dela/stapla tabellerna enligt direktivet "
+#~ "$cfg['LeftFrameTableSeparator'] , så endast mappen kallas för detta "
+#~ "alias, tabellnamnet självt förblir oförändrat"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "Visa tabellkommentar istället för dess namn"
@@ -15608,9 +15546,10 @@ msgstr "concurrent_insert är satt till 0"
 #~ msgstr ""
 #~ "phpMyAdmin kunde inte läsa din konfigurationsfil!<br />Detta kan inträffa "
 #~ "om PHP hittar ett fel i den eller om PHP inte hittar filen.<br />Anropa "
-#~ "konfigurationsfilen direkt mha länken nedan och läs PHP:s felmeddelande"
-#~ "(n) som du erhåller. I de flesta fall saknas ett citationstecken eller "
-#~ "ett semikolon någonstans.<br />Om du får en tom sida är allt OK."
+#~ "konfigurationsfilen direkt mha länken nedan och läs PHP:s "
+#~ "felmeddelande(n) som du erhåller. I de flesta fall saknas ett "
+#~ "citationstecken eller ett semikolon någonstans.<br />Om du får en tom "
+#~ "sida är allt OK."
 
 #~ msgid "Dropping Event"
 #~ msgstr "Tar bort Händelse"

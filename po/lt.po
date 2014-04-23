@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-19 07:58-0400\n"
+"POT-Creation-Date: 2014-04-22 14:06+0200\n"
 "PO-Revision-Date: 2014-03-28 11:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://l10n.cihar.com/projects/phpmyadmin/master/"
@@ -190,7 +190,7 @@ msgstr "Ne"
 #: libraries/server_privileges.lib.php:2714
 #: libraries/server_privileges.lib.php:3056
 #: libraries/server_privileges.lib.php:3081 libraries/structure.lib.php:1289
-#: libraries/structure.lib.php:2637 libraries/tbl_printview.lib.php:114
+#: libraries/structure.lib.php:2660 libraries/tbl_printview.lib.php:114
 #: libraries/tbl_tracking.lib.php:854 libraries/tbl_tracking.lib.php:929
 #: libraries/tbl_tracking.lib.php:934 libraries/user_preferences.lib.php:294
 #: prefs_manage.php:136
@@ -201,7 +201,7 @@ msgstr "Taip"
 msgid "View dump (schema) of database"
 msgstr "Peržiūrėti duomenų bazės atvaizdį (schemą)"
 
-#: db_export.php:33 db_printview.php:41 db_structure.php:163
+#: db_export.php:33 db_printview.php:41 db_structure.php:165
 #: db_tracking.php:51 export.php:336 libraries/DBQbe.class.php:312
 msgid "No tables found in database."
 msgstr "Duomenų bazėje nerasta lentelių."
@@ -319,7 +319,7 @@ msgstr "Pereiti į %svizualią daryklę%s"
 msgid "Access denied!"
 msgstr "Priėjimas uždraustas!"
 
-#: db_structure.php:68
+#: db_structure.php:72
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -1239,7 +1239,7 @@ msgstr "Prašome pridėti bent vieną kintamąjį į eilę"
 #: libraries/server_privileges.lib.php:2684
 #: libraries/server_status.lib.php:523
 #: libraries/server_status_monitor.lib.php:278
-#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:595
+#: libraries/tbl_columns_definition_form.lib.php:711 pmd_general.php:599
 msgid "None"
 msgstr "Ne"
 
@@ -1574,9 +1574,9 @@ msgid "Test"
 msgstr "Išbandyti"
 
 #: js/messages.php:224 libraries/server_variables.lib.php:159
-#: pmd_general.php:469 pmd_general.php:508 pmd_general.php:635
-#: pmd_general.php:685 pmd_general.php:761 pmd_general.php:817
-#: pmd_general.php:880 pmd_general.php:913
+#: pmd_general.php:473 pmd_general.php:512 pmd_general.php:639
+#: pmd_general.php:689 pmd_general.php:765 pmd_general.php:821
+#: pmd_general.php:884 pmd_general.php:917
 msgid "Cancel"
 msgstr "Atšaukti"
 
@@ -1620,9 +1620,9 @@ msgstr "Šalinamas stulpelis"
 msgid "Adding Primary Key"
 msgstr "Pridedamas pirminis raktas"
 
-#: js/messages.php:236 pmd_general.php:467 pmd_general.php:633
-#: pmd_general.php:683 pmd_general.php:759 pmd_general.php:815
-#: pmd_general.php:878
+#: js/messages.php:236 pmd_general.php:471 pmd_general.php:637
+#: pmd_general.php:687 pmd_general.php:763 pmd_general.php:819
+#: pmd_general.php:882
 msgid "OK"
 msgstr "Gerai"
 
@@ -2638,7 +2638,7 @@ msgstr "Ištrinti sutapimus %s lentelėje(ei)?"
 #: libraries/server_user_groups.lib.php:129
 #: libraries/sql_query_form.lib.php:432 libraries/tbl_tracking.lib.php:373
 #: libraries/tbl_tracking.lib.php:580 libraries/tbl_tracking.lib.php:678
-#: pmd_general.php:506 setup/frames/index.inc.php:182
+#: pmd_general.php:510 setup/frames/index.inc.php:182
 #: setup/frames/index.inc.php:290
 msgid "Delete"
 msgstr "Trinti"
@@ -3296,55 +3296,55 @@ msgstr "Puslapis:"
 msgid "Error while creating PDF:"
 msgstr "Klaida sudarinėjant PDF:"
 
-#: libraries/RecentFavoriteTable.class.php:142
+#: libraries/RecentFavoriteTable.class.php:150
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save recent table!"
 msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
-#: libraries/RecentFavoriteTable.class.php:146
+#: libraries/RecentFavoriteTable.class.php:154
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not save favorite table!"
 msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
-#: libraries/RecentFavoriteTable.class.php:217
-#: libraries/structure.lib.php:2728
+#: libraries/RecentFavoriteTable.class.php:225
+#: libraries/structure.lib.php:2751
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
 msgstr "Pašalinti diagramą"
 
-#: libraries/RecentFavoriteTable.class.php:234
+#: libraries/RecentFavoriteTable.class.php:242
 #, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no recent tables."
 msgstr "Nėra jokių paskiausių lentelių"
 
-#: libraries/RecentFavoriteTable.class.php:235
+#: libraries/RecentFavoriteTable.class.php:243
 #, fuzzy
 #| msgid "There are no recent tables"
 msgid "There are no favorite tables."
 msgstr "Nėra jokių paskiausių lentelių"
 
-#: libraries/RecentFavoriteTable.class.php:250
+#: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "Paskiausios lentelės"
 
-#: libraries/RecentFavoriteTable.class.php:252
+#: libraries/RecentFavoriteTable.class.php:260
 #, fuzzy
 #| msgid "Reset"
 msgid "Recent"
 msgstr "Atstatyti į pradinę būseną"
 
-#: libraries/RecentFavoriteTable.class.php:254
+#: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
 msgstr "Kintamieji"
 
-#: libraries/RecentFavoriteTable.class.php:256
+#: libraries/RecentFavoriteTable.class.php:264
 #, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
@@ -3577,17 +3577,17 @@ msgstr ""
 msgid "Function"
 msgstr "Funkcija"
 
-#: libraries/TableSearch.class.php:188 pmd_general.php:572 pmd_general.php:592
-#: pmd_general.php:721 pmd_general.php:734 pmd_general.php:799
-#: pmd_general.php:853
+#: libraries/TableSearch.class.php:188 pmd_general.php:576 pmd_general.php:596
+#: pmd_general.php:725 pmd_general.php:738 pmd_general.php:803
+#: pmd_general.php:857
 msgid "Operator"
 msgstr "Operatorius"
 
 #: libraries/TableSearch.class.php:189 libraries/TableSearch.class.php:1283
 #: libraries/insert_edit.lib.php:1623 libraries/replication_gui.lib.php:515
 #: libraries/rte/rte_routines.lib.php:1608
-#: libraries/server_status_variables.lib.php:220 pmd_general.php:561
-#: pmd_general.php:621 pmd_general.php:750 pmd_general.php:869
+#: libraries/server_status_variables.lib.php:220 pmd_general.php:565
+#: pmd_general.php:625 pmd_general.php:754 pmd_general.php:873
 msgid "Value"
 msgstr "Reikšmė"
 
@@ -4664,8 +4664,8 @@ msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
 "Anyone who knows or guesses your phpMyAdmin URL can directly access your "
-"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or [kbd]"
-"http[/kbd]."
+"phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/kbd] or "
+"[kbd]http[/kbd]."
 msgstr ""
 "Jūs nustatėte [kbd]config[/kbd] identifikacijos tipą ir įtraukėte naudotojo "
 "vardą ir slaptažodį automatiniam prisijungimui, tai nėra pageidaujama "
@@ -4844,16 +4844,16 @@ msgstr "Bzip2"
 #, fuzzy
 #| msgid ""
 #| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]"
-#| "textarea[/kbd] - allows newlines in columns"
+#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
 "Nustato kokio tipo redagavimo laukelis turėtų būti naudojamas CHAR ir "
-"VARCHAR laukeliams; [kbd]input[/kbd] - leidžia riboti įvedimo ilgį, [kbd]"
-"textarea[/kbd] - leidžia naujas eilutes laukelyje"
+"VARCHAR laukeliams; [kbd]input[/kbd] - leidžia riboti įvedimo ilgį, "
+"[kbd]textarea[/kbd] - leidžia naujas eilutes laukelyje"
 
 #: libraries/config/messages.inc.php:47
 msgid "CHAR columns editing"
@@ -4861,8 +4861,8 @@ msgstr "CHAR stulpelių redagavimas"
 
 #: libraries/config/messages.inc.php:49
 msgid ""
-"Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
-"CodeMirror[/a]) with syntax highlighting and line numbers."
+"Use user-friendly editor for editing SQL queries ([a@http://codemirror."
+"net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgstr ""
 
 #: libraries/config/messages.inc.php:53
@@ -5469,8 +5469,9 @@ msgstr "Puslapių pavadinimai"
 
 #: libraries/config/messages.inc.php:251
 msgid ""
-"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
-"[/doc] for magic strings that can be used to get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Nurodykite naršyklės pavadinimo juostos tekstą. Pasinaudokite "
 "[doc@cfg_TitleTable]dokumentacija[/doc] magiškiesiems tekstams, kurie bus "
@@ -5962,8 +5963,8 @@ msgstr "Didžiausias skaičius lentelių"
 #| "Structure page if any of the required tables for the phpMyAdmin "
 #| "configuration storage could not be found"
 msgid ""
-"Disable the default warning that is displayed if mcrypt is missing for [kbd]"
-"cookie[/kbd] authentication."
+"Disable the default warning that is displayed if mcrypt is missing for "
+"[kbd]cookie[/kbd] authentication."
 msgstr ""
 "Išjungti standartinį perspėjimą, kuris rodomas duomenų bazės struktūros "
 "puslapyje, kai neįmanoma rasti phpMyAdmin nustatymų saugyklai reikalingų "
@@ -6467,11 +6468,11 @@ msgstr "Pažymėti lentelę"
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
 #| "kbd]"
 msgid ""
-"Leave blank for no column comments/mime types, suggested: [kbd]"
-"pma__column_info[/kbd]."
+"Leave blank for no column comments/mime types, suggested: "
+"[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: [kbd]"
-"pma_table_coords[/kbd]"
+"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:568
 msgid "Column information table"
@@ -6506,8 +6507,8 @@ msgstr "Kontroliuoti naudotojų slaptažodį"
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@http://wiki.phpmyadmin.net/pma/controluser]"
-#| "wiki[/a]"
+#| "information available on [a@http://wiki.phpmyadmin.net/pma/"
+#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
@@ -6553,8 +6554,8 @@ msgid ""
 "Leave blank for no Designer support, suggested: [kbd]pma__designer_coords[/"
 "kbd]."
 msgstr ""
-"Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: [kbd]"
-"pma_designer_coords[/kbd]"
+"Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:595
 msgid "Designer table"
@@ -6573,14 +6574,14 @@ msgstr "Slėpti duomenų bazes"
 #: libraries/config/messages.inc.php:600
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Palikite tuščią, jei nenorite SQL užklausų žurnalo, siūlome: [kbd]pma_history"
-"[/kbd]"
+"Palikite tuščią, jei nenorite SQL užklausų žurnalo, siūlome: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:603
 msgid "SQL query history table"
@@ -6661,8 +6662,8 @@ msgstr ""
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Palikite tuščią jei nenorite PDF schemų palaikymo, siūlome: [kbd]"
-"pma_pdf_pages[/kbd]"
+"Palikite tuščią jei nenorite PDF schemų palaikymo, siūlome: "
+"[kbd]pma_pdf_pages[/kbd]"
 
 #: libraries/config/messages.inc.php:626
 msgid "PDF schema: pages table"
@@ -6721,8 +6722,8 @@ msgstr "Paskiausiai naudota lentelė"
 #| "Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
 #| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
-"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-links"
-"[/a] support, suggested: [kbd]pma__relation[/kbd]."
+"Leave blank for no [a@http://wiki.phpmyadmin.net/pma/relation]relation-"
+"links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgstr ""
 "Palikite tuščią jei nenorite, kad palaikytų [a@http://wiki.phpmyadmin.net/"
 "pma/relation]sąryšines nuorodas[/a], pasiūlymas: [kbd]pma_relation[/kbd]"
@@ -6737,11 +6738,11 @@ msgstr "Sąryšių lentelė"
 #| "See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
 #| "types[/a] for an example"
 msgid ""
-"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication types"
-"[/a] for an example."
+"See [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
+"types[/a] for an example."
 msgstr ""
-"Žiūrėkite [a@http://wiki.phpmyadmin.net/pma/auth_types#signon]"
-"autentifikacijos tipus[/a] dėl pavyzdžių"
+"Žiūrėkite [a@http://wiki.phpmyadmin.net/pma/"
+"auth_types#signon]autentifikacijos tipus[/a] dėl pavyzdžių"
 
 #: libraries/config/messages.inc.php:651
 msgid "Signon session name"
@@ -6780,8 +6781,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: [kbd]"
-"pma_table_coords[/kbd]"
+"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:661
 msgid "PDF schema: table coordinates"
@@ -6796,8 +6797,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: [kbd]"
-"pma_table_coords[/kbd]"
+"Palikite tuščią, kad nebūtų PDF schemos palaikymo, siūlome: "
+"[kbd]pma_table_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:666
 msgid "Display columns table"
@@ -6810,8 +6811,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"Jei tuščias nebus „įkyrių“ UI nustatymų tarp seansų, siūlome: [kbd]"
-"pma_table_uiprefs[/kbd]"
+"Jei tuščias nebus „įkyrių“ UI nustatymų tarp seansų, siūlome: "
+"[kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:671
 msgid "UI preferences table"
@@ -6858,14 +6859,14 @@ msgstr "Sekamos užklausos"
 #: libraries/config/messages.inc.php:691
 #, fuzzy
 #| msgid ""
-#| "Leave blank for no SQL query history support, suggested: [kbd]pma_history"
-#| "[/kbd]"
+#| "Leave blank for no SQL query history support, suggested: "
+#| "[kbd]pma_history[/kbd]"
 msgid ""
-"Leave blank for no SQL query tracking support, suggested: [kbd]pma__tracking"
-"[/kbd]."
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Palikite tuščią, jei nenorite SQL užklausų žurnalo, siūlome: [kbd]pma_history"
-"[/kbd]"
+"Palikite tuščią, jei nenorite SQL užklausų žurnalo, siūlome: "
+"[kbd]pma_history[/kbd]"
 
 #: libraries/config/messages.inc.php:694
 msgid "SQL query tracking table"
@@ -6886,11 +6887,11 @@ msgstr "Automatiškai sukurti versijas"
 #| msgid ""
 #| "blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 msgid ""
-"Leave blank for no user preferences storage in database, suggested: [kbd]"
-"pma__userconfig[/kbd]."
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: [kbd]"
-"pma_designer_coords[/kbd]"
+"Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:702
 msgid "User preferences storage table"
@@ -6930,8 +6931,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: [kbd]"
-"pma_designer_coords[/kbd]"
+"Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: "
+"[kbd]pma_designer_coords[/kbd]"
 
 #: libraries/config/messages.inc.php:708
 msgid "Hidden navigation items table"
@@ -8564,7 +8565,7 @@ msgstr "phpMyAdmin dokumentacija"
 msgid "Reload navigation panel"
 msgstr "Atsiųsti iš naujo navigacijos rėmelį"
 
-#: libraries/navigation/NavigationTree.class.php:736
+#: libraries/navigation/NavigationTree.class.php:748
 #, php-format
 msgid "%s other result found"
 msgid_plural "%s other results found"
@@ -8572,24 +8573,24 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: libraries/navigation/NavigationTree.class.php:847
+#: libraries/navigation/NavigationTree.class.php:859
 msgid "Expand/Collapse"
 msgstr ""
 
-#: libraries/navigation/NavigationTree.class.php:1074
+#: libraries/navigation/NavigationTree.class.php:1086
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter databases by name or regex"
 msgstr "Pakeisti lentelės rikiavimą pagal:"
 
-#: libraries/navigation/NavigationTree.class.php:1076
-#: libraries/navigation/NavigationTree.class.php:1111
+#: libraries/navigation/NavigationTree.class.php:1088
+#: libraries/navigation/NavigationTree.class.php:1123
 #, fuzzy
 #| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "Išsaugoti į failą"
 
-#: libraries/navigation/NavigationTree.class.php:1110
+#: libraries/navigation/NavigationTree.class.php:1122
 #, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter by name or regex"
@@ -9626,8 +9627,8 @@ msgstr ""
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 #, fuzzy
 #| msgid ""
-#| "ys the contents of the field as-is, without running it through ecialchars"
-#| "(). That is, the field is assumed to contain valid HTML."
+#| "ys the contents of the field as-is, without running it through "
+#| "ecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
@@ -12833,29 +12834,29 @@ msgstr "Vietos naudojimas"
 msgid "Effective"
 msgstr "Efektyvus"
 
-#: libraries/structure.lib.php:2402 libraries/tbl_indexes.lib.php:56
+#: libraries/structure.lib.php:2429 libraries/tbl_indexes.lib.php:56
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Lentelė %1$s sėkmingai pakeista."
 
-#: libraries/structure.lib.php:2451 libraries/tbl_tracking.lib.php:998
+#: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
 msgid "Query error"
 msgstr "Užklausos klaida"
 
-#: libraries/structure.lib.php:2552
+#: libraries/structure.lib.php:2575
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Pažymėti vartotojai sėkmingai pašalinti."
 
-#: libraries/structure.lib.php:2600
+#: libraries/structure.lib.php:2623
 #, php-format
 msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
-#: libraries/structure.lib.php:2729
+#: libraries/structure.lib.php:2752
 #, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
@@ -13393,7 +13394,7 @@ msgstr ""
 msgid "Save position"
 msgstr "Išsaugoti vietą"
 
-#: pmd_general.php:96 pmd_general.php:432
+#: pmd_general.php:96 pmd_general.php:436
 msgid "Create relation"
 msgstr "Sukurti sąryšį"
 
@@ -13462,39 +13463,39 @@ msgstr "Slėpti/rodyti lenteles be sąryšių"
 msgid "Number of tables:"
 msgstr "Lentelių skaičius"
 
-#: pmd_general.php:500
+#: pmd_general.php:504
 msgid "Delete relation"
 msgstr "Ištrinti sąryšį"
 
-#: pmd_general.php:545 pmd_general.php:604
+#: pmd_general.php:549 pmd_general.php:608
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Sąryšis ištrintas"
 
-#: pmd_general.php:555 pmd_general.php:614 pmd_general.php:744
-#: pmd_general.php:863
+#: pmd_general.php:559 pmd_general.php:618 pmd_general.php:748
+#: pmd_general.php:867
 msgid "Except"
 msgstr "Išskyrus"
 
-#: pmd_general.php:561 pmd_general.php:622 pmd_general.php:750
-#: pmd_general.php:869
+#: pmd_general.php:565 pmd_general.php:626 pmd_general.php:754
+#: pmd_general.php:873
 msgid "subquery"
 msgstr ""
 
-#: pmd_general.php:565 pmd_general.php:667
+#: pmd_general.php:569 pmd_general.php:671
 msgid "Rename to"
 msgstr "Pervadinti į"
 
-#: pmd_general.php:567 pmd_general.php:673
+#: pmd_general.php:571 pmd_general.php:677
 msgid "New name"
 msgstr "Naujas vardas"
 
-#: pmd_general.php:570 pmd_general.php:793
+#: pmd_general.php:574 pmd_general.php:797
 msgid "Aggregate"
 msgstr ""
 
-#: pmd_general.php:904
+#: pmd_general.php:908
 msgid "Active options"
 msgstr ""
 
@@ -13711,8 +13712,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Prašome interneto serveryje phpMyAdmin pagrindiniame kataloge sukurti "
-"įrašomą [em]config[/em] katalogą kaip parašyta [doc@setup_script]"
-"dokumentacijoje[/doc]. Kitaip Jūs galėsite jį tik parsisiųsti ir peržiūrėti."
+"įrašomą [em]config[/em] katalogą kaip parašyta "
+"[doc@setup_script]dokumentacijoje[/doc]. Kitaip Jūs galėsite jį tik "
+"parsisiųsti ir peržiūrėti."
 
 #: setup/frames/index.inc.php:70
 msgid ""
@@ -13729,8 +13731,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow [a@%s]this "
 "link[/a] to use a secure connection."
 msgstr ""
-"Jeigu Jūsų serveris sukonfigūruotas priimti HTTPS užklausas eikite [a@%s]čia"
-"[/a] tam, kad naudoti saugų susijungimą."
+"Jeigu Jūsų serveris sukonfigūruotas priimti HTTPS užklausas eikite [a@"
+"%s]čia[/a] tam, kad naudoti saugų susijungimą."
 
 #: setup/frames/index.inc.php:89
 msgid "Insecure connection"
@@ -15208,11 +15210,11 @@ msgstr "MyISAM concurrent įterpimai"
 
 #, fuzzy
 #~| msgid ""
-#~| "If you have a custom username, specify it here (defaults to [kbd]"
-#~| "anonymous[/kbd])"
+#~| "If you have a custom username, specify it here (defaults to "
+#~| "[kbd]anonymous[/kbd])"
 #~ msgid ""
-#~ "If you have a custom username, specify it here (defaults to [kbd]anonymous"
-#~ "[/kbd])."
+#~ "If you have a custom username, specify it here (defaults to "
+#~ "[kbd]anonymous[/kbd])."
 #~ msgstr ""
 #~ "Jeigu Jūs turite individualizuotą slapyvardį, parašykite jį čia "
 #~ "(numatytasis yra [kbd]anonymous[/kbd])"
@@ -15254,21 +15256,21 @@ msgstr "MyISAM concurrent įterpimai"
 #~| msgid ""
 #~| "blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__users[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__users[/kbd]."
 #~ msgstr ""
-#~ "Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: [kbd]"
-#~ "pma_designer_coords[/kbd]"
+#~ "Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: "
+#~ "[kbd]pma_designer_coords[/kbd]"
 
 #, fuzzy
 #~| msgid ""
 #~| "blank for no Designer support, suggested: [kbd]pma_designer_coords[/]"
 #~ msgid ""
-#~ "Leave blank to disable configurable menus feature, suggested: [kbd]"
-#~ "pma__usergroups[/kbd]."
+#~ "Leave blank to disable configurable menus feature, suggested: "
+#~ "[kbd]pma__usergroups[/kbd]."
 #~ msgstr ""
-#~ "Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: [kbd]"
-#~ "pma_designer_coords[/kbd]"
+#~ "Palikite tuščią jeigu nenorite „Designer“ palaikymo, siūlome: "
+#~ "[kbd]pma_designer_coords[/kbd]"
 
 #~ msgid "ENUM or SET data too long?"
 #~ msgstr "ENUM arba SET duomenys per ilgi?"
@@ -15365,11 +15367,13 @@ msgstr "MyISAM concurrent įterpimai"
 #~ "transformacijų, spauskite %stransformacijos paaiškinimą%s"
 
 #~ msgid ""
-#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL Bugs[/a]"
+#~ "More information on [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA bug tracker[/a] and [a@http://bugs.mysql.com/19588]MySQL "
+#~ "Bugs[/a]"
 #~ msgstr ""
-#~ "Daugiau informacijos [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]"
-#~ "PMA[/a] ir [a@http://bugs.mysql.com/19588]MySQL[/a] klaidų puslapiuose"
+#~ "Daugiau informacijos [a@https://sourceforge.net/p/phpmyadmin/"
+#~ "bugs/2606/]PMA[/a] ir [a@http://bugs.mysql.com/19588]MySQL[/a] klaidų "
+#~ "puslapiuose"
 
 #~ msgid "Disable use of INFORMATION_SCHEMA"
 #~ msgstr "Neleisti matyti INFORMATION_SCHEMA"
