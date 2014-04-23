@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-23 15:10+0200\n"
+"PO-Revision-Date: 2014-04-23 15:30+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -230,7 +230,7 @@ msgstr "資料庫 %1$s 已複製爲 %2$s。"
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr "phpMyAdmin 進階功能尚未啟動，請點選 %s此處%s 了解詳情。"
+msgstr "phpMyAdmin 設定儲存空間尚未啟動，請點選 %s此處%s 了解詳情。"
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:760
@@ -851,9 +851,7 @@ msgstr ""
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
-msgstr ""
-"尚未設定 phpMyAdmin 資料庫，某些進階功能將無法使用。請點選 %s此處%s 取得詳細"
-"資訊。"
+msgstr "尚未設定 phpMyAdmin 設定儲存空間，部份延伸功能將無法使用。請點選 %s此處%s 取得詳細資訊。"
 
 #: index.php:552
 #, php-format
@@ -1379,18 +1377,18 @@ msgstr "圖表"
 #. l10n: A collection of available filters
 #: js/messages.php:184
 msgid "Log table filter options"
-msgstr "記錄資料表篩選選項"
+msgstr "記錄資料表搜尋選項"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:186
 msgid "Filter"
-msgstr "篩選"
+msgstr "搜尋"
 
 #: js/messages.php:187
 msgid "Filter queries by word/regexp:"
 msgstr ""
-"使用純文字或 <a href=\"http://dev.mysql.com/doc/refman/5.1/en/regexp.html\" "
-"target=\"_blank\">正規表式法(REGEXP)</a> 進行篩選:"
+"使用純文字或 <a href=\"http://dev.mysql.com/doc/refman/5.1/en/regexp.html\" target="
+"\"_blank\">正規表式法(REGEXP)</a> 進行搜尋:"
 
 #: js/messages.php:188
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -3091,7 +3089,7 @@ msgstr "無法儲存最近使用的資料表！"
 #: libraries/RecentFavoriteTable.class.php:154
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "無法儲存我的最愛資料表!"
+msgstr "無法儲存我的最愛的資料表!"
 
 #: libraries/RecentFavoriteTable.class.php:225
 #: libraries/structure.lib.php:2751
@@ -3106,7 +3104,7 @@ msgstr "沒有最近使用的資料表。"
 #: libraries/RecentFavoriteTable.class.php:243
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "查無我的最愛資料表。"
+msgstr "沒有我的最愛的資料表。"
 
 #: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
@@ -3121,7 +3119,7 @@ msgstr "最近使用"
 #: libraries/config/messages.inc.php:469
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "我的最愛資料表"
+msgstr "我的最愛的資料表"
 
 #: libraries/RecentFavoriteTable.class.php:264
 #| msgid "Variables"
@@ -4427,13 +4425,13 @@ msgstr "使用 [kbd]signon[/kbd] 認證方式時登入網址不能爲空！"
 #: libraries/config/Validator.class.php:369
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
-msgstr "使用 PMA 資料庫時控制使用者不能爲空！"
+msgstr "使用 phpMyAdmin 設定儲存空間時，必須填寫控制使用者！"
 
 #: libraries/config/Validator.class.php:374
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
-msgstr "使用 PMA 資料時控制使用者的密碼不能爲空！"
+msgstr "使用 phpMyAdmin 設定儲存空間時，必須填寫控制使用者密碼！"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -5109,7 +5107,7 @@ msgstr "請輸入伺服器連線參數。"
 
 #: libraries/config/messages.inc.php:271
 msgid "Configuration storage"
-msgstr "進階功能"
+msgstr "設定儲存空間"
 
 #: libraries/config/messages.inc.php:273
 msgid ""
@@ -5117,8 +5115,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"請設定 phpMyAdmin 進階功能以開啟其他進階功能，請參考 [doc@linked-"
-"tables]phpMyAdmin 進階功能[/doc]。"
+"請設定 phpMyAdmin 設定儲存空間以開啟其他進階功能，請參考 [doc@linked-tables]phpMyAdmin "
+"設定儲存空間[/doc]。"
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -5128,7 +5126,7 @@ msgstr "修改追蹤"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr "追蹤資料庫的修改。需要 phpMyAdmin 進階功能。"
+msgstr "追蹤資料庫的修改。需要 phpMyAdmin 設定儲存空間。"
 
 #: libraries/config/messages.inc.php:282
 msgid "Customize export options"
@@ -5516,15 +5514,15 @@ msgstr "快速存取圖示要顯示的目標頁面"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "設定顯示篩選框需要超過多少項目數量 (資料表、檢視表、預存程序和事件) 。"
+msgstr "設定顯示搜尋框的項目數量下限 (資料表、檢視表、預存程序和事件) 。"
 
 #: libraries/config/messages.inc.php:443
 msgid "Minimum number of items to display the filter box"
-msgstr "項目數量超過顯示篩選框"
+msgstr "設定顯示搜尋框的項目數量下限"
 
 #: libraries/config/messages.inc.php:445
 msgid "Minimum number of databases to display the database filter box"
-msgstr "資料庫數量超過顯示篩選框"
+msgstr "設定顯示搜尋框的資料庫數量下限"
 
 #: libraries/config/messages.inc.php:447
 msgid ""
@@ -5644,13 +5642,11 @@ msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
-msgstr ""
-"關閉在缺少 phpMyAdmin 進階功能所需資料表時在資料庫結構頁面中顯示的預設警告訊"
-"息。"
+msgstr "關閉在缺少 phpMyAdmin 設定儲存空間所需資料表時在資料庫結構頁面中顯示的預設警告訊息。"
 
 #: libraries/config/messages.inc.php:494
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "未安裝 phpMyAdmin 進階功能資料表的警告"
+msgstr "缺少 phpMyAdmin 設定儲存空間資料表"
 
 #: libraries/config/messages.inc.php:496
 msgid ""
@@ -7748,16 +7744,16 @@ msgstr "展開/摺疊"
 
 #: libraries/navigation/NavigationTree.class.php:1086
 msgid "Filter databases by name or regex"
-msgstr "依名稱或 Regex 篩選資料庫"
+msgstr "依名稱或 Regex 搜尋資料庫"
 
 #: libraries/navigation/NavigationTree.class.php:1088
 #: libraries/navigation/NavigationTree.class.php:1123
 msgid "Clear fast filter"
-msgstr "清除快速篩選器"
+msgstr "清除快速搜尋"
 
 #: libraries/navigation/NavigationTree.class.php:1122
 msgid "Filter by name or regex"
-msgstr "依名稱或 Regex 篩選"
+msgstr "依名稱或 Regex 搜尋"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -10694,7 +10690,7 @@ msgstr "只顯示警示值"
 
 #: libraries/server_status_variables.lib.php:57
 msgid "Filter by category…"
-msgstr "按分類篩選…"
+msgstr "依分類搜尋…"
 
 #: libraries/server_status_variables.lib.php:78
 msgid "Show unformatted values"
@@ -12474,7 +12470,7 @@ msgstr "您所使用的瀏覽器不支援此功能"
 
 #: prefs_manage.php:268
 msgid "Merge with current configuration"
-msgstr "與目前設定合併"
+msgstr "合併至目前設定"
 
 #: prefs_manage.php:282
 #, php-format
