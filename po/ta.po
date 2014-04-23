@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 07:31+0200\n"
+"PO-Revision-Date: 2014-04-23 07:34+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -4467,10 +4467,9 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:57
-#, fuzzy
 #| msgid "Databases"
 msgid "Hide table structure actions"
-msgstr "தரவுத்தளங்கள்"
+msgstr "தரவுதள வடிவமைப்பு நடவடிக்கைகளை மறை"
 
 #: libraries/config/messages.inc.php:58
 msgid "Show binary contents as HEX by default"
