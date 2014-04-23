@@ -43,11 +43,6 @@ before_script:
 
     if [[ ! -z "$SELENIUM" ]] ; then
 
-    ln -s ~/.phpenv/versions/$(phpenv version-name)/pear/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php . ;
-
-    echo auto_prepend_file = ~/.phpenv/versions/$(phpenv version-name)/pear/PHPUnit/Extensions/SeleniumCommon/prepend.php  >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ;
-    echo auto_append_file = ~/.phpenv/versions/$(phpenv version-name)/pear/PHPUnit/Extensions/SeleniumCommon/append.php  >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ;
-
     php --server 127.0.0.1:8000 &
 
     wget https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip ;
@@ -65,7 +60,11 @@ script:
     if [[ $TRAVIS_PHP_VERSION == "hhvm" ]] ; then
     ant phpunit-hhvm ;
     else
+    if [[ ! -z "$SELENIUM" ]] ; then
+    ant phpunit-nocoverage ;
+    else
     ant phpunit ;
+    fi ;
     fi ;
     else
     ant lint ;
