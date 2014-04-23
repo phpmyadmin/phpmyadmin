@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 11:24+0200\n"
+"PO-Revision-Date: 2014-04-23 11:25+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -7231,7 +7231,7 @@ msgstr "அட்டவணை முன்னொட்டை பதிலிட�
 #: libraries/mult_submits.lib.php:331
 #| msgid "Display table filter"
 msgid "Copy table with prefix:"
-msgstr "அட்டவணையை முன்னொட்டுடன் படியெடு"
+msgstr "அட்டவணையை முன்னொட்டுடன் படியெடு:"
 
 #: libraries/mult_submits.lib.php:336
 #| msgid "Fri"
@@ -7458,7 +7458,7 @@ msgstr ""
 #: libraries/navigation/Navigation.class.php:171
 #| msgid "Connections"
 msgid "Functions:"
-msgstr "செயல்குழுக்கள்"
+msgstr "செயல்குழுக்கள்:"
 
 #: libraries/navigation/Navigation.class.php:172
 #, fuzzy
