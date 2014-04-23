@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 22:33+0200\n"
+"PO-Revision-Date: 2014-04-23 22:34+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -7514,10 +7514,10 @@ msgid "Clear fast filter"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1080
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "Filter by name or regex"
-msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது"
+msgstr ""
+"தரவுத்தளப் பெயர் வெறுமையாக உள்ளது->பெயர் அல்லது சுருங்குறிவரையறை ஆல் வடிகட்டு"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
