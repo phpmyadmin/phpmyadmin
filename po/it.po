@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-03-28 10:58+0200\n"
-"Last-Translator: Manuel Dalla Lana <endelwar@aregar.it>\n"
+"PO-Revision-Date: 2014-04-23 11:08+0200\n"
+"Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
 "Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/4-1/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -3285,9 +3285,8 @@ msgid "Monitor"
 msgstr "Monitoraggio"
 
 #: libraries/ServerStatusData.class.php:382
-#, fuzzy
 msgid "Advisor"
-msgstr "Advisor"
+msgstr "Consigli"
 
 #: libraries/StorageEngine.class.php:216
 msgid ""
@@ -3575,6 +3574,9 @@ msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Un piccolo numero in virgola mobile, i valore accettati vanno da "
+"-3.402823466E+38 a -1.175494351E-38, 0, e da 1.175494351E-38 a "
+"3.402823466E+38"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -3582,28 +3584,36 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Un numero in virgola mobile a doppia precisione, sono accettati i valori da "
+"-1.7976931348623157E+308 a -2.2250738585072014E-308, 0, e da "
+"2.2250738585072014E-308 a 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:313
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Sinonimo per DOUBLE (eccezione: in modalità REAL_AS_FLOAT SQL è sinonimo per "
+"FLOAT)"
 
 #: libraries/Types.class.php:315
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"Un campo tipo bit (M), memorizza M bit per valore (default 1, massimo 64)"
 
 #: libraries/Types.class.php:317
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Sinonimo di TINYINT(1), lo zero è considerato false, i valori diversi da "
+"zero sono considerati true"
 
 #: libraries/Types.class.php:319
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Alias per BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:321 libraries/Types.class.php:724
 #, php-format
@@ -3621,6 +3631,8 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Un timestamp compreso tra 1970-01-01 00:00:01 UTC e 2038-01-09 03:14:07 UTC, "
+"memorizzato come numero di secondi dal 1970-01-01 00:00:00 UTC"
 
 #: libraries/Types.class.php:327 libraries/Types.class.php:730
 #, php-format
@@ -3632,12 +3644,17 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Un anno in formato quattro o due numeri (4 di default), i valori accettati "
+"vanno da 70 (1970) a 69 (2069) o tra 1901 a 2155 e 0000"
 
 #: libraries/Types.class.php:331
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Una stringa con lunghezza fissa tra 0 e 255 (default 1), nella memorizazione "
+"è sempre riempita a destra con spazi bianchi per raggiungere la lunghezza "
+"specificata"
 
 #: libraries/Types.class.php:333 libraries/Types.class.php:732
 #, php-format
@@ -3651,18 +3668,27 @@ msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Una colonna TEXT con larghezza massima di 255 (2^8 - 1) caratteri, "
+"memorizzata con un prefisso di 1 byte che indica la lunghezza della stringa "
+"in byte"
 
 #: libraries/Types.class.php:337 libraries/Types.class.php:734
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Una colonna TEXT con larghezza massima di 65,535 (2^16 - 1) caratteri, "
+"memorizzata con un prefisso di 2 byte che indica la lunghezza della stringa "
+"in byte"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Una colonna TEXT con larghezza massima di 16,777,215 (2^24 - 1) caratteri, "
+"memorizzata con un prefisso di 3 byte che indica la lunghezza della stringa "
+"in byte"
 
 #: libraries/Types.class.php:341
 msgid ""
@@ -3670,52 +3696,70 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Una colonna TEXT con larghezza massima di 4,294,967,295 (2^32 - 1) caratteri "
+"o 4GiB , memorizzata con un prefisso di 4 byte che indica la lunghezza della "
+"stringa in byte"
 
 #: libraries/Types.class.php:343
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Come il tipo CHAR, ma memorizza stringhe binarie anziché stringhe non-binarie"
 
 #: libraries/Types.class.php:345
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Come il tipo VARCHAR, ma memorizza stringhe binarie anziché stringhe non-"
+"binarie"
 
 #: libraries/Types.class.php:347
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Una colonna tipo BLOB con una lunghezza massima di 255 (2^8 - 1) byte, "
+"memorizzata con un prefisso di 1 byte che indica la lunghezza del valore"
 
 #: libraries/Types.class.php:349
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Una colonna tipo BLOB con una lunghezza massima di 16,777,215 (2^24 - 1) "
+"byte, memorizzata con un prefisso di 3 byte che indica la lunghezza del "
+"valore"
 
 #: libraries/Types.class.php:351 libraries/Types.class.php:738
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Una colonna tipo BLOB con una lunghezza massima di 65,535 (2^16 - 1) byte, "
+"memorizzata con un prefisso di 2 byte che indica la lunghezza del valore"
 
 #: libraries/Types.class.php:353
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Una colonna tipo BLOB con una lunghezza massima di 4,294,967,295 (2^32 - 1) "
+"byte o 4Gb, memorizzata con un prefisso di 4 byte che indica la lunghezza "
+"del valore"
 
 #: libraries/Types.class.php:355
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Una enumerazione, scelta fra una lista contenente fino a 65,535 valori "
+"oppure il valore speciale ''"
 
 #: libraries/Types.class.php:357
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Un valore singolo scelto da un set con un massimo di 64 membri"
 
 #: libraries/Types.class.php:359
 msgid "A type that can store a geometry of any type"
