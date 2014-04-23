@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 11:15+0200\n"
+"PO-Revision-Date: 2014-04-23 11:16+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -7104,10 +7104,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1206
-#, fuzzy, php-format
+#, php-format
 #| msgid "Copy database to"
 msgid "Go to database: %s"
-msgstr "தரவுத்தளத்தை பிரதிசெய்"
+msgstr "தரவுத்தளம்: %s க்கு செல்க"
 
 #: libraries/import.lib.php:1212 libraries/import.lib.php:1253
 #, php-format
