@@ -6452,7 +6452,7 @@ msgstr "மீண்டும் உள்ளிடு:"
 #: libraries/display_change_password.lib.php:74
 #| msgid "Password:"
 msgid "Password Hashing:"
-msgstr "கடவுச்சொல் கூளமாக்கள்"
+msgstr "கடவுச்சொல் கூளமாக்கள்:"
 
 #: libraries/display_change_password.lib.php:87
 msgid "MySQL 4.0 compatible"
