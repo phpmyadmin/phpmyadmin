@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 10:43+0200\n"
+"PO-Revision-Date: 2014-04-23 10:44+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -5060,10 +5060,9 @@ msgid "Texy! text"
 msgstr ""
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 #| msgid "Warning"
 msgid "Warnings"
-msgstr "எச்சரிக்கை"
+msgstr "எச்சரிக்கைகள்"
 
 #: libraries/config/messages.inc.php:239
 msgid "Disable some of the warnings shown by phpMyAdmin"
