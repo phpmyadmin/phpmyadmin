@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 10:50+0200\n"
+"PO-Revision-Date: 2014-04-23 10:53+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -6190,10 +6190,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:509
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
+msgstr "உரைக்கட்ட நெடுவரிசைகள்"
 
 #: libraries/config/messages.inc.php:510
 msgid ""
