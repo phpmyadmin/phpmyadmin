@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 10:49+0200\n"
+"PO-Revision-Date: 2014-04-23 10:50+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -6121,10 +6121,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:490 libraries/sql_query_form.lib.php:370
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "வினவல் பெட்டியை மறை"
+msgstr "வினவல் பெட்டியை வைத்திருக்க"
 
 #: libraries/config/messages.inc.php:491
 msgid "Allow to display database and table statistics (eg. space usage)"
