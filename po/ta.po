@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 22:27+0200\n"
+"PO-Revision-Date: 2014-04-23 22:33+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -7504,10 +7504,9 @@ msgid "Expand/Collapse"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1045
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "Filter databases by name or regex"
-msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது"
+msgstr "தரவுத்தளங்களை பெயர் அல்லது சுருங்குறிவரையறையால் வடிகட்டு"
 
 #: libraries/navigation/NavigationTree.class.php:1047
 #: libraries/navigation/NavigationTree.class.php:1081
