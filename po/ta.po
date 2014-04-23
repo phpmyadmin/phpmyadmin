@@ -5419,10 +5419,9 @@ msgid "Use only icons, only text or both"
 msgstr ""
 
 #: libraries/config/messages.inc.php:331
-#, fuzzy
 #| msgid "Table options"
 msgid "Table navigation bar"
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
 
 #: libraries/config/messages.inc.php:332
 msgid "use GZip output buffering for increased speed in HTTP transfers"
