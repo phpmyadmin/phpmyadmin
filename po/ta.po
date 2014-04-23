@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 10:35+0200\n"
+"PO-Revision-Date: 2014-04-23 10:37+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -4863,10 +4863,9 @@ msgid "Tables display options"
 msgstr ""
 
 #: libraries/config/messages.inc.php:185 setup/frames/menu.inc.php:23
-#, fuzzy
 #| msgid "Hide indexes"
 msgid "Main panel"
-msgstr "சுட்டுகளை மறை"
+msgstr "முதன்மை பலகம்"
 
 #: libraries/config/messages.inc.php:186
 msgid "Microsoft Office"
