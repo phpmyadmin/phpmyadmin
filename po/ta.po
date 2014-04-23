@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-23 11:25+0200\n"
+"PO-Revision-Date: 2014-04-23 22:39+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7646,22 +7646,19 @@ msgid "Functions:"
 msgstr "செயல்குழுக்கள்:"
 
 #: libraries/navigation/Navigation.class.php:172
-#, fuzzy
 #| msgid "Processes"
 msgid "Procedures:"
-msgstr "செயலாக்கங்கள்"
+msgstr "செயல்முறைகள்:"
 
 #: libraries/navigation/Navigation.class.php:173
-#, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
-msgstr "அட்டவணைகள்"
+msgstr "அட்டவணைகள்:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "View"
 msgid "Views:"
-msgstr "நோக்கு"
+msgstr "விவரபார்வைகள்:"
 
 #: libraries/navigation/NavigationHeader.class.php:192
 msgid "Home"
@@ -7676,10 +7673,9 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin ஆவணச்சான்று"
 
 #: libraries/navigation/NavigationHeader.class.php:252
-#, fuzzy
 #| msgid "Table options"
 msgid "Reload navigation panel"
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "வழிசெலுத்தல் பலகத்தை மீளேற்று"
 
 #: libraries/navigation/NavigationTree.class.php:748
 #, php-format
@@ -7693,10 +7689,9 @@ msgid "Expand/Collapse"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1086
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "Filter databases by name or regex"
-msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது"
+msgstr "தரவுத்தளங்களை பெயர் அல்லது சுருங்குறிவரையறையால் வடிகட்டு"
 
 #: libraries/navigation/NavigationTree.class.php:1088
 #: libraries/navigation/NavigationTree.class.php:1123
@@ -7704,10 +7699,10 @@ msgid "Clear fast filter"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1122
-#, fuzzy
 #| msgid "The database name is empty!"
 msgid "Filter by name or regex"
-msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது"
+msgstr ""
+"தரவுத்தளப் பெயர் வெறுமையாக உள்ளது->பெயர் அல்லது சுருங்குறிவரையறை ஆல் வடிகட்டு"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -7732,10 +7727,9 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Table options"
 msgid "Database operations"
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "தரவுதள நடவடிக்கைகள்"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
 #, fuzzy
