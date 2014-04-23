@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-02 12:00+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Traditional Chinese <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/zh_TW/>\n"
+"PO-Revision-Date: 2014-04-23 15:08+0200\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"Language-Team: Traditional Chinese "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -304,7 +304,7 @@ msgstr "拒絕存取！"
 
 #: db_structure.php:72
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "我的最愛清單已滿!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -922,7 +922,7 @@ msgstr "您確定要刪除查詢「%s」？"
 msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
-msgstr ""
+msgstr "您確定要離開此頁面? 點選 確定 後繼續，或者 取消 留在此頁面。"
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1748,17 +1748,16 @@ msgstr "外環"
 
 #: js/messages.php:321
 msgid "Shift + Click on function name to apply to all rows."
-msgstr ""
+msgstr "在函數名稱上使用 Shift + 滑鼠左鍵以套用至所有資料列。"
 
 #: js/messages.php:323
-#, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
-msgstr "是否匯入其餘的設定？"
+msgstr "您是否要複製加密金鑰？"
 
 #: js/messages.php:324
 msgid "Encryption key"
-msgstr ""
+msgstr "加密金鑰"
 
 #: js/messages.php:327
 msgid "Select referenced key"
@@ -1812,7 +1811,7 @@ msgstr "點此進行排序。"
 
 #: js/messages.php:345
 msgid "Hold shift and click to remove column from ORDER BY clause."
-msgstr ""
+msgstr "按住 Shift 並點選滑鼠左鍵以移除 ORDER BY 字句中的欄位。"
 
 #: js/messages.php:346
 msgid "Click to mark/unmark."
@@ -1952,7 +1951,7 @@ msgstr "因 PHP 執行期時間限制太短，您的資料未完成匯出動作�
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
-msgstr ""
+msgstr "警告: 此頁面中的表單超過 %d 個欄位，因超出 PHP 中 max_input_vars 設定值的限制，在送出時可能會忽略部份欄位。"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:437
@@ -2382,10 +2381,9 @@ msgid "Saved bookmarked search:"
 msgstr "已加為書籤的查詢："
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "New bookmark"
-msgstr "建立書籤"
+msgstr "新增書籤"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"
@@ -2509,16 +2507,14 @@ msgid "Restore column order"
 msgstr "還原欄位的順序"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "篩選"
+msgstr "搜尋資料列"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "搜尋資料庫"
+msgstr "搜尋此資料表"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -2883,7 +2879,7 @@ msgstr "說明"
 
 #: libraries/Index.class.php:601
 msgid "The primary key has been dropped."
-msgstr "已刪除主鍵(Primary key)"
+msgstr "已刪除主鍵(Primary key)。"
 
 #: libraries/Index.class.php:610
 #, php-format
@@ -3093,50 +3089,44 @@ msgid "Could not save recent table!"
 msgstr "無法儲存最近使用的資料表！"
 
 #: libraries/RecentFavoriteTable.class.php:154
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "無法儲存最近使用的資料表！"
+msgstr "無法儲存我的最愛資料表!"
 
 #: libraries/RecentFavoriteTable.class.php:225
 #: libraries/structure.lib.php:2751
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "刪除圖表"
+msgstr "自我的最愛中移除"
 
 #: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "沒有最近使用的資料表。"
 
 #: libraries/RecentFavoriteTable.class.php:243
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "沒有最近使用的資料表。"
+msgstr "查無我的最愛資料表。"
 
 #: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "最近使用的資料表"
 
 #: libraries/RecentFavoriteTable.class.php:260
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "重新設定"
+msgstr "最近使用"
 
 #: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "變數"
+msgstr "我的最愛資料表"
 
 #: libraries/RecentFavoriteTable.class.php:264
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
-msgstr "變數"
+msgstr "我的最愛"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -3289,10 +3279,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "此 MySQL 伺服器不支援 %s 儲存引擎。"
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "未知的資料表狀態: "
+msgstr "資料表狀態不明:"
 
 #: libraries/Table.class.php:796
 #, php-format
@@ -5577,23 +5566,21 @@ msgstr "開啟加強標示"
 
 #: libraries/config/messages.inc.php:461
 msgid "Whether to disable the possibility of database expansion or not."
-msgstr ""
+msgstr "是否關閉資料庫展開功能。"
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "顯示資料庫爲列表"
+msgstr "關閉資料庫展開"
 
 #: libraries/config/messages.inc.php:465
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "最多顯示幾個最近使用的資料表；0 代表不顯示。"
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "最多顯示幾個最近使用的資料表；0 代表不顯示。"
+msgstr "顯示我的最愛資料表的數量上限；設為 0 則關閉此功能。"
 
 #: libraries/config/messages.inc.php:468
 msgid "Recently used tables"
@@ -6847,7 +6834,7 @@ msgstr "儲存爲檔案"
 
 #: libraries/display_export.lib.php:671
 msgid "Skip tables larger than"
-msgstr ""
+msgstr "略過資料表超過"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -7991,7 +7978,7 @@ msgstr "最佳化資料表"
 #: libraries/operations.lib.php:1195
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "已更新資料表 %s"
+msgstr "已更新資料表 %s。"
 
 #: libraries/operations.lib.php:1202
 msgid "Flush the table (FLUSH)"
@@ -9480,12 +9467,12 @@ msgid "Execution results of routine %s"
 msgstr "執行預存程序 %s 的結果"
 
 #: libraries/rte/rte_routines.lib.php:1475
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "程序中最後指令影響了 %d 列"
+msgstr[0] "最後一筆查詢敘述句共影響 %d 筆資料列。"
 
 #: libraries/rte/rte_routines.lib.php:1532
 #: libraries/rte/rte_routines.lib.php:1540
@@ -9766,10 +9753,9 @@ msgid "File doesn't exist"
 msgstr "檔案不存在"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL 檢驗器已停用"
+msgstr "外掛程式已停用"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -11595,7 +11581,7 @@ msgstr "未知的標點符號字元串"
 #: libraries/structure.lib.php:69 tbl_operations.php:340
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "已清空表 %s"
+msgstr "已清空資料表 %s。"
 
 #: libraries/structure.lib.php:92
 msgid "Tracking is active."
@@ -11648,7 +11634,7 @@ msgstr "無"
 #: libraries/structure.lib.php:1350
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "已刪除欄位 %s"
+msgstr "已刪除欄位 %s。"
 
 #: libraries/structure.lib.php:1404 libraries/structure.lib.php:2079
 #: libraries/structure.lib.php:2089
@@ -11745,12 +11731,12 @@ msgstr "下個自動索引"
 #: libraries/structure.lib.php:1990 libraries/structure.lib.php:2005
 #, php-format
 msgid "An index has been added on %s."
-msgstr "已將 %s 設爲索引"
+msgstr "已將 %s 設爲索引。"
 
 #: libraries/structure.lib.php:1976
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "已將 %s 設爲主鍵(Primary key)"
+msgstr "已將 %s 設爲主鍵(Primary key)。"
 
 #: libraries/structure.lib.php:2028 libraries/structure.lib.php:2099
 msgid "Distinct values"
@@ -11788,7 +11774,7 @@ msgstr "有效"
 #: tbl_addfield.php:84
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr "已成功修改資料表 %1$s"
+msgstr "已成功修改資料表 %1$s 。"
 
 #: libraries/structure.lib.php:2441 libraries/tbl_tracking.lib.php:998
 #: libraries/tbl_tracking.lib.php:1028
@@ -11805,10 +11791,9 @@ msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr "欄位名稱 '%s' 是 MySQL 保留字。"
 
 #: libraries/structure.lib.php:2752
-#, fuzzy
 #| msgid "Add this series"
 msgid "Add to Favorites"
-msgstr "新增這個序列"
+msgstr "新增至我的最愛"
 
 #: libraries/tbl_chart.lib.php:39
 msgctxt "Chart type"
@@ -11938,16 +11923,15 @@ msgstr ""
 "(\"\\\")或單引號(\"'\")，請在前面加上反斜槓 (如 '\\\\xyz' 或 'a\\'b')。"
 
 #: libraries/tbl_columns_definition_form.lib.php:569
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "請選擇參考鍵(Reference Key)"
+msgstr "被 %s 參考。"
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "請選擇外鍵(Foreign Key)"
+msgstr "此為外鍵(Foreign Key)。"
 
 #: libraries/tbl_columns_definition_form.lib.php:769
 msgid "first"
@@ -12232,7 +12216,7 @@ msgstr "管理您的設定"
 
 #: libraries/user_preferences.inc.php:46 prefs_manage.php:297
 msgid "Configuration has been saved."
-msgstr "已儲存設定"
+msgstr "已儲存設定值。"
 
 #: libraries/user_preferences.inc.php:66
 #, php-format
@@ -12322,10 +12306,9 @@ msgid "Toggle relation lines"
 msgstr "請點選關聯行"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-#, fuzzy
 #| msgid "Import/Export coordinates for PDF schema"
 msgid "Import/Export coordinates for relational schema"
-msgstr "爲 PDF 大綱(Schema)匯入/匯出座標"
+msgstr "匯入/匯出相關的資料庫結構座標"
 
 #: pmd_general.php:155
 msgid "Build Query"
@@ -12383,13 +12366,12 @@ msgstr "目前選項"
 
 #: pmd_pdf.php:53
 msgid "Page has been created."
-msgstr "已建立頁面"
+msgstr "已建立頁面。"
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "頁面建立失敗"
+msgstr "頁面建立失敗!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
@@ -12424,26 +12406,23 @@ msgid "Error: relation already exists."
 msgstr "錯誤: 關聯已存在。"
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "錯誤: 關聯未新增。"
+msgstr "錯誤: 無法新增關聯!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "已新增外鍵關聯"
+msgstr "已新增外鍵(Foreign Key)關聯。"
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "錯誤：關聯未啟用!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "已新增內部關聯"
+msgstr "已新增內部關聯。"
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13422,10 +13401,9 @@ msgid ""
 msgstr "平均讀取資料表下一筆資料次數: %s，此值每小時應小於 1"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size 對 max_heap_table_size"
+msgstr "tmp_table_size 與 max_heap_table_size 設定值不一制"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
