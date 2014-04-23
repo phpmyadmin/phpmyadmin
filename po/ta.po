@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 22:21+0200\n"
+"PO-Revision-Date: 2014-04-23 22:23+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -7471,10 +7471,9 @@ msgid "Tables:"
 msgstr "அட்டவணைகள்:"
 
 #: libraries/navigation/Navigation.class.php:174
-#, fuzzy
 #| msgid "View"
 msgid "Views:"
-msgstr "நோக்கு"
+msgstr "விவரபார்வைகள்:"
 
 #: libraries/navigation/NavigationHeader.class.php:190
 msgid "Home"
