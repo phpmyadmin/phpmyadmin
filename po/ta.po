@@ -3994,10 +3994,10 @@ msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
 
 #: libraries/common.inc.php:658
-#, fuzzy, php-format
+#, php-format
 #| msgid "Server"
 msgid "Server %d"
-msgstr "சேவையன்"
+msgstr "வழங்கி %d"
 
 #: libraries/common.inc.php:855
 msgid "Invalid authentication method set in configuration:"
