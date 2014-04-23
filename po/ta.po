@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 07:26+0200\n"
+"PO-Revision-Date: 2014-04-23 07:28+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -3744,10 +3744,9 @@ msgid "Max: %s%s"
 msgstr ""
 
 #: libraries/Util.class.php:642 libraries/sql.lib.php:435
-#, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
-msgstr "SQL வினவல்"
+msgstr "SQL வினவல்:"
 
 #: libraries/Util.class.php:686 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:140
@@ -3891,10 +3890,9 @@ msgid "shared"
 msgstr "பகிரப்பட்டது"
 
 #: libraries/browse_foreigners.lib.php:43
-#, fuzzy
 #| msgid "Search"
 msgid "Search:"
-msgstr "தேடு"
+msgstr "தேடு:"
 
 #: libraries/browse_foreigners.lib.php:63
 #: libraries/browse_foreigners.lib.php:65
