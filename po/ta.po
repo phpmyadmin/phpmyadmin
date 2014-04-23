@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 07:34+0200\n"
+"PO-Revision-Date: 2014-04-23 07:35+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -4502,10 +4502,9 @@ msgid "Edit in window"
 msgstr ""
 
 #: libraries/config/messages.inc.php:66
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Display errors"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "பிழைகளைக் காட்டுக"
 
 #: libraries/config/messages.inc.php:67
 msgid ""
