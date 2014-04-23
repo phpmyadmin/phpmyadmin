@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-03-31 14:23+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: English (United Kingdom) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"PO-Revision-Date: 2014-04-24 00:39+0200\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
+"Language-Team: English (United Kingdom) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8101,7 +8101,6 @@ msgid "Please explain the steps that lead to the error:"
 msgstr "Please explain the steps that lead to the error:"
 
 #: libraries/error_report.lib.php:293
-#, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
 msgstr "Automatically send report next time"
@@ -8505,7 +8504,6 @@ msgid "unknown"
 msgstr "unknown"
 
 #: libraries/navigation/Navigation.class.php:59
-#, fuzzy
 #| msgid "An error has occured while loading the navigation tree"
 msgid "An error has occurred while loading the navigation tree"
 msgstr "An error has occurred while loading the navigation tree"
@@ -8543,7 +8541,6 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin documentation"
 
 #: libraries/navigation/NavigationHeader.class.php:252
-#, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
 msgstr "Reload navigation panel"
@@ -8560,20 +8557,17 @@ msgid "Expand/Collapse"
 msgstr ""
 
 #: libraries/navigation/NavigationTree.class.php:1086
-#, fuzzy
 #| msgid "filter databases by name"
 msgid "Filter databases by name or regex"
 msgstr "Filter databases by name or regex"
 
 #: libraries/navigation/NavigationTree.class.php:1088
 #: libraries/navigation/NavigationTree.class.php:1123
-#, fuzzy
 #| msgid "Clear Fast Filter"
 msgid "Clear fast filter"
 msgstr "Clear fast filter"
 
 #: libraries/navigation/NavigationTree.class.php:1122
-#, fuzzy
 #| msgid "filter items by name"
 msgid "Filter by name or regex"
 msgstr "Filter by name or regex"
@@ -8601,13 +8595,11 @@ msgid "New"
 msgstr "New"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:34
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
 msgstr "Database operations"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show hint"
 msgid "Show hidden items"
 msgstr "Show hidden items"
@@ -8648,7 +8640,6 @@ msgid "New"
 msgstr "New"
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Procedures"
 msgid "Procedure"
 msgstr "Procedure"
@@ -10042,37 +10033,31 @@ msgid "Generate Password:"
 msgstr "Generate Password:"
 
 #: libraries/replication_gui.lib.php:903
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
 msgstr "Replication started successfully."
 
 #: libraries/replication_gui.lib.php:904
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
 msgstr "Error starting replication."
 
 #: libraries/replication_gui.lib.php:907
-#, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "Replication stopped successfully."
 
 #: libraries/replication_gui.lib.php:908
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
 msgstr "Error stopping replication."
 
 #: libraries/replication_gui.lib.php:911
-#, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
 msgstr "Replication resetting successfully."
 
 #: libraries/replication_gui.lib.php:912
-#, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
 msgstr "Error resetting replication."
@@ -10082,7 +10067,6 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:916
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "Error."
@@ -10676,10 +10660,9 @@ msgid "File doesn't exist"
 msgstr "File doesn't exist"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL Validator is disabled"
+msgstr "Plug-in is disabled"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
