@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 07:29+0200\n"
+"PO-Revision-Date: 2014-04-23 07:31+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -4032,10 +4032,9 @@ msgstr "முகவுருக்கள்"
 
 #: libraries/config.values.php:50 libraries/config.values.php:66
 #: libraries/config.values.php:78
-#, fuzzy
 #| msgid "Test"
 msgid "Text"
-msgstr "சோதனை"
+msgstr "உரை"
 
 #: libraries/config.values.php:51 libraries/config.values.php:59
 #: libraries/config.values.php:67 libraries/config.values.php:79
