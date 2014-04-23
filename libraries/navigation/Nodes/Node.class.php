@@ -362,18 +362,18 @@ class Node
     {
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
-        $query .= " (";
-        $query .= "     select DB_first_level ";
-        $query .= "     from ( ";
-        $query .= "         SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+        $query .= "(";
+        $query .= "select DB_first_level ";
+        $query .= "from ( ";
+        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
         $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
         $query .= "DB_first_level ";
-        $query .= "         FROM INFORMATION_SCHEMA.SCHEMATA ";
+        $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
         $query .= $this->_getWhereClause($searchClause);
-        $query .= "     ) t ";
-        $query .= "     ORDER BY DB_first_level ASC ";
-        $query .= "     LIMIT $pos, {$GLOBALS['cfg']['FirstLevelNavigationItems']}";
-        $query .= " ) t2 ";
+        $query .= ") t ";
+        $query .= "ORDER BY DB_first_level ASC ";
+        $query .= "LIMIT $pos, {$GLOBALS['cfg']['FirstLevelNavigationItems']}";
+        $query .= ") t2 ";
         $query .= "where 1 = locate(concat(DB_first_level, ";
         $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}'), ";
         $query .= "concat(SCHEMA_NAME, ";
@@ -397,10 +397,10 @@ class Node
     {
         $query = "select COUNT(*) ";
         $query .= "from ( ";
-        $query .= " SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
-        $query .= " '{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
-        $query .= " DB_first_level ";
-        $query .= " FROM INFORMATION_SCHEMA.SCHEMATA ";
+        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+        $query .= "'{$GLOBALS['cfg']['NavigationTreeDbSeparator']}', 1) ";
+        $query .= "DB_first_level ";
+        $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
         $query .= $this->_getWhereClause($searchClause);
         $query .= ") t ";
         $retval = (int)$GLOBALS['dbi']->fetchValue($query);
