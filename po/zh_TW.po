@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-23 15:09+0200\n"
+"PO-Revision-Date: 2014-04-23 15:10+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -10681,7 +10681,7 @@ msgstr "查詢數量"
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
 msgid "Filters"
-msgstr "篩選"
+msgstr "搜尋"
 
 #: libraries/server_status_variables.lib.php:44
 #: libraries/server_variables.lib.php:187
