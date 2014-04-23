@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 11:22+0200\n"
+"PO-Revision-Date: 2014-04-23 11:23+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -7248,10 +7248,9 @@ msgid "Submit"
 msgstr ""
 
 #: libraries/mult_submits.lib.php:371
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Add table prefix:"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "அட்டவணையின் முன்னொட்டு சேர்க்க:"
 
 #: libraries/mult_submits.lib.php:374
 msgid "Add prefix"
