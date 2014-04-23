@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 07:24+0200\n"
+"PO-Revision-Date: 2014-04-23 07:26+0200\n"
 "Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -3691,11 +3691,10 @@ msgid "String"
 msgstr ""
 
 #: libraries/Types.class.php:675
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
+msgstr "வெளி சார்பு"
 
 #: libraries/Types.class.php:710
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
