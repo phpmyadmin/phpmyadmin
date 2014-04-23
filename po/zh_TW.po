@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-23 15:08+0200\n"
+"PO-Revision-Date: 2014-04-23 15:09+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -5571,7 +5571,7 @@ msgstr "是否關閉資料庫展開功能。"
 #: libraries/config/messages.inc.php:463
 #| msgid "Display databases as a list"
 msgid "Disable database expansion"
-msgstr "關閉資料庫展開"
+msgstr "關閉資料庫展開功能"
 
 #: libraries/config/messages.inc.php:465
 msgid "Maximum number of recently used tables; set 0 to disable."
