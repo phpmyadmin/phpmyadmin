@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-24 10:50+0200\n"
+"PO-Revision-Date: 2014-04-24 10:52+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -7587,10 +7587,9 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/Nodes/Node_Procedure.class.php:34
-#, fuzzy
 #| msgid "Processes"
 msgid "Procedure"
-msgstr "செயலாக்கங்கள்"
+msgstr "செயல்முறை"
 
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:26
 #: libraries/navigation/Nodes/Node_Procedure_Container.class.php:27
