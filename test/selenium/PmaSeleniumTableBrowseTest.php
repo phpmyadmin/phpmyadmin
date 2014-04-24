@@ -156,6 +156,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
      */
     public function testChangeRecords()
     {
+        $this->sleep();
         $this->byCssSelector(
             "table#table_results tbody tr:nth-child(2) td:nth-child(2) a"
         )->click();

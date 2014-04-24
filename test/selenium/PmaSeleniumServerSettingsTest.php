@@ -31,6 +31,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
         $this->waitForElement(
             "byXPath", "//a[@class='tabactive' and contains(., 'Settings')]"
         );
+        $this->sleep();
     }
 
     /**
