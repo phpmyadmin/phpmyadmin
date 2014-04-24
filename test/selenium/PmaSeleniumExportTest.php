@@ -161,13 +161,13 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->expandMore();
 
         $this->waitForElement('byLinkText', "Export")->click();
-        usleep(5000);
+        this->sleep();
 
         $this->waitForElement("byId", "quick_or_custom");
         /*
          * FIXME: There should be better way to wait for javascript to be executed
          */
-        usleep(5000);
+        this->sleep();
         $this->byCssSelector("label[for=radio_custom_export]")->click();
 
         if ($type == 'server') {
@@ -179,7 +179,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         if ($type == 'table') {
             $this->byCssSelector("label[for=radio_allrows_0]")->click();
-            usleep(5000);
+            this->sleep();
             $this->byName("limit_to")->clear();
             $this->byName("limit_to")->value("1");
         }

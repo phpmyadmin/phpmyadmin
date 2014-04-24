@@ -50,7 +50,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->expandMore();
         $this->byXPath("//a[contains(., 'Operations')]")->click();
-        usleep(500);
+        this->sleep();
         $this->waitForElement(
             "byXPath",
             "//legend[contains(., 'Table maintenance')]"

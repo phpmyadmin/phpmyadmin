@@ -404,8 +404,21 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             if (!$this->isElementPresent($func, $arg)) {
                 return true;
             }
-            usleep(100);
+            usleep(5000);
         }
+    }
+
+    /**
+     * Sleeps while waiting for browser to perform an action.
+     *
+     * @todo This method should not be used, but rather there would be
+     *       explicit waiting for some elements.
+     *
+     * @return void
+     */
+    public function sleep()
+    {
+        usleep(5000);
     }
 
     /**
@@ -576,7 +589,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         );
 
         /* TODO: Timing issue of expanding navigation tree */
-        usleep(500);
+        $this->sleep();
 
         // go to table page
         $this->waitForElement(
