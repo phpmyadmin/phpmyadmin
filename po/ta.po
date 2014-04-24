@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-24 11:18+0200\n"
+"PO-Revision-Date: 2014-04-24 11:26+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -7661,7 +7661,7 @@ msgstr "தரவுகளை மட்டும்"
 #: libraries/operations.lib.php:175
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "தரவுதளத்தை படியெடுக்க:"
+msgstr "தரவுதளத்தை இப்படி படியெடுக்க:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
