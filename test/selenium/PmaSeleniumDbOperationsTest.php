@@ -28,6 +28,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
     {
         $this->login();
         $this->waitForElement('byLinkText', $this->database_name)->click();
+        $this->waitForElement("byLinkText", "Structure");
         $this->expandMore();
         $this->waitForElement("byLinkText", "Operations")->click();
         $this->waitForElement(
