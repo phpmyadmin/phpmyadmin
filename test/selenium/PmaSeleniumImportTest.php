@@ -86,20 +86,7 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
             "CREATE TABLE IF NOT EXISTS `test_table` (`val` int(11) NOT NULL)"
         );
 
-        // go to database page
-        $this->waitForElement("byLinkText", $this->database_name)->click();
-        $this->waitForElement(
-            "byXPath",
-            "//a[@class='item' and contains(., 'Database: "
-            . $this->database_name . "')]"
-        );
-
-        // got to table page
-        $this->waitForElement("byLinkText", "test_table")->click();
-        $this->waitForElement(
-            "byXPath",
-            "//a[@class='tabactive' and contains(., 'Browse')]"
-        );
+        $this->navigateTable('test_table');
 
         $this->_doImport("table");
 
