@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-07 05:15+0200\n"
-"Last-Translator: Luis Eduardo Braschi <herrcasper@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.cihar.com/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2014-04-24 08:19+0200\n"
+"Last-Translator: Gustavo Torres Mendes <gust_torres.mendes@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -308,9 +308,8 @@ msgid "Access denied!"
 msgstr "Acesso negado!"
 
 #: db_structure.php:72
-#, fuzzy
 msgid "Favorite List is full!"
-msgstr "Lista de favoritos está cheia!"
+msgstr "A lista de favoritos está cheia!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -956,6 +955,8 @@ msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
+"Você tem certeza que quer sair desta página? Pressione OK para continuar ou "
+"Cancelar para permanecer na página atual."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -2462,16 +2463,14 @@ msgid "Submit Query"
 msgstr "Enviar query"
 
 #: libraries/DBQbe.class.php:1451
-#, fuzzy
 #| msgid "Saved searches:"
 msgid "Saved bookmarked search:"
-msgstr "Pesquisas salvas:"
+msgstr "Pesquisas favoritas salvas:"
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "New bookmark"
-msgstr "Criar marcador"
+msgstr "Novo marcador"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"
@@ -2600,16 +2599,14 @@ msgid "Restore column order"
 msgstr "Restaurar ordem da coluna"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "Filtros"
+msgstr "Filtrar linhas"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "Procurar no banco de dados"
+msgstr "Procurar nesta tabela"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -3194,53 +3191,47 @@ msgid "Could not save recent table!"
 msgstr "Não foi possível salvar a tabela recente!"
 
 #: libraries/RecentFavoriteTable.class.php:154
-#, fuzzy
 #| msgid "Could not save recent table!"
 msgid "Could not save favorite table!"
-msgstr "Não foi possível salvar a tabela recente!"
+msgstr "Não foi possível salvar a tabela favorita!"
 
 # The word "chart" in brasilian portuguese can mean either "Table = tabela" or
 # "Report = relatório" or "Chart = gráfico" or "Diagram = diagrama". So, it
 # depends of the context.
 #: libraries/RecentFavoriteTable.class.php:225
 #: libraries/structure.lib.php:2751
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Remover gráfico"
+msgstr "Remover dos Favorites"
 
 #: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "Não existem tabelas recentes."
 
 #: libraries/RecentFavoriteTable.class.php:243
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "Não existem tabelas recentes."
+msgstr "Não existem tabelas favoritas."
 
 #: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "Tabelas recentes"
 
 #: libraries/RecentFavoriteTable.class.php:260
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Resetar"
+msgstr "Recente"
 
 #: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorite tables"
-msgstr "Variáveis"
+msgstr "Tabelas favoritas"
 
 #: libraries/RecentFavoriteTable.class.php:264
-#, fuzzy
 #| msgid "Variables"
 msgid "Favorites"
-msgstr "Variáveis"
+msgstr "Favoritos"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -4616,10 +4607,10 @@ msgstr ""
 "autenticação!"
 
 #: libraries/config/Validator.class.php:322
-#, fuzzy
 #| msgid "Empty signon URL while using signon authentication method!"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "URL de signon vazia quando usado o método de autenticação signon!"
+msgstr ""
+"URL de [kbd]signon[/kbd] vazia quando usado o método de autenticação signon!"
 
 #: libraries/config/Validator.class.php:369
 msgid ""
