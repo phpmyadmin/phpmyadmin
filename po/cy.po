@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2014-04-24 13:06-0400\n"
+"POT-Creation-Date: 2014-04-24 14:50-0400\n"
 "PO-Revision-Date: 2014-03-28 13:26+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Welsh <https://l10n.cihar.com/projects/phpmyadmin/master/cy/"
@@ -5845,8 +5845,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:402
 msgid ""
-"The number of items that can be displayed on each page on first level of "
-"the  navigation tree."
+"The number of items that can be displayed on each page on the first level of "
+"the navigation tree."
 msgstr ""
 
 #: libraries/config/messages.inc.php:405
