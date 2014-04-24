@@ -69,7 +69,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // case 1
         $this->byLinkText("name")->click();
         $this->waitForElementNotPresent("byId", "loading_parent");
-        this->sleep();
+        $this->sleep();
 
         $this->assertEquals(
             "1",
@@ -89,7 +89,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // case 2
         $this->byLinkText("name")->click();
         $this->waitForElementNotPresent("byId", "loading_parent");
-        this->sleep();
+        $this->sleep();
 
         $this->assertEquals(
             "2",
@@ -109,7 +109,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // case 2
         $this->byLinkText("datetimefield")->click();
         $this->waitForElementNotPresent("byId", "loading_parent");
-        this->sleep();
+        $this->sleep();
 
         $this->assertEquals(
             "3",
@@ -129,7 +129,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // case 4
         $this->byLinkText("datetimefield")->click();
         $this->waitForElementNotPresent("byId", "loading_parent");
-        this->sleep();
+        $this->sleep();
 
         $this->assertEquals(
             "2",

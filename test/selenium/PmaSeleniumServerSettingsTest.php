@@ -42,7 +42,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
     private function _saveConfig()
     {
         $this->byName("submit_save")->click();
-        this->sleep();
+        $this->sleep();
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Configuration has been saved')]"
