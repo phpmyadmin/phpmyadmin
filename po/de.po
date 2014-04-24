@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-11 07:49+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-04-25 00:46+0200\n"
+"Last-Translator: Nicolas <thegreenkey.email@aol.com>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/4-1/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1784,7 +1784,7 @@ msgstr "Suchkriterien ausblenden und Kriterien ersetzen"
 
 #: js/messages.php:298
 msgid "Show find and replace criteria"
-msgstr "Suchkriterien anzeigen und Kriterien ersetzen"
+msgstr "Suchkriterien anzeigen und ersetzen"
 
 #: js/messages.php:301 libraries/TableSearch.class.php:212
 msgid "Zoom Search"
@@ -9990,10 +9990,9 @@ msgid "File doesn't exist"
 msgstr "Datei existiert nicht"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL-Validator ist deaktiviert"
+msgstr "Plugin ist deaktiviert"
 
 #: libraries/select_lang.lib.php:542 libraries/select_lang.lib.php:551
 #: libraries/select_lang.lib.php:560
