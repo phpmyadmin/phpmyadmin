@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-19 20:27+0200\n"
+"PO-Revision-Date: 2014-04-24 19:34+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -5595,20 +5595,20 @@ msgid "Maximum databases"
 msgstr "En fazla veritabanı"
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree."
 msgid ""
 "The number of items that can be displayed on each page on first level of "
 "the  navigation tree."
-msgstr "Rehber ağacının her sayfasında görüntülenebilen öğe sayısıdır."
+msgstr ""
+"Gezinti ağacının ilk seviyesindeki her sayfasında görüntülenebilen öğe "
+"sayısıdır."
 
 #: libraries/config/messages.inc.php:405
-#, fuzzy
 #| msgid "Maximum items in branch"
 msgid "Maximum items on first level"
-msgstr "Daldaki en fazla öğe"
+msgstr "İlk seviyedeki en fazla öğe"
 
 #: libraries/config/messages.inc.php:407
 msgid ""
