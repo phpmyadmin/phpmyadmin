@@ -575,6 +575,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             'li.last.table'
         );
 
+        /* TODO: Timing issue of expanding navigation tree */
+        usleep(500);
+
         // go to table page
         $this->waitForElement(
             "byXPath",
