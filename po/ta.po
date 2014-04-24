@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-23 22:39+0200\n"
-"Last-Translator: ganeshkumar <GANESHTHEONE@gmail.com>\n"
+"PO-Revision-Date: 2014-04-24 10:50+0200\n"
+"Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -7547,10 +7547,9 @@ msgid "Database operations"
 msgstr "தரவுதள நடவடிக்கைகள்"
 
 #: libraries/navigation/Nodes/Node_Database.class.php:318
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hidden items"
-msgstr "சுட்டுகளை காட்டு"
+msgstr "மறைக்கப்பட்ட உருப்படிகளை காட்டு"
 
 #: libraries/navigation/Nodes/Node_Database_Container.class.php:34
 msgctxt "Create new database"
