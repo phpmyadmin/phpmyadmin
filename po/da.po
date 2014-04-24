@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-24 20:52+0200\n"
+"PO-Revision-Date: 2014-04-24 20:57+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
 "\n"
@@ -8926,16 +8926,14 @@ msgstr "Indeks for tabel"
 
 # zero = null?
 #: libraries/plugins/export/ExportSql.class.php:1313
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Brug ikke AUTO_INCREMENT for 0-værdier"
+msgstr "Brug ikke AUTO_INCREMENT for slettede tabeller"
 
 #: libraries/plugins/export/ExportSql.class.php:1323
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Tilføj AUTO_INCREMENT værdi"
+msgstr "Tilføj AUTO_INCREMENT i tabel"
 
 #: libraries/plugins/export/ExportSql.class.php:1540
 msgid "MIME TYPES FOR TABLE"
@@ -9726,11 +9724,10 @@ msgstr "Hændelse %1$s er oprettet."
 
 #: libraries/rte/rte_events.lib.php:178 libraries/rte/rte_routines.lib.php:378
 #: libraries/rte/rte_triggers.lib.php:150
-#, fuzzy
 #| msgid ""
 #| "<b>One or more errors have occurred while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>Der er opstået fejl under behandling af anmodningen:</b>"
+msgstr "Der er opstået fejl under behandling af anmodningen:"
 
 #: libraries/rte/rte_events.lib.php:234
 msgid "Edit event"
@@ -10249,10 +10246,9 @@ msgid "File doesn't exist"
 msgstr "Filen eksisterer ikke"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL Validator er deaktiveret"
+msgstr "Plugin er deaktiveret"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -12932,10 +12928,9 @@ msgid "Toggle relation lines"
 msgstr "Slå relationslinjer til eller fra"
 
 #: pmd_general.php:146 pmd_pdf.php:103
-#, fuzzy
 #| msgid "Import/Export coordinates for PDF schema"
 msgid "Import/Export coordinates for relational schema"
-msgstr "Importér/eksportér koordinater for PDF-opstilling"
+msgstr "Importér/eksportér koordinater for relativ opstilling"
 
 #: pmd_general.php:155
 msgid "Build Query"
@@ -13005,22 +13000,19 @@ msgid "Page:"
 msgstr "Side:"
 
 #: pmd_pdf.php:124
-#, fuzzy
 #| msgid "Import from selected page"
 msgid "Import from selected page."
-msgstr "Importér fra valgt side"
+msgstr "Importér fra valgt side."
 
 #: pmd_pdf.php:125
-#, fuzzy
 #| msgid "Export to selected page"
 msgid "Export to selected page."
-msgstr "Eksportér til valgte side"
+msgstr "Eksportér til valgte side."
 
 #: pmd_pdf.php:127
-#, fuzzy
 #| msgid "Create a page and export to it"
 msgid "Create a page and export to it."
-msgstr "Opret en side og eksportér til denne"
+msgstr "Opret en side og eksportér til denne."
 
 #: pmd_pdf.php:139
 msgid "New page name: "
@@ -13039,26 +13031,23 @@ msgid "Error: relation already exists."
 msgstr "Fejl: relation findes allerede."
 
 #: pmd_relation_new.php:80 pmd_relation_new.php:106
-#, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Relation could not be added!"
-msgstr "Fejl: Relation ikke tilføjet."
+msgstr "Fejl: Relation ikke tilføjet!"
 
 #: pmd_relation_new.php:81
-#, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relation has been added."
-msgstr "FOREIGN KEY relation tilføjet"
+msgstr "FOREIGN KEY relation tilføjet."
 
 #: pmd_relation_new.php:85
 msgid "Error: Relational features are disabled!"
 msgstr "Fejl: Relationelle egenskaber er slået fra!"
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relation has been added."
-msgstr "Intern relation tilføjet"
+msgstr "Intern relation tilføjet."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
@@ -13069,10 +13058,9 @@ msgid "Error saving coordinates for Designer."
 msgstr "Fejl ved lagring af koordinater for Designer."
 
 #: prefs_forms.php:86
-#, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "Kan ikke gemme indstillinger, den sendte formular indeholder fejl"
+msgstr "Kan ikke gemme indstillinger, den sendte formular indeholder fejl!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -13167,7 +13155,7 @@ msgstr "Vis dump (skema) for databaser"
 
 #: server_privileges.php:142
 msgid "Username and hostname didn't change."
-msgstr ""
+msgstr "Brugernavn og værtsnavn blev ikke ændret."
 
 #: server_status.php:32
 #, php-format
@@ -13182,11 +13170,10 @@ msgstr ""
 "phpMyAdmin kunne ikke dræbe tråden %s. Den er sandsynligvis allerede lukket."
 
 #: setup/frames/form.inc.php:25
-#, fuzzy
 #| msgid ""
 #| "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
-msgstr "Ukorrekt formsæt, tjek arrayet $formsets i setup/frames/form.inc.php"
+msgstr "Ukorrekt formsæt, tjek arrayet $formsets i setup/frames/form.inc.php!"
 
 #: setup/frames/index.inc.php:53
 msgid "Cannot load or save configuration"
@@ -13431,10 +13418,10 @@ msgid "Description"
 msgstr "Beskrivelse"
 
 #: url.php:31
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking report"
 msgid "Taking you to %s."
-msgstr "Sporingsrapport"
+msgstr "Sporingsrapport %s."
 
 #: user_password.php:29
 msgid "You don't have sufficient privileges to be here right now!"
@@ -14117,10 +14104,9 @@ msgstr ""
 "1 pr time"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "tmp_table_size vs. max_heap_table_size"
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "tmp_table_size op imod max_heap_table_size"
+msgstr "Forskelle tmp_table_size op vs. max_heap_table_size"
 
 #: libraries/advisory_rules.txt:265
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
