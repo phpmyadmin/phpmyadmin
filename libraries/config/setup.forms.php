@@ -170,6 +170,7 @@ $forms['Navi_panel']['Navi_panel'] = array(
     'NavigationLogoLink',
     'NavigationLogoLinkWindow',
     'NavigationTreePointerEnable',
+    'FirstLevelNavigationItems',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisableDatabaseExpansion',

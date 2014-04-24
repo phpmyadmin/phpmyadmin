@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 - bug #4352 Settings > Manage: incorrect messages
 - bug #4337 "More" in Actions area doesn't collapse to fit available space
 - bug #4375 Group two DB, one's name is the prefix of the other one
+- bug #4070 Confusing database/table grouping
 
 4.1.14.0 (not yet released)
 - bug #4365 Creating bookmark with multiple queries not working

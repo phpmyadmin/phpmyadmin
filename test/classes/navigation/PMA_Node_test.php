@@ -342,13 +342,26 @@ class Node_Test extends PHPUnit_Framework_TestCase
         if (! isset($GLOBALS['cfg'])) {
             $GLOBALS['cfg'] = array();
         }
-        $GLOBALS['cfg']['MaxNavigationItems'] = $limit;
+        $GLOBALS['cfg']['FirstLevelNavigationItems'] = $limit;
+        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
         $expectedSql  = "SELECT `SCHEMA_NAME` ";
-        $expectedSql .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $expectedSql .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ";
+        $expectedSql .= "(";
+        $expectedSql .= "select DB_first_level ";
+        $expectedSql .= "from ( ";
+        $expectedSql .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, ";
+        $expectedSql .= "'_', 1) ";
+        $expectedSql .= "DB_first_level ";
+        $expectedSql .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
         $expectedSql .= "WHERE TRUE ";
-        $expectedSql .= "ORDER BY `SCHEMA_NAME` ASC ";
+        $expectedSql .= ") t ";
+        $expectedSql .= "ORDER BY DB_first_level ASC ";
         $expectedSql .= "LIMIT $pos, $limit";
+        $expectedSql .= ") t2 ";
+        $expectedSql .= "where 1 = locate(concat(DB_first_level, '_'), ";
+        $expectedSql .= "concat(SCHEMA_NAME, '_')) ";
+        $expectedSql .= "order by SCHEMA_NAME ASC";
 
         // It would have been better to mock _getWhereClause method
         // but stangely, mocking private methods is not supported in PHPUnit
@@ -381,10 +394,15 @@ class Node_Test extends PHPUnit_Framework_TestCase
         if (! isset($GLOBALS['cfg']['Servers'][0])) {
             $GLOBALS['cfg']['Servers'][0] = array();
         }
+        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
 
-        $query  = "SELECT COUNT(*) ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $query = "select COUNT(*) ";
+        $query .= "from ( ";
+        $query .= "SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) ";
+        $query .= "DB_first_level ";
+        $query .= "FROM INFORMATION_SCHEMA.SCHEMATA ";
         $query .= "WHERE TRUE ";
+        $query .= ") t ";
 
         // It would have been better to mock _getWhereClause method
         // but strangely, mocking private methods is not supported in PHPUnit
