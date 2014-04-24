@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-24 20:51+0200\n"
+"PO-Revision-Date: 2014-04-24 20:52+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
 "\n"
@@ -12548,10 +12548,9 @@ msgid "Referenced by %s."
 msgstr "Refereret ved %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
-#, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "Vælg fremmednøgle"
+msgstr "Vælg fremmednøgle."
 
 #: libraries/tbl_columns_definition_form.lib.php:769
 msgid "first"
@@ -12564,7 +12563,7 @@ msgstr "efter %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1067
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Rediger ENUM/SET værdier"
 
 #: libraries/tbl_columns_definition_form.lib.php:1092
 msgctxt "for default"
@@ -12997,10 +12996,9 @@ msgid "Page has been created."
 msgstr "Side er blevet oprettet."
 
 #: pmd_pdf.php:56
-#, fuzzy
 #| msgid "Page creation failed"
 msgid "Page creation has failed!"
-msgstr "Sideoprettelse fejlede"
+msgstr "Sideoprettelse fejlede!"
 
 #: pmd_pdf.php:114
 msgid "Page:"
