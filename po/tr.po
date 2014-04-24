@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-24 19:34+0200\n"
+"PO-Revision-Date: 2014-04-24 19:42+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
@@ -1950,7 +1950,7 @@ msgstr "Paneli Gizle"
 
 #: js/messages.php:381
 msgid "Show hidden navigation tree items."
-msgstr "Gizli rehber ağacı öğelerini göster."
+msgstr "Gizli gezinti ağacı öğelerini göster."
 
 #: js/messages.php:384
 msgid "The requested page was not found in the history, it may have expired."
@@ -5164,11 +5164,11 @@ msgstr "Veritabanlarını görüntüleme seçenekleri."
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
-msgstr "Rehber paneli"
+msgstr "Gezinti paneli"
 
 #: libraries/config/messages.inc.php:236
 msgid "Customize appearance of the navigation panel."
-msgstr "Rehber panelinin görünümünü özelleştirir."
+msgstr "Gezinti panelinin görünümünü özelleştirir."
 
 #: libraries/config/messages.inc.php:237 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
@@ -5297,7 +5297,7 @@ msgstr "İçe aktarma varsayılanlarını özelleştir"
 
 #: libraries/config/messages.inc.php:285
 msgid "Customize navigation panel"
-msgstr "Rehber paneli özelleştir"
+msgstr "Gezinti panelini özelleştir"
 
 #: libraries/config/messages.inc.php:286
 msgid "Customize main panel"
@@ -5614,7 +5614,7 @@ msgstr "İlk seviyedeki en fazla öğe"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "Rehber ağacının her sayfasında görüntülenebilen öğe sayısıdır."
+msgstr "Gezinti ağacının her sayfasında görüntülenebilen öğe sayısıdır."
 
 #: libraries/config/messages.inc.php:409
 msgid "Maximum items in branch"
@@ -5667,7 +5667,7 @@ msgstr "Bellek sınırı"
 
 #: libraries/config/messages.inc.php:429
 msgid "Show logo in navigation panel."
-msgstr "Rehber panelinde logoyu gösterir."
+msgstr "Gezinti panelinde logoyu gösterir."
 
 #: libraries/config/messages.inc.php:430
 msgid "Display logo"
@@ -5675,7 +5675,7 @@ msgstr "Logoyu görüntüle"
 
 #: libraries/config/messages.inc.php:432
 msgid "URL where logo in the navigation panel will point to."
-msgstr "Rehber panelindeki logoyu işaret eden URL."
+msgstr "Gezinti panelindeki logoyu işaret eden URL."
 
 #: libraries/config/messages.inc.php:433
 msgid "Logo link URL"
@@ -5695,7 +5695,7 @@ msgstr "Logo bağlantısı hedefi"
 
 #: libraries/config/messages.inc.php:440
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Sunucu seçimini rehber panelinin en üstünde görüntüler."
+msgstr "Sunucu seçimini gezinti panelinin en üstünde görüntüler."
 
 #: libraries/config/messages.inc.php:441
 msgid "Display servers selection"
@@ -5727,7 +5727,7 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined "
 "below)."
 msgstr ""
-"Rehber ağacındaki öğeleri gruplar (aşağıda tanımlanan ayıraç tarafından "
+"Gezinti ağacındaki öğeleri gruplar (aşağıda tanımlanan ayıraç tarafından "
 "belirlenir)."
 
 #: libraries/config/messages.inc.php:454
@@ -5808,7 +5808,7 @@ msgstr "Sadece simgeleri, sadece metni veya her ikisinide kullan."
 
 #: libraries/config/messages.inc.php:481
 msgid "Table navigation bar"
-msgstr "Tablo rehber çubuğu"
+msgstr "Tablo gezinti çubuğu"
 
 #: libraries/config/messages.inc.php:483
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
@@ -6452,12 +6452,12 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
-"Rehber öğelerini gizleme ve gösterme özelliğini etkisizleştirmek için boş "
+"Gezinti öğelerini gizleme ve gösterme özelliğini etkisizleştirmek için boş "
 "bırakın, önerilen: [kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:713
 msgid "Hidden navigation items table"
-msgstr "Gizli rehber öğeleri tablosu"
+msgstr "Gizli gezinti öğeleri tablosu"
 
 #: libraries/config/messages.inc.php:715
 msgid "User for config auth"
@@ -9215,7 +9215,7 @@ msgstr "Yapılandırılabilir menüler"
 
 #: libraries/relation.lib.php:279
 msgid "Hide/show navigation items"
-msgstr "Rehber öğelerini gizle/göster"
+msgstr "Gezinti öğelerini gizle/göster"
 
 #: libraries/relation.lib.php:290
 msgid "Saving Query-By-Example searches"
@@ -12750,7 +12750,7 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 
 #: navigation.php:20
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr "Önemli hata: Rehbere sadece AJAX aracılığıyla erişilebilir"
+msgstr "Önemli hata: Gezintiye sadece AJAX aracılığıyla erişilebilir"
 
 #: pmd_display_field.php:62 pmd_save_pos.php:85
 msgid "Modifications have been saved"
