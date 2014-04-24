@@ -47,6 +47,10 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function authSetUser()
     {
+        // try to workaround PHP 5 session garbage collection which
+        // looks at the session file's last modified time
+        $_SESSION['last_access_time'] = time();
+
         return true;
     }
 
