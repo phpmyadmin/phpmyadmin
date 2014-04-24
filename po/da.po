@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-24 20:48+0200\n"
+"PO-Revision-Date: 2014-04-24 20:51+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/master/da/>"
 "\n"
@@ -12542,10 +12542,10 @@ msgstr ""
 "\\xyz' eller 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.lib.php:569
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "Vælg refereret nøgle"
+msgstr "Refereret ved %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
 #, fuzzy
