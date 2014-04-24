@@ -912,6 +912,7 @@ var ResizeHandler = function () {
     // need to call this now and then, browser might decide
     // to show/hide horizontal scrollbars depending on page content width
     setInterval(this.treeResize, 2000);
+    this.treeResize();
 }; // End of ResizeHandler
 
 /**
