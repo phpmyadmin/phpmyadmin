@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-22 14:06+0200\n"
-"PO-Revision-Date: 2014-04-24 11:08+0200\n"
+"PO-Revision-Date: 2014-04-24 11:29+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -7844,10 +7844,9 @@ msgid "Data only"
 msgstr "தரவுகளை மட்டும்"
 
 #: libraries/operations.lib.php:175
-#, fuzzy
 #| msgid "Copy database to"
 msgid "Copy database to:"
-msgstr "தரவுத்தளத்தை பிரதிசெய்"
+msgstr "தரவுதளத்தை இப்படி படியெடுக்க:"
 
 #: libraries/operations.lib.php:186
 msgid "CREATE DATABASE before copying"
@@ -8045,10 +8044,9 @@ msgid "Username:"
 msgstr "பயனாளர்:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:214
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "சேவையன் தேர்வு"
+msgstr "விருப்பமான வழங்கி:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:391
 msgid "Entered captcha is wrong, try again!"
@@ -8213,10 +8211,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:121
 #: libraries/plugins/export/ExportLatex.class.php:166
-#, fuzzy
 #| msgid "Table options"
 msgid "Table caption:"
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "அட்டவணை தலைப்பு:"
 
 #: libraries/plugins/export/ExportLatex.class.php:126
 #: libraries/plugins/export/ExportLatex.class.php:171
