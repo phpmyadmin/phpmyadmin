@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-24 20:31+0200\n"
+"PO-Revision-Date: 2014-04-24 22:25+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -5567,20 +5567,20 @@ msgid "Maximum databases"
 msgstr "Maximalt antal databaser"
 
 #: libraries/config/messages.inc.php:402
-#, fuzzy
 #| msgid ""
 #| "The number of items that can be displayed on each page of the navigation "
 #| "tree."
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr "Antalet objekt som kan visas på varje sida i navigationsträdet."
+msgstr ""
+"Antalet objekt som kan visas på varje sida på den första nivån av "
+"navigationsträdet."
 
 #: libraries/config/messages.inc.php:405
-#, fuzzy
 #| msgid "Maximum items in branch"
 msgid "Maximum items on first level"
-msgstr "Maximalt antal poster i gren"
+msgstr "Maximalt antal objekt på första nivån"
 
 #: libraries/config/messages.inc.php:407
 msgid ""
@@ -5590,7 +5590,7 @@ msgstr "Antalet objekt som kan visas på varje sida i navigationsträdet."
 
 #: libraries/config/messages.inc.php:409
 msgid "Maximum items in branch"
-msgstr "Maximalt antal poster i gren"
+msgstr "Maximalt antal objekt i gren"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
@@ -5702,7 +5702,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:454
 msgid "Group items in the tree"
-msgstr "Grupperar objekt i trädet"
+msgstr "Gruppera objekt i trädet"
 
 #: libraries/config/messages.inc.php:456
 msgid "String that separates databases into different tree levels."
