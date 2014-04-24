@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-10 16:08+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-04-24 22:25+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/4-1/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -656,7 +656,8 @@ msgstr ""
 
 #: import.php:519 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Kunde inte läsa in tillägg för import, kontrollera din installation!"
+msgstr ""
+"Kunde inte läsa in insticksprogram för import, kontrollera din installation!"
 
 #: import.php:553 libraries/sql.lib.php:1026 libraries/sql.lib.php:1807
 #, php-format
@@ -3921,7 +3922,7 @@ msgstr "Gå igenom din dator:"
 #: libraries/Util.class.php:3347
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Välj katalog att ladda upp till från web-server listningen <b>%s</b>:"
+msgstr "Välj från webbserverns uppladdningskatalog <b>%s</b>:"
 
 #: libraries/Util.class.php:3376 libraries/insert_edit.lib.php:1235
 #: libraries/sql_query_form.lib.php:487
@@ -4051,7 +4052,7 @@ msgstr ""
 #: libraries/common.inc.php:591
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr "Kunde inte ladda standardkonfiguration från: %1$s"
+msgstr "Kunde inte läsa in standardkonfiguration från: %1$s"
 
 #: libraries/common.inc.php:598
 msgid ""
@@ -4310,7 +4311,7 @@ msgstr "Tillåt användare att anpassa detta värde"
 
 #: libraries/config/FormDisplay.tpl.php:391
 msgid "Apply"
-msgstr "Applicera"
+msgstr "Verkställ"
 
 #: libraries/config/FormDisplay.tpl.php:393 libraries/insert_edit.lib.php:1605
 #: libraries/schema/User_Schema.class.php:574 prefs_manage.php:320
@@ -5387,7 +5388,7 @@ msgstr "Antalet objekt som kan visas på varje sida i navigationsträdet"
 
 #: libraries/config/messages.inc.php:293
 msgid "Maximum items in branch"
-msgstr "Maximalt antal poster i gren"
+msgstr "Maximalt antal objekt i gren"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -5500,7 +5501,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:316
 msgid "Group items in the tree"
-msgstr "Grupperar objekt i trädet"
+msgstr "Gruppera objekt i trädet"
 
 #: libraries/config/messages.inc.php:317
 msgid "String that separates databases into different tree levels"
@@ -6173,7 +6174,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:454
 msgid "User preferences storage table"
-msgstr "Användarinställningar för lagringstabell"
+msgstr "Lagringstabell för användarinställningar"
 
 #: libraries/config/messages.inc.php:455
 msgid ""
@@ -6749,7 +6750,8 @@ msgstr "Antal kolumner"
 
 #: libraries/display_export.inc.php:36
 msgid "Could not load export plugins, please check your installation!"
-msgstr "Kunde inte ladda export-tillägg. Kontrollera din installation!"
+msgstr ""
+"Kunde inte läsa in insticksprogram för export. Kontrollera din installation!"
 
 #: libraries/display_export.lib.php:165
 msgid "Exporting databases from the current server"
@@ -8637,7 +8639,7 @@ msgstr "Ogiltigt antal kolumner i CSV-indata på rad %d."
 
 #: libraries/plugins/import/ImportLdi.class.php:112
 msgid "This plugin does not support compressed imports!"
-msgstr "Detta tillägg stöder inte komprimerade importer!"
+msgstr "Detta insticksprogram stöder inte komprimerade importer!"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:56
 msgid "MediaWiki Table"
@@ -8768,15 +8770,15 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"ENDAST LINUX: Startar en extern applikation och sänder kolumndata via "
+"ENDAST LINUX: Startar en extern applikation och sänder den kolumndata via "
 "standard in. Returnerar standard ut från applikationen. Standard är Tidy, "
 "för att pretty-print HTML-kod. Av säkerhetsskäl måste du manuellt redigera "
 "filen libraries/plugins/transformationer/Text_Plain_External.class.php och "
-"lista de verktyg du vill göra tillgängliga. Den första optionen är antalet "
-"program du vill använda och den andra optionen är parametrarna för "
-"programmet. Den tredje optionen, om den är 1, kommer omvandla utdata via "
-"htmlspecialchars() (Default 1). Den fjärde optionen, om 1, kommer förhindra "
-"radbrytning och se till att utskriften sker på en rad (Default 1)."
+"lista de verktyg du vill göra tillgängliga. Den första flaggan är antalet "
+"program du vill använda och den andra flaggan är parametrarna för "
+"programmet. Den tredje flaggan, om den är 1, kommer omvandla utdata via "
+"htmlspecialchars() (Standard 1). Den fjärde flaggan, om 1, kommer förhindra "
+"radbrytning och se till att utskriften sker på en rad (Standard 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9834,10 +9836,9 @@ msgid "File doesn't exist"
 msgstr "Filen finns inte"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL-validerare är inaktiverad"
+msgstr "Insticksprogrammet är inaktiverat"
 
 #: libraries/select_lang.lib.php:542 libraries/select_lang.lib.php:551
 #: libraries/select_lang.lib.php:560
@@ -11986,7 +11987,7 @@ msgstr "Kolumn"
 #: libraries/tbl_chart.lib.php:45
 msgctxt "Chart type"
 msgid "Line"
-msgstr "Rad"
+msgstr "Linjediagram"
 
 #: libraries/tbl_chart.lib.php:47
 msgctxt "Chart type"
@@ -11996,7 +11997,7 @@ msgstr "Spline"
 #: libraries/tbl_chart.lib.php:50
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Ytdiagram"
 
 #: libraries/tbl_chart.lib.php:53
 msgctxt "Chart type"
@@ -12711,7 +12712,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
-msgstr "Kan inte ladda eller spara konfiguration"
+msgstr "Kan inte läsa in eller spara konfiguration"
 
 #: setup/frames/index.inc.php:54
 msgid ""
@@ -12799,7 +12800,7 @@ msgstr "Visa"
 
 #: setup/frames/index.inc.php:282
 msgid "Load"
-msgstr "Ladda"
+msgstr "Läs in"
 
 #: setup/frames/index.inc.php:305
 msgid "phpMyAdmin homepage"
@@ -12963,9 +12964,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Om du känner att det är nödvändigt, använd extra skyddsinställningar - "
-"%shost autentisering%s-inställningar  och %strusted proxies listan%s. Dock "
-"kan IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP som "
+"Om du känner att det är nödvändigt, använd extra skyddsinställningar - %"
+"shost authentication%s-inställningar  och %strusted proxies list%s. Dock kan "
+"IP-baserat skydd inte vara tillförlitligt om din IP tillhör en ISP som "
 "tusentals användare, inklusive dig, är anslutna till."
 
 #: setup/lib/index.lib.php:278
