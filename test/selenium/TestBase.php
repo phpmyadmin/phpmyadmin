@@ -141,7 +141,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 array(
                     'browserName' => $GLOBALS['TESTSUITE_SELENIUM_BROWSER'],
                     'host' => $GLOBALS['TESTSUITE_SELENIUM_HOST'],
-                    'port' => $GLOBALS['TESTSUITE_SELENIUM_PORT'],
+                    'port' => int($GLOBALS['TESTSUITE_SELENIUM_PORT']),
                 )
             );
         } else {
