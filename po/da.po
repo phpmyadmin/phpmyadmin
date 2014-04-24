@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-16 04:13+0200\n"
+"PO-Revision-Date: 2014-04-24 20:57+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/4-1/da/>\n"
 "Language: da\n"
@@ -7003,6 +7003,8 @@ msgid ""
 "Skip this number of queries (for SQL) or lines (for other formats), starting "
 "from the first one:"
 msgstr ""
+"Spring over antallet af forespørgsler (til SQL) eller linier (andre formater)"
+" begyndende med:"
 
 #: libraries/display_import.lib.php:342
 msgid "Format-Specific Options:"
@@ -9279,7 +9281,7 @@ msgstr "Fejl ved nulstilling af replikering."
 
 #: libraries/replication_gui.lib.php:923
 msgid "Success."
-msgstr ""
+msgstr "Succes."
 
 #: libraries/replication_gui.lib.php:924
 msgid "Error."
@@ -9852,10 +9854,9 @@ msgid "File doesn't exist"
 msgstr "Filen eksisterer ikke"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL Validator er deaktiveret"
+msgstr "Plugin er deaktiveret"
 
 #: libraries/select_lang.lib.php:542 libraries/select_lang.lib.php:551
 #: libraries/select_lang.lib.php:560
