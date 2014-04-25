@@ -1385,7 +1385,7 @@ Navigation panel setup
 .. config:option:: $cfg['MaxNavigationItems']
 
     :type: integer
-    :default: 250
+    :default: 25
 
     The number of items (tables, columns, indexes) that can be displayed on each
     page of the navigation tree.

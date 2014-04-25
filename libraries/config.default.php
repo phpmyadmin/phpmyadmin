@@ -859,7 +859,7 @@ $cfg['FirstLevelNavigationItems'] = 25;
  *
  * @global integer $cfg['MaxNavigationItems']
  */
-$cfg['MaxNavigationItems'] = 250;
+$cfg['MaxNavigationItems'] = 25;
 
 /**
  * turn the select-based light menu into a tree
