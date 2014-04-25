@@ -146,7 +146,7 @@ var AJAX = {
         }
 
         if(i == AJAX.alteredTargets.length) {
-           AJAX.alteredTargets[i] = event.target; 
+           AJAX.alteredTargets[i] = event.target;
         }
     },
     /**
