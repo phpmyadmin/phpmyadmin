@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-25 14:57+0200\n"
+"PO-Revision-Date: 2014-04-25 15:05+0200\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/zh_TW/>\n"
@@ -5420,7 +5420,7 @@ msgstr "資料庫數量上限"
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
-msgstr "每一頁可顯示導覽樹第一層項目的數量。"
+msgstr "導覽樹每一頁可以顯示的第一層項目數量。"
 
 #: libraries/config/messages.inc.php:405
 #| msgid "Maximum items in branch"
@@ -5431,11 +5431,11 @@ msgstr "導覽樹第一層項目數量上限"
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
-msgstr "每一頁導覽樹最多可以顯示的項目數量。"
+msgstr "導覽樹每一頁可以顯示的項目數量。"
 
 #: libraries/config/messages.inc.php:409
 msgid "Maximum items in branch"
-msgstr "導覽樹分支項目數量限制"
+msgstr "導覽樹分支的項目數量上限"
 
 #: libraries/config/messages.inc.php:411
 msgid ""
@@ -5447,15 +5447,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:415
 msgid "Maximum number of rows to display"
-msgstr "顯示的列數上限"
+msgstr "可顯示的資料列數量上限"
 
 #: libraries/config/messages.inc.php:417
 msgid "Maximum number of tables displayed in table list."
-msgstr "在資料表清單中最多顯示的資料表數量。"
+msgstr "資料表清單中可顯示的資料表數量上限。"
 
 #: libraries/config/messages.inc.php:418
 msgid "Maximum tables"
-msgstr "最大資料表數量"
+msgstr "資料表數量上限"
 
 #: libraries/config/messages.inc.php:420
 msgid ""
