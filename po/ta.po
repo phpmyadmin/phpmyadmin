@@ -8948,7 +8948,7 @@ msgstr "நிகழ்வை தொகுக்க"
 #: libraries/rte/rte_triggers.lib.php:230
 #| msgid "Processing Request"
 msgid "Error in processing request:"
-msgstr "வேண்டுகோள் செயலாக்கதில் பிழை"
+msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:943
 #: libraries/rte/rte_triggers.lib.php:347 view_create.php:177
