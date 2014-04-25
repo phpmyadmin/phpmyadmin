@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 23:44+0200\n"
+"PO-Revision-Date: 2014-04-25 23:45+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -8745,10 +8745,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:388 libraries/replication_gui.lib.php:772
 #: libraries/server_privileges.lib.php:1259
-#, fuzzy
 #| msgid "Username:"
 msgid "User name:"
-msgstr "பயனாளர்:"
+msgstr "பயனர் பெயர்:"
 
 #: libraries/replication_gui.lib.php:394 libraries/replication_gui.lib.php:776
 #: libraries/replication_gui.lib.php:792
