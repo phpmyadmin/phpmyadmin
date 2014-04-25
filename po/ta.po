@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 00:10+0200\n"
+"PO-Revision-Date: 2014-04-26 00:11+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -9277,10 +9277,9 @@ msgid "There are no triggers to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:51
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add event"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய பயனாளரை சேர்க்க->நிகழ்வை சேர்க்க"
 
 #: libraries/rte/rte_words.lib.php:53
 #, php-format
