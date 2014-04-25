@@ -8876,7 +8876,7 @@ msgstr ""
 #: libraries/replication_gui.lib.php:924
 #| msgid "Error"
 msgid "Error."
-msgstr "வழு:"
+msgstr "வழு."
 
 #: libraries/replication_gui.lib.php:966
 msgid "Unknown error"
