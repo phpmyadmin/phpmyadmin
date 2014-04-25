@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 23:50+0200\n"
+"PO-Revision-Date: 2014-04-25 23:52+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -8946,10 +8946,9 @@ msgstr "நிகழ்வை தொகுக்க"
 #: libraries/rte/rte_routines.lib.php:1501
 #: libraries/rte/rte_routines.lib.php:1541
 #: libraries/rte/rte_triggers.lib.php:230
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Error in processing request:"
-msgstr "வேண்டுகோள் செயற்படுத்தபடுகின்றது"
+msgstr "வேண்டுகோள் செயலாக்கதில் பிழை"
 
 #: libraries/rte/rte_events.lib.php:417 libraries/rte/rte_routines.lib.php:943
 #: libraries/rte/rte_triggers.lib.php:347 view_create.php:177
