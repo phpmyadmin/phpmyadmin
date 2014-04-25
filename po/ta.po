@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 23:45+0200\n"
+"PO-Revision-Date: 2014-04-25 23:48+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -8819,10 +8819,9 @@ msgstr ""
 #: libraries/replication_gui.lib.php:854
 #: libraries/server_privileges.lib.php:1413
 #: libraries/server_privileges.lib.php:2789
-#, fuzzy
 #| msgid "Add new field"
 msgid "Use text field:"
-msgstr "புதிய களத்தை சேர்க்க"
+msgstr "உரைபுலத்தின் மூலமாக:"
 
 #: libraries/replication_gui.lib.php:815
 #: libraries/server_privileges.lib.php:1404
