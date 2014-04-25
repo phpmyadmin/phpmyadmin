@@ -9231,10 +9231,9 @@ msgid "Export of routine %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "routine"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "%s களத்தை சேர்க்க->செயல்முறை"
 
 #: libraries/rte/rte_words.lib.php:31
 msgid "You do not have the necessary privileges to create a routine"
