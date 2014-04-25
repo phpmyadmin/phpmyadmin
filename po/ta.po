@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 23:36+0200\n"
+"PO-Revision-Date: 2014-04-25 23:37+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -8154,10 +8154,9 @@ msgid "Add %s statement"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:227
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add statements:"
-msgstr "தடைகளை சேர்க்க"
+msgstr "கூற்றுகளை சேர்க்க:"
 
 #: libraries/plugins/export/ExportSql.class.php:295
 msgid ""
