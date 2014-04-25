@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 23:07+0200\n"
+"PO-Revision-Date: 2014-04-25 23:11+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -6585,7 +6585,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:443
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
 
 #: libraries/display_export.lib.php:445
 msgid ", @DATABASE@ will become the database name"
