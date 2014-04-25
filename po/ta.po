@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 23:29+0200\n"
+"PO-Revision-Date: 2014-04-25 23:34+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -8118,7 +8118,7 @@ msgstr "ஏற்றுமதி->அட்டவணை தலைப்புக
 
 #: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
-msgstr ""
+msgstr "(தனியொரு அட்டவணையின் தரவறிக்கையை இயற்றும்)"
 
 #: libraries/plugins/export/ExportPdf.class.php:110
 msgid "Report title:"
