@@ -8097,10 +8097,9 @@ msgstr "தரவுத்தளம்:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
 #: libraries/plugins/export/ExportSql.class.php:1578
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "தரவு"
+msgstr "தரவு:"
 
 #: libraries/plugins/export/ExportLatex.class.php:487
 #, fuzzy
