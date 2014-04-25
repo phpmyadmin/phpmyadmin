@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 23:27+0200\n"
+"PO-Revision-Date: 2014-04-25 23:29+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -8107,10 +8107,9 @@ msgid "Structure:"
 msgstr "வடிவமைப்பு:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
-#, fuzzy
 #| msgid "Export"
 msgid "Export table names"
-msgstr "ஏற்றுமதி"
+msgstr "அட்டவணை பெயர்களை தரவாக்குக"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
 #, fuzzy
