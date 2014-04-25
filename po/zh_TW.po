@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-02 12:00+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-04-25 15:05+0200\n"
+"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Traditional Chinese "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -230,7 +230,7 @@ msgstr "資料庫 %1$s 已複製爲 %2$s"
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
-msgstr "phpMyAdmin 進階功能尚未啟動，請點選 %s此處%s 了解詳情。"
+msgstr "phpMyAdmin 設定儲存空間尚未啟動，請點選 %s此處%s 了解詳情。"
 
 #: db_printview.php:47 db_tracking.php:81 db_tracking.php:208
 #: libraries/Menu.class.php:235 libraries/config/messages.inc.php:519
@@ -869,9 +869,7 @@ msgstr ""
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
-msgstr ""
-"尚未設定 phpMyAdmin 資料庫，某些進階功能將無法使用。請點選 %s此處%s 取得詳細"
-"資訊。"
+msgstr "尚未設定 phpMyAdmin 設定儲存空間，部份延伸功能將無法使用。請點選 %s此處%s 取得詳細資訊。"
 
 #: index.php:554
 #, php-format
@@ -1398,18 +1396,18 @@ msgstr "資料序列"
 #. l10n: A collection of available filters
 #: js/messages.php:187
 msgid "Log table filter options"
-msgstr "記錄資料表篩選選項"
+msgstr "記錄資料表搜尋選項"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:189
 msgid "Filter"
-msgstr "篩選"
+msgstr "搜尋"
 
 #: js/messages.php:190
 msgid "Filter queries by word/regexp:"
 msgstr ""
-"使用純文字或 <a href=\"http://dev.mysql.com/doc/refman/5.1/en/regexp.html\" "
-"target=\"_blank\">正規表式法(REGEXP)</a> 進行篩選:"
+"使用純文字或 <a href=\"http://dev.mysql.com/doc/refman/5.1/en/regexp.html\" target="
+"\"_blank\">正規表式法(REGEXP)</a> 進行搜尋:"
 
 #: js/messages.php:191
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1973,7 +1971,7 @@ msgstr "送出錯誤報告"
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
-msgstr "發生嚴重錯誤，您是否要回報錯誤報告?"
+msgstr "發生 JavaScript 嚴重錯誤，您是否要回報錯誤報告?"
 
 #: js/messages.php:414
 msgid "Change Report Settings"
@@ -4929,7 +4927,7 @@ msgstr "伺服器連線參數"
 
 #: libraries/config/messages.inc.php:204
 msgid "Configuration storage"
-msgstr "進階功能"
+msgstr "設定儲存空間"
 
 #: libraries/config/messages.inc.php:205
 msgid ""
@@ -4948,7 +4946,7 @@ msgstr "修改追蹤"
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr "追蹤資料庫的修改。需要 phpMyAdmin 進階功能。"
+msgstr "追蹤資料庫的修改。需要 phpMyAdmin 設定儲存空間。"
 
 #: libraries/config/messages.inc.php:208
 msgid "Customize export options"
@@ -5250,7 +5248,7 @@ msgstr "在資料庫清單中最多顯示的資料庫數量"
 
 #: libraries/config/messages.inc.php:291
 msgid "Maximum databases"
-msgstr "最大資料庫數量"
+msgstr "資料庫數量上限"
 
 #: libraries/config/messages.inc.php:292
 msgid ""
@@ -5259,7 +5257,7 @@ msgstr "每一頁導覽樹最多可以顯示的項目數量"
 
 #: libraries/config/messages.inc.php:293
 msgid "Maximum items in branch"
-msgstr "導覽樹分支項目數量限制"
+msgstr "導覽樹分支的項目數量上限"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -5272,7 +5270,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Maximum number of rows to display"
-msgstr "顯示的列數上限"
+msgstr "可顯示的資料列數量上限"
 
 #: libraries/config/messages.inc.php:297
 msgid "Maximum number of tables displayed in table list"
@@ -5280,7 +5278,7 @@ msgstr "在資料表清單中最多顯示的資料表數量"
 
 #: libraries/config/messages.inc.php:298
 msgid "Maximum tables"
-msgstr "最大資料表數量"
+msgstr "資料表數量上限"
 
 #: libraries/config/messages.inc.php:299
 msgid ""
@@ -5345,15 +5343,15 @@ msgstr "快速存取圖示要顯示的目標頁面"
 msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
-msgstr "設定顯示篩選框需要超過多少項目數量 (資料表、檢視表、預存程序和事件) 。"
+msgstr "設定顯示搜尋框的項目數量下限 (資料表、檢視表、預存程序和事件) 。"
 
 #: libraries/config/messages.inc.php:313
 msgid "Minimum number of items to display the filter box"
-msgstr "項目數量超過顯示篩選框"
+msgstr "設定顯示搜尋框的項目數量下限"
 
 #: libraries/config/messages.inc.php:314
 msgid "Minimum number of databases to display the database filter box"
-msgstr "資料庫數量超過顯示篩選框"
+msgstr "設定顯示搜尋框的資料庫數量下限"
 
 #: libraries/config/messages.inc.php:315
 msgid ""
@@ -5465,7 +5463,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:339
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "未安裝 phpMyAdmin 進階功能資料表的警告"
+msgstr "缺少 phpMyAdmin 設定儲存空間資料表"
 
 #: libraries/config/messages.inc.php:340
 msgid ""
@@ -5509,8 +5507,8 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"開啟使用資料庫保存查詢歷史記錄 (需要開啟 phpMyAdmin 進階功能)。如果未開啟上述"
-"功能，將採用 Javascript 來保存查詢歷史記錄 (只會保留至瀏覽器關閉為止)。"
+"若您想要透過資料庫查詢記錄查詢歷史記錄 (需要使用 phpMyAdmin 設定儲存空間)，請開啟此功能。若不使用，將會採用 Javascript "
+"來保存查詢歷史記錄 (只會保留至瀏覽器關閉為止)。"
 
 #: libraries/config/messages.inc.php:351
 msgid "Permanent query history"
@@ -7560,16 +7558,16 @@ msgstr "展開/摺疊"
 
 #: libraries/navigation/NavigationTree.class.php:1045
 msgid "Filter databases by name or regex"
-msgstr "依名稱或 Regex 篩選資料庫"
+msgstr "依名稱或 Regex 搜尋資料庫"
 
 #: libraries/navigation/NavigationTree.class.php:1047
 #: libraries/navigation/NavigationTree.class.php:1081
 msgid "Clear fast filter"
-msgstr "清除快速篩選器"
+msgstr "清除快速搜尋"
 
 #: libraries/navigation/NavigationTree.class.php:1080
 msgid "Filter by name or regex"
-msgstr "依名稱或 Regex 篩選"
+msgstr "依名稱或 Regex 搜尋"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/navigation/NodeFactory.class.php:41
@@ -9526,10 +9524,9 @@ msgid "File doesn't exist"
 msgstr "檔案不存在"
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "SQL Validator is disabled"
 msgid "Plugin is disabled"
-msgstr "SQL 檢驗器已停用"
+msgstr "外掛程式已停用"
 
 #: libraries/select_lang.lib.php:542 libraries/select_lang.lib.php:551
 #: libraries/select_lang.lib.php:560
@@ -10122,7 +10119,7 @@ msgstr "您已新增了一個新使用者。"
 #: libraries/server_status.lib.php:56
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "啟動後的網路流量: %s"
+msgstr "自啟動後的累計網路流量: %s"
 
 #: libraries/server_status.lib.php:69
 #, php-format
@@ -10416,7 +10413,7 @@ msgstr "還原預設值"
 #: libraries/server_status_queries.lib.php:33
 #, php-format
 msgid "Questions since startup: %s"
-msgstr "自啟動以來的查詢次數: %s"
+msgstr "自啟動後的累計查詢次數: %s"
 
 #: libraries/server_status_queries.lib.php:44
 msgid "per hour:"
@@ -10442,7 +10439,7 @@ msgstr "查詢數量"
 #: libraries/server_status_variables.lib.php:39
 #: libraries/server_variables.lib.php:185
 msgid "Filters"
-msgstr "篩選"
+msgstr "搜尋"
 
 #: libraries/server_status_variables.lib.php:44
 #: libraries/server_variables.lib.php:187
@@ -10455,7 +10452,7 @@ msgstr "只顯示警示值"
 
 #: libraries/server_status_variables.lib.php:57
 msgid "Filter by category…"
-msgstr "按分類篩選…"
+msgstr "依分類搜尋…"
 
 #: libraries/server_status_variables.lib.php:78
 msgid "Show unformatted values"
@@ -10548,8 +10545,8 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"如果知道一個資料表的名稱，MySQL 伺服器可以詢問 NDB 叢集儲存引擎，這被稱爲“發"
-"現”Handler_discovery 表示一個資料表被發現的次數。"
+"在已知資料表名稱的情況下，MySQL 伺服器可以詢問 NDB 叢集儲存引擎該資料表是否存在。這個動作稱作 \"探索(Discovery)\"。 "
+"Handler_discover 參數指的是資料表被探索到的次數。"
 
 #: libraries/server_status_variables.lib.php:389
 msgid ""
@@ -10557,32 +10554,27 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"讀取一個索引入口點的次數。如果該值很大，說明您的伺服器執行了很多完整索引掃"
-"描。例如，假設欄位 col1 已經建立了索引，然後執行 SELECT col1 FROM foo。"
+"第一筆索引資料被讀取的次數。若這個值很大，說明您的伺服器執行了很多完整索引掃描，如以下例子: 欄位 col1 已經建立了索引，然後執行 SELECT "
+"col1 FROM foo。"
 
 #: libraries/server_status_variables.lib.php:395
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
-msgstr ""
-"根據索引讀取行的請求數。如果該值很大，說明您的查詢和表都建立了很好的索引。"
+msgstr "透過索引查詢到資料列的請求次數。若這個值很大，說明您的查詢條件和資料表都有正確的索引。"
 
 #: libraries/server_status_variables.lib.php:400
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
-msgstr ""
-"根據索引順序讀取下一行的請求數。如果您在查詢一個已索引的欄位且限制了範圍，或"
-"進行完整表掃描，該值將會不斷增長。"
+msgstr "查詢下一筆索引資料的請求次數。若您的查詢條件使用了索引的欄位做一段區間範圍的查詢，或者您進行了索引的掃描，會使這個值不斷增加。"
 
 #: libraries/server_status_variables.lib.php:405
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
-msgstr ""
-"根據索引順序讀取上一行的請求數。這種讀取方式通常用於最佳化帶有 ORDER BY … "
-"DESC 的查詢。"
+msgstr "查詢上一筆索引資料的請求次數。這種讀取方式通常用於最佳化有關 ORDER BY … DESC 的查詢。"
 
 #: libraries/server_status_variables.lib.php:409
 msgid ""
@@ -10591,8 +10583,7 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
-"根據固定位置讀取行的請求數。如果您執行很多需要排序的查詢，該值會很高。您可能"
-"有很多需要完整表掃描的查詢，或者您使用了不正確的索引用來多表查詢。"
+"使用固定位置讀取資料列的請求次數。如果您執行很多需要排序的查詢，該值會很高。您可能有很多需要完整表掃描的查詢，或者您使用了不正確的索引用來多表查詢。"
 
 #: libraries/server_status_variables.lib.php:416
 msgid ""
@@ -10601,17 +10592,16 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"請求由資料檔案中讀取下一列(Row)的數量，此值會因掃描資料表的數量增加而增加。一"
-"般情況下這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已建立索"
-"引的欄位。"
+"查詢資料檔下一筆資料列的請求次數。此值會因掃描資料表的次數增加而增加。一般情況下這代表您的資料表未正確建立索引，或者您使用的查詢指令沒有使用已建立索引的欄"
+"位。"
 
 #: libraries/server_status_variables.lib.php:423
 msgid "The number of internal ROLLBACK statements."
-msgstr "內部回滾 (ROLLBACK) 指令數。"
+msgstr "使用內部還原 (ROLLBACK) 敘述句的次數。"
 
 #: libraries/server_status_variables.lib.php:426
 msgid "The number of requests to update a row in a table."
-msgstr "資料表中更新行的請求數。"
+msgstr "資料表中更新資料列的請求次數。"
 
 #: libraries/server_status_variables.lib.php:429
 msgid "The number of requests to insert a row in a table."
@@ -11972,8 +11962,7 @@ msgstr "已儲存設定"
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
-msgstr ""
-"您的偏好設定僅作用於本次連線。永久儲存需要開啟 %sphpMyAdmin 進階功能%s。"
+msgstr "您的偏好設定僅作用於本次連線。永久儲存需要開啟 %sphpMyAdmin 設定儲存空間%s。"
 
 #: libraries/user_preferences.lib.php:129
 msgid "Could not save configuration"
@@ -12218,7 +12207,7 @@ msgstr "您所使用的瀏覽器不支援此功能"
 
 #: prefs_manage.php:263
 msgid "Merge with current configuration"
-msgstr "與目前設定合併"
+msgstr "合併至目前設定"
 
 #: prefs_manage.php:277
 #, php-format
