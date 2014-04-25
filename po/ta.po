@@ -2437,7 +2437,7 @@ msgstr ""
 
 #: libraries/DatabaseInterface.class.php:1998
 msgid "The server is not responding."
-msgstr "வழங்கி பதிலளிக்கவில்லை"
+msgstr "வழங்கி பதிலளிக்கவில்லை."
 
 #: libraries/DatabaseInterface.class.php:2003
 msgid "Please check privileges of directory containing database."
