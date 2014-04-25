@@ -17,9 +17,9 @@ var AJAX = {
      */
     xhr: null,
     /**
-     * @var bool, tells if user input was altered before this event was called
+     * @var object array, list of altered targets
      */
-    isInputAltered: false,
+    alteredTargets: [],
     /**
      * @var function Callback to execute after a successful request
      *               Used by PMA_commonFunctions from common.js
@@ -139,10 +139,14 @@ var AJAX = {
      * @return void
      */
     inputAltered: function(event) {
-        if(event.target.value.length !== 0) {
-            AJAX.isInputAltered = true;
-        } else {
-            AJAX.isInputAltered = false;
+        var i;
+        for(i=0; i < AJAX.alteredTargets.length; i++) {
+            if(AJAX.alteredTargets[i] == event.target)
+                break;
+        }
+
+        if(i == AJAX.alteredTargets.length) {
+           AJAX.alteredTargets[i] = event.target; 
         }
     },
     /**
@@ -181,11 +185,18 @@ var AJAX = {
         //sometime we accidently click on a url,refresh button or back button
         //operation to confirm if user want to leave page in such cases
         //trigger confirm dialog
-        if (event.type === 'click' && AJAX.isInputAltered && confirm(PMA_messages['strConfirmNavigation']) === false) {
+        var isInputAltered = false;
+        for (var i = 0; i < AJAX.alteredTargets.length; i++) {
+            if(AJAX.alteredTargets[i].value.length != 0) {
+                isInputAltered = true;
+                break;
+            }
+        };
+        if (event.type === 'click' && isInputAltered && confirm(PMA_messages['strConfirmNavigation']) === false) {
             return false;
         }
-        //reset the flag for confirm navigation
-        AJAX.isInputAltered = false;
+        //reset
+        AJAX.alteredTargets.length = 0;
         
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
@@ -326,8 +337,8 @@ var AJAX = {
                     var source = data._selflink.split('?')[0];
                     //Check for faulty links
                     if (source == "import.php") {
-                    	var replacement = "tbl_sql.php";
-                    	data._selflink = data._selflink.replace(source,replacement);
+                        var replacement = "tbl_sql.php";
+                        data._selflink = data._selflink.replace(source,replacement);
                     }
                     $('#selflink > a').attr('href', data._selflink);
                 }
