@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 23:58+0200\n"
+"PO-Revision-Date: 2014-04-26 00:02+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -9080,10 +9080,9 @@ msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:978
-#, fuzzy
 #| msgid "Action"
 msgid "Direction"
-msgstr "செயல்"
+msgstr "செயல்->திசைப்பாடு"
 
 #: libraries/rte/rte_routines.lib.php:981
 #: libraries/tbl_columns_definition_form.lib.php:278
