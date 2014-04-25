@@ -8112,10 +8112,9 @@ msgid "Export table names"
 msgstr "அட்டவணை பெயர்களை தரவாக்குக"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
-#, fuzzy
 #| msgid "Export"
 msgid "Export table headers"
-msgstr "ஏற்றுமதி"
+msgstr "ஏற்றுமதி->அட்டவணை தலைப்புகளை தரவாக்குக"
 
 #: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
