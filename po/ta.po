@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-25 22:34+0200\n"
+"PO-Revision-Date: 2014-04-25 22:35+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -8040,7 +8040,7 @@ msgstr ""
 #: libraries/plugins/export/ExportLatex.class.php:176
 #| msgid "Label"
 msgid "Label key:"
-msgstr "சிட்டை குறிப்பெழுத்து"
+msgstr "சிட்டை குறிப்பெழுத்து:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
