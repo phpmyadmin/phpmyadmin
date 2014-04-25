@@ -8841,10 +8841,9 @@ msgid "Re-type"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:870
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate Password:"
-msgstr "கடவுச்சொல்லை இயற்று"
+msgstr "கடவுச்சொல்லை இயற்று:"
 
 #: libraries/replication_gui.lib.php:908
 msgid "Replication started successfully."
