@@ -202,7 +202,7 @@ class PMA_RecentFavoriteTable
         if (count($this->_tables)) {
             if ($this->_tableType == 'recent') {
                 foreach ($this->_tables as $table) {
-                    $html .= '<li>';
+                    $html .= '<li class="warp_link">';
                     $html .= '<a href="sql.php?server=' . $GLOBALS['server']
                           . '&db=' . $table['db']
                           . '&table=' . $table['table']
@@ -212,7 +212,7 @@ class PMA_RecentFavoriteTable
                 }
             } else {
                 foreach ($this->_tables as $table) {
-                    $html .= '<li>';
+                    $html .= '<li class="warp_link">';
 
                     $html .= '<a class="ajax favorite_table_anchor"';
                     $fav_params = array('db' => $table['db'],
@@ -237,7 +237,7 @@ class PMA_RecentFavoriteTable
                 }
             }
         } else {
-            $html .= '<li >'
+            $html .= '<li class="warp_link">'
                   . ($this->_tableType == 'recent'
                     ?__('There are no recent tables.')
                     :__('There are no favorite tables.'))
