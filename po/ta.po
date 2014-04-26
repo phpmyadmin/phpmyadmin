@@ -11637,10 +11637,9 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_indexes.lib.php:283
-#, fuzzy
 #| msgid "Comment"
 msgid "Comment:"
-msgstr "கருத்துரை"
+msgstr "கருத்துரை:"
 
 #: libraries/tbl_indexes.lib.php:298
 msgid "Index type:"
