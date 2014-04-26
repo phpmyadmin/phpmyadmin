@@ -11075,10 +11075,9 @@ msgid "Bookmark this SQL query"
 msgstr ""
 
 #: libraries/sql.lib.php:771
-#, fuzzy
 #| msgid "Label"
 msgid "Label:"
-msgstr "சிட்டை"
+msgstr "சிட்டை:"
 
 #: libraries/sql.lib.php:779 libraries/sql_query_form.lib.php:326
 msgid "Let every user access this bookmark"
