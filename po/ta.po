@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:06+0200\n"
+"PO-Revision-Date: 2014-04-26 14:09+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -11984,10 +11984,9 @@ msgid "Aggregate"
 msgstr ""
 
 #: pmd_general.php:845
-#, fuzzy
 #| msgid "Actions"
 msgid "Active options"
-msgstr "செயல்கள்"
+msgstr "செயல்படு விருப்பங்கள்"
 
 #: pmd_pdf.php:53
 msgid "Page has been created"
