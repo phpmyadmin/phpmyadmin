@@ -11553,10 +11553,10 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:751
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "%s பின்"
+msgstr "%s க்கு அடுத்து"
 
 #: libraries/tbl_columns_definition_form.lib.php:1039
 msgid "ENUM or SET data too long?"
