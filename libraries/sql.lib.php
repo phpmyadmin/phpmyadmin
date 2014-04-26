@@ -1363,10 +1363,8 @@ function PMA_cleanupRelations($db, $table, $dropped_column, $purge, $extra_data)
         && strlen($table)
     ) {
         PMA_relationsCleanupColumn($db, $table, $dropped_column);
-        if (isset($extra_data)) {
-            // to refresh the list of indexes (Ajax mode)
-            $extra_data['indexes_list'] = PMA_Index::getView($table, $db);
-        }
+        // to refresh the list of indexes (Ajax mode)
+        $extra_data['indexes_list'] = PMA_Index::getView($table, $db);
     }
 
     return $extra_data;
@@ -1552,6 +1550,11 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
             isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null,
             isset($extra_data) ? $extra_data : null
         );
+
+        // Update Indexes list.
+        if (isset($_REQUEST['index_change'])) {
+            $extra_data['indexes_list'] = PMA_Index::getView($table, $db);
+        }
     }
 
     return array($result, $num_rows, $unlim_num_rows,
