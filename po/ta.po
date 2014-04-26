@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 13:34+0200\n"
+"PO-Revision-Date: 2014-04-26 13:35+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -11418,10 +11418,9 @@ msgid "Query error"
 msgstr "வினவல் வழு"
 
 #: libraries/structure.lib.php:2542
-#, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "The columns have been moved successfully."
-msgstr "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
+msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
 #: libraries/structure.lib.php:2590
 #, php-format
