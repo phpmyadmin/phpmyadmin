@@ -11282,10 +11282,9 @@ msgid "Fulltext"
 msgstr ""
 
 #: libraries/structure.lib.php:1435 libraries/structure.lib.php:1544
-#, fuzzy
 #| msgid "Add columns"
 msgid "Move columns"
-msgstr "நெடுக்கைகளை சேர்"
+msgstr "நெடுவரிசைகளை நகர்த்து"
 
 #: libraries/structure.lib.php:1438
 msgid "Move the columns by dragging them up and down."
