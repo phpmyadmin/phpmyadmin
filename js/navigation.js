@@ -888,7 +888,7 @@ var ResizeHandler = function () {
             $nav_header = $("#pma_navigation_header"),
             $nav_tree_content = $("#pma_navigation_tree_content");
         $nav_tree.height($nav.height() - $nav_header.height());
-        if($nav_tree_content.length>0) {
+        if ($nav_tree_content.length > 0) {
             $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
         }
     };
