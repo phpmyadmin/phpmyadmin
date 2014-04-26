@@ -11053,10 +11053,9 @@ msgid "Summary by state"
 msgstr ""
 
 #: libraries/sql.lib.php:493
-#, fuzzy
 #| msgid "Total:"
 msgid "Total Time"
-msgstr "மொத்த:"
+msgstr "மொத்த நேரம்"
 
 #: libraries/sql.lib.php:495
 msgid "% Time"
