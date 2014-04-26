@@ -12422,10 +12422,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No data"
 msgid "Wrong data"
-msgstr "தரவு இல்லை"
+msgstr "தவறான தரவு"
 
 #: tbl_chart.php:38
 #, fuzzy
