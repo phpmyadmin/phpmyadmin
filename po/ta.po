@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 11:47+0200\n"
+"PO-Revision-Date: 2014-04-26 11:48+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -9531,11 +9531,10 @@ msgid "Modules"
 msgstr ""
 
 #: libraries/server_plugins.lib.php:68
-#, fuzzy
 #| msgctxt "First page"
 #| msgid "Begin"
 msgid "Begin"
-msgstr "ஆரம்பம்"
+msgstr "துவக்கம்"
 
 #: libraries/server_plugins.lib.php:75
 msgid "Plugin"
