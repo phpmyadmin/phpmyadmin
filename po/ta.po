@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 12:09+0200\n"
+"PO-Revision-Date: 2014-04-26 12:22+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -10269,10 +10269,9 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:270
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add this series"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "இத்தொகுதியை சேர்க்க"
 
 #: libraries/server_status_monitor.lib.php:272
 msgid "Clear series"
