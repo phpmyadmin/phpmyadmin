@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 13:05+0200\n"
+"PO-Revision-Date: 2014-04-26 13:06+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -10993,10 +10993,9 @@ msgid "User group menu assignments"
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:234
-#, fuzzy
 #| msgid "Username:"
 msgid "Group name:"
-msgstr "பயனாளர்:"
+msgstr "பயனர்குழுவின் பெயர்:"
 
 #: libraries/server_user_groups.lib.php:268
 #, fuzzy
