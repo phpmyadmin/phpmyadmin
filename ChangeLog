@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.1.14.0 (not yet released)
+4.1.14.0 (2014-04-26)
 - bug #4365 Creating bookmark with multiple queries not working
 - bug #4372 Changing browser transformation results in unnecessary table rebuild
 - bug #4375 Group two DB, one's name is the prefix of the other one
