@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 00:19+0200\n"
+"PO-Revision-Date: 2014-04-26 11:46+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -9519,11 +9519,11 @@ msgid "Enable Statistics"
 msgstr ""
 
 #: libraries/server_databases.lib.php:493
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been dropped."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
+msgstr[0] "%1$d தரவுத்தளம் வெற்றிகரமாக கைவிடப்பட்டது."
 msgstr[1] "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
 
 #: libraries/server_plugins.lib.php:32
