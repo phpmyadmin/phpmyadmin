@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-24 11:29+0200\n"
+"PO-Revision-Date: 2014-04-26 12:27+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
-"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/"
-">\n"
+"Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
+"\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -353,7 +353,7 @@ msgstr "புதுப்பிக்கப்பட்டது"
 #: libraries/rte/rte_list.lib.php:78 libraries/server_status.lib.php:361
 #: libraries/tbl_tracking.lib.php:200
 msgid "Status"
-msgstr "தகுநிலை"
+msgstr "நிகழ்நிலை"
 
 #: db_tracking.php:86 libraries/Index.class.php:561
 #: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
@@ -713,7 +713,7 @@ msgstr "தரவுத்தள வழங்கி"
 
 #: index.php:262 libraries/plugins/auth/AuthenticationCookie.class.php:190
 msgid "Server:"
-msgstr "சேவையன்:"
+msgstr "வழங்கி:"
 
 #: index.php:266
 msgid "Server type:"
@@ -2392,7 +2392,7 @@ msgstr ""
 
 #: libraries/DatabaseInterface.class.php:2046
 msgid "The server is not responding."
-msgstr ""
+msgstr "வழங்கி பதிலளிக்கவில்லை."
 
 #: libraries/DatabaseInterface.class.php:2051
 msgid "Please check privileges of directory containing database."
@@ -2892,7 +2892,7 @@ msgstr ""
 #: libraries/Menu.class.php:195 libraries/ServerStatusData.class.php:366
 #: libraries/config/messages.inc.php:763
 msgid "Server"
-msgstr "சேவையன்"
+msgstr "வழங்கி"
 
 #: libraries/Menu.class.php:235
 #: libraries/navigation/Nodes/Node_View.class.php:34
@@ -3240,7 +3240,7 @@ msgstr ""
 #: libraries/ServerStatusData.class.php:263
 #: libraries/engines/innodb.lib.php:144
 msgid "InnoDB Status"
-msgstr ""
+msgstr "InnoDB நிகழ்நிலை"
 
 #: libraries/ServerStatusData.class.php:370
 msgid "Query statistics"
@@ -4959,7 +4959,7 @@ msgstr "அட்டவணை தெரிவுகள்"
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
-msgstr ""
+msgstr "வழிசெலுத்தல் பலகம்"
 
 #: libraries/config/messages.inc.php:236
 msgid "Customize appearance of the navigation panel."
@@ -5086,7 +5086,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:285
 msgid "Customize navigation panel"
-msgstr ""
+msgstr "வழிசெலுத்தல் பலகத்தை தனிப்பயனாக்குக"
 
 #: libraries/config/messages.inc.php:286
 msgid "Customize main panel"
@@ -6683,7 +6683,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:451
 msgid "@SERVER@ will become the server name"
-msgstr ""
+msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
 
 #: libraries/display_export.lib.php:453
 msgid ", @DATABASE@ will become the database name"
@@ -8141,10 +8141,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:131
 #: libraries/plugins/export/ExportLatex.class.php:176
-#, fuzzy
 #| msgid "Label"
 msgid "Label key:"
-msgstr "சிட்டை"
+msgstr "சிட்டை குறிப்பெழுத்து:"
 
 #: libraries/plugins/export/ExportLatex.class.php:137
 #: libraries/plugins/export/ExportOdt.class.php:103
@@ -8154,10 +8153,9 @@ msgstr ""
 
 #: libraries/plugins/export/ExportLatex.class.php:142
 #: libraries/plugins/export/ExportOdt.class.php:108
-#, fuzzy
 #| msgid "Add into comments"
 msgid "Display comments"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "கருத்துரைகளை காட்டுக"
 
 #: libraries/plugins/export/ExportLatex.class.php:147
 #: libraries/plugins/export/ExportOdt.class.php:113
@@ -8180,61 +8178,54 @@ msgstr ""
 #: libraries/plugins/export/ExportLatex.class.php:223
 #: libraries/plugins/export/ExportSql.class.php:655
 #: libraries/plugins/export/ExportXml.class.php:196 libraries/sql.lib.php:426
-#, fuzzy
 #| msgid "Generate"
 msgid "Generation Time:"
-msgstr "இயற்று"
+msgstr "இயற்றப்பட்ட நேரம்:"
 
 #: libraries/plugins/export/ExportLatex.class.php:226
 #: libraries/plugins/export/ExportSql.class.php:661
 #: libraries/plugins/export/ExportXml.class.php:199
-#, fuzzy
 #| msgid "Version"
 msgid "PHP Version:"
-msgstr "பதிப்பு"
+msgstr "PHP பதிப்பு:"
 
 #: libraries/plugins/export/ExportLatex.class.php:251
 #: libraries/plugins/export/ExportSql.class.php:811
 #: libraries/plugins/export/ExportXml.class.php:398
 #: libraries/plugins/export/PMA_ExportPdf.class.php:116
 #: libraries/sql.lib.php:424
-#, fuzzy
 #| msgid "Database"
 msgid "Database:"
-msgstr "தரவுத்தளம்"
+msgstr "தரவுத்தளம்:"
 
 #: libraries/plugins/export/ExportLatex.class.php:303
 #: libraries/plugins/export/ExportSql.class.php:1759
-#, fuzzy
 #| msgid "Data"
 msgid "Data:"
-msgstr "தரவு"
+msgstr "தரவு:"
 
 #: libraries/plugins/export/ExportLatex.class.php:487
-#, fuzzy
 #| msgid "Structure"
 msgid "Structure:"
-msgstr "கட்டமைப்பு"
+msgstr "வடிவமைப்பு:"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
-#, fuzzy
 #| msgid "Export"
 msgid "Export table names"
-msgstr "ஏற்றுமதி"
+msgstr "அட்டவணை பெயர்களை தரவாக்குக"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:90
-#, fuzzy
 #| msgid "Export"
 msgid "Export table headers"
-msgstr "ஏற்றுமதி"
+msgstr "ஏற்றுமதி->அட்டவணை தலைப்புகளை தரவாக்குக"
 
 #: libraries/plugins/export/ExportPdf.class.php:105
 msgid "(Generates a report containing the data of a single table)"
-msgstr ""
+msgstr "(தனியொரு அட்டவணையின் தரவறிக்கையை இயற்றும்)"
 
 #: libraries/plugins/export/ExportPdf.class.php:110
 msgid "Report title:"
-msgstr ""
+msgstr "அறிக்கையின் தலைப்பு:"
 
 #: libraries/plugins/export/ExportSql.class.php:91
 msgid ""
@@ -8269,10 +8260,9 @@ msgid "Add %s statement"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:227
-#, fuzzy
 #| msgid "Add constraints"
 msgid "Add statements:"
-msgstr "தடைகளை சேர்க்க"
+msgstr "கூற்றுகளை சேர்க்க:"
 
 #: libraries/plugins/export/ExportSql.class.php:323
 msgid ""
@@ -8281,10 +8271,9 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:339
-#, fuzzy
 #| msgid "Actions"
 msgid "Data creation options"
-msgstr "செயல்கள்"
+msgstr "தரவேற்ற விருப்பங்கள்"
 
 #: libraries/plugins/export/ExportSql.class.php:343
 #: libraries/plugins/export/ExportSql.class.php:1865
@@ -8408,10 +8397,9 @@ msgid "Export contents"
 msgstr ""
 
 #: libraries/plugins/export/PMA_ExportPdf.class.php:117
-#, fuzzy
 #| msgid "Table"
 msgid "Table:"
-msgstr "அட்டவணை"
+msgstr "அட்டவணை:"
 
 #: libraries/plugins/import/ImportCsv.class.php:63
 #: libraries/plugins/import/ImportOds.class.php:75
@@ -8639,7 +8627,6 @@ msgid "not OK"
 msgstr ""
 
 #: libraries/relation.lib.php:96
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
@@ -8697,10 +8684,9 @@ msgid "User preferences"
 msgstr ""
 
 #: libraries/relation.lib.php:268
-#, fuzzy
 #| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "உள்ளமைவு: %s"
+msgstr "உள்ளமைக்கக்கூடிய பட்டிகள்"
 
 #: libraries/relation.lib.php:279
 msgid "Hide/show navigation items"
@@ -8897,10 +8883,9 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:383 libraries/replication_gui.lib.php:767
 #: libraries/server_privileges.lib.php:1264
-#, fuzzy
 #| msgid "Username:"
 msgid "User name:"
-msgstr "பயனாளர்:"
+msgstr "பயனர் பெயர்:"
 
 #: libraries/replication_gui.lib.php:389 libraries/replication_gui.lib.php:771
 #: libraries/replication_gui.lib.php:787
@@ -8923,11 +8908,11 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:502
 msgid "Master status"
-msgstr ""
+msgstr "தலைமை நிகழ்நிலை"
 
 #: libraries/replication_gui.lib.php:505
 msgid "Slave status"
-msgstr ""
+msgstr "துணைநிலை நிகழ்நிலை"
 
 #: libraries/replication_gui.lib.php:514
 #: libraries/server_status_variables.lib.php:219
@@ -8980,10 +8965,9 @@ msgstr ""
 #: libraries/replication_gui.lib.php:849
 #: libraries/server_privileges.lib.php:1427
 #: libraries/server_privileges.lib.php:2846
-#, fuzzy
 #| msgid "Add new field"
 msgid "Use text field:"
-msgstr "புதிய களத்தை சேர்க்க"
+msgstr "உரைபுலத்தின் மூலமாக:"
 
 #: libraries/replication_gui.lib.php:810
 #: libraries/server_privileges.lib.php:1418
@@ -9003,10 +8987,9 @@ msgid "Re-type"
 msgstr ""
 
 #: libraries/replication_gui.lib.php:865
-#, fuzzy
 #| msgid "Generate password"
 msgid "Generate Password:"
-msgstr "கடவுச்சொல்லை இயற்று"
+msgstr "கடவுச்சொல்லை இயற்று:"
 
 #: libraries/replication_gui.lib.php:903
 msgid "Replication started successfully."
@@ -9037,10 +9020,9 @@ msgid "Success."
 msgstr ""
 
 #: libraries/replication_gui.lib.php:916
-#, fuzzy
 #| msgid "Error"
 msgid "Error."
-msgstr "வலு"
+msgstr "வழு."
 
 #: libraries/replication_gui.lib.php:958
 msgid "Unknown error"
@@ -9101,20 +9083,18 @@ msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:234
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Edit event"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "நிகழ்வை தொகுக்க"
 
 #: libraries/rte/rte_events.lib.php:261 libraries/rte/rte_export.lib.php:43
 #: libraries/rte/rte_routines.lib.php:476
 #: libraries/rte/rte_routines.lib.php:1322
 #: libraries/rte/rte_routines.lib.php:1545
 #: libraries/rte/rte_triggers.lib.php:236
-#, fuzzy
 #| msgid "Processing Request"
 msgid "Error in processing request:"
-msgstr "வேண்டுகோள் செயற்படுத்தபடுகின்றது"
+msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
 
 #: libraries/rte/rte_events.lib.php:423 libraries/rte/rte_routines.lib.php:946
 #: libraries/rte/rte_triggers.lib.php:353 view_create.php:177
@@ -9201,10 +9181,9 @@ msgid "Event scheduler status"
 msgstr ""
 
 #: libraries/rte/rte_list.lib.php:55
-#, fuzzy
 #| msgid "Actions"
 msgid "Returns"
-msgstr "செயல்கள்"
+msgstr "செயல்கள்->திருப்பியளிப்பது"
 
 #: libraries/rte/rte_routines.lib.php:76
 msgid ""
@@ -9247,10 +9226,9 @@ msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:981
-#, fuzzy
 #| msgid "Action"
 msgid "Direction"
-msgstr "செயல்"
+msgstr "செயல்->திசைப்பாடு"
 
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:278
@@ -9274,10 +9252,9 @@ msgid "Return length/values"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1020
-#, fuzzy
 #| msgid "Actions"
 msgid "Return options"
-msgstr "செயல்கள்"
+msgstr "செயல்கள்->திருப்பியளிதல் விருப்பங்கள்"
 
 #: libraries/rte/rte_routines.lib.php:1051
 msgid "Is deterministic"
@@ -9356,10 +9333,9 @@ msgid "Trigger %1$s has been created."
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:210
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Edit trigger"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டியை தொகுக்க"
 
 #: libraries/rte/rte_triggers.lib.php:356
 msgid "Trigger name"
@@ -9391,10 +9367,9 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:27
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add routine"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "%s களத்தை சேர்க்க->செயல்முறையை சேர்க்க"
 
 #: libraries/rte/rte_words.lib.php:29
 #, php-format
@@ -9402,10 +9377,9 @@ msgid "Export of routine %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "routine"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "%s களத்தை சேர்க்க->செயல்முறை"
 
 #: libraries/rte/rte_words.lib.php:32
 msgid "You do not have the necessary privileges to create a routine"
@@ -9421,10 +9395,9 @@ msgid "There are no routines to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:41
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add trigger"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டியை சேர்க்க"
 
 #: libraries/rte/rte_words.lib.php:43
 #, php-format
@@ -9432,10 +9405,9 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy
 #| msgid "Add a new User"
 msgid "trigger"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டி"
 
 #: libraries/rte/rte_words.lib.php:46
 msgid "You do not have the necessary privileges to create a trigger"
@@ -9451,10 +9423,9 @@ msgid "There are no triggers to display."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:55
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add event"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய பயனாளரை சேர்க்க->நிகழ்வை சேர்க்க"
 
 #: libraries/rte/rte_words.lib.php:57
 #, php-format
@@ -9604,10 +9575,9 @@ msgid "Portrait"
 msgstr ""
 
 #: libraries/schema/User_Schema.class.php:486
-#, fuzzy
 #| msgid "Action"
 msgid "Orientation"
-msgstr "செயல்"
+msgstr "நோக்குநிலை"
 
 #: libraries/schema/User_Schema.class.php:546
 msgid ""
@@ -9624,10 +9594,9 @@ msgid "File doesn't exist"
 msgstr ""
 
 #: libraries/schema/User_Schema.class.php:679
-#, fuzzy
 #| msgid "Disable %s"
 msgid "Plugin is disabled"
-msgstr "முடக்கு %s"
+msgstr "செருகுநிரல் முடக்கப்பட்டது"
 
 #: libraries/select_lang.lib.php:598 libraries/select_lang.lib.php:607
 #: libraries/select_lang.lib.php:616
@@ -9636,10 +9605,9 @@ msgid "Unknown language: %1$s."
 msgstr ""
 
 #: libraries/select_server.lib.php:41 libraries/select_server.lib.php:46
-#, fuzzy
 #| msgid "Current version: %s"
 msgid "Current Server:"
-msgstr "நடப்பு பதிப்பு: %s"
+msgstr "நடப்பு வழங்கி:"
 
 #: libraries/server_bin_log.lib.php:30
 msgid "Select binary log to view"
@@ -9697,23 +9665,22 @@ msgid "Enable Statistics"
 msgstr ""
 
 #: libraries/server_databases.lib.php:489
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been dropped."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
-msgstr[1] "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
+msgstr[0] "%1$d தரவுத்தளம் வெற்றிகரமாக கைவிடப்பட்டது."
+msgstr[1] "%1$d தரவுத்தளங்கள் வெற்றிகரமாக கைவிடப்பட்டன."
 
 #: libraries/server_plugins.lib.php:32
 msgid "Modules"
 msgstr ""
 
 #: libraries/server_plugins.lib.php:68
-#, fuzzy
 #| msgctxt "First page"
 #| msgid "Begin"
 msgid "Begin"
-msgstr "ஆரம்பம்"
+msgstr "துவக்கம்"
 
 #: libraries/server_plugins.lib.php:75
 msgid "Plugin"
@@ -9741,10 +9708,9 @@ msgid "License"
 msgstr ""
 
 #: libraries/server_plugins.lib.php:189
-#, fuzzy
 #| msgid "Disable %s"
 msgid "disabled"
-msgstr "முடக்கு %s"
+msgstr "முடக்கப்பட்டது"
 
 #: libraries/server_privileges.lib.php:167 server_privileges.php:113
 msgid "No privileges."
@@ -10112,10 +10078,9 @@ msgid "Revoke"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2300
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit user group"
-msgstr "சேவையகத்தை தொகு"
+msgstr "பயனர் குழுவை தொகுக்க"
 
 #: libraries/server_privileges.lib.php:2475
 msgid "… keep the old one."
@@ -10149,20 +10114,18 @@ msgid "Column-specific privileges"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2842
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database:"
-msgstr "பின்வரும் கொட்பிட்கான புதிய அனுமதியை சேர்க்க"
+msgstr "பின்வரும் தரவுத்தளத்தின் மீதான தனிச்சலுகையை சேர்க்க:"
 
 #: libraries/server_privileges.lib.php:2869
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2887
-#, fuzzy
 #| msgid "Add privileges on the following database"
 msgid "Add privileges on the following table:"
-msgstr "பின்வரும் கொட்பிட்கான புதிய அனுமதியை சேர்க்க"
+msgstr "பின்வரும் அட்டவணையின் மீதான தனிச்சலுகையை சேர்க்க:"
 
 #: libraries/server_privileges.lib.php:3131
 msgid "Remove selected users"
@@ -10215,16 +10178,14 @@ msgid "Privileges for %s"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3759
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Edit Privileges:"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
 #: libraries/server_privileges.lib.php:3820 libraries/server_users.lib.php:25
-#, fuzzy
 #| msgid "Overview"
 msgid "Users overview"
-msgstr "இறுதிப்பர்வை"
+msgstr "பயனர்கள் கண்ணோட்டம்"
 
 #: libraries/server_privileges.lib.php:3904
 #, php-format
@@ -10269,7 +10230,7 @@ msgstr ""
 
 #: libraries/server_status.lib.php:103
 msgid "Replication status"
-msgstr ""
+msgstr "துணைநிலை நிகழ்நிலை"
 
 #: libraries/server_status.lib.php:132
 msgid ""
@@ -10432,10 +10393,9 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:213
 #: libraries/server_status_monitor.lib.php:323
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add chart"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "விளக்கப்படத்தை சேர்"
 
 #: libraries/server_status_monitor.lib.php:219
 msgid "Preset chart"
@@ -10443,7 +10403,7 @@ msgstr ""
 
 #: libraries/server_status_monitor.lib.php:224
 msgid "Status variable(s)"
-msgstr ""
+msgstr "நிகழ்நிலை மாறி(கள்)"
 
 #: libraries/server_status_monitor.lib.php:227
 msgid "Select series:"
@@ -10470,10 +10430,9 @@ msgid "Append unit to data values"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:270
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add this series"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "இத்தொகுதியை சேர்க்க"
 
 #: libraries/server_status_monitor.lib.php:272
 msgid "Clear series"
@@ -10504,10 +10463,9 @@ msgid "Refresh rate"
 msgstr ""
 
 #: libraries/server_status_monitor.lib.php:339
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
+msgstr "விளக்கப்பட நெடுவரிசைகள்"
 
 #: libraries/server_status_monitor.lib.php:355
 msgid "Chart arrangement"
@@ -10529,22 +10487,19 @@ msgid "Questions since startup: %s"
 msgstr ""
 
 #: libraries/server_status_queries.lib.php:44
-#, fuzzy
 #| msgid "per hour"
 msgid "per hour:"
-msgstr "ஒரு மணி நேரத்திற்கு"
+msgstr "மணி நேர வீதம்:"
 
 #: libraries/server_status_queries.lib.php:47
-#, fuzzy
 #| msgid "per minute"
 msgid "per minute:"
-msgstr "ஒரு நிமிடத்திற்கு"
+msgstr "மணித்துளி வீதம்:"
 
 #: libraries/server_status_queries.lib.php:54
-#, fuzzy
 #| msgid "per second"
 msgid "per second:"
-msgstr "ஒரு வினாடிக்கு"
+msgstr "நொடி வீதம்:"
 
 #: libraries/server_status_queries.lib.php:93
 msgid "Statements"
@@ -11160,10 +11115,9 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:65 libraries/server_users.lib.php:30
-#, fuzzy
 #| msgid "Usage"
 msgid "User groups"
-msgstr "பாவனையளவு"
+msgstr "பயனர் குழுக்கள்"
 
 #: libraries/server_user_groups.lib.php:79
 #, fuzzy
@@ -12524,7 +12478,7 @@ msgstr "நன்கொடை"
 
 #: setup/frames/servers.inc.php:29
 msgid "Edit server"
-msgstr "சேவையகத்தை தொகு"
+msgstr "வழங்கியை தொகு"
 
 #: setup/frames/servers.inc.php:39
 msgid "Add a new server"
