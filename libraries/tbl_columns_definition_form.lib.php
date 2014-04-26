@@ -1291,19 +1291,12 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 /**
  * Function to get form parameters for old column
  *
-<<<<<<< HEAD
- * @param array $columnMeta   column meta
- * @param int   $length       length
- * @param array $form_params  form parameters
- * @param int   $columnNumber column/field number
-=======
  * @param array  $columnMeta           column meta
  * @param int    $length               length
  * @param array  $form_params          form parameters
  * @param int    $columnNumber         column/field number
  * @param string $type                 type in lowercase without the length
  * @param array  $extracted_columnspec details about the column spec 
->>>>>>> db6ec58
  *
  * @return array
  */
