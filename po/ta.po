@@ -10954,10 +10954,9 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: libraries/server_user_groups.lib.php:65 libraries/server_users.lib.php:30
-#, fuzzy
 #| msgid "Usage"
 msgid "User groups"
-msgstr "பாவனையளவு"
+msgstr "பயனர் குழுக்கள்"
 
 #: libraries/server_user_groups.lib.php:79
 #, fuzzy
