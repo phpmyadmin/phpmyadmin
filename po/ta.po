@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:48+0200\n"
+"PO-Revision-Date: 2014-04-26 14:52+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -12927,10 +12927,9 @@ msgid "Current query cache size: %s"
 msgstr "வினவல் இடைமாற்று நிகழ்நிலை அளவு: %s"
 
 #: libraries/advisory_rules.txt:202
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache min result size"
-msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
+msgstr "வினவல் இடைமாற்று விளைவின் மீச்சிறுஅளவு: %s"
 
 #: libraries/advisory_rules.txt:205
 msgid ""
