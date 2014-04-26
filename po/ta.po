@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 13:52+0200\n"
+"PO-Revision-Date: 2014-04-26 14:00+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -11656,10 +11656,9 @@ msgid "Row Statistics:"
 msgstr "வரிசை புள்ளிவிவரங்கள்:"
 
 #: libraries/tbl_printview.lib.php:301
-#, fuzzy
 #| msgid "Query cache usage"
 msgid "Space usage:"
-msgstr "வினவல் இடைமாற்றல் பாவனையளவு"
+msgstr "வினவல் இடைமாற்றல் பாவனையளவு->இடம் பயனளவு:"
 
 #: libraries/tbl_relation.lib.php:386
 #, fuzzy
