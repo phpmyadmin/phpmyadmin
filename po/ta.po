@@ -11651,10 +11651,9 @@ msgid "Showing tables:"
 msgstr "காட்டப்படுகிற அட்டவணைகள்:"
 
 #: libraries/tbl_printview.lib.php:174
-#, fuzzy
 #| msgid "Query statistics"
 msgid "Row Statistics:"
-msgstr "வினவல் புள்ளிவிவரவியல்"
+msgstr "வரிசை புள்ளிவிவரங்கள்:"
 
 #: libraries/tbl_printview.lib.php:301
 #, fuzzy
