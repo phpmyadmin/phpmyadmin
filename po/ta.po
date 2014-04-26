@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:29+0200\n"
+"PO-Revision-Date: 2014-04-26 14:31+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -12808,10 +12808,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache used"
 msgid "Query cache efficiency (%%)"
-msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
+msgstr "வினவல் இடைமாற்று முறைமை செயல்திறன் (%%)"
 
 #: libraries/advisory_rules.txt:170
 msgid "Query cache not running efficiently, it has a low hit rate."
