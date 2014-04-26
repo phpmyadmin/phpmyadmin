@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:09+0200\n"
+"PO-Revision-Date: 2014-04-26 14:10+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -12427,10 +12427,9 @@ msgid "Wrong data"
 msgstr "தவறான தரவு"
 
 #: tbl_chart.php:38
-#, fuzzy
 #| msgid "No data"
 msgid "No data to display"
-msgstr "தரவு இல்லை"
+msgstr "காட்டுவதற்கு தரவு இல்லை"
 
 #: tbl_chart.php:62 tbl_gis_visualization.php:24
 msgid "No SQL query was set to fetch data."
