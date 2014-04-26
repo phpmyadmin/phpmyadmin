@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:17+0200\n"
+"PO-Revision-Date: 2014-04-26 14:19+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -12562,10 +12562,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:61
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current version: %s"
 msgid "Current amount of Questions: %s"
-msgstr "நடப்பு பதிப்பு: %s"
+msgstr "வினவல்களின் தற்போதைய அளவு: %s"
 
 #: libraries/advisory_rules.txt:63
 #, fuzzy
