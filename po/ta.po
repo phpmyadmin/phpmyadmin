@@ -12659,7 +12659,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:100
 #| msgid "Series:"
 msgid "Release Series"
-msgstr "தொகுப்புகளை விடுக:"
+msgstr "தொகுப்புகளை விடுக"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
