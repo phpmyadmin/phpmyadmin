@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:10+0200\n"
+"PO-Revision-Date: 2014-04-26 14:16+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -12521,10 +12521,9 @@ msgid "Rename view to"
 msgstr ""
 
 #: view_operations.php:133
-#, fuzzy
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "அட்டவணையை அழி (அழி)"
+msgstr "தரவுக்பார்வையை அழி (கைவிடு)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
