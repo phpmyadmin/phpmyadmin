@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 15:13+0200\n"
+"PO-Revision-Date: 2014-04-26 15:15+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -13393,10 +13393,9 @@ msgid "slow_launch_time is set to %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Current connection"
 msgid "Percentage of used connections"
-msgstr "நடப்பாணை இணைப்பு"
+msgstr "பயன்படுத்தப்பட்டுள்ள இணைப்புகளின் விழுக்காடு"
 
 #: libraries/advisory_rules.txt:395
 msgid ""
