@@ -54,6 +54,7 @@ phpMyAdmin - ChangeLog
 - bug #4375 Group two DB, one's name is the prefix of the other one
 - bug #4070 Confusing database/table grouping
 - bug #4366 Creating Index doesn't update index-list
+- bug #4080 phpmyadmin refuses to show tables with enums containing special data
 
 4.1.14.0 (2014-04-26)
 - bug #4365 Creating bookmark with multiple queries not working
