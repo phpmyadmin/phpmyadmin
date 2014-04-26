@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:58+0200\n"
+"PO-Revision-Date: 2014-04-26 15:00+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -13049,10 +13049,9 @@ msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Rate of reading fixed position"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "நிலையான குறியிடத்தை கண்டறியும் விகிதம்"
 
 #: libraries/advisory_rules.txt:250
 msgid "The rate of reading data from a fixed position is high."
