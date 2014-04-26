@@ -90,7 +90,11 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
     }
 
-
+    /**
+     * Tear down
+     *
+     * @return void
+     */
     public function tearDown()
     {
         //session_destroy();
@@ -112,7 +116,11 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         }
     }
 
-
+    /**
+     * Test for PMA_sendHeaderLocation
+     *
+     * @return void
+     */
     public function testSendHeaderLocationWithSidUrlWithQuestionMark()
     {
         if (defined('PMA_TEST_HEADERS')) {
@@ -137,6 +145,11 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * Test for PMA_sendHeaderLocation
+     *
+     * @return void
+     */
     public function testSendHeaderLocationWithSidUrlWithoutQuestionMark()
     {
         if (defined('PMA_TEST_HEADERS')) {
@@ -144,7 +157,6 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('SID', md5('test_hash'));
 
             $testUri = 'http://testurl.com/test.php';
-            $separator = PMA_URL_getArgSeparator();
 
             $header = array('Location: ' . $testUri . '?' . SID);
 
@@ -152,11 +164,18 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             $this->assertEquals($header, $GLOBALS['header']);
 
         } else {
-            $this->markTestSkipped('Cannot redefine constant/function - missing runkit extension');
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing runkit extension'
+            );
         }
 
     }
 
+    /**
+     * Test for PMA_sendHeaderLocation
+     *
+     * @return void
+     */
     public function testSendHeaderLocationWithoutSidWithIis()
     {
         if (defined('PMA_TEST_HEADERS')) {
@@ -164,25 +183,31 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             runkit_constant_redefine('PMA_IS_IIS', true);
 
             $testUri = 'http://testurl.com/test.php';
-            $separator = PMA_URL_getArgSeparator();
 
             $header = array('Location: ' . $testUri);
-            PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
+            PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
             $this->assertEquals($header, $GLOBALS['header']);
 
             //reset $GLOBALS['header'] for the next assertion
             unset($GLOBALS['header']);
 
             $header = array('Refresh: 0; ' . $testUri);
-            PMA_sendHeaderLocation($testUri, true);            // sets $GLOBALS['header']
+            PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
             $this->assertEquals($header, $GLOBALS['header']);
 
         } else {
-            $this->markTestSkipped('Cannot redefine constant/function - missing runkit extension');
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing runkit extension'
+            );
         }
 
     }
 
+    /**
+     * Test for PMA_sendHeaderLocation
+     *
+     * @return void
+     */
     public function testSendHeaderLocationWithoutSidWithoutIis()
     {
         if (defined('PMA_TEST_HEADERS')) {
@@ -194,11 +219,18 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             $this->assertEquals($header, $GLOBALS['header']);
 
         } else {
-            $this->markTestSkipped('Cannot redefine constant/function - missing runkit extension');
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing runkit extension'
+            );
         }
 
     }
 
+    /**
+     * Test for PMA_sendHeaderLocation
+     *
+     * @return void
+     */
     public function testSendHeaderLocationIisLongUri()
     {
         if (defined('PMA_IS_IIS') && PMA_HAS_RUNKIT) {
@@ -206,11 +238,23 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
         } elseif (!defined('PMA_IS_IIS')) {
             define('PMA_IS_IIS', true);
         } else {
-            $this->markTestSkipped('Cannot redefine constant/function - missing runkit extension');
+            $this->markTestSkipped(
+                'Cannot redefine constant/function - missing runkit extension'
+            );
         }
 
         // over 600 chars
-        $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test&test=test';
+        $testUri = 'http://testurl.com/test.php?testlonguri=over600chars&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test&test=test&test=test&test=test&test=test'
+            . '&test=test&test=test';
         $testUri_html = htmlspecialchars($testUri);
         $testUri_js = PMA_escapeJsString($testUri);
 
