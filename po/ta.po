@@ -11715,7 +11715,7 @@ msgstr "பதிப்பை உருவாக்கு"
 #, php-format
 #| msgid "Activate now"
 msgid "Activate tracking for %s"
-msgstr "%s க்கான கண்காணிப்பை இப்போது செயற்படுத்து"
+msgstr "%s க்கான கண்காணிப்பை செயற்படுத்து"
 
 #: libraries/tbl_tracking.lib.php:125
 msgid "Activate now"
