@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:03+0200\n"
+"PO-Revision-Date: 2014-04-26 14:04+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -11694,10 +11694,10 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: libraries/tbl_tracking.lib.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Create version %1$s of %2$s"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "%2$s ன் %1$s பதிப்பை உருவாக்குக"
 
 #: libraries/tbl_tracking.lib.php:67
 msgid "Track these data definition statements:"
