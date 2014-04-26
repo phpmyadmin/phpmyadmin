@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:32+0200\n"
+"PO-Revision-Date: 2014-04-26 14:37+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -12850,10 +12850,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
-#, fuzzy
 #| msgid "Query cache usage"
 msgid "Query cache fragmentation"
-msgstr "வினவல் இடைமாற்றல் பாவனையளவு"
+msgstr "வினவல் இடைமாற்றல் கூறுபடுத்தல்"
 
 #: libraries/advisory_rules.txt:184
 msgid "The query cache is considerably fragmented."
