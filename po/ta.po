@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 13:46+0200\n"
+"PO-Revision-Date: 2014-04-26 13:48+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -11532,10 +11532,9 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:310
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Move column"
-msgstr "கள நிரல்களை சேர்க்க/ நீக்குக"
+msgstr "நிரல்வரிசையை நகர்த்து"
 
 #: libraries/tbl_columns_definition_form.lib.php:320
 msgid "Transformation options"
