@@ -106,39 +106,39 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     height: 74%;
     position: relative;
 }
-#pma_navigation_tree_content {
+#pma_navigation_tree {
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
     position: absolute;
     height: 100%;
 }
-#pma_navigation_tree_content a {
+#pma_navigation_tree a {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
-#pma_navigation_tree_content a:hover {
+#pma_navigation_tree a:hover {
     text-decoration: underline;
 }
-#pma_navigation_tree_content li.activePointer {
+#pma_navigation_tree li.activePointer {
     color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
 }
-#pma_navigation_tree_content li.selected {
+#pma_navigation_tree li.selected {
     color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
 }
-#pma_navigation_tree_content li .dbItemControls {
+#pma_navigation_tree li .dbItemControls {
     padding-left: 4px;
 }
-#pma_navigation_tree_content li .navItemControls {
+#pma_navigation_tree li .navItemControls {
     display: none;
     padding-left: 4px;
 }
-#pma_navigation_tree_content li.activePointer .navItemControls {
+#pma_navigation_tree li.activePointer .navItemControls {
     display: inline;
     opacity: 0.5;
 }
-#pma_navigation_tree_content li.activePointer .navItemControls:hover {
+#pma_navigation_tree li.activePointer .navItemControls:hover {
     display: inline;
     opacity: 1.0;
 }
@@ -148,10 +148,10 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     list-style-type: none;
     margin: 0;
 }
-#pma_navigation_tree_content ul ul {
+#pma_navigation_tree ul ul {
     position: relative;
 }
-#pma_navigation_tree_content li,
+#pma_navigation_tree li,
 #pma_navigation_tree li.fast_filter {
     white-space: nowrap;
     padding-bottom: 4px;
@@ -160,13 +160,13 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
 }
-#pma_navigation_tree_content img {
+#pma_navigation_tree img {
     margin: 0;
 }
-#pma_navigation_tree_content i {
+#pma_navigation_tree i {
     display: block;
 }
-#pma_navigation_tree_content div.block {
+#pma_navigation_tree div.block {
     position: relative;
     width: 1.5em;
     height: 1.5em;
@@ -174,8 +174,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     min-height: 16px;
     float: <?php echo $left; ?>;
 }
-#pma_navigation_tree_content div.block i,
-#pma_navigation_tree_content div.block b {
+#pma_navigation_tree div.block i,
+#pma_navigation_tree div.block b {
     width: 1.5em;
     height: 1.7em;
     min-width: 16px;
@@ -185,52 +185,52 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     <?php echo $left; ?>: 0.75em;
     z-index: 0;
 }
-#pma_navigation_tree_content div.block i { /* Top and right segments for the tree element connections */
+#pma_navigation_tree div.block i { /* Top and right segments for the tree element connections */
     display: block;
     border-<?php echo $left; ?>: 1px solid #666;
     border-bottom: 1px solid #666;
 }
-#pma_navigation_tree_content div.block i.first { /* Removes top segment */
+#pma_navigation_tree div.block i.first { /* Removes top segment */
     border-<?php echo $left; ?>: 0;
 }
-#pma_navigation_tree_content div.block b { /* Bottom segment for the tree element connections */
+#pma_navigation_tree div.block b { /* Bottom segment for the tree element connections */
     display: block;
     height: 0.75em;
     bottom: 0;
     <?php echo $left; ?>: 0.75em;
     border-<?php echo $left; ?>: 1px solid #666;
 }
-#pma_navigation_tree_content div.block a,
-#pma_navigation_tree_content div.block u {
+#pma_navigation_tree div.block a,
+#pma_navigation_tree div.block u {
     position: absolute;
     <?php echo $left; ?>: 50%;
     top: 50%;
     z-index: 10;
 }
-#pma_navigation_tree_content div.block img {
+#pma_navigation_tree div.block img {
     position: relative;
     top: -0.6em;
     <?php echo $left; ?>: 0;
     margin-<?php echo $left; ?>: -7px;
 }
-#pma_navigation_tree_content div.throbber img {
+#pma_navigation_tree div.throbber img {
     top: 2px;
     <?php echo $left; ?>: 2px;
 }
-#pma_navigation_tree_content li.last > ul {
+#pma_navigation_tree li.last > ul {
     background: none;
 }
-#pma_navigation_tree_content li > a, #pma_navigation_tree_content li > i {
+#pma_navigation_tree li > a, #pma_navigation_tree li > i {
     line-height: 1.5em;
     height: 1.5em;
     padding-<?php echo $left; ?>: 0.3em;
 }
-#pma_navigation_tree_content .list_container {
+#pma_navigation_tree .list_container {
     border-<?php echo $left; ?>: 1px solid #666;
     margin-<?php echo $left; ?>: 0.75em;
     padding-<?php echo $left; ?>: 0.75em;
 }
-#pma_navigation_tree_content .last > .list_container {
+#pma_navigation_tree .last > .list_container {
     border-<?php echo $left; ?>: 0 solid #666;
 }
 
@@ -352,6 +352,8 @@ li.fast_filter.db_fast_filter {
 }
 #pma_quick_warp .drop_list li {
     white-space: nowrap;
+    padding: 0;
+    border-radius: 0;
 }
 #pma_quick_warp .drop_list li img {
     vertical-align: sub;
