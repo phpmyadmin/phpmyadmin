@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:23+0200\n"
+"PO-Revision-Date: 2014-04-26 14:24+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -12657,10 +12657,9 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:100
-#, fuzzy
 #| msgid "Series:"
 msgid "Release Series"
-msgstr "தொடர்கள்"
+msgstr "தொகுப்புகளை விடுக:"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
