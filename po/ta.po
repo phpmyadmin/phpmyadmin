@@ -12523,7 +12523,7 @@ msgstr ""
 #: view_operations.php:133
 #| msgid "Delete the table (DROP)"
 msgid "Delete the view (DROP)"
-msgstr "தரவுக்பார்வையை அழி (கைவிடு)"
+msgstr "தரவு பார்வையை அழி (கைவிடு)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
