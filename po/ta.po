@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 14:28+0200\n"
+"PO-Revision-Date: 2014-04-26 14:29+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -12788,10 +12788,9 @@ msgid "Query caching method"
 msgstr "வினவல் இடைமாற்று முறைமை"
 
 #: libraries/advisory_rules.txt:163
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Suboptimal caching method."
-msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
+msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது->பொருத்தமற்ற இடைமாற்று முறைமை."
 
 #: libraries/advisory_rules.txt:164
 msgid ""
