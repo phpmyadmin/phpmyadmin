@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 15:08+0200\n"
+"PO-Revision-Date: 2014-04-26 15:11+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -13254,10 +13254,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 #| msgid "Current connection"
 msgid "Percentage of used open files limit"
-msgstr "நடப்பாணை இணைப்பு"
+msgstr "பயனிலுள்ள திறந்தநிலை கோப்புகளின் வரம்பின் விழுக்காடு"
 
 #: libraries/advisory_rules.txt:337
 msgid ""
