@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 15:00+0200\n"
+"PO-Revision-Date: 2014-04-26 15:02+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -13072,10 +13072,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:254
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Rate of reading next table row"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "அட்டவணையின் அடுத்த நிரல்வரிசையை கண்டறியும் விகிதம்"
 
 #: libraries/advisory_rules.txt:257
 #, fuzzy
