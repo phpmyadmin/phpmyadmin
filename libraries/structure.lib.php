@@ -2306,6 +2306,42 @@ function PMA_displayHtmlForColumnChange($db, $table, $selected, $action)
     include 'libraries/tbl_columns_definition_form.inc.php';
 }
 
+/**
+ * Verifies if some elements of a column have changed 
+ *
+ * @param integer $i column index in the request
+ *
+ * @return boolean $alterTableNeeded true if we need to generate ALTER TABLE 
+ *
+ */
+function PMA_columnNeedsAlterTable($i)
+{
+    // these two fields are checkboxes so might not be part of the
+    // request; therefore we define them to avoid notices below
+    if (! isset($_REQUEST['field_null'][$i])) {
+        $_REQUEST['field_null'][$i] = 'NO';
+    }
+    if (! isset($_REQUEST['field_extra'][$i])) {
+        $_REQUEST['field_extra'][$i] = '';
+    }
+
+    // field_name does not follow the convention (corresponds to field_orig)
+    if ($_REQUEST['field_attribute'][$i] != $_REQUEST['field_attribute_orig'][$i]
+        || $_REQUEST['field_collation'][$i] != $_REQUEST['field_collation_orig'][$i]
+        || $_REQUEST['field_comments'][$i] != $_REQUEST['field_comments_orig'][$i]
+        || $_REQUEST['field_default_value'][$i] != $_REQUEST['field_default_value_orig'][$i]
+        || $_REQUEST['field_default_type'][$i] != $_REQUEST['field_default_type_orig'][$i]
+        || $_REQUEST['field_extra'][$i] != $_REQUEST['field_extra_orig'][$i]
+        || $_REQUEST['field_length'][$i] != $_REQUEST['field_length_orig'][$i]
+        || $_REQUEST['field_name'][$i] != $_REQUEST['field_orig'][$i]
+        || $_REQUEST['field_null'][$i] != $_REQUEST['field_null_orig'][$i]
+        || $_REQUEST['field_type'][$i] != $_REQUEST['field_type_orig'][$i]
+) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 /**
  * Update the table's structure based on $_REQUEST
@@ -2325,125 +2361,117 @@ function PMA_updateColumns($db, $table)
     $changes = array();
 
     for ($i = 0; $i < $field_cnt; $i++) {
-        $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
-            isset($_REQUEST['field_orig'][$i])
-            ? $_REQUEST['field_orig'][$i]
-            : '',
-            $_REQUEST['field_name'][$i],
-            $_REQUEST['field_type'][$i],
-            $_REQUEST['field_length'][$i],
-            $_REQUEST['field_attribute'][$i],
-            isset($_REQUEST['field_collation'][$i])
-            ? $_REQUEST['field_collation'][$i]
-            : '',
-            isset($_REQUEST['field_null'][$i])
-            ? $_REQUEST['field_null'][$i]
-            : 'NOT NULL',
-            $_REQUEST['field_default_type'][$i],
-            $_REQUEST['field_default_value'][$i],
-            isset($_REQUEST['field_extra'][$i])
-            ? $_REQUEST['field_extra'][$i]
-            : false,
-            isset($_REQUEST['field_comments'][$i])
-            ? $_REQUEST['field_comments'][$i]
-            : '',
-            $key_fields,
-            $i,
-            isset($_REQUEST['field_move_to'][$i])
-            ? $_REQUEST['field_move_to'][$i]
-            : ''
-        );
+        if (PMA_columnNeedsAlterTable($i)) {
+            $changes[] = 'CHANGE ' . PMA_Table::generateAlter(
+                isset($_REQUEST['field_orig'][$i])
+                ? $_REQUEST['field_orig'][$i]
+                : '',
+                $_REQUEST['field_name'][$i],
+                $_REQUEST['field_type'][$i],
+                $_REQUEST['field_length'][$i],
+                $_REQUEST['field_attribute'][$i],
+                isset($_REQUEST['field_collation'][$i])
+                ? $_REQUEST['field_collation'][$i]
+                : '',
+                isset($_REQUEST['field_null'][$i])
+                ? $_REQUEST['field_null'][$i]
+                : 'NOT NULL',
+                $_REQUEST['field_default_type'][$i],
+                $_REQUEST['field_default_value'][$i],
+                isset($_REQUEST['field_extra'][$i])
+                ? $_REQUEST['field_extra'][$i]
+                : false,
+                isset($_REQUEST['field_comments'][$i])
+                ? $_REQUEST['field_comments'][$i]
+                : '',
+                $key_fields,
+                $i,
+                isset($_REQUEST['field_move_to'][$i])
+                ? $_REQUEST['field_move_to'][$i]
+                : ''
+            );
+        }
     } // end for
 
-    // Builds the primary keys statements and updates the table
-    $key_query = '';
-    /**
-     * this is a little bit more complex
-     *
-     * @todo if someone selects A_I when altering a column we need to check:
-     *  - no other column with A_I
-     *  - the column has an index, if not create one
-     *
-    if (count($key_fields)) {
-        $fields = array();
-        foreach ($key_fields as $each_field) {
-            if (isset($_REQUEST['field_name'][$each_field]) && strlen($_REQUEST['field_name'][$each_field])) {
-                $fields[] = PMA_Util::backquote($_REQUEST['field_name'][$each_field]);
-            }
-        } // end for
-        $key_query = ', ADD KEY (' . implode(', ', $fields) . ') ';
-    }
-     */
-
-    // To allow replication, we first select the db to use and then run queries
-    // on this db.
-    if (! $GLOBALS['dbi']->selectDb($db)) {
-        PMA_Util::mysqlDie(
-            $GLOBALS['dbi']->getError(),
-            'USE ' . PMA_Util::backquote($db) . ';',
-            '',
-            $err_url
-        );
-    }
-    $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
-    $sql_query .= implode(', ', $changes) . $key_query;
-    $sql_query .= ';';
-    $result    = $GLOBALS['dbi']->tryQuery($sql_query);
-
-    $response = PMA_Response::getInstance();
-    if ($result !== false) {
-        $message = PMA_Message::success(
-            __('Table %1$s has been altered successfully')
-        );
-        $message->addParam($table);
-
+    if (count($changes) > 0) {
+        // Builds the primary keys statements and updates the table
+        $key_query = '';
         /**
-         * If comments were sent, enable relation stuff
+         * this is a little bit more complex
+         *
+         * @todo if someone selects A_I when altering a column we need to check:
+         *  - no other column with A_I
+         *  - the column has an index, if not create one
+         *
          */
-        include_once 'libraries/transformations.lib.php';
 
-        // update field names in relation
-        if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
-            foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
-                if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
-                    PMA_REL_renameField(
-                        $db, $table, $fieldcontent,
-                        $_REQUEST['field_name'][$fieldindex]
-                    );
-                }
+        // To allow replication, we first select the db to use
+        // and then run queries on this db.
+        if (! $GLOBALS['dbi']->selectDb($db)) {
+            PMA_Util::mysqlDie(
+                $GLOBALS['dbi']->getError(),
+                'USE ' . PMA_Util::backquote($db) . ';',
+                '',
+                $err_url
+            );
+        }
+        $sql_query = 'ALTER TABLE ' . PMA_Util::backquote($table) . ' ';
+        $sql_query .= implode(', ', $changes) . $key_query;
+        $sql_query .= ';';
+        $result    = $GLOBALS['dbi']->tryQuery($sql_query);
+
+        $response = PMA_Response::getInstance();
+        if ($result !== false) {
+            $message = PMA_Message::success(
+                __('Table %1$s has been altered successfully')
+            );
+            $message->addParam($table);
+
+            $response->addHTML(
+                PMA_Util::getMessage($message, $sql_query, 'success')
+            );
+        } else {
+            // An error happened while inserting/updating a table definition
+            $response->isSuccess(false);
+            $response->addJSON(
+                'message',
+                PMA_Message::rawError(__('Query error') . ':<br />'.$GLOBALS['dbi']->getError())
+            );
+            $regenerate = true;
+        }
+    }
+
+    include_once 'libraries/transformations.lib.php';
+
+    // update field names in relation
+    if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
+        foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
+            if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
+                PMA_REL_renameField(
+                    $db, $table, $fieldcontent,
+                    $_REQUEST['field_name'][$fieldindex]
+                );
             }
         }
+    }
 
-        // update mime types
-        if (isset($_REQUEST['field_mimetype'])
-            && is_array($_REQUEST['field_mimetype'])
-            && $GLOBALS['cfg']['BrowseMIME']
-        ) {
-            foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
-                if (isset($_REQUEST['field_name'][$fieldindex])
-                    && strlen($_REQUEST['field_name'][$fieldindex])
-                ) {
-                    PMA_setMIME(
-                        $db, $table, $_REQUEST['field_name'][$fieldindex],
-                        $mimetype,
-                        $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex]
-                    );
-                }
+    // update mime types
+    if (isset($_REQUEST['field_mimetype'])
+        && is_array($_REQUEST['field_mimetype'])
+        && $GLOBALS['cfg']['BrowseMIME']
+    ) {
+        foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
+            if (isset($_REQUEST['field_name'][$fieldindex])
+                && strlen($_REQUEST['field_name'][$fieldindex])
+            ) {
+                PMA_setMIME(
+                    $db, $table, $_REQUEST['field_name'][$fieldindex],
+                    $mimetype,
+                    $_REQUEST['field_transformation'][$fieldindex],
+                    $_REQUEST['field_transformation_options'][$fieldindex]
+                );
             }
         }
-
-        $response->addHTML(
-            PMA_Util::getMessage($message, $sql_query, 'success')
-        );
-    } else {
-        // An error happened while inserting/updating a table definition
-        $response->isSuccess(false);
-        $response->addJSON(
-            'message',
-            PMA_Message::rawError(__('Query error') . ':<br />'.$GLOBALS['dbi']->getError())
-        );
-        $regenerate = true;
     }
     return $regenerate;
 }

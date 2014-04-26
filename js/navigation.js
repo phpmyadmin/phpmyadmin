@@ -957,16 +957,11 @@ var PMA_fastFilter = {
     getSearchClause2: function ($this) {
         var $filterContainer = $this.closest('div.list_container');
         var $filterInput = $([]);
-        while (1) {
-            if ($filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause').length !== 0) {
-                $filterInput = $filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause');
-                break;
-            } else if (! $filterContainer.is('div.list_container')) {
-                break;
-            }
-            $filterContainer = $filterContainer
-                .parent()
-                .closest('div.list_container');
+        if ($filterContainer
+            .children('li.fast_filter:not(.db_fast_filter) input.searchClause')
+            .length !== 0) {
+            $filterInput = $filterContainer
+                .children('li.fast_filter:not(.db_fast_filter) input.searchClause');
         }
         var searchClause2 = '';
         if ($filterInput.length !== 0 &&

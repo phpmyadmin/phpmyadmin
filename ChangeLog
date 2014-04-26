@@ -1,6 +1,12 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.1.14.0 (2014-04-26)
+- bug #4365 Creating bookmark with multiple queries not working
+- bug #4372 Changing browser transformation results in unnecessary table rebuild
+- bug #4375 Group two DB, one's name is the prefix of the other one
+- bug #4376 [interface] Login fields show in separate line
+
 4.1.13.0 (2014-04-13)
 - bug #4279 CTRL + up or down moves 2 fields
 - bug #4336 List server css style wrong
@@ -10,9 +16,9 @@ phpMyAdmin - ChangeLog
 - bug #4353 makeProfilingChart is not defined
 - bug #4355 Precision specifier for DOUBLE type is truncated
 - bug #4346 Incorrect "Export incomplete" message
-- bug #4359 Notices on create table page 
+- bug #4359 Notices on create table page
 - bug #4356 GROUPed selects show number of rows as if not grouped
-- bug #4357 JS Form submitted on "enter" even if focus is inside a select field 
+- bug #4357 JS Form submitted on "enter" even if focus is inside a select field
 
 4.1.12.0 (2014-03-27)
 - bug #4334 Add event : datepicker won't open
@@ -21,7 +27,7 @@ phpMyAdmin - ChangeLog
 - bug #4326 Cannot find the import plugins which start with uppercase 'I'
 
 4.1.11.0 (2014-03-23)
-- bug #4335 reCaptcha problem (4.1.10 regression) 
+- bug #4335 reCaptcha problem (4.1.10 regression)
 
 4.1.10.0 (2014-03-22)
 - bug #4301 Grid edit: "SELECT" query is replaced by "UPDATE" query after edit
@@ -29,11 +35,11 @@ phpMyAdmin - ChangeLog
 - bug #4324 Datepicker not showing up on insert page
 - bug #3991 Problem selecting item in select boxes with the ENTER keystroke in some browsers
 - bug #4323 QueryWindow ignores CodeMirror
-- bug       None of the live charts shown on "Status -> Monitor" (Chrome) 
+- bug       None of the live charts shown on "Status -> Monitor" (Chrome)
 
 4.1.9.0 (2014-03-06)
 - bug #4279 CTRL + up or down moves two fields (part one)
-- bug #4294 output as text radio clickable for "OpenDocument Text" export 
+- bug #4294 output as text radio clickable for "OpenDocument Text" export
 - bug #4297 DROP DATABASE tick box in export no longer works
 - bug #4291 Unable to export comments in OpenDocument text format
 - bug #4299 Deletion even when the user says "No" to the confirmation message
@@ -59,7 +65,7 @@ phpMyAdmin - ChangeLog
 - Fixed altering table to DOUBLE/FLOAT field
 - bug #4292 Success message and failure message being shown together
 - bug #4293 opening new tab (using selflink) for import.php based actions
-            results in error and logout 
+            results in error and logout
 
 4.1.7.0 (2014-02-09)
 - bug #4245 initial Browse query does not match sorting order

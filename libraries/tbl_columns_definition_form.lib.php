@@ -926,7 +926,7 @@ function PMA_getHtmlForColumnAttribute($columnNumber, $ci, $ci_offset,
         . ' id="field_' . $columnNumber . '_' . ($ci - $ci_offset) . '">';
 
     $attribute     = '';
-    if (isset($extracted_columnspec)) {
+    if (isset($extracted_columnspec['attribute'])) {
         $attribute = $extracted_columnspec['attribute'];
     }
 
@@ -1255,28 +1255,83 @@ function PMA_getHtmlForColumnAttributes($columnNumber, $columnMeta, $type_upper,
 /**
  * Function to get form parameters for old column
  *
- * @param array $columnMeta     column meta
- * @param int   $length         length
- * @param array $form_params    form parameters
- * @param int   $columnNumber   column/field number
+ * @param array  $columnMeta           column meta
+ * @param int    $length               length
+ * @param array  $form_params          form parameters
+ * @param int    $columnNumber         column/field number
+ * @param string $type                 type in lowercase without the length
+ * @param array  $extracted_columnspec details about the column spec 
  *
  * @return array
  */
 function PMA_getFormParamsForOldColumn(
-    $columnMeta, $length, $form_params, $columnNumber
+    $columnMeta, $length, $form_params, $columnNumber, $type,
+    $extracted_columnspec
 ) {
+    // old column name
     if (isset($columnMeta['Field'])) {
         $form_params['field_orig[' . $columnNumber . ']']
             = $columnMeta['Field'];
     } else {
         $form_params['field_orig[' . $columnNumber . ']'] = '';
     }
+    // old column type
+    if (isset($columnMeta['Type'])) {
+        // keep in uppercase because the new type will be in uppercase
+        $form_params['field_type_orig[' . $columnNumber . ']']
+            = strtoupper($type);
+    } else {
+        $form_params['field_type_orig[' . $columnNumber . ']'] = '';
+    }
+
     // old column length
     $form_params['field_length_orig[' . $columnNumber . ']'] = $length;
 
     // old column default
-    $form_params['field_default_orig[' . $columnNumber . ']']
+    $form_params['field_default_value_orig[' . $columnNumber . ']']
         = (isset($columnMeta['Default']) ? $columnMeta['Default'] : '');
+    $form_params['field_default_type_orig[' . $columnNumber . ']']
+        = (isset($columnMeta['DefaultType']) ? $columnMeta['DefaultType'] : '');
+
+    // old column collation
+    if (isset($columnMeta['Collation'])) {
+        $form_params['field_collation_orig[' . $columnNumber . ']']
+            = $columnMeta['Collation'];
+    } else {
+        $form_params['field_collation_orig[' . $columnNumber . ']'] = '';
+    }
+
+    // old column attribute
+    if (isset($extracted_columnspec['attribute'])) {
+        $form_params['field_attribute_orig[' . $columnNumber . ']']
+            = trim($extracted_columnspec['attribute']);
+    } else {
+        $form_params['field_attribute_orig[' . $columnNumber . ']'] = '';
+    }
+
+    // old column null 
+    if (isset($columnMeta['Null'])) {
+        $form_params['field_null_orig[' . $columnNumber . ']']
+            = $columnMeta['Null'];
+    } else {
+        $form_params['field_null_orig[' . $columnNumber . ']'] = '';
+    }
+
+    // old column extra (for auto_increment) 
+    if (isset($columnMeta['Extra'])) {
+        $form_params['field_extra_orig[' . $columnNumber . ']']
+            = $columnMeta['Extra'];
+    } else {
+        $form_params['field_extra_orig[' . $columnNumber . ']'] = '';
+    }
+
+    // old column comment 
+    if (isset($columnMeta['Comment'])) {
+        $form_params['field_comments_orig[' . $columnNumber . ']']
+            = $columnMeta['Comment'];
+    } else {
+        $form_params['field_comment_orig[' . $columnNumber . ']'] = '';
+    }
 
     return $form_params;
 }

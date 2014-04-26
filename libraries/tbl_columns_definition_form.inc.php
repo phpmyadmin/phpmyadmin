@@ -79,6 +79,7 @@ if (isset($_REQUEST['submit_num_fields'])) {
     //if adding new fields, set regenerate to keep the original values
     $regenerate = 1;
 }
+
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (! empty($regenerate)) {
         list($columnMeta, $submit_length, $submit_attribute,
@@ -109,6 +110,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $columnMeta['Type'] = '';
         $type        = '';
         $length = '';
+        $extracted_columnspec = array();
     }
 
     // some types, for example longtext, are reported as
@@ -126,11 +128,11 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $length = $submit_length;
     }
 
-
     // old column attributes
     if ($is_backup) {
         $_form_params = PMA_getFormParamsForOldColumn(
-            $columnMeta, $length, $_form_params, $columnNumber
+            $columnMeta, $length, $_form_params, $columnNumber, $type,
+            $extracted_columnspec
         );
     }
 
