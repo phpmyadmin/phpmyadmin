@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 13:31+0200\n"
+"PO-Revision-Date: 2014-04-26 13:32+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -11315,10 +11315,10 @@ msgstr "நெடுவரிசையை சேர்க்க"
 
 #: libraries/structure.lib.php:1583
 #: libraries/tbl_columns_definition_form.lib.php:168
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "%s களத்தை சேர்க்க"
+msgstr "%s நெடுவரிசைகளை சேர்க்க"
 
 #: libraries/structure.lib.php:1600
 msgid "At End of Table"
