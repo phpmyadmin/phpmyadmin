@@ -13471,10 +13471,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:420
-#, fuzzy
 #| msgid "Display table filter"
 msgid "Rate of aborted clients"
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "கைவிடப்பட்ட நுகர்வாளர்களின் வீதம்"
 
 #: libraries/advisory_rules.txt:425
 #, php-format
