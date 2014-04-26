@@ -11505,10 +11505,9 @@ msgid "Storage Engine:"
 msgstr ""
 
 #: libraries/tbl_columns_definition_form.lib.php:76
-#, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "அடுக்கு"
+msgstr "குறிமுறை அடுக்குவரிசை:"
 
 #: libraries/tbl_columns_definition_form.lib.php:110
 msgid "PARTITION definition:"
