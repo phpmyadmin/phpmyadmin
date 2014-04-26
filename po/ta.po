@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-26 15:02+0200\n"
+"PO-Revision-Date: 2014-04-26 15:07+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-1/ta/>\n"
 "Language: ta\n"
@@ -13077,10 +13077,9 @@ msgid "Rate of reading next table row"
 msgstr "அட்டவணையின் அடுத்த நிரல்வரிசையை கண்டறியும் விகிதம்"
 
 #: libraries/advisory_rules.txt:257
-#, fuzzy
 #| msgid "Display table filter"
 msgid "The rate of reading the next table row is high."
-msgstr "கருதிட்குள் சேர்க்க"
+msgstr "அட்டவணையின் அடுத்த நிரல்வரிசையை கண்டறியும் விகிதம் மிகுதி."
 
 #: libraries/advisory_rules.txt:258
 msgid ""
@@ -13116,10 +13115,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:269
-#, fuzzy
 #| msgid "Current connection"
 msgid "Percentage of temp tables on disk"
-msgstr "நடப்பாணை இணைப்பு"
+msgstr "வட்டிலுள்ள நிலையற்ற அட்டவணைகளின் விழுக்காடு"
 
 #: libraries/advisory_rules.txt:272 libraries/advisory_rules.txt:279
 msgid ""
