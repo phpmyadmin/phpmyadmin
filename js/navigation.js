@@ -890,6 +890,11 @@ var ResizeHandler = function () {
         $nav_tree.height($nav.height() - $nav_header.height());
         if ($nav_tree_content.length > 0) {
             $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
+        } else {
+            //TODO: in fast filter search response there is no #pma_navigation_tree_content, needs to be added in php
+            $nav_tree.css({
+                'overflow-y': 'auto'
+            });
         }
     };
     /* Initialisation section begins here */
