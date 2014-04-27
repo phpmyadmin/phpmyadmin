@@ -3028,7 +3028,9 @@ class PMA_Util
         $displayed_type = htmlspecialchars($printtype);
         if (strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
             $displayed_type  = '<abbr title="' . $printtype . '">';
-            $displayed_type .= substr($printtype, 0, $GLOBALS['cfg']['LimitChars']);
+            $displayed_type .= $GLOBALS['PMA_String']->substr(
+                $printtype, 0, $GLOBALS['cfg']['LimitChars']
+            );
             $displayed_type .= '</abbr>';
         }
 
