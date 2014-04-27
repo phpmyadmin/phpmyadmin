@@ -106,7 +106,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     height: 74%;
     position: relative;
 }
-#pma_navigation_tree {
+#pma_navigation_tree_content {
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
