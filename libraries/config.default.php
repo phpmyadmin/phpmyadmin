@@ -852,14 +852,14 @@ $cfg['Error_Handler']['display'] = false;
  *
  * @global integer $cfg['FirstLevelNavigationItems']
  */
-$cfg['FirstLevelNavigationItems'] = 25;
+$cfg['FirstLevelNavigationItems'] = 250;
 
 /**
  * maximum number of items displayed in navigation panel
  *
  * @global integer $cfg['MaxNavigationItems']
  */
-$cfg['MaxNavigationItems'] = 25;
+$cfg['MaxNavigationItems'] = 50;
 
 /**
  * turn the select-based light menu into a tree
