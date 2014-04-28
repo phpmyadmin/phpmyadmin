@@ -5,6 +5,7 @@
 
 language: php
 php:
+  - "5.6"
   - "5.5"
   - "5.4"
   - "5.3"
@@ -77,6 +78,7 @@ matrix:
       env: PHPUNIT_ARGS="--exclude-group selenium"
     - php: 5.5
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
+    - php: 5.6
   fast_finish: true
   include:
     - php: 5.5
