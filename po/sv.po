@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-24 22:25+0200\n"
+"PO-Revision-Date: 2014-04-28 14:22+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish "
-"<https://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
+"Language-Team: Swedish <https://l10n.cihar.com/projects/phpmyadmin/4-2/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1850,6 +1849,7 @@ msgstr "Klicka för att sortera."
 #: js/messages.php:345
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
+"Håll nere shift och klicka för att ta bort kolumnen från ORDER BY-satsen."
 
 #: js/messages.php:346
 msgid "Click to mark/unmark."
@@ -3169,10 +3169,9 @@ msgid "Recent tables"
 msgstr "De senaste tabellerna"
 
 #: libraries/RecentFavoriteTable.class.php:260
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Återställ"
+msgstr "Senaste"
 
 #: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:474
@@ -9842,10 +9841,9 @@ msgid "You must provide a trigger name!"
 msgstr "Du måste ange ett triggernamn!"
 
 #: libraries/rte/rte_triggers.lib.php:465
-#, fuzzy
 #| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Du måste ange en giltig tidsgräns för triggern"
+msgstr "Du måste ange en giltig tidsgräns för triggern!"
 
 #: libraries/rte/rte_triggers.lib.php:472
 msgid "You must provide a valid event for the trigger!"
@@ -11794,10 +11792,9 @@ msgid "Edit user group: '%s'"
 msgstr "Redigera användargrupp: '%s'"
 
 #: libraries/server_user_groups.lib.php:227
-#, fuzzy
 #| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Inga privilegier."
+msgstr "Menytilldelningar för användargrupp"
 
 #: libraries/server_user_groups.lib.php:234
 msgid "Group name:"
@@ -12357,10 +12354,10 @@ msgstr ""
 "\\xyz' eller 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.lib.php:569
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "Välj refererad nyckel"
+msgstr "Refereras av %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
 msgid "Is a foreign key."
@@ -12377,7 +12374,7 @@ msgstr "efter %s"
 
 #: libraries/tbl_columns_definition_form.lib.php:1067
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Redigera värden på ENUM/SET"
 
 #: libraries/tbl_columns_definition_form.lib.php:1092
 msgctxt "for default"
@@ -13790,8 +13787,8 @@ msgid ""
 "sorting"
 msgstr ""
 "Även om det inte är fel med en hög andel av radsorteringar, bör du se till "
-"att frågor som kräver mycket sortering använder de  indexerade fälten i "
-"ORDER BY-satsen, då detta kommer resultera i mycket snabbare sortering"
+"att frågor som kräver mycket sortering använder de indexerade fälten i ORDER "
+"BY-satsen, då detta kommer resultera i mycket snabbare sortering"
 
 #: libraries/advisory_rules.txt:230
 #, php-format
