@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.1.13-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-03-27 13:53+0100\n"
-"PO-Revision-Date: 2014-04-02 11:56+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-04-28 12:54+0200\n"
+"Last-Translator: Júlio Sebastião <j38600@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-1/pt/>\n"
 "Language: pt\n"
@@ -3169,7 +3169,7 @@ msgstr "Não foi possível salvar a tabela recente"
 
 #: libraries/RecentTable.class.php:161
 msgid "Recent tables"
-msgstr "Tabelas Recentes"
+msgstr "Tabelas recentes"
 
 #: libraries/RecentTable.class.php:173
 msgid "There are no recent tables"
@@ -6212,7 +6212,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:450
 msgid "SQL query tracking table"
-msgstr "Tabela de histórico de queries do SQL"
+msgstr "Tabela de histórico de consultas do SQL"
 
 #: libraries/config/messages.inc.php:451
 msgid ""
@@ -6415,7 +6415,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:488
 msgid "Show SQL queries"
-msgstr "Mostrar consultas de SQL (queries)"
+msgstr "Mostrar consultas SQL"
 
 #: libraries/config/messages.inc.php:489
 msgid ""
@@ -10004,12 +10004,13 @@ msgid "Information"
 msgstr "Informação de Login "
 
 #: libraries/server_bin_log.lib.php:184 libraries/server_status.lib.php:463
+#, fuzzy
 msgid "Truncate Shown Queries"
-msgstr "Truncar os Queries mostrados"
+msgstr "Truncar as consultas mostrados"
 
 #: libraries/server_bin_log.lib.php:188 libraries/server_status.lib.php:468
 msgid "Show Full Queries"
-msgstr "Mostrar queries completos"
+msgstr "Mostrar consultas completas"
 
 #: libraries/server_common.lib.php:27
 msgid "Server variables and settings"
@@ -11388,7 +11389,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:658
 msgid "The number of queries added to the cache."
-msgstr ""
+msgstr "O número de consultas adicionadas à cache."
 
 #: libraries/server_status_variables.lib.php:661
 msgid ""
@@ -13125,12 +13126,10 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Esta %soption%s deveria ser desativada pois ela permite que invasores façam "
-"login por força bruta em qualquer servidor MySQL. Se você achar que é "
-"necessária, use a %slista de proxies confiáveis%s. Entretanto, proteções "
-"baseadas no protocolo IP podem não ser confiáveis se o seu endereço IP "
-"pertence a um ISP onde centenas de utilizadores, incluindo você, estão "
-"conectados."
+"Se acha que é necessário, use medidas de proteção adicionais - opções %shost "
+"authentication%s e %strusted proxies list%s. No entanto, proteções baseadas "
+"no protocolo IP podem não ser confiáveis se o seu endereço IP pertence a um "
+"ISP onde milhares de utilizadores, incluindo você, estão conectados."
 
 #: setup/lib/index.lib.php:278
 #, php-format
@@ -13148,6 +13147,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%scompressão Zip%s requer funções (%s) que não estão disponíveis neste "
+"sistema."
 
 #: setup/lib/index.lib.php:291
 #, php-format
@@ -13155,6 +13156,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sdescompressão Zip%s requer funções (%s) que não estão disponíveis neste "
+"sistema."
 
 #: setup/lib/index.lib.php:324
 msgid "You should use SSL connections if your database server supports it."
@@ -13331,14 +13334,13 @@ msgid "Current amount of Questions: %s"
 msgstr "Ligações"
 
 #: libraries/advisory_rules.txt:63
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Mostrar queries completos"
+msgstr "Percentagem de consultas lentas"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Existem muitas Consultas lentas em relação às restantes Consultas."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
