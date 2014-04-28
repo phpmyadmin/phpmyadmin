@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
 "PO-Revision-Date: 2014-04-28 12:08+0200\n"
-"Last-Translator: Diogo Santos <djsantost@gmail.com>\n"
+"Last-Translator: Rui Silva <ourcach@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -1519,7 +1519,7 @@ msgstr "Seleccione o ficheiro que pretende importar."
 
 #: js/messages.php:206
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Não existem ficheiros disponíveis para importar no servidor!"
 
 #: js/messages.php:208
 msgid "Analyse Query"
