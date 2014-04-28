@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-28 11:49+0200\n"
-"Last-Translator: Diogo Santos <djsantost@gmail.com>\n"
+"PO-Revision-Date: 2014-04-28 11:52+0200\n"
+"Last-Translator: Júlio Sebastião <j38600@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -224,10 +224,10 @@ msgid "Database %1$s has been renamed to %2$s."
 msgstr "O nome da base de dados %1$s foi alterado para %2$s."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "A base de dados %1$s foi copiada para %2$s"
+msgstr "A base de dados %1$s foi copiada para %2$s."
 
 #: db_operations.php:260
 #, php-format
@@ -293,10 +293,9 @@ msgstr[0] "%s tabela"
 msgstr[1] "%s tabelas"
 
 #: db_qbe.php:102
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Tem que escolher pelo menos uma coluna para mostrar"
+msgstr "Tem que escolher pelo menos uma coluna para mostrar!"
 
 #: db_qbe.php:123
 #, php-format
