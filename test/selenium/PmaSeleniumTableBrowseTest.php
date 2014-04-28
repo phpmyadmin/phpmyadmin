@@ -160,6 +160,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->byCssSelector(
             "table#table_results tbody tr:nth-child(2) td:nth-child(2) a"
         )->click();
+        $this->sleep();
         /* TODO: this occassionally fails, so there is probably something wrong */
         $this->waitForElement("byId", "insertForm");
 
