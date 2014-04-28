@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-24 22:25+0200\n"
+"PO-Revision-Date: 2014-04-28 14:18+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -12357,10 +12357,10 @@ msgstr ""
 "\\xyz' eller 'a\\'b')."
 
 #: libraries/tbl_columns_definition_form.lib.php:569
-#, fuzzy, php-format
+#, php-format
 #| msgid "Select referenced key"
 msgid "Referenced by %s."
-msgstr "Välj refererad nyckel"
+msgstr "Refereras av %s."
 
 #: libraries/tbl_columns_definition_form.lib.php:577
 msgid "Is a foreign key."
@@ -13790,8 +13790,8 @@ msgid ""
 "sorting"
 msgstr ""
 "Även om det inte är fel med en hög andel av radsorteringar, bör du se till "
-"att frågor som kräver mycket sortering använder de  indexerade fälten i "
-"ORDER BY-satsen, då detta kommer resultera i mycket snabbare sortering"
+"att frågor som kräver mycket sortering använder de indexerade fälten i ORDER "
+"BY-satsen, då detta kommer resultera i mycket snabbare sortering"
 
 #: libraries/advisory_rules.txt:230
 #, php-format
