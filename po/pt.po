@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-28 12:54+0200\n"
+"PO-Revision-Date: 2014-04-28 17:07+0200\n"
 "Last-Translator: Júlio Sebastião <j38600@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -3402,7 +3402,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Este servidor MySQL não suporta o mecanismo de armazenamento %s."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
 msgstr "Estado da tabela desconhecido:"
@@ -4548,7 +4547,7 @@ msgid ""
 msgstr ""
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "This %soption%s should be disabled as it allows attackers to bruteforce "
 #| "login to any MySQL server. If you feel this is necessary, use %strusted "
@@ -4628,17 +4627,15 @@ msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "URL signon vazia ao usar método de autenticação [kbd]signon[/kbd]!"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Utilizador de controlo phpMyAdmin vazio ao usar phpMyAdmin configuration "
-"storage!"
+"Utilizador de controlo phpMyAdmin vazio ao aceder ao armazenamento de "
+"configuração do phpMyAdmin!"
 
 #: libraries/config/Validator.class.php:374
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
 #| "configuration storage"
@@ -4646,8 +4643,8 @@ msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
-"Senha do utilizador de controlo phpMyAdmin vazia ao usar phpMyAdmin "
-"configuration storage!"
+"Senha do utilizador de controlo phpMyAdmin vazia ao aceder ao armazenamento "
+"de configuração do phpMyAdmin!"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -5194,9 +5191,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Ordem de classificação para itens numa caixa de seleção de chave "
-"estrangeira; [kbd]conteúdo[/kbd] é o dado referenciado, [kbd]id[/kbd] é o "
-"valor da chave"
+"Ordena objetos numa caixa de selecção de chaves estrangeiras; "
+"[kbd]conteúdo[/kbd] é o dado referenciado, [kbd]id[/kbd] é o valor da chave."
 
 #: libraries/config/messages.inc.php:205
 msgid "Foreign key dropdown order"
@@ -5240,30 +5236,27 @@ msgid "Developer"
 msgstr "Programador"
 
 #: libraries/config/messages.inc.php:216
-#, fuzzy
 #| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Configurações para programadores phpMyAdmin"
+msgstr "Configurações para programadores phpMyAdmin."
 
 #: libraries/config/messages.inc.php:217
 msgid "Edit mode"
 msgstr "Modo de edição"
 
 #: libraries/config/messages.inc.php:218
-#, fuzzy
 #| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Personalizar modo de edição"
+msgstr "Personalizar modo de edição."
 
 #: libraries/config/messages.inc.php:220
 msgid "Export defaults"
 msgstr "Exportar predefinições"
 
 #: libraries/config/messages.inc.php:221
-#, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Personalizar as opções de exportação padrão"
+msgstr "Personalizar as opções de exportação por defeito."
 
 #: libraries/config/messages.inc.php:222 libraries/config/messages.inc.php:283
 #: setup/frames/menu.inc.php:22
@@ -5275,30 +5268,27 @@ msgid "General"
 msgstr "Geral"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 #| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Define algumas opções comumente utilizadas"
+msgstr "Define algumas opções usadas frequentemente."
 
 #: libraries/config/messages.inc.php:226
 msgid "Import defaults"
 msgstr "Importar predefinições"
 
 #: libraries/config/messages.inc.php:227
-#, fuzzy
 #| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "Personalizar opções de importação padrão comuns"
+msgstr "Personalizar opções de importação por defeito comuns."
 
 #: libraries/config/messages.inc.php:228
 msgid "Import / export"
 msgstr "Importar / exportar"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr "Define diretórios de importação e exportação e opções de compressão"
+msgstr "Define diretórios de importação e exportação e opções de compressão."
 
 #: libraries/config/messages.inc.php:231
 msgid "LaTeX"
@@ -5308,17 +5298,16 @@ msgstr "LaTeX"
 #, fuzzy
 #| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "Exibir as opções das Bases de dados"
+msgstr "Exibir as opções das Bases de dados."
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
 msgstr "Painel de navegação"
 
 #: libraries/config/messages.inc.php:236
-#, fuzzy
 #| msgid "Customize appearance of the navigation panel"
 msgid "Customize appearance of the navigation panel."
-msgstr "Personalizar a aparência do painel de navegação"
+msgstr "Personalizar a aparência do painel de navegação."
 
 #: libraries/config/messages.inc.php:237 libraries/select_server.lib.php:44
 #: setup/frames/index.inc.php:143
@@ -5326,16 +5315,14 @@ msgid "Servers"
 msgstr "Servidores"
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 #| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "Exibir as opções dos Servidores"
+msgstr "Exibir as opções dos servidores."
 
 #: libraries/config/messages.inc.php:240
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "Opções de exibição de tabelas"
+msgstr "Opções de exibição de tabelas."
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:25
 msgid "Main panel"
@@ -5350,10 +5337,9 @@ msgid "Other core settings"
 msgstr "Outras configurações do núcleo"
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
 #| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "Configurações que não se encaixavam em nenhum outro lugar"
+msgstr "Configurações que não se encaixavam em nenhum outro lugar."
 
 #: libraries/config/messages.inc.php:249
 msgid "Page titles"
@@ -5382,7 +5368,6 @@ msgid "Security"
 msgstr "Segurança"
 
 #: libraries/config/messages.inc.php:259
-#, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
 #| "not limit MySQL"
@@ -5390,8 +5375,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
-"Por favor note que o phpMyAdmin é uma interface de utilizador e as suas "
-"funcionalidades não limitam o MySQL"
+"Por favor repare que o phpMyAdmin é uma interface de utilizador e as suas "
+"funcionalidades não limitam o MySQL."
 
 #: libraries/config/messages.inc.php:262
 msgid "Basic settings"
@@ -5402,17 +5387,15 @@ msgid "Authentication"
 msgstr "Autenticação"
 
 #: libraries/config/messages.inc.php:264
-#, fuzzy
 #| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "Configurações de autenticação"
+msgstr "Configurações de autenticação."
 
 #: libraries/config/messages.inc.php:265
 msgid "Server configuration"
 msgstr "Configuração do servidor"
 
 #: libraries/config/messages.inc.php:267
-#, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
 #| "know what they are for"
@@ -5421,20 +5404,18 @@ msgid ""
 "what they are for."
 msgstr ""
 "Configurações avançadas do servidor, não altere estas opções a menos que "
-"saiba para que são"
+"saiba para que são."
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
 #| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "Digite os parâmetros de configuração do servidor"
+msgstr "Digite os parâmetros de ligação ao servidor."
 
 #: libraries/config/messages.inc.php:271
 msgid "Configuration storage"
 msgstr "Armazenamento de configuração"
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
 #| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
@@ -5444,9 +5425,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Faça a configuração de armazenamento do PhpMyAdmin para ter acesso a "
+"Configure o armazenamento da configuração do PhpMyAdmin para ter acesso a "
 "funcionalidades adicionais, consulte [doc@linked-tables]phpMyAdmin "
-"configuration storage[/doc] na documentação"
+"configuration storage[/doc] na documentação."
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -6136,7 +6117,6 @@ msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Tabelas de configuração de armazenamento phpMyAdmin em falta"
 
 #: libraries/config/messages.inc.php:501
-#, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed if a difference between the "
 #| "MySQL library and server is detected"
@@ -6145,7 +6125,7 @@ msgid ""
 "MySQL library and server is detected."
 msgstr ""
 "Desativa o aviso padrão que é mostrado quando é detetada uma diferença entre "
-"a livraria MySQL e o servidor"
+"a biblioteca MySQL e o servidor."
 
 #: libraries/config/messages.inc.php:505
 msgid "Server/library difference warning"
@@ -8653,7 +8633,7 @@ msgstr "Comentários da tabela"
 
 #: libraries/operations.lib.php:808 libraries/server_engines.lib.php:49
 msgid "Storage Engine"
-msgstr ""
+msgstr "Motor de armazenamento"
 
 #: libraries/operations.lib.php:1008
 msgid "Copy table to (database<b>.</b>table):"
@@ -12792,7 +12772,7 @@ msgstr "Tipo de Exportação"
 
 #: libraries/tbl_columns_definition_form.lib.php:72
 msgid "Storage Engine:"
-msgstr ""
+msgstr "Motor de armazenamento:"
 
 #: libraries/tbl_columns_definition_form.lib.php:76
 #, fuzzy
