@@ -47,6 +47,9 @@ function redirect(target, parent)
         var head = URL['head'];
         head = head.slice(0,head.indexOf('ORDER+BY')); 
         URL['head'] = head;
+        // removing the last sort order should have priority over what 
+        // is remembered via the RememberSorting directive
+        URL['tail'] += '&discard_remembered_sort=1';
     }
     var middle_part = columns.join('%2C+');  
     url = URL['head'] + middle_part + URL['tail'];  
