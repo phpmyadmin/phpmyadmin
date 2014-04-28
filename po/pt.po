@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-28 11:54+0200\n"
+"PO-Revision-Date: 2014-04-28 12:05+0200\n"
 "Last-Translator: Júlio Sebastião <j38600@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
@@ -624,10 +624,9 @@ msgstr ""
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
-#, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "Não foi possível ler o ficheiro"
+msgstr "Não foi possível ler o ficheiro!"
 
 #: import.php:418 import.php:429 import.php:450 import.php:461
 #: libraries/File.class.php:593
@@ -651,7 +650,6 @@ msgstr ""
 "sua configuração PHP. Veja [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:495
-#, fuzzy
 #| msgid ""
 #| "Cannot convert file's character set without character set conversion "
 #| "library"
@@ -659,7 +657,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
 "Impossível converter o conjunto de caracteres do ficheiro sem a biblioteca "
-"de conversão"
+"de conversão de caracteres!"
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
@@ -668,10 +666,10 @@ msgstr ""
 "instalação!"
 
 #: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1806
-#, fuzzy, php-format
+#, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
-msgstr "Marcador %s criado"
+msgstr "Marcador %s criado."
 
 #: import.php:577
 #, php-format
@@ -956,10 +954,10 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Deseja realmente eliminar o grupo de utilizadores \"%s\"?"
 
 #: js/messages.php:45
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Deseja realmente eliminar o grupo de utilizadores \"%s\"?"
+msgstr "Deseja realmente eliminar a pesquisa \"%s\"?"
 
 #: js/messages.php:46
 msgid ""
@@ -972,16 +970,14 @@ msgid "Missing value in the form!"
 msgstr "Nº de dados insuficiente!"
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "pelo menos uma das palavras"
+msgstr "Selecciona pelo menos uma das opções!"
 
 #: js/messages.php:51
-#, fuzzy
 #| msgid "Please enter a valid number"
 msgid "Please enter a valid number!"
-msgstr "Introduza um número válido"
+msgstr "Introduza um número válido!"
 
 #: js/messages.php:52
 msgid "Please enter a valid length!"
@@ -1053,10 +1049,9 @@ msgid "Connections / Processes"
 msgstr "Ligações / Processos"
 
 #: js/messages.php:79
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "Configuração incompatível do monitor local"
+msgstr "Configuração local do monitor incompatível!"
 
 #: js/messages.php:80
 msgid ""
@@ -1852,22 +1847,21 @@ msgstr ""
 "Deseja continuar?"
 
 #: js/messages.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
-msgstr "Adicionar uma opção para a coluna "
+msgstr "Adiciona uma opção para a coluna \"%s\"."
 
 #: js/messages.php:338
-#, fuzzy, php-format
+#, php-format
 #| msgid "%d object(s) created"
 msgid "%d object(s) created."
-msgstr "%d objecto(s) criado(s)"
+msgstr "%d objecto(s) criado(s)."
 
 #: js/messages.php:341
-#, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "Carregue em ESC para cancelar a edição"
+msgstr "Carregue em ESC para cancelar a edição."
 
 #: js/messages.php:342
 msgid ""
@@ -1878,38 +1872,33 @@ msgstr ""
 "desta página antes de salvar os seus dados?"
 
 #: js/messages.php:343
-#, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "Arraste para re-ordenar"
+msgstr "Arraste para re-ordenar."
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Clique para organizar"
+msgstr "Clique para organizar."
 
 #: js/messages.php:345
 msgid "Hold shift and click to remove column from ORDER BY clause."
 msgstr ""
 
 #: js/messages.php:346
-#, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "Clique para marcar/desmarcar"
+msgstr "Clique para seleccionar/rejeitar."
 
 #: js/messages.php:347
-#, fuzzy
 #| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "Duplo-clique para copiar o nome da coluna"
+msgstr "Duplo-clique para copiar o nome da coluna."
 
 #: js/messages.php:349
-#, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr "Clique na seta<br />para alternar a visibilidade da coluna"
+msgstr "Clique na seta<br />para alternar a visibilidade da coluna."
 
 #: js/messages.php:351 libraries/DisplayResults.class.php:858
 #: libraries/browse_foreigners.lib.php:371
@@ -1939,16 +1928,14 @@ msgstr ""
 "Pode editar a maioria dos valores<br />com um duplo clique no valor a editar."
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "Ir para a hiperligação"
+msgstr "Ir para a hiperligação."
 
 #: js/messages.php:366
-#, fuzzy
 #| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "Copiar nome da coluna"
+msgstr "Copiar nome da coluna."
 
 #: js/messages.php:367
 msgid "Right-click the column name to copy it to your clipboard."
@@ -1956,10 +1943,9 @@ msgstr ""
 "Clique com o botão direito do rato para copiar para a área de transferência."
 
 #: js/messages.php:368
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Mostrar registo(s)"
+msgstr "Mostrar registo(s)."
 
 #: js/messages.php:371
 msgid "Generate password"
