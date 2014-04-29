@@ -1754,7 +1754,7 @@ msgstr ""
 #, php-format
 #| msgid "Add/Delete columns"
 msgid "Add an option for column \"%s\"."
-msgstr "நெடுவரிசை %s க்கு ஒரு விருப்பத்தை சேர்க்க"
+msgstr "நெடுவரிசை \"%s\" க்கு ஒரு விருப்பத்தை சேர்க்க"
 
 #: js/messages.php:338
 #, php-format
