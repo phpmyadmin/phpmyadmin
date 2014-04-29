@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-29 23:23+0200\n"
+"PO-Revision-Date: 2014-04-29 23:29+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -1754,7 +1754,7 @@ msgstr ""
 #, php-format
 #| msgid "Add/Delete columns"
 msgid "Add an option for column \"%s\"."
-msgstr "நெடுவரிசை \"%s\" க்கு ஒரு விருப்பத்தை சேர்க்க"
+msgstr "நெடுவரிசை \"%s\" க்கு ஒரு விருப்பத்தை சேர்க்க."
 
 #: js/messages.php:338
 #, php-format
@@ -1861,10 +1861,9 @@ msgid "Hide Panel"
 msgstr "பலகத்தை மறை"
 
 #: js/messages.php:381
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hidden navigation tree items."
-msgstr "சுட்டுகளை காட்டு"
+msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
 #: js/messages.php:384
 msgid "The requested page was not found in the history, it may have expired."
