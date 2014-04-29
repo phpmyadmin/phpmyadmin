@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-29 10:08+0200\n"
-"Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
+"PO-Revision-Date: 2014-04-29 10:09+0200\n"
+"Last-Translator: Marcello Romani <marcello.romani@libero.it>\n"
 "Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/4-2/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -3342,7 +3342,7 @@ msgstr "Query SQL"
 
 #: libraries/ServerStatusData.class.php:191
 msgid "Handler"
-msgstr "Handler"
+msgstr "Gestore"
 
 #: libraries/ServerStatusData.class.php:192
 msgid "Query cache"
