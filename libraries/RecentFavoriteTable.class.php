@@ -57,8 +57,9 @@ class PMA_RecentFavoriteTable
     /**
      * Creates a new instance of PMA_RecentFavoriteTable
      *
-     * @access private
      * @param string $type the table type
+     *
+     * @access private
      */
     private function __construct($type)
     {
@@ -223,7 +224,8 @@ class PMA_RecentFavoriteTable
                         . PMA_URL_getCommon($fav_params);
                     $html .= 'href="' . $fav_rm_url
                         . '" title="' . __("Remove from Favorites")
-                        . '" data-favtargetn="' . $table['db'] . "." . $table['table']
+                        . '" data-favtargetn="' . $table['db'] . "."
+                        . $table['table']
                         . '" >'
                         . PMA_Util::getIcon('b_favorite.png')
                         . '</a>';
