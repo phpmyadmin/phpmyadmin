@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-29 23:10+0200\n"
+"PO-Revision-Date: 2014-04-29 23:13+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -644,10 +644,10 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
 #: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1806
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Bookmark %s has been created."
-msgstr "அட்டவணை %1$s உருவாக்கபட்டது."
+msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
 
 #: import.php:577
 #, php-format
