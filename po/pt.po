@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-28 22:12+0200\n"
-"Last-Translator: Júlio Sebastião <j38600@gmail.com>\n"
+"PO-Revision-Date: 2014-04-29 16:29+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/pt/>\n"
 "Language: pt\n"
@@ -3267,7 +3267,7 @@ msgstr "Não existem tabelas recentes"
 
 #: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
-msgstr "Tabelas Recentes"
+msgstr "Tabelas recentes"
 
 #: libraries/RecentFavoriteTable.class.php:260
 #, fuzzy
@@ -6779,7 +6779,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:699
 msgid "SQL query tracking table"
-msgstr "Tabela de histórico de queries do SQL"
+msgstr "Tabela de histórico de consultas do SQL"
 
 #: libraries/config/messages.inc.php:701
 msgid ""
@@ -6981,7 +6981,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:741
 msgid "Show SQL queries"
-msgstr "Mostrar consultas de SQL (queries)"
+msgstr "Mostrar consultas SQL"
 
 #: libraries/config/messages.inc.php:742
 msgid ""
@@ -10611,11 +10611,11 @@ msgstr "Informação de Login "
 
 #: libraries/server_bin_log.lib.php:183 libraries/server_status.lib.php:461
 msgid "Truncate Shown Queries"
-msgstr "Truncar os Queries mostrados"
+msgstr "Truncar as consultas mostrados"
 
 #: libraries/server_bin_log.lib.php:187 libraries/server_status.lib.php:466
 msgid "Show Full Queries"
-msgstr "Mostrar queries completos"
+msgstr "Mostrar consultas completas"
 
 #: libraries/server_common.lib.php:27
 msgid "Server variables and settings"
