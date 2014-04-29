@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-29 23:13+0200\n"
+"PO-Revision-Date: 2014-04-29 23:15+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -910,10 +910,9 @@ msgid "Missing value in the form!"
 msgstr ""
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
+msgstr "குறைந்தது ஒரு விருப்பமாவது தெரிவு செய்க!"
 
 #: js/messages.php:51
 msgid "Please enter a valid number!"
