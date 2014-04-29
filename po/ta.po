@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-26 15:19+0200\n"
+"PO-Revision-Date: 2014-04-29 23:29+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -219,16 +219,16 @@ msgid "The database name is empty!"
 msgstr "தரவுத்தளப் பெயர் வெறுமையாக உள்ளது!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been renamed to %2$s."
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "%1$s தரவுத்தளமானது %2$s ஆக பெயர் மாற்றப்பட்டது"
+msgstr "%1$s தரவுத்தளமானது %2$s ஆக பெயர் மாற்றப்பட்டது."
 
 #: db_operations.php:136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been copied to %2$s."
 msgid "Database %1$s has been copied to %2$s."
-msgstr "%1$s தரவுத்தளமானது %2$s இற்கு பிரதி செய்யப்பட்டது"
+msgstr "%1$s தரவுத்தளமானது %2$s ல் படியெடுக்கப்பட்டது."
 
 #: db_operations.php:260
 #, php-format
@@ -294,10 +294,9 @@ msgstr[0] "%s அட்டவணை"
 msgstr[1] "%s அட்டவணைகள்"
 
 #: db_qbe.php:102
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "காட்சிப்படுத்த நீங்கள் குறைந்தபட்சம் ஒரு நிரலை தேர்ந்தெடுக்க வேண்டும்"
+msgstr "காட்சிப்படுத்த நீங்கள் குறைந்தபட்சம் ஒரு நிரலை தேர்ந்தெடுக்க வேண்டும்!"
 
 #: db_qbe.php:123
 #, php-format
@@ -646,10 +645,10 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
 #: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1806
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Bookmark %s has been created."
-msgstr "அட்டவணை %1$s உருவாக்கபட்டது."
+msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
 
 #: import.php:577
 #, php-format
@@ -912,10 +911,9 @@ msgid "Missing value in the form!"
 msgstr ""
 
 #: js/messages.php:50
-#, fuzzy
 #| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
+msgstr "குறைந்தது ஒரு விருப்பமாவது தெரிவு செய்க!"
 
 #: js/messages.php:51
 msgid "Please enter a valid number!"
@@ -1754,10 +1752,10 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add/Delete columns"
 msgid "Add an option for column \"%s\"."
-msgstr "நெடுவரிசைகள்  சேர்க்க/ நீக்க"
+msgstr "நெடுவரிசை \"%s\" க்கு ஒரு விருப்பத்தை சேர்க்க."
 
 #: js/messages.php:338
 #, php-format
@@ -1779,10 +1777,9 @@ msgid "Drag to reorder."
 msgstr ""
 
 #: js/messages.php:344
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort."
-msgstr "சொடுக்கி தெரிவுசெய்"
+msgstr "வரிசைப்படுத்த சொடுக்குக."
 
 #: js/messages.php:345
 msgid "Hold shift and click to remove column from ORDER BY clause."
@@ -1822,26 +1819,23 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Go to link"
 msgid "Go to link."
-msgstr "இணைப்புக்கு செல்"
+msgstr "இணைப்புக்கு செல்."
 
 #: js/messages.php:366
-#, fuzzy
 #| msgid "No column selected."
 msgid "Copy column name."
-msgstr "தெரிவுசெய்யப்பட தூண் இல்லை."
+msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
 
 #: js/messages.php:367
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:368
-#, fuzzy
 #| msgid "Sort"
 msgid "Show data row(s)."
-msgstr "வரிசைப்படுத்து"
+msgstr "தரவு நிறைவரிசை(களை) காண்பி."
 
 #: js/messages.php:371
 msgid "Generate password"
@@ -1868,10 +1862,9 @@ msgid "Hide Panel"
 msgstr "பலகத்தை மறை"
 
 #: js/messages.php:381
-#, fuzzy
 #| msgid "Show indexes"
 msgid "Show hidden navigation tree items."
-msgstr "சுட்டுகளை காட்டு"
+msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
 #: js/messages.php:384
 msgid "The requested page was not found in the history, it may have expired."
