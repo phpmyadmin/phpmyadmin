@@ -1514,8 +1514,8 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
 function PMA_getUsernameAndHostnameLength()
 {
     $fields_info = $GLOBALS['dbi']->getColumns('mysql', 'user', null, true);
-    $username_length = 16;
-    $hostname_length = 41;
+    $username_length = 80;
+    $hostname_length = 60;
     foreach ($fields_info as $val) {
         if ($val['Field'] == 'User') {
             strtok($val['Type'], '()');
