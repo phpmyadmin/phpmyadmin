@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-29 23:20+0200\n"
+"PO-Revision-Date: 2014-04-29 23:21+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -1823,10 +1823,9 @@ msgid "Go to link."
 msgstr "இணைப்புக்கு செல்."
 
 #: js/messages.php:366
-#, fuzzy
 #| msgid "No column selected."
 msgid "Copy column name."
-msgstr "தெரிவுசெய்யப்பட தூண் இல்லை."
+msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
 
 #: js/messages.php:367
 msgid "Right-click the column name to copy it to your clipboard."
