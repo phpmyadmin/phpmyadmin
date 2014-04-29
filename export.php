@@ -254,11 +254,9 @@ if (!defined('TESTSUITE')) {
 
     // We send fake headers to avoid browser timeout when buffering
     $time_start = time();
-}
 
-// Defines the default <CR><LF> format.
-// For SQL always use \n as MySQL wants this on all platforms.
-if (!defined('TESTSUITE')) {
+    // Defines the default <CR><LF> format.
+    // For SQL always use \n as MySQL wants this on all platforms.
     if ($what == 'sql') {
         $crlf = "\n";
     } else {
