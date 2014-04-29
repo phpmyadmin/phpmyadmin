@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-29 10:06+0200\n"
-"Last-Translator: LOL DJ <diopralinato@live.it>\n"
+"PO-Revision-Date: 2014-04-29 10:08+0200\n"
+"Last-Translator: Marco Pozzato <ironpotts@gmail.com>\n"
 "Language-Team: Italian <https://l10n.cihar.com/projects/phpmyadmin/4-2/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1525,7 +1525,7 @@ msgstr "Importa"
 
 #: js/messages.php:204
 msgid "Import monitor configuration"
-msgstr "Importa la configurazione"
+msgstr "Importa la configurazione del monitor"
 
 #: js/messages.php:205
 #, fuzzy
@@ -1815,9 +1815,8 @@ msgid "Point"
 msgstr "Punto"
 
 #: js/messages.php:314
-#, fuzzy
 msgid "Linestring"
-msgstr "Linea spezzata"
+msgstr "Stringa su più linee"
 
 #: js/messages.php:315
 msgid "Polygon"
