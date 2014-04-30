@@ -562,8 +562,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         /* We need to resize to ensure it fits into accessible area */
         $this->execute(
             array(
-                'script' => "$('#topmenu').css('width', '50%')"
-                    . ".menuResizer('destroy');",
+                'script' => "$('#topmenu').css('font-size', '50%');"
+                    . "$(window).resize()",
                 'args' => array()
             )
         );
