@@ -1073,24 +1073,15 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
-            "Host" => array(
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
-            )
+            array('COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80),
+            array('COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40),
         );
-        $dbi->expects($this->any())->method('getColumns')
+        $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
-
-        $fetchValue = "fetchValue";
-        $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($fetchValue));
 
         $GLOBALS['dbi'] = $dbi;
 
         $html = PMA_getHtmlForLoginInformationFields();
-        list($username_length, $hostname_length)
-            = PMA_getUsernameAndHostnameLength();
 
         //validate 1: __('Login Information')
         $this->assertContains(
@@ -1187,13 +1178,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
-            "Host" => array(
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
-            )
+            array('COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80),
+            array('COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40),
         );
-        $dbi->expects($this->any())->method('getColumns')
+        $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
 
         $GLOBALS['dbi'] = $dbi;
@@ -1257,13 +1245,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
-            "Host" => array(
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
-            )
+            array('COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80),
+            array('COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40),
         );
-        $dbi->expects($this->any())->method('getColumns')
+        $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
 
         $GLOBALS['dbi'] = $dbi;
@@ -1335,13 +1320,10 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
-            "Host" => array(
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
-            )
+            array('COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80),
+            array('COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40),
         );
-        $dbi->expects($this->any())->method('getColumns')
+        $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
 
         $GLOBALS['dbi'] = $dbi;
@@ -1642,18 +1624,11 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
-            "Host" => array(
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
-            )
+            array('COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80),
+            array('COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40),
         );
-        $dbi->expects($this->any())->method('getColumns')
+        $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
-
-        $fetchValue = "fetchValue";
-        $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($fetchValue));
 
         $GLOBALS['dbi'] = $dbi;
 
