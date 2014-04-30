@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-29 18:19+0200\n"
+"PO-Revision-Date: 2014-04-30 15:35+0200\n"
 "Last-Translator: Júlio Sebastião <j38600@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://l10n.cihar.com/projects/phpmyadmin/4-2/pt/>\n"
@@ -7269,10 +7269,9 @@ msgstr "Palavra-passe:"
 #: libraries/display_change_password.lib.php:73
 #: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1494
-#, fuzzy
 #| msgid "Re-type"
 msgid "Re-type:"
-msgstr "Confirma"
+msgstr "Confirma:"
 
 #: libraries/display_change_password.lib.php:80
 msgid "Password Hashing:"
@@ -7727,6 +7726,8 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
+"O tamanho por defeito do apontador em bytes, para ser usado na operação "
+"CREATE TABLE nas tabelas MyISAM quando não está definida a opção MAX_ROWS."
 
 #: libraries/engines/myisam.lib.php:33
 msgid "Automatic recovery mode"
@@ -7740,7 +7741,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:37
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "Tamanho máximo para os ficheiros temporários de ordenação"
 
 #: libraries/engines/myisam.lib.php:38
 msgid ""
@@ -7748,6 +7749,9 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"O tamanho máximo do ficheiro temporário que o MySQL pode utilizar enquanto "
+"recria um índice MyISAM (durante REPAIR TABLE, ALTER TABLE, ou LOAD DATA "
+"INFILE)."
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
