@@ -19,7 +19,6 @@ env:
     - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
-    - TESTSUITE_SELENIUM_COVERAGE=http://127.0.0.1:8000/phpunit_coverage.php
 before_script:
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')" ;
   - set -e ; if [[ -z "$LINT" ]] ; then
