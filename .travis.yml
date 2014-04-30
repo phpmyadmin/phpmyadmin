@@ -74,8 +74,6 @@ after_script:
   - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v ; fi
 matrix:
   allow_failures:
-    - php: hhvm
-      env: PHPUNIT_ARGS="--exclude-group selenium"
     - php: 5.5
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
   fast_finish: true
