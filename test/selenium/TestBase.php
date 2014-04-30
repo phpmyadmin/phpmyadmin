@@ -150,28 +150,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
-     * Sets session with setting URL to workaround phpunit-selenium issue
-     * https://github.com/sebastianbergmann/phpunit-selenium/issues/295
-     *
-     * @return session object
-     */
-    public function prepareSession()
-    {
-        $result = parent::prepareSession();
-
-        if ($this->collectCodeCoverageInformation) {
-            if (! empty($GLOBALS['TESTSUITE_SELENIUM_COVERAGE'])) {
-                $this->coverageScriptUrl = $GLOBALS['TESTSUITE_SELENIUM_COVERAGE'];
-                $this->url($this->coverageScriptUrl);
-            } else {
-                $this->url('');
-            }
-        }
-
-        return $result;
-    }
-
-    /**
      * Configures the selenium and database link.
      *
      * @return void
