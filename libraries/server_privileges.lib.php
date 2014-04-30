@@ -1513,22 +1513,22 @@ function PMA_getHtmlForLoginInformationFields($mode = 'new')
  */
 function PMA_getUsernameAndHostnameLength()
 {
-    $fields_info = $GLOBALS['dbi']->getColumns('mysql', 'user', null, true);
+    /* Fallback values */
     $username_length = 16;
     $hostname_length = 41;
+
+    /* Try to get real lengths from the database */
+    $fields_info = $GLOBALS['dbi']->fetchResult(
+        'SELECT COLUMN_NAME, CHARACTER_MAXIMUM_LENGTH '
+        . 'FROM information_schema.columns '
+        . "WHERE table_schema = 'mysql' AND table_name = 'user' "
+        . "AND COLUMN_NAME IN ('User', 'Host')"
+    );
     foreach ($fields_info as $val) {
-        if ($val['Field'] == 'User') {
-            strtok($val['Type'], '()');
-            $value = strtok('()');
-            if (is_int($value)) {
-                $username_length = $value;
-            }
-        } elseif ($val['Field'] == 'Host') {
-            strtok($val['Type'], '()');
-            $value = strtok('()');
-            if (is_int($value)) {
-                $hostname_length = $value;
-            }
+        if ($val['COLUMN_NAME'] == 'User') {
+            $username_length = $val['CHARACTER_MAXIMUM_LENGTH'];
+        } elseif ($val['COLUMN_NAME'] == 'Host') {
+            $hostname_length = $val['CHARACTER_MAXIMUM_LENGTH'];
         }
     }
     return array($username_length, $hostname_length);
