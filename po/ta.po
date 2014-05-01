@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 22:20+0200\n"
+"PO-Revision-Date: 2014-05-01 22:23+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -3283,10 +3283,10 @@ msgid "Invalid table name:"
 msgstr "செல்லாத அட்டவணைப் பெயர்:"
 
 #: libraries/Table.class.php:1351
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "அட்டவணை %1$sஐ %2$s என மறுபெயரிடுதல் தோல்வியடைந்தது!"
 
 #: libraries/Table.class.php:1370
 #, php-format
@@ -3841,10 +3841,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "நீங்கள் தேர்வு செய்த வலை சேவையகம் பதிவேற்றை அடைய இயலவில்லை."
 
 #: libraries/Util.class.php:3352
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை"
+msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை!"
 
 #: libraries/Util.class.php:3377 libraries/Util.class.php:3378
 #: libraries/structure.lib.php:305
