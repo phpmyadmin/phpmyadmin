@@ -2731,10 +2731,9 @@ msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5695
-#, fuzzy
 #| msgid "Links to"
 msgid "Link not found!"
-msgstr "இணைப்பு"
+msgstr "இணைப்பை காணவில்லை!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
