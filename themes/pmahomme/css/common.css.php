@@ -2439,7 +2439,7 @@ fieldset .disabled-field td {
 }
 
 input[type="number"] {
-	width: 50px;
+    width: 50px;
 }
 
 .config-form .field-comment-mark {
