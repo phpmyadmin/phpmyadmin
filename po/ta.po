@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 23:22+0200\n"
+"PO-Revision-Date: 2014-05-01 23:23+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -12141,10 +12141,9 @@ msgid "Import from selected page."
 msgstr "தெரிவுசெய்யப்பட பக்கத்திலிருந்து தரவிறக்குக."
 
 #: pmd_pdf.php:125
-#, fuzzy
 #| msgid "Export"
 msgid "Export to selected page."
-msgstr "ஏற்றுமதி"
+msgstr "தெரிவுசெய்யப்பட பக்கத்திற்கு தரவேற்றுக."
 
 #: pmd_pdf.php:127
 msgid "Create a page and export to it."
