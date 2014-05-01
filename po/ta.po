@@ -4927,7 +4927,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:234
 #| msgid "Table options"
 msgid "Databases display options."
-msgstr "அட்டவணைகளின் காட்சித்தெரிவுகள்."
+msgstr "தரவுத்தளங்களின் காட்சித்தெரிவுகள்."
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
