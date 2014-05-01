@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-29 23:29+0200\n"
+"PO-Revision-Date: 2014-05-01 23:25+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2348,34 +2348,29 @@ msgid "Submit Query"
 msgstr "வினவலை சமர்ப்பி"
 
 #: libraries/DBQbe.class.php:1451
-#, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "தேடு"
+msgstr "சேமித்த புத்தகக்குறியிடப்பட்ட தேடல்:"
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
 #| msgid "Search"
 msgid "New bookmark"
-msgstr "தேடு"
+msgstr "புது புத்தகக்குறி"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Search"
 msgid "Create bookmark"
-msgstr "தேடு"
+msgstr "புத்தகக்குறி இடுக"
 
 #: libraries/DBQbe.class.php:1482
-#, fuzzy
 #| msgid "Search"
 msgid "Update bookmark"
-msgstr "தேடு"
+msgstr "புத்தகக்குறி புதுப்பிக்க"
 
 #: libraries/DBQbe.class.php:1484
-#, fuzzy
 #| msgid "Search"
 msgid "Delete bookmark"
-msgstr "தேடு"
+msgstr "புத்தகக்குறியை அழிக்க"
 
 #: libraries/DatabaseInterface.class.php:2041
 msgid ""
@@ -2489,16 +2484,14 @@ msgid "Restore column order"
 msgstr "நெடுவரிசையின் வரிசையை மீட்டமை"
 
 #: libraries/DisplayResults.class.php:795
-#, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
-msgstr "வடிகட்டிகள்"
+msgstr "நிறைவரிசைகளை வடிகட்டு"
 
 #: libraries/DisplayResults.class.php:797
-#, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "தரவுத்தளத்தில் தேடு"
+msgstr "இந்த அட்டவணையில் தேடுக"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
@@ -2623,10 +2616,9 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:3446
 #: libraries/DisplayResults.class.php:3462
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "The row has been deleted."
-msgstr "%s அட்டவணை வெறுமை செய்யப்பட்டது"
+msgstr "இந்நிரைவரிசை அழிக்கப்பட்டது."
 
 #: libraries/DisplayResults.class.php:3498
 #: libraries/DisplayResults.class.php:5136 libraries/server_status.lib.php:518
@@ -2642,10 +2634,9 @@ msgstr ""
 #: libraries/sql_query_form.lib.php:111 libraries/tbl_relation.lib.php:895
 #: tbl_find_replace.php:49 tbl_operations.php:185 tbl_row_action.php:111
 #: view_operations.php:62
-#, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "Your SQL query has been executed successfully."
-msgstr "%s தரவுத்தளம் இரத்துசெய்யப்பட்டது"
+msgstr "உங்கள் SQL வினவல் வெற்றிகரமாக நிறைவேற்றப்பட்டது."
 
 #: libraries/DisplayResults.class.php:5014 libraries/structure.lib.php:658
 #, php-format
@@ -2741,10 +2732,9 @@ msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:5695
-#, fuzzy
 #| msgid "Links to"
 msgid "Link not found!"
-msgstr "இணைப்பு"
+msgstr "இணைப்பை காணவில்லை!"
 
 #: libraries/Error_Handler.class.php:71
 msgid "Too many error messages, some are not displayed."
@@ -3086,45 +3076,39 @@ msgstr ""
 
 #: libraries/RecentFavoriteTable.class.php:225
 #: libraries/structure.lib.php:2751
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "வரைபடத்தை நீக்கு"
+msgstr "விருப்பமானவை பட்டியலிருந்து நீக்கவும்"
 
 #: libraries/RecentFavoriteTable.class.php:242
-#, fuzzy
 #| msgid "Query cache used"
 msgid "There are no recent tables."
-msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
+msgstr "அண்மைகாலத்திய அட்டவணைகள் ஏதுமில்லை."
 
 #: libraries/RecentFavoriteTable.class.php:243
-#, fuzzy
 #| msgid "Query cache used"
 msgid "There are no favorite tables."
-msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டது"
+msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
 #: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "சமீபத்திய அட்டவணைகள்"
 
 #: libraries/RecentFavoriteTable.class.php:260
-#, fuzzy
 #| msgid "Recent tables"
 msgid "Recent"
-msgstr "சமீபத்திய அட்டவணைகள்"
+msgstr "அண்மையில்"
 
 #: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:474
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Favorite tables"
-msgstr "அட்டவணைகளில்:"
+msgstr "விருப்பமான அட்டவணைகள்"
 
 #: libraries/RecentFavoriteTable.class.php:264
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Favorites"
-msgstr "அட்டவணைகளில்:"
+msgstr "விருப்பமானவைகள்"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -3277,10 +3261,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "Show tables"
 msgid "Unknown table status:"
-msgstr "அட்டவணைகளை காட்டு"
+msgstr "தெரியாத அட்டவணை நிலை:"
 
 #: libraries/Table.class.php:796
 #, php-format
@@ -3301,10 +3284,10 @@ msgid "Invalid table name:"
 msgstr "செல்லாத அட்டவணைப் பெயர்:"
 
 #: libraries/Table.class.php:1351
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version"
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "அட்டவணை %1$sஐ %2$s என மறுபெயரிடுதல் தோல்வியடைந்தது!"
 
 #: libraries/Table.class.php:1370
 #, php-format
@@ -3859,10 +3842,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "நீங்கள் தேர்வு செய்த வலை சேவையகம் பதிவேற்றை அடைய இயலவில்லை."
 
 #: libraries/Util.class.php:3352
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை"
+msgstr "பதிவேற்ற எந்த கோப்புகளும் இல்லை!"
 
 #: libraries/Util.class.php:3377 libraries/Util.class.php:3378
 #: libraries/structure.lib.php:305
@@ -4570,10 +4552,9 @@ msgid "Default table tab"
 msgstr ""
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 #| msgid "Databases"
 msgid "Whether the table structure actions should be hidden."
-msgstr "தரவுத்தளங்கள்"
+msgstr "அட்டவணை வடிவாக்க செயல்களை மறைக்கவா."
 
 #: libraries/config/messages.inc.php:91
 msgid "Hide table structure actions"
@@ -4945,10 +4926,9 @@ msgid "LaTeX"
 msgstr ""
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Table options"
 msgid "Databases display options."
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "தரவுத்தளங்களின் காட்சித்தெரிவுகள்."
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
@@ -4968,10 +4948,9 @@ msgid "Servers display options."
 msgstr ""
 
 #: libraries/config/messages.inc.php:240
-#, fuzzy
 #| msgid "Table options"
 msgid "Tables display options."
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "அட்டவணைகளின் காட்சித்தெரிவுகள்."
 
 #: libraries/config/messages.inc.php:241 setup/frames/menu.inc.php:25
 msgid "Main panel"
@@ -5027,10 +5006,9 @@ msgid "Authentication"
 msgstr "உறுதிப்படுத்தல்"
 
 #: libraries/config/messages.inc.php:264
-#, fuzzy
 #| msgid "Action"
 msgid "Authentication settings."
-msgstr "செயல்"
+msgstr "உறுதிப்பாடு அமைப்புமுறைமை."
 
 #: libraries/config/messages.inc.php:265
 msgid "Server configuration"
@@ -5043,10 +5021,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
 #| msgid "Insecure connection"
 msgid "Enter server connection parameters."
-msgstr "பாதுகாப்பற்ற இணைப்பு"
+msgstr "வழங்கியுடன் இணைவதற்கான அளவுருக்களை இடுக."
 
 #: libraries/config/messages.inc.php:271
 msgid "Configuration storage"
@@ -5099,10 +5076,9 @@ msgid "Customize links shown in SQL Query boxes."
 msgstr ""
 
 #: libraries/config/messages.inc.php:293
-#, fuzzy
 #| msgid "Current settings"
 msgid "SQL queries settings."
-msgstr "நடப்பு அமைப்புக்கள்"
+msgstr "SQL வினவல் அமைப்புமுறைமை."
 
 #: libraries/config/messages.inc.php:294
 msgid "Startup"
@@ -5152,10 +5128,9 @@ msgid "Text fields"
 msgstr "உரை கலம்"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Add new field"
 msgid "Customize text input fields."
-msgstr "புதிய களத்தை சேர்க்க"
+msgstr "உரைஉள்ளிடல் களங்களை தனிபயனாக்குக."
 
 #: libraries/config/messages.inc.php:310
 msgid "Texy! text"
@@ -5414,10 +5389,9 @@ msgid "Memory limit"
 msgstr ""
 
 #: libraries/config/messages.inc.php:429
-#, fuzzy
 #| msgid "Table options"
 msgid "Show logo in navigation panel."
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "வழிசெலுத்தல் பலகத்தில் இலச்சினையை காட்டுக."
 
 #: libraries/config/messages.inc.php:430
 msgid "Display logo"
@@ -5510,10 +5484,9 @@ msgid "Whether to disable the possibility of database expansion or not."
 msgstr ""
 
 #: libraries/config/messages.inc.php:468
-#, fuzzy
 #| msgid "Table options"
 msgid "Disable database expansion"
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "தரவுத்தள விரிவாக்கதை முடக்கு"
 
 #: libraries/config/messages.inc.php:470
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -5753,10 +5726,9 @@ msgid "SweKey config file"
 msgstr ""
 
 #: libraries/config/messages.inc.php:562
-#, fuzzy
 #| msgid "Action"
 msgid "Authentication method to use."
-msgstr "செயல்"
+msgstr "உறுதிப்படுத்துதல் பயன்முறைமை."
 
 #: libraries/config/messages.inc.php:563 setup/frames/index.inc.php:162
 msgid "Authentication type"
@@ -8341,28 +8313,24 @@ msgid "Constraints for table"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:1277
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for dumped tables"
-msgstr "அட்டவணைகளில்:"
+msgstr "குவிக்கப்பட்ட அட்டவணைகளுக்கான தொகுப்புக்குறிகள்"
 
 #: libraries/plugins/export/ExportSql.class.php:1287
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "அட்டவணைகளில்:"
+msgstr "அட்டவணைகளில்:->அட்டவணைகளுக்கான தொகுப்புக்குறிகள்"
 
 #: libraries/plugins/export/ExportSql.class.php:1313
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்க்க"
+msgstr "குவிக்கப்பட்ட அட்டவணைகளுக்கான AUTO_INCREMENT(தன்னிலைகூட்டு)"
 
 #: libraries/plugins/export/ExportSql.class.php:1323
-#, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்"
+msgstr "அட்டவணைக்கான AUTO_INCREMENT(தன்னிலைகூட்டு)"
 
 #: libraries/plugins/export/ExportSql.class.php:1540
 msgid "MIME TYPES FOR TABLE"
@@ -9924,10 +9892,9 @@ msgid "Global privileges"
 msgstr ""
 
 #: libraries/server_privileges.lib.php:999
-#, fuzzy
 #| msgid "Global value"
 msgid "Global"
-msgstr "முழுதளாவிய மதிப்பு"
+msgstr "உலகளாவிய"
 
 #: libraries/server_privileges.lib.php:1001
 #: libraries/server_privileges.lib.php:2773
@@ -11365,16 +11332,16 @@ msgstr ""
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "%s தரவுத்தளம் இரத்து செய்யப்பட்டது."
+msgstr "நோக்குநிலை %s கைவிடப்பட்டது."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "%s தரவுத்தளம் இரத்து செய்யப்பட்டது."
+msgstr "அட்டவணை %s கைவிடப்பட்டது."
 
 #: libraries/structure.lib.php:185
 msgid "Sum"
@@ -11573,10 +11540,9 @@ msgid "The column name '%s' is a MySQL reserved keyword."
 msgstr ""
 
 #: libraries/structure.lib.php:2752
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add to Favorites"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "விருப்பமானவைகளில் சேர்க்க"
 
 #: libraries/tbl_chart.lib.php:39
 #| msgid "Mar"
@@ -12099,10 +12065,9 @@ msgid "Toggle relation lines"
 msgstr ""
 
 #: pmd_general.php:146 pmd_pdf.php:103
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Import/Export coordinates for relational schema"
-msgstr "தொடர்புசார் திட்டத்தை திருத்த அல்லது ஏற்ற"
+msgstr "தொடர்புசார் வரைவமைப்புக்கான ஆயங்களை தரவேற்றுக/தரவிறக்குக"
 
 #: pmd_general.php:155
 msgid "Build Query"
@@ -12172,16 +12137,14 @@ msgid "Page:"
 msgstr ""
 
 #: pmd_pdf.php:124
-#, fuzzy
 #| msgid "No column selected."
 msgid "Import from selected page."
-msgstr "தெரிவுசெய்யப்பட தூண் இல்லை."
+msgstr "தெரிவுசெய்யப்பட பக்கத்திலிருந்து தரவிறக்குக."
 
 #: pmd_pdf.php:125
-#, fuzzy
 #| msgid "Export"
 msgid "Export to selected page."
-msgstr "ஏற்றுமதி"
+msgstr "தெரிவுசெய்யப்பட பக்கத்திற்கு தரவேற்றுக."
 
 #: pmd_pdf.php:127
 msgid "Create a page and export to it."
@@ -12216,10 +12179,9 @@ msgid "Error: Relational features are disabled!"
 msgstr ""
 
 #: pmd_relation_new.php:104
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "Internal relation has been added."
-msgstr "%s அட்டவணை வெறுமை செய்யப்பட்டது"
+msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: pmd_relation_upd.php:67
 msgid "Relation deleted"
