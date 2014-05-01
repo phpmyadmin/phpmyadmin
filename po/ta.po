@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 23:05+0200\n"
+"PO-Revision-Date: 2014-05-01 23:12+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -11331,10 +11331,10 @@ msgstr ""
 
 #: libraries/structure.lib.php:130 tbl_operations.php:358
 #: view_operations.php:119
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been dropped."
 msgid "View %s has been dropped."
-msgstr "%s தரவுத்தளம் இரத்து செய்யப்பட்டது."
+msgstr "நோக்குநிலை %s கைவிடப்பட்டது."
 
 #: libraries/structure.lib.php:131 tbl_operations.php:359
 #, fuzzy, php-format
