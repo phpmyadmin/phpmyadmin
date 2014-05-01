@@ -8317,10 +8317,9 @@ msgid "Indexes for dumped tables"
 msgstr "குவிக்கப்பட்ட அட்டவணைகளுக்கான தொகுப்புக்குறிகள்"
 
 #: libraries/plugins/export/ExportSql.class.php:1287
-#, fuzzy
 #| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "அட்டவணைகளில்:"
+msgstr "அட்டவணைகளில்:->அட்டவணைகளுக்கான தொகுப்புக்குறிகள்"
 
 #: libraries/plugins/export/ExportSql.class.php:1313
 #, fuzzy
