@@ -716,8 +716,7 @@ function PMA_getHtmlForResourceLimits($row)
         . 'MAX QUERIES PER HOUR'
         . '</dfn></code></label>' . "\n"
         . '<input type="number" name="max_questions" id="text_max_questions" '
-        . 'value="' . $row['max_questions'] . '" '
-        . 'size="6" maxlength="11" min="0" '
+        . 'value="' . $row['max_questions'] . '" min="0" '
         . 'title="'
         . __(
             'Limits the number of queries the user may send to the server per hour.'
