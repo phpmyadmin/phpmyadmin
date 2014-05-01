@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 22:28+0200\n"
+"PO-Revision-Date: 2014-05-01 22:30+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -4925,10 +4925,9 @@ msgid "LaTeX"
 msgstr ""
 
 #: libraries/config/messages.inc.php:234
-#, fuzzy
 #| msgid "Table options"
 msgid "Databases display options."
-msgstr "அட்டவணை தெரிவுகள்"
+msgstr "அட்டவணைகளின் காட்சித்தெரிவுகள்."
 
 #: libraries/config/messages.inc.php:235 setup/frames/menu.inc.php:24
 msgid "Navigation panel"
