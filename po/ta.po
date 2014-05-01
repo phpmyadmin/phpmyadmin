@@ -2490,7 +2490,7 @@ msgstr "நிறைவரிசைகளை வடிகட்டு"
 #: libraries/DisplayResults.class.php:797
 #| msgid "Search in database"
 msgid "Search this table"
-msgstr "இந்த அட்டவணையில் தேடு"
+msgstr "இந்த அட்டவணையில் தேடுக"
 
 #: libraries/DisplayResults.class.php:824 libraries/Util.class.php:2446
 #: libraries/Util.class.php:2450
