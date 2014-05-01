@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 22:43+0200\n"
+"PO-Revision-Date: 2014-05-01 22:46+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -5127,10 +5127,9 @@ msgid "Text fields"
 msgstr "உரை கலம்"
 
 #: libraries/config/messages.inc.php:309
-#, fuzzy
 #| msgid "Add new field"
 msgid "Customize text input fields."
-msgstr "புதிய களத்தை சேர்க்க"
+msgstr "உரைஉள்ளிடல் களங்களை தனிபயனாக்குக"
 
 #: libraries/config/messages.inc.php:310
 msgid "Texy! text"
