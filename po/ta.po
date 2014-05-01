@@ -5129,7 +5129,7 @@ msgstr "உரை கலம்"
 #: libraries/config/messages.inc.php:309
 #| msgid "Add new field"
 msgid "Customize text input fields."
-msgstr "உரைஉள்ளிடல் களங்களை தனிபயனாக்குக"
+msgstr "உரைஉள்ளிடல் களங்களை தனிபயனாக்குக."
 
 #: libraries/config/messages.inc.php:310
 msgid "Texy! text"
