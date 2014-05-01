@@ -2438,6 +2438,10 @@ fieldset .disabled-field td {
     background: #F7FBFF;
 }
 
+input[type="number"] {
+    width: 50px;
+}
+
 .config-form .field-comment-mark {
     font-family: serif;
     color: #007;
