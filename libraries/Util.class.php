@@ -3860,7 +3860,7 @@ class PMA_Util
              *
              * Also, we need to double the inner % to please sprintf().
              *
-             * Eightfold escape:
+             * Three level escape:
              * - first level to escape \ in PHP string
              * - second level to escape \ in SQL
              * - third level to escape \ in REGEXP
