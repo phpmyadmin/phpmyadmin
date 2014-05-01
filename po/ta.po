@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 23:14+0200\n"
+"PO-Revision-Date: 2014-05-01 23:20+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -12064,10 +12064,9 @@ msgid "Toggle relation lines"
 msgstr ""
 
 #: pmd_general.php:146 pmd_pdf.php:103
-#, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Import/Export coordinates for relational schema"
-msgstr "தொடர்புசார் திட்டத்தை திருத்த அல்லது ஏற்ற"
+msgstr "தொடர்புசார் வரைவமைப்புக்கான ஆயங்களை தரவேற்றுக/தரவிறக்குக"
 
 #: pmd_general.php:155
 msgid "Build Query"
