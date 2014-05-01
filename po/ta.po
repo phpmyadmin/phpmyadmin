@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 22:06+0200\n"
+"PO-Revision-Date: 2014-05-01 22:07+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -2615,10 +2615,9 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:3446
 #: libraries/DisplayResults.class.php:3462
-#, fuzzy
 #| msgid "Table %s has been emptied."
 msgid "The row has been deleted."
-msgstr "%s அட்டவணை வெறுமை செய்யப்பட்டது"
+msgstr "இந்நிரைவரிசை அழிக்கப்பட்டது."
 
 #: libraries/DisplayResults.class.php:3498
 #: libraries/DisplayResults.class.php:5136 libraries/server_status.lib.php:518
