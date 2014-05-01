@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 22:09+0200\n"
+"PO-Revision-Date: 2014-05-01 22:11+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -3075,10 +3075,9 @@ msgstr ""
 
 #: libraries/RecentFavoriteTable.class.php:225
 #: libraries/structure.lib.php:2751
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "வரைபடத்தை நீக்கு"
+msgstr "விருப்பமானவை பட்டியலிருந்து நீக்கவும்"
 
 #: libraries/RecentFavoriteTable.class.php:242
 #, fuzzy
