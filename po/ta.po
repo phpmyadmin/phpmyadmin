@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 16:59+0200\n"
+"PO-Revision-Date: 2014-05-02 17:36+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -592,6 +592,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"\"செயல்கூறு\" நிரல்வரிசையிலிருந்து \"உரையிலிருந்துGeom\"யினை "
+"தேர்ந்தெடுத்தபின்னர் கீழுள்ள \"மதிப்பு\" களத்தில் சரத்தை ஒட்டுக."
 
 #: import.php:116
 #, php-format
