@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 18:24+0200\n"
+"PO-Revision-Date: 2014-05-02 19:00+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -633,6 +633,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"நீங்கள் நினைவேற்ற முயன்ற கோப்பு ஆதரவற்ற சுருக்கமுறைமை (%s) கொண்டது. அதற்கான "
+"ஆதரவு நடைமுறைப்படுத்தப்படாமலிருக்கலாம் அல்லது உள்ளமைப்பால் "
+"முடக்கப்பட்டிருக்கலாம்."
 
 #: import.php:476
 msgid ""
@@ -3324,7 +3327,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Function.class.php:34
 #: libraries/rte/rte_routines.lib.php:1606
 msgid "Function"
-msgstr ""
+msgstr "செயல்கூறு"
 
 #: libraries/TableSearch.class.php:188 pmd_general.php:574 pmd_general.php:594
 #: pmd_general.php:723 pmd_general.php:736 pmd_general.php:801
@@ -6186,7 +6189,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:734
 msgid "Show function fields"
-msgstr ""
+msgstr "செயல்கூற்றின் களங்களை காட்டுக"
 
 #: libraries/config/messages.inc.php:735
 msgid "Whether to show hint or not."
@@ -8266,7 +8269,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:379
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "தரவுகளை குவிக்கும் போது பயன்படும் செயல்கூறு:"
 
 #: libraries/plugins/export/ExportSql.class.php:392
 msgid "Syntax to use when inserting data:"
