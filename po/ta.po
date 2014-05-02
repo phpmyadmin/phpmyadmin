@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 23:25+0200\n"
+"PO-Revision-Date: 2014-05-02 16:55+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -2793,7 +2793,7 @@ msgstr ""
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
-msgstr ""
+msgstr "Git தகவல் காணவில்லை!"
 
 #: libraries/Footer.class.php:181 libraries/Footer.class.php:185
 #: libraries/Footer.class.php:188
