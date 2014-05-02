@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 20:26+0200\n"
+"PO-Revision-Date: 2014-05-02 20:29+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -12216,6 +12216,8 @@ msgstr ""
 #: prefs_forms.php:86
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
+"அமைப்புருவாக்கத்தை சேமிக்க முடியவில்லை, அளிக்கப்பட்ட படிவத்தில் பிழைகள் "
+"உள்ளன!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
