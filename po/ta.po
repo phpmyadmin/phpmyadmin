@@ -807,7 +807,7 @@ msgstr "ஆதரவு வேண்டுக"
 
 #: index.php:402
 msgid "List of changes"
-msgstr ""
+msgstr "மாற்றங்கள் பட்டியல்"
 
 #: index.php:424
 msgid ""
