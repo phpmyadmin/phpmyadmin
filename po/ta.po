@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 18:59+0200\n"
+"PO-Revision-Date: 2014-05-02 21:47+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -642,15 +642,23 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"தரவிறக்கதிற்கு எந்த தரவும் பெறப்படவில்லை. கோப்பின் பெயர் "
+"அனுப்பப்படாமலிருக்கலாம் அல்லது கோப்பின் அளவு PHP உள்ளமைப்பின் கோப்பு பதிவேற்"
+"ற மீயளவு இசைவு வரம்பை கடந்திருக்கும். [doc@faq1-16] FAQ 1.16 [/doc]யினை "
+"காண்க."
 
 #: import.php:495
 msgid ""
 "Cannot convert file's character set without character set conversion library!"
 msgstr ""
+"கோப்பின் எழுத்துக்கணத்தை எழுத்துக்கண உருத்திரிபு நூல்கோவை இல்லாமல் "
+"மாற்றமுடியாது!"
 
 #: import.php:533 libraries/display_import.inc.php:32
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
+"தரவிறக்க செருகுநிரல்களை நினைவேற்ற இயலவில்லை, தயவுசெய்து உங்கள் நிறுவலை "
+"சரிபார்க்கவும்!"
 
 #: import.php:568 libraries/sql.lib.php:1025 libraries/sql.lib.php:1806
 #, php-format
@@ -661,19 +669,24 @@ msgstr "புத்தகக்குறி %s குறிக்கப்ப�
 #: import.php:577
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "தரவிறக்கம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
 
 #: import.php:598
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"செயல்நிரலுக்கான செயலாக்க நேரம் கடந்தது, தரவிறக்கத்தை முடிக்க அதேகோப்பினை "
+"மீண்டும் அனுப்பியபின் தரவிறக்க செயல்பாடு மீளேற்றபடும்."
 
 #: import.php:602
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"முந்தைய செயலாக்கம் எந்த தரவையும் தரவில்லை, பொதுவாக இது நீங்கள் PHPயின் "
+"செயலாக்க காலவரையை மாற்றாமல் PHPMyAdmin னால் இந்த தரவிறக்கத்தை முடிக்கவியலாததை"
+" குறிக்கிறது."
 
 #: import_status.php:95 libraries/Util.class.php:733
 #: libraries/export.lib.php:438
@@ -683,7 +696,7 @@ msgstr "திரும்பி"
 
 #: index.php:127 libraries/Footer.class.php:70
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin  செயல்விளக்க சேவையகம்"
+msgstr "PHPMyAdmin  செயல்விளக்க சேவையகம்"
 
 #: index.php:131
 #, php-format
@@ -692,15 +705,18 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"நீங்கள் செயல்விளக்க வழங்கியை பயன்படுத்துகிறீர்கள். இங்கு நீங்கள் ஏதும் "
+"செய்யலாம், அனால் தயவுசெய்து root, debian-sys-maint மற்றும் pma பயனர்களை "
+"மாற்றாதிருக்கவும். மேலதிக தகவல்கள் %sஇல் உள்ளன."
 
 #: index.php:141
 msgid "General Settings"
-msgstr ""
+msgstr "பொதுவான அமைவுகள்"
 
 #: index.php:169 libraries/display_change_password.lib.php:51
 #: libraries/display_change_password.lib.php:52 user_password.php:233
 msgid "Change password"
-msgstr ""
+msgstr "கடவுச்சொல்லை மாற்றவும்"
 
 #: index.php:185
 msgid "Server connection collation"
@@ -708,11 +724,11 @@ msgstr "சேவையக இணைப்பு குறிமுறை அட
 
 #: index.php:208
 msgid "Appearance Settings"
-msgstr ""
+msgstr "உருத்தோற்ற அமைப்புகள்"
 
 #: index.php:238 prefs_manage.php:279
 msgid "More settings"
-msgstr ""
+msgstr "மேலதிக அமைப்புகள்"
 
 #: index.php:259
 msgid "Database server"
@@ -746,7 +762,7 @@ msgstr "வழங்கி குறிமுறை:"
 
 #: index.php:300
 msgid "Web server"
-msgstr ""
+msgstr "இணைய வழங்கி"
 
 #: index.php:311
 msgid "Database client version:"
@@ -754,15 +770,15 @@ msgstr "தரவுத்தள பயனர் நிரல் பதிப்
 
 #: index.php:315
 msgid "PHP extension:"
-msgstr ""
+msgstr "PHP நீட்சி:"
 
 #: index.php:333
 msgid "Show PHP information"
-msgstr ""
+msgstr "PHP தகவலைக் காட்டுக"
 
 #: index.php:356
 msgid "Version information:"
-msgstr ""
+msgstr "பதிப்பு தகவல்கள்:"
 
 #: index.php:365 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
@@ -774,23 +790,23 @@ msgstr "ஆவணச்சான்று"
 
 #: index.php:372
 msgid "Wiki"
-msgstr ""
+msgstr "பயனர் தொகுப்பாக்கி"
 
 #: index.php:381
 msgid "Official Homepage"
-msgstr ""
+msgstr "அலுவல்முறை முகப்புப்பக்கம்"
 
 #: index.php:388
 msgid "Contribute"
-msgstr ""
+msgstr "பங்களிப்பு"
 
 #: index.php:395
 msgid "Get support"
-msgstr ""
+msgstr "ஆதரவு வேண்டுக"
 
 #: index.php:402
 msgid "List of changes"
-msgstr ""
+msgstr "மாற்றங்கள் பட்டியல்"
 
 #: index.php:424
 msgid ""
@@ -799,6 +815,10 @@ msgid ""
 "running with this default, is open to intrusion, and you really should fix "
 "this security hole by setting a password for user 'root'."
 msgstr ""
+"உங்கள் அமைப்பாக்க கோப்பு, MySQLன் இயல்நிலை சிறப்புரிமைபேறுடைய பயனர் கணக்கு "
+"தொடர்பான அமைவை (கடவுச்சொல் அற்ற root பயனர்)  கொண்டிருக்கிறது. உங்கள் MySQL "
+"இந்த இயல்நிலை அமைவுடன் இயங்கினால், அது ஊடுருவபடகூடும், 'root' பயனருக்கு "
+"கடவுச்சொல் அமைத்து அப்படி நிகழாமல் செய்க."
 
 #: index.php:441
 msgid ""
@@ -806,6 +826,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
+"உங்கள் PHP அமைப்பாக்க கோப்பில்  mbstring.func_overload அமைவை இயலசெய்துள்ளீர்"
+". இவ்விருப்பம் PHPMyAdminஉடன் இணக்கமற்றது மேலும் சில தரவுகள் வீணாகலாம்!"
 
 #: index.php:456
 msgid ""
@@ -8268,7 +8290,7 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:379
 msgid "Function to use when dumping data:"
-msgstr "தரவுகளை குவிக்கும் போது பயன்படும் செயல்கூறு"
+msgstr "தரவுகளை குவிக்கும் போது பயன்படும் செயல்கூறு:"
 
 #: libraries/plugins/export/ExportSql.class.php:392
 msgid "Syntax to use when inserting data:"
@@ -12202,6 +12224,8 @@ msgstr ""
 #: prefs_forms.php:86
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
+"அமைப்புருவாக்கத்தை சேமிக்க முடியவில்லை, அளிக்கப்பட்ட படிவத்தில் பிழைகள் "
+"உள்ளன!"
 
 #: prefs_manage.php:82
 msgid "Could not import configuration"
@@ -12418,7 +12442,7 @@ msgstr "எச்சரிக்கை"
 
 #: setup/lib/form_processing.lib.php:50
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "அளிக்கப்பட்ட படிவத்தில் பிழைகள் உள்ளன"
 
 #: setup/lib/form_processing.lib.php:52
 msgid "Try to revert erroneous fields to their default values"
