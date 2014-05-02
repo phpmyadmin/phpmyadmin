@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 20:54+0200\n"
+"PO-Revision-Date: 2014-05-02 20:55+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -779,7 +779,7 @@ msgstr "PHP தகவலைக் காட்டுக"
 
 #: index.php:356
 msgid "Version information:"
-msgstr ""
+msgstr "பதிப்பு தகவல்கள்:"
 
 #: index.php:365 libraries/Util.class.php:429 libraries/Util.class.php:494
 #: libraries/config/FormDisplay.tpl.php:148
