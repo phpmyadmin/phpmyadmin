@@ -201,6 +201,10 @@ input[type=date] {
     margin: 6px;
 }
 
+input[type=number] {
+    width: 50px;
+}
+
 input[type=text],
 input[type=password],
 input[type=number],
