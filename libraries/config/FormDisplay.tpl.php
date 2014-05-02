@@ -239,7 +239,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'number_text':
-        echo '<input type="number" size="15" ' . $name_id . $field_class
+        echo '<input type="number" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'checkbox':

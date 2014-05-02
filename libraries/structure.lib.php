@@ -1587,8 +1587,8 @@ function PMA_getHtmlForAddColumn($columns_list)
             __('Add column')
         );
     }
-    $num_fields = '<input type="number" name="num_fields" size="2" '
-        . 'maxlength="2" value="1" onfocus="this.select()" '
+    $num_fields = '<input type="number" name="num_fields" '
+        . 'value="1" onfocus="this.select()" '
         . 'min="1" required />';
     $html_output .= sprintf(__('Add %s column(s)'), $num_fields);
 
