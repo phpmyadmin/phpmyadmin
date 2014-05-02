@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-01 23:25+0200\n"
+"PO-Revision-Date: 2014-05-02 18:51+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -312,7 +312,7 @@ msgstr "அனுமதி நிராகரிக்கப்பட்டு�
 
 #: db_structure.php:72
 msgid "Favorite List is full!"
-msgstr ""
+msgstr "விருப்பமானவை பட்டியல் நிரம்பிவிட்டது!"
 
 #: db_tracking.php:75
 msgid "Tracked tables"
@@ -591,6 +591,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"\"செயல்கூறு\" நிரல்வரிசையிலிருந்து \"உரையிலிருந்துGeom\"யினை "
+"தேர்ந்தெடுத்தபின்னர் கீழுள்ள \"மதிப்பு\" களத்தில் சரத்தை ஒட்டுக."
 
 #: import.php:116
 #, php-format
@@ -598,14 +600,16 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
 msgstr ""
+"நீங்கள் பதிவேற்ற முயன்ற கோப்பு மிகப்பெரியதாக இருக்கலாம். இவ்வரம்பின் மாற்ற "
+"தயவுசெய்து %s ஆவணஉரையை %s பார்வையிடவும்."
 
 #: import.php:284 import.php:565
 msgid "Showing bookmark"
-msgstr ""
+msgstr "புத்தகக்குறி காட்டப்படுகிறது"
 
 #: import.php:299 import.php:561
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "புத்தகக்குறி அழிக்கப்பட்டது."
 
 #: import.php:396
 #, php-format
@@ -613,11 +617,13 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"பதிவேற்றிய கோப்பை நகர்த்தமுடியவில்லை, ஏனெனில் வழங்கியில் %s அடைவை (தற்காலிக "
+"கோப்புகளுக்காக) அணுகமுடியா நிலையில் open_basedir இயலசெய்யப்பட்டுள்ளது."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
 msgid "File could not be read!"
-msgstr ""
+msgstr "கோப்பை வாசிக்க இயலவில்லை!"
 
 #: import.php:418 import.php:429 import.php:450 import.php:461
 #: libraries/File.class.php:593
@@ -626,6 +632,9 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"நீங்கள் நினைவேற்ற முயன்ற கோப்பு ஆதரவற்ற சுருக்கமுறைமை (%s) கொண்டது. அதற்கான "
+"ஆதரவு நடைமுறைப்படுத்தப்படாமலிருக்கலாம் அல்லது உள்ளமைப்பால் "
+"முடக்கப்பட்டிருக்கலாம்."
 
 #: import.php:476
 msgid ""
@@ -2792,7 +2801,7 @@ msgstr ""
 
 #: libraries/Footer.class.php:81
 msgid "Git information missing!"
-msgstr ""
+msgstr "Git தகவல் காணவில்லை!"
 
 #: libraries/Footer.class.php:181 libraries/Footer.class.php:185
 #: libraries/Footer.class.php:188
