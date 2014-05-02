@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 18:17+0200\n"
+"PO-Revision-Date: 2014-05-02 18:23+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -618,6 +618,8 @@ msgid ""
 "Uploaded file cannot be moved, because the server has open_basedir enabled "
 "without access to the %s directory (for temporary files)."
 msgstr ""
+"பதிவேற்றிய கோப்பை நகர்த்தமுடியவில்லை, ஏனெனில் வழங்கியில் %s அடைவை (தற்காலிக "
+"கோப்புகளுக்காக) அணுகமுடியா நிலையில் open_basedir இயலசெய்யப்பட்டுள்ளது."
 
 #: import.php:409 import.php:470 libraries/File.class.php:433
 #: libraries/File.class.php:527
