@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 18:16+0200\n"
+"PO-Revision-Date: 2014-05-02 18:17+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/master/ta/>"
 "\n"
@@ -610,7 +610,7 @@ msgstr "புத்தகக்குறி காட்டப்படுக�
 
 #: import.php:299 import.php:561
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "புத்தகக்குறி அழிக்கப்பட்டது."
 
 #: import.php:396
 #, php-format
