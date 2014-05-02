@@ -829,7 +829,7 @@ EOT;
          */
         $html_output .= '<fieldset id="fieldset_limit_rows">'
             . '<legend>' . __('Number of rows per page') . '</legend>'
-            . '<input type="number" size="4" name="session_max_rows" required '
+            . '<input type="number" name="session_max_rows" required="required" '
             . 'min="1" '
             . 'value="' . $GLOBALS['cfg']['MaxRows'] . '" class="textfield" />'
             . '</fieldset>';
@@ -901,7 +901,7 @@ EOT;
             . __("Maximum rows to plot") . '</label></td>';
         $html_output .= '<td>';
         $html_output .= '<input type="number" name="maxPlotLimit"'
-            . ' id="maxRowPlotLimit" required'
+            . ' id="maxRowPlotLimit" required="required"'
             . ' value="' . ((! empty($_POST['maxPlotLimit']))
                 ? htmlspecialchars($_POST['maxPlotLimit'])
                 : $GLOBALS['cfg']['maxRowPlotLimit'])
