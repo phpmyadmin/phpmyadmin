@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 18:51+0200\n"
+"PO-Revision-Date: 2014-05-02 18:56+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -3326,7 +3326,7 @@ msgstr ""
 #: libraries/navigation/Nodes/Node_Function.class.php:34
 #: libraries/rte/rte_routines.lib.php:1606
 msgid "Function"
-msgstr ""
+msgstr "செயல்கூறு"
 
 #: libraries/TableSearch.class.php:188 pmd_general.php:574 pmd_general.php:594
 #: pmd_general.php:723 pmd_general.php:736 pmd_general.php:801
