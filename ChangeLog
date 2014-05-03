@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #4364 examples/signon.php does not support the SessionSavePath directive
 - bug #4382 Missing source for OpenLayers library
 - bug       Incorrect attributes for number fields
+- bug #4383 Cannot update values in Zoom search
 
 4.2.0.0 (not yet released)
 + rfe #1403 Export only triggers
