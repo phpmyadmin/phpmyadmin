@@ -29,7 +29,8 @@ textarea {
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-<?php } ?>
+    <?php 
+} ?>
     padding: 0;
     margin: 0;
     margin-<?php echo $left; ?>: 240px;
@@ -46,13 +47,14 @@ body#loginform {
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
-textarea,
-tt,
-pre,
-code {
+    textarea,
+    tt,
+    pre,
+    code {
     font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
-}
-<?php } ?>
+    }
+    <?php
+} ?>
 
 
 h1 {
@@ -556,33 +558,35 @@ table tr.even {
 }
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerEnable']) { ?>
-/* marked table rows */
-td.marked,
-table tr.marked td,
-table tr.marked th,
-table tr.marked {
+    /* marked table rows */
+    td.marked,
+    table tr.marked td,
+    table tr.marked th,
+    table tr.marked {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-}
-<?php } ?>
+    }
+    <?php
+} ?>
 
 <?php if ($GLOBALS['cfg']['BrowsePointerEnable']) { ?>
-/* hovered items */
-.odd:hover,
-.even:hover,
-.hover {
+    /* hovered items */
+    .odd:hover,
+    .even:hover,
+    .hover {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-}
+    }
 
-/* hovered table rows */
-table tr.odd:hover th,
-table tr.even:hover th,
-table tr.hover th {
+    /* hovered table rows */
+    table tr.odd:hover th,
+    table tr.even:hover th,
+    table tr.hover th {
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-}
-<?php } ?>
+    }
+    <?php
+} ?>
 
 /**
  * marks table rows/cells if the db field is in a where condition
@@ -606,11 +610,12 @@ tr:last-child td.condition {
 }
 
 <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
-/* for first th which must have right border set (ltr only) */
-.before-condition {
+    /* for first th which must have right border set (ltr only) */
+    .before-condition {
     border-right: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
-}
-<?php } ?>
+    }
+    <?php 
+} ?>
 
 /**
  * cells with the value NULL
@@ -635,10 +640,11 @@ table [class=value] {
 
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
-.value {
+    .value {
     font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
-}
-<?php } ?>
+    }
+    <?php 
+} ?>
 .attention {
     color: red;
     font-weight: bold;
