@@ -46,53 +46,26 @@ class PMA_GIS_ModifyQueryTest extends PHPUnit_Framework_TestCase
     public function provider()
     {
         return array(
-            // select *
+            // with label column
             array(
-                'SELECT * FROM `foo` WHERE `bar` = `zoo`',
+                "SELECT * FROM `foo` WHERE `bar` = `zoo`",
                 array('spatialColumn' => 'moo', 'labelColumn' => 'noo'),
-                'SELECT `noo`, ASTEXT(`moo`) AS `moo`, SRID(`moo`) AS `srid` FROM `foo` WHERE `bar` = `zoo`'
+                "SELECT `noo`, ASTEXT(`moo`) AS `moo`, SRID(`moo`) AS `srid` "
+                    . "FROM (SELECT * FROM `foo` WHERE `bar` = `zoo`) AS `temp_gis`"
             ),
-            // select * with no label column
+            // with no label column
             array(
-                'SELECT * FROM `foo` WHERE `bar` = `zoo`',
+                "SELECT * FROM `foo` WHERE `bar` = `zoo`",
                 array('spatialColumn' => 'moo'),
-                'SELECT ASTEXT(`moo`) AS `moo`, SRID(`moo`) AS `srid` FROM `foo` WHERE `bar` = `zoo`'
+                "SELECT ASTEXT(`moo`) AS `moo`, SRID(`moo`) AS `srid` "
+                    . "FROM (SELECT * FROM `foo` WHERE `bar` = `zoo`) AS `temp_gis`"
             ),
-            // more columns
+            // with spatial column genereted on the fly
             array(
-                'SELECT `aaa`, `moo`, `bbb`, `noo` FROM `foo` WHERE `bar` = `zoo`',
-                array('spatialColumn' => 'moo', 'labelColumn' => 'noo'),
-                'SELECT `noo`, ASTEXT(`moo`) AS `moo`, SRID(`moo`) AS `srid` FROM `foo` WHERE `bar` = `zoo`'
-            ),
-            // no labelColumn defined
-            array(
-                'SELECT `moo`, `noo` FROM `foo` WHERE `bar` = `zoo`',
-                array('spatialColumn' => 'moo'),
-                'SELECT ASTEXT(`moo`) AS `moo`, SRID(`moo`) AS `srid` FROM `foo` WHERE `bar` = `zoo`'
-            ),
-            // alias for spatialColumn
-            array(
-                'SELECT `aaa` AS `moo`, `noo` FROM `foo` WHERE `bar` = `zoo`',
-                array('spatialColumn' => 'moo', 'labelColumn' => 'noo'),
-                'SELECT `noo`, ASTEXT(`aaa`) AS `moo`, SRID(`aaa`) AS `srid` FROM `foo` WHERE `bar` = `zoo`'
-            ),
-            // alias for labelColumn
-            array(
-                'SELECT `moo`, `bbb` AS `noo` FROM `foo` WHERE `bar` = `zoo`',
-                array('spatialColumn' => 'moo', 'labelColumn' => 'noo'),
-                'SELECT `bbb` AS `noo`, ASTEXT(`moo`) AS `moo`, SRID(`moo`) AS `srid` FROM `foo` WHERE `bar` = `zoo`'
-            ),
-            // with database names
-            array(
-                'SELECT `db`.`moo`, `db`.`noo` FROM `foo` WHERE `bar` = `zoo`',
-                array('spatialColumn' => 'moo', 'labelColumn' => 'noo'),
-                'SELECT `db`.`noo`, ASTEXT(`db`.`moo`) AS `moo`, SRID(`db`.`moo`) AS `srid` FROM `foo` WHERE `bar` = `zoo`'
-            ),
-            // database names plus alias
-            array(
-                'SELECT `db`.`aaa` AS `moo`, `noo` FROM `foo` WHERE `bar` = `zoo`',
-                array('spatialColumn' => 'moo', 'labelColumn' => 'noo'),
-                'SELECT `noo`, ASTEXT(`db`.`aaa`) AS `moo`, SRID(`db`.`aaa`) AS `srid` FROM `foo` WHERE `bar` = `zoo`'
+                "SELECT name, PointFromText( Concat( 'POINT (', geo_lat, ' ', geo_lon, ')' ) ) AS coordinates FROM users",
+                array('spatialColumn' => 'coordinates', 'labelColumn' => 'name'),
+                "SELECT `name`, ASTEXT(`coordinates`) AS `coordinates`, SRID(`coordinates`) AS `srid` "
+                    . "FROM (SELECT name, PointFromText( Concat( 'POINT (', geo_lat, ' ', geo_lon, ')' ) ) AS coordinates FROM users) AS `temp_gis`"
             ),
         );
     }
