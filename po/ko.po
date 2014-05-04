@@ -4,14 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-19 15:09+0200\n"
+"PO-Revision-Date: 2014-05-04 13:49+0200\n"
 "Last-Translator: Yungu Kim <crimsonpi@gmail.com>\n"
-"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/master/ko/"
-">\n"
+"Language-Team: Korean <https://l10n.cihar.com/projects/phpmyadmin/4-2/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
@@ -5808,10 +5807,9 @@ msgid "Default sorting order"
 msgstr "기본 정렬 순서"
 
 #: libraries/config/messages.inc.php:491
-#, fuzzy
 #| msgid "Use persistent connections to MySQL databases"
 msgid "Use persistent connections to MySQL databases."
-msgstr "MySQL 데이터베이스에 영속적인 연결 사용"
+msgstr "MySQL 데이터베이스에 영속적인 연결 사용."
 
 #: libraries/config/messages.inc.php:492
 msgid "Persistent connections"
@@ -5822,7 +5820,7 @@ msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
-msgstr ""
+msgstr "데이터베이스 상세 구조 페이지에서, phpMyAdmin 설정 저장용 테이블 중 하나가 없을 경우 출력되는 기본 경고를 끄기."
 
 #: libraries/config/messages.inc.php:499
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -5832,7 +5830,7 @@ msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
 msgid ""
 "Disable the default warning that is displayed if a difference between the "
 "MySQL library and server is detected."
-msgstr ""
+msgstr "MySQL 라이브러리와 서버간의 차이가 있을 때 출력되는 기본 경고를 끄기."
 
 #: libraries/config/messages.inc.php:505
 msgid "Server/library difference warning"
@@ -5842,7 +5840,7 @@ msgstr "서버/라이브러리 차이점 경고"
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
-msgstr ""
+msgstr "테이블의 컬럼 이름이 MySQL 예약어일 경우 구조 페이지에서 출력되는 기본 경고를 끄기."
 
 #: libraries/config/messages.inc.php:510
 msgid "MySQL reserved word warning"
@@ -5857,10 +5855,9 @@ msgid "How to display various action links"
 msgstr "여러 기능 링크를 표시하는 방법"
 
 #: libraries/config/messages.inc.php:515
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY columns from editing"
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "BLOB, 바이너리 컬럼 편집 허용 안함"
+msgstr "BLOB, 바이너리 컬럼 편집 허용 안함."
 
 #: libraries/config/messages.inc.php:516
 msgid "Protect binary columns"
@@ -5882,70 +5879,63 @@ msgstr "영구적 쿼리 기록"
 
 #: libraries/config/messages.inc.php:524
 msgid "How many queries are kept in history."
-msgstr ""
+msgstr "히스토리에 저장될 쿼리의 갯수."
 
 #: libraries/config/messages.inc.php:525
 msgid "Query history length"
 msgstr "쿼리 기록 길이"
 
 #: libraries/config/messages.inc.php:527
-#, fuzzy
 #| msgid "Tab that is displayed when entering a server"
 msgid "Tab displayed when opening a new query window."
-msgstr "서버에 들어왔을 때 보여줄 탭"
+msgstr "새 쿼리 윈도우를 열었을 때 보여줄 탭."
 
 #: libraries/config/messages.inc.php:528
 msgid "Default query window tab"
 msgstr "﻿기본 쿼리 창 탭"
 
 #: libraries/config/messages.inc.php:529
-#, fuzzy
 #| msgid "Query window height (in pixels)"
 msgid "Query window height (in pixels)."
-msgstr "질의 창 높이 (픽셀)"
+msgstr "쿼리 창 높이 (픽셀)."
 
 #: libraries/config/messages.inc.php:530
 msgid "Query window height"
 msgstr "질의 창 높이"
 
 #: libraries/config/messages.inc.php:531
-#, fuzzy
 #| msgid "Query window width (in pixels)"
 msgid "Query window width (in pixels)."
-msgstr "질의 창 폭 (픽셀)"
+msgstr "쿼리 창 폭 (픽셀)."
 
 #: libraries/config/messages.inc.php:532
 msgid "Query window width"
 msgstr "질의 창 폭"
 
 #: libraries/config/messages.inc.php:534
-#, fuzzy
 #| msgid "Select which functions will be used for character set conversion"
 msgid "Select which functions will be used for character set conversion."
-msgstr "문자열 변환을 위한 함수를 선택하세요"
+msgstr "문자열 변환을 위한 함수를 선택하세요."
 
 #: libraries/config/messages.inc.php:535
 msgid "Recoding engine"
 msgstr "기록 엔진"
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
 #| msgid "When browsing tables, the sorting of each table is remembered"
 msgid "When browsing tables, the sorting of each table is remembered."
-msgstr "조회한 테이블의 정렬 순서를 기억함"
+msgstr "조회한 테이블의 정렬 순서를 기억함."
 
 #: libraries/config/messages.inc.php:538
 msgid "Remember table's sorting"
 msgstr "테이블의 정렬 순서 기억하기"
 
 #: libraries/config/messages.inc.php:540
-#, fuzzy
 #| msgid ""
 #| "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr ""
-"X번의 셀 마다 헤더를 다시 보여줍니다. [kbd]0[/kbd]이면 이 기능 비활성화"
+msgstr "X번의 셀 마다 헤더를 다시 보여줍니다. [kbd]0[/kbd]이면 이 기능 비활성화."
 
 #: libraries/config/messages.inc.php:541
 msgid "Repeat headers"
@@ -5961,27 +5951,25 @@ msgstr "격자판 수정: 수정된 칸들이 한 번에 저장됨"
 
 #: libraries/config/messages.inc.php:545
 msgid "Directory where exports can be saved on server."
-msgstr ""
+msgstr "내보내기가 저장될 서버상의 디렉토리."
 
 #: libraries/config/messages.inc.php:546
 msgid "Save directory"
 msgstr "저장 디렉토리"
 
 #: libraries/config/messages.inc.php:547
-#, fuzzy
 #| msgid "Leave blank if not used"
 msgid "Leave blank if not used."
-msgstr "사용하지 않으면 빈칸으로 두세요"
+msgstr "사용하지 않으면 빈칸으로 두세요."
 
 #: libraries/config/messages.inc.php:548
 msgid "Host authorization order"
 msgstr "호스트 인증 지시"
 
 #: libraries/config/messages.inc.php:549
-#, fuzzy
 #| msgid "Leave blank for defaults"
 msgid "Leave blank for defaults."
-msgstr "빈칸으로 두면 기본값이 적용됩니다"
+msgstr "빈칸으로 두면 기본값이 적용됩니다."
 
 #: libraries/config/messages.inc.php:550
 msgid "Host authorization rules"
@@ -5996,10 +5984,9 @@ msgid "Allow root login"
 msgstr "루트 사용자 로그인 허용"
 
 #: libraries/config/messages.inc.php:554
-#, fuzzy
 #| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
-msgstr "HTTP 인증시 HTTP 기본 렐름 이름"
+msgstr "HTTP 인증시 HTTP 기본 렐름 이름."
 
 #: libraries/config/messages.inc.php:555
 msgid "HTTP Realm"
@@ -6011,16 +5998,17 @@ msgid ""
 "authentication[/a] (not located in your document root; suggested: /etc/"
 "swekey.conf)."
 msgstr ""
+"[a@http://swekey.com]SweKey hardware authentication[/a] 설정 파일 경로 (document "
+"root에 없습니다; 권장값: /etc/swekey.conf)."
 
 #: libraries/config/messages.inc.php:561
 msgid "SweKey config file"
 msgstr "SweKey 설정 파일"
 
 #: libraries/config/messages.inc.php:562
-#, fuzzy
 #| msgid "Authentication method to use"
 msgid "Authentication method to use."
-msgstr "사용할 인증 방법"
+msgstr "사용할 인증 방법."
 
 #: libraries/config/messages.inc.php:563 setup/frames/index.inc.php:162
 msgid "Authentication type"
@@ -6039,25 +6027,22 @@ msgid "Bookmark table"
 msgstr "테이블 즐겨찾기"
 
 #: libraries/config/messages.inc.php:570
-#, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
 #| "kbd]"
 msgid ""
 "Leave blank for no column comments/mime types, suggested: [kbd]"
 "pma__column_info[/kbd]."
-msgstr ""
-"PDF 스키마를 제공하지 않을 경우 비워두세요. 제안값: [kbd]pma__pdf_pages[/kbd]"
+msgstr "컬럼의 주석이나 마임타입을 지정하지 않을 경우 비워두세요. 제안값: [kbd]pma__column_info[/kbd]."
 
 #: libraries/config/messages.inc.php:573
 msgid "Column information table"
 msgstr "컬럼 정보 테이블"
 
 #: libraries/config/messages.inc.php:574
-#, fuzzy
 #| msgid "Compress connection to MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "MySQL 서버와 연결 압축"
+msgstr "MySQL 서버와의 압축된 통신."
 
 #: libraries/config/messages.inc.php:575
 msgid "Compress connection"
@@ -6065,7 +6050,7 @@ msgstr "연결 압축"
 
 #: libraries/config/messages.inc.php:577
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure."
-msgstr ""
+msgstr "서버와의 연결 방법, 모르면 [kbd]tcp[/kbd]로 두세요."
 
 #: libraries/config/messages.inc.php:578
 msgid "Connection type"
@@ -6080,6 +6065,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [a@http://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 msgstr ""
+"제한된 권한 설정을 위한 특별한 MySQL 사용자 설정. 추가 정보는 "
+"[a@http://wiki.phpmyadmin.net/pma/controluser]위키[/a]에."
 
 #: libraries/config/messages.inc.php:584
 msgid "Control user"
@@ -6089,7 +6076,7 @@ msgstr "유저 제어"
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
-msgstr ""
+msgstr "설정 저장을 위한 대체서버; 비워두면 이전에 정의된 서버를 사용."
 
 #: libraries/config/messages.inc.php:589
 msgid "Control host"
@@ -9656,10 +9643,9 @@ msgstr "이벤트 수정"
 #: libraries/rte/rte_routines.lib.php:1322
 #: libraries/rte/rte_routines.lib.php:1545
 #: libraries/rte/rte_triggers.lib.php:236
-#, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request:"
-msgstr "요청 처리중 에러가 발생했습니다"
+msgstr "요청 처리 중 에러가 발생:"
 
 #: libraries/rte/rte_events.lib.php:423 libraries/rte/rte_routines.lib.php:946
 #: libraries/rte/rte_triggers.lib.php:353 view_create.php:177
@@ -9681,83 +9667,78 @@ msgstr "%s 로 변경"
 
 #: libraries/rte/rte_events.lib.php:475
 msgid "Execute at"
-msgstr ""
+msgstr "실행일시"
 
 #: libraries/rte/rte_events.lib.php:483
 msgid "Execute every"
-msgstr ""
+msgstr "실행간격"
 
 #: libraries/rte/rte_events.lib.php:502
-#, fuzzy
 #| msgid "Start row:"
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "시작 행:"
+msgstr "시작"
 
 #: libraries/rte/rte_events.lib.php:511
-#, fuzzy
 #| msgctxt "Last page"
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "마지막"
+msgstr "완료"
 
 #: libraries/rte/rte_events.lib.php:525
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "On completion preserve"
-msgstr "완전한 INSERT문 작성"
+msgstr "완료 후에 남기기"
 
 #: libraries/rte/rte_events.lib.php:530
 #: libraries/rte/rte_routines.lib.php:1056
 #: libraries/rte/rte_triggers.lib.php:413 view_create.php:206
 msgid "Definer"
-msgstr ""
+msgstr "디파이너"
 
 #: libraries/rte/rte_events.lib.php:573
 #: libraries/rte/rte_routines.lib.php:1123
 #: libraries/rte/rte_triggers.lib.php:451
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr ""
+msgstr "디파이너의 형식은 \"username@hostname\" 이어야 합니다!"
 
 #: libraries/rte/rte_events.lib.php:580
-#, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name!"
-msgstr "루틴 이름이 필요함"
+msgstr "이벤트 이름을 지정하세요!"
 
 #: libraries/rte/rte_events.lib.php:595
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "이벤트의 올바른 시간 간격을 입력하세요."
 
 #: libraries/rte/rte_events.lib.php:611
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "이벤트 실행 시간을 올바르게 입력하세요."
 
 #: libraries/rte/rte_events.lib.php:615
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "올바른 이벤트 타입을 입력하세요."
 
 #: libraries/rte/rte_events.lib.php:639
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "이벤트 정의를 입력하세요."
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "OFF"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "이벤트 스케줄러 상태"
 
 #: libraries/rte/rte_list.lib.php:55
-#, fuzzy
 msgid "Returns"
-msgstr "데이터베이스 사용량 통계"
+msgstr "반환값"
 
 #: libraries/rte/rte_routines.lib.php:76
 msgid ""
@@ -9766,49 +9747,49 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
+"현재 PHP의 낡은 'mysql' 확장을 쓰고 있어서 멀티 쿼리를 처리하기 적절하지 않습니다. [strong]저장 루틴 수행중 일부가 "
+"실패할 수 있습니다![/strong] 향상된 'mysqli' 확장을 사용하여 문제를 해결하세요."
 
 #: libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_routines.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid export type"
 msgid "Invalid routine type: \"%s\""
-msgstr "잘못된 내보내기 타입"
+msgstr "잘못된 루틴 타입: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:332
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "죄송합니다만 삭제한 루틴을 복구하지 못했습니다."
 
 #: libraries/rte/rte_routines.lib.php:344
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been created."
 msgid "Routine %1$s has been modified."
-msgstr "데이터베이스 %1$s가 생성되었습니다."
+msgstr "루틴 %1$s가 수정되었습니다."
 
 #: libraries/rte/rte_routines.lib.php:365
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %1$s has been created."
 msgid "Routine %1$s has been created."
-msgstr "데이터베이스 %1$s가 생성되었습니다."
+msgstr "루틴 %1$s가 생성되었습니다."
 
 #: libraries/rte/rte_routines.lib.php:446
 msgid "Edit routine"
 msgstr "루틴 수정"
 
 #: libraries/rte/rte_routines.lib.php:949
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "루틴"
+msgstr "루틴 이름"
 
 #: libraries/rte/rte_routines.lib.php:975
 msgid "Parameters"
 msgstr "파라미터"
 
 #: libraries/rte/rte_routines.lib.php:981
-#, fuzzy
 #| msgid "Description"
 msgid "Direction"
-msgstr "설명"
+msgstr "방향"
 
 #: libraries/rte/rte_routines.lib.php:984
 #: libraries/tbl_columns_definition_form.lib.php:278
