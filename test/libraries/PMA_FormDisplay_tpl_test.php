@@ -403,7 +403,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         $this->assertTag(
             PMA_getTagArray(
-                '<input type="number" size="15" name="test/path" ' .
+                '<input type="number" name="test/path" ' .
                 'id="test/path" value="val" />'
             ),
             $result
