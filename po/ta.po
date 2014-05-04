@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-02 21:47+0200\n"
+"PO-Revision-Date: 2014-05-04 09:33+0200\n"
 "Last-Translator: கணேஷ் குமார் <GANESHTHEONE@gmail.com>\n"
 "Language-Team: Tamil <https://l10n.cihar.com/projects/phpmyadmin/4-2/ta/>\n"
 "Language: ta\n"
@@ -835,6 +835,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
+"mbstring PHP நீட்சி காணப்படவில்லை மேலும் நீங்கள் பல்லுரு எழுத்துக்கணத்தை "
+"பயன்படுத்துகிறீர்கள். mbstring PHP நீட்சி இல்லாமல் PHPMyAdminஆல் சரங்களை "
+"சரியாக பிரிக்கவியலாது அதனால் எதிர்பாரா முடிவுகள் கிடைக்கலாம்."
 
 #: index.php:471
 msgid ""
@@ -3840,7 +3843,7 @@ msgstr "%s நாட்கள் %s மணித்தியாலங்கள�
 
 #: libraries/Util.class.php:2036
 msgid "Missing parameter:"
-msgstr "அளவுருக்கள் காணப்படவில்லை:"
+msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
 
 #: libraries/Util.class.php:2557
 #, php-format
@@ -9228,11 +9231,11 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:999
 msgid "Add parameter"
-msgstr ""
+msgstr "மதிப்புருவை சேர்க்க"
 
 #: libraries/rte/rte_routines.lib.php:1003
 msgid "Remove last parameter"
-msgstr ""
+msgstr "கடைசி மதிப்புருவை நீக்குக"
 
 #: libraries/rte/rte_routines.lib.php:1008
 msgid "Return type"
@@ -9266,7 +9269,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:1174
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "மதிப்புருபுக்கு தகா வழிமதிப்பு \"%s\" அளிக்கப்பட்டுள்ளது."
 
 #: libraries/rte/rte_routines.lib.php:1196
 #: libraries/rte/rte_routines.lib.php:1256
