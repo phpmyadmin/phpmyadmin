@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - bug       Correctly fetch length of user and host fields in MySQL tables
 - bug #4364 examples/signon.php does not support the SessionSavePath directive
 - bug #4382 Missing source for OpenLayers library
+- bug #4313 GIS Visualization Extension does not work with PointFromText() function
 
 4.2.0.0 (not yet released)
 + rfe #1403 Export only triggers
