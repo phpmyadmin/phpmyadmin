@@ -64,8 +64,8 @@ function PMA_adjustTotals() {
         // If the value is approximated
         if (strRows.indexOf('~') === 0) {
             rowSumApproximated = true;
-            // The approximated value contains a preceding ~ and a following 2 (Eg 100 --> ~1002)
-            strRows = strRows.substring(1, strRows.length - 1);
+            // The approximated value contains a preceding ~ (Eg 100 --> ~100)
+            strRows = strRows.substring(1, strRows.length);
         }
         strRows = strRows.replace(/[,.]/g, '');
         var intRow = parseInt(strRows, 10);
