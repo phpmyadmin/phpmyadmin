@@ -3836,9 +3836,15 @@ class PMA_Util
              * with REGEXP.
              *
              * Also, we need to double the inner % to please sprintf().
+             *
+             * Three level escape:
+             * - first level to escape \ in PHP string
+             * - second level to escape \ in SQL
+             * - third level to escape \ in REGEXP
              */
             $query .= " AND '%s' REGEXP"
-                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '.'), '%%', '.*')";
+                . " REPLACE(REPLACE(TABLE_SCHEMA, '_', '\\\\\\\\.'),"
+                . "'%%', '.*')";
             $schema_privileges = $GLOBALS['dbi']->fetchValue(
                 sprintf(
                     $query,
