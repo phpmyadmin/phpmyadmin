@@ -155,7 +155,7 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
         $this->_scripts->addFile('jquery/jquery.ba-hashchange-1.3.js');
         $this->_scripts->addFile('jquery/jquery.debounce-1.0.5.js');
-        $this->_scripts->addFile('jquery/jquery.menuResizer-1.0.js');
+        $this->_scripts->addFile('menu-resizer.js');
 
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
