@@ -361,7 +361,7 @@ function confirmQuery(theForm1, sqlQuery1)
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
         if (is_confirmed) {
-            theForm1.elements['is_js_confirmed'].value = 1;
+            theForm1.elements.is_js_confirmed.value = 1;
             return true;
         }
         // statement is rejected -> do not submit the form
@@ -393,21 +393,21 @@ function checkSqlQuery(theForm)
         var sqlQuery = codemirror_editor.display.input;
         sqlQuery.value = codemirror_editor.getValue();
     } else {
-        var sqlQuery = theForm.elements['sql_query'];
+        var sqlQuery = theForm.elements.sql_query;
     }
     var isEmpty  = 1;
     var space_re = new RegExp('\\s+');
-    if (typeof(theForm.elements['sql_file']) != 'undefined' &&
-            theForm.elements['sql_file'].value.replace(space_re, '') !== '') {
+    if (typeof(theForm.elements.sql_file) != 'undefined' &&
+            theForm.elements.sql_file.value.replace(space_re, '') !== '') {
         return true;
     }
-    if (typeof(theForm.elements['sql_localfile']) != 'undefined' &&
-            theForm.elements['sql_localfile'].value.replace(space_re, '') !== '') {
+    if (typeof(theForm.elements.sql_localfile) != 'undefined' &&
+            theForm.elements.sql_localfile.value.replace(space_re, '') !== '') {
         return true;
     }
-    if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
-            (theForm.elements['id_bookmark'].value !== null || theForm.elements['id_bookmark'].value !== '') &&
-            theForm.elements['id_bookmark'].selectedIndex !== 0) {
+    if (isEmpty && typeof(theForm.elements.id_bookmark) != 'undefined' &&
+            (theForm.elements.id_bookmark.value !== null || theForm.elements.id_bookmark.value !== '') &&
+            theForm.elements.id_bookmark.selectedIndex !== 0) {
         return true;
     }
     // Checks for "DROP/DELETE/ALTER" statements
@@ -3366,15 +3366,15 @@ AJAX.registerOnload('functions.js', function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage['favorite_tables']
+                favorite_tables: (window.localStorage.favorite_tables
                     !== undefined)
-                    ? window.localStorage['favorite_tables']
+                    ? window.localStorage.favorite_tables
                     : ''
             },
             success: function (data) {
                 // Update localStorage.
                 if (window.localStorage !== undefined) {
-                    window.localStorage['favorite_tables']
+                    window.localStorage.favorite_tables
                         = data.favorite_tables;
                 }
                 $('#pma_favorite_list').html(data.list);
@@ -3797,9 +3797,9 @@ AJAX.registerOnload('functions.js', function () {
      */
     $('a.take_theme').click(function (e) {
         var what = this.name;
-        if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
-            window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
-            window.opener.document.forms['setTheme'].submit();
+        if (window.opener && window.opener.document.forms.setTheme.elements.set_theme) {
+            window.opener.document.forms.setTheme.elements.set_theme.value = what;
+            window.opener.document.forms.setTheme.submit();
             window.close();
             return false;
         }

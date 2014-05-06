@@ -234,7 +234,7 @@ function check_time_out(time_limit)
      clearTimeout(time_out);
      time_out = setTimeout(function(){
          $.get(href, params, function (data) {
-            if (data['message'] === 'timeout') {
+            if (data.message === 'timeout') {
                 PMA_ajaxShowMessage(
                     '<div class="error">' +
                     PMA_messages.strTimeOutError +
