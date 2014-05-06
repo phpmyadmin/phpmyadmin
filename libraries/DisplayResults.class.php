@@ -988,14 +988,14 @@ class PMA_DisplayResults
     /**
      * Get the headers of the results table
      *
-     * @param array        &$is_display                 which elements to display
-     * @param array|string $analyzed_sql                the analyzed query
-     * @param string       $sort_expression             sort expression
-     * @param string       $sort_expression_nodirection sort expression
-     *                                                  without direction
-     * @param string       $sort_direction              sort direction
-     * @param boolean      $is_limited_display          with limited operations
-     *                                                  or not
+     * @param array   &$is_display                 which elements to display
+     * @param array   $analyzed_sql                the analyzed query
+     * @param string  $sort_expression             sort expression
+     * @param string  $sort_expression_nodirection sort expression
+     *                                             without direction
+     * @param string  $sort_direction              sort direction
+     * @param boolean $is_limited_display          with limited operations
+     *                                             or not
      *
      * @return string html content
      *
@@ -1004,7 +1004,7 @@ class PMA_DisplayResults
      * @see    getTable()
      */
     private function _getTableHeaders(
-        &$is_display, $analyzed_sql = '',
+        &$is_display, $analyzed_sql,
         $sort_expression = '', $sort_expression_nodirection = '',
         $sort_direction = '', $is_limited_display = false
     ) {
