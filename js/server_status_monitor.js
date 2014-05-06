@@ -1955,7 +1955,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             }
             if (data.error) {
                 if (data.error.indexOf('1146') != -1 || data.error.indexOf('1046') != -1) {
-                    data.error = PMA_messages['strServerLogError'];
+                    data.error = PMA_messages.strServerLogError;
                 }
                 $('#queryAnalyzerDialog div.placeHolder').html('<div class="error">' + data.error + '</div>');
                 return;

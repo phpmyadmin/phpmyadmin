@@ -26,7 +26,7 @@
         self.widthCalculator = widthCalculator;
         // create submenu container
         var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
-            .text(PMA_messages['strMore'])
+            .text(PMA_messages.strMore)
             .bind('click', false); // same as event.preventDefault()
         var img = $container.find('li img');
         if (img.length) {
