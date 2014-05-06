@@ -2120,13 +2120,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
         );
     }
 
-    $nonisam     = false;
     $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
-    if (isset($showtable['Type'])
-        && ! preg_match('@ISAM|HEAP@i', $showtable['Type'])
-    ) {
-        $nonisam = true;
-    }
 
     // Gets some sizes
 
