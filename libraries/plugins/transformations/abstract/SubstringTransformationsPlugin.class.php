@@ -50,17 +50,7 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         // possibly use a global transform and feed it with special options
 
         // further operations on $buffer using the $options[] array.
-        if (!isset($options[0]) ||  $options[0] == '') {
-            $options[0] = 0;
-        }
-
-        if (!isset($options[1]) ||  $options[1] == '') {
-            $options[1] = 'all';
-        }
-
-        if (!isset($options[2]) || $options[2] == '') {
-            $options[2] = '…';
-        }
+        $options = $this->getOptions($options, array(0, 'all', '…');
 
         if ($options[1] != 'all') {
             $newtext = $GLOBALS['PMA_String']->substr(

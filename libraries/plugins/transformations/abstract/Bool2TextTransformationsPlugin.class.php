@@ -46,12 +46,8 @@ abstract class Bool2TextTransformationsPlugin extends TransformationsPlugin
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
         error_log('apply');
-        if (! isset($options[0])) {
-            $options[0] = 'T';    // default true  option
-        }
-        if (! isset($options[1])) {
-            $options[1] = 'F';    // default false option
-        }
+
+        $options = $this->getOptions($options, array('T', 'F'));
 
         if ($buffer == '0') {
             return $options[1];   // return false label
