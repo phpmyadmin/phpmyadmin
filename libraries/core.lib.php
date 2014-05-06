@@ -351,13 +351,15 @@ function PMA_getRealSize($size = 0)
         return 0;
     }
 
-    $scan['gb'] = 1073741824; //1024 * 1024 * 1024;
-    $scan['g']  = 1073741824; //1024 * 1024 * 1024;
-    $scan['mb'] = 1048576;
-    $scan['m']  = 1048576;
-    $scan['kb'] =    1024;
-    $scan['k']  =    1024;
-    $scan['b']  =       1;
+    $scan = array(
+        'gb' => 1073741824, //1024 * 1024 * 1024,
+        'g' => 1073741824, //1024 * 1024 * 1024,
+        'mb' => 1048576,
+        'm' => 1048576,
+        'kb' => 1024,
+        'k' => 1024,
+        'b' => 1,
+    );
 
     foreach ($scan as $unit => $factor) {
         if (strlen($size) > strlen($unit)
