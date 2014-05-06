@@ -697,7 +697,7 @@ AJAX.registerOnload('config.js', function () {
             savePrefsToLocalStorage(form);
         } else if (form.attr('name') == 'prefs_import' && $('#import_local_storage')[0].checked) {
             // set 'json' input and submit form
-            form.find('input[name=json]').val(window.localStorage['config']);
+            form.find('input[name=json]').val(window.localStorage.config);
         }
     });
 
@@ -733,9 +733,9 @@ function savePrefsToLocalStorage(form)
         },
         success: function (data) {
             if (data.success === true) {
-                window.localStorage['config'] = data.prefs;
-                window.localStorage['config_mtime'] = data.mtime;
-                window.localStorage['config_mtime_local'] = (new Date()).toUTCString();
+                window.localStorage.config = data.prefs;
+                window.localStorage.config_mtime = data.mtime;
+                window.localStorage.config_mtime_local = (new Date()).toUTCString();
                 updatePrefsDate();
                 $('div.localStorage-empty').hide();
                 $('div.localStorage-exists').show();
@@ -758,7 +758,7 @@ function savePrefsToLocalStorage(form)
  */
 function updatePrefsDate()
 {
-    var d = new Date(window.localStorage['config_mtime_local']);
+    var d = new Date(window.localStorage.config_mtime_local);
     var msg = PMA_messages.strSavedOn.replace(
         '@DATE@',
         PMA_formatDateTime(d)
@@ -771,7 +771,7 @@ function updatePrefsDate()
  */
 function offerPrefsAutoimport()
 {
-    var has_config = (window.localStorage || false) && (window.localStorage['config'] || false);
+    var has_config = (window.localStorage || false) && (window.localStorage.config || false);
     var cnt = $('#prefs_autoload');
     if (!cnt.length || !has_config) {
         return;
@@ -787,7 +787,7 @@ function offerPrefsAutoimport()
             });
             return;
         }
-        cnt.find('input[name=json]').val(window.localStorage['config']);
+        cnt.find('input[name=json]').val(window.localStorage.config);
         cnt.find('form').submit();
     });
     cnt.show();
