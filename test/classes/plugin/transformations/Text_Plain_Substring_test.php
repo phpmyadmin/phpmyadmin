@@ -132,4 +132,29 @@ class Text_Plain_Substring_Test extends PHPUnit_Framework_TestCase
             $this->object->applyTransformation($buffer, $options)
         );
     }
+
+    /**
+     * Test for options processing
+     *
+     * @return void
+     */
+    public function testGetOptions()
+    {
+        $expected = array('foo', 'bar', 'baz');
+        $this->assertEquals(
+            $expected,
+            $this->object->getOptions(array(), $expected)
+        );
+        $this->assertEquals(
+            $expected,
+            $this->object->getOptions($expected, $expected)
+        );
+        $this->assertEquals(
+            $expected,
+            $this->object->getOptions(
+                $expected,
+                array(1, 2, 3)
+            )
+        );
+    }
 }
