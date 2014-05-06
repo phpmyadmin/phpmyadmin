@@ -161,14 +161,6 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $sum_size, $overhead_size, $create_time_all, $update_time_all,
     $check_time_all, $sum_row_count_pre
 ) {
-    if ($is_show_stats) {
-        list($sum_formatted, $unit) = PMA_Util::formatByteDown(
-            $sum_size, 3, 1
-        );
-        list($overhead_formatted, $overhead_unit)
-            = PMA_Util::formatByteDown($overhead_size, 3, 1);
-    }
-
     $html_output = '<tbody id="tbl_summary_row">'
         . '<tr><th></th>';
     $html_output .= '<th class="tbl_num nowrap">';
@@ -214,6 +206,12 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         $html_output .= '</th>';
     }
     if ($is_show_stats) {
+        list($sum_formatted, $unit) = PMA_Util::formatByteDown(
+            $sum_size, 3, 1
+        );
+        list($overhead_formatted, $overhead_unit)
+            = PMA_Util::formatByteDown($overhead_size, 3, 1);
+
         $html_output .= '<th class="value tbl_size">'
             . $sum_formatted . ' ' . $unit
             . '</th>';
@@ -2759,13 +2757,13 @@ function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
 }
 
 /**
- * Add or remove favorite tables 
+ * Add or remove favorite tables
  *
  * @param string $db current database
  *
- * @return void 
+ * @return void
  */
-function PMA_addRemoveFavoriteTables($db) 
+function PMA_addRemoveFavoriteTables($db)
 {
     $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
     $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
@@ -2837,11 +2835,11 @@ function PMA_addRemoveFavoriteTables($db)
 }
 
 /**
- * Synchronize favorite tables 
+ * Synchronize favorite tables
  *
  * @param string $fav_instance PMA_RecentFavoriteTable instance
  *
- * @return void 
+ * @return void
  */
 function PMA_synchronizeFavoriteTables($fav_instance)
 {
