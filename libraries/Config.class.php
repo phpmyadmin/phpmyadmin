@@ -1543,13 +1543,8 @@ class PMA_Config
         }
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
-        $is_https = null;
 
-        if (isset($url['scheme']) && $url['scheme'] == 'https') {
-            $is_https = true;
-        } else {
-            $is_https = false;
-        }
+        $is_https = (isset($url['scheme']) && $url['scheme'] == 'https');
 
         $this->set('is_https', $is_https);
 
@@ -1568,8 +1563,6 @@ class PMA_Config
      */
     function detectHttps()
     {
-        $is_https = false;
-
         $url = array();
 
         // At first we try to parse REQUEST_URI, it might contain full URL,
