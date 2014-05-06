@@ -269,18 +269,23 @@ class PMA_SysInfoLinux extends PMA_SysInfo
 
         $mem = array_combine($matches[1], $matches[2]);
 
-        $memTotal   = isset($mem['MemTotal'])   ? $mem['MemTotal']   : 0;
-        $memFree    = isset($mem['MemFree'])    ? $mem['MemFree']    : 0;
-        $cached     = isset($mem['Cached'])     ? $mem['Cached']     : 0;
-        $buffers    = isset($mem['Buffers'])    ? $mem['Buffers']    : 0;
-        $swapTotal  = isset($mem['SwapTotal'])  ? $mem['SwapTotal']  : 0;
-        $swapFree   = isset($mem['SwapFree'])   ? $mem['SwapFree']   : 0;
-        $swapCached = isset($mem['SwapCached']) ? $mem['SwapCached'] : 0;
+        $defaults = array(
+            'MemTotal' => 0,
+            'MemFree' => 0,
+            'Cached' => 0,
+            'Buffers' => 0,
+            'SwapTotal' => 0,
+            'SwapFree' => 0,
+            'SwapCached' => 0,
+        );
 
-        $mem['MemUsed']
-            = $memTotal - $memFree - $cached - $buffers;
-        $mem['SwapUsed']
-            = $swapTotal - $swapFree - $swapCached;
+        $mem = array_merge($defaults, $mem);
+
+        $mem['MemUsed'] = $mem['MemTotal']
+            - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
+
+        $mem['SwapUsed'] = $mem['SwapTotal']
+            - $mem['SwapFree'] - $mem['SwapCached'];
 
         foreach ($mem as $idx => $value) {
             $mem[$idx] = intval($value);
