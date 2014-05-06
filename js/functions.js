@@ -1466,8 +1466,6 @@ AJAX.registerOnload('functions.js', function () {
             $("#all_tables_same_width").removeProp("disabled");
             $("#paper_opt").removeProp("disabled");
             $("#show_color_opt").removeProp("disabled");
-        } else {
-            // nothing
         }
     });
 
