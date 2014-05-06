@@ -563,7 +563,6 @@ class PMA_Config
                     $end = $fanout[$firstbyte + 1];
 
                     // stupid linear search for our sha
-                    $position = $start;
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
