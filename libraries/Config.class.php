@@ -1274,7 +1274,7 @@ class PMA_Config
      * set properly and, depending on browsers, inserting or updating a
      * record might fail
      *
-     * @return bool
+     * @return void
      */
     function checkPmaAbsoluteUri()
     {
@@ -1312,7 +1312,7 @@ class PMA_Config
                     $url['host'] = PMA_getenv('SERVER_NAME');
                 } else {
                     $this->error_pma_uri = true;
-                    return false;
+                    return;
                 }
 
                 // If we didn't set port yet...
