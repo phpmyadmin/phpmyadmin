@@ -138,7 +138,6 @@ $overhead_size  = (double) 0;
 
 $hidden_fields = array();
 $odd_row       = true;
-$sum_row_count_pre = '';
 // Instance of PMA_RecentFavoriteTable class.
 $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
 foreach ($tables as $keyname => $current_table) {
@@ -300,7 +299,7 @@ $response->addHTML(
     PMA_getHtmlBodyForTableSummary(
         $num_tables, $server_slave_status, $db_is_system_schema, $sum_entries,
         $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
-        $update_time_all, $check_time_all, $sum_row_count_pre
+        $update_time_all, $check_time_all
     )
 );
 $response->addHTML('</table>');

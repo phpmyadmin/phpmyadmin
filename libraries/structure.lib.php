@@ -152,14 +152,13 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
  * @param string  $create_time_all     create time
  * @param string  $update_time_all     update time
  * @param string  $check_time_all      check time
- * @param integer $sum_row_count_pre   sum row count pre
  *
  * @return string $html_output
  */
 function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $db_is_system_schema, $sum_entries, $db_collation, $is_show_stats,
     $sum_size, $overhead_size, $create_time_all, $update_time_all,
-    $check_time_all, $sum_row_count_pre
+    $check_time_all
 ) {
     $html_output = '<tbody id="tbl_summary_row">'
         . '<tr><th></th>';
@@ -177,7 +176,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         . __('Sum')
         . '</th>';
     $html_output .= '<th class="value tbl_rows">'
-        . $sum_row_count_pre . PMA_Util::formatNumber($sum_entries, 0)
+        . PMA_Util::formatNumber($sum_entries, 0)
         . '</th>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
@@ -649,7 +648,6 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
             && $current_table['ENGINE'] != 'FunctionEngine'
         ) {
             $row_count_pre = '~';
-            $sum_row_count_pre = '~';
             $show_superscript = PMA_Util::showHint(
                 PMA_sanitize(
                     sprintf(
@@ -665,7 +663,6 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     ) {
         // InnoDB table: we did not get an accurate row count
         $row_count_pre = '~';
-        $sum_row_count_pre = '~';
         $show_superscript = '';
     }
 
