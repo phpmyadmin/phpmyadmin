@@ -16,17 +16,7 @@ require_once './libraries/dbi/DBIExtension.int.php';
 /**
  * MySQL client API
  */
-if (!defined('PMA_MYSQL_CLIENT_API')) {
-    $client_api = explode('.', mysqli_get_client_info());
-    define(
-        'PMA_MYSQL_CLIENT_API',
-        (int)sprintf(
-            '%d%02d%02d',
-            $client_api[0], $client_api[1], intval($client_api[2])
-        )
-    );
-    unset($client_api);
-}
+PMA_defineClientAPI(mysqli_get_client_info());
 
 /**
  * some PHP versions are reporting extra messages like "No index used in query"
