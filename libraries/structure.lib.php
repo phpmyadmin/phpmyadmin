@@ -2438,7 +2438,7 @@ function PMA_updateColumns($db, $table)
             $response->isSuccess(false);
             $response->addJSON(
                 'message',
-                PMA_Message::rawError(__('Query error') . ':<br />'.$GLOBALS['dbi']->getError())
+                PMA_Message::rawError(__('Query error') . ':<br />' . $GLOBALS['dbi']->getError())
             );
             $regenerate = true;
         }
