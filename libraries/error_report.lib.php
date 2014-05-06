@@ -52,8 +52,6 @@ function PMA_getPrettyReportData()
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
  *
- * @param boolean $pretty_print whether to prettify the report
- *
  * @return Array the report
  */
 function PMA_getReportData()
