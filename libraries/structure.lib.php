@@ -2774,29 +2774,7 @@ function PMA_addRemoveFavoriteTables($db)
 
     // Request for Synchronization of favorite tables.
     if (isset($_REQUEST['sync_favorite_tables'])) {
-        $fav_instance_tables = $fav_instance->getTables();
-
-        if (empty($fav_instance_tables)
-            && isset($favorite_tables[$user])
-        ) {
-            foreach ($favorite_tables[$user] as $key => $value) {
-                $fav_instance->add($value['db'], $value['table']);
-            }
-        }
-        $favorite_tables[$user] = $fav_instance->getTables();
-
-        $ajax_response = PMA_Response::getInstance();
-        $ajax_response->addJSON(
-            'favorite_tables',
-            json_encode($favorite_tables)
-        );
-        $ajax_response->addJSON(
-            'list',
-            $fav_instance->getHtmlList()
-        );
-        $server_id = $GLOBALS['server'];
-        // Set flag when localStorage and pmadb(if present) are in sync.
-        $_SESSION['tmpval']['favorites_synced'][$server_id] = true;
+        PMA_synchronizeFavoriteTables($fav_instance);
         exit;
     }
     $changes = true;
@@ -2856,5 +2834,39 @@ function PMA_addRemoveFavoriteTables($db)
             $msg
         );
     }
+}
+
+/**
+ * Synchronize favorite tables 
+ *
+ * @param string $fav_instance PMA_RecentFavoriteTable instance
+ *
+ * @return void 
+ */
+function PMA_synchronizeFavoriteTables($fav_instance)
+{
+    $fav_instance_tables = $fav_instance->getTables();
+
+    if (empty($fav_instance_tables)
+        && isset($favorite_tables[$user])
+    ) {
+        foreach ($favorite_tables[$user] as $key => $value) {
+            $fav_instance->add($value['db'], $value['table']);
+        }
+    }
+    $favorite_tables[$user] = $fav_instance->getTables();
+
+    $ajax_response = PMA_Response::getInstance();
+    $ajax_response->addJSON(
+        'favorite_tables',
+        json_encode($favorite_tables)
+    );
+    $ajax_response->addJSON(
+        'list',
+        $fav_instance->getHtmlList()
+    );
+    $server_id = $GLOBALS['server'];
+    // Set flag when localStorage and pmadb(if present) are in sync.
+    $_SESSION['tmpval']['favorites_synced'][$server_id] = true;
 }
 ?>
