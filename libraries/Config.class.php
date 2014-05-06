@@ -910,7 +910,7 @@ class PMA_Config
      * Loads user preferences and merges them with current config
      * must be called after control connection has been estabilished
      *
-     * @return boolean
+     * @return void
      */
     function loadUserPreferences()
     {
