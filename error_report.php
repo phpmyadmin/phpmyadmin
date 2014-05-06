@@ -13,7 +13,7 @@ $response = PMA_Response::getInstance();
 if (isset($_REQUEST['send_error_report'])
     && $_REQUEST['send_error_report'] == true
 ) {
-    $server_response = PMA_sendErrorReport(PMA_getReportData(false));
+    $server_response = PMA_sendErrorReport(PMA_getReportData());
 
     if ($server_response === false) {
         $success = false;
