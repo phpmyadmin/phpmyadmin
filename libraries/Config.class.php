@@ -563,7 +563,6 @@ class PMA_Config
                     $end = $fanout[$firstbyte + 1];
 
                     // stupid linear search for our sha
-                    $position = $start;
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
@@ -631,7 +630,6 @@ class PMA_Config
         }
 
         // check if commit exists in Github
-        $is_remote_commit = false;
         if ($commit !== false
             && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
         ) {
@@ -1545,13 +1543,8 @@ class PMA_Config
         }
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
-        $is_https = null;
 
-        if (isset($url['scheme']) && $url['scheme'] == 'https') {
-            $is_https = true;
-        } else {
-            $is_https = false;
-        }
+        $is_https = (isset($url['scheme']) && $url['scheme'] == 'https');
 
         $this->set('is_https', $is_https);
 
@@ -1570,8 +1563,6 @@ class PMA_Config
      */
     function detectHttps()
     {
-        $is_https = false;
-
         $url = array();
 
         // At first we try to parse REQUEST_URI, it might contain full URL,
