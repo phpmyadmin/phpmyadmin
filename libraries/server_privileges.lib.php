@@ -3391,7 +3391,6 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
  */
 function PMA_getDataForChangeOrCopyUser()
 {
-    $row = null;
     $queries = null;
     $password = null;
 
