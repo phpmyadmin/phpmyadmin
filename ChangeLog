@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - bug #4383 Cannot update values in Zoom search
 - bug #4313 GIS Visualization Extension does not work with PointFromText() function
 - bug #4384 Incorrect "Rows" total shown when truncating or dropping a table on DB Structure page
+- bug #4385 Grid edit on sorted columns fails
 
 4.2.0.0 (not yet released)
 + rfe #1403 Export only triggers

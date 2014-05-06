@@ -47,7 +47,19 @@ function getFieldName($this_field)
     var left_action_exist = !$('#table_results').find('th:first').hasClass('draggable');
     // number of column span for checkbox and Actions
     var left_action_skip = left_action_exist ? $('#table_results').find('th:first').attr('colspan') - 1 : 0;
-    var field_name = $('#table_results').find('thead').find('th:eq(' + (this_field_index - left_action_skip) + ') a').text();
+
+    // If this column was sorted, the text of the a element contains something
+    // like <small>1</small> that is useful to indicate the order in case
+    // of a sort on multiple columns; however, we dont want this as part
+    // of the column name so we strip it ( .clone() to .end() )
+    var field_name = $('#table_results')
+        .find('thead')
+        .find('th:eq(' + (this_field_index - left_action_skip) + ') a')
+        .clone()    // clone the element
+        .children() // select all the children
+        .remove()   // remove all of them
+        .end()      // go back to the selected element
+        .text();    // grab the text
     // happens when just one row (headings contain no a)
     if (field_name === '') {
         var $heading = $('#table_results').find('thead').find('th:eq(' + (this_field_index - left_action_skip) + ')').children('span');
