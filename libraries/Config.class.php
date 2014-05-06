@@ -630,7 +630,6 @@ class PMA_Config
         }
 
         // check if commit exists in Github
-        $is_remote_commit = false;
         if ($commit !== false
             && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
         ) {
