@@ -62,7 +62,6 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
             $options[2] = '…';
         }
 
-        $newtext = '';
         if ($options[1] != 'all') {
             $newtext = $GLOBALS['PMA_String']->substr(
                 $buffer, $options[0], $options[1]
