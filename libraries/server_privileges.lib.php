@@ -3618,7 +3618,6 @@ function PMA_getDataForDBInfo()
     $hostname = null;
     $dbname = null;
     $tablename = null;
-    $db_and_table = null;
     $dbname_is_wildcard = null;
 
     if (isset ($_REQUEST['username'])) {
