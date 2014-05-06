@@ -992,7 +992,6 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
             - (isset($row['Grant_priv']) ? 1 : 0)
         )
         . '" />';
-    $legend = $menu_label = '';
     if ($db == '*') {
         $legend     = __('Global privileges');
         $menu_label = __('Global');
