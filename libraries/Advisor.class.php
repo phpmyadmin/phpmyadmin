@@ -168,7 +168,7 @@ class Advisor
      * Wrapper function for translating.
      *
      * @param string $str   the string
-     * @param mixed  $param the parameters
+     * @param string $param the parameters
      *
      * @return string
      */
