@@ -60,7 +60,7 @@ abstract class TransformationsPlugin extends PluginObserver
     {
         $result = array();
         foreach ($defaults as $key => $value) {
-            if ( ! empty($options[$key])) {
+            if ( isset($options[$key]) && $options[$key] !== '') {
                 $result[$key] = $options[$key];
             } else {
                 $result[$key] = $value;
