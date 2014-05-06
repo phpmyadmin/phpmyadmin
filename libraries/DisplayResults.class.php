@@ -1959,14 +1959,12 @@ class PMA_DisplayResults
             $sort_tbl_new = $sort_tbl;
             // Test to detect if the column name is a standard name
             // Standard name has the table name prefixed to the column name
-            $is_standard_name = false;
             if (strpos($name_to_use_in_sort, '.') !== false) {
                 $matches = explode('.', $name_to_use_in_sort);
                 // Matches[0] has the table name
                 // Matches[1] has the column name
                 $name_to_use_in_sort = $matches[1];
                 $sort_tbl_new = $matches[0];
-                $is_standard_name = true;
             }
 
 
@@ -1979,7 +1977,6 @@ class PMA_DisplayResults
             // If this the first column name in the order by clause add
             // order by clause to the  column name
             $query_head = $is_first_clause ? "\nORDER BY " : "";
-            $tbl = $is_standard_name ? $sort_tbl_new : $sort_tbl;
             // Again a check to see if the given column is a aggregate column
             if (strpos($name_to_use_in_sort, '(') !== false) {
                 $sort_order .=  $query_head  . $name_to_use_in_sort . ' ' ;
