@@ -2659,15 +2659,6 @@ class PMA_DisplayResults
             if (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 || ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)
             ) {
-                // We need to copy the value
-                // or else the == 'both' check will always return true
-
-                if ($GLOBALS['cfg']['ActionLinksMode'] === self::POSITION_BOTH) {
-                    $iconic_spacer = '<div class="nowrap">';
-                } else {
-                    $iconic_spacer = '';
-                }
-
                 // 1.2.1 Modify link(s) - update row case
                 if ($is_display['edit_lnk'] == self::UPDATE_ROW) {
 
