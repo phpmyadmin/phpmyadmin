@@ -318,7 +318,7 @@ class Advisor
      *
      * @param string $expr expression to evaluate
      *
-     * @return string result of evaluated expression
+     * @return integer result of evaluated expression
      *
      * @throws Exception
      */
@@ -509,7 +509,7 @@ function ADVISOR_timespanFormat($seconds)
  * @param int    $limes the sensitiveness
  * @param int    $comma the number of decimals to retain
  *
- * @return array    the formatted value and its unit
+ * @return string the formatted value with unit
  */
 function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
 {
