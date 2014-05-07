@@ -29,6 +29,8 @@ AJAX.registerTeardown('db_structure.js', function () {
     $('a.drop_tracking_anchor.ajax').die('click');
     $('#real_end_input').die('click');
     $("a.favorite_table_anchor.ajax").die('click');
+    $('a.real_row_count').die('click');
+    $('a.row_count_sum').die('click');
 });
 
 /**
@@ -126,7 +128,7 @@ function PMA_adjustTotals() {
     // Update summary with new data
     var $summary = $("#tbl_summary_row");
     $summary.find('.tbl_num').text($.sprintf(PMA_messages.strTables, tableSum));
-    $summary.find('.tbl_rows').text(strRowSum);
+    $summary.find('.row_count_sum').text(strRowSum);
     $summary.find('.tbl_size').text(sizeSum + " " + byteUnits[size_magnitude]);
     $summary.find('.tbl_overhead').text(overheadSum + " " + byteUnits[overhead_magnitude]);
 }
@@ -395,5 +397,58 @@ AJAX.registerOnload('db_structure.js', function () {
             'a',
             $(this).attr("title")
         );
+    });
+
+    // Get real row count via Ajax.
+    $('a.real_row_count').live('click', function (event) {
+        event.preventDefault();
+        var $that = $(this);
+        $.ajax({
+            type: 'GET',
+            url: $(this).attr('href'),
+            cache: false,
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    // Append the parent cell with real row count.
+                    $that.parent().text(response.real_row_count);
+                    // Adjust the 'Sum' displayed at the bottom.
+                    PMA_adjustTotals();
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+                }
+            },
+            error: function () {
+                PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+            }
+        });
+    });
+    // Get all real row count.
+    $('a.row_count_sum').live('click', function (event) {
+        event.preventDefault();
+        var $that = $(this);
+        $.ajax({
+            type: 'GET',
+            url: $(this).attr('href'),
+            cache: false,
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    $.each(JSON.parse(response.real_row_count_all),
+                        function (index, table) {
+                            // Update each table row count.
+                            $('table.data td[data-table*="' + table.table + '"]')
+                            .text(table.row_count);
+                    });
+                    // Adjust the 'Sum' displayed at the bottom.
+                    PMA_adjustTotals();
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+                }
+            },
+            error: function () {
+                PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+            }
+        });
     });
 }); // end $()

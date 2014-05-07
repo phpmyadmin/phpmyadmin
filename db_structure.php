@@ -145,6 +145,27 @@ $url_query .= '&amp;goto=db_structure.php';
 $sub_part = '_structure';
 require 'libraries/db_info.inc.php';
 
+// If there is an Ajax request for real row count of a table.
+if ($GLOBALS['is_ajax_request'] && isset($_REQUEST['real_row_count'])
+    && $_REQUEST['real_row_count'] == true) {
+    $ajax_response = PMA_Response::getInstance();
+    // If there is a request to update all table's row count.
+    if (isset($_REQUEST['real_row_count_all'])) {
+        $real_row_count_all = HAA_getRealRowCountDb($GLOBALS['db'], $tables);
+        $ajax_response->addJSON(
+            'real_row_count_all',
+            json_encode($real_row_count_all)
+        );
+        exit;
+    }
+    // Get the real row count for the table.
+    $real_row_count = HAA_getRealRowCountTable($GLOBALS['db'], $_REQUEST['table']);
+    // Format the number.
+    $real_row_count = PMA_Util::formatNumber($real_row_count, 0);
+    $ajax_response->addJSON('real_row_count', $real_row_count);
+    exit;
+}
+
 if (!PMA_DRIZZLE) {
     include_once 'libraries/replication.inc.php';
 } else {
