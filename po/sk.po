@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-03 21:32+0200\n"
+"PO-Revision-Date: 2014-05-07 17:41+0200\n"
 "Last-Translator: Jozef Pistej <pistej2@gmail.com>\n"
-"Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/"
-">\n"
+"Language-Team: Slovak <https://l10n.cihar.com/projects/phpmyadmin/master/sk/>"
+"\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -948,6 +948,8 @@ msgid ""
 "Are you sure you want to navigate away from this page? Press OK to continue "
 "or Cancel to stay on the current page."
 msgstr ""
+"Naozaj chcete opustiť túto stránku? Stlačte OK pre pokračovanie alebo "
+"zrušiť, ak chcete zostať na aktuálnej stránke."
 
 #: js/messages.php:49
 msgid "Missing value in the form!"
@@ -1905,10 +1907,9 @@ msgstr ""
 "Kliknutím pravým tlačidlom myši na názov stĺpca ho skopírujete do schránky."
 
 #: js/messages.php:368
-#, fuzzy
 #| msgid "Show data row(s)"
 msgid "Show data row(s)."
-msgstr "Zobraziť riadky"
+msgstr "Zobraziť riadky."
 
 #: js/messages.php:371
 msgid "Generate password"
@@ -2435,13 +2436,11 @@ msgid "Saved bookmarked search:"
 msgstr "Hľadať"
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
 #| msgid "Delete relation"
 msgid "New bookmark"
-msgstr "Vytvoriť záložku"
+msgstr "Nová záložka"
 
 #: libraries/DBQbe.class.php:1479
-#, fuzzy
 #| msgid "Delete relation"
 msgid "Create bookmark"
 msgstr "Vytvoriť záložku"
@@ -3168,30 +3167,27 @@ msgstr "Nepodarilo sa uložiť obľubenú tabuľku!"
 
 #: libraries/RecentFavoriteTable.class.php:225
 #: libraries/structure.lib.php:2751
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Odstrániť graf"
+msgstr "Odstrániť z obľúbených"
 
 #: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
 msgstr "Neboli nájdené žiadne nedávne tabuľky."
 
 #: libraries/RecentFavoriteTable.class.php:243
-#, fuzzy
 #| msgid "There are no recent tables."
 msgid "There are no favorite tables."
-msgstr "Neboli nájdené žiadne nedávne tabuľky."
+msgstr "Nie sú žiadne obľúbené tabuľky."
 
 #: libraries/RecentFavoriteTable.class.php:258
 msgid "Recent tables"
 msgstr "Nedávne tabuľky"
 
 #: libraries/RecentFavoriteTable.class.php:260
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Vynulovať"
+msgstr "Nedávne"
 
 #: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:474
@@ -3199,20 +3195,18 @@ msgid "Favorite tables"
 msgstr "Obľúbené tabuľky"
 
 #: libraries/RecentFavoriteTable.class.php:264
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites"
-msgstr "Obľúbené tabuľky"
+msgstr "Obľúbené"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
 msgstr ""
 
 #: libraries/SavedSearches.class.php:261
-#, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Missing information to save the bookmarked search."
-msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
+msgstr "Chýbajú informácie pre uloženie vyhľadávacej záložky."
 
 #: libraries/SavedSearches.class.php:283 libraries/SavedSearches.class.php:320
 msgid "An entry with this name already exists."
@@ -3220,17 +3214,16 @@ msgstr "Položka s týmto názvom už existuje."
 
 #: libraries/SavedSearches.class.php:347
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Chýbajú informácie pre vymazanie hľadania."
 
 #: libraries/SavedSearches.class.php:375
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Chýbajú informácie pre načítanie vyhľadávania."
 
 #: libraries/SavedSearches.class.php:394
-#, fuzzy
 #| msgid "Error while moving uploaded file."
 msgid "Error while loading the search."
-msgstr "Chyba pri presúvaní nahraného súboru."
+msgstr "Chyba pri načítaní vyhľadávania."
 
 #: libraries/ServerStatusData.class.php:188
 #: libraries/server_status.lib.php:365
@@ -3360,10 +3353,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Tento MySQL server nepodporuje úložný systém %s."
 
 #: libraries/Table.class.php:385
-#, fuzzy
 #| msgid "unknown table status: "
 msgid "Unknown table status:"
-msgstr "neznámy stav tabuľky: "
+msgstr "Neznámy status tabuľky:"
 
 #: libraries/Table.class.php:796
 #, php-format
@@ -3394,10 +3386,9 @@ msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabuľka %1$s bola premenovaná na %2$s."
 
 #: libraries/Table.class.php:1518
-#, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
-msgstr "Nepodarilo sa uložiť nastavenia tabuľky"
+msgstr "Nepodarilo sa uložiť nastavenia tabuľky!"
 
 #: libraries/Table.class.php:1547
 #, php-format
@@ -4007,10 +3998,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresár určený pre upload súborov sa nedá otvoriť."
 
 #: libraries/Util.class.php:3352
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
-msgstr "Žiadny súbor pre nahrávanie"
+msgstr "Žiadny súbor pre nahrávanie!"
 
 #: libraries/Util.class.php:3377 libraries/Util.class.php:3378
 #: libraries/structure.lib.php:305
@@ -4516,10 +4506,9 @@ msgstr "Nepodarilo sa inicializovať knižnicu na pripojenie k serveru Drizzle"
 #: libraries/config/Validator.class.php:255
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
-#, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Nepodarilo sa pripojiť k cieľu"
+msgstr "Nepodarilo sa pripojiť k databázovému serveru!"
 
 #: libraries/config/Validator.class.php:306
 #, fuzzy
@@ -4543,14 +4532,13 @@ msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr "Prázdna signon URL pri využití autentifikačnej metódy signon"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
 "Prázdne užívateľské meno pre phpMyAdmin control užívateľa pri využití "
-"phpMyAdmin configuration storage"
+"phpMyAdmin configuration storage!"
 
 #: libraries/config/Validator.class.php:374
 #, fuzzy
@@ -4574,14 +4562,13 @@ msgid "Incorrect IP address: %s"
 msgstr "Nesprávna IP adresa: %s"
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
 "Pokiaľ je povolené, užívateľ može zadať ľuvolný MySQL server pre prihlásenie "
-"cez cookie autentifikáciu"
+"cez cookie autentifikáciu."
 
 #: libraries/config/messages.inc.php:19
 msgid "Allow login to any MySQL server"
