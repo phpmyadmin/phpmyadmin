@@ -1664,25 +1664,22 @@ class PMA_DatabaseInterface
      * // $user = array('id' => 123, 'name' => 'John Doe')
      * </code>
      *
-     * @param string|mysql_result $result query or mysql result
-     * @param string              $type   NUM|ASSOC|BOTH
-     *                                    returned array should either numeric
-     *                                    associativ or booth
-     * @param resource            $link   mysql link
+     * @param string   $query The query to execute
+     * @param string   $type  NUM|ASSOC|BOTH returned array should either
+     *                        numeric associativ or both
+     * @param resource $link  mysql link
      *
      * @return array|boolean first row from result
      *                       or false if result is empty
      */
-    public function fetchSingleRow($result, $type = 'ASSOC', $link = null)
+    public function fetchSingleRow($query, $type = 'ASSOC', $link = null)
     {
-        if (is_string($result)) {
-            $result = $this->tryQuery(
-                $result,
-                $link,
-                self::QUERY_STORE,
-                false
-            );
-        }
+        $result = $this->tryQuery(
+            $query,
+            $link,
+            self::QUERY_STORE,
+            false
+        );
 
         // return null if result is empty or false
         if (! $this->numRows($result)) {
