@@ -3071,7 +3071,7 @@ class PMA_Util
     /**
      * Converts GIS data to Well Known Text format
      *
-     * @param binary $data        GIS data
+     * @param string $data        GIS data
      * @param bool   $includeSRID Add SRID to the WKT
      *
      * @return string GIS data in Well Know Text format
