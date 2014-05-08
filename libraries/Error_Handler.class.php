@@ -168,7 +168,6 @@ class PMA_Error_Handler
             // FATAL error, display it and exit
             $this->dispFatalError($error);
             exit;
-            break;
         }
     }
 
