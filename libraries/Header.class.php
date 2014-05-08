@@ -503,41 +503,24 @@ class PMA_Header
             . ($use_captcha ? ' https://www.google.com' : ' ')
             . ";"
         );
-        if (PMA_USR_BROWSER_AGENT == 'SAFARI'
-            && PMA_USR_BROWSER_VER < '6.0.0'
-        ) {
-            header(
-                "X-WebKit-CSP: allow 'self' "
-                . ($use_captcha ? 'https://www.google.com ' : ' ')
-                . $GLOBALS['cfg']['CSPAllow'] . ';'
-                . "options inline-script eval-script;"
-                . "img-src 'self' data: "
-                . $GLOBALS['cfg']['CSPAllow']
-                . ($https ? "" : $mapTilesUrls)
-                // for reCAPTCHA
-                . ($use_captcha ? ' https://www.google.com' : ' ')
-                . ";"
-            );
-        } else {
-            header(
-                "X-WebKit-CSP: default-src 'self' "
-                . ($use_captcha ? 'https://www.google.com ' : ' ')
-                . $GLOBALS['cfg']['CSPAllow'] . ';'
-                . "script-src 'self' "
-                . ($use_captcha ? 'https://www.google.com ' : ' ')
-                . $GLOBALS['cfg']['CSPAllow']
-                . " 'unsafe-inline' 'unsafe-eval';"
-                . "style-src 'self' 'unsafe-inline' "
-                . ($use_captcha ? 'https://www.google.com ' : ' ')
-                . ';'
-                . "img-src 'self' data: "
-                . $GLOBALS['cfg']['CSPAllow']
-                . ($https ? "" : $mapTilesUrls)
-                // for reCAPTCHA
-                . ($use_captcha ? ' https://www.google.com' : ' ')
-                . ";"
-            );
-        }
+        header(
+            "X-WebKit-CSP: default-src 'self' "
+            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $GLOBALS['cfg']['CSPAllow'] . ';'
+            . "script-src 'self' "
+            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $GLOBALS['cfg']['CSPAllow']
+            . " 'unsafe-inline' 'unsafe-eval';"
+            . "style-src 'self' 'unsafe-inline' "
+            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . ';'
+            . "img-src 'self' data: "
+            . $GLOBALS['cfg']['CSPAllow']
+            . ($https ? "" : $mapTilesUrls)
+            // for reCAPTCHA
+            . ($use_captcha ? ' https://www.google.com' : ' ')
+            . ";"
+        );
         PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             // Define the charset to be used
