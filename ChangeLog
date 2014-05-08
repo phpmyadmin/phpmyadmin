@@ -15,7 +15,7 @@ phpMyAdmin - ChangeLog
 - bug #4384 Incorrect "Rows" total shown when truncating or dropping a table on DB Structure page
 - bug #4385 Grid edit on sorted columns fails
 
-4.2.0.0 (not yet released)
+4.2.0.0 (2014-05-08)
 + rfe #1403 Export only triggers
 + rfe #1483 Export Server/Database/Table without triggers
 + rfe #1662 Add table comment tool tip in database structure page
