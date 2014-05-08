@@ -987,14 +987,13 @@ class PMA_Util
      * @param string  $message   the message to display
      * @param string  $sql_query the query to display
      * @param string  $type      the type (level) of the message
-     * @param boolean $is_view   is this a message after a VIEW operation?
      *
      * @return string
      *
      * @access  public
      */
     public static function getMessage(
-        $message, $sql_query = null, $type = 'notice', $is_view = false
+        $message, $sql_query = null, $type = 'notice'
     ) {
         global $cfg;
         $retval = '';
