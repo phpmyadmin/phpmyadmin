@@ -958,7 +958,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
-     * @param string $table The table name of which sets XY co-ordinates
+     * @param object $table The table name of which sets XY co-ordinates
      *
      * @return void
      *
