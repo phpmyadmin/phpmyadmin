@@ -976,10 +976,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Defines relation objects
      *
-     * @param string  $masterTable  The master table name
-     * @param string  $masterField  The relation field in the master table
-     * @param string  $foreignTable The foreign table name
-     * @param string  $foreignField The relation field in the foreign table
+     * @param string $masterTable  The master table name
+     * @param string $masterField  The relation field in the master table
+     * @param string $foreignTable The foreign table name
+     * @param string $foreignField The relation field in the foreign table
      *
      * @access private
      *

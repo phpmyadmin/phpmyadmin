@@ -983,9 +983,9 @@ class PMA_Util
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
-     * @param string  $message   the message to display
-     * @param string  $sql_query the query to display
-     * @param string  $type      the type (level) of the message
+     * @param string $message   the message to display
+     * @param string $sql_query the query to display
+     * @param string $type      the type (level) of the message
      *
      * @return string
      *

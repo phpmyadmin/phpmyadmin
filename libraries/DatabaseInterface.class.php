@@ -1600,7 +1600,7 @@ class PMA_DatabaseInterface
      * // $user_name = 'John Doe'
      * </code>
      *
-     * @param string         $query The query to execute
+     * @param string         $query      The query to execute
      * @param integer        $row_number row to fetch the value from,
      *                                   starting at 0, with 0 being default
      * @param integer|string $field      field to fetch the value from,
