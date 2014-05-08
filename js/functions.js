@@ -388,12 +388,13 @@ function confirmQuery(theForm1, sqlQuery1)
 function checkSqlQuery(theForm)
 {
     // get the textarea element containing the query
+    var sqlQuery;
     if (codemirror_editor) {
         codemirror_editor.save();
-        var sqlQuery = codemirror_editor.display.input;
+        sqlQuery = codemirror_editor.display.input;
         sqlQuery.value = codemirror_editor.getValue();
     } else {
-        var sqlQuery = theForm.elements.sql_query;
+        sqlQuery = theForm.elements.sql_query;
     }
     var isEmpty  = 1;
     var space_re = new RegExp('\\s+');
