@@ -562,6 +562,22 @@ function checkTableEditForm(theForm, fieldsCnt)
 } // enf of the 'checkTableEditForm()' function
 
 /**
+ * True if last click is to check a row.
+ */
+var last_click_checked = false;
+
+/**
+ * Zero-based index of last clicked row.
+ * Used to handle the shift + click event in the code above.
+ */
+var last_clicked_row = -1;
+
+/**
+ * Zero-based index of last shift clicked row.
+ */
+var last_shift_clicked_row = -1;
+
+/**
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function () {
@@ -659,22 +675,6 @@ AJAX.registerOnload('functions.js', function () {
         $('input[type=text]').attr('autocapitalize', 'off').attr('autocorrect', 'off');
     }
 });
-
-/**
- * True if last click is to check a row.
- */
-var last_click_checked = false;
-
-/**
- * Zero-based index of last clicked row.
- * Used to handle the shift + click event in the code above.
- */
-var last_clicked_row = -1;
-
-/**
- * Zero-based index of last shift clicked row.
- */
-var last_shift_clicked_row = -1;
 
 /**
  * Row highlighting in horizontal mode (use "live"
