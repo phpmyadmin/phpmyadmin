@@ -469,7 +469,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
  * @param array  $selected    the selected columns
  * @param array  $action      action type
  *
- * @return array()
+ * @return array
  */
 function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
 {
@@ -537,7 +537,7 @@ function PMA_getDataForSubmitMult($submit_mult, $db, $table, $selected, $action)
  * @param array  $action   action type
  * @param array  $views    table views
  *
- * @return array()
+ * @return array
  */
 function PMA_getQueryFromSelected($what, $db, $table, $selected, $action, $views)
 {

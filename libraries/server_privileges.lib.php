@@ -3387,7 +3387,7 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get List of information: Changes / copies a user
  *
- * @return array()
+ * @return array
  */
 function PMA_getDataForChangeOrCopyUser()
 {
