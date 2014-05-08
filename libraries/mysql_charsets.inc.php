@@ -110,25 +110,25 @@ if (! PMA_Util::cacheExists('mysql_charsets', true)) {
     );
 } else {
     $GLOBALS['mysql_charsets'] = PMA_Util::cacheGet(
-        'mysql_charsets', true
+        'mysql_charsets'
     );
     $GLOBALS['mysql_charsets_descriptions'] = PMA_Util::cacheGet(
-        'mysql_charsets_descriptions', true
+        'mysql_charsets_descriptions'
     );
     $GLOBALS['mysql_charsets_available'] = PMA_Util::cacheGet(
-        'mysql_charsets_available', true
+        'mysql_charsets_available'
     );
     $GLOBALS['mysql_collations'] = PMA_Util::cacheGet(
-        'mysql_collations', true
+        'mysql_collations'
     );
     $GLOBALS['mysql_default_collations'] = PMA_Util::cacheGet(
-        'mysql_default_collations', true
+        'mysql_default_collations'
     );
     $GLOBALS['mysql_collations_flat'] = PMA_Util::cacheGet(
-        'mysql_collations_flat', true
+        'mysql_collations_flat'
     );
     $GLOBALS['mysql_collations_available'] = PMA_Util::cacheGet(
-        'mysql_collations_available', true
+        'mysql_collations_available'
     );
 }
 

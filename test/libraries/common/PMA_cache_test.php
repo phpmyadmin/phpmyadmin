@@ -69,9 +69,9 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
         PMA_Util::cacheSet('test_data', 5, true);
         PMA_Util::cacheSet('test_data_2', 5, true);
 
-        $this->assertNotNull(PMA_Util::cacheGet('test_data', true));
-        $this->assertNotNull(PMA_Util::cacheGet('test_data_2', 'server'));
-        $this->assertNull(PMA_Util::cacheGet('fake_data_2', true));
+        $this->assertNotNull(PMA_Util::cacheGet('test_data'));
+        $this->assertNotNull(PMA_Util::cacheGet('test_data_2'));
+        $this->assertNull(PMA_Util::cacheGet('fake_data_2'));
     }
 
     /**

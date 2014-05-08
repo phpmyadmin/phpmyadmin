@@ -374,7 +374,7 @@ class PMA_DatabaseInterface
     private function _getSqlForTablesFull($this_databases, $sql_where_table)
     {
         if (PMA_DRIZZLE) {
-            $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
+            $engine_info = PMA_Util::cacheGet('drizzle_engines');
             $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
             if (isset($engine_info['InnoDB'])
                 && $engine_info['InnoDB']['module_library'] == 'innobase'
@@ -893,7 +893,7 @@ class PMA_DatabaseInterface
             $sql .= '
                    FROM data_dictionary.SCHEMAS s';
             if ($force_stats) {
-                $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
+                $engine_info = PMA_Util::cacheGet('drizzle_engines');
                 $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
                 if (isset($engine_info['InnoDB'])
                     && $engine_info['InnoDB']['module_library'] == 'innobase'
@@ -1454,23 +1454,23 @@ class PMA_DatabaseInterface
             if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION', true)) {
                 define(
                     'PMA_MYSQL_INT_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_INT_VERSION', true)
+                    PMA_Util::cacheGet('PMA_MYSQL_INT_VERSION')
                 );
                 define(
                     'PMA_MYSQL_MAJOR_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_MAJOR_VERSION', true)
+                    PMA_Util::cacheGet('PMA_MYSQL_MAJOR_VERSION')
                 );
                 define(
                     'PMA_MYSQL_STR_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION', true)
+                    PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION')
                 );
                 define(
                     'PMA_MYSQL_VERSION_COMMENT',
-                    PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT', true)
+                    PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT')
                 );
                 define(
                     'PMA_DRIZZLE',
-                    PMA_Util::cacheGet('PMA_DRIZZLE', true)
+                    PMA_Util::cacheGet('PMA_DRIZZLE')
                 );
             } else {
                 $version = $this->fetchSingleRow(
@@ -2075,7 +2075,7 @@ class PMA_DatabaseInterface
     public function isSuperuser()
     {
         if (PMA_Util::cacheExists('is_superuser', true)) {
-            return PMA_Util::cacheGet('is_superuser', true);
+            return PMA_Util::cacheGet('is_superuser');
         }
 
         // when connection failed we don't have a $userlink
@@ -2100,7 +2100,7 @@ class PMA_DatabaseInterface
             PMA_Util::cacheSet('is_superuser', false, true);
         }
 
-        return PMA_Util::cacheGet('is_superuser', true);
+        return PMA_Util::cacheGet('is_superuser');
     }
 
     /**

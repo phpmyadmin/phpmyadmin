@@ -2816,18 +2816,14 @@ class PMA_Util
     /**
      * Gets cached information from the session
      *
-     * @param string   $var    varibale name
-     * @param int|true $server server
+     * @param string $var variable name
      *
      * @return mixed
      */
-    public static function cacheGet($var, $server = 0)
+    public static function cacheGet($var)
     {
-        if ($server === true) {
-            $server = $GLOBALS['server'];
-        }
-        if (isset($_SESSION['cache']['server_' . $server][$var])) {
-            return $_SESSION['cache']['server_' . $server][$var];
+        if (isset($_SESSION['cache']['server_' . $GLOBALS['server']][$var])) {
+            return $_SESSION['cache']['server_' . $GLOBALS['server']][$var];
         } else {
             return null;
         }
