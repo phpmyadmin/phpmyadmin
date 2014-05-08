@@ -980,7 +980,6 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @param string  $masterField  The relation field in the master table
      * @param string  $foreignTable The foreign table name
      * @param string  $foreignField The relation field in the foreign table
-     * @param boolean $showInfo     Whether to display table position or not
      *
      * @access private
      *
@@ -989,19 +988,23 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @see _setMinMax
      */
     private function _addRelation($masterTable, $masterField, $foreignTable,
-        $foreignField, $showInfo
+        $foreignField
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Pdf(
                 $masterTable, null, $this->pageNumber,
-                $this->_tablewidth, false, $showInfo
+                $this->_tablewidth,
+                $this->showKeys,
+                $this->tableDimension
             );
             $this->_setMinMax($this->_tables[$masterTable]);
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Pdf(
                 $foreignTable, null, $this->pageNumber,
-                $this->_tablewidth, false, $showInfo
+                $this->_tablewidth,
+                $this->showKeys,
+                $this->tableDimension
             );
             $this->_setMinMax($this->_tables[$foreignTable]);
         }
