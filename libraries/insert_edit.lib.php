@@ -1294,7 +1294,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param string  $text_dir              text direction
  * @param array   $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
- * @param strign  $data                  data to edit
+ * @param string  $data                  data to edit
  * @param array   $extracted_columnspec  associative array containing type,
  *                                       spec_in_brackets and possibly
  *                                       enum_set_values (another array)

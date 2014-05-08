@@ -412,7 +412,7 @@ class PMA_Table_Test extends PHPUnit_Framework_TestCase
      * Test name validation
      *
      * @param string  $name   name to test
-     * @param boolena $result expected result
+     * @param boolean $result expected result
      *
      * @return void
      *
