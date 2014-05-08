@@ -2718,7 +2718,7 @@ function PMA_checkFavoriteTable($db, $current_table)
  * @param string $current_table current table
  * @param string $titles        titles
  *
- * @return $html_output
+ * @return string The html output
  */
 function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
 {

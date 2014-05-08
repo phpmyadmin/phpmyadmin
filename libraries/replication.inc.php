@@ -165,7 +165,7 @@ foreach ($replication_types as $type) {
  * @param string $string contains "dbname.tablename"
  * @param string $what   what to extract (db|table)
  *
- * @return $string the extracted part
+ * @return string the extracted part
  */
 function PMA_extractDbOrTable($string, $what = 'db')
 {
