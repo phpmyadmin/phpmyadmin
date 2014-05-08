@@ -455,8 +455,11 @@ class PMA_Header
         if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
             return;
         }
-        $https = $GLOBALS['PMA_Config']->isHttps();
-        $mapTilesUrls = ' *.tile.openstreetmap.org *.tile.opencyclemap.org';
+        if ($GLOBALS['PMA_Config']->isHttps()) {
+            $map_tile_urls = '';
+        } else {
+            $map_tile_urls = ' *.tile.openstreetmap.org *.tile.opencyclemap.org';
+        }
 
         /**
          * Sends http headers
@@ -489,7 +492,7 @@ class PMA_Header
             . ";"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
-            . ($https ? "" : $mapTilesUrls)
+            . $map_tile_urls
             . $captcha_url
             . ";"
         );
@@ -500,7 +503,7 @@ class PMA_Header
             . "options inline-script eval-script;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
-            . ($https ? "" : $mapTilesUrls)
+            . $map_tile_urls
             . $captcha_url
             . ";"
         );
@@ -517,7 +520,7 @@ class PMA_Header
             . ';'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
-            . ($https ? "" : $mapTilesUrls)
+            . $map_tile_urls
             . $captcha_url
             . ";"
         );
