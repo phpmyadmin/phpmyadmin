@@ -294,7 +294,7 @@ if (! empty($id_bookmark)) {
         break;
     case 2: // bookmarked query that have to be deleted
         $import_text = PMA_Bookmark_get($db, $id_bookmark);
-        PMA_Bookmark_delete($db, $id_bookmark);
+        PMA_Bookmark_delete($id_bookmark);
         if ($GLOBALS['is_ajax_request'] == true) {
             $message = PMA_Message::success(__('The bookmark has been deleted.'));
             $response = PMA_Response::getInstance();

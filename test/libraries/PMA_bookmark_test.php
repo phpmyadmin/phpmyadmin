@@ -103,7 +103,7 @@ class PMA_Bookmark_Test extends PHPUnit_Framework_TestCase
     public function testPMA_Bookmark_delete()
     {
         $this->assertFalse(
-            PMA_Bookmark_delete('phpmyadmin', '1')
+            PMA_Bookmark_delete('1')
         );
     }
 }

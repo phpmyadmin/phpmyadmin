@@ -1246,7 +1246,7 @@ function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
         $bookmarks = PMA_Bookmark_getList($db);
         foreach ($bookmarks as $key => $val) {
             if ($val == $bkm_label) {
-                PMA_Bookmark_delete($db, $key);
+                PMA_Bookmark_delete($key);
             }
         }
     }
