@@ -173,7 +173,6 @@ class PMA_Util
             unset($sprites);
         }
 
-        $url       = '';
         $is_sprite = false;
         $alternate = htmlspecialchars($alternate);
 
