@@ -182,7 +182,7 @@ class PMA_File
             }
         }
 
-        return $this->_content;
+        return '0x' . bin2hex($this->_content);
     }
 
     /**

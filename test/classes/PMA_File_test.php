@@ -58,9 +58,9 @@ class PMA_File_Test extends PHPUnit_Framework_TestCase
      */
     public function testBinaryContent($file, $mime)
     {
-        $data = bin2hex(file_get_contents($file));
+        $data = '0x' . bin2hex(file_get_contents($file));
         $file = new PMA_File($file);
-        $this->assertEquals($data, bin2hex($file->getContent()));
+        $this->assertEquals($data, $file->getContent());
     }
 
     /**
