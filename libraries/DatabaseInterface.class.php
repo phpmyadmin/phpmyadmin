@@ -1605,28 +1605,26 @@ class PMA_DatabaseInterface
      * // $user_name = 'John Doe'
      * </code>
      *
-     * @param string|mysql_result $result     query or mysql result
-     * @param integer             $row_number row to fetch the value from,
-     *                                        starting at 0, with 0 being default
-     * @param integer|string      $field      field to fetch the value from,
-     *                                        starting at 0, with 0 being default
-     * @param resource            $link       mysql link
+     * @param string         $query The query to execute
+     * @param integer        $row_number row to fetch the value from,
+     *                                   starting at 0, with 0 being default
+     * @param integer|string $field      field to fetch the value from,
+     *                                   starting at 0, with 0 being default
+     * @param resource       $link       mysql link
      *
      * @return mixed value of first field in first row from result
      *               or false if not found
      */
-    public function fetchValue($result, $row_number = 0, $field = 0, $link = null)
+    public function fetchValue($query, $row_number = 0, $field = 0, $link = null)
     {
         $value = false;
 
-        if (is_string($result)) {
-            $result = $this->tryQuery(
-                $result,
-                $link,
-                self::QUERY_STORE,
-                false
-            );
-        }
+        $result = $this->tryQuery(
+            $query,
+            $link,
+            self::QUERY_STORE,
+            false
+        );
 
         // return false if result is empty or false
         // or requested row is larger than rows in result
