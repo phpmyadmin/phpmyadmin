@@ -354,7 +354,6 @@ function PMA_openExportFile($filename, $quick_export)
  */
 function PMA_closeExportFile($file_handle, $dump_buffer, $save_filename)
 {
-    $message = '';
     $write_result = @fwrite($file_handle, $dump_buffer);
     fclose($file_handle);
     if (strlen($dump_buffer) > 0
