@@ -1746,24 +1746,22 @@ class PMA_DatabaseInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string|mysql_result $result  query or mysql result
-     * @param string|integer      $key     field-name or offset
-     *                                     used as key for array
-     * @param string|integer      $value   value-name or offset
-     *                                     used as value for array
-     * @param resource            $link    mysql link
-     * @param mixed               $options query options
+     * @param string         $query   query to execute
+     * @param string|integer $key     field-name or offset
+     *                                used as key for array
+     * @param string|integer $value   value-name or offset
+     *                                used as value for array
+     * @param resource       $link    mysql link
+     * @param mixed          $options query options
      *
      * @return array resultrows or values indexed by $key
      */
-    public function fetchResult($result, $key = null, $value = null,
+    public function fetchResult($query, $key = null, $value = null,
         $link = null, $options = 0
     ) {
         $resultrows = array();
 
-        if (is_string($result)) {
-            $result = $this->tryQuery($result, $link, $options, false);
-        }
+        $result = $this->tryQuery($query, $link, $options, false);
 
         // return empty array if result is empty or false
         if (! $result) {
