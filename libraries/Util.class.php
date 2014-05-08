@@ -1091,9 +1091,6 @@ class PMA_Util
                         . "\n" . $GLOBALS['sql_order_to_append']
                         . $analyzed_display_query[0]['limit_clause'] . ' '
                         . $analyzed_display_query[0]['section_after_limit'];
-
-                    // Need to reparse query
-                    $parsed_sql = PMA_SQP_parse($query_base);
                     // update the $analyzed_display_query
                     $analyzed_display_query[0]['section_before_limit']
                         .= $GLOBALS['sql_order_to_append'];
@@ -1119,8 +1116,6 @@ class PMA_Util
                     $query_base = $analyzed_display_query[0]['section_before_limit']
                         . "\n" . $GLOBALS['sql_limit_to_append']
                         . $analyzed_display_query[0]['section_after_limit'];
-                    // Need to reparse query
-                    $parsed_sql = PMA_SQP_parse($query_base);
                 }
             }
 
