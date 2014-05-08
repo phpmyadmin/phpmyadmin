@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-08 12:12+0200\n"
-"Last-Translator: Purodha Blissenbach <publi@web.de>\n"
+"PO-Revision-Date: 2014-05-08 12:13+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/>"
 "\n"
 "Language: de\n"
@@ -1032,12 +1032,12 @@ msgstr "Weitere"
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/Util.class.php:1402
 msgid ","
-msgstr ","
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/Util.class.php:1404
 msgid "."
-msgstr "."
+msgstr ","
 
 #: js/messages.php:76
 msgid "Connections / Processes"
