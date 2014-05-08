@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-25 00:46+0200\n"
-"Last-Translator: Nicolas <thegreenkey.email@aol.com>\n"
+"PO-Revision-Date: 2014-05-08 12:11+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/>"
 "\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1731,7 +1731,7 @@ msgstr "Suchkriterien anzeigen"
 
 #: js/messages.php:284
 msgid "Hide find and replace criteria"
-msgstr "Suchkriterien ausblenden und Kriterien ersetzen"
+msgstr "Kriterien für Suchen und Ersetzen ausblenden"
 
 #: js/messages.php:285
 msgid "Show find and replace criteria"
@@ -4606,7 +4606,7 @@ msgstr "Konnte Drizzle-Verbindungsbibliothek nicht initialisieren!"
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
 msgid "Could not connect to the database server!"
-msgstr "Es konnte keine Verbindung zu Ziel-Datenbankserver hergestellt werden."
+msgstr "Es konnte keine Verbindung zu Ziel-Datenbankserver hergestellt werden!"
 
 #: libraries/config/Validator.class.php:306
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
