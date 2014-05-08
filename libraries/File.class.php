@@ -633,7 +633,6 @@ class PMA_File
         default:
             $this->errorUnsupported();
             return false;
-            break;
         }
 
         return true;
