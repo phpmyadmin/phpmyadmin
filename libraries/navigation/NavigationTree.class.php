@@ -862,7 +862,6 @@ class PMA_NavigationTree
                     $retval .= "<b></b>";
                 }
                 $icon  = PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
-                $match = 1;
                 foreach ($this->_aPath as $path) {
                     $match = 1;
                     foreach ($paths['aPath_clean'] as $key => $part) {
