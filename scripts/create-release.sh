@@ -313,6 +313,8 @@ Todo now:
 
  8. add a milestone for this new version in the bugs tickets, at https://sourceforge.net/p/phpmyadmin/bugs/milestones
 
- 9. the end :-)
+ 9. send a private twitter message to @phpmya, containing a short version of the announcement
+
+10. the end :-)
 
 END
