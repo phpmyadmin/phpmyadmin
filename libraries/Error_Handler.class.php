@@ -191,14 +191,11 @@ class PMA_Error_Handler
      *
      * @param string  $errorInfo   error message
      * @param integer $errorNumber error number
-     * @param string  $file        file name
-     * @param integer $line        line number
      *
      * @return void
      */
-    public function triggerError($errorInfo, $errorNumber = null,
-        $file = null, $line = null
-    ) {
+    public function triggerError($errorInfo, $errorNumber = null)
+    {
         // we could also extract file and line from backtrace
         // and call handleError() directly
         trigger_error($errorInfo, $errorNumber);
