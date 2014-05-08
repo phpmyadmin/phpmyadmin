@@ -169,6 +169,8 @@ $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 // Get list of tables
 $table_list = PMA_Util::getTableList($GLOBALS['db']);
 
+$my_tables = array();
+
 // For each table try to get the tracking version
 foreach ($table_list as $key => $value) {
     // If $value is a table group.
@@ -198,7 +200,7 @@ foreach ($table_list as $key => $value) {
 }
 
 // If untracked tables exist
-if (isset($my_tables)) {
+if (count($my_tables) > 0) {
     ?>
     <h3><?php echo __('Untracked tables');?></h3>
 
