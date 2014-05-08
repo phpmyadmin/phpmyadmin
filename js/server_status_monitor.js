@@ -1878,7 +1878,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         $('#logTable table').tablesorter({
             sortList: [[cols.length - 1, 1]],
-            widgets: .fast-zebra
+            widgets: ['fast-zebra']
         });
 
         $('#logTable table thead th')
