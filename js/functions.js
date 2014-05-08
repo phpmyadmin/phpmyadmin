@@ -2382,6 +2382,7 @@ AJAX.registerOnload('functions.js', function () {
             function scrollToTop() {
                 $('html, body').animate({ scrollTop: 0 });
             }
+            var $temp_div;
             if (data.success === true && data.sql_query !== undefined) {
                 PMA_ajaxShowMessage(data.message);
                 $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
@@ -2389,7 +2390,7 @@ AJAX.registerOnload('functions.js', function () {
                 PMA_highlightSQL($('#page_content'));
                 scrollToTop();
             } else if (data.success === true) {
-                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.message);
                 var $success = $temp_div.find("#result_query .success");
                 PMA_ajaxShowMessage($success);
@@ -2400,7 +2401,7 @@ AJAX.registerOnload('functions.js', function () {
                 $("#sqlqueryresults").children("fieldset,br").remove();
                 scrollToTop();
             } else {
-                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
                 var $error = $temp_div.find("code").addClass("error");
                 PMA_ajaxShowMessage($error, false);
