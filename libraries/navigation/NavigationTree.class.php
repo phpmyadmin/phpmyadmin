@@ -548,11 +548,9 @@ class PMA_NavigationTree
             return;
         }
 
-        $separators = array();
-        if (is_array($node->separator)) {
-            $separators = $node->separator;
-        } else if (strlen($node->separator)) {
-            $separators[] = $node->separator;
+        $separators = $node->separator;
+        if (! is_array($separators)) {
+            $separators = array($separators);
         }
         $prefixes = array();
         if ($node->separator_depth > 0) {
