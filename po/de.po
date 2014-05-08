@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-04-25 00:46+0200\n"
-"Last-Translator: Nicolas <thegreenkey.email@aol.com>\n"
-"Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/>"
-"\n"
+"PO-Revision-Date: 2014-05-08 12:17+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/4-2/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -1032,12 +1031,12 @@ msgstr "Weitere"
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/Util.class.php:1402
 msgid ","
-msgstr ","
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/Util.class.php:1404
 msgid "."
-msgstr "."
+msgstr ","
 
 #: js/messages.php:76
 msgid "Connections / Processes"
@@ -1731,7 +1730,7 @@ msgstr "Suchkriterien anzeigen"
 
 #: js/messages.php:284
 msgid "Hide find and replace criteria"
-msgstr "Suchkriterien ausblenden und Kriterien ersetzen"
+msgstr "Kriterien für Suchen und Ersetzen ausblenden"
 
 #: js/messages.php:285
 msgid "Show find and replace criteria"
@@ -2478,10 +2477,9 @@ msgid "Saved bookmarked search:"
 msgstr "Suchanfrage mit Lesezeichen gespeichert:"
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "New bookmark"
-msgstr "Lesezeichen erstellen"
+msgstr "Neues Lesezeichen"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"
@@ -3212,10 +3210,9 @@ msgstr "Konnte die Favoriten-Tabelle nicht speichern!"
 
 #: libraries/RecentFavoriteTable.class.php:225
 #: libraries/structure.lib.php:2751
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Skala entfernen"
+msgstr "Aus Favoriten entfernen"
 
 #: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
@@ -3230,10 +3227,9 @@ msgid "Recent tables"
 msgstr "Letzte Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:260
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Zurücksetzen"
+msgstr "Neulich"
 
 #: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:474
@@ -3241,10 +3237,9 @@ msgid "Favorite tables"
 msgstr "Favoriten-Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:264
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites"
-msgstr "Favoriten-Tabellen"
+msgstr "Favoriten"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
@@ -4546,7 +4541,7 @@ msgstr ""
 "auf den gleichen oder einen niedrigeren Wert gesetzt sein."
 
 #: libraries/config/ServerConfigChecks.class.php:423
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "If you feel this is necessary, use additional protection settings - %"
 #| "shost authentication%s settings and %strusted proxies list%s. However, IP-"
@@ -4560,9 +4555,9 @@ msgid ""
 msgstr ""
 "Falls Sie es für nötig halten, benutzen Sie die zusätzlichen Schutz-"
 "Einstellungen - %sHost Authentifizierung%s und die %sListe "
-"vertrauenswürdiger Proxys%s. IP-basierter Schutz kann unzuverlässig sein, "
-"wenn Ihre IP einem ISP gehört, mit dem tausende Benutzer, einschließlich "
-"Ihnen, verbunden sind."
+"vertrauenswürdiger Proxys%s. IP-Adressen-basierter Schutz kann unzuverlässig "
+"sein, wenn Ihre IP-Adresse einem Service Provider gehört, mit dem tausende "
+"Benutzer, einschließlich Ihnen selbst, verbunden sind."
 
 #: libraries/config/ServerConfigChecks.class.php:431
 #, php-format
@@ -4606,7 +4601,7 @@ msgstr "Konnte Drizzle-Verbindungsbibliothek nicht initialisieren!"
 #: libraries/config/Validator.class.php:266
 #: libraries/config/Validator.class.php:273
 msgid "Could not connect to the database server!"
-msgstr "Es konnte keine Verbindung zu Ziel-Datenbankserver hergestellt werden."
+msgstr "Es konnte keine Verbindung zu Ziel-Datenbankserver hergestellt werden!"
 
 #: libraries/config/Validator.class.php:306
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -4629,17 +4624,15 @@ msgstr ""
 "wird!"
 
 #: libraries/config/Validator.class.php:369
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Kein phpMyAdmin Control-user angegeben, obwohl phpMyAdmin configuration "
-"storage verwendet wird"
+"Kein phpMyAdmin Control-user angegeben, obwohl der Konfigurationsspeicher "
+"von phpMyAdmin verwendet wird!"
 
 #: libraries/config/Validator.class.php:374
-#, fuzzy
 #| msgid ""
 #| "Empty phpMyAdmin control user password while using phpMyAdmin "
 #| "configuration storage"
@@ -4647,8 +4640,8 @@ msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
-"Passwort des phpMyAdmin Control-users ist leer, obwohl phpMyAdmin "
-"configuration storage verwendet wird"
+"Passwort des phpMyAdmin Control-users ist leer, obwohl der "
+"Konfigurationsspeicher von phpMyAdmin verwendet wird!"
 
 #: libraries/config/Validator.class.php:458
 msgid "Incorrect value:"
@@ -5348,7 +5341,6 @@ msgid "Configuration storage"
 msgstr "Konfigurationsspeicher"
 
 #: libraries/config/messages.inc.php:273
-#, fuzzy
 #| msgid ""
 #| "Configure phpMyAdmin configuration storage to gain access to additional "
 #| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
@@ -5360,7 +5352,7 @@ msgid ""
 msgstr ""
 "Konfigurieren Sie einen phpMyAdmin-Konfigurationsspeicher, um zusätzliche "
 "Features zu erhalten, siehe [doc@linked-tables]phpMyAdmin-"
-"Konfigurationsspeicher[/doc] in der Dokumentation"
+"Konfigurationsspeicher[/doc] in der Dokumentation."
 
 #: libraries/config/messages.inc.php:277
 msgid "Changes tracking"
@@ -5400,10 +5392,9 @@ msgid "SQL Query box"
 msgstr "SQL-Querybox"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "Angezeigte Links in SQL-Querybox ändern"
+msgstr "Angezeigte Links in SQL-Querybox ändern."
 
 #: libraries/config/messages.inc.php:293
 msgid "SQL queries settings."
@@ -5414,10 +5405,9 @@ msgid "Startup"
 msgstr "Start"
 
 #: libraries/config/messages.inc.php:295
-#, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "Startseite anpassen"
+msgstr "Startseite anpassen."
 
 #: libraries/config/messages.inc.php:296
 msgid "Database structure"
@@ -5479,10 +5469,9 @@ msgid "Warnings"
 msgstr "Warnungen"
 
 #: libraries/config/messages.inc.php:314
-#, fuzzy
 #| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "Unterdrückung einiger phpMyAdmin Warnhinweise"
+msgstr "Unterdrücken einiger phpMyAdmin-Warnhinweise."
 
 #: libraries/config/messages.inc.php:316
 msgid ""
@@ -5501,7 +5490,6 @@ msgid "Extra parameters for iconv"
 msgstr "Extra Parameter für iconv"
 
 #: libraries/config/messages.inc.php:322
-#, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
 #| "even if one of the queries failed"
@@ -5510,7 +5498,7 @@ msgid ""
 "if one of the queries failed."
 msgstr ""
 "Wenn aktiv, fährt phpMyAdmin bei der Verarbeitung von multi-Statement-Querys "
-"fort, wenn eine Query fehlschlägt"
+"fort, wenn eine Query fehlschlägt."
 
 #: libraries/config/messages.inc.php:325
 msgid "Ignore multiple statement errors"
