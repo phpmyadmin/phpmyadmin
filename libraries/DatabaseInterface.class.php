@@ -1625,6 +1625,9 @@ class PMA_DatabaseInterface
             self::QUERY_STORE,
             false
         );
+        if ($result === false) {
+            return false;
+        }
 
         // return false if result is empty or false
         // or requested row is larger than rows in result
@@ -1680,8 +1683,11 @@ class PMA_DatabaseInterface
             self::QUERY_STORE,
             false
         );
+        if ($result === false) {
+            return false;
+        }
 
-        // return null if result is empty or false
+        // return false if result is empty or false
         if (! $this->numRows($result)) {
             return false;
         }
@@ -1764,7 +1770,7 @@ class PMA_DatabaseInterface
         $result = $this->tryQuery($query, $link, $options, false);
 
         // return empty array if result is empty or false
-        if (! $result) {
+        if ($result === false) {
             return $resultrows;
         }
 
