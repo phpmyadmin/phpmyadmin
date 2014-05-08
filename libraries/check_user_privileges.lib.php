@@ -34,7 +34,7 @@ $GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
  */
 function PMA_analyseShowGrant()
 {
-    if (PMA_Util::cacheExists('is_create_db_priv', true)) {
+    if (PMA_Util::cacheExists('is_create_db_priv')) {
         $GLOBALS['is_create_db_priv'] = PMA_Util::cacheGet(
             'is_create_db_priv'
         );

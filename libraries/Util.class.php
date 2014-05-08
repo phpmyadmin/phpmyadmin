@@ -1300,7 +1300,7 @@ class PMA_Util
      */
     public static function profilingSupported()
     {
-        if (!self::cacheExists('profiling_supported', true)) {
+        if (!self::cacheExists('profiling_supported')) {
             // 5.0.37 has profiling but for example, 5.1.20 does not
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
@@ -2800,17 +2800,13 @@ class PMA_Util
     /**
      * Verifies if something is cached in the session
      *
-     * @param string   $var    variable name
-     * @param int|true $server server
+     * @param string $var variable name
      *
      * @return boolean
      */
-    public static function cacheExists($var, $server = 0)
+    public static function cacheExists($var)
     {
-        if ($server === true) {
-            $server = $GLOBALS['server'];
-        }
-        return isset($_SESSION['cache']['server_' . $server][$var]);
+        return isset($_SESSION['cache']['server_' . $GLOBALS['server']][$var]);
     }
 
     /**

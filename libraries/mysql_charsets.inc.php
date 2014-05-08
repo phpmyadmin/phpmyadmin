@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
  *
  */
 
-if (! PMA_Util::cacheExists('mysql_charsets', true)) {
+if (! PMA_Util::cacheExists('mysql_charsets')) {
     global $mysql_charsets, $mysql_charsets_descriptions,
         $mysql_charsets_available, $mysql_collations, $mysql_collations_available,
         $mysql_default_collations, $mysql_collations_flat;

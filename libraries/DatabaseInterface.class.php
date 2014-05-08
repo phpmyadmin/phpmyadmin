@@ -1451,7 +1451,7 @@ class PMA_DatabaseInterface
             return;
         }
         if (! defined('PMA_MYSQL_INT_VERSION')) {
-            if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION', true)) {
+            if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION')) {
                 define(
                     'PMA_MYSQL_INT_VERSION',
                     PMA_Util::cacheGet('PMA_MYSQL_INT_VERSION')
@@ -1581,7 +1581,7 @@ class PMA_DatabaseInterface
         }
 
         // Cache plugin list for Drizzle
-        if (PMA_DRIZZLE && !PMA_Util::cacheExists('drizzle_engines', true)) {
+        if (PMA_DRIZZLE && !PMA_Util::cacheExists('drizzle_engines')) {
             $sql = "SELECT p.plugin_name, m.module_library
                 FROM data_dictionary.plugins p
                     JOIN data_dictionary.modules m USING (module_name)
@@ -2074,7 +2074,7 @@ class PMA_DatabaseInterface
      */
     public function isSuperuser()
     {
-        if (PMA_Util::cacheExists('is_superuser', true)) {
+        if (PMA_Util::cacheExists('is_superuser')) {
             return PMA_Util::cacheGet('is_superuser');
         }
 
