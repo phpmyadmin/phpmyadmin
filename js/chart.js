@@ -13,6 +13,16 @@ var ChartType = {
 };
 
 /**
+ * Column type enumeration
+ */
+var ColumnType = {
+    STRING : 'string',
+    NUMBER : 'number',
+    BOOLEAN : 'boolean',
+    DATE : 'date'
+};
+
+/**
  * Abstract chart factory which defines the contract for chart factories
  */
 var ChartFactory = function () {
@@ -180,16 +190,6 @@ var DataTable = function () {
             }
         }
     };
-};
-
-/**
- * Column type enumeration
- */
-var ColumnType = {
-    STRING : 'string',
-    NUMBER : 'number',
-    BOOLEAN : 'boolean',
-    DATE : 'date'
 };
 
 /*******************************************************************************
