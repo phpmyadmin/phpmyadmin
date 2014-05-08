@@ -121,21 +121,6 @@ foreach ($tables as $table) {
      */
     $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
-    if (PMA_MYSQL_INT_VERSION < 50025) {
-        // We need this to correctly learn if a TIMESTAMP is NOT NULL, since
-        // SHOW FULL COLUMNS or INFORMATION_SCHEMA incorrectly says NULL
-        // and SHOW CREATE TABLE says NOT NULL
-        // http://bugs.mysql.com/20910.
-
-        $show_create_table_query = 'SHOW CREATE TABLE '
-            . PMA_Util::backquote($db) . '.'
-            . PMA_Util::backquote($table);
-        $show_create_table = $GLOBALS['dbi']->fetchValue(
-            $show_create_table_query, 0, 1
-        );
-        $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-    }
-
     // Check if we can use Relations
     if (!empty($cfgRelation['relation'])) {
         // Find which tables are related with the current one and write it in
@@ -207,23 +192,6 @@ foreach ($tables as $table) {
         }
         $column_name = $row['Field'];
 
-        $tmp_column = $analyzed_sql[0]['create_table_fields'][$column_name];
-        if (PMA_MYSQL_INT_VERSION < 50025
-            && ! empty($tmp_column['type'])
-            && $tmp_column['type'] == 'TIMESTAMP'
-            && $tmp_column['timestamp_not_null']
-        ) {
-            // here, we have a TIMESTAMP that SHOW FULL COLUMNS reports as
-            // having the NULL attribute, but SHOW CREATE TABLE says the
-            // contrary. Believe the latter.
-            /**
-             * @todo merge this logic with the one in tbl_structure.php
-             * or move it in a function similar to $GLOBALS['dbi']->getColumnsFull()
-             * but based on SHOW CREATE TABLE because information_schema
-             * cannot be trusted in this case (MySQL bug)
-             */
-             $row['Null'] = 'NO';
-        }
         echo '<tr class="';
         echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row;
         echo '">';
