@@ -1335,7 +1335,7 @@ class PMA_DatabaseInterface
     * @param string $table    name of the table whose indexes are to be retreived
     * @param string $where    additional conditions for WHERE
     *
-    * @return array   $indexes
+    * @return string SQL for getting indexes
     */
     public function getTableIndexesSql($database, $table, $where = null)
     {

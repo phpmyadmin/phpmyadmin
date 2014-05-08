@@ -734,7 +734,7 @@ class PMA_Config
     /**
      * Checks if given URL is 200 or 404, optionally returns data
      *
-     * @param mixed   $link     curl link
+     * @param string  $link     the URL to check
      * @param boolean $get_body whether to retrieve body of document
      *
      * @return string|boolean test result or data

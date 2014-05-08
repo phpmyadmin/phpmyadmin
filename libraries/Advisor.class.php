@@ -188,7 +188,7 @@ class Advisor
      *
      * @param string $rule the rule
      *
-     * @return array
+     * @return string[]
      */
     static function splitJustification($rule)
     {
