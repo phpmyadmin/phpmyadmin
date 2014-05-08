@@ -812,6 +812,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private $_leftMargin = 10;
     private $_rightMargin = 10;
     private $_tablewidth;
+    protected $relations = array();
 
     /**
      * The "PMA_Pdf_Relation_Schema" constructor
