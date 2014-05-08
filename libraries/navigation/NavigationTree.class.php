@@ -1003,20 +1003,16 @@ class PMA_NavigationTree
             $children = $node->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             $buffer = '';
+            $extra_class = '';
             for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-                if ($i + 1 != $nbChildren) {
-                    $buffer .= $this->_renderNode(
-                        $children[$i],
-                        true,
-                        $children[$i]->classes
-                    );
-                } else {
-                    $buffer .= $this->_renderNode(
-                        $children[$i],
-                        true,
-                        $children[$i]->classes . ' last'
-                    );
+                if ($i + 1 == $nbChildren) {
+                    $extra_class = ' last';
                 }
+                $buffer .= $this->_renderNode(
+                    $children[$i],
+                    true,
+                    $children[$i]->classes . $extra_class
+                );
             }
             if (! empty($buffer)) {
                 if ($wrap) {
