@@ -55,7 +55,7 @@ class PMA_Export_Relation_Schema
      */
     public function setShowGrid($value)
     {
-        $this->showGrid = (isset($value) && $value == 'on') ? 1 : 0;
+        $this->showGrid = (isset($value) && $value == 'on');
     }
 
     /**
@@ -67,7 +67,7 @@ class PMA_Export_Relation_Schema
      */
     public function setShowColor($value)
     {
-        $this->showColor = (isset($value) && $value == 'on') ? 1 : 0;
+        $this->showColor = (isset($value) && $value == 'on');
     }
 
     /**
@@ -81,7 +81,7 @@ class PMA_Export_Relation_Schema
      */
     public function setTableDimension($value)
     {
-        $this->tableDimension = (isset($value) && $value == 'on') ? 1 : 0;
+        $this->tableDimension = (isset($value) && $value == 'on');
     }
 
     /**
@@ -95,7 +95,7 @@ class PMA_Export_Relation_Schema
      */
     public function setAllTablesSameWidth($value)
     {
-        $this->sameWide = (isset($value) && $value == 'on') ? 1 : 0;
+        $this->sameWide = (isset($value) && $value == 'on');
     }
 
     /**
@@ -109,7 +109,7 @@ class PMA_Export_Relation_Schema
      */
     public function setWithDataDictionary($value)
     {
-        $this->withDoc = (isset($value) && $value == 'on') ? 1 : 0;
+        $this->withDoc = (isset($value) && $value == 'on');
     }
 
     /**
@@ -123,7 +123,7 @@ class PMA_Export_Relation_Schema
      */
     public function setShowKeys($value)
     {
-        $this->showKeys = (isset($value) && $value == 'on') ? 1 : 0;
+        $this->showKeys = (isset($value) && $value == 'on');
     }
 
     /**
