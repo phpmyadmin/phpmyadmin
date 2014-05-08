@@ -152,14 +152,13 @@ function PMA_analyseShowGrant()
 
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.class.php
-    PMA_Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv'], true);
-    PMA_Util::cacheSet('is_process_priv', $GLOBALS['is_process_priv'], true);
-    PMA_Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv'], true);
-    PMA_Util::cacheSet('db_to_create', $GLOBALS['db_to_create'], true);
+    PMA_Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
+    PMA_Util::cacheSet('is_process_priv', $GLOBALS['is_process_priv']);
+    PMA_Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
+    PMA_Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
     PMA_Util::cacheSet(
         'dbs_where_create_table_allowed',
-        $GLOBALS['dbs_where_create_table_allowed'],
-        true
+        $GLOBALS['dbs_where_create_table_allowed']
     );
 } // end function
 

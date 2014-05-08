@@ -1501,23 +1501,19 @@ class PMA_DatabaseInterface
                 }
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_INT_VERSION',
-                    PMA_MYSQL_INT_VERSION,
-                    true
+                    PMA_MYSQL_INT_VERSION
                 );
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_MAJOR_VERSION',
-                    PMA_MYSQL_MAJOR_VERSION,
-                    true
+                    PMA_MYSQL_MAJOR_VERSION
                 );
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_STR_VERSION',
-                    PMA_MYSQL_STR_VERSION,
-                    true
+                    PMA_MYSQL_STR_VERSION
                 );
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_VERSION_COMMENT',
-                    PMA_MYSQL_VERSION_COMMENT,
-                    true
+                    PMA_MYSQL_VERSION_COMMENT
                 );
 
                 /* Detect Drizzle - it does not support charsets */
@@ -1534,8 +1530,7 @@ class PMA_DatabaseInterface
 
                 PMA_Util::cacheSet(
                     'PMA_DRIZZLE',
-                    PMA_DRIZZLE,
-                    true
+                    PMA_DRIZZLE
                 );
             }
         }
@@ -1589,7 +1584,7 @@ class PMA_DatabaseInterface
                     AND p.plugin_name NOT IN ('FunctionEngine', 'schema')
                     AND p.is_active = 'YES'";
             $engines = $this->fetchResult($sql, 'plugin_name', null, $link);
-            PMA_Util::cacheSet('drizzle_engines', $engines, true);
+            PMA_Util::cacheSet('drizzle_engines', $engines);
         }
     }
 
@@ -2095,9 +2090,9 @@ class PMA_DatabaseInterface
                     self::QUERY_STORE
                 );
             }
-            PMA_Util::cacheSet('is_superuser', $result, true);
+            PMA_Util::cacheSet('is_superuser', $result);
         } else {
-            PMA_Util::cacheSet('is_superuser', false, true);
+            PMA_Util::cacheSet('is_superuser', false);
         }
 
         return PMA_Util::cacheGet('is_superuser');

@@ -1308,13 +1308,13 @@ class PMA_Util
                 && (PMA_MYSQL_INT_VERSION >= 50037)
                 && $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'profiling'")
             ) {
-                self::cacheSet('profiling_supported', true, true);
+                self::cacheSet('profiling_supported', true);
             } else {
-                self::cacheSet('profiling_supported', false, true);
+                self::cacheSet('profiling_supported', false);
             }
         }
 
-        return self::cacheGet('profiling_supported', true);
+        return self::cacheGet('profiling_supported');
     }
 
     /**
@@ -2828,18 +2828,14 @@ class PMA_Util
     /**
      * Caches information in the session
      *
-     * @param string   $var    variable name
-     * @param mixed    $val    value
-     * @param int|true $server server
+     * @param string $var variable name
+     * @param mixed  $val value
      *
      * @return mixed
      */
-    public static function cacheSet($var, $val = null, $server = 0)
+    public static function cacheSet($var, $val = null)
     {
-        if ($server === true) {
-            $server = $GLOBALS['server'];
-        }
-        $_SESSION['cache']['server_' . $server][$var] = $val;
+        $_SESSION['cache']['server_' . $GLOBALS['server']][$var] = $val;
     }
 
     /**
