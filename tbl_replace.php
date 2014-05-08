@@ -192,7 +192,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         $file_to_insert = new PMA_File();
         $file_to_insert->checkTblChangeForm($key, $rownumber);
 
-        $possibly_uploaded_val = $file_to_insert->getContent();
+        $possibly_uploaded_val = '0x' . bin2hex($file_to_insert->getContent());
 
         if ($file_to_insert->isError()) {
             $message .= $file_to_insert->getError();
