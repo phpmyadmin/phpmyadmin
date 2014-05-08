@@ -159,16 +159,12 @@ class PMA_File
     /**
      * Gets file content
      *
-     * @param boolean $as_binary whether to return content as binary
-     * @param integer $offset    starting offset
-     * @param integer $length    length
-     *
      * @return mixed   the binary file content as a string,
      *                 or false if no content
      *
      * @access  public
      */
-    public function getContent($as_binary = true, $offset = 0, $length = null)
+    public function getContent()
     {
         if (null === $this->_content) {
             if ($this->isUploaded() && ! $this->checkUploadedFile()) {
@@ -184,16 +180,6 @@ class PMA_File
             } elseif ($size = filesize($this->getName())) {
                 $this->_content = fread(fopen($this->getName(), 'rb'), $size);
             }
-        }
-
-        if (! empty($this->_content) && $as_binary) {
-            return '0x' . bin2hex($this->_content);
-        }
-
-        if (null !== $length) {
-            return substr($this->_content, $offset, $length);
-        } elseif ($offset > 0) {
-            return substr($this->_content, $offset);
         }
 
         return $this->_content;
