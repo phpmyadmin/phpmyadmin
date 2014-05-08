@@ -620,11 +620,10 @@ function changeValueFieldType(elem, searchIndex)
     }
 
     var type = $(elem).val();
-    if (
-        'IN (...)' == type
-        || 'NOT IN (...)' == type
-        || 'BETWEEN' == type
-        || 'NOT BETWEEN' == type
+    if ('IN (...)' == type ||
+        'NOT IN (...)' == type ||
+        'BETWEEN' == type ||
+        'NOT BETWEEN' == type
     ) {
         $("#fieldID_" + searchIndex).attr('multiple', '');
     } else {

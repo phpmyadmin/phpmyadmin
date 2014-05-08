@@ -582,10 +582,10 @@ AJAX.cache = {
      * @return void
      */
     navigate: function (index) {
-        if (typeof this.pages[index] === 'undefined'
-            || typeof this.pages[index].content === 'undefined'
-            || typeof this.pages[index].menu === 'undefined'
-            || ! AJAX.cache.menus.get(this.pages[index].menu)
+        if (typeof this.pages[index] === 'undefined' ||
+            typeof this.pages[index].content === 'undefined' ||
+            typeof this.pages[index].menu === 'undefined' ||
+            ! AJAX.cache.menus.get(this.pages[index].menu)
         ) {
             PMA_ajaxShowMessage(
                 '<div class="error">' + PMA_messages.strInvalidPage + '</div>',
