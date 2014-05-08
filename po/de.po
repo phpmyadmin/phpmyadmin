@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 14:50-0400\n"
-"PO-Revision-Date: 2014-05-08 12:11+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2014-05-08 12:12+0200\n"
+"Last-Translator: Purodha Blissenbach <publi@web.de>\n"
 "Language-Team: German <https://l10n.cihar.com/projects/phpmyadmin/master/de/>"
 "\n"
 "Language: de\n"
@@ -2478,10 +2478,9 @@ msgid "Saved bookmarked search:"
 msgstr "Suchanfrage mit Lesezeichen gespeichert:"
 
 #: libraries/DBQbe.class.php:1453
-#, fuzzy
 #| msgid "Create bookmark"
 msgid "New bookmark"
-msgstr "Lesezeichen erstellen"
+msgstr "Neues Lesezeichen"
 
 #: libraries/DBQbe.class.php:1479
 msgid "Create bookmark"
@@ -3212,10 +3211,9 @@ msgstr "Konnte die Favoriten-Tabelle nicht speichern!"
 
 #: libraries/RecentFavoriteTable.class.php:225
 #: libraries/structure.lib.php:2751
-#, fuzzy
 #| msgid "Remove chart"
 msgid "Remove from Favorites"
-msgstr "Skala entfernen"
+msgstr "Aus Favoriten entfernen"
 
 #: libraries/RecentFavoriteTable.class.php:242
 msgid "There are no recent tables."
@@ -3230,10 +3228,9 @@ msgid "Recent tables"
 msgstr "Letzte Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:260
-#, fuzzy
 #| msgid "Reset"
 msgid "Recent"
-msgstr "Zurücksetzen"
+msgstr "Neulich"
 
 #: libraries/RecentFavoriteTable.class.php:262
 #: libraries/config/messages.inc.php:474
@@ -3241,10 +3238,9 @@ msgid "Favorite tables"
 msgstr "Favoriten-Tabellen"
 
 #: libraries/RecentFavoriteTable.class.php:264
-#, fuzzy
 #| msgid "Favorite tables"
 msgid "Favorites"
-msgstr "Favoriten-Tabellen"
+msgstr "Favoriten"
 
 #: libraries/SavedSearches.class.php:246
 msgid "Please provide a name for this bookmarked search."
