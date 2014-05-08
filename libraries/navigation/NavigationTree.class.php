@@ -819,11 +819,7 @@ class PMA_NavigationTree
             ) {
                 return '';
             }
-            $liClass = '';
-            if ($class || $node->classes) {
-                $liClass = " class='" . trim($class . ' ' . $node->classes) . "'";
-            }
-            $retval .= "<li$liClass>";
+            $retval .= '<li class="' . trim($class . ' ' . $node->classes) . '">';
             $sterile = array(
                 'events',
                 'triggers',
