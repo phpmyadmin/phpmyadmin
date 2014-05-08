@@ -828,11 +828,11 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         global $pdf, $db;
 
         $this->setPageNumber($_POST['pdf_page_number']);
-        $this->setShowGrid(isset($_POST['show_grid']));
-        $this->setShowColor(isset($_POST['show_color']));
-        $this->setShowKeys(isset($_POST['show_keys']));
-        $this->setTableDimension(isset($_POST['show_table_dimension']));
-        $this->setAllTablesSameWidth(isset($_POST['all_tables_same_width']));
+        $this->setShowGrid($_POST['show_grid']);
+        $this->setShowColor($_POST['show_color']);
+        $this->setShowKeys($_POST['show_keys']);
+        $this->setTableDimension($_POST['show_table_dimension']);
+        $this->setAllTablesSameWidth($_POST['all_tables_same_width']);
         $this->setWithDataDictionary($_POST['with_doc']);
         $this->setOrientation($_POST['orientation']);
         $this->setPaper($_POST['paper']);
