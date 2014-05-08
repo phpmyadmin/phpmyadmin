@@ -799,14 +799,13 @@ class PMA_NavigationTree
     /**
      * Renders a single node or a branch of the tree
      *
-     * @param Node     $node      The node to render
-     * @param int|bool $recursive Bool: Whether to render a single node or a branch
-     *                            Int: How many levels deep to render
-     * @param string   $class     An additional class for the list item
+     * @param Node   $node      The node to render
+     * @param bool   $recursive Bool: Whether to render a single node or a branch
+     * @param string $class     An additional class for the list item
      *
      * @return string HTML code for the tree node or branch
      */
-    private function _renderNode($node, $recursive = -1, $class = '')
+    private function _renderNode($node, $recursive, $class = '')
     {
         $retval = '';
         $paths  = $node->getPaths();
