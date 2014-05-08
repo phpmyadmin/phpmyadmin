@@ -462,10 +462,13 @@ class PMA_Header
          * Sends http headers
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
-        $use_captcha = (
-            !empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+        if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-        );
+        ) {
+            $captcha_url = ' https://www.google.com ';
+        } else {
+            $captcha_url = '';
+        }
         /* Prevent against ClickJacking by disabling framing */
         if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
             header(
@@ -474,51 +477,48 @@ class PMA_Header
         }
         header(
             "Content-Security-Policy: default-src 'self' "
-            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
-            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . ";"
             . "style-src 'self' 'unsafe-inline' "
-            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . ";"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . ($https ? "" : $mapTilesUrls)
-            // for reCAPTCHA
-            . ($use_captcha ? ' https://www.google.com' : ' ')
+            . $captcha_url
             . ";"
         );
         header(
             "X-Content-Security-Policy: default-src 'self' "
-            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "options inline-script eval-script;"
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . ($https ? "" : $mapTilesUrls)
-            // for reCAPTCHA
-            . ($use_captcha ? ' https://www.google.com' : ' ')
+            . $captcha_url
             . ";"
         );
         header(
             "X-WebKit-CSP: default-src 'self' "
-            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow'] . ';'
             . "script-src 'self' "
-            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $captcha_url
             . $GLOBALS['cfg']['CSPAllow']
             . " 'unsafe-inline' 'unsafe-eval';"
             . "style-src 'self' 'unsafe-inline' "
-            . ($use_captcha ? 'https://www.google.com ' : ' ')
+            . $captcha_url
             . ';'
             . "img-src 'self' data: "
             . $GLOBALS['cfg']['CSPAllow']
             . ($https ? "" : $mapTilesUrls)
-            // for reCAPTCHA
-            . ($use_captcha ? ' https://www.google.com' : ' ')
+            . $captcha_url
             . ";"
         );
         PMA_noCacheHeader();
