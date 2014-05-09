@@ -29,7 +29,7 @@ textarea {
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-    <?php 
+    <?php
 } ?>
     padding: 0;
     margin: 0;
@@ -614,7 +614,7 @@ tr:last-child td.condition {
     .before-condition {
     border-right: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     }
-    <?php 
+    <?php
 } ?>
 
 /**
@@ -643,7 +643,7 @@ table [class=value] {
     .value {
     font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
     }
-    <?php 
+    <?php
 } ?>
 .attention {
     color: red;
@@ -2940,4 +2940,12 @@ div#page_content form#db_search_form.ajax fieldset {
 
 div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div#result_query {
     margin-top: 1em;
+}
+
+table.show_create {
+    margin-top: 1em;
+}
+
+table.show_create td {
+    border-right: 1px solid #bbb;
 }
