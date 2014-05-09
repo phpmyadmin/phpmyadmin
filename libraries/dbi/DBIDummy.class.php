@@ -778,19 +778,6 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     }
 
     /**
-     * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
-     *
-     * @param object $link the connection object
-     *
-     * @return string|int
-     */
-    public function insertId($link = null)
-    {
-        return -1;
-    }
-
-    /**
      * returns the number of rows affected by last query
      *
      * @param resource $link           the mysql object
