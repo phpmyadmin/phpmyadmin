@@ -529,7 +529,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return bool
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb($dbname, $link)
     {
         $GLOBALS['dummy_db'] = $dbname;
         return true;
@@ -688,7 +688,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return bool false
      */
-    public function moreResults($link = null)
+    public function moreResults($link)
     {
         return false;
     }
@@ -700,7 +700,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return boolean false
      */
-    public function nextResult($link = null)
+    public function nextResult($link)
     {
         return false;
     }
@@ -722,7 +722,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null)
+    public function getHostInfo($link)
     {
         return '';
     }
@@ -734,7 +734,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return integer version of the MySQL protocol used
      */
-    public function getProtoInfo($link = null)
+    public function getProtoInfo($link)
     {
         return -1;
     }
@@ -756,7 +756,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null)
+    public function getError($link)
     {
         return false;
     }

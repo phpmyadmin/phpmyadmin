@@ -232,12 +232,8 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      *
      * @return boolean
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb($dbname, $link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysqli_select_db($link, $dbname);
     }
 
@@ -346,12 +342,8 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      *
      * @return bool true or false
      */
-    public function moreResults($link = null)
+    public function moreResults($link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysqli_more_results($link);
     }
 
@@ -362,12 +354,8 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      *
      * @return bool true or false
      */
-    public function nextResult($link = null)
+    public function nextResult($link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysqli_next_result($link);
     }
 
@@ -378,10 +366,6 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function storeResult()
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysqli_store_result($link);
     }
 
@@ -392,12 +376,8 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null)
+    public function getHostInfo($link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysqli_get_host_info($link);
     }
 
@@ -408,12 +388,8 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      *
      * @return integer version of the MySQL protocol used
      */
-    public function getProtoInfo($link = null)
+    public function getProtoInfo($link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysqli_get_proto_info($link);
     }
 
@@ -434,16 +410,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null)
+    public function getError($link)
     {
         $GLOBALS['errno'] = 0;
-
-        /* Treat false same as null because of controllink */
-        if ($link === false) {
-            $link = null;
-        }
-
-        $link = $GLOBALS['dbi']->getLink($link);
 
         if (null !== $link && false !== $link) {
             $error_number = mysqli_errno($link);

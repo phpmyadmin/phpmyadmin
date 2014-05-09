@@ -135,12 +135,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return bool
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb($dbname, $link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return $link->selectDb($dbname);
     }
 
@@ -245,7 +241,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return bool false
      */
-    public function moreResults($link = null)
+    public function moreResults($link)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -261,7 +257,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return bool false
      */
-    public function nextResult($link = null)
+    public function nextResult($link)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -277,13 +273,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null)
+    public function getHostInfo($link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
-
         $str = $link->port()
             ? $link->host() . ':' . $link->port() . ' via TCP/IP'
             : 'Localhost via UNIX socket';
@@ -297,13 +288,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return int version of the Drizzle protocol used
      */
-    public function getProtoInfo($link = null)
+    public function getProtoInfo($link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
-
         return $link->protocolVersion();
     }
 
@@ -324,16 +310,9 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null)
+    public function getError($link)
     {
         $GLOBALS['errno'] = 0;
-
-        /* Treat false same as null because of controllink */
-        if ($link === false) {
-            $link = null;
-        }
-
-        $link = $GLOBALS['dbi']->getLink($link);
 
         if (null !== $link && false !== $link) {
             $error_number = drizzle_con_errno($link->getConnectionObject());

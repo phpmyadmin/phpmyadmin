@@ -2150,6 +2150,10 @@ class PMA_DatabaseInterface
      */
     public function selectDb($dbname, $link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->selectDb($dbname, $link);
     }
 
@@ -2223,6 +2227,10 @@ class PMA_DatabaseInterface
      */
     public function moreResults($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->moreResults($link = null);
     }
 
@@ -2235,6 +2243,10 @@ class PMA_DatabaseInterface
      */
     public function nextResult($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->nextResult($link = null);
     }
 
@@ -2257,6 +2269,10 @@ class PMA_DatabaseInterface
      */
     public function getHostInfo($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getHostInfo($link);
     }
 
@@ -2269,6 +2285,10 @@ class PMA_DatabaseInterface
      */
     public function getProtoInfo($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getProtoInfo($link);
     }
 
@@ -2291,6 +2311,10 @@ class PMA_DatabaseInterface
      */
     public function getError($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getError($link);
     }
 
@@ -2466,7 +2490,7 @@ class PMA_DatabaseInterface
      */
     public function getLink($link = null)
     {
-        if ( ! is_null($link)) {
+        if ( ! is_null($link) && $link !== false) {
             return $link;
         }
 

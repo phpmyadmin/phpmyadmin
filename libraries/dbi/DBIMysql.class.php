@@ -162,12 +162,8 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @return bool
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb($dbname, $link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysql_select_db($dbname, $link);
     }
 
@@ -261,7 +257,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @return bool false
      */
-    public function moreResults($link = null)
+    public function moreResults($link)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -277,7 +273,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @return boolean false
      */
-    public function nextResult($link = null)
+    public function nextResult($link)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -293,12 +289,8 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null)
+    public function getHostInfo($link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysql_get_host_info($link);
     }
 
@@ -309,12 +301,8 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @return int version of the MySQL protocol used
      */
-    public function getProtoInfo($link = null)
+    public function getProtoInfo($link)
     {
-        $link = $GLOBALS['dbi']->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         return mysql_get_proto_info($link);
     }
 
@@ -335,16 +323,9 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null)
+    public function getError($link)
     {
         $GLOBALS['errno'] = 0;
-
-        /* Treat false same as null because of controllink */
-        if ($link === false) {
-            $link = null;
-        }
-
-        $link = $GLOBALS['dbi']->getLink($link);
 
         if (null !== $link && false !== $link) {
             $error_number = mysql_errno($link);
