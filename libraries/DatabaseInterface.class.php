@@ -1691,6 +1691,23 @@ class PMA_DatabaseInterface
     }
 
     /**
+     * Returns row or element of a row
+     *
+     * @param array       $row   Row to process
+     * @param string|null $value Which column to return
+     *
+     * @return mixed
+     */
+    private function _fetchValue($row, $value)
+    {
+        if (is_null($value)) {
+            return $row;
+        } else {
+            return $row[$value];
+        }
+    }
+
+    /**
      * returns all rows in the resultset in one array
      *
      * <code>
@@ -1767,35 +1784,9 @@ class PMA_DatabaseInterface
             $fetch_function = 'fetchRow';
         }
 
-        if (null === $key && null === $value) {
+        if (null === $key) {
             while ($row = $this->$fetch_function($result)) {
-                $resultrows[] = $row;
-            }
-        } elseif (null === $key) {
-            while ($row = $this->$fetch_function($result)) {
-                $resultrows[] = $row[$value];
-            }
-        } elseif (null === $value) {
-            if (is_array($key)) {
-                while ($row = $this->$fetch_function($result)) {
-                    $result_target =& $resultrows;
-                    foreach ($key as $key_index) {
-                        if (null === $key_index) {
-                            $result_target =& $result_target[];
-                            continue;
-                        }
-
-                        if (! isset($result_target[$row[$key_index]])) {
-                            $result_target[$row[$key_index]] = array();
-                        }
-                        $result_target =& $result_target[$row[$key_index]];
-                    }
-                    $result_target = $row;
-                }
-            } else {
-                while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $row;
-                }
+                $resultrows[] = $this->_fetchValue($row, $value);
             }
         } else {
             if (is_array($key)) {
@@ -1812,11 +1803,11 @@ class PMA_DatabaseInterface
                         }
                         $result_target =& $result_target[$row[$key_index]];
                     }
-                    $result_target = $row[$value];
+                    $result_target = $this->_fetchValue($row, $value);
                 }
             } else {
                 while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $row[$value];
+                    $resultrows[$row[$key]] = $this->_fetchValue($row, $value);
                 }
             }
         }
