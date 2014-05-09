@@ -37,6 +37,8 @@ before_script:
 
     composer install --dev --no-interaction ;
 
+    wget https://scrutinizer-ci.com/ocular.phar ;
+
     fi ;
 
     if [[ ! -z "$SELENIUM" ]] ; then
@@ -62,6 +64,7 @@ script:
     ant phpunit-nocoverage ;
     else
     ant phpunit ;
+    php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ;
     fi ;
     fi ;
     else
