@@ -1,0 +1,62 @@
+
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
+
+./index.php(#497)
+	User Warning: The configuration file now needs a secret passphrase (blowfish_secret).
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/index.php	line:497	function:trigger_error(arg[0] = The configuration file now needs a secret passphrase (blowfish_secret)., arg[1] = 512)
+
+./index.php(#666)
+	Notice: Undefined variable: sdh
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
+
+./libraries/Config.class.php(#1185)
+	Warning: fileperms(): stat failed for ./config.inc.php
+ 			 Frame[0]: 	file:/var/www/phpmyadmin/libraries/Config.class.php	line:1185	function:fileperms(arg[0] = ./config.inc.php)
+ 			 Frame[1]: 	file:/var/www/phpmyadmin/libraries/common.inc.php	line:580	function:checkPermissions()
+ 			 Frame[2]: 	file:/var/www/phpmyadmin/index.php	line:12	function:require_once(arg[0] = /var/www/phpmyadmin/libraries/common.inc.php)
