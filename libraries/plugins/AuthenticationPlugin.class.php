@@ -47,5 +47,32 @@ abstract class AuthenticationPlugin extends PluginObserver
      * @return boolean
      */
     abstract public function authFails();
+
+    /**
+     * Returns error message for failed authentication.
+     *
+     * @return string
+     */
+    public function getErrorMessage()
+    {
+        if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
+            return __(
+                'Login without a password is forbidden by configuration'
+                . ' (see AllowNoPassword)'
+            );
+        } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
+            return __('Access denied!');
+        } elseif (! empty($GLOBALS['no_activity'])) {
+            return sprintf(
+                __('No activity within %s seconds; please log in again.'),
+                $GLOBALS['cfg']['LoginCookieValidity']
+            );
+        } elseif ($GLOBALS['dbi']->getError()) {
+            return '#' . $GLOBALS['errno'] . ' '
+                . __('Cannot log in to the MySQL server');
+        } else {
+            return __('Cannot log in to the MySQL server');
+        }
+    }
 }
 ?>

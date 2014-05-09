@@ -669,24 +669,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Deletes password cookie and displays the login form
         $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $GLOBALS['server']);
 
-        if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
-            $conn_error = __(
-                'Login without a password is forbidden by configuration'
-                . ' (see AllowNoPassword)'
-            );
-        } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-            $conn_error = __('Access denied!');
-        } elseif (! empty($GLOBALS['no_activity'])) {
-            $conn_error = sprintf(
-                __('No activity within %s seconds; please log in again.'),
-                $GLOBALS['cfg']['LoginCookieValidity']
-            );
-        } elseif ($GLOBALS['dbi']->getError()) {
-            $conn_error = '#' . $GLOBALS['errno'] . ' '
-                . __('Cannot log in to the MySQL server');
-        } else {
-            $conn_error = __('Cannot log in to the MySQL server');
-        }
+        $conn_error = $this->getErrorMessage();
 
         // needed for PHP-CGI (not need for FastCGI or mod-php)
         header('Cache-Control: no-store, no-cache, must-revalidate');
