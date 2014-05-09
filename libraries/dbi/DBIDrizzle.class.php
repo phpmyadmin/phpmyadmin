@@ -18,7 +18,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/logging.lib.php';
 require_once './libraries/dbi/drizzle-wrappers.lib.php';
 require_once './libraries/dbi/DBIExtension.int.php';
 

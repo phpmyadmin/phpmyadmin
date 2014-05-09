@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/logging.lib.php';
+
 /**
  * Main interface for database interactions
  *
