@@ -708,9 +708,11 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
+     * @param object $link the connection object
+     *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult()
+    public function storeResult($link)
     {
         return false;
     }

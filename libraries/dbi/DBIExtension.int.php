@@ -130,9 +130,11 @@ interface PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
+     * @param object $link mysql link
+     *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult();
+    public function storeResult($link);
 
     /**
      * Returns a string representing the type of connection used

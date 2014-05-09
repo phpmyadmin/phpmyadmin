@@ -323,7 +323,7 @@ class PMA_DBI_Mysql_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             false,
-            $this->object->storeResult()
+            $this->object->storeResult(null)
         );
     }
 }

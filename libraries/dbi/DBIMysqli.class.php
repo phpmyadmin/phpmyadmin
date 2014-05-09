@@ -362,9 +362,11 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
+     * @param mysqli $link the mysqli object
+     *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult()
+    public function storeResult($link)
     {
         return mysqli_store_result($link);
     }

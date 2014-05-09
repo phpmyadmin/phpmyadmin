@@ -450,9 +450,11 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
+     * @param object $result MySQL result
+     *
      * @return false
      */
-    public function storeResult()
+    public function storeResult($result)
     {
         return false;
     }

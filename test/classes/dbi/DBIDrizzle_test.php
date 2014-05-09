@@ -188,7 +188,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             false,
-            $this->object->storeResult()
+            $this->object->storeResult(null)
         );
     }
 

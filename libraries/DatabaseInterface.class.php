@@ -2233,11 +2233,17 @@ class PMA_DatabaseInterface
     /**
      * Store the result returned from multi query
      *
+     * @param object $link the connection object
+     *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult()
+    public function storeResult($link = null)
     {
-        return $this->_extension->storeResult();
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
+        return $this->_extension->storeResult($link);
     }
 
     /**
