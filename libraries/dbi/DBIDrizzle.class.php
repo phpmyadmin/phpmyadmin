@@ -29,6 +29,26 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
 }
 
 /**
+ * Names of field flags.
+ */
+$pma_drizzle_flag_names = array(
+    DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY => 'unique',
+    DRIZZLE_COLUMN_FLAGS_NUM => 'num',
+    DRIZZLE_COLUMN_FLAGS_PART_KEY => 'part_key',
+    DRIZZLE_COLUMN_FLAGS_SET => 'set',
+    DRIZZLE_COLUMN_FLAGS_TIMESTAMP => 'timestamp',
+    DRIZZLE_COLUMN_FLAGS_AUTO_INCREMENT => 'auto_increment',
+    DRIZZLE_COLUMN_FLAGS_ENUM => 'enum',
+    DRIZZLE_COLUMN_FLAGS_ZEROFILL => 'zerofill',
+    DRIZZLE_COLUMN_FLAGS_UNSIGNED => 'unsigned',
+    DRIZZLE_COLUMN_FLAGS_BLOB => 'blob',
+    DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY => 'multiple_key',
+    DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY => 'unique_key',
+    DRIZZLE_COLUMN_FLAGS_PRI_KEY => 'primary_key',
+    DRIZZLE_COLUMN_FLAGS_NOT_NULL => 'not_null',
+);
+
+/**
  * Interface to the Drizzle extension
  *
  * @package    PhpMyAdmin-DBI
@@ -525,27 +545,11 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
         $type = $f->typeDrizzle();
         $charsetnr = $f->charset();
         $f = $f->flags();
-        $flags = '';
-        if ($f & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY) {
-            $flags .= 'unique ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_NUM) {
-            $flags .= 'num ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_PART_KEY) {
-            $flags .= 'part_key ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_SET) {
-            $flags .= 'set ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_TIMESTAMP) {
-            $flags .= 'timestamp ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_AUTO_INCREMENT) {
-            $flags .= 'auto_increment ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_ENUM) {
-            $flags .= 'enum ';
+        $flags = array();
+        foreach ($GLOBALS['pma_drizzle_flag_names'] as $flag => $name) {
+            if ($f & $flag) {
+                $flags[] = $name;
+            }
         }
         // See http://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
         // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
@@ -557,30 +561,9 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
             || $type == DRIZZLE_COLUMN_TYPE_DRIZZLE_VARCHAR)
             && 63 == $charsetnr
         ) {
-            $flags .= 'binary ';
+            $flags[] = 'binary';
         }
-        if ($f & DRIZZLE_COLUMN_FLAGS_ZEROFILL) {
-            $flags .= 'zerofill ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_UNSIGNED) {
-            $flags .= 'unsigned ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_BLOB) {
-            $flags .= 'blob ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY) {
-            $flags .= 'multiple_key ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY) {
-            $flags .= 'unique_key ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_PRI_KEY) {
-            $flags .= 'primary_key ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_NOT_NULL) {
-            $flags .= 'not_null ';
-        }
-        return trim($flags);
+        return implode(' ', $flags);
     }
 
     /**
