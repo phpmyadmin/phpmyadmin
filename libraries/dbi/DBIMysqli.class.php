@@ -229,7 +229,6 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         }
 
         if ($return_value != false) {
-            $GLOBALS['dbi']->postConnect($link, $is_controluser);
             return $link;
         }
 
@@ -692,7 +691,7 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         $charsetnr = $f->charsetnr;
         $f = $f->flags;
         $flags = array();
-        foreach ($pma_flag_names as $flag => $name) {
+        foreach ($GLOBALS['pma_flag_names'] as $flag => $name) {
             if ($f & $flag) {
                 $flags[] = $name;
             }

@@ -175,9 +175,6 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
                 return false;
             }
         } // end if
-        if (! $server) {
-            $GLOBALS['dbi']->postConnect($link, $is_controluser);
-        }
         return $link;
     }
 

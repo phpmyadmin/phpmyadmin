@@ -1436,20 +1436,12 @@ class PMA_DatabaseInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      *
-     * @param mixed   $link           mysql link resource|object
-     * @param boolean $is_controluser whether link is for control user
+     * @param mixed $link mysql link resource|object
      *
      * @return void
      */
-    public function postConnect($link, $is_controluser = false)
+    public function postConnect($link)
     {
-        if ($is_controluser) {
-            /*
-             * FIXME: Not sure if this is right approach, but we can not
-             * define constants multiple time.
-             */
-            return;
-        }
         if (! defined('PMA_MYSQL_INT_VERSION')) {
             if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION')) {
                 define(
@@ -2132,9 +2124,13 @@ class PMA_DatabaseInterface
         $user, $password, $is_controluser = false, $server = null,
         $auxiliary_connection = false
     ) {
-        return $this->_extension->connect(
+        $result = $this->_extension->connect(
             $user, $password, $is_controluser, $server, $auxiliary_connection
         );
+        if ($result && ! $auxiliary_connection && ! $is_controluser) {
+            $GLOBALS['dbi']->postConnect($link);
+        }
+        return $result;
     }
 
     /**
