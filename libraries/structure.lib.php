@@ -2763,7 +2763,7 @@ function PMA_addRemoveFavoriteTables($db)
 
     // Request for Synchronization of favorite tables.
     if (isset($_REQUEST['sync_favorite_tables'])) {
-        PMA_synchronizeFavoriteTables($fav_instance);
+        PMA_synchronizeFavoriteTables($fav_instance, $user);
         exit;
     }
     $changes = true;
@@ -2829,10 +2829,11 @@ function PMA_addRemoveFavoriteTables($db)
  * Synchronize favorite tables
  *
  * @param string $fav_instance PMA_RecentFavoriteTable instance
+ * @param string $user         The user hash
  *
  * @return void
  */
-function PMA_synchronizeFavoriteTables($fav_instance)
+function PMA_synchronizeFavoriteTables($fav_instance, $user)
 {
     $fav_instance_tables = $fav_instance->getTables();
 
