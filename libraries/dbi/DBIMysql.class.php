@@ -164,12 +164,9 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      */
     public function selectDb($dbname, $link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return mysql_select_db($dbname, $link);
     }
@@ -298,12 +295,9 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      */
     public function getHostInfo($link = null)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return mysql_get_host_info($link);
     }
@@ -317,12 +311,9 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      */
     public function getProtoInfo($link = null)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return mysql_get_proto_info($link);
     }
@@ -353,14 +344,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
             $link = null;
         }
 
-        if (null === $link && isset($GLOBALS['userlink'])) {
-            $link =& $GLOBALS['userlink'];
-
-            // Do not stop now. On the initial connection, we don't have a $link,
-            // we don't have a $GLOBALS['userlink'], but we can catch the error code
-            //    } else {
-            //            return false;
-        }
+        $link = $GLOBALS['dbi']->getLink($link);
 
         if (null !== $link && false !== $link) {
             $error_number = mysql_errno($link);

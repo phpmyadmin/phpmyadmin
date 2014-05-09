@@ -184,12 +184,9 @@ class PMA_DatabaseInterface
     public function tryQuery($query, $link = null, $options = 0,
         $cache_affected_rows = true
     ) {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         if ($GLOBALS['cfg']['DBG']['sql']) {
@@ -223,12 +220,9 @@ class PMA_DatabaseInterface
      */
     public function tryMultiQuery($multi_query = '', $link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         return $this->_extension->realMultiQuery($link, $multi_query);
@@ -1410,12 +1404,9 @@ class PMA_DatabaseInterface
     public function getVariable(
         $var, $type = self::GETVAR_SESSION, $link = null
     ) {
-        if ($link === null) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         switch ($type) {
@@ -1871,12 +1862,9 @@ class PMA_DatabaseInterface
      */
     public function getWarnings($link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return array();
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         return $this->fetchResult('SHOW WARNINGS', null, null, $link);
@@ -2337,12 +2325,9 @@ class PMA_DatabaseInterface
      */
     public function insertId($link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
         // If the primary key is BIGINT we get an incorrect result
         // (sometimes negative, sometimes positive)
@@ -2365,13 +2350,11 @@ class PMA_DatabaseInterface
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
+
         if ($get_from_cache) {
             return $GLOBALS['cached_affected_rows'];
         } else {
@@ -2480,6 +2463,26 @@ class PMA_DatabaseInterface
         } else {
             return $server['socket'];
         }
+    }
+
+    /**
+     * Gets correct link object.
+     *
+     * @param
+     * @param mixed $link optional database link to use
+     *
+     * @return object
+     */
+    public function getLink($link = null)
+    {
+        if (is_null($link)) {
+            if (isset($GLOBALS['userlink'])) {
+                $link = $GLOBALS['userlink'];
+            } else {
+                return false;
+            }
+        }
+        return $link;
     }
 }
 ?>

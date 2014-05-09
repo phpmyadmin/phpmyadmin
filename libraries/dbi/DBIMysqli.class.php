@@ -230,12 +230,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function selectDb($dbname, $link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return mysqli_select_db($link, $dbname);
     }
@@ -347,12 +344,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function moreResults($link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return mysqli_more_results($link);
     }
@@ -366,12 +360,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function nextResult($link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return mysqli_next_result($link);
     }
@@ -383,9 +374,8 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function storeResult()
     {
-        if (isset($GLOBALS['userlink'])) {
-            $link = $GLOBALS['userlink'];
-        } else {
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
             return false;
         }
         return mysqli_store_result($link);
@@ -400,12 +390,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function getHostInfo($link = null)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return mysqli_get_host_info($link);
     }
@@ -419,12 +406,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
      */
     public function getProtoInfo($link = null)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return mysqli_get_proto_info($link);
     }
@@ -455,13 +439,9 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
             $link = null;
         }
 
-        if (null === $link && isset($GLOBALS['userlink'])) {
-            $link =& $GLOBALS['userlink'];
-            // Do not stop now. We still can get the error code
-            // with mysqli_connect_errno()
-        }
+        $link = $GLOBALS['dbi']->getLink($link);
 
-        if (null !== $link) {
+        if (null !== $link && false !== $link) {
             $error_number = mysqli_errno($link);
             $error_message = mysqli_error($link);
         } else {

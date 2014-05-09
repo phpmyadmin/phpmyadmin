@@ -137,12 +137,9 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      */
     public function selectDb($dbname, $link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
         return $link->selectDb($dbname);
     }
@@ -282,12 +279,9 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      */
     public function getHostInfo($link = null)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         $str = $link->port()
@@ -305,12 +299,9 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      */
     public function getProtoInfo($link = null)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $GLOBALS['dbi']->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         return $link->protocolVersion();
@@ -342,15 +333,9 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
             $link = null;
         }
 
-        if (null === $link && isset($GLOBALS['userlink'])) {
-            $link =& $GLOBALS['userlink'];
-            // Do not stop now. We still can get the error code
-            // with mysqli_connect_errno()
-            // } else {
-            //    return false;
-        }
+        $link = $GLOBALS['dbi']->getLink($link);
 
-        if (null !== $link) {
+        if (null !== $link && false !== $link) {
             $error_number = drizzle_con_errno($link->getConnectionObject());
             $error_message = drizzle_con_error($link->getConnectionObject());
         } else {
