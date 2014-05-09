@@ -262,9 +262,29 @@ class PMA_Error extends PMA_Message
      */
     public function getBacktraceDisplay()
     {
+        return PMA_Error::formatBacktrace(
+            $this->getBacktrace(),
+            "<br />\n",
+            "<br />\n"
+        );
+    }
+
+
+    /**
+     * return formatted backtrace field
+     *
+     * @param array  $backtrace  Backtrace data
+     * @param string $separatror Arguments separator to use
+     * @param string $lines      Lines separator to use
+     *
+     * @return string formatted backtrace
+     * @static
+     */
+    static function formatBacktrace($backtrace, $separator, $lines)
+    {
         $retval = '';
 
-        foreach ($this->getBacktrace() as $step) {
+        foreach ($backtrace as $step) {
             if (isset($step['file']) && isset($step['line'])) {
                 $retval .= PMA_Error::relPath($step['file'])
                     . '#' . $step['line'] . ': ';
@@ -274,18 +294,18 @@ class PMA_Error extends PMA_Message
             }
             $retval .= $step['function'] . '(';
             if (isset($step['args']) && (count($step['args']) > 1)) {
-                $retval .= "<br />\n";
+                $retval .= $separator;
                 foreach ($step['args'] as $arg) {
                     $retval .= "\t";
-                    $retval .= $this->getArg($arg, $step['function']);
-                    $retval .= ',' . "<br />\n";
+                    $retval .= PMA_Error::getArg($arg, $step['function']);
+                    $retval .= ',' . $separator;
                 }
             } elseif (isset($step['args']) && (count($step['args']) > 0)) {
                 foreach ($step['args'] as $arg) {
-                    $retval .= $this->getArg($arg, $step['function']);
+                    $retval .= PMA_Error::getArg($arg, $step['function']);
                 }
             }
-            $retval .= ')' . "<br />\n";
+            $retval .= ')' . $lines;
         }
 
         return $retval;
@@ -301,8 +321,9 @@ class PMA_Error extends PMA_Message
      * @param string $function function name
      *
      * @return string
+     * @static
      */
-    protected function getArg($arg, $function)
+    static function getArg($arg, $function)
     {
         $retval = '';
         $include_functions = array(

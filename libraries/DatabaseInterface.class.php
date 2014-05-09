@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/logging.lib.php';
+
 /**
  * Main interface for database interactions
  *
@@ -123,8 +125,8 @@ class PMA_DatabaseInterface
      * Stores query data into session data for debugging purposes
      *
      * @param string   $query  Query text
-     * @param resource $link   database link
-     * @param resource $result Query result
+     * @param object   $link   database link
+     * @param object   $result Query result
      * @param integer  $time   Time to execute query
      *
      * @return void
@@ -146,34 +148,18 @@ class PMA_DatabaseInterface
             $_SESSION['debug']['queries'][$hash]['time'] = $time;
         }
 
-        $trace = array();
-        foreach (debug_backtrace() as $trace_step) {
-            $trace[]
-                = (isset($trace_step['file'])
-                    ? PMA_Error::relPath($trace_step['file'])
-                    : '')
-                . (isset($trace_step['line'])
-                    ?  '#' . $trace_step['line'] . ': '
-                    : '')
-                . (isset($trace_step['class']) ? $trace_step['class'] : '')
-                . (isset($trace_step['type']) ? $trace_step['type'] : '')
-                . (isset($trace_step['function']) ? $trace_step['function'] : '')
-                . '('
-                . (isset($trace_step['params'])
-                    ? implode(', ', $trace_step['params'])
-                    : ''
-                )
-                . ')'
-                ;
-        }
-        $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
+        $_SESSION['debug']['queries'][$hash]['trace'][] = PMA_Error::formatBacktrace(
+            debug_backtrace(),
+            " ",
+            "\n"
+        );
     }
 
     /**
      * runs a query and returns the result
      *
      * @param string   $query               query to run
-     * @param resource $link                mysql link resource
+     * @param object   $link                mysql link resource
      * @param integer  $options             query options
      * @param bool     $cache_affected_rows whether to cache affected row
      *
@@ -182,12 +168,9 @@ class PMA_DatabaseInterface
     public function tryQuery($query, $link = null, $options = 0,
         $cache_affected_rows = true
     ) {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         if ($GLOBALS['cfg']['DBG']['sql']) {
@@ -221,12 +204,9 @@ class PMA_DatabaseInterface
      */
     public function tryMultiQuery($multi_query = '', $link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         return $this->_extension->realMultiQuery($link, $multi_query);
@@ -497,8 +477,6 @@ class PMA_DatabaseInterface
         } else {
             $databases = $database;
         }
-
-        $tables = array();
 
         $sql_where_table = $this->_getTableCondition(
             $table, $tbl_is_group, $tble_type
@@ -832,7 +810,7 @@ class PMA_DatabaseInterface
      *
      * @param string   $database     database
      * @param boolean  $force_stats  retrieve stats also for MySQL < 5
-     * @param resource $link         mysql link
+     * @param object   $link         mysql link
      * @param string   $sort_by      column to order by
      * @param string   $sort_order   ASC or DESC
      * @param integer  $limit_offset starting offset for LIMIT
@@ -1031,8 +1009,6 @@ class PMA_DatabaseInterface
     public function getColumnsFull($database = null, $table = null,
         $column = null, $link = null
     ) {
-        $columns = array();
-
         $sql_wheres = array();
         $array_keys = array();
 
@@ -1408,12 +1384,9 @@ class PMA_DatabaseInterface
     public function getVariable(
         $var, $type = self::GETVAR_SESSION, $link = null
     ) {
-        if ($link === null) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         switch ($type) {
@@ -1597,7 +1570,7 @@ class PMA_DatabaseInterface
      *                                   starting at 0, with 0 being default
      * @param integer|string $field      field to fetch the value from,
      *                                   starting at 0, with 0 being default
-     * @param resource       $link       mysql link
+     * @param object         $link       mysql link
      *
      * @return mixed value of first field in first row from result
      *               or false if not found
@@ -1657,7 +1630,7 @@ class PMA_DatabaseInterface
      * @param string   $query The query to execute
      * @param string   $type  NUM|ASSOC|BOTH returned array should either
      *                        numeric associativ or both
-     * @param resource $link  mysql link
+     * @param object   $link  mysql link
      *
      * @return array|boolean first row from result
      *                       or false if result is empty
@@ -1695,6 +1668,23 @@ class PMA_DatabaseInterface
         $row = $this->$fetch_function($result);
         $this->freeResult($result);
         return $row;
+    }
+
+    /**
+     * Returns row or element of a row
+     *
+     * @param array       $row   Row to process
+     * @param string|null $value Which column to return
+     *
+     * @return mixed
+     */
+    private function _fetchValue($row, $value)
+    {
+        if (is_null($value)) {
+            return $row;
+        } else {
+            return $row[$value];
+        }
     }
 
     /**
@@ -1744,7 +1734,7 @@ class PMA_DatabaseInterface
      *                                used as key for array
      * @param string|integer $value   value-name or offset
      *                                used as value for array
-     * @param resource       $link    mysql link
+     * @param object         $link    mysql link
      * @param mixed          $options query options
      *
      * @return array resultrows or values indexed by $key
@@ -1774,35 +1764,9 @@ class PMA_DatabaseInterface
             $fetch_function = 'fetchRow';
         }
 
-        if (null === $key && null === $value) {
+        if (null === $key) {
             while ($row = $this->$fetch_function($result)) {
-                $resultrows[] = $row;
-            }
-        } elseif (null === $key) {
-            while ($row = $this->$fetch_function($result)) {
-                $resultrows[] = $row[$value];
-            }
-        } elseif (null === $value) {
-            if (is_array($key)) {
-                while ($row = $this->$fetch_function($result)) {
-                    $result_target =& $resultrows;
-                    foreach ($key as $key_index) {
-                        if (null === $key_index) {
-                            $result_target =& $result_target[];
-                            continue;
-                        }
-
-                        if (! isset($result_target[$row[$key_index]])) {
-                            $result_target[$row[$key_index]] = array();
-                        }
-                        $result_target =& $result_target[$row[$key_index]];
-                    }
-                    $result_target = $row;
-                }
-            } else {
-                while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $row;
-                }
+                $resultrows[] = $this->_fetchValue($row, $value);
             }
         } else {
             if (is_array($key)) {
@@ -1819,11 +1783,11 @@ class PMA_DatabaseInterface
                         }
                         $result_target =& $result_target[$row[$key_index]];
                     }
-                    $result_target = $row[$value];
+                    $result_target = $this->_fetchValue($row, $value);
                 }
             } else {
                 while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $row[$value];
+                    $resultrows[$row[$key]] = $this->_fetchValue($row, $value);
                 }
             }
         }
@@ -1863,18 +1827,15 @@ class PMA_DatabaseInterface
     /**
      * returns warnings for last query
      *
-     * @param resource $link mysql link resource
+     * @param object   $link mysql link resource
      *
      * @return array warnings
      */
     public function getWarnings($link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return array();
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         return $this->fetchResult('SHOW WARNINGS', null, null, $link);
@@ -1885,7 +1846,7 @@ class PMA_DatabaseInterface
      *
      * @param string   $db    db name
      * @param string   $which PROCEDURE | FUNCTION
-     * @param resource $link  mysql link
+     * @param object   $link  mysql link
      *
      * @return array the procedure names or function names
      */
@@ -2169,6 +2130,10 @@ class PMA_DatabaseInterface
      */
     public function selectDb($dbname, $link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->selectDb($dbname, $link);
     }
 
@@ -2242,6 +2207,10 @@ class PMA_DatabaseInterface
      */
     public function moreResults($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->moreResults($link = null);
     }
 
@@ -2254,6 +2223,10 @@ class PMA_DatabaseInterface
      */
     public function nextResult($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->nextResult($link = null);
     }
 
@@ -2276,6 +2249,10 @@ class PMA_DatabaseInterface
      */
     public function getHostInfo($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getHostInfo($link);
     }
 
@@ -2288,6 +2265,10 @@ class PMA_DatabaseInterface
      */
     public function getProtoInfo($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getProtoInfo($link);
     }
 
@@ -2310,6 +2291,10 @@ class PMA_DatabaseInterface
      */
     public function getError($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getError($link);
     }
 
@@ -2335,12 +2320,9 @@ class PMA_DatabaseInterface
      */
     public function insertId($link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
         // If the primary key is BIGINT we get an incorrect result
         // (sometimes negative, sometimes positive)
@@ -2359,11 +2341,20 @@ class PMA_DatabaseInterface
      * @param object $link           the connection object
      * @param bool   $get_from_cache whether to retrieve from cache
      *
-     * @return string|int
+     * @return int
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
-        return $this->_extension->affectedRows($link, $get_from_cache);
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
+
+        if ($get_from_cache) {
+            return $GLOBALS['cached_affected_rows'];
+        } else {
+            return $this->_extension->affectedRows($link);
+        }
     }
 
     /**
@@ -2466,6 +2457,27 @@ class PMA_DatabaseInterface
             return null;
         } else {
             return $server['socket'];
+        }
+    }
+
+    /**
+     * Gets correct link object.
+     *
+     * @param
+     * @param mixed $link optional database link to use
+     *
+     * @return object
+     */
+    public function getLink($link = null)
+    {
+        if ( ! is_null($link) && $link !== false) {
+            return $link;
+        }
+
+        if (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
+            return $GLOBALS['userlink'];
+        } else {
+            return false;
         }
     }
 }

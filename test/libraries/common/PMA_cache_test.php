@@ -101,9 +101,9 @@ class PMA_Cache_Test extends PHPUnit_Framework_TestCase
         PMA_Util::cacheSet('test_data', 25);
         PMA_Util::cacheSet('test_data_2', 25);
 
-        PMA_Util::cacheUnset('test_data', true);
+        PMA_Util::cacheUnset('test_data');
         $this->assertArrayNotHasKey('test_data', $_SESSION['cache']['server_server']);
-        PMA_Util::cacheUnset('test_data_2', true);
+        PMA_Util::cacheUnset('test_data_2');
         $this->assertArrayNotHasKey('test_data_2', $_SESSION['cache']['server_server']);
     }
 

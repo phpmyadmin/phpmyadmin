@@ -10,7 +10,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/logging.lib.php';
 require_once './libraries/dbi/DBIExtension.int.php';
 
 /**
@@ -159,19 +158,12 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      * selects given database
      *
      * @param string   $dbname name of db to select
-     * @param resource $link   mysql link resource
+     * @param object   $link   mysql link resource
      *
      * @return bool
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb($dbname, $link)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
         return mysql_select_db($dbname, $link);
     }
 
@@ -179,7 +171,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      * runs a query and returns the result
      *
      * @param string   $query   query to run
-     * @param resource $link    mysql link resource
+     * @param object   $link    mysql link resource
      * @param int      $options query options
      *
      * @return mixed
@@ -198,7 +190,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns array of rows with associative and numeric keys from $result
      *
-     * @param resource $result result  MySQL result
+     * @param object   $result result  MySQL result
      *
      * @return array
      */
@@ -210,7 +202,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns array of rows with associative keys from $result
      *
-     * @param resource $result MySQL result
+     * @param object   $result MySQL result
      *
      * @return array
      */
@@ -222,7 +214,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns array of rows with numeric keys from $result
      *
-     * @param resource $result MySQL result
+     * @param object   $result MySQL result
      *
      * @return array
      */
@@ -234,7 +226,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param resource $result database result
+     * @param object   $result database result
      * @param integer  $offset offset to seek
      *
      * @return bool true on success, false on failure
@@ -247,7 +239,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Frees memory associated with the result
      *
-     * @param resource $result database result
+     * @param object   $result database result
      *
      * @return void
      */
@@ -265,7 +257,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @return bool false
      */
-    public function moreResults($link = null)
+    public function moreResults($link)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -281,7 +273,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
      *
      * @return boolean false
      */
-    public function nextResult($link = null)
+    public function nextResult($link)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -293,38 +285,24 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * Returns a string representing the type of connection used
      *
-     * @param resource $link mysql link
+     * @param object   $link mysql link
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null)
+    public function getHostInfo($link)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
         return mysql_get_host_info($link);
     }
 
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param resource $link mysql link
+     * @param object   $link mysql link
      *
      * @return int version of the MySQL protocol used
      */
-    public function getProtoInfo($link = null)
+    public function getProtoInfo($link)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
         return mysql_get_proto_info($link);
     }
 
@@ -341,27 +319,13 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param resource $link mysql link
+     * @param object   $link mysql link
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null)
+    public function getError($link)
     {
         $GLOBALS['errno'] = 0;
-
-        /* Treat false same as null because of controllink */
-        if ($link === false) {
-            $link = null;
-        }
-
-        if (null === $link && isset($GLOBALS['userlink'])) {
-            $link =& $GLOBALS['userlink'];
-
-            // Do not stop now. On the initial connection, we don't have a $link,
-            // we don't have a $GLOBALS['userlink'], but we can catch the error code
-            //    } else {
-            //            return false;
-        }
 
         if (null !== $link && false !== $link) {
             $error_number = mysql_errno($link);
@@ -384,7 +348,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns the number of rows returned by last query
      *
-     * @param resource $result MySQL result
+     * @param object   $result MySQL result
      *
      * @return string|int
      */
@@ -400,32 +364,19 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns the number of rows affected by last query
      *
-     * @param resource $link           the mysql object
-     * @param bool     $get_from_cache whether to retrieve from cache
+     * @param object   $link the mysql object
      *
-     * @return string|int
+     * @return int
      */
-    public function affectedRows($link = null, $get_from_cache = true)
+    public function affectedRows($link)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-
-        if ($get_from_cache) {
-            return $GLOBALS['cached_affected_rows'];
-        } else {
-            return mysql_affected_rows($link);
-        }
+        return mysql_affected_rows($link);
     }
 
     /**
      * returns metainfo for fields in $result
      *
-     * @param resource $result MySQL result
+     * @param object   $result MySQL result
      *
      * @return array meta info for fields in $result
      *
@@ -448,7 +399,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * return number of fields in given $result
      *
-     * @param resource $result MySQL result
+     * @param object   $result MySQL result
      *
      * @return int  field count
      */
@@ -460,7 +411,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns the length of the given field $i in $result
      *
-     * @param resource $result MySQL result
+     * @param object   $result MySQL result
      * @param int      $i      field
      *
      * @return int length of field
@@ -473,7 +424,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns name of $i. field in $result
      *
-     * @param resource $result MySQL result
+     * @param object   $result MySQL result
      * @param int      $i      field
      *
      * @return string name of $i. field in $result
@@ -486,7 +437,7 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns concatenated string of human readable field flags
      *
-     * @param resource $result MySQL result
+     * @param object   $result MySQL result
      * @param int      $i      field
      *
      * @return string field flags

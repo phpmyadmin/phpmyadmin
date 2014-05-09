@@ -261,27 +261,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* Set error message */
-            if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
-                $_SESSION['PMA_single_signon_error_message'] = __(
-                    'Login without a password is forbidden by configuration '
-                    . '(see AllowNoPassword)'
-                );
-            } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-                $_SESSION['PMA_single_signon_error_message'] = __('Access denied!');
-            } elseif (! empty($GLOBALS['no_activity'])) {
-                $_SESSION['PMA_single_signon_error_message'] = sprintf(
-                    __('No activity within %s seconds; please log in again.'),
-                    $GLOBALS['cfg']['LoginCookieValidity']
-                );
-            } elseif ($GLOBALS['dbi']->getError()) {
-                $_SESSION['PMA_single_signon_error_message'] = PMA_sanitize(
-                    $GLOBALS['dbi']->getError()
-                );
-            } else {
-                $_SESSION['PMA_single_signon_error_message'] = __(
-                    'Cannot log in to the MySQL server'
-                );
-            }
+            $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage();
         }
         $this->auth();
     }

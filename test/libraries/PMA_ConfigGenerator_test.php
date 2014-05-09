@@ -45,6 +45,7 @@ class PMA_ConfigGenerator_Test extends PHPUnit_Framework_TestCase
 
         $cf->setPersistKeys(array("1/", 2));
 
+        /* TODO: This is sometimes one second off... */
         $date = date(DATE_RFC1123);
         $result = ConfigGenerator::getConfigFile($cf);
 

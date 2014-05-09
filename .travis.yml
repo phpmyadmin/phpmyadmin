@@ -37,6 +37,8 @@ before_script:
 
     composer install --dev --no-interaction ;
 
+    wget https://scrutinizer-ci.com/ocular.phar ;
+
     fi ;
 
     if [[ ! -z "$SELENIUM" ]] ; then
@@ -68,6 +70,7 @@ script:
     ant lint ;
     fi
 after_script:
+  - if [[ -f build/logs/clover.xml ]] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ; fi
   - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v ; fi
 matrix:
   allow_failures:
