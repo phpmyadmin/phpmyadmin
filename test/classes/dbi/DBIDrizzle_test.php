@@ -76,13 +76,6 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
 
-        //Mock DBI, just for postConnect usage
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->object = new PMA_DBI_Drizzle();
     }
 
@@ -215,7 +208,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         //$server = null;
         $link = $this->object->connect($user, $password);
         $this->assertEquals(
-            "DrizzleCon_addTcp",
+            "DrizzleCon_addUds",
             $link->getType()
         );
 
@@ -223,7 +216,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         $server['host'] = 'host';
         $link = $this->object->connect($user, $password);
         $this->assertEquals(
-            "DrizzleCon_addTcp",
+            "DrizzleCon_addUds",
             $link->getType()
         );
 

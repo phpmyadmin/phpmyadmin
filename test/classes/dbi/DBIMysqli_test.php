@@ -50,13 +50,6 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $this->object = new PMA_DBI_Mysqli();
-
-        //Mock DBI, just for postConnect usage
-        $dbi = $this->getMockBuilder('PMA_DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
