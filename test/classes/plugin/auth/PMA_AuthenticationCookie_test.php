@@ -994,6 +994,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 5
+        unset($GLOBALS['errno']);
 
         $this->object->authFails();
 
