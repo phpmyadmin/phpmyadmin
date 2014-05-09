@@ -18,97 +18,7 @@ require_once 'libraries/structure.lib.php';
 
 // Add/Remove favorite tables using Ajax request.
 if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['favorite_table'])) {
-    $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
-    $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
-    // Required to keep each user's preferences seperate.
-    $user = sha1($GLOBALS['cfg']['Server']['user']);
-
-    // Request for Synchronization of favorite tables.
-    if (isset($_REQUEST['sync_favorite_tables'])) {
-
-        $fav_instance_tables = $fav_instance->getTables();
-
-        if (empty($fav_instance_tables)
-            && isset($favorite_tables[$user])
-        ) {
-            foreach ($favorite_tables[$user] as $key => $value) {
-                $fav_instance->add($value['db'], $value['table']);
-            }
-        }
-        $favorite_tables[$user] = $fav_instance->getTables();
-
-        $ajax_response = PMA_Response::getInstance();
-        $ajax_response->addJSON(
-            'favorite_tables',
-            json_encode($favorite_tables)
-        );
-        $ajax_response->addJSON(
-            'list',
-            $fav_instance->getHtmlList()
-        );
-        $server_id = $GLOBALS['server'];
-        // Set flag when localStorage and pmadb(if present) are in sync.
-        $_SESSION['tmpval']['favorites_synced'][$server_id] = true;
-        exit;
-    }
-    global $db;
-    $changes = true;
-    $msg = '';
-    $titles = PMA_Util::buildActionTitles();
-    $favorite_table = $_REQUEST['favorite_table'];
-    $already_favorite = PMA_checkFavoriteTable($db, $favorite_table);
-
-    if (isset($_REQUEST['remove_favorite'])) {
-        if ($already_favorite) {
-            // If already in favorite list, remove it.
-            $fav_instance->remove($db, $favorite_table);
-        }
-    } elseif (isset($_REQUEST['add_favorite'])) {
-        if (!$already_favorite) {
-            if (count($fav_instance->getTables()) == $GLOBALS['cfg']['NumFavoriteTables']) {
-                $changes = false;
-                $msg = '<div class="error"><img src="themes/dot.gif" '
-                    . 'title="" alt="" class="icon ic_s_error" />'
-                    . __("Favorite List is full!")
-                    . '</div>';
-            } else {
-                // Otherwise add to favorite list.
-                $fav_instance->add($db, $favorite_table);
-            }
-        }
-    }
-
-    $favorite_tables[$user] = $fav_instance->getTables();
-    $ajax_response = PMA_Response::getInstance();
-    $ajax_response->addJSON(
-        'changes',
-        $changes
-    );
-    if ($changes) {
-        $ajax_response->addJSON(
-            'user',
-            $user
-        );
-        $ajax_response->addJSON(
-            'favorite_tables',
-            json_encode($favorite_tables)
-        );
-        $ajax_response->addJSON(
-            'list',
-            $fav_instance->getHtmlList()
-        );
-        $ajax_response->addJSON(
-            'anchor',
-            PMA_getHtmlForFavoriteAnchor(
-                $db, array('TABLE_NAME' => $favorite_table), $titles
-            )
-        );
-    } else {
-        $ajax_response->addJSON(
-            'message',
-            $msg
-        );
-    }
+    PMA_addRemoveFavoriteTables($db);
     exit;
 }
 
@@ -228,7 +138,6 @@ $overhead_size  = (double) 0;
 
 $hidden_fields = array();
 $odd_row       = true;
-$sum_row_count_pre = '';
 // Instance of PMA_RecentFavoriteTable class.
 $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
 foreach ($tables as $keyname => $current_table) {
@@ -390,7 +299,7 @@ $response->addHTML(
     PMA_getHtmlBodyForTableSummary(
         $num_tables, $server_slave_status, $db_is_system_schema, $sum_entries,
         $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
-        $update_time_all, $check_time_all, $sum_row_count_pre
+        $update_time_all, $check_time_all
     )
 );
 $response->addHTML('</table>');

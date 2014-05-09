@@ -252,9 +252,9 @@ $(function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage['favorite_tables']
+                favorite_tables: (window.localStorage.favorite_tables
                     !== undefined)
-                    ? window.localStorage['favorite_tables']
+                    ? window.localStorage.favorite_tables
                     : ''
             },
             success: function (data) {
@@ -268,7 +268,7 @@ $(function () {
                     );
                     // Update localStorage.
                     if (window.localStorage !== undefined) {
-                        window.localStorage['favorite_tables']
+                        window.localStorage.favorite_tables
                             = data.favorite_tables;
                     }
                 } else {
@@ -386,6 +386,8 @@ function collapseTreeNode($expandElem) {
  * @returns void
  */
 function loadChildNodes($expandElem, callback) {
+    if (!$expandElem.hasClass('expander'))
+        return;
     var $destination = $expandElem.closest('li');
 
     var searchClause = PMA_fastFilter.getSearchClause();

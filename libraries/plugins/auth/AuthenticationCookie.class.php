@@ -482,11 +482,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
         if ($_SESSION['last_access_time'] < $last_access_time
         ) {
-            PMA_Util::cacheUnset('is_create_db_priv', true);
-            PMA_Util::cacheUnset('is_process_priv', true);
-            PMA_Util::cacheUnset('is_reload_priv', true);
-            PMA_Util::cacheUnset('db_to_create', true);
-            PMA_Util::cacheUnset('dbs_where_create_table_allowed', true);
+            PMA_Util::cacheUnset('is_create_db_priv');
+            PMA_Util::cacheUnset('is_process_priv');
+            PMA_Util::cacheUnset('is_reload_priv');
+            PMA_Util::cacheUnset('db_to_create');
+            PMA_Util::cacheUnset('dbs_where_create_table_allowed');
             $GLOBALS['no_activity'] = true;
             $this->authFails();
             if (! defined('TESTSUITE')) {
@@ -669,24 +669,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Deletes password cookie and displays the login form
         $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $GLOBALS['server']);
 
-        if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
-            $conn_error = __(
-                'Login without a password is forbidden by configuration'
-                . ' (see AllowNoPassword)'
-            );
-        } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
-            $conn_error = __('Access denied!');
-        } elseif (! empty($GLOBALS['no_activity'])) {
-            $conn_error = sprintf(
-                __('No activity within %s seconds; please log in again.'),
-                $GLOBALS['cfg']['LoginCookieValidity']
-            );
-        } elseif ($GLOBALS['dbi']->getError()) {
-            $conn_error = '#' . $GLOBALS['errno'] . ' '
-                . __('Cannot log in to the MySQL server');
-        } else {
-            $conn_error = __('Cannot log in to the MySQL server');
-        }
+        $conn_error = $this->getErrorMessage();
 
         // needed for PHP-CGI (not need for FastCGI or mod-php)
         header('Cache-Control: no-store, no-cache, must-revalidate');

@@ -40,7 +40,7 @@ interface PMA_DBI_Extension
      *
      * @return boolean
      */
-    public function selectDb($dbname, $link = null);
+    public function selectDb($dbname, $link);
 
     /**
      * runs a query and returns the result
@@ -116,7 +116,7 @@ interface PMA_DBI_Extension
      *
      * @return bool true or false
      */
-    public function moreResults($link = null);
+    public function moreResults($link);
 
     /**
      * Prepare next result from multi_query
@@ -125,14 +125,16 @@ interface PMA_DBI_Extension
      *
      * @return bool true or false
      */
-    public function nextResult($link = null);
+    public function nextResult($link);
 
     /**
      * Store the result returned from multi query
      *
+     * @param object $link mysql link
+     *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult();
+    public function storeResult($link);
 
     /**
      * Returns a string representing the type of connection used
@@ -141,7 +143,7 @@ interface PMA_DBI_Extension
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null);
+    public function getHostInfo($link);
 
     /**
      * Returns the version of the MySQL protocol used
@@ -150,7 +152,7 @@ interface PMA_DBI_Extension
      *
      * @return integer version of the MySQL protocol used
      */
-    public function getProtoInfo($link = null);
+    public function getProtoInfo($link);
 
     /**
      * returns a string that represents the client library version
@@ -166,7 +168,7 @@ interface PMA_DBI_Extension
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null);
+    public function getError($link);
 
     /**
      * returns the number of rows returned by last query
@@ -178,24 +180,13 @@ interface PMA_DBI_Extension
     public function numRows($result);
 
     /**
-     * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
+     * returns the number of rows affected by last query
      *
      * @param object $link the connection object
      *
-     * @return string|int
+     * @return int
      */
-    public function insertId($link = null);
-
-    /**
-     * returns the number of rows affected by last query
-     *
-     * @param object $link           the connection object
-     * @param bool   $get_from_cache whether to retrieve from cache
-     *
-     * @return string|int
-     */
-    public function affectedRows($link = null, $get_from_cache = true);
+    public function affectedRows($link);
 
     /**
      * returns metainfo for fields in $result
@@ -244,5 +235,28 @@ interface PMA_DBI_Extension
      * @return string field flags
      */
     public function fieldFlags($result, $i);
+}
+
+
+/**
+ * Defines PMA_MYSQL_CLIENT_API if it does not exist based
+ * on MySQL client version.
+ *
+ * @param string $version MySQL version string
+ *
+ * @return void
+ */
+function PMA_defineClientAPI($version)
+{
+    if (! defined('PMA_MYSQL_CLIENT_API')) {
+        $client_api = explode('.', $version);
+        define(
+            'PMA_MYSQL_CLIENT_API',
+            (int)sprintf(
+                '%d%02d%02d',
+                $client_api[0], $client_api[1], intval($client_api[2])
+            )
+        );
+    }
 }
 ?>

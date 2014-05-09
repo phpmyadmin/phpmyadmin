@@ -992,7 +992,6 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
             - (isset($row['Grant_priv']) ? 1 : 0)
         )
         . '" />';
-    $legend = $menu_label = '';
     if ($db == '*') {
         $legend     = __('Global privileges');
         $menu_label = __('Global');
@@ -3388,11 +3387,10 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get List of information: Changes / copies a user
  *
- * @return array()
+ * @return array
  */
 function PMA_getDataForChangeOrCopyUser()
 {
-    $row = null;
     $queries = null;
     $password = null;
 
@@ -3620,7 +3618,6 @@ function PMA_getDataForDBInfo()
     $hostname = null;
     $dbname = null;
     $tablename = null;
-    $db_and_table = null;
     $dbname_is_wildcard = null;
 
     if (isset ($_REQUEST['username'])) {

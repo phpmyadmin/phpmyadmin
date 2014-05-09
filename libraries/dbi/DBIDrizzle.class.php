@@ -18,7 +18,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once './libraries/logging.lib.php';
 require_once './libraries/dbi/drizzle-wrappers.lib.php';
 require_once './libraries/dbi/DBIExtension.int.php';
 
@@ -28,6 +27,26 @@ require_once './libraries/dbi/DBIExtension.int.php';
 if (! defined('PMA_MYSQL_CLIENT_API')) {
     define('PMA_MYSQL_CLIENT_API', (int)drizzle_version());
 }
+
+/**
+ * Names of field flags.
+ */
+$pma_drizzle_flag_names = array(
+    DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY => 'unique',
+    DRIZZLE_COLUMN_FLAGS_NUM => 'num',
+    DRIZZLE_COLUMN_FLAGS_PART_KEY => 'part_key',
+    DRIZZLE_COLUMN_FLAGS_SET => 'set',
+    DRIZZLE_COLUMN_FLAGS_TIMESTAMP => 'timestamp',
+    DRIZZLE_COLUMN_FLAGS_AUTO_INCREMENT => 'auto_increment',
+    DRIZZLE_COLUMN_FLAGS_ENUM => 'enum',
+    DRIZZLE_COLUMN_FLAGS_ZEROFILL => 'zerofill',
+    DRIZZLE_COLUMN_FLAGS_UNSIGNED => 'unsigned',
+    DRIZZLE_COLUMN_FLAGS_BLOB => 'blob',
+    DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY => 'multiple_key',
+    DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY => 'unique_key',
+    DRIZZLE_COLUMN_FLAGS_PRI_KEY => 'primary_key',
+    DRIZZLE_COLUMN_FLAGS_NOT_NULL => 'not_null',
+);
 
 /**
  * Interface to the Drizzle extension
@@ -80,27 +99,13 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     ) {
         global $cfg;
 
+        $server_port = $GLOBALS['dbi']->getServerPort($server);
+        $server_socket = $GLOBALS['dbi']->getServerSocket($server);
+
         if ($server) {
-            $server_port   = (empty($server['port']))
-                ? false
-                : (int)$server['port'];
-            $server_socket = (empty($server['socket']))
-                ? ''
-                : $server['socket'];
             $server['host'] = (empty($server['host']))
                 ? 'localhost'
                 : $server['host'];
-        } else {
-            $server_port   = (empty($cfg['Server']['port']))
-                ? false
-                : (int) $cfg['Server']['port'];
-            $server_socket = (empty($cfg['Server']['socket']))
-                ? null
-                : $cfg['Server']['socket'];
-        }
-
-        if (strtolower($GLOBALS['cfg']['Server']['connect_type']) == 'tcp') {
-            $GLOBALS['cfg']['Server']['socket'] = '';
         }
 
         $drizzle = new PMA_Drizzle();
@@ -139,32 +144,6 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
             );
         }
 
-        if ($link != false) {
-            $GLOBALS['dbi']->postConnect($link, $is_controluser);
-            return $link;
-        }
-
-        if ($is_controluser) {
-            trigger_error(
-                __(
-                    'Connection for controluser as defined'
-                    . ' in your configuration failed.'
-                ),
-                E_USER_WARNING
-            );
-            return false;
-        }
-        // we could be calling $GLOBALS['dbi']->connect() to connect to another
-        // server, for example in the Synchronize feature, so do not
-        // go back to main login if it fails
-        if ($auxiliary_connection) {
-            return false;
-        }
-
-        PMA_logUser($user, 'drizzle-denied');
-        global $auth_plugin;
-        $auth_plugin->authFails();
-
         return $link;
     }
 
@@ -176,15 +155,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return bool
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb($dbname, $link)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
         return $link->selectDb($dbname);
     }
 
@@ -289,7 +261,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return bool false
      */
-    public function moreResults($link = null)
+    public function moreResults($link)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -305,7 +277,7 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return bool false
      */
-    public function nextResult($link = null)
+    public function nextResult($link)
     {
         // N.B.: PHP's 'mysql' extension does not support
         // multi_queries so this function will always
@@ -321,16 +293,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null)
+    public function getHostInfo($link)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-
         $str = $link->port()
             ? $link->host() . ':' . $link->port() . ' via TCP/IP'
             : 'Localhost via UNIX socket';
@@ -344,16 +308,8 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return int version of the Drizzle protocol used
      */
-    public function getProtoInfo($link = null)
+    public function getProtoInfo($link)
     {
-        if (null === $link) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-
         return $link->protocolVersion();
     }
 
@@ -374,24 +330,11 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null)
+    public function getError($link)
     {
         $GLOBALS['errno'] = 0;
 
-        /* Treat false same as null because of controllink */
-        if ($link === false) {
-            $link = null;
-        }
-
-        if (null === $link && isset($GLOBALS['userlink'])) {
-            $link =& $GLOBALS['userlink'];
-            // Do not stop now. We still can get the error code
-            // with mysqli_connect_errno()
-            // } else {
-            //    return false;
-        }
-
-        if (null !== $link) {
+        if (null !== $link && false !== $link) {
             $error_number = drizzle_con_errno($link->getConnectionObject());
             $error_message = drizzle_con_error($link->getConnectionObject());
         } else {
@@ -427,56 +370,16 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
     }
 
     /**
-     * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
-     *
-     * @param PMA_DrizzleCon $link connection object
-     *
-     * @return string|int
-     */
-    public function insertId($link = null)
-    {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-
-        // copied from mysql and mysqli
-
-        // When no controluser is defined, using mysqli_insert_id($link)
-        // does not always return the last insert id due to a mixup with
-        // the tracking mechanism, but this works:
-        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
-        // Curiously, this problem does not happen with the mysql extension but
-        // there is another problem with BIGINT primary keys so insertId()
-        // in the mysql extension also uses this logic.
-    }
-
-    /**
      * returns the number of rows affected by last query
      *
      * @param PMA_DrizzleResult $link           connection object
      * @param bool              $get_from_cache whether to retrieve from cache
      *
-     * @return string|int
+     * @return int
      */
-    public function affectedRows($link = null, $get_from_cache = true)
+    public function affectedRows($link)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-        if ($get_from_cache) {
-            return $GLOBALS['cached_affected_rows'];
-        } else {
-            return $link->affectedRows();
-        }
+        return $link->affectedRows();
     }
 
     /**
@@ -642,27 +545,11 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
         $type = $f->typeDrizzle();
         $charsetnr = $f->charset();
         $f = $f->flags();
-        $flags = '';
-        if ($f & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY) {
-            $flags .= 'unique ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_NUM) {
-            $flags .= 'num ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_PART_KEY) {
-            $flags .= 'part_key ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_SET) {
-            $flags .= 'set ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_TIMESTAMP) {
-            $flags .= 'timestamp ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_AUTO_INCREMENT) {
-            $flags .= 'auto_increment ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_ENUM) {
-            $flags .= 'enum ';
+        $flags = array();
+        foreach ($GLOBALS['pma_drizzle_flag_names'] as $flag => $name) {
+            if ($f & $flag) {
+                $flags[] = $name;
+            }
         }
         // See http://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
         // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
@@ -674,38 +561,19 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
             || $type == DRIZZLE_COLUMN_TYPE_DRIZZLE_VARCHAR)
             && 63 == $charsetnr
         ) {
-            $flags .= 'binary ';
+            $flags[] = 'binary';
         }
-        if ($f & DRIZZLE_COLUMN_FLAGS_ZEROFILL) {
-            $flags .= 'zerofill ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_UNSIGNED) {
-            $flags .= 'unsigned ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_BLOB) {
-            $flags .= 'blob ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_MULTIPLE_KEY) {
-            $flags .= 'multiple_key ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY) {
-            $flags .= 'unique_key ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_PRI_KEY) {
-            $flags .= 'primary_key ';
-        }
-        if ($f & DRIZZLE_COLUMN_FLAGS_NOT_NULL) {
-            $flags .= 'not_null ';
-        }
-        return trim($flags);
+        return implode(' ', $flags);
     }
 
     /**
      * Store the result returned from multi query
      *
+     * @param PMA_DrizzleResult $result Drizzle result object
+     *
      * @return false
      */
-    public function storeResult()
+    public function storeResult($link)
     {
         return false;
     }

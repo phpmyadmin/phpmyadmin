@@ -99,27 +99,16 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             return $buffer;
         }
 
-        if (! isset($options[0])
-            || $options[0] == ''
-            || ! isset($allowed_programs[$options[0]])
-        ) {
-            $program = $allowed_programs[0];
-        } else {
+
+        $options = $this->getOptions(
+            $options,
+            array(0, '-f /dev/null -i -wrap -q', 1, 1)
+        );
+
+        if (isset($allowed_programs[$options[0]])) {
             $program = $allowed_programs[$options[0]];
-        }
-
-        if (!isset($options[1]) || $options[1] == '') {
-            $poptions = '-f /dev/null -i -wrap -q';
         } else {
-            $poptions = $options[1];
-        }
-
-        if (!isset($options[2]) || $options[2] == '') {
-            $options[2] = 1;
-        }
-
-        if (!isset($options[3]) || $options[3] == '') {
-            $options[3] = 1;
+            $program = $allowed_programs[0];
         }
 
         // needs PHP >= 4.3.0
@@ -128,7 +117,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             0 => array("pipe", "r"),
             1 => array("pipe", "w")
         );
-        $process = proc_open($program . ' ' . $poptions, $descriptorspec, $pipes);
+        $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
         if (is_resource($process)) {
             fwrite($pipes[0], $buffer);
             fclose($pipes[0]);

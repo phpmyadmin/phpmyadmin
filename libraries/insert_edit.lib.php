@@ -848,17 +848,17 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
 /**
  * Get HTML for enum type
  *
- * @param type $column               description of column in given table
- * @param type $backup_field         hidden input field
- * @param type $column_name_appendix the name atttibute
- * @param type $extracted_columnspec associative array containing type,
- *                                   spec_in_brackets and possibly
- *                                   enum_set_values (another array)
- * @param type $unnullify_trigger    validation string
- * @param type $tabindex             tab index
- * @param type $tabindex_for_value   offset for the values tabindex
- * @param type $idindex              id index
- * @param type $data                 data to edit
+ * @param string  $column               description of column in given table
+ * @param string  $backup_field         hidden input field
+ * @param string  $column_name_appendix the name atttibute
+ * @param array   $extracted_columnspec associative array containing type,
+ *                                      spec_in_brackets and possibly
+ *                                      enum_set_values (another array)
+ * @param string  $unnullify_trigger    validation string
+ * @param integer $tabindex             tab index
+ * @param integer $tabindex_for_value   offset for the values tabindex
+ * @param integer $idindex              id index
+ * @param mixed   $data                 data to edit
  *
  * @return string an html snippet
  */
@@ -1199,7 +1199,9 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
     return '<input type="' . $input_type . '"'
         . ' name="fields' . $column_name_appendix . '"'
         . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
-        . ((isset($column['is_char']) && $column['is_char']) ? ' maxlength="' . $fieldsize . '"' : '')
+        . ((isset($column['is_char']) && $column['is_char'])
+        ? ' maxlength="' . $fieldsize . '"'
+        : '')
         . ($input_min_max !== false ? ' ' . $input_min_max : '')
         . ($input_type === 'time' ? ' step="1"' : '')
         . ' class="' . $the_class . '" ' . $unnullify_trigger
@@ -1292,7 +1294,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param string  $text_dir              text direction
  * @param array   $special_chars_encoded replaced char if the string starts
  *                                       with a \r\n pair (0x0d0a) add an extra \n
- * @param strign  $data                  data to edit
+ * @param string  $data                  data to edit
  * @param array   $extracted_columnspec  associative array containing type,
  *                                       spec_in_brackets and possibly
  *                                       enum_set_values (another array)
@@ -1739,7 +1741,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
 /**
  * display default values
  *
- * @param type    $column          description of column in given table
+ * @param string  $column          description of column in given table
  * @param boolean $real_null_value whether column value null or not null
  *
  * @return array $real_null_value, $data, $special_chars,

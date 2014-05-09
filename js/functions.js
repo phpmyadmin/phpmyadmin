@@ -53,6 +53,20 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * Show notices for ENUM columns; add/hide the default value 
+ *
+ */
+function PMA_verifyColumnsProperties()
+{
+    $("select.column_type").each(function () {
+        PMA_showNoticeForEnum($(this));
+    });
+    $("select.default_type").each(function () {
+        PMA_hideShowDefaultValue($(this));
+    });
+}
+
+/**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
@@ -129,10 +143,10 @@ function PMA_current_version(data)
     if (data && data.version && data.date) {
         var current = parseVersionString(pmaversion);
         var latest = parseVersionString(data.version);
-        var version_information_message = '<span>'
-            + PMA_messages.strLatestAvailable
-            + ' ' + escapeHtml(data.version)
-            + '</span>';
+        var version_information_message = '<span>'+
+            PMA_messages.strLatestAvailable +
+            ' ' + escapeHtml(data.version) +
+            '</span>';
         if (latest > current) {
             var message = $.sprintf(
                 PMA_messages.strNewerVersion,
@@ -361,7 +375,7 @@ function confirmQuery(theForm1, sqlQuery1)
         // "is_js_confirmed" form field so the confirm test won't be
         // run on the server side and allows to submit the form
         if (is_confirmed) {
-            theForm1.elements['is_js_confirmed'].value = 1;
+            theForm1.elements.is_js_confirmed.value = 1;
             return true;
         }
         // statement is rejected -> do not submit the form
@@ -388,26 +402,27 @@ function confirmQuery(theForm1, sqlQuery1)
 function checkSqlQuery(theForm)
 {
     // get the textarea element containing the query
+    var sqlQuery;
     if (codemirror_editor) {
         codemirror_editor.save();
-        var sqlQuery = codemirror_editor.display.input;
+        sqlQuery = codemirror_editor.display.input;
         sqlQuery.value = codemirror_editor.getValue();
     } else {
-        var sqlQuery = theForm.elements['sql_query'];
+        sqlQuery = theForm.elements.sql_query;
     }
     var isEmpty  = 1;
     var space_re = new RegExp('\\s+');
-    if (typeof(theForm.elements['sql_file']) != 'undefined' &&
-            theForm.elements['sql_file'].value.replace(space_re, '') !== '') {
+    if (typeof(theForm.elements.sql_file) != 'undefined' &&
+            theForm.elements.sql_file.value.replace(space_re, '') !== '') {
         return true;
     }
-    if (typeof(theForm.elements['sql_localfile']) != 'undefined' &&
-            theForm.elements['sql_localfile'].value.replace(space_re, '') !== '') {
+    if (typeof(theForm.elements.sql_localfile) != 'undefined' &&
+            theForm.elements.sql_localfile.value.replace(space_re, '') !== '') {
         return true;
     }
-    if (isEmpty && typeof(theForm.elements['id_bookmark']) != 'undefined' &&
-            (theForm.elements['id_bookmark'].value !== null || theForm.elements['id_bookmark'].value !== '') &&
-            theForm.elements['id_bookmark'].selectedIndex !== 0) {
+    if (isEmpty && typeof(theForm.elements.id_bookmark) != 'undefined' &&
+            (theForm.elements.id_bookmark.value !== null || theForm.elements.id_bookmark.value !== '') &&
+            theForm.elements.id_bookmark.selectedIndex !== 0) {
         return true;
     }
     // Checks for "DROP/DELETE/ALTER" statements
@@ -543,7 +558,7 @@ function checkTableEditForm(theForm, fieldsCnt)
         }
     }
     if (atLeastOneField === 0) {
-        var theField = theForm.elements["field_0_1"];
+        var theField = theForm.elements.field_0_1;
         alert(PMA_messages.strFormEmpty);
         theField.focus();
         return false;
@@ -559,6 +574,22 @@ function checkTableEditForm(theForm, fieldsCnt)
 
     return true;
 } // enf of the 'checkTableEditForm()' function
+
+/**
+ * True if last click is to check a row.
+ */
+var last_click_checked = false;
+
+/**
+ * Zero-based index of last clicked row.
+ * Used to handle the shift + click event in the code above.
+ */
+var last_clicked_row = -1;
+
+/**
+ * Zero-based index of last shift clicked row.
+ */
+var last_shift_clicked_row = -1;
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -658,22 +689,6 @@ AJAX.registerOnload('functions.js', function () {
         $('input[type=text]').attr('autocapitalize', 'off').attr('autocorrect', 'off');
     }
 });
-
-/**
- * True if last click is to check a row.
- */
-var last_click_checked = false;
-
-/**
- * Zero-based index of last clicked row.
- * Used to handle the shift + click event in the code above.
- */
-var last_clicked_row = -1;
-
-/**
- * Zero-based index of last shift clicked row.
- */
-var last_shift_clicked_row = -1;
 
 /**
  * Row highlighting in horizontal mode (use "live"
@@ -1466,8 +1481,6 @@ AJAX.registerOnload('functions.js', function () {
             $("#all_tables_same_width").removeProp("disabled");
             $("#paper_opt").removeProp("disabled");
             $("#show_color_opt").removeProp("disabled");
-        } else {
-            // nothing
         }
     });
 
@@ -2383,6 +2396,7 @@ AJAX.registerOnload('functions.js', function () {
             function scrollToTop() {
                 $('html, body').animate({ scrollTop: 0 });
             }
+            var $temp_div;
             if (data.success === true && data.sql_query !== undefined) {
                 PMA_ajaxShowMessage(data.message);
                 $("<div id='sqlqueryresults' class='ajax'></div>").prependTo("#page_content");
@@ -2390,7 +2404,7 @@ AJAX.registerOnload('functions.js', function () {
                 PMA_highlightSQL($('#page_content'));
                 scrollToTop();
             } else if (data.success === true) {
-                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.message);
                 var $success = $temp_div.find("#result_query .success");
                 PMA_ajaxShowMessage($success);
@@ -2401,7 +2415,7 @@ AJAX.registerOnload('functions.js', function () {
                 $("#sqlqueryresults").children("fieldset,br").remove();
                 scrollToTop();
             } else {
-                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
                 var $error = $temp_div.find("code").addClass("error");
                 PMA_ajaxShowMessage($error, false);
@@ -2619,16 +2633,6 @@ AJAX.registerOnload('functions.js', function () {
         PMA_validateDefaultValue($(this));
     });
 });
-
-function PMA_verifyColumnsProperties()
-{
-    $("select.column_type").each(function () {
-        PMA_showNoticeForEnum($(this));
-    });
-    $("select.default_type").each(function () {
-        PMA_hideShowDefaultValue($(this));
-    });
-}
 
 /**
  * Hides/shows the default value input field, depending on the default type
@@ -2938,7 +2942,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
          * @var    the_form    object referring to the export form
          */
         var $form = $("#index_frm");
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function (data) {
@@ -3368,15 +3372,15 @@ AJAX.registerOnload('functions.js', function () {
             cache: false,
             type: 'POST',
             data: {
-                favorite_tables: (window.localStorage['favorite_tables']
+                favorite_tables: (window.localStorage.favorite_tables
                     !== undefined)
-                    ? window.localStorage['favorite_tables']
+                    ? window.localStorage.favorite_tables
                     : ''
             },
             success: function (data) {
                 // Update localStorage.
                 if (window.localStorage !== undefined) {
-                    window.localStorage['favorite_tables']
+                    window.localStorage.favorite_tables
                         = data.favorite_tables;
                 }
                 $('#pma_favorite_list').html(data.list);
@@ -3799,9 +3803,9 @@ AJAX.registerOnload('functions.js', function () {
      */
     $('a.take_theme').click(function (e) {
         var what = this.name;
-        if (window.opener && window.opener.document.forms['setTheme'].elements['set_theme']) {
-            window.opener.document.forms['setTheme'].elements['set_theme'].value = what;
-            window.opener.document.forms['setTheme'].submit();
+        if (window.opener && window.opener.document.forms.setTheme.elements.set_theme) {
+            window.opener.document.forms.setTheme.elements.set_theme.value = what;
+            window.opener.document.forms.setTheme.submit();
             window.close();
             return false;
         }

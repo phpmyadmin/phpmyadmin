@@ -24,7 +24,7 @@ class PMA_Table
     const PROP_COLUMN_ORDER = 'col_order';
     const PROP_COLUMN_VISIB = 'col_visib';
 
-    static $cache = array();
+    static public $cache = array();
 
     /**
      * @var string  table name

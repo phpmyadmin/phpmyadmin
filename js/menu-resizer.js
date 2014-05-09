@@ -26,7 +26,7 @@
         self.widthCalculator = widthCalculator;
         // create submenu container
         var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
-            .text(PMA_messages['strMore'])
+            .text(PMA_messages.strMore)
             .bind('click', false); // same as event.preventDefault()
         var img = $container.find('li img');
         if (img.length) {
@@ -94,8 +94,8 @@
                 total_len += $($li2[i]).data('width');
                 // item fits or (it is the last item
                 // and it would fit if More got removed)
-                if (total_len < wmax
-                    || (i == $li2.length - 1 && total_len - submenu_w < wmax)
+                if (total_len < wmax ||
+                    (i == $li2.length - 1 && total_len - submenu_w < wmax)
                 ) {
                     $($li2[i]).insertBefore($submenu);
                 } else {

@@ -608,7 +608,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function testCheckPmaAbsoluteUriEmpty()
     {
         $this->object->set('PmaAbsoluteUri', '');
-        $this->assertFalse(
+        $this->assertNull(
             $this->object->checkPmaAbsoluteUri(),
             'PmaAbsoluteUri is not set and should be error'
         );

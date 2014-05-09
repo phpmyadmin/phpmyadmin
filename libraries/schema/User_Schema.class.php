@@ -308,10 +308,6 @@ class PMA_User_Schema
             echo '<th>Y</th>';
             echo '</tr>';
 
-            if (isset($ctable)) {
-                unset($ctable);
-            }
-
             /*
              * Add one more empty row
              */

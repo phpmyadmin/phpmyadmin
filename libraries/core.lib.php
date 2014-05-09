@@ -351,13 +351,15 @@ function PMA_getRealSize($size = 0)
         return 0;
     }
 
-    $scan['gb'] = 1073741824; //1024 * 1024 * 1024;
-    $scan['g']  = 1073741824; //1024 * 1024 * 1024;
-    $scan['mb'] = 1048576;
-    $scan['m']  = 1048576;
-    $scan['kb'] =    1024;
-    $scan['k']  =    1024;
-    $scan['b']  =       1;
+    $scan = array(
+        'gb' => 1073741824, //1024 * 1024 * 1024,
+        'g' => 1073741824, //1024 * 1024 * 1024,
+        'mb' => 1048576,
+        'm' => 1048576,
+        'kb' => 1024,
+        'k' => 1024,
+        'b' => 1,
+    );
 
     foreach ($scan as $unit => $factor) {
         if (strlen($size) > strlen($unit)
@@ -386,11 +388,9 @@ function PMA_arrayMergeRecursive()
     switch(func_num_args()) {
     case 0 :
         return false;
-        break;
     case 1 :
         // when does that happen?
         return func_get_arg(0);
-        break;
     case 2 :
         $args = func_get_args();
         if (! is_array($args[0]) || ! is_array($args[1])) {
@@ -415,13 +415,11 @@ function PMA_arrayMergeRecursive()
             }
         }
         return $args[0];
-        break;
     default :
         $args = func_get_args();
         $args[1] = PMA_arrayMergeRecursive($args[0], $args[1]);
         array_shift($args);
         return call_user_func_array('PMA_arrayMergeRecursive', $args);
-        break;
     }
 }
 
@@ -615,7 +613,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
  */
 function PMA_noCacheHeader()
 {
-    if (defined('TESTSUITE')) {
+    if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
         return;
     }
     // rfc2616 - Section 14.21

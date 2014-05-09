@@ -152,23 +152,14 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
  * @param string  $create_time_all     create time
  * @param string  $update_time_all     update time
  * @param string  $check_time_all      check time
- * @param integer $sum_row_count_pre   sum row count pre
  *
  * @return string $html_output
  */
 function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
     $db_is_system_schema, $sum_entries, $db_collation, $is_show_stats,
     $sum_size, $overhead_size, $create_time_all, $update_time_all,
-    $check_time_all, $sum_row_count_pre
+    $check_time_all
 ) {
-    if ($is_show_stats) {
-        list($sum_formatted, $unit) = PMA_Util::formatByteDown(
-            $sum_size, 3, 1
-        );
-        list($overhead_formatted, $overhead_unit)
-            = PMA_Util::formatByteDown($overhead_size, 3, 1);
-    }
-
     $html_output = '<tbody id="tbl_summary_row">'
         . '<tr><th></th>';
     $html_output .= '<th class="tbl_num nowrap">';
@@ -185,7 +176,7 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         . __('Sum')
         . '</th>';
     $html_output .= '<th class="value tbl_rows">'
-        . $sum_row_count_pre . PMA_Util::formatNumber($sum_entries, 0)
+        . PMA_Util::formatNumber($sum_entries, 0)
         . '</th>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
@@ -214,6 +205,12 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
         $html_output .= '</th>';
     }
     if ($is_show_stats) {
+        list($sum_formatted, $unit) = PMA_Util::formatByteDown(
+            $sum_size, 3, 1
+        );
+        list($overhead_formatted, $overhead_unit)
+            = PMA_Util::formatByteDown($overhead_size, 3, 1);
+
         $html_output .= '<th class="value tbl_size">'
             . $sum_formatted . ' ' . $unit
             . '</th>';
@@ -651,7 +648,6 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
             && $current_table['ENGINE'] != 'FunctionEngine'
         ) {
             $row_count_pre = '~';
-            $sum_row_count_pre = '~';
             $show_superscript = PMA_Util::showHint(
                 PMA_sanitize(
                     sprintf(
@@ -667,7 +663,6 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     ) {
         // InnoDB table: we did not get an accurate row count
         $row_count_pre = '~';
-        $sum_row_count_pre = '~';
         $show_superscript = '';
     }
 
@@ -2125,13 +2120,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
         );
     }
 
-    $nonisam     = false;
     $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
-    if (isset($showtable['Type'])
-        && ! preg_match('@ISAM|HEAP@i', $showtable['Type'])
-    ) {
-        $nonisam = true;
-    }
 
     // Gets some sizes
 
@@ -2438,7 +2427,7 @@ function PMA_updateColumns($db, $table)
             $response->isSuccess(false);
             $response->addJSON(
                 'message',
-                PMA_Message::rawError(__('Query error') . ':<br />'.$GLOBALS['dbi']->getError())
+                PMA_Message::rawError(__('Query error') . ':<br />' . $GLOBALS['dbi']->getError())
             );
             $regenerate = true;
         }
@@ -2729,7 +2718,7 @@ function PMA_checkFavoriteTable($db, $current_table)
  * @param string $current_table current table
  * @param string $titles        titles
  *
- * @return $html_output
+ * @return string The html output
  */
 function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
 {
@@ -2756,5 +2745,118 @@ function PMA_getHtmlForFavoriteAnchor($db, $current_table, $titles)
         : $titles['Favorite']) . '</a>';
 
     return $html_output;
+}
+
+/**
+ * Add or remove favorite tables
+ *
+ * @param string $db current database
+ *
+ * @return void
+ */
+function PMA_addRemoveFavoriteTables($db)
+{
+    $fav_instance = PMA_RecentFavoriteTable::getInstance('favorite');
+    $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
+    // Required to keep each user's preferences separate.
+    $user = sha1($GLOBALS['cfg']['Server']['user']);
+
+    // Request for Synchronization of favorite tables.
+    if (isset($_REQUEST['sync_favorite_tables'])) {
+        PMA_synchronizeFavoriteTables($fav_instance, $user);
+        exit;
+    }
+    $changes = true;
+    $msg = '';
+    $titles = PMA_Util::buildActionTitles();
+    $favorite_table = $_REQUEST['favorite_table'];
+    $already_favorite = PMA_checkFavoriteTable($db, $favorite_table);
+
+    if (isset($_REQUEST['remove_favorite'])) {
+        if ($already_favorite) {
+            // If already in favorite list, remove it.
+            $fav_instance->remove($db, $favorite_table);
+        }
+    } elseif (isset($_REQUEST['add_favorite'])) {
+        if (!$already_favorite) {
+            if (count($fav_instance->getTables()) == $GLOBALS['cfg']['NumFavoriteTables']) {
+                $changes = false;
+                $msg = '<div class="error"><img src="themes/dot.gif" '
+                    . 'title="" alt="" class="icon ic_s_error" />'
+                    . __("Favorite List is full!")
+                    . '</div>';
+            } else {
+                // Otherwise add to favorite list.
+                $fav_instance->add($db, $favorite_table);
+            }
+        }
+    }
+
+    $favorite_tables[$user] = $fav_instance->getTables();
+    $ajax_response = PMA_Response::getInstance();
+    $ajax_response->addJSON(
+        'changes',
+        $changes
+    );
+    if ($changes) {
+        $ajax_response->addJSON(
+            'user',
+            $user
+        );
+        $ajax_response->addJSON(
+            'favorite_tables',
+            json_encode($favorite_tables)
+        );
+        $ajax_response->addJSON(
+            'list',
+            $fav_instance->getHtmlList()
+        );
+        $ajax_response->addJSON(
+            'anchor',
+            PMA_getHtmlForFavoriteAnchor(
+                $db, array('TABLE_NAME' => $favorite_table), $titles
+            )
+        );
+    } else {
+        $ajax_response->addJSON(
+            'message',
+            $msg
+        );
+    }
+}
+
+/**
+ * Synchronize favorite tables
+ *
+ * @param string $fav_instance PMA_RecentFavoriteTable instance
+ * @param string $user         The user hash
+ *
+ * @return void
+ */
+function PMA_synchronizeFavoriteTables($fav_instance, $user)
+{
+    $fav_instance_tables = $fav_instance->getTables();
+
+    if (empty($fav_instance_tables)
+        && isset($favorite_tables[$user])
+    ) {
+        foreach ($favorite_tables[$user] as $key => $value) {
+            $fav_instance->add($value['db'], $value['table']);
+        }
+    }
+    $favorite_tables[$user] = $fav_instance->getTables();
+
+    $ajax_response = PMA_Response::getInstance();
+    $ajax_response->addJSON(
+        'favorite_tables',
+        json_encode($favorite_tables)
+    );
+    $ajax_response->addJSON(
+        'list',
+        $fav_instance->getHtmlList()
+    );
+    $server_id = $GLOBALS['server'];
+    // Set flag when localStorage and pmadb(if present) are in sync.
+    $_SESSION['tmpval']['favorites_synced'][$server_id] = true;
 }
 ?>

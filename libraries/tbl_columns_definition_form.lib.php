@@ -1046,7 +1046,7 @@ function PMA_getHtmlForColumnCollation($columnNumber, $ci, $ci_offset, $columnMe
  * @param int $ci                       cell index
  * @param int $ci_offset                cell index offset
  * @param int $length_values_input_size length values input size
- * @param int $length_to_display        length to disply
+ * @param int $length_to_display        length to display
  *
  * @return string
  */

@@ -173,7 +173,6 @@ class PMA_Util
             unset($sprites);
         }
 
-        $url       = '';
         $is_sprite = false;
         $alternate = htmlspecialchars($alternate);
 
@@ -984,17 +983,16 @@ class PMA_Util
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
-     * @param string  $message   the message to display
-     * @param string  $sql_query the query to display
-     * @param string  $type      the type (level) of the message
-     * @param boolean $is_view   is this a message after a VIEW operation?
+     * @param string $message   the message to display
+     * @param string $sql_query the query to display
+     * @param string $type      the type (level) of the message
      *
      * @return string
      *
      * @access  public
      */
     public static function getMessage(
-        $message, $sql_query = null, $type = 'notice', $is_view = false
+        $message, $sql_query = null, $type = 'notice'
     ) {
         global $cfg;
         $retval = '';
@@ -1092,9 +1090,6 @@ class PMA_Util
                         . "\n" . $GLOBALS['sql_order_to_append']
                         . $analyzed_display_query[0]['limit_clause'] . ' '
                         . $analyzed_display_query[0]['section_after_limit'];
-
-                    // Need to reparse query
-                    $parsed_sql = PMA_SQP_parse($query_base);
                     // update the $analyzed_display_query
                     $analyzed_display_query[0]['section_before_limit']
                         .= $GLOBALS['sql_order_to_append'];
@@ -1120,8 +1115,6 @@ class PMA_Util
                     $query_base = $analyzed_display_query[0]['section_before_limit']
                         . "\n" . $GLOBALS['sql_limit_to_append']
                         . $analyzed_display_query[0]['section_after_limit'];
-                    // Need to reparse query
-                    $parsed_sql = PMA_SQP_parse($query_base);
                 }
             }
 
@@ -1307,7 +1300,7 @@ class PMA_Util
      */
     public static function profilingSupported()
     {
-        if (!self::cacheExists('profiling_supported', true)) {
+        if (!self::cacheExists('profiling_supported')) {
             // 5.0.37 has profiling but for example, 5.1.20 does not
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
@@ -1315,13 +1308,13 @@ class PMA_Util
                 && (PMA_MYSQL_INT_VERSION >= 50037)
                 && $GLOBALS['dbi']->fetchValue("SHOW VARIABLES LIKE 'profiling'")
             ) {
-                self::cacheSet('profiling_supported', true, true);
+                self::cacheSet('profiling_supported', true);
             } else {
-                self::cacheSet('profiling_supported', false, true);
+                self::cacheSet('profiling_supported', false);
             }
         }
 
-        return self::cacheGet('profiling_supported', true);
+        return self::cacheGet('profiling_supported');
     }
 
     /**
@@ -2072,8 +2065,6 @@ class PMA_Util
 
         for ($i = 0; $i < $fields_cnt; ++$i) {
 
-            $condition   = '';
-            $con_key     = '';
             $con_val     = '';
             $field_flags = $GLOBALS['dbi']->fieldFlags($handle, $i);
             $meta        = $fields_meta[$i];
@@ -2801,40 +2792,32 @@ class PMA_Util
      */
     public static function clearUserCache()
     {
-        self::cacheUnset('is_superuser', true);
+        self::cacheUnset('is_superuser');
     }
 
     /**
      * Verifies if something is cached in the session
      *
-     * @param string   $var    variable name
-     * @param int|true $server server
+     * @param string $var variable name
      *
      * @return boolean
      */
-    public static function cacheExists($var, $server = 0)
+    public static function cacheExists($var)
     {
-        if ($server === true) {
-            $server = $GLOBALS['server'];
-        }
-        return isset($_SESSION['cache']['server_' . $server][$var]);
+        return isset($_SESSION['cache']['server_' . $GLOBALS['server']][$var]);
     }
 
     /**
      * Gets cached information from the session
      *
-     * @param string   $var    varibale name
-     * @param int|true $server server
+     * @param string $var variable name
      *
      * @return mixed
      */
-    public static function cacheGet($var, $server = 0)
+    public static function cacheGet($var)
     {
-        if ($server === true) {
-            $server = $GLOBALS['server'];
-        }
-        if (isset($_SESSION['cache']['server_' . $server][$var])) {
-            return $_SESSION['cache']['server_' . $server][$var];
+        if (isset($_SESSION['cache']['server_' . $GLOBALS['server']][$var])) {
+            return $_SESSION['cache']['server_' . $GLOBALS['server']][$var];
         } else {
             return null;
         }
@@ -2843,34 +2826,26 @@ class PMA_Util
     /**
      * Caches information in the session
      *
-     * @param string   $var    variable name
-     * @param mixed    $val    value
-     * @param int|true $server server
+     * @param string $var variable name
+     * @param mixed  $val value
      *
      * @return mixed
      */
-    public static function cacheSet($var, $val = null, $server = 0)
+    public static function cacheSet($var, $val = null)
     {
-        if ($server === true) {
-            $server = $GLOBALS['server'];
-        }
-        $_SESSION['cache']['server_' . $server][$var] = $val;
+        $_SESSION['cache']['server_' . $GLOBALS['server']][$var] = $val;
     }
 
     /**
      * Removes cached information from the session
      *
-     * @param string   $var    variable name
-     * @param int|true $server server
+     * @param string $var variable name
      *
      * @return void
      */
-    public static function cacheUnset($var, $server = 0)
+    public static function cacheUnset($var)
     {
-        if ($server === true) {
-            $server = $GLOBALS['server'];
-        }
-        unset($_SESSION['cache']['server_' . $server][$var]);
+        unset($_SESSION['cache']['server_' . $GLOBALS['server']][$var]);
     }
 
     /**
@@ -3090,7 +3065,7 @@ class PMA_Util
     /**
      * Converts GIS data to Well Known Text format
      *
-     * @param binary $data        GIS data
+     * @param string $data        GIS data
      * @param bool   $includeSRID Add SRID to the WKT
      *
      * @return string GIS data in Well Know Text format

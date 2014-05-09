@@ -5,6 +5,7 @@
 
 language: php
 php:
+  - "5.6"
   - "5.5"
   - "5.4"
   - "5.3"
@@ -18,8 +19,8 @@ env:
     - TESTSUITE_BROWSERSTACK_USER=phpMyAdmin
     - TESTSUITE_USER=root
     - TESTSUITE_PASSWORD=root
-    - TESTSUITE_SELENIUM_COVERAGE=http://127.0.0.1:8000/phpunit_coverage.php
 before_script:
+  - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')" ;
   - set -e ; if [[ -z "$LINT" ]] ; then
     if [[ $TRAVIS_PHP_VERSION != "hhvm" ]] ; then
@@ -34,10 +35,9 @@ before_script:
 
     phpenv config-add test/travis.php.ini ;
 
-    pear channel-discover pear.phpunit.de ;
-    pear install phpunit/PHPUnit_Selenium ;
-
     composer install --dev --no-interaction ;
+
+    wget https://scrutinizer-ci.com/ocular.phar ;
 
     fi ;
 
@@ -70,11 +70,10 @@ script:
     ant lint ;
     fi
 after_script:
+  - if [[ -f build/logs/clover.xml ]] ; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml ; fi
   - if [[ -f vendor/bin/coveralls ]] ; then php vendor/bin/coveralls -v ; fi
 matrix:
   allow_failures:
-    - php: hhvm
-      env: PHPUNIT_ARGS="--exclude-group selenium"
     - php: 5.5
       env: PHPUNIT_ARGS="--group selenium" SELENIUM="yes"
   fast_finish: true

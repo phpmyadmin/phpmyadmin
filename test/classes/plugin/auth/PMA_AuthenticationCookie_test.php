@@ -976,7 +976,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->at(0))
             ->method('getError')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue(false));
 
         $dbi->expects($this->at(1))
             ->method('getError')
@@ -994,6 +994,7 @@ class PMA_AuthenticationCookie_Test extends PHPUnit_Framework_TestCase
         );
 
         // case 5
+        unset($GLOBALS['errno']);
 
         $this->object->authFails();
 

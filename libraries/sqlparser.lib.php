@@ -334,6 +334,8 @@ function PMA_SQP_parse($sql)
             switch ($c) {
             case '#':
                 $type = 'mysql';
+                $pos  = $GLOBALS['PMA_String']->strpos($sql, "\n", $count2);
+                break;
             case '-':
                 $type = 'ansi';
                 $pos  = $GLOBALS['PMA_String']->strpos($sql, "\n", $count2);
@@ -360,7 +362,6 @@ function PMA_SQP_parse($sql)
             $quotetype       = $c;
             $count2++;
             $pos             = $count2;
-            $oldpos          = 0;
             do {
                 $oldpos = $pos;
                 $pos    = $GLOBALS['PMA_String']->strpos(
@@ -468,14 +469,12 @@ function PMA_SQP_parse($sql)
             // All bracket tokens are only one item long
             $this_was_bracket = true;
             $count2++;
-            $type_type     = '';
             if ($GLOBALS['PMA_String']->strpos('([{', $c) !== false) {
                 $type_type = 'open';
             } else {
                 $type_type = 'close';
             }
 
-            $type_style     = '';
             if ($GLOBALS['PMA_String']->strpos('()', $c) !== false) {
                 $type_style = 'round';
             } elseif ($GLOBALS['PMA_String']->strpos('[]', $c) !== false) {
@@ -619,9 +618,8 @@ function PMA_SQP_parse($sql)
             $l    = $count2 - $count1;
             $str  = $GLOBALS['PMA_String']->substr($sql, $count1, $l);
 
-            $type = '';
             if ($is_digit || $is_float_digit || $is_hex_digit) {
-                $type     = 'digit';
+                $type = 'digit';
                 if ($is_float_digit) {
                     $type .= '_float';
                 } elseif ($is_hex_digit) {

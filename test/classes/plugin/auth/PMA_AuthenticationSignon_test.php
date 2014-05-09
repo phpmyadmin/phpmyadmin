@@ -307,10 +307,6 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->at(1))
             ->method('getError')
-            ->will($this->returnValue('error<123>'));
-
-        $dbi->expects($this->at(2))
-            ->method('getError')
             ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;

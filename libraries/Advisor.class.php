@@ -168,7 +168,7 @@ class Advisor
      * Wrapper function for translating.
      *
      * @param string $str   the string
-     * @param mixed  $param the parameters
+     * @param string $param the parameters
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class Advisor
      *
      * @param string $rule the rule
      *
-     * @return array
+     * @return string[]
      */
     static function splitJustification($rule)
     {
@@ -318,7 +318,7 @@ class Advisor
      *
      * @param string $expr expression to evaluate
      *
-     * @return string result of evaluated expression
+     * @return integer result of evaluated expression
      *
      * @throws Exception
      */
@@ -467,7 +467,6 @@ class Advisor
  */
 function ADVISOR_bytime($num, $precision)
 {
-    $per = '';
     if ($num >= 1) { // per second
         $per = __('per second');
     } elseif ($num * 60 >= 1) { // per minute
@@ -509,7 +508,7 @@ function ADVISOR_timespanFormat($seconds)
  * @param int    $limes the sensitiveness
  * @param int    $comma the number of decimals to retain
  *
- * @return array    the formatted value and its unit
+ * @return string the formatted value with unit
  */
 function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
 {

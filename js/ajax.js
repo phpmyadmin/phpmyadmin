@@ -299,8 +299,8 @@ var AJAX = {
                     var source = data._selflink.split('?')[0];
                     //Check for faulty links
                     if (source == "import.php") {
-                    	var replacement = "tbl_sql.php";
-                    	data._selflink = data._selflink.replace(source,replacement);
+                        var replacement = "tbl_sql.php";
+                        data._selflink = data._selflink.replace(source,replacement);
                     }
                     $('#selflink > a').attr('href', data._selflink);
                 }
@@ -582,10 +582,10 @@ AJAX.cache = {
      * @return void
      */
     navigate: function (index) {
-        if (typeof this.pages[index] === 'undefined'
-            || typeof this.pages[index].content === 'undefined'
-            || typeof this.pages[index].menu === 'undefined'
-            || ! AJAX.cache.menus.get(this.pages[index].menu)
+        if (typeof this.pages[index] === 'undefined' ||
+            typeof this.pages[index].content === 'undefined' ||
+            typeof this.pages[index].menu === 'undefined' ||
+            ! AJAX.cache.menus.get(this.pages[index].menu)
         ) {
             PMA_ajaxShowMessage(
                 '<div class="error">' + PMA_messages.strInvalidPage + '</div>',

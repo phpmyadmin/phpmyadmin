@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.3.0.0 (not yet released)
+
 4.2.1.0 (not yet released)
 - bug #4380 Cannot display table structure with enums containing special characters 
 - bug #4381 Cannot remove the last remembered sorted column

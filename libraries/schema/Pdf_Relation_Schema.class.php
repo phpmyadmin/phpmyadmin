@@ -812,6 +812,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private $_leftMargin = 10;
     private $_rightMargin = 10;
     private $_tablewidth;
+    protected $relations = array();
 
     /**
      * The "PMA_Pdf_Relation_Schema" constructor
@@ -827,11 +828,11 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         global $pdf, $db;
 
         $this->setPageNumber($_POST['pdf_page_number']);
-        $this->setShowGrid(isset($_POST['show_grid']));
-        $this->setShowColor(isset($_POST['show_color']));
-        $this->setShowKeys(isset($_POST['show_keys']));
-        $this->setTableDimension(isset($_POST['show_table_dimension']));
-        $this->setAllTablesSameWidth(isset($_POST['all_tables_same_width']));
+        $this->setShowGrid($_POST['show_grid']);
+        $this->setShowColor($_POST['show_color']);
+        $this->setShowKeys($_POST['show_keys']);
+        $this->setTableDimension($_POST['show_table_dimension']);
+        $this->setAllTablesSameWidth($_POST['all_tables_same_width']);
         $this->setWithDataDictionary($_POST['with_doc']);
         $this->setOrientation($_POST['orientation']);
         $this->setPaper($_POST['paper']);
@@ -958,7 +959,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
-     * @param string $table The table name of which sets XY co-ordinates
+     * @param object $table The table name of which sets XY co-ordinates
      *
      * @return void
      *
@@ -975,11 +976,10 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     /**
      * Defines relation objects
      *
-     * @param string  $masterTable  The master table name
-     * @param string  $masterField  The relation field in the master table
-     * @param string  $foreignTable The foreign table name
-     * @param string  $foreignField The relation field in the foreign table
-     * @param boolean $showInfo     Whether to display table position or not
+     * @param string $masterTable  The master table name
+     * @param string $masterField  The relation field in the master table
+     * @param string $foreignTable The foreign table name
+     * @param string $foreignField The relation field in the foreign table
      *
      * @access private
      *
@@ -988,19 +988,23 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      * @see _setMinMax
      */
     private function _addRelation($masterTable, $masterField, $foreignTable,
-        $foreignField, $showInfo
+        $foreignField
     ) {
         if (! isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new Table_Stats_Pdf(
                 $masterTable, null, $this->pageNumber,
-                $this->_tablewidth, false, $showInfo
+                $this->_tablewidth,
+                $this->showKeys,
+                $this->tableDimension
             );
             $this->_setMinMax($this->_tables[$masterTable]);
         }
         if (! isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new Table_Stats_Pdf(
                 $foreignTable, null, $this->pageNumber,
-                $this->_tablewidth, false, $showInfo
+                $this->_tablewidth,
+                $this->showKeys,
+                $this->tableDimension
             );
             $this->_setMinMax($this->_tables[$foreignTable]);
         }

@@ -77,7 +77,7 @@ class PMA_StringNative implements PMA_StringByte
      *
      * @param string $string the string for which ord is required
      *
-     * @return string the ord value
+     * @return int the ord value
      */
     public function ord($string)
     {

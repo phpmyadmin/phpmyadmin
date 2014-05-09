@@ -9,6 +9,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once './libraries/logging.lib.php';
+
 /**
  * Main interface for database interactions
  *
@@ -122,10 +124,10 @@ class PMA_DatabaseInterface
     /**
      * Stores query data into session data for debugging purposes
      *
-     * @param string   $query  Query text
-     * @param resource $link   database link
-     * @param resource $result Query result
-     * @param integer  $time   Time to execute query
+     * @param string  $query  Query text
+     * @param object  $link   database link
+     * @param object  $result Query result
+     * @param integer $time   Time to execute query
      *
      * @return void
      */
@@ -139,55 +141,36 @@ class PMA_DatabaseInterface
             $_SESSION['debug']['queries'][$hash] = array();
             if ($result == false) {
                 $_SESSION['debug']['queries'][$hash]['error']
-                    = '<b style="color:red">' . mysqli_error($link) . '</b>';
+                    = '<b style="color:red">' . $this->getError($link) . '</b>';
             }
             $_SESSION['debug']['queries'][$hash]['count'] = 1;
             $_SESSION['debug']['queries'][$hash]['query'] = $query;
             $_SESSION['debug']['queries'][$hash]['time'] = $time;
         }
 
-        $trace = array();
-        foreach (debug_backtrace() as $trace_step) {
-            $trace[]
-                = (isset($trace_step['file'])
-                    ? PMA_Error::relPath($trace_step['file'])
-                    : '')
-                . (isset($trace_step['line'])
-                    ?  '#' . $trace_step['line'] . ': '
-                    : '')
-                . (isset($trace_step['class']) ? $trace_step['class'] : '')
-                . (isset($trace_step['type']) ? $trace_step['type'] : '')
-                . (isset($trace_step['function']) ? $trace_step['function'] : '')
-                . '('
-                . (isset($trace_step['params'])
-                    ? implode(', ', $trace_step['params'])
-                    : ''
-                )
-                . ')'
-                ;
-        }
-        $_SESSION['debug']['queries'][$hash]['trace'][] = $trace;
+        $_SESSION['debug']['queries'][$hash]['trace'][] = PMA_Error::formatBacktrace(
+            debug_backtrace(),
+            " ",
+            "\n"
+        );
     }
 
     /**
      * runs a query and returns the result
      *
-     * @param string   $query               query to run
-     * @param resource $link                mysql link resource
-     * @param integer  $options             query options
-     * @param bool     $cache_affected_rows whether to cache affected row
+     * @param string  $query               query to run
+     * @param object  $link                mysql link resource
+     * @param integer $options             query options
+     * @param bool    $cache_affected_rows whether to cache affected row
      *
      * @return mixed
      */
     public function tryQuery($query, $link = null, $options = 0,
         $cache_affected_rows = true
     ) {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         if ($GLOBALS['cfg']['DBG']['sql']) {
@@ -221,12 +204,9 @@ class PMA_DatabaseInterface
      */
     public function tryMultiQuery($multi_query = '', $link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         return $this->_extension->realMultiQuery($link, $multi_query);
@@ -374,7 +354,7 @@ class PMA_DatabaseInterface
     private function _getSqlForTablesFull($this_databases, $sql_where_table)
     {
         if (PMA_DRIZZLE) {
-            $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
+            $engine_info = PMA_Util::cacheGet('drizzle_engines');
             $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
             if (isset($engine_info['InnoDB'])
                 && $engine_info['InnoDB']['module_library'] == 'innobase'
@@ -497,8 +477,6 @@ class PMA_DatabaseInterface
         } else {
             $databases = $database;
         }
-
-        $tables = array();
 
         $sql_where_table = $this->_getTableCondition(
             $table, $tbl_is_group, $tble_type
@@ -832,7 +810,7 @@ class PMA_DatabaseInterface
      *
      * @param string   $database     database
      * @param boolean  $force_stats  retrieve stats also for MySQL < 5
-     * @param resource $link         mysql link
+     * @param object   $link         mysql link
      * @param string   $sort_by      column to order by
      * @param string   $sort_order   ASC or DESC
      * @param integer  $limit_offset starting offset for LIMIT
@@ -893,7 +871,7 @@ class PMA_DatabaseInterface
             $sql .= '
                    FROM data_dictionary.SCHEMAS s';
             if ($force_stats) {
-                $engine_info = PMA_Util::cacheGet('drizzle_engines', true);
+                $engine_info = PMA_Util::cacheGet('drizzle_engines');
                 $stats_join = "LEFT JOIN (SELECT 0 NUM_ROWS) AS stat ON false";
                 if (isset($engine_info['InnoDB'])
                     && $engine_info['InnoDB']['module_library'] == 'innobase'
@@ -1031,8 +1009,6 @@ class PMA_DatabaseInterface
     public function getColumnsFull($database = null, $table = null,
         $column = null, $link = null
     ) {
-        $columns = array();
-
         $sql_wheres = array();
         $array_keys = array();
 
@@ -1335,7 +1311,7 @@ class PMA_DatabaseInterface
     * @param string $table    name of the table whose indexes are to be retreived
     * @param string $where    additional conditions for WHERE
     *
-    * @return array   $indexes
+    * @return string SQL for getting indexes
     */
     public function getTableIndexesSql($database, $table, $where = null)
     {
@@ -1408,12 +1384,9 @@ class PMA_DatabaseInterface
     public function getVariable(
         $var, $type = self::GETVAR_SESSION, $link = null
     ) {
-        if ($link === null) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         switch ($type) {
@@ -1436,41 +1409,33 @@ class PMA_DatabaseInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      *
-     * @param mixed   $link           mysql link resource|object
-     * @param boolean $is_controluser whether link is for control user
+     * @param mixed $link mysql link resource|object
      *
      * @return void
      */
-    public function postConnect($link, $is_controluser = false)
+    public function postConnect($link)
     {
-        if ($is_controluser) {
-            /*
-             * FIXME: Not sure if this is right approach, but we can not
-             * define constants multiple time.
-             */
-            return;
-        }
         if (! defined('PMA_MYSQL_INT_VERSION')) {
-            if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION', true)) {
+            if (PMA_Util::cacheExists('PMA_MYSQL_INT_VERSION')) {
                 define(
                     'PMA_MYSQL_INT_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_INT_VERSION', true)
+                    PMA_Util::cacheGet('PMA_MYSQL_INT_VERSION')
                 );
                 define(
                     'PMA_MYSQL_MAJOR_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_MAJOR_VERSION', true)
+                    PMA_Util::cacheGet('PMA_MYSQL_MAJOR_VERSION')
                 );
                 define(
                     'PMA_MYSQL_STR_VERSION',
-                    PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION', true)
+                    PMA_Util::cacheGet('PMA_MYSQL_STR_VERSION')
                 );
                 define(
                     'PMA_MYSQL_VERSION_COMMENT',
-                    PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT', true)
+                    PMA_Util::cacheGet('PMA_MYSQL_VERSION_COMMENT')
                 );
                 define(
                     'PMA_DRIZZLE',
-                    PMA_Util::cacheGet('PMA_DRIZZLE', true)
+                    PMA_Util::cacheGet('PMA_DRIZZLE')
                 );
             } else {
                 $version = $this->fetchSingleRow(
@@ -1501,23 +1466,19 @@ class PMA_DatabaseInterface
                 }
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_INT_VERSION',
-                    PMA_MYSQL_INT_VERSION,
-                    true
+                    PMA_MYSQL_INT_VERSION
                 );
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_MAJOR_VERSION',
-                    PMA_MYSQL_MAJOR_VERSION,
-                    true
+                    PMA_MYSQL_MAJOR_VERSION
                 );
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_STR_VERSION',
-                    PMA_MYSQL_STR_VERSION,
-                    true
+                    PMA_MYSQL_STR_VERSION
                 );
                 PMA_Util::cacheSet(
                     'PMA_MYSQL_VERSION_COMMENT',
-                    PMA_MYSQL_VERSION_COMMENT,
-                    true
+                    PMA_MYSQL_VERSION_COMMENT
                 );
 
                 /* Detect Drizzle - it does not support charsets */
@@ -1534,8 +1495,7 @@ class PMA_DatabaseInterface
 
                 PMA_Util::cacheSet(
                     'PMA_DRIZZLE',
-                    PMA_DRIZZLE,
-                    true
+                    PMA_DRIZZLE
                 );
             }
         }
@@ -1581,7 +1541,7 @@ class PMA_DatabaseInterface
         }
 
         // Cache plugin list for Drizzle
-        if (PMA_DRIZZLE && !PMA_Util::cacheExists('drizzle_engines', true)) {
+        if (PMA_DRIZZLE && !PMA_Util::cacheExists('drizzle_engines')) {
             $sql = "SELECT p.plugin_name, m.module_library
                 FROM data_dictionary.plugins p
                     JOIN data_dictionary.modules m USING (module_name)
@@ -1589,7 +1549,7 @@ class PMA_DatabaseInterface
                     AND p.plugin_name NOT IN ('FunctionEngine', 'schema')
                     AND p.is_active = 'YES'";
             $engines = $this->fetchResult($sql, 'plugin_name', null, $link);
-            PMA_Util::cacheSet('drizzle_engines', $engines, true);
+            PMA_Util::cacheSet('drizzle_engines', $engines);
         }
     }
 
@@ -1605,27 +1565,28 @@ class PMA_DatabaseInterface
      * // $user_name = 'John Doe'
      * </code>
      *
-     * @param string|mysql_result $result     query or mysql result
-     * @param integer             $row_number row to fetch the value from,
-     *                                        starting at 0, with 0 being default
-     * @param integer|string      $field      field to fetch the value from,
-     *                                        starting at 0, with 0 being default
-     * @param resource            $link       mysql link
+     * @param string         $query      The query to execute
+     * @param integer        $row_number row to fetch the value from,
+     *                                   starting at 0, with 0 being default
+     * @param integer|string $field      field to fetch the value from,
+     *                                   starting at 0, with 0 being default
+     * @param object         $link       mysql link
      *
      * @return mixed value of first field in first row from result
      *               or false if not found
      */
-    public function fetchValue($result, $row_number = 0, $field = 0, $link = null)
+    public function fetchValue($query, $row_number = 0, $field = 0, $link = null)
     {
         $value = false;
 
-        if (is_string($result)) {
-            $result = $this->tryQuery(
-                $result,
-                $link,
-                self::QUERY_STORE,
-                false
-            );
+        $result = $this->tryQuery(
+            $query,
+            $link,
+            self::QUERY_STORE,
+            false
+        );
+        if ($result === false) {
+            return false;
         }
 
         // return false if result is empty or false
@@ -1666,27 +1627,27 @@ class PMA_DatabaseInterface
      * // $user = array('id' => 123, 'name' => 'John Doe')
      * </code>
      *
-     * @param string|mysql_result $result query or mysql result
-     * @param string              $type   NUM|ASSOC|BOTH
-     *                                    returned array should either numeric
-     *                                    associativ or booth
-     * @param resource            $link   mysql link
+     * @param string $query The query to execute
+     * @param string $type  NUM|ASSOC|BOTH returned array should either
+     *                      numeric associativ or both
+     * @param object $link  mysql link
      *
      * @return array|boolean first row from result
      *                       or false if result is empty
      */
-    public function fetchSingleRow($result, $type = 'ASSOC', $link = null)
+    public function fetchSingleRow($query, $type = 'ASSOC', $link = null)
     {
-        if (is_string($result)) {
-            $result = $this->tryQuery(
-                $result,
-                $link,
-                self::QUERY_STORE,
-                false
-            );
+        $result = $this->tryQuery(
+            $query,
+            $link,
+            self::QUERY_STORE,
+            false
+        );
+        if ($result === false) {
+            return false;
         }
 
-        // return null if result is empty or false
+        // return false if result is empty or false
         if (! $this->numRows($result)) {
             return false;
         }
@@ -1707,6 +1668,23 @@ class PMA_DatabaseInterface
         $row = $this->$fetch_function($result);
         $this->freeResult($result);
         return $row;
+    }
+
+    /**
+     * Returns row or element of a row
+     *
+     * @param array       $row   Row to process
+     * @param string|null $value Which column to return
+     *
+     * @return mixed
+     */
+    private function _fetchValue($row, $value)
+    {
+        if (is_null($value)) {
+            return $row;
+        } else {
+            return $row[$value];
+        }
     }
 
     /**
@@ -1751,27 +1729,25 @@ class PMA_DatabaseInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string|mysql_result $result  query or mysql result
-     * @param string|integer      $key     field-name or offset
-     *                                     used as key for array
-     * @param string|integer      $value   value-name or offset
-     *                                     used as value for array
-     * @param resource            $link    mysql link
-     * @param mixed               $options query options
+     * @param string         $query   query to execute
+     * @param string|integer $key     field-name or offset
+     *                                used as key for array
+     * @param string|integer $value   value-name or offset
+     *                                used as value for array
+     * @param object         $link    mysql link
+     * @param mixed          $options query options
      *
      * @return array resultrows or values indexed by $key
      */
-    public function fetchResult($result, $key = null, $value = null,
+    public function fetchResult($query, $key = null, $value = null,
         $link = null, $options = 0
     ) {
         $resultrows = array();
 
-        if (is_string($result)) {
-            $result = $this->tryQuery($result, $link, $options, false);
-        }
+        $result = $this->tryQuery($query, $link, $options, false);
 
         // return empty array if result is empty or false
-        if (! $result) {
+        if ($result === false) {
             return $resultrows;
         }
 
@@ -1788,35 +1764,9 @@ class PMA_DatabaseInterface
             $fetch_function = 'fetchRow';
         }
 
-        if (null === $key && null === $value) {
+        if (null === $key) {
             while ($row = $this->$fetch_function($result)) {
-                $resultrows[] = $row;
-            }
-        } elseif (null === $key) {
-            while ($row = $this->$fetch_function($result)) {
-                $resultrows[] = $row[$value];
-            }
-        } elseif (null === $value) {
-            if (is_array($key)) {
-                while ($row = $this->$fetch_function($result)) {
-                    $result_target =& $resultrows;
-                    foreach ($key as $key_index) {
-                        if (null === $key_index) {
-                            $result_target =& $result_target[];
-                            continue;
-                        }
-
-                        if (! isset($result_target[$row[$key_index]])) {
-                            $result_target[$row[$key_index]] = array();
-                        }
-                        $result_target =& $result_target[$row[$key_index]];
-                    }
-                    $result_target = $row;
-                }
-            } else {
-                while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $row;
-                }
+                $resultrows[] = $this->_fetchValue($row, $value);
             }
         } else {
             if (is_array($key)) {
@@ -1833,11 +1783,11 @@ class PMA_DatabaseInterface
                         }
                         $result_target =& $result_target[$row[$key_index]];
                     }
-                    $result_target = $row[$value];
+                    $result_target = $this->_fetchValue($row, $value);
                 }
             } else {
                 while ($row = $this->$fetch_function($result)) {
-                    $resultrows[$row[$key]] = $row[$value];
+                    $resultrows[$row[$key]] = $this->_fetchValue($row, $value);
                 }
             }
         }
@@ -1877,18 +1827,15 @@ class PMA_DatabaseInterface
     /**
      * returns warnings for last query
      *
-     * @param resource $link mysql link resource
+     * @param object $link mysql link resource
      *
      * @return array warnings
      */
     public function getWarnings($link = null)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return array();
-            }
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
         }
 
         return $this->fetchResult('SHOW WARNINGS', null, null, $link);
@@ -1897,9 +1844,9 @@ class PMA_DatabaseInterface
     /**
      * returns an array of PROCEDURE or FUNCTION names for a db
      *
-     * @param string   $db    db name
-     * @param string   $which PROCEDURE | FUNCTION
-     * @param resource $link  mysql link
+     * @param string $db    db name
+     * @param string $which PROCEDURE | FUNCTION
+     * @param object $link  mysql link
      *
      * @return array the procedure names or function names
      */
@@ -2075,8 +2022,8 @@ class PMA_DatabaseInterface
      */
     public function isSuperuser()
     {
-        if (PMA_Util::cacheExists('is_superuser', true)) {
-            return PMA_Util::cacheGet('is_superuser', true);
+        if (PMA_Util::cacheExists('is_superuser')) {
+            return PMA_Util::cacheGet('is_superuser');
         }
 
         // when connection failed we don't have a $userlink
@@ -2096,12 +2043,12 @@ class PMA_DatabaseInterface
                     self::QUERY_STORE
                 );
             }
-            PMA_Util::cacheSet('is_superuser', $result, true);
+            PMA_Util::cacheSet('is_superuser', $result);
         } else {
-            PMA_Util::cacheSet('is_superuser', false, true);
+            PMA_Util::cacheSet('is_superuser', false);
         }
 
-        return PMA_Util::cacheGet('is_superuser', true);
+        return PMA_Util::cacheGet('is_superuser');
     }
 
     /**
@@ -2138,9 +2085,39 @@ class PMA_DatabaseInterface
         $user, $password, $is_controluser = false, $server = null,
         $auxiliary_connection = false
     ) {
-        return $this->_extension->connect(
+        $result = $this->_extension->connect(
             $user, $password, $is_controluser, $server, $auxiliary_connection
         );
+
+        if ($result) {
+            if (! $auxiliary_connection && ! $is_controluser) {
+                $GLOBALS['dbi']->postConnect($result);
+            }
+            return $result;
+        }
+
+        if ($is_controluser) {
+            trigger_error(
+                __(
+                    'Connection for controluser as defined in your '
+                    . 'configuration failed.'
+                ),
+                E_USER_WARNING
+            );
+            return false;
+        }
+
+        // we could be calling $GLOBALS['dbi']->connect() to connect to another
+        // server, for example in the Synchronize feature, so do not
+        // go back to main login if it fails
+        if ($auxiliary_connection) {
+            return false;
+        }
+
+        PMA_logUser($user, 'mysql-denied');
+        $GLOBALS['auth_plugin']->authFails();
+
+        return $result;
     }
 
     /**
@@ -2153,6 +2130,10 @@ class PMA_DatabaseInterface
      */
     public function selectDb($dbname, $link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->selectDb($dbname, $link);
     }
 
@@ -2226,7 +2207,11 @@ class PMA_DatabaseInterface
      */
     public function moreResults($link = null)
     {
-        return $this->_extension->moreResults($link = null);
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
+        return $this->_extension->moreResults($link);
     }
 
     /**
@@ -2238,17 +2223,27 @@ class PMA_DatabaseInterface
      */
     public function nextResult($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->nextResult($link = null);
     }
 
     /**
      * Store the result returned from multi query
      *
+     * @param object $link the connection object
+     *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult()
+    public function storeResult($link = null)
     {
-        return $this->_extension->storeResult();
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
+        return $this->_extension->storeResult($link);
     }
 
     /**
@@ -2260,6 +2255,10 @@ class PMA_DatabaseInterface
      */
     public function getHostInfo($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getHostInfo($link);
     }
 
@@ -2272,6 +2271,10 @@ class PMA_DatabaseInterface
      */
     public function getProtoInfo($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getProtoInfo($link);
     }
 
@@ -2294,6 +2297,10 @@ class PMA_DatabaseInterface
      */
     public function getError($link = null)
     {
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
         return $this->_extension->getError($link);
     }
 
@@ -2319,7 +2326,19 @@ class PMA_DatabaseInterface
      */
     public function insertId($link = null)
     {
-        return $this->_extension->insertId($link);
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
+        // If the primary key is BIGINT we get an incorrect result
+        // (sometimes negative, sometimes positive)
+        // and in the present function we don't know if the PK is BIGINT
+        // so better play safe and use LAST_INSERT_ID()
+        //
+        // When no controluser is defined, using mysqli_insert_id($link)
+        // does not always return the last insert id due to a mixup with
+        // the tracking mechanism, but this works:
+        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
     }
 
     /**
@@ -2328,11 +2347,20 @@ class PMA_DatabaseInterface
      * @param object $link           the connection object
      * @param bool   $get_from_cache whether to retrieve from cache
      *
-     * @return string|int
+     * @return int
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
-        return $this->_extension->affectedRows($link, $get_from_cache);
+        $link = $this->getLink($link);
+        if ($link === false) {
+            return false;
+        }
+
+        if ($get_from_cache) {
+            return $GLOBALS['cached_affected_rows'];
+        } else {
+            return $this->_extension->affectedRows($link);
+        }
     }
 
     /**
@@ -2396,6 +2424,67 @@ class PMA_DatabaseInterface
     public function fieldFlags($result, $i)
     {
         return $this->_extension->fieldFlags($result, $i);
+    }
+
+    /**
+     * Gets server connection port
+     *
+     * @param array|null $server host/port/socket/persistent
+     *
+     * @return false|integer
+     */
+    public function getServerPort($server = null)
+    {
+        if (is_null($server)) {
+            $server = &$GLOBALS['cfg']['Server'];
+        }
+
+        if (empty($server['port'])) {
+            return false;
+        } else {
+            return intval($server['port']);
+        }
+    }
+
+    /**
+     * Gets server connection socket
+     *
+     * @param array|null $server host/port/socket/persistent
+     *
+     * @return null|string
+     */
+    public function getServerSocket($server = null)
+    {
+        if (is_null($server)) {
+            $server = &$GLOBALS['cfg']['Server'];
+        }
+
+        if (empty($server['socket'])) {
+            return null;
+        } else {
+            return $server['socket'];
+        }
+    }
+
+    /**
+     * Gets correct link object.
+     *
+     * @param
+     * @param mixed $link optional database link to use
+     *
+     * @return object
+     */
+    public function getLink($link = null)
+    {
+        if ( ! is_null($link) && $link !== false) {
+            return $link;
+        }
+
+        if (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
+            return $GLOBALS['userlink'];
+        } else {
+            return false;
+        }
     }
 }
 ?>

@@ -231,10 +231,10 @@ function check_time_out(time_limit)
         'token' : PMA_commonParams.get('token'),
         'check_time_out' : true
     };
-     clearTimeout(time_out);
-     time_out = setTimeout(function(){
-         $.get(href, params, function (data) {
-            if (data['message'] === 'timeout') {
+    clearTimeout(time_out);
+    time_out = setTimeout(function(){
+        $.get(href, params, function (data) {
+            if (data.message === 'timeout') {
                 PMA_ajaxShowMessage(
                     '<div class="error">' +
                     PMA_messages.strTimeOutError +
@@ -243,7 +243,7 @@ function check_time_out(time_limit)
                 );
             }
         });
-     }, time_limit * 1000);
+    }, time_limit * 1000);
 
 }
 AJAX.registerOnload('export.js', function () {

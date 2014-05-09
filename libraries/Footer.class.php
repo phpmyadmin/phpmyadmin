@@ -141,17 +141,21 @@ class PMA_Footer
         ) {
             $params['viewing_mode'] = $_REQUEST['viewing_mode'];
         }
+        /*
+         * @todo    coming from server_privileges.php, here $db is not set,
+         *          add the following condition below when that is fixed
+         *          && $_REQUEST['checkprivsdb'] == $db
+         */
         if (isset($_REQUEST['checkprivsdb'])
-            //TODO: coming from server_privileges.php, here $db is not set,
-            //uncomment below line when that is fixed
-            //&& $_REQUEST['checkprivsdb'] == $db
         ) {
             $params['checkprivsdb'] = $_REQUEST['checkprivsdb'];
         }
+        /*
+         * @todo    coming from server_privileges.php, here $table is not set,
+         *          add the following condition below when that is fixed
+         *          && $_REQUEST['checkprivstable'] == $table
+         */
         if (isset($_REQUEST['checkprivstable'])
-            //TODO: coming from server_privileges.php, here $table is not set,
-            //uncomment below line when that is fixed
-            //&& $_REQUEST['checkprivstable'] == $table
         ) {
             $params['checkprivstable'] = $_REQUEST['checkprivstable'];
         }

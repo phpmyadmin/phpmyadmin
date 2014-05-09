@@ -1246,7 +1246,7 @@ function PMA_storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
         $bookmarks = PMA_Bookmark_getList($db);
         foreach ($bookmarks as $key => $val) {
             if ($val == $bkm_label) {
-                PMA_Bookmark_delete($db, $key);
+                PMA_Bookmark_delete($key);
             }
         }
     }
@@ -1931,25 +1931,25 @@ function PMA_getMessageIfMissingColumnIndex($table, $db, $editable, $disp_mode)
 /**
  * Function to get html to display problems in indexes
  *
- * @param string $query_type query type
- * @param bool   $selected   whether check table, optimize table, analyze
- *                            table or repair table has been selected with
- *                            respect to the selected tables from the
- *                            database structure page.
- * @param string $db         current database
+ * @param string $query_type     query type
+ * @param array  $selectedTables array of table names selected from the
+ *                               database structure page, for an action
+ *                               like check table, optimize table,
+ *                               analyze table or repair table
+ * @param string $db             current database
  *
  * @return string
  */
-function PMA_getHtmlForIndexesProblems($query_type, $selected, $db)
+function PMA_getHtmlForIndexesProblems($query_type, $selectedTables, $db)
 {
     // BEGIN INDEX CHECK See if indexes should be checked.
     if (isset($query_type)
         && $query_type == 'check_tbl'
-        && isset($selected)
-        && is_array($selected)
+        && isset($selectedTables)
+        && is_array($selectedTables)
     ) {
         $indexes_problems_html = '';
-        foreach ($selected as $tbl_name) {
+        foreach ($selectedTables as $tbl_name) {
             $check = PMA_Index::findDuplicates($tbl_name, $db);
             if (! empty($check)) {
                 $indexes_problems_html .= sprintf(
@@ -2004,10 +2004,10 @@ function PMA_getHtmlForPrintButton()
  * @param string $disp_message         display message
  * @param array  $profiling_results    profiling results
  * @param string $query_type           query type
- * @param bool   $selected             whether check table, optimize table, analyze
- *                                     table or repair table has been selected with
- *                                     respect to the selected tables from the
- *                                     database structure page.
+ * @param array  $selectedTables       array of table names selected from the
+ *                                     database structure page, for an action
+ *                                     like check table, optimize table,
+ *                                     analyze table or repair table
  * @param string $sql_query            sql query
  * @param string $complete_query       complete sql query
  *
@@ -2017,7 +2017,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
     $analyzed_sql_results, $db, $table, $disp_mode, $message, $sql_data,
     $displayResultsObject, $goto, $pmaThemeImage, $sql_limit_to_append,
     $unlim_num_rows, $num_rows,  $full_sql_query, $disp_query,
-    $disp_message, $profiling_results, $query_type, $selected, $sql_query,
+    $disp_message, $profiling_results, $query_type, $selectedTables, $sql_query,
     $complete_query
 ) {
     // If we are retrieving the full value of a truncated field or the original
@@ -2129,7 +2129,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
 
     $indexes_problems_html = PMA_getHtmlForIndexesProblems(
         isset($query_type) ? $query_type : null,
-        isset($selected) ? $selected : null, $db
+        isset($selectedTables) ? $selectedTables : null, $db
     );
 
     if (isset($GLOBALS['cfg']['Bookmark'])) {
@@ -2176,7 +2176,7 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
  * @param array  $extra_data           extra data
  * @param array  $result               executed query results
  * @param bool   $justBrowsing         whether just browsing or not
- * @param string $disp_mode            disply mode
+ * @param string $disp_mode            display mode
  * @param object $message              message
  * @param array  $sql_data             sql data
  * @param string $goto                 goto page url
@@ -2187,10 +2187,10 @@ function PMA_sendQueryResponseForResultsReturned($result, $justBrowsing,
  * @param string $disp_message         display message
  * @param array  $profiling_results    profiling results
  * @param string $query_type           query type
- * @param bool   $selected             whether check table, optimize table, analyze
- *                                     table or repair table has been selected with
- *                                     respect to the selected tables from the
- *                                     database structure page.
+ * @param array  $selectedTables       array of table names selected from the
+ *                                     database structure page, for an action
+ *                                     like check table, optimize table,
+ *                                     analyze table or repair table
  * @param string $sql_query            sql query
  * @param string $complete_query       complete query
  *
@@ -2200,8 +2200,8 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
     $db, $table, $message_to_show, $analyzed_sql_results, $displayResultsObject,
     $extra_data, $result, $justBrowsing, $disp_mode,$message, $sql_data,
     $goto, $pmaThemeImage, $sql_limit_to_append, $full_sql_query,
-    $disp_query, $disp_message, $profiling_results, $query_type, $selected,
-    $sql_query, $complete_query
+    $disp_query, $disp_message, $profiling_results, $query_type,
+    $selectedTables, $sql_query, $complete_query
 ) {
     // No rows returned -> move back to the calling page
     if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
@@ -2223,7 +2223,7 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
             isset($disp_query) ? $disp_query : null,
             isset($disp_message) ? $disp_message : null, $profiling_results,
             isset($query_type) ? $query_type : null,
-            isset($selected) ? $selected : null, $sql_query,
+            isset($selectedTables) ? $selectedTables : null, $sql_query,
             isset($complete_query) ? $complete_query : null
         );
     } // end rows returned
@@ -2250,10 +2250,10 @@ function PMA_sendQueryResponse($num_rows, $unlim_num_rows, $is_affected,
  * @param string $disp_message           display message
  * @param string $query_type             query type
  * @param string $sql_query              sql query
- * @param bool   $selected               whether check table, optimize table,
- *                                       analyze table or repair table has been
- *                                       selected with respect to the selected
- *                                       tables from the database structure page
+ * @param array  $selectedTables         array of table names selected from the
+ *                                       database structure page, for an action
+ *                                       like check table, optimize table,
+ *                                       analyze table or repair table
  * @param string $complete_query         complete query
  *
  * @return void
@@ -2262,7 +2262,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
     $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
     $extra_data, $is_affected, $message_to_show, $disp_mode, $message,
     $sql_data, $goto, $pmaThemeImage, $disp_query, $disp_message,
-    $query_type, $sql_query, $selected, $complete_query
+    $query_type, $sql_query, $selectedTables, $complete_query
 ) {
     // Include PMA_Index class for use in PMA_DisplayResults class
     include_once './libraries/Index.class.php';
@@ -2338,7 +2338,7 @@ function PMA_executeQueryAndSendQueryResponse($analyzed_sql_results,
         isset($disp_message) ? $disp_message : null,
         $profiling_results,
         isset($query_type) ? $query_type : null,
-        isset($selected) ? $selected : null,
+        isset($selectedTables) ? $selectedTables : null,
         $sql_query,
         isset($complete_query) ? $complete_query : null
     );

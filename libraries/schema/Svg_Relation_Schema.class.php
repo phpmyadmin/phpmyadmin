@@ -667,10 +667,10 @@ class PMA_Svg_Relation_Schema extends PMA_Export_Relation_Schema
         global $svg,$db;
 
         $this->setPageNumber($_POST['pdf_page_number']);
-        $this->setShowColor(isset($_POST['show_color']));
-        $this->setShowKeys(isset($_POST['show_keys']));
-        $this->setTableDimension(isset($_POST['show_table_dimension']));
-        $this->setAllTablesSameWidth(isset($_POST['all_tables_same_width']));
+        $this->setShowColor($_POST['show_color']);
+        $this->setShowKeys($_POST['show_keys']);
+        $this->setTableDimension($_POST['show_table_dimension']);
+        $this->setAllTablesSameWidth($_POST['all_tables_same_width']);
         $this->setExportType($_POST['export_type']);
 
         $svg = new PMA_SVG();

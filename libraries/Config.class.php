@@ -114,7 +114,7 @@ class PMA_Config
      */
     function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.2.1-dev');
+        $this->set('PMA_VERSION', '4.3.0-dev');
         /**
          * @deprecated
          */
@@ -563,7 +563,6 @@ class PMA_Config
                     $end = $fanout[$firstbyte + 1];
 
                     // stupid linear search for our sha
-                    $position = $start;
                     $found = false;
                     $offset = 8 + (256 * 4);
                     for ($position = $start; $position < $end; $position++) {
@@ -631,7 +630,6 @@ class PMA_Config
         }
 
         // check if commit exists in Github
-        $is_remote_commit = false;
         if ($commit !== false
             && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
         ) {
@@ -736,7 +734,7 @@ class PMA_Config
     /**
      * Checks if given URL is 200 or 404, optionally returns data
      *
-     * @param mixed   $link     curl link
+     * @param string  $link     the URL to check
      * @param boolean $get_body whether to retrieve body of document
      *
      * @return string|boolean test result or data
@@ -910,7 +908,7 @@ class PMA_Config
      * Loads user preferences and merges them with current config
      * must be called after control connection has been estabilished
      *
-     * @return boolean
+     * @return void
      */
     function loadUserPreferences()
     {
@@ -1274,7 +1272,7 @@ class PMA_Config
      * set properly and, depending on browsers, inserting or updating a
      * record might fail
      *
-     * @return bool
+     * @return void
      */
     function checkPmaAbsoluteUri()
     {
@@ -1312,7 +1310,7 @@ class PMA_Config
                     $url['host'] = PMA_getenv('SERVER_NAME');
                 } else {
                     $this->error_pma_uri = true;
-                    return false;
+                    return;
                 }
 
                 // If we didn't set port yet...
@@ -1545,13 +1543,8 @@ class PMA_Config
         }
 
         $url = parse_url($this->get('PmaAbsoluteUri'));
-        $is_https = null;
 
-        if (isset($url['scheme']) && $url['scheme'] == 'https') {
-            $is_https = true;
-        } else {
-            $is_https = false;
-        }
+        $is_https = (isset($url['scheme']) && $url['scheme'] == 'https');
 
         $this->set('is_https', $is_https);
 
@@ -1570,8 +1563,6 @@ class PMA_Config
      */
     function detectHttps()
     {
-        $is_https = false;
-
         $url = array();
 
         // At first we try to parse REQUEST_URI, it might contain full URL,

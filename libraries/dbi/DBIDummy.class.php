@@ -524,12 +524,12 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * selects given database
      *
-     * @param string   $dbname name of db to select
-     * @param resource $link   mysql link resource
+     * @param string $dbname name of db to select
+     * @param object $link   mysql link resource
      *
      * @return bool
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb($dbname, $link)
     {
         $GLOBALS['dummy_db'] = $dbname;
         return true;
@@ -538,9 +538,9 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * runs a query and returns the result
      *
-     * @param string   $query   query to run
-     * @param resource $link    mysql link resource
-     * @param int      $options query options
+     * @param string $query   query to run
+     * @param object $link    mysql link resource
+     * @param int    $options query options
      *
      * @return mixed
      */
@@ -579,7 +579,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns result data from $result
      *
-     * @param resource $result result  MySQL result
+     * @param object $result result  MySQL result
      *
      * @return array
      */
@@ -597,7 +597,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns array of rows with associative and numeric keys from $result
      *
-     * @param resource $result result  MySQL result
+     * @param object $result result  MySQL result
      *
      * @return array
      */
@@ -619,7 +619,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns array of rows with associative keys from $result
      *
-     * @param resource $result MySQL result
+     * @param object $result MySQL result
      *
      * @return array
      */
@@ -642,7 +642,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns array of rows with numeric keys from $result
      *
-     * @param resource $result MySQL result
+     * @param object $result MySQL result
      *
      * @return array
      */
@@ -655,8 +655,8 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param resource $result database result
-     * @param integer  $offset offset to seek
+     * @param object  $result database result
+     * @param integer $offset offset to seek
      *
      * @return bool true on success, false on failure
      */
@@ -672,7 +672,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Frees memory associated with the result
      *
-     * @param resource $result database result
+     * @param object $result database result
      *
      * @return void
      */
@@ -688,7 +688,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return bool false
      */
-    public function moreResults($link = null)
+    public function moreResults($link)
     {
         return false;
     }
@@ -700,7 +700,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return boolean false
      */
-    public function nextResult($link = null)
+    public function nextResult($link)
     {
         return false;
     }
@@ -708,9 +708,11 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Store the result returned from multi query
      *
+     * @param object $link the connection object
+     *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult()
+    public function storeResult($link)
     {
         return false;
     }
@@ -722,7 +724,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null)
+    public function getHostInfo($link)
     {
         return '';
     }
@@ -734,7 +736,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return integer version of the MySQL protocol used
      */
-    public function getProtoInfo($link = null)
+    public function getProtoInfo($link)
     {
         return -1;
     }
@@ -756,7 +758,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null)
+    public function getError($link)
     {
         return false;
     }
@@ -764,7 +766,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns the number of rows returned by last query
      *
-     * @param resource $result MySQL result
+     * @param object $result MySQL result
      *
      * @return string|int
      */
@@ -778,23 +780,10 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     }
 
     /**
-     * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
-     *
-     * @param object $link the connection object
-     *
-     * @return string|int
-     */
-    public function insertId($link = null)
-    {
-        return -1;
-    }
-
-    /**
      * returns the number of rows affected by last query
      *
-     * @param resource $link           the mysql object
-     * @param bool     $get_from_cache whether to retrieve from cache
+     * @param object $link           the mysql object
+     * @param bool   $get_from_cache whether to retrieve from cache
      *
      * @return string|int
      */
@@ -818,7 +807,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * return number of fields in given $result
      *
-     * @param resource $result MySQL result
+     * @param object $result MySQL result
      *
      * @return int  field count
      */

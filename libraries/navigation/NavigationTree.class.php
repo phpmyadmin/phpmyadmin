@@ -548,11 +548,9 @@ class PMA_NavigationTree
             return;
         }
 
-        $separators = array();
-        if (is_array($node->separator)) {
-            $separators = $node->separator;
-        } else if (strlen($node->separator)) {
-            $separators[] = $node->separator;
+        $separators = $node->separator;
+        if (! is_array($separators)) {
+            $separators = array($separators);
         }
         $prefixes = array();
         if ($node->separator_depth > 0) {
@@ -799,14 +797,13 @@ class PMA_NavigationTree
     /**
      * Renders a single node or a branch of the tree
      *
-     * @param Node     $node      The node to render
-     * @param int|bool $recursive Bool: Whether to render a single node or a branch
-     *                            Int: How many levels deep to render
-     * @param string   $class     An additional class for the list item
+     * @param Node   $node      The node to render
+     * @param bool   $recursive Bool: Whether to render a single node or a branch
+     * @param string $class     An additional class for the list item
      *
      * @return string HTML code for the tree node or branch
      */
-    private function _renderNode($node, $recursive = -1, $class = '')
+    private function _renderNode($node, $recursive, $class = '')
     {
         $retval = '';
         $paths  = $node->getPaths();
@@ -820,11 +817,7 @@ class PMA_NavigationTree
             ) {
                 return '';
             }
-            $liClass = '';
-            if ($class || $node->classes) {
-                $liClass = " class='" . trim($class . ' ' . $node->classes) . "'";
-            }
-            $retval .= "<li$liClass>";
+            $retval .= '<li class="' . trim($class . ' ' . $node->classes) . '">';
             $sterile = array(
                 'events',
                 'triggers',
@@ -862,7 +855,6 @@ class PMA_NavigationTree
                     $retval .= "<b></b>";
                 }
                 $icon  = PMA_Util::getImage('b_plus.png', __('Expand/Collapse'));
-                $match = 1;
                 foreach ($this->_aPath as $path) {
                     $match = 1;
                     foreach ($paths['aPath_clean'] as $key => $part) {
@@ -1005,20 +997,16 @@ class PMA_NavigationTree
             $children = $node->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             $buffer = '';
+            $extra_class = '';
             for ($i=0, $nbChildren = count($children); $i < $nbChildren; $i++) {
-                if ($i + 1 != $nbChildren) {
-                    $buffer .= $this->_renderNode(
-                        $children[$i],
-                        true,
-                        $children[$i]->classes
-                    );
-                } else {
-                    $buffer .= $this->_renderNode(
-                        $children[$i],
-                        true,
-                        $children[$i]->classes . ' last'
-                    );
+                if ($i + 1 == $nbChildren) {
+                    $extra_class = ' last';
                 }
+                $buffer .= $this->_renderNode(
+                    $children[$i],
+                    true,
+                    $children[$i]->classes . $extra_class
+                );
             }
             if (! empty($buffer)) {
                 if ($wrap) {

@@ -29,7 +29,9 @@ textarea {
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-<?php } ?>
+    <?php
+}
+?>
     padding:            0;
     margin: 0;
     margin-<?php echo $left; ?>: 240px;
@@ -46,10 +48,12 @@ body#loginform {
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
-textarea, tt, pre, code {
+    textarea, tt, pre, code {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+    }
+    <?php
 }
-<?php } ?>
+?>
 h1 {
     font-size:          140%;
     font-weight:        bold;
@@ -299,7 +303,9 @@ table tr.marked {
     background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
-<?php } ?>
+<?php
+}
+?>
 
 <?php if ($GLOBALS['cfg']['BrowsePointerEnable']) { ?>
 /* hovered items */
@@ -317,7 +323,9 @@ table tr.hover th {
     background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
-<?php } ?>
+<?php
+}
+?>
 
 /**
  * marks table rows/cells if the db field is in a where condition
@@ -353,7 +361,9 @@ table [class=value] {
 .value {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
 }
-<?php } ?>
+<?php
+}
+?>
 .attention {
     color:              red;
     font-weight:        bold;
@@ -436,10 +446,13 @@ div.error {
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 10px 50%;
     padding:            0.1em 0.1em 0.1em 36px;
-        <?php } else { ?>
+        <?php
+} else { ?>
     background-position: 99% 50%;
     padding:            0.1em 46px 0.1em 0.1em;
-        <?php } ?>
+        <?php
+}
+?>
 }
 
 .success {
@@ -494,10 +507,13 @@ fieldset.confirmation legend {
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
     padding:            0.2em 0.2em 0.2em 25px;
-        <?php } else { ?>
+        <?php
+} else { ?>
     background-position: 97% 50%;
     padding:            0.2em 25px 0.2em 0.2em;
-        <?php } ?>
+        <?php
+}
+?>
 }
 /* end messageboxes */
 

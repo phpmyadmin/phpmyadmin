@@ -179,7 +179,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      * test for Area
      *
      * @param array $ring array of points forming the ring
-     * @param fload $area area of the ring
+     * @param float $area area of the ring
      *
      * @dataProvider providerForTestArea
      * @return void

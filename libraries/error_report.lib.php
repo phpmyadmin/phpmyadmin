@@ -30,17 +30,34 @@ if (is_readable('js/line_counts.php')) {
 define('SUBMISSION_URL', "http://reports.phpmyadmin.net/incidents/create");
 
 /**
+ * returns the pretty printed error report data collected from the
+ * current configuration or from the request parameters sent by the
+ * error reporting js code.
+ *
+ * @return String the report
+ */
+function PMA_getPrettyReportData()
+{
+    $report = PMA_getReportData();
+
+    /* JSON_PRETTY_PRINT available since PHP 5.4 */
+    if (defined('JSON_PRETTY_PRINT')) {
+        return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    }
+
+    return PMA_prettyPrint($report);
+}
+
+/**
  * returns the error report data collected from the current configuration or
  * from the request parameters sent by the error reporting js code.
  *
- * @param boolean $pretty_print whether to prettify the report
- *
- * @return Array/String the report
+ * @return Array the report
  */
-function PMA_getReportData($pretty_print = true)
+function PMA_getReportData()
 {
     if (empty($_REQUEST['exception'])) {
-        return '';
+        return array();
     }
     $exception = $_REQUEST['exception'];
     $exception["stack"] = PMA_translateStacktrace($exception["stack"]);
@@ -68,16 +85,7 @@ function PMA_getReportData($pretty_print = true)
         $report['steps'] = $_REQUEST['description'];
     }
 
-    if (!$pretty_print) {
-        return $report;
-    }
-
-    /* JSON_PRETTY_PRINT available since PHP 5.4 */
-    if (defined('JSON_PRETTY_PRINT')) {
-        return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-    }
-
-    return PMA_prettyPrint($report);
+    return $report;
 }
 
 /**
@@ -278,7 +286,7 @@ function PMA_getErrorReportForm()
             . __('You may examine the data in the error report:')
             . '</p></label></div>'
             . '<pre class="report-data">'
-            . PMA_getReportData()
+            . PMA_getPrettyReportData()
             . '</pre>';
 
     $html .= '<div class="label"><label><p>'
@@ -297,7 +305,7 @@ function PMA_getErrorReportForm()
 
     $html .= PMA_URL_getHiddenInputs();
 
-    $reportData = PMA_getReportData(false);
+    $reportData = PMA_getReportData();
     if (! empty($reportData)) {
         $html .= PMA_getHiddenFields($reportData);
     }

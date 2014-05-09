@@ -159,16 +159,12 @@ class PMA_File
     /**
      * Gets file content
      *
-     * @param boolean $as_binary whether to return content as binary
-     * @param integer $offset    starting offset
-     * @param integer $length    length
-     *
      * @return mixed   the binary file content as a string,
      *                 or false if no content
      *
      * @access  public
      */
-    public function getContent($as_binary = true, $offset = 0, $length = null)
+    public function getContent()
     {
         if (null === $this->_content) {
             if ($this->isUploaded() && ! $this->checkUploadedFile()) {
@@ -186,17 +182,7 @@ class PMA_File
             }
         }
 
-        if (! empty($this->_content) && $as_binary) {
-            return '0x' . bin2hex($this->_content);
-        }
-
-        if (null !== $length) {
-            return substr($this->_content, $offset, $length);
-        } elseif ($offset > 0) {
-            return substr($this->_content, $offset);
-        }
-
-        return $this->_content;
+        return '0x' . bin2hex($this->_content);
     }
 
     /**
@@ -272,7 +258,6 @@ class PMA_File
         // are given as comment
         case 0: //UPLOAD_ERR_OK:
             return $this->setUploadedFile($file['tmp_name']);
-            break;
         case 4: //UPLOAD_ERR_NO_FILE:
             break;
         case 1: //UPLOAD_ERR_INI_SIZE:
@@ -633,6 +618,7 @@ class PMA_File
                     $this->_error_message = PMA_Message::rawError($result['error']);
                     return false;
                 } else {
+                    /* TODO: This is not used anywhere */
                     $this->content_uncompressed = $result['data'];
                 }
                 unset($result);
@@ -647,7 +633,6 @@ class PMA_File
         default:
             $this->errorUnsupported();
             return false;
-            break;
         }
 
         return true;

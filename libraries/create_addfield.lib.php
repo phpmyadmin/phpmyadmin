@@ -201,7 +201,6 @@ function PMA_getStatementPrefix($is_create_tbl = true)
  */
 function PMA_getColumnCreationStatements($is_create_tbl = true)
 {
-    $definitions = array();
     $sql_statement = "";
     list($field_cnt, $field_primary, $field_index,
             $field_unique, $field_fulltext

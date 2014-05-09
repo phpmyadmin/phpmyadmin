@@ -776,8 +776,8 @@ function Canvas_click(id)
         for (key in contr[K]) {
             for (key2 in contr[K][key]) {
                 for (key3 in contr[K][key][key2]) {
-                    if (!document.getElementById("check_vis_" + key2).checked
-                        || !document.getElementById("check_vis_" + contr[K][key][key2][key3][0]).checked) {
+                    if (! document.getElementById("check_vis_" + key2).checked ||
+                        ! document.getElementById("check_vis_" + contr[K][key][key2][key3][0]).checked) {
                         continue; // if hide
                     }
                     var x1_left  = document.getElementById(key2).offsetLeft + 1;//document.getElementById(key2+"."+key3).offsetLeft;
