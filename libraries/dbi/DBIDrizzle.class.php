@@ -32,7 +32,6 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
  * Names of field flags.
  */
 $pma_drizzle_flag_names = array(
-    DRIZZLE_COLUMN_FLAGS_UNIQUE_KEY => 'unique',
     DRIZZLE_COLUMN_FLAGS_NUM => 'num',
     DRIZZLE_COLUMN_FLAGS_PART_KEY => 'part_key',
     DRIZZLE_COLUMN_FLAGS_SET => 'set',

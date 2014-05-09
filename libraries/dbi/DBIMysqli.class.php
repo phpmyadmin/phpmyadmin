@@ -49,7 +49,6 @@ if (! defined('MYSQLI_TYPE_VARCHAR')) {
  * Names of field flags.
  */
 $pma_mysqli_flag_names = array(
-    MYSQLI_UNIQUE_KEY_FLAG => 'unique',
     MYSQLI_NUM_FLAG => 'num',
     MYSQLI_PART_KEY_FLAG => 'part_key',
     MYSQLI_SET_FLAG => 'set',
