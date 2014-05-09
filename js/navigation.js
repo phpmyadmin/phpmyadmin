@@ -386,7 +386,7 @@ function collapseTreeNode($expandElem) {
  * @returns void
  */
 function loadChildNodes($expandElem, callback) {
-    if(!$expandElem.hasClass('expander'))
+    if (!$expandElem.hasClass('expander'))
         return;
     var $destination = $expandElem.closest('li');
 
