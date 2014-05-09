@@ -48,7 +48,7 @@ if (! defined('MYSQLI_TYPE_VARCHAR')) {
 /**
  * Names of field flags.
  */
-$pma_flag_names = array(
+$pma_mysqli_flag_names = array(
     MYSQLI_UNIQUE_KEY_FLAG => 'unique',
     MYSQLI_NUM_FLAG => 'num',
     MYSQLI_PART_KEY_FLAG => 'part_key',
@@ -595,7 +595,7 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         $charsetnr = $f->charsetnr;
         $f = $f->flags;
         $flags = array();
-        foreach ($GLOBALS['pma_flag_names'] as $flag => $name) {
+        foreach ($GLOBALS['pma_mysqli_flag_names'] as $flag => $name) {
             if ($f & $flag) {
                 $flags[] = $name;
             }
