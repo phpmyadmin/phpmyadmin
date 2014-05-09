@@ -133,12 +133,12 @@ class PMA_AuthenticationSignon_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            'root',
+            'user',
             $GLOBALS['PHP_AUTH_USER']
         );
 
         $this->assertEquals(
-            '',
+            'password',
             $GLOBALS['PHP_AUTH_PW']
         );
 
