@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.2.0-beta1\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2014-04-24 13:06-0400\n"
-"PO-Revision-Date: 2014-04-28 14:05+0200\n"
+"PO-Revision-Date: 2014-05-09 13:53+0200\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://l10n.cihar.com/projects/phpmyadmin/4-2/da/>\n"
 "Language: da\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.9\n"
 
 #: changelog.php:36 license.php:28
 #, php-format
@@ -12440,7 +12440,6 @@ msgid "Timeline"
 msgstr "Tidslinje"
 
 #: libraries/tbl_chart.lib.php:64
-#, fuzzy
 msgctxt "Chart type"
 msgid "Scatter"
 msgstr "Spredning"
