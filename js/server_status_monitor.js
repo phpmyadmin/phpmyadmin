@@ -1066,7 +1066,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     smooth: true
                 },
                 showLine: true,
-                lineWidth: 2
+                lineWidth: 2,
+                markerOptions: {
+                    size: 6
+                }
             },
             highlighter: {
                 show: true
