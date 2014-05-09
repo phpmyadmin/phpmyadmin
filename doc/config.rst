@@ -345,26 +345,12 @@ Server connection settings
 
     * 'config' authentication (``$auth_type = 'config'``) is the plain old
       way: username and password are stored in :file:`config.inc.php`.
-    * 'cookie' authentication mode (``$auth_type = 'cookie'``) as
-      introduced in 2.2.3 allows you to log in as any valid MySQL user with
-      the help of cookies. Username and password are stored in cookies
-      during the session and password is deleted when it ends. This can also
-      allow you to log in in arbitrary server if :config:option:`$cfg['AllowArbitraryServer']` enabled.
-    * 'http' authentication (was
-      called 'advanced' in previous versions and can be written also as
-      'http') (``$auth_type = 'http';'``) as introduced in 1.3.0 allows you to log in as any
+    * 'cookie' authentication mode (``$auth_type = 'cookie'``) allows you to 
+      log in as any valid MySQL user with the help of cookies. 
+    * 'http' authentication allows you to log in as any
       valid MySQL user via HTTP-Auth.
-    * 'signon' authentication mode (``$auth_type = 'signon'``) as
-      introduced in 2.10.0 allows you to log in from prepared PHP session
-      data or using supplied PHP script. This is useful for implementing
-      single signon from another application. Sample way how to seed session
-      is in signon example: :file:`examples/signon.php`. There is also
-      alternative example using OpenID - :file:`examples/openid.php` and example
-      for scripts based solution - :file:`examples/signon-script.php`. You need
-      to configure :config:option:`$cfg['Servers'][$i]['SignonSession']` or
-      :config:option:`$cfg['Servers'][$i]['SignonScript']` and
-      :config:option:`$cfg['Servers'][$i]['SignonURL']` to use this authentication
-      method.
+    * 'signon' authentication mode (``$auth_type = 'signon'``) allows you to
+      log in from prepared PHP session data or using supplied PHP script.
 
     .. seealso:: :ref:`authentication_modes`
 

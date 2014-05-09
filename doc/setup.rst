@@ -360,10 +360,8 @@ HTTP authentication mode
 Cookie authentication mode
 --------------------------
 
-* You can use this method as a replacement for the :term:`HTTP` authentication
-  (for example, if you're running :term:`IIS`).
-* Obviously, the user must enable cookies in the browser, but this is
-  now a requirement for all authentication modes.
+* Username and password are stored in cookies during the session and password
+  is deleted when it ends. 
 * With this mode, the user can truly log out of phpMyAdmin and log
   back in with the same username.
 * If you want to allow users to enter any hostname to connect (rather than only
@@ -378,9 +376,35 @@ Signon authentication mode
 --------------------------
 
 * This mode is a convenient way of using credentials from another
-  application to authenticate to phpMyAdmin.
+  application to authenticate to phpMyAdmin to implement signle signon
+  solution.
 * The other application has to store login information into session
-  data.
+  data (see :config:option:`$cfg['Servers'][$i]['SignonSession']`) or you 
+  need to implement script to return the credentials (see
+  :config:option:`$cfg['Servers'][$i]['SignonScript']`).
+* When no credentials are available, the user is being redirected to 
+  :config:option:`$cfg['Servers'][$i]['SignonURL']`, where you should handle 
+  the login process.
+
+The very basic example of saving credentials in a session is available as
+:file:`examples/signon.php`:
+
+.. literalinclude:: ../examples/signon.php
+    :language: php
+
+Alternatively you can also use this way to integrate with OpenID as shown
+in :file:`examples/openid.php`:
+
+.. literalinclude:: ../examples/openid.php
+    :language: php
+
+If you intend to pass the credentials using some other means than, you have to 
+implement wrapper in PHP to get that data and set it to 
+:config:option:`$cfg['Servers'][$i]['SignonScript']`. There is very minimal example
+in :file:`examples/signon-script.php`:
+
+.. literalinclude:: ../examples/signon-script.php
+    :language: php
 
 .. seealso::
     :config:option:`$cfg['Servers'][$i]['auth_type']`,
