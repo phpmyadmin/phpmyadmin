@@ -20,6 +20,7 @@ $response = PMA_Response::getInstance();
 $cfgRelation = PMA_getRelationsParam();
 
 $savedSearchList = array();
+$savedSearch = null;
 $currentSearchId = null;
 if ($cfgRelation['savedsearcheswork']) {
     include 'libraries/SavedSearches.class.php';
