@@ -2462,7 +2462,7 @@ class PMA_DatabaseInterface
             $server = &$GLOBALS['cfg']['Server'];
         }
 
-        return $server['socket']);
+        return $server['socket'];
     }
 }
 ?>
