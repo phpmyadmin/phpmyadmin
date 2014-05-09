@@ -2065,8 +2065,6 @@ class PMA_Util
 
         for ($i = 0; $i < $fields_cnt; ++$i) {
 
-            $condition   = '';
-            $con_key     = '';
             $con_val     = '';
             $field_flags = $GLOBALS['dbi']->fieldFlags($handle, $i);
             $meta        = $fields_meta[$i];
