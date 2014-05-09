@@ -2456,7 +2456,7 @@ class PMA_DatabaseInterface
      *
      * @return string
      */
-    public function getServerSocket$server = null)
+    public function getServerSocket($server = null)
     {
         if (is_null($server)) {
             $server = &$GLOBALS['cfg']['Server'];
