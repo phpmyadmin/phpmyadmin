@@ -424,31 +424,6 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     }
 
     /**
-     * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
-     *
-     * @param resource $link the mysql object
-     *
-     * @return string|int
-     */
-    public function insertId($link = null)
-    {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-        // If the primary key is BIGINT we get an incorrect result
-        // (sometimes negative, sometimes positive)
-        // and in the present function we don't know if the PK is BIGINT
-        // so better play safe and use LAST_INSERT_ID()
-        //
-        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
-    }
-
-    /**
      * returns the number of rows affected by last query
      *
      * @param resource $link           the mysql object

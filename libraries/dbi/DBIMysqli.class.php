@@ -535,32 +535,6 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
     }
 
     /**
-     * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
-     *
-     * @param mysqli $link the mysqli object
-     *
-     * @return string|int
-     */
-    public function insertId($link = null)
-    {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-        // When no controluser is defined, using mysqli_insert_id($link)
-        // does not always return the last insert id due to a mixup with
-        // the tracking mechanism, but this works:
-        return $GLOBALS['dbi']->fetchValue('SELECT LAST_INSERT_ID();', 0, 0, $link);
-        // Curiously, this problem does not happen with the mysql extension but
-        // there is another problem with BIGINT primary keys so insertId()
-        // in the mysql extension also uses this logic.
-    }
-
-    /**
      * returns the number of rows affected by last query
      *
      * @param mysqli $link           the mysqli object
