@@ -116,6 +116,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
      */
     public function testSelectDb()
     {
+        $this->markTestIncomplete('Not testing anything');
         //$link is empty
         $GLOBALS['userlink'] = null;
         $this->assertEquals(
@@ -136,12 +137,12 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
         //PHP's 'mysql' extension does not support multi_queries
         $this->assertEquals(
             false,
-            $this->object->moreResults()
+            $this->object->moreResults(null)
         );
         //PHP's 'mysql' extension does not support multi_queries
         $this->assertEquals(
             false,
-            $this->object->nextResult()
+            $this->object->nextResult(null)
         );
     }
 

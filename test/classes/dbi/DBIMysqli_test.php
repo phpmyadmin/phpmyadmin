@@ -230,6 +230,7 @@ class PMA_DBI_Mysqli_Test extends PHPUnit_Framework_TestCase
      */
     public function testSelectDb()
     {
+        $this->markTestIncomplete('Not testing anything');
         //$link is empty
         $GLOBALS['userlink'] = null;
         $this->assertEquals(
