@@ -229,7 +229,6 @@ class PMA_DBI_Mysqli implements PMA_DBI_Extension
         }
 
         if ($return_value != false) {
-            $GLOBALS['dbi']->postConnect($link, $is_controluser);
             return $link;
         }
 

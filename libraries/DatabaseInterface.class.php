@@ -2132,9 +2132,13 @@ class PMA_DatabaseInterface
         $user, $password, $is_controluser = false, $server = null,
         $auxiliary_connection = false
     ) {
-        return $this->_extension->connect(
+        $result = $this->_extension->connect(
             $user, $password, $is_controluser, $server, $auxiliary_connection
         );
+        if ($result && ! $auxiliary_connection) {
+            $GLOBALS['dbi']->postConnect($link, $is_controluser);
+        }
+        return $result;
     }
 
     /**

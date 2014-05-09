@@ -136,7 +136,6 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
         }
 
         if ($link != false) {
-            $GLOBALS['dbi']->postConnect($link, $is_controluser);
             return $link;
         }
 
