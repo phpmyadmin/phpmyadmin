@@ -989,6 +989,8 @@ Server connection settings
     .. literalinclude:: ../examples/signon-script.php
         :language: php
 
+    .. seealso:: :ref:`auth_signon`
+
 .. config:option:: $cfg['Servers'][$i]['SignonSession']
 
     :type: string
@@ -999,6 +1001,8 @@ Server connection settings
     is session which phpMyAdmin uses internally. Takes effect only if
     :config:option:`$cfg['Servers'][$i]['SignonScript']` is not configured.
 
+    .. seealso:: :ref:`auth_signon`
+
 .. config:option:: $cfg['Servers'][$i]['SignonURL']
 
     :type: string
@@ -1007,6 +1011,8 @@ Server connection settings
     :term:`URL` where user will be redirected
     to log in for signon authentication method. Should be absolute
     including protocol.
+
+    .. seealso:: :ref:`auth_signon`
 
 .. config:option:: $cfg['Servers'][$i]['LogoutURL']
 

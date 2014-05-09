@@ -372,6 +372,8 @@ Cookie authentication mode
 
 .. index:: pair: Signon; Authentication mode
 
+.. _auth_signon:
+
 Signon authentication mode
 --------------------------
 
