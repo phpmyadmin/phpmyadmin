@@ -494,8 +494,6 @@ class PMA_DatabaseInterface
             $databases = $database;
         }
 
-        $tables = array();
-
         $sql_where_table = $this->_getTableCondition(
             $table, $tbl_is_group, $tble_type
         );
@@ -1027,8 +1025,6 @@ class PMA_DatabaseInterface
     public function getColumnsFull($database = null, $table = null,
         $column = null, $link = null
     ) {
-        $columns = array();
-
         $sql_wheres = array();
         $array_keys = array();
 
