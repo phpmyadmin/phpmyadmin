@@ -180,12 +180,11 @@ interface PMA_DBI_Extension
     /**
      * returns the number of rows affected by last query
      *
-     * @param object $link           the connection object
-     * @param bool   $get_from_cache whether to retrieve from cache
+     * @param object $link the connection object
      *
-     * @return string|int
+     * @return int
      */
-    public function affectedRows($link = null, $get_from_cache = true);
+    public function affectedRows($link);
 
     /**
      * returns metainfo for fields in $result

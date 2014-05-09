@@ -391,22 +391,11 @@ class PMA_DBI_Drizzle implements PMA_DBI_Extension
      * @param PMA_DrizzleResult $link           connection object
      * @param bool              $get_from_cache whether to retrieve from cache
      *
-     * @return string|int
+     * @return int
      */
-    public function affectedRows($link = null, $get_from_cache = true)
+    public function affectedRows($link)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-        if ($get_from_cache) {
-            return $GLOBALS['cached_affected_rows'];
-        } else {
-            return $link->affectedRows();
-        }
+        return $link->affectedRows();
     }
 
     /**

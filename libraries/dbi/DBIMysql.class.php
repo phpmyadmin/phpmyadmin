@@ -399,26 +399,13 @@ class PMA_DBI_Mysql implements PMA_DBI_Extension
     /**
      * returns the number of rows affected by last query
      *
-     * @param resource $link           the mysql object
-     * @param bool     $get_from_cache whether to retrieve from cache
+     * @param resource $link the mysql object
      *
-     * @return string|int
+     * @return int
      */
-    public function affectedRows($link = null, $get_from_cache = true)
+    public function affectedRows($link)
     {
-        if (empty($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
-        }
-
-        if ($get_from_cache) {
-            return $GLOBALS['cached_affected_rows'];
-        } else {
-            return mysql_affected_rows($link);
-        }
+        return mysql_affected_rows($link);
     }
 
     /**

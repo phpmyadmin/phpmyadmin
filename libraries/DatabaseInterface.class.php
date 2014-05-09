@@ -2361,11 +2361,22 @@ class PMA_DatabaseInterface
      * @param object $link           the connection object
      * @param bool   $get_from_cache whether to retrieve from cache
      *
-     * @return string|int
+     * @return int
      */
     public function affectedRows($link = null, $get_from_cache = true)
     {
-        return $this->_extension->affectedRows($link, $get_from_cache);
+        if (empty($link)) {
+            if (isset($GLOBALS['userlink'])) {
+                $link = $GLOBALS['userlink'];
+            } else {
+                return false;
+            }
+        }
+        if ($get_from_cache) {
+            return $GLOBALS['cached_affected_rows'];
+        } else {
+            return $this->_extension->affectedRows($link);
+        }
     }
 
     /**
