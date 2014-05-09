@@ -524,8 +524,8 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * selects given database
      *
-     * @param string   $dbname name of db to select
-     * @param object   $link   mysql link resource
+     * @param string $dbname name of db to select
+     * @param object $link   mysql link resource
      *
      * @return bool
      */
@@ -538,9 +538,9 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * runs a query and returns the result
      *
-     * @param string   $query   query to run
-     * @param object   $link    mysql link resource
-     * @param int      $options query options
+     * @param string $query   query to run
+     * @param object $link    mysql link resource
+     * @param int    $options query options
      *
      * @return mixed
      */
@@ -579,7 +579,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns result data from $result
      *
-     * @param object   $result result  MySQL result
+     * @param object $result result  MySQL result
      *
      * @return array
      */
@@ -597,7 +597,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns array of rows with associative and numeric keys from $result
      *
-     * @param object   $result result  MySQL result
+     * @param object $result result  MySQL result
      *
      * @return array
      */
@@ -619,7 +619,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns array of rows with associative keys from $result
      *
-     * @param object   $result MySQL result
+     * @param object $result MySQL result
      *
      * @return array
      */
@@ -642,7 +642,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns array of rows with numeric keys from $result
      *
-     * @param object   $result MySQL result
+     * @param object $result MySQL result
      *
      * @return array
      */
@@ -655,8 +655,8 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Adjusts the result pointer to an arbitrary row in the result
      *
-     * @param object   $result database result
-     * @param integer  $offset offset to seek
+     * @param object  $result database result
+     * @param integer $offset offset to seek
      *
      * @return bool true on success, false on failure
      */
@@ -672,7 +672,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * Frees memory associated with the result
      *
-     * @param object   $result database result
+     * @param object $result database result
      *
      * @return void
      */
@@ -764,7 +764,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns the number of rows returned by last query
      *
-     * @param object   $result MySQL result
+     * @param object $result MySQL result
      *
      * @return string|int
      */
@@ -780,8 +780,8 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * returns the number of rows affected by last query
      *
-     * @param object   $link           the mysql object
-     * @param bool     $get_from_cache whether to retrieve from cache
+     * @param object $link           the mysql object
+     * @param bool   $get_from_cache whether to retrieve from cache
      *
      * @return string|int
      */
@@ -805,7 +805,7 @@ class PMA_DBI_Dummy implements PMA_DBI_Extension
     /**
      * return number of fields in given $result
      *
-     * @param object   $result MySQL result
+     * @param object $result MySQL result
      *
      * @return int  field count
      */

@@ -124,10 +124,10 @@ class PMA_DatabaseInterface
     /**
      * Stores query data into session data for debugging purposes
      *
-     * @param string   $query  Query text
-     * @param object   $link   database link
-     * @param object   $result Query result
-     * @param integer  $time   Time to execute query
+     * @param string  $query  Query text
+     * @param object  $link   database link
+     * @param object  $result Query result
+     * @param integer $time   Time to execute query
      *
      * @return void
      */
@@ -158,10 +158,10 @@ class PMA_DatabaseInterface
     /**
      * runs a query and returns the result
      *
-     * @param string   $query               query to run
-     * @param object   $link                mysql link resource
-     * @param integer  $options             query options
-     * @param bool     $cache_affected_rows whether to cache affected row
+     * @param string  $query               query to run
+     * @param object  $link                mysql link resource
+     * @param integer $options             query options
+     * @param bool    $cache_affected_rows whether to cache affected row
      *
      * @return mixed
      */
@@ -1627,10 +1627,10 @@ class PMA_DatabaseInterface
      * // $user = array('id' => 123, 'name' => 'John Doe')
      * </code>
      *
-     * @param string   $query The query to execute
-     * @param string   $type  NUM|ASSOC|BOTH returned array should either
-     *                        numeric associativ or both
-     * @param object   $link  mysql link
+     * @param string $query The query to execute
+     * @param string $type  NUM|ASSOC|BOTH returned array should either
+     *                      numeric associativ or both
+     * @param object $link  mysql link
      *
      * @return array|boolean first row from result
      *                       or false if result is empty
@@ -1827,7 +1827,7 @@ class PMA_DatabaseInterface
     /**
      * returns warnings for last query
      *
-     * @param object   $link mysql link resource
+     * @param object $link mysql link resource
      *
      * @return array warnings
      */
@@ -1844,9 +1844,9 @@ class PMA_DatabaseInterface
     /**
      * returns an array of PROCEDURE or FUNCTION names for a db
      *
-     * @param string   $db    db name
-     * @param string   $which PROCEDURE | FUNCTION
-     * @param object   $link  mysql link
+     * @param string $db    db name
+     * @param string $which PROCEDURE | FUNCTION
+     * @param object $link  mysql link
      *
      * @return array the procedure names or function names
      */
