@@ -68,8 +68,7 @@ abstract class AuthenticationPlugin extends PluginObserver
                 $GLOBALS['cfg']['LoginCookieValidity']
             );
         } elseif ($GLOBALS['dbi']->getError()) {
-            return '#' . $GLOBALS['errno'] . ' '
-                . __('Cannot log in to the MySQL server');
+            return PMA_sanitize($GLOBALS['dbi']->getError());
         } else {
             return __('Cannot log in to the MySQL server');
         }
