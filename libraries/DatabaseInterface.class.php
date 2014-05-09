@@ -2475,14 +2475,15 @@ class PMA_DatabaseInterface
      */
     public function getLink($link = null)
     {
-        if (is_null($link)) {
-            if (isset($GLOBALS['userlink'])) {
-                $link = $GLOBALS['userlink'];
-            } else {
-                return false;
-            }
+        if ( ! is_null($link)) {
+            return $link;
         }
-        return $link;
+
+        if (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
+            return $GLOBALS['userlink'];
+        } else {
+            return false;
+        }
     }
 }
 ?>
