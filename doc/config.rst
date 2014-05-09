@@ -995,10 +995,13 @@ Server connection settings
 
     Name of PHP script to be sourced and executed to obtain login
     credentials. This is alternative approach to session based single
-    signon. The script needs to provide function
+    signon. The script has to provide a function called
     ``get_login_credentials`` which returns list of username and
     password, accepting single parameter of existing username (can be
-    empty). See :file:`examples/signon-script.php` for an example.
+    empty). See :file:`examples/signon-script.php` for an example:
+
+    .. literalinclude:: ../examples/signon-script.php
+        :language: php
 
 .. config:option:: $cfg['Servers'][$i]['SignonSession']
 
