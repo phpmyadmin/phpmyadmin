@@ -544,7 +544,7 @@ function checkTableEditForm(theForm, fieldsCnt)
         }
     }
     if (atLeastOneField === 0) {
-        var theField = theForm.elements["field_0_1"];
+        var theField = theForm.elements.field_0_1;
         alert(PMA_messages.strFormEmpty);
         theField.focus();
         return false;
