@@ -121,7 +121,7 @@ class PMA_DBI_Drizzle_Test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testrSelectDb()
+    public function testSelectDb()
     {
         //$link is empty
         $GLOBALS['userlink'] = null;
