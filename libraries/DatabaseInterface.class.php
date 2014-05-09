@@ -2211,7 +2211,7 @@ class PMA_DatabaseInterface
         if ($link === false) {
             return false;
         }
-        return $this->_extension->moreResults($link = null);
+        return $this->_extension->moreResults($link);
     }
 
     /**
