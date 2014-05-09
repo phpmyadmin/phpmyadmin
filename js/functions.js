@@ -53,6 +53,20 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
 });
 
 /**
+ * Show notices for ENUM columns; add/hide the default value 
+ *
+ */
+function PMA_verifyColumnsProperties()
+{
+    $("select.column_type").each(function () {
+        PMA_showNoticeForEnum($(this));
+    });
+    $("select.default_type").each(function () {
+        PMA_hideShowDefaultValue($(this));
+    });
+}
+
+/**
  * Add a hidden field to the form to indicate that this will be an
  * Ajax request (only if this hidden field does not exist)
  *
@@ -2619,16 +2633,6 @@ AJAX.registerOnload('functions.js', function () {
         PMA_validateDefaultValue($(this));
     });
 });
-
-function PMA_verifyColumnsProperties()
-{
-    $("select.column_type").each(function () {
-        PMA_showNoticeForEnum($(this));
-    });
-    $("select.default_type").each(function () {
-        PMA_hideShowDefaultValue($(this));
-    });
-}
 
 /**
  * Hides/shows the default value input field, depending on the default type
