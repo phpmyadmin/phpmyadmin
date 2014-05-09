@@ -292,22 +292,40 @@ class PMA_Error extends PMA_Message
             if (isset($step['class'])) {
                 $retval .= $step['class'] . $step['type'];
             }
-            $retval .= $step['function'] . '(';
-            if (isset($step['args']) && (count($step['args']) > 1)) {
+            $retval .= PMA_Error::getFunctionCall($step, $separator);
+            $retval .= $lines;
+        }
+
+        return $retval;
+    }
+
+    /**
+     * Formats function call in a backtrace
+     *
+     * @param array  $step       backtrace step
+     * @param string $separatror Arguments separator to use
+     *
+     * @return string
+     * @static
+     */
+    static function getFunctionCall($step, $separator)
+    {
+        $retval = $step['function'] . '(';
+        if (isset($step['args'])) {
+            if (count($step['args']) > 1) {
                 $retval .= $separator;
                 foreach ($step['args'] as $arg) {
                     $retval .= "\t";
                     $retval .= PMA_Error::getArg($arg, $step['function']);
                     $retval .= ',' . $separator;
                 }
-            } elseif (isset($step['args']) && (count($step['args']) > 0)) {
+            } elseif (count($step['args']) > 0) {
                 foreach ($step['args'] as $arg) {
                     $retval .= PMA_Error::getArg($arg, $step['function']);
                 }
             }
-            $retval .= ')' . $lines;
         }
-
+        $retval .= ')';
         return $retval;
     }
 
